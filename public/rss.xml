@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther]]></title><description><![CDATA[Astrid Günther ist eine Frontend-Softwareentwicklerin und Autorin, die sich auf modernes JavaScript, Geoinformationssystem und Joomla spezialisiert hat.]]></description><link>https://blog/astrid-guenther.de/</link><image><url>https://blog/astrid-guenther.de//logos/logo-48.png</url><title>Astrid Günther</title><link>https://blog/astrid-guenther.de/</link></image><generator>Astrid Günther</generator><lastBuildDate>Tue, 28 Jan 2020 11:39:23 GMT</lastBuildDate><atom:link href="https://blog/astrid-guenther.de//rss.xml" rel="self" type="application/rss+xml"/><item><title><![CDATA[Joomla – Forum for the Future 2020: ein persönlicher Review]]></title><description><![CDATA[Ich war etwas verwundert, als die Einladung zum Forum for the Future bei mir eintraf. Mein erster Gedanke: Das ist nichts für dich.  In der Vergangenheit habe ich zwar positive…]]></description><link>https://blog/astrid-guenther.de//joomla-forum-for-the-future/</link><guid isPermaLink="false">https://blog/astrid-guenther.de//joomla-forum-for-the-future/</guid><category><![CDATA[joomla]]></category><category><![CDATA[open source]]></category><category><![CDATA[community]]></category><pubDate>Mon, 20 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Ich war etwas verwundert, als die Einladung zum Forum for the Future bei mir eintraf. Mein erster Gedanke: Das ist nichts für dich. &lt;/p&gt;
+&lt;p&gt;In der Vergangenheit habe ich zwar positive Erfahrungen mit Joomla! Code Sprints gesammelt. Ich hatte das Gefühl, dass ich etwas beitrug und ich habe neue Dinge gelernt. &lt;/p&gt;
+&lt;p&gt;Es gab aber Events, bei denen ich mich fehl am Platz fühlte. Ich hatte das, was beim Sprint erstellt wurde nicht verstand. Ich sah den roten Faden nicht und hatte den Eindruck, dass keiner mir diesen zeigt. Mir fehlte die Energie, Erklärungen zu erbitten und deshalb zog ich mich zurück. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aber wie das Leben so spielt, kamen ein paar Zufälle zusammen und ich stieß am 16. Januar zu den Teilnehmern des Joomla Forums for the Future hinzu. Ich war aufgeregt. Es war meine erste internationale Veranstaltung. Ich kannte fast keinen und bin es nicht gewöhnt in Englisch zu kommunizieren.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;mein-start-beim-forum-for-future&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mein-start-beim-forum-for-future&quot; aria-label=&quot;mein start beim forum for future permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Mein Start beim Forum for Future&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 679px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/138ebf01229ec8bdaf70e4863b00b912/7bf4e/fftf1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.42268041237113%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQP/2gAMAwEAAhADEAAAASNzdUSwYv8A/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQyM//aAAgBAQABBQIWRrHRVuYDP6auJ//EABcRAAMBAAAAAAAAAAAAAAAAAAABEyH/2gAIAQMBAT8BWkkf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAIxARAhIoH/2gAIAQEABj8CwLGxCnSlv//EABwQAAICAgMAAAAAAAAAAAAAAAEhAEEQMRFRof/aAAgBAQABPyE5ZhVZnEPY6m1BLbwPXBqf/9oADAMBAAIAAwAAABBX3//EABYRAQEBAAAAAAAAAAAAAAAAAAEAIf/aAAgBAwEBPxDQIj//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8QcJ//xAAfEAACAgEEAwAAAAAAAAAAAAABEQAxURAhQfBhkcH/2gAIAQEAAT8QKkSCSDY5Y+xewLMNAH7h8yFiDYtjEp6ozq+NL//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;fftf1&quot;
+        title=&quot;fftf1&quot;
+        src=&quot;/static/138ebf01229ec8bdaf70e4863b00b912/7bf4e/fftf1.jpg&quot;
+        srcset=&quot;/static/138ebf01229ec8bdaf70e4863b00b912/09a7d/fftf1.jpg 213w,
+/static/138ebf01229ec8bdaf70e4863b00b912/28bbc/fftf1.jpg 425w,
+/static/138ebf01229ec8bdaf70e4863b00b912/7bf4e/fftf1.jpg 679w&quot;
+        sizes=&quot;(max-width: 679px) 100vw, 679px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Beim Forum for Future habe ich den roten Faden zunächst wieder nicht gesehen. Ob es an mir liegt, fragte ich mich? &lt;/p&gt;
+&lt;p&gt;Gleich zu Beginn kam eine Diskussion darüber auf, ob als erstes ein Ziel zu definieren ist. &lt;/p&gt;
+&lt;p&gt;Gibt es ein gemeinsames Ziel in einem Open Source Zusammenschluss wie Joomla!? Joomla ist ein Projekt, das alleine durch die Gemeinschaft lebt und das keine Firma im Hintergrund hat, die es finanziell unterstützt. &lt;/p&gt;
+&lt;p&gt;Im Falle eines kommerziellen Unternehmens ist das mit dem Ziel unkompliziert: Es wird von der Firma vorgegeben, die das Geld zahlt. In der Joomla Community gibt es viele unterschiedliche Ziele und die gilt es auf einen Nenner zu bringen. So ist das mit dem roten Faden komplizierter. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alles hat seine Vorteile und seine Nachteile.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;ich-habe-im-team-technologie-mitgearbeitet&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ich-habe-im-team-technologie-mitgearbeitet&quot; aria-label=&quot;ich habe im team technologie mitgearbeitet permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ich habe im Team Technologie mitgearbeitet&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 680px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5267c4183c3eaabb7d0351cfef3291e3/2f992/fftf2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.35294117647059%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABQBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAcnmUq0nGP/EABoQAAICAwAAAAAAAAAAAAAAAAACAUIDERP/2gAIAQEAAQUCV4g7QNmTdbn/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQMBAT8BrT//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARL/2gAIAQIBAT8BjD//xAAcEAABAwUAAAAAAAAAAAAAAAAAAQIRECEycYH/2gAIAQEABj8CSRYbYxUbs7T/xAAcEAEAAgIDAQAAAAAAAAAAAAABACERMRBBobH/2gAIAQEAAT8hSL1d9xpNkewoM1E+SOnH/9oADAMBAAIAAwAAABArP//EABYRAAMAAAAAAAAAAAAAAAAAAAABIf/aAAgBAwEBPxCGKT//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QwyBv/8QAHhABAAICAQUAAAAAAAAAAAAAAQARITFBEFFxofD/2gAIAQEAAT8QQ85JFGOvN8S2QyTTRhAUXIc1H4O7PedP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;fftf2&quot;
+        title=&quot;fftf2&quot;
+        src=&quot;/static/5267c4183c3eaabb7d0351cfef3291e3/2f992/fftf2.jpg&quot;
+        srcset=&quot;/static/5267c4183c3eaabb7d0351cfef3291e3/09a7d/fftf2.jpg 213w,
+/static/5267c4183c3eaabb7d0351cfef3291e3/28bbc/fftf2.jpg 425w,
+/static/5267c4183c3eaabb7d0351cfef3291e3/2f992/fftf2.jpg 680w&quot;
+        sizes=&quot;(max-width: 680px) 100vw, 680px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Während der Arbeit in meinem Team hatte ich ab und an das Gefühl, dass wir nicht strukturiert genug vorgehen und wichtige Dinge die wir besprechen vergessen oder aus den Augen verlieren. Am Ende haben wir aber doch eine Liste mit Punkten zusammengestellt, die zu erledigen sind.&lt;/p&gt;
+&lt;p&gt;Kurzfristig ist es unserer Meinung nach wichtig, Joomla 4 fertigzustellen. Nicola hat eine Liste mit Release Blockern erstellt. Viele in meinem Team waren erstaunt, dass es diese nicht bereits gab!&lt;/p&gt;
+&lt;p&gt;Dann haben wir Ideen gesammelt, die mittelfristig oder langfristig wichtig sind. Diese haben wir in einem Dokument zusammengestellt.&lt;/p&gt;
+&lt;p&gt;Immer wieder kamen wir zu einem Punkt, an dem wir es als Problem sahen, wie neue Ideen und Funktionen integriert werden. Alle stimmten überein, die Aufnahme von Neuem zu strukturieren. Die meisten von uns wünschen sich eine Plattform, bei der alle Beteiligten mitreden. &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Internetprovider, &lt;/li&gt;
+&lt;li&gt;Anwender, &lt;/li&gt;
+&lt;li&gt;Integratoren und &lt;/li&gt;
+&lt;li&gt;Marketing spielen bei der Diskussion neuer Ideen die gleiche Rolle wie &lt;/li&gt;
+&lt;li&gt;Entwickler.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ein erster Ansatz von uns ist es, neue Funktionen in einem strukturierten Dokument einzureichen und so eine zeitlich begrenzte Diskussion anzustoßen. Am Ende des
+Gedankenaustauschs entscheidet eine Abstimmung, ob die Funktion gewünscht ist. Dies wirkt auf den ersten Blick umständlich und bürokratisch. Aber: Man beurteilt einen neuen Prozess am besten, wenn man ihn ausprobiert. Und dies werden wir! Wir hoffen dass sich andere daran beteiligen, wenn alles fertig ist.&lt;/p&gt;
+&lt;h4 id=&quot;ich-habe-ein-positives-gefuhl&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ich-habe-ein-positives-gefuhl&quot; aria-label=&quot;ich habe ein positives gefuhl permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ich habe ein positives Gefühl&lt;/h4&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 680px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/48261096c4a44a910621249b97a43e51/2f992/fftf3.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.61764705882354%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBP/EABQBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAZuijkE//8QAGRABAAIDAAAAAAAAAAAAAAAAAgEDBBES/9oACAEBAAEFApFURKq2snmascoWUDkjZ//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/AQn/xAAXEQEAAwAAAAAAAAAAAAAAAAAAARES/9oACAECAQE/Abhp/8QAGxAAAgIDAQAAAAAAAAAAAAAAABEBAhASITH/2gAIAQEABj8ChbHOCdh2ZPuP/8QAGRABAQEBAQEAAAAAAAAAAAAAAREAITFB/9oACAEBAAE/IXhvkq8yi08Hy/smtJd8uEhEL7itv//aAAwDAQACAAMAAAAQQx//xAAWEQEBAQAAAAAAAAAAAAAAAAARARD/2gAIAQMBAT8QSOf/xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QGNkjf//EABwQAQEAAwADAQAAAAAAAAAAAAERACExQXGhwf/aAAgBAQABPxBa7UC04b/MNhoDoSnn3kiueJL17a5pgaDBctSMJp9wpqPGluf/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;fftf3&quot;
+        title=&quot;fftf3&quot;
+        src=&quot;/static/48261096c4a44a910621249b97a43e51/2f992/fftf3.jpg&quot;
+        srcset=&quot;/static/48261096c4a44a910621249b97a43e51/09a7d/fftf3.jpg 213w,
+/static/48261096c4a44a910621249b97a43e51/28bbc/fftf3.jpg 425w,
+/static/48261096c4a44a910621249b97a43e51/2f992/fftf3.jpg 680w&quot;
+        sizes=&quot;(max-width: 680px) 100vw, 680px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Ich glaube, dass das Forum for the Future einige Dinge angestoßen hat.
+Ich hoffe, dass es kein Strohfeuer ist.
+Manche haben grundlegende Veränderungen und Ideen erwartet. Die sehe ich nicht.
+Ich glaube aber daran, dass kleine Dinge Großes bewirken.
+Ich habe ein positives Gefühl. Mein hoffnungsvoller Eindruck beruht darauf,
+dass ich von vielen hörte: Das haben wir doch schon oft gesagt und diskutiert.
+Es wurde aber nie umgesetzt. Reden reicht nicht immer. &lt;/p&gt;
+&lt;p&gt;Und Einsicht ist der erste Weg zur Besserung!&lt;/p&gt;</content:encoded><author>info@astrid-guenther.de</author></item></channel></rss>

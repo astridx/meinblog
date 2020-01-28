@@ -4,9 +4,9 @@ const config = {
   siteTitleAlt: 'Astrid Günther',
   siteLogo: '/logos/logo-1024.png',
   siteUrl: 'https://blog/astrid-guenther.de/',
-  repo: 'https://github.com/astridx/blog',
+  repo: 'https://github.com/astridx/meinblog',
   pathPrefix: '',
-  dateFromFormat: 'DD-MM-YYYY',
+  dateFromFormat: 'YYYY-MM-DD',
   dateFormat: 'MMMM Do, YYYY',
   siteDescription:
     'Astrid Günther ist eine Frontend-Softwareentwicklerin und Autorin, die sich auf modernes JavaScript, Geoinformationssystem und Joomla spezialisiert hat.',

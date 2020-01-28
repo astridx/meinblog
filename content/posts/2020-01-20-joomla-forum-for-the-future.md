@@ -3,7 +3,7 @@ date: 2020-01-20
 title: 'Joomla – Forum for the Future 2020: ein persönlicher Review'
 template: post
 thumbnail: '../thumbnails/joomla.png'
-slug: joomla-forum-for-the-future-review
+slug: joomla-forum-for-the-future
 categories:
   - Personal
 tags:
