@@ -13,22 +13,22 @@ table {
 
 // Extra border underneath header
 th {
-  border-bottom: 2px solid $border-color;
+  border-bottom: none;//2px solid $border-color;
 }
 
 // Extra border above footer
 tfoot th {
-  border-top: 2px solid $border-color;
+  border-top: none //2px solid $border-color;
 }
 
 td {
-  border-bottom: 1px solid $border-color;
+  border-bottom: none //1px solid $border-color;
 }
 
 th,
 td {
   text-align: left;
-  padding: 0.75rem !important;
+  //padding: 0.75rem !important;
   hyphens: auto;
   word-break: break-word;
 }
@@ -40,5 +40,5 @@ caption {
 }
 
 tbody tr:nth-child(even) {
-  background-color: $stripes;
+  //background-color: $stripes;
 }

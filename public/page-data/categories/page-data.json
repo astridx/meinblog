@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-categories-js","path":"/categories/","result":{"data":{"allMarkdownRemark":{"group":[{"fieldValue":"JavaScript","totalCount":1},{"fieldValue":"Personal","totalCount":1}]}},"pageContext":{}}}
+{"componentChunkName":"component---src-pages-categories-js","path":"/categories/","result":{"data":{"allMarkdownRemark":{"group":[{"fieldValue":"Design","totalCount":1},{"fieldValue":"Entwicklung","totalCount":31},{"fieldValue":"Personal","totalCount":1}]}},"pageContext":{}}}
