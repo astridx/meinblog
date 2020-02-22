@@ -11,7 +11,7 @@ export default class Footer extends Component {
           <a href=" Ko-fi.com/astridguenther" target="_blank" rel="noopener noreferrer">
             Ko-Fi
           </a>
-          <a href="https://patreon.com/astrid" target="_blank" rel="noopener noreferrer">
+          <a href="https://patreon.com/astridx" target="_blank" rel="noopener noreferrer">
             Patreon
           </a>
         </div>

@@ -33,7 +33,7 @@ export default class UserInfo extends Component {
                 </a>
                 <a
                   className="patreon-button"
-                  href="https://www.patreon.com/astrid"
+                  href="https://www.patreon.com/astridx"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
