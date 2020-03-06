@@ -1,6 +1,6 @@
 ---
 date: 2019-12-04
-title: 'Joomla 4: Erweiterung erstellen - Teil 4 - Ein Menüitem'
+title: 'Joomla 4: Erweiterung erstellen - Teil 4 - Ein Menüpunkt'
 template: post
 thumbnail: '../thumbnails/joomlatut.png'
 slug: jooomla-erweiterung-4
@@ -11,7 +11,35 @@ tags:
   - Joomla 
 ---
 
-Einen Menutyp erstellen. k
+In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst, so dass du die Adresse nicht wissen brauchst und später Umwandlungen in suchmaschinenfreundliche URLs automatisch geschen.
+
+![Joomla Einen Menüpunkt erstellen](../images/j4x4x2.png)
+
+## Teste deine Joomla-Komponente
+
+1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.  
+
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+
+2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu auf Menü und dann auf `All Menu Items`. 	
+
+Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
+
+![Joomla Einen Menüpunkt erstellen](../images/j4x4x1.png)
+
+3. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche.
+
+![Joomla Einen Menüpunkt erstellen](../images/j4x4x2.png)
+
+4. Speichere den Menüpunkt.
+
+5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist und funktioniert.
+
+![Joomla Einen Menüpunkt erstellen](../images/j4x4x3.png)
 
 ## Geänderte Dateien
 

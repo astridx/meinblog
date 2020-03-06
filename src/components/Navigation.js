@@ -58,16 +58,6 @@ export default class Navigation extends Component {
                 )}
               </button>
             </div>
-            <a
-              className="kofi-button"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://ko-fi.com/astridguenther"
-              aria-label="Buy me a coffee!"
-              title="Buy me a coffee!"
-            >
-              <img src={kofi} alt="Kofi" className="kofi" />
-            </a>
           </div>
         </div>
       </nav>

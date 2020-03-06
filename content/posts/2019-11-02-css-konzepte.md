@@ -700,7 +700,7 @@ Ein Element, auf das **none** angewendet wurde, wird nicht angezeigt.
 
 ### Display Reference
 
-| Anzeigeeigenschaft | Verhalten                                                                    |
+| Anzeige-Eigenschaft | Verhalten                                                                    |
 | ------------------ | ---------------------------------------------------------------------------- |
 | `inline`           | für die Textformatierung und wird horizontal nebeneinander angezeigt         |
 | `inline-block`     | erscheinen horizontal nebeneinander und beachtet vertikale und horizontale Abstände und Ränder |

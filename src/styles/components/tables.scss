@@ -18,11 +18,19 @@ th {
 
 // Extra border above footer
 tfoot th {
-  border-top: none //2px solid $border-color;
+  border-top: 2px solid $border-color;
+}
+
+table.d2h-diff-table tfoot th {
+  border-top: none;
 }
 
 td {
-  border-bottom: none //1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}
+
+table.d2h-diff-table td {
+  border-bottom: none;
 }
 
 th,
@@ -40,5 +48,9 @@ caption {
 }
 
 tbody tr:nth-child(even) {
-  //background-color: $stripes;
+  background-color: $stripes;
+}
+
+table.d2h-diff-table tbody tr:nth-child(even) {
+  background-color: none;
 }

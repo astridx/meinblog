@@ -13,6 +13,26 @@ tags:
 
 Serverseitige Validierung.
 
+## Teste deine Joomla-Komponente
+
+1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+
+2.
+
+## Teste deine Joomla-Komponente
+
+1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+
+2.
+
 ## Geänderte Dateien
 
 ### Übersicht

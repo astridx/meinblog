@@ -8,14 +8,6 @@ export default class Footer extends Component {
     return (
       <footer className="footer container">
         <div>
-          <a href=" Ko-fi.com/astridguenther" target="_blank" rel="noopener noreferrer">
-            Ko-Fi
-          </a>
-          <a href="https://patreon.com/astridx" target="_blank" rel="noopener noreferrer">
-            Patreon
-          </a>
-        </div>
-        <div>
           <a href="https://github.com/astridx" title="Open-source on GitHub">
             <img
               src={github}

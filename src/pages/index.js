@@ -10,7 +10,6 @@ import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
 import projects from '../../data/projects'
 import speaking from '../../data/speaking'
-import podcasts from '../../data/podcasts'
 import quotes from '../../data/quotes'
 import astrid from '../../content/images/ich_quadratisch_1000.jpg'
 
@@ -92,7 +91,7 @@ export default class Index extends Component {
           </section>
 
           <section className="section">
-            <h2>{`Meinungen anderer Leute	`}</h2>
+            <h2>{`-`}</h2>
             <div className="quotations">
               {quotes.map(quote => (
                 <blockquote className="quotation" key={quote.name}>

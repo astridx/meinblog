@@ -11,7 +11,32 @@ tags:
   - Joomla 
 ---
 
-Als erstes erstellen wir eine einfach Ansicht für den Administrationsbereich.
+Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte. 
+
+![Menuitem Joomla Componente](../images/j4x1x3.png)
+
+## Teste deine Joomla-Komponente
+
+1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
+
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+
+2. Öffne das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deiner eben kopierten Komponente. Wähle diese aus und klicke auf die Schaltfläche `Install`.
+
+![Discover Joomla Componente](../images/j4x1x1.png)
+
+3. Wenn alle funktioniert siehst nach der Installation diese Anzeigen vor dir.
+
+![After Discover Joomla Componente](../images/j4x1x2.png)
+
+4. Teste als Nächstes, ob du die Ansicht für deine Komponente fehlerfrei angezeigt bekommst.
+
+![Menuitem Joomla Componente](../images/j4x1x3.png)
+
+Bis hierhin war das kein Hexenwerk. Dafür haben wir aber eine solide Grundlage für die weiteren Schritte. 
+
 
 ## Geänderte Dateien
 
