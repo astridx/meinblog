@@ -34,7 +34,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Request Variable beim Joomla Menü Item](../images/j4x6x2.png)
 
-Ich entschuldige mich für meine Einfallslosigkeit. Dir fallen sicher lustiger oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden aber klar, oder? 
+Ich entschuldige mich für meine Einfallslosigkeit. Dir fallen sicher lustigere oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden aber klar, oder? 
 
 So erstellst du mehrere Menüpunkte, die jeweils einen anderen Text enthalten. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
 

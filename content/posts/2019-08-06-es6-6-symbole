@@ -1,0 +1,512 @@
+---
+date: 2019-08-01
+title: 'ECMAScript 6 - Symbole'
+template: post
+thumbnail: '../thumbnails/js.png'
+slug: symbole
+categories:
+  - JavaScript
+tags:
+  - ecmascript
+  - javascript
+---
+
+# ECMAScript 6 - Symbole
+[](#){#Symbole}
+
+
+## In diesem Kapitel werden wir …
+Zunächst zeige ich Ihnen, wie Sie 
+Todo Meldungen immer mit Firefox
+
+## Symbole erstellen
+
+In JavaScript handelt es sich bei einem primitiven (skalares) Datenelement 
+um Daten, die kein Objekt sind und keine Methoden haben. 
+Es gibt 6 primitive Datentypen: String, Number, Boolean, Null, undefined, 
+Symbol (neu in ECMAScript 2015). https://developer.mozilla.org/en-US/docs/Glossary/Primitive
+Meistens wird ein primitiver Wert direkt auf der untersten Ebene der 
+Sprachimplementierung dargestellt. 
+Alle Grundelemente sind unveränderlich, d. H. Sie können nicht geändert werden. 
+Es ist wichtig, ein Primitiv selbst nicht mit einer einen Primitivwert 
+zugewiesenen Variablen zu verwechseln. 
+Der Variablen kann ein neuer Wert zugewiesen werden, der vorhandene 
+Wert kann jedoch nicht auf die Art und Weise geändert werden, 
+auf die Objekte, Arrays und Funktionen geändert werden können.
+
+> Ein primitives (skalares) Datenelement (einfacher Wert, einfacher Datentyp) 
+ist ein Datenelement, das kein Objekt ist und keine Methoden besitzt.
+In JavaScript gibt es 6 skalare Datentypen:
+    String
+    Number
+    Boolean
+    null
+    undefined
+    Symbol (neu in ECMAScript 6)
+Meistens repräsentiert ein skalares Datenelement die einfachste Datenstruktur einer Programmiersprache.
+Alle skalaren Datentypen sind unveränderbar (sie können nicht noch weiter vereinfacht werden).
+https://developer.mozilla.org/de/docs/Glossary/einfache_datenelemente
+
+
+
+
+```
+let vorname = Symbol();
+let person = {};
+person[vorname] = "Astrid";
+console.log(person[vorname]); //Ausgabe: Astrid
+<!--index_913.html -->
+```
+
+
+
+> Der in operator gibt true zurück falls die gegebene Eigenschaft im 
+gegebenen Objekt existiert.
+https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/in
+
+```
+let vorname = Symbol('Vorname');
+let person = {};
+person[vorname] = "Astrid";
+console.log("vorname" in person); //Ausgabe: false
+console.log(person[vorname]); //Ausgabe: Astrid
+console.log(vorname); //Ausgabe: Symbol(Vorname)
+console.log(typeof vorname); //Ausbabe: symbol
+let test = new Symbol('test'); //Ausgabe: TypeError: Symbol is not a constructor
+<!--index_912.html -->
+```
+
+todo typeof und new symbol im vorherigen Beispiel
+
+## Symbole anwenden
+
+> Die Methode Object.defineProperty() definiert eine neue Eigenschaft direkt 
+auf ein Objekt, oder modifiziert eine Eigenschaft. Schließlich 
+gibt die Funktion das Objekt zurück. 
+https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+
+```
+let vorname = Symbol('Vorname');
+let person = {
+[vorname]: "Astrid"
+};
+Object.defineProperty(person, vorname, {writable: false});
+let nachname = Symbol('Nachname');
+Object.defineProperties(person, {
+[nachname]: {
+writable: false,
+value: "Günther"
+}
+});
+console.log(person[vorname]); //Ausgabe: Astrid
+console.log(person[nachname]); //Ausgabe: Günther
+person[vorname] = "Nina";
+console.log(person[vorname]); //Ausgabe: Astrid
+console.log(Object.getOwnPropertyDescriptor(person, vorname));
+// Ausgabe: 
+// Object 
+// { 
+// value: "Astrid", 
+// writable: false, 
+// enumerable: true, 
+// configurable: true 
+// }
+<!--index_911.html -->
+```
+
+
+## Symbole teilen
+
+Nur mit for === ist gleich - siehe nächsten beiden beispiele
+
+```
+let eindeutigeID = Symbol('id');
+let person = {};
+person[eindeutigeID] = "123";
+let eindeutigeID2 = Symbol('id');
+console.log(person[eindeutigeID]); //Ausgabe: 123
+console.log(eindeutigeID); //Ausgabe: Symbol(id)
+console.log(person[eindeutigeID2]); //Ausgabe: undefined
+console.log(eindeutigeID2); //Ausgabe: Symbol(id)
+console.log(eindeutigeID2 === eindeutigeID); Ausgabe: false
+console.log(eindeutigeID2 == eindeutigeID); Ausgabe: false
+<!--index_910.html -->
+```
+
+```
+let eindeutigeID = Symbol.for('id');
+let person = {};
+person[eindeutigeID] = "123";
+let eindeutigeID2 = Symbol.for('id');
+console.log(person[eindeutigeID]); //Ausgabe: 123
+console.log(eindeutigeID); //Ausgabe: Symbol(id)
+console.log(person[eindeutigeID2]); //Ausgabe: 123
+console.log(eindeutigeID2); //Ausgabe: Symbol(id)
+console.log(eindeutigeID2 === eindeutigeID); // Ausgabe: true
+console.log(eindeutigeID2 == eindeutigeID); // Ausgabe: true
+<!--index_910a.html -->
+```
+
+
+
+```
+let eindeutigeID = Symbol.for('id');
+let eindeutigeID2 = Symbol.for('id');
+let eindeutigeID3 = Symbol('id');
+console.log(Symbol.keyFor(eindeutigeID)); //Ausgabe: id
+console.log(Symbol.keyFor(eindeutigeID2)); //Ausgabe: id
+console.log(Symbol.keyFor(eindeutigeID3)); //Ausgabe: undefined
+<!--index_910b.html -->
+```
+
+> Symbols sind öffentlich.
+
+## Symbolezwand
+
+```
+let symbol1 = Symbol.for('symbol1');
+let beschreibung = String(symbol1);
+console.log(symbol1); //Ausgabe: Symbol(symbol1)
+console.log(beschreibung); //Ausgabe: Symbol(symbol1)
+<!--index_909.html -->
+```
+
+```
+let symbol1 = Symbol.for('symbol1');
+let beschreibung = String(symbol1);
+console.log(beschreibung + ' angehangener Text'); 
+  //Ausgabe: Symbol(symbol1) angehangener Text
+console.log(symbol1 + ' angehangener Text'); 
+  //Ausgabe: TypeError: can't convert symbol to string
+<!--index_909a.html -->
+```
+
+Auch das Umwandeln in eine Zahl ist nicht möglich. Plus brint ebenfalls einen 
+Fehler
+
+```
+let symbol1 = Symbol.for('symbol1');
+let beschreibung = String(symbol1);
+console.log(beschreibung / 1); 
+  //Ausgabe: NaN
+console.log(symbol1 / 1); 
+  //Ausgabe: TypeError: can't convert symbol to number
+<!--index_909c.html -->
+```
+
+Ist immer true
+
+```
+let symbol1 = Symbol.for('symbol1');
+if (symbol1)
+	console.log('symbol1 ist true'); 
+if (!symbol1)
+	console.log('symbol1 ist nicht true'); 
+// Ausgabe: symbol1 ist true
+<!--index_909b.html -->
+```
+
+
+## Eigenschaften von Symbolen
+
+```
+let eindeutigeID = Symbol('id');
+let nachname = Symbol('name');
+let person = {
+[eindeutigeID]: "123",
+[nachname]: "Müller",
+'vorname': "Paul"
+};
+let symbolEigenschaften = Object.getOwnPropertySymbols(person);
+console.log(symbolEigenschaften.length); // Ausgabe: 2
+console.log(symbolEigenschaften[0]); // Ausgabe: Symbol(id)
+console.log(symbolEigenschaften[1]); // Ausgabe: Symbol(name)
+console.log(symbolEigenschaften[2]); // Ausgabe: undefined
+console.log(person[symbolEigenschaften[0]]); // Ausgabe: 123
+console.log(person[symbolEigenschaften[1]]); // Ausgabe: Müller
+console.log(person['vorname']); // Ausgabe: Paul
+console.log(person); 
+ // Ausgabe: Object { vorname: "Paul", Symbol(id): "123", Symbol(name): "Müller" }
+<!--index_908.html -->
+```
+
+
+## Interne Operationen mit bekannten Symbolen
+
+Zusätzlich zu Ihren eigenen Symbolen enthält JavaScript 
+einige eingebaute Symbole, die interne Sprachverhalten darstellen, 
+die Entwicklern in ECMAScript 5 und zuvor nicht zur Verfügung 
+standen. 
+
+### Iterationssymbole
+
+#### Symbol.iterator
+Eine Methode, die den Standarditerator für ein Objekt zurückgibt. 
+Verwendet von `for...of`.
+
+#### Symbol.asyncIterator
+Eine Methode, die den Standard-AsyncIterator für ein Objekt zurückgibt. 
+Verwendet von für warten for `await...of`.
+
+Der Vollständigkeit halber ein Beispiel. Mehr später.
+
+```
+const iterable1 = new Object();
+//iterable1[Symbol.iterator] = [ 1, 2, 3 ];
+
+iterable1[Symbol.iterator] = function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+};
+
+console.log([...iterable1]); //Ausgabe: Array(3) [ 1, 2, 3 ]
+console.log(iterable1); 
+// Ausgabe: Object { Symbol(Symbol.iterator): Symbol.iterator()
+<!--index_907g.html -->
+```
+
+
+### Symbole für reguläre Ausdrücke
+
+#### Symbol.Match
+Eine Methode, die mit einer Zeichenfolge übereinstimmt. 
+Außerdem wird bestimmt, ob ein Objekt als regulärer Ausdruck verwendet 
+werden kann. Wird von String.prototype.match () verwendet.
+
+#### Symbol.matchAll
+Eine Methode, die einen Iterator zurückgibt, der 
+Übereinstimmungen des regulären Ausdrucks mit einer Zeichenfolge ergibt. 
+Wird von String.prototype.matchAll () verwendet.
+
+#### Symbol.replace
+Eine Methode, die übereinstimmende Teilzeichenfolgen 
+einer Zeichenfolge ersetzt. Wird von String.prototype.replace () verwendet.
+
+#### Symbolsuche
+Eine Methode, die den Index innerhalb einer Zeichenfolge 
+zurückgibt, die dem regulären Ausdruck entspricht. Wird von 
+String.prototype.search () verwendet.
+
+#### Symbol.split
+Eine Methode, die eine Zeichenfolge an den Indizes aufteilt, 
+die einem regulären Ausdruck entsprechen. 
+Wird von String.prototype.split () verwendet.
+
+```
+let ist10lang = {
+[Symbol.match]: function(wert) {
+	return wert.length === 10 ? [wert] : null;
+},
+[Symbol.replace]: function(wert, tausch = 'tausch') {
+	return wert.length === 10 ? tausch : wert;
+},
+[Symbol.search]: function(wert) {
+	return wert.length === 10 ? 0 : -1;
+},
+[Symbol.split]: function(wert) {
+	return wert.length === 10 ? wert : wert.substring(0, 10);
+}
+};
+let testtext1 = "Mehr als 10 Zeichen";
+let testtext2 = "10 Zeichen";
+let match1 = testtext1.match(ist10lang);
+let match2 = testtext2.match(ist10lang);
+console.log(match1); //Ausgabe: null
+console.log(match2); //Ausgabe: Array [ "10 Zeichen" ]
+
+let replace1 = testtext1.replace(ist10lang);
+let replace2 = testtext2.replace(ist10lang); 
+console.log(replace1); //Ausgabe: Mehr als 10 Zeichen
+console.log(replace2); //Ausgabe: tausch
+
+let search1 = testtext1.search(ist10lang);
+let search2 = testtext2.search(ist10lang);
+console.log(search1); //Ausgabe: -1
+console.log(search2); //Ausgabe: 0
+
+let split1 = testtext1.split(ist10lang);
+let split2 = testtext2.split(ist10lang);
+console.log(split1); //Ausgabe: Mehr als 1
+console.log(split2); //Ausgabe: 10 Zeichen
+<!--index_907c3.html -->
+```
+
+
+Wenn man reguläre Ausdrücke verwenden möchte.
+
+```
+const regexp1 = /test/;
+regexp1[Symbol.match] = false;
+console.log('/test/'.startsWith(regexp1)); //Ausgabe: true
+console.log('/te/'.startsWith(regexp1)); //Ausgabe: false
+<!--index_907c2.html -->
+```
+
+```
+const regexp1 = /test/;
+regexp1[Symbol.match] = true;
+console.log('/testtest/'.startsWith(regexp1));
+//Ausgabe: TypeError: Invalid type: first can't be a Regular Expression
+<!--index_907c.html -->
+```
+
+### Andere Symbole
+
+#### Symbol hasInstanz
+Eine Methode, die ermittelt, ob ein Konstruktor-Objekt ein Objekt als 
+Instanz erkennt. Wird von instanceof verwendet.
+
+```
+function MeinObjekt(){
+	// ...
+}
+Object.defineProperty(MeinObjekt, Symbol.hasInstance, {
+	value: function(f){
+		return false
+	}
+});
+let objekt = new MeinObjekt();
+console.log(objekt instanceof MeinObjekt);
+<!--index_907a.html -->
+```
+
+```
+function MeinObjekt(){
+	// ... 
+}
+Object.defineProperty(MeinObjekt, Symbol.hasInstance, {
+	value: function(f){
+		return (f instanceof Number) && (f >= 1 && f <= 10)
+	}
+});
+let objekt1 = new Number(2);
+let objekt2 = new Number(11);
+console.log(objekt1 instanceof MeinObjekt); //Ausgabe: true
+console.log(objekt2 instanceof MeinObjekt); //Ausgabe: false
+console.log(objekt1 instanceof Number); //Ausgabe: true
+console.log(objekt2 instanceof Number); //Ausgabe: true
+<!--index_907a2.html -->
+```
+
+#### Symbol.isConcatSpreadable
+Ein boolescher Wert, der angibt, ob ein Objekt auf seine Array-Elemente 
+reduziert werden soll. 
+Wird von Array.prototype.concat () verwendet.
+
+Im nächsten Beispiel zeige ich dir, wie du diese Methode verwenden kannst.
+
+```
+let farben1 = ['rot', 'gelb'];
+let farben2 = farben1.concat(['blau', 'gruen']);
+console.log(farben2); //Ausgabe: Array(4) [ "rot", "gelb", "blau", "gruen" ]
+<!--index_907b.html -->
+```
+
+```
+let farben1 = ['rot', 'gelb'];
+let farben2 = farben1.concat(['blau', 'gruen'], 'schwarz', 'weiss');
+console.log(farben2);
+// Ausgabe: Array(6) [ "rot", "gelb", "blau", "gruen", "schwarz", "weiss" ]
+<!--index_907b2.html -->
+```
+
+```
+let sammlung1 = {
+	0: 'rot',
+	1: 'gelb',
+	length: 2,
+	[Symbol.isConcatSpreadable]: true
+}
+let sammlung2 = ['blau', 'gruen'].concat(sammlung1);
+console.log(sammlung2); //Ausgabe: Array(4) [ "blau", "gruen", "rot", "gelb" ]
+<!--index_907b3.html -->
+```
+
+Wenn false 
+
+```
+
+<!--index_907b4.html -->
+```
+let sammlung1 = {
+	0: 'rot',
+	1: 'gelb',
+	length: 2,
+	[Symbol.isConcatSpreadable]: false
+}
+let sammlung2 = ['blau', 'gruen'].concat(sammlung1);
+console.log(sammlung2); //Ausgabe: Array(3) [ "blau", "gruen", Object(2) ]
+#### Symbol.unscopables
+
+Ein Objektwert, dessen eigene und geerbte Eigenschaftsnamen von 
+den Umgebungsbindungen des verknüpften Objekts ausgeschlossen sind.
+
+```
+
+<!--index_907f.html -->
+```
+
+
+#### Symbol.spezies
+Eine Konstruktorfunktion, die zum Erstellen abgeleiteter Objekte verwendet wird.
+
+#### Symbol.toPrimitive
+Eine Methode, die ein Objekt in einen Grundwert konvertiert.
+
+```
+let obj = {
+[Symbol.toPrimitive](hint) {
+switch (hint) {
+case 'number':
+return 2;
+case 'string':
+return 'Zeichenkette';
+case 'default':
+return 'Standard';
+default:
+throw new Error();
+}
+}
+};
+console.log(2 * obj); // 4
+console.log(3 + obj); // '3Standard'
+console.log(obj == 'Standard'); // true
+console.log(obj === 'Standard'); // false
+console.log(String(obj)); // 'Zeichenkette'
+<!--index_907d.html -->
+```
+
+#### Symbol.toStringTag
+Ein Zeichenfolgewert, der für die Standardbeschreibung eines Objekts 
+verwendet wird. Wird von Object.prototype.toString () verwendet.
+
+```
+
+<!--index_907e.html -->
+```
+
+
+```
+
+<!--index_907.html -->
+```
+
+http://2ality.com/2015/09/well-known-symbols-es6.html
+
+
+
+
+
+
+
+> **Achtung:**
+
+
+## In diesem Kapitel haben wir ...
+
+xxx
+
+[^1]: https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640 (https://bit.ly/2GT9nQS)
+
+todo https://github.com/woota/FE-training-examples/blob/master/es6/4.%20Arrow-Functions.md

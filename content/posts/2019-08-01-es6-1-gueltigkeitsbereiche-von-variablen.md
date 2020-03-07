@@ -11,48 +11,63 @@ tags:
   - javascript
 ---
 
-https://de.wikipedia.org/w/index.php?title=JavaScript&oldid=184218223#Versionsgeschichte_von_ECMAScript_(ECMA-262)  
 
-## In diesem Kapitel werden wir …
-Zunächst zeige ich Ihnen, wie Sie 
-Todo Meldungen immer mit Firefox
+JavaScript wird oft als Spielzeug abgewertet. Dabei besitzt die Skriptsprache neben ihrer Einfachheit bedeutende Sprachfunktionen. JavaScript wird von wichtigen Anwendungen verwendet. Darum ist es für jeden Web- und Mobil-Entwickler, sich mit JavaScript auszukennen!
+
+JavaScript wurde im Jahr 1995 entworfen und 1996 mit Netscape 2 veröffentlicht. Die Sprache ist somit recht etabliert. Ebenfalls im letzten Jahrhundert übergab Netscape JavaScript an [Ecma International](https://www.ecma-international.org/), eine europäische Standardisierungsorganisation. Im selben Jahr wurde die erste Version des ECMAScript Standards publiziert. Dieser hält sich seither stabil. Hier im Buch spielen die Neuerungen in der sechsten Edition  – ES2015 oder ES6 – die Hauptrolle, welche im Juni 2015 veröffentlicht wurde.
+
+Neue Browserversionen decken einen großen Teil der Funktionen in ES2015 ab. Leider aber nicht alle. Eine Website zum Verbreitungsstand einzelner Features ist [caniuse.com](https://caniuse.com/)   .  
+
+> Sie nutzen eine Funktion, die nicht vollständig von Browsern unterstützt wird? Dafür gibt es Transpiler. Dies ist ein Thema für ein separates Buch. 
+
+Ich erkläre alles in kleinen Schritten nacheinander. Ich hoffe, dass Ihnen meine Art zu schreiben gefällt. Ich persönlich hätte mir ein solches Buch zum Start mit ES6 gewünscht.
+
+Ich gehe davon aus, dass Sie HTML kennen und ein JavaScript in ein HTML Dokument einbinden. Alle Beispiele finden Sie auf [Github](https://github.com/astridx/es6_beispieldateien_zum_Buch).
+
+In diesem Teil geht es um Gültigkeitsbereiche von Variablen, um `let`, `const` und `var`.
+
+## Motivation
+
+Die Variablendeklarationen mithilfe von `var` in JavaScript geschieht bevor Programmcode ausgeführt wird. So ist das Deklarieren an einer beliebigen Stelle im Programm das gleiche, als würde sie am Anfang eingeführt. Eine Variable ist nutzbar, bevor sie im Programmcode deklariert wurde! Dieser Umstand wird `hoisting` genannt und ist meiner Meinung nach nicht intuitiv und verwirrend. 
+
+ES6 bietet Strukturen, die den Überblick über Gültigkeitsbereiche vereinfachen. Diese stelle ich im Folgenden vor. Nebenbei erläutere ich Best Praxis Konzepte. 
 
 ## var - Deklaration und Hoisting
 
-https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/var#var_hoisting
-todo was ist deklaration
-
-Die Deklartion einer Variablen erfolgt immer 
-- im globalen Kontekt falls die Variable außerhalb einer Funktion deklariert wurde oder 
+Die Deklaration einer Variablen geschieht 
+- m globalen Kontext, wenn sie außerhalb oder am Anfang einer Funktion deklariert wurde oder 
 - ganz am Anfang einer Funktion.  
  
-Konkret bedeutet das, dass das Deklarieren einer Variable irgendwo im Programmcode 
-das gleiche ist, als würde sie am Anfang deklariert werden. Eine Variable 
-kann somit genutzt werden, bevor sie im Programmcode deklariert wurde. 
-Dies nennt man `hoisting`.  
+Konkret bedeutet das, dass das Deklarieren einer Variable an einer beliebigen Stelle im Programmcode das Gleiche ist, als würde sie am Anfang deklariert. Sie ist nutzbar, bevor sie im Code eingeführt wurde. Dies nennt man `hoisting`.  
 
-> Exkurs: Der Unterschied zwischen instanziieren, deklarieren und initialisieren  
-Variable instanzieren:  
-Der Begriff Instanziierung meint das Erzeugen eines neuen Objekts, 
-also einer Instanz, aus einer Klasse.
+### Exkurs: Der Unterschied zwischen instanziieren, deklarieren und initialisieren  
+
+#### Variable instanziieren
+
+Der Begriff Instanziieren meint das Erzeugen eines neuen Objekts, einer Instanz, aus einer Klasse.
+
 ``` 
-Objekt value = new Objekt();
-// value ist Instanz der Klasse Objekt
-```
-Variable deklarieren:  
-Unter deklarieren einer Variable können Sie sich das erste *Erwähnen der Variable* 
-vorstellen. So weiß der Compiler, dass es die Variable gibt und kann sie ansprechen. 
-Der Wert selbst wird bei der Deklaration nicht festgelegt.
-```
-int value;
-// value als Variable des Typs int deklariert
-```
-Variable initialisieren:  
-Eine Initialisierung ist das erste Zuweisen eines Wertes zu einer Variablen.
-```
-value = 0;
-// value mit Wert 0 initialisiert
-```
+Objekt o = new Objekt();
+// o ist Instanz der Klasse Objekt
+``` 
+
+#### Variable deklarieren
+
+Stellen Sie sich unter „deklarieren einer Variablen“ das erste *Erwähnen der Variablen* vor. So weiß der Compiler, dass es sie gibt, und ihm ist es möglich, sie anzusprechen. Der Wert selbst wird bei der Deklaration nicht festgelegt.
+
+``` 
+int var;
+// var als Variable des Typs int deklariert
+``` 
+
+#### Variable initialisieren
+
+Eine Initialisierung ist das erste Zuweisen eines Wertes zu einer Variablen. Hier zu ist es erforderlich, dass der Speicher allokiert ist.
+
+``` 
+var = 0;
+// var mit Wert 0 initialisiert
+``` 
 
 Sehen wir uns `hoisting` an einem Beispiel genauer an.
 
@@ -60,7 +75,7 @@ Sehen wir uns `hoisting` an einem Beispiel genauer an.
 
 #### Beispiel 1
 
-Sehen Sie sich die nachfolgende Funktion einmal kurz an. 
+Sehen Sie sich die nachfolgende Funktion kurz an. 
 
 ```
 function getValue() {
@@ -74,15 +89,9 @@ function getValue() {
 <!--index_999a.html-->
 ```
 
-Wenn Sie noch nicht vertraut mit JavaScript sind, erwarten Sie vielleicht, dass die 
-Variable `value` nur erstellt wird, wenn die Bedingung in der 
-`if`-Anweisung `true` ist. In der Realtiät ist es aber so, dass die Variable 
-auf alle Fälle erstellt wird.
+Wenn Sie nicht vertraut mit JavaScript sind, erwarten Sie, dass die Variable `value` nur erstellt wird, wenn die Bedingung in der `if`-Anweisung `true` ist. In der Realität ist es so, dass die Variable in jedem Fall kreiert wird.
 
-Im Hintergrund verändert JavaScipt den Programmcode nämlich. Der 
-[Interpreter](https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640) macht 
-daraus konkret den folgenden Aufruf. 
-Die wesentliche Zeile habe ich mit einem Stern markiert.
+Im Hintergrund verändert JavaScipt den Programmcode. Der [Interpreter](https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640) macht daraus konkret den folgenden Aufruf. Im Code habe ich die wesentliche Zeile für Sie mit einem Stern markiert.
 
 ```
  function getValue() {
@@ -98,11 +107,7 @@ Die wesentliche Zeile habe ich mit einem Stern markiert.
 <!--index_999a.html aus Sicht des Interpeters-->
 ```
 
-Die Deklaration der Variablen `value` wird an den Anfang der Funktion verschoben. 
-Und die Initialisierung erfolgt im gleichen Gültigkeitsbereich. Dadurch kann im 
-`else`-Block auf die Variablen `value` zugegriffen werden. Da die Variablen `value` im 
-`else`-Block mit keinem Wert belegt ist, gibt sie bei einem Zugriff `undefined` 
-anstelle von `ReferenceError: myvalue is not defined` aus. 
+Die Deklaration der Variablen `value` wird an den Anfang der Funktion verschoben. Die Initialisierung geschieht im gleichen Gültigkeitsbereich. Dadurch ist es möglich im `else`-Block auf die Variablen `value` zuzugreifen. Da die `value` im `else`-Block mit keinem Wert belegt ist, ist die Ausgabe bei einem Zugriff `undefined` anstelle von `ReferenceError: value is not defined`, wie im nachfolgenden Beispiel. 
 
 ```
  function getValue() {
@@ -116,38 +121,24 @@ anstelle von `ReferenceError: myvalue is not defined` aus.
 <!--index_999c.html -->
 ```
 
-`Hoisting` führt sehr oft zu Missverständnissen. Für viele Entwickler ist es 
-befremdend, dass eine Variable nicht an der Stelle erstellt wird, an der sie im 
-Programmcode steht. Wahrscheinlich wurde deshalb mit ECMAScript 6 
-die Möglichkeit eingeführt, 
-Variablen im Gültigkeitsbereich des lokalen Blocks zu deklarieren.
-
-https://www.mediaevent.de/javascript/globale-lokale-variablen.html
+`Hoisting` führt oft zu Missverständnissen. Für viele Entwickler ist es befremdend, dass eine Variable nicht an der Stelle erstellt wird, an der sie im Programmcode steht. Deshalb wurde mit ECMAScript 6 die Möglichkeit eingeführt, Variablen im Gültigkeitsbereich des lokalen Blocks zu deklarieren.
 
 ## Gültigkeitsbereich (Scope) im Block
 
-In vielen Programmiersprachen gibt es den Block Scope – alle Variablen, 
-die innerhalb eines Blocks deklariert werden, gelten nur innerhalb dieses Blocks. 
-Diese Variablen sind lokale Variablen.
+In vielen Programmiersprachen gibt es den Block Scope – alle Variablen, die innerhalb eines Blocks deklariert werden, gelten nur in ihm. Diese nennt man lokale Variablen.
 
 Was genau ist ein Block? Ein Block ist entweder 
 - der Bereich innerhalb einer Funktion oder
 - ein Bereich der mit geschweiften Klammern - `{` und `}` - umgeben ist. 
 
-Variablen, die mit `let` oder `const` angelegt werden, gelten nur innerhalb 
-ihres Blocks. Das klingt unbequem. Es verhindert aber viele schwer 
-aufzudeckende Fehler. 
+Variablen, die mit `let` oder `const` angelegt werden, gelten ausschließlich innerhalb ihres Blocks. Es verhindert viele schwer aufzudeckende Fehler und ist meiner Meinung nach intuitiv. 
 
 ### Block Scope mit let
 
-Mit ECMAScript 6 ist `let` für die Deklaration von Variablen hinzugekommen. 
-Eine mit `let` deklarierte Variable hat einen eingeschränkten Gültigkeitsbereich. 
-Sie ist nur innerhalb des Blocks, in dem sie deklariert wurden, gültig. 
+Mit ECMAScript 6 wurde `let` eingeführt. Eine mit `let` deklarierte Variable hat einen eingeschränkten Gültigkeitsbereich. Sie ist einzig und allein innerhalb des Blocks gültig, in dem sie deklariert wurde. 
+Die Deklaration einer Variablen mit `let` geschieht auf die gleiche Art wie die Deklaration einer Variablen mit `var`.  
 
-Die Deklaration einer Variablen mit `let` erfolgt auf die gleiche Art 
-wie die Deklaration einer Variablen mit `var`. Was wäre, wenn die Variable im 
-vorherigen Beispiel anstelle von var mit let deklariert worden wäre? Genau dies 
-zeigt Ihnend das nachfolgende Beispiel.
+Was wäre, wenn die Variable im vorherigen Beispiel anstelle von `var` mit `let` deklariert worden wäre? Genau dies zeigt Ihnen der nachfolgende Code.
 
 ```
  function getValue() {
@@ -161,19 +152,11 @@ zeigt Ihnend das nachfolgende Beispiel.
 <!--index_998d.html -->
 ```
 
-Haben Sie den Programmcode ausprobiert? Dann stimmen Sie sicher mit mir überein, 
-das die Ausgabe der Datei `998d.html` intuitiver ist als die Ausgabe 
-der Datei `999a.html`. Weil wir die Variable `value` mit `let` deklariert haben, 
-wird die Deklaration nicht im Hintergrund vom Interpeter an den Anfang der 
-Funktion verschoben. Ein Zugriff auf die Variable `value` ist nun außerhalb 
-der `if`-Anweisung nicht möglich. Da die Variable `value` nur deklariert wird, 
-wenn die Bedingung der `if`-Anweisung erfüllt ist, kann auch im `else`-Block 
-nicht auf diese zugegriffen werden. Das nächste Beispiel zeigt Ihnen, 
-dass die Deklaration der Variable `value` am Anfang des Blocks in dem diese 
-gültig ist erfolgt. Auf die Variable `value` kann erst nach der Deklaration 
-zugegriffen werden. Allerdings ist die Fehlermeldung innerhalb des Blocks, 
-indem die Variable deklariert wird, eine andere. 
+Haben Sie den Programmcode ausprobiert oder gedanklich nachvollzogen? Dann stimmen Sie sicher mit mir überein, das die Ausgabe der Datei `998d.html` intuitiver ist als die das Ergebnis von `999a.html`. 
 
+Weil wir die Variable `value` mit `let` deklariert haben, wird die Deklaration nicht im Hintergrund vom Interpreter an den Anfang der Funktion verschoben. Ein Zugriff auf sie ist außerhalb der `if`-Anweisung nicht gegeben. Da `value` nur deklariert wird, wenn die Bedingung der `if`-Anweisung erfüllt ist, ist es nicht möglich, im `else`-Block auf sie zuzugreifen. 
+
+Das nächste Beispiel zeigt Ihnen, dass die Deklaration der Variablen `value` weiterhin am Anfang des Blocks geschieht, in dem diese gültig ist. Es ist aber erst möglich, auf sie zuzugreifen, nachdem sie deklariert wurde. Einen Unterschied gibt es: Die Fehlermeldung innerhalb des Blocks, indem die Variable deklariert wird, ist eine andere. 
 
 ```
 function getValue() {
@@ -772,8 +755,8 @@ von unterschiedlichen HTML-Dokumenten gleichzeitig genutzt werden.
 > **Achtung:**
 
 
-## In diesem Kapitel haben wir ...
+## Alles noch einmal zusammengefasst
 
-xxx
+## Referenzen und externe Links
 
 [^1]: https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640 (https://bit.ly/2GT9nQS)

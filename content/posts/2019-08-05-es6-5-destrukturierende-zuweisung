@@ -1,0 +1,510 @@
+---
+date: 2019-08-01
+title: 'ECMAScript 6 - Destrukturierende Zuweisung'
+template: post
+thumbnail: '../thumbnails/js.png'
+slug: destrukturierende-zuweisung
+categories:
+  - JavaScript
+tags:
+  - ecmascript
+  - javascript
+---
+
+# ECMAScript 6 - Destrukturierende Zuweisung
+[](#){#DestrukturierendeZuweisung}
+
+
+## In diesem Kapitel werden wir …
+Zunächst zeige ich Ihnen, wie Sie 
+Todo Meldungen immer mit Firefox
+
+## Warum Destrukturieren
+
+
+
+Die destrukturierende Zuweisung ermöglicht es, Daten aus Arrays oder Objekten 
+zu extrahieren, und zwar mit Hilfe einer Syntax, die der Konstruktion von 
+Array- und Objekt-Literalen nachempfunden ist.
+https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Destrukturierende_Zuweisung
+
+Mit ECMAScript 5 musste oft viel doppelter Text geschrieben werden.
+
+```
+let farben = { 
+rot: "#FF0000",
+gruen: "#00FF00",
+blau: "#0000FF"
+};
+let rot = farben.rot;
+let gruen = farben.gruen;
+let blau = farben.blau;
+
+console.log(rot);
+console.log(gruen);
+console.log(blau);
+<!--index_926.html -->
+```
+
+## Objekt Strukturierung
+
+Anstelle von 
+
+```
+let rot = farben.rot;
+let gruen = farben.gruen;
+let blau = farben.blau;
+```
+
+reicht mit ECMAScript 6 die Zeile
+
+```
+let {rot, gruen, blau} = farben;
+```
+
+```
+let farben = { 
+rot: "#FF0000",
+gruen: "#00FF00",
+blau: "#0000FF"
+};
+let {rot, gruen, blau} = farben;
+
+console.log(rot);
+console.log(gruen);
+console.log(blau);
+<!--index_926a.html -->
+```
+
+
+> Initialisieren nicht vergessen!
+
+```
+...
+let {rot, gruen, blau}; 
+// Ausgabe: SyntaxError: missing = in destructuring declaration
+<!--index_926b.html -->
+```
+
+### Zuweisung
+
+Nicht nur bei der Initialisierung eines Objektes gibt es Verbesserungen. Auch 
+die Zuweisung eines Wertes zu einer Eigenschaft ist mit 
+ECMAScript 6 unkomplizierter. 
+
+```
+<!--index_925.html -->
+```
+
+Das geht auch in einer Funktion.
+
+```
+<!--index_925b.html -->
+```
+
+> Achtung: Es gibt einen Fehler, wenn die Zuweisung einmal `null` ist.
+
+### Standardwerte
+
+Manchmal kommt es vor, dass ein Wert nicht bestimmt ist. Deshalb ist es gut, 
+dass bei auch bei destrukturierender Zuweisung mit Standardwerten arbeiten kann. 
+
+Ohne einen Standardwert anzugeben würde eine Variable nicht definiert werden.
+
+```
+
+<!--index_924.html -->
+```
+
+Mit Standardwerten kann man dieses Problem umgehen - wie das geht zeigt das 
+nächste Beispiel.
+
+```
+let farben = { 
+rot: "#FF0000",
+gruen: "#00FF00",
+};
+
+let {rot = "#FF1111", gruen = "#1111FF", blau = "#0000FF"} = farben;
+
+console.log(rot); // Ausgabe: #FF0000
+console.log(gruen); // Ausgabe: #00FF00
+console.log(blau); // Ausgabe: undefined
+<!--index_924a.html -->
+```
+
+
+### Lokale Variablen
+
+Bisher waren beim destrukturieren die korrespondierenden 
+Variablennamen immer gleich. Das kann aber auch einmal anders sein. Die 
+Namen können abweichen. Deshalb ist es gut, dass es hierfür eine Lösung in der 
+Syntax gibt.
+
+
+```
+
+<!--index_923.html -->
+```
+
+Und lokalen Variblen können Sie auch in Verbindung mit Standardvariablen 
+einsetzen. Sehen Sie sich dazu das nachfolgende Beispiel an.
+
+
+```
+
+<!--index_923a.html -->
+
+### Verschachtelungen
+
+
+```
+let farben = { 
+farbcode: {
+rot: {
+hellrot: "#FFEEEEE",
+dunkelrot: "#FF0000",
+}
+},
+};
+let {farbcode: {rot}}  = farben;
+console.log(rot.hellrot); // Ausgabe: #FFEEEE
+console.log(rot.dunkelrot); // Ausgabe: #FF0000
+<!--index_922.html -->
+
+Auch das Vergeben eines neuen Variablennamens ist mögliche.
+
+```
+let farben = { 
+farbcode: {
+rot: {
+hellrot: "#FFEEEEE",
+dunkelrot: "#FF0000",
+}
+},
+};
+let {farbcode: {rot: farbcodesrot}}  = farben;
+console.log(farbcodesrot.hellrot); // Ausgabe: #FFEEEE
+console.log(farbcodesrot.dunkelrot); // Ausgabe: #FF0000
+<!--index_922a.html -->
+
+## Array Strukturierung
+
+
+
+```
+let farben = ["rot", "gruen", "blau"];
+let [farbe1, farbe2]  = farben;
+console.log(farbe1); // Ausgabe: rot
+console.log(farbe2); // Ausgabe: gruen
+<!--index_922.html -->
+
+Sie können einzelne Array Elemente innerhalb des Arrays auswählen.
+
+```
+let farben = ["rot", "gruen", "blau"];
+let [, , farbe3]  = farben;
+console.log(farbe3); // Ausgabe: blau
+<!--index_921a.html -->
+
+Schon vorhandene Variablen können verwendet werden.
+
+```
+let farben = ["rot", "gruen", "blau"];
+let [, , farbe3]  = farben;
+console.log(farbe3); // Ausgabe: rot
+<!--index_921b.html -->
+
+
+### Zuweisung
+
+https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Destrukturierende_Zuweisung#Variablen_tauschen
+Die destrukturiende Zuweisung kann auch zum Tauschen von Variablenwerten 
+verwendet werden.
+
+Bisher
+
+```
+let erster = "Astrid";
+let zweiter = "Elmar";
+let helfer;
+console.log(erster); // Ausgabe: Astrid
+console.log(zweiter); // Ausgabe: Elmar
+helfer = erster;
+erster = zweiter;
+zweiter = helfer;
+console.log(erster); // Ausgabe: Elmar
+<!--index_920.html -->
+```
+Neu
+
+```
+let erster = "Astrid";
+let zweiter = "Elmar";
+console.log(erster); // Ausgabe: Astrid
+console.log(zweiter); // Ausgabe: Elmar
+[erster, zweiter] = [zweiter, erster];
+console.log(erster); // Ausgabe: Elmar
+console.log(zweiter); // Ausgabe: Astrid
+<!--index_920a.html -->
+```
+
+### Standardwerte
+
+Der Vollständigkeit halber Standardwerte von Arrays bei der 
+destrukturienden Zuweisung.
+
+```
+let reihenfolge1 = ["Astrid"];
+let [ erster1, zweiter1 = "Elmar"] = reihenfolge1;
+console.log(erster1); // Ausgabe: Astrid
+console.log(zweiter1); // Ausgabe: Elmar
+
+let reihenfolge2 = ["Astrid", "Nina"];
+let [ erster2, zweiter2 = "Elmar"] = reihenfolge2;
+console.log(erster2); // Ausgabe: Astrid
+console.log(zweiter2); // Ausgabe: Nina
+
+let reihenfolge = "Astrid";
+let [ erster, zweiter = "Elmar"] = reihenfolge;
+console.log(erster); // Ausgabe: A
+console.log(zweiter); // Ausgabe: s
+<!--index_919.html -->
+```
+
+### Geschachtelte Variablen
+
+Verschachteln ist beliebig tief mögliche. Klammern sind wichtig!
+
+```
+let reihenfolge = ["Astrid", ["Uschi", "Sam"], "Elmar"];
+let [ erster, [zweiter], dritter] = reihenfolge;
+console.log(erster); // Ausgabe: Astrid
+console.log(zweiter); // Ausgabe: Uschi
+console.log(dritter); // Ausgabe: Elmar
+
+let reihenfolge1 = ["Astrid", ["Uschi", "Sam"], "Elmar"];
+let [ erster1, zweiter1, dritter1] = reihenfolge1;
+console.log(erster1); // Ausgabe: Astrid
+console.log(zweiter1); // Ausgabe: Array [ "Uschi", "Sam" ]
+console.log(dritter1); // Ausgabe: Elmar
+<!--index_918.html -->
+```
+
+### Rest Items
+
+Rest Items waren in Kapitel 3 schon einmal ein Thema.
+Egal wo man den Rest Parameter einsetzt - er nimmt den Rest auf.
+
+```
+let reihenfolge = ["Astrid", "Uschi", "Sam", "Elmar"];
+let [ erster, ...rest ] = reihenfolge;
+console.log(erster); // Ausgabe: Astrid
+console.log(rest.length); // Ausgabe: 3
+console.log(rest[0]); // Ausgabe: Uschi
+console.log(rest[1]); // Ausgabe: Sam
+console.log(rest[2]); // Ausgabe: Elmar
+console.log(rest[3]); // Ausgabe: undefined
+
+let reihenfolge1 = ["Astrid", "Uschi", "Sam", "Elmar"];
+let [ ...rest1 ] = reihenfolge1;
+console.log(rest1.length); // Ausgabe: 4
+console.log(rest1[0]); // Ausgabe: Astrid
+console.log(rest1[1]); // Ausgabe: Uschi
+console.log(rest1[2]); // Ausgabe: Sam
+console.log(rest1[3]); // Ausgabe: Elmar
+<!--index_917.html -->
+```
+
+Zum Clonen kann er auch verwendet werden. Bisher wurde dies oft mit 
+concate gemacht.
+
+```
+let reihenfolge = ["Astrid", "Uschi"];
+let kopierteReihenfolge = reihenfolge.concat();
+console.log(reihenfolge); // Ausgabe: Array [ "Astrid", "Uschi" ]
+console.log(kopierteReihenfolge); // Ausgabe: Array [ "Astrid", "Uschi" ]
+<!--index_916.html -->
+```
+
+Mit einem Restparameter erreicht man das Gleiche.
+
+```
+let reihenfolge = ["Astrid", "Uschi"];
+let [ ...kopierteReihenfolge] = reihenfolge;
+console.log(reihenfolge); // Ausgabe: Array [ "Astrid", "Uschi" ]
+console.log(kopierteReihenfolge); // Ausgabe: Array [ "Astrid", "Uschi" ]
+<!--index_916a.html -->
+```
+
+Das die Variable tatsächlich kopiert wird zeigt das nächste Beispiel.
+
+```
+let reihenfolge = ["Astrid", "Uschi"];
+let [ ...kopierteReihenfolge] = reihenfolge;
+let kopierteReihenfolge2 = reihenfolge;
+console.log(reihenfolge); // Ausgabe: Array [ "Astrid", "Uschi" ]
+console.log(kopierteReihenfolge); // Ausgabe: Array [ "Astrid", "Uschi" ]
+console.log(kopierteReihenfolge2); // Ausgabe: Array [ "Astrid", "Uschi" ]
+reihenfolge.push("reihenfolge");
+kopierteReihenfolge.push("kopierteReihenfolge");
+kopierteReihenfolge2.push("kopierteReihenfolge2");
+console.log(reihenfolge); // [ "Astrid", "Uschi", "reihenfolge", "kopierteReihenfolge2" ]
+console.log(kopierteReihenfolge); // [ "Astrid", "Uschi", "kopierteReihenfolge" ]
+console.log(kopierteReihenfolge2); // [ "Astrid", "Uschi", "reihenfolge", "kopierteReihenfolge2" ]
+<!--index_916b.html -->
+```
+
+
+## Gemischte Strukturierung
+
+Im vorherhigen Kapitel haben wir die Destrukturierung 
+von Arrays besprochen. Davor war die Destrukturierung von Objekten das Thema. 
+In diesem Kapitel mischen wir nun beides: Ich zeige Ihnen, 
+dass Sie die Destrukturierung von Objekte 
+und Arrays auch zusammen anwenden können. Vielleicht fragen Sie sich nun, warum 
+Sie dies tun sollten. Ganz einfach. Sie können auf diese Art genau die Informationen 
+zusammenstellen, die Sie benötigen. Nicht mehr und nicht weniger.
+
+Sehen Sie im nächsten Beispiel wie Sie Daten im Format GeoJson destrukturieren 
+können.
+
+
+```
+let geojsonFeature = {
+    "type": "Feature",
+    "properties": {
+        "name": "Spielfeld",
+        "amenity": "Fußballstation",
+        "popupContent": "SV Musterstadt"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [-104.99404, 39.75621]
+    }
+};
+	
+let {
+	properties: { name },
+	geometry: { coordinates: [lat, lng] } 
+} = geojsonFeature;
+	
+	
+console.log(name); // Ausgabe: Spielfeld
+console.log(lat); // Ausgabe: -104.99404
+console.log(lng); // Ausgabe: 39.75621
+<!--index_915.html -->
+```
+
+## Parameter Strukturierung
+
+Ein weiteres Anwendungsbeispiel für die Destrukturierungssyntax ist die 
+Übergabe von Argumenten in einer Funktion.
+
+```
+function zeichneKreis(options) {
+  options = options  || {};
+  let size = options.size;
+  let cords = options.cords;
+  let radius = options.radius;
+  console.log(size); //Ausgabe: undefined
+  console.log(cords); //Ausgabe: Object { x: 18, y: 30 }
+  console.log(radius); //Ausgabe: 20
+}
+zeichneKreis({ cords: { x: 18, y: 30 }, radius: 20 });
+<!--index_914.html -->
+```
+
+Wenn Sie die Destrukturierungssyntax nutzen können Sie die Variable `options` 
+einsparen.
+
+
+```
+function zeichneKreis({size, cords, radius}) {
+  console.log(size); //Ausgabe: undefined
+  console.log(cords); //Ausgabe: Object { x: 18, y: 30 }
+  console.log(radius); //Ausgabe: 20
+}
+zeichneKreis({ cords: { x: 18, y: 30 }, radius: 20 });
+<!--index_914a.html -->
+```
+
+### Notwendige Parameter
+
+```
+function zeichneKreis({size, cords, radius}) {
+}
+zeichneKreis(); //Ausgabe: TypeError: (destructured parameter) is undefined
+<!--index_914b.html -->
+```
+
+Sie könnten sich nun Fraen, warum in Beispiel 914b ein Fehler gemeldet wird. 
+Wenn Sie eine einzelne Option nicht füllen, tritt hingegen kein Fehler auf. In 
+diesem Fall wird lediglich der nicht gesetzte Wert als `undefiniert` ausgegeben. 
+Für die Beantwortung dieser Frage ist es hilfreich, einmal hinter die Kulissen 
+zu schauen. Was in Beispiel 914b im Hintergrund passiert, können Sie sich in 
+Beispiel 914c ansehen.
+
+```
+function zeichneKreis(werte) {
+  let {size, cords, radius} = werte;
+}
+zeichneKreis(); //Ausgabe: TypeError: werte is undefined
+<!--index_914c.html -->
+```
+
+Folgendes ist wiederum möglich.
+
+```
+function zeichneKreis(werte) {
+  let {size, cords, radius} = werte;
+  console.log(size); //Ausgabe: 18
+  console.log(cords); //Ausgabe: undefinded
+  console.log(radius); //Ausgabe: undefinded
+}
+let kreis = {size: 18};
+zeichneKreis(kreis);
+<!--index_914d.html -->
+```
+
+Wenn es Ihnen wichtig ist, verwenden Sie am besten einen Standardwert. Wie 
+Sie dies umsetzen können zeigt Ihnen das nächste Kapitel.
+
+
+### Standardwerte
+
+
+```
+function zeichneKreis({size, cords, radius} = {}) {
+  console.log(size); //Ausgabe: undefined
+  console.log(cords); //Ausgabe: undefined
+  console.log(radius); //Ausgabe: undefined
+}
+zeichneKreis();
+<!--index_914e.html -->
+```
+
+
+Das nächste Beispiel geht noch einen Schritt weiter. 
+
+```
+function zeichneKreis({size = 17, cords = { x: 18, y: 30 }, radius = 20} = {}) {
+  console.log(size); //Ausgabe: 17
+  console.log(cords); //Ausgabe: { x: 18, y: 30 }
+  console.log(radius); //Ausgabe: 20
+}
+zeichneKreis();
+<!--index_914f.html -->
+```
+
+
+> **Achtung:**
+
+
+## In diesem Kapitel haben wir ...
+
+xxx
+
+[^1]: https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640 (https://bit.ly/2GT9nQS)
+
+todo https://github.com/woota/FE-training-examples/blob/master/es6/4.%20Arrow-Functions.md
