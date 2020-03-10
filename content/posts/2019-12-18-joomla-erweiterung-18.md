@@ -13,9 +13,15 @@ tags:
 
 So nutzt du Custom Fields in deiner Erweiterung. Hier geht es nun um die Anzeige im Frontend.
 
+## Für Ungeduldige
+
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b) an und übernimm diese Änderungen in deine Entwicklungsversion.
+
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+
 ## Teste deine Joomla-Komponente
 
-1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  

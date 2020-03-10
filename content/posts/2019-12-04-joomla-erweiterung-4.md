@@ -15,17 +15,22 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 ![Joomla Einen Menüpunkt erstellen](../images/j4x4x2.png)
 
+## Für Ungeduldige
+
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3) an und übernimm diese Änderungen in deine Entwicklungsversion.
+
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+
 ## Teste deine Joomla-Komponente
 
-1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.  
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu auf Menü und dann auf `All Menu Items`. 	
+2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`. 	
 
 Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
 

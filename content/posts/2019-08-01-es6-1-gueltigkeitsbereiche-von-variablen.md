@@ -12,6 +12,16 @@ tags:
 ---
 
 
+In diesem Teil geht es um Gültigkeitsbereiche von Variablen, um `let`, `const` und `var`.
+
+## Motivation
+
+Die Variablendeklarationen mithilfe von `var` in JavaScript geschieht bevor Programmcode ausgeführt wird. So ist das Deklarieren an einer beliebigen Stelle im Programm das gleiche, als würde sie am Anfang eingeführt. Eine Variable ist nutzbar, bevor sie im Programmcode deklariert wurde! Dieser Umstand wird `hoisting` genannt und ist meiner Meinung nach nicht intuitiv und verwirrend. 
+
+ES6 bietet Strukturen, die den Überblick über Gültigkeitsbereiche vereinfachen. Diese stelle ich im Folgenden vor. Nebenbei erläutere ich Best Praxis Konzepte. 
+
+## Bevor es losgeht
+
 JavaScript wird oft als Spielzeug abgewertet. Dabei besitzt die Skriptsprache neben ihrer Einfachheit bedeutende Sprachfunktionen. JavaScript wird von wichtigen Anwendungen verwendet. Darum ist es für jeden Web- und Mobil-Entwickler, sich mit JavaScript auszukennen!
 
 JavaScript wurde im Jahr 1995 entworfen und 1996 mit Netscape 2 veröffentlicht. Die Sprache ist somit recht etabliert. Ebenfalls im letzten Jahrhundert übergab Netscape JavaScript an [Ecma International](https://www.ecma-international.org/), eine europäische Standardisierungsorganisation. Im selben Jahr wurde die erste Version des ECMAScript Standards publiziert. Dieser hält sich seither stabil. Hier im Buch spielen die Neuerungen in der sechsten Edition  – ES2015 oder ES6 – die Hauptrolle, welche im Juni 2015 veröffentlicht wurde.
@@ -22,15 +32,10 @@ Neue Browserversionen decken einen großen Teil der Funktionen in ES2015 ab. Lei
 
 Ich erkläre alles in kleinen Schritten nacheinander. Ich hoffe, dass Ihnen meine Art zu schreiben gefällt. Ich persönlich hätte mir ein solches Buch zum Start mit ES6 gewünscht.
 
-Ich gehe davon aus, dass Sie HTML kennen und über JavaScript Grundlagen verfügen. Alle Beispiele finden Sie auf [Github](https://github.com/astridx/es6_beispieldateien_zum_Buch).
+Ich gehe davon aus, dass Sie HTML kennen und über JavaScript Grundlagen verfügen. Ich arbeite mit Firefox und beziehe meine Erklärungen auf diesen Webbrowser. Texte von Fehlerausgaben variieren in anderen Browsern leicht. 
 
-In diesem Teil geht es um Gültigkeitsbereiche von Variablen, um `let`, `const` und `var`.
 
-## Motivation
-
-Die Variablendeklarationen mithilfe von `var` in JavaScript geschieht bevor Programmcode ausgeführt wird. So ist das Deklarieren an einer beliebigen Stelle im Programm das gleiche, als würde sie am Anfang eingeführt. Eine Variable ist nutzbar, bevor sie im Programmcode deklariert wurde! Dieser Umstand wird `hoisting` genannt und ist meiner Meinung nach nicht intuitiv und verwirrend. 
-
-ES6 bietet Strukturen, die den Überblick über Gültigkeitsbereiche vereinfachen. Diese stelle ich im Folgenden vor. Nebenbei erläutere ich Best Praxis Konzepte. 
+Alle Beispiele finden Sie auf [Github](https://github.com/astridx/es6_beispieldateien_zum_Buch).
 
 ## var - Deklaration und Hoisting
 
@@ -640,19 +645,21 @@ Dadurch, dass das globale `window`-Objekt im Falle von `let` beziehungsweise `co
 
 > Die Verwendung von `var` kann zur Deklaration einer globalen Variablen dennoch sinnvoll sein. Den: Auf diese Art und Weise ist es möglich Variablen aus unterschiedlichen HTML-Dokumenten gleichzeitig zu verwenden.
 
-## Erfolgsmethode - best practice
+## Erfolgsmethode - Best Practice
 
-Während der Entwicklung von ECMAScript 6 herrschte weit verbreitete Überzeugung, dass man für die Variablendeklarationen standardmäßig let anstelle von var verwendet. Für viele JavaScript-Entwickler ist das Verhalten dann genau so, wie sie es von var erwartet haben. Daher ist die direkte Ersetzung logisch. const wird nach dieser Überzeugung für Variablen verwenden, die einen Änderungsschutz benötigen.
+Während der Entwicklung von ECMAScript 6 herrschte weit verbreitete Überzeugung, dass man für die Variablendeklarationen standardmäßig `let` anstelle von `var` verwendet. Für viele JavaScript-Entwickler ist das Verhalten bei `let` genau so, wie sie es von `var` erwarten. Daher ist die direkte Ersetzung logisch. `const` wird nach dieser Überzeugung ausschließlich für Variablen verwenden, die einen Änderungsschutz benötigen.
 
-Als mehr Entwickler die neuen Deklarationen nutzten, wurde ein alternativer Ansatz immer beliebter: Verwenden Sie const standardmäßig und verwenden Sie let nur, wenn Sie wissen, dass sich der Wert einer Variablen ändert. Grundprinzip ist, das Variablen nur änderbar sind, wenn dies notwendig ist, da unerwartete Wertänderungen eine Fehlerquelle darstellen.
+Später wurde ein alternativer Ansatz immer beliebter: Verwenden Sie `const` standardmäßig und verwenden Sie `let` nur, wenn Sie wissen, dass sich der Wert einer Variablen ändert. Grundprinzip ist, das Variablen nur änderbar sind, wenn dies notwendig ist, da unerwartete Wertänderungen eine Fehlerquelle darstellen.
 
 
 ## Alles noch einmal zusammengefasst
 
-let- und const führen in JavaScript neue Gültigkeitsbereiche ein. Diese Deklarationen werden an den Anfang des Blocks verschoben. Sie existieren nur innerhalb des Blocks, in dem sie deklariert sind. Dieses Verhalten ist intuitiv und verhindert, dass unbeabsichtigte Fehler auftreten. Variablen werden jetzt genau dort deklariert, wo sie benötigt werden. Als Nebeneffekt ist es nicht möglich, dass sichere Operatoren wie typeof nicht auf Variablen zugreifen, bevor diese deklariert wurden. Der Versuch, vor ihrer Deklaration auf eine Variable zuzugreifen, führt zu einem Fehler, da die Bindung in der temporalen Totzone (TDZ) vorhanden ist.
+`let` und `const` führen in JavaScript neue Gültigkeitsbereiche ein. Diese Deklarationen werden an den Anfang des Blocks verschoben. Es gibt kein `hoisting`. Sie existieren nur innerhalb des Blocks, in dem sie deklariert sind. Dieses Verhalten ist intuitiv und verhindert, dass unbeabsichtigte Fehler auftreten. Variablen werden jetzt genau dort deklariert, wo sie benötigt werden. Als Nebeneffekt ist es nicht möglich, dass sichere Operatoren wie `typeof` nicht auf Variablen zugreifen, bevor diese deklariert wurden. Der Versuch, vor ihrer Deklaration auf eine Variable zuzugreifen, führt zu einem Fehler, da die Bindung in der temporalen Totzone (TDZ) vorhanden ist.
 
-In vielen Fällen verhalten sich let und const ähnlich wie var. Dies gilt nicht für Schleifen. Sowohl für let als auch für const erstellen for-in- und for-of-Schleifen mit jeder Iteration durch die Schleife eine neue Bindung. Das bedeutet, dass Funktionen, die innerhalb des Schleifenkörpers erstellt wurden, auf die Schleifenbindungswerte zugreifen können, wie sie während der aktuellen Iteration sind, und nicht wie nach der letzten Iteration der Schleife (das Verhalten mit var). Gleiches gilt für let-Deklarationen in for-Schleifen, während der Versuch, const-Deklarationen in einer for-Schleife zu verwenden, in der Regel zu einem Fehler führt.
+In vielen Fällen verhalten sich `let` und `const` ähnlich wie `var`. Dies gilt nicht für Schleifen. Sowohl für `let` als auch für `const` erstellen For-in-Schleifen und For-of-Schleifen mit jeder Iteration eine neue Bindung. Das bedeutet, dass Funktionen, die innerhalb des Schleifenkörpers erstellt wurden, auf die Schleifenbindungswerte zugreifen können, wie sie während der aktuellen Iteration sind, und nicht wie nach der letzten Iteration der Schleife. So ist es bei der Verwendung von `var`. Gleiches gilt für `let`-Deklarationen in For-Schleifen, während der Versuch, `const`-Deklarationen in einer For-Schleife zu verwenden, in der Regel zu einem Fehler führt.
 
-Die derzeitige bewährte Methode für Blockbindungen besteht darin, standardmäßig const zu verwenden und let nur zu verwenden, wenn Sie wissen, dass sich der Wert einer Variablen ändert. Dies stellt ein grundlegendes Maß an Unveränderlichkeit im Code sicher, das dazu beiträgt, Fehlern zu vermeiden.
+Die derzeitige bewährte Methode für Blockbindungen besteht darin, standardmäßig `const` zu verwenden und `let` nur zu verwenden, wenn Sie wissen, dass sich der Wert einer Variablen ändert. Dies stellt ein grundlegendes Maß an Unveränderlichkeit im Code sicher, das dazu beiträgt, Fehlern zu vermeiden.
 
 ## Referenzen und externe Links
+
+[Interpreter](https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=194689446)

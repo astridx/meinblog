@@ -13,9 +13,15 @@ tags:
 
 Du möchtest Custom Fields in eine Joomla Erweiterung integrieren? Dann beginne mit dem Administrationsbereiche.
 
+## Für Ungeduldige
+
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a) an und übernimm diese Änderungen in deine Entwicklungsversion.
+
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+
 ## Teste deine Joomla-Komponente
 
-1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  

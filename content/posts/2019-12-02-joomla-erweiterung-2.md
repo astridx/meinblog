@@ -19,13 +19,18 @@ Update Server klingt etwas kompliziert, im Grunde ist es nur eine URL zu einer X
 
 ![Joomla Update Server](../images/j4x2x3.png)
 
+## Für Ungeduldige
+
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b) an und übernimm diese Änderungen in deine Entwicklungsversion.
+
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+
 ## Teste deine Joomla-Komponente
 
-1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.  
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 

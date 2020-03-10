@@ -11,62 +11,35 @@ tags:
   - javascript
 ---
 
-# ECMAScript 6 - Arbeiten mit Strings
-[](#){#ArbeitenMitStrings}
+In diesem Teil geht es um Strings und reguläre Ausdrücke
 
+## Motivation
 
-## In diesem Kapitel werden wir …
-Zunächst zeige ich Ihnen, wie Sie 
-Todo Meldungen immer mit Firefox
+Strings sind einer der wichtigsten Datentypen in der Programmierung. Sie kommen in fast jeder Programmiersprache vor. Das effektive Arbeiten mit ihnen ist für Entwickler von grundlegender Bedeutung, um nützliche Programme zu erstellen. 
 
+Reguläre Ausdrücke bieten Developern zusätzliche Möglichkeiten, Zeichenfolgen zu verwenden. 
+ES6 bietet neue und verbesserte Funktionen, um Strings und reguläre Ausdrücke effektiver zu nutzen. Dieses Kapitel gibt einen Überblick.
 
-
+## Bevor es losgeht
+todo
 
 ## Verbesserte Unicode-Unterstützung
 
 ### UTF-16
 
-ECMAScript 5 entstand, als 16 Bit ausreichten, um alle vorhandene Unicode-Zeichen 
-abzubilden. Später wurde Unicode um weitere Zeichen mit einem erweitert. 
-Dies hat zur Folge, 
-dass 16 Bit nicht mehr ausreichen, um alle möglichen Unicode-Zeichen darzustellen.
+Der JavaScript-Standard ECMAScript 5 entstand, als 16 Bit ausreichten, um alle vorhandene Unicode-Zeichen abzubilden. Später wurde Unicode um weitere Zeichen erweitert. Dies hat zur Folge, dass 16 Bit nicht mehr ausreichen, um alle möglichen Unicode-Zeichen darzustellen.
 
-> Das Ziel von Unicode ist es, alle in Gebrauch befindlichen Schriftsysteme 
-und Zeichen zu kodieren. Der Zeichenumfang ist dazu 
-in 17 Ebenen (englisch planes) gegliedert. 
-Sechs dieser Ebenen werden bereits verwendet, die restlichen sind für spätere Nutzung reserviert. 
-Die ursprünglichen 16 Bit sind unter dem Namen *Basic Multilingual Plane* 
-(BMP; deutsch Mehrsprachige Basis-Ebene, auch als Plane 0 bezeichnet) bekannt.
+> Das Ziel von Unicode ist es, alle in Gebrauch befindlichen Schriftsysteme und Zeichen zu kodieren. Der Zeichenumfang ist dazu in 17 Ebenen (englisch planes) gegliedert. Sechs dieser Ebenen werden verwendet, die restlichen sind für die spätere Nutzung reserviert. Die ursprünglichen 16 Bit sind unter dem Namen *Basic Multilingual Plane* (BMP; deutsch „Mehrsprachige Basis-Ebene“ oder Plane 0) bekannt.
 
-Damit die ursprünglichen 16 Bit auch weiterhin problemlos 
-verwendet werden könne, speichert UTF-16 die ursprünglichen Unicode-Zeichen in der BMP 
-weiterhin in 16 Bit. 
-Alle neuen Unicode-Zeichen werden hingegen in 32 Bit 
-gespeichert, also in zwei 16-Bit-Werten. 
-Diese beiden 16-Bit-Werte werden als *Ersatzpaar* (englisch surrogate pair) bezeichnet. 
-Streng genommen wird ein Unicode-Zeichen außerhalb der BMP in einer 
-*UTF-16-Codeeinheit* anstelle eines *Unicode-Zeichens* gespeichert.
+UTF-16 speichert die ursprünglichen Unicode-Zeichen in der BMP weiterhin in 16 Bit ab, damit diese in der Zukunft problemlos anwendbar sind. Alle neuen Unicode-Zeichen werden hingegen in 32 Bit gespeichert, ergo in zwei 16-Bit-Werten. Die beiden 16-Bit-Werte bezeichnet man als *Ersatzpaar* (englisch surrogate pair). Streng genommen wird ein Unicode-Zeichen außerhalb der BMP in einer *UTF-16-Codeeinheit* anstelle eines *Unicode-Zeichens* gespeichert.
 
-So können Sie alle Methoden die auf 16 Bit begrenzt sind weiterhin 
-nutzen. Zumindest solange die Zeichen der BMP ausreichen - das heißt solange 
-Sie keine der neuen Unicode-Zeichen verwenden.
+So ist es möglich, alle Methoden die auf 16 Bit begrenzt sind weiterhin zu nutzen. Vorausgesetzt, dass Sie keine der neuen Unicode-Zeichen benötigen.
 
-Wenn Sie eine vollständige Unicode-Unterstützung benötigen, kann die Verwendung 
-der alten Methoden zu versteckten Fehlern führen.
+Wenn Sie eine vollständige Unicode-Unterstützung benötigen, führt die Verwendung der alten Methoden unter Umständen zu versteckten Fehlern.
 
-> Ein sehr populäres Beispiel für Unicode-Zeichen, die nicht im BMP 
-enthalten sind sind Emojis: Das einfache lachende Gesicht 😀 
-[U + 1F600](https://unicode-table.com/de/#1F600)
-kann nicht in einem einzelnen Zeichen dargestellt werden.
+> Populäre Beispiele für Unicode-Zeichen, die nicht im BMP enthalten sind, sind Emojis: Das lachende Gesicht 😀 [U + 1F600](https://unicode-table.com/de/#1F600) benötigt 32 Bit, ergo zwei Zeichen.
 
-Was ich genau mit versteckten Fehler meine, verdeutlicht der nachfolgende 
-Programmcode. Als Beispiel habe ich das Leerzeichen und das Emoji mit dem 
-lachenden Gesicht gegenübergestellt. 
-Die Unicode-Nummer des Emoji mit dem 
-lachenden Gesicht ist `U+1F600` und der HTML-Code dazu 
-ist `&#128512;`. 
-Die Unicode-Nummer das Ausrufezeichen ist `U+0021` und der HTML-Code dazu 
-ist `&#33;`.
+Was ich genau mit versteckten Fehler meine, verdeutlicht der nachfolgende Programmcode. Als Beispiel habe ich das Leerzeichen und das Emoji mit dem lachenden Gesicht gegenübergestellt. Die Unicode-Nummer des Emojis ist `U+1F600` und der HTML-Code dazu ist `&#128512;`. Die Unicode-Nummer das Ausrufezeichen ist `U+0021` und der HTML-Code dazu ist `&#33;`.
 
 ``` 
 let text = "😀";
@@ -169,12 +142,10 @@ für `charCodeAt()` gibt es die fromCodePoint()-Methode als Pentant zu
 `fromCharCode()`. `fromCodePoint()` bietet das gleiche Ergebnis 
 wie `fromCharCode()` bei einer vollständige Unicode-Unterstützung.
 
-
-
 | BMP-Bereich   | vollständige Unicode-Unterstützung |
-| ------------- | ------------- |
-| fromCharCode()| fromCodePoint() |
-| charCodeAt()| codePointAt() |
+| ------------- | ---------------------------------- |
+| fromCharCode()| fromCodePoint()                    |
+| charCodeAt()  | codePointAt()                      |
 
 ### normalize()
 
@@ -444,15 +415,12 @@ mehrere Zeilen zu verteilen.
 
 <!--index_964.html -->
 ```
+## Erfolgsmethode - Best Practice
+
+## Alles noch einmal zusammengefasst
+
+## Referenzen und externe Links
+
+[Unicode](https://de.wikipedia.org/wiki/Unicode)
 
 
-
-
-> **Achtung:**
-
-
-## In diesem Kapitel haben wir ...
-
-xxx
-
-[^1]: https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640 (https://bit.ly/2GT9nQS)
