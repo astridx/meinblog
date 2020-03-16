@@ -1,6 +1,6 @@
 ---
 date: 2019-12-11
-title: 'Joomla 4: Erweiterung erstellen Teil 11'
+title: 'Joomla 4: Erweiterung erstellen Teil 11 - Konfiguration'
 template: post
 thumbnail: '../thumbnails/joomlatut.png'
 slug: jooomla-erweiterung-11

@@ -11,7 +11,11 @@ tags:
   - Joomla 
 ---
 
-Du möchtest Custom Fields in eine Joomla Erweiterung integrieren? Dann beginne mit dem Administrationsbereiche.
+Custom Fields in Joomla! sind in aller Munde. Sie bieten viele zusätzliche Möglichkeiten. Deshalb unterstützt unsere Komponente die benutzerdefinierten Felder.  
+
+Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel zeigen wir den Inhalt der Custom Fields im Frontend an. 
+
+![Joomla! Custom Fields in eine eigene Komponente integrieren](../images/j4x17x1.png)
 
 ## Für Ungeduldige
 
@@ -27,7 +31,17 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
 
-2.
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
+
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Du siehst eine weitere Seitenleiste. Klicke auf den Menüpunkt `Fields ` in diesem neuen Menü. 
+
+![Joomla! Custom Fields in eine eigene Komponente integrieren](../images/j4x17x1.png)
+
+3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text `.  
+
+4. Überzeuge dich davon, dass du dieses Feld beim Edieren eines Foo-Items ebenfalls editieren zum Bearbeiten angeboten bekommst.
+
+![Joomla! Custom Fields in eine eigene Komponente integrieren](../images/j4x17x2.png)
 
 ## Geänderte Dateien
 

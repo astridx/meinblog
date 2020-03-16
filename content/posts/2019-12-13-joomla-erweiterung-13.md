@@ -11,7 +11,12 @@ tags:
   - Joomla 
 ---
 
-Serverseitige Validierung.
+Deine Komponente ist benutzerfreundlich. User Experience (UX) oder Nutzererfahrung ist in aller Munde. Wenn ein Benutzer fehlerhafte Daten eingibt, ist es dir wichtig, dass dieser hierzu eine Erklärung erhält.
+Dazu fügen wir die Validierung hinzu. Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla! ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicherer, Benutzereingaben vom Server zu überprüfen.  Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprache sind problemloser auszutricksen. Eindringlinge umgehen sie und senden bösartige Eingaben an den Server.  
+
+> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen sie gleichzeitig zu verwenden. Die serverseitige Validierung ist sicherer. Die Clientseitige benutzerfreundlicher!
+
+Dieser Teil behandelt die die serverseitige Validierung in Joomla! 4.
 
 ## Für Ungeduldige
 
@@ -27,17 +32,17 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
 
-2.
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
 
-## Teste deine Joomla-Komponente
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle ein neues Item oder editiere ein vorhandenes. Gib im Textfeld für den Titel dabei eine Zahl ein. 
 
-1. Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:
+3. Editiere danach ein anderes Feld, setze zum Beispiel den Zugriff auf `Registered`. 
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+4. Überzeuge dich davon, dass dir zu diesem Zeitpunkt __keine__ Warnung angezeigt wird.
 
-2.
+5. Versuche am Ende, deine Eingabe zu speichern. Dies ist nicht möglich. Du siehst einen Warnhinweis.
+
+![Joomla! Validierung](../images/j4x13x1.png)
 
 ## Geänderte Dateien
 
