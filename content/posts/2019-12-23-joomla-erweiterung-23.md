@@ -11,7 +11,9 @@ tags:
   - Joomla 
 ---
 
-Pagination.
+Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist nicht sinnvoll. Es schadet der Übersicht und der Performance. Deshalb teilen wir die Items auf Unterseiten auf und fügen eine Paginierung zum Navigieren im unteren Bereich hinzu.
+
+![Joomla! Pagination](../images/j4x23x1.png) 
 
 ## Für Ungeduldige
 
@@ -27,7 +29,11 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
 
-2.
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
+
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle so viele Items, dass diese nicht mehr auf einer Seite angezeigt werden. Im unteren Bereich siehst du eine Navigation, um durch die Inhalte zu blättern.
+
+![Joomla! Pagination](../images/j4x23x1.png) 
 
 ## Geänderte Dateien
 

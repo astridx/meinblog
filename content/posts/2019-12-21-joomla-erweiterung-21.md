@@ -11,7 +11,9 @@ tags:
   - Joomla 
 ---
 
-Aktionen in der Werkzeugleiste
+Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben zu erledigen. Damit die Menschen, die mit der Komponente arbeiten, immer den Überblick über die möglichen Arbeitsschritte haben, empfiehlt sich eine Werkzeugleiste. In diesem Teil der Tutorialserie ergänzen wir die Standardaktionen. Hierbei greifen wir auf eine Vielzahl vorgefertigter Methoden zu. Wieder ist es nicht nötig, das Rad selbst zu erfinden.
+
+![Joomla! Aktionen in der Werkzeugleiste](../images/j4x21x1.png)
 
 ## Für Ungeduldige
 
@@ -27,7 +29,13 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
 
-2.
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
+
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. In der Werkzeugleiste siehst du eine Auswahlliste zum Anstoßen von verschiedenen Aktionen. 
+
+![Joomla! Aktionen in der Werkzeugleiste](../images/j4x21x1.png) 
+
+![Joomla! Aktionen in der Werkzeugleiste](../images/j4x21x.png) 
 
 ## Geänderte Dateien
 
