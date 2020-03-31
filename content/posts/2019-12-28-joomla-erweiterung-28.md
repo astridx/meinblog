@@ -15,7 +15,7 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla! ein spezielle
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t23...t24) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
 

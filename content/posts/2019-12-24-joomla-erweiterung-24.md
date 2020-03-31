@@ -15,7 +15,7 @@ Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu ges
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
 

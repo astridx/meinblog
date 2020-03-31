@@ -17,7 +17,7 @@ Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? 
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
 

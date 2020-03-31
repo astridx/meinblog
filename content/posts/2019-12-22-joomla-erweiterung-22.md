@@ -29,7 +29,7 @@ Beim Menüpunkt hatten wir schon einen Parameter gesetzt und für die Komponente
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t16...t17) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t17...t18) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
 
