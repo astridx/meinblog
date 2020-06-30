@@ -1,123 +1,48 @@
-import React, { Component } from 'react'
-import Helmet from 'react-helmet'
+import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import Layout from '../layout'
-import UserInfo from '../components/UserInfo'
-import PostTags from '../components/PostTags'
+import Helmet from 'react-helmet'
+
+import Layout from '../components/Layout'
+import Sidebar from '../components/Sidebar'
+import Suggested from '../components/Suggested'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
-import { formatDate, editOnGithub } from '../utils/global'
-import NewsletterForm from '../components/NewsletterForm'
 
-export default class PostTemplate extends Component {
-  constructor(props) {
-    super(props)
+import config from '../utils/config'
 
-    this.state = {
-      error: false,
-    }
-  }
+export default function PostTemplate({ data, pageContext }) {
+  const post = data.markdownRemark
+  const { previous, next } = pageContext
 
-  render() {
-    const { comments, error } = this.state
-    const { slug } = this.props.pageContext
-    const postNode = this.props.data.markdownRemark
-    const post = postNode.frontmatter
-    const popular = postNode.frontmatter.categories.find(category => category === 'Popular')
-    let thumbnail
-
-    if (!post.id) {
-      post.id = slug
-    }
-
-    if (!post.category_id) {
-      post.category_id = config.postDefaultCategoryID
-    }
-
-    if (post.thumbnail) {
-      thumbnail = post.thumbnail.childImageSharp.fixed
-    }
-
-    const date = formatDate(post.date)
-    const githubLink = editOnGithub(post)
-    const twitterShare = `http://twitter.com/share?text=${encodeURIComponent(post.title)}&url=${
-      config.siteUrl
-    }/${post.slug}/&via=astridguenther`
-
-    return (
-      <Layout>
-        <Helmet>
-          <title>{`${post.title} – ${config.siteTitle}`}</title>
-        </Helmet>
-        <SEO postPath={slug} postNode={postNode} postSEO />
-        <article className="single container">
-          <header className={`single-header ${!thumbnail ? 'no-thumbnail' : ''}`}>
-            {thumbnail && <Img fixed={post.thumbnail.childImageSharp.fixed} />}
-            <div className="flex">
-              <h1>{post.title}</h1>
-              <div className="post-meta">
-                <time className="date">{date}</time>/
-                <a
-                  className="twitter-link"
-                  href={twitterShare}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Share
-                </a>
-                /
-                <a
-                  className="github-link"
-                  href={githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Edit ✏️
-                </a>
-              </div>
-              <PostTags tags={post.tags} />
-            </div>
-          </header>
-
-          <div className="post" dangerouslySetInnerHTML={{ __html: postNode.html }} />
+  return (
+    <Layout>
+      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
+      <SEO postPath={post.fields.slug} postNode={post} postSEO />
+      <header className="article-header medium">
+        <h1>{post.frontmatter.title}</h1>
+      </header>
+      <section className="grid post">
+        <article>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
-        <div className="container no-comments">
-          <h3>No comments?</h3>
-          <p>
-            There are intentionally no comments on this site. Enjoy! If you found any errors in this
-            article, please feel free to{' '}
-            <a className="github-link" href={githubLink} target="_blank" rel="noopener noreferrer">
-              edit on GitHub
-            </a>
-            .
-          </p>
-        </div>
-        <div className="container">
-          <a
-            className="button"
-            href="https://astrid.substack.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Abonniere den Newsletter
-          </a>
-        </div>
-        <UserInfo config={config} />
-      </Layout>
-    )
-  }
+        <Sidebar post={post} />
+      </section>
+      <Suggested previous={previous} next={next} />
+    </Layout>
+  )
 }
 
-/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      timeToRead
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
+        date(formatString: "DD.MM.YYYY")
+        tags
         thumbnail {
           childImageSharp {
             fixed(width: 150, height: 150) {
@@ -125,15 +50,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        slug
-        date
-        categories
-        tags
-        template
-      }
-      fields {
-        slug
-        date
       }
     }
   }
