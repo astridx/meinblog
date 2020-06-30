@@ -1,29 +1,108 @@
-const urljoin = require('url-join')
-const config = require('./data/SiteConfig')
-
 module.exports = {
-  pathPrefix: config.pathPrefix === '' ? '/' : config.pathPrefix,
   siteMetadata: {
-    siteUrl: urljoin(config.siteUrl, config.pathPrefix),
-    rssMetadata: {
-      site_url: urljoin(config.siteUrl, config.pathPrefix),
-      feed_url: urljoin(config.siteUrl, config.pathPrefix, config.siteRss),
-      title: config.siteTitle,
-      description: config.siteDescription,
-      image_url: `${urljoin(config.siteUrl, config.pathPrefix)}/logos/logo-48.png`,
+    title: 'Astrid Günther',
+    author: {
+      name: 'Astrid Günther',
     },
+    pathPrefix: '/',
+    siteUrl: 'https://astrid-guenther.de/',
+    description:
+      'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
+    feedUrl: 'https://astrid-guenther.de/rss.xml',
+    logo: 'https://astrid-guenther.de/logo.png',
   },
   plugins: [
-    'gatsby-plugin-sass',
+    // ===================================================================================
+    // Meta
+    // ===================================================================================
+
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-netlify',
     {
-      resolve: `gatsby-plugin-netlify`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        headers: {
-          '/*.js': ['cache-control: public, max-age=31536000, immutable'],
-          '/*.css': ['cache-control: public, max-age=31536000, immutable'],
-          '/sw.js': ['cache-control: public, max-age=0, must-revalidate'],
-        },
+        name: 'Astrid Günther',
+        short_name: 'Astrid Günther',
+        description:
+          'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
+        start_url: '/',
+        background_color: 'white',
+        theme_color: '#5183f5',
+        display: 'minimal-ui',
+        icon: `static/logo.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map((edge) => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  categories: edge.node.frontmatter.tags,
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMarkdownRemark(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                  filter: { frontmatter: { template: { eq: "post" } } }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { 
+                        slug 
+                      }
+                      frontmatter {
+                        title
+                        date
+                        tags
+                        template
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'TaAstrid Günther | RSS Feed',
+          },
+        ],
+      },
+    },
+
+    // ===================================================================================
+    // Images and static
+    // ===================================================================================
+
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/content/`,
       },
     },
     {
@@ -33,19 +112,11 @@ module.exports = {
         path: `${__dirname}/static/`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: `${__dirname}/src/utils/typography.js`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'posts',
-        path: `${__dirname}/content/`,
-      },
-    },
+
+    // ===================================================================================
+    // Markdown
+    // ===================================================================================
+
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -53,135 +124,65 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 850,
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: true,
+              prompt: {
+                user: 'root',
+                host: 'localhost',
+                global: true,
+              },
             },
           },
           'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              offsetY: `100`,
-              maintainCase: false,
-              removeAccents: true,
-            },
-          },
         ],
       },
     },
+
+    // ===================================================================================
+    // Search
+    // ===================================================================================
+
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-local-search',
       options: {
-        trackingId: config.googleAnalyticsID,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: config.themeColor,
-      },
-    },
-    'gatsby-plugin-sharp',
-    `gatsby-transformer-sharp`,
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-sitemap',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'minimal-ui',
-        icons: [
-          {
-            src: '/logos/logo-48.png',
-            sizes: '48x48',
-            type: 'image/png',
-          },
-          {
-            src: '/logos/logo-1024.png',
-            sizes: '1024x1024',
-            type: 'image/png',
-          },
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        setup(ref) {
-          const ret = ref.query.site.siteMetadata.rssMetadata
-          ret.allMarkdownRemark = ref.query.allMarkdownRemark
-          ret.generator = 'Astrid Günther'
-          return ret
+        name: 'pages',
+        engine: 'flexsearch',
+        engineOptions: {
+          encode: 'icase',
+          tokenize: 'forward',
+          async: false,
         },
         query: `
-        {
-          site {
-            siteMetadata {
-              rssMetadata {
-                site_url
-                feed_url
-                title
-                description
-                image_url
+          {
+            allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" } } }) {
+              nodes {
+                id
+                frontmatter {
+                  title
+                  tags
+                  slug
+                  date(formatString: "DD.MM.YYYY")
+                }
+                rawMarkdownBody
               }
             }
           }
-        }
-      `,
-        feeds: [
-          {
-            serialize(ctx) {
-              const { rssMetadata } = ctx.query.site.siteMetadata
-              return ctx.query.allMarkdownRemark.edges.map(edge => ({
-                categories: edge.node.frontmatter.tags,
-                date: edge.node.fields.date,
-                title: edge.node.frontmatter.title,
-                description: edge.node.excerpt,
-                url: rssMetadata.site_url + edge.node.fields.slug,
-                guid: rssMetadata.site_url + edge.node.fields.slug,
-                custom_elements: [
-                  { 'content:encoded': edge.node.html },
-                  { author: config.userEmail },
-                ],
-              }))
-            },
-            query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [fields___date] },
-                filter: { frontmatter: { template: { eq: "post" } } }
-              ) {
-                edges {
-                  node {
-                    excerpt(pruneLength: 180)
-                    html
-                    timeToRead
-                    fields {
-                      slug
-                      date
-                    }
-                    frontmatter {
-                      title
-                      date
-                      categories
-                      tags
-                      template
-                    }
-                  }
-                }
-              }
-            }
-          `,
-            output: config.siteRss,
-            title: 'Astrid Günther - RSS Feed',
-          },
-        ],
+        `,
+        ref: 'id',
+        index: ['title', 'body', 'tags'],
+        store: ['id', 'slug', 'title', 'tags', 'date'],
+        normalizer: ({ data }) =>
+          data.allMarkdownRemark.nodes.map((node) => ({
+            id: node.id,
+            slug: `/${node.frontmatter.slug}`,
+            title: node.frontmatter.title,
+            body: node.rawMarkdownBody,
+            tags: node.frontmatter.tags,
+            date: node.frontmatter.date,
+          })),
       },
     },
   ],

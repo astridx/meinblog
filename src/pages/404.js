@@ -1,38 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
-import ThemeContext from '../context/ThemeContext'
-import Layout from '../layout'
+
+import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
 
-export default class NotFoundPage extends Component {
-  static contextType = ThemeContext
+import config from '../utils/config'
 
-  componentDidMount() {
-    const { setNotFound } = this.context
-
-    setNotFound()
-  }
-
-  componentWillUnmount() {
-    const { setFound } = this.context
-
-    setFound()
-  }
-
-  render() {
-    return (
-      <Layout>
-        <Helmet title={`Seite nicht gefunden – ${config.siteTitle}`} />
-        <SEO />
-        <div className="container">
-          <div className="text-center">
-            <h1>404</h1>
-          </div>
-          <p>
-          </p>
-        </div>
-      </Layout>
-    )
-  }
+export default function FourOhFour() {
+  return (
+    <Layout>
+      <Helmet title={`404 | ${config.siteTitle}`} />
+      <SEO />
+      <h1>404</h1>
+      <p>This was probably a mistake.</p>
+    </Layout>
+  )
 }

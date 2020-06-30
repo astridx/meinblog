@@ -1,33 +1,37 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
-import gatsby from '../../content/thumbnails/gatsby.png'
-import github from '../../content/images/github.png'
 
-export default class Footer extends Component {
-  render() {
-    return (
-      <footer className="footer container">
-        <div>
-          <a href="https://github.com/astridx" title="Open-source on GitHub">
-            <img
-              src={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-img"
-              alt="GitHub"
-            />
+import gatsby from '../../content/thumbnails/gatsby.png'
+import github from '../../content/thumbnails/github.png'
+
+export default function Footer() {
+  return (
+    <footer className="footer container">
+      <section className="flex">
+        <nav className="footer-links">
+          <Link to="/blog">Blog</Link>
+        </nav>
+        <nav className="flex">
+          <a
+            href="https://www.gatsbyjs.org/"
+            title="Built with Gatsby"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="img"
+          >
+            <img src={gatsby} className="footer-img" alt="Gatsby" />
           </a>
-          <a href="https://www.gatsbyjs.org/" title="Erstellt mit Gatsby">
-            <img
-              src={gatsby}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-img"
-              alt="Gatby"
-            />
+          <a
+            href="https://github.com/astridx"
+            title="Open-source on GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="img"
+          >
+            <img src={github} className="footer-img" alt="GitHub" />
           </a>
-        </div>
-      </footer>
-    )
-  }
+        </nav>
+      </section>
+    </footer>
+  )
 }
