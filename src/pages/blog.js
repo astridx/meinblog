@@ -20,7 +20,7 @@ export default function BlogIndex({ data }) {
       <section>
         <h1>Blog</h1>
         <p className="subtitle">
-           Artikel, Tutorials, Schnipsel, Überlegungen und alles andere.
+          Artikel, Tutorials, Schnipsel, Überlegungen und alles andere.
         </p>
         <Search posts={simplifiedPosts} />
       </section>

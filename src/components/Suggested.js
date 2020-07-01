@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 export default function Suggested({ previous, next }) {
   return (
     <>
-      <h2>Up next</h2>
+      <h2>Vor oder zurück ...</h2>
       <nav className="flex container suggested">
         {previous && (
           <Link to={previous.fields.slug} rel="prev">

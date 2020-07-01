@@ -13,6 +13,9 @@ export default function Nav() {
         <div>
           <Link to="/blog">Blog</Link>
         </div>
+        <div>
+          <Link to="/guides">Themen</Link>
+        </div>
       </div>
     </nav>
   )

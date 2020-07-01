@@ -5,11 +5,11 @@ module.exports = {
       name: 'Astrid Günther',
     },
     pathPrefix: '/',
-    siteUrl: 'https://astrid-guenther.de/',
+    siteUrl: 'https://blog.astrid-guenther.de/',
     description:
       'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
-    feedUrl: 'https://astrid-guenther.de/rss.xml',
-    logo: 'https://astrid-guenther.de/logo.png',
+    feedUrl: 'https://blog.astrid-guenther.de/rss.xml',
+    logo: 'https://blog.astrid-guenther.de/logo.png',
   },
   plugins: [
     // ===================================================================================

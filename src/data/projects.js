@@ -4,7 +4,6 @@ export default [
     title: ' Primitive',
     path: 'https://github.com/astridx/pkg_agosms',
     source: 'https://github.com/astridx/pkg_agosms',
-    description:
-      'Openstreetmap Modul für Joomla.',
+    description: 'Openstreetmap Modul für Joomla.',
   },
 ]

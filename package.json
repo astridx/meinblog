@@ -1,9 +1,9 @@
 {
-  "name": "taniarascia.com",
+  "name": "blog.astrid-guenther.de",
   "private": true,
   "version": "3.0.0",
-  "description": "Personal website running on Gatsby, React, and Node.js.",
-  "author": "Tania Rascia",
+  "description": "Gatsby, React, and Node.js.",
+  "author": "Astrid Günther",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -40,6 +40,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taniarascia/taniarascia.com"
+    "url": "https://github.com/astridx/meinblog"
   }
 }

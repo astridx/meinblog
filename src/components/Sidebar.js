@@ -27,6 +27,15 @@ export default function Sidebar({ post }) {
                 </Link>
               ))}
           </div>
+          <h3></h3>
+          <div>
+            Bitte lasse mich wissen, wenn etwas falsch oder unklar ist. Öffne
+            gerne ein{' '}
+            <Link to="https://github.com/astridx/meinblog/issues/">
+              Github-Issue
+            </Link>
+            .
+          </div>
         </section>
       </div>
     </aside>

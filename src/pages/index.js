@@ -37,16 +37,12 @@ export default function BlogIndex({ data }) {
       <section className="small lead">
         <h1>Willkommen</h1>
         <p className="subtitle">
-          Ich bin Softwareentwicklerin, Autorin und ich mag {' '}
-          <a
-            href="https://github.com/astridx"
-            target="_blank"
-            rel="noreferrer"
-          >
+          Ich bin Softwareentwicklerin, Autorin und ich mag{' '}
+          <a href="https://github.com/astridx" target="_blank" rel="noreferrer">
             Open Source.
           </a>{' '}
-          Diese Website ist eine Art Kompendium. 
-          Hier sammele ich Wissen, welches ich im Laufe der Jahre lerne.
+          Diese Website ist eine Art Kompendium. Hier sammele ich Wissen,
+          welches ich im Laufe der Jahre lerne.
         </p>
       </section>
       <Section title="Neu">

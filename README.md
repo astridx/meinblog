@@ -1,2 +1,1 @@
 # blog.astrid-guenther.de
-
