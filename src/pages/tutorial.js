@@ -21,11 +21,12 @@ export default function BlogIndex({ data }) {
       <Helmet title={`Guides | ${config.siteTitle}`} />
       <SEO />
       <section>
-        <h1>Guides</h1>
-        <p className="subtitle">The missing instruction manuals of the web.</p>
+        <h1>Zusammenstellungen</h1>
+        <p className="subtitle">Die im Web fehlenden Anleitungen.</p>
         <p className="medium">
-          This is where I put my long-form tutorials, walkthroughs, references,
-          and resources on design, development, and programming.
+          Hier findest du eine Übersicht zu ausführlichen Tutorials,
+          exemplarischen Vorgehensweisen, Referenzen und Links zu Design,
+          Entwicklung und Programmierung.
         </p>
         <Guides data={simplifiedPosts} />
       </section>
@@ -37,7 +38,7 @@ export const pageQuery = graphql`
   query GuidesQuery {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { categories: { in: "Guides" } } }
+      filter: { frontmatter: { categories: { in: "Tutorial" } } }
     ) {
       edges {
         node {

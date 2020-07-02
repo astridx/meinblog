@@ -27,7 +27,7 @@ export default function Sidebar({ post }) {
                 </Link>
               ))}
           </div>
-          <h3></h3>
+          <h3>Fehler gefunden?</h3>
           <div>
             Bitte lasse mich wissen, wenn etwas falsch oder unklar ist. Öffne
             gerne ein{' '}

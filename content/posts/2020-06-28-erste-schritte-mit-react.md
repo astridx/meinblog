@@ -181,7 +181,7 @@ Ich habe dieses Beispiel in erster Linie zu Motivationszwecken gewählt und um d
 
 Jetzt werden wir eine andere Methode verwenden: Die _Create React App_.
 
-Facebook hat die [Create React App](https://github.com/facebook/create-react-app) erstellt: Eine Umgebung, die mit allem vorkonfiguriert ist, was du zum Erstellen einer *React App* benötigst:
+Facebook hat die [Create React App](https://github.com/facebook/create-react-app) erstellt: Eine Umgebung, die mit allem vorkonfiguriert ist, was du zum Erstellen einer _React App_ benötigst:
 
 - Ein Live-Entwicklungsserver wird erstellt.
 - Mit Webpack werden automatisch React-, JSX- und ES6-Dateien kompiliert.
@@ -190,7 +190,7 @@ Facebook hat die [Create React App](https://github.com/facebook/create-react-app
 
 Konzentrieren dich so voll und ganz auf das Lernen von React.
 
-Rufe zum Einrichten der *Create React App* den folgenden Code über deine Befehlszeile auf. Wähle für den Aufruf das Verzeichnis, in dem du das Projekt anlegst. Stelle sicher, dass du [Node.js](https://nodejs.org/de/) installiest hast.
+Rufe zum Einrichten der _Create React App_ den folgenden Code über deine Befehlszeile auf. Wähle für den Aufruf das Verzeichnis, in dem du das Projekt anlegst. Stelle sicher, dass du [Node.js](https://nodejs.org/de/) installiest hast.
 
 ```bash
 npx create-react-app react-tutorial
@@ -1023,7 +1023,11 @@ submitForm = () => {
 Schließlich fügen wir eine Schaltfläche zum Senden hinzu. Wir verwenden `onClick` anstelle `onSubmit`, da wir nicht die Standard-Submit-Funktionalität verwenden. Der Klick ruft die soeben erstellte Funktion `submitForm()` auf.
 
 ```jsx
-<input type="button" value="Neuen Listeneintrag absenden" onClick={this.submitForm} />
+<input
+  type="button"
+  value="Neuen Listeneintrag absenden"
+  onClick={this.submitForm}
+/>
 ```
 
 Und das ist es! Die App ist vollständig. Wir können Listeneinträge erstellen, hinzufügen und aus unserer Tabelle entfernen. Da `Table` und `TableBody` bereits aus dem Status gezogen wurden, wird alles akutell angezeigt.
@@ -1031,8 +1035,8 @@ Und das ist es! Die App ist vollständig. Wir können Listeneinträge erstellen,
 ![](../images/react11.png)
 
 Wenn du dich irgendwo verlaufen hast, sieh dir [den Code auf GitHub an](https://github.com/astridx/react-tutorial).
-> Im [Kapitel _Formulare in React_](https://github.com/the-road-to-learn-react/the-road-to-react-german/blob/master/manuscript/react-modern/forms.md) des Buch _The Road to React_ findest du weitere Informationen.
 
+> Im [Kapitel _Formulare in React_](https://github.com/the-road-to-learn-react/the-road-to-react-german/blob/master/manuscript/react-modern/forms.md) des Buch _The Road to React_ findest du weitere Informationen.
 
 ## API-Daten abrufen
 
@@ -1040,7 +1044,7 @@ Häufige werden Daten einer API verwendet. Deshalb möchte ich Datenabrufe hier 
 
 > Sieh dir für ein vollständiges Beispiel [zu Datenabrufe in React](https://github.com/the-road-to-learn-react/the-road-to-react-german/blob/master/manuscript/react-modern/data-fetching.md) im Buch _The Road to React_ an.
 
-Erstelle die Datei `Api.js` und in ihr die Komponente `Api`. Eine öffentliche API, mit der wir testen können, ist die [Hacker News API](https://hn.algolia.com/api). Wir nutzen die Fetch API. Diese bietet eine Schnittstelle zum Abrufen von Daten. Ich werde diesen Code nicht zeilenweise erklären, da wir bereits gelernt haben, eine Komponente zu erstellen, zu rendern und über ein Status-Array zu aktualisieren. Neu ist `componentDidMount()`, eine React-Lebenszyklusmethode. **Lebenszyklus** ist die Reihenfolge, in der Methoden in React aufgerufen werden. 
+Erstelle die Datei `Api.js` und in ihr die Komponente `Api`. Eine öffentliche API, mit der wir testen können, ist die [Hacker News API](https://hn.algolia.com/api). Wir nutzen die Fetch API. Diese bietet eine Schnittstelle zum Abrufen von Daten. Ich werde diesen Code nicht zeilenweise erklären, da wir bereits gelernt haben, eine Komponente zu erstellen, zu rendern und über ein Status-Array zu aktualisieren. Neu ist `componentDidMount()`, eine React-Lebenszyklusmethode. **Lebenszyklus** ist die Reihenfolge, in der Methoden in React aufgerufen werden.
 
 Wenn wir API-Daten abrufen, möchten wir sicherstellen, dass die Komponente in das DOM gerendert wurde, bevor wir die Daten einbringen. Im folgenden Ausschnitt siehst du examplarisch, wie Daten aus der Hacker News API auf der Seite integriert werden.
 
@@ -1095,7 +1099,6 @@ export default Api
 Sobald du diese Datei gespeichert, sie in App.js importiert und gerendert hast, werden die Hacker News-API-Daten im DOM angezeigt.
 
 ![](../images/react6.png)
-
 
 ## Erstellen und Bereitstellen einer React-App
 
@@ -1153,13 +1156,14 @@ Wir sind fertig! Die App ist jetzt live verfügbar: [https:/astridx.github.io/re
 
 ## Fazit
 
-Dieser Artikel hat das Ziel eine Einführung in React zu sein. Es gibt einen Überblick über die Themen 
-- Funktions- und Klassenkomponenten, 
-- Status, 
-- Eigenschaften (Props), 
- - Arbeiten mit Formulardaten, 
- - Abrufen von Daten aus einer API und 
-- Bereitstellen einer App. 
+Dieser Artikel hat das Ziel eine Einführung in React zu sein. Es gibt einen Überblick über die Themen
+
+- Funktions- und Klassenkomponenten,
+- Status,
+- Eigenschaften (Props),
+- Arbeiten mit Formulardaten,
+- Abrufen von Daten aus einer API und
+- Bereitstellen einer App.
 
 Ein Blogbeitrag informiert nicht allumfassend. Er gibt nur einen Eindruck. Ich hoffe, dass ich dir diesen vermittelt habe und du nun Lust hast, tiefer in React hinein zu blicken. Wenn dir der Beitrag gefallen hat, dann ist das [Buch](https://github.com/the-road-to-learn-react/the-road-to-react-german) sicher ebenfalls etwas für dich.
 
