@@ -36,6 +36,13 @@ export default function Sidebar({ post }) {
             </Link>
             .
           </div>
+          <h3>Du oder Sie?</h3>
+          <div>
+            Ob Du oder Sie - das ist im Deutschen oft gar nicht so leicht zu
+            entscheiden. Manche Leser sieze ich, andere duze ich. Deshalb gibt
+            es im Weblog ein bunter Durcheinander und jeder sucht sich das aus,
+            was für Ihn passt.
+          </div>
         </section>
       </div>
     </aside>

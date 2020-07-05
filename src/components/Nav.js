@@ -12,7 +12,7 @@ export default function Nav() {
         </div>
         <div>
           <Link to="/blog">Blog</Link>
-          <Link to="/tutorial">Zusammenstellungen</Link>
+          <Link to="/tutorial">Sets</Link>
         </div>
       </div>
     </nav>

@@ -21,7 +21,7 @@ export default function BlogIndex({ data }) {
       <Helmet title={`Guides | ${config.siteTitle}`} />
       <SEO />
       <section>
-        <h1>Zusammenstellungen</h1>
+        <h1>Sets</h1>
         <p className="subtitle">Die im Web fehlenden Anleitungen.</p>
         <p className="medium">
           Hier findest du eine Übersicht zu ausführlichen Tutorials,
