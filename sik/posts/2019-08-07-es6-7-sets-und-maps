@@ -1,0 +1,52 @@
+---
+date: 2019-08-01
+title: 'ECMAScript 6 - Sets und Maps'
+template: post
+thumbnail: '../thumbnails/js.png'
+slug: sets-und-maps
+categories:
+  - JavaScript
+tags:
+  - ecmascript
+  - javascript
+---
+
+# ECMAScript 6 - Symbole
+[](#){#Symbole}
+
+
+## In diesem Kapitel werden wir …
+Zunächst zeige ich Ihnen, wie Sie 
+Todo Meldungen immer mit Firefox
+
+## Sets und Maps
+## Workaround
+## Sets
+### Creating
+### Remove Item
+### foreache()
+### conerting Set in Array
+### Weak Sets
+## Maps
+### Map Methoden
+### Initialisierung
+### forEach()
+### Weak Maps
+
+
+
+```
+<!--index_926.html -->
+```
+
+
+
+## Erfolgsmethode - Best Practice
+
+## Alles noch einmal zusammengefasst
+
+## Referenzen und externe Links
+
+[^1]: https://de.wikipedia.org/w/index.php?title=Interpreter&oldid=182588640 (https://bit.ly/2GT9nQS)
+
+todo https://github.com/woota/FE-training-examples/blob/master/es6/4.%20Arrow-Functions.md
