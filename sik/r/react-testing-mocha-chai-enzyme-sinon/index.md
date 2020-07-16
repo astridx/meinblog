@@ -1,13 +1,20 @@
 ---
-title: "How to test React with Mocha, Chai & Enzyme"
-description: "Learn how to test your React application with Mocha, Chai & Enzyme. Mocha will be used as a test runner, Chai as testing library, and Enzyme for your actual React component tests ..."
-date: "2019-07-21T13:56:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel", "Enzyme"]
-keywords: ["react testing enzyme", "react mocha", "react chai", "react sinon", "react enzyme"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to test React with Mocha, Chai & Enzyme'
+description: 'Learn how to test your React application with Mocha, Chai & Enzyme. Mocha will be used as a test runner, Chai as testing library, and Enzyme for your actual React component tests ...'
+date: '2019-07-21T13:56:46+02:00'
+categories: ['React', 'Tooling', 'Webpack', 'Babel', 'Enzyme']
+keywords:
+  [
+    'react testing enzyme',
+    'react mocha',
+    'react chai',
+    'react sinon',
+    'react enzyme',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,76 +23,67 @@ author: ""
 
 Before setting up the test setup with different testing libraries and writing the React component tests, you will need a simple React application which can be tested in the first place. You will introduce a simple App component which can be tested in the following sections. If it's too difficult for you to follow the next parts of the React application, you should grab a copy of [The Road to learn React](/the-road-to-learn-react/) to learn about React itself before testing a React application.
 
-Let's start in the *src/index.js* file. Here you can import the App component which is not implemented yet and render it.
+Let's start in the _src/index.js_ file. Here you can import the App component which is not implemented yet and render it.
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from './App';
+import App from './App'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'))
 ```
 
-The App component is an JavaScript ES6 class component that has its own state. It's a Counter component where it should be possible to increment and decrement a digit by clicking on either of two buttons. The file for the App component should be located in *src/App.js*.
+The App component is an JavaScript ES6 class component that has its own state. It's a Counter component where it should be possible to increment and decrement a digit by clicking on either of two buttons. The file for the App component should be located in _src/App.js_.
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       counter: 0,
-    };
+    }
 
-    this.onIncrement = this.onIncrement.bind(this);
-    this.onDecrement = this.onDecrement.bind(this);
+    this.onIncrement = this.onIncrement.bind(this)
+    this.onDecrement = this.onDecrement.bind(this)
   }
 
   onIncrement() {
     this.setState((prevState) => ({
       counter: prevState.counter + 1,
-    }));
+    }))
   }
 
   onDecrement() {
     this.setState((prevState) => ({
       counter: prevState.counter - 1,
-    }));
+    }))
   }
 
   render() {
-    const { counter } = this.state;
+    const { counter } = this.state
 
     return (
       <div>
         <h1>My Counter</h1>
         <p>{counter}</p>
 
-        <button
-          type="button"
-          onClick={this.onIncrement}
-        >
+        <button type="button" onClick={this.onIncrement}>
           Increment
         </button>
 
-        <button
-          type="button"
-          onClick={this.onDecrement}
-        >
+        <button type="button" onClick={this.onDecrement}>
           Decrement
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 So far, hopefully everything should be clear on how this component works. If it's not clear, make sure to grab the ebook/course "The Road to learn React" after reading this tutorial.
@@ -212,7 +210,7 @@ npm install --save-dev jsdom
 
 These three libraries are everything you need for a minimal test environment. You will use these to test a couple of things in the following. Later on, you will learn in the next sections about advanced libraries to enrich your React component testing tool set.
 
-In the last step of this section, let's see how these three libraries are configured together in order to start testing your application. On the command line, create the necessary files as test configurations in a new test folder. In your project, create next to your *src/* folder a *test/* folder for all your test configuration.
+In the last step of this section, let's see how these three libraries are configured together in order to start testing your application. On the command line, create the necessary files as test configurations in a new test folder. In your project, create next to your _src/_ folder a _test/_ folder for all your test configuration.
 
 ```javascript
 mkdir test
@@ -220,45 +218,48 @@ cd test
 touch helpers.js dom.js
 ```
 
-Both files will be filled with content now. Later on, they will be used as configuration to run the tests via a script on the command line. Let's go first with the *test/helpers.js* file:
+Both files will be filled with content now. Later on, they will be used as configuration to run the tests via a script on the command line. Let's go first with the _test/helpers.js_ file:
 
 ```javascript
-import { expect } from 'chai';
+import { expect } from 'chai'
 
-global.expect = expect;
+global.expect = expect
 ```
 
 The only thing we are doing in this file is importing the expect function from the chai assertion library. This function is used later on in your tests to assert: "Expect X to be equal to Y". Furthermore, the expect function is made globally accessible in all your test files by using this file. That's how you can make `expect()` the default function in your tests without importing the function in each file explicitly. It's always there in every of your test files, because you will need it anyway in every test. In the following sections, you will add more of these globally accessible test functions, because you most likely need them in every test anyways.
 
-In the other file, the *test/dom.js* file, you will setup your pseudo browser environment for your React components which render HTML eventually. Open the *test/dom.js* file and add the following lines to it:
+In the other file, the _test/dom.js_ file, you will setup your pseudo browser environment for your React components which render HTML eventually. Open the _test/dom.js_ file and add the following lines to it:
 
 ```javascript
-import { JSDOM } from 'jsdom';
+import { JSDOM } from 'jsdom'
 
-const { window } = new JSDOM('<!doctype html><html><body></body></html>');
+const { window } = new JSDOM('<!doctype html><html><body></body></html>')
 
 function copyProps(src, target) {
   const props = Object.getOwnPropertyNames(src)
-    .filter(prop => typeof target[prop] === 'undefined')
-    .reduce((result, prop) => ({
-      ...result,
-      [prop]: Object.getOwnPropertyDescriptor(src, prop),
-    }), {});
-  Object.defineProperties(target, props);
+    .filter((prop) => typeof target[prop] === 'undefined')
+    .reduce(
+      (result, prop) => ({
+        ...result,
+        [prop]: Object.getOwnPropertyDescriptor(src, prop),
+      }),
+      {}
+    )
+  Object.defineProperties(target, props)
 }
 
-global.window = window;
-global.document = window.document;
+global.window = window
+global.document = window.document
 global.navigator = {
   userAgent: 'node.js',
-};
+}
 
-copyProps(window, global);
+copyProps(window, global)
 ```
 
 This tutorial isn't going to explain the last code snippet in too much detail. Basically the code snippet helps us to mimic the browser for our React component tests. You can see that the jsdom library is used to create a `window` object which should be available in the browser, but also a couple of more objects (e.g. `document` object). Don't worry too much about this file, because most likely you will never have to touch it again.
 
-Now you have both helper files for your tests in place. One to expose functions from your test libraries globally to all your test files, because they are needed anyway, and one to mimic the DOM for your React component tests. Last but not least, you need to define the `npm run test` script in your package.json. This script should execute all your test files, which have a specific suffix in their file name, and use the two previously defined files as configuration for the test environment. In your *package.json* add the following script:
+Now you have both helper files for your tests in place. One to expose functions from your test libraries globally to all your test files, because they are needed anyway, and one to mimic the DOM for your React component tests. Last but not least, you need to define the `npm run test` script in your package.json. This script should execute all your test files, which have a specific suffix in their file name, and use the two previously defined files as configuration for the test environment. In your _package.json_ add the following script:
 
 ```javascript{3}
 "scripts": {
@@ -269,7 +270,7 @@ Now you have both helper files for your tests in place. One to expose functions 
 
 If you haven't installed @babel/register which is used in the npm script yet, you can do it with `npm install -save-dev @babel/register`.
 
-As you can see, the script takes both configuration files as required test configuration and executes all test files which end with the suffix "*.spec.js". Basically a test file could be named *App.spec.js* and it has to be somewhere in the */src* folder. Of course, you can come up with your own rules for the test file naming here. It's up to you.
+As you can see, the script takes both configuration files as required test configuration and executes all test files which end with the suffix "*.spec.js". Basically a test file could be named *App.spec.js* and it has to be somewhere in the */src\* folder. Of course, you can come up with your own rules for the test file naming here. It's up to you.
 
 The script can be executed by running `npm run test:unit` on the command line now, but it will not find any tests yet, because you will have to define these tests in the first place. You will do it in the next section, but before doing so, you can add a second npm script. This script will execute the previously defined script, but this time in watch mode.
 
@@ -301,7 +302,7 @@ That's it for the Mocha and Chai setup for a React application. In the next sect
 
 Let's start with the smallest building blocks in the testing pyramid: unit tests. They only test small parts of your application in isolation. For instance, functions are a perfect candidates for unit tests. They only take an input and return an output. That's what makes pure functions so powerful for testing too, because you never have to worry about any side-effects. The output should be always the same when the input stays the same. Thus a unit test could be used to test this particular function as a part of your application in isolation.
 
-In the App component, you have already extracted the functions which update the state in `this.setState()`. These functions got exported too, so you can import them in a test file in order to test them. Let's create a test file for the App component on the command line from the *src/* folder, Make sure to give the file the correct naming suffix.
+In the App component, you have already extracted the functions which update the state in `this.setState()`. These functions got exported too, so you can import them in a test file in order to test them. Let's create a test file for the App component on the command line from the _src/_ folder, Make sure to give the file the correct naming suffix.
 
 ```javascript
 touch App.spec.js
@@ -311,45 +312,41 @@ Now open up the file and add the following lines to it:
 
 ```javascript
 describe('Local State', () => {
-  it('should increment the counter in state', () => {
+  it('should increment the counter in state', () => {})
 
-  });
-
-  it('should decrement the counter in state', () => {
-
-  });
-});
+  it('should decrement the counter in state', () => {})
+})
 ```
 
 Basically the previous lines have defined one test suite and two tests for it. Whereas the "describe"-block defines the test suite, the "it"-blocks define the test cases. A test can either be successful (green) or erroneous (red). Of course, you want to make and keep them green.
 
-Now it's up to you to test both functions which update the React component state from your *src/App.js* file. Whereas one function increments the counter property in the object (state), the other function decrements the counter property.
+Now it's up to you to test both functions which update the React component state from your _src/App.js_ file. Whereas one function increments the counter property in the object (state), the other function decrements the counter property.
 
 The simplest procedure to write a test in a "it"-block in three steps is the following: arrange, act, assert.
 
 ```javascript{1,5,6,7,8,12,13,14,15}
-import { doIncrement, doDecrement } from './App';
+import { doIncrement, doDecrement } from './App'
 
 describe('Local State', () => {
   it('should increment the counter in state', () => {
-    const state = { counter: 0 };
-    const newState = doIncrement(state);
+    const state = { counter: 0 }
+    const newState = doIncrement(state)
 
-    expect(newState.counter).to.equal(1);
-  });
+    expect(newState.counter).to.equal(1)
+  })
 
   it('should decrement the counter in state', () => {
-    const state = { counter: 0 };
-    const newState = doDecrement(state);
+    const state = { counter: 0 }
+    const newState = doDecrement(state)
 
-    expect(newState.counter).to.equal(-1);
-  });
-});
+    expect(newState.counter).to.equal(-1)
+  })
+})
 ```
 
 In the first line of each test, you arrange the initial state object which will be the input of your function to be tested in the next step. In the second line of each test, you will pass the variable from the setup step to your function. The function returns a value. In the last line of the test, you want to assert that the returned value from the function is an expected value. In this case, the `doIncrement()` function should increment the counter property in the state object and the `doDecrement()` function should decrement it.
 
-That's it. You can run both tests on the command line with `npm run test:unit` or `npm run test:unit:watch`. You can change the assertion and see how the tests behave in watch mode. They will either fail or succeed. Furthermore, note that there is no React dependency yet in the test file. It's only Mocha and Chai which are able to test your vanilla JavaScript functions. You wouldn't even need the *test/dom.js* configuration yet, because there is no DOM of the browser needed for these unit tests.
+That's it. You can run both tests on the command line with `npm run test:unit` or `npm run test:unit:watch`. You can change the assertion and see how the tests behave in watch mode. They will either fail or succeed. Furthermore, note that there is no React dependency yet in the test file. It's only Mocha and Chai which are able to test your vanilla JavaScript functions. You wouldn't even need the _test/dom.js_ configuration yet, because there is no DOM of the browser needed for these unit tests.
 
 # Enzyme Test Setup in React
 
@@ -367,20 +364,20 @@ npm install --save-dev enzyme-adapter-react-16
 
 In this React testing guide, we are using React 16. That's why the Enzyme adapter for React 16 gets installed here. So make sure to check your own React version in your application.
 
-Last but not least, you can setup Enzyme in your *test/helpers.js* file. There you can configure the adapter and expose the enzyme functionalities globally next to the expect function:
+Last but not least, you can setup Enzyme in your _test/helpers.js_ file. There you can configure the adapter and expose the enzyme functionalities globally next to the expect function:
 
 ```javascript{2,3,5,9,10,11}
-import { expect } from 'chai';
-import { mount, render, shallow, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { expect } from 'chai'
+import { mount, render, shallow, configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() })
 
-global.expect = expect;
+global.expect = expect
 
-global.mount = mount;
-global.render = render;
-global.shallow = shallow;
+global.mount = mount
+global.render = render
+global.shallow = shallow
 ```
 
 Similar to the `expect` function from chai which is used to make assertions, you can make `shallow`, `render` and `mount` from Enzyme globally accessible. That way, you don't need to import it explicitly in your test files anymore. You will use these three functions for your unit and integration tests with Enzyme for your React components.
@@ -389,7 +386,7 @@ Similar to the `expect` function from chai which is used to make assertions, you
 
 The Enzyme setup is up and running. Now you can start to test your component(s). The following section should show you a couple of basic patterns which you can apply in your React component tests. If you follow these patterns, you don't have to make a costly mental decision every time on how to test your React components.
 
-You have already exported the Counter component from the *src/App.js* file. So it should be possible to test for you that an instance of the Counter component is rendered when you render the App component. You can simply add your tests in the *src/App.spec.js* file.
+You have already exported the Counter component from the _src/App.js_ file. So it should be possible to test for you that an instance of the Counter component is rendered when you render the App component. You can simply add your tests in the _src/App.spec.js_ file.
 
 ```javascript{1,2,8,9,10,11,12,13}
 import React from 'react';
@@ -407,16 +404,16 @@ describe('App Component', () => {
 });
 ```
 
-The `shallow()` function is one of the three functions (shallow, mount, render) which you have made accessible globally in the *test/helpers.js* file. Shallow is the simplest form of rendering a component with Enzyme. It only renders the component but not the content of components which are children to this component. It makes it possible to test the component in isolation. Thus it can be used perfectly for unit tests of React components. In the previous test, you only checked whether the Counter component is rendered as component instance in the App component. Accordingly to the test, there should be only one Counter component.
+The `shallow()` function is one of the three functions (shallow, mount, render) which you have made accessible globally in the _test/helpers.js_ file. Shallow is the simplest form of rendering a component with Enzyme. It only renders the component but not the content of components which are children to this component. It makes it possible to test the component in isolation. Thus it can be used perfectly for unit tests of React components. In the previous test, you only checked whether the Counter component is rendered as component instance in the App component. Accordingly to the test, there should be only one Counter component.
 
 That's one simple unit test you can do with Enzyme in React. For instance, you can also check whether specific HTML tags or HTMLS elements with CSS classes are rendered.
 
 ```javascript
 it('renders the List wrapper with list elements', () => {
-  const wrapper = shallow(<List items={['a', 'b']} />);
-  expect(wrapper.find('li')).to.have.length(2);
-  expect(wrapper.find('.list')).to.have.length(1);
-});
+  const wrapper = shallow(<List items={['a', 'b']} />)
+  expect(wrapper.find('li')).to.have.length(2)
+  expect(wrapper.find('.list')).to.have.length(1)
+})
 ```
 
 Depending on the passed props, you can check the rendered HTML elements by selecting them with [Enzyme's selectors](https://github.com/airbnb/enzyme/blob/master/docs/api/selector.md). This way, you can also check a [conditional rendering in React](/conditional-rendering-react/) by asserting the length of a selection to be either 0 or 1.
@@ -568,23 +565,23 @@ Now, how would you test the asynchronous data fetching in your React component? 
 npm install --save-dev sinon
 ```
 
-Afterward, you can add Sinon as another global function to your *test/helpers.js* file:
+Afterward, you can add Sinon as another global function to your _test/helpers.js_ file:
 
 ```javascript{1,10}
-import sinon from 'sinon';
-import { expect } from 'chai';
-import { mount, render, shallow, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon'
+import { expect } from 'chai'
+import { mount, render, shallow, configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() })
 
-global.expect = expect;
+global.expect = expect
 
-global.sinon = sinon;
+global.sinon = sinon
 
-global.mount = mount;
-global.render = render;
-global.shallow = shallow;
+global.mount = mount
+global.render = render
+global.shallow = shallow
 ```
 
 Sinon can be used for spies, stubs, and mocks. In the following, you will use a spy and a stub for testing your asynchronous business logic in your React component. These are most of the time sufficient for testing async logic in your code.

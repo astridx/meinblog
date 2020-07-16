@@ -60,10 +60,9 @@ There's a useful site called [Crontab Generator](http://crontab-generator.org/) 
 
 There are four main parts to a cron command.
 
-|Timing|Execute PHP|Path to script|Output|
-|--- |--- |--- |--- |
-|`* * * * *`|`/usr/bin/php`|`/var/www/html/crontest/cron.php`|`> /dev/null 2>&1`|
-
+| Timing      | Execute PHP    | Path to script                    | Output             |
+| ----------- | -------------- | --------------------------------- | ------------------ |
+| `* * * * *` | `/usr/bin/php` | `/var/www/html/crontest/cron.php` | `> /dev/null 2>&1` |
 
 - **Timing** - set the minutes, hours, days, months, and weekday settings (more below).
 - **Execute** - the cron job needs to call upon PHP to run, which is located at `/usr/bin/php`.
@@ -80,7 +79,7 @@ In the above example, the cron job is set to send every minute - or more specifi
 
 Here are a few basic examples to get an idea of how it works.
 
-Syntax | Explanation
+| Syntax      | Explanation                                                                                  |
 | ----------- | -------------------------------------------------------------------------------------------- |
 | `0 * * * *` | run once an hour (every hour at minute zero)                                                 |
 | `0 0 * * *` | run once a day (every day at midnight and minute zero)                                       |

@@ -1,13 +1,13 @@
 ---
-title: "How to use GraphQL in Gatsby"
-description: "Learn how to work with GraphQL in Gatsby more efficient with these tips about creating dynamic pages, GraphQL fragments, and static vs page queries ..."
-date: "2020-05-17T07:52:46+02:00"
-categories: ["React"]
-keywords: ["gatsby graphql"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: "Yomi Eluwande"
+title: 'How to use GraphQL in Gatsby'
+description: 'Learn how to work with GraphQL in Gatsby more efficient with these tips about creating dynamic pages, GraphQL fragments, and static vs page queries ...'
+date: '2020-05-17T07:52:46+02:00'
+categories: ['React']
+keywords: ['gatsby graphql']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: 'Yomi Eluwande'
 ---
 
 <Sponsorship />
@@ -16,9 +16,9 @@ Gatsby is an open-source framework based on React that helps build websites and 
 
 One of the many advantages of using Gatsby is that it allows accessing data through a query language called GraphQL. GraphQL is a query language for APIs that provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more. Gatsby uses GraphQL because it provides the following:
 
-* Specificity: Request only the data needed and not whatever is returned by the API.
-* Static Build: Perform data transformations at build time within GraphQL queries.
-* Standardized: It's a performant data querying language for the often complex/nested data dependencies.
+- Specificity: Request only the data needed and not whatever is returned by the API.
+- Static Build: Perform data transformations at build time within GraphQL queries.
+- Standardized: It's a performant data querying language for the often complex/nested data dependencies.
 
 If you are interested, you can read more about [why Gatsby uses GraphQL](https://www.gatsbyjs.org/docs/why-gatsby-uses-graphql/). In this article, I'll share some useful tips for when using GraphQL in a Gatsby project.
 
@@ -35,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
   const ShopPage = path.resolve(`src/components/shop-page.js`)
 
   createPage({
-    path: "/store",
+    path: '/store',
     component: ShopPage,
     context: {},
   })
@@ -44,9 +44,9 @@ exports.createPages = ({ graphql, actions }) => {
 
 In the code snippet above, the createPage action is used to create a page at `/store`. The [createPage](https://www.gatsbyjs.org/docs/actions/#createPage) action accepts multiple arguments but I'll focus on the following arguments:
 
-* `path` - This is the relative URL of the page and should always start with a slash.
-* `component` - This is the path to the React component which is used as template for this page.
-* `context` - This is an object that can contain any data to be passed down to the React component as [props](/react-pass-props-to-component).
+- `path` - This is the relative URL of the page and should always start with a slash.
+- `component` - This is the path to the React component which is used as template for this page.
+- `context` - This is an object that can contain any data to be passed down to the React component as [props](/react-pass-props-to-component).
 
 Essentially createPage helps us everywhere where we need to create pages dynamically. A more practical use for the createPage action would be creating multiple pages for each article in a publication website. It's the best method for this use case because it allows creating multiple pages programmatically from an external source. It's also a good option because we could use the data gotten from the external source to create permalinks/paths for the pages. Let's take a look at an example:
 
@@ -194,7 +194,7 @@ module.exports = (createPage, edge) => {
     path: `${edge.node.category.slug}/${edge.node.slug}`,
     component: ArticlePage,
     context: {
-      slug: edge.node.slug
+      slug: edge.node.slug,
     },
   })
 }
@@ -211,7 +211,7 @@ module.exports = (createPage, edge) => {
     path: `${edge.node.category.slug}/${edge.node.slug}`,
     component: AuthorPage,
     context: {
-      slug: edge.node.slug
+      slug: edge.node.slug,
     },
   })
 }
@@ -228,7 +228,7 @@ module.exports = (createPage, edge) => {
     path: `${edge.node.category.slug}/${edge.node.slug}`,
     component: ProductPage,
     context: {
-      slug: edge.node.slug
+      slug: edge.node.slug,
     },
   })
 }
@@ -411,7 +411,7 @@ Once you have this file created, all you need to do is use the fragment anywhere
 import { graphql } from 'gatsby'
 import React from 'react'
 
-const ArticlePage = ({data}) => {
+const ArticlePage = ({ data }) => {
   // Use the `data` property here...
 }
 
@@ -426,7 +426,7 @@ export const query = graphql`
         ...AuthorInfo
       }
     }
-	}
+  }
 `
 ```
 
@@ -510,10 +510,10 @@ Whenever you run your Gatsby site in development mode, it also launches [GraphiQ
 
 However, there's an alternative to GraphiQL, and that's the [GraphQL Playground](https://github.com/prisma-labs/graphql-playground) by Prisma. It allows you to interact with all the data, schemas added by additional Gatsby plugins. GraphQL Playground uses components of GraphiQL under the hood but is essentially a more powerful GraphQL IDE that enables better development workflows. The GraphQL Playground also adds additional features like:
 
-* Interactive, multi-column schema documentation.
-* Multiple Tabs just like you'd have in an IDE.
-* Customizable HTTP headers.
-* Query history.
+- Interactive, multi-column schema documentation.
+- Multiple Tabs just like you'd have in an IDE.
+- Customizable HTTP headers.
+- Query history.
 
 To use the GraphQL Playground in your Gatsby project, edit the `develop` script in the `package.json` file:
 

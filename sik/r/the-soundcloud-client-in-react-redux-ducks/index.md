@@ -1,13 +1,13 @@
 ---
-title: "Redux Ducks: Restructure your Redux App with Ducks"
-description: "Redux Ducks: Restructure your Redux App with Ducks will teach you how to bundle action creators, action types and reducers side by side in your Redux app."
-date: "2016-06-26T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["redux ducks"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Redux Ducks: Restructure your Redux App with Ducks'
+description: 'Redux Ducks: Restructure your Redux App with Ducks will teach you how to bundle action creators, action types and reducers side by side in your Redux app.'
+date: '2016-06-26T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['redux ducks']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -32,11 +32,11 @@ The tutorial itself will not strictly follow all proposed guidelines of the reco
 
 Basically we have two ducks in the SoundCloud app: There is one place for the authentication and data fetching and another place where the tracks are saved and played.
 
-Let’s begin with the auth duck: In the existent app you will find the auth actions in *src/actions/auth.js* and the reducer in *src/reducers/auth.js*. Moreover there is one action type in the *src/constants/actionTypes.js* file.
+Let’s begin with the auth duck: In the existent app you will find the auth actions in _src/actions/auth.js_ and the reducer in _src/reducers/auth.js_. Moreover there is one action type in the _src/constants/actionTypes.js_ file.
 
 A new folder for the ducks instead of actions / reducers folder pairs will help us to collocate actions and reducers.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir ducks
@@ -46,64 +46,66 @@ touch auth.js
 
 At first we can move the sole auth action type.
 
-*src/ducks/auth.js*
+_src/ducks/auth.js_
 
 ```javascript
-const ME_SET = 'ME_SET';
+const ME_SET = 'ME_SET'
 ```
 
 As you can see we are not exporting anything at this time. We can even more refactor the action type itself to represent the duck bundle. In a growing application it is an improved way to identify the actions and places in the source code.
 
-*src/ducks/auth.js*
+_src/ducks/auth.js_
 
 ```javascript{1}
-const ME_SET = 'auth/ME_SET';
+const ME_SET = 'auth/ME_SET'
 ```
 
-The next step is to move the action creators. I have highlighted the important pieces after the copy and paste from *src/actions/auth.js*.
+The next step is to move the action creators. I have highlighted the important pieces after the copy and paste from _src/actions/auth.js_.
 
-*src/ducks/auth.js*
+_src/ducks/auth.js_
 
 ```javascript{1,2,6,8,13,16,17,22,27,32,37}
-import SC from 'soundcloud';
-import { setTracks as doSetTracks } from '../actions';
+import SC from 'soundcloud'
+import { setTracks as doSetTracks } from '../actions'
 
-const ME_SET = 'auth/ME_SET';
+const ME_SET = 'auth/ME_SET'
 
 function doSetMe(user) {
   return {
     type: ME_SET,
-    user
-  };
+    user,
+  }
 }
 
 function doAuth() {
   return function (dispatch) {
     SC.connect().then((session) => {
-      dispatch(doFetchMe(session));
-      dispatch(doFetchStream(session));
-    });
-  };
+      dispatch(doFetchMe(session))
+      dispatch(doFetchStream(session))
+    })
+  }
 }
 
 function doFetchMe(session) {
-    return function (dispatch) {
-      fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(doSetMe(data));
-        });
-    };
+  return function (dispatch) {
+    fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(doSetMe(data))
+      })
+  }
 }
 
 function doFetchStream(session) {
   return function (dispatch) {
-    fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+    fetch(
+      `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+    )
       .then((response) => response.json())
       .then((data) => {
-        dispatch(doSetTracks(data.collection));
-      });
-  };
+        dispatch(doSetTracks(data.collection))
+      })
+  }
 }
 ```
 
@@ -111,7 +113,7 @@ Again we are not exporting anything. Moreover the action creators got prefixed. 
 
 Last but not least let’s move our reducer.
 
-*src/ducks/auth.js*
+_src/ducks/auth.js_
 
 ```javascript{24,26,27,32}
 import { CLIENT_ID, REDIRECT_URI } from '../constants/auth';
@@ -153,7 +155,7 @@ function applySetMe(state, action) {
 
 Note that the reducer is a named function and we prefixed its functions as well. As last step we have to export all the necessary stakeholders.
 
-*src/ducks/auth.js*
+_src/ducks/auth.js_
 
 ```javascript{3,4,5,6,7,8,9,10,11,12,13,14,15,16}
 ...
@@ -178,7 +180,7 @@ export default reducer;
 
 Now it is time to clean up and remove the files which are unused.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 rm actions/auth.js
@@ -187,76 +189,73 @@ rm reducers/auth.js
 
 Remove the unused action type ME_SET as well. Keep the remaining action types for now.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
 ```
 
 Moreover we can remove the dependency in the entry points of our legacy actions. The file should look like the following without the auth bundle:
 
-*src/actions/index.js*
+_src/actions/index.js_
 
 ```javascript
-import { setTracks, playTrack } from './track';
+import { setTracks, playTrack } from './track'
 
-export {
-  setTracks,
-  playTrack
-};
+export { setTracks, playTrack }
 ```
 
 After the auth duck is finished and all actions creators and reducers are side by side, we can use the new reducer location to export the combined reducers for the store and use the replaced action creators in the Stream container.
 
-*src/reducers/index.js*
+_src/reducers/index.js_
 
 ```javascript{3}
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import auth from '../ducks/auth';
-import track from './track';
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import auth from '../ducks/auth'
+import track from './track'
 
 export default combineReducers({
   auth,
   track,
-  routing: routerReducer
-});
+  routing: routerReducer,
+})
 ```
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{5,21}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import { actionCreators as authActionCreators } from '../../ducks/auth';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import { actionCreators as authActionCreators } from '../../ducks/auth'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const { tracks, activeTrack } = state.track;
+  const { user } = state.auth
+  const { tracks, activeTrack } = state.track
   return {
     user,
     tracks,
-    activeTrack
+    activeTrack,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     onPlay: bindActionCreators(actions.playTrack, dispatch),
-    onAuth: bindActionCreators(authActionCreators.doAuth, dispatch)
-  };
+    onAuth: bindActionCreators(authActionCreators.doAuth, dispatch),
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 The app should still be intact after all, but it comes with our first duck!
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start
@@ -266,7 +265,7 @@ npm start
 
 Now it’s time to create the track duck.
 
-*From ducks folder:*
+_From ducks folder:_
 
 ```javascript
 touch track.js
@@ -274,121 +273,118 @@ touch track.js
 
 Let’s move the action types, action creators and reducer. Again I highlighted the changed pieces after copy and pasting the relevant lines of code.
 
-*src/ducks/track.js*
+_src/ducks/track.js_
 
 ```javascript{1,2,4,6,11,13,23,25,26,27,28,33,38,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58}
-const TRACKS_SET = 'track/TRACKS_SET';
-const TRACK_PLAY = 'track/TRACK_PLAY';
+const TRACKS_SET = 'track/TRACKS_SET'
+const TRACK_PLAY = 'track/TRACK_PLAY'
 
 function doSetTracks(tracks) {
   return {
     type: TRACKS_SET,
-    tracks
-  };
-};
+    tracks,
+  }
+}
 
 function doPlayTrack(track) {
   return {
     type: TRACK_PLAY,
-    track
-  };
+    track,
+  }
 }
 
 const initialState = {
   tracks: [],
-  activeTrack: null
-};
+  activeTrack: null,
+}
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case TRACKS_SET:
-      return applySetTracks(state, action);
+      return applySetTracks(state, action)
     case TRACK_PLAY:
-      return applySetPlay(state, action);
+      return applySetPlay(state, action)
   }
-  return state;
+  return state
 }
 
 function applySetTracks(state, action) {
-  const { tracks } = action;
-  return { ...state, tracks };
+  const { tracks } = action
+  return { ...state, tracks }
 }
 
 function applySetPlay(state, action) {
-  const { track } = action;
-  return { ...state, activeTrack: track };
+  const { track } = action
+  return { ...state, activeTrack: track }
 }
 
 const actionCreators = {
   doSetTracks,
-  doPlayTrack
-};
+  doPlayTrack,
+}
 
 const actionTypes = {
   TRACKS_SET,
-  TRACK_PLAY
-};
+  TRACK_PLAY,
+}
 
-export {
-  actionCreators,
-  actionTypes
-};
+export { actionCreators, actionTypes }
 
-export default reducer;
+export default reducer
 ```
 
 Now we provide the store with the relocated reducer like we did with the auth duck.
 
-*src/reducers/index.js*
+_src/reducers/index.js_
 
 ```javascript{4}
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import auth from '../ducks/auth';
-import track from '../ducks/track';
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import auth from '../ducks/auth'
+import track from '../ducks/track'
 
 export default combineReducers({
   auth,
   track,
-  routing: routerReducer
-});
+  routing: routerReducer,
+})
 ```
 
 Same applies for the Stream container component. We can import the actionCreators from their new place.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{4,20}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { actionCreators as trackActionCreators } from '../../ducks/track';
-import { actionCreators as authActionCreators } from '../../ducks/auth';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { actionCreators as trackActionCreators } from '../../ducks/track'
+import { actionCreators as authActionCreators } from '../../ducks/auth'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const { tracks, activeTrack } = state.track;
+  const { user } = state.auth
+  const { tracks, activeTrack } = state.track
   return {
     user,
     tracks,
-    activeTrack
+    activeTrack,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     onPlay: bindActionCreators(trackActionCreators.doPlayTrack, dispatch),
-    onAuth: bindActionCreators(authActionCreators.doAuth, dispatch)
-  };
+    onAuth: bindActionCreators(authActionCreators.doAuth, dispatch),
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 Remember when we had to import the setTracks as doSetTracks alias in the auth duck? Now we renamed it due to the track duck refactoring and can change that in the auth duck.
 
-*src/ducks/auth.js*
+_src/ducks/auth.js_
 
 ```javascript{2,26}
 import SC from 'soundcloud';
@@ -428,7 +424,7 @@ const initialState = {};
 
 As last step we can remove all unused folders and files now.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 rm -rf actions
@@ -438,10 +434,10 @@ rm reducers/track.js
 
 After the refactoring the folder structure should look like the following:
 
-*Folder structure:*
+_Folder structure:_
 
 ```javascript
--src
+;-src
 --components
 --constants
 --ducks

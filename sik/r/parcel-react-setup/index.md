@@ -1,13 +1,13 @@
 ---
-title: "Getting started with React and Parcel"
-description: "This guide helps you to setup React with Parcel from 0 to 1. Learn how to use Parcel in React.js with zero-configuration. Setup your own boilerplate application ..."
-date: "2018-02-10T13:50:46+02:00"
-categories: ["React", "Tooling"]
-keywords: ["react parcel"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Getting started with React and Parcel'
+description: 'This guide helps you to setup React with Parcel from 0 to 1. Learn how to use Parcel in React.js with zero-configuration. Setup your own boilerplate application ...'
+date: '2018-02-10T13:50:46+02:00'
+categories: ['React', 'Tooling']
+keywords: ['react parcel']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -26,17 +26,17 @@ cd react-parcel
 npm init -y
 ```
 
-The last command should have generated a *package.json* file. The `-y` indicates that all default configurations should be used. In the *package.json* file you will find configurations, installed node packages and scripts later on. In the next step, install Parcel as a project dependency. You can use npm to install it on the command line. Afterward, the dependency should show up in your *package.json* file.
+The last command should have generated a _package.json_ file. The `-y` indicates that all default configurations should be used. In the _package.json_ file you will find configurations, installed node packages and scripts later on. In the next step, install Parcel as a project dependency. You can use npm to install it on the command line. Afterward, the dependency should show up in your _package.json_ file.
 
-*From root folder (react-parcel):*
+_From root folder (react-parcel):_
 
 ```javascript
 npm install parcel-bundler --save-dev
 ```
 
-Next create a *src/* folder for your implementations. In the folder you can already create a *index.js* and a *index.html* file.
+Next create a _src/_ folder for your implementations. In the folder you can already create a _index.js_ and a _index.html_ file.
 
-*From root folder (react-parcel):*
+_From root folder (react-parcel):_
 
 ```javascript
 mkdir src
@@ -46,7 +46,7 @@ touch index.js index.html
 
 Let's keep both files quite minimal in the next step to showcase how to run them with Parcel.
 
-*src/index.html*
+_src/index.html_
 
 ```html
 <!DOCTYPE html>
@@ -60,15 +60,15 @@ Let's keep both files quite minimal in the next step to showcase how to run them
 </html>
 ```
 
-*src/index.js*
+_src/index.js_
 
 ```javascript
-console.log('Hello Parcel Project');
+console.log('Hello Parcel Project')
 ```
 
-Last but not least, you have to add a start script in your *package.json* file. There you can use Parcel and the only argument it needs is an entry point file.
+Last but not least, you have to add a start script in your _package.json_ file. There you can use Parcel and the only argument it needs is an entry point file.
 
-*package.json*
+_package.json_
 
 ```javascript{3}
 "main": "index.js",
@@ -79,9 +79,9 @@ Last but not least, you have to add a start script in your *package.json* file. 
 "keywords": [],
 ```
 
-Parcel is traversing trough all required files (e.g. *index.js*) to include them in the final application. Now, you can run your application from the command line with `npm start` and check the console output in your browser. It should be visible there.
+Parcel is traversing trough all required files (e.g. _index.js_) to include them in the final application. Now, you can run your application from the command line with `npm start` and check the console output in your browser. It should be visible there.
 
-As alternative to get your application running without the *package.json* start script, you could also install Parcel as a global npm package and just run the line from the script on your command line.
+As alternative to get your application running without the _package.json_ start script, you could also install Parcel as a global npm package and just run the line from the script on your command line.
 
 ```javascript
 npm -g install parcel-bundler
@@ -98,7 +98,7 @@ Now it's only a small step to run React in Parcel. First, you need to install Re
 npm install react react-dom
 ```
 
-Second, add an HTML element with an id to your *index.html* file.
+Second, add an HTML element with an id to your _index.html_ file.
 
 ```html{7}
 <!DOCTYPE html>
@@ -113,36 +113,36 @@ Second, add an HTML element with an id to your *index.html* file.
 </html>
 ```
 
-Now React is able to hook into the HTML by using ReactDOM. In your *index.js* file, you can use ReactDOM to render HTML with JSX in place of the DOM element with the defined identifier.
+Now React is able to hook into the HTML by using ReactDOM. In your _index.js_ file, you can use ReactDOM to render HTML with JSX in place of the DOM element with the defined identifier.
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 ReactDOM.render(
   <h1>Hello Parcel React Project</h1>,
   document.getElementById('root')
-);
+)
 ```
 
-That's it for the React in Parcel setup. You are ready to implement your React application now. If you import a component from another file in your *index.js* file, Parcel will be able to resolve it. If you import a CSS file or a image from a file, Parcel will resolve it as well.
+That's it for the React in Parcel setup. You are ready to implement your React application now. If you import a component from another file in your _index.js_ file, Parcel will be able to resolve it. If you import a CSS file or a image from a file, Parcel will resolve it as well.
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from './App';
-import logo from './logo.svg';
-import './index.css';
+import App from './App'
+import logo from './logo.svg'
+import './index.css'
 
 ReactDOM.render(
   <App>
     <img src={logo} alt="logo" />
   </App>,
   document.getElementById('root')
-);
+)
 ```
 
-If these files are in your *src/* folder, Parcel should take care of resolving them for you. That's it for a minimal React setup with Parcel. Again, you can find the [repository on GitHub](https://github.com/rwieruch/parcel-react). However, Parcel should make it fairly easy to setup a React project on your own. It's zero-configuration after all, so just give it a shot.
+If these files are in your _src/_ folder, Parcel should take care of resolving them for you. That's it for a minimal React setup with Parcel. Again, you can find the [repository on GitHub](https://github.com/rwieruch/parcel-react). However, Parcel should make it fairly easy to setup a React project on your own. It's zero-configuration after all, so just give it a shot.
 
 <ReadMore label="Setup React with Babel and Webpack" link="/minimal-react-webpack-babel-setup" />

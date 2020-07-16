@@ -8,7 +8,7 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche Speichern an den Server gesendet wurde.
@@ -27,7 +27,7 @@ Dieser Teil behandelt die die clientseitige Validierung in Joomla! 4.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11b...t12a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -35,22 +35,21 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle ein neues Item oder editiere ein vorhandenes. Gib im Textfeld für den Titel dabei eine Zahl ein. 
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle ein neues Item oder editiere ein vorhandenes. Gib im Textfeld für den Titel dabei eine Zahl ein.
 
-3. Editiere danach ein anderes Feld, setze zum Beispiel den Zugriff auf `Registered`. 
+3. Editiere danach ein anderes Feld, setze zum Beispiel den Zugriff auf `Registered`.
 
-4. Überzeuge dich davon, dass dir zu diesem Zeitpunkt __eine__ Warnung angezeigt wird.
+4. Überzeuge dich davon, dass dir zu diesem Zeitpunkt **eine** Warnung angezeigt wird.
 
 ![Joomla! Validierung](../images/j4x14x1.png)
 
 ## Geänderte Dateien
 
 ### Übersicht
-
 
 <div id="diff">
       <div class="d2h-file-list-wrapper">

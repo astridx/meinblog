@@ -189,7 +189,7 @@ Add `display: none;` so that we can toggle it later with JavaScript.
 We'll begin adding jQuery.
 
 ```js
-;(function($) {
+;(function ($) {
   // Begin jQuery
 })(jQuery)
 ```
@@ -197,8 +197,8 @@ We'll begin adding jQuery.
 And tell the function to run on DOM ready.
 
 ```js
-;(function($) {
-  $(function() {
+;(function ($) {
+  $(function () {
     // DOM Ready
     // Insert all scripts here
   })
@@ -208,10 +208,8 @@ And tell the function to run on DOM ready.
 Activating the dropdown is extremely simple. I devised this specific method, and haven't seen it used on any other dropdown nav, and seems to work quite well. I'm going to target any `a` in the menu that has children, and toggle the `.nav-dropdown` class.
 
 ```js
-$('nav ul li > a:not(:only-child)').click(function(e) {
-  $(this)
-    .siblings('.nav-dropdown')
-    .toggle()
+$('nav ul li > a:not(:only-child)').click(function (e) {
+  $(this).siblings('.nav-dropdown').toggle()
 })
 ```
 
@@ -223,9 +221,7 @@ $('nav ul li > a:not(:only-child)').click(function(e) {
 But what's that `(e)` for? If you happen to have two dropdowns in the nav, and click on both of them, they both open. We want to prevent that behavior, and force only one dropdown to be open at a time. Inside of that same function, add:
 
 ```js
-$('.nav-dropdown')
-  .not($(this).siblings())
-  .hide()
+$('.nav-dropdown').not($(this).siblings()).hide()
 e.stopPropagation()
 ```
 
@@ -234,7 +230,7 @@ This hides all of the dropdowns, and `stopPropagation();` prevents that action f
 There's one more thing: I want the dropdown to hide if I click away from it at any point. We'll hide it by setting a click function to the entire `html` tag.
 
 ```js
-$('html').click(function() {
+$('html').click(function () {
   $('.nav-dropdown').hide()
 })
 ```
@@ -242,18 +238,14 @@ $('html').click(function() {
 Here's the entire jQuery so far.
 
 ```js
-;(function($) {
-  $(function() {
-    $('nav ul li > a:not(:only-child)').click(function(e) {
-      $(this)
-        .siblings('.nav-dropdown')
-        .toggle()
-      $('.nav-dropdown')
-        .not($(this).siblings())
-        .hide()
+;(function ($) {
+  $(function () {
+    $('nav ul li > a:not(:only-child)').click(function (e) {
+      $(this).siblings('.nav-dropdown').toggle()
+      $('.nav-dropdown').not($(this).siblings()).hide()
       e.stopPropagation()
     })
-    $('html').click(function() {
+    $('html').click(function () {
       $('.nav-dropdown').hide()
     })
   })
@@ -347,7 +339,7 @@ Finally, the jQuery comes in and adds an `.active` class to the span, which rota
 Toggle the `.active` span.
 
 ```js
-$('#nav-toggle').on('click', function() {
+$('#nav-toggle').on('click', function () {
   this.classList.toggle('active')
 })
 ```
@@ -361,7 +353,7 @@ Now you have a hamburger icon that animates on click action, but doesn't do anyt
 The final addition to our jQuery code will toggle the `nav ul` on click.
 
 ```js
-$('#nav-toggle').click(function() {
+$('#nav-toggle').click(function () {
   $('nav ul').toggle()
 })
 ```
@@ -487,5 +479,5 @@ And that's the end of this tutorial! If you didn't want to read through any of t
 
 > If you're copying the code in CodePen, make sure to include the jQuery library or it won't work!
 
-- [View Source](https://gist.github.com/taniarascia/56893ff29f64038dca91) 
+- [View Source](https://gist.github.com/taniarascia/56893ff29f64038dca91)
 - [View Demo](http://codepen.io/taniarascia/pen/dYvvYv)

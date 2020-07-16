@@ -176,7 +176,7 @@ We can use `forEach()` to print each item in the `fish` array to the console.
 let fish = ['piranha', 'barracuda', 'koi', 'eel']
 
 // Print out each item in the array
-fish.forEach(individualFish => {
+fish.forEach((individualFish) => {
   console.log(individualFish)
 })
 ```
@@ -209,7 +209,7 @@ Just like `forEach()`, `map()` is an iteration method and as an example we can p
 let fish = ['piranha', 'barracuda', 'koi', 'eel']
 
 // Print out each item in the array
-let printFish = fish.map(individualFish => {
+let printFish = fish.map((individualFish) => {
   console.log(individualFish)
 })
 
@@ -227,7 +227,7 @@ We can use `map()` to change the values of each item in an array. For example, w
 
 ```js
 // Pluralize all items in the fish array
-let pluralFish = fish.map(individualFish => {
+let pluralFish = fish.map((individualFish) => {
   return `${individualFish}s`
 })
 
@@ -250,7 +250,7 @@ We could use `filter()` to return a new array containing only the items in a lis
 let seaCreatures = ['shark', 'whale', 'squid', 'starfish', 'narwhal']
 
 // Filter all creatures that start with "s" into a new list
-let filteredList = seaCreatures.filter(creature => {
+let filteredList = seaCreatures.filter((creature) => {
   return creature[0] === 's'
 })
 
@@ -302,7 +302,7 @@ Then we will use the `find()` method to test if any of the creatures in the arra
 
 ```js
 // Check if a given value is a cephalopod
-const isCephalopod = cephalopod => {
+const isCephalopod = (cephalopod) => {
   return ['cuttlefish', 'octopus'].includes(cephalopod)
 }
 
@@ -329,7 +329,7 @@ Using the `isCephalopod` test, we will find the index number instead of the valu
 
 ```js
 // Check if a given value is a cephalopod
-const isCephalopod = cephalopod => {
+const isCephalopod = (cephalopod) => {
   return ['cuttlefish', 'octopus'].includes(cephalopod)
 }
 

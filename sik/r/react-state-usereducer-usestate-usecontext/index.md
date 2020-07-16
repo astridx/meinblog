@@ -1,13 +1,19 @@
 ---
-title: "React State Hooks: useReducer, useState, useContext"
+title: 'React State Hooks: useReducer, useState, useContext'
 description: "An elaborate walkthrough for React state management example with useState, useReducer, and useContext which mimics Redux's state management philosophy ..."
-date: "2019-04-06T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react state hooks", "react usereducer", "react usestate", "react usecontext"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-04-06T07:52:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react state hooks',
+    'react usereducer',
+    'react usestate',
+    'react usecontext',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -23,7 +29,7 @@ If you haven't used state management excessively in [React Function Components](
 We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](/react-list-key) to notify React about its place in the [rendered list](/react-list-component):
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 const initialTodos = [
   {
@@ -41,21 +47,21 @@ const initialTodos = [
     task: 'Learn GraphQL',
     complete: false,
   },
-];
+]
 
 const App = () => (
   <div>
     <ul>
-      {initialTodos.map(todo => (
+      {initialTodos.map((todo) => (
         <li key={todo.id}>
           <label>{todo.task}</label>
         </li>
       ))}
     </ul>
   </div>
-);
+)
 
-export default App;
+export default App
 ```
 
 In order to add a new todo item to our list of todo items, we need an input field to give a new todo item a potential `task` property. The `id` and `complete` properties will be automatically added to the item. In React, we can use the State Hook called `useState` to manage something like the value of an input field as state within the component:
@@ -92,16 +98,16 @@ We also had to give our Function Arrow Component a body with an explicit return 
 
 ```javascript{5}
 const App = () => {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState('')
 
-  const handleChangeInput = event => {
-    setTask(event.target.value);
-  };
+  const handleChangeInput = (event) => {
+    setTask(event.target.value)
+  }
 
   return (
     <div>
       <ul>
-        {initialTodos.map(todo => (
+        {initialTodos.map((todo) => (
           <li key={todo.id}>
             <label>{todo.task}</label>
           </li>
@@ -110,8 +116,8 @@ const App = () => {
 
       <input type="text" value={task} onChange={handleChangeInput} />
     </div>
-  );
-};
+  )
+}
 ```
 
 Now the input field has become a [controlled input field](/react-controlled-components/), because the value comes directly from the React managed state and the handler changes the state. We implemented our first managed state with the State Hook in React. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/3e6e5a27561bd0e0cc99e39efb853a187ac7339e/src/App.js).
@@ -120,26 +126,26 @@ To continue, let's implement a submit button to add the new todo item to the lis
 
 ```javascript{8,9,10,11,12,13,14,15,16,28,34,35}
 const App = () => {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState('')
 
-  const handleChangeInput = event => {
-    setTask(event.target.value);
-  };
+  const handleChangeInput = (event) => {
+    setTask(event.target.value)
+  }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     if (task) {
       // add new todo item
     }
 
-    setTask('');
+    setTask('')
 
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   return (
     <div>
       <ul>
-        {initialTodos.map(todo => (
+        {initialTodos.map((todo) => (
           <li key={todo.id}>
             <label>{todo.task}</label>
           </li>
@@ -147,16 +153,12 @@ const App = () => {
       </ul>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={task}
-          onChange={handleChangeInput}
-        />
+        <input type="text" value={task} onChange={handleChangeInput} />
         <button type="submit">Add Todo</button>
       </form>
     </div>
-  );
-};
+  )
+}
 ```
 
 The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the [default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked](/react-preventdefault).
@@ -390,21 +392,21 @@ const App = () => {
 
 That's it. The new todo items are immediately set as state for the list of todo items with the `setTodos` function. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/8f727cebe7079a0f72d6104e63712e1026ed1806/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/8f727cebe7079a0f72d6104e63712e1026ed1806). Congratulations, you have implemented a whole todo application with three use cases for state management with the useState hook:
 
-* input field state for tracking task property of new todo item
-* adding a todo item to list with a submit button
-* checking (and unchecking) a todo item with checkboxes
+- input field state for tracking task property of new todo item
+- adding a todo item to list with a submit button
+- checking (and unchecking) a todo item with checkboxes
 
 ### Exercises:
 
-* Read more about [React's useState Hook](/react-usestate-hook)
+- Read more about [React's useState Hook](/react-usestate-hook)
 
 # React useReducer: complex State
 
 The useState hook is great to manage simple state. However, once you run into more complex state objects or state transitions -- which you want to keep maintainable and predictable --, the [useReducer hook](/react-usereducer-hook/) is a great candidate to manage them. [Here you can find a comparison of when to use the useState or useReducer hook.](/react-usereducer-vs-usestate/) Let's continue implementing our application with the useReducer hook by going through a simpler example first. In our next scenario, we want to add buttons to filter our list of todos for three cases:
 
-* show all todo items
-* show only complete todo items
-* show only incomplete todo items
+- show all todo items
+- show only complete todo items
+- show only incomplete todo items
 
 Let's see how we can implement these with three buttons:
 
@@ -452,23 +454,23 @@ We will care later about these. Next, let's see how we can map the three cases i
 const filterReducer = (state, action) => {
   switch (action.type) {
     case 'SHOW_ALL':
-      return 'ALL';
+      return 'ALL'
     case 'SHOW_COMPLETE':
-      return 'COMPLETE';
+      return 'COMPLETE'
     case 'SHOW_INCOMPLETE':
-      return 'INCOMPLETE';
+      return 'INCOMPLETE'
     default:
-      throw new Error();
+      throw new Error()
   }
-};
+}
 ```
 
 A reducer function always receives the current state and an action as arguments. Depending on the mandatory type of the action, it decides what task to perform in the switch case statement, and returns a new state based on the implementation details. In our case, the implementation details are straightforward:
 
-* In case of action type `SHOW_ALL`, return `ALL` string as state.
-* In case of action type `SHOW_COMPLETE`, return `COMPLETE` string as state.
-* In case of action type `SHOW_INCOMPLETE`, return `INCOMPLETE` string as state.
-* If none of the action types are matched, throw an error to notify us about a bad implementation.
+- In case of action type `SHOW_ALL`, return `ALL` string as state.
+- In case of action type `SHOW_COMPLETE`, return `COMPLETE` string as state.
+- In case of action type `SHOW_INCOMPLETE`, return `INCOMPLETE` string as state.
+- If none of the action types are matched, throw an error to notify us about a bad implementation.
 
 Now we can use the reducer function in a useReducer hook. It takes the reducer function and an initial state and returns the filter state and the dispatch function to change it:
 
@@ -563,13 +565,13 @@ The filter buttons should work now. Every time a button is clicked an action wit
 
 The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/08d4b7130613eef209687f5f4c270c86716f1f09/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/08d4b7130613eef209687f5f4c270c86716f1f09).
 
-*Note: The shown use case -- also every other use case with [useReducer -- can be implemented with useState](/javascript-reducer/) as well. However, even though this one is a simpler example for the sake of learning about it, it shows clearly how much its helps for the reasoning for the state transitions by just reading the reducer function.*
+_Note: The shown use case -- also every other use case with [useReducer -- can be implemented with useState](/javascript-reducer/) as well. However, even though this one is a simpler example for the sake of learning about it, it shows clearly how much its helps for the reasoning for the state transitions by just reading the reducer function._
 
 The useReducer hook is great for predictable state transitions as we have seen in the previous example. Next, we are going to see how it is a good fit for complex state objects too. Therefore, we will start to manage our todo items in a reducer hook and manipulate it with the following transitions:
 
-* Toggle todo item to complete.
-* Toggle todo item to incomplete.
-* Add todo item to the list of todo items.
+- Toggle todo item to complete.
+- Toggle todo item to incomplete.
+- Add todo item to the list of todo items.
 
 The reducer would look like the following:
 
@@ -577,38 +579,38 @@ The reducer would look like the following:
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'DO_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          return { ...todo, complete: true };
+          return { ...todo, complete: true }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
     case 'UNDO_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          return { ...todo, complete: false };
+          return { ...todo, complete: false }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
     case 'ADD_TODO':
       return state.concat({
         task: action.task,
         id: action.id,
         complete: false,
-      });
+      })
     default:
-      throw new Error();
+      throw new Error()
   }
-};
+}
 ```
 
 The following transitions are implemented in the reducer:
 
-* `DO_TODO`: If an action of this kind passes the reducer, the action comes with an additional payload, the todo item's `id`, to identify the todo item that should be changed to **complete** status.
-* `UNDO_TODO`: If an action of this kind passes the reducer, the action comes with an additional payload, the todo item's `id`, to identify the todo item that should be changed to **incomplete** status.
-* `ADD_TODO`: If an action of this kind passes the reducer, the action comes with an additional payload, the new todo item's `task`, to concat the new todo item to the current todo items in the state.
+- `DO_TODO`: If an action of this kind passes the reducer, the action comes with an additional payload, the todo item's `id`, to identify the todo item that should be changed to **complete** status.
+- `UNDO_TODO`: If an action of this kind passes the reducer, the action comes with an additional payload, the todo item's `id`, to identify the todo item that should be changed to **incomplete** status.
+- `ADD_TODO`: If an action of this kind passes the reducer, the action comes with an additional payload, the new todo item's `task`, to concat the new todo item to the current todo items in the state.
 
 Instead of the useState hook from before, we can manage our todos with this new reducer and the initially given todo items:
 
@@ -705,7 +707,7 @@ You have seen how useState and useReducer can be used for simple and complex sta
 
 ### Exercises:
 
-* Read more about [React's useReducer Hook](/react-usereducer-hook)
+- Read more about [React's useReducer Hook](/react-usereducer-hook)
 
 # React useContext: global State
 
@@ -715,24 +717,24 @@ Let's dive into [React's Context API and the useContext hook](/react-context/) t
 
 ```javascript{23,24,25}
 const App = () => {
-  const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
+  const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL')
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos)
 
-  const filteredTodos = todos.filter(todo => {
+  const filteredTodos = todos.filter((todo) => {
     if (filter === 'ALL') {
-      return true;
+      return true
     }
 
     if (filter === 'COMPLETE' && todo.complete) {
-      return true;
+      return true
     }
 
     if (filter === 'INCOMPLETE' && !todo.complete) {
-      return true;
+      return true
     }
 
-    return false;
-  });
+    return false
+  })
 
   return (
     <div>
@@ -740,8 +742,8 @@ const App = () => {
       <TodoList dispatch={dispatchTodos} todos={filteredTodos} />
       <AddTodo dispatch={dispatchTodos} />
     </div>
-  );
-};
+  )
+}
 ```
 
 Second, the Filter component with its buttons and handlers which are using the dispatch function:
@@ -749,16 +751,16 @@ Second, the Filter component with its buttons and handlers which are using the d
 ```javascript
 const Filter = ({ dispatch }) => {
   const handleShowAll = () => {
-    dispatch({ type: 'SHOW_ALL' });
-  };
+    dispatch({ type: 'SHOW_ALL' })
+  }
 
   const handleShowComplete = () => {
-    dispatch({ type: 'SHOW_COMPLETE' });
-  };
+    dispatch({ type: 'SHOW_COMPLETE' })
+  }
 
   const handleShowIncomplete = () => {
-    dispatch({ type: 'SHOW_INCOMPLETE' });
-  };
+    dispatch({ type: 'SHOW_INCOMPLETE' })
+  }
 
   return (
     <div>
@@ -772,8 +774,8 @@ const Filter = ({ dispatch }) => {
         Show Incomplete
       </button>
     </div>
-  );
-};
+  )
+}
 ```
 
 Third, the TodoList and TodoItem components. Since the individual TodoItem component defines its own handler, the `onChange` event handler doesn't need to pass the todo item anymore. The item is already available in the component itself:
@@ -781,18 +783,18 @@ Third, the TodoList and TodoItem components. Since the individual TodoItem compo
 ```javascript{10,22}
 const TodoList = ({ dispatch, todos }) => (
   <ul>
-    {todos.map(todo => (
+    {todos.map((todo) => (
       <TodoItem key={todo.id} dispatch={dispatch} todo={todo} />
     ))}
   </ul>
-);
+)
 
 const TodoItem = ({ dispatch, todo }) => {
   const handleChange = () =>
     dispatch({
       type: todo.complete ? 'UNDO_TODO' : 'DO_TODO',
       id: todo.id,
-    });
+    })
 
   return (
     <li>
@@ -805,35 +807,35 @@ const TodoItem = ({ dispatch, todo }) => {
         {todo.task}
       </label>
     </li>
-  );
-};
+  )
+}
 ```
 
 Last, the AddTodo component which uses is own local state to manage the value of the input field:
 
 ```javascript
 const AddTodo = ({ dispatch }) => {
-  const [task, setTask] = useState('');
+  const [task, setTask] = useState('')
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     if (task) {
-      dispatch({ type: 'ADD_TODO', task, id: uuid() });
+      dispatch({ type: 'ADD_TODO', task, id: uuid() })
     }
 
-    setTask('');
+    setTask('')
 
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
-  const handleChange = event => setTask(event.target.value);
+  const handleChange = (event) => setTask(event.target.value)
 
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" value={task} onChange={handleChange} />
       <button type="submit">Add Todo</button>
     </form>
-  );
-};
+  )
+}
 ```
 
 In the end, we have a component tree whereas each component receives [state as props](/react-pass-props-to-component/) and dispatch functions to alter the state. Most of the state is managed by the parent App component. That's it for the refactoring. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/d024a244193142fed675ce43d67c71039947548c/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/d024a244193142fed675ce43d67c71039947548c).
@@ -934,20 +936,20 @@ Also the TodoItem component makes use of it and the dispatch function doesn't ne
 ```javascript{1,4,9,10}
 const TodoList = ({ todos }) => (
   <ul>
-    {todos.map(todo => (
+    {todos.map((todo) => (
       <TodoItem key={todo.id} todo={todo} />
     ))}
   </ul>
-);
+)
 
 const TodoItem = ({ todo }) => {
-  const dispatch = useContext(TodoContext);
+  const dispatch = useContext(TodoContext)
 
   const handleChange = () =>
     dispatch({
       type: todo.complete ? 'UNDO_TODO' : 'DO_TODO',
       id: todo.id,
-    });
+    })
 
   return (
     <li>
@@ -960,16 +962,16 @@ const TodoItem = ({ todo }) => {
         {todo.task}
       </label>
     </li>
-  );
-};
+  )
+}
 ```
 
 The application works again, but we are able to dispatch changes for our todo list from anywhere. If you want to continue with this application, experiment with passing down the dispatch function for the filter reducer as well. Moreover, you can pass the state coming from useReducer with React's Context API down as well. Just try it yourself. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/95806796700fc2ca5cd204dd2f4542ad6f08e7ee/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/95806796700fc2ca5cd204dd2f4542ad6f08e7ee).
 
 ### Exercises:
 
-* Read more about [React's useContext Hook](/react-usecontext-hook)
-* Read more about [implementing Redux with React Hooks](/redux-with-react-hooks)
+- Read more about [React's useContext Hook](/react-usecontext-hook)
+- Read more about [implementing Redux with React Hooks](/redux-with-react-hooks)
 
 <Divider />
 

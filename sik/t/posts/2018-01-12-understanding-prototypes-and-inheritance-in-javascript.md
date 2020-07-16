@@ -193,7 +193,7 @@ We can add a method to `Hero` using `prototype`. We'll create a `greet()` method
 
 ```js
 // Add greet method to the Hero prototype
-Hero.prototype.greet = function() {
+Hero.prototype.greet = function () {
   return `${this.name} says hello.`
 }
 ```
@@ -235,11 +235,11 @@ function Healer(name, level, spell) {
 Both new constructors now have the properties of `Hero` and a few unqiue ones. We'll add the `attack()` method to `Warrior`, and the `heal()` method to `Healer`.
 
 ```js
-Warrior.prototype.attack = function() {
+Warrior.prototype.attack = function () {
   return `${this.name} attacks with the ${this.weapon}.`
 }
 
-Healer.prototype.heal = function() {
+Healer.prototype.heal = function () {
   return `${this.name} casts ${this.spell}.`
 }
 ```
@@ -321,15 +321,15 @@ function Healer(name, level, spell) {
 Warrior.prototype = Object.create(Hero.prototype)
 Healer.prototype = Object.create(Hero.prototype)
 
-Hero.prototype.greet = function() {
+Hero.prototype.greet = function () {
   return `${this.name} says hello.`
 }
 
-Warrior.prototype.attack = function() {
+Warrior.prototype.attack = function () {
   return `${this.name} attacks with the ${this.weapon}.`
 }
 
-Healer.prototype.heal = function() {
+Healer.prototype.heal = function () {
   return `${this.name} casts ${this.spell}.`
 }
 

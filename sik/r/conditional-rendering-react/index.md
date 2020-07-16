@@ -1,13 +1,13 @@
 ---
-title: "React Conditional Rendering"
-description: "Everything you need to know about conditional rendering in React. Learn about ternary operators, switch case, and if else statements in JSX to conditionally render elements in React ..."
-date: "2020-01-16T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react conditional rendering", "react conditional render"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Conditional Rendering'
+description: 'Everything you need to know about conditional rendering in React. Learn about ternary operators, switch case, and if else statements in JSX to conditionally render elements in React ...'
+date: '2020-01-16T13:50:46+02:00'
+categories: ['React']
+keywords: ['react conditional rendering', 'react conditional render']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -26,7 +26,7 @@ The most basic conditional rendering logic in React is done with a single **if**
 const users = [
   { id: '1', firstName: 'Robin', lastName: 'Wieruch' },
   { id: '2', firstName: 'Dennis', lastName: 'Wieruch' },
-];
+]
 
 function App() {
   return (
@@ -34,21 +34,21 @@ function App() {
       <h1>Hello Conditional Rendering</h1>
       <List list={users} />
     </div>
-  );
+  )
 }
 
 function List({ list }) {
   if (!list) {
-    return null;
+    return null
   }
 
   return (
     <ul>
-      {list.map(item => (
+      {list.map((item) => (
         <Item key={item.id} item={item} />
       ))}
     </ul>
-  );
+  )
 }
 
 function Item({ item }) {
@@ -56,7 +56,7 @@ function Item({ item }) {
     <li>
       {item.firstName} {item.lastName}
     </li>
-  );
+  )
 }
 ```
 
@@ -71,19 +71,19 @@ Let's move on with the previous example to learn about **if else** statements in
 ```javascript{6-8,16}
 function List({ list }) {
   if (!list) {
-    return null;
+    return null
   }
 
   if (!list.length) {
-    return <p>Sorry, the list is empty.</p>;
+    return <p>Sorry, the list is empty.</p>
   } else {
     return (
       <div>
-        {list.map(item => (
+        {list.map((item) => (
           <Item item={item} />
         ))}
       </div>
-    );
+    )
   }
 }
 ```
@@ -93,20 +93,20 @@ Now, the List component renders either nothing, a text, or the list of items bas
 ```javascript{6-8}
 function List({ list }) {
   if (!list) {
-    return null;
+    return null
   }
 
   if (!list.length) {
-    return <p>Sorry, the list is empty.</p>;
+    return <p>Sorry, the list is empty.</p>
   }
 
   return (
     <div>
-      {list.map(item => (
+      {list.map((item) => (
         <Item item={item} />
       ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -120,15 +120,15 @@ It's true that we can use JavaScript in JSX, but it becomes difficult when using
 // if else
 function getFood(isVegetarian) {
   if (isVegetarian) {
-    return 'tofu';
+    return 'tofu'
   } else {
-    return 'fish';
+    return 'fish'
   }
 }
 
 // ternary operator
 function getFood(isVegetarian) {
-  return isVegetarian ? 'tofu' : 'fish';
+  return isVegetarian ? 'tofu' : 'fish'
 }
 ```
 
@@ -140,13 +140,9 @@ function Recipe({ food, isEdit }) {
     <div>
       {food.name}
 
-      {isEdit ? (
-        <EditRecipe food={food} />
-      ) : (
-        <ShowRecipe food={food} />
-      )}
+      {isEdit ? <EditRecipe food={food} /> : <ShowRecipe food={food} />}
     </div>
-  );
+  )
 }
 ```
 
@@ -158,11 +154,11 @@ The ternary operation makes the conditional rendering in React not only more con
 
 # Conditional Rendering in React: &&
 
-It happens often that you want to *render either an element or nothing*. You have learned that a simple if condition helps with that issue. However, then again you want to be able to inline the condition like a ternary operator. Take the following loading indicator component which uses a conditional ternary operator to return either the element or nothing:
+It happens often that you want to _render either an element or nothing_. You have learned that a simple if condition helps with that issue. However, then again you want to be able to inline the condition like a ternary operator. Take the following loading indicator component which uses a conditional ternary operator to return either the element or nothing:
 
 ```javascript
 function LoadingIndicator({ isLoading }) {
-  return <div>{isLoading ? <p>Loading...</p> : null}</div>;
+  return <div>{isLoading ? <p>Loading...</p> : null}</div>
 }
 ```
 
@@ -171,12 +167,12 @@ This works just fine and you are done inlining the condition in your JSX. Howeve
 The **logical && operator** helps you to make conditions that would return null more concise. In JavaScript, a `true && 'Hello World'` always evaluates to 'Hello World'. A `false && 'Hello World'` always evaluates to false:
 
 ```javascript
-const result = true && 'Hello World';
-console.log(result);
+const result = true && 'Hello World'
+console.log(result)
 // Hello World
 
-const result = false && 'Hello World';
-console.log(result);
+const result = false && 'Hello World'
+console.log(result)
 // false
 ```
 
@@ -184,7 +180,7 @@ In React, you can make use of this behaviour. If the condition is true, the expr
 
 ```javascript{2}
 function LoadingIndicator({ isLoading }) {
-  return <div>{isLoading && <p>Loading...</p>}</div>;
+  return <div>{isLoading && <p>Loading...</p>}</div>
 }
 ```
 
@@ -197,34 +193,34 @@ Now there might be cases where you have multiple conditional renderings. Take fo
 ```javascript
 function Notification({ text, status }) {
   if (status === 'info') {
-    return <Info text={text} />;
+    return <Info text={text} />
   }
 
   if (status === 'warning') {
-    return <Warning text={text} />;
+    return <Warning text={text} />
   }
 
   if (status === 'error') {
-    return <Error text={text} />;
+    return <Error text={text} />
   }
 
-  return null;
+  return null
 }
 ```
 
-You can use a **switch case operator** for *multiple conditional renderings*:
+You can use a **switch case operator** for _multiple conditional renderings_:
 
 ```javascript
 function Notification({ text, status }) {
   switch (status) {
     case 'info':
-      return <Info text={text} />;
+      return <Info text={text} />
     case 'warning':
-      return <Warning text={text} />;
+      return <Warning text={text} />
     case 'error':
-      return <Error text={text} />;
+      return <Error text={text} />
     default:
-      return null;
+      return null
   }
 }
 ```
@@ -232,23 +228,23 @@ function Notification({ text, status }) {
 It's wise to use the default for the switch case operator, because a React component always has to return an element or null. If a component has a conditional rendering based on a string, it makes sense to describe the interface of the component with TypeScript:
 
 ```javascript{1,3-6,8}
-type Status = 'info' | 'warning' | 'error';
+type Status = 'info' | 'warning' | 'error'
 
 type NotificationProps = {
-  text: string;
-  status: Status;
-};
+  text: string,
+  status: Status,
+}
 
 function Notification({ text, status }: NotificationProps) {
   switch (status) {
     case 'info':
-      return <Info text={text} />;
+      return <Info text={text} />
     case 'warning':
-      return <Warning text={text} />;
+      return <Warning text={text} />
     case 'error':
-      return <Error text={text} />;
+      return <Error text={text} />
     default:
-      return null;
+      return null
   }
 }
 ```
@@ -259,20 +255,20 @@ A switch case is a good start for multiple conditional renderings. But it comes 
 function Notification({ text, status }) {
   return (
     <div>
-      {(function() {
+      {(function () {
         switch (status) {
           case 'info':
-            return <Info text={text} />;
+            return <Info text={text} />
           case 'warning':
-            return <Warning text={text} />;
+            return <Warning text={text} />
           case 'error':
-            return <Error text={text} />;
+            return <Error text={text} />
           default:
-            return null;
+            return null
         }
       })()}
     </div>
-  );
+  )
 }
 ```
 
@@ -285,17 +281,17 @@ function Notification({ text, status }) {
       {(() => {
         switch (status) {
           case 'info':
-            return <Info text={text} />;
+            return <Info text={text} />
           case 'warning':
-            return <Warning text={text} />;
+            return <Warning text={text} />
           case 'error':
-            return <Error text={text} />;
+            return <Error text={text} />
           default:
-            return null;
+            return null
         }
       })()}
     </div>
-  );
+  )
 }
 ```
 
@@ -310,10 +306,10 @@ const NOTIFICATION_STATES = {
   info: 'Did you know? ...',
   warning: 'Be careful here ...',
   error: 'Something went wrong ...',
-};
+}
 ```
 
-An **enum** is a great way to handle *conditional rendering with multiple conditions* in React. They are switch case statements on steroids, because they can be used within the JSX. Let's consider the notification component again, but this time with an enum as inlined object (inner curly braces):
+An **enum** is a great way to handle _conditional rendering with multiple conditions_ in React. They are switch case statements on steroids, because they can be used within the JSX. Let's consider the notification component again, but this time with an enum as inlined object (inner curly braces):
 
 ```javascript
 function Notification({ text, status }) {
@@ -327,7 +323,7 @@ function Notification({ text, status }) {
         }[status]
       }
     </div>
-  );
+  )
 }
 ```
 
@@ -340,28 +336,24 @@ const NOTIFICATION_STATES = {
   info: <Info />,
   warning: <Warning />,
   error: <Error />,
-};
+}
 
 function Notification({ status }) {
-  return (
-    <div>
-      {NOTIFICATION_STATES[status]}
-    </div>
-  );
+  return <div>{NOTIFICATION_STATES[status]}</div>
 }
 ```
 
 This cleans things up in the JSX. If we would still rely on the text property from before, we could use a conditional rendering with a function to retrieve the value too:
 
 ```javascript{1-5,8}
-const getNotification = text => ({
+const getNotification = (text) => ({
   info: <Info text={text} />,
   warning: <Warning text={text} />,
   error: <Error text={text} />,
-});
+})
 
 function Notification({ status, text }) {
-  return <div>{getNotification(text)[status]}</div>;
+  return <div>{getNotification(text)[status]}</div>
 }
 ```
 
@@ -369,7 +361,7 @@ After all, the enum conditional rendering in React is more elegant than the swit
 
 ```javascript
 function Message({ isExtrovert, isVegetarian }) {
-  const key = `${isExtrovert}-${isVegetarian}`;
+  const key = `${isExtrovert}-${isVegetarian}`
 
   return (
     <div>
@@ -382,7 +374,7 @@ function Message({ isExtrovert, isVegetarian }) {
         }[key]
       }
     </div>
-  );
+  )
 }
 ```
 
@@ -394,27 +386,31 @@ What about **nested conditional renderings** in React? Yes, it is possible. For 
 
 ```javascript
 function List({ list }) {
-  const isNotAvailable = !list;
-  const isEmpty = !list.length;
+  const isNotAvailable = !list
+  const isEmpty = !list.length
 
   return (
     <div>
-      {isNotAvailable
-        ? <p>Sorry, the list is not there.</p>
-        : (isEmpty
-          ? <p>Sorry, the list is empty.</p>
-          : <div>{list.map(item => <Item item={item} />)}</div>
-        )
-      }
+      {isNotAvailable ? (
+        <p>Sorry, the list is not there.</p>
+      ) : isEmpty ? (
+        <p>Sorry, the list is empty.</p>
+      ) : (
+        <div>
+          {list.map((item) => (
+            <Item item={item} />
+          ))}
+        </div>
+      )}
     </div>
-  );
+  )
 }
 ```
 
 It works, however I would recommend to avoid nested conditional renders, because they are verbose which makes it less readable. Instead try the following solutions:
 
-* The guard pattern with only if statements before the main return statement.
-* Splitting the component into multiple components whereas each component takes care of its own non nested conditional rendering.
+- The guard pattern with only if statements before the main return statement.
+- Splitting the component into multiple components whereas each component takes care of its own non nested conditional rendering.
 
 # Conditional Rendering with HOC
 
@@ -425,18 +421,18 @@ It works, however I would recommend to avoid nested conditional renders, because
 function withLoadingIndicator(Component) {
   return function EnhancedComponent({ isLoading, ...props }) {
     if (!isLoading) {
-      return <Component {...props} />;
+      return <Component {...props} />
     }
 
     return (
       <div>
         <p>Loading</p>
       </div>
-    );
-  };
+    )
+  }
 }
 
-const ListWithLoadingIndicator = withLoadingIndicator(List);
+const ListWithLoadingIndicator = withLoadingIndicator(List)
 
 function App({ list, isLoading }) {
   return (
@@ -445,7 +441,7 @@ function App({ list, isLoading }) {
 
       <ListWithLoadingIndicator isLoading={isLoading} list={list} />
     </div>
-  );
+  )
 }
 ```
 
@@ -458,10 +454,16 @@ Last but not least, there are external libraries to deal with conditional render
 ```javascript
 <Choose>
   <When condition={isLoading}>
-    <div><p>Loading...</p></div>
+    <div>
+      <p>Loading...</p>
+    </div>
   </When>
   <Otherwise>
-    <div>{list.map(item => <Item item={item} />)}</div>
+    <div>
+      {list.map((item) => (
+        <Item item={item} />
+      ))}
+    </div>
   </Otherwise>
 </Choose>
 ```
@@ -472,33 +474,33 @@ Some people use it, but personally I wouldn't recommend it. JSX allows you to us
 
 I hope this React tutorial was helpful for you to learn about conditional renderings. If you liked it, please share it with your friends. In the end, I got an all conditional renderings in a cheatsheet for you:
 
-* if
-  * most basic conditional rendering
-  * use to opt-out early from a rendering (guard pattern)
-  * cannot be used within return statement and JSX (except self invoking function)
-* if-else
-  * use it rarely, because it's verbose
-  * instead, use ternary operator or logical && operator
-  * cannot be used inside return statement and JSX (except self invoking function)
-* ternary operator
-  * use it instead of an if-else statement
-  * it can be used within JSX and return statement
-* logical && operator
-  * use it when one side of the ternary operation would return null
-  * it can be used inside JSX and return statement
-* switch case
-  * avoid using it, because it's too verbose
-  * instead, use enums
-  * cannot be used within JSX and return (except self invoking function)
-* enums
-  * use it for conditional rendering based on multiple states
-  * perfect to map more than one condition
-* nested conditional rendering
-  * avoid them for the sake of readability
-  * instead, split out components, use if statements, or use HOCs
-* HOCs
-  * components can focus on their main purpose
-  * use HOC to shield away conditional rendering
-  * use multiple composable HOCs to shield away multiple conditional renderings
-* external templating components
-  * avoid them and be comfortable with JSX and JS
+- if
+  - most basic conditional rendering
+  - use to opt-out early from a rendering (guard pattern)
+  - cannot be used within return statement and JSX (except self invoking function)
+- if-else
+  - use it rarely, because it's verbose
+  - instead, use ternary operator or logical && operator
+  - cannot be used inside return statement and JSX (except self invoking function)
+- ternary operator
+  - use it instead of an if-else statement
+  - it can be used within JSX and return statement
+- logical && operator
+  - use it when one side of the ternary operation would return null
+  - it can be used inside JSX and return statement
+- switch case
+  - avoid using it, because it's too verbose
+  - instead, use enums
+  - cannot be used within JSX and return (except self invoking function)
+- enums
+  - use it for conditional rendering based on multiple states
+  - perfect to map more than one condition
+- nested conditional rendering
+  - avoid them for the sake of readability
+  - instead, split out components, use if statements, or use HOCs
+- HOCs
+  - components can focus on their main purpose
+  - use HOC to shield away conditional rendering
+  - use multiple composable HOCs to shield away multiple conditional renderings
+- external templating components
+  - avoid them and be comfortable with JSX and JS

@@ -1,13 +1,20 @@
 ---
-title: "How to React Slider"
-description: "In this React component tutorial, we will build a React Slider Component with a Range that can be used horizontally as example, but can be extended to be used vertically too ..."
-date: "2019-12-02T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react slider", "react slider component", "react slider example", "react slider range", "react range"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to React Slider'
+description: 'In this React component tutorial, we will build a React Slider Component with a Range that can be used horizontally as example, but can be extended to be used vertically too ...'
+date: '2019-12-02T07:52:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react slider',
+    'react slider component',
+    'react slider example',
+    'react slider range',
+    'react range',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,15 +26,15 @@ In this React component tutorial by example, we will create a React Slider Compo
 Let's start right away by giving our React Slider its style. This way, we can see our component right away in the browser. We will use [Styled Components](/react-styled-components) to style our Slider, but feel free to use something else like CSS Modules.
 
 ```javascript
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const StyledSlider = styled.div`
   position: relative;
   border-radius: 3px;
   background: #dddddd;
   height: 15px;
-`;
+`
 
 const StyledThumb = styled.div`
   width: 10px;
@@ -38,7 +45,7 @@ const StyledThumb = styled.div`
   opacity: 0.5;
   background: #823eb7;
   cursor: pointer;
-`;
+`
 
 const Slider = () => {
   return (
@@ -47,16 +54,16 @@ const Slider = () => {
         <StyledThumb />
       </StyledSlider>
     </>
-  );
-};
+  )
+}
 
 const App = () => (
   <div>
     <Slider />
   </div>
-);
+)
 
-export default App;
+export default App
 ```
 
 Now you should see the slider with its thumb already being rendered by React. We are using the Slider component in context of a React application by having an App component in place as well. Let's check how to implement its business logic in order to enable a user interacting with it.
@@ -67,10 +74,10 @@ Let's focus only on the Slider component now. We will give each part of the slid
 
 ```javascript{2,3,5,9,10}
 const Slider = () => {
-  const sliderRef = React.useRef();
-  const thumbRef = React.useRef();
+  const sliderRef = React.useRef()
+  const thumbRef = React.useRef()
 
-  const handleMouseDown = event => {};
+  const handleMouseDown = (event) => {}
 
   return (
     <>
@@ -78,33 +85,32 @@ const Slider = () => {
         <StyledThumb ref={thumbRef} onMouseDown={handleMouseDown} />
       </StyledSlider>
     </>
-  );
-};
+  )
+}
 ```
 
 Also we added a `onMouseDown` handler to our slider's thumb. This one is actually needed to capture a user's interaction with the slider. In the next step, we will add two more event handlers, which will be only active after the mouse down event has been triggered. One of these new events -- the mouse up event -- will make sure to de-register these new events.
 
 ```javascript{5-10,12-15,18-19}
 const Slider = () => {
-  const sliderRef = React.useRef();
-  const thumbRef = React.useRef();
+  const sliderRef = React.useRef()
+  const thumbRef = React.useRef()
 
-  const handleMouseMove = event => {
+  const handleMouseMove = (event) => {
     // TODO:
-
     // set new thumb position while moving
     // by using the saved horizontal start position
-  };
+  }
 
   const handleMouseUp = () => {
-    document.removeEventListener('mouseup', handleMouseUp);
-    document.removeEventListener('mousemove', handleMouseMove);
-  };
+    document.removeEventListener('mouseup', handleMouseUp)
+    document.removeEventListener('mousemove', handleMouseMove)
+  }
 
-  const handleMouseDown = event => {
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseup', handleMouseUp);
-  };
+  const handleMouseDown = (event) => {
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
+  }
 
   return (
     <>
@@ -112,15 +118,15 @@ const Slider = () => {
         <StyledThumb ref={thumbRef} onMouseDown={handleMouseDown} />
       </StyledSlider>
     </>
-  );
-};
+  )
+}
 ```
 
 The `onMouseDown` handler's function does two things:
 
 First, it registers two more handlers for the thumb, which only happens after the mouse down event has been triggered. This ensures that the thumb only moves while the mouse is down. If the mouse up event gets triggered eventually -- which has just been registered -- all newly registered handlers will be removed again. The mouse move event is the place where the actual logic of the range slider happens, but again, only if the mouse down event is active.
 
-Second, it stores the difference of the thumb position and the actual click on the x-axis -- just to be more accurate here. We store it only *once* in order to reuse it later for *every* mouse move event. We will be using a React ref again, which makes sure that the value doesn't get lost in between of component re-renders. Also we are not using React state here, because we don't want to trigger a re-render of the component.
+Second, it stores the difference of the thumb position and the actual click on the x-axis -- just to be more accurate here. We store it only _once_ in order to reuse it later for _every_ mouse move event. We will be using a React ref again, which makes sure that the value doesn't get lost in between of component re-renders. Also we are not using React state here, because we don't want to trigger a re-render of the component.
 
 ```javascript{5,8-11,20-21}
 const Slider = () => {
@@ -153,7 +159,7 @@ const Slider = () => {
 };
 ```
 
-*Note: We are only calculating the values along the x-axis, because we are not dealing with a vertical slider here. You can try on your own to convert this Slider component to a vertical Slider later as an exercise.*
+_Note: We are only calculating the values along the x-axis, because we are not dealing with a vertical slider here. You can try on your own to convert this Slider component to a vertical Slider later as an exercise._
 
 After we calculated the new position in the mouse move event, we can check whether the new position will be outside of our slider's range. If that's the case, we are using the boundaries of the slider's range instead of the new x-position.
 
@@ -225,8 +231,8 @@ The React slider example should work now. We have used direct DOM manipulation t
 
 ### Exercise:
 
-* Try the example with [React's useState Hook](/react-usestate-hook) instead of the `thumbRef.current.style.left` assignment
-* Try the example with a vertical instead of the horizontal slider example
+- Try the example with [React's useState Hook](/react-usestate-hook) instead of the `thumbRef.current.style.left` assignment
+- Try the example with a vertical instead of the horizontal slider example
 
 # React Slider: Component
 
@@ -316,7 +322,7 @@ const App = () => (
 );
 ```
 
-Third, we will show the Slider's *initial* and maximum range:
+Third, we will show the Slider's _initial_ and maximum range:
 
 ```javascript{3-6,15-19}
 ...
@@ -444,8 +450,8 @@ That's it. You have styled a slider component in React, made its interaction pos
 
 ### Exercises:
 
-* The Slider only works when moving the thumb around. Extend the Slider's functionality so that it moves the thumb around when clicking on the Slider's track instead of using the thumb directly.
-* Pass a different `formatFn` to the slider. For instance, you could use a formatter function to translate the number to a time format (e.g. 135000 to 00:02:15:000 for milliseconds to hh:mm:ss:ms).
+- The Slider only works when moving the thumb around. Extend the Slider's functionality so that it moves the thumb around when clicking on the Slider's track instead of using the thumb directly.
+- Pass a different `formatFn` to the slider. For instance, you could use a formatter function to translate the number to a time format (e.g. 135000 to 00:02:15:000 for milliseconds to hh:mm:ss:ms).
 
 <Divider />
 

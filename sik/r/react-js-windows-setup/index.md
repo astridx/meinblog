@@ -1,13 +1,13 @@
 ---
-title: "How to setup React.js on Windows"
-description: "A concise step by step guide on how to setup React.js on Windows for your PC. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Windows ..."
-date: "2018-02-20T13:50:46+02:00"
-categories: ["React", "VS Code", "Web Development"]
-keywords: ["react js windows setup"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to setup React.js on Windows'
+description: 'A concise step by step guide on how to setup React.js on Windows for your PC. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Windows ...'
+date: '2018-02-20T13:50:46+02:00'
+categories: ['React', 'VS Code', 'Web Development']
+keywords: ['react js windows setup']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -43,7 +43,7 @@ node --version
 npm --version
 ```
 
-*Note: In most cases, it should just work for you. If node or npm are no valid commands, you need to check your environment variables in Windows. But I didn't run into this issue anymore in the past when I worked together with Windows users on React applications.*
+_Note: In most cases, it should just work for you. If node or npm are no valid commands, you need to check your environment variables in Windows. But I didn't run into this issue anymore in the past when I worked together with Windows users on React applications._
 
 # create-react-app for React on Windows
 

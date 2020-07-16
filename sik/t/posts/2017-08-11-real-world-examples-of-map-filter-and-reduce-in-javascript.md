@@ -70,10 +70,14 @@ And this JavaScript (**scripts.js**) to load in the map and map data.
 const myMap = L.map('map')
 
 // Load the basemap
-const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-})
+const myBasemap = L.tileLayer(
+  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {
+    maxZoom: 19,
+    attribution:
+      '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }
+)
 
 // Add basemap to map id
 myBasemap.addTo(myMap)
@@ -188,7 +192,7 @@ We won't be using jQuery - only plain JavaScript - so it's a slightly more invol
 const request = new XMLHttpRequest()
 request.open('GET', 'map.json', true)
 
-request.onload = function() {
+request.onload = function () {
   // Begin accessing JSON data here
   const data = JSON.parse(this.response)
 }
@@ -209,13 +213,13 @@ Previously we were creating a new variable for each marker, and placing all the 
 To get the data found inside `cafes` in JSON, we'll use the `map()` method on `data.cafes` with a function inside.
 
 ```js
-const cafes = data.cafes.map(function(cafe) {})
+const cafes = data.cafes.map(function (cafe) {})
 ```
 
 I'm just going to rewrite that function with an [ES6 arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to make it more succinct.
 
 ```js
-const cafes = data.cafes.map(cafe => {})
+const cafes = data.cafes.map((cafe) => {})
 ```
 
 Now in order to access any property from the JSON feed, we'll use the dot notation on the `cafe` object. So the first iteration of `cafe.name` will return `El Meson`, the second one `Wormhole`, and so on. All I'm doing here is taking the same `L.Marker` function from before, and replacing all the static values with dynamic properties.
@@ -224,7 +228,7 @@ Now in order to access any property from the JSON feed, we'll use the dot notati
 
 ```js
 // Print cafe markers
-const cafes = data.cafes.map(cafe => {
+const cafes = data.cafes.map((cafe) => {
   L.marker([cafe.lat, cafe.long])
     .bindPopup(
       `
@@ -251,10 +255,14 @@ Here is the full **scripts.js** file up to now.
 const myMap = L.map('map')
 
 // Load the basemap
-const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-})
+const myBasemap = L.tileLayer(
+  'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {
+    maxZoom: 19,
+    attribution:
+      '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }
+)
 
 // Add basemap to map id
 myBasemap.addTo(myMap)
@@ -266,12 +274,12 @@ myMap.setView([41.939948, -87.650673], 12)
 const request = new XMLHttpRequest()
 
 request.open('GET', 'map.json', true)
-request.onload = function() {
+request.onload = function () {
   // Begin accessing JSON data here
   const data = JSON.parse(this.response)
 
   // Print cafe markers
-  const cafes = data.cafes.map(cafe => {
+  const cafes = data.cafes.map((cafe) => {
     L.marker([cafe.lat, cafe.long])
       .bindPopup(
         `
@@ -303,17 +311,17 @@ In our example, we have two neighborhoods for the three cafes - one in Rogers Pa
 We have all the data we need in the JSON file, but I wasn't sure how to succinctly count all the instances. At first, I thought about using `filter()` to find out how many instances of each neighborhood name were found throughout the feed. `filter()` is written similarly to `map()` and it also creates a new array, but its function performs a test and filters out everything that doesn't pass. `filter()` follows the same syntax as `map()`.
 
 ```js
-const individualNeighborhood = data.cafes.filter(cafe => {})
+const individualNeighborhood = data.cafes.filter((cafe) => {})
 ```
 
 Below, I'm making a test for each neighborhood that will filter out all results that don't match my test.
 
 ```js
-const rogersPark = data.cafes.filter(cafe => {
+const rogersPark = data.cafes.filter((cafe) => {
   return cafe.neighborhood === 'Rogers Park'
 })
 
-const wickerPark = data.cafes.filter(cafe => {
+const wickerPark = data.cafes.filter((cafe) => {
   return cafe.neighborhood === 'Wicker Park'
 })
 ```
@@ -424,7 +432,7 @@ const numbers = [1, 2, 3, 4]
 Use `map()` to get an array with each value incremented by one.
 
 ```js
-const numbersIncremented = numbers.map(x => {
+const numbersIncremented = numbers.map((x) => {
   return x + 1
 })
 
@@ -440,7 +448,7 @@ numbersIncremented
 Use `filter()` to get an array of available values greater than 2.
 
 ```js
-const numbersFiltered = numbers.filter(x => {
+const numbersFiltered = numbers.filter((x) => {
   return x > 2
 })
 

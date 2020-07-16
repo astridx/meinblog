@@ -190,7 +190,7 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
 }).$mount('#app')
 ```
 
@@ -227,7 +227,10 @@ Now let's start actually building this app.
 As always, this tutorial is about functionality, not styles, so I'm just going to link to [Primitive UI](https://github.com/taniarascia/primitive) in the `index.html` file to add some easy default styles.
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/primitive-ui/dist/css/main.css"
+/>
 ```
 
 ## Creating a Component
@@ -459,7 +462,7 @@ We'll also need to add this to App.vue
     <h1>Employees</h1>
 
     <employee-form />
-    <employee-table :employees="employees"/>
+    <employee-table :employees="employees" />
   </div>
 </template>
 
@@ -475,7 +478,7 @@ We'll also need to add this to App.vue
     },
     data: {
       // ...
-    }
+    },
   }
 </script>
 ```
@@ -977,7 +980,7 @@ And now I can edit a single row at a time!
 
 ![](../images/vue12.png)
 
-Editing works, but you still can't cancel the state from updating with this code, even if the new values don't get sent to the API call. We'll create `cancelEdit`, and make the cancel button call ` @click="cancelEdit(employee)"` and remove `.id` from the edit button. We'll make a cached employee that we can return to.
+Editing works, but you still can't cancel the state from updating with this code, even if the new values don't get sent to the API call. We'll create `cancelEdit`, and make the cancel button call `@click="cancelEdit(employee)"` and remove `.id` from the edit button. We'll make a cached employee that we can return to.
 
 ```js
 editMode(employee) {

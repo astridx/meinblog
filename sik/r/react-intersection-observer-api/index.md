@@ -1,20 +1,21 @@
 ---
-title: "Intersection Observer API in React"
+title: 'Intersection Observer API in React'
 description: "A tutorial to learn about the Intersection Observer API in React. You will use React's ref API with createRef() to observe elements in your React application in context of the viewport ..."
-date: "2018-09-05T13:50:46+02:00"
-categories: ["React", "JavaScript"]
-keywords: ["react intersection observer api", "react createRef", "react ref API"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-09-05T13:50:46+02:00'
+categories: ['React', 'JavaScript']
+keywords:
+  ['react intersection observer api', 'react createRef', 'react ref API']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
 <LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1a:", label: "How to setup React.js on Windows", url: "/react-js-windows-setup/" }, { prefix: "Part 1b:", label: "How to setup React.js on MacOS", url: "/react-js-macos-setup/" }]} />
 
-The Intersection Observer API is a browser API which can be used to track the position of HTML elements in context to the actual viewport of the browser. The [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) says: *"The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport."*
+The Intersection Observer API is a browser API which can be used to track the position of HTML elements in context to the actual viewport of the browser. The [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) says: _"The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport."_
 
 **It can be used for various scenarios:** For instance, what about coloring the background color of your application or animating SVGs when a user scrolls through your application? What about [fetching more data](/react-fetching-data/) when [reaching the end of a list of items](/react-paginated-list/)? In order to implement such behaviors, you need to know when an HTML element enters (or leaves) the viewport (the user's visible area of a web page) in your browser. Historically there was no dedicated API for this and one had to use other APIs (e.g. [Element.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)) for workarounds. Now it is possible with the intersection observer API.
 
@@ -27,12 +28,12 @@ In this section, let's build a application which can be used in the following se
 First, let's have a application which renders a list of items. Each items represents a section of an article. Later, it should be possible to jump between these sections.
 
 ```javascript
-import React, { Component } from 'react';
-import li from 'lorem-ipsum';
+import React, { Component } from 'react'
+import li from 'lorem-ipsum'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       things: [
@@ -52,24 +53,24 @@ class App extends Component {
           text: li({ count: 50, units: 'sentences' }),
         },
       ],
-    };
+    }
   }
 
   render() {
     return (
       <div>
-        {this.state.things.map(thing => (
+        {this.state.things.map((thing) => (
           <div key={thing.id}>
             <h1>{thing.headline}</h1>
             <p>{thing.text}</p>
           </div>
         ))}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 The application uses the neat [lorem-ipsum](https://github.com/knicklabs/lorem-ipsum.js) node package to generate sample text. It comes with a couple of configurations that can be used, for instance, to adjust the length of text. You can install it via npm with `npm install lorem-ipsum`. Furthermore, the application uses [JavaScript arrow functions](/javascript-fundamentals-react-requirements/) for keeping the rendered list of items in React's JSX concise.
@@ -417,9 +418,9 @@ export default App;
 
 The IntersectionObserver constructor takes two arguments: a [callback function](/javascript-callback-function) which is called every time an observed element (single ref) changes its position relatively to the viewport (root ref) and a configuration object. In the configuration object, you can pass the root reference. If it is not passed, it defaults to the browser's viewport. The threshold is another configuration where you can make a fine-grained choice when to trigger the callback function of the observer.
 
-**Root:** *"The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target. Defaults to the browser viewport if not specified or if null."*
+**Root:** _"The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target. Defaults to the browser viewport if not specified or if null."_
 
-**Threshold:** *"Either a single number or an array of numbers which indicate at what percentage of the target's visibility the observer's callback should be executed. If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5. If you want the callback run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1]. The default is 0 (meaning as soon as even one pixel is visible, the callback will be run). A value of 1.0 means that the threshold isn't considered passed until every pixel is visible."*
+**Threshold:** _"Either a single number or an array of numbers which indicate at what percentage of the target's visibility the observer's callback should be executed. If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5. If you want the callback run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1]. The default is 0 (meaning as soon as even one pixel is visible, the callback will be run). A value of 1.0 means that the threshold isn't considered passed until every pixel is visible."_
 
 In addition, you have to initiate the observation explicitly by passing all elements (single refs) to the observer's observe method. This happens in React in the `componentDidMount()` lifecycle method, because only then the all refs are applied for the elements in the `render()` method.
 

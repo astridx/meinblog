@@ -173,7 +173,10 @@ undefined
 In order to access items in a nested array, you would add another index number to correspond to the inner array.
 
 ```js
-let nestedArray = [['salmon', 'halibut'], ['coral', 'reef']]
+let nestedArray = [
+  ['salmon', 'halibut'],
+  ['coral', 'reef'],
+]
 
 nestedArray[1][0]
 ```

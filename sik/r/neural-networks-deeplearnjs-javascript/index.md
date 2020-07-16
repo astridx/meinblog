@@ -1,13 +1,14 @@
 ---
-title: "Neural Networks in JavaScript with deeplearn.js"
-description: "An extensive tutorial on how to implement a neural network in JavaScript with deeplearn.js to perform machine learning in JavaScript. You can bring neural networks to your browser by using the performance benefits of WebGL. Deeplearn.js makes it possible to implement a WebGL powered neural network ..."
-date: "2017-12-05T09:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "neural network javascript deeplearnjs"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Neural Networks in JavaScript with deeplearn.js'
+description: 'An extensive tutorial on how to implement a neural network in JavaScript with deeplearn.js to perform machine learning in JavaScript. You can bring neural networks to your browser by using the performance benefits of WebGL. Deeplearn.js makes it possible to implement a WebGL powered neural network ...'
+date: '2017-12-05T09:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  ['machine learning javascript', 'neural network javascript deeplearnjs']
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -24,22 +25,20 @@ The neural network implemented in this article should be able to improve web acc
 
 ```javascript
 function getAccessibleColor(rgb) {
-  let [ r, g, b ] = rgb;
+  let [r, g, b] = rgb
 
-  let colors = [r / 255, g / 255, b / 255];
+  let colors = [r / 255, g / 255, b / 255]
 
   let c = colors.map((col) => {
     if (col <= 0.03928) {
-      return col / 12.92;
+      return col / 12.92
     }
-    return Math.pow((col + 0.055) / 1.055, 2.4);
-  });
+    return Math.pow((col + 0.055) / 1.055, 2.4)
+  })
 
-  let L = (0.2126 * c[0]) + (0.7152 * c[1]) + (0.0722 * c[2]);
+  let L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
 
-  return (L > 0.179)
-    ? [ 0, 0, 0 ]
-    : [ 255, 255, 255 ];
+  return L > 0.179 ? [0, 0, 0] : [255, 255, 255]
 }
 ```
 
@@ -57,13 +56,13 @@ After the algorithm is trained with the help of the neural network, it can outpu
 
 ```javascript
 function generateRandomRgbColors(m) {
-  const rawInputs = [];
+  const rawInputs = []
 
   for (let i = 0; i < m; i++) {
-    rawInputs.push(generateRandomRgbColor());
+    rawInputs.push(generateRandomRgbColor())
   }
 
-  return rawInputs;
+  return rawInputs
 }
 
 function generateRandomRgbColor() {
@@ -71,11 +70,11 @@ function generateRandomRgbColor() {
     randomIntFromInterval(0, 255),
     randomIntFromInterval(0, 255),
     randomIntFromInterval(0, 255),
-  ];
+  ]
 }
 
 function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 ```
 
@@ -85,22 +84,22 @@ Since the programmatic approach to generate an accessible font color based on a 
 
 ```javascript{15,16,17}
 function getAccessibleColor(rgb) {
-  let [ r, g, b ] = rgb;
+  let [r, g, b] = rgb
 
-  let color = [r / 255, g / 255, b / 255];
+  let color = [r / 255, g / 255, b / 255]
 
   let c = color.map((col) => {
     if (col <= 0.03928) {
-      return col / 12.92;
+      return col / 12.92
     }
-    return Math.pow((col + 0.055) / 1.055, 2.4);
-  });
+    return Math.pow((col + 0.055) / 1.055, 2.4)
+  })
 
-  let L = (0.2126 * c[0]) + (0.7152 * c[1]) + (0.0722 * c[2]);
+  let L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
 
-  return (L > 0.179)
-    ? [ 0, 1 ] // black
-    : [ 1, 0 ]; // white
+  return L > 0.179
+    ? [0, 1] // black
+    : [1, 0] // white
 }
 ```
 
@@ -108,10 +107,10 @@ Now you have everything in place to generate random data sets (training set, tes
 
 ```javascript
 function generateColorSet(m) {
-  const rawInputs = generateRandomRgbColors(m);
-  const rawTargets = rawInputs.map(getAccessibleColor);
+  const rawInputs = generateRandomRgbColors(m)
+  const rawTargets = rawInputs.map(getAccessibleColor)
 
-  return { rawInputs, rawTargets };
+  return { rawInputs, rawTargets }
 }
 ```
 
@@ -119,7 +118,7 @@ Another step to give the underlying algorithm in the neural network a better tim
 
 ```javascript
 function normalizeColor(rgb) {
-  return rgb.map(v => v / 255);
+  return rgb.map((v) => v / 255)
 }
 ```
 
@@ -127,7 +126,7 @@ It is up to you to put this functionality in your neural network model or as sep
 
 # Setup Phase of a Neural Network Model in JavaScript
 
-Now comes the exciting part where you will implement a neural network in JavaScript. Before you can start implementing it, you should install the deeplearn.js library. It is a framework for neural networks in JavaScript. The official pitch for it says: *"deeplearn.js is an open-source library that brings performant machine learning building blocks to the web, allowing you to train neural networks in a browser or run pre-trained models in inference mode."* In this article, you will train your model yourself and run it in inference mode afterward. There are two major advantages to use the library:
+Now comes the exciting part where you will implement a neural network in JavaScript. Before you can start implementing it, you should install the deeplearn.js library. It is a framework for neural networks in JavaScript. The official pitch for it says: _"deeplearn.js is an open-source library that brings performant machine learning building blocks to the web, allowing you to train neural networks in a browser or run pre-trained models in inference mode."_ In this article, you will train your model yourself and run it in inference mode afterward. There are two major advantages to use the library:
 
 First, it uses the GPU of your local machine which accelerates the vector computations in machine learning algorithms. These machine learning computations are similar to graphical computations and thus it is computational efficient to use the GPU instead of the CPU.
 
@@ -143,14 +142,12 @@ Since I didn't build a vast number of neural networks myself yet, I followed the
 
 ```javascript
 class ColorAccessibilityModel {
-
   normalizeColor(rgb) {
-    return rgb.map(v => v / 255);
+    return rgb.map((v) => v / 255)
   }
-
 }
 
-export default ColorAccessibilityModel;
+export default ColorAccessibilityModel
 ```
 
 Perhaps it is a place for your functions to generate the data sets as well. In my case, I only put the normalization in the class as class method and leave the data set generation outside of the class. You could argue that there are different ways to generate a data set in the future and thus it shouldn't be defined in the neural network model itself. Nevertheless, that's only a implementation detail.
@@ -760,7 +757,7 @@ Finally, that's it for the training phase. Now it needs only to be executed iter
 
 # Inference Phase
 
- The final stage is the **inference phase** where a test set is used to validate the performance of the trained algorithm. The input is a color in RGB space for the background color and as output it should predict the classifier [ 0, 1 ] or [ 1, 0 ] for either black or white for the font color. Since the input data points were normalized, don't forget to normalize the color in this step as well.
+The final stage is the **inference phase** where a test set is used to validate the performance of the trained algorithm. The input is a color in RGB space for the background color and as output it should predict the classifier [ 0, 1 ] or [ 1, 0 ] for either black or white for the font color. Since the input data points were normalized, don't forget to normalize the color in this step as well.
 
 ```javascript{5,6,7,8,9,10,11,12,13,14,15,16,17,18,19}
 class ColorAccessibilityModel {
@@ -990,56 +987,59 @@ export default App;
 The actual table iterates over the size of the test set size to display each color. The test set has the input colors (background colors) and output colors (font colors). Since the output colors are classified into black [ 0, 1 ] and white [ 1, 0 ] vectors when a data set is generated, they need to be transformed into actual colors again.
 
 ```javascript
-const ActualTable = ({ testSet }) =>
+const ActualTable = ({ testSet }) => (
   <div>
     <p>Programmatically Computed</p>
 
-    {Array(TEST_SET_SIZE).fill(0).map((v, i) =>
-      <ColorBox
-        key={i}
-        rgbInput={testSet.rawInputs[i]}
-        rgbTarget={fromClassifierToRgb(testSet.rawTargets[i])}
-      />
-    )}
+    {Array(TEST_SET_SIZE)
+      .fill(0)
+      .map((v, i) => (
+        <ColorBox
+          key={i}
+          rgbInput={testSet.rawInputs[i]}
+          rgbTarget={fromClassifierToRgb(testSet.rawTargets[i])}
+        />
+      ))}
   </div>
+)
 
 const fromClassifierToRgb = (classifier) =>
-  classifier[0] > classifier[1]
-    ? [ 255, 255, 255 ]
-    : [ 0, 0, 0 ]
+  classifier[0] > classifier[1] ? [255, 255, 255] : [0, 0, 0]
 ```
 
 The ColorBox component is a generic component which takes the input color (background color) and target color (font color). It simply displays a rectangle with the input color style, the RGB code of the input color as string and styles the font of the RGB code into the given target color.
 
 ```javascript
-const ColorBox = ({ rgbInput, rgbTarget }) =>
+const ColorBox = ({ rgbInput, rgbTarget }) => (
   <div className="color-box" style={{ backgroundColor: getRgbStyle(rgbInput) }}>
     <span style={{ color: getRgbStyle(rgbTarget) }}>
       <RgbString rgb={rgbInput} />
     </span>
   </div>
+)
 
-const RgbString = ({ rgb }) =>
-  `rgb(${rgb.toString()})`
+const RgbString = ({ rgb }) => `rgb(${rgb.toString()})`
 
-const getRgbStyle = (rgb) =>
-  `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
+const getRgbStyle = (rgb) => `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`
 ```
 
 Last but not least, the exciting part of visualizing the predicted colors in the inference table. It uses the color box as well, but gives a different set of props into it.
 
 ```javascript
-const InferenceTable = ({ testSet, model }) =>
+const InferenceTable = ({ testSet, model }) => (
   <div>
     <p>Neural Network Computed</p>
-    {Array(TEST_SET_SIZE).fill(0).map((v, i) =>
-      <ColorBox
-        key={i}
-        rgbInput={testSet.rawInputs[i]}
-        rgbTarget={fromClassifierToRgb(model.predict(testSet.rawInputs[i]))}
-      />
-    )}
+    {Array(TEST_SET_SIZE)
+      .fill(0)
+      .map((v, i) => (
+        <ColorBox
+          key={i}
+          rgbInput={testSet.rawInputs[i]}
+          rgbTarget={fromClassifierToRgb(model.predict(testSet.rawInputs[i]))}
+        />
+      ))}
   </div>
+)
 ```
 
 The input color is still the color defined in the test set. But the target color isn't the target color from the test set. The crucial part is that the target color is predicted in this component by using the neural network's predict method. It takes the input color and should predict the target color over the course of the training phase.

@@ -231,7 +231,7 @@ I like to work with all my source files, such as Sass, in an **src/** directory,
 So, I'll begin by creating a Gulp task.
 
 ```js
-gulp.task('workflow', function() {
+gulp.task('workflow', function () {
   gulp
     .src('./src/sass/**/*.scss')
     // Insert tasks here
@@ -244,7 +244,7 @@ The path `/**/*.scss` means the task applies to this or any subsequent directory
 Inserting all the rest of the plugins is easy.
 
 ```js
-gulp.task('workflow', function() {
+gulp.task('workflow', function () {
   gulp
     .src('./src/sass/**/*.scss')
     .pipe(sourcemaps.init())
@@ -267,7 +267,7 @@ Each plugin will have a corresponding GitHub readme that explains how to use it.
 Finally, I'm going to define the default Gulp task as a "watch" task - Gulp will watch for any changes in my specified directory, and will run if any changes have been made.
 
 ```js
-gulp.task('default', function() {
+gulp.task('default', function () {
   gulp.watch('./src/sass/**/*.scss', ['workflow'])
 })
 ```
@@ -283,7 +283,7 @@ var cssnano = require('gulp-cssnano')
 var sourcemaps = require('gulp-sourcemaps')
 var autoprefixer = require('gulp-autoprefixer')
 
-gulp.task('workflow', function() {
+gulp.task('workflow', function () {
   gulp
     .src('./src/sass/**/*.scss')
     .pipe(sourcemaps.init())
@@ -300,7 +300,7 @@ gulp.task('workflow', function() {
     .pipe(gulp.dest('./dist/css/'))
 })
 
-gulp.task('default', function() {
+gulp.task('default', function () {
   gulp.watch('./src/sass/**/*.scss', ['workflow'])
 })
 ```
@@ -338,7 +338,8 @@ $font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 ```scss
 // Define typography
 html {
-  font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
+  font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height}
+    $font-family;
 }
 
 // Vertically center anything

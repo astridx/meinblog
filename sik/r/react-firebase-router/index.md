@@ -1,13 +1,13 @@
 ---
-title: "How to use React Router with Firebase"
-description: "A React tutorial on how to combine React Router and Firebase to navigate a user through the application while fetching data from the Firebase database or even passing data through React Router ..."
-date: "2019-01-01T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firebase router", "react router firebase"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use React Router with Firebase'
+description: 'A React tutorial on how to combine React Router and Firebase to navigate a user through the application while fetching data from the Firebase database or even passing data through React Router ...'
+date: '2019-01-01T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords: ['react firebase router', 'react router firebase']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,54 +15,54 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 7 of 7 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React Firebase: Link Social Logins",
-      url: "/react-firebase-link-social-logins"
-    },
-    {
-      prefix: "Part 6:",
-      label: "React Firebase: Email Verification",
-      url: "/react-firebase-email-verification"
-    }
-  ]}
+label="This tutorial is part 7 of 7 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+},
+{
+prefix: "Part 5:",
+label: "React Firebase: Link Social Logins",
+url: "/react-firebase-link-social-logins"
+},
+{
+prefix: "Part 6:",
+label: "React Firebase: Email Verification",
+url: "/react-firebase-email-verification"
+}
+]}
 />
 
 Before we dive deeper into Firebase's realtime database and the domain-related business logic of our application, it makes sense to invest more time into React Router. So far, we have split up our application into top-level routes to manage our whole authentication flow with login, logout, and registration. Additionally, we protected top-level routes with authorization that checks for authenticated users, confirmed email addresses, and admin users.
 
-In this section, we'll implement more specific routing for the admin page. So far, this page only shows a list of users, retrieved from the Firebase realtime database. Basically, it is the overview of our users. However, a list of users alone doesn't help that much, and a detail page would be much more useful. Then, it would be possible to trigger further actions for the user on the detail page instead of the overview page. To start, define a new child route in the *src/constants/routes.js* file:
+In this section, we'll implement more specific routing for the admin page. So far, this page only shows a list of users, retrieved from the Firebase realtime database. Basically, it is the overview of our users. However, a list of users alone doesn't help that much, and a detail page would be much more useful. Then, it would be possible to trigger further actions for the user on the detail page instead of the overview page. To start, define a new child route in the _src/constants/routes.js_ file:
 
 ```javascript{8}
-export const LANDING = '/';
-export const SIGN_UP = '/signup';
-export const SIGN_IN = '/signin';
-export const HOME = '/home';
-export const ACCOUNT = '/account';
-export const PASSWORD_FORGET = '/pw-forget';
-export const ADMIN = '/admin';
-export const ADMIN_DETAILS = '/admin/:id';
+export const LANDING = '/'
+export const SIGN_UP = '/signup'
+export const SIGN_IN = '/signin'
+export const HOME = '/home'
+export const ACCOUNT = '/account'
+export const PASSWORD_FORGET = '/pw-forget'
+export const ADMIN = '/admin'
+export const ADMIN_DETAILS = '/admin/:id'
 ```
 
 The `:id` is a placeholder for a user identifier to be used later. If you want to be more specific, you could have used `/admin/users/:id` as well. Perhaps later you'll want to manage other entities on this admin page. For instance, the admin page could have a list of users and a list of books written by them, where it would make sense to have detail pages for users (`/admin/users/:userId`) and books (`/admin/books/:bookId`).
@@ -70,14 +70,14 @@ The `:id` is a placeholder for a user identifier to be used later. If you want t
 Next, extract all the functionality from the AdminPage component. You will lift this business logic down to another component in the next step. In this step, introduce two sub routes for the admin page and match the UserList and UserItem components to it. The former component is already there, the latter component will be implemented soon.
 
 ```javascript{2,8,10,15,16,17,18,20}
-import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import { compose } from 'recompose';
+import React, { Component } from 'react'
+import { Switch, Route, Link } from 'react-router-dom'
+import { compose } from 'recompose'
 
-import { withFirebase } from '../Firebase';
-import { withAuthorization, withEmailVerification } from '../Session';
-import * as ROLES from '../../constants/roles';
-import * as ROUTES from '../../constants/routes';
+import { withFirebase } from '../Firebase'
+import { withAuthorization, withEmailVerification } from '../Session'
+import * as ROLES from '../../constants/roles'
+import * as ROUTES from '../../constants/routes'
 
 const AdminPage = () => (
   <div>
@@ -89,7 +89,7 @@ const AdminPage = () => (
       <Route exact path={ROUTES.ADMIN} component={UserList} />
     </Switch>
   </div>
-);
+)
 ```
 
 The UserList component receives all the business logic that was in the AdminPage. Also, it receives the `Base` suffix because we enhance it in the next step with a higher-order component to make the Firebase instance available.
@@ -397,6 +397,6 @@ This section has shown you how to implement more specific routes with React Rout
 
 ### Exercises:
 
-* Learn more about [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
-* Read more about [Firebase's Admin SDK](https://firebase.google.com/docs/auth/admin/)
-* Confirm your [source code for the last section](http://bit.ly/2VnfIqw)
+- Learn more about [React Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- Read more about [Firebase's Admin SDK](https://firebase.google.com/docs/auth/admin/)
+- Confirm your [source code for the last section](http://bit.ly/2VnfIqw)

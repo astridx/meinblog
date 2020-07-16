@@ -1,13 +1,21 @@
 ---
-title: "Social Logins in Firebase React: Google, Facebook, Twitter"
-description: "A tutorial on how to use social a login with Firebase in React. The example covers Google, Facebook and Twitter logins for user authentication ..."
-date: "2018-12-02T07:51:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firebase social login", "react firebase google", "react firebase facebook", "react firebase twitter", "react firebase authentication", "react firebase auth"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Social Logins in Firebase React: Google, Facebook, Twitter'
+description: 'A tutorial on how to use social a login with Firebase in React. The example covers Google, Facebook and Twitter logins for user authentication ...'
+date: '2018-12-02T07:51:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'react firebase social login',
+    'react firebase google',
+    'react firebase facebook',
+    'react firebase twitter',
+    'react firebase authentication',
+    'react firebase auth',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,31 +23,31 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 4 of 4 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    }
-  ]}
+label="This tutorial is part 4 of 4 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+}
+]}
 />
 
 So far, you have used a email/password combination to authenticated with the application. Firebase offers more than this sign in method. If you take a closer look at their documentation, you can find social sign in methods for Google, Facebook, Twitter and others. In this section, I want to show you how to use these social logins to give users access to your application. It removes lots of friction to use your application, because not everyone wants to create a new account from scratch. Rather people tend more and more to use social logins for services and products.
 
 Note: The following sections show API keys, secrets, URIs and other sensitive data that you shouldn't share with other people. They should be kept secret. That's why all the sensitive data shown in the following sections is fake.
 
-Firebase has the restriction to allow only one E-Mail address per user. If you try to use another sign in method next to the default email/password sign in method, you may see the following error: *"An account already exists with the same email address but different sign in credentials. Sign in using a provider associated with this email address."* It's because your E-Mail address from your Google account may be the same as for Facebook account or your default email/password combination. In order to overcome this behavior, only for this section though, you can deactivate it in your Firebase dashboard on the Authentication tab. There you can allow more than one account for the same E-Mail address:
+Firebase has the restriction to allow only one E-Mail address per user. If you try to use another sign in method next to the default email/password sign in method, you may see the following error: _"An account already exists with the same email address but different sign in credentials. Sign in using a provider associated with this email address."_ It's because your E-Mail address from your Google account may be the same as for Facebook account or your default email/password combination. In order to overcome this behavior, only for this section though, you can deactivate it in your Firebase dashboard on the Authentication tab. There you can allow more than one account for the same E-Mail address:
 
 ![react firebase one account per email](./images/firebase-one-account-per-email.jpg)
 
@@ -49,7 +57,7 @@ Keep in mind that we will revert this configuration later though, because you do
 
 There are a few errors that could show up for while setting up Google, Facebook or Twitter social logins for your application. First, understand the error message yourself and try to figure out the fix for it. However, I want to document a few things I have noticed myself and how I fixed them. If you encounter any of these issues, check again this troubleshooting area. Let's see what kind of errors we have and how to fix them:
 
-**Info:** *The current domain is not authorized for OAuth operations. This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and linkWithRedirect from working. Add your domain (localhost) to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.*
+**Info:** _The current domain is not authorized for OAuth operations. This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and linkWithRedirect from working. Add your domain (localhost) to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab._
 
 On your Firebase dashboard, you will find an Authentication tab to get a list of all your authenticated users, sign up methods and other configuration. Click the Authentication tab and scroll down to "Authorised domains" and add "localhost" there. Then your development domain should be authorized to perform the Auth operations with third-parties.
 
@@ -229,9 +237,9 @@ In this scenario, every time a user signs in with Google, a new user with this s
 
 ### Exercises:
 
-* Read more about the [Google Social Login](https://firebase.google.com/docs/auth/web/google-signin)
-* Check your Firebase's Dashboard Authentication/Database tabs to manage your users (e.g. manually remove users).
-* Confirm your [source code for the last section](http://bit.ly/2VuH8eh)
+- Read more about the [Google Social Login](https://firebase.google.com/docs/auth/web/google-signin)
+- Check your Firebase's Dashboard Authentication/Database tabs to manage your users (e.g. manually remove users).
+- Confirm your [source code for the last section](http://bit.ly/2VuH8eh)
 
 # Firebase Facebook Social Login
 
@@ -398,10 +406,10 @@ Again, every time a user signs in with Facebook, a new user with this stable id 
 
 ### Exercises:
 
-* Read more about the [Facebook Social Login](https://firebase.google.com/docs/auth/web/facebook-login)
-* Figure out whether there is a way to interact with Facebook's API afterward, because the `socialUser` has an `accessToken` in its `credentials` object.
-* Like my [Facebook](https://www.facebook.com/rwieruch/) page to receive latest tutorials for web developers.
-* Confirm your [source code for the last section](http://bit.ly/2VuH8eh)
+- Read more about the [Facebook Social Login](https://firebase.google.com/docs/auth/web/facebook-login)
+- Figure out whether there is a way to interact with Facebook's API afterward, because the `socialUser` has an `accessToken` in its `credentials` object.
+- Like my [Facebook](https://www.facebook.com/rwieruch/) page to receive latest tutorials for web developers.
+- Confirm your [source code for the last section](http://bit.ly/2VuH8eh)
 
 # Firebase Twitter Social Login
 
@@ -569,7 +577,7 @@ Again, every time a user signs in with Twitter, a new user with this stable id c
 
 ### Exercises:
 
-* Read more about the [Twitter Social Login](https://firebase.google.com/docs/auth/web/twitter-login)
-* Figure out whether there is a way to interact with Twitter's API afterward, because the `socialUser` has an `accessToken` and `secret` in its `credentials` object.
-* Follow my [Twitter](https://twitter.com/rwieruch) page to receive latest tutorials for web developers.
-* Confirm your [source code for the last section](http://bit.ly/2VuH8eh)
+- Read more about the [Twitter Social Login](https://firebase.google.com/docs/auth/web/twitter-login)
+- Figure out whether there is a way to interact with Twitter's API afterward, because the `socialUser` has an `accessToken` and `secret` in its `credentials` object.
+- Follow my [Twitter](https://twitter.com/rwieruch) page to receive latest tutorials for web developers.
+- Confirm your [source code for the last section](http://bit.ly/2VuH8eh)

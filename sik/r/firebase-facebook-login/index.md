@@ -1,13 +1,20 @@
 ---
-title: "Firebase Login with Facebook"
-description: "A tutorial on how to activate Facebook login for Firebase or Firestore where no email is required. After enabling the sign in method in Firebase, you have to create a Facebook App ..."
-date: "2018-12-07T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["firebase facebook login", "firebase facebook login no email", "firebase login with facebook", "firebase facebook sign in", "firebase facebook login web"]
-hashtags: ["#100DaysOfCode", "#Firebase"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Firebase Login with Facebook'
+description: 'A tutorial on how to activate Facebook login for Firebase or Firestore where no email is required. After enabling the sign in method in Firebase, you have to create a Facebook App ...'
+date: '2018-12-07T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'firebase facebook login',
+    'firebase facebook login no email',
+    'firebase login with facebook',
+    'firebase facebook sign in',
+    'firebase facebook login web',
+  ]
+hashtags: ['#100DaysOfCode', '#Firebase']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />

@@ -1,13 +1,13 @@
 ---
-title: "React Styled Components Tutorial"
-description: "A beginner friendly tutorial for CSS-in-JS with Styled Components in React. While learning about it, you will build an Instagram Clone ..."
-date: "2019-03-30T07:50:46+02:00"
-categories: ["React"]
-keywords: ["react styled components", "react styled components tutorial"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: "Yomi Eluwande"
+title: 'React Styled Components Tutorial'
+description: 'A beginner friendly tutorial for CSS-in-JS with Styled Components in React. While learning about it, you will build an Instagram Clone ...'
+date: '2019-03-30T07:50:46+02:00'
+categories: ['React']
+keywords: ['react styled components', 'react styled components tutorial']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: 'Yomi Eluwande'
 ---
 
 <Sponsorship />
@@ -16,21 +16,21 @@ So much has been said about the appropriate way to style modern web apps. There'
 
 CSS-in-JS is a styling approach that abstracts the CSS model to the component level, rather than the document level. This is the idea that CSS can be scoped to a specific component only and as opposed to the document level. The benefits of using CSS-in-JS includes:
 
-* **Reduce the number of HTTP requests:** CSS-in-JS would mean that we don't have to make HTTP requests to load assets and resources.
-* **Styling Fragmentation:** Using CSS-in-JS means you can write styles freely without worrying about compatibility issues.
+- **Reduce the number of HTTP requests:** CSS-in-JS would mean that we don't have to make HTTP requests to load assets and resources.
+- **Styling Fragmentation:** Using CSS-in-JS means you can write styles freely without worrying about compatibility issues.
 
 An example of the CSS-in-JS approach is [styled-components](https://www.styled-components.com). Styled Components allow you to write plain CSS in your components without worrying about class name collisions. It helps to write CSS that's scoped to a single component and does not leak to any other element in the page.
 
 # Why Styled Components?
 
-Styled Components enable writing of CSS in JavaScript using tagged template literals. It removes the mapping between components and styles — component is made into a low-level styling construct. Styled Components  was created because of the following reasons:
+Styled Components enable writing of CSS in JavaScript using tagged template literals. It removes the mapping between components and styles — component is made into a low-level styling construct. Styled Components was created because of the following reasons:
 
-* **Automatic critical CSS**: Styled Components keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically. Combined with code splitting, this means your users load the least amount of code necessary.
-* **No class name bugs**: Styled Components generates unique class names for your styles. You never have to worry about duplication, overlap or misspellings.
-* **Easier deletion of CSS**: it can be hard to know whether a class name is used somewhere in your codebase. Styled Components makes it obvious, as every bit of styling is tied to a specific component. If the component is unused (which tooling can detect) and gets deleted, all its styles get deleted with it.
-* **Simple dynamic styling**: adapting the styling of a component based on its props or a global theme is simple and intuitive without having to manually manage dozens of classes.
-* **Painless maintenance**: you never have to hunt across different files to find the styling affecting your component, so maintenance is a piece of cake no matter how big your codebase is.
-* **Automatic vendor prefixing**: write your CSS to the current standard and let Styled Components handle the rest.
+- **Automatic critical CSS**: Styled Components keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically. Combined with code splitting, this means your users load the least amount of code necessary.
+- **No class name bugs**: Styled Components generates unique class names for your styles. You never have to worry about duplication, overlap or misspellings.
+- **Easier deletion of CSS**: it can be hard to know whether a class name is used somewhere in your codebase. Styled Components makes it obvious, as every bit of styling is tied to a specific component. If the component is unused (which tooling can detect) and gets deleted, all its styles get deleted with it.
+- **Simple dynamic styling**: adapting the styling of a component based on its props or a global theme is simple and intuitive without having to manually manage dozens of classes.
+- **Painless maintenance**: you never have to hunt across different files to find the styling affecting your component, so maintenance is a piece of cake no matter how big your codebase is.
+- **Automatic vendor prefixing**: write your CSS to the current standard and let Styled Components handle the rest.
 
 # Getting started with Styled Components
 
@@ -45,8 +45,8 @@ Styled Components utilizes tagged [template literals](https://developer.mozilla.
 With the installation done, let's go ahead to create our first Styled Component. We'll be creating a reusable `Button` component styled with Styled Components:
 
 ```javascript
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled.button`
   cursor: pointer;
@@ -63,7 +63,7 @@ const Button = styled.button`
     background-color: palevioletred;
     color: white;
   }
-`;
+`
 
 function App() {
   return (
@@ -72,10 +72,10 @@ function App() {
       <h2>Start editing to see some magic happen!</h2>
       <Button>I am a Button</Button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 In the code block above, the `Button` variable created here is a React component that can be used in the function component. The variable is assigned to `styled.button` which features a backtick syntax, in which you can write the actual CSS.
@@ -85,16 +85,16 @@ As you can see, Styled Components allows you to write CSS just the way you'd wri
 Because React apps work a lot with state, Styled Components also allows you to dynamically set CSS properties [using props](/react-pass-props-to-component/). You can pass a function to your style declarations, with one parameter, being the component’s `prop` value. You can then use `props` to adjust your styling as seen the `Button` example below:
 
 ```javascript{9,10,11,18,19}
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled.button`
   cursor: pointer;
   background: transparent;
   font-size: 16px;
   border-radius: 3px;
-  color: ${props => (props.primary ? 'violet' : 'palevioletred')};
-  border: ${props =>
+  color: ${(props) => (props.primary ? 'violet' : 'palevioletred')};
+  border: ${(props) =>
     props.primary ? '2px solid violet' : '2px solid palevioletred'};
   margin: 0 1em;
   padding: 0.25em 1em;
@@ -102,10 +102,10 @@ const Button = styled.button`
 
   &:hover {
     color: white;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.primary ? 'violet' : 'palevioletred'};
   }
-`;
+`
 
 function App() {
   return (
@@ -115,10 +115,10 @@ function App() {
       <Button>I am a Button</Button>
       <Button primary>I am a Primary Button</Button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 In the example, the `Button` component changes the `color`, `border`, and `background-color` based on the props passed, in this case the `primary` prop. We are using an arrow function that is passing in props and checking to see if the prop `primary` is present. If it is, then we are telling JavaScript to render out the CSS style enclosed in additional double back-ticks.
@@ -139,9 +139,9 @@ npx create-react-app stylagram
 
 In order to build this app, we'll be dividing this app into different components:
 
-* Header Component
-* Profile Component
-* Image Component
+- Header Component
+- Profile Component
+- Image Component
 
 We'll first build out these components individually and then bring everything together at the end.
 
@@ -151,16 +151,16 @@ To create the header component, create a file titled `Header.js` in the `src/com
 
 ```javascript
 // Header.js
-import React from 'react';
-import styled from 'styled-components';
-import { ReactComponent as Explore } from '../explore.svg';
-import { ReactComponent as Avatar } from '../avatar.svg';
-import { ReactComponent as Compass } from '../compass.svg';
+import React from 'react'
+import styled from 'styled-components'
+import { ReactComponent as Explore } from '../explore.svg'
+import { ReactComponent as Avatar } from '../avatar.svg'
+import { ReactComponent as Compass } from '../compass.svg'
 
 const Nav = styled.div`
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
-`;
+`
 
 const NavHeader = styled.div`
   max-width: 1010px;
@@ -169,17 +169,17 @@ const NavHeader = styled.div`
   display: flex;
   align-items: center;
   margin: 0 auto;
-`;
+`
 
 const NavLeft = styled.div`
   width: 33.333%;
   text-align: left;
-`;
+`
 
 const NavCenter = styled.div`
   width: 33.333%;
   text-align: center;
-`;
+`
 
 const Input = styled.input`
   font-size: 16px;
@@ -199,7 +199,7 @@ const Input = styled.input`
   &:focus {
     text-align: left;
   }
-`;
+`
 
 const NavRight = styled.div`
   width: 33.333%;
@@ -208,9 +208,9 @@ const NavRight = styled.div`
   svg {
     margin-right: 20px;
   }
-`;
+`
 
-const MenuLink = styled.a``;
+const MenuLink = styled.a``
 
 function Header() {
   return (
@@ -237,10 +237,10 @@ function Header() {
         </NavRight>
       </NavHeader>
     </Nav>
-  );
+  )
 }
 
-export default Header;
+export default Header
 ```
 
 Our `Header` component is a navigation bar that's split into three sections; the logo which is at the far left, the search bar which is in the middle and the icons which are situated to the far right.
@@ -278,9 +278,9 @@ To create the header component, create a file titled `Profile.js` in the `src/co
 
 ```javascript
 // Profile.js
-import React from 'react';
-import styled from 'styled-components';
-import SingleImage from './Image.js';
+import React from 'react'
+import styled from 'styled-components'
+import SingleImage from './Image.js'
 
 const feedsource = [
   {
@@ -323,17 +323,17 @@ const feedsource = [
     isVideo: false,
     id: 4,
   },
-];
+]
 
 const ProfileContainer = styled.div`
   max-width: 1010px;
   width: 100%;
   margin: 20px auto;
-`;
+`
 
 const ProfileDetails = styled.div`
   display: flex;
-`;
+`
 
 const ProfileDetailsLeft = styled.div`
   margin-right: 40px;
@@ -341,27 +341,27 @@ const ProfileDetailsLeft = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const ProfileDetailsRight = styled.div`
   display: flex;
   align-items: end;
   justify-content: center;
   flex-direction: column;
-`;
+`
 
 const ProfileImage = styled.img`
   border-radius: 50%;
   width: 150px;
   border: 1px solid #ccc;
   padding: 5px;
-`;
+`
 
 const ProfileDetailsUsername = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const EditProfileButton = styled.div`
   background-color: transparent;
@@ -374,28 +374,28 @@ const EditProfileButton = styled.div`
   text-transform: capitalize;
   font-size: 14px;
   margin-left: 20px;
-`;
+`
 
-const HeadingThreeText = styled.h3``;
+const HeadingThreeText = styled.h3``
 
 const ParagraphText = styled.p`
   margin-right: 25px;
-`;
+`
 
 const ProfileDetailsMeta = styled.div`
   display: flex;
   justify-content: center;
-`;
+`
 
 const ProfileDetailsName = styled.div`
   text-align: left;
-`;
+`
 
 const ImagesWrapper = styled.div`
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-`;
+`
 
 function Profile() {
   return (
@@ -432,15 +432,15 @@ function Profile() {
       </ProfileDetails>
 
       <ImagesWrapper>
-        {feedsource.map(item => (
+        {feedsource.map((item) => (
           <SingleImage image={item} key={item.id} />
         ))}
       </ImagesWrapper>
     </ProfileContainer>
-  );
+  )
 }
 
-export default Profile;
+export default Profile
 ```
 
 In the code block above, just like the `Header.js` component, we create various styled components that are used to build the Profile component. The `styled` variable contains many functions representing all known HTML elements, this allows us to style heading tags, img tags e.t.c as seen in the code block above.
@@ -455,11 +455,11 @@ To create the header component, create a file titled `Image.js` in the `src/comp
 
 ```javascript
 // Image.js
-import React from 'react';
-import styled from 'styled-components';
-import { ReactComponent as Comment } from '../comment.svg';
-import { ReactComponent as Play } from '../play.svg';
-import { ReactComponent as Heart } from '../heart.svg';
+import React from 'react'
+import styled from 'styled-components'
+import { ReactComponent as Comment } from '../comment.svg'
+import { ReactComponent as Play } from '../play.svg'
+import { ReactComponent as Heart } from '../heart.svg'
 
 const ImgContainer = styled.div`
   position: relative;
@@ -468,7 +468,7 @@ const ImgContainer = styled.div`
   margin: 10px;
   cursor: pointer;
   transition: 0.5s all ease-in;
-`;
+`
 
 const ImgIcons = styled.div`
   display: flex;
@@ -480,7 +480,7 @@ const ImgIcons = styled.div`
   svg {
     margin-right: 10px;
   }
-`;
+`
 
 const ImgMeta = styled.div`
   display: none;
@@ -496,12 +496,12 @@ const ImgMeta = styled.div`
   ${ImgContainer}:hover & {
     display: flex !important;
   }
-`;
+`
 
 const Img = styled.img`
   cursor: pointer;
   width: 100%;
-`;
+`
 
 function Image({ image }) {
   return (
@@ -516,10 +516,10 @@ function Image({ image }) {
         </ImgIcons>
       </ImgMeta>
     </ImgContainer>
-  );
+  )
 }
 
-export default Image;
+export default Image
 ```
 
 In the code block above, the `Image` function component accepts a prop. That prop is then used in the component itself. The `Img` component which is an HTML img element styled variable accepts a `src` attribute which is set to the `source` value.
@@ -564,7 +564,7 @@ As mentioned above, we'll like to see the number of engagements a particular ima
 }
 ```
 
-In the code block above, the `imageContainer  ` div is a parent div and it contains two child divs. When the `imageContainer` div is hovered on, the `display` value for the `imageOverlay` div is set to `block` thereby creating the dark overlay over the image.
+In the code block above, the `imageContainer` div is a parent div and it contains two child divs. When the `imageContainer` div is hovered on, the `display` value for the `imageOverlay` div is set to `block` thereby creating the dark overlay over the image.
 
 In Styled Components, this can be done by referring to another component within a component. This is known as the "component selector" pattern. Whenever a component is created or wrapped by the `styled()` factory function, it is also assigned a stable CSS class for use in targeting.
 
@@ -577,7 +577,7 @@ const ImgContainer = styled.div`
   flex-basis: calc(33.333% - 20px);
   margin: 10px;
   cursor: pointer;
-  transition: .5s all ease-in;
+  transition: 0.5s all ease-in;
 `
 
 const ImgMeta = styled.div`
@@ -585,7 +585,7 @@ const ImgMeta = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   right: 0;
   bottom: 0;
@@ -609,7 +609,7 @@ To do that, create a file called `globalStyle.js` in the newly created `src/them
 
 ```javascript
 // globalStyle.js
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -626,9 +626,9 @@ const GlobalStyle = createGlobalStyle`
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle
 ```
 
 With the file created, you can go ahead to copy the code block above into it. To start with, the [createGlobalStyle](https://www.styled-components.com/docs/api#createglobalstyle) function is imported from Styled Components. It is a helper function to generate a special StyledComponent that handles global styles.
@@ -637,15 +637,15 @@ With the above done, you can go ahead to place it at the top of your React tree 
 
 ```javascript
 // App.js
-import React, { Fragment } from 'react';
-import styled from 'styled-components';
-import Header from './components/Header.js';
-import Profile from './components/Profile.js';
-import GlobalStyle from './theme/globalStyle';
+import React, { Fragment } from 'react'
+import styled from 'styled-components'
+import Header from './components/Header.js'
+import Profile from './components/Profile.js'
+import GlobalStyle from './theme/globalStyle'
 
 const AppWrapper = styled.div`
   background-color: #fafafa;
-`;
+`
 
 function App() {
   return (
@@ -657,10 +657,10 @@ function App() {
         <Profile />
       </AppWrapper>
     </Fragment>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 ## Extending Styled Components
@@ -670,8 +670,8 @@ Styled Components supports extending style. This means styles can be inherited t
 In the example above, we used a `Button` component created in the above and passed it to the `styled()` constructor to create a new button with extending styles:
 
 ```javascript
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled.button`
   cursor: pointer;
@@ -679,8 +679,8 @@ const Button = styled.button`
   font-size: 16px;
   border-radius: 3px;
   color: palevioletred;
-  color: ${props => (props.primary ? 'violet' : 'palevioletred')};
-  border: ${props =>
+  color: ${(props) => (props.primary ? 'violet' : 'palevioletred')};
+  border: ${(props) =>
     props.primary ? '2px solid violet' : '2px solid palevioletred'};
   margin: 0 1em;
   padding: 0.25em 1em;
@@ -688,16 +688,16 @@ const Button = styled.button`
 
   &:hover {
     color: white;
-    background-color: ${props =>
+    background-color: ${(props) =>
       props.primary ? 'violet' : 'palevioletred'};
   }
-`;
+`
 
 const GreenButton = styled(Button)`
   background-color: white;
   color: green;
   border-color: green;
-`;
+`
 
 function App() {
   return (
@@ -708,10 +708,10 @@ function App() {
       <Button primary>I am a Primary Button</Button>
       <GreenButton primary>I am a Primary Button</GreenButton>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 You can find out more about extending styles in the Styled Components [documentation](https://www.styled-components.com/docs/basics#extending-styles).
@@ -721,16 +721,16 @@ You can find out more about extending styles in the Styled Components [documenta
 Styled Components also supports the use of easily reusing CSS in other components. It does with a helper function called `css` which is imported from styled-components package as seen below. The helper function is used to generate CSS from a template literal with interpolations.
 
 ```javascript
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 const complexMixin = css`
-  color: ${props => (props.whiteColor ? 'white' : 'black')};
-`;
+  color: ${(props) => (props.whiteColor ? 'white' : 'black')};
+`
 
 // This is an example of a nested interpolation
 const StyledComp = styled.div`
-  ${props => (props.complex ? complexMixin : 'color: blue;')};
-`;
+  ${(props) => (props.complex ? complexMixin : 'color: blue;')};
+`
 ```
 
 In the code block above, if there's a prop value of `complex` the `complexMixin` styles will be applied to the `StyledComp` component.
@@ -750,13 +750,14 @@ const Button = styled.button`
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
 
-  ${props => props.primary &&
+  ${(props) =>
+    props.primary &&
     css`
-    background-color: white;
+      background-color: white;
       color: green;
       border-color: green;
-  `};
-`;
+    `};
+`
 ```
 
 In the code block above, the styles defined in the `css` helper function will only be applied if a prop of primary is present. You can find out more about the `css` helper function in the [Styled Components documentation](https://www.styled-components.com/docs/api#css).
@@ -768,8 +769,8 @@ Styled Components has full theming support by exporting a `<ThemeProvider>` wrap
 This means that all Styled Components will have access to the provided theme, even when they are multiple levels deep.
 
 ```javascript
-import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import React from 'react'
+import styled, { ThemeProvider } from 'styled-components'
 
 // Define our button, but with the use of props.theme this time
 const Button = styled.button`
@@ -778,21 +779,21 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border-radius: 3px;
 
-  color: ${props => props.theme.main};
-  border: 2px solid ${props => props.theme.main};
-`;
+  color: ${(props) => props.theme.main};
+  border: 2px solid ${(props) => props.theme.main};
+`
 
 // We are passing a default theme for Buttons that aren't wrapped in the ThemeProvider
 Button.defaultProps = {
   theme: {
     main: 'palevioletred',
   },
-};
+}
 
 // Define what props.theme will look like
 const themeSettings = {
   main: 'mediumseagreen',
-};
+}
 
 function App() {
   return (
@@ -803,10 +804,10 @@ function App() {
         <Button>Themed</Button>
       </ThemeProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 In the example above, we create a `Button` component that accepts props for dynamic styles, in this case, a `theme` prop. The Button component also has a default theme setting for whenever a `theme` prop is not passed.

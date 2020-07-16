@@ -1,13 +1,13 @@
 ---
-title: "Linear Regression with Normal Equation in JavaScript"
-description: "Explaining and implementing normal equation in JavaScript and discussing it as alternative for gradient descent ..."
-date: "2017-12-02T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "normal equation javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Linear Regression with Normal Equation in JavaScript'
+description: 'Explaining and implementing normal equation in JavaScript and discussing it as alternative for gradient descent ...'
+date: '2017-12-02T13:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords: ['machine learning javascript', 'normal equation javascript']
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -29,17 +29,17 @@ In a normal equation there isn't a learning rate alpha, there isn't a number of 
 The following part will implement normal equation in JavaScript. The article will demonstrate it from scratch, but you will find later on the whole source code on GitHub for it. Before you can implement the algorithm, the training set needs to be prepared. Our starting point is the following function in JavaScript whereas the other parts will be implemented while reading the article:
 
 ```javascript
-import math from 'mathjs';
+import math from 'mathjs'
 
 function init(matrix) {
   let X = math.eval('matrix[:, 1:2]', {
     matrix,
-  });
+  })
   let y = math.eval('matrix[:, 3]', {
     matrix,
-  });
+  })
 
-  let m = y.length;
+  let m = y.length
 
   // Part 1: Normal Equation
 }
@@ -83,9 +83,9 @@ function normalEquation(X, y) {
   let theta = math.eval(`inv(X' * X) * X' * y`, {
     X,
     y,
-  });
+  })
 
-  return theta;
+  return theta
 }
 ```
 

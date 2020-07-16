@@ -1,13 +1,20 @@
 ---
-date: "2018-07-04T13:50:46+02:00"
-title: "Why Apollo: Advantages and Disadvantages"
-description: "Overview about the advantages and disadvantages of using Apollo and its ecosystem for JavaScript applications. It mentions also Apollo alternatives such as Urql and Relay for React applications ..."
-categories: ["React", "GraphQL"]
-keywords: ["apollo alternatives", "apollo advantages", "apollo disadvantages", "why apollo", "apollo benefits"]
-hashtags: ["#100DaysOfCode", "#GraphQL", "#ReactJs"]
-banner: "./images/banner.jpg"
-author: ""
-contribute: ""
+date: '2018-07-04T13:50:46+02:00'
+title: 'Why Apollo: Advantages and Disadvantages'
+description: 'Overview about the advantages and disadvantages of using Apollo and its ecosystem for JavaScript applications. It mentions also Apollo alternatives such as Urql and Relay for React applications ...'
+categories: ['React', 'GraphQL']
+keywords:
+  [
+    'apollo alternatives',
+    'apollo advantages',
+    'apollo disadvantages',
+    'why apollo',
+    'apollo benefits',
+  ]
+hashtags: ['#100DaysOfCode', '#GraphQL', '#ReactJs']
+banner: './images/banner.jpg'
+author: ''
+contribute: ''
 ---
 
 <Sponsorship />
@@ -15,16 +22,15 @@ contribute: ""
 <ReactGraphQLBook />
 
 <LinkCollection
-  label="This tutorial is part 2 of 2 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "Why GraphQL: Advantages, Disadvantages & Alternatives",
-      url: "/why-graphql-advantages-disadvantages-alternatives",
-    },
-  ]}
+label="This tutorial is part 2 of 2 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "Why GraphQL: Advantages, Disadvantages & Alternatives",
+url: "/why-graphql-advantages-disadvantages-alternatives",
+},
+]}
 />
-
 
 Finding the right solution for a given problem is not always simple, and web applications build with GraphQL are a good example of how changing times make for constantly evolving challenges. Moreover, evolving challenges create a scenario where the solutions must also evolve, so even the number of choices becomes a task. This article will decipher the pros and cons of one such solution: Apollo for GraphQL, with alternative solutions in case you decide against it.
 
@@ -50,11 +56,11 @@ The company behind Apollo is pouring lots of resources into its success. They ar
 
 Tech-savvy companies are taking advantage of Apollo already. Many were familiar with the popular Meteor framework before, but new and extremely popular companies like Airbnb and Twitch are using it. These are just a few of their stories:
 
-* Airbnb [[1]](https://medium.com/airbnb-engineering/reconciling-graphql-and-thrift-at-airbnb-a97e8d290712) [[2]](https://youtu.be/oBOSJFkrNqc)
-* [Twitch](https://about.sourcegraph.com/graphql/twitch-our-graphql-transformation)
-* [The New York Times](https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c)
-* [KLM](https://youtu.be/T2njjXHdKqw)
-* [Medium](https://www.infoq.com/news/2018/05/medium-reactjs-graphql-migration)
+- Airbnb [[1]](https://medium.com/airbnb-engineering/reconciling-graphql-and-thrift-at-airbnb-a97e8d290712) [[2]](https://youtu.be/oBOSJFkrNqc)
+- [Twitch](https://about.sourcegraph.com/graphql/twitch-our-graphql-transformation)
+- [The New York Times](https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c)
+- [KLM](https://youtu.be/T2njjXHdKqw)
+- [Medium](https://www.infoq.com/news/2018/05/medium-reactjs-graphql-migration)
 
 ## Apollo's Documentation
 
@@ -124,23 +130,23 @@ Some disadvantages stem from using GraphQL as an alternative to a RESTful-driven
 
 When it comes to [Apollo Client](https://github.com/apollographql/apollo-client) for React, Angular, Vue, or similar applications, there are several alternatives to check out. Like Apollo, these come with their own advantages and disadvantages.
 
-* plain HTTP request: Even though sophisticated GraphQL libraries can be used to perform your GraphQL operations, GraphQL itself isn't opinionated about the network layer. So it is possible for you to use GraphQL with plain HTTP methods using only one endpoint with an opinionated payload structure for GraphQL queries and mutations.
+- plain HTTP request: Even though sophisticated GraphQL libraries can be used to perform your GraphQL operations, GraphQL itself isn't opinionated about the network layer. So it is possible for you to use GraphQL with plain HTTP methods using only one endpoint with an opinionated payload structure for GraphQL queries and mutations.
 
-* [Relay](https://github.com/facebook/relay): Relay is Facebook's library for consuming GraphQL on the client-side in React applications. It was among the first GraphQL client libraries before Apollo emerged.
+- [Relay](https://github.com/facebook/relay): Relay is Facebook's library for consuming GraphQL on the client-side in React applications. It was among the first GraphQL client libraries before Apollo emerged.
 
-* [urql](https://github.com/FormidableLabs/urql): urql is a GraphQL client library from Formidable Labs for consuming GraphQL in React applications. It was open-sourced as minimalistic alternative to the growing Apollo behemoth.
+- [urql](https://github.com/FormidableLabs/urql): urql is a GraphQL client library from Formidable Labs for consuming GraphQL in React applications. It was open-sourced as minimalistic alternative to the growing Apollo behemoth.
 
-* [graphql.js](https://github.com/f/graphql.js/): graphql.js shouldn't be mistaken for the GraphQL reference implementation. It's a simple GraphQL client for applications without powerful libraries such as Vue, React, or Angular.
+- [graphql.js](https://github.com/f/graphql.js/): graphql.js shouldn't be mistaken for the GraphQL reference implementation. It's a simple GraphQL client for applications without powerful libraries such as Vue, React, or Angular.
 
-* [AWS Amplify - GraphQL Client](https://github.com/aws/aws-amplify): The AWS Amplify family offers libraries for cloud-enabled applications. One of the modules is a GraphQL client used for general GraphQL servers or AWS AppSync APIs.
+- [AWS Amplify - GraphQL Client](https://github.com/aws/aws-amplify): The AWS Amplify family offers libraries for cloud-enabled applications. One of the modules is a GraphQL client used for general GraphQL servers or AWS AppSync APIs.
 
 ## Apollo Server Alternatives for Node.js
 
 When it comes to [Apollo Server](https://github.com/apollographql/apollo-server) for Node.js with Express, Koa, Hapi or something else, there are several alternatives you can check out. Obviously these come with their own advantages and disadvantages whereas these things are not covered here.
 
-* [express-graphql](https://github.com/graphql/express-graphql): The library provides a lower-level API to connect GraphQL layers to Express middleware. It takes the pure GraphQL.js reference implementation for defining GraphQL schemas, where Apollo Server simplifies it for developers.
+- [express-graphql](https://github.com/graphql/express-graphql): The library provides a lower-level API to connect GraphQL layers to Express middleware. It takes the pure GraphQL.js reference implementation for defining GraphQL schemas, where Apollo Server simplifies it for developers.
 
-* [graphql-yoga](https://github.com/prisma/graphql-yoga): A fully-featured GraphQL Server with focus on easy setup, performance & great developer experience. It builds on top of other GraphQL libraries to take away even more boilerplate code from you.
+- [graphql-yoga](https://github.com/prisma/graphql-yoga): A fully-featured GraphQL Server with focus on easy setup, performance & great developer experience. It builds on top of other GraphQL libraries to take away even more boilerplate code from you.
 
 <Divider />
 
@@ -149,4 +155,3 @@ There are many reasons to use Apollo and its striving ecosystem for JavaScript a
 <ReadMore label="React with Apollo and GraphQL Tutorial" link="/react-graphql-apollo-tutorial" />
 
 <ReadMore label="A complete Apollo Server with GraphQL and Express Tutorial" link="/graphql-apollo-server-tutorial" />
-

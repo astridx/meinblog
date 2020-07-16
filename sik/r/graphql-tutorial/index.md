@@ -1,13 +1,13 @@
 ---
-title: "GraphQL Tutorial for Beginners"
+title: 'GraphQL Tutorial for Beginners'
 description: "This GraphQL tutorial for beginners takes you on a journey to learn GraphQL. You will explore GraphQL with GitHub's GraphQL API and later learn how to build fullstack web applications with it ..."
-date: "2018-11-01T13:50:46+02:00"
-categories: ["GraphQL"]
-keywords: ["graphql tutorial"]
-hashtags: ["#100DaysOfCode", "#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-11-01T13:50:46+02:00'
+categories: ['GraphQL']
+keywords: ['graphql tutorial']
+hashtags: ['#100DaysOfCode', '#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,29 +15,29 @@ author: ""
 <ReactGraphQLBook />
 
 <LinkCollection
-  label="This tutorial is part 2 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
-    },
-    {
-      prefix: "Part 3:",
-      label: "A complete React with GraphQL Tutorial",
-      url: "/react-with-graphql-tutorial/"
-    },
-    {
-      prefix: "Part 4:",
-      label: "Apollo Client Tutorial for Beginners",
-      url: "/graphql-apollo-client-tutorial/"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React with Apollo and GraphQL Tutorial",
-      url: "/react-graphql-apollo-tutorial/"
-    }
-  ]}
+label="This tutorial is part 2 of 5 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "Getting Started with GitHub's GraphQL API",
+url: "/getting-started-github-graphql-api"
+},
+{
+prefix: "Part 3:",
+label: "A complete React with GraphQL Tutorial",
+url: "/react-with-graphql-tutorial/"
+},
+{
+prefix: "Part 4:",
+label: "Apollo Client Tutorial for Beginners",
+url: "/graphql-apollo-client-tutorial/"
+},
+{
+prefix: "Part 5:",
+label: "React with Apollo and GraphQL Tutorial",
+url: "/react-graphql-apollo-tutorial/"
+}
+]}
 />
 
 Before we start to build full-fledged GraphQL applications, on the client- and server-side, let's explore GraphQL with the tools we have installed in the previous sections. You can either use GraphiQL or the GitHub's GraphQL Explorer. In the following, you will learn about GraphQL's fundamentals by executing your first GraphQL queries, mutations and even by exploring features such as pagination, in the context of GitHub's GraphQL API.
@@ -303,15 +303,15 @@ The query in GraphQL gives you all you need to read data from a GraphQL API. The
 
 ### Exercises:
 
-* Read more about [the Query in GraphQL](http://graphql.org/learn/queries).
-* Explore GitHub's query schema by using the "Docs" sidebar in GraphiQL.
-* Create several queries to request data from GitHub's GraphQL API using the following features:
-  * objects and fields
-  * nested objects
-  * fragments
-  * arguments and variables
-  * operation names
-  * directives
+- Read more about [the Query in GraphQL](http://graphql.org/learn/queries).
+- Explore GitHub's query schema by using the "Docs" sidebar in GraphiQL.
+- Create several queries to request data from GitHub's GraphQL API using the following features:
+  - objects and fields
+  - nested objects
+  - fragments
+  - arguments and variables
+  - operation names
+  - directives
 
 # GraphQL Mutation with GitHub's GraphQL API
 
@@ -380,16 +380,16 @@ The repository is starred now. It's visible in the result, but you can verify it
 
 ### Exercises:
 
-* Read more about [the Mutation in GraphQL](http://graphql.org/learn/queries/#mutations)
-* Explore GitHub's mutations by using the "Docs" sidebar in GraphiQL
-* Find GitHub's `addStar` mutation in the "Docs" sidebar in GraphiQL
-  * Check its possible fields for returning a response
-* Create a few other mutations for this or another repository such as:
-  * Unstar repository
-  * Watch repository
-* Create two named mutations side by side in the GraphiQL panel and execute them
-* Read more about [the schema and types](http://graphql.org/learn/schema)
-  * Make yourself a picture of it, but don't worry if you don't understand everything yet
+- Read more about [the Mutation in GraphQL](http://graphql.org/learn/queries/#mutations)
+- Explore GitHub's mutations by using the "Docs" sidebar in GraphiQL
+- Find GitHub's `addStar` mutation in the "Docs" sidebar in GraphiQL
+  - Check its possible fields for returning a response
+- Create a few other mutations for this or another repository such as:
+  - Unstar repository
+  - Watch repository
+- Create two named mutations side by side in the GraphiQL panel and execute them
+- Read more about [the schema and types](http://graphql.org/learn/schema)
+  - Make yourself a picture of it, but don't worry if you don't understand everything yet
 
 # GraphQL Pagination
 
@@ -482,8 +482,8 @@ query OrganizationForLearningReact {
 
 In the previous result, only the second item is retrieved, as well as a new third item. The first item isn't retrieved because you have used its cursor as `after` argument to retrieve all items after it. Now you can imagine how to make successive queries for paginated lists:
 
-* Execute the initial query without a cursor argument
-* Execute every following query with the cursor of the **last** item's cursor from the previous query result
+- Execute the initial query without a cursor argument
+- Execute every following query with the cursor of the **last** item's cursor from the previous query result
 
 To keep the query dynamic, we extract its arguments as variables. Afterward, you can use the query with a dynamic `cursor` argument by providing a variable for it. The `after` argument can be `undefined` to retrieve the first page. In conclusion, that would be everything you need to fetch pages of lists from one large list by using a feature called pagination. You need a mandatory argument specifying how many items should be retrieved and an optional argument, in this case the `after` argument, specifying the starting point for the list.
 
@@ -512,49 +512,49 @@ query OrganizationForLearningReact {
 
 The `totalCount` field discloses the total number of items in the list, while the `pageInfo` field gives you information about two things:
 
-* **`endCursor`** can be used to retrieve the successive list, which we did with the `cursor` field, except this time we only need one meta field to perform it. The cursor of the last list item is sufficient to request the next page of list.
+- **`endCursor`** can be used to retrieve the successive list, which we did with the `cursor` field, except this time we only need one meta field to perform it. The cursor of the last list item is sufficient to request the next page of list.
 
-* **`hasNextPage`** gives you information about whether or not there is a next page to retrieve from the GraphQL API. Sometimes you've already fetched the last page from your server. For applications that use infinite scrolling to load more pages when scrolling lists, you can stop fetching pages when there are no more available.
+- **`hasNextPage`** gives you information about whether or not there is a next page to retrieve from the GraphQL API. Sometimes you've already fetched the last page from your server. For applications that use infinite scrolling to load more pages when scrolling lists, you can stop fetching pages when there are no more available.
 
 This meta information completes the pagination implementation. Information is made accessible using the GraphQL API to implement [paginated lists](/react-paginated-list/) and [infinite scroll](/react-infinite-scroll/). Note, this covers GitHub's GraphQL API; a different GraphQL API for pagination might use different naming conventions for the fields, exclude meta information, or employ different mechanisms altogether.
 
 ### Exercises:
 
-* Extract the `login` and the `cursor` from your pagination query as variables.
-* Exchange the `first` argument with a `last` argument.
-* Search for the `repositories` field in the GraphiQL "Docs" sidebar which says: "A list of repositories that the ... owns."
-  * Explore the other arguments that can be passed to this list field.
-  * Use the `orderBy` argument to retrieve an ascending or descending list.
-* Read more about [pagination in GraphQL](http://graphql.org/learn/pagination).
-  * The cursor approach is only one solution which is used by GitHub.
-  * Make sure to understand the other solutions, too.
+- Extract the `login` and the `cursor` from your pagination query as variables.
+- Exchange the `first` argument with a `last` argument.
+- Search for the `repositories` field in the GraphiQL "Docs" sidebar which says: "A list of repositories that the ... owns."
+  - Explore the other arguments that can be passed to this list field.
+  - Use the `orderBy` argument to retrieve an ascending or descending list.
+- Read more about [pagination in GraphQL](http://graphql.org/learn/pagination).
+  - The cursor approach is only one solution which is used by GitHub.
+  - Make sure to understand the other solutions, too.
 
 <Divider />
 
 Interacting with GitHub's GraphQL API via GraphiQL or GitHub's GraphQL Explorer is only the beginning. You should be familiar with the fundamental GraphQL concepts now. But there are a lot more exciting concepts to explore. In the next chapters, you will implement a fully working GraphQL client application with React that interacts with GitHub's API.
 
 <LinkCollection
-  label="This tutorial is part 2 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
-    },
-    {
-      prefix: "Part 3:",
-      label: "A complete React with GraphQL Tutorial",
-      url: "/react-with-graphql-tutorial/"
-    },
-    {
-      prefix: "Part 4:",
-      label: "Apollo Client Tutorial for Beginners",
-      url: "/graphql-apollo-client-tutorial/"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React with Apollo and GraphQL Tutorial",
-      url: "/react-graphql-apollo-tutorial/"
-    }
-  ]}
+label="This tutorial is part 2 of 5 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "Getting Started with GitHub's GraphQL API",
+url: "/getting-started-github-graphql-api"
+},
+{
+prefix: "Part 3:",
+label: "A complete React with GraphQL Tutorial",
+url: "/react-with-graphql-tutorial/"
+},
+{
+prefix: "Part 4:",
+label: "Apollo Client Tutorial for Beginners",
+url: "/graphql-apollo-client-tutorial/"
+},
+{
+prefix: "Part 5:",
+label: "React with Apollo and GraphQL Tutorial",
+url: "/react-graphql-apollo-tutorial/"
+}
+]}
 />

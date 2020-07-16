@@ -1,13 +1,13 @@
 ---
-title: "How to set up Webpack with Babel [Tutorial]"
-description: "A step by step tutorial on how to integrate Babel into Webpack to access powerful JavaScript features (ES6, ES7, ES8, ES9) from the future ..."
-date: "2019-06-15T13:52:46+02:00"
-categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
-keywords: ["webpack babel"]
-hashtags: ["#100DaysOfCode", "#Webpack"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to set up Webpack with Babel [Tutorial]'
+description: 'A step by step tutorial on how to integrate Babel into Webpack to access powerful JavaScript features (ES6, ES7, ES8, ES9) from the future ...'
+date: '2019-06-15T13:52:46+02:00'
+categories: ['JavaScript', 'Tooling', 'Webpack', 'Babel']
+keywords: ['webpack babel']
+hashtags: ['#100DaysOfCode', '#Webpack']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -28,7 +28,7 @@ Moreover, in case you have Webpack in place to bundle your JavaScript applicatio
 npm install --save-dev babel-loader
 ```
 
-Now, with all libraries (node packages) in place, you need to adjust your *package.json* and *webpack.config.js* (if necessary) to respect the Babel changes. These changes will include all packages you have installed before. First, in your *package.json*, include the [Babel Preset](https://babeljs.io/docs/en/presets):
+Now, with all libraries (node packages) in place, you need to adjust your _package.json_ and _webpack.config.js_ (if necessary) to respect the Babel changes. These changes will include all packages you have installed before. First, in your _package.json_, include the [Babel Preset](https://babeljs.io/docs/en/presets):
 
 ```javascript{3,4,5,6,7}
 {
@@ -42,9 +42,9 @@ Now, with all libraries (node packages) in place, you need to adjust your *packa
 }
 ```
 
-*"[The] @babel/preset-env [preset] is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). This both makes your life easier and JavaScript bundles smaller!" ([Source](https://babeljs.io/docs/en/babel-preset-env))*
+_"[The] @babel/preset-env [preset] is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s). This both makes your life easier and JavaScript bundles smaller!" ([Source](https://babeljs.io/docs/en/babel-preset-env))_
 
-Second, your *webpack.config.js* file needs to include Babel in its build process as well. There, make use of the previously installed [Loader for Babel](https://github.com/babel/babel-loader). You need to tell Webpack on which files to use the loader (e.g. *.js* files) and optionally which folders to exclude from the process (e.g. *node_modules*):
+Second, your _webpack.config.js_ file needs to include Babel in its build process as well. There, make use of the previously installed [Loader for Babel](https://github.com/babel/babel-loader). You need to tell Webpack on which files to use the loader (e.g. _.js_ files) and optionally which folders to exclude from the process (e.g. _node_modules_):
 
 ```javascript{3,4,5,6,7,8,9,10,11,12,13,14}
 module.exports = {
@@ -54,31 +54,31 @@ module.exports = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['*', '.js'],
   },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './dist'
-  }
-};
+    contentBase: './dist',
+  },
+}
 ```
 
-You can start your application again. Nothing should have changed except for that you can use upcoming [ECMAScript features for JavaScript](https://github.com/tc39/proposals) now. An optional step would be to extract your Babel configuration into a separate *.babelrc* configuration file. You can create this file in your project's root directory on the command line:
+You can start your application again. Nothing should have changed except for that you can use upcoming [ECMAScript features for JavaScript](https://github.com/tc39/proposals) now. An optional step would be to extract your Babel configuration into a separate _.babelrc_ configuration file. You can create this file in your project's root directory on the command line:
 
 ```javascript
-touch .babelrc
+touch.babelrc
 ```
 
-Then, add the configuration for Babel -- which you have previously added in your *package.json* -- in the *.babelrc* file. Don't forget to remove the configuration in the *package.json* afterward. It should be configured only once.
+Then, add the configuration for Babel -- which you have previously added in your _package.json_ -- in the _.babelrc_ file. Don't forget to remove the configuration in the _package.json_ afterward. It should be configured only once.
 
 ```javascript
 {
@@ -88,19 +88,19 @@ Then, add the configuration for Babel -- which you have previously added in your
 }
 ```
 
-Babel enables you to use future JavaScript features in your browser, because it transpiles it down to vanilla JavaScript. Try it yourself by installing your first plugin. Make sure to see that the JavaScript feature doesn't work at first in your *src/index.js* file, but once you installed the plugin for the feature and integrated it in your *.babelrc* file, it should be possible to run the JavaScript source code.
+Babel enables you to use future JavaScript features in your browser, because it transpiles it down to vanilla JavaScript. Try it yourself by installing your first plugin. Make sure to see that the JavaScript feature doesn't work at first in your _src/index.js_ file, but once you installed the plugin for the feature and integrated it in your _.babelrc_ file, it should be possible to run the JavaScript source code.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://github.com/rwieruch/minimal-webpack-babel-setup)
-* Try out a Babel Plugin yourself
-  * Install a [Babel Plugin](https://babeljs.io/docs/en/plugins) via npm to your project to support an upcoming JavaScript feature
-  * Add the Plugin to your *.babelrc* file
-  * Try the new JavaScript feature in your *src/index.js* file
-* Try Imports
-  * Create another JavaScript file in your *src/* folder
-  * Import the new JavaScript file in your *src/index.js* file
-  * Add a logging statement to your new JavaScript file and check whether it shows up in the browser
+- Confirm your [source code for the last section](https://github.com/rwieruch/minimal-webpack-babel-setup)
+- Try out a Babel Plugin yourself
+  - Install a [Babel Plugin](https://babeljs.io/docs/en/plugins) via npm to your project to support an upcoming JavaScript feature
+  - Add the Plugin to your _.babelrc_ file
+  - Try the new JavaScript feature in your _src/index.js_ file
+- Try Imports
+  - Create another JavaScript file in your _src/_ folder
+  - Import the new JavaScript file in your _src/index.js_ file
+  - Add a logging statement to your new JavaScript file and check whether it shows up in the browser
 
 <LinkCollection label="This tutorial is part 1 of 2 in 'React Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }]} />
 

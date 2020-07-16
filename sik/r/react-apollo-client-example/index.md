@@ -1,13 +1,21 @@
 ---
-title: "A minimal Apollo Client in React Example"
+title: 'A minimal Apollo Client in React Example'
 description: "The tutorial guides you through building a minimal Apollo Client in React example application where Apollo Client is used for remote data and React's local state for local data. After all, it's a minimal boilerplate project to get you started with GraphQL in React ..."
-date: "2018-06-05T13:50:46+02:00"
-categories: ["React", "GraphQL"]
-keywords: ["react apollo client example", "react apollo example", "react graphql boilerplate", "react graphql example", "react apollo demo", "react apollo tutorial"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-06-05T13:50:46+02:00'
+categories: ['React', 'GraphQL']
+keywords:
+  [
+    'react apollo client example',
+    'react apollo example',
+    'react graphql boilerplate',
+    'react graphql example',
+    'react apollo demo',
+    'react apollo tutorial',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs,#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -22,46 +30,44 @@ It's time to get you started with a minimal Apollo Client in React application t
 
 In the following case study application, you will consume GitHub's GraphQL API to query a bunch of repositories from an organization. You have learned those steps before. Basically it is how your remote data is managed in Apollo Client's Cache. However, this time you will introduce local data along the way. Imagine a use case where you would have to select the queried repositories in a list to make a batch operation (e.g. mutation) on them. For instance, you maybe want to star 3 of the 10 repositories. Therefore, you would have to introduce local data to track the selected repositories which are managed in a local state. In the following you will implement this use case, first by using React's local state but then transition to Apollo Link State as alternative.
 
-It is up to you to create a React application with [create-react-app](https://github.com/facebook/create-react-app). Afterward, you will have to setup Apollo Client in your React application as you have done in previous applications in the *src/index.js* file.
+It is up to you to create a React application with [create-react-app](https://github.com/facebook/create-react-app). Afterward, you will have to setup Apollo Client in your React application as you have done in previous applications in the _src/index.js_ file.
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 
-import App from './App';
+import App from './App'
 
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker'
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache()
 
-const GITHUB_BASE_URL = 'https://api.github.com/graphql';
+const GITHUB_BASE_URL = 'https://api.github.com/graphql'
 
 const httpLink = new HttpLink({
   uri: GITHUB_BASE_URL,
   headers: {
-    authorization: `Bearer ${
-      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
-    }`,
+    authorization: `Bearer ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
   },
-});
+})
 
 const client = new ApolloClient({
   link: httpLink,
   cache,
-});
+})
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-  document.getElementById('root'),
-);
+  document.getElementById('root')
+)
 
-registerServiceWorker();
+registerServiceWorker()
 ```
 
 Don't forget to install the necessary packages for GraphQL, Apollo Client and React Apollo on the command line:
@@ -70,16 +76,16 @@ Don't forget to install the necessary packages for GraphQL, Apollo Client and Re
 npm install --save apollo-client apollo-cache-inmemory apollo-link-http graphql graphql-tag react-apollo
 ```
 
-And furthermore, don't forget to add your [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) from GitHub as value to the key in the *.env* file which you have to create in your project folder.
+And furthermore, don't forget to add your [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) from GitHub as value to the key in the _.env_ file which you have to create in your project folder.
 
 In the next step, implement the components to display the remote data which gets queried with React Apollo's Query component eventually.
 
 ```javascript
-import React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import React from 'react'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
-import './App.css';
+import './App.css'
 
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
   {
@@ -96,21 +102,19 @@ const GET_REPOSITORIES_OF_ORGANIZATION = gql`
       }
     }
   }
-`;
+`
 
 const App = () => (
   <Query query={GET_REPOSITORIES_OF_ORGANIZATION}>
     {({ data: { organization }, loading }) => {
       if (loading || !organization) {
-        return <div>Loading ...</div>;
+        return <div>Loading ...</div>
       }
 
-      return (
-        <RepositoryList repositories={organization.repositories} />
-      );
+      return <RepositoryList repositories={organization.repositories} />
     }}
   </Query>
-);
+)
 
 const RepositoryList = ({ repositories }) => (
   <ul>
@@ -119,12 +123,12 @@ const RepositoryList = ({ repositories }) => (
         <li key={node.id}>
           <a href={node.url}>{node.name}</a>
         </li>
-      );
+      )
     })}
   </ul>
-);
+)
 
-export default App;
+export default App
 ```
 
 Once you run this application, you should see initially a loading indicator and afterward the list of repositories fetched from the defined GitHub organization in your GraphQL query. In addition, it could be possible to star a repository by executing a GraphQL mutation with the Mutation component.
@@ -179,10 +183,10 @@ Nevertheless, there are a couple of potential improvements that you can do as ex
 
 ### Exercises:
 
-* Implement the unstar mutation
-* Implement a flexible way to query repositories from different organizations
-  * Implement a search field that is managed with React's local state
-  * When submitting the value from the search field, pass this value as variable to the Query component to use it as dynamic value for the `login` argument
+- Implement the unstar mutation
+- Implement a flexible way to query repositories from different organizations
+  - Implement a search field that is managed with React's local state
+  - When submitting the value from the search field, pass this value as variable to the Query component to use it as dynamic value for the `login` argument
 
 # Starting with React's Local State Management for Local Data
 
@@ -195,15 +199,13 @@ const App = () => (
   <Query query={GET_REPOSITORIES_OF_ORGANIZATION}>
     {({ data: { organization }, loading }) => {
       if (loading || !organization) {
-        return <div>Loading ...</div>;
+        return <div>Loading ...</div>
       }
 
-      return (
-        <Repositories repositories={organization.repositories} />
-      );
+      return <Repositories repositories={organization.repositories} />
     }}
   </Query>
-);
+)
 ```
 
 The Repositories component in between manages the state of selected repositories by storing their identifiers in React's local state. in the end, it renders the RepositoryList component which was rendered previously in the App component. After all, you only introduced a component in between which has the responsibility to manage local state (container component) while the RepositoryList component only needs to render data (presentational component).
@@ -264,7 +266,7 @@ const RepositoryList = ({
 }) => (
   <ul>
     {repositories.edges.map(({ node }) => {
-      const isSelected = selectedRepositoryIds.includes(node.id);
+      const isSelected = selectedRepositoryIds.includes(node.id)
 
       return (
         <li key={node.id}>
@@ -276,23 +278,20 @@ const RepositoryList = ({
           <a href={node.url}>{node.name}</a>{' '}
           {!node.viewerHasStarred && <Star id={node.id} />}
         </li>
-      );
+      )
     })}
   </ul>
-);
+)
 ```
 
 The Select component is only a button which acts as toggle to select and unselect a repository.
 
 ```javascript
 const Select = ({ id, isSelected, toggleSelectRepository }) => (
-  <button
-    type="button"
-    onClick={() => toggleSelectRepository(id, isSelected)}
-  >
+  <button type="button" onClick={() => toggleSelectRepository(id, isSelected)}>
     {isSelected ? 'Unselect' : 'Select'}
   </button>
-);
+)
 ```
 
 The select interaction should work after starting your application. It is indicated by a toggling "Select" and "Unselect" label after clicking the new button multiple times. But you can do better by adding some conditional styling to each row in the RepositoryList component.
@@ -319,7 +318,7 @@ const RepositoryList = ({ ... }) => (
 );
 ```
 
-Last but not least, you have to define the CSS classed which were used for the repository row in the *src/App.css* file:
+Last but not least, you have to define the CSS classed which were used for the repository row in the _src/App.css_ file:
 
 ```javascript
 .row {

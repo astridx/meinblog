@@ -1,13 +1,20 @@
 ---
-title: "How to setup PostgreSQL on MacOS"
+title: 'How to setup PostgreSQL on MacOS'
 description: "A installation guide for a PostgreSQL on MacOS setup for having a SQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date: "2020-04-25T07:50:46+02:00"
-categories: ["Node"]
-keywords: ["postgres macos", "postgresql macos", "postgres setup", "postgresql setup", "postgres os setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2020-04-25T07:50:46+02:00'
+categories: ['Node']
+keywords:
+  [
+    'postgres macos',
+    'postgresql macos',
+    'postgres setup',
+    'postgresql setup',
+    'postgres os setup',
+  ]
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -42,13 +49,13 @@ The command line results will show the version you have installed on your local 
 
 # How to create a physical PostgreSQL Database
 
-Now you can initialize the physical space on your hard-disk to allocate databases. To do this, create a default *postgres* database on the command line in case it didn't happen automatically:
+Now you can initialize the physical space on your hard-disk to allocate databases. To do this, create a default _postgres_ database on the command line in case it didn't happen automatically:
 
 ```javascript
 initdb /usr/local/var/postgres
 ```
 
-You will see the error message: *"initdb: directory "/usr/local/var/postgres" exists but is not empty"* if the database was already created when you installed PostgreSQL. It means the folder where you are attempting to create a physical place for the database already has one. Either way, next you can move on to the next step.
+You will see the error message: _"initdb: directory "/usr/local/var/postgres" exists but is not empty"_ if the database was already created when you installed PostgreSQL. It means the folder where you are attempting to create a physical place for the database already has one. Either way, next you can move on to the next step.
 
 When you connect to this physical database later, you will see an [actual database](https://stackoverflow.com/questions/50210158/whats-the-difference-between-initdb-usr-local-var-db-and-createdb-db) which is called "postgres" as well. The postgres database is meant to be the default database for any third-party tools that you are using in combination with PostgreSQL. These tools attempt to make the default connection to this default database, so you shouldn't delete it.
 
@@ -61,7 +68,7 @@ pg_ctl -D /usr/local/var/postgres start
 pg_ctl -D /usr/local/var/postgres stop
 ```
 
-The terminal will confirm these operations with *"server started"* and *"server stopped"* feedback. You could also implement a script to start the server each time you boot up the machine, but I like to have control over when to start and stop my database server to avoid complications.
+The terminal will confirm these operations with _"server started"_ and _"server stopped"_ feedback. You could also implement a script to start the server each time you boot up the machine, but I like to have control over when to start and stop my database server to avoid complications.
 
 # How to create the actual PostgreSQL Database
 
@@ -87,9 +94,9 @@ DROP DATABASE mydatabasename;
 
 To list all your databases, you can type `\list`. Your will see any new databases listed, as well as two default databases that come with postgreSQL called `template0` and `template1`. The templates should remain in your database list even if you aren't using them, as they may be useful later.
 
-* \list - List all of your actual databases.
-* \c mydatabasename - Connect to another database.
-* \d - List the relations of your currently connected database.
-* \d mytablename - Shows information for a specific table.
+- \list - List all of your actual databases.
+- \c mydatabasename - Connect to another database.
+- \d - List the relations of your currently connected database.
+- \d mytablename - Shows information for a specific table.
 
 <ReadMore label="PostgreSQL with Sequelize in Express Tutorial" link="/postgres-express-setup-tutorial" />

@@ -76,7 +76,10 @@ We're going to start by creating an **index.html** file in a new directory. The 
 
     <title>Ghibli App</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dosis:400,700"
+      rel="stylesheet"
+    />
     <link href="style.css" rel="stylesheet" />
   </head>
 
@@ -151,7 +154,7 @@ var request = new XMLHttpRequest()
 // Open a new connection, using the GET request on the URL endpoint
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
 
-request.onload = function() {
+request.onload = function () {
   // Begin accessing JSON data here
 }
 
@@ -171,7 +174,7 @@ We're going to use `JSON.parse()` to parse the response, and create a `data` var
 // Begin accessing JSON data here
 var data = JSON.parse(this.response)
 
-data.forEach(movie => {
+data.forEach((movie) => {
   // Log each movie's title
   console.log(movie.title)
 })
@@ -190,7 +193,7 @@ Let's just wrap our code in an `if` statement, succeeding on any response in the
 var data = JSON.parse(this.response)
 
 if (request.status >= 200 && request.status < 400) {
-  data.forEach(movie => {
+  data.forEach((movie) => {
     console.log(movie.title)
   })
 } else {
@@ -206,12 +209,12 @@ scripts.js
 var request = new XMLHttpRequest()
 
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-request.onload = function() {
+request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
 
   if (request.status >= 200 && request.status < 400) {
-    data.forEach(movie => {
+    data.forEach((movie) => {
       console.log(movie.title)
     })
   } else {
@@ -303,7 +306,7 @@ Now we're going to paste all our code from earlier back in. The last step will b
 Paste everything back in, but we'll just be looking at what's inside the `forEach()`.
 
 ```js
-data.forEach(movie => {
+data.forEach((movie) => {
   console.log(movie.title)
   console.log(movie.description)
 })
@@ -314,7 +317,7 @@ Instead of `console.log`, we'll use `textContent` to set the text of an HTML ele
 <div class="filename">scripts.js</div>
 
 ```js
-data.forEach(movie => {
+data.forEach((movie) => {
   // Create a div with a card class
   const card = document.createElement('div')
   card.setAttribute('class', 'card')
@@ -363,11 +366,11 @@ app.appendChild(container)
 
 var request = new XMLHttpRequest()
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true)
-request.onload = function() {
+request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
   if (request.status >= 200 && request.status < 400) {
-    data.forEach(movie => {
+    data.forEach((movie) => {
       const card = document.createElement('div')
       card.setAttribute('class', 'card')
 

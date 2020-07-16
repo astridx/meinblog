@@ -114,7 +114,7 @@ The table has Item, Price, and Action as the headers, and maps through the state
     </Table.Row>
   </Table.Header>
   <Table.Body>
-    {store.map(row => {
+    {store.map((row) => {
       return (
         <Table.Row key={row.id}>
           <Table.Cell>{row.item}</Table.Cell>
@@ -168,9 +168,9 @@ addRow = () => {
   })
 }
 
-deleteRow = id => {
+deleteRow = (id) => {
   this.setState(({ store }) => ({
-    store: store.filter(item => id !== item.id),
+    store: store.filter((item) => id !== item.id),
   }))
 }
 ```
@@ -178,7 +178,7 @@ deleteRow = id => {
 Finally, we have the `handleContentEditable` component, which will be invoked every time a change is made to `ContentEditable`, via `onChange`. In order to use one function many possible columns, I added a `data-column` attribute to the component, so I get the key (column) and value of each `ContentEditable`, and set the `row`.
 
 ```jsx
-handleContentEditable = event => {
+handleContentEditable = (event) => {
   const { row } = this.state
   const {
     currentTarget: {
@@ -255,7 +255,7 @@ Uh, what? `contenteditable` elements retain the formatting style of the text. Ev
 Since obviously we don't want HTML to be submitted here, we need to make a function to only paste the text and not the formatting.
 
 ```jsx
-pasteAsPlainText = event => {
+pasteAsPlainText = (event) => {
   event.preventDefault()
 
   const text = event.clipboardData.getData('text/plain')
@@ -286,7 +286,7 @@ Great. `&nsbp;`, the non-breaking space you used to format your website in 1998 
 So I just made a little find and replace for those characters.
 
 ```jsx
-const trimSpaces = string => {
+const trimSpaces = (string) => {
   return string
     .replace(/&nbsp;/g, '')
     .replace(/&amp;/g, '&')
@@ -299,7 +299,7 @@ If I add it to the `addRow` method, I can fix them before they get submitted.
 
 ```jsx
 addRow = () => {
-  const trimSpaces = string => {
+  const trimSpaces = (string) => {
     return string
       .replace(/&nbsp;/g, '')
       .replace(/&amp;/g, '&')
@@ -338,7 +338,7 @@ Which will be taken literally by `contenteditable`.
 So we can disable that. `13` is the key code for enter.
 
 ```jsx
-disableNewlines = event => {
+disableNewlines = (event) => {
   const keyCode = event.keyCode || event.which
 
   if (keyCode === 13) {
@@ -407,7 +407,7 @@ This is not quite specific to `contenteditable`, but since I'm using price as on
 You might use an `<input type="number">` to only allow numbers on the front end in HTML, but we have to create our own function for `ContentEditable`. For the string, we had to prevent newlines on `keyPress`, but for currency, we'll only allow `.`, `,`, and `0-9`.
 
 ```jsx
-validateNumber = event => {
+validateNumber = (event) => {
   const keyCode = event.keyCode || event.which
   const string = String.fromCharCode(keyCode)
   const regex = /[0-9,]|\./
@@ -432,7 +432,7 @@ Finally, right now we can only edit the last row - once a row has been added, th
 I'll make a new method just for updating. It's similar to the row, except instead of changing the state of the new row, it maps through the store and updates based on the index. I've added one more `data` attribute - the row.
 
 ```jsx
-handleContentEditableUpdate = event => {
+handleContentEditableUpdate = (event) => {
   const {
     currentTarget: {
       dataset: { row, column },
@@ -442,8 +442,10 @@ handleContentEditableUpdate = event => {
 
   this.setState(({ store }) => {
     return {
-      store: store.map(item => {
-        return item.id === parseInt(row, 10) ? { ...item, [column]: value } : item
+      store: store.map((item) => {
+        return item.id === parseInt(row, 10)
+          ? { ...item, [column]: value }
+          : item
       }),
     }
   })
@@ -520,7 +522,7 @@ class App extends Component {
 
   addRow = () => {
     const { store, row } = this.state
-    const trimSpaces = string => {
+    const trimSpaces = (string) => {
       return string
         .replace(/&nbsp;/g, '')
         .replace(/&amp;/g, '&')
@@ -542,15 +544,15 @@ class App extends Component {
     this.firstEditable.current.focus()
   }
 
-  deleteRow = id => {
+  deleteRow = (id) => {
     const { store } = this.state
 
     this.setState({
-      store: store.filter(item => id !== item.id),
+      store: store.filter((item) => id !== item.id),
     })
   }
 
-  disableNewlines = event => {
+  disableNewlines = (event) => {
     const keyCode = event.keyCode || event.which
 
     if (keyCode === 13) {
@@ -559,7 +561,7 @@ class App extends Component {
     }
   }
 
-  validateNumber = event => {
+  validateNumber = (event) => {
     const keyCode = event.keyCode || event.which
     const string = String.fromCharCode(keyCode)
     const regex = /[0-9,]|\./
@@ -570,7 +572,7 @@ class App extends Component {
     }
   }
 
-  pasteAsPlainText = event => {
+  pasteAsPlainText = (event) => {
     event.preventDefault()
 
     const text = event.clipboardData.getData('text/plain')
@@ -583,7 +585,7 @@ class App extends Component {
     }, 0)
   }
 
-  handleContentEditable = event => {
+  handleContentEditable = (event) => {
     const { row } = this.state
     const {
       currentTarget: {
@@ -595,7 +597,7 @@ class App extends Component {
     this.setState({ row: { ...row, [column]: value } })
   }
 
-  handleContentEditableUpdate = event => {
+  handleContentEditableUpdate = (event) => {
     const {
       currentTarget: {
         dataset: { row, column },
@@ -605,8 +607,10 @@ class App extends Component {
 
     this.setState(({ store }) => {
       return {
-        store: store.map(item => {
-          return item.id === parseInt(row, 10) ? { ...item, [column]: value } : item
+        store: store.map((item) => {
+          return item.id === parseInt(row, 10)
+            ? { ...item, [column]: value }
+            : item
         }),
       }
     })

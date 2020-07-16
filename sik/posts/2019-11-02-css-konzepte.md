@@ -33,7 +33,6 @@ Just as a recap, we'll be talking about how CSS applies to HTML a lot, so make s
 - **Value** - Wert, der auf ein Attribut angewendet wird (_Beispiel:_ `https://astrid-guenther.de/`)
 - **Element** - alles im HTML-Tag - Attribute, Werte und Inhalt.
 
-
 Beispiel:
 
 ```html
@@ -48,7 +47,7 @@ Ein echtes Beispiel:
 
 ### HTML-Referenz
 
-| Syntax    | Beispiel                                                   |
+| Syntax    | Beispiel                                                  |
 | --------- | --------------------------------------------------------- |
 | Tag       | `a`, `img`, `h1`                                          |
 | Attribute | `href`, `src`, `alt`                                      |
@@ -149,7 +148,7 @@ article h2 {
 }
 ```
 
-> Hinweis: Alle Selektoren zielen auf mehrere Elemente, mit Ausnahme von IDs, die nur für ein bestimmtes Element gelten. Eine ID darf nur einmal in einem HTML-Dokument vorkommen. 
+> Hinweis: Alle Selektoren zielen auf mehrere Elemente, mit Ausnahme von IDs, die nur für ein bestimmtes Element gelten. Eine ID darf nur einmal in einem HTML-Dokument vorkommen.
 
 ### Ein Leerzeichen mit Bedeutung
 
@@ -171,6 +170,7 @@ Der erste Selektor zielt auf `foo` and `bar` in dem gleichen Element.
 ```html
 <div class="foo bar">I'm targeted</div>
 ```
+
 Der zweite Selektor zielt auf ein `bar`-Element, das Kind eines `foo`-Elementes ist.
 
 <div class="filename">.foo .bar Beispiel</div>
@@ -200,6 +200,7 @@ Der `+`-Kombinator wählt Knoten aus, die direkt dem davor angegebenen Element f
   /* mit Pluszeichen */
 }
 ```
+
 Beispiel:  
 `.foo + .bar` matcht jedes `.bar`, das direkt einem `.foo` folgt.
 `h2 + p` matcht jedes `<p>`, das direkt einem `<h2>` folgt.
@@ -213,8 +214,8 @@ Der `~`-Kombinator wählt Knoten aus, die dem davor angegeben Element (nicht zwi
   /* mit Tilde */
 }
 ```
-Beispiel: `.foo ~ .bar` matcht alle `.bar`, die einem `.foo` innerhalb desselben Elements folgen.
 
+Beispiel: `.foo ~ .bar` matcht alle `.bar`, die einem `.foo` innerhalb desselben Elements folgen.
 
 ##### Kindselektoren
 
@@ -225,25 +226,26 @@ Der `>`-Kombinator wählt Knoten aus, die direkte Kinder des davor angegebenen E
   /* mit Größerzeichen */
 }
 ```
+
 Beispiel:  
 `.foo > .bar` matcht alle `.bar`, die innerhalb eines `.foo` Element sind.
 `ul > li` matcht alle `<li>` Elemente, die innerhalb eines `<ul>` Element sind.
 
 ##### Nachfahrenselektoren
 
-Der ` `-Kombinator wählt Knoten aus, die (nicht zwangsweise direkte) Kinder des davor angegebenen Elements sind.
-    Syntax: A B
-    Beispiel: div span matcht jedes <span> Element, das innerhalb eines <div> Elements ist. 
+Der ``-Kombinator wählt Knoten aus, die (nicht zwangsweise direkte) Kinder des davor angegebenen Elements sind.
+Syntax: A B
+Beispiel: div span matcht jedes <span> Element, das innerhalb eines <div> Elements ist.
 
 ### Selektor Referenze
 
-| Selektor           | Targets                 | Beispiele                                           |
-| ------------------ | ----------------------- | --------------------------------------------------- |
-| Universalselektor  | Alle Elemente           | `*`                                                 |
-| Typeselektor       | Tags, Pseudoelemente    | `h1`, `div`, `li::before`                           |
-| Klassenselektor    | Klassen, Pseudoklassen  | `.page-header`, `.page-content`, `.list-item:hover` |
-| Attributselektor   | Attribute               | `[alt]`, `[type="text"]`, `[lang="de"]`             |
-| ID-Selektor        | IDs                     | `#toggle`, `#getting-started`, `#about`             |
+| Selektor          | Targets                | Beispiele                                           |
+| ----------------- | ---------------------- | --------------------------------------------------- |
+| Universalselektor | Alle Elemente          | `*`                                                 |
+| Typeselektor      | Tags, Pseudoelemente   | `h1`, `div`, `li::before`                           |
+| Klassenselektor   | Klassen, Pseudoklassen | `.page-header`, `.page-content`, `.list-item:hover` |
+| Attributselektor  | Attribute              | `[alt]`, `[type="text"]`, `[lang="de"]`             |
+| ID-Selektor       | IDs                    | `#toggle`, `#getting-started`, `#about`             |
 
 ## CSS-Spezifität
 
@@ -282,7 +284,7 @@ CSS verwendet drei Werte, um die Spezifität zu bestimmen. Du kannst [diesen Spe
 Wie wir wissen, gibt es drei Selektortypen: `ID`, `Klasse` und `Type`. Zu Beginn wir allen als Wert `0` zugewiesen.
 
 | ID  | Klasse | Type |
-| --- | -----  | ---- |
+| --- | ------ | ---- |
 | 0   | 0      | 0    |
 
 Jedes Mal, wenn dein Element einen der Selektoren enthält, erhöhst du den Wert um 1.
@@ -298,7 +300,7 @@ h1 {
 ```
 
 | ID  | Klasse | Type |
-| --- | -----  | ---- |
+| --- | ------ | ---- |
 | 0   | 0      | 1    |
 
 Füge einen Klassenselektor hinzu.
@@ -312,7 +314,7 @@ Füge einen Klassenselektor hinzu.
 ```
 
 | ID  | Klasse | Type |
-| --- | -----  | ---- |
+| --- | ------ | ---- |
 | 0   | 1      | 1    |
 
 Füge einen ID-Selektor hinzu.
@@ -326,13 +328,13 @@ Füge einen ID-Selektor hinzu.
 ```
 
 | ID  | Klasse | Type |
-| --- | -----  | ---- |
+| --- | ------ | ---- |
 | 1   | 1      | 1    |
 
-Stelle dir diese Skala wie ein Dezimalsystem vor. 
-Ein Tag steht für den Einerwert `1`. 
-Eine Klasse steht für den Zehnerwert `10`. 
-Eine ID steht für den Hunderterwert `100`. 
+Stelle dir diese Skala wie ein Dezimalsystem vor.
+Ein Tag steht für den Einerwert `1`.
+Eine Klasse steht für den Zehnerwert `10`.
+Eine ID steht für den Hunderterwert `100`.
 Eine ID, eine Klasse und ein Tag beinhalten Einer-, Zehner- und Hunderterwert `111`.
 
 > Wenn du mehr als 10 Elemente hast, beispielsweise `1`-ID, `15`-Klassen und `25`-Typen, funktioniert diese Analogie nicht. `1.15.25` gibt es im Dezimalsystem nicht. Aber, wenn du so viele Selektoren verwendest, ist höchstwahrscheinlich das ganze Konzept überdenkenswert.
@@ -366,7 +368,7 @@ Dieser Selektor ist weniger spezifisch: (`140`, oder hundertvierzig)
 ```
 
 | ID  | Klasse | Type |
-| --- | -----  | ---- |
+| --- | ------ | ---- |
 | 1   | 4      | 0    |
 
 #### Inline-Stil
@@ -376,7 +378,9 @@ Ein Inline-Stil ist stärker als jede Kombination aus ID, Klasse oder Typ.
 <div class="filename">Inline-Stil</div>
 
 ```html
-<div style="color: red;">Ich bin rot! Kein Selektor kann mich überschreiben!</div>
+<div style="color: red;">
+  Ich bin rot! Kein Selektor kann mich überschreiben!
+</div>
 ```
 
 ### Important!
@@ -440,7 +444,7 @@ Ich werde gleich mehr zu den Eigenschaften schreiben. Jetzt haben wir genug Grun
 Um deine Elemente relativ zueinander zu positionieren reichen `padding` und `margin` aus.
 
 - [**Padding**](https://developer.mozilla.org/de/docs/Web/CSS/padding) verwendest du, um die Innenseite eines Elements (_inside of the border_) aufzufüllen – den Bereich zwischen deinem Element und dem Rand.
-- [**Margin**](https://developer.mozilla.org/de/docs/Web/CSS/margin) trennst du die Elemente voneinander –  *Margin* steht für Bereich zwischen dem eigenen Rand und der Außengrenze eines anderen Elements
+- [**Margin**](https://developer.mozilla.org/de/docs/Web/CSS/margin) trennst du die Elemente voneinander – _Margin_ steht für Bereich zwischen dem eigenen Rand und der Außengrenze eines anderen Elements
 - [**Padding**](https://developer.mozilla.org/en-US/docs/Web/CSS/padding) is used to pad the inside of an element (_inside of the border_)
 - [**Margin**](https://developer.mozilla.org/en-US/docs/Web/CSS/margin) is used to separate elements (_outside of the border_)
 
@@ -472,48 +476,46 @@ Einige wichtige Hinweise:
 - **Padding** vergrößert den Bereich eines Elements, auf das geklickt werden kann. **margin** nicht
 - **Padding** (and border) erhöhen die Gesamtgröße eines Elements; **margin** nicht
 
-Was bedeutet dies konkret? Es bedeute: *Margins* überlappen einander. *Paddings* überlappen niemals. Ich zeige dir nachfolgend einen konkreten Anwendungsfall, welcher häufig bei der Formatierung von Überschriften und Absätzen vorkommt.
+Was bedeutet dies konkret? Es bedeute: _Margins_ überlappen einander. _Paddings_ überlappen niemals. Ich zeige dir nachfolgend einen konkreten Anwendungsfall, welcher häufig bei der Formatierung von Überschriften und Absätzen vorkommt.
 
 Beispiel: Wie groß ist der Rand, der die beiden Elemente im nächsten Beispiel trennt - also, wenn man eine Überschrift `h2` mit einem `10px` unteren Rand versieht und im Anschluss einen Absatz `p` mit einem `10px` oberen Rand verwendet?
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-    <head>
-
-    </head>
-    <body>
-        <h2 style="margin-bottom: 10px;">Überschrift</h2>
-        <p style="margin-top: 10px;">Absatz</p>
-    </body>
+  <head> </head>
+  <body>
+    <h2 style="margin-bottom: 10px;">Überschrift</h2>
+    <p style="margin-top: 10px;">Absatz</p>
+  </body>
 </html>
 ```
 
-Sieh dir in den Entwicklertools an, dass zwischen der Überschrift und dem Absatz ein Gesamtabstand von 10 Pixel und nicht von 20 Pixel liegt. 
+Sieh dir in den Entwicklertools an, dass zwischen der Überschrift und dem Absatz ein Gesamtabstand von 10 Pixel und nicht von 20 Pixel liegt.
 
 ![css margin und padding](../images/margin_padding2.png)
 
 ### Padding vs. margin
 
-| Merkmal           | Margin             | Padding                              |
-| ----------------- | ------------------ | ------------------------------------ |
-| Hintergrundfarbe  | Immer transparent  | Hintergrundfarbe des Elements        |
-| Verschmelzen      | Ja                 | Nein                                 |
-| Negative Werte    | Erlaubt            | Nicht erlaubt                        |
-| Anklickbar        | Nein               | Ja                                   |
+| Merkmal          | Margin            | Padding                       |
+| ---------------- | ----------------- | ----------------------------- |
+| Hintergrundfarbe | Immer transparent | Hintergrundfarbe des Elements |
+| Verschmelzen     | Ja                | Nein                          |
+| Negative Werte   | Erlaubt           | Nicht erlaubt                 |
+| Anklickbar       | Nein              | Ja                            |
 
 ## CSS Boxmodel
 
-[CSS Boxmodel](https://developer.mozilla.org/de/docs/Web/CSS/box-sizing)! Die `box-sizing` CSS-Eigenschaft verwendest du, um das Standard CSS Boxmodell zu verändern. Das Boxmodell berechnet  die Breiten und Höhen von Elementen. Nutze diese Eigenschaft dazu, um das Verhalten bestimmter Browser nachzuahmen, die die CSS Boxmodell Spezifikation nicht erwartungsgemäß unterstützen.
+[CSS Boxmodel](https://developer.mozilla.org/de/docs/Web/CSS/box-sizing)! Die `box-sizing` CSS-Eigenschaft verwendest du, um das Standard CSS Boxmodell zu verändern. Das Boxmodell berechnet die Breiten und Höhen von Elementen. Nutze diese Eigenschaft dazu, um das Verhalten bestimmter Browser nachzuahmen, die die CSS Boxmodell Spezifikation nicht erwartungsgemäß unterstützen.
 
 - **Border box** Rahmen und Abstände sind Teil der Größe eines Elements!
-- **Content box** Rahmen und Abstände sind __nicht__ Teil der Größe eines Elements!
+- **Content box** Rahmen und Abstände sind **nicht** Teil der Größe eines Elements!
 
-Meine Empfehlung? Setze `box-sizing` auf `border-box` für alles (`*`). Immer. Denk nicht einmal darüber nach! In seltenen Fällen muss etwas `content-box` sein. Das überschreibst du dann. 
+Meine Empfehlung? Setze `box-sizing` auf `border-box` für alles (`*`). Immer. Denk nicht einmal darüber nach! In seltenen Fällen muss etwas `content-box` sein. Das überschreibst du dann.
 
 ### border-box vs. content-box?
 
-Verwenden wir unser Quadrat Beispiel oben. Mit `content-box` beträgt die Gesamtgröße des Elements` 72px * 72px`:
+Verwenden wir unser Quadrat Beispiel oben. Mit `content-box` beträgt die Gesamtgröße des Elements`72px * 72px`:
 
 <div class="filename">content-box</div>
 
@@ -528,7 +530,6 @@ Verwenden wir unser Quadrat Beispiel oben. Mit `content-box` beträgt die Gesamt
 
 Mit der Option `border-box` beträgt die Gesamtgröße des Elements `50px * 50px`.
 
-
 <div class="filename">border-box</div>
 ```
 28px für den Inhalt
@@ -541,7 +542,7 @@ Mit der Option `border-box` beträgt die Gesamtgröße des Elements `50px * 50px
 
 Wenn du einem Element eine Höhe `height` und eine Breite `width` von jeweils 50 Pixel `50px` gibst, erwartest du, dass das Element 50 Pixel hoch und 50 Pixel breit ist, oder? Du rechnest nicht damit, dass es 72 Pixel breit ist. Die Maße sind wichtig, wenn du Layouts erstellst, die in Prozent festgelegt werden.
 
-Wende `border-box` auf __alle__ Elemente wie folgt an:
+Wende `border-box` auf **alle** Elemente wie folgt an:
 
 ```css
 * {
@@ -567,6 +568,7 @@ div {
   padding-left: 5px;
 }
 ```
+
 - **ein** Wert gilt für alle vier Seiten (`padding: 5px`)
 - **zwei** Werte gelten jeweils für vertikal (oben und unten) und horizontal (links und rechts) (`padding: 5px 0`)
 - **vier** Werte werden von oben links **im Uhrzeigersinn** angewendet (`padding: 1px 5px 3px 4px`)
@@ -595,6 +597,7 @@ div {
   border-style: solid;
 }
 ```
+
 Und genau wie `padding` und `margin` kann jede dieser Eigenschaften auf eine spezielle Seite angewendet werden.
 
 ```css
@@ -609,9 +612,9 @@ Wenn du `border: 1px solid black` schreibst, fasst du 12 Eigenschaften zusammen.
 
 ## Layouts: Anzeige
 
-Es gibt viele `display`-Eigenschaften ([siehe diese Liste] (https://developer.mozilla.org/de/docs/Web/CSS/display)). Die am häufigsten verwendeten und wichtigsten sind meiner Meinung nach `block`, `inline`, `inline-block`, `flex` und `none`.
+Es gibt viele `display`-Eigenschaften ([siehe diese Liste](https://developer.mozilla.org/de/docs/Web/CSS/display)). Die am häufigsten verwendeten und wichtigsten sind meiner Meinung nach `block`, `inline`, `inline-block`, `flex` und `none`.
 
-Die meisten Elemente sind standardmäßig `block`,` inline` oder `inline-block`. Das Standard-Block-Element `block` ist ein div-Element und das Standard-Inline-Element `inline` ist ein span-Element.
+Die meisten Elemente sind standardmäßig `block`,`inline` oder `inline-block`. Das Standard-Block-Element `block` ist ein div-Element und das Standard-Inline-Element `inline` ist ein span-Element.
 
 Beispiele:
 
@@ -628,19 +631,21 @@ Beispiele:
 <div class="filename">Verhalten von Inline-Elementen</div>
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-	</head>
-	<body>
-		<div style="border:solid">Ich bin das 
-			<span style="display:inline;padding:20px;margin:20px">
-				schöne
-			</span> 
-		Block-Element.</div>
-	</body>
+  <head> </head>
+  <body>
+    <div style="border:solid">
+      Ich bin das
+      <span style="display:inline;padding:20px;margin:20px">
+        schöne
+      </span>
+      Block-Element.
+    </div>
+  </body>
 </html>
 ```
+
 Wie dieses Beispiel im Browser angezeigt wird, siehst du im nächsten Bild.
 
 ![](../images/inlineelement.png)
@@ -652,19 +657,21 @@ Inline-Elemente werden zur Textformatierung verwendet.
 **Inline-Block** Elemente verhalten sind wie Inline-Elemente, außer dass sie vertikale und horizontale Abstände und Ränder beachten. Sie werden standardmäßig nebeneinander angezeigt und nicht in einer neuen Zeile..
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-	</head>
-	<body>
-		<div style="border:solid">Ich bin das 
-			<span style="display:inline-block;padding:20px;margin:20px">
-				schöne
-			</span> 
-		Block-Element.</div>
-	</body>
+  <head> </head>
+  <body>
+    <div style="border:solid">
+      Ich bin das
+      <span style="display:inline-block;padding:20px;margin:20px">
+        schöne
+      </span>
+      Block-Element.
+    </div>
+  </body>
 </html>
 ```
+
 Wie dieses Beispiel im Browser angezeigt wird, siehst du im nächsten Bild.
 
 ![](../images/inlineblockelement.png)
@@ -676,17 +683,18 @@ Wie dieses Beispiel im Browser angezeigt wird, siehst du im nächsten Bild.
 <div class="filename">Verhalten von Block-Elementen</div>
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-	</head>
-	<body>
-		<div style="border:solid">Ich bin das 
-			<span style="display:block;padding:20px;margin:20px">
-				schöne
-			</span> 
-		Block-Element.</div>
-	</body>
+  <head> </head>
+  <body>
+    <div style="border:solid">
+      Ich bin das
+      <span style="display:block;padding:20px;margin:20px">
+        schöne
+      </span>
+      Block-Element.
+    </div>
+  </body>
 </html>
 ```
 
@@ -696,23 +704,24 @@ Wie dieses Beispiel im Browser angezeigt wird, siehst du im nächsten Bild.
 
 #### None
 
-Ein Element, auf das **none** angewendet wurde, wird nicht angezeigt. 
+Ein Element, auf das **none** angewendet wurde, wird nicht angezeigt.
 
 ### Display Reference
 
-| Anzeige-Eigenschaft | Verhalten                                                                    |
-| ------------------ | ---------------------------------------------------------------------------- |
-| `inline`           | für die Textformatierung und wird horizontal nebeneinander angezeigt         |
-| `inline-block`     | erscheinen horizontal nebeneinander und beachtet vertikale und horizontale Abstände und Ränder |
-| `block`            | erstreckt sich über die gesamte Breite des Containers                        |
-| `none`             | wird im Dokument nicht angezeigt                                             |
+| Anzeige-Eigenschaft | Verhalten                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| `inline`            | für die Textformatierung und wird horizontal nebeneinander angezeigt                           |
+| `inline-block`      | erscheinen horizontal nebeneinander und beachtet vertikale und horizontale Abstände und Ränder |
+| `block`             | erstreckt sich über die gesamte Breite des Containers                                          |
+| `none`              | wird im Dokument nicht angezeigt                                                               |
 
 ## Layouts: Positionierung
 
-Die Eigenschaft `position` ist zwar wichtig, verwende sie aber mit Bedacht. Ändere die Eigenschaft `position` von ihrem Standardwert `static` in einen anderen Wert nur für wenige ausgesuchte Situationen. Es gibt drei Eigenschaften, die hauptsächlich verwendet werden: 
-- `fixed`, 
-- `absolute` und 
-- `relative`.  
+Die Eigenschaft `position` ist zwar wichtig, verwende sie aber mit Bedacht. Ändere die Eigenschaft `position` von ihrem Standardwert `static` in einen anderen Wert nur für wenige ausgesuchte Situationen. Es gibt drei Eigenschaften, die hauptsächlich verwendet werden:
+
+- `fixed`,
+- `absolute` und
+- `relative`.
 
 Ein positioniertes Element wird durch `top`, `left`, `right`, `bottom` und `z-index` beeinflusst.
 
@@ -727,26 +736,25 @@ Wenn Sie die Position eines Elements nicht ändern, bezieht sich alles auf den [
 
 ### Static
 
-Der Standardzustand von `position` ist` static`. Dies bedeutet, dass dein Element im normalen Flow des Dokuments bleibt. Wenn du drei statische `div` nebeneinander im HTML-Markup schreibst, werden diese untereinander im Browser angezeigt.
-
+Der Standardzustand von `position` ist`static`. Dies bedeutet, dass dein Element im normalen Flow des Dokuments bleibt. Wenn du drei statische `div` nebeneinander im HTML-Markup schreibst, werden diese untereinander im Browser angezeigt.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-		<style>
-			div {
-				border: 1px solid red;
-				padding: 10px;
-				margin: 10px;
-			}
-		</style>
-	</head>
-	<body>
-		<div>Eins</div>
-		<div>Zwei</div>
-		<div>Drei</div>
-	</body>
+  <head>
+    <style>
+      div {
+        border: 1px solid red;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>Eins</div>
+    <div>Zwei</div>
+    <div>Drei</div>
+  </body>
 </html>
 ```
 
@@ -754,7 +762,7 @@ Wie dieses Beispiel im Browser angezeigt wird, siehst du im nächsten Bild.
 
 ![](../images/div.png)
 
-`Statische` Elemente sind nicht positionierbar und werden daher nicht von` top`, `left`,` right`, `bottom` oder` z-index` beeinflusst.
+`Statische` Elemente sind nicht positionierbar und werden daher nicht von`top`, `left`,`right`, `bottom` oder`z-index` beeinflusst.
 
 > **Hinweis:** Nur weil Elemente eine statische Position haben, bedeutet dies nicht immer, dass sie untereinander angeezeigt werden. Die `display`-Eigenschaft kann dies mit `inline-block`, `grid`oder `flex` ändern. Sie sind jedoch weiterhin Teil des regulären Dokumentenflusses und andere Elemente erkennen sie.
 
@@ -768,7 +776,6 @@ Gebräuchliche Verwendungen der `fixed` Positionierung:
 - Eine Schaltfläche **Zurück nach oben** unten rechts auf dem Bildschirm
 - eine Stick-to-Top **Navigationsleiste**
 
-
 ```css
 nav {
   position: fixed;
@@ -777,35 +784,35 @@ nav {
 
 Ein paar Dinge, die du über `fixed` Elemente wissen solltest:
 
-- Ihre Position auf dem Bildschirm wird durch die Eigenschaften `top`, `left`, `right` und `bottom` bestimmt. `top: 0` bedeutet, dass das Element oben im Ansichtsfenster bleibt, und` top: 10px` bedeutet, dass es mit einem Abstand von `10px` zum oberen Rand im Ansichtsfenster dargestellt wird.
-- Andere Elemente sind sich der Existenz eines `fixed` Elements **nicht bewusst**. 
-- `fixed` Elemente sind nicht länger Teil des normalen Flusses. 
+- Ihre Position auf dem Bildschirm wird durch die Eigenschaften `top`, `left`, `right` und `bottom` bestimmt. `top: 0` bedeutet, dass das Element oben im Ansichtsfenster bleibt, und`top: 10px` bedeutet, dass es mit einem Abstand von `10px` zum oberen Rand im Ansichtsfenster dargestellt wird.
+- Andere Elemente sind sich der Existenz eines `fixed` Elements **nicht bewusst**.
+- `fixed` Elemente sind nicht länger Teil des normalen Flusses.
 
 Das bedeutet, wenn wir unser `nav` ohne andere Eigenschaften auf fixed setzen, wird nicht die gesamte Breite des Ansichtsfensters vergrößert.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-		<style>
-			div {
-				border: 1px solid black;
-				padding: 15px;
-				margin: 15px;
-				background: white;
-			}
+  <head>
+    <style>
+      div {
+        border: 1px solid black;
+        padding: 15px;
+        margin: 15px;
+        background: white;
+      }
 
-			nav {
-				position: fixed;
-				background: gray;
-			}		
-		</style>
-	</head>
-	<body>
-		<nav>Nav</nav>
-		<div>Div</div>
-		<div>Div</div>
-	</body>
+      nav {
+        position: fixed;
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Nav</nav>
+    <div>Div</div>
+    <div>Div</div>
+  </body>
 </html>
 ```
 
@@ -834,37 +841,37 @@ Wie dieses Beispiel im Browser angezeigt wird, siehst du im nächsten Bild.
 Wir fügen die Eigenschaft `z-index` hinzu, die sich auf die z-Achse des Elements auswirkt. Wir möchten, dass dieses Element immer vollständig sichtbar ist. Deshalb geben wir ihm einen `z-index` größer `0`. Damit stellen wir sicher, dass es über jedem anderen Element in unserem Dokument liegt. Wie wir sehen, gibt es ein letztes Problem: Das `nav` überlappt den Inhalt. Wie schon erwähnt, wissen die Elemente im normalen Flow nichts von einem festen Element. Du hast die Aufgabe, Platz für dieses zu schaffen. Das Hinzufügen eines `margin-bottom` zum `nav`-Element hat keine Auswirkung.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-		<style>
-			div {
-				border: 1px solid black;
-				padding: 15px;
-				margin: 15px;
-				background: white;
-			}
+  <head>
+    <style>
+      div {
+        border: 1px solid black;
+        padding: 15px;
+        margin: 15px;
+        background: white;
+      }
 
-			nav {
-				position: fixed;
-				top: 0;
-				left: 0;
-				padding: 20px;
-				width: 100%;
-				background: gray;
-				z-index: 2;
-			}
-			
-			.erstesElement{
-				margin-top:80px;				
-			}
-		</style>
-	</head>
-	<body>
-		<nav>Nav</nav>
-		<div class="erstesElement">Div</div>
-		<div>Div</div>
-	</body>
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        width: 100%;
+        background: gray;
+        z-index: 2;
+      }
+
+      .erstesElement {
+        margin-top: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Nav</nav>
+    <div class="erstesElement">Div</div>
+    <div>Div</div>
+  </body>
 </html>
 ```
 
@@ -891,28 +898,25 @@ Die häufigste Verwendung von `relative` und `absolute` ist jedoch, dass ein `re
 Ich mache ein Beispiel mit einem `section`-Element (rot), das ein verschachteltes `div` (blau) hat.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-	<head>
-		<style>
-		</style>
-	</head>
-	<body>
-		<section>
-			section
-			<div>div</div>
-		</section>
-	</body>
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <section>
+      section
+      <div>div</div>
+    </section>
+  </body>
 </html>
 ```
 
 Wenn keine Positionierung angewendet wird, ist das `div`-Element innerhalb des `section`-Elements.
 
-
 ![](../images/sectiondiv.png)
 
-Stelle dir vor, du hasst eine Reihe von Kartenelementen, die unabhängig vom Inhalt `100px` groß sind, und es ist dir wichtig, dass eine Schaltfläche immer an derselben Stelle unten rechts vorhanden ist. Mit `relative` und` absolute` verwendest ist das `div` auf jeder Karte immer am selben Ort.
-
+Stelle dir vor, du hasst eine Reihe von Kartenelementen, die unabhängig vom Inhalt `100px` groß sind, und es ist dir wichtig, dass eine Schaltfläche immer an derselben Stelle unten rechts vorhanden ist. Mit `relative` und`absolute` verwendest ist das `div` auf jeder Karte immer am selben Ort.
 
 ```css
 section {
@@ -944,7 +948,7 @@ div.relative {
   height: 150px;
   width: 30%;
   border: 3px solid #73AD21;
-} 
+}
 div.absolute1 {
   position: absolute;
   top: 15px;
@@ -981,16 +985,16 @@ div.absolute2 {
 
 ### Zusammenfassung: Positionsreferenz
 
-| Position   | Behavior                                                                            | In Document Flow |
-| ---------- | ----------------------------------------------------------------------------------- | ---------------- |
-| `static`   | Standardwert. Das Element ist im normalen Fluss. Die Eigenschaften `top`, `right`, `bottom` oder `left` haben keine Auswirkungen.               | Yes              |
-| `relative` | Das Element wird vom normalen Fluss aus verschoben und hat keinen Einfluss auf andere Elemente.                            | Yes              |
-| `fixed`    | Die Verschiebung orientiert sich am Viewport. Das Element wird aus dem normalen Fluss gelöst und bleibt auch beim Scrollen an seiner fest definierten Position.                                                 | No               |
-| `absolute` | Das Element wird aus dem normalen Fluss gelöst und unabhängig verschoben. Dabei können andere Elemente verdeckt werden. | No               |
+| Position   | Behavior                                                                                                                                                        | In Document Flow |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `static`   | Standardwert. Das Element ist im normalen Fluss. Die Eigenschaften `top`, `right`, `bottom` oder `left` haben keine Auswirkungen.                               | Yes              |
+| `relative` | Das Element wird vom normalen Fluss aus verschoben und hat keinen Einfluss auf andere Elemente.                                                                 | Yes              |
+| `fixed`    | Die Verschiebung orientiert sich am Viewport. Das Element wird aus dem normalen Fluss gelöst und bleibt auch beim Scrollen an seiner fest definierten Position. | No               |
+| `absolute` | Das Element wird aus dem normalen Fluss gelöst und unabhängig verschoben. Dabei können andere Elemente verdeckt werden.                                         | No               |
 
 ## Layouts: Flex
 
-Die Anzeigetypen `block`, `inline-block` und `inline` gelten jeweils für das Element selbst. [Flexbox] (https://developer.mozilla.org/de/docs/Web/CSS/CSS_Flexible_Box_Layout) ist anders, da es für Elemente gilt, die in dem Element verschachtelt sind, das `display: flex` als Eigenschaft hat. Ich werde dir hier die grundlegenden Dinge erklären.
+Die Anzeigetypen `block`, `inline-block` und `inline` gelten jeweils für das Element selbst. [Flexbox](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Flexible_Box_Layout) ist anders, da es für Elemente gilt, die in dem Element verschachtelt sind, das `display: flex` als Eigenschaft hat. Ich werde dir hier die grundlegenden Dinge erklären.
 
 ### Historisch gewachsen
 
@@ -1009,19 +1013,20 @@ Wir wissen bereits, dass eine Reihe von Standardblockelementen übereinander ang
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-div{
-  border: solid;
-}
-</style>
-</head>
-<body>
-<section>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-</section></body>
+  <head>
+    <style>
+      div {
+        border: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+    </section>
+  </body>
 </html>
 ```
 
@@ -1036,21 +1041,23 @@ Wie können wir Elemente nbeneinander darstellen? Wir können den Außenbehälte
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-div{
-  border: solid;
-}
-</style>
-</head>
-<body>
-<section style="display: flex;">
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-</section></body>
+  <head>
+    <style>
+      div {
+        border: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <section style="display: flex;">
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+    </section>
+  </body>
 </html>
 ```
+
 Mit `style="display: flex;"` sieht das Beispiel so aus:
 
 ![](../images/flex2.png)
@@ -1076,23 +1083,23 @@ Lasse uns anhand eines praktischen Beispiels demonstrieren, wozu Flex in der Lag
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-nav {
-  background: lightgray;
-  height: 80px;
-}
-</style>
-</head>
-<body>
-<nav>
-  <div>Brand name</div>
-  <div>
-    <a href="#!">Über uns</a>
-    <a href="#!">Kontakt</a>
-  </div>
-</nav>
-</body>
+  <head>
+    <style>
+      nav {
+        background: lightgray;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>Brand name</div>
+      <div>
+        <a href="#!">Über uns</a>
+        <a href="#!">Kontakt</a>
+      </div>
+    </nav>
+  </body>
 </html>
 ```
 
@@ -1113,27 +1120,26 @@ Das vollständige Beispiel sieht so aus:
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-nav {
-  background: lightgray;
-  height: 80px;
-  display: flex;
-}
-</style>
-</head>
-<body>
-<nav>
-  <div>Brand name</div>
-  <div>
-    <a href="#!">Über uns</a>
-    <a href="#!">Kontakt</a>
-  </div>
-</nav>
-</body>
+  <head>
+    <style>
+      nav {
+        background: lightgray;
+        height: 80px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>Brand name</div>
+      <div>
+        <a href="#!">Über uns</a>
+        <a href="#!">Kontakt</a>
+      </div>
+    </nav>
+  </body>
 </html>
 ```
-
 
 ![](../images/flex4.png)
 
@@ -1149,24 +1155,24 @@ nav {
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-nav {
-  background: lightgray;
-  height: 80px;
-  display: flex;
-}
-</style>
-</head>
-<body>
-<nav>
-  <div>Brand name</div>
-  <div>
-    <a href="#!">Über uns</a>
-    <a href="#!">Kontakt</a>
-  </div>
-</nav>
-</body>
+  <head>
+    <style>
+      nav {
+        background: lightgray;
+        height: 80px;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>Brand name</div>
+      <div>
+        <a href="#!">Über uns</a>
+        <a href="#!">Kontakt</a>
+      </div>
+    </nav>
+  </body>
 </html>
 ```
 
@@ -1185,26 +1191,26 @@ nav {
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-nav {
-  background: lightgray;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>
-</head>
-<body>
-<nav>
-  <div>Brand name</div>
-  <div>
-    <a href="#!">Über uns</a>
-    <a href="#!">Kontakt</a>
-  </div>
-</nav>
-</body>
+  <head>
+    <style>
+      nav {
+        background: lightgray;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div>Brand name</div>
+      <div>
+        <a href="#!">Über uns</a>
+        <a href="#!">Kontakt</a>
+      </div>
+    </nav>
+  </body>
 </html>
 ```
 
@@ -1239,30 +1245,31 @@ In einer Galerie befinden sich häufig mehrere Karten oder Bilder in einem sich 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-.flex-container {
-  display: flex;
-}
-div {
-  border:solid;
-}
-</style>
-</head>
-<body>
-<section class="flex-container">
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  ...
-</section>
-</body>
+  <head>
+    <style>
+      .flex-container {
+        display: flex;
+      }
+      div {
+        border: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="flex-container">
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      ...
+    </section>
+  </body>
+</html>
 ```
 
 ![](../images/repeating.png)
@@ -1279,29 +1286,29 @@ Mit `flex-wrap` können wir das Raster in beliebig viele Zeilen wiederholen lass
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-div {
-  border:solid;
-}
-</style>
-</head>
-<body>
-<section class="flex-container">
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>  
-  <div>div</div>
-  <div>div</div>
-  ...
-</section>
-</body>
+  <head>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      div {
+        border: solid;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="flex-container">
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      ...
+    </section>
+  </body>
 </html>
 ```
 
@@ -1318,45 +1325,51 @@ div {
   flex: 1;
 }
 ```
+
 Das vollständige Beispiel sieht so aus:
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-div {
-  border:solid;
-  flex: 1;
-}
-</style>
-</head>
-<body>
-<section class="flex-container">
-  <div>Lorem ipsum dolor sit amet,</div>
-  <div>Lorum</div>
-  <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</div>
-  <div>Lorum</div>
-  <div>ipsum</div>
-  <div>Lorem ipsum dolor sit amet,</div>
-  <div>Lorem ipsum dolor sit amet,</div>
-  <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</div>
-  <div>div</div>  
-  <div>div</div>
-  <div>div</div>
-  ...
-</section>
-</body>
+  <head>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      div {
+        border: solid;
+        flex: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="flex-container">
+      <div>Lorem ipsum dolor sit amet,</div>
+      <div>Lorum</div>
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      </div>
+      <div>Lorum</div>
+      <div>ipsum</div>
+      <div>Lorem ipsum dolor sit amet,</div>
+      <div>Lorem ipsum dolor sit amet,</div>
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut
+      </div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      ...
+    </section>
+  </body>
+</html>
 ```
 
 ![](../images/repeating4.png)
 
-Was macht `flex: 1`? Es weist alle flexiblen Elemente in einem Container an, automatisch die gleiche Höhe und Breite zu haben, sofern sie alle angewendet wurden. `flex` ist eine weitere Abkürzung für drei Eigenschaften:` flex-grow`, `flex-shrink` und` flex-basis`.
-
+Was macht `flex: 1`? Es weist alle flexiblen Elemente in einem Container an, automatisch die gleiche Höhe und Breite zu haben, sofern sie alle angewendet wurden. `flex` ist eine weitere Abkürzung für drei Eigenschaften:`flex-grow`, `flex-shrink` und`flex-basis`.
 
 ```css
 .element {
@@ -1376,6 +1389,7 @@ Was macht `flex: 1`? Es weist alle flexiblen Elemente in einem Container an, aut
   flex: flex-grow flex-shrink flex-basis;
 }
 ```
+
 Zwei Flex-Elemente, die auf `flex: 1` eingestellt sind, entsprechen jeweils 50% der Breite des Containers. Drei machen jeweils 33,3333% der Breite des Containers aus, und so weiter.
 
 Aber das ist immer noch irgendwie zufällig. Füge weitere Elemente hinzu und setze den Zeilenumbruch auf die nächste Zeile, wenn `flex-wrap` eingestellt ist. Dann nimmt das Element, das umgebrochen wird, jetzt 100% der Zeile ein.
@@ -1384,15 +1398,15 @@ Aber das ist immer noch irgendwie zufällig. Füge weitere Elemente hinzu und se
 
 Was ist, wenn jedes Element immer 1/3 des verfügbaren horizontalen Raums einnehmen soll, unabhängig davon, wie viele Flex-Elemente vorhanden sind und welchen Inhalt sie enthalten? Sie können die `flex-basis` nur auf die gewünschte Breite einstellen.
 
-
 ```css
 div {
   flex: 0 0 33.3333%;
 }
 ```
+
 Erinnerst du dich an das Box-Modell von weiter oben? Wenn du padding für deine Flex-Elemente nutzt, musst du `box-sizing: border-box` verwenden, damit der Prozentsatz korrekt berechnet wird. Wenn dies erledigt ist, wird jedes Flex-Element korrekt auf die richtige Breite von 33,33333% des Bildschirms berechnet.
 
-Es gibt jedoch noch eine weitere Überlegung: Wenn du Abstände in deinem Raster haben möchtest, verwenden du Ränder, um die einzelnen Elemente zu trennen. Da die Ränder separat berechnet werden, musst du die äußeren Ränder von der `flex-basis` abziehen. In diesem Beispiel gibt es einen zusätzlichen `10px` Rand auf beiden Seiten, also werden wir` 20px` subtrahieren.
+Es gibt jedoch noch eine weitere Überlegung: Wenn du Abstände in deinem Raster haben möchtest, verwenden du Ränder, um die einzelnen Elemente zu trennen. Da die Ränder separat berechnet werden, musst du die äußeren Ränder von der `flex-basis` abziehen. In diesem Beispiel gibt es einen zusätzlichen `10px` Rand auf beiden Seiten, also werden wir`20px` subtrahieren.
 
 ```css
 div {
@@ -1408,57 +1422,61 @@ Das vollständige Beispiel:
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-div {
-  border:solid;
-  box-sizing: border-box;
-  flex: 1;
-  padding: 15px;
-  margin: 10px;
-  flex: 0 0 calc(33.3333% - 20px);  
-}
-</style>
-</head>
-<body>
-<section class="flex-container">
-  <div>Lorem ipsum dolor sit amet,</div>
-  <div>Lorum</div>
-  <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</div>
-  <div>Lorum</div>
-  <div>ipsum</div>
-  <div>Lorem ipsum dolor sit amet,</div>
-  <div>Lorem ipsum dolor sit amet,</div>
-  <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut</div>
-  <div>div</div>  
-  <div>div</div>
-  <div>div</div>
-  <div>div</div>
-</section>
-</body>
+  <head>
+    <style>
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      div {
+        border: solid;
+        box-sizing: border-box;
+        flex: 1;
+        padding: 15px;
+        margin: 10px;
+        flex: 0 0 calc(33.3333% - 20px);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="flex-container">
+      <div>Lorem ipsum dolor sit amet,</div>
+      <div>Lorum</div>
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+      </div>
+      <div>Lorum</div>
+      <div>ipsum</div>
+      <div>Lorem ipsum dolor sit amet,</div>
+      <div>Lorem ipsum dolor sit amet,</div>
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut
+      </div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+      <div>div</div>
+    </section>
+  </body>
 </html>
 ```
 
 ![](../images/repeating6.png)
 
-Du kannst einfache Gitter oder Raster erstellen, indem du entweder `flex-basis` (für Beispiel "25%" und "75%") oder die `flex-grow`/`flex-shrink`-Kombinationen einstellst (`flex: 1` auf einem Element und` flex: 2` auf einem anderen Element würden zu einem Split von 33,3% / 66,6% führen).
+Du kannst einfache Gitter oder Raster erstellen, indem du entweder `flex-basis` (für Beispiel "25%" und "75%") oder die `flex-grow`/`flex-shrink`-Kombinationen einstellst (`flex: 1` auf einem Element und`flex: 2` auf einem anderen Element würden zu einem Split von 33,3% / 66,6% führen).
 
 You can easily make simple grids by either setting the `flex-basis` (Setze beispielsweise eins auf "25%" und eins auf 75%) or with varying `flex-grow`/`flex-shrink` combinations (`flex: 1` on one element and `flex: 2` on another element would result in a `33.3-%` / `66.6-%` split, respectively).
 
 ### Flex Property Reference
 
-| Property      | Description                                                                  |
-| ------------- | ---------------------------------------------------------------------------- |
-| `flex-grow`   | Legt fest, wie stark ein flexibles Element wachsen soll, wenn Platz verfügbar ist.      |
+| Property      | Description                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------- |
+| `flex-grow`   | Legt fest, wie stark ein flexibles Element wachsen soll, wenn Platz verfügbar ist.                   |
 | `flex-shrink` | Legt fest, um wie viel ein flexibles Element verkleinert werden soll, wenn kein Platz verfügbar ist. |
-| `flex-basis`  | Definiert die Anfangsgröße des Flex-Elements                                            |
+| `flex-basis`  | Definiert die Anfangsgröße des Flex-Elements                                                         |
 
 Schließlich gibt es noch die Eigenschaft `order`, in der du die Reihenfolge der flexiblen Elemente ändern kannst.
-
 
 ## Responsive: Media Queries
 
@@ -1512,20 +1530,21 @@ Dieser Artikel wird unglaublich lang und es gibt immer noch eine Menge Themen, d
 
 Meine Regeln lauten wie folgt: IDs werden ausschließlich für JavaScript-Zwecke verwendet. Um ein einzelnes Element einfach mit JavaScript anzusprechen, können Sie eine ID verwenden und wissen, dass diese keinen Einfluss auf den Stil hat. Wenn Sie möchten, können Sie auch Inhaltsabschnitte "umfassen", indem Sie alles in eine ID verschachteln, obwohl ich das persönlich nicht tue.
 
-Bei Tags sollten _niemals_ Elemente wie `main`,` article`, `div`,` section`, `aside` usw. formatiert werden. Sie sollten sich immer sicher sein, dass diese Elemente nicht formatiert werden und nur die Art des Inhalts angeben, den sie enthalten. Wenn Sie ihnen Stil hinzufügen möchten, erstellen Sie Klassen wie `.container`. Normalerweise gebe ich `h1` bis `h5`, `p`, `ul`, `ol`, `li`, `a` und `table` ein Standard-Styling.
+Bei Tags sollten _niemals_ Elemente wie `main`,`article`, `div`,`section`, `aside` usw. formatiert werden. Sie sollten sich immer sicher sein, dass diese Elemente nicht formatiert werden und nur die Art des Inhalts angeben, den sie enthalten. Wenn Sie ihnen Stil hinzufügen möchten, erstellen Sie Klassen wie `.container`. Normalerweise gebe ich `h1` bis `h5`, `p`, `ul`, `ol`, `li`, `a` und `table` ein Standard-Styling.
 
-Für die meisten anderen Stile verwende ich Klassen. Versuche, Klassen "semantisch" zu machen, indem Sie beschreiben, was sie sind, nicht was sie tun. Zum Beispiel wäre eine Klasse namens `.app-sidebar` akzeptabel, aber `.bg-white`, `.blue-border`, `.large-text` zu haben, wird letztendlich schwierig zu pflegen. 
+Für die meisten anderen Stile verwende ich Klassen. Versuche, Klassen "semantisch" zu machen, indem Sie beschreiben, was sie sind, nicht was sie tun. Zum Beispiel wäre eine Klasse namens `.app-sidebar` akzeptabel, aber `.bg-white`, `.blue-border`, `.large-text` zu haben, wird letztendlich schwierig zu pflegen.
 
-## 
+##
 
-Ich hoffe, dies war für dich eine hilfreiche Einführung in CSS.  
+Ich hoffe, dies war für dich eine hilfreiche Einführung in CSS.
 
 Das Lesen von Tutorials ist der kleinste Teil beim Lernen. Übung macht den CSS-Meiser.
 
 Sieh dir Designs von Websites an, die dir gefallen. Baue diese nach, ohne dir den Quellcode anzusehen.
 
-Wenn du mit CSS vertraut bist, ist es viel meiner Meinung nach einfacher, weiterführende Themen wie 
-- CSS Preprocessing 
+Wenn du mit CSS vertraut bist, ist es viel meiner Meinung nach einfacher, weiterführende Themen wie
+
+- CSS Preprocessing
 - Browserunterstützung
 - Strukturierung
 

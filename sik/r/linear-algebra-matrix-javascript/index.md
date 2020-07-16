@@ -1,13 +1,13 @@
 ---
-title: "Linear Algebra in JavaScript with Matrix Operations"
-description: "How to use matrix operations from linear algebra in JavaScript. What are inverse, transpose and identity matrices and how can they help in machine learning ..."
-date: "2017-10-23T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "matrix javascript", "matrix math.js"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Linear Algebra in JavaScript with Matrix Operations'
+description: 'How to use matrix operations from linear algebra in JavaScript. What are inverse, transpose and identity matrices and how can they help in machine learning ...'
+date: '2017-10-23T13:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords: ['machine learning javascript', 'matrix javascript', 'matrix math.js']
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -23,23 +23,19 @@ const matrix = [
   [0, 1],
   [2, 3],
   [4, 5],
-];
+]
 ```
 
 whereas m equals the row and n equals the column of a matrix[m][n]. A vector is a specific kind of a matrix whereas the matrix has only one column.
 
 ```javascript
-const vector = [
-  [0],
-  [2],
-  [4],
-];
+const vector = [[0], [2], [4]]
 ```
 
 The most simple mathematical object in linear algebra is a scalar. It is just a single number.
 
 ```javascript
-const scalar = 4;
+const scalar = 4
 ```
 
 Matrices and vectors can be expressed with arrays in programming. But what about matrices with more than two dimensions? They need more than two axes. In general, these arrays of numbers with a variable number of axes are called tensors.
@@ -49,35 +45,61 @@ Matrices and vectors can be expressed with arrays in programming. But what about
 You should be able to apply matrix operations all by yourself, but it can become ugly when using plain JavaScript with loops. Fortunately, there exists a library in JavaScript for mathematics called [math.js](https://github.com/josdejong/mathjs). Defining a matrix becomes as simple as:
 
 ```javascript
-const matrix = math.matrix([[0, 1], [2, 3], [4, 5]]);
+const matrix = math.matrix([
+  [0, 1],
+  [2, 3],
+  [4, 5],
+])
 ```
 
 You can get its dimension by using the `size()` method and its value as array with the `valueOf()` method. Furthermore, you can apply matrix operations such as addition, subtraction, multiplication and division:
 
 ```javascript
-const matrixA = math.matrix([[0, 1], [2, 3], [4, -5]]);
-const matrixB = math.matrix([[1, -1], [-2, 4], [-7, 4]]);
+const matrixA = math.matrix([
+  [0, 1],
+  [2, 3],
+  [4, -5],
+])
+const matrixB = math.matrix([
+  [1, -1],
+  [-2, 4],
+  [-7, 4],
+])
 
 // addition
-const matrixAdditionAB = math.add(matrixA, matrixB);
+const matrixAdditionAB = math.add(matrixA, matrixB)
 // [ [ 1, 0 ], [ 0, 7 ], [ -3, -1 ] ]
 
 // subtraction
-const matrixAdditionAB = math.subtract(matrixA, matrixB);
+const matrixAdditionAB = math.subtract(matrixA, matrixB)
 // [ [ -1, 2 ], [ 4, -1 ], [ 11, -9 ] ]
 
 // multiplication
-const matrixK = math.matrix([[0, 1], [2, 3], [4, 5]]);
-const matrixL = math.matrix([[2, 4], [6, 2]]);
+const matrixK = math.matrix([
+  [0, 1],
+  [2, 3],
+  [4, 5],
+])
+const matrixL = math.matrix([
+  [2, 4],
+  [6, 2],
+])
 
-const matrixKL = math.multiply(matrixK, matrixL);
+const matrixKL = math.multiply(matrixK, matrixL)
 // [ [ 6, 2 ], [ 22, 14 ], [ 38, 26 ] ]
 
 // division
-const matrixY = math.matrix([[0, 2], [2, 4], [4, 6]]);
-const matrixZ = math.matrix([[2, 1], [2, 2]]);
+const matrixY = math.matrix([
+  [0, 2],
+  [2, 4],
+  [4, 6],
+])
+const matrixZ = math.matrix([
+  [2, 1],
+  [2, 2],
+])
 
-const matrixYZ = math.divide(matrixY, matrixZ);
+const matrixYZ = math.divide(matrixY, matrixZ)
 // [ [ -2, 2 ], [ -2, 3 ], [ -2, 4 ] ]
 ```
 
@@ -87,25 +109,37 @@ In addition, you can perform matrix scalar multiplication and division as well. 
 
 ```javascript
 // matrix scalar multiplication
-const matrixG = math.matrix([[0, 1], [2, 3], [4, -5]]);
+const matrixG = math.matrix([
+  [0, 1],
+  [2, 3],
+  [4, -5],
+])
 
-const matrixG3 = math.multiply(3, matrixG);
+const matrixG3 = math.multiply(3, matrixG)
 // [ [ 0, 3 ], [ 6, 9 ], [ 12, -15 ] ]
 
 // matrix scalar division
-const matrixH = math.matrix([[2, 4], [6, 2], [4, -4]]);
+const matrixH = math.matrix([
+  [2, 4],
+  [6, 2],
+  [4, -4],
+])
 
-const matrixH2 = math.divide(matrixH, 2);
+const matrixH2 = math.divide(matrixH, 2)
 // [ [ 1, 2 ], [ 3, 1 ], [ 2, -2 ] ]
 ```
 
 Since a vector is only a specific form of a matrix, you can perform matrix-vector multiplication too.
 
 ```javascript
-const matrixI = math.matrix([[0, 1], [2, 3], [4, 5]]);
-const vectorJ = math.matrix([[2], [1]]);
+const matrixI = math.matrix([
+  [0, 1],
+  [2, 3],
+  [4, 5],
+])
+const vectorJ = math.matrix([[2], [1]])
 
-const vectorIJ = math.multiply(matrixI, vectorJ);
+const vectorIJ = math.multiply(matrixI, vectorJ)
 // [ [ 1 ], [ 7 ], [ 13 ] ]
 ```
 
@@ -118,29 +152,45 @@ After all, dealing with matrices in math.js isn't that difficult anymore. But yo
 There are two important properties for matrix multiplication. First, matrix multiplication is not commutative: A x B != B x A.
 
 ```javascript
-const matrixN = math.matrix([[0, 1], [2, 3]]);
-const matrixO = math.matrix([[2, 4], [6, 2]]);
+const matrixN = math.matrix([
+  [0, 1],
+  [2, 3],
+])
+const matrixO = math.matrix([
+  [2, 4],
+  [6, 2],
+])
 
-const matrixNO = math.multiply(matrixN, matrixO);
-const matrixON = math.multiply(matrixO, matrixN);
+const matrixNO = math.multiply(matrixN, matrixO)
+const matrixON = math.multiply(matrixO, matrixN)
 
-console.log('Is matrix multiplication commutative?');
-console.log(math.equal(matrixNO.valueOf(), matrixON.valueOf()));
+console.log('Is matrix multiplication commutative?')
+console.log(math.equal(matrixNO.valueOf(), matrixON.valueOf()))
 // false
 ```
 
 Second, matrix multiplication is associative: A x (B x C) == (A x B) x C.
 
 ```javascript
-const matrixP = math.matrix([[0, 1], [2, 3], [4, 5]]);
-const matrixQ = math.matrix([[2, 4], [6, 2]]);
-const matrixR = math.matrix([[5, 2], [2, -2]]);
+const matrixP = math.matrix([
+  [0, 1],
+  [2, 3],
+  [4, 5],
+])
+const matrixQ = math.matrix([
+  [2, 4],
+  [6, 2],
+])
+const matrixR = math.matrix([
+  [5, 2],
+  [2, -2],
+])
 
-const matrixPQ_R = math.multiply(math.multiply(matrixP, matrixQ), matrixR);
-const matrixP_QR = math.multiply(matrixP, math.multiply(matrixQ, matrixR));
+const matrixPQ_R = math.multiply(math.multiply(matrixP, matrixQ), matrixR)
+const matrixP_QR = math.multiply(matrixP, math.multiply(matrixQ, matrixR))
 
-console.log('Is matrix multiplication associative?');
-console.log(math.equal(matrixPQ_R.valueOf(), matrixP_QR.valueOf()));
+console.log('Is matrix multiplication associative?')
+console.log(math.equal(matrixPQ_R.valueOf(), matrixP_QR.valueOf()))
 // true
 ```
 
@@ -148,20 +198,20 @@ These matrix multiplication properties should be internalized before making any 
 
 # Transpose and Inverse and the Identity Matrix in JavaScript
 
-There are a couple of other matrix operations and matrix types in linear algebra. First, the Identity (I) Matrix with the dimension i * j is defined as i-dimensional matrix whereas i == j. The following matrix is an identity matrix.
+There are a couple of other matrix operations and matrix types in linear algebra. First, the Identity (I) Matrix with the dimension i \* j is defined as i-dimensional matrix whereas i == j. The following matrix is an identity matrix.
 
 ```javascript
 const matrix = [
   [1, 0, 0],
   [0, 1, 0],
   [0, 0, 1],
-];
+]
 ```
 
 In math.js you can use the `eye(i)` method to generate those with the dimension of i.
 
 ```javascript
-const matrixI3 = math.eye(3);
+const matrixI3 = math.eye(3)
 // [ [ 1, 0, 0 ], [ 0, 1, 0 ], [ 0, 0, 1 ] ]
 ```
 
@@ -170,28 +220,34 @@ Identity matrices are used later on for more sophisticated matrix operations. Us
 Another type of matrix is the transposed matrix. It is a matrix where the dimensions are flipped. Basically the rows become columns and the columns become rows. In the following example, the vector becomes a so called row vector.
 
 ```javascript
-const matrixV = math.matrix([[0], [1], [2]]);
+const matrixV = math.matrix([[0], [1], [2]])
 
-const matrixV_T = math.transpose(matrixV);
+const matrixV_T = math.transpose(matrixV)
 // [ [ 0, 1, 2 ] ]
 ```
 
 Last but not least, matrices can have an inverse A' but not all matrices (called singular or degenerate) have one. You can find the inverse of a matrix by using the identity matrix: A(A') = (A')A = I.
 
 ```javascript
-const matrixT = math.matrix([[0, 1], [2, 3]]);
-const matrixU = math.eye(2);
+const matrixT = math.matrix([
+  [0, 1],
+  [2, 3],
+])
+const matrixU = math.eye(2)
 
-const matrixT_I = math.divide(matrixU, matrixT);
+const matrixT_I = math.divide(matrixU, matrixT)
 // [ [ -1.5, 0.5 ], [ 1, -0 ] ]
 ```
 
 Math.js gives you the inverse operation for free. You can use the same matrix from the previous example and call the `inv()` method on it.
 
 ```javascript
-const matrixS = math.matrix([[0, 1], [2, 3]]);
+const matrixS = math.matrix([
+  [0, 1],
+  [2, 3],
+])
 
-const matrixS_I = math.inv(matrixS);
+const matrixS_I = math.inv(matrixS)
 // [ [ -1.5, 0.5 ], [ 1, -0 ] ]
 ```
 
@@ -215,14 +271,14 @@ const houseSizeMatrix = math.matrix([
   [1, 1416],
   [1, 1534],
   [1, 852],
-]);
+])
 
 const hypothesesMatrix = math.matrix([
   [-40, 200, -150],
   [0.25, 0.1, 0.4],
-]);
+])
 
-const competingResults = math.multiply(houseSizeMatrix, hypothesesMatrix);
+const competingResults = math.multiply(houseSizeMatrix, hypothesesMatrix)
 
 // Column: Result for each Hypothesis
 // Row: Result for each House Size
@@ -255,23 +311,15 @@ Yes, it is taken from a [multivariate linear regression with gradient descent](/
 theta = math.subtract(
   theta,
   math.multiply(
-    (ALPHA / m),
+    ALPHA / m,
     math.transpose(
       math.multiply(
-        math.transpose(
-          math.subtract(
-            math.multiply(
-              X,
-              theta
-            ),
-            y
-          )
-        ),
+        math.transpose(math.subtract(math.multiply(X, theta), y)),
         X
       )
     )
   )
-);
+)
 ```
 
 That's a mess. However, fortunately you can do it concise by using the eval functionality that takes a mathematical expression and the scoped values to apply those in the expression.
@@ -287,7 +335,7 @@ theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {
   m,
   X,
   y,
-});
+})
 ```
 
 Still not as concise as using Octave or Matlab, but you can evaluate complex mathematical expression now. It helps you in other scenarios too. For instance, it can be used to extract a subset of a Matrix by range indices:
@@ -299,7 +347,7 @@ Still not as concise as using Octave or Matlab, but you can evaluate complex mat
 // Math.js in JavaScript
 let matrixAsub = math.eval('matrixA[:, 1:2]', {
   matrixA,
-});
+})
 ```
 
 It returns the first and second column (indices start with 1) with all their rows as two vectors in a new matrix. It goes even further by assigning columns in a matrix a new vector.
@@ -312,7 +360,7 @@ It returns the first and second column (indices start with 1) with all their row
 math.eval(`matrixA[:, 1] = vectorB`, {
   matrixA,
   vectorB,
-});
+})
 ```
 
 <Divider />

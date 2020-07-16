@@ -1,13 +1,13 @@
 ---
-title: "GitHub and Git Setup and Essentials"
+title: 'GitHub and Git Setup and Essentials'
 description: "In this article, I want to give you the essentials about Git and GitHub. Afterward, I want to show you my essential commands for Git that enabled me to do web development in the recent years. It's no magic..."
-date: "2018-06-19T13:50:46+02:00"
-categories: ["Web Development"]
-keywords: ["git github project setup"]
-hashtags: ["#100DaysOfCode", "#Git,#GitHub"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-06-19T13:50:46+02:00'
+categories: ['Web Development']
+keywords: ['git github project setup']
+hashtags: ['#100DaysOfCode', '#Git,#GitHub']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -56,14 +56,14 @@ If you have no clue about the workflow with Pull Requests and Issues when workin
 
 In the beginning, you somehow have to initialize a Git repository. You can initialize a local repository by using the `git init` command in a project's folder on your local machine.
 
-A local repository has a *.git* file where all the information, for instance the commit history, about the repository is saved. Another file, a *.gitignore* file, can be added to ignore certain files which shouldn't be added to the remote repository. Ignored files are only in your local repository.
+A local repository has a _.git_ file where all the information, for instance the commit history, about the repository is saved. Another file, a _.gitignore_ file, can be added to ignore certain files which shouldn't be added to the remote repository. Ignored files are only in your local repository.
 
 ```javascript
 git init
 touch .gitignore
 ```
 
-For instance, you may want to ignore the *.env* file where you store sensitive environment variables of your project or the *node_modules/* folder for not uploading all your project dependencies to your remote GitHub repository.
+For instance, you may want to ignore the _.env_ file where you store sensitive environment variables of your project or the _node_modules/_ folder for not uploading all your project dependencies to your remote GitHub repository.
 
 ```javascript
 .env
@@ -73,7 +73,7 @@ node_modules/
 
 After you have used the `git init` command in your local project, you can create a repository on GitHub. There you can give it a name, an optional description and license (e.g. MIT). Don't use the checkbox for adding a README.md. Instead, leave the checkbox unchecked. Then you get the instructions to link your local repository to your remote repository in the next step.
 
-In addition, you may want to add a *README.md* file in your project which is then displayed in your repository on GitHub. Basically that's everything you need to know for initializing a git project, adding the *.gitignore* file to it, connecting it to your remote repository on GitHub, add adding changes to it with the add, commit, and push sequence. You will learn more about this sequence in the next section.
+In addition, you may want to add a _README.md_ file in your project which is then displayed in your repository on GitHub. Basically that's everything you need to know for initializing a git project, adding the _.gitignore_ file to it, connecting it to your remote repository on GitHub, add adding changes to it with the add, commit, and push sequence. You will learn more about this sequence in the next section.
 
 ![git github project setup](./images/new-repository.jpg)
 
@@ -140,8 +140,8 @@ git pull --rebase origin master
 
 What's the difference between pull and pull rebase? A basic `git pull` would simply put all the changes from the remote repository on top of your changes. With a pull rebase, it is the other way around. The changes from the remote repository come first, then your changes will be added on top. Essentially a pull rebase has two benefits:
 
-* it keeps an ordered git history, because your changes are always added last
-* it helps you to resolve conflicts, if you run into them, because you can adjust your own changes more easily
+- it keeps an ordered git history, because your changes are always added last
+- it helps you to resolve conflicts, if you run into them, because you can adjust your own changes more easily
 
 If you have changed but uncommited files when you pull from the remote repository, you are asked to stash your changed files first. After you have pulled all the changes, you can apply the stash again. Stashing will be explained later in the article.
 
@@ -183,13 +183,13 @@ Another use case is when you work in a team of developers. You want to give ever
 git checkout -b <branch>
 ```
 
-Or *checkout* a branch that is already there.
+Or _checkout_ a branch that is already there.
 
 ```javascript
 git checkout <branch>
 ```
 
-When the branch is newly created by another collaborator and not yet known to your local repository, you can *fetch* all the branch information from the remote repository. Branches after all are tracked remotely as well. Afterward, you can checkout the branch in your local repository.
+When the branch is newly created by another collaborator and not yet known to your local repository, you can _fetch_ all the branch information from the remote repository. Branches after all are tracked remotely as well. Afterward, you can checkout the branch in your local repository.
 
 ```javascript
 git fetch
@@ -325,14 +325,14 @@ In general, you should be careful with force pushes. A good rule of thumb is tha
 
 When you collaborate with others or want to have tidy commit messages on your own, you can follow Git commit message conventions. There are a handful of conventions. I am used to follow these that were [brought up in the Angular community](https://gist.github.com/brianclements/841ea7bffdb01346392c):
 
-* **feat**: A new feature
-* **fix**: A bug fix
-* **docs**:  A documentation change
-* **style**: A code style change, doesn't change implementation details
-* **refactor**: A code change that neither fixes a bug or adds a feature
-* **perf**: A code change that improves performance
-* **test**: When testing your code
-* **chore**: Changes to the build process or auxiliary tools and libraries
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: A documentation change
+- **style**: A code style change, doesn't change implementation details
+- **refactor**: A code change that neither fixes a bug or adds a feature
+- **perf**: A code change that improves performance
+- **test**: When testing your code
+- **chore**: Changes to the build process or auxiliary tools and libraries
 
 They follow this syntax: `<type>(<scope>): <subject>`
 
@@ -364,16 +364,16 @@ These GitHub and Git essentials should be everything you need to get started in 
 
 The essential Git commands break down to:
 
-* git init
-* git clone
-* git add
-* git commit
-* git push
-* git pull --rebase
-* git fetch
-* git status
-* git log (git lg)
-* git diff
+- git init
+- git clone
+- git add
+- git commit
+- git push
+- git pull --rebase
+- git fetch
+- git status
+- git log (git lg)
+- git diff
 
 Obviously, there are more Git commands (git bisect, git reflog, ...) that you could master. However, I don't find myself using them very often. You can look these up, once you need them, before you have to memorize them. After all, in most cases you will more likely lookup the issue you want to solve in Git rather than a specific command. Most of these issues in Git are well explained when you search for them.
 

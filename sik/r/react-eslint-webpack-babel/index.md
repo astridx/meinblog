@@ -1,13 +1,13 @@
 ---
-title: "How to use ESLint in React"
-description: "You want to setup ESLint in your React application? Your project is set up with Babel and Webpack? This tutorial will guide you through the ESLint in React setup ..."
-date: "2019-06-15T13:56:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel", "ESLint"]
-keywords: ["react eslint"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use ESLint in React'
+description: 'You want to setup ESLint in your React application? Your project is set up with Babel and Webpack? This tutorial will guide you through the ESLint in React setup ...'
+date: '2019-06-15T13:56:46+02:00'
+categories: ['React', 'Tooling', 'Webpack', 'Babel', 'ESLint']
+keywords: ['react eslint']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -18,7 +18,7 @@ In this tutorial I want to walk you through setting up ESLint for React. You sho
 
 # Webpack and Babel for React ESLint
 
-First, you need to make sure that your *.babelrc* (or *package.json*) supports JSX and the ESLint loader from the previous tutorials. It's important that ESLint is used within your Webpack build to enforce your code style for every of your npm scripts which run Webpack. Also Webpack needs to know about React (JSX) at all.
+First, you need to make sure that your _.babelrc_ (or _package.json_) supports JSX and the ESLint loader from the previous tutorials. It's important that ESLint is used within your Webpack build to enforce your code style for every of your npm scripts which run Webpack. Also Webpack needs to know about React (JSX) at all.
 
 ```javascript{5,7}
 ...
@@ -44,7 +44,7 @@ Previously, you have read that there are pre-configured ESLint configurations ou
 npx install-peerdeps --dev eslint-config-airbnb
 ```
 
-Afterward, you can introduce it in your *.eslintrc* configuration file for ESLint:
+Afterward, you can introduce it in your _.eslintrc_ configuration file for ESLint:
 
 ```javascript{3}
 {

@@ -1,13 +1,13 @@
 ---
-title: "(Deep Work) => Flow - A proven Path to Satisfaction"
-description: "The following article summarizes my lessons learned from the books Deep Work and Flow. It can be the way to achieve a fulfilled life. Cal Newport and Mihaly Csikszentmihalyi have written outstanding books in their ..."
-date: "2017-02-09T13:50:46+02:00"
-categories: ["Growth"]
-keywords: ["book summary deep work flow"]
-hashtags: ["#100DaysOfCode", "#growth"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: '(Deep Work) => Flow - A proven Path to Satisfaction'
+description: 'The following article summarizes my lessons learned from the books Deep Work and Flow. It can be the way to achieve a fulfilled life. Cal Newport and Mihaly Csikszentmihalyi have written outstanding books in their ...'
+date: '2017-02-09T13:50:46+02:00'
+categories: ['Growth']
+keywords: ['book summary deep work flow']
+hashtags: ['#100DaysOfCode', '#growth']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -50,8 +50,8 @@ Cal Newport describes it as paradox in our work culture. It is a paradox, becaus
 
 He identifies two abilities to thrive during that economical period:
 
-* to master the art of learning quickly complicated things
-* to produce at an elite level in terms of quality and speed
+- to master the art of learning quickly complicated things
+- to produce at an elite level in terms of quality and speed
 
 Cal Newport says: "If you don't produce, you won't thrive".
 
@@ -76,9 +76,9 @@ The world can be a sad place when you consider history or the social environment
 
 Yet there are events that cause happiness. It can be a salary increase in your job or a childbirth in your family. It depends on your desires if it causes happiness.
 
-In conclusion, when you *only* consider your external environment, your life becomes a combination of sadness and happiness. You have no control over it. It solely depends on your external world and circumstances. It depends on external rewards.
+In conclusion, when you _only_ consider your external environment, your life becomes a combination of sadness and happiness. You have no control over it. It solely depends on your external world and circumstances. It depends on external rewards.
 
-A state of flow pivots the focus on the internal environment of a person. It focuses on internal rewards rather than external rewards. Mihaly Csikszentmihalyi says that "individuals must become independent of the social environment to the degree that they no longer respond exclusively in terms of its rewards and punishments. To achieve such autonomy, a person has to learn to provide rewards to herself. She has to develop the ability to find enjoyment and purpose regardless of external circumstances."  For instance, you can become less dependent on money or social status.
+A state of flow pivots the focus on the internal environment of a person. It focuses on internal rewards rather than external rewards. Mihaly Csikszentmihalyi says that "individuals must become independent of the social environment to the degree that they no longer respond exclusively in terms of its rewards and punishments. To achieve such autonomy, a person has to learn to provide rewards to herself. She has to develop the ability to find enjoyment and purpose regardless of external circumstances." For instance, you can become less dependent on money or social status.
 
 He sees the solution in becoming independent of external rewards. These rewards have to be substituted for internal rewards. For instance, life long learning, achieving worthwhile challenges or the fulfillment in helping others. Only then a human being is in full control of the self. In full control of happiness and sadness.
 
@@ -108,7 +108,7 @@ The **monastic philosophy** "maximize[s] deep efforts by eliminating or radicall
 
 The **bimodal philosophy** suggests to divide your time into shallow obligations and dedicated deep time stretches. During the deep time you perform the monastic philosophy. The deep time streches can vary from 4 days of a week to a full quarter of the year. The allocated time can be even longer. But the minimum for the bimodal philosophy is at least a full day. It supports people in deep work who cannot reduce shallow obligations to a very minimum.
 
-The **rhythmic philosophy** transforms deep work into a routine. It becomes a habit. There are different techniques to make something a habit. For instance, you can use the *chain method*. The method uses a calendar to support you on a daily basis. Each day you achieved something you can strike it with a red cross in the calendar. A little bit gets done each day. You will stick to the routine, because you don't want to break the chain of strikes. Personally I can recommend the book [The Power of Habit](http://amzn.to/2AsuCUP) by Charles Duhigg.
+The **rhythmic philosophy** transforms deep work into a routine. It becomes a habit. There are different techniques to make something a habit. For instance, you can use the _chain method_. The method uses a calendar to support you on a daily basis. Each day you achieved something you can strike it with a red cross in the calendar. A little bit gets done each day. You will stick to the routine, because you don't want to break the chain of strikes. Personally I can recommend the book [The Power of Habit](http://amzn.to/2AsuCUP) by Charles Duhigg.
 
 The **journalistic philosophy** is the last and most advanced philosophy. In that approach you can rapidly switch between shallow to deep work. Yet we know that a disadvantage of multitasking is the usage of our finite willpower. That's why the approach is only for advanced deep workers. Cal Newport says that "[it] require[s] a sense of confidence in your work." and that "[it] requires a conviction that what you are doing is important and will succeed".
 You can support the philosophy by preparing your deep work schedule in advance. It will help you to preserve your willpower.
@@ -136,7 +136,7 @@ Both investments would be a radical change to your everyday environment. Cal New
 
 Deep work doesn't mean to work alone. You can work with someone else on a task. You can push each other on a new level of deep work. By discussing and thinking about a problem, you will achieve deeper levels of understanding.
 
-It will boost creativity when you expose yourself to others. In a company environment it is called the *hub-and-spoke-style arrangement*. There you have space for yourself but also space to exchange ideas with others. Companies around the world apply this arrangement for their office infrastructure. They provide space for creativity and deep work. Still you have to be careful about distraction that is the death to deep work. Cal Newport says: "Expose yourself to ideas in hubs on a regular basis, but maintain a spoke in which to work deeply on what you encounter."
+It will boost creativity when you expose yourself to others. In a company environment it is called the _hub-and-spoke-style arrangement_. There you have space for yourself but also space to exchange ideas with others. Companies around the world apply this arrangement for their office infrastructure. They provide space for creativity and deep work. Still you have to be careful about distraction that is the death to deep work. Cal Newport says: "Expose yourself to ideas in hubs on a regular basis, but maintain a spoke in which to work deeply on what you encounter."
 
 ### Execute like a Business
 
@@ -158,11 +158,11 @@ You need time to rest. Therefore you can deploy **productive meditations** - tha
 
 After every workday Cal Newport suggests a shutdown ritual. You would have to follow 3 rules:
 
-* (1) the shutdown ritual marks the end of the professional workday, no work can be done after that ritual
-* (2) the shutdown ritual needs time, for instance to organize the next day
-* (3) the shutdown ritual embraces to leave incomplete tasks
+- (1) the shutdown ritual marks the end of the professional workday, no work can be done after that ritual
+- (2) the shutdown ritual needs time, for instance to organize the next day
+- (3) the shutdown ritual embraces to leave incomplete tasks
 
-The first rule should be obvious. It goes hand in hand with *Take a Nap*.
+The first rule should be obvious. It goes hand in hand with _Take a Nap_.
 
 The second rule depends on your ritual. For instance, it makes sense for people to write down incomplete tasks or to schedule the next day. For instance, you can prioritize the tasks of the upcoming day. Only that way you can start the next day with a plan. When your workday ends at 6 pm, you might want to start the shutdown ritual at 5:40 pm.
 
@@ -190,15 +190,15 @@ The goal is to reduce the number of tools you use in your everyday life. Especia
 
 There are two approaches for tool selection by Cal Newport:
 
-* "*the any-benefit approach to tool selection*" - "you're justified in using a [...] tool if you can identify any possible benefit to its use, or anything you might possibly miss out on if you don't use it"
+- "_the any-benefit approach to tool selection_" - "you're justified in using a [...] tool if you can identify any possible benefit to its use, or anything you might possibly miss out on if you don't use it"
 
-* "*the craftmans approach to tool selection*" - "adopt a tool only if its positive impacts on these factors [core factors of success and happiness in your life] substantially outweigh its negative impacts"
+- "_the craftmans approach to tool selection_" - "adopt a tool only if its positive impacts on these factors [core factors of success and happiness in your life] substantially outweigh its negative impacts"
 
-The *craftmans approach* seems better suited for deep work. But how to come from the *any-benefit approach* to the *craftmans approach*?
+The _craftmans approach_ seems better suited for deep work. But how to come from the _any-benefit approach_ to the _craftmans approach_?
 
 Didn't you already identify the short and long term objectives in your life? You can use these objectives to extract activities to achieve these goals. Once you have extracted the activities, you can evaluate your tools. Do they have an impact on any activity? Do they contribute to it? If not, you can remove these tools from your toolbox.
 
-In addition you can use the *law of the vital few*. It is also called the 80/20 rule or the Pareto's principle. It says that "in many settings, 80 percent of a given effect is due to just 20 percent of the possible causes". You can use the law to identify the 20 percent of your tools that have an impact on the 80 percent of your outcome. In the *craftmans approach* you can get rid of all the other tools, because they would consume the same amount of time than tools with with a greater impact.
+In addition you can use the _law of the vital few_. It is also called the 80/20 rule or the Pareto's principle. It says that "in many settings, 80 percent of a given effect is due to just 20 percent of the possible causes". You can use the law to identify the 20 percent of your tools that have an impact on the 80 percent of your outcome. In the _craftmans approach_ you can get rid of all the other tools, because they would consume the same amount of time than tools with with a greater impact.
 
 Another approach to remove tools from your toolbox is the 30 day experiment. Don't use all of your tools for 30 days. Once you know that you need a tool for sure during that time period to achieve an objective, you can use the tool and put back into your toolbox.
 
@@ -214,11 +214,11 @@ There exists a neat trick to quantify the depth of each activity beforehand. Ask
 
 ### Become hard to reach
 
-You can become hard to reach to avoid shallow obligations. For instance, Cal Newport suggests the *sender filter* approach to filter potential E-Mail correspondents beforehand. Before you leave your E-Mail address somewhere, you can mention that you will not answer every E-Mail and that you will only act on proposals that are a good match. The effect is that correspondents will filter themselves. They will double check if their request makes sense.
+You can become hard to reach to avoid shallow obligations. For instance, Cal Newport suggests the _sender filter_ approach to filter potential E-Mail correspondents beforehand. Before you leave your E-Mail address somewhere, you can mention that you will not answer every E-Mail and that you will only act on proposals that are a good match. The effect is that correspondents will filter themselves. They will double check if their request makes sense.
 
 Afterward the pile of unread messages doesn't generate a sense of obligation. It is a freeing psychology that you don't need to answer everything. Instead of having an inbox full of burdensome inquiries, the inbox will become a place for opportunities.
 
-Another approach is to use a *process-centric* response in your mails. You can provide clear next steps, for instance who is doing what, and instructions, for instance about time and location, to make it a closing loop without several intermediate steps of back and forth.
+Another approach is to use a _process-centric_ response in your mails. You can provide clear next steps, for instance who is doing what, and instructions, for instance about time and location, to make it a closing loop without several intermediate steps of back and forth.
 
 <Divider />
 
@@ -256,7 +256,7 @@ Attention is the element to select the important from the unimportant bits of av
 
 Attention is the most important tool to get in a state of flow. You can direct your attention to accomplish your goals effectively.
 
-### (Attention, Intention, *) => Self
+### (Attention, Intention, \*) => Self
 
 The self is the sum of everything that went through our consciousness. As a baby the self is very little. The self grows with every experience we make, every action we take and every pain we suffer. The self represents the goals we have accomplished. In that regard, the attention to accomplish goals can be used to grow the self. These elements shape the self. In the other direction the self shapes our attention and goals. When the self grows, the goals may change or stabilize. When the self grows, the ability to use our attention improves.
 
@@ -292,14 +292,14 @@ A lot of people don't enjoy after a certain phase of life. They get stuck and pl
 
 In a research experiments by Mihaly Csikszentmihalyi et al. people mentioned 8 elements to enjoy an activity:
 
-* the task must be achievable
-* the possibility to concentrate on the task must be given
-* the task provides clear goals
-* the task provides immediate feedback in regard achieving the goals
-* the task removes awareness of worries of daily life
-* the task enables us to have a sense of being in control
-* the self disappears during the task, but becomes stronger after the task
-* the duration of time is altered for the task (for instance, 1 hour feels like 15 minutes)
+- the task must be achievable
+- the possibility to concentrate on the task must be given
+- the task provides clear goals
+- the task provides immediate feedback in regard achieving the goals
+- the task removes awareness of worries of daily life
+- the task enables us to have a sense of being in control
+- the self disappears during the task, but becomes stronger after the task
+- the duration of time is altered for the task (for instance, 1 hour feels like 15 minutes)
 
 The participants noted that "enjoyment comes at a very specific point: whenever the opportunities for action perceived by the individual are equal to his or her capabilities."
 
@@ -317,12 +317,12 @@ The time in and after the state of flow can be seen as paradox. The self doesn't
 
 Flow activities make it easy to experience a state of flow. Oftentimes they come with the same set of conditions:
 
-* they have clear goals
-* they have rules and constraints
-* they provide feedback
-* they can be controlled
-* they facilitate concentration
-* they facilitate an intrinsic motivation
+- they have clear goals
+- they have rules and constraints
+- they provide feedback
+- they can be controlled
+- they facilitate concentration
+- they facilitate an intrinsic motivation
 
 The flow channel is surrounded by anxiety and boredom. Depending on challenges and skills in flow activities, a person will feel bored or anxious. For instance, if a challenge is too difficult to perform for a certain skill level, a person will feel anxious. In contrast, when the skill level is higher than the challenge, a person will feel bored. But that's not a rigid system itself. The self grows, when a person accomplishes a challenge that needs a equivalent level of skill. The next challenge has to be more difficult to stay in the flow channel, because the skill improves.
 
@@ -342,15 +342,15 @@ Each individual has a different potential to experience flow. For instance, the 
 
 On a human beings highest potential, a person is able to translate threats into enjoyable challenges. It supports a person to stay in harmony and to live a satisfied life.
 
-The word *autotelic* derives from the Greek words *auto* and *telos* which mean *self* and *goal*. An autotelic experience describes a self-contained activity. It is an activity solely performed for the intrinsic rewards which strengthens the self. Flow is an autotelic experience. "[It] lifts the course of life to a different level. Alienation gives way to involvement, enjoyment replaces boredom, helplessness turns into a feeling of control, and psychic energy [attention] works to reinforce the sense of self, instead of being lost in the service of external goals. When experience is intrinsically rewarding life is justified in the present, instead of being held hostage to a hypothetical future gain."
+The word _autotelic_ derives from the Greek words _auto_ and _telos_ which mean _self_ and _goal_. An autotelic experience describes a self-contained activity. It is an activity solely performed for the intrinsic rewards which strengthens the self. Flow is an autotelic experience. "[It] lifts the course of life to a different level. Alienation gives way to involvement, enjoyment replaces boredom, helplessness turns into a feeling of control, and psychic energy [attention] works to reinforce the sense of self, instead of being lost in the service of external goals. When experience is intrinsically rewarding life is justified in the present, instead of being held hostage to a hypothetical future gain."
 
 In conclusion, what are the steps for an autotelic experience?
 
-* Set goals that are worthwhile to strive for. They can range from short term to long term objectives, but they should be connected to each other. To achieve a goal, you must be aware of the challenges and your skills. If both are in harmony, the self can grow. The challenges and skills will increase equally. To use the skills at their full potential, we have to invest attention and to monitor the feedback.
+- Set goals that are worthwhile to strive for. They can range from short term to long term objectives, but they should be connected to each other. To achieve a goal, you must be aware of the challenges and your skills. If both are in harmony, the self can grow. The challenges and skills will increase equally. To use the skills at their full potential, we have to invest attention and to monitor the feedback.
 
-* Immerse in the activity by investing your full attention on the activity at hand. You have to control your concentration with a continuous input of attention. You can grow the self, get less distracted and focus on your goals instead. "The autotelic individual grows beyond the limits of individuality by investing psychic energy [attention] in a system in which she is included. Because of this union of the person and the system, the self emerges at a higher level of complexity."
+- Immerse in the activity by investing your full attention on the activity at hand. You have to control your concentration with a continuous input of attention. You can grow the self, get less distracted and focus on your goals instead. "The autotelic individual grows beyond the limits of individuality by investing psychic energy [attention] in a system in which she is included. Because of this union of the person and the system, the self emerges at a higher level of complexity."
 
-* Enjoy the experience to set goals, to invest attention and to grow the self. Enjoy the immediate feedback and the control. That way you can escape the external rewards of the daily life. "Flow drives individuals to creativity and outstanding achievement. The necessity to develop increasingly refined skills to sustain enjoyment is what lies behind the evolution of culture."
+- Enjoy the experience to set goals, to invest attention and to grow the self. Enjoy the immediate feedback and the control. That way you can escape the external rewards of the daily life. "Flow drives individuals to creativity and outstanding achievement. The necessity to develop increasingly refined skills to sustain enjoyment is what lies behind the evolution of culture."
 
 # Happiness in Life
 
@@ -368,8 +368,8 @@ Personally it was a stunning experience to read both books. I can say it was a f
 
 These were only my lessons learned, but I am curious about yours. If you didn't read the books yet, I encourage you to read them. I was only able to scratch the surface.
 
-* [Flow](http://amzn.to/2inl3w8) by Mihaly Csikszentmihalyi
-* [Deep Work](http://amzn.to/2AvNLTG) by Cal Newport
+- [Flow](http://amzn.to/2inl3w8) by Mihaly Csikszentmihalyi
+- [Deep Work](http://amzn.to/2AvNLTG) by Cal Newport
 
 "If you give your mind something meaningful to do throughout **all** your waking hours, you'll end the day more fulfilled, and begin the next one more relaxed [...]" by Cal Newport.
 

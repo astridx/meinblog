@@ -8,21 +8,20 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
-Mit Joomla! ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt. 
+Mit Joomla! ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.
 
 ![Joomla! Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](../images/j4x19x5.png)
 
 ![Joomla! Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](../images/j4x19x6.png)
 
-
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14b...t15a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -30,19 +29,19 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
-2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`. 
+2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
 ![Joomla! Published](../images/j4x16x1.png)
 
-3. Installiere über `System | Install | Languages ` mindestens eine weitere Sprache.
+3. Installiere über `System | Install | Languages` mindestens eine weitere Sprache.
 
-4. Stelle über `System | Manage | Plugins` sicher, dass das Plugin `Sample Data - Multilingual` veröffentlicht ist. 
+4. Stelle über `System | Manage | Plugins` sicher, dass das Plugin `Sample Data - Multilingual` veröffentlicht ist.
 
 ![Joomla! Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](../images/j4x19x1.png)
 
-5. Wechsele zurück zum `Home Dashboard` und installiere die Beispieldateien `Multilinguale Sample Data`. 
+5. Wechsele zurück zum `Home Dashboard` und installiere die Beispieldateien `Multilinguale Sample Data`.
 
 ![Joomla! Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](../images/j4x19x3.png)
 
@@ -55,7 +54,6 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
 ![Joomla! Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](../images/j4x19x4.png)
 
 ![Joomla! Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](../images/j4x19x5.png)
-
 
 8. Erweitere die Tests auf die Komponente `Multilingual Associations`. Diese unterstützt deine Erweiterung ebenfalls.
 

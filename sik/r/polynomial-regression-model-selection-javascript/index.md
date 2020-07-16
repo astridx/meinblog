@@ -1,13 +1,18 @@
 ---
-title: "Polynomial Regression and Model Selection"
-description: "How to fit your data with model selection and polynomial regression and how to avoid over-fitting to keep your model parsimonious ..."
-date: "2017-10-30T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "polynomial regression javascript", "model selection javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Polynomial Regression and Model Selection'
+description: 'How to fit your data with model selection and polynomial regression and how to avoid over-fitting to keep your model parsimonious ...'
+date: '2017-10-30T13:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  [
+    'machine learning javascript',
+    'polynomial regression javascript',
+    'model selection javascript',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -119,11 +124,11 @@ Even though this model fits perfectly, it will be terrible at making future pred
 
 The terminology is used for both linear and logistic regression. In order to address the issue of over-fitting, there are two options:
 
-* Reduce the number of features:
-  * Manual selection of useful features
-  * Apply a model selection algorithm
-* Regularization (use it, when you have a lot of slightly useful features)
- * Keep all the features n, but reduce the magnitude of theta parameters
+- Reduce the number of features:
+  - Manual selection of useful features
+  - Apply a model selection algorithm
+- Regularization (use it, when you have a lot of slightly useful features)
+- Keep all the features n, but reduce the magnitude of theta parameters
 
 <Divider />
 

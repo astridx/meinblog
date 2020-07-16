@@ -1,13 +1,19 @@
 ---
-title: "How to update state from props in React"
-description: "Learn how to initialize state from props and how to update state from props for rare edge cases where your state of a component depends on its incoming props ..."
-date: "2020-05-18T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react update state from props", "react derive state from props", "react initialize state from props", "react sync state and props"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to update state from props in React'
+description: 'Learn how to initialize state from props and how to update state from props for rare edge cases where your state of a component depends on its incoming props ...'
+date: '2020-05-18T07:52:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react update state from props',
+    'react derive state from props',
+    'react initialize state from props',
+    'react sync state and props',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,7 +25,7 @@ It doesn't happen often, but sometimes you have to update [state](/react-state) 
 Occasionally there are use cases where you want to set state from props in a [React function component](/react-function-component): For example, the following use case shows a scenario where a parent component provides a list of users as props to a child component which renders these users as a [list](/react-list-component):
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 const fakeUsers = [
   {
@@ -30,10 +36,10 @@ const fakeUsers = [
     id: '2',
     name: 'Dennis',
   },
-];
+]
 
 function App() {
-  const [users, setUsers] = React.useState(fakeUsers);
+  const [users, setUsers] = React.useState(fakeUsers)
 
   return (
     <div>
@@ -41,7 +47,7 @@ function App() {
 
       <List list={users} />
     </div>
-  );
+  )
 }
 
 function List({ list }) {
@@ -51,7 +57,7 @@ function List({ list }) {
         <Item key={item.id} item={item} />
       ))}
     </ul>
-  );
+  )
 }
 
 function Item({ item }) {
@@ -59,16 +65,16 @@ function Item({ item }) {
     <li>
       <span>{item.name}</span>
     </li>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 Now, instead of having these users directly at our disposal in the state, we are simulating an API request to get these users with a delay from a JavaScript promise. Before the promise resolves in [React's useEffect Hook](/react-useeffect-hook), we have an empty list of users in our initial state:
 
 ```javascript{14-18,21,23-31}
-import React from 'react';
+import React from 'react'
 
 const fakeUsers = [
   {
@@ -79,26 +85,24 @@ const fakeUsers = [
     id: '2',
     name: 'Dennis',
   },
-];
+]
 
 function getFakeUsers() {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve(fakeUsers), 2000)
-  );
+  return new Promise((resolve) => setTimeout(() => resolve(fakeUsers), 2000))
 }
 
 function App() {
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState([])
 
   React.useEffect(() => {
     const fetchUsers = async () => {
-      const data = await getFakeUsers();
+      const data = await getFakeUsers()
 
-      setUsers(data);
-    };
+      setUsers(data)
+    }
 
-    fetchUsers();
-  }, []);
+    fetchUsers()
+  }, [])
 
   return (
     <div>
@@ -106,7 +110,7 @@ function App() {
 
       <List list={users} />
     </div>
-  );
+  )
 }
 ```
 
@@ -119,7 +123,7 @@ function Item({ item }) {
       {item.name}
       <input type="text" value={item.name} />
     </li>
-  );
+  )
 }
 ```
 
@@ -128,10 +132,10 @@ Since we have an input field now, we would want to be able to update its value s
 ```javascript{2-3,5-7,12}
 function Item({ item }) {
   // derive initial state from props
-  const [name, setName] = React.useState(item.name);
+  const [name, setName] = React.useState(item.name)
 
   function handleNameChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   return (
@@ -139,7 +143,7 @@ function Item({ item }) {
       {item.name}
       <input type="text" value={name} onChange={handleNameChange} />
     </li>
-  );
+  )
 }
 ```
 
@@ -159,15 +163,15 @@ function List({ list, onUpdateName }) {
         <Item key={item.id} item={item} onUpdateName={onUpdateName} />
       ))}
     </ul>
-  );
+  )
 }
 
 function Item({ item, onUpdateName }) {
   // derive initial state from props
-  const [name, setName] = React.useState(item.name);
+  const [name, setName] = React.useState(item.name)
 
   function handleNameChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   return (
@@ -178,7 +182,7 @@ function Item({ item, onUpdateName }) {
         Update
       </button>
     </li>
-  );
+  )
 }
 ```
 
@@ -186,17 +190,17 @@ For the sake of simplicity, we could update the specified item directly in the l
 
 ```javascript{14-27,33}
 function App() {
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState([])
 
   React.useEffect(() => {
     const fetchUsers = async () => {
-      const data = await getFakeUsers();
+      const data = await getFakeUsers()
 
-      setUsers(data);
-    };
+      setUsers(data)
+    }
 
-    fetchUsers();
-  }, []);
+    fetchUsers()
+  }, [])
 
   function handleUpdateName(item, name) {
     const newUsers = users.map((user) => {
@@ -204,13 +208,13 @@ function App() {
         return {
           id: user.id,
           name: name,
-        };
+        }
       } else {
-        return user;
+        return user
       }
-    });
+    })
 
-    setUsers(newUsers);
+    setUsers(newUsers)
   }
 
   return (
@@ -219,7 +223,7 @@ function App() {
 
       <List list={users} onUpdateName={handleUpdateName} />
     </div>
-  );
+  )
 }
 ```
 
@@ -229,34 +233,32 @@ However, for the sake of completeness for making the example more realistic, we 
 function updateFakeUserName(users, id, name) {
   const updatedUsers = users.map((user) => {
     if (user.id === id) {
-      return { id, name };
+      return { id, name }
     } else {
-      return user;
+      return user
     }
-  });
+  })
 
-  return new Promise((resolve) =>
-    setTimeout(() => resolve(updatedUsers), 1000)
-  );
+  return new Promise((resolve) => setTimeout(() => resolve(updatedUsers), 1000))
 }
 
 function App() {
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState([])
 
   React.useEffect(() => {
     const fetchUsers = async () => {
-      const data = await getFakeUsers();
+      const data = await getFakeUsers()
 
-      setUsers(data);
-    };
+      setUsers(data)
+    }
 
-    fetchUsers();
-  }, []);
+    fetchUsers()
+  }, [])
 
   async function handleUpdateName(item, name) {
-    const newUsers = await updateFakeUserName(users, item.id, name);
+    const newUsers = await updateFakeUserName(users, item.id, name)
 
-    setUsers(newUsers);
+    setUsers(newUsers)
   }
 
   return (
@@ -265,7 +267,7 @@ function App() {
 
       <List list={users} onUpdateName={handleUpdateName} />
     </div>
-  );
+  )
 }
 ```
 
@@ -274,10 +276,10 @@ Now comes the crucial step for updating state based on props; which we haven't d
 ```javascript{3}
 function Item({ item, onUpdateName }) {
   // derive initial state from props
-  const [name, setName] = React.useState(item.name + '!');
+  const [name, setName] = React.useState(item.name + '!')
 
   function handleNameChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   return (
@@ -288,7 +290,7 @@ function Item({ item, onUpdateName }) {
         Update
       </button>
     </li>
-  );
+  )
 }
 ```
 
@@ -297,16 +299,16 @@ The first time the Item component renders, it appends a ! on the name for the in
 ```javascript{9-12}
 function Item({ item, onUpdateName }) {
   // derive initial state from props
-  const [name, setName] = React.useState(item.name + '!');
+  const [name, setName] = React.useState(item.name + '!')
 
   function handleNameChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   // derive updated state from props
   React.useEffect(() => {
-    setName(item.name + '!');
-  }, [item]);
+    setName(item.name + '!')
+  }, [item])
 
   return (
     <li>
@@ -316,7 +318,7 @@ function Item({ item, onUpdateName }) {
         Update
       </button>
     </li>
-  );
+  )
 }
 ```
 
@@ -325,16 +327,16 @@ Every time the incoming prop item changes, the side-effect of our React's useEff
 ```javascript{3,11}
 function Item({ item, onUpdateName }) {
   // derive initial state from props
-  const [name, setName] = React.useState(item.name);
+  const [name, setName] = React.useState(item.name)
 
   function handleNameChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   // derive updated state from props
   React.useEffect(() => {
-    setName(item.name);
-  }, [item]);
+    setName(item.name)
+  }, [item])
 
   return (
     <li>
@@ -344,13 +346,12 @@ function Item({ item, onUpdateName }) {
         Update
       </button>
     </li>
-  );
+  )
 }
 ```
 
-That's it. The concept of *updating a state from props* usually happens if you already have *setting initial state from props* in place. Then whenever this state gets updated due to an external source, here our request to the fake API, we may want to update this initial state from props again.
+That's it. The concept of _updating a state from props_ usually happens if you already have _setting initial state from props_ in place. Then whenever this state gets updated due to an external source, here our request to the fake API, we may want to update this initial state from props again.
 
 <Divider />
 
 Now you know about initializing and updating state from props in React. Use this knowledge sparingly, because it only applies for certain cases where you need to deploy state based on props. However, mostly just using common sense props and state in React should suffice and you shouldn't worry too much about this technique.
-

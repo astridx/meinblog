@@ -1,34 +1,34 @@
 ---
-title: "How to CSS Style in React"
-description: "Learn styling in React with CSS, CSS Modules (CSS-in-CSS), Styled Components (CSS-in-JS), Tailwind CSS (Utility first CSS), and inline styles ..."
-date: "2020-05-10T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react styling", "react css"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to CSS Style in React'
+description: 'Learn styling in React with CSS, CSS Modules (CSS-in-CSS), Styled Components (CSS-in-JS), Tailwind CSS (Utility first CSS), and inline styles ...'
+date: '2020-05-10T07:52:46+02:00'
+categories: ['React']
+keywords: ['react styling', 'react css']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
 In modern React, there are many ways to style a React application with CSS. Whenever I do a React workshop with aspiring React developers, I show only one of these ways due to the limited time I have for the complete React workshop. But often this one way of styling isn't enough to cover the full scope of this important topic. There are many different strategies (e.g. CSS-in-JS) and many different approaches within these strategies (e.g. Styled Components) to learn about:
 
-* CSS-in-CSS (e.g. CSS, Sass, CSS Modules, or CSS Modules with Sass)
-* CSS-in-JS (e.g. Styled Components, Emotion)
-* Utility-First-CSS (e.g. Tailwind CSS)
+- CSS-in-CSS (e.g. CSS, Sass, CSS Modules, or CSS Modules with Sass)
+- CSS-in-JS (e.g. Styled Components, Emotion)
+- Utility-First-CSS (e.g. Tailwind CSS)
 
 Follow me on this React journey to learn more about these different strategies and approaches in CSS to style your React components. For all of the different ways, we will start with the same React components:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function App() {
   const [fruits, setFruits] = React.useState([
     { id: '1', name: 'Apple', isFavorite: false },
     { id: '2', name: 'Peach', isFavorite: true },
     { id: '3', name: 'Strawberry', isFavorite: false },
-  ]);
+  ])
 
   function handleClick(item) {
     const newFruits = fruits.map((fruit) => {
@@ -37,13 +37,13 @@ function App() {
           id: fruit.id,
           name: fruit.name,
           isFavorite: !fruit.isFavorite,
-        };
+        }
       } else {
-        return fruit;
+        return fruit
       }
-    });
+    })
 
-    setFruits(newFruits);
+    setFruits(newFruits)
   }
 
   return (
@@ -52,7 +52,7 @@ function App() {
 
       <Basket items={fruits} onClick={handleClick} />
     </div>
-  );
+  )
 }
 
 function Basket({ items, onClick }) {
@@ -67,10 +67,10 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 This small React application just renders a [list component](/react-list-component) with a [stateful list](/react-usestate-hook). A button for each item of the list helps us via a button and its [callback handler](/react-list-component) to like or unlike a list item. In the next steps we will style the button and the list the different CSS styling approaches. We will use a popular [folder structure for the React project](/react-folder-structure) whenever we have a CSS style file.
@@ -168,7 +168,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -200,7 +200,7 @@ Sass (Syntactically Awesome Style Sheets) is a CSS extension that gives you more
 
 In vanilla CSS, we had to define another button pseudo hover class. With Sass, we can use the parent selector & which refers to the outer selector (here `.button`). This way, we can neatly nest CSS selectors into each other and reference parents from within these nested selectors.
 
-The new CSS file comes with a Sass file extension. Rename your style file to *style.scss* and import it in your React JavaScript file for further usage:
+The new CSS file comes with a Sass file extension. Rename your style file to _style.scss_ and import it in your React JavaScript file for further usage:
 
 ```javascript{2}
 import React from 'react';
@@ -217,7 +217,7 @@ There is still another drawback of using CSS -- even with Sass -- in React this 
 
 If you are using [create-react-app, you can use CSS Modules](/create-react-app-css-modules) right away. However, if you are using a [custom React with Webpack](/minimal-react-webpack-babel-setup) setup, you need to configure Webpack for it.
 
-CSS Modules can be used with vanilla CSS but also with CSS extensions like Sass. Let's see how a CSS module can be defined in a *style.module.css* (vanilla CSS) or *style.module.scss* file (Sass):
+CSS Modules can be used with vanilla CSS but also with CSS extensions like Sass. Let's see how a CSS module can be defined in a _style.module.css_ (vanilla CSS) or _style.module.scss_ file (Sass):
 
 ```css
 .button {
@@ -257,7 +257,7 @@ If you are using Sass with CSS Modules, you can use the all Sass features like t
 }
 ```
 
-In your React JavaScript file, you can import the *style.module.css* or *style.module.scss* file again, but this time it's an explicit import with an JavaScript style object:
+In your React JavaScript file, you can import the _style.module.css_ or _style.module.scss_ file again, but this time it's an explicit import with an JavaScript style object:
 
 ```javascript{2}
 import React from 'react';
@@ -266,7 +266,7 @@ import styles from './style.module.css';
 ...
 ```
 
-If you are using Sass, use the *.scss* instead of the *.css* file extension. This new JavaScript style object, which is nothing else than a regular JavaScript object, holds all your styles from your CSS file. You can use it in your React component's JSX:
+If you are using Sass, use the _.scss_ instead of the _.css_ file extension. This new JavaScript style object, which is nothing else than a regular JavaScript object, holds all your styles from your CSS file. You can use it in your React component's JSX:
 
 ```javascript{9}
 function Basket({ items, onClick }) {
@@ -285,7 +285,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -324,7 +324,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -343,8 +343,8 @@ npm install styled-components
 Styled Components takes the approach to create components just from a HTML tag and a style string. Let's see how this looks for a button element which becomes a Button component in our JavaScript file:
 
 ```javascript
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled.button`
   cursor: pointer;
@@ -360,7 +360,7 @@ const Button = styled.button`
     background: #1a202c;
     color: #ffffff;
   }
-`;
+`
 ```
 
 The Button variable is a valid React component which can be used in JSX. Any properties like the `onClick` are passed through to the real button HTML element. In addition, a styled component already comes features (here: CSS nesting with parent selector) which we would usually gain from a CSS extension like Sass.
@@ -378,7 +378,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -389,13 +389,13 @@ const UnorderedList = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
-`;
+`
 
 const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-`;
+`
 ```
 
 The styled components can be defined in the same file or somewhere else. After all, they are just regular React components after you have defined them, which makes them exportable or directly usable in your JSX:
@@ -413,7 +413,7 @@ function Basket({ items, onClick }) {
         </ListItem>
       ))}
     </UnorderedList>
-  );
+  )
 }
 ```
 
@@ -450,7 +450,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -477,7 +477,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -515,7 +515,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -560,7 +560,7 @@ function Basket({ items, onClick }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 ```
 

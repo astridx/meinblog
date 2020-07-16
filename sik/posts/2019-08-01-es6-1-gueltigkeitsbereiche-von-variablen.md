@@ -12,68 +12,67 @@ tags:
   - javascript
 ---
 
-
 In diesem Teil geht es um Gültigkeitsbereiche von Variablen, um `let`, `const` und `var`.
 
 ## Motivation
 
-Die Variablendeklarationen mithilfe von `var` in JavaScript geschieht bevor Programmcode ausgeführt wird. So ist das Deklarieren an einer beliebigen Stelle im Programm das gleiche, als würde sie am Anfang eingeführt. Eine Variable ist nutzbar, bevor sie im Programmcode deklariert wurde! Dieser Umstand wird `hoisting` genannt und ist meiner Meinung nach nicht intuitiv und verwirrend. 
+Die Variablendeklarationen mithilfe von `var` in JavaScript geschieht bevor Programmcode ausgeführt wird. So ist das Deklarieren an einer beliebigen Stelle im Programm das gleiche, als würde sie am Anfang eingeführt. Eine Variable ist nutzbar, bevor sie im Programmcode deklariert wurde! Dieser Umstand wird `hoisting` genannt und ist meiner Meinung nach nicht intuitiv und verwirrend.
 
-ES6 bietet Strukturen, die den Überblick über Gültigkeitsbereiche vereinfachen. Diese stelle ich im Folgenden vor. Nebenbei erläutere ich Best Praxis Konzepte. 
+ES6 bietet Strukturen, die den Überblick über Gültigkeitsbereiche vereinfachen. Diese stelle ich im Folgenden vor. Nebenbei erläutere ich Best Praxis Konzepte.
 
 ## Bevor es losgeht
 
 JavaScript wird oft als Spielzeug abgewertet. Dabei besitzt die Skriptsprache neben ihrer Einfachheit bedeutende Sprachfunktionen. JavaScript wird von wichtigen Anwendungen verwendet. Darum ist es für jeden Web- und Mobil-Entwickler, sich mit JavaScript auszukennen!
 
-JavaScript wurde im Jahr 1995 entworfen und 1996 mit Netscape 2 veröffentlicht. Die Sprache ist somit recht etabliert. Ebenfalls im letzten Jahrhundert übergab Netscape JavaScript an [Ecma International](https://www.ecma-international.org/), eine europäische Standardisierungsorganisation. Im selben Jahr wurde die erste Version des ECMAScript Standards publiziert. Dieser hält sich seither stabil. Hier im Buch spielen die Neuerungen in der sechsten Edition  – ES2015 oder ES6 – die Hauptrolle, welche im Juni 2015 veröffentlicht wurde.
+JavaScript wurde im Jahr 1995 entworfen und 1996 mit Netscape 2 veröffentlicht. Die Sprache ist somit recht etabliert. Ebenfalls im letzten Jahrhundert übergab Netscape JavaScript an [Ecma International](https://www.ecma-international.org/), eine europäische Standardisierungsorganisation. Im selben Jahr wurde die erste Version des ECMAScript Standards publiziert. Dieser hält sich seither stabil. Hier im Buch spielen die Neuerungen in der sechsten Edition – ES2015 oder ES6 – die Hauptrolle, welche im Juni 2015 veröffentlicht wurde.
 
-Neue Browserversionen decken einen großen Teil der Funktionen in ES2015 ab. Leider aber nicht alle. Eine Website zum Verbreitungsstand einzelner Features ist [caniuse.com](https://caniuse.com/)   .  
+Neue Browserversionen decken einen großen Teil der Funktionen in ES2015 ab. Leider aber nicht alle. Eine Website zum Verbreitungsstand einzelner Features ist [caniuse.com](https://caniuse.com/) .
 
-> Sie nutzen eine Funktion, die nicht vollständig von Browsern unterstützt wird? Dafür gibt es Transpiler. Dies ist ein Thema für ein separates Buch. 
+> Sie nutzen eine Funktion, die nicht vollständig von Browsern unterstützt wird? Dafür gibt es Transpiler. Dies ist ein Thema für ein separates Buch.
 
 Ich erkläre alles in kleinen Schritten nacheinander. Ich hoffe, dass Ihnen meine Art zu schreiben gefällt. Ich persönlich hätte mir ein solches Buch zum Start mit ES6 gewünscht.
 
-Ich gehe davon aus, dass Sie HTML kennen und über JavaScript Grundlagen verfügen. Ich arbeite mit Firefox und beziehe meine Erklärungen auf diesen Webbrowser. Texte von Fehlerausgaben variieren in anderen Browsern leicht. 
-
+Ich gehe davon aus, dass Sie HTML kennen und über JavaScript Grundlagen verfügen. Ich arbeite mit Firefox und beziehe meine Erklärungen auf diesen Webbrowser. Texte von Fehlerausgaben variieren in anderen Browsern leicht.
 
 Alle Beispiele finden Sie auf [Github](https://github.com/astridx/es6_beispieldateien_zum_Buch).
 
 ## var - Deklaration und Hoisting
 
-Die Deklaration einer Variablen geschieht 
-- m globalen Kontext, wenn sie außerhalb oder am Anfang einer Funktion deklariert wurde oder 
-- ganz am Anfang einer Funktion.  
- 
-Konkret bedeutet das, dass das Deklarieren einer Variable an einer beliebigen Stelle im Programmcode das Gleiche ist, als würde sie am Anfang deklariert. Sie ist nutzbar, bevor sie im Code eingeführt wurde. Dies nennt man `hoisting`.  
+Die Deklaration einer Variablen geschieht
 
-### Exkurs: Der Unterschied zwischen instanziieren, deklarieren und initialisieren  
+- m globalen Kontext, wenn sie außerhalb oder am Anfang einer Funktion deklariert wurde oder
+- ganz am Anfang einer Funktion.
+
+Konkret bedeutet das, dass das Deklarieren einer Variable an einer beliebigen Stelle im Programmcode das Gleiche ist, als würde sie am Anfang deklariert. Sie ist nutzbar, bevor sie im Code eingeführt wurde. Dies nennt man `hoisting`.
+
+### Exkurs: Der Unterschied zwischen instanziieren, deklarieren und initialisieren
 
 #### Variable instanziieren
 
 Der Begriff Instanziieren meint das Erzeugen eines neuen Objekts, einer Instanz, aus einer Klasse.
 
-``` 
+```
 Objekt o = new Objekt();
 // o ist Instanz der Klasse Objekt
-``` 
+```
 
 #### Variable deklarieren
 
-Stellen Sie sich unter „deklarieren einer Variablen“ das erste *Erwähnen der Variablen* vor. So weiß der Compiler, dass es sie gibt, und ihm ist es möglich, sie anzusprechen. Der Wert selbst wird bei der Deklaration nicht festgelegt.
+Stellen Sie sich unter „deklarieren einer Variablen“ das erste _Erwähnen der Variablen_ vor. So weiß der Compiler, dass es sie gibt, und ihm ist es möglich, sie anzusprechen. Der Wert selbst wird bei der Deklaration nicht festgelegt.
 
-``` 
+```
 int var;
 // var als Variable des Typs int deklariert
-``` 
+```
 
 #### Variable initialisieren
 
 Eine Initialisierung ist das erste Zuweisen eines Wertes zu einer Variablen. Hier zu ist es erforderlich, dass der Speicher allokiert ist.
 
-``` 
+```
 var = 0;
 // var mit Wert 0 initialisiert
-``` 
+```
 
 Sehen wir uns `hoisting` an einem Beispiel genauer an.
 
@@ -81,7 +80,7 @@ Sehen wir uns `hoisting` an einem Beispiel genauer an.
 
 #### Beispiel 1
 
-Sehen Sie sich die nachfolgende Funktion kurz an. 
+Sehen Sie sich die nachfolgende Funktion kurz an.
 
 ```
 function getValue() {
@@ -113,7 +112,7 @@ Im Hintergrund verändert JavaScipt den Programmcode. Der [Interpreter](https://
 <!--index_999a.html aus Sicht des Interpeters-->
 ```
 
-Die Deklaration der Variablen `value` wird an den Anfang der Funktion verschoben. Die Initialisierung geschieht im gleichen Gültigkeitsbereich. Dadurch ist es möglich im `else`-Block auf die Variablen `value` zuzugreifen. Da die `value` im `else`-Block mit keinem Wert belegt ist, ist die Ausgabe bei einem Zugriff `undefined` anstelle von `ReferenceError: value is not defined`, wie im nachfolgenden Beispiel. 
+Die Deklaration der Variablen `value` wird an den Anfang der Funktion verschoben. Die Initialisierung geschieht im gleichen Gültigkeitsbereich. Dadurch ist es möglich im `else`-Block auf die Variablen `value` zuzugreifen. Da die `value` im `else`-Block mit keinem Wert belegt ist, ist die Ausgabe bei einem Zugriff `undefined` anstelle von `ReferenceError: value is not defined`, wie im nachfolgenden Beispiel.
 
 ```
  function getValue() {
@@ -133,16 +132,17 @@ Die Deklaration der Variablen `value` wird an den Anfang der Funktion verschoben
 
 In vielen Programmiersprachen gibt es den Block Scope – alle Variablen, die innerhalb eines Blocks deklariert werden, gelten nur in ihm. Diese nennt man lokale Variablen.
 
-Was genau ist ein Block? Ein Block ist entweder 
-- der Bereich innerhalb einer Funktion oder
-- ein Bereich der mit geschweiften Klammern - `{` und `}` - umgeben ist. 
+Was genau ist ein Block? Ein Block ist entweder
 
-Variablen, die mit `let` oder `const` angelegt werden, gelten ausschließlich innerhalb ihres Blocks. Es verhindert viele schwer aufzudeckende Fehler und ist meiner Meinung nach intuitiv. 
+- der Bereich innerhalb einer Funktion oder
+- ein Bereich der mit geschweiften Klammern - `{` und `}` - umgeben ist.
+
+Variablen, die mit `let` oder `const` angelegt werden, gelten ausschließlich innerhalb ihres Blocks. Es verhindert viele schwer aufzudeckende Fehler und ist meiner Meinung nach intuitiv.
 
 ### Block Scope mit let
 
-Mit ECMAScript 6 wurde `let` eingeführt. Eine mit `let` deklarierte Variable hat einen eingeschränkten Gültigkeitsbereich. Sie ist einzig und allein innerhalb des Blocks gültig, in dem sie deklariert wurde. 
-Die Deklaration einer Variablen mit `let` geschieht auf die gleiche Art wie die Deklaration einer Variablen mit `var`.  
+Mit ECMAScript 6 wurde `let` eingeführt. Eine mit `let` deklarierte Variable hat einen eingeschränkten Gültigkeitsbereich. Sie ist einzig und allein innerhalb des Blocks gültig, in dem sie deklariert wurde.
+Die Deklaration einer Variablen mit `let` geschieht auf die gleiche Art wie die Deklaration einer Variablen mit `var`.
 
 Was wäre, wenn die Variable im vorherigen Beispiel anstelle von `var` mit `let` deklariert worden wäre? Genau dies zeigt Ihnen der nachfolgende Code.
 
@@ -158,16 +158,16 @@ Was wäre, wenn die Variable im vorherigen Beispiel anstelle von `var` mit `let`
 <!--index_998d.html -->
 ```
 
-Haben Sie den Programmcode ausprobiert oder gedanklich nachvollzogen? Dann stimmen Sie sicher mit mir überein, das die Ausgabe der Datei `998d.html` intuitiver ist als die das Ergebnis von `999a.html`. 
+Haben Sie den Programmcode ausprobiert oder gedanklich nachvollzogen? Dann stimmen Sie sicher mit mir überein, das die Ausgabe der Datei `998d.html` intuitiver ist als die das Ergebnis von `999a.html`.
 
-Weil wir die Variable `value` mit `let` deklariert haben, wird die Deklaration nicht im Hintergrund vom Interpreter an den Anfang der Funktion verschoben. Ein Zugriff auf sie ist außerhalb der `if`-Anweisung nicht gegeben. Da `value` nur deklariert wird, wenn die Bedingung der `if`-Anweisung erfüllt ist, ist es nicht möglich, im `else`-Block auf sie zuzugreifen. 
+Weil wir die Variable `value` mit `let` deklariert haben, wird die Deklaration nicht im Hintergrund vom Interpreter an den Anfang der Funktion verschoben. Ein Zugriff auf sie ist außerhalb der `if`-Anweisung nicht gegeben. Da `value` nur deklariert wird, wenn die Bedingung der `if`-Anweisung erfüllt ist, ist es nicht möglich, im `else`-Block auf sie zuzugreifen.
 
-Das nächste Beispiel zeigt Ihnen, dass die Deklaration der Variablen `value` weiterhin am Anfang des Blocks geschieht, in dem diese gültig ist. Es ist aber erst möglich, auf sie zuzugreifen, nachdem sie deklariert wurde. Einen Unterschied gibt es: Die Fehlermeldung innerhalb des Blocks, indem die Variable deklariert wird, ist eine andere. 
+Das nächste Beispiel zeigt Ihnen, dass die Deklaration der Variablen `value` weiterhin am Anfang des Blocks geschieht, in dem diese gültig ist. Es ist aber erst möglich, auf sie zuzugreifen, nachdem sie deklariert wurde. Einen Unterschied gibt es: Die Fehlermeldung innerhalb des Blocks, indem die Variable deklariert wird, ist eine andere.
 
 ```
 function getValue() {
     if (true) {
-        return value; // gibt "ReferenceError: can't access lexical 
+        return value; // gibt "ReferenceError: can't access lexical
                       //declaration `value' before initialization" ausgeben.
         let value = "Prima";
     } else {
@@ -189,7 +189,7 @@ Die Mehrfachverwendung einer mit `let` deklarierten Variablen innerhalb eines Bl
 <!--index_997.html -->
 ```
 
-Im vorhergehenden Beispiel wurde die Variable `value` zweimal deklariert. Beim ersten Mal mit `var` und beim zweiten Mal mit `let`. Weil diese beiden Variablendeklarationen im selben Gültigkeitsbereich liegen, tritt ein Fehler auf. 
+Im vorhergehenden Beispiel wurde die Variable `value` zweimal deklariert. Beim ersten Mal mit `var` und beim zweiten Mal mit `let`. Weil diese beiden Variablendeklarationen im selben Gültigkeitsbereich liegen, tritt ein Fehler auf.
 
 Im Umkehrschluss ist es möglich, eine Variable mit dem gleichen Namen in einem untergeordneten oder übergeordneten Gültigkeitsbereich zu deklarieren.
 
@@ -198,13 +198,13 @@ function getValue() {
     var value = "Prima";
     if (true) {
         let value = "Prima";
-    }   
+    }
     return true;
 }
 <!--index_997d.html -->
 ```
 
-Im Beispiel der Datei `997d.html` tritt kein Fehler auf. Die Variable mit dem Namen `value` wird in der `if`-Anweisung neu deklariert. Die Deklaration passiert genau an der Stelle, an der der Programmierer sie in den Programmcode einfügt. Sie wird nicht, wie im Falle von `var`, vom Interpreter an den Beginn des umgebenden Blocks gesetzt. 
+Im Beispiel der Datei `997d.html` tritt kein Fehler auf. Die Variable mit dem Namen `value` wird in der `if`-Anweisung neu deklariert. Die Deklaration passiert genau an der Stelle, an der der Programmierer sie in den Programmcode einfügt. Sie wird nicht, wie im Falle von `var`, vom Interpreter an den Beginn des umgebenden Blocks gesetzt.
 
 ### Block Scope mit const
 
@@ -228,13 +228,13 @@ Genau wie im Falle von `let` ist eine mit `const` deklarierte Variable ausschlie
 function getValue() {
     if (true) {
         const value = "Prima";
-    }   
+    }
     return value; //ReferenceError: value is not defined
 }
 <!--index_995.html -->
 ```
 
-Eine weitere Gemeinsamkeit von `let` und `const` ist die nicht mögliche 
+Eine weitere Gemeinsamkeit von `let` und `const` ist die nicht mögliche
 Mehrfachverwendung.
 
 ```
@@ -272,10 +272,10 @@ function getValue() {
     }
     stadt.name = "Bonn"; // Mögliche Neuzuweisung
     stadt.fluss = "Rhein"; // Mögliche Neuzuweisung
-    
+
     const stadt = { // SyntaxError: redeclaration of const stadt
-        name: "Bonn" 
-    } 
+        name: "Bonn"
+    }
     return true;
 }
 <!--index_992.html -->
@@ -285,27 +285,27 @@ Im vorhergehenden Beispiel wurde eine Konstante mit dem Namen Stadt erstellt. Di
 
 ### Die vorübergehend tote Zone
 
-Variablen, die mit `let` oder `const` angelegt werden, gelten nur innerhalb ihres Blocks. Dies führt in JavaScript zu einem Zustand, der sich gefährlich anhört: *Der vorübergehend toten Zone*. Der englische Ausdruck dafür ist *Temporal Dead Zone (TDZ)*. 
+Variablen, die mit `let` oder `const` angelegt werden, gelten nur innerhalb ihres Blocks. Dies führt in JavaScript zu einem Zustand, der sich gefährlich anhört: _Der vorübergehend toten Zone_. Der englische Ausdruck dafür ist _Temporal Dead Zone (TDZ)_.
 
-Die *vorübergehend toten Zone* ist der Bereich innerhalb eines Blocks, der vor einer Variablendeklaration liegt. Vorausgesetzt die Variable wird mit `let` oder `const` deklariert. 
+Die _vorübergehend toten Zone_ ist der Bereich innerhalb eines Blocks, der vor einer Variablendeklaration liegt. Vorausgesetzt die Variable wird mit `let` oder `const` deklariert.
 
-In der *vorübergehend toten Zone* tritt beim Zugriff auf eine später deklarierte Variable, ein Fehler auf. Verhängnisvoll ist, dass dieser Fehler ebenfalls auftritt, wenn eine vermeintlich sichere Methode wie `typeof` verwendet wird.
+In der _vorübergehend toten Zone_ tritt beim Zugriff auf eine später deklarierte Variable, ein Fehler auf. Verhängnisvoll ist, dass dieser Fehler ebenfalls auftritt, wenn eine vermeintlich sichere Methode wie `typeof` verwendet wird.
 
 ```
 function getValue() {
     console.log(typeof value1); // Ausgabe: undefined
     console.log(typeof value2); // ReferenceError: can't access lexical declaration
                                 // `value2' before initialization
-    let value2 = "Prima"; 
+    let value2 = "Prima";
 
     return true;
 }
 <!--index_991.html -->
 ```
 
-Im vorhergehenden Beispiel wird auf die Variablen `value1` und `value2` mithilfe von `typeof` zugegriffen. Im Falle von `value1` ist dies kein Problem. Bei `value2` tritt hingegen ein Fehler auf, weil `value2` im gleichen Gültigkeitsbereich später erneut mit `let` deklariert wird. 
+Im vorhergehenden Beispiel wird auf die Variablen `value1` und `value2` mithilfe von `typeof` zugegriffen. Im Falle von `value1` ist dies kein Problem. Bei `value2` tritt hingegen ein Fehler auf, weil `value2` im gleichen Gültigkeitsbereich später erneut mit `let` deklariert wird.
 
-Die gleiche Deklaration in einem anderen Gültigkeitsbereich wäre kein Problem, wie Beispiel `index_991c.html` zeigt.  
+Die gleiche Deklaration in einem anderen Gültigkeitsbereich wäre kein Problem, wie Beispiel `index_991c.html` zeigt.
 
 ```
 function getValue() {
@@ -315,13 +315,13 @@ function getValue() {
     if (true) {
         let value2 = "Prima";
     }
-        
+
     return true;
 }
 <!--index_991c.html -->
 ```
 
-> Die Bezeichnung *Temporal Dead Zone (TDZ)* sucht man in der Spezifikation *ECMAScript 6* vergeblich. Der Begriff wird aber häufig zur Erklärung eingesetzt. Die TDZ entsteht, weil der JavaScript-Interpreter sich einen Block schon beim Einlesen vollständig ansieht. Wenn er auf mit `var` deklarierte Variable trifft, dann setzt er die Deklaration an den Beginn der Funktion oder in den globalen Gültigkeitsbereich. Findet der Interpreter eine mit `let` oder `const` deklarierte Variable, dann setzt er diese in die TDZ - solange, bis die eigentliche Deklaration vonstattengeht. 
+> Die Bezeichnung _Temporal Dead Zone (TDZ)_ sucht man in der Spezifikation _ECMAScript 6_ vergeblich. Der Begriff wird aber häufig zur Erklärung eingesetzt. Die TDZ entsteht, weil der JavaScript-Interpreter sich einen Block schon beim Einlesen vollständig ansieht. Wenn er auf mit `var` deklarierte Variable trifft, dann setzt er die Deklaration an den Beginn der Funktion oder in den globalen Gültigkeitsbereich. Findet der Interpreter eine mit `let` oder `const` deklarierte Variable, dann setzt er diese in die TDZ - solange, bis die eigentliche Deklaration vonstattengeht.
 
 ```
 function getValue() {
@@ -336,13 +336,13 @@ function getValue() {
 <!--index_991a.html -->
 ```
 
-Die Variable `value` ist beim Aufruf des Befehls `console.log(typeof value)` nicht in der TDZ. Das bedeutet konkret: Die Variable ist zwar `undefinded`  aber frei.
+Die Variable `value` ist beim Aufruf des Befehls `console.log(typeof value)` nicht in der TDZ. Das bedeutet konkret: Die Variable ist zwar `undefinded` aber frei.
 
 > Die Beispiele zur TDZ verwenden hier ausschließlich mithilfe von `let` deklarierte Variablen. Das Gleiche gilt analog für Variablen, die mit `const` erstellt wurden.
 
 ## Gültigkeitsbereich (Scope) in Schleifen
 
-Eine weitere Besonderheit von JavaScript ist der Gültigkeitsbereich innerhalb von Schleifen. Beim Durchlaufen von Schleifen bringt es viele Vorteile, wenn die Gültigkeitsbereiche der Variablen übersichtlich und getrennt sind. In einer Schleife wird häufig eine Variable als Zähler verwendet. Das nächste Beispiel zeigt Ihnen, dass der Gültigkeitsbereich einer solchen Zählervariablen alles andere als übersichtlich und getrennt ist, wenn diese Variable mit `var` deklariert wird. 
+Eine weitere Besonderheit von JavaScript ist der Gültigkeitsbereich innerhalb von Schleifen. Beim Durchlaufen von Schleifen bringt es viele Vorteile, wenn die Gültigkeitsbereiche der Variablen übersichtlich und getrennt sind. In einer Schleife wird häufig eine Variable als Zähler verwendet. Das nächste Beispiel zeigt Ihnen, dass der Gültigkeitsbereich einer solchen Zählervariablen alles andere als übersichtlich und getrennt ist, wenn diese Variable mit `var` deklariert wird.
 
 ```
 function getValue() {
@@ -392,15 +392,17 @@ function getValue() {
 <!--index_988.html -->
 ```
 
-Haben Sie die Ausgabe `0 1 2 3 4` erwartet? Anstelle davon wurde `5 5 5 5 5` ausgegeben. Der Grund hierfür ist, dass dieselbe Variable `i` über alle Iterationen der Schleife hinweg geteilt wird. Aufgrund von Hoisting wurde die Variable `i` außerhalb der Schleife deklariert. Alle Funktionen, die in der Schleife erstellt wurden, halten eine Referenz auf dieselbe Variable `i`. Diese Variable `i` hat den Wert `5`, wenn alle Schleifendurchläufe beendet sind. Wenn `console.log(i)` aufgrund von 
+Haben Sie die Ausgabe `0 1 2 3 4` erwartet? Anstelle davon wurde `5 5 5 5 5` ausgegeben. Der Grund hierfür ist, dass dieselbe Variable `i` über alle Iterationen der Schleife hinweg geteilt wird. Aufgrund von Hoisting wurde die Variable `i` außerhalb der Schleife deklariert. Alle Funktionen, die in der Schleife erstellt wurden, halten eine Referenz auf dieselbe Variable `i`. Diese Variable `i` hat den Wert `5`, wenn alle Schleifendurchläufe beendet sind. Wenn `console.log(i)` aufgrund von
+
 ```
 funktionen.forEach(function(funktion){
-    funktion(); 
+    funktion();
 });
 ```
-fünfmal ausgeführt wird, wird der Wert `5` fünfmal ausgegeben.  
 
-Eine Lösung für dieses Problem ist [IIFE](https://wiki.selfhtml.org/index.php?title=IIFE&oldid=59916). *IIFE* steht für *Immediately-invoked Function Expression*. Mit anderen Worte bedeutet dies: ein sofort ausgeführter Funktionsausdruck. Das hört sich kompliziert an und das ist es meiner Meinung nach auch. Ich habe *IIFE* hier der Vollständigkeit halber aufgenommen. Im nächsten Kapitel finden Sie eine einfachere Lösung, seit ECMAScript 6.  
+fünfmal ausgeführt wird, wird der Wert `5` fünfmal ausgegeben.
+
+Eine Lösung für dieses Problem ist [IIFE](https://wiki.selfhtml.org/index.php?title=IIFE&oldid=59916). _IIFE_ steht für _Immediately-invoked Function Expression_. Mit anderen Worte bedeutet dies: ein sofort ausgeführter Funktionsausdruck. Das hört sich kompliziert an und das ist es meiner Meinung nach auch. Ich habe _IIFE_ hier der Vollständigkeit halber aufgenommen. Im nächsten Kapitel finden Sie eine einfachere Lösung, seit ECMAScript 6.
 
 ```
 function getValue() {
@@ -413,14 +415,14 @@ function getValue() {
         }(i)));
     }
     funktionen.forEach(function(funktion){
-        funktion(); // Ausgabe: 0 1 2 3 4 
+        funktion(); // Ausgabe: 0 1 2 3 4
     });
     return true;
 }
 <!--index_987.html -->
 ```
 
-Das Beispiel in der Datei `index_987.html` verwendet IIFE. Das Grundgerüst 
+Das Beispiel in der Datei `index_987.html` verwendet IIFE. Das Grundgerüst
 einer IIFE finden Sie im nächsten Programmcodebeispiel.
 
 ```
@@ -429,7 +431,7 @@ einer IIFE finden Sie im nächsten Programmcodebeispiel.
 })(foo);
 ```
 
-Dieses Grundgerüst sieht soweit recht unkompliziert aus. Beispiel `index_987.html` wirkt hingegen kompliziert. Deshalb sehen wir uns die relevanten Teile genauer an.  
+Dieses Grundgerüst sieht soweit recht unkompliziert aus. Beispiel `index_987.html` wirkt hingegen kompliziert. Deshalb sehen wir uns die relevanten Teile genauer an.
 
 Die Variable `i` wird im Beispiel `index_987.html` an die IIFE übergeben. Im nachfolgenden Programmcodebeispiel habe ich die IIFE des Beispiel `index_987.html` für sich alleine eingefügt.
 
@@ -443,9 +445,9 @@ Die Variable `i` wird im Beispiel `index_987.html` an die IIFE übergeben. Im na
 ...
 ```
 
-Die IIFE speichert die Variable `i` in einer eigenen Kopie. In unserem Beispiel erhält diese Kopie den Namen `value`. Die Kopie der Variablen `i`, ergo `value` , wird in der Funktion verwendet. 
+Die IIFE speichert die Variable `i` in einer eigenen Kopie. In unserem Beispiel erhält diese Kopie den Namen `value`. Die Kopie der Variablen `i`, ergo `value` , wird in der Funktion verwendet.
 
-Dies führt dazu, dass die Ausgabe der Schleife eher der Erwartung eines Programmierers entspricht, als die Ausgabe der Schleife in Beispiel `index_988.html`. 
+Dies führt dazu, dass die Ausgabe der Schleife eher der Erwartung eines Programmierers entspricht, als die Ausgabe der Schleife in Beispiel `index_988.html`.
 
 Wie schon erwähnt bietet ECMAScript 6 glücklicherweise eine einfacherere Möglichkeit, diese Ausgabe zu erreichen. Diese Möglichkeit sehen wir uns im nächsten Kapitel an.
 
@@ -472,8 +474,8 @@ console.log(getValue());
 <!--index_986.html -->
 ```
 
-Das Beispiel der Datei `index_986.html` errechnet genau das, was das Beispiel 
-der Datei `index_987.html` errechnete - allerdings auf eine wesentlich 
+Das Beispiel der Datei `index_986.html` errechnet genau das, was das Beispiel
+der Datei `index_987.html` errechnete - allerdings auf eine wesentlich
 komfortable Art.
 
 Überzeugen Sie sich mit dem Beispiel in der Datei `index_985.html` davon, dass das was ich für eine `forEach` Schleife beschrieben habe, gleichzeitig für `for-in` und `for-of` Schleifen gilt.
@@ -484,14 +486,14 @@ komfortable Art.
 function getValue() {
     var funktionen = [];
     var names = ['Astrid', 'Nina', 'Elmar'];
-    
+
     for (let name of names) {
         funktionen.push(function() {
             console.log(name);
         });
     }
     funktionen.forEach(function(funktion){
-        funktion(); 
+        funktion();
     });
     return true;
 }
@@ -508,14 +510,14 @@ function getValue() {
         2 : "b",
         3 : "c"
     };
-    
+
     for (let key in object) {
         funktionen.push(function() {
             console.log(key);
         });
     }
     funktionen.forEach(function(funktion){
-        funktion(); 
+        funktion();
     });
     return true;
 }
@@ -526,7 +528,7 @@ In den Beispielen zur `for-in`-Schleife und zur `for-of`-Schleife wird bei jedem
 
 ### const in Schleifen
 
-Die ECMAScript 6 Spezifikation verbietet die Verwendung von Konstanten als Schleifenbedingung nicht. Aber: Es empfiehlt sich, sich die Zusammenhänge vorher genau anzusehen, wenn man eine Konstante als Schleifenbedingung verwendet. Die `for-in`-Schleife und die `for-of`-Schleife wenden eine Konstante anders an, als eine normale `for`-Schleife es macht.  
+Die ECMAScript 6 Spezifikation verbietet die Verwendung von Konstanten als Schleifenbedingung nicht. Aber: Es empfiehlt sich, sich die Zusammenhänge vorher genau anzusehen, wenn man eine Konstante als Schleifenbedingung verwendet. Die `for-in`-Schleife und die `for-of`-Schleife wenden eine Konstante anders an, als eine normale `for`-Schleife es macht.
 
 Sehen wir uns die Zusammenhänge im Folgenden an.
 
@@ -551,7 +553,7 @@ function getValue() {
 ```
 
 Im vorhergehenden Beispiel wird die Variable `i` als Konstante deklariert. Der erste Schleifendurchlauf ist erfolgreich. Bei diesem ist der Wert von `i` gleich `0`. Beim nächsten Schleifendurchlauf tritt ein Fehler auf, wenn `i++` aufgerufen wird.
-Die Fehlermeldung lautet im Browser Firefox `TypeError: invalid assignment to const i`. 
+Die Fehlermeldung lautet im Browser Firefox `TypeError: invalid assignment to const i`.
 
 Der nächste Programmcode zeigt ein konstruiertes Beispiel. Im Beispiel wird in der Schleifenbedingung eine Konstante verwendet. Es tritt aber kein Fehler auf, weil die Schleife mit `break` abbricht, bevor `i++` an der Reihe ist.
 
@@ -574,13 +576,13 @@ function getValue() {
 
 #### For-in-Schleife und For-of-Schleife
 
-In einer `for-in`-Schleife oder einer `for-of`-Schleife ist es möglich, mit einer Konstanten zu arbeiten. 
+In einer `for-in`-Schleife oder einer `for-of`-Schleife ist es möglich, mit einer Konstanten zu arbeiten.
 
 ```
 function getValue() {
     var funktionen = [];
     var names = ['Astrid', 'Nina', 'Elmar'];
-    
+
     for (const name of names) {
         funktionen.push(function() {
             console.log(name);
@@ -602,7 +604,7 @@ function getValue() {
         2 : "b",
         3 : "c"
     };
-    
+
     for (const key in object) {
         funktionen.push(function() {
             console.log(key);
@@ -620,7 +622,7 @@ Warum in einer `for-in`-Schleife oder einer `for-of`-Schleife eine Konstante als
 
 ## Globaler Gültigkeitsbereich (Scope)
 
-Im globalen Gültigkeitsbereich gibt es Unterschiede zwischen `var` und den ECMAScript 6- Neulingen `let` beziehungsweise `const`.  
+Im globalen Gültigkeitsbereich gibt es Unterschiede zwischen `var` und den ECMAScript 6- Neulingen `let` beziehungsweise `const`.
 
 Zum einen überschreibt eine im globalen Gültigkeitsbereich mit `var` deklarierte Variable die gleichnamige Eigenschaft im `window` Objekt. Das nachfolgende Beispiel verdeutlich das beschriebene. So hat JavaScript in der Vergangenheit immer gearbeitet. Das ist meiner Meinung nach eine gefährliche Fehlerquelle.
 
@@ -641,8 +643,7 @@ console.log(RegExp); // Ausgabe: "Neuer Wert für RegExp"
 <!--index_981.html -->
 ```
 
-Dadurch, dass das globale `window`-Objekt im Falle von `let` beziehungsweise `const` nicht geändert wird, ist die Variablenzuweisung sicherer. Es ist nicht möglich, dass Eigenschaften im `window`-Objekt unbewusst überschrieben werden. 
-
+Dadurch, dass das globale `window`-Objekt im Falle von `let` beziehungsweise `const` nicht geändert wird, ist die Variablenzuweisung sicherer. Es ist nicht möglich, dass Eigenschaften im `window`-Objekt unbewusst überschrieben werden.
 
 > Die Verwendung von `var` kann zur Deklaration einer globalen Variablen dennoch sinnvoll sein. Den: Auf diese Art und Weise ist es möglich Variablen aus unterschiedlichen HTML-Dokumenten gleichzeitig zu verwenden.
 
@@ -651,7 +652,6 @@ Dadurch, dass das globale `window`-Objekt im Falle von `let` beziehungsweise `co
 Während der Entwicklung von ECMAScript 6 herrschte weit verbreitete Überzeugung, dass man für die Variablendeklarationen standardmäßig `let` anstelle von `var` verwendet. Für viele JavaScript-Entwickler ist das Verhalten bei `let` genau so, wie sie es von `var` erwarten. Daher ist die direkte Ersetzung logisch. `const` wird nach dieser Überzeugung ausschließlich für Variablen verwenden, die einen Änderungsschutz benötigen.
 
 Später wurde ein alternativer Ansatz immer beliebter: Verwenden Sie `const` standardmäßig und verwenden Sie `let` nur, wenn Sie wissen, dass sich der Wert einer Variablen ändert. Grundprinzip ist, das Variablen nur änderbar sind, wenn dies notwendig ist, da unerwartete Wertänderungen eine Fehlerquelle darstellen.
-
 
 ## Alles noch einmal zusammengefasst
 

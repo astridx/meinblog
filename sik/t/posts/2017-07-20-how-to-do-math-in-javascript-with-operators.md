@@ -213,7 +213,7 @@ We can use the modulo operator to determine whether a number is even or odd, as 
 
 ```js
 // Initialize function to test if a number is even
-const isEven = x => {
+const isEven = (x) => {
   // If the remainder after dividing by two is 0, return true
   if (x % 2 === 0) {
     return true

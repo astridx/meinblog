@@ -1,13 +1,13 @@
 ---
-title: "React Higher Order Components"
-description: "A comprehensive yet easy to understand introduction to higher-order components in React. Higher order components, known as HOCs, are often a difficult to understand pattern in React.js. The article gives you a gentle introduction, how to use HOCs in an elegant way, how to abstract reusable logic and how to use recompose ..."
-date: "2017-04-04T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react higher order components"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Higher Order Components'
+description: 'A comprehensive yet easy to understand introduction to higher-order components in React. Higher order components, known as HOCs, are often a difficult to understand pattern in React.js. The article gives you a gentle introduction, how to use HOCs in an elegant way, how to abstract reusable logic and how to use recompose ...'
+date: '2017-04-04T13:50:46+02:00'
+categories: ['React']
+keywords: ['react higher order components']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -28,21 +28,21 @@ We will start with a problem in React where higher-order components could be use
 
 ```javascript
 function App(props) {
-  return (
-    <TodoList todos={props.todos} />
-  );
+  return <TodoList todos={props.todos} />
 }
 
 function TodoList({ todos }) {
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 
-In a real world application that's not sufficient most of the time. You have to bother with *so much more*. Usually you would put the *so much more* related things outside of your `TodoList` in the parent component. But to keep the example and learning experience concise, I will place every *so much more* edge case in the `TodoList` component.
+In a real world application that's not sufficient most of the time. You have to bother with _so much more_. Usually you would put the _so much more_ related things outside of your `TodoList` in the parent component. But to keep the example and learning experience concise, I will place every _so much more_ edge case in the `TodoList` component.
 
 What are these edge cases I am speaking about?
 
@@ -51,14 +51,16 @@ First, what happens when your `todos` are null? You would apply a conditional re
 ```javascript{2,3,4}
 function TodoList({ todos }) {
   if (!todos) {
-    return null;
+    return null
   }
 
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -67,7 +69,7 @@ Second, what happens when your todos are not null but empty? You would show a me
 ```javascript{6,7,8,9,10,11,12}
 function TodoList({ todos }) {
   if (!todos) {
-    return null;
+    return null
   }
 
   if (!todos.length) {
@@ -75,14 +77,16 @@ function TodoList({ todos }) {
       <div>
         <p>You have no Todos.</p>
       </div>
-    );
+    )
   }
 
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -95,11 +99,11 @@ function TodoList({ todos, isLoadingTodos }) {
       <div>
         <p>Loading todos ...</p>
       </div>
-    );
+    )
   }
 
   if (!todos) {
-    return null;
+    return null
   }
 
   if (!todos.length) {
@@ -107,14 +111,16 @@ function TodoList({ todos, isLoadingTodos }) {
       <div>
         <p>You have no Todos.</p>
       </div>
-    );
+    )
   }
 
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -133,7 +139,7 @@ function TodoList({ todos, isLoadingTodos }) {
       <div>
         <p>Loading todos ...</p>
       </div>
-    );
+    )
   }
 
   // Removed conditional rendering with null check
@@ -143,14 +149,16 @@ function TodoList({ todos, isLoadingTodos }) {
       <div>
         <p>You have no Todos.</p>
       </div>
-    );
+    )
   }
 
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -173,9 +181,7 @@ As mentioned, the **enhanced component** doesn't render anything. Let's add the 
 ```javascript{3,4,5}
 function withTodosNull(Component) {
   return function (props) {
-    return !props.todos
-      ? null
-      : <Component { ...props } />
+    return !props.todos ? null : <Component {...props} />
   }
 }
 ```
@@ -188,9 +194,7 @@ All the function and return statements make it hard to work with higher-order co
 
 ```javascript{3,4,5}
 const withTodosNull = (Component) => (props) =>
-  !props.todos
-    ? null
-    : <Component { ...props } />
+  !props.todos ? null : <Component {...props} />
 ```
 
 As a side note, to avoid confusion: In a JavaScript ES6 arrow function you can omit the curly braces. You transform the block body to a concise body. In a concise body you can omit the return statement because it will implicitly return.
@@ -220,23 +224,35 @@ But there are more conditional renderings in the `TodoList` component. Let's qui
 
 ```javascript
 const withTodosEmpty = (Component) => (props) =>
-  !props.todos.length
-    ? <div><p>You have no Todos.</p></div>
-    : <Component { ...props } />
+  !props.todos.length ? (
+    <div>
+      <p>You have no Todos.</p>
+    </div>
+  ) : (
+    <Component {...props} />
+  )
 
 const withLoadingIndicator = (Component) => (props) =>
-  props.isLoadingTodos
-    ? <div><p>Loading todos ...</p></div>
-    : <Component { ...props } />
+  props.isLoadingTodos ? (
+    <div>
+      <p>Loading todos ...</p>
+    </div>
+  ) : (
+    <Component {...props} />
+  )
 ```
 
 There is only one nitpick. The `withLoadingIndicator` passes all the props to the input component. Even though the input component is not interested in the `isLoadingTodos`. You can use the [JavaScript ES6 rest destructuring](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to split up the props.
 
 ```javascript{1,2,4}
 const withLoadingIndicator = (Component) => ({ isLoadingTodos, ...others }) =>
-  isLoadingTodos
-    ? <div><p>Loading todos ...</p></div>
-    : <Component { ...others } />
+  isLoadingTodos ? (
+    <div>
+      <p>Loading todos ...</p>
+    </div>
+  ) : (
+    <Component {...others} />
+  )
 ```
 
 Now the `isLoadingTodos` is split out from the props and only used in the HOC. All the `others` props are passed to the input component.
@@ -279,9 +295,11 @@ Let's see what is left in the `TodoList` component:
 function TodoList({ todos, isLoadingTodos }) {
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 
@@ -290,15 +308,17 @@ Isn't that great? We shielded away all the conditional renderings and the `TodoL
 But it is kinda tedious to wrap all the components by hand into each other.
 
 ```javascript
-const TodoListOne = withTodosEmpty(TodoList);
-const TodoListTwo = withTodosNull(TodoListOne);
-const TodoListThree = withLoadingIndicator(TodoListTwo);
+const TodoListOne = withTodosEmpty(TodoList)
+const TodoListTwo = withTodosNull(TodoListOne)
+const TodoListThree = withLoadingIndicator(TodoListTwo)
 ```
 
 You could refactor it to:
 
 ```javascript
-const TodoListWithConditionalRendering = withLoadingIndicator(withTodosNull(withTodosEmpty(TodoList)));
+const TodoListWithConditionalRendering = withLoadingIndicator(
+  withTodosNull(withTodosEmpty(TodoList))
+)
 ```
 
 Still, it is not readable. React embraces functional programming, so why are we not using these principles?
@@ -322,7 +342,7 @@ const withConditionalRenderings = compose(
 Now you can use the function to pass in your input component that needs to become an enhanced component with all the conditional renderings.
 
 ```javascript
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
+const TodoListWithConditionalRendering = withConditionalRenderings(TodoList)
 ```
 
 That's convenient, isn't it? You can use `compose` to pass your input component through all higher-order component functions. The input components gets an enhanced version of the component in each function.
@@ -373,31 +393,25 @@ Let's give the `withTodosNull` an optional payload. The payload is a function th
 
 ```javascript{1,2}
 const withTodosNull = (Component, conditionalRenderingFn) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 ```
 
 The name of the higher-order component is misleading now. The HOC is not aware anymore of the props data structure nor is it aware of the `todos` at all. You could name it `withCondition`, because it takes a function that returns true or false.
 
 ```javascript{1}
 const withCondition = (Component, conditionalRenderingFn) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 ```
 
 Now you could use the higher-order component but with a function that determines the conditional rendering.
 
 ```javascript{6,8}
 const withCondition = (Component, conditionalRenderingFn) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 
-const conditionFn = (props) => !props.todos;
+const conditionFn = (props) => !props.todos
 
-const TodoListWithCondition = withCondition(TodoList, conditionFn);
+const TodoListWithCondition = withCondition(TodoList, conditionFn)
 ```
 
 The `withCondition` HOC enables you to re-use it everywhere for a conditional rendering that returns the input component or nothing. It is independent of the input component, independent of the condition and independent of the props structure.
@@ -405,15 +419,15 @@ The `withCondition` HOC enables you to re-use it everywhere for a conditional re
 Now let's use the `withCondition` in our composition of HOCs.
 
 ```javascript{5}
-import { compose } from 'recompose';
+import { compose } from 'recompose'
 
 const withConditionalRenderings = compose(
-    withLoadingIndicator,
-    withCondition,
-    withTodosEmpty
-);
+  withLoadingIndicator,
+  withCondition,
+  withTodosEmpty
+)
 
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
+const TodoListWithConditionalRendering = withConditionalRenderings(TodoList)
 ```
 
 That's not going to work. The function signature of `withCondition` has two arguments: the input component and the optional payload that is the conditional function. But composing works by passing only one value from function to function.
@@ -422,9 +436,7 @@ Here is the catch in functional programming. You will often pass only one argume
 
 ```javascript{1}
 const withCondition = (conditionalRenderingFn) => (Component) => (props) =>
-    conditionalRenderingFn(props)
-        ? null
-        : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 ```
 
 Now, the first time you invoke `withCondition` you have to pass the condition function. It returns your higher-order component. The HOC can then be used in the composition of recompose.
@@ -455,27 +467,23 @@ Let's take the `withCondition` higher-order component.
 
 ```javascript{1}
 const withCondition = (conditionalRenderingFn) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 ```
 
 The component returns nothing or the input component. Such a type, nothing or value, is called Maybe (or Option) in functional programming. After knowing this, you could call the higher-order component `withMaybe`. Even though the HOC is not an explicit type, it would use the naming convention of FP to make it simple to understand.
 
 ```javascript{1}
 const withMaybe = (conditionalRenderingFn) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 ```
 
-What about the other two HOCs? They are not abstracted yet. They are different from the `withMaybe` higher-order component, because they return *either* the input component or another element. The Either type in FP defines these two differing values. In addition, similar to the `withMaybe`, the `withEither` could take as additional payload a component that should be shown if the condition doesn't match.
+What about the other two HOCs? They are not abstracted yet. They are different from the `withMaybe` higher-order component, because they return _either_ the input component or another element. The Either type in FP defines these two differing values. In addition, similar to the `withMaybe`, the `withEither` could take as additional payload a component that should be shown if the condition doesn't match.
 
 ```javascript{1,3}
-const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? <EitherComponent />
-    : <Component { ...props } />
+const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (
+  props
+) =>
+  conditionalRenderingFn(props) ? <EitherComponent /> : <Component {...props} />
 ```
 
 Now you can use it in the application by passing the conditional function and the `EitherComponent`.
@@ -513,39 +521,39 @@ Now every higher-order component receives a payload apart from the input compone
 Last but least, let's see everything in context to each other.
 
 ```javascript
-import { compose } from 'recompose';
+import { compose } from 'recompose'
 
 const withMaybe = (conditionalRenderingFn) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+  conditionalRenderingFn(props) ? null : <Component {...props} />
 
-const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? <EitherComponent />
-    : <Component { ...props } />
+const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (
+  props
+) =>
+  conditionalRenderingFn(props) ? <EitherComponent /> : <Component {...props} />
 
-const EmptyMessage = () =>
+const EmptyMessage = () => (
   <div>
     <p>You have no Todos.</p>
   </div>
+)
 
-const LoadingIndicator = () =>
+const LoadingIndicator = () => (
   <div>
     <p>Loading todos ...</p>
   </div>
+)
 
-const isLoadingConditionFn = (props) => props.isLoadingTodos;
-const nullConditionFn = (props) => !props.todos;
+const isLoadingConditionFn = (props) => props.isLoadingTodos
+const nullConditionFn = (props) => !props.todos
 const isEmptyConditionFn = (props) => !props.todos.length
 
 const withConditionalRenderings = compose(
   withEither(isLoadingConditionFn, LoadingIndicator),
   withMaybe(nullConditionFn),
   withEither(isEmptyConditionFn, EmptyMessage)
-);
+)
 
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
+const TodoListWithConditionalRendering = withConditionalRenderings(TodoList)
 
 function App(props) {
   return (
@@ -553,15 +561,17 @@ function App(props) {
       todos={props.todos}
       isLoadingTodos={props.isLoadingTodos}
     />
-  );
+  )
 }
 
 function TodoList({ todos }) {
   return (
     <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} />
+      ))}
     </div>
-  );
+  )
 }
 ```
 

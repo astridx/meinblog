@@ -44,8 +44,8 @@ For now, everything is visible, but we'll be using CSS and jQuery to hide and sh
 The jQuery is even easier. As always, I prefer to define and call jQuery, and wrap the rest of my code within.
 
 ```js
-;(function($) {
-  $(function() {
+;(function ($) {
+  $(function () {
     // The rest of the code
   })
 })(jQuery)
@@ -54,9 +54,9 @@ The jQuery is even easier. As always, I prefer to define and call jQuery, and wr
 After that, I'll just be adding a click event to the `toggle-overlay` class, which will toggle `open` on the `aside`.
 
 ```js
-;(function($) {
-  $(function() {
-    $('.toggle-overlay').click(function() {
+;(function ($) {
+  $(function () {
+    $('.toggle-overlay').click(function () {
       $('aside').toggleClass('open')
     })
   })

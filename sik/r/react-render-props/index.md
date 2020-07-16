@@ -1,13 +1,13 @@
 ---
-title: "React Render Props"
-description: "The concept of children as a function or child as a function, also called render prop in general, is one of the advanced patterns in React. This tutorial goes through a real world example ..."
-date: "2018-08-08T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react render props", "react render prop component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Render Props'
+description: 'The concept of children as a function or child as a function, also called render prop in general, is one of the advanced patterns in React. This tutorial goes through a real world example ...'
+date: '2018-08-08T13:50:46+02:00'
+categories: ['React']
+keywords: ['react render props', 'react render prop component']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,41 +16,41 @@ The concept of **children as a function** or **child as a function**, also calle
 
 # The case for React Render Prop
 
-Let's get started with the implementation of the currency converter in order to learn about React's render prop pattern. If you want to follow in your own editor/IDE, you can use [create-react-app](https://github.com/facebook/create-react-app) to get your application up and running. Then the only file you need to touch will be the *src/App.js* file:
+Let's get started with the implementation of the currency converter in order to learn about React's render prop pattern. If you want to follow in your own editor/IDE, you can use [create-react-app](https://github.com/facebook/create-react-app) to get your application up and running. Then the only file you need to touch will be the _src/App.js_ file:
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 const App = () => (
   <div>
     <h1>Currency Converter</h1>
   </div>
-);
+)
 
-export default App;
+export default App
 ```
 
 Firstly, let's implement a new React component next to the App component where you can increment (and decrement) a number. In this case, the abstract number will be the amount of US Dollar which should be converted to other currencies later on:
 
 ```javascript
-const App = () => <Amount />;
+const App = () => <Amount />
 
 class Amount extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       amount: 0,
-    };
+    }
   }
 
   onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount + 1 }))
+  }
 
   onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount - 1 }))
+  }
 
   render() {
     return (
@@ -64,7 +64,7 @@ class Amount extends Component {
           -
         </button>
       </div>
-    );
+    )
   }
 }
 ```
@@ -74,9 +74,9 @@ That's only a simplification of the domain, because, for instance, it would be m
 Now let's tap into the problem space where render props or alternatives can be applied for this scenario: What if you want to use the amount, which is set to the state of the Amount component, in dedicated currency components which apply the exchange rate?
 
 ```javascript
-const Euro = ({ amount }) => <p>Euro: {amount * 0.86}</p>;
+const Euro = ({ amount }) => <p>Euro: {amount * 0.86}</p>
 
-const Pound = ({ amount }) => <p>Pound: {amount * 0.76}</p>;
+const Pound = ({ amount }) => <p>Pound: {amount * 0.76}</p>
 ```
 
 There are a couple of solutions for this problem and we will go through most of them one by one before we end up with React's render props pattern eventually.
@@ -123,7 +123,7 @@ const App = () => (
     <Euro amount={amount} />
     <Pound amount={amount} />
   </div>
-);
+)
 ```
 
 But it's not that simple, because the currency components don't know about the amount now. You would have to **lift the state** from the Amount component to the App component.
@@ -131,20 +131,20 @@ But it's not that simple, because the currency components don't know about the a
 ```javascript{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,22,23,24,27,28,34,36,38,41}
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       amount: 0,
-    };
+    }
   }
 
   onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount + 1 }))
+  }
 
   onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount - 1 }))
+  }
 
   render() {
     return (
@@ -158,7 +158,7 @@ class App extends Component {
         <Euro amount={this.state.amount} />
         <Pound amount={this.state.amount} />
       </div>
-    );
+    )
   }
 }
 
@@ -173,7 +173,7 @@ const Amount = ({ amount, onIncrement, onDecrement }) => (
       -
     </button>
   </div>
-);
+)
 ```
 
 The App component turned into a stateful class component and the Amount component into a functional stateless component. All state is managed by the App component and the currency components and the Amount component only receive props. The implementation for managing the state was kept the same, it was only lifted up to the App component. So this approach would be a valid solution to the problem.
@@ -185,20 +185,20 @@ But wait, what about component composition in React with its children prop? This
 ```javascript{30}
 class Amount extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       amount: 0,
-    };
+    }
   }
 
   onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount + 1 }))
+  }
 
   onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount - 1 }))
+  }
 
   render() {
     return (
@@ -214,7 +214,7 @@ class Amount extends Component {
 
         {this.props.children}
       </div>
-    );
+    )
   }
 }
 ```
@@ -227,7 +227,7 @@ const App = () => (
     <Pound amount={amount} />
     <Euro amount={amount} />
   </Amount>
-);
+)
 ```
 
 However, again you would have to lift state up to the App component in order to pass the amount to the currency components. As you can see, the component composition on its own doesn't help us to solve the problem. That's the point where React's render props pattern comes into play which enhances React's component composition with an important ingredient: a render function.
@@ -246,7 +246,7 @@ const App = () => (
       </div>
     )}
   </Amount>
-);
+)
 ```
 
 It gives you a way to pass data from the wrapping component (Amount) to its inner composed component(s) (currency components). Because of this function, you can use the children prop within the render prop component (that's what the Amount component became by implementing this pattern). The children prop becomes a children as a function.
@@ -254,20 +254,20 @@ It gives you a way to pass data from the wrapping component (Amount) to its inne
 ```javascript{30}
 class Amount extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       amount: 0,
-    };
+    }
   }
 
   onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount + 1 }))
+  }
 
   onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount - 1 }))
+  }
 
   render() {
     return (
@@ -283,7 +283,7 @@ class Amount extends Component {
 
         {this.props.children()}
       </div>
-    );
+    )
   }
 }
 ```
@@ -293,31 +293,31 @@ Rather than using the children directly to render them, you have to call it as f
 ```javascript{3,5,6,41}
 const App = () => (
   <Amount>
-    {amount => (
+    {(amount) => (
       <div>
         <Pound amount={amount} />
         <Euro amount={amount} />
       </div>
     )}
   </Amount>
-);
+)
 
 class Amount extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       amount: 0,
-    };
+    }
   }
 
   onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount + 1 }))
+  }
 
   onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
+    this.setState((state) => ({ amount: state.amount - 1 }))
+  }
 
   render() {
     return (
@@ -333,7 +333,7 @@ class Amount extends Component {
 
         {this.props.children(this.state.amount)}
       </div>
-    );
+    )
   }
 }
 ```
@@ -343,7 +343,7 @@ That's the crucial point for the render prop pattern. In this case, the Amount c
 ```javascript{5}
 const App = () => (
   <Amount>
-    {amount => (
+    {(amount) => (
       <div>
         <h1>My Currency Converter</h1>
         <Pound amount={amount} />
@@ -351,7 +351,7 @@ const App = () => (
       </div>
     )}
   </Amount>
-);
+)
 ```
 
 But why is it called render prop? Historically the pattern evolved from using a prop called render (or anything else) for it. Basically the component uses a render prop instead of a children as a function now. But it hasn't to be the name "render" prop. You can name it however you want:
@@ -443,23 +443,23 @@ In this case, React's slot pattern got extended with the function which makes th
 For the sake of completeness, the following code demonstrates that the problem could be solved with a higher-order component (HOC) as well:
 
 ```javascript{1,31,32,33}
-const withAmount = currencyComponents =>
+const withAmount = (currencyComponents) =>
   class Amount extends Component {
     constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {
         amount: 0,
-      };
+      }
     }
 
     onIncrement = () => {
-      this.setState(state => ({ amount: state.amount + 1 }));
-    };
+      this.setState((state) => ({ amount: state.amount + 1 }))
+    }
 
     onDecrement = () => {
-      this.setState(state => ({ amount: state.amount - 1 }));
-    };
+      this.setState((state) => ({ amount: state.amount - 1 }))
+    }
 
     render() {
       return (
@@ -473,29 +473,29 @@ const withAmount = currencyComponents =>
             -
           </button>
 
-          {currencyComponents.map(CurrencyComponent => (
+          {currencyComponents.map((CurrencyComponent) => (
             <CurrencyComponent amount={this.state.amount} />
           ))}
         </div>
-      );
+      )
     }
-  };
+  }
 ```
 
 Then it could be used by passing an array of currency components to the HOC:
 
 ```javascript{5}
-const Euro = ({ amount }) => <p>Euro: {amount * 0.86}</p>;
+const Euro = ({ amount }) => <p>Euro: {amount * 0.86}</p>
 
-const Pound = ({ amount }) => <p>Pound: {amount * 0.76}</p>;
+const Pound = ({ amount }) => <p>Pound: {amount * 0.76}</p>
 
-const CurrenciesWithAmount = withAmount([Euro, Pound]);
+const CurrenciesWithAmount = withAmount([Euro, Pound])
 ```
 
 And finally using it in your App component:
 
 ```javascript{1}
-const App = () => <CurrenciesWithAmount />;
+const App = () => <CurrenciesWithAmount />
 ```
 
 However, in this case you would lose the possibility to render something in between. You are strictly coupled to the higher-order component's render method. If you need to add something in between of the currency components, you would have to do it in the higher-order component. It would be quite similar as you have done it previously by rendering the currency components straight away in the Amount component. If using a render prop component instead, you would be flexible in your composition. That's only one different aspect of render prop components and higher-order components.

@@ -1,13 +1,13 @@
 ---
-date: "2018-02-11T13:50:46+02:00"
-title: "Why Frameworks matter"
-description: "Newcomers to web development often start out with React, Vue or Angular far too early after they have learned vanilla JavaScript. There is not always the chance to experience the struggle why libraries like React were implemented in the first place ..."
-categories: ["React", "Angular", "Vue", "JavaScript"]
-keywords: ["why react", 'why frameworks']
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-author: ""
-contribute: ""
+date: '2018-02-11T13:50:46+02:00'
+title: 'Why Frameworks matter'
+description: 'Newcomers to web development often start out with React, Vue or Angular far too early after they have learned vanilla JavaScript. There is not always the chance to experience the struggle why libraries like React were implemented in the first place ...'
+categories: ['React', 'Angular', 'Vue', 'JavaScript']
+keywords: ['why react', 'why frameworks']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+author: ''
+contribute: ''
 ---
 
 <Sponsorship />
@@ -26,7 +26,7 @@ I want to showcase how a small application can be build in vanilla JavaScript an
 
 Let's build together an application in vanilla JavaScript. The problem: Search stories from [Hacker News](https://hn.algolia.com/api) and show the result in a list in your browser. The application only needs an input field for the search request and a list to show the result. If a new search request is made, the list has to be updated in the browser.
 
-In a folder of your choice, create a *index.html* file. Let's write a couple of lines of HTML in this file. First, there has to be HTML boilerplate to render the content to the browser.
+In a folder of your choice, create a _index.html_ file. Let's write a couple of lines of HTML in this file. First, there has to be HTML boilerplate to render the content to the browser.
 
 ```html
 <!DOCTYPE html>
@@ -34,13 +34,12 @@ In a folder of your choice, create a *index.html* file. Let's write a couple of 
   <head>
     <title>Vanilla JavaScript</title>
   </head>
-  <body>
-  </body>
+  <body></body>
   <script src="index.js"></script>
 </html>
 ```
 
-The important part is the imported *index.js* file. That's the file where the vanilla JavaScript code will end up. You can create it next to your *index.html* file. But before you start to write JavaScript, let's add some more HTML. The application should show an input field and a button to request data based on a search query from the input field.
+The important part is the imported _index.js_ file. That's the file where the vanilla JavaScript code will end up. You can create it next to your _index.html_ file. But before you start to write JavaScript, let's add some more HTML. The application should show an input field and a button to request data based on a search query from the input field.
 
 ```html{7,8,9,10,11}
 <!DOCTYPE html>
@@ -61,25 +60,24 @@ The important part is the imported *index.js* file. That's the file where the va
 
 You might have noticed that there is no container to show the requested content yet. In a perfect world, there would be some kind of element which has multiple elements itself to show the requested stories from Hacker News. Since this content is unknown before the request happens, it's a better approach to render it dynamically after the request is made. You will do this in JavaScript by using the DOM API for HTML manipulations in the next part.
 
-The HTML element with the id `app` can be used to hook JavaScript into the DOM later on. In addition, the button element can be used to assign a click event listener. That's the perfect place to start the JavaScript code. Let's start with the *index.js* file.
+The HTML element with the id `app` can be used to hook JavaScript into the DOM later on. In addition, the button element can be used to assign a click event listener. That's the perfect place to start the JavaScript code. Let's start with the _index.js_ file.
 
 ```javascript
 function addButtonEvent() {
-  document.getElementById('searchButton')
+  document
+    .getElementById('searchButton')
     .addEventListener('click', function () {
       // (4) remove old list if there is already a list
-
       // (1) get value from input field
       // (2) search list from API with value
-
       // (3) append list to DOM
-    });
-};
+    })
+}
 
-addButtonEvent();
+addButtonEvent()
 ```
 
-That's basically everything needed for the application. Once the *index.js* file runs, there will be an event listener added to the button element with the id `searchButton`. You can find the button element in your *index.html* file.
+That's basically everything needed for the application. Once the _index.js_ file runs, there will be an event listener added to the button element with the id `searchButton`. You can find the button element in your _index.html_ file.
 
 The last line is important because someone has to call the function in the first place. The function itself is only the declaration but not the execution of it. All the following implementations will be just a couple of more functions which are executed once someone clicks the button.
 
@@ -87,125 +85,115 @@ The comments in the code show you the business logic which will be implemented s
 
 ```javascript{3,6,7,8}
 function addButtonEvent() {
-  document.getElementById('searchButton')
-    .addEventListener('click', onSearch);
-};
+  document.getElementById('searchButton').addEventListener('click', onSearch)
+}
 
-function onSearch() {
-
-};
+function onSearch() {}
 ```
 
 Now let's implement the business logic once the button is clicked. There are three things which need to happen. First, you need to retrieve the value from the HTML input field which is used for the search request. Second, you have to make the asynchronous search request. And third, you need to append the result from the search request to the DOM.
 
 ```javascript{7,8}
 function addButtonEvent() {
-  document.getElementById('searchButton')
-    .addEventListener('click', onSearch);
-};
+  document.getElementById('searchButton').addEventListener('click', onSearch)
+}
 
 function onSearch() {
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 ```
 
 There are three functions now which you will implement in the following steps. First, let's retrieve the value from the input element with the id `searchInput`.
 
 ```javascript{6,7,8}
 function onSearch() {
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 
 function getValueFromElementById(id) {
-  return document.getElementById(id).value;
-};
+  return document.getElementById(id).value
+}
 ```
 
 If you type something in the rendered HTML input field in your browser, it should be picked up once you click the button. Now this value should be used in the `doSearch()` function which you will implement in the second part. The function returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and thus the `then()` method can be used to append the result (list) in the third step.
 
 ```javascript{1,3,4,5,6,7,8,9,10,11}
-var BASE_URL = 'https://hn.algolia.com/api/v1/';
+var BASE_URL = 'https://hn.algolia.com/api/v1/'
 
 function doSearch(query) {
-  var url = BASE_URL + 'search?query=' + query + '&hitsPerPage=200';
+  var url = BASE_URL + 'search?query=' + query + '&hitsPerPage=200'
   return fetch(url)
     .then(function (response) {
-      return response.json();
+      return response.json()
     })
     .then(function (result) {
-      return result.hits;
-    });
+      return result.hits
+    })
 }
 
 function onSearch() {
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 ```
 
 The function uses the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) which returns a promise. For the sake of simplification, I kept out the error handling in this scenario which could be implemented in a `catch()` block. The request is made to the Hacker News API and the value from the input field is inserted by using string concatenation. Afterward, the response is transformed and only the `hits` (list) are returned from the result. The third step is to append the list to the DOM.
 
 ```javascript{6,7,8,9,10,11,12}
 function onSearch() {
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 
 function appendList(list) {
-  var listNode = document.createElement('div');
-  listNode.setAttribute('id', 'list');
-  document.getElementById('app').appendChild(listNode);
+  var listNode = document.createElement('div')
+  listNode.setAttribute('id', 'list')
+  document.getElementById('app').appendChild(listNode)
 
   // append items to list
-};
+}
 ```
 
-First, you create a new HTML element and second you give the element an id attribute to check. This id can be used later on to check whether there is already a list in the DOM once a second request is made. Third, you append the new element to your DOM by using the HTML element with the id `app` which you can find in the *index.html* file. What's missing is appending the list of items.
+First, you create a new HTML element and second you give the element an id attribute to check. This id can be used later on to check whether there is already a list in the DOM once a second request is made. Third, you append the new element to your DOM by using the HTML element with the id `app` which you can find in the _index.html_ file. What's missing is appending the list of items.
 
 ```javascript{11,12,13,14,15}
 function onSearch() {
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 
 function appendList(list) {
-  var listNode = document.createElement('div');
-  listNode.setAttribute('id', 'list');
-  document.getElementById('app').appendChild(listNode);
+  var listNode = document.createElement('div')
+  listNode.setAttribute('id', 'list')
+  document.getElementById('app').appendChild(listNode)
 
   list.forEach(function (item) {
-    var itemNode = document.createElement('div');
-    itemNode.appendChild(document.createTextNode(item.title));
-    listNode.appendChild(itemNode);
-  });
-};
+    var itemNode = document.createElement('div')
+    itemNode.appendChild(document.createTextNode(item.title))
+    listNode.appendChild(itemNode)
+  })
+}
 ```
 
 For each item in the list, you create a new HTML element, append text to the element and append the element to the list HTML element. You can extract the function to make it concise again. Therefore you have to use a higher order function to pass the list element to the function.
 
 ```javascript{11,14,15,16,17,18,19,20}
 function onSearch() {
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 
 function appendList(list) {
-  var listNode = document.createElement('div');
-  listNode.setAttribute('id', 'list');
-  document.getElementById('app').appendChild(listNode);
+  var listNode = document.createElement('div')
+  listNode.setAttribute('id', 'list')
+  document.getElementById('app').appendChild(listNode)
 
-  list.forEach(appendItem(listNode));
-};
+  list.forEach(appendItem(listNode))
+}
 
 function appendItem(listNode) {
   return function (item) {
-    var itemNode = document.createElement('div');
-    itemNode.appendChild(document.createTextNode(item.title));
-    listNode.appendChild(itemNode);
-  };
-};
+    var itemNode = document.createElement('div')
+    itemNode.appendChild(document.createTextNode(item.title))
+    listNode.appendChild(itemNode)
+  }
+}
 ```
 
 That's it for the implementation of the three steps. First, retrieve the value from the input field, Second, perform an asynchronous request with the value to retrieve the list from a result from the Hacker News API. And third, append the list and item elements to your DOM.
@@ -214,17 +202,16 @@ Last but not least, there is one crucial part missing. You shouldn't forget to r
 
 ```javascript{2,8,9,10,11,12,13,14}
 function onSearch() {
-  removeList();
+  removeList()
 
-  doSearch(getValueFromElementById('searchInput'))
-    .then(appendList);
-};
+  doSearch(getValueFromElementById('searchInput')).then(appendList)
+}
 
 function removeList() {
-  var listNode = document.getElementById('list');
+  var listNode = document.getElementById('list')
 
   if (listNode) {
-    listNode.parentNode.removeChild(listNode);
+    listNode.parentNode.removeChild(listNode)
   }
 }
 ```
@@ -240,7 +227,7 @@ npm install http-server -g
 Afterwards, you can start the HTTP server from the command line in the directory where you have created your index.html and index.js files:
 
 ```javascript
-http-server
+http - server
 ```
 
 The output should give you a URL where you can find your application in the browser.
@@ -249,7 +236,7 @@ The output should give you a URL where you can find your application in the brow
 
 In this part of the article, you are going to solve the same problem with React. It should give you a way to compare both solutions and maybe convince you why a library such as React is a fitting tool to solve such problems.
 
-The project will consist again of a *index.html* and *index.js* file. Our implementation starts again with the HTML boilerplate in the *index.html* file. It requires the two necessary React and ReactDOM libraries. The latter is used to hook React into the DOM and the former for React itself. In addition, the *index.js* is included too.
+The project will consist again of a _index.html_ and _index.js_ file. Our implementation starts again with the HTML boilerplate in the _index.html_ file. It requires the two necessary React and ReactDOM libraries. The latter is used to hook React into the DOM and the former for React itself. In addition, the _index.js_ is included too.
 
 ```html
 <!DOCTYPE html>
@@ -265,7 +252,7 @@ The project will consist again of a *index.html* and *index.js* file. Our implem
 </html>
 ```
 
-Second, add Babel to transpile your JavaScript code to vanilla JavaScript, because the following code in your *index.js* file will use non vanilla JavaScript functionalities such as [JavaScript ES6 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). Thus you have to add Babel to transpile it to vanilla JavaScript to make it work in all browsers.
+Second, add Babel to transpile your JavaScript code to vanilla JavaScript, because the following code in your _index.js_ file will use non vanilla JavaScript functionalities such as [JavaScript ES6 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). Thus you have to add Babel to transpile it to vanilla JavaScript to make it work in all browsers.
 
 ```html{7,10}
 <!DOCTYPE html>
@@ -282,7 +269,7 @@ Second, add Babel to transpile your JavaScript code to vanilla JavaScript, becau
 </html>
 ```
 
-Third, you have to define an element with an id. That's the crucial place where React can hook into the DOM. There is no need to define further HTML elements in your *index.html* file, because everything else will be defined in your React code in the *index.js* file.
+Third, you have to define an element with an id. That's the crucial place where React can hook into the DOM. There is no need to define further HTML elements in your _index.html_ file, because everything else will be defined in your React code in the _index.js_ file.
 
 ```html{10}
 <!DOCTYPE html>
@@ -300,33 +287,33 @@ Third, you have to define an element with an id. That's the crucial place where 
 </html>
 ```
 
-Let's jump into the implementation in the *index.js* file. First, you can define the search request at the top of your file as you have done before in vanilla JavaScript.
+Let's jump into the implementation in the _index.js_ file. First, you can define the search request at the top of your file as you have done before in vanilla JavaScript.
 
 ```javascript
-var BASE_URL = 'https://hn.algolia.com/api/v1/';
+var BASE_URL = 'https://hn.algolia.com/api/v1/'
 
 function doSearch(query) {
-  var url = BASE_URL + 'search?query=' + query + '&hitsPerPage=200';
+  var url = BASE_URL + 'search?query=' + query + '&hitsPerPage=200'
   return fetch(url)
     .then(function (response) {
-      return response.json();
+      return response.json()
     })
     .then(function (result) {
-      return result.hits;
-    });
+      return result.hits
+    })
 }
 ```
 
-Since you have included Babel in your *index.html* file, you can refactor the last piece of code to JavaScript ES6 by using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+Since you have included Babel in your _index.html_ file, you can refactor the last piece of code to JavaScript ES6 by using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
 ```javascript
-const BASE_URL = 'https://hn.algolia.com/api/v1/';
+const BASE_URL = 'https://hn.algolia.com/api/v1/'
 
 function doSearch(query) {
-  const url = `${BASE_URL}search?query=${query}&hitsPerPage=200`;
+  const url = `${BASE_URL}search?query=${query}&hitsPerPage=200`
   return fetch(url)
-    .then(response => response.json())
-    .then(result => result.hits);
+    .then((response) => response.json())
+    .then((result) => result.hits)
 }
 ```
 
@@ -335,14 +322,11 @@ In the next part, let's hook a React component in your HTML by using ReactDOM. T
 ```javascript
 class App extends React.Component {
   render() {
-    return <h1>Hello React</h1>;
+    return <h1>Hello React</h1>
   }
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('app')
-);
+ReactDOM.render(<App />, document.getElementById('app'))
 ```
 
 The App component uses React's JSX syntax to display HTML. In JSX you can use JavaScript as well. Let's extend the rendered output to solve the defined problem in this article.
@@ -360,7 +344,7 @@ class App extends React.Component {
 
         {/* show the list of items */}
       </div>
-    );
+    )
   }
 }
 ```
@@ -370,19 +354,17 @@ The component renders a form with an input element and a button element. In addi
 ```javascript{2,3,4,5,6,7,8,9,10,11,12,13,14,15,21,22}
 class App extends React.Component {
   constructor() {
-    super();
+    super()
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   onSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
   }
 
-  onChange(e) {
-
-  }
+  onChange(e) {}
 
   render() {
     return (
@@ -395,7 +377,7 @@ class App extends React.Component {
 
         {/* show the list of items */}
       </div>
-    );
+    )
   }
 }
 ```
@@ -582,7 +564,7 @@ That's it. Both class methods update the state in synchronous or asynchronous wa
 
 You can try out the application the same way as the vanilla JavaScript application. On the command line navigate into your folder and use the http-server to serve the application.
 
-Overall both scenarios which are using vanilla JavaScript and React should have shown you a great comparison of imperative and declarative code. In imperative programming, you describe with your code *how to do something*. That's what you have done in the vanilla JavaScript scenario. In contrast, in declarative programming, you describe with your code *what you want to do*. That's the power of React and of using a library over vanilla JavaScript.
+Overall both scenarios which are using vanilla JavaScript and React should have shown you a great comparison of imperative and declarative code. In imperative programming, you describe with your code _how to do something_. That's what you have done in the vanilla JavaScript scenario. In contrast, in declarative programming, you describe with your code _what you want to do_. That's the power of React and of using a library over vanilla JavaScript.
 
 The implementation of both examples is quite small and should show you that the problem can be solved by both approaches. I would argue that the vanilla JavaScript solution is even better suited for this problem. However, once you scale your application, it becomes more complex in vanilla JavaScript to manage the DOM, DOM manipulations and the application state. There would come a point in time where you would end up with the infamous spaghetti code like it happened for lots of jQuery applications in the past. In React, you keep your code declarative and can describe a whole HTML hierarchy with components. These components manage their own state, can be reused and composed into each other. You can describe a whole component tree with them. React keeps your application readable, maintainable and scalable. It's fairly simple to split up a component into multiple components.
 

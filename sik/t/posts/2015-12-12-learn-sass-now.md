@@ -1,6 +1,6 @@
 ---
 date: 2015-12-12
-title: "Learn Sass Now: A Guide to Installing, Using and Understanding Sass"
+title: 'Learn Sass Now: A Guide to Installing, Using and Understanding Sass'
 template: post
 thumbnail: '../thumbnails/sass.png'
 slug: learn-sass-now
@@ -263,15 +263,15 @@ There is no specific right or wrong way to do this. Look it up and you'll find p
 - **sass/**
   - main.scss
   - **base/**
-    - _variables.scss
-    - _mixins.scss
-    - _reset.scss
+    - \_variables.scss
+    - \_mixins.scss
+    - \_reset.scss
   - **components/**
-    - _typography.scss
-    - _grid.scss
-    - _buttons.scss
-    - _navigation.scss
-    - _sections.scss
+    - \_typography.scss
+    - \_grid.scss
+    - \_buttons.scss
+    - \_navigation.scss
+    - \_sections.scss
 
 Here is a more visual version of that project layout.
 

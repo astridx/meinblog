@@ -1,13 +1,13 @@
 ---
-title: "Lessons learned from Give and Take"
-description: "Adam Grant dives deep into the spectrum of altruistic to selfish personalities. Anyone might be able to identify his or her own personal traits. Adam Grant shows that you can apply the principles of giving and taking even in companies or communities..."
-date: "2017-04-19T13:50:46+02:00"
-categories: ["Growth"]
-keywords: ["book summary give take"]
-hashtags: ["#100DaysOfCode", "#growth"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'Lessons learned from Give and Take'
+description: 'Adam Grant dives deep into the spectrum of altruistic to selfish personalities. Anyone might be able to identify his or her own personal traits. Adam Grant shows that you can apply the principles of giving and taking even in companies or communities...'
+date: '2017-04-19T13:50:46+02:00'
+categories: ['Growth']
+keywords: ['book summary give take']
+hashtags: ['#100DaysOfCode', '#growth']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -277,11 +277,11 @@ Powerless communication is the opposite: "Powerless communicators tend to speak 
 
 Adam Grant mentions several language basics in powerless communication.
 
-* Hesitations: well, you know, ...
-* Hedges: kinda, probably, ...
-* Disclaimer: it might be not the best approach, but ...
-* Tag questions: that's a good approach, isn't it?
-* Intensifiers: very, quite, ...
+- Hesitations: well, you know, ...
+- Hedges: kinda, probably, ...
+- Disclaimer: it might be not the best approach, but ...
+- Tag questions: that's a good approach, isn't it?
+- Intensifiers: very, quite, ...
 
 Powerless communication earns prestige: "There's no limit to the amount of respect and admiration that we can dole out. This means that prestige usually has more lasting value, and it's worth examining how people earn it."
 
@@ -401,9 +401,9 @@ If you take more time, by listening to a person, you can wait for clues that rev
 
 #### Start out as Giver, Become a Matcher
 
-Once you revealed a person as a taker, it makes sense to shift the reciprocity style to a matcher when being a giver. The strategy is called *tit for tat* by game theorists: "Start out cooperating, and stay cooperative unless your counterpart competes. When your counterpart competes, match the behavior by competing too. This is a wildly effective form of matching that has won many game theory tournaments."
+Once you revealed a person as a taker, it makes sense to shift the reciprocity style to a matcher when being a giver. The strategy is called _tit for tat_ by game theorists: "Start out cooperating, and stay cooperative unless your counterpart competes. When your counterpart competes, match the behavior by competing too. This is a wildly effective form of matching that has won many game theory tournaments."
 
-An advanced strategy is called the *generous tit for tat*: "Never forget a good turn, but occasionally forgive a bad one." You should be generous in a third of your actions, even though the counterpart acts as taker. "Generous tit for tat achieves a powerful balance of rewarding giving and discouraging taking, without being overly punitive."
+An advanced strategy is called the _generous tit for tat_: "Never forget a good turn, but occasionally forgive a bad one." You should be generous in a third of your actions, even though the counterpart acts as taker. "Generous tit for tat achieves a powerful balance of rewarding giving and discouraging taking, without being overly punitive."
 
 #### Say No
 

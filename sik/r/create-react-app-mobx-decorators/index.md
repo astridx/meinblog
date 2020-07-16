@@ -1,13 +1,13 @@
 ---
-title: "MobX (with Decorators) in create-react-app"
-description: "Everything you need to know about using MobX in a create-react-app with React. The article shows you all the different edge cases on how to activate JavaScript decorators, how to use MobX without decorators, and as bonus how to use MobX in Next.js. Afterward, you are prepared to setup your application with MobX and React.js ..."
-date: "2017-10-10T13:50:46+02:00"
-categories: ["React", "MobX"]
-keywords: ["create-react-app mobx decorators"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'MobX (with Decorators) in create-react-app'
+description: 'Everything you need to know about using MobX in a create-react-app with React. The article shows you all the different edge cases on how to activate JavaScript decorators, how to use MobX without decorators, and as bonus how to use MobX in Next.js. Afterward, you are prepared to setup your application with MobX and React.js ...'
+date: '2017-10-10T13:50:46+02:00'
+categories: ['React', 'MobX']
+keywords: ['create-react-app mobx decorators']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -25,13 +25,13 @@ npm install --save mobx mobx-react
 Whereas the former is used as your state management solution, the latter is used to connect the state layer to your React view layer. Now you can use it to create state containers or, as in the following example, to leverage local component state instead of using React's local state:
 
 ```javascript
-import React, { Component } from 'react';
-import { extendObservable } from 'mobx';
-import { observer }  from 'mobx-react';
+import React, { Component } from 'react'
+import { extendObservable } from 'mobx'
+import { observer } from 'mobx-react'
 
 class App extends Component {
   constructor() {
-    super();
+    super()
 
     extendObservable(this, {
       counter: 0,
@@ -39,11 +39,11 @@ class App extends Component {
   }
 
   onIncrement = () => {
-    this.counter++;
+    this.counter++
   }
 
   onDecrement = () => {
-    this.counter--;
+    this.counter--
   }
 
   render() {
@@ -51,14 +51,18 @@ class App extends Component {
       <div>
         {this.counter}
 
-        <button onClick={this.onIncrement} type="button">Increment</button>
-        <button onClick={this.onDecrement} type="button">Decrement</button>
+        <button onClick={this.onIncrement} type="button">
+          Increment
+        </button>
+        <button onClick={this.onDecrement} type="button">
+          Decrement
+        </button>
       </div>
-    );
+    )
   }
 }
 
-export default observer(App);
+export default observer(App)
 ```
 
 Whereas the `extendObservable` makes sure to create an observable value, the `observer` makes sure that the `App` component reacts when an observable value changes. The reaction leads to a re-rendering of the component. After all, that would be all the essentials to use MobX without decorators in create-react-app.
@@ -155,25 +159,25 @@ So what about decorators in React and create-react-app?
 
 The current situation is that the maintainers of create-react-app are holding decorators back until Babel supports them in a stable stage:
 
-> *"Our position is simple: we add transforms that are either stable enough (like async/await) or heavily used by Facebook (like class properties). Only that lets us be confident in suggesting them, because if something changes in the standard, we’ll write and release a codemod to migrate away from them."* (related issues [1](https://github.com/facebookincubator/create-react-app/issues/411) & [2](https://github.com/facebookincubator/create-react-app/issues/214))
+> _"Our position is simple: we add transforms that are either stable enough (like async/await) or heavily used by Facebook (like class properties). Only that lets us be confident in suggesting them, because if something changes in the standard, we’ll write and release a codemod to migrate away from them."_ (related issues [1](https://github.com/facebookincubator/create-react-app/issues/411) & [2](https://github.com/facebookincubator/create-react-app/issues/214))
 
 But what if you want to use decorators for your create-react-app + MobX application right now?
 
 ```javascript{5,7}
-import React, { Component } from 'react';
-import { observable } from 'mobx';
-import { observer }  from 'mobx-react';
+import React, { Component } from 'react'
+import { observable } from 'mobx'
+import { observer } from 'mobx-react'
 
 @observer
 class App extends Component {
-  @observable counter = 0;
+  @observable counter = 0
 
   onIncrement = () => {
-    this.counter++;
+    this.counter++
   }
 
   onDecrement = () => {
-    this.counter--;
+    this.counter--
   }
 
   render() {
@@ -181,23 +185,27 @@ class App extends Component {
       <div>
         {this.counter}
 
-        <button onClick={this.onIncrement} type="button">Increment</button>
-        <button onClick={this.onDecrement} type="button">Decrement</button>
+        <button onClick={this.onIncrement} type="button">
+          Increment
+        </button>
+        <button onClick={this.onDecrement} type="button">
+          Decrement
+        </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 Running this code in a plain create-react-app application will yield a `Unexpected token` error in the developer console. You would have to add decorators to your Babel configuration. However, create-react-app doesn't give you access to the Babel configuration. There is only one way to access it: ejecting.
 
 **Basically there are four steps to use decorators in create-react-app:**
 
-* type `npm run eject` on the command line, if you have bootstrapped your app with create-react-app
-* install the necessary Babel plugin `npm install --save-dev @babel/plugin-proposal-decorators`
-* add the following Babel configuration to your *package.json*
+- type `npm run eject` on the command line, if you have bootstrapped your app with create-react-app
+- install the necessary Babel plugin `npm install --save-dev @babel/plugin-proposal-decorators`
+- add the following Babel configuration to your _package.json_
 
 ```javascript{2,3,4}
 "babel": {
@@ -210,7 +218,7 @@ Running this code in a plain create-react-app application will yield a `Unexpect
 },
 ```
 
-* install mobx and mobx-react, if you didn't do it already `npm install --save mobx mobx-react`
+- install mobx and mobx-react, if you didn't do it already `npm install --save mobx mobx-react`
 
 Now you should be able to use the @ annotation in create-react-app. The previous example has shown how to use decorators for MobX's local state management in a React component.
 
@@ -231,7 +239,7 @@ npm install --save mobx mobx-react
 npm install --save-dev babel-plugin-transform-decorators-legacy
 ```
 
-Second, add the decorator support to your *.babelrc* file at the root of the project:
+Second, add the decorator support to your _.babelrc_ file at the root of the project:
 
 ```javascript
 {

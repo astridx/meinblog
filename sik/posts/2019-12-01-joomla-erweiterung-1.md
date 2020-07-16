@@ -8,10 +8,10 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
-Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte. 
+Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
 
 ![Menuitem Joomla Componente](../images/j4x1x3.png)
 
@@ -57,8 +57,7 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 	</updateservers>
 	<dlid prefix="dlid=" suffix="" />
 </extension>
-``` 
-
+```
 
 ```php
 <?php
@@ -118,9 +117,9 @@ class Com_FoosInstallerScript
 		return true;
 	}
 }
-``` 
+```
 
-~~~~ {#c1591434413 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/services/provider.php"}
+```{#c1591434413 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/services/provider.php"}
 <?php
 \defined('_JEXEC') or die;
 use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
@@ -150,11 +149,13 @@ return new class implements ServiceProviderInterface
 		);
 	}
 };
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 \scriptsize
-~~~~ {#c1591434414 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Controller/DisplayController.php"}
+
+```{#c1591434414 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Controller/DisplayController.php"}
 <?php
 namespace Joomla\Component\Foos\Administrator\Controller;
 \defined('_JEXEC') or die;
@@ -167,11 +168,13 @@ class DisplayController extends BaseController
 		return parent::display();
 	}
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 \scriptsize
-~~~~ {#c1591434415 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Extension/FoosComponent.php"}
+
+```{#c1591434415 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Extension/FoosComponent.php"}
 <?php
 namespace Joomla\Component\Foos\Administrator\Extension;
 defined('JPATH_PLATFORM') or die;
@@ -191,22 +194,26 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 		$this->getRegistry()->register('foosadministrator', new AdministratorService);
 	}
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 \scriptsize
-~~~~ {#c1591434416 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php"}
+
+```{#c1591434416 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php"}
 <?php
 namespace Joomla\Component\Foos\Administrator\Service\HTML;
 defined('JPATH_BASE') or die;
 class AdministratorService
 {
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 \scriptsize
-~~~~ {#c1591434417 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/View/Foos/HtmlView.php"}
+
+```{#c1591434417 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/View/Foos/HtmlView.php"}
 <?php
 namespace Joomla\Component\Foos\Administrator\View\Foos;
 \defined('_JEXEC') or die;
@@ -218,22 +225,27 @@ class HtmlView extends BaseHtmlView
 		parent::display($tpl);
 	}
 }
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 \scriptsize
-~~~~ {#c1591434418 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/tmpl/foos/default.php"}
+
+```{#c1591434418 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/tmpl/foos/default.php"}
 <?php
 \defined('_JEXEC') or die;
 ?>
 Hello Foos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 \scriptsize
-~~~~ {#c1591434419 .html .numberLines startFrom="1" caption="src/components/com_foos/index.html"}
+
+```{#c1591434419 .html .numberLines startFrom="1" caption="src/components/com_foos/index.html"}
 <!DOCTYPE html><title></title>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
 \normalsize
 
 ## Teste deine Joomla-Komponente
@@ -241,7 +253,7 @@ Hello Foos
 1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.
 
 2. Öffne das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deiner eben kopierten Komponente. Wähle diese aus und klicke auf die Schaltfläche `Install`.
 
@@ -255,4 +267,4 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 ![Menuitem Joomla Componente](../images/j4x1x3.png)
 
-Bis hierhin war das kein Hexenwerk. Dafür haben wir aber eine solide Grundlage für die weiteren Schritte. 
+Bis hierhin war das kein Hexenwerk. Dafür haben wir aber eine solide Grundlage für die weiteren Schritte.

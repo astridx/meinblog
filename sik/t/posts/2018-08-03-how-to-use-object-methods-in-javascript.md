@@ -38,7 +38,9 @@ const job = {
       ? 'is accepting applications'
       : 'is not currently accepting applications'
 
-    console.log(`The ${this.position} position is ${this.type} and ${accepting}.`)
+    console.log(
+      `The ${this.position} position is ${this.type} and ${accepting}.`
+    )
   },
 }
 
@@ -84,7 +86,7 @@ console.log(keys)
 
 ```js
 // Iterate through the keys
-Object.keys(employees).forEach(key => {
+Object.keys(employees).forEach((key) => {
   let value = employees[key]
 
   console.log(`${key}: ${value}`)
@@ -170,7 +172,7 @@ Once we have the key/value pair arrays, we can easily use the `forEach()` method
 const entries = Object.entries(operatingSystem)
 
 // Loop through the results
-entries.forEach(entry => {
+entries.forEach((entry) => {
   let key = entry[0]
   let value = entry[1]
 

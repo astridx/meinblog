@@ -25,7 +25,7 @@ A JavaScript class is a type of function. Classes are declared with the `class` 
 
 ```js
 // Initializing a function with a function expression
-const x = function() {}
+const x = function () {}
 
 // Initializing a class with a class expression
 const y = class {}
@@ -54,7 +54,7 @@ Object.getPrototypeOf(y)
 We can see that the code declared with `function` and `class` both return a function `[[Prototype]]`. With prototypes, we learned that any function can become a constructor instance using the `new` keyword.
 
 ```js
-const x = function() {}
+const x = function () {}
 
 // Initialize a constructor from a function
 const constructorFromFunction = new x()
@@ -130,7 +130,7 @@ function Hero(name, level) {
 }
 
 // Adding a method to the constructor
-Hero.prototype.greet = function() {
+Hero.prototype.greet = function () {
   return `${this.name} says hello.`
 }
 ```
@@ -173,7 +173,6 @@ We can see in the output that the `constructor()` and `greet()` functions were a
 ## Extending a Class
 
 An advantageous feature of constructor functions and classes is that they can be extended into new object blueprints based off the parent. This is prevents repetition of code for objects that are similar but need some additional or more specific features.
-
 
 New constructor functions can be created from the parent using the [call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) method. In the example below, we will create a more specific character class called `Mage`, and assign the properties of `Hero` to it using `call()`, as well as adding an additional property.
 
@@ -252,7 +251,7 @@ function Hero(name, level) {
 }
 
 // Adding a method to the constructor
-Hero.prototype.greet = function() {
+Hero.prototype.greet = function () {
   return `${this.name} says hello.`
 }
 

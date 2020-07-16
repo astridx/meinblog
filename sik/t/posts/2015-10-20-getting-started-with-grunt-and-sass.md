@@ -12,7 +12,7 @@ tags:
   - sass
 ---
 
-You've probably heard of [Grunt](http://gruntjs.com/), the JavaScript task runner that runs on [Node.js](https://nodejs.org/en/). Maybe you've tried to get it up and running, but got lost or confused during setup. Maybe you know of it, but aren't sure how it can be useful or if it's worth the time invested. 
+You've probably heard of [Grunt](http://gruntjs.com/), the JavaScript task runner that runs on [Node.js](https://nodejs.org/en/). Maybe you've tried to get it up and running, but got lost or confused during setup. Maybe you know of it, but aren't sure how it can be useful or if it's worth the time invested.
 
 I'm going to show you how Grunt can be useful, and I'm not going to throw command lines at you and assume what you might already have installed. I'll let you know exactly what you need to install, and in what order, to start optimizing your workflow.
 
@@ -248,7 +248,7 @@ Here is your compiled `Gruntfile.js` skeleton.
 
 ```js
 // Load Grunt
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     // Tasks
@@ -306,9 +306,9 @@ main {
 **src/script.js** - alert on button click.
 
 ```js
-;(function($) {
-  $(function() {
-    $('button').click(function() {
+;(function ($) {
+  $(function () {
+    $('button').click(function () {
       alert('jQuery alert!')
     })
   })
@@ -441,7 +441,7 @@ Here's your completed Gruntfile.js.
 
 ```js
 // Load Grunt
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 

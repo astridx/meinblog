@@ -1,13 +1,13 @@
 ---
-title: "JavaScript Variable with Question Mark"
+title: 'JavaScript Variable with Question Mark'
 description: "The question mark after a JavaScript variable declaration is used as shorthand conditional operator to assign a variable conditionally. It's called ternary operator ..."
-date: "2019-09-30T07:52:46+02:00"
-categories: ["JavaScript"]
-keywords: ["javascript question mark"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-09-30T07:52:46+02:00'
+categories: ['JavaScript']
+keywords: ['javascript question mark']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,11 +15,11 @@ author: ""
 If you are new to JavaScript, the question mark after a variable may be confusing to you. Let's shed some light into it. The question mark in JavaScript is commonly used as **conditional operator** -- called **[ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)** when used with a colon (:) and a question mark (?) -- to assign a variable name conditionally.
 
 ```javascript
-const isBlack = false;
+const isBlack = false
 
-const text = isBlack ? 'Yes, black!' : 'No, something else.';
+const text = isBlack ? 'Yes, black!' : 'No, something else.'
 
-console.log(text);
+console.log(text)
 // "No, something else."
 ```
 
@@ -28,16 +28,16 @@ Either the expression is true and returns the value after the question mark (?) 
 This kind of JavaScript variable declaration is used as a **shorthand** though. You can achieve the same with the **"if-else"-statement** in JavaScript as conditional operator in contrast to the ternary operator, but it turns out more verbose:
 
 ```javascript
-const isBlack = false;
+const isBlack = false
 
-let text;
+let text
 if (isBlack) {
-  text = 'Yes, black!';
+  text = 'Yes, black!'
 } else {
-  text = 'No, something else.';
+  text = 'No, something else.'
 }
 
-console.log(text);
+console.log(text)
 // "No, something else."
 ```
 
@@ -49,10 +49,10 @@ const person = {
   pet: {
     name: 'Trixi',
   },
-};
+}
 
-const petName = person.pet?.name;
-console.log(petName);
+const petName = person.pet?.name
+console.log(petName)
 // "Trixi"
 ```
 
@@ -61,10 +61,10 @@ If the person has no pet, the output would be `undefined` without throwing a Jav
 ```javascript
 const person = {
   name: 'Robin Wieruch',
-};
+}
 
-const petName = person.pet?.name;
-console.log(petName);
+const petName = person.pet?.name
+console.log(petName)
 // undefined
 ```
 
@@ -73,14 +73,14 @@ When this feature was not available in JavaScript, it was common to use the AND 
 ```javascript
 const person = {
   name: 'Robin Wieruch',
-};
+}
 
-let petName = person.pet && person.pet.name;
-console.log(petName);
+let petName = person.pet && person.pet.name
+console.log(petName)
 // undefined
 
-petName = person.pet ? person.pet.name : undefined;
-console.log(petName);
+petName = person.pet ? person.pet.name : undefined
+console.log(petName)
 // undefined
 ```
 

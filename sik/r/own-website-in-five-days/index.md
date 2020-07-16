@@ -1,12 +1,12 @@
 ---
-title: "Technical Cheatsheet: 5 days to your own Website"
-description: "Technical cheatsheet to create and host your own website in five days. You will learn how to use Hugo and DigitalOcean to publish your website online. Hugo is a static website generator to..."
-date: "2016-11-09T13:50:46+02:00"
-categories: ["Web Development"]
-keywords: ["website in five days", "hugo website"]
-hashtags: ["#100DaysOfCode", "#programming"]
-contribute: ""
-author: ""
+title: 'Technical Cheatsheet: 5 days to your own Website'
+description: 'Technical cheatsheet to create and host your own website in five days. You will learn how to use Hugo and DigitalOcean to publish your website online. Hugo is a static website generator to...'
+date: '2016-11-09T13:50:46+02:00'
+categories: ['Web Development']
+keywords: ['website in five days', 'hugo website']
+hashtags: ['#100DaysOfCode', '#programming']
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -43,23 +43,23 @@ The quickstart guide already provides you with a solution to publish your websit
 
 Good things about hosting on DigitalOcean:
 
-* maximum flexibility
-* scalable infrastructure
-* great user interface and experience
-* multiple websites on one instance
+- maximum flexibility
+- scalable infrastructure
+- great user interface and experience
+- multiple websites on one instance
 
 You can Sign Up on [DigitalOcean](https://m.do.co/c/fb27c90322f3). After that you can create your first Droplet to host your website(s). Choose Ubuntu from the selection of Distributions.
 
 You can get more guidance in the following step by step tutorial:
 
-* [How To Create Your First DigitalOcean Droplet Virtual Server](https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet-virtual-server)
+- [How To Create Your First DigitalOcean Droplet Virtual Server](https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet-virtual-server)
 
 ### Ubuntu + Hugo
 
 Now you will have to follow two DigitalOcean tutorials in a row. First to setup your infrastructure and second to install Hugo on your Ubuntu machine. Since I provide only the cheatsheet, I will save you the time to summarize the steps myself.
 
-* [Initial Server Setup with Ubuntu](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
-* [How To Install and Use Hugo, a Static Site Generator](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04)
+- [Initial Server Setup with Ubuntu](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
+- [How To Install and Use Hugo, a Static Site Generator](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-hugo-a-static-site-generator-on-ubuntu-14-04)
 
 The second tutorial will partly show you again how to build an own website with Hugo. You could skip the part, but also could do it once again to get used to it. Additionally it will give you some more learnings in using your Ubuntu machine.
 
@@ -67,13 +67,13 @@ The second tutorial will partly show you again how to build an own website with 
 
 Locally you use `hugo server` to serve your website. On the Ubuntu machine you will use Nginx. The next tutorial shows you how to install Nginx and how to serve multiple websites. Later it’s fine if you have only one website or multiple websites.
 
-* [How To Set Up Nginx Server Blocks](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-14-04-lts)
+- [How To Set Up Nginx Server Blocks](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-14-04-lts)
 
 ### Domain
 
 DigitalOcean doesn't give the option to buy domains. But they give advice how to apply your bought domain on your Droplet from a wide range of domain registrars.
 
-* [How to Point to DigitalOcean Nameservers From Common Domain Registrars](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars)
+- [How to Point to DigitalOcean Nameservers From Common Domain Registrars](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars)
 
 Basically you only have to set the nameservers and wait some time until the changes apply. When you have followed the Nginx chapter, you should test your domain with one of your two server blocks. It should work before you continue.
 
@@ -86,7 +86,7 @@ Now let's get back to your local machine. You already experiment with Hugo, but 
 In your `config.toml` of your Hugo website make sure to use your domain address:
 
 ```javascript
-baseurl = "http://www.mywebsiteurl.com/"
+baseurl = 'http://www.mywebsiteurl.com/'
 ```
 
 Otherwise Nginx will have problems to resolve the path to your website.
@@ -97,7 +97,7 @@ Once you are content with your website on your local machine you can publish it.
 
 You can upload your Hugo website to GitHub by creating a new repository.
 
-* [GitHub: Create A Repo](https://help.github.com/articles/create-a-repo/)
+- [GitHub: Create A Repo](https://help.github.com/articles/create-a-repo/)
 
 When your website is on GitHub, you can clone it to your Ubuntu machine:
 

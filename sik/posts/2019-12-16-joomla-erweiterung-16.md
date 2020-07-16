@@ -8,7 +8,7 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 Wenn du mit Joomla! arbeitetest, kennst du es aus anderen Komponenten: Elemente haben einen Status, der veränderbar ist. Dieser Abschnitt zeigt dir, wie du Items versteckst, veröffentlichst, terminierst, archivierst und löschst.
@@ -17,7 +17,7 @@ Wenn du mit Joomla! arbeitetest, kennst du es aus anderen Komponenten: Elemente 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12b...t13) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -25,7 +25,7 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
 2. Die Datenbank ist wieder geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Deinstallieren und Neuinstallieren ist aufwendig. Deshalb verrate ich dir eine einfachere Methode.
 

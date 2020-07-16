@@ -1,13 +1,13 @@
 ---
-title: "How to publish a npm package?"
-description: "A tutorial on how to publish a npm package to the npm registry with Node, Babel and Webpack for getting started as an open source contributor ..."
-date: "2019-05-12T07:52:46+02:00"
-categories: ["Node", "Tooling", "JavaScript"]
-keywords: ["publish npm package"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to publish a npm package?'
+description: 'A tutorial on how to publish a npm package to the npm registry with Node, Babel and Webpack for getting started as an open source contributor ...'
+date: '2019-05-12T07:52:46+02:00'
+categories: ['Node', 'Tooling', 'JavaScript']
+keywords: ['publish npm package']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,29 +20,29 @@ But what about getting started as a producer for the JavaScript ecosystem yourse
 
 Before we can get started, [create an account for npm](https://www.npmjs.com/) on their website. Afterward, execute `npm login` on the command line and provide your credentials to it (given you have installed [Node.js](https://nodejs.org/en/)). This last step connects you with the npm registry on the command line and that's how you are able to publish packages or new versions of your packages via the command line later on.
 
-*Security Note: You may also want to add two factor authentication (2FA) for signing in to npm and for publishing new packages. Don't worry about it now, but revisit this topic later to secure your npm account and to prevent malicious code being published from your account by someone else to the npm ecosystem.*
+_Security Note: You may also want to add two factor authentication (2FA) for signing in to npm and for publishing new packages. Don't worry about it now, but revisit this topic later to secure your npm account and to prevent malicious code being published from your account by someone else to the npm ecosystem._
 
 # Publishing a Node Package with Babel
 
 In this section, we will not use a sophisticated bundler (Webpack, Rollup) yet, because everything is possible with bare bones Node.js and Babel to bundle our code. Let's see how this works. Later you will see how this can be done with Webpack too.
 
-First, create a few lines of source code that you want to share later as open source project via npm. Usually the source code ends up in a *src/* folder and the entry point to all source code is an *src/index.js* file:
+First, create a few lines of source code that you want to share later as open source project via npm. Usually the source code ends up in a _src/_ folder and the entry point to all source code is an _src/index.js_ file:
 
 ```javascript
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 
 function subtract(a, b) {
-  return a - b;
+  return a - b
 }
 
-export { subtract };
+export { subtract }
 
-export default add;
+export default add
 ```
 
-As you can see, you need to export at least *something* from this file. Also note that you could have more files or (nested) folders in your *src/* folder. Your bundler makes sure to wrap everything up. However, ultimately you want to export everything from this *src/index.js* file that's used from the outside (e.g. another project that installs your node package).
+As you can see, you need to export at least _something_ from this file. Also note that you could have more files or (nested) folders in your _src/_ folder. Your bundler makes sure to wrap everything up. However, ultimately you want to export everything from this _src/index.js_ file that's used from the outside (e.g. another project that installs your node package).
 
 If you haven't installed the neccessary packages for Babel from the previous tutorial yet, you can do it with the following command:
 
@@ -50,7 +50,7 @@ If you haven't installed the neccessary packages for Babel from the previous tut
 npm install @babel/core @babel/node @babel/preset-env @babel/cli --save-dev
 ```
 
-In your *package.json* file, implement the following lines for bundling your project with Babel:
+In your _package.json_ file, implement the following lines for bundling your project with Babel:
 
 ```javascript{5,7}
 {
@@ -71,9 +71,9 @@ In your *package.json* file, implement the following lines for bundling your pro
 }
 ```
 
-The npm build script uses Babel to compile all files from your *src/* folder to a *lib/* folder. If the *lib/* folder isn't present yet, the script will create it for you. Also the `main` property points to the generated *lib/index.js* file.
+The npm build script uses Babel to compile all files from your _src/_ folder to a _lib/_ folder. If the _lib/_ folder isn't present yet, the script will create it for you. Also the `main` property points to the generated _lib/index.js_ file.
 
-Before you can run the build script, you may want to add Babel presets to your Babel transpile step. You can create a *.babelrc* file to add the desired presets. The previous tutorial has shown you how these Babel presets allow you to add additional JavaScript features:
+Before you can run the build script, you may want to add Babel presets to your Babel transpile step. You can create a _.babelrc_ file to add the desired presets. The previous tutorial has shown you how these Babel presets allow you to add additional JavaScript features:
 
 ```javascript
 {
@@ -83,7 +83,7 @@ Before you can run the build script, you may want to add Babel presets to your B
 }
 ```
 
-In your *package.json*, you can add additional information for your node package. The mandatory `name` property will be the name to be used in the npm registry, the `description` property helps other people to get to know your node package, and some other information point developers to further resources:
+In your _package.json_, you can add additional information for your node package. The mandatory `name` property will be the name to be used in the npm registry, the `description` property helps other people to get to know your node package, and some other information point developers to further resources:
 
 ```javascript
 {
@@ -104,30 +104,30 @@ In your *package.json*, you can add additional information for your node package
 
 You should also add a README.md markdown file where you tell people how to install your node package and how to use it. You can also give instructions on how to contribute to your project.
 
-Finally, run `npm run build` to convert your source code to a bundled JavaScript file. After executing the command, in case you used the same source code in your *src/index.js* file, you should find the following source code in your *lib/index.js* file:
+Finally, run `npm run build` to convert your source code to a bundled JavaScript file. After executing the command, in case you used the same source code in your _src/index.js_ file, you should find the following source code in your _lib/index.js_ file:
 
 ```javascript
-"use strict";
+'use strict'
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.subtract = subtract;
-exports["default"] = void 0;
+Object.defineProperty(exports, '__esModule', {
+  value: true,
+})
+exports.subtract = subtract
+exports['default'] = void 0
 
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 
 function subtract(a, b) {
-  return a - b;
+  return a - b
 }
 
-var _default = add;
-exports["default"] = _default;
+var _default = add
+exports['default'] = _default
 ```
 
-Now your bundled source code is ready to be published on npm as node package/library. Since you have to run `npm run build` before every publish, it's a good practice to automate this step with a prepare script in your *package.json* file:
+Now your bundled source code is ready to be published on npm as node package/library. Since you have to run `npm run build` before every publish, it's a good practice to automate this step with a prepare script in your _package.json_ file:
 
 ```javascript{8}
 {
@@ -149,7 +149,7 @@ Now your bundled source code is ready to be published on npm as node package/lib
 }
 ```
 
-Also you may want to add a *.npmignore* file to your project, to ignore all files/folders which shouldn't be included in the published node package. For instance, the *src/* folder shouldn't be included, because only the *lib/* folder matters for the final node package. Thus, in your *.npmignore* file, add the following line:
+Also you may want to add a _.npmignore_ file to your project, to ignore all files/folders which shouldn't be included in the published node package. For instance, the _src/_ folder shouldn't be included, because only the _lib/_ folder matters for the final node package. Thus, in your _.npmignore_ file, add the following line:
 
 ```javascript
 src/
@@ -157,11 +157,11 @@ src/
 
 Finally, you can publish your node package with `npm publish`. Maybe you will be asked for your npm credentials again. After the publishing, you can "npm install" your open sourced library in any other project.
 
-If you want to upgrade your node package; change the source code, and afterward go into your *package.json* file and increase the version number. Then do a `npm publish` and your recent version should be published to the npm registry.
+If you want to upgrade your node package; change the source code, and afterward go into your _package.json_ file and increase the version number. Then do a `npm publish` and your recent version should be published to the npm registry.
 
 ### Exercises:
 
-* Read more about [how to test your open sourced node package with Mocha and Chai](/node-js-testing-mocha-chai/)
+- Read more about [how to test your open sourced node package with Mocha and Chai](/node-js-testing-mocha-chai/)
 
 # Publishing a Node Package with Webpack
 
@@ -173,7 +173,7 @@ First, install the necessary node packages for Webpack to your project:
 npm install webpack webpack-cli --save-dev
 ```
 
-Then, instead of using Babel to covnert and to move your source code files from *src/* to *lib/*, let's use Webpack to perform the task:
+Then, instead of using Babel to covnert and to move your source code files from _src/_ to _lib/_, let's use Webpack to perform the task:
 
 ```javascript{7}
 {
@@ -195,7 +195,7 @@ Then, instead of using Babel to covnert and to move your source code files from 
 }
 ```
 
-Since the Webpack task points to a *webpack.config.js* file, create this file and implement the following Webpack configuration:
+Since the Webpack task points to a _webpack.config.js_ file, create this file and implement the following Webpack configuration:
 
 ```javascript
 module.exports = {
@@ -205,11 +205,11 @@ module.exports = {
     filename: 'index.js',
     library: 'my-library-name',
     libraryTarget: 'umd',
-  }
-};
+  },
+}
 ```
 
-Basically the Webpack configuration needs information about the entry and output for the task. The entry configuration stays the same for our *src/index.js* file. However, the output configuration takes more information than only the output path (e.g. */lib*) and file (e.g. *index.js*). The library name should be the same as the name for the node package in the *package.json*. The library target should be set to umd.
+Basically the Webpack configuration needs information about the entry and output for the task. The entry configuration stays the same for our _src/index.js_ file. However, the output configuration takes more information than only the output path (e.g. _/lib_) and file (e.g. _index.js_). The library name should be the same as the name for the node package in the _package.json_. The library target should be set to umd.
 
 Since we want to use Babel in Webpack, we need to add Babel in our build step for all JavaScript files:
 
@@ -231,7 +231,7 @@ module.exports = {
       },
     ],
   },
-};
+}
 ```
 
 Then, a so called loader for Babel which is used in our Webpack configuration needs to be installed:
@@ -240,13 +240,13 @@ Then, a so called loader for Babel which is used in our Webpack configuration ne
 npm install babel-loader --save-dev
 ```
 
-Now you are ready to give `npm run build` a shot. Afterward, you should find a new *lib/index.js* file which looks different from the previous one, because Webpack adds further build steps (e.g. minification) per default. Finally, you can increase your node packages version in your *package.json* file again and execute `npm publish` to get your Webpack built open source project to npm.
+Now you are ready to give `npm run build` a shot. Afterward, you should find a new _lib/index.js_ file which looks different from the previous one, because Webpack adds further build steps (e.g. minification) per default. Finally, you can increase your node packages version in your _package.json_ file again and execute `npm publish` to get your Webpack built open source project to npm.
 
-*Note: Did you notice the JSX configuration in our Webpack configuration? It's not needed for our case, because we are dealing with JavaScript files. However, it might give a good hint on how to advance the setup from a JavaScript open source library to a React open source library.*
+_Note: Did you notice the JSX configuration in our Webpack configuration? It's not needed for our case, because we are dealing with JavaScript files. However, it might give a good hint on how to advance the setup from a JavaScript open source library to a React open source library._
 
 ### Exercises:
 
-* Read more about [Code Splitting in Webpack](/webpack-code-splitting-library)
+- Read more about [Code Splitting in Webpack](/webpack-code-splitting-library)
 
 <Divider />
 

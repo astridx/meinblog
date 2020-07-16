@@ -1,13 +1,13 @@
 ---
-title: "How to test React with Jest"
-description: "Learn how to test your React application with Jest. Jest will be used as a test runner & testing library for unit, integration, and Snapshot Tests in a React with Webpack application ..."
-date: "2019-07-16T13:56:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel", "Jest"]
-keywords: ["react testing jest", "react jest setup", "react jest"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to test React with Jest'
+description: 'Learn how to test your React application with Jest. Jest will be used as a test runner & testing library for unit, integration, and Snapshot Tests in a React with Webpack application ...'
+date: '2019-07-16T13:56:46+02:00'
+categories: ['React', 'Tooling', 'Webpack', 'Babel', 'Jest']
+keywords: ['react testing jest', 'react jest setup', 'react jest']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,54 +20,54 @@ The Jest setup allows you to add optional configuration, to introduce a setup ro
 
 # Jest Testing in React Setup
 
-Before implementing the test setup and writing the first React component tests, you will need a simple React application which can be tested in the first place. Start with the *src/index.js* file where you can import and render the App component which is not implemented yet:
+Before implementing the test setup and writing the first React component tests, you will need a simple React application which can be tested in the first place. Start with the _src/index.js_ file where you can import and render the App component which is not implemented yet:
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from './App';
+import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'))
 ```
 
-The App component in your *src/App.js* file will be a [React Function Component](/react-function-component/) with [React Hooks](/react-hooks/). It uses axios as third-party library, so make sure to install the node package on the command line with `npm install axios` for your React application.
+The App component in your _src/App.js_ file will be a [React Function Component](/react-function-component/) with [React Hooks](/react-hooks/). It uses axios as third-party library, so make sure to install the node package on the command line with `npm install axios` for your React application.
 
 ```javascript
-import React from 'react';
-import axios from 'axios';
+import React from 'react'
+import axios from 'axios'
 
 export const dataReducer = (state, action) => {
   if (action.type === 'SET_ERROR') {
-    return { ...state, list: [], error: true };
+    return { ...state, list: [], error: true }
   }
 
   if (action.type === 'SET_LIST') {
-    return { ...state, list: action.list, error: null };
+    return { ...state, list: action.list, error: null }
   }
 
-  throw new Error();
-};
+  throw new Error()
+}
 
 const initialData = {
   list: [],
   error: null,
-};
+}
 
 const App = () => {
-  const [counter, setCounter] = React.useState(0);
-  const [data, dispatch] = React.useReducer(dataReducer, initialData);
+  const [counter, setCounter] = React.useState(0)
+  const [data, dispatch] = React.useReducer(dataReducer, initialData)
 
   React.useEffect(() => {
     axios
       .get('http://hn.algolia.com/api/v1/search?query=react')
-      .then(response => {
-        dispatch({ type: 'SET_LIST', list: response.data.hits });
+      .then((response) => {
+        dispatch({ type: 'SET_LIST', list: response.data.hits })
       })
       .catch(() => {
-        dispatch({ type: 'SET_ERROR' });
-      });
-  }, []);
+        dispatch({ type: 'SET_ERROR' })
+      })
+  }, [])
 
   return (
     <div>
@@ -87,28 +87,28 @@ const App = () => {
       {data.error && <div className="error">Error</div>}
 
       <ul>
-        {data.list.map(item => (
+        {data.list.map((item) => (
           <li key={item.objectID}>{item.title}</li>
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 export const Counter = ({ counter }) => (
   <div>
     <p>{counter}</p>
   </div>
-);
+)
 
-export default App;
+export default App
 ```
 
 The React application is doing two things:
 
-* First, it renders a Counter component which [receives props](/react-pass-props-to-component/) to render a counter property. The counter property is managed as state up in the App component with a [useState React Hook](/react-usestate-hook/). In addition, the counter state can be updated with two buttons by incrementing and decrementing the state.
+- First, it renders a Counter component which [receives props](/react-pass-props-to-component/) to render a counter property. The counter property is managed as state up in the App component with a [useState React Hook](/react-usestate-hook/). In addition, the counter state can be updated with two buttons by incrementing and decrementing the state.
 
-* Second, the App component [fetches data](/react-fetching-data) from a [third-party API](/what-is-an-api-javascript/) when it's rendered for the first time. Here we are using [React's useReducer Hook](/react-usereducer-hook/) to manage the data state -- which is either the actual data or an error. If there is an error, we render an error message. If there is data, we render the data as a [list of items in our React component](/react-list-components/).
+- Second, the App component [fetches data](/react-fetching-data) from a [third-party API](/what-is-an-api-javascript/) when it's rendered for the first time. Here we are using [React's useReducer Hook](/react-usereducer-hook/) to manage the data state -- which is either the actual data or an error. If there is an error, we render an error message. If there is data, we render the data as a [list of items in our React component](/react-list-components/).
 
 Note that we already export our two components and the reducer function from the file to make them testable in our test file(s) later on. This way, every component and the reducer can be tested in isolation -- which makes especially sense for the reducer function to test the state transitions from one to another state. That's what you would call a real unit test: The function is tested with an input and the test asserts an expected output.
 
@@ -120,7 +120,7 @@ In order to get our tests up and running, set up Jest by installing it on the co
 npm install --save-dev jest
 ```
 
-In your *package.json* file, create a new npm script which runs Jest:
+In your _package.json_ file, create a new npm script which runs Jest:
 
 ```javascript{5}
 {
@@ -160,7 +160,7 @@ In this Jest configuration file, add the following test pattern matching to run 
 }
 ```
 
-The `testRegex` configuration is a regular expression that can be used to specify the naming of the files where your Jest tests will be located. In this case, the files will have the name `*spec.js`. That's how you can separate them clearly from other files in your *src/* folder. Finally, add a test file next to your App component's file in a new `src/App.spec.js` file. First, create the test file on the command line:
+The `testRegex` configuration is a regular expression that can be used to specify the naming of the files where your Jest tests will be located. In this case, the files will have the name `*spec.js`. That's how you can separate them clearly from other files in your _src/_ folder. Finally, add a test file next to your App component's file in a new `src/App.spec.js` file. First, create the test file on the command line:
 
 ```javascript
 touch src/App.spec.js
@@ -171,9 +171,9 @@ And second, implement your first test case in a test suite in this new file:
 ```javascript
 describe('My Test Suite', () => {
   it('My Test Case', () => {
-    expect(true).toEqual(true);
-  });
-});
+    expect(true).toEqual(true)
+  })
+})
 ```
 
 Now you should be able to run `npm test` to execute your test suites with your test cases. The test should be green (valid, successful) for your previous test case, but if you change the test to something else, let's say `expect(true).toEqual(false);`, it should be red (invalid, failed). Congratulations, you have run your first test with Jest!
@@ -196,9 +196,9 @@ Now you can run your Jest tests in watch mode. Doing it this way, you would have
 
 ### Exercises:
 
-* Read more about [getting started with Jest](https://jestjs.io/docs/en/getting-started)
-* Read more about [Jest's Globals](https://jestjs.io/docs/en/api)
-* Read more about [Jest's Assertions](https://jestjs.io/docs/en/expect)
+- Read more about [getting started with Jest](https://jestjs.io/docs/en/getting-started)
+- Read more about [Jest's Globals](https://jestjs.io/docs/en/api)
+- Read more about [Jest's Assertions](https://jestjs.io/docs/en/expect)
 
 # Jest Snapshot Testing in React
 
@@ -213,18 +213,18 @@ npm install --save-dev react-test-renderer
 Second, implement your first Snapshot Test with Jest. First, render a component with the new renderer, transform it into JSON, and match the snapshot to the previously stored snapshot:
 
 ```javascript
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import renderer from 'react-test-renderer'
 
-import { Counter } from './App';
+import { Counter } from './App'
 
 describe('Counter', () => {
   test('snapshot renders', () => {
-    const component = renderer.create(<Counter counter={1} />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+    const component = renderer.create(<Counter counter={1} />)
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
 ```
 
 Now run your Jest tests in watch mode again: `npm run test:watch`. Running your tests in watch mode, when having Snapshot Tests in place, gives you the opportunity to run your tests interactively with Jest. For instance, once your watch mode is active, change the div element to a span element in your React component:
@@ -234,7 +234,7 @@ export const Counter = ({ counter }) => (
   <span>
     <p>{counter}</p>
   </span>
-);
+)
 ```
 
 The command line with the tests running in watch mode should show you a failed Snapshot Test:
@@ -284,7 +284,7 @@ export const Counter = ({ counter }) => (
   <div>
     <p>{counter}</p>
   </div>
-);
+)
 ```
 
 Afterward, the Snapshot Test should turn green again:
@@ -306,39 +306,39 @@ Watch Usage: Press w to show more.
 Anyway, try it yourself by changing the component and either accepting the new snapshot or fixing your React component again. Also add another Snapshot Test for your App component:
 
 ```javascript{4,6,7,8,9,10,11,12}
-import React from 'react';
-import renderer from 'react-test-renderer';
+import React from 'react'
+import renderer from 'react-test-renderer'
 
-import App, { Counter } from './App';
+import App, { Counter } from './App'
 
 describe('App', () => {
   test('snapshot renders', () => {
-    const component = renderer.create(<App />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+    const component = renderer.create(<App />)
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
 
 describe('Counter', () => {
   test('snapshot renders', () => {
-    const component = renderer.create(<Counter counter={1} />);
-    let tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+    const component = renderer.create(<Counter counter={1} />)
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
 ```
 
 Most of the time, Snapshot Tests look the same for every React component. You render the component, transform its rendered output to JSON to make it comparable, and match it with the previous snapshot. Having Snapshot Tests in place keeps testing React components more lightweight. Also, Snapshot Tests can be perfectly used to supplement your unit testing and integration tests, because they don't test any implementation logic explicitly.
 
-*Note: If you are using [Styled Components](/react-styled-components/) in React for CSS-in-JS, check out [jest-styled-components](https://github.com/styled-components/jest-styled-components) for testing your CSS style defintions with snapshot tests as well.*
+_Note: If you are using [Styled Components](/react-styled-components/) in React for CSS-in-JS, check out [jest-styled-components](https://github.com/styled-components/jest-styled-components) for testing your CSS style defintions with snapshot tests as well._
 
 ### Exercises:
 
-* Check your generated *src/__snapshots__/App.spec.js.snap* file
-  * Understand why this file exists and how this contributes to diffing snapshots against each other
-* Get used to accepting or denying (fixing your component) snapshots
-  * Create new React Components and test them with Snapshot Tests
-* Read more about [Jest Snapshot Testing](https://jestjs.io/docs/en/snapshot-testing)
+- Check your generated _src/**snapshots**/App.spec.js.snap_ file
+  - Understand why this file exists and how this contributes to diffing snapshots against each other
+- Get used to accepting or denying (fixing your component) snapshots
+  - Create new React Components and test them with Snapshot Tests
+- Read more about [Jest Snapshot Testing](https://jestjs.io/docs/en/snapshot-testing)
 
 # Jest Unit/Integration Testing in React
 
@@ -443,7 +443,7 @@ You have seen how Jest can also be used to test plain JavaScript functions. It d
 
 ### Exercises:
 
-* [Explore more Jest Features and how to use them for Snapshot Testing](https://jestjs.io/docs/en/tutorial-react)
+- [Explore more Jest Features and how to use them for Snapshot Testing](https://jestjs.io/docs/en/tutorial-react)
 
 <Divider />
 

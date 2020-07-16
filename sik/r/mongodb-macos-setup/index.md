@@ -1,13 +1,13 @@
 ---
-title: "How to setup MongoDB on MacOS"
+title: 'How to setup MongoDB on MacOS'
 description: "A installation guide for a MongoDB on MacOS setup for having a NoSQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date: "2020-04-26T07:50:46+02:00"
-categories: ["Node"]
-keywords: ["mongodb macos", "mongodb setup", "mongodb os setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2020-04-26T07:50:46+02:00'
+categories: ['Node']
+keywords: ['mongodb macos', 'mongodb setup', 'mongodb os setup']
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />

@@ -133,52 +133,32 @@ Starting from the least significant value (the one all the way to the right), yo
 Here's how that looks:
 
 ```js
-  1 * 2**7
-+ 1 * 2**6
-+ 1 * 2**5
-+ 1 * 2**4
-+ 1 * 2**3
-+ 1 * 2**2
-+ 1 * 2**1
-+ 1 * 2**0
-= 255
+1 * 2 ** 7 +
+1 * 2 ** 6 +
+1 * 2 ** 5 +
+1 * 2 ** 4 +
+1 * 2 ** 3 +
+1 * 2 ** 2 +
+1 * 2 ** 1 +
+1 * 2 ** 0 = 255
 ```
 
 And after evaluating the exponents, you can write the equation like this:
 
 ```js
-  1 * 128
-+ 1 * 64
-+ 1 * 32
-+ 1 * 16
-+ 1 * 8
-+ 1 * 4
-+ 1 * 2
-+ 1 * 1
-= 255
+1 * 128 + 1 * 64 + 1 * 32 + 1 * 16 + 1 * 8 + 1 * 4 + 1 * 2 + 1 * 1 = 255
 ```
 
 Or simply:
 
 ```js
-  128
-+ 64
-+ 32
-+ 16
-+ 8
-+ 4
-+ 2
-+ 1
-= 255
+128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
 ```
 
 For a more simplified example, if the number was `101` it would be:
 
 ```js
-  1 * 2**2
-+ 0 * 2**1
-+ 1 * 2**0
-= 5
+1 * 2 ** 2 + 0 * 2 ** 1 + 1 * 2 ** 0 = 5
 ```
 
 #### Decimal: 25510
@@ -194,28 +174,19 @@ If that doesn't make sense, think about it in decimal. You know `007` and `070` 
 So as we can see, the position of the digit determines the value, and we can use the same calculation to get `255` in decimal.
 
 ```js
-  2 * 10**2
-+ 5 * 10**1
-+ 5 * 10**0
-= 255
+2 * 10 ** 2 + 5 * 10 ** 1 + 5 * 10 ** 0 = 255
 ```
 
 Or:
 
 ```js
-  2 * 100
-+ 5 * 10
-+ 5 * 1
-= 255
+2 * 100 + 5 * 10 + 5 * 1 = 255
 ```
 
 Or:
 
 ```js
-  200
-+ 50
-+ 5
-= 255
+200 + 50 + 5 = 255
 ```
 
 #### Hexadecimal: FF16
@@ -223,25 +194,19 @@ Or:
 This concept applies to any base. Hexadecimal is base 16, and `F` represents the largest value, `15`.
 
 ```js
-  15 * 16**1
-+ 15 * 16**0
-= 255
+15 * 16 ** 1 + 15 * 16 ** 0 = 255
 ```
 
 Or:
 
 ```js
-  15 * 16
-+ 15 * 1
-= 255
+15 * 16 + 15 * 1 = 255
 ```
 
 Or:
 
 ```js
-  240
-+ 15
-= 255
+240 + 15 = 255
 ```
 
 #### It's all the same number
@@ -253,13 +218,13 @@ Hexadecimal is a convenient, compact way to represent the value of a byte, as it
 ```js
 // Binary - 11111111
 1 * 2 ** 7 +
-1 * 2 ** 6 +
-1 * 2 ** 5 +
-1 * 2 ** 4 +
-1 * 2 ** 3 +
-1 * 2 ** 2 +
-1 * 2 ** 1 +
-1 * 2 ** 0
+  1 * 2 ** 6 +
+  1 * 2 ** 5 +
+  1 * 2 ** 4 +
+  1 * 2 ** 3 +
+  1 * 2 ** 2 +
+  1 * 2 ** 1 +
+  1 * 2 ** 0
 
 // Decimal - 255
 2 * 10 ** 2 + 5 * 10 ** 1 + 5 * 10 ** 0
@@ -447,7 +412,9 @@ function hexdump(filename) {
 
     for (let value of block) {
       hexArray.push(value.toString(16).padStart(2, '0'))
-      asciiArray.push(value >= 0x20 && value < 0x7f ? String.fromCharCode(value) : '.')
+      asciiArray.push(
+        value >= 0x20 && value < 0x7f ? String.fromCharCode(value) : '.'
+      )
     }
 
     let hexString = hexArray.join(' ')
@@ -493,7 +460,9 @@ function hexdump(filename) {
 
     for (let value of block) {
       hexArray.push(value.toString(16).padStart(2, '0'))
-      asciiArray.push(value >= 0x20 && value < 0x7f ? String.fromCharCode(value) : '.')
+      asciiArray.push(
+        value >= 0x20 && value < 0x7f ? String.fromCharCode(value) : '.'
+      )
     }
 
     // if block is less than 16 bytes, calculate remaining space

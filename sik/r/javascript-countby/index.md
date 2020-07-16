@@ -1,13 +1,13 @@
 ---
-title: "How to countBy in JavaScript"
-description: "Learn how to countBy in JavaScript without Lodash but just using vanilla JavaScript to count objects by property ..."
-date: "2020-06-02T14:50:46+02:00"
-categories: ["JavaScript"]
-keywords: ["javascript countBy"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to countBy in JavaScript'
+description: 'Learn how to countBy in JavaScript without Lodash but just using vanilla JavaScript to count objects by property ...'
+date: '2020-06-02T14:50:46+02:00'
+categories: ['JavaScript']
+keywords: ['javascript countBy']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -21,11 +21,9 @@ const users = [
   { name: 'Jim', color: 'blue' },
   { name: 'Sam', color: 'blue' },
   { name: 'Eddie', color: 'green' },
-];
+]
 
-const countByColor = // TODO: implement countBy
-
-console.log(countByColor);
+const countByColor = console.log(countByColor) // TODO: implement countBy
 
 // { blue: 2, green: 1 }
 ```
@@ -36,8 +34,8 @@ We can use JavaScript's reduce method on an array to iterate over every item:
 const countByColor = users.reduce((acc, value) => {
   // TODO: implement countBy
 
-  return acc;
-}, {});
+  return acc
+}, {})
 ```
 
 We start with an empty object as our accumulator (here `acc`) for this reduce's [callback function](/javascript-callback-function). For every iteration of the function, we return the changed (here still unchanged) accumulator. Let's implement countBy:
@@ -45,13 +43,13 @@ We start with an empty object as our accumulator (here `acc`) for this reduce's 
 ```javascript{2-6}
 const usersByColor = users.reduce((acc, value) => {
   if (!acc[value.color]) {
-    acc[value.color] = 1;
+    acc[value.color] = 1
   } else {
-    acc[value.color]++;
+    acc[value.color]++
   }
 
-  return acc;
-}, {});
+  return acc
+}, {})
 ```
 
 If the accumulator has no count initialized for currently iterated value's color, we initialize it with the count of 1 allocated in the object whereas the color is the key. If there is a count, we can just increment it by one with the ++ operator.

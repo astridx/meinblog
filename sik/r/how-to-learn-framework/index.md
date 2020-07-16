@@ -1,13 +1,13 @@
 ---
-title: "How to learn React, Angular or Vue in 2019?"
-description: "How to learn React, Vue, Angular or any other framework? For many developers this question pops up every day. The article should give actionable guidance on how to escape the analysis paralysis and how to get from consuming to producing by following a simple learning framework ..."
-date: "2018-01-31T13:50:46+02:00"
-categories: ["Starter", "React", "JavaScript", "Vue", "Angular"]
-keywords: ["learn react", "react book", "reactjs book"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#VueJs,#AngularJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to learn React, Angular or Vue in 2019?'
+description: 'How to learn React, Vue, Angular or any other framework? For many developers this question pops up every day. The article should give actionable guidance on how to escape the analysis paralysis and how to get from consuming to producing by following a simple learning framework ...'
+date: '2018-01-31T13:50:46+02:00'
+categories: ['Starter', 'React', 'JavaScript', 'Vue', 'Angular']
+keywords: ['learn react', 'react book', 'reactjs book']
+hashtags: ['#100DaysOfCode', '#ReactJs,#VueJs,#AngularJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -30,7 +30,7 @@ In the past, I wrote about [my experiences moving from Angular to React](/reason
 
 Regardless of technical comparison or first-hand experience, many articles leave people with their [analysis paralyse](https://en.wikipedia.org/wiki/Analysis_paralysis) dilemma. Many of those articles have no immediate impact because they don't provide a clear actionable advice in the end. They just provide more input for consumer friendly readers. Instead of nudging them towards the act of producing, their readers keep consuming and wander around from one to another comparison article. They are never starting to learn the thing itself. They consume, but never end up to produce.
 
-Note: I write about *them* as if I would exclude myself from the list, but that's not the case. I tend to over analysis things too and end up in this situation myself. The personality trait isn't a bad asset when you actually end up working as a developer, but in order to get there, it can be frustrating.
+Note: I write about _them_ as if I would exclude myself from the list, but that's not the case. I tend to over analysis things too and end up in this situation myself. The personality trait isn't a bad asset when you actually end up working as a developer, but in order to get there, it can be frustrating.
 
 After all, if you want to learn something new, you have to take the leap from consuming to producing. It doesn't matter if you choose Vue, Angular or React, because they all solve the same problem. They enable you to build web applications. That's it. And believe it or not, if you mastered one of them, it's not too difficult to jump on another one if you have learned JavaScript properly.
 
@@ -42,22 +42,22 @@ After all, JavaScript is the foundation of the major three or any other JS frame
 
 You should master the core principles of JavaScript. Whether you take the bottom up (JavaScript -> Framework) or (Framework -> JavaScript) is up to your personal learning philosophy. What matters is that you understand JavaScript to move effortless from one to another library. It's not only applicable for React, Vue or Angular, but also for libraries such as [Redux or MobX](/redux-mobx/). When you move from one technology to the next, you will need to understand the underlying mechanisms. So just take your time to learn about these core principles:
 
-* Functions are first-class citizens in JavaScript
-* bind(), apply(), and call()
-* Scopes and [Closures](/javascript-closure)
-* this
-* Objects (e.g. `Object.keys(myObj).map(key => myMap[key])`)
-* Arrays (e.g. `[1, 2].reduce((sum, summand) => sum + summand, 0)`)
-* Prototypical Inheritance -> ES6 Class
-* Callbacks and Promises
-* [Event Loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
-* Event Bubbling
-* Regular Expressions
-* Error handling (`promise.then(...).catch(...)`, `try { } catch(e) { }`)
-* JavaScript ES6 and beyond
-* Hoisting, Memoization
-* Declarative vs imperative programming
-* Functional vs object-oriented programming
+- Functions are first-class citizens in JavaScript
+- bind(), apply(), and call()
+- Scopes and [Closures](/javascript-closure)
+- this
+- Objects (e.g. `Object.keys(myObj).map(key => myMap[key])`)
+- Arrays (e.g. `[1, 2].reduce((sum, summand) => sum + summand, 0)`)
+- Prototypical Inheritance -> ES6 Class
+- Callbacks and Promises
+- [Event Loop](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+- Event Bubbling
+- Regular Expressions
+- Error handling (`promise.then(...).catch(...)`, `try { } catch(e) { }`)
+- JavaScript ES6 and beyond
+- Hoisting, Memoization
+- Declarative vs imperative programming
+- Functional vs object-oriented programming
 
 You don't need to be a wizard in these things. I am certainly not. But you should at least understand these principles to have a clue on how JavaScript works and how to use it without relying on heavyweight frameworks/libraries. For instance, people introduce far too early utility libraries such as [Lodash](https://lodash.com/). But most of the basic cases can be done with vanilla JavaScript. I found [this article](https://medium.com/dev-bits/a-perfect-guide-for-cracking-a-javascript-interview-a-developers-perspective-23a5c0fa4d0d) which explains lots of the mentioned core principles from above. You should check it out.
 
@@ -95,14 +95,14 @@ So what happens after you have built your first project? Show it to the communit
 
 After all, it boils down to just a simple framework to learn any framework (or anything else):
 
-* (1) narrow down your learning material and supplement it with material for all your senses
-* (2) consume the learning material and start to produce on the side
-* (3) pick up a project that keeps you motivated
-* (4) break out in a cold sweat and take hours to tinker on your project
-* (5) get help with your search engine, Slack groups or StackOverflow
-* (6) finish you project and gather feedback from others
-* (7) if still stuck in analysis paralysis, implement the same project in another framework
-* repeat (3) to (6)
+- (1) narrow down your learning material and supplement it with material for all your senses
+- (2) consume the learning material and start to produce on the side
+- (3) pick up a project that keeps you motivated
+- (4) break out in a cold sweat and take hours to tinker on your project
+- (5) get help with your search engine, Slack groups or StackOverflow
+- (6) finish you project and gather feedback from others
+- (7) if still stuck in analysis paralysis, implement the same project in another framework
+- repeat (3) to (6)
 
 <Divider />
 

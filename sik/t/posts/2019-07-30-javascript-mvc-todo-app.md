@@ -135,20 +135,24 @@ class Model {
 
   // Map through all todos, and replace the text of the todo with the specified id
   editTodo(id, updatedText) {
-    this.todos = this.todos.map(todo =>
-      todo.id === id ? { id: todo.id, text: updatedText, complete: todo.complete } : todo
+    this.todos = this.todos.map((todo) =>
+      todo.id === id
+        ? { id: todo.id, text: updatedText, complete: todo.complete }
+        : todo
     )
   }
 
   // Filter a todo out of the array by id
   deleteTodo(id) {
-    this.todos = this.todos.filter(todo => todo.id !== id)
+    this.todos = this.todos.filter((todo) => todo.id !== id)
   }
 
   // Flip the complete boolean on the specified todo
   toggleTodo(id) {
-    this.todos = this.todos.map(todo =>
-      todo.id === id ? { id: todo.id, text: todo.text, complete: !todo.complete } : todo
+    this.todos = this.todos.map((todo) =>
+      todo.id === id
+        ? { id: todo.id, text: todo.text, complete: !todo.complete }
+        : todo
     )
   }
 }
@@ -377,7 +381,7 @@ class Controller {
     this.onTodoListChanged(this.model.todos)
   }
 
-  onTodoListChanged = todos => {
+  onTodoListChanged = (todos) => {
     this.view.displayTodos(todos)
   }
 }
@@ -390,7 +394,7 @@ We'll create handlers for the events in the controller.
 <div class="filename">Controller</div>
 
 ```js
-handleAddTodo = todoText => {
+handleAddTodo = (todoText) => {
   this.model.addTodo(todoText)
 }
 
@@ -398,11 +402,11 @@ handleEditTodo = (id, todoText) => {
   this.model.editTodo(id, todoText)
 }
 
-handleDeleteTodo = id => {
+handleDeleteTodo = (id) => {
   this.model.deleteTodo(id)
 }
 
-handleToggleTodo = id => {
+handleToggleTodo = (id) => {
   this.model.toggleTodo(id)
 }
 ```

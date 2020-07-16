@@ -1,13 +1,19 @@
 ---
-title: "React Global State without Redux"
-description: "A tutorial to showcase how to use React global state without Redux. There are React patterns that can be used to have an application wide state in React without a state management library ..."
-date: "2018-10-02T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react global state without redux", "react state management without redux", "react context API", "react prop drilling"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Global State without Redux'
+description: 'A tutorial to showcase how to use React global state without Redux. There are React patterns that can be used to have an application wide state in React without a state management library ...'
+date: '2018-10-02T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react global state without redux',
+    'react state management without redux',
+    'react context API',
+    'react prop drilling',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,32 +25,29 @@ The article is a short tutorial on how to achieve global state in React without 
 As simple as it sounds, you can have global state in React by managing your React state at your top level component. For instance, your top level component has the name App and manages the state for a list and a toggle to show/hide the list:
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       toggle: true,
       list: ['a', 'b', 'c'],
-    };
+    }
   }
 
   onToggleList = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
-  };
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
+  }
 
   render() {
     return (
       <div>
-        <Toggle
-          toggle={this.state.toggle}
-          onToggleList={this.onToggleList}
-        />
+        <Toggle toggle={this.state.toggle} onToggleList={this.onToggleList} />
         {this.state.toggle && <List list={this.state.list} />}
       </div>
-    );
+    )
   }
 }
 
@@ -52,7 +55,7 @@ const Toggle = ({ toggle, onToggleList }) => (
   <button type="button" onClick={onToggleList}>
     {toggle ? 'Hide' : 'Show'}
   </button>
-);
+)
 
 const List = ({ list }) => (
   <ul>
@@ -60,11 +63,11 @@ const List = ({ list }) => (
       <Item key={item} item={item} />
     ))}
   </ul>
-);
+)
 
-const Item = ({ item }) => <li>{item}</li>;
+const Item = ({ item }) => <li>{item}</li>
 
-export default App;
+export default App
 ```
 
 All state is [passed as props](/react-pass-props-to-component/) to the child components. In this simple scenario, the props are used in the immediate child components (List, Toggle). But you can imagine that the props can be passed down more than one component down the component hierarchy (Item). On the other hand, each component which is interested in updating the global state (Toggle), which is managed in the App component, receives a function from the App component to perform a state update (onToggleList). That's how the top level component, in this case the App component, can be used to manage global state in React without a third-party state management library such as Redux.
@@ -80,17 +83,17 @@ When using this architecture for your application with routing, you will still h
 ```javascript
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       toggle: true,
       list: ['a', 'b', 'c'],
-    };
+    }
   }
 
   onToggleList = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
-  };
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
+  }
 
   render() {
     return (
@@ -101,25 +104,19 @@ class App extends Component {
           <Route
             exact
             path={'/list'}
-            component={() => <ListPage
-              list={this.state.list}
-              toggle={this.state.toggle}
-              onToggleList={this.onToggleList}
-            />}
+            component={() => (
+              <ListPage
+                list={this.state.list}
+                toggle={this.state.toggle}
+                onToggleList={this.onToggleList}
+              />
+            )}
           />
-          <Route
-            exact
-            path={'/account'}
-            component={() => <AccountPage />}
-          />
-          <Route
-            exact
-            path={'/profile'}
-            component={() => <ProfilePage />}
-          />
+          <Route exact path={'/account'} component={() => <AccountPage />} />
+          <Route exact path={'/profile'} component={() => <ProfilePage />} />
         </div>
       </Switch>
-    );
+    )
   }
 }
 ```
@@ -131,28 +128,25 @@ In this scenario, you still have a global state in the App component but maybe a
 ```javascript
 class ListPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       toggle: true,
       list: ['a', 'b', 'c'],
-    };
+    }
   }
 
   onToggleList = () => {
-    this.setState(prevState => ({ toggle: !prevState.toggle }));
-  };
+    this.setState((prevState) => ({ toggle: !prevState.toggle }))
+  }
 
   render() {
     return (
       <div>
-        <Toggle
-          toggle={this.state.toggle}
-          onToggleList={this.onToggleList}
-        />
+        <Toggle toggle={this.state.toggle} onToggleList={this.onToggleList} />
         {this.state.toggle && <List list={this.state.list} />}
       </div>
-    );
+    )
   }
 }
 ```
@@ -160,28 +154,17 @@ class ListPage extends Component {
 This would leave the App component as a stateless component, because it hasn't to manage any state.
 
 ```javascript
-const App = () =>
+const App = () => (
   <Switch>
     <div>
       <Navigation />
 
-      <Route
-        exact
-        path={'/list'}
-        component={() => <ListPage />}
-      />
-      <Route
-        exact
-        path={'/account'}
-        component={() => <AccountPage />}
-      />
-      <Route
-        exact
-        path={'/profile'}
-        component={() => <ProfilePage />}
-      />
+      <Route exact path={'/list'} component={() => <ListPage />} />
+      <Route exact path={'/account'} component={() => <AccountPage />} />
+      <Route exact path={'/profile'} component={() => <ProfilePage />} />
     </div>
   </Switch>
+)
 ```
 
 However, once you need global state again, which can be distributed to all Page components or update from within various Page components, you can deploy state in your App component again. Otherwise the state gets managed as semi global state in each page component on its own.
@@ -190,8 +173,8 @@ However, once you need global state again, which can be distributed to all Page 
 
 Prop drilling is a phenomena in React that happens when props are passed down multiple levels in a React component hierarchy and components in between are not interested in this props, so they just pass it along to the next child component. This problem can happen when using only React state as global state and your application's component hierarchy grows vertically. However, there are two techniques to prevent the prop drilling phenomena until there is really no way around a proper state management library such as Redux or MobX. You can read more about these techniques over here:
 
-* [React Slot Pattern](https://github.com/the-road-to-learn-react/react-slot-pattern-example)
-* [React's Context API](/react-context/)
+- [React Slot Pattern](https://github.com/the-road-to-learn-react/react-slot-pattern-example)
+- [React's Context API](/react-context/)
 
 However, while the React Slot Pattern is a great way to advance your React application, React's Context API shouldn't be exploited as sophisticated state management layer. It is only a way to pass props from a parent component to grandchild components without having to pass the props through all child components.
 

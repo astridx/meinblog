@@ -1,13 +1,19 @@
 ---
-title: "From Class Components to Function Components"
-description: "React Hooks change how we will write React applications in the future. This tutorial shows how to convert from React class components to React Function components with React Hooks ..."
-date: "2019-03-26T07:50:46+02:00"
-categories: ["React"]
-keywords: ["react hooks", "react hooks migration", "react hooks class component", "react hooks function component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'From Class Components to Function Components'
+description: 'React Hooks change how we will write React applications in the future. This tutorial shows how to convert from React class components to React Function components with React Hooks ...'
+date: '2019-03-26T07:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react hooks',
+    'react hooks migration',
+    'react hooks class component',
+    'react hooks function component',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -25,31 +31,27 @@ React Class Components were the go-to solution when implementing stateful compon
 ```javascript{5,6,7,11,20,25}
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: '',
-    };
+    }
   }
 
-  onChange = event => {
-    this.setState({ value: event.target.value });
-  };
+  onChange = (event) => {
+    this.setState({ value: event.target.value })
+  }
 
   render() {
     return (
       <div>
         <h1>Hello React ES6 Class Component!</h1>
 
-        <input
-          value={this.state.value}
-          type="text"
-          onChange={this.onChange}
-        />
+        <input value={this.state.value} type="text" onChange={this.onChange} />
 
         <p>{this.state.value}</p>
       </div>
-    );
+    )
   }
 }
 ```
@@ -58,9 +60,9 @@ A Function Component is able to do the same now by using a React Hook called use
 
 ```javascript{2,4,10,12}
 const App = () => {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState('')
 
-  const onChange = event => setValue(event.target.value);
+  const onChange = (event) => setValue(event.target.value)
 
   return (
     <div>
@@ -70,8 +72,8 @@ const App = () => {
 
       <p>{value}</p>
     </div>
-  );
-};
+  )
+}
 ```
 
 By nature React Function Components are way more lightweight than React Class Components. You don't need to deal with a constructor or class methods anymore, because the React Hook for state management let's you initialize component state and the other functions can be defined inline in the Function Component (e.g. `onChange()`).
@@ -85,35 +87,31 @@ Let's evolve the previous shown example for using a side-effect. First we will i
 ```javascript{6,10,11,12}
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: localStorage.getItem('myValueInLocalStorage') || '',
-    };
+    }
   }
 
   componentDidUpdate() {
-    localStorage.setItem('myValueInLocalStorage', this.state.value);
+    localStorage.setItem('myValueInLocalStorage', this.state.value)
   }
 
-  onChange = event => {
-    this.setState({ value: event.target.value });
-  };
+  onChange = (event) => {
+    this.setState({ value: event.target.value })
+  }
 
   render() {
     return (
       <div>
         <h1>Hello React ES6 Class Component!</h1>
 
-        <input
-          value={this.state.value}
-          type="text"
-          onChange={this.onChange}
-        />
+        <input value={this.state.value} type="text" onChange={this.onChange} />
 
         <p>{this.state.value}</p>
       </div>
-    );
+    )
   }
 }
 ```
@@ -127,14 +125,14 @@ Let's see how the identical feature -- synchronizing the value from the input fi
 ```javascript{3,6,7,8}
 const App = () => {
   const [value, setValue] = React.useState(
-    localStorage.getItem('myValueInLocalStorage') || '',
-  );
+    localStorage.getItem('myValueInLocalStorage') || ''
+  )
 
   React.useEffect(() => {
-    localStorage.setItem('myValueInLocalStorage', value);
-  }, [value]);
+    localStorage.setItem('myValueInLocalStorage', value)
+  }, [value])
 
-  const onChange = event => setValue(event.target.value);
+  const onChange = (event) => setValue(event.target.value)
 
   return (
     <div>
@@ -144,8 +142,8 @@ const App = () => {
 
       <p>{value}</p>
     </div>
-  );
-};
+  )
+}
 ```
 
 React's useEffect Hook runs every time one of the values in the passed array (second argument) got changed. In our case, every time the value from the input field changes, we update the local storage with it. Also the value from the local storage is used initially to set the initial value for the input field.
@@ -159,24 +157,22 @@ If the next React Component you are going to implement has to have side-effects 
 All React Hooks we have seen so far are built-in Hooks provided by React. However, the ability to combine React Hooks to new custom React Hooks, that are designed to solve a problem for you or others, makes them the perfect fit for reusable component logic. In our case, we can extract all logic for the state and the side-effect with the local storage to a custom hook:
 
 ```javascript{1,2,3,4,5,6,7,8,9,10,11,14,15,16}
-const useStateWithLocalStorage = localStorageKey => {
+const useStateWithLocalStorage = (localStorageKey) => {
   const [value, setValue] = React.useState(
-    localStorage.getItem(localStorageKey) || '',
-  );
+    localStorage.getItem(localStorageKey) || ''
+  )
 
   React.useEffect(() => {
-    localStorage.setItem(localStorageKey, value);
-  }, [value]);
+    localStorage.setItem(localStorageKey, value)
+  }, [value])
 
-  return [value, setValue];
-};
+  return [value, setValue]
+}
 
 const App = () => {
-  const [value, setValue] = useStateWithLocalStorage(
-    'myValueInLocalStorage',
-  );
+  const [value, setValue] = useStateWithLocalStorage('myValueInLocalStorage')
 
-  const onChange = event => setValue(event.target.value);
+  const onChange = (event) => setValue(event.target.value)
 
   return (
     <div>
@@ -186,11 +182,11 @@ const App = () => {
 
       <p>{value}</p>
     </div>
-  );
-};
+  )
+}
 ```
 
-The `useStateWithLocalStorage` Hook allows us to have state management, but also to synchronize the state with the browser's local storage.  Every time the component mounts, the state from the local storage is used in case the local storage has a value stored in the first place.
+The `useStateWithLocalStorage` Hook allows us to have state management, but also to synchronize the state with the browser's local storage. Every time the component mounts, the state from the local storage is used in case the local storage has a value stored in the first place.
 
 Custom Hooks put reusable logic perfectly together in one function. Whereas all this logic was scattered around in the previously seen React Class Component, React Hooks put all of these pieces together and encapsulate them. It would have been possible to add the same abstraction layer with a Higher-Order Component -- demonstrated over [here](https://github.com/the-road-to-learn-react/react-component-types/blob/master/src/App.classComponentWithHoc.js) --, but the logic is still scattered around in the Higher-Order Component then.
 

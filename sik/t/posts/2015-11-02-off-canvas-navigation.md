@@ -275,9 +275,9 @@ Finally, I'm going to add the CSS that will be toggled with JavaScript in just a
 The final step is to animate everything with jQuery. As always, I like to define jQuery first, and initiate code when the document is ready.
 
 ```js
-;(function($) {
+;(function ($) {
   // Define jQuery
-  $(function() {
+  $(function () {
     // DOM Ready
     // All scripts go here
   })

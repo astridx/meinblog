@@ -96,13 +96,13 @@ The arrow function expression syntax is a shorter way of creating a function exp
 
 ```js
 function func(a, b, c) {} // function declaration
-var func = function(a, b, c) {} // function expression
+var func = function (a, b, c) {} // function expression
 ```
 
 <div class="filename">ES6</div>
 
 ```js
-let func = a => {} // parentheses optional with one parameter
+let func = (a) => {} // parentheses optional with one parameter
 let func = (a, b, c) => {} // parentheses required with multiple parameters
 ```
 
@@ -202,8 +202,8 @@ The `function` keyword can be omitted when assigning methods on an object.
 
 ```js
 var obj = {
-  a: function(c, d) {},
-  b: function(e, f) {},
+  a: function (c, d) {},
+  b: function (e, f) {},
 }
 ```
 
@@ -279,7 +279,7 @@ Functions can be initialized with default parameters, which will be used only if
 <div class="filename">ES5</div>
 
 ```js
-var func = function(a, b) {
+var func = function (a, b) {
   b = b === undefined ? 2 : b
   return a + b
 }
@@ -339,7 +339,7 @@ function Func(a, b) {
   this.b = b
 }
 
-Func.prototype.getSum = function() {
+Func.prototype.getSum = function () {
   return this.a + this.b
 }
 
@@ -383,7 +383,7 @@ function Inheritance(a, b, c) {
 }
 
 Inheritance.prototype = Object.create(Func.prototype)
-Inheritance.prototype.getProduct = function() {
+Inheritance.prototype.getProduct = function () {
   return this.a * this.b * this.c
 }
 
@@ -428,7 +428,7 @@ Modules can be created to export and import code between files.
 export.js
 
 ```js
-let func = a => a + a
+let func = (a) => a + a
 let obj = {}
 let x = 0
 
@@ -458,7 +458,7 @@ function doSecond() {
 }
 
 function doFirst(callback) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log('Do first.')
 
     callback()
@@ -495,16 +495,16 @@ function makeRequest(method, url, callback) {
   var request = new XMLHttpRequest()
 
   request.open(method, url)
-  request.onload = function() {
+  request.onload = function () {
     callback(null, request.response)
   }
-  request.onerror = function() {
+  request.onerror = function () {
     callback(request.response)
   }
   request.send()
 }
 
-makeRequest('GET', 'https://url.json', function(err, data) {
+makeRequest('GET', 'https://url.json', function (err, data) {
   if (err) {
     throw new Error(err)
   } else {
@@ -528,10 +528,10 @@ function makeRequest(method, url) {
 }
 
 makeRequest('GET', 'https://url.json')
-  .then(event => {
+  .then((event) => {
     console.log(event.target.response)
   })
-  .catch(err => {
+  .catch((err) => {
     throw new Error(err)
   })
 ```

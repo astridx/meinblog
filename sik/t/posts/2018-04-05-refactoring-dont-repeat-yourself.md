@@ -127,7 +127,7 @@ var data = devices.map(function(device) {
 Finally, I'll do a `forEach()` loop to run the function once for each object.
 
 ```js
-data.forEach(function(device) {
+data.forEach(function (device) {
   printData(device.id, device.sessions)
 })
 ```
@@ -143,7 +143,7 @@ var sessions = {
   desktop: [6, 7, 8],
 }
 
-var printData = function(id, name, sessions) {
+var printData = function (id, name, sessions) {
   var div = document.createElement('div')
   div.id = id
   div.textContent = name + ' : ' + sessions
@@ -152,7 +152,7 @@ var printData = function(id, name, sessions) {
 
 var devices = Object.keys(sessions)
 
-var data = devices.map(function(device) {
+var data = devices.map(function (device) {
   return {
     id: device + '-container',
     name: device,
@@ -160,7 +160,7 @@ var data = devices.map(function(device) {
   }
 })
 
-data.forEach(function(device) {
+data.forEach(function (device) {
   printData(device.id, device.name, device.sessions)
 })
 ```
@@ -185,7 +185,7 @@ const printData = (id, name, sessions) => {
 
 const devices = Object.keys(sessions)
 
-const data = devices.map(device => {
+const data = devices.map((device) => {
   return {
     id: `${device}-container`,
     name: device,
@@ -193,7 +193,7 @@ const data = devices.map(device => {
   }
 })
 
-data.forEach(device => {
+data.forEach((device) => {
   printData(device.id, device.name, device.sessions)
 })
 ```

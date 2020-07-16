@@ -1,28 +1,28 @@
 ---
-date: "2017-05-10T13:50:46+02:00"
-title: "Nobody introduced me to the API"
+date: '2017-05-10T13:50:46+02:00'
+title: 'Nobody introduced me to the API'
 description: "A storytelling approach to learn about the term API. There is a knowledge gap when it comes to APIs. People assume that the knowledge about APIs is common ground, but it isn't. This article takes you on a journey to explore APIs and their empowering effects..."
-categories: ["Web Development"]
-keywords: ["what javascript api"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-author: ""
-contribute: ""
+categories: ['Web Development']
+keywords: ['what javascript api']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+author: ''
+contribute: ''
 ---
 
 <Sponsorship />
 
-It might be a common issue in teaching computer science at universities: While you learn about bubble sorts, lambda calculus and permutations, nobody mentors you about common developer subjects. In the early days at university, I often wondered: *What is an API?*
+It might be a common issue in teaching computer science at universities: While you learn about bubble sorts, lambda calculus and permutations, nobody mentors you about common developer subjects. In the early days at university, I often wondered: _What is an API?_
 
 Not everyone is fully aware of it, but APIs follow us through a multitude of programming contexts. They surround us. When I take you on the journey of how I got to know the API, you may get the idea what I mean by using APIs unconsciously most of the time. They give you an interface ranging from remote services, components in a web application to sensors in mobile devices. Interfaces are all around us.
 
-However, there is a knowledge gap when it comes to APIs. It starts when teaching programming. Teachers assume that APIs are common knowledge. The abbreviation pops up in tutorials, courses and books without any introduction. But it isn't common ground that teachers try to build on. Everyone is referring to this mysterious API, but nobody explains what it really is. My own  articles about learning programming are not excluded from this flaw. That's why I want to take you on this journey of mine when I got to know APIs.
+However, there is a knowledge gap when it comes to APIs. It starts when teaching programming. Teachers assume that APIs are common knowledge. The abbreviation pops up in tutorials, courses and books without any introduction. But it isn't common ground that teachers try to build on. Everyone is referring to this mysterious API, but nobody explains what it really is. My own articles about learning programming are not excluded from this flaw. That's why I want to take you on this journey of mine when I got to know APIs.
 
 The article is my attempt to take you on a journey by giving you an introduction to APIs. Rather than giving you a technical Wikipedia reference, this journey attempts to wrap the subject of APIs into a story that I experienced myself when I studied computer science. The journey shows how a multitude of concrete fragments, like APIs in different programming contexts, can become something abstract, like interoperability between entities, in the end. If you are curious how to convey this information in JavaScript afterward, checkout the great blog post by Tania Rascia: [How to Connect to an API with JavaScript](https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/).
 
 Apart from the introduction to APIs, the journey might also give you insights into other topics: studying computer science, the general struggle and clumsiness when learning programming and the experience of perceiving the bigger picture eventually.
 
-Hopefully, the journey makes a good story that along the way introduces you  to APIs and the empowering feeling that comes with them.
+Hopefully, the journey makes a good story that along the way introduces you to APIs and the empowering feeling that comes with them.
 
 # Table of Contents
 
@@ -56,9 +56,9 @@ At a later point during my university time, we were introduced properly to Java.
 
 In this course, we were introduced to the paradigm of object-oriented programming paired with syntax and patterns in Java. There were these packages again. They could be public, protected or private. To be fair, yes, they can also be package-private. But teaching these is not my goal in this article. The point is that these are [access level modifiers](http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html) in Java. They give you permissions to use functionalities from external places to the source code. Functionalities from classes. Functionalities from packages that bundle multiple classes. Basically they described the access level of the API. But nobody used the term API to describe those things in a practical use case. They were access level modifiers.
 
-# Meeting the $
+# Meeting the \$
 
-No, it was not about cash :) It was about jQuery. The first time I used jQuery was in a web development course teaching JavaScript in HTML. I must admit that the $ object confused me and I still wonder if others feel the same when they meet the object the first time. Wouldn't it be easier to simply name it jQuery instead of $? I have often mistaken the $ for a language specific syntax rather than an object coming from the jQuery library. That's why I didn't perceive jQuery as a library in the first place, but as well integrated thing in the JavaScript language.
+No, it was not about cash :) It was about jQuery. The first time I used jQuery was in a web development course teaching JavaScript in HTML. I must admit that the $ object confused me and I still wonder if others feel the same when they meet the object the first time. Wouldn't it be easier to simply name it jQuery instead of $? I have often mistaken the \$ for a language specific syntax rather than an object coming from the jQuery library. That's why I didn't perceive jQuery as a library in the first place, but as well integrated thing in the JavaScript language.
 
 The course went straight into jQuery to manipulate DOM nodes without using the native browser API at all. Yes, the browser has an API as well. To be more specific, there are different APIs. For instance, one of it is the API for the DOM. You can use the document object to access your HTML, to traverse through it and to manipulate it. By substituting the native DOM API with jQuery in an early developer's career, no one ended up learning the basics.
 
@@ -120,7 +120,7 @@ A RESTful service is stateless? Wow, that means I would be able to use multiple 
 
 In my Bachelor thesis I made the straight forward attempt to compare different solutions that enable RESTful architectures in Java. I ended up comparing Jersey, RESTEasy and Restlet, libraries that enable you to build RESTful APIs, under the requirements of the offifical standardization [JAX-RS](https://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services). In addition, I compared their well doing under the light of the next generation of JAX-RS 2.0.
 
-I guess every programmer would have said that it is a useless attempt to compare these libraries based on the standardization. However, personally it was a great learning exercise. It again taught me  more in the fields of APIs. When comparing and implementing a RESTful service with three different libraries, you get to know the fine-grained differences. I was able to get to know the constraints of each library. I was able to get a feeling about good and bad API design. In addition, I could evaluate the constraints compared to an official standardization.
+I guess every programmer would have said that it is a useless attempt to compare these libraries based on the standardization. However, personally it was a great learning exercise. It again taught me more in the fields of APIs. When comparing and implementing a RESTful service with three different libraries, you get to know the fine-grained differences. I was able to get to know the constraints of each library. I was able to get a feeling about good and bad API design. In addition, I could evaluate the constraints compared to an official standardization.
 
 Leaving the topic of distributed systems, I want to thank my teacher, who had this lasting impact by lecturing distributed systems and for giving me the chance to write my Bachelor thesis about this topic.
 
@@ -142,12 +142,12 @@ APIs are the programming interfaces to applications. [Simple](https://www.infoq.
 
 When learning programming, at some point concrete fragments, that are learned over time, create an abstraction. Suddenly, what Wikipedia said about APIs makes sense. The bigger picture unfolds in front of you. However, it takes time and concreteness in the fragments over the course of learning. In the case of an API, you suddenly become aware of the interoperability of systems and the contexts of using APIs:
 
-* the DOM API in the browser
-* the sensors in your smartphone
-* the remote web service
-* the library or framework in your web application
-* the packages in your Java application
-* the component in your React, Angular or Vue application
+- the DOM API in the browser
+- the sensors in your smartphone
+- the remote web service
+- the library or framework in your web application
+- the packages in your Java application
+- the component in your React, Angular or Vue application
 
 Everyone should be aware of it. Everyone is unconsciously an API architect. Eventually, others have to use your functionalities. Design and implement it thoughtfully. Keep it lightweight, simple to use and with clear constraints. That's what makes your API durable over time.
 

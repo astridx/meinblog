@@ -1,13 +1,13 @@
 ---
-title: "React Context"
-description: "React Context is a powerful feature for passing props down the component tree without the need to tell components in between about them. React Context creates a Provider and Consumer component for tunnelling React components ..."
-date: "2019-10-17T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react context"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Context'
+description: 'React Context is a powerful feature for passing props down the component tree without the need to tell components in between about them. React Context creates a Provider and Consumer component for tunnelling React components ...'
+date: '2019-10-17T13:50:46+02:00'
+categories: ['React']
+keywords: ['react context']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -59,7 +59,7 @@ Do you remember the last time when you had to pass props several components down
                       +----------------+
 ```
 
-In return, this clutters every component in between which has to pass down these props without using them. React Context gives you a way out of this mess. Instead of passing down the props down through each component, you can *tunnel* props through these components implicitly with React Context. If a component needs access to the information from the context, it can *consume* it on demand, because a top-level component *provides* this information in the context.
+In return, this clutters every component in between which has to pass down these props without using them. React Context gives you a way out of this mess. Instead of passing down the props down through each component, you can _tunnel_ props through these components implicitly with React Context. If a component needs access to the information from the context, it can _consume_ it on demand, because a top-level component _provides_ this information in the context.
 
 ```javascript
           +----------------+
@@ -146,11 +146,11 @@ First, you have to create the React Context itself which gives you access to a P
 ```javascript
 // src/ThemeContext.js
 
-import React from 'react';
+import React from 'react'
 
-const ThemeContext = React.createContext(null);
+const ThemeContext = React.createContext(null)
 
-export default ThemeContext;
+export default ThemeContext
 ```
 
 Second, component A would have to provide the context with the given Provider component. In this case, its `value` is given to it right away, but it can be anything from component state (e.g. [fetched data](/react-fetching-data)) to props. If the value comes from a modifiable [React State](/react-state), the value passed to the Provider component can be changed too.
@@ -158,14 +158,14 @@ Second, component A would have to provide the context with the given Provider co
 ```javascript
 // src/ComponentA.js
 
-import React from 'react';
-import ThemeContext from './ThemeContext';
+import React from 'react'
+import ThemeContext from './ThemeContext'
 
 const A = () => (
   <ThemeContext.Provider value="green">
     <D />
   </ThemeContext.Provider>
-);
+)
 ```
 
 Component A displays only component D, doesn't pass any props to it though, but rather makes the value `green` available to all the React components below. One of the child components will be component C that consumes the context eventually.
@@ -175,18 +175,14 @@ Third, in your component C, below component D, you could consume the context obj
 ```javascript
 // src/ComponentC.js
 
-import React from 'react';
-import ThemeContext from './ThemeContext';
+import React from 'react'
+import ThemeContext from './ThemeContext'
 
 const C = () => (
   <ThemeContext.Consumer>
-    {value => (
-      <p style={{ color: value }}>
-        Hello World
-      </p>
-    )}
+    {(value) => <p style={{ color: value }}>Hello World</p>}
   </ThemeContext.Consumer>
-);
+)
 ```
 
 The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](/react-render-props). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
@@ -195,8 +191,8 @@ The component can derive its style by consuming the context. The Consumer compon
 
 When should you use React Context? Generally speaking there are two use cases when to use it:
 
-* When your React component hierarchy grows vertically in size and you want to be able to pass props to child components without bothering components in between. We have used this use case as example throughout this whole React Context tutorial.
-* When you want to have [advanced state management in React with React Hooks](/react-state-usereducer-usestate-usecontext/) for passing state and state updater functions via React Context through your React application. Doing it via React Context allows you to create a shared and global state.
+- When your React component hierarchy grows vertically in size and you want to be able to pass props to child components without bothering components in between. We have used this use case as example throughout this whole React Context tutorial.
+- When you want to have [advanced state management in React with React Hooks](/react-state-usereducer-usestate-usecontext/) for passing state and state updater functions via React Context through your React application. Doing it via React Context allows you to create a shared and global state.
 
 <Divider />
 

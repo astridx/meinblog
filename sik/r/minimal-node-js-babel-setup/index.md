@@ -1,13 +1,14 @@
 ---
-title: "The minimal Node.js with Babel Setup"
-description: "A common sense minimal Node.js setup guide which uses Babel and Nodemon: Whereas Babel with the Babel Cli is used for enabling recent JavaScript language features, Nodemon is used for keeping your node process up and running ..."
-date: "2020-04-22T07:50:46+02:00"
-categories: ["Node", "Tooling", "JavaScript"]
-keywords: ["node setup", "node js setup", "node babel setup", "node js babel setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'The minimal Node.js with Babel Setup'
+description: 'A common sense minimal Node.js setup guide which uses Babel and Nodemon: Whereas Babel with the Babel Cli is used for enabling recent JavaScript language features, Nodemon is used for keeping your node process up and running ...'
+date: '2020-04-22T07:50:46+02:00'
+categories: ['Node', 'Tooling', 'JavaScript']
+keywords:
+  ['node setup', 'node js setup', 'node babel setup', 'node js babel setup']
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -45,10 +46,10 @@ Next, exchange node with nodemon in your npm start script:
 }
 ```
 
-When you run your application with `npm start` from the command line, it should keep running. The best part is that the script will execute again once you change the source code. Try adjusting your source code in the *src/index.js* file and see what happens in your command line.
+When you run your application with `npm start` from the command line, it should keep running. The best part is that the script will execute again once you change the source code. Try adjusting your source code in the _src/index.js_ file and see what happens in your command line.
 
 ```javascript{1}
-console.log('Hello ever running Node.js project.');
+console.log('Hello ever running Node.js project.')
 ```
 
 This little adjustment to the environment gives developers a powerful tool, because the node process executes again once you change your code. If you introduce a bug, you will see a stack trace in the command line, and the script runs again without any flaws.
@@ -82,11 +83,10 @@ Nothing should change when you run the application again, though that's just the
 npm install @babel/preset-env --save-dev
 ```
 
-
-Now, in the project's root folder, create a *.babelrc* file in the command line:
+Now, in the project's root folder, create a _.babelrc_ file in the command line:
 
 ```javascript
-touch .babelrc
+touch.babelrc
 ```
 
 In this configuration file for Babel, you can include the recently installed dependency for unlocking the upcoming JavaScript language features.
@@ -99,20 +99,20 @@ In this configuration file for Babel, you can include the recently installed dep
 }
 ```
 
-Now you can include upcoming JavaScript features in your *src/index.js* file. If you run into problems because your desired feature is not working, check whether there exists a dedicated Babel preset for it.
+Now you can include upcoming JavaScript features in your _src/index.js_ file. If you run into problems because your desired feature is not working, check whether there exists a dedicated Babel preset for it.
 
 # Environment Variables in Node.js
 
-It is important to set data like private API keys and user credentials like password, username, and email as environmental variables, but without exposing them in the source code. For this, we put environmental variables in a dedicated file that is safe from external access. The *.env* file lets you set Node.js environment variables as accessible in your project's source code. On the command line, in your project's root folder, create a *.env* file:
+It is important to set data like private API keys and user credentials like password, username, and email as environmental variables, but without exposing them in the source code. For this, we put environmental variables in a dedicated file that is safe from external access. The _.env_ file lets you set Node.js environment variables as accessible in your project's source code. On the command line, in your project's root folder, create a _.env_ file:
 
 ```javascript
-touch .env
+touch.env
 ```
 
 Now you can place any key value pair that you don't want in your source code in this new file.
 
 ```javascript
-MY_SECRET=mysupersecretpassword
+MY_SECRET = mysupersecretpassword
 ```
 
 [dotenv](https://github.com/motdotla/dotenv) is another helpful library to make environmental variables accessible in the source code. First, install it on the command line as a normal dependency:
@@ -121,30 +121,30 @@ MY_SECRET=mysupersecretpassword
 npm install dotenv --save
 ```
 
-Second, import it into your *src/index.js* file  to initialize it. The environment variable from your *.env* file is now accessible in your source code.
+Second, import it into your _src/index.js_ file to initialize it. The environment variable from your _.env_ file is now accessible in your source code.
 
 ```javascript{1,5}
-import 'dotenv/config';
+import 'dotenv/config'
 
-console.log('Hello Node.js project.');
+console.log('Hello Node.js project.')
 
-console.log(process.env.MY_SECRET);
+console.log(process.env.MY_SECRET)
 ```
 
 Start the npm script again, and you should see the environmental variable in the command line. Now you are able to store sensitive data separate from the source code.
 
-Now, consider the following code for your *src/index.js* file, where a function is imported from another file from this project.
+Now, consider the following code for your _src/index.js_ file, where a function is imported from another file from this project.
 
 ```javascript
 import saySomething from './my-other-file.js'
 
-import 'dotenv/config';
+import 'dotenv/config'
 ```
 
-If you use an environment variable in your *src/my-other-file.js*, it is undefined because the initialization of the dotenv package happens after the import in your *src/index.js* file. To fix it, put the dotenv initialization before your local file imports:
+If you use an environment variable in your _src/my-other-file.js_, it is undefined because the initialization of the dotenv package happens after the import in your _src/index.js_ file. To fix it, put the dotenv initialization before your local file imports:
 
 ```javascript
-import 'dotenv/config';
+import 'dotenv/config'
 
 import saySomething from './my-other-file.js'
 ```
@@ -153,12 +153,12 @@ That's a basic understanding of Node.js environment variables. They should be us
 
 ### Exercises:
 
-* Confirm your [source code](https://github.com/rwieruch/node-babel-server).
-* Ask yourself:
-  * What's `npm init` doing when you setup your Node.js project?
-  * What benefit is Nodemon giving us?
-  * Why do we need Babel?
-  * Why do we need Environment Variables?
+- Confirm your [source code](https://github.com/rwieruch/node-babel-server).
+- Ask yourself:
+  - What's `npm init` doing when you setup your Node.js project?
+  - What benefit is Nodemon giving us?
+  - Why do we need Babel?
+  - Why do we need Environment Variables?
 
 <Divider />
 

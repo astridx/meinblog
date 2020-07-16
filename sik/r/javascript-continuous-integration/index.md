@@ -1,13 +1,13 @@
 ---
-title: "How to set up Continuous Integration for JavaScript"
-description: "Learn how to set up Continuous Integration for your JavaScript project. In this tutorial, we will use Travis CI as example for covering the build and tests on your JavaScript application ..."
-date: "2019-07-19T13:56:46+02:00"
-categories: ["JavaScript", "Tooling"]
-keywords: ["javascript continuous integration"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to set up Continuous Integration for JavaScript'
+description: 'Learn how to set up Continuous Integration for your JavaScript project. In this tutorial, we will use Travis CI as example for covering the build and tests on your JavaScript application ...'
+date: '2019-07-19T13:56:46+02:00'
+categories: ['JavaScript', 'Tooling']
+keywords: ['javascript continuous integration']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -23,7 +23,7 @@ Now, create an account for [Travis CI](https://travis-ci.org/) by using your Git
 Now you should have synchronized Travis CI with your GitHub repository. The only thing left is telling Travis CI on how to install and run your application in their CI environment. On the command line, create a Travis configuration file in your JavaScript project's root folder:
 
 ```javascript
-touch .travis.yml
+touch.travis.yml
 ```
 
 Now enter the following configuration to it. The most important part are the scripts which should be executed to run your tests:
@@ -56,7 +56,7 @@ script:
   - npm run test:unit && npm run test:snapshot && npm run test:cypress
 ```
 
-*Note: If you are using Cypress.io for E2E testing, you need to add another configuration for addons:*
+_Note: If you are using Cypress.io for E2E testing, you need to add another configuration for addons:_
 
 ```javascript{6,7,8,9,10}
 language: node_js
@@ -77,7 +77,7 @@ script:
   - npm run test:unit && npm run test:snapshot && npm run test:cypress
 ```
 
-Last but not least, you can add a fancy badge to your GitHub repository. First, open up your *README.md* file in your project. If you have no such file, create it on the command line in your project's root folder:
+Last but not least, you can add a fancy badge to your GitHub repository. First, open up your _README.md_ file in your project. If you have no such file, create it on the command line in your project's root folder:
 
 ```javascript
 touch README.md
@@ -87,7 +87,7 @@ Second, add markdown to describe your project. It's visible in your GitHub repos
 
 ![javascript testing continuous integration](./images/travis-ci.jpg)
 
-By clicking it, you should get the all the things you need for displaying it in your GitHub repository. You can choose the Markdown version and copy & paste it to your *README.md* file:
+By clicking it, you should get the all the things you need for displaying it in your GitHub repository. You can choose the Markdown version and copy & paste it to your _README.md_ file:
 
 ```javascript
 # My JavaScript Project

@@ -1,13 +1,20 @@
 ---
-title: "How to make Prettier work with ESLint"
-description: "Brief step by step tutorial on how to combine Prettier and ESLint for VSCode, Sublime, or any other IDE/editor. You will get to know the ESLint Prettier Rules that are needed to get you started ..."
-date: "2019-06-14T13:50:46+02:00"
-categories: ["JavaScript", "VS Code", "Tooling"]
-keywords: ["eslint prettier", "prettier eslint", "prettier eslint vscode", "prettier eslint sublime", "prettier eslint rules"]
-hashtags: ["#100DaysOfCode", "#VSCode"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to make Prettier work with ESLint'
+description: 'Brief step by step tutorial on how to combine Prettier and ESLint for VSCode, Sublime, or any other IDE/editor. You will get to know the ESLint Prettier Rules that are needed to get you started ...'
+date: '2019-06-14T13:50:46+02:00'
+categories: ['JavaScript', 'VS Code', 'Tooling']
+keywords:
+  [
+    'eslint prettier',
+    'prettier eslint',
+    'prettier eslint vscode',
+    'prettier eslint sublime',
+    'prettier eslint rules',
+  ]
+hashtags: ['#100DaysOfCode', '#VSCode']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -30,7 +37,7 @@ npm install -g prettier eslint
 
 I like to install them globally, because I use them in every of my projects. This way, I don't need to worry about installing them for each project. However, if you are working on a project as a team, it makes sense to install both packages to your project as well.
 
-*Note: If you install ESLint globally once, you need to run `eslint --init` on the command line for your project. It gives you an installation prompt on the command line to step through a dynamic ESLint configuration on a per project basis. Additionally, it comes with a local installation of ESLint for your project. If you want to learn more about ESLint and its configuration, scan through this [ESLint tutorial without worrying about the part about Webpack](/webpack-eslint).*
+_Note: If you install ESLint globally once, you need to run `eslint --init` on the command line for your project. It gives you an installation prompt on the command line to step through a dynamic ESLint configuration on a per project basis. Additionally, it comes with a local installation of ESLint for your project. If you want to learn more about ESLint and its configuration, scan through this [ESLint tutorial without worrying about the part about Webpack](/webpack-eslint)._
 
 Second, install the Prettier and ESLint extension/plugin for your editor/IDE. For instance, in VSCode you can find [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extensions on their marketplace. I guess it's quite similar for your IDE/editor of choice.
 
@@ -42,7 +49,7 @@ npm install --save-dev eslint-config-prettier eslint-plugin-prettier
 
 Whereas the [former](https://github.com/prettier/eslint-config-prettier) turns off all ESLint rules that could conflict with Prettier, the [latter](https://github.com/prettier/eslint-plugin-prettier) integrates the Prettier rules into ESLint rules.
 
-Last but not least, set the Prettier rules in your ESLint configuration. Therefore, create an *.eslintrc.json* file in the root directory of your project and give it the following configuration:
+Last but not least, set the Prettier rules in your ESLint configuration. Therefore, create an _.eslintrc.json_ file in the root directory of your project and give it the following configuration:
 
 ```javascript
 {
@@ -54,11 +61,11 @@ Last but not least, set the Prettier rules in your ESLint configuration. Therefo
 }
 ```
 
-That's it. You are ready to use Prettier and ESLint in your project without worrying about any conflicts. ESLint knows about all your Prettier rules by integrating all the rules that are enforced by it and removing all the rules that could conflict with it. Now there shouldn't be anything in your way for an improved code style and structure. If you need to exclude folders/files from your ESLint rules, you can add these in an *.eslintignore* file (e.g. *node_modules/*).
+That's it. You are ready to use Prettier and ESLint in your project without worrying about any conflicts. ESLint knows about all your Prettier rules by integrating all the rules that are enforced by it and removing all the rules that could conflict with it. Now there shouldn't be anything in your way for an improved code style and structure. If you need to exclude folders/files from your ESLint rules, you can add these in an _.eslintignore_ file (e.g. _node_modules/_).
 
 # Bonus: Prettier and ESLint Configuration
 
-As mentioned before, Prettier and ESLint can be configured to a certain degree (not much configuration options for Prettier, but rather more options for ESLint). For instance, the previous tutorial for setting up Prettier in VSCode has shown you how to set up Prettier for formatting on saving a file and uses the following configuration in a *.prettierrc* file in your project's root directory:
+As mentioned before, Prettier and ESLint can be configured to a certain degree (not much configuration options for Prettier, but rather more options for ESLint). For instance, the previous tutorial for setting up Prettier in VSCode has shown you how to set up Prettier for formatting on saving a file and uses the following configuration in a _.prettierrc_ file in your project's root directory:
 
 ```javascript
 {
@@ -75,7 +82,7 @@ Prettier makes sure that trailing semicolons and commas are enforced, that only 
 npx install-peerdeps --dev eslint-config-airbnb
 ```
 
-Afterward, integrate it in your *.eslintrc.json* file:
+Afterward, integrate it in your _.eslintrc.json_ file:
 
 ```javascript{2}
 {

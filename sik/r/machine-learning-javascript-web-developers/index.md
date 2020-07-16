@@ -1,13 +1,14 @@
 ---
 title: "A Web Developer's Guide to Machine Learning in JavaScript"
-description: "An extensive walkthrough for machine learning in JavaScript. The machine learning libraries in JavaScript are striving. As I started to learn about AI, deep learning (DL) and machine learning (ML) ..."
-date: "2018-01-10T04:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "ai javascript", "deep learning javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+description: 'An extensive walkthrough for machine learning in JavaScript. The machine learning libraries in JavaScript are striving. As I started to learn about AI, deep learning (DL) and machine learning (ML) ...'
+date: '2018-01-10T04:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  ['machine learning javascript', 'ai javascript', 'deep learning javascript']
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -44,40 +45,40 @@ Another concern exists regarding the training phase. Why should it happen in the
 
 One big argument against machine learning in JavaScript is its lack of libraries. But that's not so true anymore. There are a bunch of libraries helping you out. For instance, consider a couple of programming languages in machine learning and the areas where they are primarily used:
 
-* **Math / Data Analysis**: Matlab, Octave, Julia, R
-* **Data Mining**: Scala, Java (e.g. Hadoop, Spark, Deeplearning4j)
-* **Performance**: C/C++ (e.g. GPU accelerated)
+- **Math / Data Analysis**: Matlab, Octave, Julia, R
+- **Data Mining**: Scala, Java (e.g. Hadoop, Spark, Deeplearning4j)
+- **Performance**: C/C++ (e.g. GPU accelerated)
 
 Next, you can see why Python makes so much sense in machine learning. It has a suitable set of libraries for the different tasks assigned to the programming languages from above and even more good fitting solutions:
 
-* **Math**: numpy
-* **Data Analysis**: Pandas
-* **Data Mining**: PySpark
-* **Server**: Flask, Django
-* **Performance**:
-  * TensorFlow (because it is written with a Python API over a C/C++ engine)
-  * Keras (sits on top of TensorFlow)
+- **Math**: numpy
+- **Data Analysis**: Pandas
+- **Data Mining**: PySpark
+- **Server**: Flask, Django
+- **Performance**:
+  - TensorFlow (because it is written with a Python API over a C/C++ engine)
+  - Keras (sits on top of TensorFlow)
 
 So yeah, it seems like that it just makes sense to use Python for machine learning. But the JavaScript ecosystem offers a rich set of libraries suited for most of the tasks too. Because most of them are not only used in machine learning, the JavaScript ecosystem developed a couple of sophisticated solutions beforehand:
 
-* **Math**: math.js
-* **Data Analysis**: d3.js
-* **Server**: node.js (express, koa, hapi)
-* **Performance**:
-  * Tensorflow.js (e.g. GPU accelerated via WebGL API in the browser)
-  * Keras.js
+- **Math**: math.js
+- **Data Analysis**: d3.js
+- **Server**: node.js (express, koa, hapi)
+- **Performance**:
+  - Tensorflow.js (e.g. GPU accelerated via WebGL API in the browser)
+  - Keras.js
 
 Even though a library such as math.js is not running on the GPU for expensive computations, I guess one could use utility libraries such as [gpu.js](https://github.com/gpujs/gpu.js) to accelerate its performance. Furthermore, the recent high level machine learning libraries such as Tensoflow.js come with their own set of mathematical functions which are indeed accelerated by the GPU. In the future you would either use one of those dedicated machine learning libraries for JavaScript which are GPU accelerated or math.js gets its own GPU accelerated wrapper eventually.
 
 Except for the last libraries (Tensorflow.js and Keras.js) on the previous list, none of the other libraries is strictly related to machine learning. They were developed independently and thus have a strong community on their own. So JavaScript isn't so much behind other programming languages when it comes to the toolset. But for sure, the sky is the limit. There are endless of improvements which could be made or libraries which are needed. That's just another opportunity for open source developers to implement the necessary tools around it. And I assume in the future, there will evolve sophisticated libraries for machine learning in JavaScript. Just in the recent time, there were a couple of interesting libraries released or announced for machine learning in JavaScript.
 
-* [Tensorflow.js](https://js.tensorflow.org/) (previously [Deeplearn.js](https://deeplearnjs.org)): The library by Google is GPU accelerated via WebGL API and used for predictions by using pre-trained models in inference mode in the browser but also for the training mode itself. It mirrors the API of the popular [TensorFlow](https://www.tensorflow.org/) library.
+- [Tensorflow.js](https://js.tensorflow.org/) (previously [Deeplearn.js](https://deeplearnjs.org)): The library by Google is GPU accelerated via WebGL API and used for predictions by using pre-trained models in inference mode in the browser but also for the training mode itself. It mirrors the API of the popular [TensorFlow](https://www.tensorflow.org/) library.
 
-* [TensorFire](https://tenso.rs/) and [Keras.js](https://github.com/transcranial/keras-js): Yet another pair of two GPU accelerated libraries which are used for pre-trained models in inference mode. They allow you to write your models in [Keras](https://keras.io/) or TensorFlow with Python. Afterward you can deploy them to the web by using TensorFire or Keras.js.
+- [TensorFire](https://tenso.rs/) and [Keras.js](https://github.com/transcranial/keras-js): Yet another pair of two GPU accelerated libraries which are used for pre-trained models in inference mode. They allow you to write your models in [Keras](https://keras.io/) or TensorFlow with Python. Afterward you can deploy them to the web by using TensorFire or Keras.js.
 
 Only 2017 brought up those exciting and promising libraries. So I am curious what 2018 will offer us.
 
-As you can see, so far the article pointed out a couple of concerns using  JavaScript as your programming language to get started in machine learning. However, most of these reasons are not as much valid anymore as they were a couple of years ago. JavaScript is evolving and thus its capabilities of applying machine learning with it. Even though it may be only the bridge for you to learn about machine learning in the first place. Afterward, learn a more suited programming language for it. But then you have only to learn the programming language without worrying too much about the machine learning part anymore. Even though learning machine learning is an ongoing process and you will always learn something new in this fast paced domain. But it's exciting, because it has so many facets.
+As you can see, so far the article pointed out a couple of concerns using JavaScript as your programming language to get started in machine learning. However, most of these reasons are not as much valid anymore as they were a couple of years ago. JavaScript is evolving and thus its capabilities of applying machine learning with it. Even though it may be only the bridge for you to learn about machine learning in the first place. Afterward, learn a more suited programming language for it. But then you have only to learn the programming language without worrying too much about the machine learning part anymore. Even though learning machine learning is an ongoing process and you will always learn something new in this fast paced domain. But it's exciting, because it has so many facets.
 
 # Machine Learning as an Opportunity for Web Developer
 
@@ -101,29 +102,29 @@ If you are familiar with machine learning, feel free to skip this section. Enter
 
 ![machine learning buzzwords](./images/machine-learning-buzz.jpg)
 
-Let's start our journey with [AI (artificial intelligence)](https://en.wikipedia.org/wiki/Artificial_general_intelligence). *"It is the intelligence of a machine that could successfully perform any intellectual task that a human being can."* There is a great analogy in the *Machine Learning Guide* podcast to convey the information of AI: Whereas the goal of the industrial revolution was the simulation of the physical body through machines, it is the goal of AI to simulate the brain for mental tasks through algorithms. So how does machine learning relate to AI? Let's have a look at the a couple of subfields of AI:
+Let's start our journey with [AI (artificial intelligence)](https://en.wikipedia.org/wiki/Artificial_general_intelligence). _"It is the intelligence of a machine that could successfully perform any intellectual task that a human being can."_ There is a great analogy in the _Machine Learning Guide_ podcast to convey the information of AI: Whereas the goal of the industrial revolution was the simulation of the physical body through machines, it is the goal of AI to simulate the brain for mental tasks through algorithms. So how does machine learning relate to AI? Let's have a look at the a couple of subfields of AI:
 
-* searching and planning (e.g. playing a game with possible actions)
-* reasoning and knowledge representation (structuring knowledge to come to conclusions)
-* perception (vision, touch, hearing)
-* ability to move and manipulate objects (goes into robotics)
-* natural language processing (NLP)
-* learning
+- searching and planning (e.g. playing a game with possible actions)
+- reasoning and knowledge representation (structuring knowledge to come to conclusions)
+- perception (vision, touch, hearing)
+- ability to move and manipulate objects (goes into robotics)
+- natural language processing (NLP)
+- learning
 
 The last one represents machine learning. As you can see, it is only a subfield of AI. However, it might be the only essential core fragment of AI because it reaches into the other subfields of AI too. It reaches into them even more over the recent time. For instance, vision as subfield becomes more of a part of [applied machine learning](http://www.themtank.org/a-year-in-computer-vision). Where other techniques, e.g. domain specific algorithms, dominated the domain in the past, machine learning enters the field now. Now deep neural networks are often used for the domain. So what are applicable domains of AI and therefore most often machine learning? A bunch of domains and examples:
 
-* Image Recognition (see referenced linked above)
-* Web (e.g. Search Engines, Spam Filters)
-* Art (e.g. [Painting](https://github.com/jcjohnson/neural-style))
-* Autonomous Vehicles (e.g. [Tesla Autopilot](https://www.tesla.com/autopilot), awareness comes up for [Robots in Warfare](https://www.theguardian.com/technology/2017/aug/20/elon-musk-killer-robots-experts-outright-ban-lethal-autonomous-weapons-war))
-* Medical Diagnosis
-* Playing Games (e.g. [Go](https://www.youtube.com/watch?v=9xlSy9F5WtE), [StarCraft](https://deepmind.com/blog/deepmind-and-blizzard-open-starcraft-ii-ai-research-environment/))
+- Image Recognition (see referenced linked above)
+- Web (e.g. Search Engines, Spam Filters)
+- Art (e.g. [Painting](https://github.com/jcjohnson/neural-style))
+- Autonomous Vehicles (e.g. [Tesla Autopilot](https://www.tesla.com/autopilot), awareness comes up for [Robots in Warfare](https://www.theguardian.com/technology/2017/aug/20/elon-musk-killer-robots-experts-outright-ban-lethal-autonomous-weapons-war))
+- Medical Diagnosis
+- Playing Games (e.g. [Go](https://www.youtube.com/watch?v=9xlSy9F5WtE), [StarCraft](https://deepmind.com/blog/deepmind-and-blizzard-open-starcraft-ii-ai-research-environment/))
 
-So machine learning is a subfield of AI. Let's dive into the subject itself. There are a couple of great definitions for machine learning, yet when I started out with the subject, I found the one by Arthur Samuel (1959) most memorable: *"The field of study that gives computers the ability to learn without being explicitly programmed."* How does it work? Basically machine learning can be grouped into three categories: **supervised learning, unsupervised learning and reinforcement learning**. It's quite an evolution from the former to the latter. Whereas the former is more concrete, the latter becomes more abstract (yet exciting and unexplored). The former, supervised learning, gives the best entry point to machine learning and is used therefore in several educational machine learning courses to get you into the field. In supervised learning, an algorithm is trained to recognize a pattern in a given data set. The data set is split up into input (x) and output (y). The algorithm is trained to map input to output by learning with the given data set (**training phase**) the underlying pattern. Afterward, when the algorithm is trained, it can be used to make predictions for future input data points to come up with output data points (**inference phase**). During the training phase, a **cost function** estimates the performance of the current algorithm and adjusts the parameters of the algorithm based on those outcomes (penalization). The algorithm itself can be simplified into a simple function to map an input x to an output y. It's called **hypothesis** or **model**.
+So machine learning is a subfield of AI. Let's dive into the subject itself. There are a couple of great definitions for machine learning, yet when I started out with the subject, I found the one by Arthur Samuel (1959) most memorable: _"The field of study that gives computers the ability to learn without being explicitly programmed."_ How does it work? Basically machine learning can be grouped into three categories: **supervised learning, unsupervised learning and reinforcement learning**. It's quite an evolution from the former to the latter. Whereas the former is more concrete, the latter becomes more abstract (yet exciting and unexplored). The former, supervised learning, gives the best entry point to machine learning and is used therefore in several educational machine learning courses to get you into the field. In supervised learning, an algorithm is trained to recognize a pattern in a given data set. The data set is split up into input (x) and output (y). The algorithm is trained to map input to output by learning with the given data set (**training phase**) the underlying pattern. Afterward, when the algorithm is trained, it can be used to make predictions for future input data points to come up with output data points (**inference phase**). During the training phase, a **cost function** estimates the performance of the current algorithm and adjusts the parameters of the algorithm based on those outcomes (penalization). The algorithm itself can be simplified into a simple function to map an input x to an output y. It's called **hypothesis** or **model**.
 
 Predicting housing prices in Portland is one popular machine learning problem for supervised learning. Given a data set of houses whereas each house has a size in square meter (x), the price (y) of the house should be predicted. Thus the data set consists a list of sizes and prices for houses. It is called a **training set**. Each row in the training set represents a house. The input x, in this case the size of the house, is called a **feature** of the house. Since there is only one feature for the houses in the training set, it is called a **univariate** training set. If there are more features for a house, such as number of bedrooms and size, it becomes a **multivariate** training set. Increasing the size of the training size (m) and the size of features (n) can lead to an improved prediction of y whereas y is called a **label**, **target** or simply the output. In a nutshell: A model is trained with a penalizing cost function to predict labels from data points and their features.
 
-Tom Mitchell (1998): *"A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."*
+Tom Mitchell (1998): _"A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E."_
 
 The previous use case of predicting housing prices in Portland is called a **regression problem**. A **linear regression**, as explained before, can be used to train the hypothesis to output **continuous values** (e.g. housing prices). Another problem in the area of supervised learning to be solved is called **classification problem** where a **logistic regression** is used to output **categorical values**. For instance, imagine you have a training set of T-Shirts. The features, such as width and height, can be used to make predictions for the categorical sizes X, M and L.
 
@@ -153,13 +154,13 @@ The machine learning course goes from linear regression to neural networks in 5 
 
 Along the way, I did all the weekly assignments and solved them in Octave. In addition, I implemented most of the algorithms in JavaScript as well as as exercise for myself and as estimation how feasible it is to implement these algorithms in a different language not suited for machine learning but suited for web developers. It worked and I published all of them in a open [GitHub organization](https://github.com/javascript-machine-learning). It's open for everyone to contribute. But that's not everything to the story. I wrote about a couple of topic as well to internalize my own learnings, to get guidance from others, but also to help web developers entering the field. So if you are doing the course, check out the JavaScript implementations and walkthroughs along the way. These walkthroughs are dedicated machine learning tutorials for Node.js and the browser.
 
-* [Linear Regression with Gradient Descent in JavaScript](/linear-regression-gradient-descent-javascript/)
-* [Improving Gradient Descent in JavaScript](/improving-gradient-descent-javascript/)
-* [Gradient Descent with Vectorization in JavaScript](/linear-regression-gradient-descent-vectorization-javascript/)
-* [Multivariate Linear Regression, Gradient Descent in JavaScript](/multivariate-linear-regression-gradient-descent-javascript/)
-* [Linear Regression with Normal Equation in JavaScript](/multivariate-linear-regression-normal-equation-javascript/)
-* [Logistic Regression with Gradient Descent in JavaScript](/logistic-regression-gradient-descent-classification-javascript/)
-* [Neural Networks in JavaScript with deeplearn.js](/neural-networks-deeplearnjs-javascript)
+- [Linear Regression with Gradient Descent in JavaScript](/linear-regression-gradient-descent-javascript/)
+- [Improving Gradient Descent in JavaScript](/improving-gradient-descent-javascript/)
+- [Gradient Descent with Vectorization in JavaScript](/linear-regression-gradient-descent-vectorization-javascript/)
+- [Multivariate Linear Regression, Gradient Descent in JavaScript](/multivariate-linear-regression-gradient-descent-javascript/)
+- [Linear Regression with Normal Equation in JavaScript](/multivariate-linear-regression-normal-equation-javascript/)
+- [Logistic Regression with Gradient Descent in JavaScript](/logistic-regression-gradient-descent-classification-javascript/)
+- [Neural Networks in JavaScript with deeplearn.js](/neural-networks-deeplearnjs-javascript)
 
 It's not comprehensive yet, for instance a neural network implementation with vanilla JavaScript is missing, but I hope to complete all the bare bones algorithms in JavaScript at some point. The neural network implementation is done with a recently released library called deeplearn.js by Google which got rebranded to Tensorflow.js. I was pretty excited to use it for the first time, and it was my personal reward, after doing the course for 5 weeks, to use a library instead of implementing neural networks in JavaScript from scratch. Have a look at the [neural network in action to improve web accessibility](https://github.com/javascript-machine-learning/color-accessibility-neural-network-deeplearnjs). Another one [is learning digets using the MNIST databse and visualizes its outcome](https://github.com/javascript-machine-learning/mnist-neural-network-deeplearnjs). Maybe you see it as opportunity as well to contribute to the GitHub organization. Next on the agenda are K-Means, Support Vector Machines (SVM) and principal component analysis (PCA) from scratch in JavaScript!
 
@@ -169,33 +170,33 @@ In addition, over the course of those weeks, I read [The Master Algorithm](http:
 
 What else is out there to learn machine learning? Now after I completed the course by Andrew Ng, I will take some rest to internalize all those learnings. Likely I will write more about them for my blog. You can subscribe to the Newsletter if you are interested in hearing about them. However, there a bunch of other courses out there which I want to check out.
 
-* [Machine Learning Engineer Nanodegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009) on Udacity
-* [Deep Learning Specialization](https://click.linksynergy.com/link?id=yL1MQRWYyXQ&offerid=467035.11421701896&type=2&murl=https%3A%2F%2Fwww.coursera.org%2Fspecializations%2Fdeep-learning) on Coursera
-* [Practical Deep Learning for Coders](http://course.fast.ai/) on Fast.ai
+- [Machine Learning Engineer Nanodegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009) on Udacity
+- [Deep Learning Specialization](https://click.linksynergy.com/link?id=yL1MQRWYyXQ&offerid=467035.11421701896&type=2&murl=https%3A%2F%2Fwww.coursera.org%2Fspecializations%2Fdeep-learning) on Coursera
+- [Practical Deep Learning for Coders](http://course.fast.ai/) on Fast.ai
 
 These are all courses recommended along with the Machien Learning course by Andrew Ng. Fast.ai has a course on [computational linear algebra](http://www.fast.ai/2017/07/17/num-lin-alg/) for the underlying math in ML too. In general, machine learning involves lots of math. If you need a refresher on certain topics, I can highly recommend Khan Academy.
 
-* [Linear Algebra](https://www.khanacademy.org/math/linear-algebra)
-* [Statistics](https://www.khanacademy.org/math/statistics-probability)
-* [Calculus](https://www.khanacademy.org/math/calculus-home)
+- [Linear Algebra](https://www.khanacademy.org/math/linear-algebra)
+- [Statistics](https://www.khanacademy.org/math/statistics-probability)
+- [Calculus](https://www.khanacademy.org/math/calculus-home)
 
 Getting back to topic: Machine Learning in JavaScript. What kind of libraries are out there to support you for machine learning in JavaScript? If you attempt to go the puristic way of implementing math operations from scratch, there is no way around [math.js](http://mathjs.org/) (e.g. [matrix operations](/linear-algebra-matrix-javascript/)). However, if you are using high level libraries such as Keras.js or Tensorflow.js, you will have the most important mathematical methods integrated by using their NDArrays, Tensors and mathematical operations. Otherwise, there are a couple of other libraries, not mentioning the mentioned again, which I didn't try yet. Keep in mind that not all of them are GPU accelerated, but I guess when it comes to computational efficiency, a couple of them will offer it in the future.
 
-* [Pavlov.js](https://github.com/NathanEpstein/Pavlov.js) (Markov Decision Processes)
-* [SVM.js](https://github.com/karpathy/svmjs) (Support Vector Machines)
-* [Brain.js](https://github.com/harthur/brain) (Neural Networks)
-* [Synaptic](https://github.com/cazala/synaptic) (Neural Networks)
-* [Neataptic](https://github.com/wagenaartje/neataptic) (Neural Networks, Neuroevolution)
-* [WebDNN](https://github.com/mil-tokyo/webdnn) (Neural Networks, Inference Mode)
+- [Pavlov.js](https://github.com/NathanEpstein/Pavlov.js) (Markov Decision Processes)
+- [SVM.js](https://github.com/karpathy/svmjs) (Support Vector Machines)
+- [Brain.js](https://github.com/harthur/brain) (Neural Networks)
+- [Synaptic](https://github.com/cazala/synaptic) (Neural Networks)
+- [Neataptic](https://github.com/wagenaartje/neataptic) (Neural Networks, Neuroevolution)
+- [WebDNN](https://github.com/mil-tokyo/webdnn) (Neural Networks, Inference Mode)
 
 There are even more machine learning related libraries in JavaScript for the other subfields of AI.
 
-* [Natural](https://github.com/NaturalNode/natural) ([Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing))
-* [Sentiment](https://github.com/thisandagain/sentiment) ([Sentiment Analysis](https://en.wikipedia.org/wiki/Sentiment_analysis))
-* [OpenCV.js](https://github.com/ucisysarch/opencvjs) ([Computer Vision](https://en.wikipedia.org/wiki/Computer_vision) with OpenCV for the Browser)
-* [opencv4nodejs](https://github.com/justadudewhohacks/opencv4nodejs) (Computer Vision with OpenCV for Node.js)
-* [face-recognition.js](https://github.com/justadudewhohacks/face-recognition.js) (Face Recognition)
-* [face-api.js](https://github.com/justadudewhohacks/face-api.js) (Face Recognition based on Tensorflow.js)
+- [Natural](https://github.com/NaturalNode/natural) ([Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing))
+- [Sentiment](https://github.com/thisandagain/sentiment) ([Sentiment Analysis](https://en.wikipedia.org/wiki/Sentiment_analysis))
+- [OpenCV.js](https://github.com/ucisysarch/opencvjs) ([Computer Vision](https://en.wikipedia.org/wiki/Computer_vision) with OpenCV for the Browser)
+- [opencv4nodejs](https://github.com/justadudewhohacks/opencv4nodejs) (Computer Vision with OpenCV for Node.js)
+- [face-recognition.js](https://github.com/justadudewhohacks/face-recognition.js) (Face Recognition)
+- [face-api.js](https://github.com/justadudewhohacks/face-api.js) (Face Recognition based on Tensorflow.js)
 
 Another library didn't make it in the list, because it is is not actively maintained: [ConvNetJS](https://github.com/karpathy/convnetjs). In addition, there are two more libraries implementing shallow machine learning algorithms in JavaScript: [machine_learning](https://github.com/junku901/machine_learning) and [ml](https://github.com/mljs/ml). In those libraries you can find logistic regression, k-means clustering, decisions trees, k-nearest neighbours, principal component analysis and naive bayes for JavaScript.
 

@@ -323,7 +323,7 @@ for (i = 0; i < demoTag.length; i++) {
 demoQuery.style.border = '1px solid red'
 
 // Change border of class query-all to green
-demoQueryAll.forEach(query => {
+demoQueryAll.forEach((query) => {
   query.style.border = '1px solid green'
 })
 ```

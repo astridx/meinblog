@@ -1,13 +1,20 @@
 ---
-title: "React State without Constructor"
-description: "A tutorial on how to have state in React without a constructor in a class component and how to have state in React without a class at all ..."
-date: "2018-10-02T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react state without constructor", "react state without class", "react set initial state without constructor", "react setState without constructor", "react create state without a constructor"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React State without Constructor'
+description: 'A tutorial on how to have state in React without a constructor in a class component and how to have state in React without a class at all ...'
+date: '2018-10-02T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react state without constructor',
+    'react state without class',
+    'react set initial state without constructor',
+    'react setState without constructor',
+    'react create state without a constructor',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,35 +26,32 @@ The article is a short tutorial on how to have state in React without a construc
 In React, state is used in a React class component. There you can set initial state in the constructor of the class, but also access and update it with `this.state` and `this.setState`, because you have access to the class instance by using the `this` object.
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-const list = ['a', 'b', 'c'];
+const list = ['a', 'b', 'c']
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       toggle: true,
-    };
+    }
   }
 
   onToggleList = () => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       toggle: !prevState.toggle,
-    }));
+    }))
   }
 
   render() {
     return (
       <div>
-        <Toggle
-          toggle={this.state.toggle}
-          onToggleList={this.onToggleList}
-        />
+        <Toggle toggle={this.state.toggle} onToggleList={this.onToggleList} />
         {this.state.toggle && <List list={list} />}
       </div>
-    );
+    )
   }
 }
 
@@ -55,7 +59,7 @@ const Toggle = ({ toggle, onToggleList }) => (
   <button type="button" onClick={onToggleList}>
     {toggle ? 'Hide' : 'Show'}
   </button>
-);
+)
 
 const List = ({ list }) => (
   <ul>
@@ -63,39 +67,36 @@ const List = ({ list }) => (
       <Item key={item} item={item} />
     ))}
   </ul>
-);
+)
 
-const Item = ({ item }) => <li>{item}</li>;
+const Item = ({ item }) => <li>{item}</li>
 
-export default App;
+export default App
 ```
 
 The question to answer: **How to set initial state in React without a constructor?** In this case, there is an initial state for the `toggle` property in the App component. By using an [alternative class syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax), you can leave out the constructor and initialize the state as class field declaration. However, you don't have access to the props anymore.
 
 ```javascript{4,5,6}
-const list = ['a', 'b', 'c'];
+const list = ['a', 'b', 'c']
 
 class App extends Component {
   state = {
     toggle: true,
-  };
+  }
 
   onToggleList = () => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       toggle: !prevState.toggle,
-    }));
+    }))
   }
 
   render() {
     return (
       <div>
-        <Toggle
-          toggle={this.state.toggle}
-          onToggleList={this.onToggleList}
-        />
+        <Toggle toggle={this.state.toggle} onToggleList={this.onToggleList} />
         {this.state.toggle && <List list={list} />}
       </div>
-    );
+    )
   }
 }
 ```
@@ -104,16 +105,16 @@ The syntax is not widely adopted yet, because class field declaration are a new 
 
 # React State without a Class
 
-However, perhaps you are not looking for using React state without a constructor but using it without a class instead. Therefore, the real question(s) may be: *How to ...*
+However, perhaps you are not looking for using React state without a constructor but using it without a class instead. Therefore, the real question(s) may be: _How to ..._
 
-* **set React initial state without a constructor**
-* **have access to React state without a constructor**
-* **have access to React setState without a constructor**
+- **set React initial state without a constructor**
+- **have access to React state without a constructor**
+- **have access to React setState without a constructor**
 
 At this point in time, the answer is: You cannot. It is not possible to have state in a functional component. This may change in the future, but for now, there are only two advanced React patterns which can be used to give your functional components state in React.
 
-* [React higher-order components](/react-higher-order-components/)
-* [React render prop components](/react-render-props/)
+- [React higher-order components](/react-higher-order-components/)
+- [React render prop components](/react-render-props/)
 
 ## React State with Higher-Order Components
 
@@ -127,14 +128,14 @@ const App = () => (
     <Toggle
       toggle={this.state.toggle}
       onToggleList={() =>
-        this.setState(prevState => ({
+        this.setState((prevState) => ({
           toggle: !prevState.toggle,
         }))
       }
     />
     {this.state.toggle && <List list={list} />}
   </div>
-);
+)
 ```
 
 Now, the component has no access to the this object and therefore no access to this.state or this.setState. Next, use the withState higher-order component from recompose to enhance the App component:
@@ -180,20 +181,17 @@ const AppBase = () => (
 const App = withState(...)(AppBase);
 ```
 
-The returned function from the withState function call is used for the component which needs to be enhanced. The arguments for the withState function call itself were left out. These are used for the configuration of 1) the  state property name, 2) the name of the state update function, and 3) the initial state. Afterward, the functional component has access to the state and the state update function in the props.
+The returned function from the withState function call is used for the component which needs to be enhanced. The arguments for the withState function call itself were left out. These are used for the configuration of 1) the state property name, 2) the name of the state update function, and 3) the initial state. Afterward, the functional component has access to the state and the state update function in the props.
 
 ```javascript{1,5,11}
 const AppBase = ({ toggle, onToggleList }) => (
   <div>
-    <Toggle
-      toggle={toggle}
-      onToggleList={() => onToggleList(!toggle)}
-    />
+    <Toggle toggle={toggle} onToggleList={() => onToggleList(!toggle)} />
     {toggle && <List list={list} />}
   </div>
-);
+)
 
-const App = withState('toggle', 'onToggleList', true)(AppBase);
+const App = withState('toggle', 'onToggleList', true)(AppBase)
 ```
 
 Now the functional component was made semi stateful with a higher-order component that manages the state for it. If you manage more than one property in the state, let's say the App component manages the list as well (see below), then you can use multiple withState higher-order components for it.
@@ -203,7 +201,7 @@ class App extends Component {
   state = {
     toggle: true,
     list: ['a', 'b', 'c'],
-  };
+  }
 
   render() {
     return (
@@ -211,14 +209,14 @@ class App extends Component {
         <Toggle
           toggle={this.state.toggle}
           onToggleList={() =>
-            this.setState(prevState => ({
+            this.setState((prevState) => ({
               toggle: !prevState.toggle,
             }))
           }
         />
         {this.state.toggle && <List list={this.state.list} />}
       </div>
-    );
+    )
   }
 }
 ```
@@ -226,23 +224,20 @@ class App extends Component {
 Now use multiple withState higher-order components, whereas the list state has no update function yet, by using recompose's compose function:
 
 ```javascript{2,4,10,14,16,17}
-import React from 'react';
-import { compose, withState } from 'recompose';
+import React from 'react'
+import { compose, withState } from 'recompose'
 
 const AppBase = ({ list, toggle, onToggleList }) => (
   <div>
-    <Toggle
-      toggle={toggle}
-      onToggleList={() => onToggleList(!toggle)}
-    />
+    <Toggle toggle={toggle} onToggleList={() => onToggleList(!toggle)} />
     {toggle && <List list={list} />}
   </div>
-);
+)
 
 const App = compose(
   withState('toggle', 'onToggleList', true),
-  withState('list', null, ['a', 'b', 'c']),
-)(AppBase);
+  withState('list', null, ['a', 'b', 'c'])
+)(AppBase)
 ```
 
 Basically that's how recompose and higher-order components can be used to make functional components stateful. In this case, you didn't have to invent your own higher-order component for it, because recompose offers this out of the box. Maybe it would be a great exercise to implement this higher-order component yourself. Therefore, check again the referenced higher-order component article.
@@ -252,12 +247,12 @@ Basically that's how recompose and higher-order components can be used to make f
 The referenced article about render prop components should help you to get up to speed with this advanced React pattern. The question: How can React render props be used to make a functional component stateful? Since there is no recompose for render prop components, you have to implement a render prop for it yourself. Let's take again the App component from the previous example:
 
 ```javascript
-const list = ['a', 'b', 'c'];
+const list = ['a', 'b', 'c']
 
 class App extends Component {
   state = {
     toggle: true,
-  };
+  }
 
   render() {
     return (
@@ -265,14 +260,14 @@ class App extends Component {
         <Toggle
           toggle={this.state.toggle}
           onToggleList={() =>
-            this.setState(prevState => ({
+            this.setState((prevState) => ({
               toggle: !prevState.toggle,
             }))
           }
         />
         {this.state.toggle && <List list={list} />}
       </div>
-    );
+    )
   }
 }
 ```
@@ -284,15 +279,12 @@ const App = () => (
   <State>
     {(toggle, onToggleList) => (
       <div>
-        <Toggle
-          toggle={toggle}
-          onToggleList={() => onToggleList(!toggle)}
-        />
+        <Toggle toggle={toggle} onToggleList={() => onToggleList(!toggle)} />
         {toggle && <List list={list} />}
       </div>
     )}
   </State>
-);
+)
 ```
 
 Many things have changed. In this case, the render prop uses a function as a child. This function gives access to the state (1. argument) and an update function (2. argument). The arguments can be used within the function to render the actual content and to update the state eventually. How would the State render prop component look like?
@@ -300,19 +292,19 @@ Many things have changed. In this case, the render prop uses a function as a chi
 ```javascript
 class State extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: null,
-    };
+    }
   }
 
-  onUpdateState = value => {
-    this.setState({ value });
-  };
+  onUpdateState = (value) => {
+    this.setState({ value })
+  }
 
   render() {
-    return this.props.children(this.state.value, this.onUpdateState);
+    return this.props.children(this.state.value, this.onUpdateState)
   }
 }
 ```
@@ -322,19 +314,19 @@ The State render prop component manages a generic state called value. The state 
 ```javascript{6,20}
 class State extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: props.initialState,
-    };
+    }
   }
 
-  onUpdateState = value => {
-    this.setState({ value });
-  };
+  onUpdateState = (value) => {
+    this.setState({ value })
+  }
 
   render() {
-    return this.props.children(this.state.value, this.onUpdateState);
+    return this.props.children(this.state.value, this.onUpdateState)
   }
 }
 
@@ -342,15 +334,12 @@ const App = () => (
   <State initialState={true}>
     {(toggle, onToggleList) => (
       <div>
-        <Toggle
-          toggle={toggle}
-          onToggleList={() => onToggleList(!toggle)}
-        />
+        <Toggle toggle={toggle} onToggleList={() => onToggleList(!toggle)} />
         {toggle && <List list={list} />}
       </div>
     )}
   </State>
-);
+)
 ```
 
 That's how values can be passed to render props component; simply by using props. Everything that's needed outside of the render prop component, in this case the state and the state update function, can be passed to the render prop function (in this case the children function).

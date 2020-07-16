@@ -1,13 +1,13 @@
 ---
-title: "How to create Redux with React Hooks?"
+title: 'How to create Redux with React Hooks?'
 description: "React's useContext and useReducer hooks can be used to mimic Redux for managing one global state container in React applications. This tutorial shows it step by step ..."
-date: "2019-05-20T07:52:46+02:00"
-categories: ["React"]
-keywords: ["redux react hooks", "usereducer redux"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-05-20T07:52:46+02:00'
+categories: ['React']
+keywords: ['redux react hooks', 'usereducer redux']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -40,10 +40,10 @@ const App = () => {
 Now, instead of having a React Context for each dispatch function, let's have one universal context for our new global dispatch function:
 
 ```javascript{1}
-const DispatchContext = createContext(null);
+const DispatchContext = createContext(null)
 ```
 
-*Note: If you continued with the application from the previous tutorial, rename all `TodoContext` simply to `DispatchContext` in the entire application.*
+_Note: If you continued with the application from the previous tutorial, rename all `TodoContext` simply to `DispatchContext` in the entire application._
 
 In our App component, we merged all dispatch functions from our reducers into one dispatch function and pass it down via our new context provider:
 
@@ -102,51 +102,51 @@ In the end, we only need to adjust our reducers, so that they don't throw an err
 const filterReducer = (state, action) => {
   switch (action.type) {
     case 'SHOW_ALL':
-      return 'ALL';
+      return 'ALL'
     case 'SHOW_COMPLETE':
-      return 'COMPLETE';
+      return 'COMPLETE'
     case 'SHOW_INCOMPLETE':
-      return 'INCOMPLETE';
+      return 'INCOMPLETE'
     default:
-      return state;
+      return state
   }
-};
+}
 
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'DO_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          return { ...todo, complete: true };
+          return { ...todo, complete: true }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
     case 'UNDO_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          return { ...todo, complete: false };
+          return { ...todo, complete: false }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
     case 'ADD_TODO':
       return state.concat({
         task: action.task,
         id: action.id,
         complete: false,
-      });
+      })
     default:
-      return state;
+      return state
   }
-};
+}
 ```
 
 Now all reducers receive the incoming actions when actions are dispatched, but not all care about them. However, the dispatch function is one global function, accessible anywhere via React's context, to alter the state in different reducers. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/7f1cf96adddd0ac28cab7aa55f24bbae8b6bc27b/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/7f1cf96adddd0ac28cab7aa55f24bbae8b6bc27b).
 
 # Global State with React Hooks
 
-Basically we already have all our state from useReducer "globally" accessible, because it is located in our top-level component and *can* be passed down via React's Context API. In order to have *one* global state container (here object) though, we can put all our state coming from the useReducer hooks in one object:
+Basically we already have all our state from useReducer "globally" accessible, because it is located in our top-level component and _can_ be passed down via React's Context API. In order to have _one_ global state container (here object) though, we can put all our state coming from the useReducer hooks in one object:
 
 ```javascript{9,10,11,12,13}
 const App = () => {
@@ -201,21 +201,21 @@ const useCombinedReducer = combinedReducers => {
 In the previous sections, we already have seen how to create a global state and global dispatch function. However, this time we need to work with a generic object `combinedReducers`.
 
 ```javascript{3,4,5,6,9,10,11,12}
-const useCombinedReducer = combinedReducers => {
+const useCombinedReducer = (combinedReducers) => {
   // Global State
   const state = Object.keys(combinedReducers).reduce(
     (acc, key) => ({ ...acc, [key]: combinedReducers[key][0] }),
     {}
-  );
+  )
 
   // Global Dispatch Function
-  const dispatch = action =>
+  const dispatch = (action) =>
     Object.keys(combinedReducers)
-      .map(key => combinedReducers[key][1])
-      .forEach(fn => fn(action));
+      .map((key) => combinedReducers[key][1])
+      .forEach((fn) => fn(action))
 
-  return [state, dispatch];
-};
+  return [state, dispatch]
+}
 ```
 
 In case of the global state object, we iterate through all values from `combinedReducers` to retrieve from every entry the first item (state) from the array to allocate each by the key given from the outside.
@@ -227,7 +227,7 @@ Basically that's it. You have one custom hook which takes in the return values f
 You can find the custom hook open sourced over here: [useCombinedReducers](https://github.com/the-road-to-learn-react/use-combined-reducers). If you want to install it, just type `npm install use-combined-reducers` and then import it in your application:
 
 ```javascript
-import useCombinedReducers from 'use-combined-reducers';
+import useCombinedReducers from 'use-combined-reducers'
 ```
 
 <Divider />

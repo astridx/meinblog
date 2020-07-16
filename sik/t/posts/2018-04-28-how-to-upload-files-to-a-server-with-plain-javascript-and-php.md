@@ -153,7 +153,7 @@ We're going to add an event listener to watch for the form being submitted, but 
 
 ```js
 // Listen for form submit
-form.addEventListener('submit', e => {
+form.addEventListener('submit', (e) => {
   e.preventDefault()
 
   // ...
@@ -190,7 +190,7 @@ Finally, use the built-in [Fetch API](https://developer.mozilla.org/en-US/docs/W
 fetch(url, {
   method: 'POST',
   body: formData,
-}).then(response => {
+}).then((response) => {
   console.log(response)
 })
 ```
@@ -203,7 +203,7 @@ Here is the completed **upload.js**.
 const url = 'process.php'
 const form = document.querySelector('form')
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', (e) => {
   e.preventDefault()
 
   const files = document.querySelector('[type=file]').files
@@ -218,7 +218,7 @@ form.addEventListener('submit', e => {
   fetch(url, {
     method: 'POST',
     body: formData,
-  }).then(response => {
+  }).then((response) => {
     console.log(response)
   })
 })

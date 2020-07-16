@@ -101,7 +101,7 @@ The outermost layer of the DOM is the **document** object. To begin manipulating
 In your JavaScript file **scripts.js**, type the following code.
 
 ```js
-$(document).ready(function() {
+$(document).ready(function () {
   // all custom jQuery will go here
 })
 ```
@@ -161,7 +161,7 @@ However, we'll need to utilize jQuery if we want to make text appear on the page
 Now we can use the `click()` method to call a function containing our "Hello, World!" code.
 
 ```js
-$('#trigger').click(function() {
+$('#trigger').click(function () {
   $('#demo').html('Hello, World!')
 })
 ```
@@ -210,7 +210,7 @@ We'll use a minimal amount of CSS to hide the `overlay` with `display: none` and
 Finally, we're going to use the `toggle()` method, which will toggle the CSS `display` property between `none` and `block`, hiding and showing the overlay when clicked.
 
 ```js
-$('.trigger').click(function() {
+$('.trigger').click(function () {
   $('.overlay').toggle()
 })
 ```

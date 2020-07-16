@@ -171,7 +171,10 @@ Search Console will tell you the search terms people typed to find your site org
     "name": "Tania Rascia",
     "gender": "female",
     "url": "",
-    "sameAs": ["https://github.com/taniarascia", "https://twitter.com/taniarascia"]
+    "sameAs": [
+      "https://github.com/taniarascia",
+      "https://twitter.com/taniarascia"
+    ]
   }
 </script>
 ```

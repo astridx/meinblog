@@ -64,9 +64,9 @@ The large number that appears in our output for the current timestamp represents
 
 ```js
 // Assign the timestamp 0 to a new variable
-const epochTime = new Date(0);
+const epochTime = new Date(0)
 
-epochTime;
+epochTime
 ```
 
 ```terminal
@@ -88,13 +88,13 @@ To demonstrate the different ways to refer to a specific date, we'll create new 
 
 ```js
 // Timestamp method
-new Date(-6106015800000);
+new Date(-6106015800000)
 
 // Date string method
-new Date("July 4 1776 12:30");
+new Date('July 4 1776 12:30')
 
 // Date and time method
-new Date(1776, 6, 4, 12, 30, 0, 0);
+new Date(1776, 6, 4, 12, 30, 0, 0)
 ```
 
 The three examples above all create a date containing the same information.
@@ -123,21 +123,21 @@ Let's make a new date, based on July 31, 1980, and assign it to a variable.
 
 ```js
 // Initialize a new birthday instance
-const birthday = new Date(1980, 6, 31);
+const birthday = new Date(1980, 6, 31)
 ```
 
 Now we can use all our methods to get each date component, from year to millisecond.
 
 ```js
-birthday.getFullYear();      // 1980
-birthday.getMonth();         // 6
-birthday.getDate();          // 31
-birthday.getDay();           // 4
-birthday.getHours();         // 0
-birthday.getMinutes();       // 0
-birthday.getSeconds();       // 0
-birthday.getMilliseconds();  // 0
-birthday.getTime();          // 333849600000 (for GMT)
+birthday.getFullYear() // 1980
+birthday.getMonth() // 6
+birthday.getDate() // 31
+birthday.getDay() // 4
+birthday.getHours() // 0
+birthday.getMinutes() // 0
+birthday.getSeconds() // 0
+birthday.getMilliseconds() // 0
+birthday.getTime() // 333849600000 (for GMT)
 ```
 
 Sometimes it may be necessary to extract only part of a date, and the built-in `get` methods are the tool you will use to achieve this.
@@ -146,13 +146,13 @@ For an example of this, we can test the current date against the day and month o
 
 ```js
 // Get today's date
-const today = new Date();
+const today = new Date()
 
 // Compare today with October 3rd
 if (today.getDate() === 3 && today.getMonth() === 9) {
-  console.log("It's October 3rd.");
+  console.log("It's October 3rd.")
 } else {
-  console.log("It's not October 3rd.");
+  console.log("It's not October 3rd.")
 }
 ```
 
@@ -184,9 +184,9 @@ We can use these `set` methods to modify one, more, or all of the components of 
 
 ```js
 // Change year of birthday date
-birthday.setFullYear(1997);
+birthday.setFullYear(1997)
 
-birthday;
+birthday
 ```
 
 ```terminal
@@ -216,11 +216,11 @@ To test the difference between local and UTC `get` methods, we can run the follo
 
 ```js
 // Assign current time to a variable
-const now = new Date();
+const now = new Date()
 
 // Print local and UTC timezones
-console.log(now.getHours());
-console.log(now.getUTCHours());
+console.log(now.getHours())
+console.log(now.getUTCHours())
 ```
 
 Running this code will print out the current hour, and the hour of the UTC timezone. If you are currently in the UTC timezone the numbers that are output from running the program above will be the same.

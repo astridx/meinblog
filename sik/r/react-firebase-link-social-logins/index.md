@@ -1,13 +1,19 @@
 ---
-title: "How to link Social Logins with Firebase in React"
-description: "A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign-in methods ..."
-date: "2018-12-06T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firebase link social logins", "react firebase multiple social logins", "react firebase authentication", "react firebase auth"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to link Social Logins with Firebase in React'
+description: 'A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign-in methods ...'
+date: '2018-12-06T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'react firebase link social logins',
+    'react firebase multiple social logins',
+    'react firebase authentication',
+    'react firebase auth',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,29 +21,29 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 5 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    }
-  ]}
+label="This tutorial is part 5 of 5 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+}
+]}
 />
 
 The last section walked you through implementing social logins for Google, Facebook, and Twitter to being able to sign up/in with a email/password combination. However, since you have enabled multiple accounts for one email address, there is more than one account associated to your email, which can lead to bugs for your service/product. Imagine a user signs in with Google, buys a ebook on your website, is able to download the book as signed in user, and then signs out again. The next sign-in with the email/password combination won't show the e-book anymore. This is because the user has two accounts on your website. While one account is associated with Google, the other one is associated with the email/password combination.
@@ -54,14 +60,14 @@ We will prevent the user from signing in with another account when there is alre
 
 ```javascript{1,2,4,5,6,7,8,9}
 const ERROR_CODE_ACCOUNT_EXISTS =
-  'auth/account-exists-with-different-credential';
+  'auth/account-exists-with-different-credential'
 
 const ERROR_MSG_ACCOUNT_EXISTS = `
   An account with an E-Mail address to
   this social account already exists. Try to login from
   this account instead and associate your social accounts on
   your personal account page.
-`;
+`
 ```
 
 Next, show the custom error message when the error code shows up. That's because we prevent more than one email address for one account:
@@ -101,7 +107,7 @@ class SignInGoogleBase extends Component {
 Repeat this for the other social logins (Facebook, Twitter) as well. If a user signs in with one of the social logins, but there is already an account in the system with this email address, the custom error message shows up. The user has to log in with the correct sign-in method and link all other desired social accounts to this account on the account page. We will add this feature later in the account page, but before this, we need to show a similar custom error message for the sign up page as well. The user might use a social login first and later attempt to sign up with an email address (email/password sign up) that has been used by the social login already.
 
 ```javascript{1,3,4,5,6,7,8,9}
-const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
+const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use'
 
 const ERROR_MSG_ACCOUNT_EXISTS = `
   An account with this E-Mail address already exists.
@@ -109,7 +115,7 @@ const ERROR_MSG_ACCOUNT_EXISTS = `
   account is already used from one of the social logins, try
   to sign-in with one of them. Afterward, associate your accounts
   on your personal account page.
-`;
+`
 ```
 
 Use the custom error message when the error code happens on sign-up:
@@ -501,13 +507,10 @@ const SocialLoginToggle = ({
       Deactivate {signInMethod.id}
     </button>
   ) : (
-    <button
-      type="button"
-      onClick={() => onLink(signInMethod.provider)}
-    >
+    <button type="button" onClick={() => onLink(signInMethod.provider)}>
       Link {signInMethod.id}
     </button>
-  );
+  )
 ```
 
 The implementation details didn't change, but the component is standalone now. Next, let's implement the other component for the email/password sign-in. When this sign-in method is activated, it's sufficient to render only a button similar to the social sign-in methods to unlink (deactivate) this sign-in method. If this sign-in method isn't activated, you need to retrieve the user's desired email and password combination to link it as account to the other social accounts. It's very similar to our sign up form then:
@@ -515,34 +518,28 @@ The implementation details didn't change, but the component is standalone now. N
 ```javascript
 class DefaultLoginToggle extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { passwordOne: '', passwordTwo: '' };
+    this.state = { passwordOne: '', passwordTwo: '' }
   }
 
-  onSubmit = event => {
-    event.preventDefault();
+  onSubmit = (event) => {
+    event.preventDefault()
 
-    this.props.onLink(this.state.passwordOne);
-    this.setState({ passwordOne: '', passwordTwo: '' });
-  };
+    this.props.onLink(this.state.passwordOne)
+    this.setState({ passwordOne: '', passwordTwo: '' })
+  }
 
-  onChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  onChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
 
   render() {
-    const {
-      onlyOneLeft,
-      isEnabled,
-      signInMethod,
-      onUnlink,
-    } = this.props;
+    const { onlyOneLeft, isEnabled, signInMethod, onUnlink } = this.props
 
-    const { passwordOne, passwordTwo } = this.state;
+    const { passwordOne, passwordTwo } = this.state
 
-    const isInvalid =
-      passwordOne !== passwordTwo || passwordOne === '';
+    const isInvalid = passwordOne !== passwordTwo || passwordOne === ''
 
     return isEnabled ? (
       <button
@@ -573,7 +570,7 @@ class DefaultLoginToggle extends Component {
           Link {signInMethod.id}
         </button>
       </form>
-    );
+    )
   }
 }
 ```
@@ -630,7 +627,7 @@ Now you can link and unlink different sign-in methods using only one account and
 
 ### Exercises:
 
-* Try to link and unlink different sign-in methods and check if you are able to sign-in with this method afterwards.
-* Implement loading indicators for each button that activate and deactivate the sign-in methods for a better user experience.
-* Read more about [social account linking in Firebase](https://firebase.google.com/docs/auth/web/account-linking)
-* Confirm your [source code for the last section](http://bit.ly/2VnF3Rf)
+- Try to link and unlink different sign-in methods and check if you are able to sign-in with this method afterwards.
+- Implement loading indicators for each button that activate and deactivate the sign-in methods for a better user experience.
+- Read more about [social account linking in Firebase](https://firebase.google.com/docs/auth/web/account-linking)
+- Confirm your [source code for the last section](http://bit.ly/2VnF3Rf)

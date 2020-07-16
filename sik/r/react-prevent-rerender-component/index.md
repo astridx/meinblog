@@ -1,13 +1,23 @@
 ---
-title: "How to prevent a rerender in React"
+title: 'How to prevent a rerender in React'
 description: "A React performance optimization tutorial which shows you React's shouldComponentUpdate lifecycle method and React's PureComponent API to prevent the rerendering of (child) components ..."
-date: "2018-09-11T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react prevent rerender", "react shouldcomponentupdate", "react purecomponent", "react performance", "react perf", "prevent a child component from rendering in react", "react prevent child rerender", "child did update"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-09-11T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react prevent rerender',
+    'react shouldcomponentupdate',
+    'react purecomponent',
+    'react performance',
+    'react perf',
+    'prevent a child component from rendering in react',
+    'react prevent child rerender',
+    'child did update',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -21,28 +31,30 @@ In this React performance optimization tutorial, you will learn about React's sh
 Before learning about React's API for perf optimizations, let's come up with a scenario that enables us to apply React's shouldComponentUpdate and PureComponent. In the following, you will be rendering a large list of items. After experiencing the rerendering of the list of items as performance problem, we will go through different performance optimization solutions. Your initial application will be the following:
 
 ```javascript
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
-const list = new Array(5000).fill(0).map((v, i) => i);
+const list = new Array(5000).fill(0).map((v, i) => i)
 
 class App extends Component {
   render() {
     return (
       <div>
-        {list.map(v => <Square key={v} number={v} />)}
+        {list.map((v) => (
+          <Square key={v} number={v} />
+        ))}
       </div>
-    );
+    )
   }
 }
 
-const Square = ({ number }) => <Item>{number * number}</Item>;
+const Square = ({ number }) => <Item>{number * number}</Item>
 
 const Item = styled.div`
   margin: 10px;
-`;
+`
 
-export default App;
+export default App
 ```
 
 If you have not styled-components installed yet, you can add it as library via npm with `npm install styled-components`. Otherwise, as you can see, the application generates a list of numbers once and renders them as a list of items. Each item is the square of its number which is [passed as prop](/react-pass-props-to-component/) to the Square component.
@@ -50,32 +62,32 @@ If you have not styled-components installed yet, you can add it as library via n
 In the next step, let's add an interactive element to our application. Next to the list of squares, there should be a button to toggle the perspective of the list.
 
 ```javascript{7,8,9,11,12,13,18,19,20,30,31,32,33,34}
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
-const list = new Array(5000).fill(0).map((v, i) => i);
+const list = new Array(5000).fill(0).map((v, i) => i)
 
 class App extends Component {
   state = {
     perspective: false,
-  };
+  }
 
   togglePerspective = () => {
-    this.setState(state => ({ perspective: !state.perspective }));
-  };
+    this.setState((state) => ({ perspective: !state.perspective }))
+  }
 
   render() {
     return (
       <div>
-        <Button onClick={this.togglePerspective}>
-          Toggle Perspective
-        </Button>
+        <Button onClick={this.togglePerspective}>Toggle Perspective</Button>
 
         <div>
-          {list.map(v => <Square key={v} number={v} />)}
+          {list.map((v) => (
+            <Square key={v} number={v} />
+          ))}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -83,68 +95,68 @@ const Button = ({ onClick, children }) => (
   <button type="button" onClick={onClick}>
     {children}
   </button>
-);
+)
 
-const Square = ({ number }) => <Item>{number * number}</Item>;
+const Square = ({ number }) => <Item>{number * number}</Item>
 
 const Item = styled.div`
   margin: 10px;
-`;
+`
 
-export default App;
+export default App
 ```
 
 The local state of the App component changes when the button is clicked, but the local state itself isn't used yet. In the last step, you are using a styled component with a conditional to toggle the perspective by applying a flexbox style.
 
 ```javascript{22,24,30,31,32,33,34}
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
-const list = new Array(5000).fill(0).map((v, i) => i);
+const list = new Array(5000).fill(0).map((v, i) => i)
 
 class App extends Component {
   state = {
     perspective: false,
-  };
+  }
 
   togglePerspective = () => {
-    this.setState(state => ({ perspective: !state.perspective }));
-  };
+    this.setState((state) => ({ perspective: !state.perspective }))
+  }
 
   render() {
     return (
       <div>
-        <Button onClick={this.togglePerspective}>
-          Toggle Perspective
-        </Button>
+        <Button onClick={this.togglePerspective}>Toggle Perspective</Button>
 
         <Perspective perspective={this.state.perspective}>
-          {list.map(v => <Square key={v} number={v} />)}
+          {list.map((v) => (
+            <Square key={v} number={v} />
+          ))}
         </Perspective>
       </div>
-    );
+    )
   }
 }
 
 const Perspective = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: ${props => (props.perspective ? 'row' : 'column')};
-`;
+  flex-direction: ${(props) => (props.perspective ? 'row' : 'column')};
+`
 
 const Button = ({ onClick, children }) => (
   <button type="button" onClick={onClick}>
     {children}
   </button>
-);
+)
 
-const Square = ({ number }) => <Item>{number * number}</Item>;
+const Square = ({ number }) => <Item>{number * number}</Item>
 
 const Item = styled.div`
   margin: 10px;
-`;
+`
 
-export default App;
+export default App
 ```
 
 Now you should be able to toggle the perspective (rows, columns) of the list of items by clicking the button. Depending on the number of items you are generating for your list once your application starts, the toggling of the perspective takes some time, because with every state change all your components rerender. You can confirm it by adding console logs to your App component's child components and the App component itself.
@@ -197,7 +209,7 @@ As you can see by looking at the console logs after clicking the button, every c
 The first solution used to prevent a component from rendering in React is called shouldComponentUpdate. It is a lifecycle method which is available on [React class components](/javascript-fundamentals-react-requirements/). Instead of having Square as a functional stateless component as before:
 
 ```javascript
-const Square = ({ number }) => <Item>{number * number}</Item>;
+const Square = ({ number }) => <Item>{number * number}</Item>
 ```
 
 You can use a class component with a componentShouldUpdate method:
@@ -220,14 +232,14 @@ As you can see, the shouldComponentUpdate class method has access to the next pr
 class Square extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     if (this.props.number === nextProps.number) {
-      return false;
+      return false
     } else {
-      return true;
+      return true
     }
   }
 
   render() {
-    return <Item>{this.props.number * this.props.number}</Item>;
+    return <Item>{this.props.number * this.props.number}</Item>
   }
 }
 ```

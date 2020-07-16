@@ -288,8 +288,9 @@ Most websites, especially blogs, will have a side area for including content suc
   <div class="sidebar-module sidebar-module-inset">
     <h4>About</h4>
     <p>
-      Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit
-      amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
+      Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis
+      consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed
+      consectetur.
     </p>
   </div>
   <div class="sidebar-module">
@@ -321,8 +322,8 @@ If the sidebar is where all the secondary information goes, the content is where
   <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
   <p>
-    This blog post shows a few different types of content that's supported and styled with
-    Bootstrap. Basic typography, images, and code are all supported.
+    This blog post shows a few different types of content that's supported and
+    styled with Bootstrap. Basic typography, images, and code are all supported.
   </p>
   <hr />
 

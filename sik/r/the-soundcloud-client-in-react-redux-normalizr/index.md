@@ -1,13 +1,13 @@
 ---
-title: "Redux Normalizr: Improve your State Management"
-description: "The Redux Normalizr: Improve your State Management tutorial will teach you how to use normalizr. Avoid deep nested data structures ..."
-date: "2016-07-09T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["redux normalizr"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Redux Normalizr: Improve your State Management'
+description: 'The Redux Normalizr: Improve your State Management tutorial will teach you how to use normalizr. Avoid deep nested data structures ...'
+date: '2016-07-09T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['redux normalizr']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -28,7 +28,7 @@ In the beginning we will not add the normalizr module. First we want to add a ne
 
 Let's start by displaying the playing track once the user hits a Play button.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{24,27,28,29,30}
 ...
@@ -70,7 +70,7 @@ Let's start by displaying the playing track once the user hits a Play button.
 
 Now we can introduce a new child component - the LikeButton. We will use the button in the list of tracks but also for the currently playing track. The user should be able to like tracks from both places.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{5,6,7,8,9,10,11,12,13,14,15,41,53}
 import React, { Component } from 'react';
@@ -144,7 +144,7 @@ The LikeButton gets a track and decides based on the user_favorite flag to show 
 
 Let's implement the like functionality, but without having a real request to the SoundCloud server. We can fake it for the beginning by toggling the user_favorite flag on the track. First we need to pass in the new onLike function to our component and use it in the LikeButton.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{5,10,11,20,39,51}
 import React, { Component } from 'react';
@@ -214,22 +214,22 @@ The function gets the track to like/unlike as parameter.
 
 In the container component we need to map the new unimplemented functionality.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{21}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const { tracks, activeTrack } = state.track;
+  const { user } = state.auth
+  const { tracks, activeTrack } = state.track
   return {
     user,
     tracks,
-    activeTrack
+    activeTrack,
   }
 }
 
@@ -238,116 +238,117 @@ function mapDispatchToProps(dispatch) {
     onPlay: bindActionCreators(actions.playTrack, dispatch),
     onAuth: bindActionCreators(actions.auth, dispatch),
     onLike: bindActionCreators(actions.likeTrack, dispatch),
-  };
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 Now let's implement the action + reducer functionality to fulfil the roundtrip. We begin this by declaring a new action type.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{4}
-export const ME_SET = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
-export const TRACK_LIKE = 'TRACK_LIKE';
+export const ME_SET = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
+export const TRACK_LIKE = 'TRACK_LIKE'
 ```
 
 Moreover we need a new action creator.
 
-*src/actions/track.js*
+_src/actions/track.js_
 
 ```javascript{17,18,19,20,21,22}
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function setTracks(tracks) {
   return {
     type: actionTypes.TRACKS_SET,
-    tracks
-  };
-};
+    tracks,
+  }
+}
 
 export function playTrack(track) {
   return {
     type: actionTypes.TRACK_PLAY,
-    track
-  };
+    track,
+  }
 }
 
 export function likeTrack(track) {
   return {
     type: actionTypes.TRACK_LIKE,
-    track
-  };
+    track,
+  }
 }
 ```
 
 And make it accessible in the entry point file for actions.
 
-*src/actions/index.js*
+_src/actions/index.js_
 
 ```javascript{2,8}
-import { auth } from './auth';
-import { setTracks, playTrack, likeTrack } from './track';
+import { auth } from './auth'
+import { setTracks, playTrack, likeTrack } from './track'
 
-export {
-  auth,
-  setTracks,
-  playTrack,
-  likeTrack,
-};
+export { auth, setTracks, playTrack, likeTrack }
 ```
 
 The last step of the roundtrip is to catch the new action type in the reducer.
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript{2,15,16,31,32,33,34,35,36,37,38,39,40,41,42,43,44}
-import * as actionTypes from '../constants/actionTypes';
-import { findIndex } from 'lodash';
+import * as actionTypes from '../constants/actionTypes'
+import { findIndex } from 'lodash'
 
 const initialState = {
-    tracks: [],
-    activeTrack: null
-};
+  tracks: [],
+  activeTrack: null,
+}
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
     case actionTypes.TRACK_PLAY:
-      return setPlay(state, action);
+      return setPlay(state, action)
     case actionTypes.TRACK_LIKE:
-      return setLike(state, action);
+      return setLike(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { tracks } = action;
-  return { ...state, tracks };
+  const { tracks } = action
+  return { ...state, tracks }
 }
 
 function setPlay(state, action) {
-  const { track } = action;
-  return { ...state, activeTrack: track };
+  const { track } = action
+  return { ...state, activeTrack: track }
 }
 
 function setLike(state, action) {
-  const { track } = action;
+  const { track } = action
 
-  const index = findIndex(state.tracks, (t) => t.origin.id === track.origin.id);
-  const newTrack = { ...track, origin: { ...track.origin, user_favorite: !state.tracks[index].origin.user_favorite } };
+  const index = findIndex(state.tracks, (t) => t.origin.id === track.origin.id)
+  const newTrack = {
+    ...track,
+    origin: {
+      ...track.origin,
+      user_favorite: !state.tracks[index].origin.user_favorite,
+    },
+  }
 
   const tracks = [
     ...state.tracks.slice(0, index),
     newTrack,
-    ...state.tracks.slice(index + 1)
-  ];
+    ...state.tracks.slice(index + 1),
+  ]
 
-  return { ...state, tracks };
+  return { ...state, tracks }
 }
 ```
 
@@ -355,7 +356,7 @@ Basically we construct a new tracks array based on the old tracks plus a newTrac
 
 Additionally we have to install [Lodash](https://lodash.com/), a utility library, to get access to a functionality like `findIndex`.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save lodash
@@ -363,7 +364,7 @@ npm install --save lodash
 
 We can try the new like functionality by starting our app.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start
@@ -381,7 +382,7 @@ Now [normalizr](https://github.com/paularmstrong/normalizr) comes into play. The
 
 First we have to install the module.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save normalizr
@@ -389,7 +390,7 @@ npm install --save normalizr
 
 Normalizr comes with schemas. A schema defines a type of entity. In our case an entity could be a track or an user (either the login user or the user within the track object). We can start by defining our first schema.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir schemas
@@ -397,19 +398,19 @@ cd schemas
 touch track.js
 ```
 
-*src/schemas/track.js*
+_src/schemas/track.js_
 
 ```javascript
-import { Schema } from 'normalizr';
+import { Schema } from 'normalizr'
 
-const trackSchema = new Schema('tracks');
+const trackSchema = new Schema('tracks')
 
-export default trackSchema;
+export default trackSchema
 ```
 
 Now we can use that schema in the fetchStream SoundCloud request.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{2,3,4,15,16}
 import SC from 'soundcloud';
@@ -440,44 +441,44 @@ We don't use the normalized data yet, but you can see it as console output. Once
 
 One can even go one step further to demonstrate the mapping of nested data. We are not using user entities yet, but for later usage, you could already define an user schema.
 
-*From schemas folder:*
+_From schemas folder:_
 
 ```javascript
 touch user.js
 ```
 
-*src/schemas/user.js*
+_src/schemas/user.js_
 
 ```javascript
-import { Schema } from 'normalizr';
+import { Schema } from 'normalizr'
 
-const userSchema = new Schema('users');
+const userSchema = new Schema('users')
 
-export default userSchema;
+export default userSchema
 ```
 
 And use it as nested data in the track schema.
 
-*src/schemas/track.js*
+_src/schemas/track.js_
 
 ```javascript{2,6,7,8}
-import { Schema } from 'normalizr';
-import userSchema from './user';
+import { Schema } from 'normalizr'
+import userSchema from './user'
 
-const trackSchema = new Schema('tracks');
+const trackSchema = new Schema('tracks')
 
 trackSchema.define({
-  user: userSchema
-});
+  user: userSchema,
+})
 
-export default trackSchema;
+export default trackSchema
 ```
 
 Start again the app to see the console output. Now the normalized data should contain a list of ids (track ids) and two maps of entities (track and user entities). Moreover when you have a look at a track entity, you will find out that the user object in there is only referenced by an id rather than having the whole user object.
 
 Now let's refactor first actions and reducer and second the component itself.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{9}
 ...
@@ -498,74 +499,80 @@ The normalized data gets dispatched rather than the plain data. Moreover we alre
 
 The action creators will deal with ids rather than a whole object. This helps us to reference only to one source of truth later on.
 
-*src/actions/track.js*
+_src/actions/track.js_
 
 ```javascript{3,6,7,11,14,18,21}
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function setTracks(trackEntities, trackIds) {
   return {
     type: actionTypes.TRACKS_SET,
     trackEntities,
-    trackIds
-  };
-};
+    trackIds,
+  }
+}
 
 export function playTrack(trackId) {
   return {
     type: actionTypes.TRACK_PLAY,
-    trackId
-  };
+    trackId,
+  }
 }
 
 export function likeTrack(trackId) {
   return {
     type: actionTypes.TRACK_LIKE,
-    trackId
-  };
+    trackId,
+  }
 }
 ```
 
 The initialState of the reducer will change as well. Rather than having one list of track entities, you will end up with a map of entities and a list of track ids.
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript{5,6,7,23,24,28,29,33,34,35}
-import * as actionTypes from '../constants/actionTypes';
-import { findIndex } from 'lodash';
+import * as actionTypes from '../constants/actionTypes'
+import { findIndex } from 'lodash'
 
 const initialState = {
-    trackEntities: {},
-    trackIds: [],
-    activeTrackId: null
-};
+  trackEntities: {},
+  trackIds: [],
+  activeTrackId: null,
+}
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
     case actionTypes.TRACK_PLAY:
-      return setPlay(state, action);
+      return setPlay(state, action)
     case actionTypes.TRACK_LIKE:
-      return setLike(state, action);
+      return setLike(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { trackEntities, trackIds } = action;
-  return { ...state, trackEntities, trackIds };
+  const { trackEntities, trackIds } = action
+  return { ...state, trackEntities, trackIds }
 }
 
 function setPlay(state, action) {
-  const { trackId } = action;
-  return { ...state, activeTrackId: trackId };
+  const { trackId } = action
+  return { ...state, activeTrackId: trackId }
 }
 
 function setLike(state, action) {
-  const { trackId } = action;
-  const newTrack = { ...state.trackEntities[trackId], user_favorite: !state.trackEntities[trackId].user_favorite };
-  return { ...state, trackEntities: { ...state.trackEntities, [trackId]: newTrack } };
+  const { trackId } = action
+  const newTrack = {
+    ...state.trackEntities[trackId],
+    user_favorite: !state.trackEntities[trackId].user_favorite,
+  }
+  return {
+    ...state,
+    trackEntities: { ...state.trackEntities, [trackId]: newTrack },
+  }
 }
 ```
 
@@ -573,18 +580,18 @@ Now comes the crucial point: Remember when we liked a track and the list of trac
 
 The last step is to respect the new state structure in the Stream component. The container component gets the new list of ids and map of entities.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{9,12,13,14}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const { trackIds, trackEntities, activeTrackId } = state.track;
+  const { user } = state.auth
+  const { trackIds, trackEntities, activeTrackId } = state.track
   return {
     user,
     trackIds,
@@ -598,98 +605,118 @@ function mapDispatchToProps(dispatch) {
     onPlay: bindActionCreators(actions.playTrack, dispatch),
     onAuth: bindActionCreators(actions.auth, dispatch),
     onLike: bindActionCreators(actions.likeTrack, dispatch),
-  };
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 Now the presenter component can get refactored to make usage of both entities and ids to retrieve the proper track object.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{9,10,11,24,26,34,48,51,52,53,61,64,65,67}
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { CLIENT_ID } from '../../constants/auth';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { CLIENT_ID } from '../../constants/auth'
 
 function LikeButton({ track, onLike }) {
   return (
     <span>
-      {
-        track.user_favorite ?
-          <button type="button" onClick={() => onLike(track.id)}>Unlike</button> :
-          <button type="button" onClick={() => onLike(track.id)}>Like</button>
-      }
+      {track.user_favorite ? (
+        <button type="button" onClick={() => onLike(track.id)}>
+          Unlike
+        </button>
+      ) : (
+        <button type="button" onClick={() => onLike(track.id)}>
+          Like
+        </button>
+      )}
     </span>
-  );
+  )
 }
 
 class Stream extends Component {
-
   componentDidUpdate() {
-    const audioElement = ReactDOM.findDOMNode(this.refs.audio);
+    const audioElement = ReactDOM.findDOMNode(this.refs.audio)
 
-    if (!audioElement) { return; }
+    if (!audioElement) {
+      return
+    }
 
-    const { activeTrackId } = this.props;
+    const { activeTrackId } = this.props
 
     if (activeTrackId) {
-      audioElement.play();
+      audioElement.play()
     } else {
-      audioElement.pause();
+      audioElement.pause()
     }
   }
 
   render() {
-    const { user, trackIds = [], trackEntities = {}, activeTrackId, onAuth, onPlay, onLike } = this.props;
+    const {
+      user,
+      trackIds = [],
+      trackEntities = {},
+      activeTrackId,
+      onAuth,
+      onPlay,
+      onLike,
+    } = this.props
 
     return (
       <div>
         <div>
-          {
-            user ?
-              <div>{user.username}</div> :
-              <button onClick={onAuth} type="button">Login</button>
-          }
+          {user ? (
+            <div>{user.username}</div>
+          ) : (
+            <button onClick={onAuth} type="button">
+              Login
+            </button>
+          )}
         </div>
-        <br/>
+        <br />
         <div>
-        {
-          trackIds.map((id, key) => {
-              return (
-                <div className="track" key={key}>
-                  {trackEntities[id].title}
-                  <button type="button" onClick={() => onPlay(id)}>Play</button>
-                  <LikeButton track={trackEntities[id]} onLike={onLike} />
-                </div>
-              );
-          })
-        }
-        </div>
-        <br/>
-        {
-          activeTrackId ?
-            <div>
-              <div>
-                Playing: {trackEntities[activeTrackId].title}
-                <LikeButton track={trackEntities[activeTrackId]} onLike={onLike} />
+          {trackIds.map((id, key) => {
+            return (
+              <div className="track" key={key}>
+                {trackEntities[id].title}
+                <button type="button" onClick={() => onPlay(id)}>
+                  Play
+                </button>
+                <LikeButton track={trackEntities[id]} onLike={onLike} />
               </div>
-              <audio id="audio" ref="audio" src={`${trackEntities[activeTrackId].stream_url}?client_id=${CLIENT_ID}`}></audio>
-            </div> :
-            null
-        }
+            )
+          })}
+        </div>
+        <br />
+        {activeTrackId ? (
+          <div>
+            <div>
+              Playing: {trackEntities[activeTrackId].title}
+              <LikeButton
+                track={trackEntities[activeTrackId]}
+                onLike={onLike}
+              />
+            </div>
+            <audio
+              id="audio"
+              ref="audio"
+              src={`${trackEntities[activeTrackId].stream_url}?client_id=${CLIENT_ID}`}
+            ></audio>
+          </div>
+        ) : null}
       </div>
-    );
+    )
   }
 }
 
-export default Stream;
+export default Stream
 ```
 
 When you start again the app, the like of both track in list and active track should be in sync. Both are only ids and point to the map of track entities.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start
@@ -697,7 +724,7 @@ npm start
 
 Last but not least we can fix the broken test by respecting the new data structure as input for the Stream component.
 
-*src/components/Stream/spec.js*
+_src/components/Stream/spec.js_
 
 ```javascript{3,4}
 ...

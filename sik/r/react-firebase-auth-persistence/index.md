@@ -1,13 +1,18 @@
 ---
-title: "React Firebase Auth Persistence with Local Storage"
-description: "A tutorial on how to use local storage for auth state persistence for a Firebase in React application. When reloading the browser, the user should stay authenticated without a flicker ..."
-date: "2018-11-27T07:50:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firebase auth persistence", "react firebase local storage", "react firebase permissions"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Firebase Auth Persistence with Local Storage'
+description: 'A tutorial on how to use local storage for auth state persistence for a Firebase in React application. When reloading the browser, the user should stay authenticated without a flicker ...'
+date: '2018-11-27T07:50:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'react firebase auth persistence',
+    'react firebase local storage',
+    'react firebase permissions',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,34 +24,34 @@ author: ""
 Previously, we implemented authentication for this Firebase in React application. Along the way, we added authorization with roles. You may have experienced a flicker every time you reload/refresh your browser, because the application doesn't know from the start if a user is authenticated or not since the authenticated user is null. It will happen until Firebase figures out there is an authenticated user and calls the function in the listener of the authentication higher-order component:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
-import AuthUserContext from './context';
-import { withFirebase } from '../Firebase';
+import AuthUserContext from './context'
+import { withFirebase } from '../Firebase'
 
-const withAuthentication = Component => {
+const withAuthentication = (Component) => {
   class WithAuthentication extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {
         authUser: null,
-      };
+      }
     }
 
     componentDidMount() {
       this.listener = this.props.firebase.onAuthUserListener(
-        authUser => {
-          this.setState({ authUser });
+        (authUser) => {
+          this.setState({ authUser })
         },
         () => {
-          this.setState({ authUser: null });
-        },
-      );
+          this.setState({ authUser: null })
+        }
+      )
     }
 
     componentWillUnmount() {
-      this.listener();
+      this.listener()
     }
 
     render() {
@@ -54,14 +59,14 @@ const withAuthentication = Component => {
         <AuthUserContext.Provider value={this.state.authUser}>
           <Component {...this.props} />
         </AuthUserContext.Provider>
-      );
+      )
     }
   }
 
-  return withFirebase(WithAuthentication);
-};
+  return withFirebase(WithAuthentication)
+}
 
-export default withAuthentication;
+export default withAuthentication
 ```
 
 After the Firebase authentication listener is invoked for the first time, the authenticated user may be there, because Firebase has its internal state for auth persistence. Also, the routes are made visible in the Navigation component due to the authenticated user being there now. While it's good that Firebase keeps the state of the authenticated user, the UI glitch in the beginning hurts the user experience. Let's avoid this using the [browser's local storage](/local-storage-react/) for the authenticated user:
@@ -133,6 +138,6 @@ Try the application again and verify that the flicker is gone. Also all the cond
 
 ### Exercises:
 
-* Read more about [Auth Persistence in Firebase](https://firebase.google.com/docs/auth/web/auth-state-persistence)
-* Explore using the Browser's Session Storage instead of the Local Storage to give the authenticated user an expiration date.
-* Confirm your [source code for the last section](http://bit.ly/2VoNhZj)
+- Read more about [Auth Persistence in Firebase](https://firebase.google.com/docs/auth/web/auth-state-persistence)
+- Explore using the Browser's Session Storage instead of the Local Storage to give the authenticated user an expiration date.
+- Confirm your [source code for the last section](http://bit.ly/2VoNhZj)

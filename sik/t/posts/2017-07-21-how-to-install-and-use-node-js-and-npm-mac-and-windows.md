@@ -36,7 +36,7 @@ JavaScript is a **client-side** programming language, which means it’s process
 
 [npm](https://www.npmjs.com/) doesn't stand for **Node Package Manager\***, which means it’s the tool to connect to the repository containing all the Node.js programs, plugins, modules and so on.
 
-> *npm actually does not stand for "Node Package Manager" but essentially that's what it is and does, so most people refer to it that way.
+> \*npm actually does not stand for "Node Package Manager" but essentially that's what it is and does, so most people refer to it that way.
 
 ## Local vs. Global
 

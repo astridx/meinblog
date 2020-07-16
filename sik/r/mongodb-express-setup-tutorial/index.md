@@ -1,36 +1,36 @@
 ---
-title: "Setup MongoDB with Mongoose in Express"
-description: "A tutorial on how to setup MongoDB for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Mongoose as ORM. You can choose to use another ORM, if you want to ..."
-date: "2020-04-27T07:50:46+02:00"
-categories: ["Node"]
-keywords: ["mongodb express", "mongodb mongoose", "node mongodb"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Setup MongoDB with Mongoose in Express'
+description: 'A tutorial on how to setup MongoDB for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Mongoose as ORM. You can choose to use another ORM, if you want to ...'
+date: '2020-04-27T07:50:46+02:00'
+categories: ['Node']
+keywords: ['mongodb express', 'mongodb mongoose', 'node mongodb']
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
 <LinkCollection
-  label="This tutorial is part 4 of 4 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "How to setup Express.js in Node.js",
-      url: "/node-js-express-tutorial/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "How to create a REST API with Express.js in Node.js",
-      url: "/node-express-server-rest-api/"
-    }
-  ]}
+label="This tutorial is part 4 of 4 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "The minimal Node.js with Babel Setup",
+url: "/minimal-node-js-babel-setup/"
+},
+{
+prefix: "Part 2:",
+label: "How to setup Express.js in Node.js",
+url: "/node-js-express-tutorial/"
+},
+{
+prefix: "Part 3:",
+label: "How to create a REST API with Express.js in Node.js",
+url: "/node-express-server-rest-api/"
+}
+]}
 />
 
 Eventually every Node.js project running with Express.js as web application will need a database. Since most server applications are stateless, in order to scale them horizontally with multiple server instances, there is no way to persist data without another third-party (e.g. database). That's why it is fine to develop an initial application with sample data, where it is possible to read and write data without a database, but at some point you want to introduce a database to manage the data. The database would keep the data persistence across servers or even though one of your servers is not running.
@@ -53,20 +53,20 @@ After you have installed the library as node packages, we'll plan and implement 
 
 The following case implements a database for your application with two database entities: User and Message. Often a database entity is called database schema or database model as well. You can distinguish them the following way:
 
-* Database Schema: A database schema is close to the implementation details and tells the database (and developer) how an entity (e.g. user entity) looks like in a database table whereas every instance of an entity is represented by a table row. For instance, the schema defines fields (e.g. username) and relationships (e.g. a user has messages) of an entity. Each field is represented as a column in the database. Basically a schema is the blueprint for an entity.
+- Database Schema: A database schema is close to the implementation details and tells the database (and developer) how an entity (e.g. user entity) looks like in a database table whereas every instance of an entity is represented by a table row. For instance, the schema defines fields (e.g. username) and relationships (e.g. a user has messages) of an entity. Each field is represented as a column in the database. Basically a schema is the blueprint for an entity.
 
-* Database Model: A database model is a more abstract perspective on the schema. It offers the developer a conceptual framework on what models are available and how to use models as interfaces to connect an application to a database to interact with the entities. Often models are implemented with ORMs.
+- Database Model: A database model is a more abstract perspective on the schema. It offers the developer a conceptual framework on what models are available and how to use models as interfaces to connect an application to a database to interact with the entities. Often models are implemented with ORMs.
 
-* Database Entity: A database entity is actual instance of a stored item in the database that is created with a database schema. Each database entity uses a row in the database table whereas each field of the entity is defined by a column. A relationship to another entity is often described with an identifier of the other entity and ends up as field in the database as well.
+- Database Entity: A database entity is actual instance of a stored item in the database that is created with a database schema. Each database entity uses a row in the database table whereas each field of the entity is defined by a column. A relationship to another entity is often described with an identifier of the other entity and ends up as field in the database as well.
 
 Before diving into the code for your application, it's always a good idea to map the relationships between entities and how to handle the data that must pass between them. A [UML (Unified Modeling Language)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) diagram is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to additional information in the database schema to it. An UML diagram could appear as such:
 
 ![uml diagram](./images/uml.png)
 
-The User and Message entities have fields that define both their identity within the construct and their relationships to each other. Let's get back to our Express application. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/user.js* and *src/models/message.js*). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. *src/models/index.js*) that combines all models and exports all them as database interface to the Express application. We can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the *src/models/user.js* file:
+The User and Message entities have fields that define both their identity within the construct and their relationships to each other. Let's get back to our Express application. Usually, there is a folder in your Node.js application called _src/models/_ that contains files for each model in your database (e.g. _src/models/user.js_ and _src/models/message.js_). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. _src/models/index.js_) that combines all models and exports all them as database interface to the Express application. We can start with the two models in the _src/models/[modelname].js_ files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the _src/models/user.js_ file:
 
 ```javascript
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema(
   {
@@ -76,20 +76,20 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
 
-export default User;
+export default User
 ```
 
 As you can see, the user has a username field which is represented as string type. In addition, we added some more validation for our user entity. First, we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. And second, we want to make the username string required, so that there is no user without a username. Last but not least, we defined timestamps for this database entity, which will result in additional `createdAt` and `updatedAt` fields.
 
-We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
+We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username _or_ email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
 
 ```javascript{14-24}
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema(
   {
@@ -99,30 +99,30 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
 userSchema.statics.findByLogin = async function (login) {
   let user = await this.findOne({
     username: login,
-  });
+  })
 
   if (!user) {
-    user = await this.findOne({ email: login });
+    user = await this.findOne({ email: login })
   }
 
-  return user;
-};
+  return user
+}
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
 
-export default User;
+export default User
 ```
 
 The message model looks quite similar, even though we don't add any custom methods to it and the fields are pretty straightforward with only a text field:
 
 ```javascript
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const messageSchema = new mongoose.Schema(
   {
@@ -131,18 +131,18 @@ const messageSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
-const Message = mongoose.model('Message', messageSchema);
+const Message = mongoose.model('Message', messageSchema)
 
-export default Message;
+export default Message
 ```
 
 However, we may want to associate the message with a user:
 
 ```javascript{9}
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const messageSchema = new mongoose.Schema(
   {
@@ -152,18 +152,18 @@ const messageSchema = new mongoose.Schema(
     },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
-const Message = mongoose.model('Message', messageSchema);
+const Message = mongoose.model('Message', messageSchema)
 
-export default Message;
+export default Message
 ```
 
 Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with hooks. In this case, we add a pre hook to our user schema to remove all messages of this user on its deletion:
 
 ```javascript{26-28}
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const userSchema = new mongoose.Schema(
   {
@@ -173,56 +173,56 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
 userSchema.statics.findByLogin = async function (login) {
   let user = await this.findOne({
     username: login,
-  });
+  })
 
   if (!user) {
-    user = await this.findOne({ email: login });
+    user = await this.findOne({ email: login })
   }
 
-  return user;
-};
+  return user
+}
 
-userSchema.pre('remove', function(next) {
-  this.model('Message').deleteMany({ user: this._id }, next);
-});
+userSchema.pre('remove', function (next) {
+  this.model('Message').deleteMany({ user: this._id }, next)
+})
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema)
 
-export default User;
+export default User
 ```
 
-Mongoose is used to define the model with its content (composed of types and optional configuration). Furthermore, additional methods can be added to shape the database interface and references can be used to create relations between models. An user can have multiple messages, but a Message belongs to only one user. You can dive deeper into these concepts in the [Mongoose documentation](https://mongoosejs.com/). Next, in your *src/models/index.js* file, import and combine those models and export them as unified models interface:
+Mongoose is used to define the model with its content (composed of types and optional configuration). Furthermore, additional methods can be added to shape the database interface and references can be used to create relations between models. An user can have multiple messages, but a Message belongs to only one user. You can dive deeper into these concepts in the [Mongoose documentation](https://mongoosejs.com/). Next, in your _src/models/index.js_ file, import and combine those models and export them as unified models interface:
 
 ```javascript
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-import User from './user';
-import Message from './message';
+import User from './user'
+import Message from './message'
 
 const connectDb = () => {
-  return mongoose.connect(process.env.DATABASE_URL);
-};
+  return mongoose.connect(process.env.DATABASE_URL)
+}
 
-const models = { User, Message };
+const models = { User, Message }
 
-export { connectDb };
+export { connectDb }
 
-export default models;
+export default models
 ```
 
-At the top of the file, you create a connection function by passing the database URL as mandatory argument to it. In our case, we are using environment variables, but you can pass the argument as string in the source code too. For example, the environment variable could look like the following in an *.env* file:
+At the top of the file, you create a connection function by passing the database URL as mandatory argument to it. In our case, we are using environment variables, but you can pass the argument as string in the source code too. For example, the environment variable could look like the following in an _.env_ file:
 
 ```javascript
 DATABASE_URL=mongodb://localhost:27017/node-express-mongodb-server
 ```
 
-*Note: The database URL can seen when you start up your MongoDB on the command line. You only need to define a subpath for the URL to define a specific database. If the database doesn't exist yet, MongoDB will create one for you.*
+_Note: The database URL can seen when you start up your MongoDB on the command line. You only need to define a subpath for the URL to define a specific database. If the database doesn't exist yet, MongoDB will create one for you._
 
 Lastly, use the function in your Express application. It connects to the database asynchronously and once this is done you can start your Express application.
 
@@ -268,9 +268,9 @@ That's it for defining your database models for your Express application and for
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/mongo-mongoose-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
-  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/init...mongo-mongoose-setup?expand=1).
-* Read more about [Mongoose](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose).
+- Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/mongo-mongoose-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  - Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/init...mongo-mongoose-setup?expand=1).
+- Read more about [Mongoose](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose).
 
 # How to seed a MongoDB Database?
 
@@ -380,38 +380,38 @@ That's it. In our case, we have used our models to create users with associated 
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/seed). Be aware that the project cannot run properly in the Sandbox, because there is no database.
-  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/mongo-mongoose-setup...seed?expand=1).
-* Explore:
-  * What else could be used instead of Mongoose as ORM alternative?
-  * What else could be used instead of MongoDB as database alternative?
-  * Compare your source code with the source code from the [PostgreSQL + Sequelize alternative](https://github.com/rwieruch/node-express-postgresql-server).
-* Ask yourself:
-  * When would you seed an application in a production ready environment?
-  * Are ORMs like Mongoose essential to connect your application to a database?
+- Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/seed). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  - Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/mongo-mongoose-setup...seed?expand=1).
+- Explore:
+  - What else could be used instead of Mongoose as ORM alternative?
+  - What else could be used instead of MongoDB as database alternative?
+  - Compare your source code with the source code from the [PostgreSQL + Sequelize alternative](https://github.com/rwieruch/node-express-postgresql-server).
+- Ask yourself:
+  - When would you seed an application in a production ready environment?
+  - Are ORMs like Mongoose essential to connect your application to a database?
 
 <LinkCollection
-  label="This tutorial is part 4 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "How to setup Express.js in Node.js",
-      url: "/node-js-express-tutorial/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "How to create a REST API with Express.js in Node.js",
-      url: "/node-express-server-rest-api/"
-    },
-    {
-      prefix: "Part 5:",
-      label: "Creating a REST API with Express.js and MongoDB",
-      url: "/mongodb-express-node-rest-api/"
-    }
-  ]}
+label="This tutorial is part 4 of 5 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "The minimal Node.js with Babel Setup",
+url: "/minimal-node-js-babel-setup/"
+},
+{
+prefix: "Part 2:",
+label: "How to setup Express.js in Node.js",
+url: "/node-js-express-tutorial/"
+},
+{
+prefix: "Part 3:",
+label: "How to create a REST API with Express.js in Node.js",
+url: "/node-express-server-rest-api/"
+},
+{
+prefix: "Part 5:",
+label: "Creating a REST API with Express.js and MongoDB",
+url: "/mongodb-express-node-rest-api/"
+}
+]}
 />

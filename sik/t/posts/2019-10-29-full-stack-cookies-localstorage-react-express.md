@@ -254,7 +254,12 @@ Using the basic example of routes from the aforementioned article, here's how yo
 
 ```jsx
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 import axios from 'axios'
 // ...plus page and context imports
 

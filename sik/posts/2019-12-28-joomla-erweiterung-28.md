@@ -8,7 +8,7 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 Manche Items sind etwas Besonderes und für sie gibt es in Joomla! ein spezielles Attribut: `featured`. Dieser Teil der Artikelserie fügt `featured` zu unserer Komponente hinzu.
@@ -17,7 +17,7 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla! ein spezielle
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t23...t24) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -25,9 +25,9 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
-2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`. 
+2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
 ![Joomla! Published](../images/j4x16x1.png)
 
@@ -43,7 +43,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
 
 ![Joomla! Featured](../images/j4x28x3.png)
 
-5. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist. 
+5. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist.
 
 ![Joomla! Featured](../images/j4x28x4.png)
 

@@ -1,13 +1,13 @@
 ---
-title: "Callback Functions in JavaScript"
-description: "Learn about callback functions in JavaScript, how to use callback functions and how to create a callback functions yourself ..."
-date: "2020-05-22T12:50:46+02:00"
-categories: ["JavaScript"]
-keywords: ["javascript custom error"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Callback Functions in JavaScript'
+description: 'Learn about callback functions in JavaScript, how to use callback functions and how to create a callback functions yourself ...'
+date: '2020-05-22T12:50:46+02:00'
+categories: ['JavaScript']
+keywords: ['javascript custom error']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -44,19 +44,19 @@ Both ways work. Now, regardless of the text we are passing to the `printText` fu
 
 ```javascript{2,4}
 function printText(text, fn) {
-  console.log(text);
+  console.log(text)
 
-  fn();
+  fn()
 }
 
 function printSomethingElse() {
-  console.log('do something afterward');
+  console.log('do something afterward')
 }
 
-printText('do something', printSomethingElse);
+printText('do something', printSomethingElse)
 ```
 
-This could be one way of implementing the `printText` function which receives our callback function. In this scenario, it will print first *"do something"* and then *"do something afterward"*. How you implement all these functions is totally up to you. It's more about the function being passed as argument to the `printText` function and which is used within this function to be called at some point.
+This could be one way of implementing the `printText` function which receives our callback function. In this scenario, it will print first _"do something"_ and then _"do something afterward"_. How you implement all these functions is totally up to you. It's more about the function being passed as argument to the `printText` function and which is used within this function to be called at some point.
 
 **Essentially a callback function is used in another function to be executed eventually. This other function decides when to execute the function and which arguments it passes to the function.**
 
@@ -64,17 +64,17 @@ For example, let's create a generic filter function which filters a JavaScript a
 
 ```javascript
 function filter(list, filterFn) {
-  let newList = [];
+  let newList = []
 
   for (let i = 0; i < list.length; i++) {
-    const item = list[i];
+    const item = list[i]
 
     if (filterFn(item)) {
-      newList.push(item);
+      newList.push(item)
     }
   }
 
-  return newList;
+  return newList
 }
 ```
 
@@ -84,10 +84,10 @@ The crucial point here is that the filter function doesn't know anything about t
 
 ```javascript
 const result = filter([3, 6, 1], function greaterThanFive(item) {
-  return item > 5;
-});
+  return item > 5
+})
 
-console.log(result);
+console.log(result)
 // [6]
 ```
 
@@ -95,12 +95,12 @@ As mentioned before, you can either inline the callback function as argument or 
 
 ```javascript
 function greaterThanFive(item) {
-  return item > 5;
+  return item > 5
 }
 
-const result = filter([3, 6, 1], greaterThanFive);
+const result = filter([3, 6, 1], greaterThanFive)
 
-console.log(result);
+console.log(result)
 // [6]
 ```
 
@@ -108,10 +108,10 @@ The important fact is that we as a developer who uses the filter function decide
 
 ```javascript
 const result = [3, 6, 1].filter(function greaterThanFive(item) {
-  return item > 5;
-});
+  return item > 5
+})
 
-console.log(result);
+console.log(result)
 // [6]
 ```
 
@@ -121,19 +121,17 @@ For all these cases, you can also use anonymous JavaScript callback functions, i
 
 ```javascript{1}
 const result = [3, 6, 1].filter(function (item) {
-  return item > 5;
-});
+  return item > 5
+})
 ```
 
 In addition, you can also use JavaScript arrow functions for keeping your callback functions more concise:
 
 ```javascript{1}
-const result = [3, 6, 1].filter((item) => item > 5);
+const result = [3, 6, 1].filter((item) => item > 5)
 
-console.log(result);
+console.log(result)
 // [6]
 ```
 
 In conclusion, callback functions are powerful: Functions that take a callback function as argument can stay pretty generic, because developers who use this function have to define the crucial behavior in the callback function.
-
-

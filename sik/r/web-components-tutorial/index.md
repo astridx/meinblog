@@ -1,13 +1,13 @@
 ---
-title: "Web Components Tutorial for Beginners [2019]"
+title: 'Web Components Tutorial for Beginners [2019]'
 description: "In this Web Components tutorial, you will learn how to implement your first web component (custom elements) with HTML, CSS, and JavaScript. It is aimed at beginners who haven't used web components before ..."
-date: "2019-06-10T13:50:46+02:00"
-categories: ["Web Components", "JavaScript"]
-keywords: ["web components tutorial"]
-hashtags: ["#100DaysOfCode", "#WebComponents"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-06-10T13:50:46+02:00'
+categories: ['Web Components', 'JavaScript']
+keywords: ['web components tutorial']
+hashtags: ['#100DaysOfCode', '#WebComponents']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -26,20 +26,20 @@ In this tutorial, we will implement this dropdown component step by step from sc
 
 # Why Web Components?
 
-A personal story to illustrate how to benefit from Web Components: I picked up Web Components when a client of mine with many cross functional teams wanted to create a UI library based on a style guide. Two teams started to implement components based on the style guide, but each team used a different framework: React and Angular. Even though both implementations shared *kinda* the same structure (HTML) and style (CSS) from the style guide, the implementation of the behavior (e.g. opening/closing a dropdown, selecting an item in a dropdown) with JavaScript was up to each team to implement with their desired framework. In addition, if the style guide made mistakes with the style or structure of the components, each team fixed these mistakes individually without adapting the style guide afterward. Soonish both UI libraries diverged in their appearance and behavior.
+A personal story to illustrate how to benefit from Web Components: I picked up Web Components when a client of mine with many cross functional teams wanted to create a UI library based on a style guide. Two teams started to implement components based on the style guide, but each team used a different framework: React and Angular. Even though both implementations shared _kinda_ the same structure (HTML) and style (CSS) from the style guide, the implementation of the behavior (e.g. opening/closing a dropdown, selecting an item in a dropdown) with JavaScript was up to each team to implement with their desired framework. In addition, if the style guide made mistakes with the style or structure of the components, each team fixed these mistakes individually without adapting the style guide afterward. Soonish both UI libraries diverged in their appearance and behavior.
 
-*Note: Independent from Web Components, this is a common flaw in style guides, if they are not used pro actively (e.g. living style guide) in code, but only as documentation on the side which gets outdated eventually.*
+_Note: Independent from Web Components, this is a common flaw in style guides, if they are not used pro actively (e.g. living style guide) in code, but only as documentation on the side which gets outdated eventually._
 
 Eventually both teams came together and discussed how to approach the problem. They asked me to look into Web Components to find out whether their problem could be solved with them. And indeed Web Components offered a compelling solution: Both teams could use implement common Web Components based on the style guide. Components like Dropdown, Button and Table would be implemented with only HTML, CSS, and JavaScript. Moreover, they weren't forced to use explicitly Web Components for their individual applications later on, but would be able to consume the components in their React or Angular applications. If the requirements of the style guide change, or a component needs to get fixed, both teams could collaborate on their shared Web Component UI library.
 
 # Getting Started with Web Components
 
-If you need a starter project for the following tutorial, you can [clone this one from GitHub](https://github.com/rwieruch/web-components-starter-kit). You should look into the *dist/* and *src/* folders to make your adjustments from the tutorial along the way. The finished project from the tutorial can be found [here on GitHub](https://github.com/rwieruch/web-components-dropdown).
+If you need a starter project for the following tutorial, you can [clone this one from GitHub](https://github.com/rwieruch/web-components-starter-kit). You should look into the _dist/_ and _src/_ folders to make your adjustments from the tutorial along the way. The finished project from the tutorial can be found [here on GitHub](https://github.com/rwieruch/web-components-dropdown).
 
 Let's get started with our first web component. We will not start to implement the dropdown component from the beginning, but rather a simple button component which is used later on in the dropdown component. Implementing a simple button component with a Web Component doesn't make much sense, because you could use a `<button>` element with some CSS, however, for the sake of learning about Web Components, we will start out with this button component. Thus, the following code block is sufficient to create a Web Component for an individual button with custom structure and style:
 
 ```javascript
-const template = document.createElement('template');
+const template = document.createElement('template')
 
 template.innerHTML = `
   <style>
@@ -74,21 +74,21 @@ template.innerHTML = `
   <div class="container">
     <button>Label</button>
   </div>
-`;
+`
 
 class Button extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
   }
 }
 
-window.customElements.define('my-button', Button);
+window.customElements.define('my-button', Button)
 ```
 
-Let's go through everything step by step. The definition of your Custom Element (Web Component) happens with a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that extends from [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) which helps you to implement *any* custom HTML element. By extending from it, you will have access to various class methods - for instance, **lifecycle callbacks** (lifecycle methods) of the component - which help you to implement your Web Component. You will see later how we make use of these class methods.
+Let's go through everything step by step. The definition of your Custom Element (Web Component) happens with a [JavaScript class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) that extends from [HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) which helps you to implement _any_ custom HTML element. By extending from it, you will have access to various class methods - for instance, **lifecycle callbacks** (lifecycle methods) of the component - which help you to implement your Web Component. You will see later how we make use of these class methods.
 
 In addition, Web Components are using [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) which shouldn't be mistaken for Virtual DOM (performance optimization). The Shadow DOM is used to encapsulate CSS, HTML, and JavaScript which ought to be hidden for the outside components/HTML that are using the Web Component. You can set a mode for your Shadow DOM, which is [set to true](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow) in our case, to make the Shadow DOM kinda accessible to the outside world. Anyway, you can think of the Shadow DOM as its own subtree inside your custom element that encapsulates structure and style.
 
@@ -109,18 +109,18 @@ The rendered output would still show the internal custom element's template whic
 ```javascript{9,10,11,13,14,15}
 class Button extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
   }
 
   static get observedAttributes() {
-    return ['label'];
+    return ['label']
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this[name] = newVal;
+    this[name] = newVal
   }
 }
 ```
@@ -130,26 +130,26 @@ Every time the label attribute changes, the `attributeChangedCallback()` functio
 ```javascript{8,18,21,22,23}
 class Button extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this.$button = this._shadowRoot.querySelector('button');
+    this.$button = this._shadowRoot.querySelector('button')
   }
 
   static get observedAttributes() {
-    return ['label'];
+    return ['label']
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this[name] = newVal;
+    this[name] = newVal
 
-    this.render();
+    this.render()
   }
 
   render() {
-    this.$button.innerHTML = this.label;
+    this.$button.innerHTML = this.label
   }
 }
 ```
@@ -163,28 +163,28 @@ So far, we have used **attributes to pass information to our Custom Element**. E
 ```javascript{11,12,13,19,20,21}
 class Button extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this.$button = this._shadowRoot.querySelector('button');
+    this.$button = this._shadowRoot.querySelector('button')
   }
 
   get label() {
-    return this.getAttribute('label');
+    return this.getAttribute('label')
   }
 
   static get observedAttributes() {
-    return ['label'];
+    return ['label']
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this.render();
+    this.render()
   }
 
   render() {
-    this.$button.innerHTML = this.label;
+    this.$button.innerHTML = this.label
   }
 }
 ```
@@ -205,37 +205,37 @@ Unfortunately our callback function for the changed attributes isn't called anym
 ```javascript{15,16,17}
 class Button extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this.$button = this._shadowRoot.querySelector('button');
+    this.$button = this._shadowRoot.querySelector('button')
   }
 
   get label() {
-    return this.getAttribute('label');
+    return this.getAttribute('label')
   }
 
   set label(value) {
-    this.setAttribute('label', value);
+    this.setAttribute('label', value)
   }
 
   static get observedAttributes() {
-    return ['label'];
+    return ['label']
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this.render();
+    this.render()
   }
 
   render() {
-    this.$button.innerHTML = this.label;
+    this.$button.innerHTML = this.label
   }
 }
 ```
 
-Now, since we *set the property* from the outside on our element, our custom element's setter method makes sure to **reflect the property to an attribute**, by setting the element's attribute to the reflected property value. Afterward, our attribute callback runs again, because the attribute has changed and thus we get the rendering mechanism back.
+Now, since we _set the property_ from the outside on our element, our custom element's setter method makes sure to **reflect the property to an attribute**, by setting the element's attribute to the reflected property value. Afterward, our attribute callback runs again, because the attribute has changed and thus we get the rendering mechanism back.
 
 You can add console logs for each method of this class to understand the order on when each method happens. The whole reflection can also be witnessed in the DOM by opening the browser's developer tools: the attribute should appear on the element even though it is set as property.
 
@@ -248,41 +248,41 @@ Last but not least, we need to make our custom element work when clicking it. Fi
 ```javascript{10,11,12}
 class Button extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._shadowRoot = this.attachShadow({ mode: 'open' })
+    this._shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this.$button = this._shadowRoot.querySelector('button');
+    this.$button = this._shadowRoot.querySelector('button')
 
     this.$button.addEventListener('click', () => {
       // do something
-    });
+    })
   }
 
   get label() {
-    return this.getAttribute('label');
+    return this.getAttribute('label')
   }
 
   set label(value) {
-    this.setAttribute('label', value);
+    this.setAttribute('label', value)
   }
 
   static get observedAttributes() {
-    return ['label'];
+    return ['label']
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this.render();
+    this.render()
   }
 
   render() {
-    this.$button.innerHTML = this.label;
+    this.$button.innerHTML = this.label
   }
 }
 ```
 
-*Note: It would be possible to add this listener simply from the outside on the element -- without bothering about it in the custom element -- however, defining it inside of the custom element gives you more control of what should be passed to the listener that is registered on the outside.*
+_Note: It would be possible to add this listener simply from the outside on the element -- without bothering about it in the custom element -- however, defining it inside of the custom element gives you more control of what should be passed to the listener that is registered on the outside._
 
 What's missing is a callback function given from the outside that can be called within this listener. There are various ways to solve this task. First, we could **pass the function as attribute**. However, since we have learned that passing non primitives to HTML elements is cumbersome, we would like to avoid this case. Second, we could **pass the function as property**. Let's see how this would look like when using our custom element:
 
@@ -435,7 +435,7 @@ Note that the options -- which are an object -- are passed as JSON formatted att
 Let's dive into implementation of the custom dropdown element. We will start with a straightforward foundation that defines our structure, style, and boilerplate code for the class that defines our Web Component. The latter is used for setting the mode of the Shadow DOM, attaching the template to our Custom Element, defining getter and setter methods for our attributes/properties, observing our attribute changes and reacting to them:
 
 ```javascript
-const template = document.createElement('template');
+const template = document.createElement('template')
 
 template.innerHTML = `
   <style>
@@ -494,63 +494,61 @@ template.innerHTML = `
       <ul class="dropdown-list"></ul>
     </div>
   </div>
-`;
+`
 
 class Dropdown extends HTMLElement {
   constructor() {
-    super();
+    super()
 
-    this._sR = this.attachShadow({ mode: 'open' });
-    this._sR.appendChild(template.content.cloneNode(true));
+    this._sR = this.attachShadow({ mode: 'open' })
+    this._sR.appendChild(template.content.cloneNode(true))
   }
 
   static get observedAttributes() {
-    return ['label', 'option', 'options'];
+    return ['label', 'option', 'options']
   }
 
   get label() {
-    return this.getAttribute('label');
+    return this.getAttribute('label')
   }
 
   set label(value) {
-    this.setAttribute('label', value);
+    this.setAttribute('label', value)
   }
 
   get option() {
-    return this.getAttribute('option');
+    return this.getAttribute('option')
   }
 
   set option(value) {
-    this.setAttribute('option', value);
+    this.setAttribute('option', value)
   }
 
   get options() {
-    return JSON.parse(this.getAttribute('options'));
+    return JSON.parse(this.getAttribute('options'))
   }
 
   set options(value) {
-    this.setAttribute('options', JSON.stringify(value));
+    this.setAttribute('options', JSON.stringify(value))
   }
 
   static get observedAttributes() {
-    return ['label', 'option', 'options'];
+    return ['label', 'option', 'options']
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    this.render();
+    this.render()
   }
 
-  render() {
-
-  }
+  render() {}
 }
 
-window.customElements.define('my-dropdown', Dropdown);
+window.customElements.define('my-dropdown', Dropdown)
 ```
 
-There are several things to note here: First, in our style we can set a *global style* for our custom element with the `:host` selector. Second, the template uses our custom button element, but doesn't give it a label attribute yet. And third, there are getters and setters for each attribute/property, however, the getter and setter for the `options` attribute/property reflection are parsing the object from/to JSON.
+There are several things to note here: First, in our style we can set a _global style_ for our custom element with the `:host` selector. Second, the template uses our custom button element, but doesn't give it a label attribute yet. And third, there are getters and setters for each attribute/property, however, the getter and setter for the `options` attribute/property reflection are parsing the object from/to JSON.
 
-*Note: Except for all the mentioned things, you may also notice lots of boilerplate for all of our getter and setter methods for the property/attribute reflection. Also the lifecycle callback for our attributes looks repetitive and the constructor is the same as the one in our custom button element. You may learn later that there exist various lightweight libraries (e.g. LitElement with LitHTML) to be used on top of Web Components to remove this kind of repetitiveness for us.*
+_Note: Except for all the mentioned things, you may also notice lots of boilerplate for all of our getter and setter methods for the property/attribute reflection. Also the lifecycle callback for our attributes looks repetitive and the constructor is the same as the one in our custom button element. You may learn later that there exist various lightweight libraries (e.g. LitElement with LitHTML) to be used on top of Web Components to remove this kind of repetitiveness for us._
 
 So far, all the passed properties and attributes are not used yet. We are only reacting to them with an empty render method. Let's make use of them by assigning them to the dropdown and button elements:
 
@@ -632,7 +630,7 @@ So far, we have mainly structured and styled our custom elements. We also reacte
 Let's start by opening and closing the dropdown with our button element which should make our dropdown list visible. First, define a new style for rendering the dropdown list with an `open` class. Remember that we have used `display: none;` for our dropdown list as default styling before.
 
 ```javascript{11,12,13,14}
-const template = document.createElement('template');
+const template = document.createElement('template')
 
 template.innerHTML = `
   <style>
@@ -651,7 +649,7 @@ template.innerHTML = `
   </style>
 
   ...
-`;
+`
 ```
 
 In the next step, we define a class method which toggles the internal state of our custom element. Also, when this class method is called, the new class is added or removed to our dropdown element based on the new `open` state.
@@ -751,7 +749,7 @@ class Dropdown extends HTMLElement {
 Each rendered option in the list gets an event listener for the click event. When clicking the option, the option is set as property, the dropdown toggles to `close`, and the component renders again. However, in order to see what's happening, let's visualize the selected option item in the dropdown list:
 
 ```javascript{7,8,9}
-const template = document.createElement('template');
+const template = document.createElement('template')
 
 template.innerHTML = `
   <style>
@@ -771,7 +769,7 @@ template.innerHTML = `
       <ul class="dropdown-list"></ul>
     </div>
   </div>
-`;
+`
 ```
 
 Next we can set this new class in our render method whenever the option property matches the option from the list. With this new styling in place, and setting the styling dynamically on one of our options from the dropdown list, we can see that the feature actually works:

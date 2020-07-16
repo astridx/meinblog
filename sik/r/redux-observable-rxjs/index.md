@@ -1,13 +1,13 @@
 ---
-title: "Redux Observable RxJS: Going Epic with Reactive Programming"
-description: "The Redux Observable RxJS: Going Epic tutorial will show you how to reactive programming in Redux. The middleware can be used in Redux applications. The example shows it in a React JS app..."
-date: "2016-08-13T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["redux observable"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Redux Observable RxJS: Going Epic with Reactive Programming'
+description: 'The Redux Observable RxJS: Going Epic tutorial will show you how to reactive programming in Redux. The middleware can be used in Redux applications. The example shows it in a React JS app...'
+date: '2016-08-13T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['redux observable']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -32,7 +32,7 @@ The Redux Observable RxJS: Going Epic with Reactive Programming tutorial uses [r
 
 Let's scratch the surface of Reactive Programming with the usage of redux-observable. First we install the [redux-observable](https://github.com/redux-observable/redux-observable) middleware module.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save redux-observable
@@ -40,7 +40,7 @@ npm install --save redux-observable
 
 Moreover redux-observable depends on Reactive Programming principles which are provided by [RxJS](https://github.com/reactivex/rxjs).
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save rxjs
@@ -48,7 +48,7 @@ npm install --save rxjs
 
 We need to import rxjs explicitly to get all the operators (filter, map, scan..) on observables. The root file is sufficient for importing the module.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript
 import 'rxjs';
@@ -59,15 +59,15 @@ After we've set up everything accordingly, we can start to replace the thunk app
 
 First we need to authenticate our app with the SoundCloud API ([What's an API?](/what-is-an-api-javascript/)).
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function auth() {
   return {
-    type: actionTypes.AUTH
-  };
+    type: actionTypes.AUTH,
+  }
 }
 ```
 
@@ -77,13 +77,13 @@ Another important point is that the action type will not be represented in the r
 
 Additionally we need to add the new action type in our constants.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{1}
-export const AUTH = 'AUTH';
-export const ME_SET = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
+export const AUTH = 'AUTH'
+export const ME_SET = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
 ```
 
 Now the concept of Epics comes into play. The core primitive of redux-observable are Epics. An Epic is a function which takes a stream of actions and returns a stream of actions.
@@ -96,25 +96,23 @@ Inside an Epic you can use the observable operators to create new streams or to 
 
 Let's setup our first Epic!
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{1,3,11,12,13,14,15,16}
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
-import { Observable } from 'rxjs';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
+import { Observable } from 'rxjs'
 
 export function auth() {
   return {
-    type: actionTypes.AUTH
-  };
+    type: actionTypes.AUTH,
+  }
 }
 
 export const authEpic = (action$) =>
-  action$.ofType(actionTypes.AUTH)
-    .mergeMap(() =>
-      Observable.from(SC.connect())
-        .map(setSession)
-    );
+  action$
+    .ofType(actionTypes.AUTH)
+    .mergeMap(() => Observable.from(SC.connect()).map(setSession))
 ```
 
 An Epic gives us an `action$` observable as argument. The `$` indicates that we are dealing with an observable. The observable has the helper function `ofType` to determine the type of the incoming action. Now we can listen to the `AUTH` action we triggered before.
@@ -122,59 +120,55 @@ An Epic gives us an `action$` observable as argument. The `$` indicates that we 
 Additionally we are using observable operators to chain a bunch of streams. `Sc.connect` initializes the connection to SoundCloud and returns a Promise which gets eventually resolved and returns a session object. We use `Observable.from` to turn a Promise into an Observable. Afterwards we would be able to catch errors on the stream:
 
 ```javascript
-Observable.from(SC.connect())
-  .map(setSession)
-  .catch(setSessionError);
+Observable.from(SC.connect()).map(setSession).catch(setSessionError)
 ```
 
 Once the login of the `SC.connect` succeeds and the Promise resolves, it returns a session object. The output of a stream is the input of the next stream in the chain. Therefore we know that we get the session object to call `setSession` in shorthand which returns an action at the end of the Epic.
 
 Let's explain shortly the operators we used.
 
-* map - It maps one stream to another stream in a synchronous way.
+- map - It maps one stream to another stream in a synchronous way.
 
-* mergeMap - It maps one stream to another stream in an asynchronous way. Commonly it is used to handle asynchronous requests. In non Reactive Programming map is used to map from a synchronous object to another synchronous object. One can use mergeMap to map from a synchronous object to an asynchronous object. For instance it can be used to map from an URL string to a Promise based HTTP request which gets resolved eventually.
+- mergeMap - It maps one stream to another stream in an asynchronous way. Commonly it is used to handle asynchronous requests. In non Reactive Programming map is used to map from a synchronous object to another synchronous object. One can use mergeMap to map from a synchronous object to an asynchronous object. For instance it can be used to map from an URL string to a Promise based HTTP request which gets resolved eventually.
 
 But we didn't implement `setSession` yet!
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{11,12,13,14,15,16}
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
-import { Observable } from 'rxjs';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
+import { Observable } from 'rxjs'
 
 export function auth() {
   return {
-    type: actionTypes.AUTH
-  };
+    type: actionTypes.AUTH,
+  }
 }
 
 function setSession(session) {
   return {
     type: actionTypes.SESSION_SET,
-    session
-  };
+    session,
+  }
 }
 
 export const authEpic = (action$) =>
-  action$.ofType(actionTypes.AUTH)
-    .mergeMap(() =>
-      Observable.from(SC.connect())
-        .map(setSession)
-    );
+  action$
+    .ofType(actionTypes.AUTH)
+    .mergeMap(() => Observable.from(SC.connect()).map(setSession))
 ```
 
 Again we need to add the action type in our constants.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{2}
-export const AUTH = 'AUTH';
-export const SESSION_SET = 'SESSION_SET';
-export const ME_SET = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
+export const AUTH = 'AUTH'
+export const SESSION_SET = 'SESSION_SET'
+export const ME_SET = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
 ```
 
 Now the authentication is finished. Let's recap our first Epic driven process. We dispatch an action with a plain action creator. No reducer is responsible for the action type, but it kicks off our Epic. The Epic encapsulates the whole authentication process. At the end the Epic returns an action to set the session.
@@ -183,7 +177,7 @@ Now the authentication is finished. Let's recap our first Epic driven process. W
 
 As we learned we can use actions to trigger Epics. Let's use the last (unused) action to trigger two simultaneous Epics! One Epic to retrieve the user object and one epic to retrieve the list of tracks of the user. Both requests only need the session object, which we already send in the payload of the last action.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript
 ...
@@ -205,7 +199,7 @@ export const fetchStreamEpic = (action$) =>
 
 As you can see both Epics listen to the `SESSION_SET` action type. Afterwards we use again `mergeMap` and `Observable.from` to handle the API requests. We didn't implement both functions `fetchMe` and `fetchSteam` yet. Let's implement them.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{17,18,19,21,22,23}
 ...
@@ -235,7 +229,7 @@ const fetchStream = (session) =>
 
 The requests should work now. Let's fire actions to set the data in the global state object.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{1,5,6,7,8,9,10,18,25}
 import { setTracks } from '../actions/track';
@@ -274,118 +268,112 @@ const fetchStream = (session) =>
     .then((response) => response.json());
 ```
 
-We can reuse the action creator we already have in place to set the tracks from a different file. We don't have to refactor the *src/actions/track.js* file, because it has only plain action creators. The whole file should look like the following.
+We can reuse the action creator we already have in place to set the tracks from a different file. We don't have to refactor the _src/actions/track.js_ file, because it has only plain action creators. The whole file should look like the following.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
-import { setTracks } from '../actions/track';
-import { Observable } from 'rxjs';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
+import { setTracks } from '../actions/track'
+import { Observable } from 'rxjs'
 
 export function auth() {
   return {
-    type: actionTypes.AUTH
-  };
+    type: actionTypes.AUTH,
+  }
 }
 
 function setSession(session) {
   return {
     type: actionTypes.SESSION_SET,
-    session
-  };
+    session,
+  }
 }
 
 function setMe(user) {
   return {
     type: actionTypes.ME_SET,
-    user
-  };
+    user,
+  }
 }
 
 export const authEpic = (action$) =>
-  action$.ofType(actionTypes.AUTH)
-    .mergeMap(() =>
-      Observable.from(SC.connect())
-        .map(setSession)
-    );
+  action$
+    .ofType(actionTypes.AUTH)
+    .mergeMap(() => Observable.from(SC.connect()).map(setSession))
 
 export const fetchMeEpic = (action$) =>
-  action$.ofType(actionTypes.SESSION_SET)
-    .mergeMap((action) =>
-      Observable.from(fetchMe(action.session))
-        .map(setMe)
-    );
+  action$
+    .ofType(actionTypes.SESSION_SET)
+    .mergeMap((action) => Observable.from(fetchMe(action.session)).map(setMe))
 
 export const fetchStreamEpic = (action$) =>
-  action$.ofType(actionTypes.SESSION_SET)
+  action$
+    .ofType(actionTypes.SESSION_SET)
     .mergeMap((action) =>
-      Observable.from(fetchStream(action.session))
-        .map((data) => setTracks(data.collection))
-    );
+      Observable.from(fetchStream(action.session)).map((data) =>
+        setTracks(data.collection)
+      )
+    )
 
 const fetchMe = (session) =>
-  fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
-    .then((response) => response.json());
+  fetch(
+    `//api.soundcloud.com/me?oauth_token=${session.oauth_token}`
+  ).then((response) => response.json())
 
 const fetchStream = (session) =>
-  fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
-    .then((response) => response.json());
+  fetch(
+    `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+  ).then((response) => response.json())
 ```
 
 # Epics Middleware in Redux
 
 Now we know the concept around Epics, but someone has to introduce them to the Redux store. The redux-observables module comes with a middleware function, which takes all combined Epics as argument. Afterwards the created middleware can be used to create the overall store middleware.
 
-*src/stores/configureStore.js*
+_src/stores/configureStore.js_
 
 ```javascript{4,6,12,13}
-import { createStore, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
-import { browserHistory } from 'react-router';
-import { createEpicMiddleware } from 'redux-observable';
-import { routerMiddleware } from 'react-router-redux';
-import { rootEpic } from '../actions/index';
-import rootReducer from '../reducers/index';
+import { createStore, applyMiddleware } from 'redux'
+import createLogger from 'redux-logger'
+import { browserHistory } from 'react-router'
+import { createEpicMiddleware } from 'redux-observable'
+import { routerMiddleware } from 'react-router-redux'
+import { rootEpic } from '../actions/index'
+import rootReducer from '../reducers/index'
 
-const logger = createLogger();
-const router = routerMiddleware(browserHistory);
+const logger = createLogger()
+const router = routerMiddleware(browserHistory)
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
-const createStoreWithMiddleware = applyMiddleware(epicMiddleware, router)(createStore);
+const epicMiddleware = createEpicMiddleware(rootEpic)
+const createStoreWithMiddleware = applyMiddleware(
+  epicMiddleware,
+  router
+)(createStore)
 
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState);
+  return createStoreWithMiddleware(rootReducer, initialState)
 }
 ```
 
 But one ingredient is missing: the combined rootEpic. Like `combineReducer` for multiple reducers in Redux, we can use the `combineEpics` helper from redux-observable to export a `rootEpic` for the Epic middleware. We simply import all Epics in our root actions file and export them as a combined `rootEpic`.
 
-*src/actions/index.js*
+_src/actions/index.js_
 
 ```javascript{1,2,5,6,7,8,9,15}
-import { combineEpics } from 'redux-observable';
-import { auth, authEpic, fetchMeEpic, fetchStreamEpic } from './auth';
-import { setTracks, playTrack } from './track';
+import { combineEpics } from 'redux-observable'
+import { auth, authEpic, fetchMeEpic, fetchStreamEpic } from './auth'
+import { setTracks, playTrack } from './track'
 
-const rootEpic = combineEpics(
-  authEpic,
-  fetchMeEpic,
-  fetchStreamEpic
-);
+const rootEpic = combineEpics(authEpic, fetchMeEpic, fetchStreamEpic)
 
-export {
-  auth,
-  setTracks,
-  playTrack,
-  rootEpic
-};
+export { auth, setTracks, playTrack, rootEpic }
 ```
 
 The app should work again.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start

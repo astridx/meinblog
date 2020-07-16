@@ -1,13 +1,13 @@
 ---
-title: "Best time to become a JavaScript Developer"
+title: 'Best time to become a JavaScript Developer'
 description: "I find it's the best time to become a JavaScript Developer ..."
-date: "2019-07-11T13:52:46+02:00"
-categories: ["JavaScript"]
-keywords: ["become javascript developer"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-07-11T13:52:46+02:00'
+categories: ['JavaScript']
+keywords: ['become javascript developer']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />

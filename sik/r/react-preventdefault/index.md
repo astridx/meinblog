@@ -1,13 +1,13 @@
 ---
-title: "What is preventDefault() in React?"
-description: "A brief explanation why we need to call event.preventDefault() on button, form, or submit events ..."
-date: "2019-05-28T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react preventdefault"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'What is preventDefault() in React?'
+description: 'A brief explanation why we need to call event.preventDefault() on button, form, or submit events ...'
+date: '2019-05-28T07:52:46+02:00'
+categories: ['React']
+keywords: ['react preventdefault']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,36 +15,32 @@ author: ""
 React uses synthetic events to handle events from button, input and form elements. A synthetic event is a shell around the native DOM event with additional information for React. Sometimes you have to use `event.preventDefault();` in your application.
 
 ```javascript{24}
-import React from 'react';
+import React from 'react'
 
-const initialList = [
-  'Learn React',
-  'Learn Firebase',
-  'Learn GraphQL',
-];
+const initialList = ['Learn React', 'Learn Firebase', 'Learn GraphQL']
 
 const ListWithAddItem = () => {
-  const [value, setValue] = React.useState('');
-  const [list, setList] = React.useState(initialList);
+  const [value, setValue] = React.useState('')
+  const [list, setList] = React.useState(initialList)
 
-  const handleChange = event => {
-    setValue(event.target.value);
-  };
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     if (value) {
-      setList(list.concat(value));
+      setList(list.concat(value))
     }
 
-    setValue('');
+    setValue('')
 
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   return (
     <div>
       <ul>
-        {list.map(item => (
+        {list.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
@@ -54,10 +50,10 @@ const ListWithAddItem = () => {
         <button type="submit">Add Item</button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default ListWithAddItem;
+export default ListWithAddItem
 ```
 
 The [list component example](/react-list-component) is taken from this tutorial about [state management in React](/react-state/) which uses [React hooks](/react-hooks/). It demonstrates how to add an item to a list by using a form element with input and button elements. In this case, a preventDefault is called on the event when submitting the form to **prevent a browser reload/refresh**. You can [try the code yourself](https://github.com/the-road-to-learn-react/react-list-component) with and without the "prevent default".

@@ -1,13 +1,13 @@
 ---
-title: "Advanced List in React - Build a powerful Component (Part III)"
-description: "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces an advanced list in React that will enable you to opt-in infinite scrolling and pagination ..."
-date: "2017-06-13T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react list component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'Advanced List in React - Build a powerful Component (Part III)'
+description: 'The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces an advanced list in React that will enable you to opt-in infinite scrolling and pagination ...'
+date: '2017-06-13T13:50:46+02:00'
+categories: ['React']
+keywords: ['react list component']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -16,9 +16,9 @@ The last two parts of the tutorial series in React introduced two functionalitie
 
 Now you could use both features exclusively. But what about using them in combination to give your user an improved user experience? You could use the infinite scroll as default behavior for your list. Your users will thank you, because they don't have to fetch more list items by using the More button. Then, when your request runs into an error, you could use the More button as fallback. The user can manually try again to fetch data. That's a great user experience and done already by applications like Twitter and Pocket.
 
-* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
-* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
-* **Advanced List in React - Build a powerful Component (Part III)**
+- [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
+- [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
+- **Advanced List in React - Build a powerful Component (Part III)**
 
 # Catching the Error in Local State
 
@@ -117,36 +117,31 @@ The composition of these functionalities would look like the following:
 const AdvancedList = compose(
   withPaginated,
   withInfiniteScroll,
-  withLoading,
-)(List);
+  withLoading
+)(List)
 ```
 
 However, now both features would be used together without any prioritization. The goal would be to use the infinite scroll on default, but opt-in the More button when an error occurs. In addition, the More button should indicate the user that an error occurred and he or she can try again to fetch the sublist. The manual paginated fetch is the fallback when an error happens.
 
-Let's adjust the `withPaginate` higher order component to make it clear for the user that an error happened and that he or she can try it  again manually by clicking the button.
+Let's adjust the `withPaginate` higher order component to make it clear for the user that an error happened and that he or she can try it again manually by clicking the button.
 
 ```javascript{7,8,9,10,11,16,18}
-const withPaginated = (Component) => (props) =>
+const withPaginated = (Component) => (props) => (
   <div>
     <Component {...props} />
 
     <div className="interactions">
-      {
-        (props.page !== null && !props.isLoading && props.isError) &&
+      {props.page !== null && !props.isLoading && props.isError && (
         <div>
-          <div>
-            Something went wrong...
-          </div>
-          <button
-            type="button"
-            onClick={props.onPaginatedSearch}
-          >
+          <div>Something went wrong...</div>
+          <button type="button" onClick={props.onPaginatedSearch}>
             Try Again
           </button>
         </div>
-      }
+      )}
     </div>
   </div>
+)
 ```
 
 In addition, the infinite scroll higher order component should be inactive when there is an error.
@@ -182,7 +177,7 @@ There is one last optimization left. Unfortunately both HOCs that provide the in
 Let's extract the conditions as configuration for each higher order components. First, give your higher order components a `conditionFn` function as configuration.
 
 ```javascript{1,6,10,16,32,43}
-const withLoading = (conditionFn) => (Component) => (props) =>
+const withLoading = (conditionFn) => (Component) => (props) => (
   <div>
     <Component {...props} />
 
@@ -190,44 +185,39 @@ const withLoading = (conditionFn) => (Component) => (props) =>
       {conditionFn(props) && <span>Loading...</span>}
     </div>
   </div>
+)
 
-const withPaginated = (conditionFn) => (Component) => (props) =>
+const withPaginated = (conditionFn) => (Component) => (props) => (
   <div>
     <Component {...props} />
 
     <div className="interactions">
-      {
-        conditionFn(props) &&
+      {conditionFn(props) && (
         <div>
-          <div>
-            Something went wrong...
-          </div>
-          <button
-            type="button"
-            onClick={props.onPaginatedSearch}
-          >
+          <div>Something went wrong...</div>
+          <button type="button" onClick={props.onPaginatedSearch}>
             Try Again
           </button>
         </div>
-      }
+      )}
     </div>
   </div>
+)
 
 const withInfiniteScroll = (conditionFn) => (Component) =>
   class WithInfiniteScroll extends React.Component {
     componentDidMount() {
-      window.addEventListener('scroll', this.onScroll, false);
+      window.addEventListener('scroll', this.onScroll, false)
     }
 
     componentWillUnmount() {
-      window.removeEventListener('scroll', this.onScroll, false);
+      window.removeEventListener('scroll', this.onScroll, false)
     }
 
-    onScroll = () =>
-      conditionFn(this.props) && this.props.onPaginatedSearch();
+    onScroll = () => conditionFn(this.props) && this.props.onPaginatedSearch()
 
     render() {
-      return <Component {...this.props} />;
+      return <Component {...this.props} />
     }
   }
 ```
@@ -235,23 +225,22 @@ const withInfiniteScroll = (conditionFn) => (Component) =>
 Second, define these `conditionFn` functions outside of your higher order components. Thus, each higher order component can define flexible conditions.
 
 ```javascript{1,2,4,5,6,7,8,10,11,14,15,16}
-const paginatedCondition = props =>
-  props.page !== null && !props.isLoading && props.isError;
+const paginatedCondition = (props) =>
+  props.page !== null && !props.isLoading && props.isError
 
-const infiniteScrollCondition = props =>
-  (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500)
-  && props.list.length
-  && !props.isLoading
-  && !props.isError;
+const infiniteScrollCondition = (props) =>
+  window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+  props.list.length &&
+  !props.isLoading &&
+  !props.isError
 
-const loadingCondition = props =>
-  props.isLoading;
+const loadingCondition = (props) => props.isLoading
 
 const AdvancedList = compose(
   withPaginated(paginatedCondition),
   withInfiniteScroll(infiniteScrollCondition),
-  withLoading(loadingCondition),
-)(List);
+  withLoading(loadingCondition)
+)(List)
 ```
 
 The condiditions will get evaluated in the higher order components themselves. That's it.

@@ -1,13 +1,13 @@
 ---
-title: "10 Reasons why I moved from Angular to React"
+title: '10 Reasons why I moved from Angular to React'
 description: "The article should help people to understand the benefits of React and Angular for making an educated decision to choose between Angular or React. It tells my story why I moved from Angular to React after using both libraries for years. It's not just another click-bait article, but an article with lots of experiences ..."
-date: "2017-01-31T13:50:46+02:00"
-categories: ["React", "Angular"]
-keywords: ["angular or react"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+date: '2017-01-31T13:50:46+02:00'
+categories: ['React', 'Angular']
+keywords: ['angular or react']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -74,11 +74,11 @@ Components in React can be defined in two ways: ES6 class components and functio
 
 ```javascript
 function Button({ onClick, children }) {
-    return (
-        <button onClick={onClick} type="button">
-            {children}
-        </button>
-    );
+  return (
+    <button onClick={onClick} type="button">
+      {children}
+    </button>
+  )
 }
 ```
 
@@ -94,9 +94,9 @@ Additionally you have full control over your native HTML elements. For instance,
 
 ```javascript
 <input
-    value={this.state.value}
-    onChange={(event) => this.setState({ value: event.target.value })}
-    type="text"
+  value={this.state.value}
+  onChange={(event) => this.setState({ value: event.target.value })}
+  type="text"
 />
 ```
 
@@ -121,10 +121,11 @@ React is close to JavaScript. But not only React, it is the ecosystem that embra
 Another aspect is JavaScript ES6. Perhaps it is only a coincidence that React embraces ES6, because ES6 came up during the same time. But still React moves forward and adopts all the benefits and best practices of ES6. People adopt ES6 very well. Remember the functional stateless button component we defined before? It looks different when you would use an ES6 arrow function:
 
 ```javascript
-const Button = ({ onClick, children }) =>
-    <button onClick={onClick} type="button">
-        {children}
-    </button>
+const Button = ({ onClick, children }) => (
+  <button onClick={onClick} type="button">
+    {children}
+  </button>
+)
 ```
 
 In React and its ecosystem you can express things concise and elegant yet readable and simple with ES6. It feels natural to use it.

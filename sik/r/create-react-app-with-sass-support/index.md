@@ -1,13 +1,18 @@
 ---
-title: "How to use SASS in create-react-app?"
-description: "A short guide on how to add Sass support to your create-react-app application which shows you how to setup Sass, but also how to use it in your React components ..."
-date: "2018-10-03T13:50:46+02:00"
-categories: ["React"]
-keywords: ["create-react-app sass", "create-react-app sass support", "create-react-app sass without eject"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use SASS in create-react-app?'
+description: 'A short guide on how to add Sass support to your create-react-app application which shows you how to setup Sass, but also how to use it in your React components ...'
+date: '2018-10-03T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'create-react-app sass',
+    'create-react-app sass support',
+    'create-react-app sass without eject',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,14 +24,14 @@ After you have setup your application with [create-react-app](https://github.com
 Now, let's try out how Sass in React works. Let's say our App component already uses a Navigation component to display links the following way:
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Navigation from './Navigation';
+import Navigation from './Navigation'
 
 const LINKS = [
   { label: 'Website', to: 'https://www.robinwieruch.de/' },
   { label: 'Twitter', to: 'https://twitter.com/rwieruch' },
-];
+]
 
 class App extends Component {
   render() {
@@ -34,36 +39,36 @@ class App extends Component {
       <div>
         <Navigation links={LINKS} />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
-Next, create the Navigation component in a *src/Navigation.js* file. As you can see, it takes a list of links [as props](/react-pass-props-to-component/) and renders its content in a list of anchor tags.
+Next, create the Navigation component in a _src/Navigation.js_ file. As you can see, it takes a list of links [as props](/react-pass-props-to-component/) and renders its content in a list of anchor tags.
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
-import './Navigation.scss';
+import './Navigation.scss'
 
 const Navigation = ({ links }) => (
   <div className="Navigation">
     <ul>
-      {links.map(link => (
+      {links.map((link) => (
         <li key={link.to}>
           <a href={link.to}>{link.label}</a>
         </li>
       ))}
     </ul>
   </div>
-);
+)
 
-export default Navigation;
+export default Navigation
 ```
 
-The file also imports a *Navigation.scss* file that can be used for the Sass styling of the component. One such styling is already in place with the "Navigation" className. Let's see how the *.scss* file could look like to define this class:
+The file also imports a _Navigation.scss_ file that can be used for the Sass styling of the component. One such styling is already in place with the "Navigation" className. Let's see how the _.scss_ file could look like to define this class:
 
 ```css
 .Navigation {
@@ -133,7 +138,7 @@ Sass allows you to nest your tags. That's already one improvement by using this 
 }
 ```
 
-The variables were imported from the *src/index.scss* file in which you have to define the variables after all. Make sure to rename your *src/index.css* file to *src/index.scss* before you make the following changes in it:
+The variables were imported from the _src/index.scss_ file in which you have to define the variables after all. Make sure to rename your _src/index.css_ file to _src/index.scss_ before you make the following changes in it:
 
 ```css{10,11}
 body {
@@ -149,21 +154,20 @@ $primary-color: #525dce;
 $primary-background: #222;
 ```
 
-Last but not least, change the import in the *src/index.js* file for this file to capture the correct file extension:
+Last but not least, change the import in the _src/index.js_ file for this file to capture the correct file extension:
 
 ```javascript{4}
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import './index.scss';
-import App from './App';
+import './index.scss'
+import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
-Finally, the variables are usable in the *src/Navigation.scss* file. Once you start your application, everything should work as expected. You can find the final application in this [GitHub repository](https://github.com/the-road-to-learn-react/create-react-app-with-sass).
+Finally, the variables are usable in the _src/Navigation.scss_ file. Once you start your application, everything should work as expected. You can find the final application in this [GitHub repository](https://github.com/the-road-to-learn-react/create-react-app-with-sass).
 
 <Divider />
 
 Sass comes with plenty of powerful features, such as nesting and variables, to give you more flexibility when building your web applications. However, it is only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [CSS Modules](/create-react-app-css-modules).
-

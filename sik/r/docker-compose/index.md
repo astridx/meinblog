@@ -1,13 +1,13 @@
 ---
-title: "How to Docker Compose"
-description: "Everything I have learned about Docker Compose for creating Docker images and multiple Docker containers as services with various purposes for one application ..."
-date: "2020-02-18T03:56:46+02:00"
-categories: ["Docker"]
-keywords: ["docker compose"]
-hashtags: ["#100DaysOfCode", "#Docker"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to Docker Compose'
+description: 'Everything I have learned about Docker Compose for creating Docker images and multiple Docker containers as services with various purposes for one application ...'
+date: '2020-02-18T03:56:46+02:00'
+categories: ['Docker']
+keywords: ['docker compose']
+hashtags: ['#100DaysOfCode', '#Docker']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -32,7 +32,7 @@ RUN npm install
 COPY . <div class=""></div>
 ```
 
-Notice how we have no `EXPOSE` or `CMD` statements in this Dockerfile anymore. The Dockerfile is only there for creating the application as Docker image. There are no ports exposed nor any commands to run it. That's where Docker Compose comes into play. First, create a *docker-compose.yml* file in your project's root directory from the command line:
+Notice how we have no `EXPOSE` or `CMD` statements in this Dockerfile anymore. The Dockerfile is only there for creating the application as Docker image. There are no ports exposed nor any commands to run it. That's where Docker Compose comes into play. First, create a _docker-compose.yml_ file in your project's root directory from the command line:
 
 ```text
 touch docker-compose.yml
@@ -69,7 +69,7 @@ docker-machine ip default
 
 Finally you should be able to visit `http://192.168.99.100:4680`. Beware that your IP address and port may vary. Congratulations, you have shipped your first application in a Docker container with Docker Compose.
 
-However, there is not much different from the previous Docker setup. Instead of relying only on a Dockerfile, we are using Docker Compose to build and run our container. But it's still only one container (here as a service) running. Let's change this by adding another Docker Compose service in our *docker-compose.yml* file:
+However, there is not much different from the previous Docker setup. Instead of relying only on a Dockerfile, we are using Docker Compose to build and run our container. But it's still only one container (here as a service) running. Let's change this by adding another Docker Compose service in our _docker-compose.yml_ file:
 
 ```text{11-16}
 version: '3'
@@ -127,4 +127,3 @@ Now, everything that happens in the Docker container (`./usr/src/app`) is writte
 <Divider />
 
 Congratulations, you are able to run two Docker services based on one Dockerfile with Docker Compose. Whereas one service simulates the development environment from within a Docker environment, the other service runs all your tests in a Docker environment. Now you are able to scale your services horizontally. In the end, your CI could take over and execute test services, linting services and other services in parallel.
-

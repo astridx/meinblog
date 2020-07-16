@@ -1,13 +1,19 @@
 ---
-title: "How to test React with Jest & Enzyme"
-description: "Learn how to test your React application with Jest & Enzyme. Jest will be used as a test runner & testing library while Enzyme will be used for your actual React component tests ..."
-date: "2019-07-17T13:56:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel", "Enzyme"]
-keywords: ["react testing jest enzyme", "react testing enzyme", "react enzyme setup", "react enzyme"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to test React with Jest & Enzyme'
+description: 'Learn how to test your React application with Jest & Enzyme. Jest will be used as a test runner & testing library while Enzyme will be used for your actual React component tests ...'
+date: '2019-07-17T13:56:46+02:00'
+categories: ['React', 'Tooling', 'Webpack', 'Babel', 'Enzyme']
+keywords:
+  [
+    'react testing jest enzyme',
+    'react testing enzyme',
+    'react enzyme setup',
+    'react enzyme',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -41,15 +47,15 @@ touch jest.setup.js
 Second, give it the following setup instructions to make Enzyme play well with React in your Jest testing environment:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() })
 ```
 
-Now, in your *jest.config.json* file, define this new Jest setup file as dependency:
+Now, in your _jest.config.json_ file, define this new Jest setup file as dependency:
 
 ```javascript{3,4,5}
 {
@@ -64,13 +70,13 @@ That's it. You have set up Enzyme in Jest for your React component tests. Next w
 
 ### Exercises:
 
-* Read more about [getting started with Enzyme](https://airbnb.io/enzyme/docs/installation/)
+- Read more about [getting started with Enzyme](https://airbnb.io/enzyme/docs/installation/)
 
 # Enzyme Unit/Integration Testing in React
 
 The Enzyme in Jest setup is up and running. Now you can start to test your React component(s). The following section should show you a couple of basic patterns which you can apply in your React component tests. If you follow these testing patterns, you don't have to make a costly mental decision every time when you test a React component.
 
-You have already exported the Counter component from the *src/App.js* file. So it should be possible to test the following assumption: an instance of the Counter component is rendered when you render the App component. Therefore, add your new test in the *src/App.spec.js* file:
+You have already exported the Counter component from the _src/App.js_ file. So it should be possible to test the following assumption: an instance of the Counter component is rendered when you render the App component. Therefore, add your new test in the _src/App.spec.js_ file:
 
 ```javascript{3,20,21,22,23}
 import React from 'react';
@@ -107,7 +113,7 @@ Basically we just render the App component, use the output to traverse through t
 
 Whereas Jest is still your test runner -- with its testing setup and optional configuration -- which offers you the surrounding test suites (`describe`-block), test cases (`it`-block and `test-block`), and assertions (`expect`, `toEqual`), Enzyme gives you the new renderer to render your React component (`mount` among others) and an API to traverse the DOM (`find` among others) of it.
 
-*Note: Jest comes with two test case scenarios expressed with `it` and `test`. It's up to you how you use them, but I like to distinguish my snapshot and unit/integration tests with them. While the `test`-block is used for my snapshot tests, the `it`-block is used for integration and unit tests with Enzyme.*
+_Note: Jest comes with two test case scenarios expressed with `it` and `test`. It's up to you how you use them, but I like to distinguish my snapshot and unit/integration tests with them. While the `test`-block is used for my snapshot tests, the `it`-block is used for integration and unit tests with Enzyme._
 
 The line between unit and integration test isn't clearly defined. There is lots of room to argue that testing two React components is either a unit or integration test. On the one hand, testing two components in one isolated environment can be called a unit in itself, but also, because two components work together, it could be called an integration between the two as well.
 
@@ -208,7 +214,7 @@ After simulating our click events with Enzyme, we are able to traverse the DOM o
 
 ### Exercises:
 
-* Read more about [Enzyme's Rendering Techniques and Selectors](https://airbnb.io/enzyme/docs/api/)
+- Read more about [Enzyme's Rendering Techniques and Selectors](https://airbnb.io/enzyme/docs/api/)
 
 # Enzyme Async Testing in React
 
@@ -217,23 +223,23 @@ What about testing data fetching in our React component? Fortunately, we can tes
 How would you implement a fake data fetching request? In JavaScript, promises are used for asynchronous logic. Let's [define a promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which will return a result with a delay.
 
 ```javascript
-  const promise = new Promise((resolve, reject) =>
-    setTimeout(
-      () =>
-        resolve({
-          data: {
-            hits: [
-              { objectID: '1', title: 'a' },
-              { objectID: '2', title: 'b' },
-            ],
-          },
-        }),
-      100
-    )
-  );
+const promise = new Promise((resolve, reject) =>
+  setTimeout(
+    () =>
+      resolve({
+        data: {
+          hits: [
+            { objectID: '1', title: 'a' },
+            { objectID: '2', title: 'b' },
+          ],
+        },
+      }),
+    100
+  )
+)
 ```
 
- Once we resolve the promise, we should have the result at our disposal eventually. Now let's take this one step further by using this promise in our new asynchronous test. The basic assumption is that we render our React component, make assertions before the promise resolves, resolve the promise, and make assertions afterward.
+Once we resolve the promise, we should have the result at our disposal eventually. Now let's take this one step further by using this promise in our new asynchronous test. The basic assumption is that we render our React component, make assertions before the promise resolves, resolve the promise, and make assertions afterward.
 
 ```javascript{16,32,33,34,35,36,37,38,39}
 import React from 'react';
@@ -278,7 +284,7 @@ describe('App', () => {
 });
 ```
 
-Next we need to tell our data fetching library, which is used in our App component, to return the desired promise for our test case. This process is called *mocking* when testing implementation logic, because we mimic a different return result from a function. If we wouldn't do it, our data fetching library would make a request to the actual remote API that is used in our App component. But since we want to have control over the returned result, we mock the promise with its result:
+Next we need to tell our data fetching library, which is used in our App component, to return the desired promise for our test case. This process is called _mocking_ when testing implementation logic, because we mimic a different return result from a function. If we wouldn't do it, our data fetching library would make a request to the actual remote API that is used in our App component. But since we want to have control over the returned result, we mock the promise with its result:
 
 ```javascript{4,20,29}
 import React from 'react';
@@ -319,7 +325,7 @@ describe('Counter', () => {
 });
 ```
 
-**Important:** Always make sure to clean up your mocks in testing, otherwise another test may run into a mocked function. You can clear mocks in Jest indivindually, like the previous code snippets has shown it, but also [globally](https://jestjs.io/docs/en/configuration.html#clearmocks-boolean) by setting the `clearMocks` flag to true in your *jest.config.json* file. This will clear all mocks after every test without leaving any zombie mocks around.
+**Important:** Always make sure to clean up your mocks in testing, otherwise another test may run into a mocked function. You can clear mocks in Jest indivindually, like the previous code snippets has shown it, but also [globally](https://jestjs.io/docs/en/configuration.html#clearmocks-boolean) by setting the `clearMocks` flag to true in your _jest.config.json_ file. This will clear all mocks after every test without leaving any zombie mocks around.
 
 In a perfect world this would already work, but we are not there yet. We need to tell our React component to render again. Fortunately, Enzyme comes with a re-rendering API. In addition, we need to wait for all asynchronous events to be executed before updating our React component and making test assertions. That's where the built-in JavaScript function [setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate) comes in, because it's callback function gets executed in the next iteration of the event loop.
 
@@ -466,7 +472,7 @@ What's different is that we mock a promise with an error. This way, we can test 
 
 ### Exercises:
 
-* Read more about [Jest's Mocking API](https://jestjs.io/docs/en/mock-functions)
+- Read more about [Jest's Mocking API](https://jestjs.io/docs/en/mock-functions)
 
 <Divider />
 

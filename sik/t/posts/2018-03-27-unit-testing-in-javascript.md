@@ -444,8 +444,8 @@ Our welcome screen displays, then the program terminates. The next step will be 
 <div class="filename">calc.js</div>
 
 ```js
-rl.question('Enter the first number: ', x => {
-  rl.question('Enter the second number: ', y => {
+rl.question('Enter the first number: ', (x) => {
+  rl.question('Enter the second number: ', (y) => {
     rl.question(
       `
     Please select from the following options:
@@ -456,7 +456,7 @@ rl.question('Enter the first number: ', x => {
     [4] Division (/)
     
     Enter your choice: `,
-      choice => {
+      (choice) => {
         // additional code to be added here
         rl.close()
       }
@@ -490,16 +490,24 @@ if (!operations.validateNumbers(x, y)) {
       console.log(`The sum of ${x} and ${y} is ${operations.add(x, y)}.`)
       break
     case '2':
-      console.log(`The difference of ${x} and ${y} is ${operations.subtract(x, y)}.`)
+      console.log(
+        `The difference of ${x} and ${y} is ${operations.subtract(x, y)}.`
+      )
       break
     case '3':
-      console.log(`The product of ${x} and ${y} is ${operations.multiply(x, y)}.`)
+      console.log(
+        `The product of ${x} and ${y} is ${operations.multiply(x, y)}.`
+      )
       break
     case '4':
-      console.log(`The quotient of ${x} and ${y} is ${operations.divide(x, y)}.`)
+      console.log(
+        `The quotient of ${x} and ${y} is ${operations.divide(x, y)}.`
+      )
       break
     default:
-      console.log('Please restart the program and select a number between 1 and 4.')
+      console.log(
+        'Please restart the program and select a number between 1 and 4.'
+      )
       break
   }
 }
@@ -534,8 +542,8 @@ console.log(`
     then asked to select their operation of choice.
     `)
 
-rl.question('Enter the first number: ', x => {
-  rl.question('Enter the second number: ', y => {
+rl.question('Enter the first number: ', (x) => {
+  rl.question('Enter the second number: ', (y) => {
     rl.question(
       `
     Please select from the following options:
@@ -544,25 +552,38 @@ rl.question('Enter the first number: ', x => {
     [3] Multiplication (*)
     [4] Division (/)
     Enter your choice: `,
-      choice => {
+      (choice) => {
         if (!operations.validateNumbers(x, y)) {
           console.log('Only numbers are allowed! Please restart the program.')
         } else {
           switch (choice) {
             case '1':
-              console.log(`The sum of ${x} and ${y} is ${operations.add(x, y)}.`)
+              console.log(
+                `The sum of ${x} and ${y} is ${operations.add(x, y)}.`
+              )
               break
             case '2':
-              console.log(`The difference of ${x} and ${y} is ${operations.subtract(x, y)}.`)
+              console.log(
+                `The difference of ${x} and ${y} is ${operations.subtract(
+                  x,
+                  y
+                )}.`
+              )
               break
             case '3':
-              console.log(`The product of ${x} and ${y} is ${operations.multiply(x, y)}.`)
+              console.log(
+                `The product of ${x} and ${y} is ${operations.multiply(x, y)}.`
+              )
               break
             case '4':
-              console.log(`The quotient of ${x} and ${y} is ${operations.divide(x, y)}.`)
+              console.log(
+                `The quotient of ${x} and ${y} is ${operations.divide(x, y)}.`
+              )
               break
             default:
-              console.log('Please restart the program and select a number between 1 and 4.')
+              console.log(
+                'Please restart the program and select a number between 1 and 4.'
+              )
               break
           }
         }

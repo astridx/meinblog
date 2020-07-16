@@ -1,13 +1,13 @@
 ---
-title: "Paginated List in React - Build a powerful Component (Part I)"
-description: "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces a paginated list in React where you can fetch sublists from a third party API in React. You will implement it in an elegant higher order component ..."
-date: "2017-05-29T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react paginated list"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'Paginated List in React - Build a powerful Component (Part I)'
+description: 'The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces a paginated list in React where you can fetch sublists from a third party API in React. You will implement it in an elegant higher order component ...'
+date: '2017-05-29T13:50:46+02:00'
+categories: ['React']
+keywords: ['react paginated list']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -22,21 +22,21 @@ The series uses several basic and advanced features of React. During the series 
 
 If you are not familiar with these features of React, I can recommend to read the open source book [the Road to learn React](/the-road-to-learn-react/) where you will learn about the fundamentals of React. All the knowledge acquired in the book will be used as common ground for the next three parts of this series.
 
-* **Paginated List in React - Build a powerful Component (Part I)**
-* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
-* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
+- **Paginated List in React - Build a powerful Component (Part I)**
+- [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
+- [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
 
 # The initial React Hacker News Setup
 
-The initial setup for the application, where the component will live, is performed by [create-react-app](https://github.com/facebookincubator/create-react-app). You will find all the things you need to setup your project in their documentation. In the beginning, you only need to replace the *src/index.css*, *src/App.css* and *src/App.js* files with the following code.
+The initial setup for the application, where the component will live, is performed by [create-react-app](https://github.com/facebookincubator/create-react-app). You will find all the things you need to setup your project in their documentation. In the beginning, you only need to replace the _src/index.css_, _src/App.css_ and _src/App.js_ files with the following code.
 
-*src/index.css*
+_src/index.css_
 
 ```css
 body {
   color: #222;
   background: #f4f4f4;
-  font: 400 14px CoreSans, Arial,sans-serif;
+  font: 400 14px CoreSans, Arial, sans-serif;
 }
 
 a {
@@ -74,7 +74,7 @@ button:hover {
 }
 ```
 
-*src/App.css*
+_src/App.css_
 
 ```css
 .page {
@@ -100,84 +100,85 @@ button:hover {
 }
 ```
 
-*src/App.js*
+_src/App.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
-import './App.css';
+import './App.css'
 
 const applyUpdateResult = (result) => (prevState) => ({
   hits: [...prevState.hits, ...result.hits],
   page: result.page,
-});
+})
 
 const applySetResult = (result) => (prevState) => ({
   hits: result.hits,
   page: result.page,
-});
+})
 
 const getHackerNewsUrl = (value, page) =>
-  `https://hn.algolia.com/api/v1/search?query=${value}&page=${page}&hitsPerPage=100`;
+  `https://hn.algolia.com/api/v1/search?query=${value}&page=${page}&hitsPerPage=100`
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       hits: [],
       page: null,
-    };
+    }
   }
 
   onInitialSearch = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const { value } = this.input;
+    const { value } = this.input
 
     if (value === '') {
-      return;
+      return
     }
 
-    this.fetchStories(value, 0);
+    this.fetchStories(value, 0)
   }
 
   fetchStories = (value, page) =>
     fetch(getHackerNewsUrl(value, page))
-      .then(response => response.json())
-      .then(result => this.onSetResult(result, page));
+      .then((response) => response.json())
+      .then((result) => this.onSetResult(result, page))
 
   onSetResult = (result, page) =>
     page === 0
       ? this.setState(applySetResult(result))
-      : this.setState(applyUpdateResult(result));
+      : this.setState(applyUpdateResult(result))
 
   render() {
     return (
       <div className="page">
         <div className="interactions">
           <form type="submit" onSubmit={this.onInitialSearch}>
-            <input type="text" ref={node => this.input = node} />
+            <input type="text" ref={(node) => (this.input = node)} />
             <button type="submit">Search</button>
           </form>
         </div>
 
-        <List
-          list={this.state.hits}
-        />
+        <List list={this.state.hits} />
       </div>
-    );
+    )
   }
 }
 
-const List = ({ list }) =>
+const List = ({ list }) => (
   <div className="list">
-    {list.map(item => <div className="list-row" key={item.objectID}>
-      <a href={item.url}>{item.title}</a>
-    </div>)}
+    {list.map((item) => (
+      <div className="list-row" key={item.objectID}>
+        <a href={item.url}>{item.title}</a>
+      </div>
+    ))}
   </div>
+)
 
-export default App;
+export default App
 ```
 
 If you have read the book, the Road to learn React, you should be familiar with the code. However, this is a compact summary of what's happening:
@@ -201,64 +202,64 @@ The initial search request is already implemented. Now you want to make use of t
 The only thing left to do is to implement a dedicated method to fetch the next page of the list. This method gets passed down to the List component. The List component uses the function in a button in order to execute it.
 
 ```javascript{40,41,65,66,73,74,81,82,83,84,85,86,87,88,89,90,91,92}
-import React from 'react';
+import React from 'react'
 
-import './App.css';
+import './App.css'
 
 const applyUpdateResult = (result) => (prevState) => ({
   hits: [...prevState.hits, ...result.hits],
   page: result.page,
-});
+})
 
 const applySetResult = (result) => (prevState) => ({
   hits: result.hits,
   page: result.page,
-});
+})
 
 const getHackerNewsUrl = (value, page) =>
-  `https://hn.algolia.com/api/v1/search?query=${value}&page=${page}&hitsPerPage=100`;
+  `https://hn.algolia.com/api/v1/search?query=${value}&page=${page}&hitsPerPage=100`
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       hits: [],
       page: null,
-    };
+    }
   }
 
   onInitialSearch = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    const { value } = this.input;
+    const { value } = this.input
 
     if (value === '') {
-      return;
+      return
     }
 
-    this.fetchStories(value, 0);
+    this.fetchStories(value, 0)
   }
 
   onPaginatedSearch = (e) =>
-    this.fetchStories(this.input.value, this.state.page + 1);
+    this.fetchStories(this.input.value, this.state.page + 1)
 
   fetchStories = (value, page) =>
     fetch(getHackerNewsUrl(value, page))
-      .then(response => response.json())
-      .then(result => this.onSetResult(result, page));
+      .then((response) => response.json())
+      .then((result) => this.onSetResult(result, page))
 
   onSetResult = (result, page) =>
     page === 0
       ? this.setState(applySetResult(result))
-      : this.setState(applyUpdateResult(result));
+      : this.setState(applyUpdateResult(result))
 
   render() {
     return (
       <div className="page">
         <div className="interactions">
           <form type="submit" onSubmit={this.onInitialSearch}>
-            <input type="text" ref={node => this.input = node} />
+            <input type="text" ref={(node) => (this.input = node)} />
             <button type="submit">Search</button>
           </form>
         </div>
@@ -269,32 +270,31 @@ class App extends React.Component {
           onPaginatedSearch={this.onPaginatedSearch}
         />
       </div>
-    );
+    )
   }
 }
 
-const List = ({ list, page, onPaginatedSearch }) =>
+const List = ({ list, page, onPaginatedSearch }) => (
   <div>
     <div className="list">
-      {list.map(item => <div className="list-row" key={item.objectID}>
-        <a href={item.url}>{item.title}</a>
-      </div>)}
+      {list.map((item) => (
+        <div className="list-row" key={item.objectID}>
+          <a href={item.url}>{item.title}</a>
+        </div>
+      ))}
     </div>
 
     <div className="interactions">
-      {
-        page !== null &&
-        <button
-          type="button"
-          onClick={onPaginatedSearch}
-        >
+      {page !== null && (
+        <button type="button" onClick={onPaginatedSearch}>
           More
         </button>
-      }
+      )}
     </div>
   </div>
+)
 
-export default App;
+export default App
 ```
 
 Apart from your initial search, that is executed by the `onInitialSearch` class method, you use an `onPaginatedSearch` class method to retrieve the next pages of your paginated data. Based on the page argument, that is increased by one, you will retrieve the next subset of the whole list.
@@ -373,30 +373,27 @@ class App extends React.Component {
 The List component uses the property to add a conditional rendering for a loading indicator. In addition, the More button doesn't need to show up when a request is pending.
 
 ```javascript{1,9,10,11,15}
-const List = ({ list, page, isLoading, onPaginatedSearch }) =>
+const List = ({ list, page, isLoading, onPaginatedSearch }) => (
   <div>
     <div className="list">
-      {list.map(item => <div className="list-row" key={item.objectID}>
-        <a href={item.url}>{item.title}</a>
-      </div>)}
+      {list.map((item) => (
+        <div className="list-row" key={item.objectID}>
+          <a href={item.url}>{item.title}</a>
+        </div>
+      ))}
     </div>
 
-    <div className="interactions">
-      {isLoading && <span>Loading...</span>}
-    </div>
+    <div className="interactions">{isLoading && <span>Loading...</span>}</div>
 
     <div className="interactions">
-      {
-        (page !== null && !isLoading) &&
-        <button
-          type="button"
-          onClick={onPaginatedSearch}
-        >
+      {page !== null && !isLoading && (
+        <button type="button" onClick={onPaginatedSearch}>
           More
         </button>
-      }
+      )}
     </div>
   </div>
+)
 ```
 
 Now, your user should see some feedback once a request is pending. However, your powerful component, the List component, is cluttered by now. After all, it is only a List component, but it deals with so much more. It renders a button to retrieve the next page of the whole list and a loading indicator. Both functionalities could be outsourced. That would lead to two benefits: these functionalities could be reused somewhere else and the List component would again only have one responsibility: rendering a list.
@@ -407,10 +404,10 @@ If you are not familiar to higher order components, I recommend to read [the gen
 
 Now, after the foundations about HOCs are clear, let's outsource both functionalities of the List component and make it only render a list. The loading indicator and More button can be opt-in by using HOCs later on.
 
-First, let's implement both higher order components in the *src/App.js* to outsource the functionalities.
+First, let's implement both higher order components in the _src/App.js_ to outsource the functionalities.
 
 ```javascript
-const withLoading = (Component) => (props) =>
+const withLoading = (Component) => (props) => (
   <div>
     <Component {...props} />
 
@@ -418,23 +415,21 @@ const withLoading = (Component) => (props) =>
       {props.isLoading && <span>Loading...</span>}
     </div>
   </div>
+)
 
-const withPaginated = (Component) => (props) =>
+const withPaginated = (Component) => (props) => (
   <div>
     <Component {...props} />
 
     <div className="interactions">
-      {
-        (props.page !== null && !props.isLoading) &&
-        <button
-          type="button"
-          onClick={props.onPaginatedSearch}
-        >
+      {props.page !== null && !props.isLoading && (
+        <button type="button" onClick={props.onPaginatedSearch}>
           More
         </button>
-      }
+      )}
     </div>
   </div>
+)
 ```
 
 Now, you can use a library like recompose to compose your higher order components onto the List component. First, you have to install it from your command line:
@@ -443,7 +438,7 @@ Now, you can use a library like recompose to compose your higher order component
 npm install --save recompose
 ```
 
-Second, you can use it in your *src/App.js*:
+Second, you can use it in your _src/App.js_:
 
 ```javascript{1,19,24,32,33,34,35}
 import { compose } from 'recompose';
@@ -486,12 +481,15 @@ const ListWithLoadingWithPaginated = compose(
 Don't forget to omit the outsourced functionalities from your List component.
 
 ```javascript{1,2,3,4,5,6,7}
-const List = ({ list }) =>
+const List = ({ list }) => (
   <div className="list">
-    {list.map(item => <div className="list-row" key={item.objectID}>
-      <a href={item.url}>{item.title}</a>
-    </div>)}
+    {list.map((item) => (
+      <div className="list-row" key={item.objectID}>
+        <a href={item.url}>{item.title}</a>
+      </div>
+    ))}
   </div>
+)
 ```
 
 The List component only deals with the responsibility to render a List. Now, both functionalities, the retrieval of the paginated list and the loading indicator, are added on top by composition.
@@ -499,36 +497,31 @@ The List component only deals with the responsibility to render a List. Now, bot
 Your atomic problem solvers, the List and the HOCs can be composed in a flexible way. Imagine that you can use another List component now, that renders the stories from Hacker News in a different way. You could just exchange the List component in the composition.
 
 ```javascript
-const DifferentList = ({ list }) =>
+const DifferentList = ({ list }) => (
   <div className="list">
-    {list.map(item => <div className="list-row" key={item.objectID}>
-      <span>
-        {item.author}
-      </span>
-      <span>
-        <a href={item.url}>{item.title}</a>
-      </span>
-      <span>
-        {item.num_comments}
-      </span>
-      <span>
-        {item.points}
-      </span>
-    </div>)}
+    {list.map((item) => (
+      <div className="list-row" key={item.objectID}>
+        <span>{item.author}</span>
+        <span>
+          <a href={item.url}>{item.title}</a>
+        </span>
+        <span>{item.num_comments}</span>
+        <span>{item.points}</span>
+      </div>
+    ))}
   </div>
+)
 
 const ListWithLoadingWithPaginated = compose(
   withPaginated,
-  withLoading,
-)(DifferentList);
+  withLoading
+)(DifferentList)
 ```
 
 Or you decide to drop the paginated list feature.
 
 ```javascript
-const ListWithLoading = compose(
-  withLoading,
-)(List);
+const ListWithLoading = compose(withLoading)(List)
 ```
 
 By using higher order components, you can opt-in and opt-out functionalities on basic components. The basic components can take care on only one responsibility, while the HOCs add some sugar on top.
@@ -538,4 +531,3 @@ By using higher order components, you can opt-in and opt-out functionalities on 
 Your App component already renders a powerful React List component by now. While the List component only deals with the responsibility to render a list of items, the HOCs opt-in additional functionalities.
 
 You can continue with the second part of the React tutorial series: [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll).
-

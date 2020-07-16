@@ -341,7 +341,7 @@ Like with the buttons, you can put all your input types into a variable.
 
 ```scss
 $input-fields: (
-	'[type=color], 
+  '[type=color], 
 	[type=date], 
 	[type=datetime], 
 	[type=datetime-local], 

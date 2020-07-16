@@ -18,14 +18,14 @@ The [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is a
 ```js
 // Replace ./data.json with your JSON feed
 fetch('./data.json')
-  .then(response => {
+  .then((response) => {
     return response.json()
   })
-  .then(data => {
+  .then((data) => {
     // Work with JSON data here
     console.log(data)
   })
-  .catch(err => {
+  .catch((err) => {
     // Do something for an error here
   })
 ```

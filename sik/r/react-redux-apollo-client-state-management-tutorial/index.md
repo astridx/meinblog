@@ -1,13 +1,24 @@
 ---
-title: "How to use Redux with Apollo Client and GraphQL in React"
-description: "When having a GraphQL server, Apollo Client can be a valid option for your remote data. How fits Redux into the equation? This tutorial shows you an example on how Redux and Apollo Client can be used together in a React application. Whereas Redux is used for local data, Apollo Client is used for remote data ..."
-date: "2018-06-26T13:50:46+02:00"
-categories: ["React", "GraphQL", "Redux"]
-keywords: ["apollo client redux", "react graphql redux", "apollo redux store", "apollo link state redux", "apollo vs redux", "apollo client vs redux", "how to use redux with apollo", "how to use apollo with redux", "graphql react book"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use Redux with Apollo Client and GraphQL in React'
+description: 'When having a GraphQL server, Apollo Client can be a valid option for your remote data. How fits Redux into the equation? This tutorial shows you an example on how Redux and Apollo Client can be used together in a React application. Whereas Redux is used for local data, Apollo Client is used for remote data ...'
+date: '2018-06-26T13:50:46+02:00'
+categories: ['React', 'GraphQL', 'Redux']
+keywords:
+  [
+    'apollo client redux',
+    'react graphql redux',
+    'apollo redux store',
+    'apollo link state redux',
+    'apollo vs redux',
+    'apollo client vs redux',
+    'how to use redux with apollo',
+    'how to use apollo with redux',
+    'graphql react book',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs,#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -18,9 +29,9 @@ author: ""
 
 In a previous application, you have used Apollo Link State to substitute React's local state management with it. Even though it wasn't necessary, because it is most often sufficient to manage local state with React only, it has shown you how it can be achieved with local queries and local mutations when using Apollo Link State. However, it needs to be clear that this only happens when you have the following three requirements for your application:
 
-* you need a sophisticated state management layer (e.g. mobx, redux, apollo-link-state)
-* you have a GraphQL server, because otherwise Apollo Client may makes no sense in the first place
-* you embrace React's local state as still being useful for co-located component state
+- you need a sophisticated state management layer (e.g. mobx, redux, apollo-link-state)
+- you have a GraphQL server, because otherwise Apollo Client may makes no sense in the first place
+- you embrace React's local state as still being useful for co-located component state
 
 Basically you have learned that Apollo Link State can be used as replacement for Redux or MobX to manage local data in a global store in your application. However, Redux is often already used in React applications for historical reasons, because it was the successor of the state management libraries for React applications, but also because people consciously decide to use it. It's not without reason that people use Redux as their powerful state management solution. So there is no real use for Apollo Link State in these applications.
 
@@ -42,29 +53,29 @@ Before you start to replace React's local state with Redux, take your time to tr
 npm install redux --save
 ```
 
-The Redux store creation can happen in the same file as the Apollo Client creation for the sake of keeping everything at one place: the *src/index.js* file. Keep in mind that you may want to separate those things, setting up Apollo Client and Redux, in their own files when building a larger application with these libraries.
+The Redux store creation can happen in the same file as the Apollo Client creation for the sake of keeping everything at one place: the _src/index.js_ file. Keep in mind that you may want to separate those things, setting up Apollo Client and Redux, in their own files when building a larger application with these libraries.
 
-Before you can create a Redux store instance, you need to have at least one reducer. Reducers are used to take an action and the current state from the Redux store, and use the action payload to derive the next state for the Redux store: `(state, action) => nextState`. In addition, an action comes with a mandatory `type` so that it can be identified by the reducer(s) to do something with it. Moreover, an action can have an optional payload. In your *src/index.js* file, next to the Apollo Client creation, you can define your reducer to manage the state of selected repositories.
+Before you can create a Redux store instance, you need to have at least one reducer. Reducers are used to take an action and the current state from the Redux store, and use the action payload to derive the next state for the Redux store: `(state, action) => nextState`. In addition, an action comes with a mandatory `type` so that it can be identified by the reducer(s) to do something with it. Moreover, an action can have an optional payload. In your _src/index.js_ file, next to the Apollo Client creation, you can define your reducer to manage the state of selected repositories.
 
 ```javascript
 function repositoryReducer(state, action) {
   switch (action.type) {
     case 'TOGGLE_SELECT_REPOSITORY': {
-      return applyToggleSelectRepository(state, action);
+      return applyToggleSelectRepository(state, action)
     }
     default:
-      return state;
+      return state
   }
 }
 
 function applyToggleSelectRepository(state, action) {
-  const { id, isSelected } = action;
+  const { id, isSelected } = action
 
   const selectedRepositoryIds = isSelected
-    ? state.selectedRepositoryIds.filter(itemId => itemId !== id)
-    : state.selectedRepositoryIds.concat(id);
+    ? state.selectedRepositoryIds.filter((itemId) => itemId !== id)
+    : state.selectedRepositoryIds.concat(id)
 
-  return { ...state, selectedRepositoryIds };
+  return { ...state, selectedRepositoryIds }
 }
 ```
 
@@ -108,7 +119,7 @@ ReactDOM.render(
 );
 ```
 
-Now the Redux state-layer is paired with the React view-layer just as the Apollo Client state-layer was paired before. In the next steps, React's local state management for the selection feature needs to be replaced in the *src/App.js* file. You can remove the Repositories component, because you will create a connected Component by using the `connect()` higher-order component from the React Redux package. This HOC makes it possible to map state from the Redux store to your React component as props.
+Now the Redux state-layer is paired with the React view-layer just as the Apollo Client state-layer was paired before. In the next steps, React's local state management for the selection feature needs to be replaced in the _src/App.js_ file. You can remove the Repositories component, because you will create a connected Component by using the `connect()` higher-order component from the React Redux package. This HOC makes it possible to map state from the Redux store to your React component as props.
 
 ```javascript{4,26,27,28,30}
 import React from 'react';
@@ -153,12 +164,12 @@ First, you can remove the `toggleSelectRepository()` callback function from the 
 const RepositoryList = ({ repositories, selectedRepositoryIds }) => (
   <ul>
     {repositories.edges.map(({ node }) => {
-      const isSelected = selectedRepositoryIds.includes(node.id);
+      const isSelected = selectedRepositoryIds.includes(node.id)
 
-      const rowClassName = ['row'];
+      const rowClassName = ['row']
 
       if (isSelected) {
-        rowClassName.push('row_selected');
+        rowClassName.push('row_selected')
       }
 
       return (
@@ -167,10 +178,10 @@ const RepositoryList = ({ repositories, selectedRepositoryIds }) => (
           <a href={node.url}>{node.name}</a>{' '}
           {!node.viewerHasStarred && <Star id={node.id} />}
         </li>
-      );
+      )
     })}
   </ul>
-);
+)
 ```
 
 The callback function is not passed anymore from above as prop, but passed as prop from the `connect()` higher-order component which is this time used for the Select component.
@@ -180,7 +191,7 @@ const Select = ({ isSelected, toggleSelectRepository }) => (
   <button type="button" onClick={toggleSelectRepository}>
     {isSelected ? 'Unselect' : 'Select'}
   </button>
-);
+)
 
 const mapDispatchToProps = (dispatch, { id, isSelected }) => ({
   toggleSelectRepository: () =>
@@ -189,9 +200,9 @@ const mapDispatchToProps = (dispatch, { id, isSelected }) => ({
       id,
       isSelected,
     }),
-});
+})
 
-const SelectContainer = connect(null, mapDispatchToProps)(Select);
+const SelectContainer = connect(null, mapDispatchToProps)(Select)
 ```
 
 Now the Select component is able to dispatch the action for the Redux store instead of using the React's local state. Once you start your application again, it should work as before, but this time with Redux instead of React's local state. As for now, Redux is responsible to manage the local data and Apollo Client is responsible to manage the remote data.
@@ -204,9 +215,9 @@ In this section, I want to give a recommendation on how to use both state manage
 
 In the previous application, you have seen how both state management tools can exist side by side to manage local data and remote data. When using Apollo Client instead of Redux for remote data, you can 100% rely on its caching, normalization and request states. If you would use Redux for the remote data, by using an asynchronous action library such as [Redux Thunk](https://github.com/gaearon/redux-thunk) or [Redux Saga](https://github.com/redux-saga/redux-saga), you would have to implement the caching and normalization (e.g. using [normalizr](https://github.com/paularmstrong/normalizr)) features yourself. Furthermore, all the request states, such as loading state, error state and success state, are handled by Apollo Client for you. In Redux you would have to introduce a couple of actions to deal with those request states:
 
-* GET_TODOS_LOADING
-* GET_TODOS_ERROR
-* GET_TODOS_SUCCESS
+- GET_TODOS_LOADING
+- GET_TODOS_ERROR
+- GET_TODOS_SUCCESS
 
 Apollo Client takes away all this pain when dealing with remote data. It boils down to the mentioned requirements: If you have a GraphQL backend, you can introduce Apollo Client as GraphQL client library to deal with the remote data. If your state management for local data grows eventually, and you cannot deal with a larger part of it with React's local state only, you can introduce Redux for it. In order to meet all these requirements, your application should be fairly mature to justify having two state layers side by side. Otherwise, the common sense for your application should be to keep it simple with only one state layer (Redux or Apollo Client along with React's local state).
 
@@ -228,12 +239,12 @@ The tenor from the previous paragraph was mostly to take Redux and Apollo Client
 
 However, at some point it may go beyond the basic example which was shown by implementing the last application. In the example, both state layers were clearly separated. But then comes the time where you have to implement a feature that needs to access state from Redux for a Apollo Client query/mutation or needs to access state from Apollo Client for a Redux mapStateToProps/mapDispatchToProps. In order to give a recommendation for it, you can see those as analogies for reading and writing state:
 
-* read state:
-  * local data: Redux mapStateToProps
-  * remote data: Apollo Client query (either from cache or network request)
-* write state:
-  * local data: Redux mapDispatchToProps
-  * remote data: Apollo Client mutation
+- read state:
+  - local data: Redux mapStateToProps
+  - remote data: Apollo Client query (either from cache or network request)
+- write state:
+  - local data: Redux mapDispatchToProps
+  - remote data: Apollo Client mutation
 
 The key is to compose both state layers into each other when they have to interact. For instance, imagine you would want to perform a batch mutation with Apollo Client to star selected repositories that are stored in the Redux store. You would compose the Redux layer around the Apollo Client layer to pass the selected repositories from the React Redux mapStateToProps to your React component and ultimately to your React Apollo Mutation component to be used there as variables. The same would apply for using React Apollo Query component (e.g. fetching issues of all the selected repositories).
 

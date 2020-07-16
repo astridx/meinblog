@@ -1,13 +1,28 @@
 ---
-title: "How to manage React State with Arrays"
-description: "Learn how to manipulate arrays in React state by using JavaScript array methods such as concat, map and filter. Whereas vanilla JavaScript is used for the arrays, React is only used to set the new state in the end ..."
-date: "2020-05-17T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react state array", "react state array example", "react create empty array", "react initial state empty array", "react state array add item", "react state array push", "react state array concat", "react state update array", "react state update array item", "react state update item", "react state array replace", "react state array remove item", "react state array change"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'How to manage React State with Arrays'
+description: 'Learn how to manipulate arrays in React state by using JavaScript array methods such as concat, map and filter. Whereas vanilla JavaScript is used for the arrays, React is only used to set the new state in the end ...'
+date: '2020-05-17T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react state array',
+    'react state array example',
+    'react create empty array',
+    'react initial state empty array',
+    'react state array add item',
+    'react state array push',
+    'react state array concat',
+    'react state update array',
+    'react state update array item',
+    'react state update item',
+    'react state array replace',
+    'react state array remove item',
+    'react state array change',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -18,45 +33,45 @@ This tutorial walks you through the most common scenarios for managing arrays in
 
 The following tutorial shows you array manipulation in React with class components. If you are interested in seeing this with function components and React Hooks, check out the following guides:
 
-* [Add an Item to a List in React](/react-add-item-to-list)
-* [Update an Item in a List in React](/react-update-item-in-list)
-* [Remove an Item from a List in React](/react-remove-item-from-list)
+- [Add an Item to a List in React](/react-add-item-to-list)
+- [Update an Item in a List in React](/react-update-item-in-list)
+- [Remove an Item from a List in React](/react-remove-item-from-list)
 
 # Arrays in React State
 
 Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](/react-state-without-constructor) and afterward used by accessing it via the React component's class instance with the `this` object.
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [1, 2, 3],
-    };
+    }
   }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 As mentioned, the initial array state is done in the React component's constructor and afterward used within the `render()` method to display it. Every time the state changes, the render method will run again and display the correct state in your browser. However, the state shouldn't be changed by mutating `this.state` directly. Instead, there exists the `this.setState()` method on a React component to update React's state. A quote from the official React documentation says:
 
-*"Never mutate this.state directly, as calling setState() afterwards may replace the mutation you made. Treat this.state as if it were immutable."*
+_"Never mutate this.state directly, as calling setState() afterwards may replace the mutation you made. Treat this.state as if it were immutable."_
 
 The `this.setState()` method on the component instance is used to update the React state. It does a shallow merge, meaning that when you update one property in the state (e.g. list), the other properties in the state stay intact.
 
@@ -66,68 +81,68 @@ Now, let's see what kind of state manipulations can be done with arrays in React
 
 The following three questions often come along when speaking about initial/empty state in React:
 
-* How to initialize an empty array in React state?
-* How to push an empty array in React state?
-* How to create an initial array React state?
+- How to initialize an empty array in React state?
+- How to push an empty array in React state?
+- How to create an initial array React state?
 
 The first question can be answered with React's component constructor by simply initializing the state as as empty array:
 
 ```javascript{8}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [],
-    };
+    }
   }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 The `map()` method in the `render()` method, that is used to display the items of the array, does work, because it iterates over an empty array and thus returns no item for it. The iterator function in the map method isn't called. Let's say you would have a null state for your array instead, then you would have to have a fallback for your map method in your render method:
 
 ```javascript{8,16}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: null,
-    };
+    }
   }
 
   render() {
     return (
       <div>
         <ul>
-          {(this.state.list || []).map(item => (
+          {(this.state.list || []).map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 That's only one way of providing a fallback for an array being null. As alternative, you can also use [React's conditional rendering](/conditional-rendering-react/) for it.
@@ -135,26 +150,26 @@ That's only one way of providing a fallback for an array being null. As alternat
 The second question, which asks how to push an empty array in React state, involves manipulating the state with `this.setState()`. Let's say you want to empty the array on a button click. Then you can do it the following way:
 
 ```javascript{12,13,14,25,26,27}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [1, 2, 3],
-    };
+    }
   }
 
   onClearArray = () => {
-    this.setState({ list: [] });
-  };
+    this.setState({ list: [] })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -163,42 +178,42 @@ class App extends Component {
           Clear Array
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 You set an empty array as React state for the component by having a clear method for it. Building on top of this example, the third question, which asks how to create an initial array state, can be answered too. You have already seen how an initial array is set to state in the component's constructor. How would you reinitialize the initial state again, basically a reset of the state, after you have manipulated the state already? You can extract the initial state and then set it again whenever you want.
 
 ```javascript{3,10,18,19,20,35,36,37}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-const list = [1, 2, 3];
+const list = [1, 2, 3]
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list,
-    };
+    }
   }
 
   onClearArray = () => {
-    this.setState({ list: [] });
-  };
+    this.setState({ list: [] })
+  }
 
   onResetArray = () => {
-    this.setState({ list });
-  };
+    this.setState({ list })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -211,42 +226,42 @@ class App extends Component {
           Reset Array
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 The state reset was only applied to the array. But you can apply it to your entire state too by extracting the whole initial state object.
 
 ```javascript{3,4,5,11,18,19,20}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 const INITIAL_STATE = {
   list: [1, 2, 3],
-};
+}
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = INITIAL_STATE;
+    this.state = INITIAL_STATE
   }
 
   onClearArray = () => {
-    this.setState({ list: [] });
-  };
+    this.setState({ list: [] })
+  }
 
   onResetArray = () => {
-    this.setState({ ...INITIAL_STATE });
-  };
+    this.setState({ ...INITIAL_STATE })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -259,11 +274,11 @@ class App extends Component {
           Reset Array
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 By using the [JavaScript spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax), you can spread all key value pairs of the initial state object to the initial state of the component. That works with multiple properties in the state object too.
@@ -273,39 +288,39 @@ By using the [JavaScript spread operator](https://developer.mozilla.org/en-US/do
 One of the most common questions is how to add an item to an array in React state. Since you are not allowed to mutate the state directly, you cannot simply push an item to an array.
 
 ```javascript{8,9,13,14,15,17,18,19,20,21,22,23,24,25,26,27,38,39,40,41,42,43,44,45,46,47,48,49}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: '',
       list: ['a', 'b', 'c'],
-    };
+    }
   }
 
-  onChangeValue = event => {
-    this.setState({ value: event.target.value });
-  };
+  onChangeValue = (event) => {
+    this.setState({ value: event.target.value })
+  }
 
   onAddItem = () => {
     // not allowed AND not working
-    this.setState(state => {
-      const list = state.list.push(state.value);
+    this.setState((state) => {
+      const list = state.list.push(state.value)
 
       return {
         list,
         value: '',
-      };
-    });
-  };
+      }
+    })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -323,11 +338,11 @@ class App extends Component {
           Add
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 First, it is not allowed to use the [array push method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), because it mutates the array. It doesn't leave the array intact but changes it. Instead, there should be a new array created which is used to update the state.
@@ -413,38 +428,38 @@ While the array from the previous state is spread into a new array, so the previ
 
 In this part of the walkthrough, we will go through two cases to update items in an array:
 
-* How to update the entire array in React state?
-* How to update a specific item in array in React state?
+- How to update the entire array in React state?
+- How to update a specific item in array in React state?
 
 In both cases, the [array map method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is our friend. Whereas the array concat is used to add an item to an array, the array map method is useful to update item(s) in an array. It returns a new array too and thus doesn't mutate the previous array. Let's see how we can update an entire array by using the array map method.
 
 ```javascript{8,12,13,14,15,16,17,18,19,20,27,31,32,33}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [42, 33, 68],
-    };
+    }
   }
 
   onUpdateItems = () => {
-    this.setState(state => {
-      const list = state.list.map(item => item + 1);
+    this.setState((state) => {
+      const list = state.list.map((item) => item + 1)
 
       return {
         list,
-      };
-    });
-  };
+      }
+    })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>The person is {item} years old.</li>
           ))}
         </ul>
@@ -453,11 +468,11 @@ class App extends Component {
           Make everyone one year older
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 The array map method takes as argument a function. The function is applied on each item of the array and thus has access to each item as argument. In this case, a shorthand arrow function is used to increase the integer in the array by one. Each item in the array is affected by this update once you click the button. As you can see, the array map method works wonders here. Basically it's a array replace for each item in the array.
@@ -507,32 +522,32 @@ export default App;
 In this case, you take the index of the item in the array to identify it later in the `onUpdateItem()` class method. By using a wrapping arrow function in the `onClick` handler, you can sneak in this identifier for being used in the class method. How to update a specific item in the array now? The simplest way I have found out to do it is using the array map method again.
 
 ```javascript{12,13,14,15,16,17,18,19,20,21,22,23,24,25,26}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [42, 33, 68],
-    };
+    }
   }
 
-  onUpdateItem = i => {
-    this.setState(state => {
+  onUpdateItem = (i) => {
+    this.setState((state) => {
       const list = state.list.map((item, j) => {
         if (j === i) {
-          return item + 1;
+          return item + 1
         } else {
-          return item;
+          return item
         }
-      });
+      })
 
       return {
         list,
-      };
-    });
-  };
+      }
+    })
+  }
 
   render() {
     return (
@@ -541,21 +556,18 @@ class App extends Component {
           {this.state.list.map((item, index) => (
             <li key={item}>
               The person is {item} years old.
-              <button
-                type="button"
-                onClick={() => this.onUpdateItem(index)}
-              >
+              <button type="button" onClick={() => this.onUpdateItem(index)}>
                 Make me one year older
               </button>
             </li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 By adding conditional logic in the map method's iterating function, you can modify the single item, but leave every other item as before. Basically it's a array replace for a specific item in the array.
@@ -567,26 +579,26 @@ As you have seen, the array map method is a perfect fit to change a single item,
 When it comes to removing an item from an array, the [array filter method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is your friend.
 
 ```javascript{12,13,14,15,16,17,18,19,20,29,30,31,32,33,34}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [42, 33, 68],
-    };
+    }
   }
 
-  onRemoveItem = i => {
-    this.setState(state => {
-      const list = state.list.filter((item, j) => i !== j);
+  onRemoveItem = (i) => {
+    this.setState((state) => {
+      const list = state.list.filter((item, j) => i !== j)
 
       return {
         list,
-      };
-    });
-  };
+      }
+    })
+  }
 
   render() {
     return (
@@ -595,21 +607,18 @@ class App extends Component {
           {this.state.list.map((item, index) => (
             <li key={item}>
               The person is {item} years old.
-              <button
-                type="button"
-                onClick={() => this.onRemoveItem(index)}
-              >
+              <button type="button" onClick={() => this.onRemoveItem(index)}>
                 Remove
               </button>
             </li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 Similar to the other array methods, the filter method uses a function as argument that determines whether an item stays in the array or gets removed.
@@ -617,32 +626,32 @@ Similar to the other array methods, the filter method uses a function as argumen
 There is another neat little trick for one case: If you want to remove the first item in an array, you can do it with the [array destructuring operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Array_destructuring). Let's see how you can remove the first item of an array on a button click.
 
 ```javascript{12,13,14,15,16,17,18,19,20,30,31,32}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [42, 33, 68],
-    };
+    }
   }
 
   onRemoveFirstItem = () => {
-    this.setState(state => {
-      const [first, ...rest] = state.list;
+    this.setState((state) => {
+      const [first, ...rest] = state.list
 
       return {
         list: rest,
-      };
-    });
-  };
+      }
+    })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item}>The person is {item} years old.</li>
           ))}
 
@@ -651,11 +660,11 @@ class App extends Component {
           </button>
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 That's it. You destructure the first item and all the remaining items from the array. Then you use all remaining items to store them in React's state. The first item isn't used anymore.
@@ -663,11 +672,11 @@ That's it. You destructure the first item and all the remaining items from the a
 All previous array examples worked on an array of integers. Let's see in a more complex scenario how to remove an object from a React state array instead. That example is better suited for a robust application, because we can work on identifiers instead of indexes.
 
 ```javascript{9,10,11,16,18,30,31,32,35}
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       list: [
@@ -675,41 +684,38 @@ class App extends Component {
         { id: '2', age: 33 },
         { id: '3', age: 68 },
       ],
-    };
+    }
   }
 
-  onRemoveItem = id => {
-    this.setState(state => {
-      const list = state.list.filter(item => item.id !== id);
+  onRemoveItem = (id) => {
+    this.setState((state) => {
+      const list = state.list.filter((item) => item.id !== id)
 
       return {
         list,
-      };
-    });
-  };
+      }
+    })
+  }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.list.map(item => (
+          {this.state.list.map((item) => (
             <li key={item.id}>
               The person is {item.age} years old.
-              <button
-                type="button"
-                onClick={() => this.onRemoveItem(item.id)}
-              >
+              <button type="button" onClick={() => this.onRemoveItem(item.id)}>
                 Remove
               </button>
             </li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 The example shows you that it doesn't make any difference for whether you are working with primitives or objects when using the previously applied JavaScript array methods. You would still use the array concat method to add an item, the array map method to update item(s), and the array filter method to remove an item. However, this time having an identifier for each item gives you more control over the array than having only indexes as before for the array manipulations.

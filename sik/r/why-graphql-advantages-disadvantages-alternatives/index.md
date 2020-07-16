@@ -1,13 +1,21 @@
 ---
-date: "2018-07-03T13:50:46+02:00"
-title: "Why GraphQL: Advantages and Disadvantages"
+date: '2018-07-03T13:50:46+02:00'
+title: 'Why GraphQL: Advantages and Disadvantages'
 description: "An overview about the advantages and disadvantages of using GraphQL instead of REST for JavaScript applications. It answers the question: 'What is GraphQL' and 'Why you should use GraphQL' for your next JavaScript application ..."
-categories: ["Starter", "React", "GraphQL", "JavaScript"]
-keywords: ["graphql alternatives", "graphql advantages", "graphql disadvantages", "why graphql", "graphql benefits", "graphql rest"]
-hashtags: ["#100DaysOfCode", "#GraphQL", "#ReactJs"]
-banner: "./images/banner.jpg"
-author: ""
-contribute: ""
+categories: ['Starter', 'React', 'GraphQL', 'JavaScript']
+keywords:
+  [
+    'graphql alternatives',
+    'graphql advantages',
+    'graphql disadvantages',
+    'why graphql',
+    'graphql benefits',
+    'graphql rest',
+  ]
+hashtags: ['#100DaysOfCode', '#GraphQL', '#ReactJs']
+banner: './images/banner.jpg'
+author: ''
+contribute: ''
 ---
 
 <Sponsorship />
@@ -15,14 +23,14 @@ contribute: ""
 <ReactGraphQLBook />
 
 <LinkCollection
-  label="This tutorial is part 1 of 2 in this series."
-  links={[
-    {
-      prefix: "Part 2",
-      label: "Why Apollo: Advantages, Disadvantages & Alternatives",
-      url: "/why-apollo-advantages-disadvantages-alternatives",
-    },
-  ]}
+label="This tutorial is part 1 of 2 in this series."
+links={[
+{
+prefix: "Part 2",
+label: "Why Apollo: Advantages, Disadvantages & Alternatives",
+url: "/why-apollo-advantages-disadvantages-alternatives",
+},
+]}
 />
 
 When it comes to network requests between client and server applications, [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) is one of the most popular choices to connect both worlds. In REST, everything evolves around the idea of having resources that are accessible by URLs. You can read a resource with a HTTP GET request, create a resource with a HTTP POST request, and update or delete it with HTTP PUT and DELETE requests. These are called CRUD (Create, Read, Update, Delete) operations. Resources can be anything from authors, articles, or users. The format for transferring data is not opinionated with REST, but most often people will use JSON for it. In the end, REST enables applications to communicate with each other by using plain HTTP with URLs and HTTP methods.
@@ -55,7 +63,7 @@ Facebook open-sourced the GraphQL specification and its reference implementation
 
 A GraphQL operation is either a query (read), mutation (write), or subscription (continuous read). Each of those operations is only a string that needs to be constructed according to the GraphQL query language specification. Fortunately, GraphQL is evolving all the time, so there may be other operations in the future.
 
-Once this GraphQL operation reaches the backend application, it can be interpreted against the entire GraphQL schema there, and resolved with data for the frontend application. GraphQL is not opinionated about the network layer, which is often HTTP, nor about the payload format, which is usually  JSON. It isn't opinionated about the application architecture at all. It is only a query language.
+Once this GraphQL operation reaches the backend application, it can be interpreted against the entire GraphQL schema there, and resolved with data for the frontend application. GraphQL is not opinionated about the network layer, which is often HTTP, nor about the payload format, which is usually JSON. It isn't opinionated about the application architecture at all. It is only a query language.
 
 ```json
 // a GraphQL query
@@ -115,15 +123,15 @@ GraphQL is not just exciting for React developers, though. While Facebook showca
 
 Facebook is the driving company behind the GraphQL specification and reference implementation in JavaScript, but other well-known companies are also using it for their applications. They are invested in the GraphQL ecosystem due to the huge demand for modern applications. Beyond Facebook, GraphQL has also been used by these well-known companies:
 
-* GitHub [[1]](https://githubengineering.com/the-github-graphql-api/) [[2]](https://youtu.be/lj41qhtkggU)
-* Shopify [[1]](https://shopifyengineering.myshopify.com/blogs/engineering/solving-the-n-1-problem-for-graphql-through-batching) [[2]](https://youtu.be/2It9NofBWYg)
-* [Twitter](https://www.youtube.com/watch?v=Baw05hrOUNM)
-* [Coursera](https://youtu.be/F329W0PR6ds)
-* [Yelp](https://youtu.be/bqcRQYTNCOA)
-* [Wordpress](https://youtu.be/v3xY-rCsUYM)
-* [The New York Times](https://youtu.be/W-u-vZUSnIk)
-* [Samsara](https://youtu.be/g-asVW9JFPw)
-* and [more](https://graphql.org/users/) ...
+- GitHub [[1]](https://githubengineering.com/the-github-graphql-api/) [[2]](https://youtu.be/lj41qhtkggU)
+- Shopify [[1]](https://shopifyengineering.myshopify.com/blogs/engineering/solving-the-n-1-problem-for-graphql-through-batching) [[2]](https://youtu.be/2It9NofBWYg)
+- [Twitter](https://www.youtube.com/watch?v=Baw05hrOUNM)
+- [Coursera](https://youtu.be/F329W0PR6ds)
+- [Yelp](https://youtu.be/bqcRQYTNCOA)
+- [Wordpress](https://youtu.be/v3xY-rCsUYM)
+- [The New York Times](https://youtu.be/W-u-vZUSnIk)
+- [Samsara](https://youtu.be/g-asVW9JFPw)
+- and [more](https://graphql.org/users/) ...
 
 When GraphQL was developed and open sourced by Facebook, other companies ran into similar issues for their mobile applications. That's how Netflix came up with [Falcor](https://github.com/Netflix/falcor), an alternative to GraphQL. It shows again that modern applications demanded solutions like GraphQL and Falcor.
 
@@ -185,7 +193,7 @@ There are still cases where REST is a valuable approach for connecting client an
 
 # GraphQL Alternatives
 
-REST is the most popular alternative for GraphQL, as it is still the most common architecture for connecting client and server applications. It became more popular than networking technologies like [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) and [SOAP](https://simple.wikipedia.org/wiki/SOAP_(protocol)) because it used the native features of HTTP, where other protocols like SOAP tried to build their own solution on top of it.
+REST is the most popular alternative for GraphQL, as it is still the most common architecture for connecting client and server applications. It became more popular than networking technologies like [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) and [SOAP](<https://simple.wikipedia.org/wiki/SOAP_(protocol)>) because it used the native features of HTTP, where other protocols like SOAP tried to build their own solution on top of it.
 
 Falcor by Netflix is another alternative, and it was developed at the same time as GraphQL. Netflix ran into similar issues as Facebook, and eventually open-sourced their own solution. There isn't too much traction around Falcor, maybe because GraphQL got so popular, but developers at Netflix have shown great engineering efforts in the past, so it may be worth looking into it.
 
@@ -194,12 +202,12 @@ Falcor by Netflix is another alternative, and it was developed at the same time 
 There are plenty of reasons to adopt GraphQL for your JavaScript applications instead of implementing yet another RESTful architecture. It has many advantages, and plays nicely with modern software architecture. This book will introduce how it can be used for many practical, real-life solutions, so you should have an idea if it works for you by the time you've read through the chapters.
 
 <LinkCollection
-  label="This tutorial is part 1 of 2 in this series."
-  links={[
-    {
-      prefix: "Part 2",
-      label: "Why Apollo: Advantages, Disadvantages & Alternatives",
-    url: "/why-apollo-advantages-disadvantages-alternatives",
-    },
-  ]}
+label="This tutorial is part 1 of 2 in this series."
+links={[
+{
+prefix: "Part 2",
+label: "Why Apollo: Advantages, Disadvantages & Alternatives",
+url: "/why-apollo-advantages-disadvantages-alternatives",
+},
+]}
 />

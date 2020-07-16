@@ -15,12 +15,13 @@ In diesem Teil geht es um Strings und reguläre Ausdrücke
 
 ## Motivation
 
-Strings sind einer der wichtigsten Datentypen in der Programmierung. Sie kommen in fast jeder Programmiersprache vor. Das effektive Arbeiten mit ihnen ist für Entwickler von grundlegender Bedeutung, um nützliche Programme zu erstellen. 
+Strings sind einer der wichtigsten Datentypen in der Programmierung. Sie kommen in fast jeder Programmiersprache vor. Das effektive Arbeiten mit ihnen ist für Entwickler von grundlegender Bedeutung, um nützliche Programme zu erstellen.
 
-Reguläre Ausdrücke bieten Developern zusätzliche Möglichkeiten, Zeichenfolgen zu verwenden. 
+Reguläre Ausdrücke bieten Developern zusätzliche Möglichkeiten, Zeichenfolgen zu verwenden.
 ES6 bietet neue und verbesserte Funktionen, um Strings und reguläre Ausdrücke effektiver zu nutzen. Dieses Kapitel gibt einen Überblick.
 
 ## Bevor es losgeht
+
 todo
 
 ## Verbesserte Unicode-Unterstützung
@@ -29,9 +30,9 @@ todo
 
 Der JavaScript-Standard ECMAScript 5 entstand, als 16 Bit ausreichten, um alle vorhandene Unicode-Zeichen abzubilden. Später wurde Unicode um weitere Zeichen erweitert. Dies hat zur Folge, dass 16 Bit nicht mehr ausreichen, um alle möglichen Unicode-Zeichen darzustellen.
 
-> Das Ziel von Unicode ist es, alle in Gebrauch befindlichen Schriftsysteme und Zeichen zu kodieren. Der Zeichenumfang ist dazu in 17 Ebenen (englisch planes) gegliedert. Sechs dieser Ebenen werden verwendet, die restlichen sind für die spätere Nutzung reserviert. Die ursprünglichen 16 Bit sind unter dem Namen *Basic Multilingual Plane* (BMP; deutsch „Mehrsprachige Basis-Ebene“ oder Plane 0) bekannt.
+> Das Ziel von Unicode ist es, alle in Gebrauch befindlichen Schriftsysteme und Zeichen zu kodieren. Der Zeichenumfang ist dazu in 17 Ebenen (englisch planes) gegliedert. Sechs dieser Ebenen werden verwendet, die restlichen sind für die spätere Nutzung reserviert. Die ursprünglichen 16 Bit sind unter dem Namen _Basic Multilingual Plane_ (BMP; deutsch „Mehrsprachige Basis-Ebene“ oder Plane 0) bekannt.
 
-UTF-16 speichert die ursprünglichen Unicode-Zeichen in der BMP weiterhin in 16 Bit ab, damit diese in der Zukunft problemlos anwendbar sind. Alle neuen Unicode-Zeichen werden hingegen in 32 Bit gespeichert, ergo in zwei 16-Bit-Werten. Die beiden 16-Bit-Werte bezeichnet man als *Ersatzpaar* (englisch surrogate pair). Streng genommen wird ein Unicode-Zeichen außerhalb der BMP in einer *UTF-16-Codeeinheit* anstelle eines *Unicode-Zeichens* gespeichert.
+UTF-16 speichert die ursprünglichen Unicode-Zeichen in der BMP weiterhin in 16 Bit ab, damit diese in der Zukunft problemlos anwendbar sind. Alle neuen Unicode-Zeichen werden hingegen in 32 Bit gespeichert, ergo in zwei 16-Bit-Werten. Die beiden 16-Bit-Werte bezeichnet man als _Ersatzpaar_ (englisch surrogate pair). Streng genommen wird ein Unicode-Zeichen außerhalb der BMP in einer _UTF-16-Codeeinheit_ anstelle eines _Unicode-Zeichens_ gespeichert.
 
 So ist es möglich, alle Methoden die auf 16 Bit begrenzt sind weiterhin zu nutzen. Vorausgesetzt, dass Sie keine der neuen Unicode-Zeichen benötigen.
 
@@ -41,7 +42,7 @@ Wenn Sie eine vollständige Unicode-Unterstützung benötigen, führt die Verwen
 
 Was ich genau mit versteckten Fehler meine, verdeutlicht der nachfolgende Programmcode. Als Beispiel habe ich das Leerzeichen und das Emoji mit dem lachenden Gesicht gegenübergestellt. Die Unicode-Nummer des Emojis ist `U+1F600` und der HTML-Code dazu ist `&#128512;`. Die Unicode-Nummer das Ausrufezeichen ist `U+0021` und der HTML-Code dazu ist `&#33;`.
 
-``` 
+```
 let text = "😀";
 console.log(text.length); // Ausgabe: 2
 console.log(/^.$/.test(text)); // Ausgabe: false
@@ -60,35 +61,36 @@ console.log(text.charCodeAt(1)); // Ausgabe: NaN
 <!--index_980.html -->
 ```
 
-Es wird kein Fehler angezeigt, aber anders als erwartet  
+Es wird kein Fehler angezeigt, aber anders als erwartet
+
 - gibt `text.length` für das lachende Gesicht den Wert 2 anstelle von 1 zurück.
-- wird das lachende Gesicht beim der Prüfung eines Regulären Ausdrucks nicht 
-als ein Zeichen erkannt.
+- wird das lachende Gesicht beim der Prüfung eines Regulären Ausdrucks nicht
+  als ein Zeichen erkannt.
 - es der `charAt()`-Methode nicht möglich ein Zeichen zurückzugeben.
-- gibt die `charCodeAt()`-Methode für jedes der beiden Zeichen in der UTF-16-Codeeinheit 
-das Unicode-Zeichen für die BMP aus. 
+- gibt die `charCodeAt()`-Methode für jedes der beiden Zeichen in der UTF-16-Codeeinheit
+  das Unicode-Zeichen für die BMP aus.
 
-Falls Sie mit Unicode-Zeichen oberhalb der BMP arbeiten sind die Methoden 
-`charAt()` und `charCodeAt()` nicht die richtige Wahl für Sie. Diese arbeiten 
-ausschließlich im BMP-Bereich korrekt. Und noch schlimmer: Bei Unicode-Zeichen 
-außerhalb der BMP melden diese keinen Fehler.  
+Falls Sie mit Unicode-Zeichen oberhalb der BMP arbeiten sind die Methoden
+`charAt()` und `charCodeAt()` nicht die richtige Wahl für Sie. Diese arbeiten
+ausschließlich im BMP-Bereich korrekt. Und noch schlimmer: Bei Unicode-Zeichen
+außerhalb der BMP melden diese keinen Fehler.
 
-Mit ECMAScript 6 sind 
-Methoden hinzugekommen, die den neuen Bereich korrekt unterstützen. 
+Mit ECMAScript 6 sind
+Methoden hinzugekommen, die den neuen Bereich korrekt unterstützen.
 
-> Die Unicode-Nummer ist ein hexadezimaler Wert. Der HTML-Code ist die 
-ins Dezimalsystem umgerechnete Unicode-Nummer.
-Möchten Sie das Umrechnen von einem Zahlenformat in ein anderes Zahlenformat 
-gerne selbst 
-nachvollziehen. Falls Sie hierzu Hilfe benötigen ist die Website  
-https://www.arndt-bruenner.de/mathe/scripts/Zahlensysteme.htm vielleicht das 
-Richtige für Sie.
+> Die Unicode-Nummer ist ein hexadezimaler Wert. Der HTML-Code ist die
+> ins Dezimalsystem umgerechnete Unicode-Nummer.
+> Möchten Sie das Umrechnen von einem Zahlenformat in ein anderes Zahlenformat
+> gerne selbst
+> nachvollziehen. Falls Sie hierzu Hilfe benötigen ist die Website  
+> https://www.arndt-bruenner.de/mathe/scripts/Zahlensysteme.htm vielleicht das
+> Richtige für Sie.
 
 ### codePointAt()
 
 Eine Methode, eine vollständige Unicode-Unterstützung bietet ist `codePointAt()`
 
-``` 
+```
 let text = "😀";
 console.log(text.codePointAt(0)); // Ausgabe: 128512
 console.log(text.codePointAt(1)); // Ausgabe: 56832
@@ -99,16 +101,16 @@ console.log(text.codePointAt(1)); // Ausgabe: undefined
 <!--index_979.html -->
 ```
 
-Noch einmal zur Wiederholung: Die Unicode-Nummer des Emoji mit dem 
-lachenden Gesicht ist `U+1F600` und der HTML-Code dazu 
-ist `&#128512;`. 
-Die Unicode-Nummer das Ausrufezeichen ist `U+0021` und der HTML-Code dazu 
-ist `&#33;`. `codePointAt(0)` gibt nun also in beiden Fällen denn korrekten Wert 
+Noch einmal zur Wiederholung: Die Unicode-Nummer des Emoji mit dem
+lachenden Gesicht ist `U+1F600` und der HTML-Code dazu
+ist `&#128512;`.
+Die Unicode-Nummer das Ausrufezeichen ist `U+0021` und der HTML-Code dazu
+ist `&#33;`. `codePointAt(0)` gibt nun also in beiden Fällen denn korrekten Wert
 zurück.
 
-> Bei der verwendung der `codePointAt()`-Method ist allerdings noch wichtig 
-darauf zu achten, das auch hier die UTF-16-Codeeinheit zürckgegeben wird - also 
-zwei Unicode-Zeichen. Sehen sich zur verdeutlichung nachfolgenden Programmcode an.
+> Bei der verwendung der `codePointAt()`-Method ist allerdings noch wichtig
+> darauf zu achten, das auch hier die UTF-16-Codeeinheit zürckgegeben wird - also
+> zwei Unicode-Zeichen. Sehen sich zur verdeutlichung nachfolgenden Programmcode an.
 
 ```
 let text = "😀!";
@@ -119,9 +121,10 @@ console.log(text.codePointAt(1)); // Ausgabe: undefined
 <!--index_979a.html -->
 ```
 
-> Wenn Sie herausfinden möchten, ob Sie es mit einem Unicode-Zeichen oder einer 
-UTF-16-Codeeinheit zu tun haben, können Sie die Methode `codePointAt(0)` zu Hilfe 
-nehmen. Eine Möglichkeit zeigt Ihnen das nächste Codebeispiel.
+> Wenn Sie herausfinden möchten, ob Sie es mit einem Unicode-Zeichen oder einer
+> UTF-16-Codeeinheit zu tun haben, können Sie die Methode `codePointAt(0)` zu Hilfe
+> nehmen. Eine Möglichkeit zeigt Ihnen das nächste Codebeispiel.
+
 ```
 console.log(is32Bit("😅")); // Ausgabe: true
 console.log(is32Bit("!"));  // Ausgabe: false
@@ -133,54 +136,55 @@ function is32Bit(c){
 
 ### String.fromCodePoint()
 
-Im vorhergehenden Kapitel haben wir HTML-Code eines Zeichens ermittelt. In 
-diesem Kapitel machen wir das Gegenteil. Bisher war für die Errechnung eines 
-Zeichens aus einem HTML-Code die Methode 
-`fromCharCode()` das Mittel der Wahl. Genau wie `charCodeAt()` deckt `fromCharCode()` 
-außschließlich den BMP-Bereich korrekt ab. Analog zu `codePointAt()` 
-für `charCodeAt()` gibt es die fromCodePoint()-Methode als Pentant zu 
-`fromCharCode()`. `fromCodePoint()` bietet das gleiche Ergebnis 
+Im vorhergehenden Kapitel haben wir HTML-Code eines Zeichens ermittelt. In
+diesem Kapitel machen wir das Gegenteil. Bisher war für die Errechnung eines
+Zeichens aus einem HTML-Code die Methode
+`fromCharCode()` das Mittel der Wahl. Genau wie `charCodeAt()` deckt `fromCharCode()`
+außschließlich den BMP-Bereich korrekt ab. Analog zu `codePointAt()`
+für `charCodeAt()` gibt es die fromCodePoint()-Methode als Pentant zu
+`fromCharCode()`. `fromCodePoint()` bietet das gleiche Ergebnis
 wie `fromCharCode()` bei einer vollständige Unicode-Unterstützung.
 
-| BMP-Bereich   | vollständige Unicode-Unterstützung |
-| ------------- | ---------------------------------- |
-| fromCharCode()| fromCodePoint()                    |
-| charCodeAt()  | codePointAt()                      |
+| BMP-Bereich    | vollständige Unicode-Unterstützung |
+| -------------- | ---------------------------------- |
+| fromCharCode() | fromCodePoint()                    |
+| charCodeAt()   | codePointAt()                      |
 
 ### normalize()
 
-Ein interessanter Aspekt beim Vergleichen oder beim Sortieren von Strings sind 
-die unterschiedlichen Möglichkeiten, mit denen das gleiche Zeichen dargestellt 
-werden kann. 
-Beispielsweise kann der Buchstabe `Ä` als einzelnes Unicode-Zeichen 
-`U + 00E4 LATIN SMALL LETIN A MIT DIAERESIS` oder als zwei Unicode-Zeichen 
-`U + 0061 LATIN SMALL LETIN A` and `U + 0308 COMBINING DIAERESIS` dargestellt werden. 
-Meistens wird die erste Form verwendet. 
-Wenn sie zwei Strings vergleiche, die den Buchstaben `Ä` auf unterschiedliche Art 
-speichern, dann kann dies beim Sortieren oder beim Vergleichen unerwarteten Ergebnissen 
+Ein interessanter Aspekt beim Vergleichen oder beim Sortieren von Strings sind
+die unterschiedlichen Möglichkeiten, mit denen das gleiche Zeichen dargestellt
+werden kann.
+Beispielsweise kann der Buchstabe `Ä` als einzelnes Unicode-Zeichen
+`U + 00E4 LATIN SMALL LETIN A MIT DIAERESIS` oder als zwei Unicode-Zeichen
+`U + 0061 LATIN SMALL LETIN A` and `U + 0308 COMBINING DIAERESIS` dargestellt werden.
+Meistens wird die erste Form verwendet.
+Wenn sie zwei Strings vergleiche, die den Buchstaben `Ä` auf unterschiedliche Art
+speichern, dann kann dies beim Sortieren oder beim Vergleichen unerwarteten Ergebnissen
 führen.
 
-> Es gibt vier Normalformen: 
-- die kanonische Dekomposition (NFD), 
-- die kanonische Dekomposition gefolgt von einer kanonischen Komposition (NFC), 
-- die kompatible Dekomposition (NFKD) und 
-- die kompatible Dekomposition gefolgt von einer kanonischen Komposition (NFKC).  
+> Es gibt vier Normalformen:
+
+- die kanonische Dekomposition (NFD),
+- die kanonische Dekomposition gefolgt von einer kanonischen Komposition (NFC),
+- die kompatible Dekomposition (NFKD) und
+- die kompatible Dekomposition gefolgt von einer kanonischen Komposition (NFKC).
 
 In JavaScript ist ein String standardmäßig in der Normalform NFC.
 
-> Eine genaue Erklärung dieser Formen führt 
-hier zu weit. Einen guten Einstieg zum Thema bietet Ihnen Wikpedia: 
-https://de.wikipedia.org/w/index.php?title=Normalisierung_(Unicode)&oldid=178027174 . 
-Was Sie sich auf jeden Fall merken sollten: Beim Vergleichen - beziehungsweise beim 
-Sortieren - müssen beide zu vergleichenden Strings in der gleichen Normalform vorliegen. 
-Andernfalls kann es Probleme geben.
+> Eine genaue Erklärung dieser Formen führt
+> hier zu weit. Einen guten Einstieg zum Thema bietet Ihnen Wikpedia:
+> https://de.wikipedia.org/w/index.php?title=Normalisierung_(Unicode)&oldid=178027174 .
+> Was Sie sich auf jeden Fall merken sollten: Beim Vergleichen - beziehungsweise beim
+> Sortieren - müssen beide zu vergleichenden Strings in der gleichen Normalform vorliegen.
+> Andernfalls kann es Probleme geben.
 
-Wie erreichen Sie, dass ein String in eine bestimmte Normalform überführt wird? 
-Seit ECMAScript 6 können Sie hierfür die Methode `normalize()` verwenden. Im nächsten 
-Beispiel sehen Sie beispielhaft, wie Sie die Methode `normalize()` praktisch einsetzen 
-können. 
+Wie erreichen Sie, dass ein String in eine bestimmte Normalform überführt wird?
+Seit ECMAScript 6 können Sie hierfür die Methode `normalize()` verwenden. Im nächsten
+Beispiel sehen Sie beispielhaft, wie Sie die Methode `normalize()` praktisch einsetzen
+können.
 
-``` 
+```
 let eins = "Äpfel";
 let zwei = "Äpfel";
 
@@ -202,24 +206,24 @@ console.log(eins===zweiNFC); //true
 Das Programmcodebeispiel spricht für sich. Falls der String `Äpfel` in unterschiedlichen  
 Normalformen vorliegt, schlägt eine Prüfung auf Gleichheit fehl.
 
-Falls Sie bisher noch nie auf ein Problem mit unterschiedlichen Unicode Normalformen 
-gestoßen sind, dann ist es nicht wahrscheinlich, dass Sie diese Methode benötigen. Es 
+Falls Sie bisher noch nie auf ein Problem mit unterschiedlichen Unicode Normalformen
+gestoßen sind, dann ist es nicht wahrscheinlich, dass Sie diese Methode benötigen. Es
 schade jedoch nie diese Methode für den Fall der Fälle im Hinterkopf zu behalten.
 
 ### u-Flag
 
 #### Das u-Flag in Aktion
 
-Im Beispiel 980.html hatte ich gezeigt, dass eine Prüfung eines regulären Ausdrucks 
-auf die Länge ein unerwartetes Ergebnis bringt, wenn das Zeichen im regulären Ausdruck 
-sich nicht im BMP Bereich befindet. 
-Ein Unicode-Zeichen außerhalb der BMP wird wie schon beschrieben in einer 
-*UTF-16-Codeeinheit* anstelle eines *Unicode-Zeichens* gespeichert. 
+Im Beispiel 980.html hatte ich gezeigt, dass eine Prüfung eines regulären Ausdrucks
+auf die Länge ein unerwartetes Ergebnis bringt, wenn das Zeichen im regulären Ausdruck
+sich nicht im BMP Bereich befindet.
+Ein Unicode-Zeichen außerhalb der BMP wird wie schon beschrieben in einer
+_UTF-16-Codeeinheit_ anstelle eines _Unicode-Zeichens_ gespeichert.
 
-ECMAScript 6 schafft hier mit dem u-Flag abhilfe. Wenn dieses Flag gesetzt ist, 
-wird der reguläre Ausdruck nicht anhand von *UTF-16-Codeeinheit* interpretiert
+ECMAScript 6 schafft hier mit dem u-Flag abhilfe. Wenn dieses Flag gesetzt ist,
+wird der reguläre Ausdruck nicht anhand von _UTF-16-Codeeinheit_ interpretiert
 
-``` 
+```
 let text = "😀";
 console.log(text.length); // Ausgabe: 2
 console.log(/^.$/.test(text)); // Ausgabe: false
@@ -234,15 +238,15 @@ console.log(/^.$/u.test(text)); // Ausgabe: false
 
 #### Codepoints zählen
 
-``` 
+```
 function codePointLengthWithU(text){
     let sum = text.match(/[\s\S]/gu);
     return sum ? sum.length : 0;
-} 
+}
 function codePointLengthWithoutU(text){
     let sum = text.match(/[\s\S]/g);
     return sum ? sum.length : 0;
-} 
+}
 let text = "😀";
 console.log(text.length); // Ausgabe: 2
 console.log(codePointLengthWithU(text)); // Ausgabe: 1
@@ -257,7 +261,7 @@ console.log(codePointLengthWithoutU(text)); // Ausgabe: 1
 
 #### Browserunterstüztung des u-Flags
 
-``` 
+```
 function hasUFlag(){
     try {
         let pattern = new RegExp(".", "u");
@@ -265,23 +269,24 @@ function hasUFlag(){
     } catch (ex) {
         return false;
     }
-} 
+}
 console.log(hasUFlag()); // Ausgabe true wenn das u-Flag vom Browser unterstüzt wird
 <!--index_974.html -->
 ```
 
 ## Andere Verbesserungen im Zusammenhang mit Zeichenketten
 
-Das Suchen von Zeichenketten innerhalb von Zeichenketten war bisher recht 
-aufwendig. 
+Das Suchen von Zeichenketten innerhalb von Zeichenketten war bisher recht
+aufwendig.
 
 ### Identifizieren
 
 #### Zeichenketten in Zeichenketten
 
-Um eine Zeichenkette innerhalb einer Zeichenkette zu finden, war bisher der Weg 
-über die `indexOf()`-Methode das Mittel der Wahl. Mit ECMAScript 6 gibt es nun 
-zusätzlich die Methoden 
+Um eine Zeichenkette innerhalb einer Zeichenkette zu finden, war bisher der Weg
+über die `indexOf()`-Methode das Mittel der Wahl. Mit ECMAScript 6 gibt es nun
+zusätzlich die Methoden
+
 - `startsWith()`
 - `endsWith()`
 - `includes()`
@@ -304,7 +309,6 @@ console.log(meinString.includes("i", 23)); // Ausgabe false
 <!--index_973.html -->
 ```
 
-
 ### repeat()
 
 ```
@@ -315,10 +319,10 @@ console.log(meinString.repeat(3)); // Ausgabe: ECMAScript6;ECMAScript6;ECMAScrip
 <!--index_972.html -->
 ```
 
-
 ## Andere Verbesserungen bei der Arbeite mit regulären Ausdrücken
 
-Reguläre Ausdrücke spielen in JavaScript eine große Rolle. 
+Reguläre Ausdrücke spielen in JavaScript eine große Rolle.
+
 ### y-Flag
 
 ```
@@ -330,11 +334,9 @@ https://stackoverflow.com/questions/4542304/what-does-regex-flag-y-do
 
 ### Duplizieren
 
-
-> Das g-Flag steht für die globale Suche. Globale Suche bedeutet, dass alle 
-Überenstimmungen gefunden werden - abhängig von der Groß- oder Kleinschreibung. 
-Das i-Flag sucht Überenstimmungen unabhängig von der Groß- oder Kleinschreibung.
-
+> Das g-Flag steht für die globale Suche. Globale Suche bedeutet, dass alle
+> Überenstimmungen gefunden werden - abhängig von der Groß- oder Kleinschreibung.
+> Das i-Flag sucht Überenstimmungen unabhängig von der Groß- oder Kleinschreibung.
 
 ```
 let rexWithi = /ab/i;
@@ -368,18 +370,18 @@ console.log(rex.source); // Ausgabe: ab
 console.log(rex.flags); // Ausgabe: iu
 <!--index_969.html -->
 ```
- 
+
 ## Template-Strings
 
 https://de.wikipedia.org/wiki/Dom%C3%A4nenspezifische_Sprache
 
 ### Syntax
 
-Template-Strings sind anstelle von doppelten bzw. einfachen 
-Anführungszeichen in Back-Ticks (` `) (grave accent) eingeschlossen. 
-Template-Strings können Platzhalter beinhalten, die durch 
-das Dollarsymbol gefolgt von geschweiften Klammern gekennzeichnet 
-sind (${expression}).
+Template-Strings sind anstelle von doppelten bzw. einfachen
+Anführungszeichen in Back-Ticks (``) (grave accent) eingeschlossen.
+Template-Strings können Platzhalter beinhalten, die durch
+das Dollarsymbol gefolgt von geschweiften Klammern gekennzeichnet
+sind (\${expression}).
 https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings
 
 ```
@@ -389,7 +391,7 @@ https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings
 
 ### Multiline
 
-Vor ECMAScript 6 war es nur auf Umwegen möglich eine Zeichenkette auf 
+Vor ECMAScript 6 war es nur auf Umwegen möglich eine Zeichenkette auf
 mehrere Zeilen zu verteilen.
 
 ```
@@ -415,6 +417,7 @@ mehrere Zeilen zu verteilen.
 
 <!--index_964.html -->
 ```
+
 ## Erfolgsmethode - Best Practice
 
 ## Alles noch einmal zusammengefasst
@@ -422,5 +425,3 @@ mehrere Zeilen zu verteilen.
 ## Referenzen und externe Links
 
 [Unicode](https://de.wikipedia.org/wiki/Unicode)
-
-

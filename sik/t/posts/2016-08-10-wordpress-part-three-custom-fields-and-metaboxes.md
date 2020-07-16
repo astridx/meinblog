@@ -1,6 +1,6 @@
 ---
 date: 2016-08-10
-title: "WordPress Theme Development: Creating Custom Fields and Meta Boxes"
+title: 'WordPress Theme Development: Creating Custom Fields and Meta Boxes'
 template: post
 thumbnail: '../thumbnails/wp.png'
 slug: wordpress-part-three-custom-fields-and-metaboxes
@@ -26,11 +26,11 @@ In part three, we're going to learn how to add basic **custom fields** to a post
 - Add a [**custom meta box**](https://developer.wordpress.org/reference/functions/add_meta_box/).
 - Create the following **custom fields**:
 
- - Input text field
- - Textarea
- - Checkbox
- - Select Menu
- - Image (and image upload)
+- Input text field
+- Textarea
+- Checkbox
+- Select Menu
+- Image (and image upload)
 
 > This tutorial is independent of the previous installments. If you've been following along, you can just add this on to what you already have. If not, you can still do this tutorial from scratch as long as you have a basic knowledge of WordPress.
 
@@ -310,11 +310,11 @@ This code will open the built in WordPress media gallery when you click browse, 
 
 ```html
 <script>
-  jQuery(document).ready(function($) {
+  jQuery(document).ready(function ($) {
     // Instantiates the variable that holds the media library frame.
     var meta_image_frame
     // Runs when the image button is clicked.
-    $('.image-upload').click(function(e) {
+    $('.image-upload').click(function (e) {
       // Get preview pane
       var meta_image_preview = $(this)
         .parent()
@@ -322,9 +322,7 @@ This code will open the built in WordPress media gallery when you click browse, 
         .children('.image-preview')
       // Prevents the default action from occuring.
       e.preventDefault()
-      var meta_image = $(this)
-        .parent()
-        .children('.meta-image')
+      var meta_image = $(this).parent().children('.meta-image')
       // If the frame already exists, re-open it.
       if (meta_image_frame) {
         meta_image_frame.open()
@@ -338,7 +336,7 @@ This code will open the built in WordPress media gallery when you click browse, 
         },
       })
       // Runs when an image is selected.
-      meta_image_frame.on('select', function() {
+      meta_image_frame.on('select', function () {
         // Grabs the attachment selection and creates a JSON representation of the model.
         var media_attachment = meta_image_frame
           .state()

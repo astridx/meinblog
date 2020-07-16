@@ -16,7 +16,7 @@ Here's a quick snippet of jQuery code I use often when I need to smoothly scroll
 [View Demo](http://codepen.io/taniarascia/pen/MJEXZj)
 
 ```js
-$('a[href*="#"]').on('click', function(e) {
+$('a[href*="#"]').on('click', function (e) {
   e.preventDefault()
 
   $('html, body').animate(

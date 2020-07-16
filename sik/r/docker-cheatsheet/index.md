@@ -1,13 +1,13 @@
 ---
-title: "Docker Cheatsheet"
-description: "All the Docker commands I am using for developing applications with Docker: list all Docker images, list all Docker containers, stop Docker container or remove all Docker containers ..."
-date: "2020-02-18T03:55:46+02:00"
-categories: ["Docker"]
-keywords: ["docker cheatsheet", "docker commands"]
-hashtags: ["#100DaysOfCode", "#Docker"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Docker Cheatsheet'
+description: 'All the Docker commands I am using for developing applications with Docker: list all Docker images, list all Docker containers, stop Docker container or remove all Docker containers ...'
+date: '2020-02-18T03:55:46+02:00'
+categories: ['Docker']
+keywords: ['docker cheatsheet', 'docker commands']
+hashtags: ['#100DaysOfCode', '#Docker']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />

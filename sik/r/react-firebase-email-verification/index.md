@@ -1,13 +1,18 @@
 ---
-title: "Email Verification with Firebase in React"
-description: "A Firebase React tutorial on how to enable email verification. Only users that confirmed their email address with a email confirmation have access to your application. Every other user who is using a fake email is not authorized ..."
-date: "2018-12-20T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firebase email verification", "react firebase email confirmation", "react firebase double opt in"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Email Verification with Firebase in React'
+description: 'A Firebase React tutorial on how to enable email verification. Only users that confirmed their email address with a email confirmation have access to your application. Every other user who is using a fake email is not authorized ...'
+date: '2018-12-20T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'react firebase email verification',
+    'react firebase email confirmation',
+    'react firebase double opt in',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,34 +20,34 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 6 of 6 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React Firebase: Link Social Logins",
-      url: "/react-firebase-link-social-logins"
-    }
-  ]}
+label="This tutorial is part 6 of 6 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+},
+{
+prefix: "Part 5:",
+label: "React Firebase: Link Social Logins",
+url: "/react-firebase-link-social-logins"
+}
+]}
 />
 
 In your application, users can employ an email/password combination, but also social logins to get access to your service or product. Often, the email address associated with the social logins is confirmed by the social platform (Google, Facebook, Twitter) and you know this email address really exists. But what about the email address used with the password? Because users are sometimes unwilling to provide real email addresses, they'll simply make one up, so you can't provide them with further information via email or to integrate them with third-parties where a valid email address is required. In this section, I will show you how to confirm user email addresses before they can access your application. After an email verification with a double opt-in send by email, users are authorized to use your application.
@@ -70,7 +75,7 @@ class Firebase {
 export default Firebase;
 ```
 
-You can inline this URL, but also put it into your *.env* file(s). I prefer environment variables for development (*.env.development*) and production (*.env.production*). The development environment receives the localhost URL:
+You can inline this URL, but also put it into your _.env_ file(s). I prefer environment variables for development (_.env.development_) and production (_.env.production_). The development environment receives the localhost URL:
 
 ```javascript{3}
 ...
@@ -172,40 +177,40 @@ class Firebase {
 export default Firebase;
 ```
 
-To protect your routes from users who have no verified email address, we will do it with a new higher-order component in *src/components/Session/withEmailVerification.js* that has access to Firebase and the authenticated user:
+To protect your routes from users who have no verified email address, we will do it with a new higher-order component in _src/components/Session/withEmailVerification.js_ that has access to Firebase and the authenticated user:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
-import AuthUserContext from './context';
-import { withFirebase } from '../Firebase';
+import AuthUserContext from './context'
+import { withFirebase } from '../Firebase'
 
-const withEmailVerification = Component => {
+const withEmailVerification = (Component) => {
   class WithEmailVerification extends React.Component {
     render() {
       return (
         <AuthUserContext.Consumer>
-          {authUser => <Component {...this.props} />}
+          {(authUser) => <Component {...this.props} />}
         </AuthUserContext.Consumer>
-      );
+      )
     }
   }
 
-  return withFirebase(WithEmailVerification);
-};
+  return withFirebase(WithEmailVerification)
+}
 
-export default withEmailVerification;
+export default withEmailVerification
 ```
 
 Add a function in this file that checks if the authenticated user has a verified email and an email/password sign in on associated with it. If the user has only social logins, it doesn't matter if the email is not verified.
 
 ```javascript{1,2,3,4,5,6}
-const needsEmailVerification = authUser =>
+const needsEmailVerification = (authUser) =>
   authUser &&
   !authUser.emailVerified &&
   authUser.providerData
-    .map(provider => provider.providerId)
-    .includes('password');
+    .map((provider) => provider.providerId)
+    .includes('password')
 ```
 
 If this is true, don't render the component passed to this higher-order component, but a message that reminds users to verify their email addresses.
@@ -334,43 +339,43 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 ```
 
-Lastly, make the new higher-order component available in your Session folder's *index.js* file:
+Lastly, make the new higher-order component available in your Session folder's _index.js_ file:
 
 ```javascript{4,10}
-import AuthUserContext from './context';
-import withAuthentication from './withAuthentication';
-import withAuthorization from './withAuthorization';
-import withEmailVerification from './withEmailVerification';
+import AuthUserContext from './context'
+import withAuthentication from './withAuthentication'
+import withAuthorization from './withAuthorization'
+import withEmailVerification from './withEmailVerification'
 
 export {
   AuthUserContext,
   withAuthentication,
   withAuthorization,
   withEmailVerification,
-};
+}
 ```
 
 Send a confirmation email once a user signs up with a email/password combination. You also have a higher-order component used for authorization and optionally resending a confirmation email. Next, secure all pages/routes that should be only accessible with a confirmed email. Let's begin with the home page:
 
 ```javascript{2,4,15,16,17,18}
-import React from 'react';
-import { compose } from 'recompose';
+import React from 'react'
+import { compose } from 'recompose'
 
-import { withAuthorization, withEmailVerification } from '../Session';
+import { withAuthorization, withEmailVerification } from '../Session'
 
 const HomePage = () => (
   <div>
     <h1>Home Page</h1>
     <p>The Home Page is accessible by every signed in user.</p>
   </div>
-);
+)
 
-const condition = authUser => !!authUser;
+const condition = (authUser) => !!authUser
 
 export default compose(
   withEmailVerification,
-  withAuthorization(condition),
-)(HomePage);
+  withAuthorization(condition)
+)(HomePage)
 ```
 
 Next the admin page:
@@ -424,10 +429,10 @@ All the sensitive routes for authenticated users now require a confirmed email. 
 
 ### Exercises:
 
-* Familiarize yourself with the new flow by deleting your user from the Authentication and Realtime Databases and sign up again.
-  * For example, sign up with a social login instead of the email/password combination, but activate the email/password sign in method later on the account page.
-  * This is in general a good way to purge the database to start from a clean slate if anything feels buggy.
-* Implement the "Send confirmation E-Mail" button in a way that it's not shown the first time a user signs up; otherwise the user may be tempted to click the button right away and receives a second confirmation E-Mail.
-* Read more about [Firebase's verification E-Mail](https://firebase.google.com/docs/auth/web/manage-users)
-* Read more about [additional configuration for the verification E-Mail](https://firebase.google.com/docs/auth/web/passing-state-in-email-actions)
-* Confirm your [source code for the last section](http://bit.ly/2Vqtfxt)
+- Familiarize yourself with the new flow by deleting your user from the Authentication and Realtime Databases and sign up again.
+  - For example, sign up with a social login instead of the email/password combination, but activate the email/password sign in method later on the account page.
+  - This is in general a good way to purge the database to start from a clean slate if anything feels buggy.
+- Implement the "Send confirmation E-Mail" button in a way that it's not shown the first time a user signs up; otherwise the user may be tempted to click the button right away and receives a second confirmation E-Mail.
+- Read more about [Firebase's verification E-Mail](https://firebase.google.com/docs/auth/web/manage-users)
+- Read more about [additional configuration for the verification E-Mail](https://firebase.google.com/docs/auth/web/passing-state-in-email-actions)
+- Confirm your [source code for the last section](http://bit.ly/2Vqtfxt)

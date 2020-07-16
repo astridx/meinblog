@@ -1,13 +1,13 @@
 ---
-title: "How to set up JavaScript Test Coverage"
-description: "Learn how to set up test coverage with Coveralls for your JavaScript project. In this tutorial, we will use Travis CI to set up testing coverage with Coveralls.io ..."
-date: "2019-07-20T13:56:46+02:00"
-categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
-keywords: ["javascript test coverage", "javascript test coverage jest"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to set up JavaScript Test Coverage'
+description: 'Learn how to set up test coverage with Coveralls for your JavaScript project. In this tutorial, we will use Travis CI to set up testing coverage with Coveralls.io ...'
+date: '2019-07-20T13:56:46+02:00'
+categories: ['React', 'JavaScript', 'Tooling', 'Webpack', 'Babel']
+keywords: ['javascript test coverage', 'javascript test coverage jest']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -34,7 +34,7 @@ Last but not least, modify your project the following way. First, install the co
 npm install --save-dev coveralls
 ```
 
-Second, add a new script to your *package.json* file to introduce Coveralls to it:
+Second, add a new script to your _package.json_ file to introduce Coveralls to it:
 
 ```javascript{4}
 "scripts": {
@@ -68,7 +68,7 @@ That's it. By adding, committing and pushing your changes to GitHub now, you can
 
 Perhaps you can see that the coverage isn't too high. Then it's up to you the add tests to increase the percentage for your project.
 
-Last but not least, you can add the fancy Coveralls badge to your GitHub's *README.md* file. You find the badge on the Coveralls dashboard for embedding it as markdown:
+Last but not least, you can add the fancy Coveralls badge to your GitHub's _README.md_ file. You find the badge on the Coveralls dashboard for embedding it as markdown:
 
 ```javascript
 # My JavaScript Project

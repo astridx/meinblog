@@ -1,13 +1,13 @@
 ---
-title: "How to install Docker on MacOS"
+title: 'How to install Docker on MacOS'
 description: "A short walkthrough on how to install a Docker setup on Mac / MacOS. When I had to install Docker myself, I wrote everything down that's needed for the setup ..."
-date: "2020-02-18T03:45:46+02:00"
-categories: ["Docker"]
-keywords: ["docker"]
-hashtags: ["#100DaysOfCode", "#Docker"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2020-02-18T03:45:46+02:00'
+categories: ['Docker']
+keywords: ['docker']
+hashtags: ['#100DaysOfCode', '#Docker']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -28,7 +28,7 @@ brew install docker-machine
 brew cask install virtualbox
 ```
 
-Note: If the last install fails, check your MacOS' System Preference and verify if *System software from developer "Oracle America, inc" was blocked from loading.* shows up. If you see it, hit the "Allow"-button and install it again.
+Note: If the last install fails, check your MacOS' System Preference and verify if _System software from developer "Oracle America, inc" was blocked from loading._ shows up. If you see it, hit the "Allow"-button and install it again.
 
 Optional: if you want to use **Docker Compose** later, install the docker-compose dependency with Homebrew:
 

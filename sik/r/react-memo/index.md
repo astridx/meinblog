@@ -1,46 +1,46 @@
 ---
-title: "How to use React memo"
-description: "Learn how to use React memo for performance optimizations of your React components ..."
-date: "2020-06-09T08:52:46+02:00"
-categories: ["React"]
-keywords: ["react memo"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use React memo'
+description: 'Learn how to use React memo for performance optimizations of your React components ...'
+date: '2020-06-09T08:52:46+02:00'
+categories: ['React']
+keywords: ['react memo']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
 React's memo API can be used to **optimize the rendering behavior** of your [React function components](/react-function-component). We will got through an example component to illustrate the problem first, and then solve it with **React's memo API**.
 
-Keep in mind that most of the performance optimizations in React are premature. React is fast by default, so *every* performance optimization is opt-in in case something starts to feel slow.
+Keep in mind that most of the performance optimizations in React are premature. React is fast by default, so _every_ performance optimization is opt-in in case something starts to feel slow.
 
-*Note: If your React component is still rendering with React memo, check out this guide about [React's useCallback Hook](/react-usecallback-hook). Often a re-rendering is associated with a callback handler which changes for every render.*
+_Note: If your React component is still rendering with React memo, check out this guide about [React's useCallback Hook](/react-usecallback-hook). Often a re-rendering is associated with a callback handler which changes for every render._
 
-*Note: Don't mistake React's memo API with [React's useMemo Hook](/react-usememo-hook). While React memo is used to wrap React components to prevent re-renderings, useMemo is used to memoize values.*
+_Note: Don't mistake React's memo API with [React's useMemo Hook](/react-usememo-hook). While React memo is used to wrap React components to prevent re-renderings, useMemo is used to memoize values._
 
 Let's take the following example of a React application which [renders a list](/react-list-component) of items and allows us to [add items](/react-add-item-to-list) to this list (here users). We are using [React's useState Hook](/react-usestate-hook) to make this list stateful:
 
 ```javascript
-import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 const App = () => {
   const [users, setUsers] = React.useState([
     { id: 'a', name: 'Robin' },
     { id: 'b', name: 'Dennis' },
-  ]);
+  ])
 
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('')
 
   const handleText = (event) => {
-    setText(event.target.value);
-  };
+    setText(event.target.value)
+  }
 
   const handleAddUser = () => {
-    setUsers(users.concat({ id: uuidv4(), name: text }));
-  };
+    setUsers(users.concat({ id: uuidv4(), name: text }))
+  }
 
   return (
     <div>
@@ -51,8 +51,8 @@ const App = () => {
 
       <List list={users} />
     </div>
-  );
-};
+  )
+}
 
 const List = ({ list }) => {
   return (
@@ -61,14 +61,14 @@ const List = ({ list }) => {
         <ListItem key={item.id} item={item} />
       ))}
     </ul>
-  );
-};
+  )
+}
 
 const ListItem = ({ item }) => {
-  return <li>{item.name}</li>;
-};
+  return <li>{item.name}</li>
+}
 
-export default App;
+export default App
 ```
 
 If you include a `console.log` statement in the component's function body of the App, List, and ListItem components, you will see that these logging statements run every time someone types into the input field:
@@ -114,20 +114,20 @@ Once it starts to feel slow, because, in contrast to our small list, maybe a hug
 
 ```javascript{1,10}
 const List = React.memo(({ list }) => {
-  console.log('Render: List');
+  console.log('Render: List')
   return (
     <ul>
       {list.map((item) => (
         <ListItem key={item.id} item={item} />
       ))}
     </ul>
-  );
-});
+  )
+})
 
 const ListItem = ({ item }) => {
-  console.log('Render: ListItem');
-  return <li>{item.name}</li>;
-};
+  console.log('Render: ListItem')
+  return <li>{item.name}</li>
+}
 ```
 
 Now, when typing into the input field, only the App component re-renders again, because only this component is affected by the changed state. The List component receives its memoized props from before which haven't changed and thus doesn't re-render at all. The ListItem follows suit without using React's memo API, because the List component prevents the re-render already.
@@ -154,20 +154,20 @@ After adding an item to the list, the list has changed and the List component wi
 
 ```javascript{12,15}
 const List = React.memo(({ list }) => {
-  console.log('Render: List');
+  console.log('Render: List')
   return (
     <ul>
       {list.map((item) => (
         <ListItem key={item.id} item={item} />
       ))}
     </ul>
-  );
-});
+  )
+})
 
 const ListItem = React.memo(({ item }) => {
-  console.log('Render: ListItem');
-  return <li>{item.name}</li>;
-});
+  console.log('Render: ListItem')
+  return <li>{item.name}</li>
+})
 ```
 
 After trying the scenario from before, by adding an item to the list, with the new implementation with React's memo function, you should see the following output:

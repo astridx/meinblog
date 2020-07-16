@@ -1,13 +1,13 @@
 ---
-title: "Babel Module Resolver with Jest"
-description: "How to use Jest with Babel Module Resolver for aliases that are defined in your .babelrc file ..."
-date: "2020-02-01T13:56:46+02:00"
-categories: ["Tooling"]
-keywords: ["babel module resolver jest"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Babel Module Resolver with Jest'
+description: 'How to use Jest with Babel Module Resolver for aliases that are defined in your .babelrc file ...'
+date: '2020-02-01T13:56:46+02:00'
+categories: ['Tooling']
+keywords: ['babel module resolver jest']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -34,7 +34,7 @@ Here you will learn how to use Jest with Babel Module Resolver for aliases that 
 }
 ```
 
-In order to get the same alias mappings to Jest, the *jest.config.js* file needs to look like this:
+In order to get the same alias mappings to Jest, the _jest.config.js_ file needs to look like this:
 
 ```javascript
 module.exports = {
@@ -49,7 +49,7 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
-};
+}
 ```
 
 Now you can use import statemes with aliases in your Jest testing environment too.

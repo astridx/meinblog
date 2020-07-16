@@ -1,18 +1,18 @@
 ---
-title: "React Libraries in 2020"
-description: "A comprehensive list of all the relevant React libraries used in 2020. If you are new to React, its ecosystem may be overwhelming at first. However, all these React libraries offer everything you need to build large scale applications with React ..."
-date: "2020-01-28T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react libraries 2020"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React Libraries in 2020'
+description: 'A comprehensive list of all the relevant React libraries used in 2020. If you are new to React, its ecosystem may be overwhelming at first. However, all these React libraries offer everything you need to build large scale applications with React ...'
+date: '2020-01-28T13:50:46+02:00'
+categories: ['React']
+keywords: ['react libraries 2020']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
-React has been around for a while. Since then a well-rounded yet overwhelming  ecosystem evolved around the component driven library. Developers coming from other programming languages or frameworks often have a hard time figuring out all the building blocks for building web applications with React. Coming from a framework like Angular, you are used to have all the necessary features at your disposal. However, React at its core isn't opinionated about its complementary libraries. The decision whether this is an advantage or disadvantage is up to you. When [I switched from Angular to React](/reasons-why-i-moved-from-angular-to-react/), I definitely experienced it as one of React's advantages.
+React has been around for a while. Since then a well-rounded yet overwhelming ecosystem evolved around the component driven library. Developers coming from other programming languages or frameworks often have a hard time figuring out all the building blocks for building web applications with React. Coming from a framework like Angular, you are used to have all the necessary features at your disposal. However, React at its core isn't opinionated about its complementary libraries. The decision whether this is an advantage or disadvantage is up to you. When [I switched from Angular to React](/reasons-why-i-moved-from-angular-to-react/), I definitely experienced it as one of React's advantages.
 
 React only enables you to build component driven user interfaces with [function components](/react-function-component) and [props](/react-pass-props-to-component). It comes with a couple of built-in solutions though, for instance, [React Hooks](/react-hooks) for local state and side-effects. But after all you are only dealing with components here.
 
@@ -34,10 +34,10 @@ If you are tempted to choose a custom boilerplate project, try to narrow down yo
 
 **Recommendations:**
 
-* create-react-app for React beginners/advanced
-* Gatsby.js for static websites in React
-* Next.js for server-side rendered React
-* custom React project to understand the underlying tools
+- create-react-app for React beginners/advanced
+- Gatsby.js for static websites in React
+- Next.js for server-side rendered React
+- custom React project to understand the underlying tools
 
 # React State Management
 
@@ -51,9 +51,9 @@ If you want to go into more detail, head over to my [comprehensive state managem
 
 **Recommendations:**
 
-* Local State: React's useState, useReducer, useContext Hooks
-* Remote State via GraphQL: Apollo Client
-* Remote State via REST: React Hooks or Redux/MobX/Mobx State Tree or React Query
+- Local State: React's useState, useReducer, useContext Hooks
+- Remote State via GraphQL: Apollo Client
+- Remote State via REST: React Hooks or Redux/MobX/Mobx State Tree or React Query
 
 # Routing with React Router
 
@@ -63,7 +63,7 @@ Before you introduce a heavy router in your application, when you are just about
 
 **Recommendations:**
 
-* React Router
+- React Router
 
 # Styling Libraries in React
 
@@ -72,12 +72,13 @@ There are many opinions about styling in React out there. If you want to have a 
 But let's get started with a brief overview. As a React beginner, it is just fine to start with inline style and bare bones CSS:
 
 ```javascript
-import './Headline.css';
+import './Headline.css'
 
-const Headline = ({ title }) =>
+const Headline = ({ title }) => (
   <h1 className="headline" style={{ color: 'blue' }}>
     {title}
   </h1>
+)
 ```
 
 Whereas inline style can be used to add style dynamically and programmatically with JavaScript in React, an external CSS file can have all the remaining style for your React application. Once your application grows, there are many other styling options though.
@@ -85,79 +86,70 @@ Whereas inline style can be used to add style dynamically and programmatically w
 First, I would recommend you to have a look into CSS Modules as one of many CSS-in-CSS solutions. CSS Modules are [supported by create-react-app](/create-react-app-css-modules) and give you a way to encapsulate your CSS into modules. This way, it doesn't leak accidentally into the styling of others React components. Whereas some parts of your application can still share style, other parts don't have to get access to it. In React, CSS Modules are most often co-located CSS files to your React component files.
 
 ```javascript
-import styles from './style.css';
+import styles from './style.css'
 
-const Headline = ({ title }) =>
-  <h1 className={styles.headline}>
-    {title}
-  </h1>
+const Headline = ({ title }) => <h1 className={styles.headline}>{title}</h1>
 ```
 
 Second, I want to recommend you so called styled components as one of many CSS-in-JS solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components) which co-locates styling with JavaScript next to your React components:
 
 ```javascript
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const BlueHeadline = styled.h1`
   color: blue;
-`;
+`
 
-const Headline = ({ title }) =>
-  <BlueHeadline>
-    {title}
-  </BlueHeadline>
+const Headline = ({ title }) => <BlueHeadline>{title}</BlueHeadline>
 ```
 
 And third, I want to recommend [Tailwind CSS](https://tailwindcss.com/) as a functional CSS solution:
 
 ```javascript
-const Headline = ({ title }) =>
-  <h1 className="text-blue-700">
-    {title}
-  </h1>
+const Headline = ({ title }) => <h1 className="text-blue-700">{title}</h1>
 ```
 
 Whether you choose CSS-in-CSS, CSS-in-JS, or functional CSS is up to you. All strategies scale well for larger React applications.
 
 **Recommendations:**
 
-* CSS-in-CSS with CSS Modules
-* CSS-in-JS with Styled Components
-* Functional CSS with Tailwind CSS
+- CSS-in-CSS with CSS Modules
+- CSS-in-JS with Styled Components
+- Functional CSS with Tailwind CSS
 
 # React UI Libraries
 
 If you don't want to build all necessary React UI components from scratch, you can choose a React UI Library to do the job for you. All of them come with essential components like Buttons, Dropdowns, Dialogs and Lists. There are many UI libraries for React to choose from:
 
-* [Ant Design](https://ant.design/)
-* [Chakra UI](https://chakra-ui.com/)
-* [Tailwind UI](https://www.tailwindui.com/)
-* [Semantic UI](/react-semantic-ui-tutorial)
-* [Material UI](https://material-ui.com/)
-* [React Bootstrap](https://react-bootstrap.github.io/)
+- [Ant Design](https://ant.design/)
+- [Chakra UI](https://chakra-ui.com/)
+- [Tailwind UI](https://www.tailwindui.com/)
+- [Semantic UI](/react-semantic-ui-tutorial)
+- [Material UI](https://material-ui.com/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
 
 # Animations in React
 
 Any animation in a web application starts with CSS. Eventually you will notice that CSS animations aren't enough for your needs. Usually developers check out [React Transition Group](https://reactcommunity.org/react-transition-group/) then, which gives them the possibility to perform animations with React components. Other well known animation libraries for React are:
 
-* [react-motion](https://github.com/chenglou/react-motion)
-* [react-spring](https://github.com/react-spring/react-spring)
-* [Framer Motion](https://www.framer.com/motion/)
-* [Animated](https://facebook.github.io/react-native/docs/animated) (React Native)
+- [react-motion](https://github.com/chenglou/react-motion)
+- [react-spring](https://github.com/react-spring/react-spring)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Animated](https://facebook.github.io/react-native/docs/animated) (React Native)
 
 **Recommendations:**
 
-* React Transition Group
+- React Transition Group
 
 # Visualization and Chart Libraries in React
 
 If you really want to build charts from the ground up yourself, there is no way around [D3](https://d3js.org/). It's a low level visualization library that gives you everything you need to create amazing charts. However, learning D3 is a whole other adventure, thus many developers just pick a React charting library which does everything for them in exchange for flexibility. These are some popular solutions:
 
-* [nivo](https://nivo.rocks/)
-* [Victory](https://formidable.com/open-source/victory/)
-* [react-vis](https://uber.github.io/react-vis/)
-* [Recharts](http://recharts.org)
-* [Chart Parts](https://microsoft.github.io/chart-parts/)
+- [nivo](https://nivo.rocks/)
+- [Victory](https://formidable.com/open-source/victory/)
+- [react-vis](https://uber.github.io/react-vis/)
+- [Recharts](http://recharts.org)
+- [Chart Parts](https://microsoft.github.io/chart-parts/)
 
 # Form Libraries in React
 
@@ -165,8 +157,8 @@ The most popular library for forms in React is [Formik](https://github.com/jared
 
 **Recommendations:**
 
-* Formik
-* React Hook Form
+- Formik
+- React Hook Form
 
 # Data Fetching Library in React
 
@@ -197,33 +189,36 @@ If you have the luxury to deal with a GraphQL API, I recommend using Apollo Clie
 
 **Recommendations:**
 
-* the browser's native fetch API
-* axios
-* Apollo Client (GraphQL API)
-* React Query (REST API)
+- the browser's native fetch API
+- axios
+- Apollo Client (GraphQL API)
+- React Query (REST API)
 
 # React Type Checking
 
 Fortunately React comes with its own type checking abilities. With [PropTypes](https://facebook.github.io/react/docs/typechecking-with-proptypes.html) you are able to define the incoming props for your React components. Whenever a wrong type is passed to the component, you will get an error message when running the application. But this form of type checking should only be used for smaller applications.
 
 ```javascript
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-const List = ({ list }) =>
+const List = ({ list }) => (
   <div>
-    {list.map(item => <div key={item.id}>{item.title}</div>)}
+    {list.map((item) => (
+      <div key={item.id}>{item.title}</div>
+    ))}
   </div>
+)
 
 List.propTypes = {
   list: PropTypes.array.isRequired,
-};
+}
 ```
 
 In a larger React application, instead of using React PropTypes, [TypeScript](https://www.typescriptlang.org/) adds type safety for your whole application. instead of React PropTypes. When using such a type checker, you can get errors already during development time. You wouldn't have to start your application in order to find about a bug that could have prevented with such type checking. That way a type checker might be able to improve your developer experience and avoids to introduce bugs in the first place.
 
 **Recommendations:**
 
-* TypeScript
+- TypeScript
 
 # React Code Style
 
@@ -237,8 +232,8 @@ The third and most popular approach is using [Prettier](https://github.com/prett
 
 **Recommendations:**
 
-* ESLint
-* Prettier
+- ESLint
+- Prettier
 
 # React Authentication
 
@@ -248,16 +243,16 @@ The common way would be implementing your own [custom backend application with a
 
 If you don't want to care about the backend at all, the following three solutions may be something for you:
 
-* [Firebase](/complete-firebase-authentication-react-tutorial/)
-* [Auth0](https://auth0.com/)
-* [AWS Cognito](https://aws.amazon.com/cognito/)
+- [Firebase](/complete-firebase-authentication-react-tutorial/)
+- [Auth0](https://auth0.com/)
+- [AWS Cognito](https://aws.amazon.com/cognito/)
 
 If you are looking for an all-in-one solution for authentication + database, stick to Firebase or AWS.
 
 **Recommendations:**
 
-* DIY: Custom Backend
-* Get it off the shelf: Firebase
+- DIY: Custom Backend
+- Get it off the shelf: Firebase
 
 # React Hosting
 
@@ -275,27 +270,30 @@ If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress
 
 **Recommendations:**
 
-* Unit/Integration: Jest + React Testing Library
-* Snapshot Tests: Jest
-* E2E Tests: Cypress
+- Unit/Integration: Jest + React Testing Library
+- Snapshot Tests: Jest
+- E2E Tests: Cypress
 
 # Utility Libraries for React
 
 JavaScript gives you plenty of built-in functionalities to deal with arrays, objects, numbers, objects and strings. One of the most used JavaScript built-in functionalities in React is the [built-in map() Array](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Why? Because you always have to render a list of items in a component. Since JSX is a mixture of HTML and JavaScript, you can use JavaScript to map over an array and return JSX. It makes it simple to create [list components](/react-list-component) with React:
 
 ```javascript
-const List = ({ list }) =>
+const List = ({ list }) => (
   <div>
-    {list.map(item => <div key={item.id}>{item.title}</div>)}
+    {list.map((item) => (
+      <div key={item.id}>{item.title}</div>
+    ))}
   </div>
+)
 ```
 
 However, you might come to a point where you have to choose a utility library that gives you more elaborate functionalities. You might even want to be more flexible when chaining these utility functions or even compose them dynamically into each other. That's the point in time where you would introduce a utility library: [Lodash](https://lodash.com/) or [Ramda](https://ramdajs.com/). Whereas Lodash is the more down to earth library for every JavaScript developer, Ramda comes with a powerful core when functional programming comes into play. Keep in mind though that modern JavaScript gives you plenty of features out of the box and it becomes less necessary these days to use a utility library.
 
 **Recommendations:**
 
-* JavaScript
-* Lodash
+- JavaScript
+- Lodash
 
 # React and Immutable Data Structures
 
@@ -305,28 +303,28 @@ Vanilla JavaScript gives you plenty of built-in tools to handle with data struct
 
 When it comes to [internationalization i18n for your React application](/react-internationalization), you need to think not only about translations, but also about pluralizations, formattings for dates and currencies, and a handful of other things. These are the most popular libraries for dealing with it:
 
-* [react-i18next](https://github.com/i18next/react-i18next)
-* [react-intl](https://github.com/formatjs/react-intl)
-* [LinguiJS](https://lingui.js.org/index.html)
-* [FBT](https://github.com/facebookincubator/fbt)
+- [react-i18next](https://github.com/i18next/react-i18next)
+- [react-intl](https://github.com/formatjs/react-intl)
+- [LinguiJS](https://lingui.js.org/index.html)
+- [FBT](https://github.com/facebookincubator/fbt)
 
 **Recommendations:**
 
-* react-i18next
+- react-i18next
 
 # Rich Text Editor in React
 
 When it comes to Rich Text Editors in React, I can only think of the following, because I haven't used any others in React:
 
-* [Draft.js](https://draftjs.org/)
-* [Slate](https://github.com/ianstormtaylor/slate)
+- [Draft.js](https://draftjs.org/)
+- [Slate](https://github.com/ianstormtaylor/slate)
 
 # Payments in React
 
 Like in any other web application, the most common payment providers are Stripe and PayPal. Both can be neatly integrated into React. This is a [working Stripe Checkout with React integration](https://github.com/rwieruch/react-express-stripe).
 
-* [PayPal](https://developer.paypal.com/docs/checkout/)
-* [Stripe Elements](https://github.com/stripe/react-stripe-elements) or [Stripe Checkout](https://stripe.com/docs/payments/checkout)
+- [PayPal](https://developer.paypal.com/docs/checkout/)
+- [Stripe Elements](https://github.com/stripe/react-stripe-elements) or [Stripe Checkout](https://stripe.com/docs/payments/checkout)
 
 # Time in React
 
@@ -336,8 +334,8 @@ If your React application is dealing with lots of dates and timezones, you shoul
 
 [Electron](https://www.electronjs.org/) is the go to framework for cross-platform desktop applications. However, there exist alternatives such as:
 
-* [NW.js](https://nwjs.io/)
-* [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
+- [NW.js](https://nwjs.io/)
+- [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
 
 # Mobile Development with React
 
@@ -347,9 +345,9 @@ I guess the go-to solution for bringing React from the web to mobile is still [R
 
 It's possible to dive into virtual reality or augmented reality with React To be honest, I haven't used any of these libraries, but they are the ones I know from the top of my head when it comes to AR/VR in React:
 
-* [React 360](https://facebook.github.io/react-360/)
-* [react-viro](https://www.npmjs.com/package/react-viro)
-* [react-native-arkit](https://github.com/react-native-ar/react-native-arkit)
+- [React 360](https://facebook.github.io/react-360/)
+- [react-viro](https://www.npmjs.com/package/react-viro)
+- [react-native-arkit](https://github.com/react-native-ar/react-native-arkit)
 
 # Design Prototyping for React
 
@@ -359,62 +357,61 @@ If you are coming from a UI/UX background, you may want to use a tool for fast p
 
 If you are in charge of writing the documentation for your software, UI library or something else, there are some neat React documentation tools out there. I have used [Storybook](https://storybook.js.org/) extensively and I only can speak good about it, but I have heard good things about these other solutions too:
 
-* [Styleguidist](https://react-styleguidist.js.org/)
-* [docz](https://www.docz.site/)
-* [Docusaurus](https://docusaurus.io/)
+- [Styleguidist](https://react-styleguidist.js.org/)
+- [docz](https://www.docz.site/)
+- [Docusaurus](https://docusaurus.io/)
 
 <Divider />
 
 So in the end, the React ecosystem can be seen as a framework for React, but it stays flexible. It is a flexible framework where you can make own decisions on which libraries you want to opt-in. You can start small and add only libraries to solve specific problems for you. You can scale your building blocks along the way when your application grows. Otherwise you can stay lightweight by using plain React. Therefore here again a list of libraries that could complement React as the core of the application regarding different project sizes. Keep in mind that the list is opinionated, but I am keen to get your feedback too.
 
-* Small Application
-  * **Boilerplate:** create-react-app
-  * **Styling Libraries:** basic CSS and inline style
-  * **Asynchronous Requests:** fetch or axios
-  * **Code Style:** none
-  * **Type Checking:** none
-  * **State Management:** React Hooks
-  * **Routing:** none or React Router
-  * **Authentication:** Firebase
-  * **Database:** Firebase
-  * **UI Libraries:** none
-  * **Form Libraries**: none
-  * **Testing Libraries:** Jest
-  * **Utility Libraries:** JavaScript
-  * **Internationalizing:** react-i18next
-  * **React Desktop:** Electron
-* Medium Application
-  * **Boilerplate:** Next.js or Gatsby.js
-  * **Styling Libraries:** CSS Modules/Styled Components/Tailwind CSS
-  * **Asynchronous Requests:** fetch or axios
-  * **Code Style:** Prettier, ESLint
-  * **Type Checking:** none or TypeScript
-  * **State Management:** React Hooks and/or Apollo
-  * **Routing:** React Router
-  * **Authentication:** Firebase
-  * **Database:** Firebase
-  * **UI Libraries:** none or UI component library
-  * **Form Libraries**: none or Formik or React Hook Form
-  * **Testing Libraries:** Jest with React Testing Library
-  * **Utility Libraries:** JavaScript
-  * **Internationalizing:** react-i18next
-  * **React Desktop:** Electron
-* Large Application
-  * **Boilerplate:** Next.js, Gatsby.js, custom setup
-  * **Styling Libraries:** CSS Modules/Styled Components/Tailwind CSS
-  * **Asynchronous Requests:** axios or Apollo Client
-  * **Code Style:** Prettier, ESLint
-  * **Type Checking:** TypeScript
-  * **State Management:** React Hooks and/or Apollo/Redux/MobX
-  * **Routing:** React Router
-  * **Authentication:** Solution with own Node.js Server + Passport.js
-  * **Database:** Solution with own Node.js Server with a SQL/NoSQL DB
-  * **UI Libraries:** UI component library or roll your own UI components
-  * **Form Libraries**: none or Formik or React Hook Form
-  * **Testing Libraries:** Jest with React Testing Library and Cypress
-  * **Utility Libraries:** JavaScript Platform APIs, Lodash
-  * **Internationalizing:** react-i18next
-  * **React Desktop:** Electron
+- Small Application
+  - **Boilerplate:** create-react-app
+  - **Styling Libraries:** basic CSS and inline style
+  - **Asynchronous Requests:** fetch or axios
+  - **Code Style:** none
+  - **Type Checking:** none
+  - **State Management:** React Hooks
+  - **Routing:** none or React Router
+  - **Authentication:** Firebase
+  - **Database:** Firebase
+  - **UI Libraries:** none
+  - **Form Libraries**: none
+  - **Testing Libraries:** Jest
+  - **Utility Libraries:** JavaScript
+  - **Internationalizing:** react-i18next
+  - **React Desktop:** Electron
+- Medium Application
+  - **Boilerplate:** Next.js or Gatsby.js
+  - **Styling Libraries:** CSS Modules/Styled Components/Tailwind CSS
+  - **Asynchronous Requests:** fetch or axios
+  - **Code Style:** Prettier, ESLint
+  - **Type Checking:** none or TypeScript
+  - **State Management:** React Hooks and/or Apollo
+  - **Routing:** React Router
+  - **Authentication:** Firebase
+  - **Database:** Firebase
+  - **UI Libraries:** none or UI component library
+  - **Form Libraries**: none or Formik or React Hook Form
+  - **Testing Libraries:** Jest with React Testing Library
+  - **Utility Libraries:** JavaScript
+  - **Internationalizing:** react-i18next
+  - **React Desktop:** Electron
+- Large Application
+  - **Boilerplate:** Next.js, Gatsby.js, custom setup
+  - **Styling Libraries:** CSS Modules/Styled Components/Tailwind CSS
+  - **Asynchronous Requests:** axios or Apollo Client
+  - **Code Style:** Prettier, ESLint
+  - **Type Checking:** TypeScript
+  - **State Management:** React Hooks and/or Apollo/Redux/MobX
+  - **Routing:** React Router
+  - **Authentication:** Solution with own Node.js Server + Passport.js
+  - **Database:** Solution with own Node.js Server with a SQL/NoSQL DB
+  - **UI Libraries:** UI component library or roll your own UI components
+  - **Form Libraries**: none or Formik or React Hook Form
+  - **Testing Libraries:** Jest with React Testing Library and Cypress
+  - **Utility Libraries:** JavaScript Platform APIs, Lodash
+  - **Internationalizing:** react-i18next
+  - **React Desktop:** Electron
 
 The previous recommendations are opinionated. You can choose your own flexible framework for your ideal React application. Every "ideal" React setup is subjective to its needs of the developers and project. After all, there is no ideal React application setup.
-

@@ -1,13 +1,13 @@
 ---
-title: "How to use Babel Module Resolver"
-description: "By Example: You will learn how to use Babel Module Resolver for your JavaScript application to convert absolute/relative paths to aliases. We will also cover ESLint ..."
-date: "2019-09-01T13:56:46+02:00"
-categories: ["Web Development", "Tooling", "ESLint", "Babel"]
-keywords: ["babel module resolver", "babel module resolver eslint"]
-hashtags: ["#100DaysOfCode", "#Git"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use Babel Module Resolver'
+description: 'By Example: You will learn how to use Babel Module Resolver for your JavaScript application to convert absolute/relative paths to aliases. We will also cover ESLint ...'
+date: '2019-09-01T13:56:46+02:00'
+categories: ['Web Development', 'Tooling', 'ESLint', 'Babel']
+keywords: ['babel module resolver', 'babel module resolver eslint']
+hashtags: ['#100DaysOfCode', '#Git']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,7 +20,7 @@ In this brief walkthrough, we will use [Babel Module Resolver](https://github.co
 npm install babel-plugin-module-resolver --save-dev
 ```
 
-And use it in your *.babelrc* file to create your first module alias:
+And use it in your _.babelrc_ file to create your first module alias:
 
 ```javascript
 {
@@ -39,7 +39,7 @@ And use it in your *.babelrc* file to create your first module alias:
 }
 ```
 
-In this case, we are giving all our Icons an alias path. Imagine you would have another *src/services/icon.js* file which deals with your icons. Now it has an easier time to import an icon from the *src/icons* folder:
+In this case, we are giving all our Icons an alias path. Imagine you would have another _src/services/icon.js_ file which deals with your icons. Now it has an easier time to import an icon from the _src/icons_ folder:
 
 ```javascript
 // old way to import
@@ -51,7 +51,7 @@ import { CheckIcon } from '@icons'
 import CancelIcon from '@icons/CancelIcon'
 ```
 
-In your *.babelrc* file, you can introduce more of these aliases to tidy up your imports for your entire JavaScript application.
+In your _.babelrc_ file, you can introduce more of these aliases to tidy up your imports for your entire JavaScript application.
 
 # Babel Module Resolver with ESLint
 
@@ -61,7 +61,7 @@ If you are using ESLint, you have to let ESLint know about the aliases defined i
 npm install eslint-plugin-import eslint-import-resolver-babel-module --save-dev
 ```
 
-And second, in your *.eslintrc* use these new plugins to match Babel's Module Resolver with ESLint:
+And second, in your _.eslintrc_ use these new plugins to match Babel's Module Resolver with ESLint:
 
 ```javascript
 {

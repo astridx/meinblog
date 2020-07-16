@@ -1,13 +1,13 @@
 ---
-title: "How to fetch data in React"
+title: 'How to fetch data in React'
 description: "Do you want to go beyond a static React application? Then it's about time to fetch data from a third party API. This guide explains you all the basics and tricks to request data in React.js. You will reuse functionalities in higher-order components and implement error handling for a more robust application ..."
-date: "2018-07-06T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react fetching data", "react fetch API"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-07-06T13:50:46+02:00'
+categories: ['React']
+keywords: ['react fetching data', 'react fetch API']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -553,34 +553,26 @@ npm install enzyme enzyme-adapter-react-16 sinon --save-dev
 Once you have your test setup, you can write your first test suite for the data request in React scenario.
 
 ```javascript
-import React from 'react';
-import axios from 'axios';
+import React from 'react'
+import axios from 'axios'
 
-import sinon from 'sinon';
-import { mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon'
+import { mount, configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-import App from './';
+import App from './'
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() })
 
 describe('App', () => {
-  beforeAll(() => {
+  beforeAll(() => {})
 
-  });
+  afterAll(() => {})
 
-  afterAll(() => {
+  it('renders data when it fetched data successfully', (done) => {})
 
-  });
-
-  it('renders data when it fetched data successfully', (done) => {
-
-  });
-
-  it('stores data in local state', (done) => {
-
-  });
-});
+  it('stores data in local state', (done) => {})
+})
 ```
 
 Whereas one test case should show that the data is rendered in the React component successfully after the data fetching, the other test verifies that the data is stored in the local state. Perhaps it is redundant to test both cases, because when the data is rendered it should be stored in the local state as well, but just for the sake of demonstrating it you will see both use cases.
@@ -725,31 +717,36 @@ So how would you introduce such abstract higher-order component which deals with
 const withFetching = (url) => (Component) =>
   class WithFetching extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {
         data: null,
         isLoading: false,
         error: null,
-      };
+      }
     }
 
     componentDidMount() {
-      this.setState({ isLoading: true });
+      this.setState({ isLoading: true })
 
-      axios.get(url)
-        .then(result => this.setState({
-          data: result.data,
-          isLoading: false
-        }))
-        .catch(error => this.setState({
-          error,
-          isLoading: false
-        }));
+      axios
+        .get(url)
+        .then((result) =>
+          this.setState({
+            data: result.data,
+            isLoading: false,
+          })
+        )
+        .catch((error) =>
+          this.setState({
+            error,
+            isLoading: false,
+          })
+        )
     }
 
     render() {
-      return <Component { ...this.props } { ...this.state } />;
+      return <Component {...this.props} {...this.state} />
     }
   }
 ```
@@ -768,26 +765,26 @@ In the second step, you can dispose all of the fetching and state logic from you
 ```javascript
 const App = ({ data, isLoading, error }) => {
   if (!data) {
-    return <p>No data yet ...</p>;
+    return <p>No data yet ...</p>
   }
 
   if (error) {
-    return <p>{error.message}</p>;
+    return <p>{error.message}</p>
   }
 
   if (isLoading) {
-    return <p>Loading ...</p>;
+    return <p>Loading ...</p>
   }
 
   return (
     <ul>
-      {data.hits.map(hit =>
+      {data.hits.map((hit) => (
         <li key={hit.objectID}>
           <a href={hit.url}>{hit.title}</a>
         </li>
-      )}
+      ))}
     </ul>
-  );
+  )
 }
 ```
 
@@ -811,31 +808,36 @@ The alternative way of higher-order components are render prop components in Rea
 ```javascript
 class Fetcher extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       data: null,
       isLoading: false,
       error: null,
-    };
+    }
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true })
 
-    axios.get(this.props.url)
-      .then(result => this.setState({
-        data: result.data,
-        isLoading: false
-      }))
-      .catch(error => this.setState({
-        error,
-        isLoading: false
-      }));
+    axios
+      .get(this.props.url)
+      .then((result) =>
+        this.setState({
+          data: result.data,
+          isLoading: false,
+        })
+      )
+      .catch((error) =>
+        this.setState({
+          error,
+          isLoading: false,
+        })
+      )
   }
 
   render() {
-    return this.props.children(this.state);
+    return this.props.children(this.state)
   }
 }
 ```

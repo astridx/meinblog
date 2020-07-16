@@ -1,13 +1,13 @@
 ---
-title: "End to End Testing React with Cypress"
-description: "Learn how to run end to end tests for React with Cypress. E2E tests will give you more confidence in your overall React application ..."
-date: "2019-07-18T13:56:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel"]
-keywords: ["react testing cypress", "react end to end testing", "react cypress"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'End to End Testing React with Cypress'
+description: 'Learn how to run end to end tests for React with Cypress. E2E tests will give you more confidence in your overall React application ...'
+date: '2019-07-18T13:56:46+02:00'
+categories: ['React', 'Tooling', 'Webpack', 'Babel']
+keywords: ['react testing cypress', 'react end to end testing', 'react cypress']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -29,7 +29,7 @@ mkdir integration
 cd integration
 ```
 
-Third, add a script for npm to your *package.json* file. That way, you are able to run Cypress easily from the command line:
+Third, add a script for npm to your _package.json_ file. That way, you are able to run Cypress easily from the command line:
 
 ```javascript{5}
 {
@@ -63,12 +63,12 @@ Next, add your first test to it. It's not really an end-to-end test, but only th
 ```javascript
 describe('App E2E', () => {
   it('should assert that true is equal to true', () => {
-    expect(true).to.equal(true);
-  });
-});
+    expect(true).to.equal(true)
+  })
+})
 ```
 
-You might already know the "describe"- and "it"-blocks which enable you to encapsulate your tests in blocks. These blocks are coming from Mocha, which is used by Cypress, under the hood. The assertions such as `expect()` are used from Chai. *"Cypress builds on these [popular tools and frameworks](https://docs.cypress.io/guides/references/bundled-tools.html) that you hopefully already have some familiarity and knowledge of."*
+You might already know the "describe"- and "it"-blocks which enable you to encapsulate your tests in blocks. These blocks are coming from Mocha, which is used by Cypress, under the hood. The assertions such as `expect()` are used from Chai. _"Cypress builds on these [popular tools and frameworks](https://docs.cypress.io/guides/references/bundled-tools.html) that you hopefully already have some familiarity and knowledge of."_
 
 Now you can run Cypress again on the command line:
 
@@ -85,9 +85,9 @@ Run your test and verify that true is equal to true. Hopefully it turns out to b
 ```javascript
 describe('App E2E', () => {
   it('should assert that true is equal to true', () => {
-    expect(true).to.equal(false);
-  });
-});
+    expect(true).to.equal(false)
+  })
+})
 ```
 
 If you want, you can change the script slightly for Cypress to run every test by default without opening the additional window.
@@ -127,7 +127,7 @@ But how to run your development server, in this case webpack-dev-server, before 
 npm install --save-dev start-server-and-test
 ```
 
-Second, add it to your *package.json* file's npm scripts. The library expects the following script pattern: `<start script name> <url> <test script name>`.
+Second, add it to your _package.json_ file's npm scripts. The library expects the following script pattern: `<start script name> <url> <test script name>`.
 
 ```javascript{5,6}
 {
@@ -146,12 +146,11 @@ Finally, you can visit your running application with Cypress in your end-to-end 
 ```javascript{2,3,4,5,6,7}
 describe('App E2E', () => {
   it('should have a header', () => {
-    cy.visit('http://localhost:8080');
+    cy.visit('http://localhost:8080')
 
-    cy.get('h1')
-      .should('have.text', 'My Counter');
-  });
-});
+    cy.get('h1').should('have.text', 'My Counter')
+  })
+})
 ```
 
 Basically, that's how a selector and assertion in Cypress work. Now run your test again on the command line. It should turn out to be successful.
@@ -183,19 +182,17 @@ The second E2E test you are going to implement will test the two interactive but
 ```javascript{9,10,11,12,13,14}
 describe('App E2E', () => {
   it('should have a header', () => {
-    cy.visit('/');
+    cy.visit('/')
 
-    cy.get('h1')
-      .should('have.text', 'My Counter');
-  });
+    cy.get('h1').should('have.text', 'My Counter')
+  })
 
   it('should increment and decrement the counter', () => {
-    cy.visit('/');
+    cy.visit('/')
 
-    cy.get('p')
-      .should('have.text', '0');
-  });
-});
+    cy.get('p').should('have.text', '0')
+  })
+})
 ```
 
 Now, by [interacting with the buttons](https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html), you can increment and decrement the counter.
@@ -203,37 +200,32 @@ Now, by [interacting with the buttons](https://docs.cypress.io/guides/core-conce
 ```javascript{15,16,17,18,19,20,21,22,23,24,25}
 describe('App E2E', () => {
   it('should have a header', () => {
-    cy.visit('/');
+    cy.visit('/')
 
-    cy.get('h1')
-      .should('have.text', 'My Counter');
-  });
+    cy.get('h1').should('have.text', 'My Counter')
+  })
 
   it('should increment and decrement the counter', () => {
-    cy.visit('/');
+    cy.visit('/')
 
-    cy.get('p')
-      .should('have.text', '0');
+    cy.get('p').should('have.text', '0')
 
-    cy.contains('Increment').click();
-    cy.get('p')
-      .should('have.text', '1');
+    cy.contains('Increment').click()
+    cy.get('p').should('have.text', '1')
 
-    cy.contains('Increment').click();
-    cy.get('p')
-      .should('have.text', '2');
+    cy.contains('Increment').click()
+    cy.get('p').should('have.text', '2')
 
-    cy.contains('Decrement').click();
-    cy.get('p')
-      .should('have.text', '1');
-  });
-});
+    cy.contains('Decrement').click()
+    cy.get('p').should('have.text', '1')
+  })
+})
 ```
 
 That's it. You have written your first two E2E tests with Cypress. You can navigate from URL to URL, interact with HTML elements and verify rendered output. Two more things:
 
-* If you need to provide sample data for your E2E tests, checkout the best practice of using fixtures in Cypress.
-* If you need to spy, stub or mock functions in Cypress, you can use Sinon for it. Cypress comes with built-in Sinon to test your asynchronous code.
+- If you need to provide sample data for your E2E tests, checkout the best practice of using fixtures in Cypress.
+- If you need to spy, stub or mock functions in Cypress, you can use Sinon for it. Cypress comes with built-in Sinon to test your asynchronous code.
 
 <ReadMore label="Test Coverage in JavaScript" link="/javascript-test-coverage" />
 

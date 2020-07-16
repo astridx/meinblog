@@ -1,13 +1,13 @@
 ---
-title: "Why do we need a React List Key?"
-description: "React list components need a mandatory key attribute if the list items can be changed by order or size. Here you will see a use case why a key attribute is needed ..."
-date: "2019-04-06T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react list key"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Why do we need a React List Key?'
+description: 'React list components need a mandatory key attribute if the list items can be changed by order or size. Here you will see a use case why a key attribute is needed ...'
+date: '2019-04-06T07:52:46+02:00'
+categories: ['React']
+keywords: ['react list key']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,7 +15,7 @@ author: ""
 Everyone dealing with React knows about this warning: **Warning: Each child in a list should have a unique "key" prop.** It shows up in your development tools of your browser and it's one of the warnings you encounter very early in your React career. The following [list component](/react-list-component) results in this warning:
 
 ```javascript
-const list = ['Learn React', 'Learn GraphQL'];
+const list = ['Learn React', 'Learn GraphQL']
 
 const ListWithoutKey = () => (
   <div>
@@ -25,7 +25,7 @@ const ListWithoutKey = () => (
       ))}
     </ul>
   </div>
-);
+)
 ```
 
 The warning says we only need to add a key attribute to each of our list item elements. Since we are using the [built-in JavaScript array map method](/javascript-map-array/), we have access to the index of each rendered item in the list. That should do the trick, shouldn't it?
@@ -39,7 +39,7 @@ const ListWithoutKey = () => (
       ))}
     </ul>
   </div>
-);
+)
 ```
 
 Indeed, the warning disappears and we should be alright for now. **But careful:** Using the index of an array item isn't the best practice solution here. React asks for the key not without any reason. Behind the scenes, React uses the key attribute to associate the rendered element with its place in the rendered list. Basically it's the identifier for the item element in the list element.
@@ -49,23 +49,21 @@ For instance, the solution with the index would fail in the case of reordering t
 When I searched online about this problem, it was difficult to find a real world scenario that illustrates it. Most tutorials only explain how to fix the issue, but not what could happen in the worst case. That's why I came up with the following example which is perfect for a brief walkthrough to show the issue:
 
 ```javascript{1,4,6,7,8,22,23,24}
-const initialList = ['Learn React', 'Learn GraphQL'];
+const initialList = ['Learn React', 'Learn GraphQL']
 
 const ListWithUnstableIndex = () => {
-  const [list, setList] = React.useState(initialList);
+  const [list, setList] = React.useState(initialList)
 
-  const handleClick = event => {
-    setList(list.slice().reverse());
-  };
+  const handleClick = (event) => {
+    setList(list.slice().reverse())
+  }
 
   return (
     <div>
       <ul>
         {list.map((item, index) => (
           <li key={index}>
-            <label>
-              {item}
-            </label>
+            <label>{item}</label>
           </li>
         ))}
       </ul>
@@ -74,21 +72,21 @@ const ListWithUnstableIndex = () => {
         Reverse List
       </button>
     </div>
-  );
-};
+  )
+}
 ```
 
-The example showcases the same list, but this time managed with [React Hooks](/react-hooks/) as [state](/react-state/). The new button element reverses our list and stores it as state. If you try the example, everything works and *seems* alright. The bug stays hidden because we don't render much here. However, if we add another uncontrolled element to our rendered list items, we can see the bug happening:
+The example showcases the same list, but this time managed with [React Hooks](/react-hooks/) as [state](/react-state/). The new button element reverses our list and stores it as state. If you try the example, everything works and _seems_ alright. The bug stays hidden because we don't render much here. However, if we add another uncontrolled element to our rendered list items, we can see the bug happening:
 
 ```javascript{16}
-const initialList = ['Learn React', 'Learn GraphQL'];
+const initialList = ['Learn React', 'Learn GraphQL']
 
 const ListWithUnstableIndex = () => {
-  const [list, setList] = React.useState(initialList);
+  const [list, setList] = React.useState(initialList)
 
-  const handleClick = event => {
-    setList(list.slice().reverse());
-  };
+  const handleClick = (event) => {
+    setList(list.slice().reverse())
+  }
 
   return (
     <div>
@@ -107,8 +105,8 @@ const ListWithUnstableIndex = () => {
         Reverse List
       </button>
     </div>
-  );
-};
+  )
+}
 ```
 
 The checkbox -- since it's an [uncontrolled element](/react-controlled-components/) for the sake of demonstrating what's happening here -- manages its own internal state. If you check the first of the two items with the checkbox, and reverse them with the button, you will notice that the checked checkbox is rendered at the same place while the order of the list items have changed.
@@ -145,19 +143,19 @@ That's why the reordered elements get still assigned to the same key attribute w
 const initialList = [
   { id: 'a', name: 'Learn React' },
   { id: 'b', name: 'Learn GraphQL' },
-];
+]
 
 const ListWithStableIndex = () => {
-  const [list, setList] = React.useState(initialList);
+  const [list, setList] = React.useState(initialList)
 
-  const handleClick = event => {
-    setList(list.slice().reverse());
-  };
+  const handleClick = (event) => {
+    setList(list.slice().reverse())
+  }
 
   return (
     <div>
       <ul>
-        {list.map(item => (
+        {list.map((item) => (
           <li key={item.id}>
             <label>
               <input type="checkbox" />
@@ -171,8 +169,8 @@ const ListWithStableIndex = () => {
         Reverse List
       </button>
     </div>
-  );
-};
+  )
+}
 ```
 
 Now with every reorder of the list, the key property stays intact because the id is attached to the actual item in the list:

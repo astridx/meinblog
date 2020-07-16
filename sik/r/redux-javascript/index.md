@@ -1,13 +1,13 @@
 ---
-title: "Reasons to learn Redux as a JavaScript Developer"
-description: "Redux greatly shaped how we develop modern JavaScript applications nowadays. Here I want to give a walkthrough on all the mindset changes we went through as JavaScript developers ..."
-date: "2019-09-21T07:52:46+02:00"
-categories: ["JavaScript", "Redux", "React"]
-keywords: ["javascript redux", "react redux"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Reasons to learn Redux as a JavaScript Developer'
+description: 'Redux greatly shaped how we develop modern JavaScript applications nowadays. Here I want to give a walkthrough on all the mindset changes we went through as JavaScript developers ...'
+date: '2019-09-21T07:52:46+02:00'
+categories: ['JavaScript', 'Redux', 'React']
+keywords: ['javascript redux', 'react redux']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,14 +16,14 @@ Redux has been with us for a while now. What has gone public 2015 -- [demonstrat
 
 One year later, Dan Abramov gave a recap on [what made Redux successful](https://www.youtube.com/watch?v=uvAXVMwHJXU) in the first place. Both talks are super insightful on how a problem can be solved with a piece of technology and what makes this technological lasting after all. Lots of JavaScript libraries come and go. But Redux managed to stay with us.
 
-However, I believe there is more than *just* one successful library. Redux is a whole mindset shift for many people in the JavaScript community, who literally grew up with *only* web development, but never heard about function composition or immutability before. Whether Redux stays with us for a few more years or makes place for other state management libraries, it leaves a great legacy on how we develop modern web applications.
+However, I believe there is more than _just_ one successful library. Redux is a whole mindset shift for many people in the JavaScript community, who literally grew up with _only_ web development, but never heard about function composition or immutability before. Whether Redux stays with us for a few more years or makes place for other state management libraries, it leaves a great legacy on how we develop modern web applications.
 
 # Everything has a clear Purpose
 
 If someone would ask me for one short representation of Redux, it would be:
 
 ```javascript
-State => View
+;(State) => View
 ```
 
 If it needs more explanation, I would extend it into:
@@ -42,44 +42,43 @@ That's all of Redux (State) in context of a library like React (View). Every par
 
 However, too many people associate Redux tightly with React. Once they start learning React, they go all-in by combining [React with Redux from the start](/learn-react-before-using-redux/) which demotivates lots of developers with its complexity. However, Redux in a nutshell isn't that complex, if just considering Redux, because after all, it's just a state container (object) which holds state; with an API that enables one
 
-* to manipulate the state
-* to receive the state
-* to listen to state changes
+- to manipulate the state
+- to receive the state
+- to listen to state changes
 
 Let's recap all parts of Redux briefly in JS. This is a [Redux Reducer](/javascript-reducer/) that acts on two Redux Actions which has no dependencies on the Redux library at all:
 
 ```javascript
 function reducer(state, action) {
-  switch(action.type) {
-    case 'TODO_ADD' : {
-      return applyAddTodo(state, action);
+  switch (action.type) {
+    case 'TODO_ADD': {
+      return applyAddTodo(state, action)
     }
-    case 'TODO_TOGGLE' : {
-      return applyToggleTodo(state, action);
+    case 'TODO_TOGGLE': {
+      return applyToggleTodo(state, action)
     }
-    default : return state;
+    default:
+      return state
   }
 }
 
 function applyAddTodo(state, action) {
-  return state.concat(action.todo);
+  return state.concat(action.todo)
 }
 
 function applyToggleTodo(state, action) {
-  return state.map(todo =>
-    todo.id === action.todo.id
-      ? { ...todo, completed: !todo.completed }
-      : todo
-  );
+  return state.map((todo) =>
+    todo.id === action.todo.id ? { ...todo, completed: !todo.completed } : todo
+  )
 }
 ```
 
 The Redux store which knows about the Redux Reducer:
 
 ```javascript
-import { createStore } from 'redux';
+import { createStore } from 'redux'
 
-const store = createStore(reducer, []);
+const store = createStore(reducer, [])
 ```
 
 Then, the Redux Store offers a small API surface to interact with it -- e.g. dispatching a Redux Action:
@@ -88,15 +87,15 @@ Then, the Redux Store offers a small API surface to interact with it -- e.g. dis
 store.dispatch({
   type: 'TODO_ADD',
   todo: { id: '0', name: 'learn redux', completed: false },
-});
+})
 ```
 
 Finally, in JavaScript, you can listen to changes with the Redux Store:
 
 ```javascript
 store.subscribe(() => {
-  console.log(store.getState());
-});
+  console.log(store.getState())
+})
 ```
 
 That's Redux in a nutshell with all its fragments: Action, Reducer, Store. There is no React and no View yet. The View could be considered as the `console.log`. If you didn't learn Redux yet, feel free to check out this long read [React + Redux tutorial](/react-redux-tutorial) which teaches Redux before it integrates into React.
@@ -109,27 +108,27 @@ I believe Redux has taught us a great deal about separating things into atomic p
 
 Immutability wasn't a huge deal in the JavaScript landscape before Redux. Performing mutations on variables was everyone's usual business. However, with the introduction of the modern frontend frameworks and scaling web applications, many people felt the pain of passing around mutable information. Changing a variable at one place meant unforeseen side-effects at another place in your application.
 
-In Redux everything in the state container *should* be treated as immutable data structure -- which isn't enforced though. If you are adding an entry to an array, with Redux one got used to JavaScript functions which treat your data structures as immutable:
+In Redux everything in the state container _should_ be treated as immutable data structure -- which isn't enforced though. If you are adding an entry to an array, with Redux one got used to JavaScript functions which treat your data structures as immutable:
 
 ```javascript
 // do
-const newState = state.concat(action.todo);
+const newState = state.concat(action.todo)
 
 // don't
-state.push(action.todo);
+state.push(action.todo)
 ```
 
 There are various array and object functions which return new arrays/objects -- keeping them immutable -- instead of mutating them. Also recent language additions helped a lot to facilitate this new mindset:
 
 ```javascript
-const toggledTodo = { ...todo, completed: !todo.completed };
+const toggledTodo = { ...todo, completed: !todo.completed }
 ```
 
 People started to think about these nuances regarding immutable data structures in JavaScript -- which had superior benefits for the overall JavaScript development experience. No more leaking variables which were mutated at various places in one's application.
 
 # Pure Functions
 
-Almost identical to immutability, pure functions weren't discussed as heavily before Redux got introduced in the JavaScript ecosystem. It was more of a *suggestion* that functions should be pure, but never been taken super serious by web developers.
+Almost identical to immutability, pure functions weren't discussed as heavily before Redux got introduced in the JavaScript ecosystem. It was more of a _suggestion_ that functions should be pure, but never been taken super serious by web developers.
 
 ```javascript
 // action creator returning an action
@@ -138,22 +137,22 @@ function addTodo(todo) {
   return {
     type: 'TODO_ADD',
     todo,
-  };
+  }
 }
 
 const action = addTodo({
   id: '0',
   name: 'learn redux',
-  completed: false
-});
+  completed: false,
+})
 
-store.dispatch(action);
+store.dispatch(action)
 ```
 
 With Redux the mindset shifted and people started to avoid having side-effects in their functions, to please the Redux philosophy, but also to ensure better testability and to avoid unforeseen breaches of their functions in the long run.
 
 ```javascript
-(Input) => Output
+;(Input) => Output
 ```
 
 A Redux Action is just an operator on the present state whereas a Redux Reducer takes this action to modify the state from one representation to the next representation. There is no remote API call or other task in between. It always follows one function signature:
@@ -170,32 +169,29 @@ With Redux gaining popularity, functions were considered more first-class citize
 
 ```javascript
 function toggleTodo(action) {
-  return function(todo) {
+  return function (todo) {
     return todo.id === action.todo.id
       ? { ...todo, completed: !todo.completed }
-      : todo;
-  };
+      : todo
+  }
 }
 
 function applyToggleTodo(state, action) {
-  return state.map(toggleTodo(action));
+  return state.map(toggleTodo(action))
 }
 ```
 
-All of these concepts contributed to the fact that JavaScript developers got more and more introduced to the paradigm of functional programming. Obviously these concepts didn't originate with Redux, but they were taken into the eyesight of many developers who only started to learn JavaScript or who had *only* used JavaScript in their career so far.
+All of these concepts contributed to the fact that JavaScript developers got more and more introduced to the paradigm of functional programming. Obviously these concepts didn't originate with Redux, but they were taken into the eyesight of many developers who only started to learn JavaScript or who had _only_ used JavaScript in their career so far.
 
 # JavaScript ES6
 
 It was just a timing coincidence that JavaScript ES6 got introduced the same time when Redux gained traction. JavaScript ES6 brought developers new features that just played into Redux's hands. For instance, functions could be expressed with arrow functions instead of bulky function statements and bodies:
 
 ```javascript
-const toggleTodo = action => todo =>
-  todo.id === action.todo.id
-    ? { ...todo, completed: !todo.completed }
-    : todo;
+const toggleTodo = (action) => (todo) =>
+  todo.id === action.todo.id ? { ...todo, completed: !todo.completed } : todo
 
-const applyToggleTodo = (state, action) =>
-  state.map(toggleTodo(action));
+const applyToggleTodo = (state, action) => state.map(toggleTodo(action))
 ```
 
 JavaScript ES6 made many expression more concise. Creating a new object out of another object with keeping the data structure immutable could be achieved with JavaScript's new spread operator:
@@ -204,7 +200,7 @@ JavaScript ES6 made many expression more concise. Creating a new object out of a
 const toggledTodo = {
   ...todo,
   completed: !todo.completed,
-};
+}
 ```
 
 It was just a wonderful addition to JavaScript which made many libraries like Redux, but also [React](/javascript-fundamentals-react-requirements/), flourish.
@@ -225,9 +221,9 @@ View => Interaction => Action => Reducer(s) => Store => Updated View
 
 There is a clear unidirectional data flow. One can see who is responsible:
 
-* Who starts the chain of state manipulation (e.g. user interaction).
-* Who manipulates the state (reducer) with which information (action, current state).
-* Who is affected by the state manipulation (e.g. UI re-render).
+- Who starts the chain of state manipulation (e.g. user interaction).
+- Who manipulates the state (reducer) with which information (action, current state).
+- Who is affected by the state manipulation (e.g. UI re-render).
 
 ```javascript
 1) Interaction in View =>
@@ -249,52 +245,54 @@ Often people mistake Redux as a simple setter/getter concept. The UI dispatches 
 store.setState({
   id: '0',
   name: 'learn redux',
-  completed: false
-});
-````
+  completed: false,
+})
+```
 
 However, that's not giving Redux the full credit for what it is, because it is a sophisticated event-driven concept (see Event Sourcing or CQRS). It has reducers in between which decide for themselves whether they are affected by an incoming action or not. It moves the perspective from
 
-* explicit to implicit state manipulation
-* setters to events
-* one-purpose reducers to multi-purpose reducers
-* narrow minded reducers to open minded reducers
+- explicit to implicit state manipulation
+- setters to events
+- one-purpose reducers to multi-purpose reducers
+- narrow minded reducers to open minded reducers
 
 Especially the last two facts should be considered by ever developer to make use of Redux's full potential, because suddenly reducers operate on a higher abstraction level than common setters and act on the same actions as other reducers in your application:
 
 ```javascript{5,17}
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers } from 'redux'
 
 function todoReducer(state, action) {
-  switch(action.type) {
-    case 'TODO_ADD' : {
-      return applyAddTodo(state, action);
+  switch (action.type) {
+    case 'TODO_ADD': {
+      return applyAddTodo(state, action)
     }
-    case 'TODO_TOGGLE' : {
-      return applyToggleTodo(state, action);
+    case 'TODO_TOGGLE': {
+      return applyToggleTodo(state, action)
     }
-    default : return state;
+    default:
+      return state
   }
 }
 
 function statisticReducer(state, action) {
-  switch(action.type) {
-    case 'TODO_ADD' : {
-      return applyCalculateTodos(state, action);
+  switch (action.type) {
+    case 'TODO_ADD': {
+      return applyCalculateTodos(state, action)
     }
-    default : return state;
+    default:
+      return state
   }
 }
 
 const rootReducer = combineReducers({
   todos: todoReducer,
   statistics: statisticReducer,
-});
+})
 
-const store = createStore(rootReducer, []);
+const store = createStore(rootReducer, [])
 ```
 
-*Note: Keeping in mind that the given example is not perfect here, because any sorts of statistics computed based on the todo entities could be calculated on the fly by having all todos available from the state and calculating their statistics with the right selector just in time.*
+_Note: Keeping in mind that the given example is not perfect here, because any sorts of statistics computed based on the todo entities could be calculated on the fly by having all todos available from the state and calculating their statistics with the right selector just in time._
 
 Redux gives a great demonstration of event driven systems for any web developer who hasn't seen one before. Just by looking at how actions, reducers and the store work together, it gives people lots of insights how event-driven systems in other applications are doing there thing.
 
@@ -340,13 +338,13 @@ function addTodo(todo) {
   return {
     type: 'TODO_ADD',
     todo,
-  };
+  }
 }
 
 // selector
 
 function getCompletedTodos(state) {
-  return state.filter(todo => todo.completed);
+  return state.filter((todo) => todo.completed)
 }
 ```
 
@@ -357,15 +355,15 @@ Beyond these concepts you will most likely meet other popular libraries from the
 
 function* fetchUser(action) {
   try {
-    const user = yield call(Api.fetchUser, action.payload.userId);
-  yield put({ type: 'USER_FETCH_SUCCEEDED', user: user });
+    const user = yield call(Api.fetchUser, action.payload.userId)
+    yield put({ type: 'USER_FETCH_SUCCEEDED', user: user })
   } catch (e) {
-    yield put({ type: 'USER_FETCH_FAILED', message: e.message });
+    yield put({ type: 'USER_FETCH_FAILED', message: e.message })
   }
 }
 
 function* userWatcher() {
-  yield takeEvery('USER_FETCH_REQUESTED', fetchUser);
+  yield takeEvery('USER_FETCH_REQUESTED', fetchUser)
 }
 ```
 
@@ -374,13 +372,14 @@ That's another aspect which made Redux successful: its ecosystem. The concept of
 ```javascript
 // Redux Observable
 
-const pingEpic = action$ => action$.pipe(
-  filter(action => action.type === 'PING'),
-  delay(1000),
-  mapTo({ type: 'PONG' })
-);
+const pingEpic = (action$) =>
+  action$.pipe(
+    filter((action) => action.type === 'PING'),
+    delay(1000),
+    mapTo({ type: 'PONG' })
+  )
 
-dispatch({ type: 'PING' });
+dispatch({ type: 'PING' })
 ```
 
 Redux with its ecosystem broadened the horizon for many JavaScript developers; giving them the tools for exploring what's possible with their programming language of choice. Also other state management library authors draw inspiration from everything that's going on in Redux's ecosystem making it the perfect blueprint for a flourishing ecosystem.
@@ -389,34 +388,35 @@ Redux with its ecosystem broadened the horizon for many JavaScript developers; g
 
 It's a common theme: Learning Redux is overwhelming when starting out with everything at once. There are ...
 
-* actions
-* reducers
-* Redux store
-* connecting it to React
-* combining reducers
-* middleware
-* action creators
-* selectors
-* generators/observables
+- actions
+- reducers
+- Redux store
+- connecting it to React
+- combining reducers
+- middleware
+- action creators
+- selectors
+- generators/observables
 
 However, all of this depends on how newcomers to Redux structure their learning experience. When you resume this article to the very beginning, one can see that Redux is only the following in its core:
 
 ```javascript
 Action => Reducer(s) => Store
 ```
-That's all to it. Redux is *Keep it simple, stupid*. There is no hidden magic, 99% of it is pure JavaScript expressed in actions and reducers. Only the Redux store API offers a small surface area for ...
+
+That's all to it. Redux is _Keep it simple, stupid_. There is no hidden magic, 99% of it is pure JavaScript expressed in actions and reducers. Only the Redux store API offers a small surface area for ...
 
 ```javascript
 // dispatching actions
-store.dispatch(myAction);
+store.dispatch(myAction)
 
 // subscribing to state updates
 store.subscribe(() => {
   // do something, e.g. re-render UI
-});
+})
 
 // getting the state
-store.getState();
+store.getState()
 ```
 
 There isn't more to Redux. KISS should be applied to learning Redux as well. Start with its core concepts, not worrying about selectors, sagas and React. Then move forward from there once you feel comfortable. Don't throw too much stuff on top if you feels it's too much of a burden.
@@ -433,4 +433,4 @@ I think on a non-technical level, everyone can learn something from these person
 
 Taken all the previous points into account, I believe Redux makes everyone a better JavaScript developer. People start to think in functions, in higher-order functions or composable functions or concise functions, consider immutable data structures, pure functions, and domains in their application, and stay on the shoulders of giants when contributing to the ecosystem by following their role models. Maybe the no bragging and humble attitude rubs off to the one or other person as well :-) Overall, it makes everyone a better developer.
 
-I believe Redux's legacy was greatly influenced through timing. There were many people out there who *"only"* knew JavaScript as their programming language, maybe started just recently with it as their first language, and never got introduced to broader programming concepts and techniques like immutability, functional programming, domain-driven design or generators. With Redux at their hands, they learned a great deal about all these things. Even though Redux may go away in the future, I would recommend to everyone who is new to JavaScript to learn it just for the sake of all the benefits that are coming with learning it.
+I believe Redux's legacy was greatly influenced through timing. There were many people out there who _"only"_ knew JavaScript as their programming language, maybe started just recently with it as their first language, and never got introduced to broader programming concepts and techniques like immutability, functional programming, domain-driven design or generators. With Redux at their hands, they learned a great deal about all these things. Even though Redux may go away in the future, I would recommend to everyone who is new to JavaScript to learn it just for the sake of all the benefits that are coming with learning it.

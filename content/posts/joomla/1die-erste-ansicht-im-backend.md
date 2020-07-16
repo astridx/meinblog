@@ -531,7 +531,7 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 ![Ansicht, die es erlaubt, Erweiterungen zu finden, die nicht über die normale Joomla!-Installation installiert wurden.](/images/j4x1x1.png)
 
-3. Wenn alle funktioniert siehst nach der Installation diese Anzeigen vor dir.
+3. Wenn alles funktioniert siehst nach der Installation diese Anzeigen vor dir.
 
 ![Ansicht nach der Installation](/images/j4x1x2.png)
 
@@ -539,4 +539,4 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
-Bis hierhin war das kein Hexenwerk. Dafür haben wir aber eine solide Grundlage für die weiteren Schritte.
+Bis hierhin war das kein Hexenwerk. Wir aber solide Grundlage für die weiteren Schritte.

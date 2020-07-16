@@ -1,13 +1,18 @@
 ---
-title: "Logistic Regression with Gradient Descent in JavaScript"
-description: "Logistic regression with gradient descent in JavaScript with implementation of the cost function and logistic regression model (hypothesis) ..."
-date: "2017-12-04T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "logistic regression javascript", "gradient descent javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Logistic Regression with Gradient Descent in JavaScript'
+description: 'Logistic regression with gradient descent in JavaScript with implementation of the cost function and logistic regression model (hypothesis) ...'
+date: '2017-12-04T13:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  [
+    'machine learning javascript',
+    'logistic regression javascript',
+    'gradient descent javascript',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -238,7 +243,7 @@ function init(matrix) {
 Let's see how those matrices could look like for a small training set of m = 5.
 
 ```javascript
-console.log(matrix);
+console.log(matrix)
 
 // [
 //   [34.62365962451697, 78.0246928153624, 0],
@@ -248,7 +253,7 @@ console.log(matrix);
 //   [79.0327360507101, 75.3443764369103, 1],
 // ]
 
-console.log(X);
+console.log(X)
 
 // [
 //   [34.62365962451697, 78.0246928153624],
@@ -258,7 +263,7 @@ console.log(X);
 //   [79.0327360507101, 75.3443764369103],
 // ]
 
-console.log(y);
+console.log(y)
 
 // [
 //   [0],
@@ -368,21 +373,20 @@ Now let's implement the cost function. Basically you can split it up into two eq
 
 ```javascript{3,5,6,7,8,10,11,12,13,14}
 function costFunction(theta, X, y) {
-
-  const m = y.length;
+  const m = y.length
 
   let h = math.eval(`X * theta`, {
     X,
     theta,
-  });
+  })
 
   const cost = math.eval(`(1 / m) * (-y' * log(h) - (1 - y)' * log(1 - h))`, {
     h,
     y,
     m,
-  });
+  })
 
-  return cost;
+  return cost
 }
 ```
 
@@ -420,9 +424,9 @@ The equation for the sigmoid function was mentioned before too.
 function sigmoid(z) {
   let g = math.eval(`1 ./ (1 + e.^-z)`, {
     z,
-  });
+  })
 
-  return g;
+  return g
 }
 ```
 
@@ -535,13 +539,15 @@ Third, the hypothesis function is missing. By using the sigmoid function to comp
 
 ```javascript{5,6,7,8}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  const m = y.length;
+  const m = y.length
 
   for (let i = 0; i < ITERATIONS; i++) {
-    let h = sigmoid(math.eval(`X * theta`, {
-      X,
-      theta,
-    }));
+    let h = sigmoid(
+      math.eval(`X * theta`, {
+        X,
+        theta,
+      })
+    )
 
     theta = math.eval(`theta - ALPHA / m * ((h - y)' * X)'`, {
       theta,
@@ -550,10 +556,10 @@ function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
       X,
       y,
       h,
-    });
+    })
   }
 
-  return theta;
+  return theta
 }
 ```
 

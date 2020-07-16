@@ -1,13 +1,20 @@
 ---
-title: "A React Lift State Up & Down Example"
-description: "A walkthrough by example on how to lift state up and down in React. You will see two examples that illustrate the problem and solution ..."
-date: "2019-05-22T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react lift state", "react lift state up", "react lift state up example", "react lift state down", "react lifting state"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'A React Lift State Up & Down Example'
+description: 'A walkthrough by example on how to lift state up and down in React. You will see two examples that illustrate the problem and solution ...'
+date: '2019-05-22T07:52:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react lift state',
+    'react lift state up',
+    'react lift state up example',
+    'react lift state down',
+    'react lifting state',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,23 +27,23 @@ In order to experience up and down lifting of local state, the following tutoria
 
 The "Search a List"-example has three components. Two sibling components, a Search component and a List component, that are used in an overarching SearchableList component. All of them are [function components](/react-function-component/).
 
-First, the implementation of the Search component which is a [controlled component](/react-controlled-components/) due to the input field being controlled  by React:
+First, the implementation of the Search component which is a [controlled component](/react-controlled-components/) due to the input field being controlled by React:
 
 ```javascript
 const Search = ({ children }) => {
-  const [query, setQuery] = React.useState('');
+  const [query, setQuery] = React.useState('')
 
-  const handleQuery = event => {
-    setQuery(event.target.value);
-  };
+  const handleQuery = (event) => {
+    setQuery(event.target.value)
+  }
 
   return (
     <div>
       {children}
       <input type="text" value={query} onChange={handleQuery} />
     </div>
-  );
-};
+  )
+}
 ```
 
 Second, the implementation of [List component](/react-list-components/):
@@ -44,11 +51,11 @@ Second, the implementation of [List component](/react-list-components/):
 ```javascript
 const List = ({ list }) => (
   <ul>
-    {list.map(item => (
+    {list.map((item) => (
       <li key={item.id}>{item.name}</li>
     ))}
   </ul>
-);
+)
 ```
 
 Third, the SearchableList component which uses both components, the Search and List components, for [React's component composition](/react-component-composition/) and thus both components become siblings in the component tree:
@@ -59,7 +66,7 @@ const SearchableList = ({ list }) => (
     <Search>Search List:</Search>
     <List list={list} />
   </div>
-);
+)
 ```
 
 While the Search component is a stateful function component due to React's useState hook, the List component is a stateless function component. The parent component combines the List and Search components into a stateless SearchableList component.
@@ -68,7 +75,7 @@ However, the example doesn't work. The Search component knows about the `query` 
 
 In order to lift the state up, the SearchableList becomes a stateful component. On the other hand, the Search component becomes a stateless component, because it doesn't need to manage state anymore. The stateful parent component takes care about its whole state.
 
-*Note: In other cases, the Search component might stay as a stateful component, because it still manages some other state, but it is not the case in this example.*
+_Note: In other cases, the Search component might stay as a stateful component, because it still manages some other state, but it is not the case in this example._
 
 So first, that's the adjusted Search component:
 
@@ -78,18 +85,18 @@ const Search = ({ query, handleQuery, children }) => (
     {children}
     <input type="text" value={query} onChange={handleQuery} />
   </div>
-);
+)
 ```
 
 Second, the adjusted SearchableList component:
 
 ```javascript{2,4,5,6,8,10,15}
 const SearchableList = ({ list }) => {
-  const [query, setQuery] = React.useState('');
+  const [query, setQuery] = React.useState('')
 
-  const handleQuery = event => {
-    setQuery(event.target.value);
-  };
+  const handleQuery = (event) => {
+    setQuery(event.target.value)
+  }
 
   return (
     <div>
@@ -98,21 +105,21 @@ const SearchableList = ({ list }) => {
       </Search>
       <List list={list} />
     </div>
-  );
-};
+  )
+}
 ```
 
 After you have lifted the state up, the parent component takes care about the local state management. Both child components don't need to take care about it. You have lifted the state up to share the local state across the child components. Last but not least, let's use the `query` -- which is due to the state lifting available in the SearchableList component -- to filter the list for the List component:
 
 ```javascript{8,15,20,21}
 const SearchableList = ({ list }) => {
-  const [query, setQuery] = React.useState('');
+  const [query, setQuery] = React.useState('')
 
-  const handleQuery = event => {
-    setQuery(event.target.value);
-  };
+  const handleQuery = (event) => {
+    setQuery(event.target.value)
+  }
 
-  const filteredList = list.filter(byQuery(query));
+  const filteredList = list.filter(byQuery(query))
 
   return (
     <div>
@@ -121,11 +128,11 @@ const SearchableList = ({ list }) => {
       </Search>
       <List list={filteredList} />
     </div>
-  );
-};
+  )
+}
 
-const byQuery = query => item =>
-  !query || item.name.toLowerCase().includes(query.toLowerCase());
+const byQuery = (query) => (item) =>
+  !query || item.name.toLowerCase().includes(query.toLowerCase())
 ```
 
 The list gets filtered by the search query before it reaches the List component. An alternative would be passing the `query` state as prop to the List component and the List component would apply the filter to the list itself.
@@ -137,41 +144,38 @@ In the next part, let's get to the second example: the "Archive in a List"-examp
 ```javascript{1,6,7,8,9,10,11,12,13}
 const List = ({ list, handleArchive }) => (
   <ul>
-    {list.map(item => (
+    {list.map((item) => (
       <li key={item.id}>
         <span>{item.name}</span>
         <span>
-          <button
-            type="button"
-            onClick={() => handleArchive(item.id)}
-          >
+          <button type="button" onClick={() => handleArchive(item.id)}>
             Archive
           </button>
         </span>
       </li>
     ))}
   </ul>
-);
+)
 ```
 
 Second, the SearchableList component which holds the state of archived items:
 
 ```javascript{3,9,10,11,15,22,27,28}
 const SearchableList = ({ list }) => {
-  const [query, setQuery] = React.useState('');
-  const [archivedItems, setArchivedItems] = React.useState([]);
+  const [query, setQuery] = React.useState('')
+  const [archivedItems, setArchivedItems] = React.useState([])
 
-  const handleQuery = event => {
-    setQuery(event.target.value);
-  };
+  const handleQuery = (event) => {
+    setQuery(event.target.value)
+  }
 
-  const handleArchive = id => {
-    setArchivedItems(archivedItems => [...archivedItems, id]);
-  };
+  const handleArchive = (id) => {
+    setArchivedItems((archivedItems) => [...archivedItems, id])
+  }
 
   const filteredList = list
     .filter(byQuery(query))
-    .filter(byArchived(archivedItems));
+    .filter(byArchived(archivedItems))
 
   return (
     <div>
@@ -180,11 +184,10 @@ const SearchableList = ({ list }) => {
       </Search>
       <List list={filteredList} handleArchive={handleArchive} />
     </div>
-  );
-};
+  )
+}
 
-const byArchived = archivedItems => item =>
-  !archivedItems.includes(item.id);
+const byArchived = (archivedItems) => (item) => !archivedItems.includes(item.id)
 ```
 
 The Search component stays untouched. As you have seen, the previous example was extended to facilitate the archiving of items in a list. Now, the List component receives all the necessary properties: an `handleArchive` callback handler and the list, filtered by `query` and `archivedItems`. It only shows items filtered by the query from the Search component and items which are not archived.
@@ -193,43 +196,40 @@ You might see already the flaw which leads to lifting the state down. The Search
 
 ```javascript{1,2,4,5,6,8,10,24,25}
 const List = ({ list }) => {
-  const [archivedItems, setArchivedItems] = React.useState([]);
+  const [archivedItems, setArchivedItems] = React.useState([])
 
-  const handleArchive = id => {
-    setArchivedItems(archivedItems => [...archivedItems, id]);
-  };
+  const handleArchive = (id) => {
+    setArchivedItems((archivedItems) => [...archivedItems, id])
+  }
 
   return (
     <ul>
-      {list.filter(byArchived(archivedItems)).map(item => (
+      {list.filter(byArchived(archivedItems)).map((item) => (
         <li key={item.id}>
           <span>{item.name}</span>
           <span>
-            <button
-              type="button"
-              onClick={() => handleArchive(item.id)}
-            >
+            <button type="button" onClick={() => handleArchive(item.id)}>
               Archive
             </button>
           </span>
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 ```
 
 Second, the SearchableList component which only cares about the state from the previous example but not about the archived items anymore:
 
 ```javascript{8,15}
 const SearchableList = ({ list }) => {
-  const [query, setQuery] = React.useState('');
+  const [query, setQuery] = React.useState('')
 
-  const handleQuery = event => {
-    setQuery(event.target.value);
-  };
+  const handleQuery = (event) => {
+    setQuery(event.target.value)
+  }
 
-  const filteredList = list.filter(byQuery(query));
+  const filteredList = list.filter(byQuery(query))
 
   return (
     <div>
@@ -238,8 +238,8 @@ const SearchableList = ({ list }) => {
       </Search>
       <List list={filteredList} />
     </div>
-  );
-};
+  )
+}
 ```
 
 That's how you can lift state down. It is used to keep the state only next to components that care about the state. However, note that sometimes it may be useful to have umbrella components like the SearchableList component that manages state on other component's behalf. It makes it easier to locate the important parts of your application which manage state.

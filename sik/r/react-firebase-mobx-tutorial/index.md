@@ -1,13 +1,13 @@
 ---
-title: "How to use MobX in React Firebase"
+title: 'How to use MobX in React Firebase'
 description: "The tutorial shows you how to migrate a React with Firebase application, which uses only React's local state, to MobX for its state management. Also React's Context API is replaced with MobX ..."
-date: "2019-02-10T07:52:46+02:00"
-categories: ["React", "Firebase", "MobX"]
-keywords: ["react firebase mobx tutorial"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-02-10T07:52:46+02:00'
+categories: ['React', 'Firebase', 'MobX']
+keywords: ['react firebase mobx tutorial']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,63 +15,63 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 10 of 10 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React Firebase: Link Social Logins",
-      url: "/react-firebase-link-social-logins"
-    },
-    {
-      prefix: "Part 6:",
-      label: "React Firebase: Email Verification",
-      url: "/react-firebase-email-verification"
-    },
-    {
-      prefix: "Part 7:",
-      label: "How to use React Router with Firebase",
-      url: "/react-firebase-router"
-    },
-    {
-      prefix: "Part 8:",
-      label: "How to use Firebase Realtime Database in React",
-      url: "/react-firebase-realtime-database"
-    },
-    {
-      prefix: "Part 9:",
-      label: "How to deploy a React application to Firebase",
-      url: "/firebase-deploy-react-js"
-    }
-  ]}
+label="This tutorial is part 10 of 10 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+},
+{
+prefix: "Part 5:",
+label: "React Firebase: Link Social Logins",
+url: "/react-firebase-link-social-logins"
+},
+{
+prefix: "Part 6:",
+label: "React Firebase: Email Verification",
+url: "/react-firebase-email-verification"
+},
+{
+prefix: "Part 7:",
+label: "How to use React Router with Firebase",
+url: "/react-firebase-router"
+},
+{
+prefix: "Part 8:",
+label: "How to use Firebase Realtime Database in React",
+url: "/react-firebase-realtime-database"
+},
+{
+prefix: "Part 9:",
+label: "How to deploy a React application to Firebase",
+url: "/firebase-deploy-react-js"
+}
+]}
 />
 
 So far, it was fine to rely only on React's local state and React's Context API. This tutorial dives into using MobX on top of React and Firebase for the state management. We'll exchange React's local state (e.g. users on admin page, messages on home page) and React's context (e.g. session management for authenticated user) with MobX. It will how you how to accomplish the same thing with MobX, so you can integrate it in your tech stack.
 
 The first section will setup MobX, where we'll add a state layer separately from the view layer and connect MobX with React by providing the MobX stores React's Context API to the React components. The second part exchanges the current React state layer with the MobX state layer:
 
-* Users in React Local State -> Users in MobX User Store
-* Messages in React Local State -> Messages in MobX Message Store
-* Authenticated User in React Local State + React Context -> Authenticated User in MobX Session Store
+- Users in React Local State -> Users in MobX User Store
+- Messages in React Local State -> Messages in MobX Message Store
+- Authenticated User in React Local State + React Context -> Authenticated User in MobX Session Store
 
 If you are not familiar with MobX, I recommend [The Road to Redux](http://roadtoredux.com). Most of the MobX knowledge is required for the migration from only using React to MobX.
 
@@ -79,7 +79,7 @@ If you are not familiar with MobX, I recommend [The Road to Redux](http://roadto
 
 First, follow this [short guide to enable decorators in create-react-app](/create-react-app-mobx-decorators/). You can also take the alternative way of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**. After you went through the MobX setup tutorial, you should have installed [mobx](https://mobx.js.org/) and [mobx-react](https://github.com/mobxjs/mobx-react).
 
-For this run through, we focus on the MobX setup without worrying about Firebase or React. First, you need the MobX stores, so we create a folder with files. From your *src/* folder type:
+For this run through, we focus on the MobX setup without worrying about Firebase or React. First, you need the MobX stores, so we create a folder with files. From your _src/_ folder type:
 
 ```javascript
 mkdir stores
@@ -90,120 +90,120 @@ touch index.js sessionStore.js userStore.js messageStore.js
 There's a store for the session state (e.g. authenticated user), a store for the user state (e.g. list of users from the database), and a store for the message state (e.g. list of messages from the database). There is also an entry point file to the module to combine those stores as root store, the session store which manages the authenticated user. The authenticated user represents the session in the application.
 
 ```javascript
-import { observable, action } from 'mobx';
+import { observable, action } from 'mobx'
 
 class SessionStore {
-  @observable authUser = null;
+  @observable authUser = null
 
   constructor(rootStore) {
-    this.rootStore = rootStore;
+    this.rootStore = rootStore
   }
 
-  @action setAuthUser = authUser => {
-    this.authUser = authUser;
-  };
+  @action setAuthUser = (authUser) => {
+    this.authUser = authUser
+  }
 }
 
-export default SessionStore;
+export default SessionStore
 ```
 
 Next is the user store that deals with the list of users from the Firebase realtime database. It sets either the object of users as a dictionary or a single user identified by a unique identifier. It also has a `userList` property to retrieve the user object as a transformed list of users:
 
 ```javascript
-import { observable, action, computed } from 'mobx';
+import { observable, action, computed } from 'mobx'
 
 class UserStore {
-  @observable users = null;
+  @observable users = null
 
   constructor(rootStore) {
-    this.rootStore = rootStore;
+    this.rootStore = rootStore
   }
 
-  @action setUsers = users => {
-    this.users = users;
-  };
+  @action setUsers = (users) => {
+    this.users = users
+  }
 
   @action setUser = (user, uid) => {
     if (!this.users) {
-      this.users = {};
+      this.users = {}
     }
 
-    this.users[uid] = user;
-  };
+    this.users[uid] = user
+  }
 
   @computed get userList() {
-    return Object.keys(this.users || {}).map(key => ({
+    return Object.keys(this.users || {}).map((key) => ({
       ...this.users[key],
       uid: key,
-    }));
+    }))
   }
 }
 
-export default UserStore;
+export default UserStore
 ```
 
 Third, the message store that is similar to the user store. It manages one more property for the pagination feature:
 
 ```javascript
-import { observable, action, computed } from 'mobx';
+import { observable, action, computed } from 'mobx'
 
 class MessageStore {
-  @observable messages = null;
-  @observable limit = 5;
+  @observable messages = null
+  @observable limit = 5
 
   constructor(rootStore) {
-    this.rootStore = rootStore;
+    this.rootStore = rootStore
   }
 
-  @action setMessages = messages => {
-    this.messages = messages;
-  };
+  @action setMessages = (messages) => {
+    this.messages = messages
+  }
 
-  @action setLimit = limit => {
-    this.limit = limit;
-  };
+  @action setLimit = (limit) => {
+    this.limit = limit
+  }
 
   @computed get messageList() {
-    return Object.keys(this.messages || {}).map(key => ({
+    return Object.keys(this.messages || {}).map((key) => ({
       ...this.messages[key],
       uid: key,
-    }));
+    }))
   }
 }
 
-export default MessageStore;
+export default MessageStore
 ```
 
-Finally, combine all three stores in a root store. This can be used to make the stores communicate with each other, but also to provide a way to import only one store (root store) to have access to all of its combined stores later. In *src/stores/index.js* file:
+Finally, combine all three stores in a root store. This can be used to make the stores communicate with each other, but also to provide a way to import only one store (root store) to have access to all of its combined stores later. In _src/stores/index.js_ file:
 
 ```javascript
-import SessionStore from './sessionStore';
-import UserStore from './userStore';
-import MessageStore from './messageStore';
+import SessionStore from './sessionStore'
+import UserStore from './userStore'
+import MessageStore from './messageStore'
 
 class RootStore {
   constructor() {
-    this.sessionStore = new SessionStore(this);
-    this.userStore = new UserStore(this);
-    this.messageStore = new MessageStore(this);
+    this.sessionStore = new SessionStore(this)
+    this.userStore = new UserStore(this)
+    this.messageStore = new MessageStore(this)
   }
 }
 
-const rootStore = new RootStore();
+const rootStore = new RootStore()
 
-export default rootStore;
+export default rootStore
 ```
 
-The MobX setup is done. Now, you can connect your state layer with your view layer. The MobX stores can be provided to the component hierarchy using MobX's Provider component. This time, the Provider component from the MobX library passes down the all stores instead of only the authenticated user. In *src/index.js* file:
+The MobX setup is done. Now, you can connect your state layer with your view layer. The MobX stores can be provided to the component hierarchy using MobX's Provider component. This time, the Provider component from the MobX library passes down the all stores instead of only the authenticated user. In _src/index.js_ file:
 
 ```javascript{3,5,10,14}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'mobx-react';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'mobx-react'
 
-import store from './stores';
-import App from './components/App';
-import Firebase, { FirebaseContext } from './components/Firebase';
+import store from './stores'
+import App from './components/App'
+import Firebase, { FirebaseContext } from './components/Firebase'
 
 ReactDOM.render(
   <Provider {...store}>
@@ -211,15 +211,15 @@ ReactDOM.render(
       <App />
     </FirebaseContext.Provider>
   </Provider>,
-  document.getElementById('root'),
-);
+  document.getElementById('root')
+)
 ```
 
 That's it for connecting both worlds. Next, we'll refactor almost everything from React's local state to MobX. We want to have everything in the MobX stores that should be persisted when we navigate from route to route. This includes users, messages, and the authenticated user, but maybe not the loading states.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VnDt1v)
+- Confirm your [source code for the last section](http://bit.ly/2VnDt1v)
 
 # Manage Firebase's authenticated User in MobX's Session Store
 
@@ -418,25 +418,21 @@ export default compose(
 )(AccountPage);
 ```
 
-You can remove the React Context we used for providing and consuming the authenticated user in the *src/components/Session/context.js* and *src/components/Session/index.js* files:
+You can remove the React Context we used for providing and consuming the authenticated user in the _src/components/Session/context.js_ and _src/components/Session/index.js_ files:
 
 ```javascript
-import withAuthentication from './withAuthentication';
-import withAuthorization from './withAuthorization';
-import withEmailVerification from './withEmailVerification';
+import withAuthentication from './withAuthentication'
+import withAuthorization from './withAuthorization'
+import withEmailVerification from './withEmailVerification'
 
-export {
-  withAuthentication,
-  withAuthorization,
-  withEmailVerification,
-};
+export { withAuthentication, withAuthorization, withEmailVerification }
 ```
 
 That's it for storing the authenticated user in our MobX session store which takes place in the authentication higher-order component and for consuming the authenticated user in every component which is interested in it by injecting the session store to it.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VmStNa)
+- Confirm your [source code for the last section](http://bit.ly/2VmStNa)
 
 # Manage Firebase's Users in MobX's User Store
 
@@ -515,15 +511,15 @@ The users are not managed in the local state of the component anymore, but in Mo
 ```javascript{3,23}
 class UserList extends Component {
   render() {
-    const users = this.props.userStore.userList;
-    const { loading } = this.state;
+    const users = this.props.userStore.userList
+    const { loading } = this.state
 
     return (
       <div>
         <h2>Users</h2>
         {loading && <div>Loading ...</div>}
         <ul>
-          {users.map(user => (
+          {users.map((user) => (
             <li key={user.uid}>
               <span>
                 <strong>ID:</strong> {user.uid}
@@ -535,15 +531,13 @@ class UserList extends Component {
                 <strong>Username:</strong> {user.username}
               </span>
               <span>
-                <Link to={`${ROUTES.ADMIN}/${user.uid}`}>
-                  Details
-                </Link>
+                <Link to={`${ROUTES.ADMIN}/${user.uid}`}>Details</Link>
               </span>
             </li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 ```
@@ -657,7 +651,7 @@ That's it for the UserItem component. It renders a user, fetches the recent user
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VpWTTs).
+- Confirm your [source code for the last section](http://bit.ly/2VpWTTs).
 
 # Manage Message Entities in MobX's Message Store
 
@@ -814,9 +808,8 @@ The MessageList and MessageItem components didn't change at all, only the HomePa
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VkthqM)
+- Confirm your [source code for the last section](http://bit.ly/2VkthqM)
 
 <Divider />
 
 You've introduced MobX as state management library to manage your session, user, and message state. Instead of relying on React's context API for the authenticated user object and React's local state for the list of users and messages from the Firebase database, these objects are kept in the MobX stores. The project is found in [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication).
-

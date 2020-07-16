@@ -282,7 +282,7 @@ In the example below, we will test three properties that pertain to keyboard obj
 
 ```js
 // Test the keyCode, key, and code properties
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', (event) => {
   console.log('key: ' + event.keyCode)
   console.log('key: ' + event.key)
   console.log('code: ' + event.code)
@@ -313,7 +313,7 @@ Then, type the following JavaScript code into your browser's Developer Console.
 
 ```js
 // Pass an event through to a listener
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', (event) => {
   var element = document.querySelector('p')
 
   // Set variables for keydown codes
@@ -362,7 +362,7 @@ Using `event.target`, we can place one event listener on the outer `section` ele
 const section = document.querySelector('section')
 
 // Print the selected target
-section.addEventListener('click', event => {
+section.addEventListener('click', (event) => {
   console.log(event.target)
 })
 ```

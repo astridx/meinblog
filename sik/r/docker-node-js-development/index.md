@@ -1,13 +1,19 @@
 ---
-title: "How to Docker with Node.js"
-description: "A short walkthrough on how to use Docker with Node.js in a development environment. We will cover how to dockerize your first Node.js application ..."
-date: "2020-02-18T03:52:46+02:00"
-categories: ["Docker", "Node"]
-keywords: ["docker node", "docker nodejs", "docker node js", "docker node js development"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to Docker with Node.js'
+description: 'A short walkthrough on how to use Docker with Node.js in a development environment. We will cover how to dockerize your first Node.js application ...'
+date: '2020-02-18T03:52:46+02:00'
+categories: ['Docker', 'Node']
+keywords:
+  [
+    'docker node',
+    'docker nodejs',
+    'docker node js',
+    'docker node js development',
+  ]
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -23,7 +29,7 @@ npm install
 npm start
 ```
 
-After you have cloned and installed the Node.js project, visit it on `http://localhost:3000` to see the printed *"Hello World"*. Everything should work as expected. Now, we will ship this Node application in a **Docker container** by using **Docker image**. First of all, create a so called **Dockerfile**:
+After you have cloned and installed the Node.js project, visit it on `http://localhost:3000` to see the printed _"Hello World"_. Everything should work as expected. Now, we will ship this Node application in a **Docker container** by using **Docker image**. First of all, create a so called **Dockerfile**:
 
 ```text
 touch Dockerfile
@@ -58,7 +64,7 @@ CMD [ "npm", "start" ]
 
 Everything in this Dockerfile is read by the Docker interpreter line by line. In the end, it's the blueprint to create a your custom Docker Image suited for your application. The foundational image (here `FROM`) we are using here makes sure that all Node/npm commands are available in the Dockerfile. Otherwise, if using a non related Node image, we would need to install Node in the Dockerfile ourselves before we could use the [Node specific commands](/npm-crash-course).
 
-Optionally create a *.dockerignore* file to exclude folders and files from the Docker process. For example, the *node_modules* don't need to be included for the Docker image, because they will be installed in the process with `npm install` (see Dockerfile). Therefore, the content of the *.dockerignore* file could be:
+Optionally create a _.dockerignore_ file to exclude folders and files from the Docker process. For example, the _node_modules_ don't need to be included for the Docker image, because they will be installed in the process with `npm install` (see Dockerfile). Therefore, the content of the _.dockerignore_ file could be:
 
 ```text
 node_modules
@@ -70,7 +76,7 @@ Next, create an account on the [official Docker Hub](https://hub.docker.com/). A
 docker build -t <username>/node-express-server .
 ```
 
-If the output after this command says *"Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"*, you need to make sure that [everything Docker related is set up and running](/docker-macos) properly. Even if it's running properly when printing all Docker engines with `docker-machine ls`, you may need to set the environment variables for the Docker engine again.
+If the output after this command says _"Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"_, you need to make sure that [everything Docker related is set up and running](/docker-macos) properly. Even if it's running properly when printing all Docker engines with `docker-machine ls`, you may need to set the environment variables for the Docker engine again.
 
 If the build for the Docker image runs successfully, you should be able to list your images with the following command:
 

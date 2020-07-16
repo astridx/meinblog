@@ -25,10 +25,10 @@ function doTheThing() {
     data: {
       key: 'value',
     },
-    success: function(data) {
+    success: function (data) {
       console.log(data)
     },
-    error: function(error) {
+    error: function (error) {
       console.log(error)
     },
   })
@@ -53,10 +53,10 @@ function doTheThing() {
       data: {
         key: 'value',
       },
-      success: function(data) {
+      success: function (data) {
         resolve(data)
       },
-      error: function(error) {
+      error: function (error) {
         reject(error)
       },
     })
@@ -68,11 +68,11 @@ Now we can do the AJAX call, run the success function, and follow it up with any
 
 ```js
 doTheThing()
-  .then(data => {
+  .then((data) => {
     console.log(data)
     doSomethingElse()
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(error)
   })
 ```

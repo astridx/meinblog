@@ -1,13 +1,13 @@
 ---
-title: "Accept Stripe Payments with React and Express"
-description: "Ever wondered how to integrate Stripe in your React application? This tutorial guides you through the whole setup process from using a Stripe checkout form on the client-side to setting up an Express payment server. Afterward you are ready to receive secure credit card payments via Stripe in your React.js application ..."
-date: "2017-06-20T13:50:46+02:00"
-categories: ["React", "Node"]
-keywords: ["react express stripe"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'Accept Stripe Payments with React and Express'
+description: 'Ever wondered how to integrate Stripe in your React application? This tutorial guides you through the whole setup process from using a Stripe checkout form on the client-side to setting up an Express payment server. Afterward you are ready to receive secure credit card payments via Stripe in your React.js application ...'
+date: '2017-06-20T13:50:46+02:00'
+categories: ['React', 'Node']
+keywords: ['react express stripe']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -39,11 +39,11 @@ mkdir react-express-stripe
 cd react-express-stripe
 ```
 
-In this folder, you will create your *frontend/* and *backend/* folders in the next chapters.
+In this folder, you will create your _frontend/_ and _backend/_ folders in the next chapters.
 
 # React Stripe Frontend
 
-Using create-react-app is the fastest way to get started in React. It bootstraps your ReactJs project with all boilerplate code with zero-configuration from the command line. You can read more about it in the [official documentation](https://github.com/facebookincubator/create-react-app). Bootstrap your frontend application grom *react-express-stripe/* on the command line:
+Using create-react-app is the fastest way to get started in React. It bootstraps your ReactJs project with all boilerplate code with zero-configuration from the command line. You can read more about it in the [official documentation](https://github.com/facebookincubator/create-react-app). Bootstrap your frontend application grom _react-express-stripe/_ on the command line:
 
 ```javascript
 npx create-react-app frontend
@@ -60,17 +60,17 @@ You will use [axios](https://github.com/mzabriskie/axios) to make your payment r
 
 The second library you will use is [react-stripe-checkout](https://github.com/azmenak/react-stripe-checkout). It does two things for you:
 
-* it comes with a pretty component to capture credit card information
-* it generates a Stripe token that you can send afterward to your backend
+- it comes with a pretty component to capture credit card information
+- it generates a Stripe token that you can send afterward to your backend
 
 I guess the token generation happens under the hood with the official Stripe.js library that you will later use in your backend too.
 
 There exists another library, the official library by Stripe for React, called [react-stripe-elements](https://github.com/stripe/react-stripe-elements). However, I ran into two drawbacks when using it:
 
-* it isn't supported when using server side rendering (e.g. with [NextJs](https://github.com/zeit/next.js/))
-* it didn't came with a pretty pre-configured Stripe like style
+- it isn't supported when using server side rendering (e.g. with [NextJs](https://github.com/zeit/next.js/))
+- it didn't came with a pretty pre-configured Stripe like style
 
-After you have installed all the necessary libraries, the frontend application needs only a handful more folders and files for a couple of constants and one component. From *react-express-stripe/frontend* on the command line:
+After you have installed all the necessary libraries, the frontend application needs only a handful more folders and files for a couple of constants and one component. From _react-express-stripe/frontend_ on the command line:
 
 ```javascript
 cd src
@@ -79,13 +79,13 @@ mkdir constants && cd constants
 touch server.js stripe.js
 ```
 
-Let's start in the *src/App.js* component that comes from create-react-app. Replace it with the following code:
+Let's start in the _src/App.js_ component that comes from create-react-app. Replace it with the following code:
 
 ```javascript{3,15,16,17,18,19}
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import Checkout from './Checkout';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import Checkout from './Checkout'
+import './App.css'
 
 class App extends Component {
   render() {
@@ -103,11 +103,11 @@ class App extends Component {
           />
         </p>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 The important part is the `Checkout` component. The `name`, `description` and amount can be replaced with your own properties. You can make it a dynamic input with your own forms too.
@@ -116,36 +116,36 @@ The second step is to implement the `Checkout` component. The file should be alr
 
 ```javascript
 import React from 'react'
-import axios from 'axios';
-import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios'
+import StripeCheckout from 'react-stripe-checkout'
 
-import STRIPE_PUBLISHABLE from './constants/stripe';
-import PAYMENT_SERVER_URL from './constants/server';
+import STRIPE_PUBLISHABLE from './constants/stripe'
+import PAYMENT_SERVER_URL from './constants/server'
 
-const CURRENCY = 'EUR';
+const CURRENCY = 'EUR'
 
-const fromEuroToCent = amount => amount * 100;
+const fromEuroToCent = (amount) => amount * 100
 
-const successPayment = data => {
-  alert('Payment Successful');
-};
+const successPayment = (data) => {
+  alert('Payment Successful')
+}
 
-const errorPayment = data => {
-  alert('Payment Error');
-};
+const errorPayment = (data) => {
+  alert('Payment Error')
+}
 
-const onToken = (amount, description) => token =>
-  axios.post(PAYMENT_SERVER_URL,
-    {
+const onToken = (amount, description) => (token) =>
+  axios
+    .post(PAYMENT_SERVER_URL, {
       description,
       source: token.id,
       currency: CURRENCY,
-      amount: fromEuroToCent(amount)
+      amount: fromEuroToCent(amount),
     })
     .then(successPayment)
-    .catch(errorPayment);
+    .catch(errorPayment)
 
-const Checkout = ({ name, description, amount }) =>
+const Checkout = ({ name, description, amount }) => (
   <StripeCheckout
     name={name}
     description={description}
@@ -154,8 +154,9 @@ const Checkout = ({ name, description, amount }) =>
     currency={CURRENCY}
     stripeKey={STRIPE_PUBLISHABLE}
   />
+)
 
-export default Checkout;
+export default Checkout
 ```
 
 The `Checkout` component uses the `StripeCheckout` that comes from the library you've installed before. This component receives your personal props, such as `name`, `amount` and `description`, but also needs a `currency` and your `stripeKey` which is the publishable API key from the Stripe dashboard.
@@ -164,31 +165,33 @@ The most important prop is the `token` handler. There you can pass your [callbac
 
 The `Checkout` component uses constants from two files that you have already created. The last step for the frontend is to define these constants.
 
-First, in the *src/constants/server.js* file, you define the URL of your server. In production, when using the express default server, it will be `http://localhost:8080`. In production you may have a proper domain for your server.
+First, in the _src/constants/server.js_ file, you define the URL of your server. In production, when using the express default server, it will be `http://localhost:8080`. In production you may have a proper domain for your server.
 
 ```javascript
-const PAYMENT_SERVER_URL = process.env.NODE_ENV === 'production'
-  ? 'http://myapidomain.com'
-  : 'http://localhost:8080';
+const PAYMENT_SERVER_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'http://myapidomain.com'
+    : 'http://localhost:8080'
 
-export default PAYMENT_SERVER_URL;
+export default PAYMENT_SERVER_URL
 ```
 
-Second, in the *src/constants/stripe.js* file, you define your Stripe API keys depending on development or production environment. You can get your own API keys from the Stripe dashboard and replace them with the following constants.
+Second, in the _src/constants/stripe.js_ file, you define your Stripe API keys depending on development or production environment. You can get your own API keys from the Stripe dashboard and replace them with the following constants.
 
 ```javascript
-const STRIPE_PUBLISHABLE = process.env.NODE_ENV === 'production'
-  ? 'pk_live_MY_PUBLISHABLE_KEY'
-  : 'pk_test_MY_PUBLISHABLE_KEY';
+const STRIPE_PUBLISHABLE =
+  process.env.NODE_ENV === 'production'
+    ? 'pk_live_MY_PUBLISHABLE_KEY'
+    : 'pk_test_MY_PUBLISHABLE_KEY'
 
-export default STRIPE_PUBLISHABLE;
+export default STRIPE_PUBLISHABLE
 ```
 
 That's it for the React Stripe frontend application. You can start it with `npm start` from the command line and test the button. On submit it should fail, because you have no server yet.
 
 # Express Stripe Backend
 
-This chapter gives you guidance to implement your Express server application. It will receive the payment information from your React frontend and will pass it to the Stripe API. In the beginning, navigate into the *react-express-stripe/backend/* folder. There you can initialize a plain npm project:
+This chapter gives you guidance to implement your Express server application. It will receive the payment information from your React frontend and will pass it to the Stripe API. In the beginning, navigate into the _react-express-stripe/backend/_ folder. There you can initialize a plain npm project:
 
 ```javascript
 npm init -y
@@ -200,7 +203,7 @@ By using the `-y` flag, you initialize all the defaults for the project. That's 
 npm install --save express cors body-parser stripe
 ```
 
-You will use express to create a backend app with a RESTful routing. In addition, there are cors and body-parser to configure and modify straight forward your incoming requests to the Express server.  Last but not least, Stripe is this time used as the pure library that enables you to communicate with the Stripe platform API.
+You will use express to create a backend app with a RESTful routing. In addition, there are cors and body-parser to configure and modify straight forward your incoming requests to the Express server. Last but not least, Stripe is this time used as the pure library that enables you to communicate with the Stripe platform API.
 
 Next you can bootstrap your file and folder structure:
 
@@ -219,155 +222,158 @@ cd routes
 touch index.js payment.js
 ```
 
-Now, let's implement a simple backend API that your frontend can send the generated token to the backend and the backend can forward it to the Stripe API. You'll begin with the *index.js* file:
+Now, let's implement a simple backend API that your frontend can send the generated token to the backend and the backend can forward it to the Stripe API. You'll begin with the _index.js_ file:
 
 ```javascript
-const express = require('express');
+const express = require('express')
 
-const SERVER_CONFIGS = require('./constants/server');
+const SERVER_CONFIGS = require('./constants/server')
 
-const configureServer = require('./server');
-const configureRoutes = require('./routes');
+const configureServer = require('./server')
+const configureRoutes = require('./routes')
 
-const app = express();
+const app = express()
 
-configureServer(app);
-configureRoutes(app);
+configureServer(app)
+configureRoutes(app)
 
-app.listen(SERVER_CONFIGS.PORT, error => {
-  if (error) throw error;
-  console.log('Server running on port: ' + SERVER_CONFIGS.PORT);
-});
+app.listen(SERVER_CONFIGS.PORT, (error) => {
+  if (error) throw error
+  console.log('Server running on port: ' + SERVER_CONFIGS.PORT)
+})
 ```
 
-The *index.js* file basically is your entry point and bootstraps your Express application. The app gets created with `express()`, uses a couple of configurations, that you will define later on, and finally listens on a defined port.
+The _index.js_ file basically is your entry point and bootstraps your Express application. The app gets created with `express()`, uses a couple of configurations, that you will define later on, and finally listens on a defined port.
 
-The second step is to define your constants in the different files. First, you can start in *constants/frontend.js*:
+The second step is to define your constants in the different files. First, you can start in _constants/frontend.js_:
 
 ```javascript
-const FRONTEND_DEV_URLS = [ 'http://localhost:3000' ];
+const FRONTEND_DEV_URLS = ['http://localhost:3000']
 
 const FRONTEND_PROD_URLS = [
   'https://www.yourdomain.com',
-  'https://yourdomain.com'
-];
+  'https://yourdomain.com',
+]
 
-module.exports = process.env.NODE_ENV === 'production'
-  ? FRONTEND_PROD_URLS
-  : FRONTEND_DEV_URLS;
+module.exports =
+  process.env.NODE_ENV === 'production' ? FRONTEND_PROD_URLS : FRONTEND_DEV_URLS
 ```
 
 These URLs will be used later to create a whitelist for [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). In our case only the `FRONTEND_DEV_URLS` matters. But when your application goes in production, you should use your own domain of your frontend application.
 
-Second, the *constants/server.js* file:
+Second, the _constants/server.js_ file:
 
 ```javascript
-const path = require('path');
+const path = require('path')
 
-const SERVER_PORT = 8080;
+const SERVER_PORT = 8080
 
 const SERVER_CONFIGS = {
   PRODUCTION: process.env.NODE_ENV === 'production',
   PORT: process.env.PORT || SERVER_PORT,
-};
+}
 
-module.exports = SERVER_CONFIGS;
+module.exports = SERVER_CONFIGS
 ```
 
-The configuration is already used in your *index.js* file to start up the app.
+The configuration is already used in your _index.js_ file to start up the app.
 
-Third, you will define the last constants in *constants/stripe.js*. There you will define the Stripe API keys, similar to the frontend, but this time the secret API keys. Just replace them with your own API keys from your Stripe dashboard.
+Third, you will define the last constants in _constants/stripe.js_. There you will define the Stripe API keys, similar to the frontend, but this time the secret API keys. Just replace them with your own API keys from your Stripe dashboard.
 
 ```javascript
-const configureStripe = require('stripe');
+const configureStripe = require('stripe')
 
-const STRIPE_SECRET_KEY = process.env.NODE_ENV === 'production'
+const STRIPE_SECRET_KEY =
+  process.env.NODE_ENV === 'production'
     ? 'sk_live_MY_SECRET_KEY'
-    : 'sk_test_MY_SECRET_KEY';
+    : 'sk_test_MY_SECRET_KEY'
 
-const stripe = configureStripe(STRIPE_SECRET_KEY);
+const stripe = configureStripe(STRIPE_SECRET_KEY)
 
-module.exports = stripe;
+module.exports = stripe
 ```
 
-Now, only the server configuration and the routing is missing. Let's begin with the server configuration in *server.js*.
+Now, only the server configuration and the routing is missing. Let's begin with the server configuration in _server.js_.
 
 ```javascript
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const cors = require('cors')
+const bodyParser = require('body-parser')
 
-const CORS_WHITELIST = require('./constants/frontend');
+const CORS_WHITELIST = require('./constants/frontend')
 
 const corsOptions = {
   origin: (origin, callback) =>
-    (CORS_WHITELIST.indexOf(origin) !== -1)
+    CORS_WHITELIST.indexOf(origin) !== -1
       ? callback(null, true)
-      : callback(new Error('Not allowed by CORS'))
-};
+      : callback(new Error('Not allowed by CORS')),
+}
 
-const configureServer = app => {
-  app.use(cors(corsOptions));
+const configureServer = (app) => {
+  app.use(cors(corsOptions))
 
-  app.use(bodyParser.json());
-};
+  app.use(bodyParser.json())
+}
 
-module.exports = configureServer;
+module.exports = configureServer
 ```
 
 Basically you enable CORS for your application so that your frontend application is able to communicate with your backend application. In addition, you apply the body-parser middleware to parse your incoming requests rather than parsing them yourself. You don't need to bother about this anymore.
 
-Now, last but not least, comes the routing of your backend application where all the magic happens. In your *routes/payment.js* file you can use the following code:
+Now, last but not least, comes the routing of your backend application where all the magic happens. In your _routes/payment.js_ file you can use the following code:
 
 ```javascript
-const stripe = require('../constants/stripe');
+const stripe = require('../constants/stripe')
 
-const postStripeCharge = res => (stripeErr, stripeRes) => {
+const postStripeCharge = (res) => (stripeErr, stripeRes) => {
   if (stripeErr) {
-    res.status(500).send({ error: stripeErr });
+    res.status(500).send({ error: stripeErr })
   } else {
-    res.status(200).send({ success: stripeRes });
+    res.status(200).send({ success: stripeRes })
   }
 }
 
-const paymentApi = app => {
+const paymentApi = (app) => {
   app.get('/', (req, res) => {
-    res.send({ message: 'Hello Stripe checkout server!', timestamp: new Date().toISOString() })
-  });
+    res.send({
+      message: 'Hello Stripe checkout server!',
+      timestamp: new Date().toISOString(),
+    })
+  })
 
   app.post('/', (req, res) => {
-    stripe.charges.create(req.body, postStripeCharge(res));
-  });
+    stripe.charges.create(req.body, postStripeCharge(res))
+  })
 
-  return app;
-};
+  return app
+}
 
-module.exports = paymentApi;
+module.exports = paymentApi
 ```
 
 Basically on a post request, that you are already doing with axios from your React frontend application, you will use the Stripe library to create a official Stripe payment. The payment creation receives the incoming payload from your frontend application, all the credit card information and optional information, and a callback function that executes after the request to the Stripe API succeeds or fails. Afterward, you can send back a response to your React frontend application.
 
-Finally you can wire up your Express application with the payment route in *routes/index.js*:
+Finally you can wire up your Express application with the payment route in _routes/index.js_:
 
 ```javascript
-const paymentApi = require('./payment');
+const paymentApi = require('./payment')
 
-const configureRoutes = app => {
-  paymentApi(app);
-};
+const configureRoutes = (app) => {
+  paymentApi(app)
+}
 
-module.exports = configureRoutes;
+module.exports = configureRoutes
 ```
 
-The configuration is already used in your *index.js*. Your Express Stripe Backend should work now. Start it with `node index.js` from your *backend/* folder on the command line.
+The configuration is already used in your _index.js_. Your Express Stripe Backend should work now. Start it with `node index.js` from your _backend/_ folder on the command line.
 
 # Make your first Payment
 
 All the implementation is done. Now it is about testing it. When you start backend and frontend, your applications should run on the localhost ports 8080 and 3000. Open up the backend application and verify that it is running on the URL localhost:8080. Open up the frontend application on the URL localhost:3000 and charge money with one of Stripe's [test credit cards](https://stripe.com/docs/testing#cards). One of these credit cards could be:
 
-* Email: Any Email
-* Number: 4242 4242 4242 4242
-* Date: Any Date in the Future
-* CVC: Any 3 Numbers
+- Email: Any Email
+- Number: 4242 4242 4242 4242
+- Date: Any Date in the Future
+- CVC: Any 3 Numbers
 
 There should be an obvious alert when the payment succeeded, but also an error alert when it failed. Once it succeeded, you can find the payment on your Stripe dashboard using the test mode. If you charged a real credit card in production environment, the payment should be visible on the dashboard in live mode.
 

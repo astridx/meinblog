@@ -8,16 +8,16 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
-Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen finden Nutzer das benutzerfreundlicher. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freigeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten. 
+Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen finden Nutzer das benutzerfreundlicher. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freigeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten.
 
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24b...t25) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -25,13 +25,13 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
 Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
 
 2. Erstelle einen Menüpunkt
 
-![Joomla! Frontend Bearbeitung](../images/j4x30x1.png) 
+![Joomla! Frontend Bearbeitung](../images/j4x30x1.png)
 
 3. Öffne den Menüpunkt im Frontend
 

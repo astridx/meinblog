@@ -127,7 +127,7 @@ class App extends Component {
 
   state = initialState
 
-  updateBook = book => {
+  updateBook = (book) => {
     this.setState({ title: book.title, available: book.available })
   }
 }
@@ -146,7 +146,7 @@ const App = () => {
 
   const [book, setBook] = useState(initialBookState)
 
-  const updateBook = book => {
+  const updateBook = (book) => {
     setBook({ title: book.title, available: book.available })
   }
 }
@@ -261,7 +261,7 @@ Props works just as it did before. We'll map through the user data we sent throu
 ```jsx
 import React from 'react'
 
-const UserTable = props => (
+const UserTable = (props) => (
   <table>
     <thead>
       <tr>
@@ -272,7 +272,7 @@ const UserTable = props => (
     </thead>
     <tbody>
       {props.users.length > 0 ? (
-        props.users.map(user => (
+        props.users.map((user) => (
           <tr key={user.id}>
             <td>{user.name}</td>
             <td>{user.username}</td>
@@ -309,7 +309,7 @@ Since we're not using a real API and database, which would probably have an auto
 <div class="filename">App.js</div>
 
 ```jsx
-const addUser = user => {
+const addUser = (user) => {
   user.id = users.length + 1
   setUsers([...users, user])
 }
@@ -333,7 +333,7 @@ const App = () => {
 
   const [users, setUsers] = useState(usersData)
 
-  const addUser = user => {
+  const addUser = (user) => {
     user.id = users.length + 1
     setUsers([...users, user])
   }
@@ -365,7 +365,7 @@ Now we have to create a form that you can use to add the new user. Let's create 
 ```jsx
 import React, { useState } from 'react'
 
-const AddUserForm = props => {
+const AddUserForm = (props) => {
   return (
     <form>
       <label>Name</label>
@@ -396,7 +396,7 @@ const [user, setUser] = useState(initialFormState)
 Now we'll create a function to update the state within the form. `event` always gets passed through to any `on` event in the DOM, so you'll see that as the parameter of the function. Object destructuring will allow us to easily get the `name` (key) and `value` from the form. Finally, we'll set the user much like we did on the `App` component, except this time we're using computed property names to dynamically set the name (using `[name]`) and value.
 
 ```jsx
-const handleInputChange = event => {
+const handleInputChange = (event) => {
   const { name, value } = event.target
 
   setUser({ ...user, [name]: value })
@@ -410,9 +410,19 @@ Now we extract the values from the state object, and reference our function in t
 ```jsx
 <form>
   <label>Name</label>
-  <input type="text" name="name" value={user.name} onChange={handleInputChange} />
+  <input
+    type="text"
+    name="name"
+    value={user.name}
+    onChange={handleInputChange}
+  />
   <label>Username</label>
-  <input type="text" name="username" value={user.username} onChange={handleInputChange} />
+  <input
+    type="text"
+    name="username"
+    value={user.username}
+    onChange={handleInputChange}
+  />
   <button>Add new user</button>
 </form>
 ```
@@ -440,11 +450,11 @@ Here is our full `AddUserForm` component.
 ```jsx
 import React, { useState } from 'react'
 
-const AddUserForm = props => {
+const AddUserForm = (props) => {
   const initialFormState = { id: null, name: '', username: '' }
   const [user, setUser] = useState(initialFormState)
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target
 
     setUser({ ...user, [name]: value })
@@ -452,7 +462,7 @@ const AddUserForm = props => {
 
   return (
     <form
-      onSubmit={event => {
+      onSubmit={(event) => {
         event.preventDefault()
         if (!user.name || !user.username) return
 
@@ -461,9 +471,19 @@ const AddUserForm = props => {
       }}
     >
       <label>Name</label>
-      <input type="text" name="name" value={user.name} onChange={handleInputChange} />
+      <input
+        type="text"
+        name="name"
+        value={user.name}
+        onChange={handleInputChange}
+      />
       <label>Username</label>
-      <input type="text" name="username" value={user.username} onChange={handleInputChange} />
+      <input
+        type="text"
+        name="username"
+        value={user.username}
+        onChange={handleInputChange}
+      />
       <button>Add new user</button>
     </form>
   )
@@ -483,8 +503,8 @@ The next one we'll tackle is deleting a user, which is the easiest functionality
 Below `addUser` in `App.js`, we'll create `deleteUser`, which will take the ID of the user and filter them out of the user array.
 
 ```jsx
-const deleteUser = id => {
-  setUsers(users.filter(user => user.id !== id))
+const deleteUser = (id) => {
+  setUsers(users.filter((user) => user.id !== id))
 }
 ```
 
@@ -497,7 +517,10 @@ We pass that function through props to `UserTable`.
 Now all we need to do in `UserTable.js` is make sure the delete button calls that function.
 
 ```jsx
-<button onClick={() => props.deleteUser(user.id)} className="button muted-button">
+<button
+  onClick={() => props.deleteUser(user.id)}
+  className="button muted-button"
+>
   Delete
 </button>
 ```
@@ -535,7 +558,7 @@ const [currentUser, setCurrentUser] = useState(initialFormState)
 When Edit is selected on a user, it should turn on edit mode, and set the current user, which we'll do in this `editRow` function.
 
 ```jsx
-const editRow = user => {
+const editRow = (user) => {
   setEditing(true)
 
   setCurrentUser({ id: user.id, name: user.name, username: user.username })
@@ -575,7 +598,7 @@ This means we'll be taking two parameters - the updated user object, and the id 
 const updateUser = (id, updatedUser) => {
   setEditing(false)
 
-  setUsers(users.map(user => (user.id === id ? updatedUser : user)))
+  setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
 }
 ```
 
@@ -588,10 +611,10 @@ Create `forms/EditUserForm.js`. Most of it will be the same as the add form. The
 ```jsx
 import React, { useState } from 'react'
 
-const EditUserForm = props => {
+const EditUserForm = (props) => {
   const [user, setUser] = useState(props.currentUser)
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target
 
     setUser({ ...user, [name]: value })
@@ -599,18 +622,31 @@ const EditUserForm = props => {
 
   return (
     <form
-      onSubmit={event => {
+      onSubmit={(event) => {
         event.preventDefault()
 
         props.updateUser(user.id, user)
       }}
     >
       <label>Name</label>
-      <input type="text" name="name" value={user.name} onChange={handleInputChange} />
+      <input
+        type="text"
+        name="name"
+        value={user.name}
+        onChange={handleInputChange}
+      />
       <label>Username</label>
-      <input type="text" name="username" value={user.username} onChange={handleInputChange} />
+      <input
+        type="text"
+        name="username"
+        value={user.username}
+        onChange={handleInputChange}
+      />
       <button>Update user</button>
-      <button onClick={() => props.setEditing(false)} className="button muted-button">
+      <button
+        onClick={() => props.setEditing(false)}
+        className="button muted-button"
+      >
         Cancel
       </button>
     </form>

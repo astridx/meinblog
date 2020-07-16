@@ -197,6 +197,7 @@ Here's an example using the flex grid above and pulling all images from the gall
     			<?php endwhile; ?>
     	</div>
     </div>
+
 ```
 
 ## Conclusion
@@ -204,3 +205,4 @@ Here's an example using the flex grid above and pulling all images from the gall
 This is a very basic, simplified version of a flex grid, but hopefully you have a good understanding of how a looping flex grid works now. [Fluidbox](http://terrymun.github.io/Fluidbox/demo/index.html) is a great jQuery library I also like to combine with front end code for a beautiful gallery. [Masonry](http://masonry.desandro.com/) is another useful library if you're dealing with all differently sized images.
 
 [View Demo](http://codepen.io/taniarascia/pen/vKZKxP)
+```

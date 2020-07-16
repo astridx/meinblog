@@ -1,13 +1,13 @@
 ---
-title: "D3 on Angular: Reusable Components"
-description: "Components become more important these days. In the future you will get to hear more and more about Web Components, which get available in Angular 2.0..."
-date: "2015-04-03T13:50:46+02:00"
-categories: ["Angular", "D3"]
-keywords: ["angular d3"]
-hashtags: ["#100DaysOfCode", "#d3js,#angularjs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'D3 on Angular: Reusable Components'
+description: 'Components become more important these days. In the future you will get to hear more and more about Web Components, which get available in Angular 2.0...'
+date: '2015-04-03T13:50:46+02:00'
+categories: ['Angular', 'D3']
+keywords: ['angular d3']
+hashtags: ['#100DaysOfCode', '#d3js,#angularjs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -29,8 +29,8 @@ While one line chart has circles, the other one hasn't. One could assume that th
 
 The whole example + source code can be found here:
 
-* [Gist for Source Code](https://gist.github.com/rwieruch/630b6af9f93cffe594bb)
-* [Example with Source Code + Visualization](http://bl.ocks.org/rwieruch/630b6af9f93cffe594bb)
+- [Gist for Source Code](https://gist.github.com/rwieruch/630b6af9f93cffe594bb)
+- [Example with Source Code + Visualization](http://bl.ocks.org/rwieruch/630b6af9f93cffe594bb)
 
 The main code snippets can be found in the lineChart and scatter directives.
 
@@ -39,46 +39,56 @@ Scatter:
 ```javascript
 function Scatter() {
   return {
-  restrict: 'A',
-  require: '^lineChart',
-  link: function (scope, element, attrs, ctrl) {
+    restrict: 'A',
+    require: '^lineChart',
+    link: function (scope, element, attrs, ctrl) {
+      var x, y, scatterElement, data
 
-    var x, y, scatterElement, data;
+      init()
+      display()
 
-    init();
-    display();
+      scope.$on('LineChart:update', update)
 
-    scope.$on('LineChart:update', update);
-
-    function init() {
-      scatterElement = ctrl.getScatterElement();
-      x = ctrl.getX();
-      y = ctrl.getY();
-    }
-
-    function display() {
-      scatterElement.append("g")
-        .attr("class", "scatter")
-        .selectAll("circle")
-        .data(scope.data)
-        .enter().append("circle")
-        .attr("class", "dot")
-        .attr("cx", function(d) { return x(d.date); })
-        .attr("cy", function(d) { return y(d.rate); })
-        .attr("r", 3);
+      function init() {
+        scatterElement = ctrl.getScatterElement()
+        x = ctrl.getX()
+        y = ctrl.getY()
       }
 
-    function update() {
-      init();
+      function display() {
+        scatterElement
+          .append('g')
+          .attr('class', 'scatter')
+          .selectAll('circle')
+          .data(scope.data)
+          .enter()
+          .append('circle')
+          .attr('class', 'dot')
+          .attr('cx', function (d) {
+            return x(d.date)
+          })
+          .attr('cy', function (d) {
+            return y(d.rate)
+          })
+          .attr('r', 3)
+      }
 
-      scatterElement.selectAll(".dot")
-        .transition().duration(500)
-        .attr("cx", function(d) { return x(d.date); })
-        .attr("cy", function(d) { return y(d.rate); });
-    }
+      function update() {
+        init()
 
+        scatterElement
+          .selectAll('.dot')
+          .transition()
+          .duration(500)
+          .attr('cx', function (d) {
+            return x(d.date)
+          })
+          .attr('cy', function (d) {
+            return y(d.rate)
+          })
+      }
+    },
   }
-  };
 }
 ```
 

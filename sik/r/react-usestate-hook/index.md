@@ -1,13 +1,13 @@
 ---
-title: "How to useState in React?"
+title: 'How to useState in React?'
 description: "A tutorial about React's useState hook by example for state management in React function components ..."
-date: "2019-05-30T03:52:46+02:00"
-categories: ["React"]
-keywords: ["react usestate"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-05-30T03:52:46+02:00'
+categories: ['React']
+keywords: ['react usestate']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,15 +20,15 @@ In the past, state couldn't be used in function components. Hence they called th
 
 ```javascript
 const App = () => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   const handleIncrease = () => {
-    setCount(count + 1);
-  };
+    setCount(count + 1)
+  }
 
   const handleDecrease = () => {
-    setCount(count - 1);
-  };
+    setCount(count - 1)
+  }
 
   return (
     <div>
@@ -43,8 +43,8 @@ const App = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 ```
 
 The useState function takes as argument a value for the initial state. In this case, the count starts out with 0. In addition, the hook returns an array of two values: `count` and `setCount`. It's up to you to name the two values, because they are [destructured from the returned array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) where renaming is allowed.
@@ -59,9 +59,9 @@ That's everything you need to know to get started with simple state management i
 
 So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](/react-usereducer-hook). There are various scenarios where useReducer outperforms useState:
 
-* complex state containers
-* complex state transitions
-* conditional state updates
+- complex state containers
+- complex state transitions
+- conditional state updates
 
 It also helps to avoid multiple successive state updates by using only useState. You should definitely check it out if you want to manage more complex state in React.
 
@@ -71,15 +71,15 @@ What happens if you are dependent on actual state to update the state? Let's ill
 
 ```javascript{5,9}
 const App = () => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   const handleIncrease = () => {
-    setTimeout(() => setCount(count + 1), 1000);
-  };
+    setTimeout(() => setCount(count + 1), 1000)
+  }
 
   const handleDecrease = () => {
-    setTimeout(() => setCount(count - 1), 1000);
-  };
+    setTimeout(() => setCount(count - 1), 1000)
+  }
 
   return (
     <div>
@@ -94,25 +94,25 @@ const App = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 ```
 
 Every time you click on one of the buttons, the state update function is called with a delay of one second. That works for a single click. However, try to click one of the buttons multiple times in a row. The state update function will always operate on the same state (here: `count`) within this one second. In order to fix this problem, you can pass a function to the state update function from useState:
 
 ```javascript{7,11}
-import React from 'react';
+import React from 'react'
 
 const App = () => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   const handleIncrease = () => {
-    setTimeout(() => setCount(state => state + 1), 1000);
-  };
+    setTimeout(() => setCount((state) => state + 1), 1000)
+  }
 
   const handleDecrease = () => {
-    setTimeout(() => setCount(state => state - 1), 1000);
-  };
+    setTimeout(() => setCount((state) => state - 1), 1000)
+  }
 
   return (
     <div>
@@ -127,10 +127,10 @@ const App = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 ```
 
 The function offers you the state at the time of executing the function. This way, you never operate on any stale state. Therefore a good rule of thumb may be: Always use a function in useState's update function if your state update depends on your previous state.

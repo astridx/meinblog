@@ -1,13 +1,13 @@
 ---
-title: "Programmatic Slack invite in JavaScript and React"
-description: "The article guides you through the setup of an automated Slack invitation for a JavaScript and/or React applications. Why would you want a Slack invitation in the first place? My personal motivation was it to create a like minded community of people learning React, but the idea about a Slack Channel started out on Twitter ..."
-date: "2017-11-05T09:50:46+02:00"
-categories: ["React", "JavaScript"]
-keywords: ["slack invite react", "slack invite javascript"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Programmatic Slack invite in JavaScript and React'
+description: 'The article guides you through the setup of an automated Slack invitation for a JavaScript and/or React applications. Why would you want a Slack invitation in the first place? My personal motivation was it to create a like minded community of people learning React, but the idea about a Slack Channel started out on Twitter ...'
+date: '2017-11-05T09:50:46+02:00'
+categories: ['React', 'JavaScript']
+keywords: ['slack invite react', 'slack invite javascript']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -33,25 +33,26 @@ After you have setup your Slack App, you can invite people to your Slack Group p
 When you have installed your Slack App, you can invite people by email and the provided Slack token programmatically in JavaScript. In most browsers, the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) is supported. But you can use any other library (axios, superagent, request, jQuery) to make the request. In a node.js application, you would use a library to perform the Slack invite. In the following example axios is used to perform the invite:
 
 ```javascript
-import axios from 'axios';
+import axios from 'axios'
 
-var SLACK_TOKEN = 'my-slack-token-xxx';
-var SLACK_INVITE_ENDPOINT = 'https://slack.com/api/users.admin.invite';
+var SLACK_TOKEN = 'my-slack-token-xxx'
+var SLACK_INVITE_ENDPOINT = 'https://slack.com/api/users.admin.invite'
 
 function inviteSuccess() {
-  console.log('success');
+  console.log('success')
 }
 
 function inviteError() {
-  console.log('error');
+  console.log('error')
 }
 
 function inviteToSlack(email) {
-  var QUERY_PARAMS = `email=${email}&token=${SLACK_TOKEN}&set_active=true`;
+  var QUERY_PARAMS = `email=${email}&token=${SLACK_TOKEN}&set_active=true`
 
-  axios.get(`${SLACK_INVITE_ENDPOINT}?${QUERY_PARAMS}`)
+  axios
+    .get(`${SLACK_INVITE_ENDPOINT}?${QUERY_PARAMS}`)
     .then(inviteSuccess)
-    .catch(inviteError);
+    .catch(inviteError)
 }
 ```
 
@@ -68,7 +69,7 @@ The form for the React Sign Up component doesn't become anymore complex by addin
 ```javascript{10,14,17,18,19,28,33,34,35,46,75,76,77,78,79,80,81,82}
 class SignUp extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       email: '',
@@ -76,33 +77,28 @@ class SignUp extends Component {
       passwordTwo: '',
       username: '',
       isSlackInvite: true,
-    };
+    }
 
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onCheckSlackInvite = this.onCheckSlackInvite.bind(this);
+    this.onSubmit = this.onSubmit.bind(this)
+    this.onCheckSlackInvite = this.onCheckSlackInvite.bind(this)
   }
 
   onCheckSlackInvite(e) {
-    this.setState(prevState => ({ isSlackInvite: !prevState.isSlackInvite }));
+    this.setState((prevState) => ({ isSlackInvite: !prevState.isSlackInvite }))
   }
 
   onSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const {
-      email,
-      passwordOne,
-      username,
-      isSlackInvite,
-    } = this.state;
+    const { email, passwordOne, username, isSlackInvite } = this.state
 
-    const { onUserAuthSignUp } = this.props;
+    const { onUserAuthSignUp } = this.props
 
     if (isSlackInvite) {
-      inviteToSlack(email);
+      inviteToSlack(email)
     }
 
-    onUserAuthSignUp(email, passwordOne, username);
+    onUserAuthSignUp(email, passwordOne, username)
   }
 
   render() {
@@ -112,7 +108,7 @@ class SignUp extends Component {
       passwordTwo,
       username,
       isSlackInvite,
-    } = this.state;
+    } = this.state
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -120,25 +116,25 @@ class SignUp extends Component {
           type="text"
           placeholder="Full Name"
           value={username}
-          onChange={e => this.setState({ username: e.target.value})}
+          onChange={(e) => this.setState({ username: e.target.value })}
         />
         <input
           type="text"
           placeholder="Email Address"
           value={email}
-          onChange={e => this.setState({ email: e.target.value})}
+          onChange={(e) => this.setState({ email: e.target.value })}
         />
         <input
           type="password"
           placeholder="Password"
           value={passwordOne}
-          onChange={e => this.setState({ passwordOne: e.target.value})}
+          onChange={(e) => this.setState({ passwordOne: e.target.value })}
         />
         <input
           type="password"
           placeholder="Confirm Password"
           value={passwordTwo}
-          onChange={e => this.setState({ passwordTwo: e.target.value})}
+          onChange={(e) => this.setState({ passwordTwo: e.target.value })}
         />
 
         <div>
@@ -151,13 +147,15 @@ class SignUp extends Component {
         </div>
 
         <button
-          disabled={passwordOne !== passwordTwo || passwordOne === '' || username === ''}
+          disabled={
+            passwordOne !== passwordTwo || passwordOne === '' || username === ''
+          }
           type="submit"
         >
           Sign Up
         </button>
       </form>
-    );
+    )
   }
 }
 ```

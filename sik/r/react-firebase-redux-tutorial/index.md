@@ -1,13 +1,13 @@
 ---
-title: "How to use Redux in React Firebase"
+title: 'How to use Redux in React Firebase'
 description: "The tutorial shows you how to migrate a React with Firebase application, which uses only React's local state, to Redux for its state management. Also React's Context API is replaced with Redux ..."
-date: "2019-02-10T07:52:46+02:00"
-categories: ["React", "Firebase", "Redux"]
-keywords: ["react firebase redux tutorial"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-02-10T07:52:46+02:00'
+categories: ['React', 'Firebase', 'Redux']
+keywords: ['react firebase redux tutorial']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,63 +15,63 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 10 of 10 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React Firebase: Link Social Logins",
-      url: "/react-firebase-link-social-logins"
-    },
-    {
-      prefix: "Part 6:",
-      label: "React Firebase: Email Verification",
-      url: "/react-firebase-email-verification"
-    },
-    {
-      prefix: "Part 7:",
-      label: "How to use React Router with Firebase",
-      url: "/react-firebase-router"
-    },
-    {
-      prefix: "Part 8:",
-      label: "How to use Firebase Realtime Database in React",
-      url: "/react-firebase-realtime-database"
-    },
-    {
-      prefix: "Part 9:",
-      label: "How to deploy a React application to Firebase",
-      url: "/firebase-deploy-react-js"
-    }
-  ]}
+label="This tutorial is part 10 of 10 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+},
+{
+prefix: "Part 5:",
+label: "React Firebase: Link Social Logins",
+url: "/react-firebase-link-social-logins"
+},
+{
+prefix: "Part 6:",
+label: "React Firebase: Email Verification",
+url: "/react-firebase-email-verification"
+},
+{
+prefix: "Part 7:",
+label: "How to use React Router with Firebase",
+url: "/react-firebase-router"
+},
+{
+prefix: "Part 8:",
+label: "How to use Firebase Realtime Database in React",
+url: "/react-firebase-realtime-database"
+},
+{
+prefix: "Part 9:",
+label: "How to deploy a React application to Firebase",
+url: "/firebase-deploy-react-js"
+}
+]}
 />
 
 The previous tutorial series covered a lot of ground for Firebase in React. So far, it was fine to rely only on React's local state and React's Context API. This tutorial dives into using Redux on top of React and Firebase for state management. You will exchange React's local state (e.g. users on admin page, messages on home page) and React's context (e.g. session management for authenticated user) with Redux. It will show you how to accomplish the same thing with Redux in case you want to integrate it into a tech stack.
 
 This section is divided into two parts, the first of which will set up Redux. You will add the state layer separately from the view layer. Afterward, you will connect Redux with React by providing the Redux store with React's Context API to your React components. The second part exchanges the current React state layer with the Redux state layer:
 
-* Authenticated User in React Local State + React Context -> Authenticated User in Redux Store.
-* Users in React Local State -> Users in Redux Store.
-* Messages in React Local State -> Messages in Redux Store.
+- Authenticated User in React Local State + React Context -> Authenticated User in Redux Store.
+- Users in React Local State -> Users in Redux Store.
+- Messages in React Local State -> Messages in Redux Store.
 
 If you are not familiar with Redux, I recommend to check out [The Road to Redux](http://roadtoredux.com). Most of the Redux knowledge about Actions, Reducers, and the Store are required for the following migration from only using React to Redux.
 
@@ -83,7 +83,7 @@ Let's get started by installing [redux](https://redux.js.org/) and [react-redux]
 npm install redux react-redux
 ```
 
-We focus on the Redux setup without worrying about Firebase or React. First is the Redux store implementation.  Create a folder and file for it using the *src/* folder type:
+We focus on the Redux setup without worrying about Firebase or React. First is the Redux store implementation. Create a folder and file for it using the _src/_ folder type:
 
 ```javascript
 mkdir store
@@ -94,15 +94,15 @@ touch index.js
 Second, add the store in the new file as singleton instance, because there should be only one Redux store. The store creation takes a root reducer which isn't defined.
 
 ```javascript
-import { createStore } from 'redux';
-import rootReducer from '../reducers';
+import { createStore } from 'redux'
+import rootReducer from '../reducers'
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer)
 
-export default store;
+export default store
 ```
 
-Third, create a dedicated module for the reducers. There's a reducer for the session state (e.g. authenticated user) and reducers for the user and message states (e.g. list of users and messages from the Firebase realtime database). There's an entry point file to the module to combine those reducers as root reducer to pass it to the Redux store, like the previous step. Again, from your *src/* folder type:
+Third, create a dedicated module for the reducers. There's a reducer for the session state (e.g. authenticated user) and reducers for the user and message states (e.g. list of users and messages from the Firebase realtime database). There's an entry point file to the module to combine those reducers as root reducer to pass it to the Redux store, like the previous step. Again, from your _src/_ folder type:
 
 ```javascript
 mkdir reducers
@@ -115,24 +115,24 @@ First, add the session reducer which manages the `authUser` object. The authenti
 ```javascript
 const INITIAL_STATE = {
   authUser: null,
-};
+}
 
 const applySetAuthUser = (state, action) => ({
   ...state,
   authUser: action.authUser,
-});
+})
 
 function sessionReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'AUTH_USER_SET': {
-      return applySetAuthUser(state, action);
+      return applySetAuthUser(state, action)
     }
     default:
-      return state;
+      return state
   }
 }
 
-export default sessionReducer;
+export default sessionReducer
 ```
 
 The user reducer deals with the list of users from the Firebase realtime database. It sets either the whole object of users as dictionary, or a single user identified by a unique identifier:
@@ -140,12 +140,12 @@ The user reducer deals with the list of users from the Firebase realtime databas
 ```javascript
 const INITIAL_STATE = {
   users: null,
-};
+}
 
 const applySetUsers = (state, action) => ({
   ...state,
   users: action.users,
-});
+})
 
 const applySetUser = (state, action) => ({
   ...state,
@@ -153,22 +153,22 @@ const applySetUser = (state, action) => ({
     ...state.users,
     [action.uid]: action.user,
   },
-});
+})
 
 function userReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'USERS_SET': {
-      return applySetUsers(state, action);
+      return applySetUsers(state, action)
     }
     case 'USER_SET': {
-      return applySetUser(state, action);
+      return applySetUser(state, action)
     }
     default:
-      return state;
+      return state
   }
 }
 
-export default userReducer;
+export default userReducer
 ```
 
 The message reducer deals with the list of messages from the Firebase realtime database. Again, it sets the whole object of messages as dictionary, but also a limit for the pagination feature we implemented earlier:
@@ -177,61 +177,61 @@ The message reducer deals with the list of messages from the Firebase realtime d
 const INITIAL_STATE = {
   messages: null,
   limit: 5,
-};
+}
 
 const applySetMessages = (state, action) => ({
   ...state,
   messages: action.messages,
-});
+})
 
 const applySetMessagesLimit = (state, action) => ({
   ...state,
   limit: action.limit,
-});
+})
 
 function messageReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'MESSAGES_SET': {
-      return applySetMessages(state, action);
+      return applySetMessages(state, action)
     }
     case 'MESSAGES_LIMIT_SET': {
-      return applySetMessagesLimit(state, action);
+      return applySetMessagesLimit(state, action)
     }
     default:
-      return state;
+      return state
   }
 }
 
-export default messageReducer;
+export default messageReducer
 ```
 
-Finally, combine all reducers into a root reducer in the *src/reducers/index.js* file to make it accessible for the store creation:
+Finally, combine all reducers into a root reducer in the _src/reducers/index.js_ file to make it accessible for the store creation:
 
 ```javascript
-import { combineReducers } from 'redux';
-import sessionReducer from './session';
-import userReducer from './user';
-import messageReducer from './message';
+import { combineReducers } from 'redux'
+import sessionReducer from './session'
+import userReducer from './user'
+import messageReducer from './message'
 
 const rootReducer = combineReducers({
   sessionState: sessionReducer,
   userState: userReducer,
   messageState: messageReducer,
-});
+})
 
-export default rootReducer;
+export default rootReducer
 ```
 
-You have passed the root reducer with all its reducers to the Redux store creation, so the Redux setup is done. Now you can connect your state layer with your view layer. The Redux store can be provided for the component hierarchy using Redux's Provider component. This time, the Provider component from the Redux library passes down the whole store instead of only the authenticated user. In *src/index.js* file:
+You have passed the root reducer with all its reducers to the Redux store creation, so the Redux setup is done. Now you can connect your state layer with your view layer. The Redux store can be provided for the component hierarchy using Redux's Provider component. This time, the Provider component from the Redux library passes down the whole store instead of only the authenticated user. In _src/index.js_ file:
 
 ```javascript{3,5,10,14}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-import store from './store';
-import App from './components/App';
-import Firebase, { FirebaseContext } from './components/Firebase';
+import store from './store'
+import App from './components/App'
+import Firebase, { FirebaseContext } from './components/Firebase'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -239,15 +239,15 @@ ReactDOM.render(
       <App />
     </FirebaseContext.Provider>
   </Provider>,
-  document.getElementById('root'),
-);
+  document.getElementById('root')
+)
 ```
 
 That's it for connecting both worlds, so we'll refactor almost everything from React's local state to Redux. We want to have everything in the Redux store that should be persisted when we navigate from route to route. This includes users, messages, and the authenticated user, but maybe not the loading states.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VplHuW).
+- Confirm your [source code for the last section](http://bit.ly/2VplHuW).
 
 # Manage Firebase's authenticated User in Redux Store
 
@@ -459,25 +459,21 @@ export default compose(
 )(AccountPage);
 ```
 
-Now you can remove the React Context for providing and consuming the authenticated user in the *src/components/Session/context.js* and *src/components/Session/index.js* files:
+Now you can remove the React Context for providing and consuming the authenticated user in the _src/components/Session/context.js_ and _src/components/Session/index.js_ files:
 
 ```javascript
-import withAuthentication from './withAuthentication';
-import withAuthorization from './withAuthorization';
-import withEmailVerification from './withEmailVerification';
+import withAuthentication from './withAuthentication'
+import withAuthorization from './withAuthorization'
+import withEmailVerification from './withEmailVerification'
 
-export {
-  withAuthentication,
-  withAuthorization,
-  withEmailVerification,
-};
+export { withAuthentication, withAuthorization, withEmailVerification }
 ```
 
 That's it for storing the authenticated user in the Redux store, which takes place in the authentication higher-order component and for consuming the authenticated user in every component which is interested in it by connecting the Redux store.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VpQLL8).
+- Confirm your [source code for the last section](http://bit.ly/2VpQLL8).
 
 # Manage Firebase's Users in Redux Store
 
@@ -516,7 +512,7 @@ export default compose(
 )(UserList);
 ```
 
-React Redux's connect higher-order component is used to marry React with Redux. We can tell what state of Redux should be mapped to props for the React component in the `mapStateToProps` function, and we can pass dispatchable Redux actions as functions to the React component as props with the `mapDispatchToProps` function. In our case, we are interested in a user object that encapsulates all users in the Redux store. We transform this user object--which is the Firebase representation of all users--into an array, to make it easier for us to render them. The point is to dispatch an action that sets the user object as state in the Redux store. Check t he *src/reducers/user.js* to see how our reducer deals with this action. Both `users` and `onSetUsers` are received as props in the UserList component.
+React Redux's connect higher-order component is used to marry React with Redux. We can tell what state of Redux should be mapped to props for the React component in the `mapStateToProps` function, and we can pass dispatchable Redux actions as functions to the React component as props with the `mapDispatchToProps` function. In our case, we are interested in a user object that encapsulates all users in the Redux store. We transform this user object--which is the Firebase representation of all users--into an array, to make it easier for us to render them. The point is to dispatch an action that sets the user object as state in the Redux store. Check t he _src/reducers/user.js_ to see how our reducer deals with this action. Both `users` and `onSetUsers` are received as props in the UserList component.
 
 Next, make sure the users are fetched from Firebase's realtime database and persisted in the Redux store with our new dispatchable action:
 
@@ -571,15 +567,15 @@ The users and loading indicator are rendered as before, but only the loading sta
 ```javascript{3,23}
 class UserList extends Component {
   render() {
-    const { users } = this.props;
-    const { loading } = this.state;
+    const { users } = this.props
+    const { loading } = this.state
 
     return (
       <div>
         <h2>Users</h2>
         {loading && <div>Loading ...</div>}
         <ul>
-          {users.map(user => (
+          {users.map((user) => (
             <li key={user.uid}>
               <span>
                 <strong>ID:</strong> {user.uid}
@@ -591,15 +587,13 @@ class UserList extends Component {
                 <strong>Username:</strong> {user.username}
               </span>
               <span>
-                <Link to={`${ROUTES.ADMIN}/${user.uid}`}>
-                  Details
-                </Link>
+                <Link to={`${ROUTES.ADMIN}/${user.uid}`}>Details</Link>
               </span>
             </li>
           ))}
         </ul>
       </div>
-    );
+    )
   }
 }
 ```
@@ -716,7 +710,7 @@ That's it for the UserItem component. It renders a user, fetches the recent user
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VqXuVc).
+- Confirm your [source code for the last section](http://bit.ly/2VqXuVc).
 
 # Manage Message Entities in Redux Store
 
@@ -761,7 +755,7 @@ export default compose(
 )(Messages);
 ```
 
-The Messages component has access to the authenticated user, which is used for associating the user to the written message, the transformed list of messages and the limit integer for the pagination feature. Also it receives functions for dispatching actions that set messages and the limit. Check the *src/reducers/message.js* file again to see how the state and the actions are used there. Because we are using lots of things from the Redux store, only a couple of properties are left in the local state of the component:
+The Messages component has access to the authenticated user, which is used for associating the user to the written message, the transformed list of messages and the limit integer for the pagination feature. Also it receives functions for dispatching actions that set messages and the limit. Check the _src/reducers/message.js_ file again to see how the state and the actions are used there. Because we are using lots of things from the Redux store, only a couple of properties are left in the local state of the component:
 
 ```javascript
 class Messages extends Component {
@@ -890,9 +884,8 @@ The MessageList and MessageItem components didn't change at all, and only the Ho
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VoS0dt)
+- Confirm your [source code for the last section](http://bit.ly/2VoS0dt)
 
 <Divider />
 
 That's it for the React Firebase with Redux tutorial. You have introduced Redux as state management library to manage your session, user, and message state. Instead of relying on React's context API for the authenticated user object and React's local state for the list of users and messages from the Firebase database, you are storing these objects in the Redux store. You can find the project in this [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication).
-

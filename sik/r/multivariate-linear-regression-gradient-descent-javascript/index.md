@@ -1,13 +1,21 @@
 ---
-title: "Multivariate Linear Regression, Gradient Descent in JavaScript"
-description: "How to use multivariate linear regression with gradient descent (vectorized) in JavaScript and feature scaling to solve a regression problem ..."
-date: "2017-11-23T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "linear regression javascript", "multivariate linear regression javascript", "gradient descent javascript", "vectorization gradient descent javascript", "feature scaling javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Multivariate Linear Regression, Gradient Descent in JavaScript'
+description: 'How to use multivariate linear regression with gradient descent (vectorized) in JavaScript and feature scaling to solve a regression problem ...'
+date: '2017-11-23T13:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  [
+    'machine learning javascript',
+    'linear regression javascript',
+    'multivariate linear regression javascript',
+    'gradient descent javascript',
+    'vectorization gradient descent javascript',
+    'feature scaling javascript',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -25,17 +33,17 @@ Before gradient descent can be performed on the training set, it makes sense to 
 Our starting point is the following function in JavaScript whereas the other parts will be implemented while reading the article:
 
 ```javascript
-import math from 'mathjs';
+import math from 'mathjs'
 
 function init(matrix) {
   let X = math.eval('matrix[:, 1:2]', {
     matrix,
-  });
+  })
   let y = math.eval('matrix[:, 3]', {
     matrix,
-  });
+  })
 
-  let m = y.length;
+  let m = y.length
 
   // Part 1: Feature Normalization
 
@@ -71,30 +79,29 @@ Now, since the standardization is used as feature scaling method, the function n
 Since I haven't found any helpful functionality in math.js to perform it, I implemented an own helper function for it. These helper functions can be found in this [util library](https://github.com/javascript-machine-learning/mathjs-util), if you don't want to implement them yourself and don't want to care about them. But for the sake of completeness, here they are:
 
 ```javascript
-import math from 'mathjs';
+import math from 'mathjs'
 
 function getMeanAsRowVector(matrix) {
-  const n = matrix[0].length;
+  const n = matrix[0].length
 
-  const vectors = Array(n).fill().map((_, i) =>
-    math.eval(`matrix[:, ${i + 1}]`, { matrix })
-  );
+  const vectors = Array(n)
+    .fill()
+    .map((_, i) => math.eval(`matrix[:, ${i + 1}]`, { matrix }))
 
-  return vectors.reduce((result, vector) =>
-    result.concat(math.mean(vector)), []
-  );
+  return vectors.reduce(
+    (result, vector) => result.concat(math.mean(vector)),
+    []
+  )
 }
 
 function getStdAsRowVector(matrix) {
-  const n = matrix[0].length;
+  const n = matrix[0].length
 
-  const vectors = Array(n).fill().map((_, i) =>
-    math.eval(`matrix[:, ${i + 1}]`, { matrix })
-  );
+  const vectors = Array(n)
+    .fill()
+    .map((_, i) => math.eval(`matrix[:, ${i + 1}]`, { matrix }))
 
-  return vectors.reduce((result, vector) =>
-    result.concat(math.std(vector)), []
-  );
+  return vectors.reduce((result, vector) => result.concat(math.std(vector)), [])
 }
 ```
 
@@ -215,32 +222,32 @@ And fourth, replace the feature vector (column) in matrix X with the normalized 
 
 ```javascript{21,22,23,24}
 function featureNormalize(X) {
-  const mu = getMeanAsRowVector(X);
-  const sigma = getStdAsRowVector(X);
+  const mu = getMeanAsRowVector(X)
+  const sigma = getStdAsRowVector(X)
 
-  const n = X[0].length;
+  const n = X[0].length
   for (let i = 0; i < n; i++) {
     let featureVector = math.eval(`X[:, ${i + 1}]`, {
       X,
-    });
+    })
 
     let featureMeanVector = math.eval('featureVector - mu', {
       featureVector,
-      mu: mu[i]
-    });
+      mu: mu[i],
+    })
 
     let normalizedVector = math.eval('featureMeanVector / sigma', {
       featureMeanVector,
       sigma: sigma[i],
-    });
+    })
 
     math.eval(`X[:, ${i + 1}] = normalizedVector`, {
       X,
       normalizedVector,
-    });
+    })
   }
 
-  return { XNorm, mu, sigma };
+  return { XNorm, mu, sigma }
 }
 ```
 
@@ -332,14 +339,14 @@ theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {
   m,
   X,
   y,
-});
+})
 ```
 
 In the algorithm, theta would be trained with every iteration by applying gradient descent.
 
 ```javascript{5,6,7,8,9,10,11}
 function gradientDescentMulti(X, y, theta, ALPHA, ITERATIONS) {
-  const m = y.length;
+  const m = y.length
 
   for (let i = 0; i < ITERATIONS; i++) {
     theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {
@@ -348,10 +355,10 @@ function gradientDescentMulti(X, y, theta, ALPHA, ITERATIONS) {
       m,
       X,
       y,
-    });
+    })
   }
 
-  return theta;
+  return theta
 }
 ```
 

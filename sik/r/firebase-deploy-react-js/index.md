@@ -1,13 +1,18 @@
 ---
-title: "How to deploy a React application to Firebase"
-description: "The tutorial shows you how to deploy a React.js application to Firebase Hosting. You will use Firebase CLI to perform the deployment for a create-react-app app ..."
-date: "2019-01-20T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["firebase deploy react", "firebase react js deployment", "create-react-app firebase deploy"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to deploy a React application to Firebase'
+description: 'The tutorial shows you how to deploy a React.js application to Firebase Hosting. You will use Firebase CLI to perform the deployment for a create-react-app app ...'
+date: '2019-01-20T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'firebase deploy react',
+    'firebase react js deployment',
+    'create-react-app firebase deploy',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,49 +20,49 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 9 of 9 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React Firebase: Link Social Logins",
-      url: "/react-firebase-link-social-logins"
-    },
-    {
-      prefix: "Part 6:",
-      label: "React Firebase: Email Verification",
-      url: "/react-firebase-email-verification"
-    },
-    {
-      prefix: "Part 7:",
-      label: "How to use React Router with Firebase",
-      url: "/react-firebase-router"
-    },
-    {
-      prefix: "Part 8:",
-      label: "How to use Firebase Realtime Database in React",
-      url: "/react-firebase-realtime-database"
-    }
-  ]}
+label="This tutorial is part 9 of 9 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+},
+{
+prefix: "Part 5:",
+label: "React Firebase: Link Social Logins",
+url: "/react-firebase-link-social-logins"
+},
+{
+prefix: "Part 6:",
+label: "React Firebase: Email Verification",
+url: "/react-firebase-email-verification"
+},
+{
+prefix: "Part 7:",
+label: "How to use React Router with Firebase",
+url: "/react-firebase-router"
+},
+{
+prefix: "Part 8:",
+label: "How to use Firebase Realtime Database in React",
+url: "/react-firebase-realtime-database"
+}
+]}
 />
 
 After we built a full-fledged application in React, the final step is deployment, the tipping point of getting your ideas out into the world, from consuming tutorials to producing applications. We will use Firebase Hosting for the deployment.
@@ -113,7 +118,7 @@ but for now we'll just set up a default project.
 i  Using project my-react-project-abc123 (my-react-project)
 ```
 
-There are a few other configuration steps to define. Instead of using the default *public/* folder, we want to use the *build/* folder for create-react-app. If you set up the bundling with a tool like Webpack, you can choose the appropriate name for the build folder:
+There are a few other configuration steps to define. Instead of using the default _public/_ folder, we want to use the _build/_ folder for create-react-app. If you set up the bundling with a tool like Webpack, you can choose the appropriate name for the build folder:
 
 ```javascript
 ? What do you want to use as your public directory? build
@@ -121,7 +126,7 @@ There are a few other configuration steps to define. Instead of using the defaul
 ? File public/index.html already exists. Overwrite? No
 ```
 
-The create-react-app application creates a *build/* folder after you perform the `npm run build` for the first time. There you will find all the merged content from the *public/* folder and the *src/* folder. Since it is a single page application, we want to redirect the user always to the *index.html* file. From there React Router takes over for the client-side routing.
+The create-react-app application creates a _build/_ folder after you perform the `npm run build` for the first time. There you will find all the merged content from the _public/_ folder and the _src/_ folder. Since it is a single page application, we want to redirect the user always to the _index.html_ file. From there React Router takes over for the client-side routing.
 
 Now your Firebase initialization is complete. This step created a few configuration files for Firebase Hosting in your project's folder. You can read more about them in [Firebase's documentation](https://firebase.google.com/docs/hosting/full-config) for configuring redirects, a 404 page, or headers. Finally, deploy your React application with Firebase on the command line:
 
@@ -138,9 +143,9 @@ Hosting URL: https://my-react-project-abc123.firebaseapp.com
 
 Visit both pages to observe the results. The former link navigates to your Firebase project's dashboard. There, you should have a new panel for the Firebase Hosting. The latter link navigates to your deployed React application.
 
-If you only see a blank page for your deployed React application, see if the `public` key/value pair in the *firebase.json* is set to `build`. That's the case if your build folder has the name *build*. If it has another name, set the value to this. Second, check if you have ran the build script of your React app with `npm run build`. And third, if there is still a problem, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Afterward, try another deployment with `firebase deploy`. That should get your recent React build up and running for Firebase Hosting.
+If you only see a blank page for your deployed React application, see if the `public` key/value pair in the _firebase.json_ is set to `build`. That's the case if your build folder has the name _build_. If it has another name, set the value to this. Second, check if you have ran the build script of your React app with `npm run build`. And third, if there is still a problem, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Afterward, try another deployment with `firebase deploy`. That should get your recent React build up and running for Firebase Hosting.
 
 ### Exercises
 
-* Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting/).
-* [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).
+- Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting/).
+- [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).

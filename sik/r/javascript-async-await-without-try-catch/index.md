@@ -1,13 +1,13 @@
 ---
-title: "Async/Await without Try/Catch Block in JavaScript"
-description: "Learn how to use async await without a try catch block in JavaScript ..."
-date: "2020-05-22T07:50:46+02:00"
-categories: ["JavaScript"]
-keywords: ["async await without try catch"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Async/Await without Try/Catch Block in JavaScript'
+description: 'Learn how to use async await without a try catch block in JavaScript ...'
+date: '2020-05-22T07:50:46+02:00'
+categories: ['JavaScript']
+keywords: ['async await without try catch']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,9 +16,14 @@ When you have learned about JavaScript promises for the first time, you learned 
 
 ```javascript
 function findUserById(id) {
-  return database.getUserById(id)
-    .then(user => { /* do something with user */ })
-    .catch(error => { /* do something with error */ });
+  return database
+    .getUserById(id)
+    .then((user) => {
+      /* do something with user */
+    })
+    .catch((error) => {
+      /* do something with error */
+    })
 }
 ```
 
@@ -26,11 +31,11 @@ Eventually you have learned about async/await in JavaScript as alternative to a 
 
 ```javascript{1-2}
 async function findUserById(id) {
-  const user = await database.getUserById(id);
+  const user = await database.getUserById(id)
 
   // do something with user
 
-  return user;
+  return user
 }
 ```
 
@@ -38,16 +43,16 @@ The shift from then/catch to async/await was a pretty powerful one, because sudd
 
 ```javascript{2,4,7-9}
 async function findUserById(id) {
-  let user;
+  let user
 
   try {
-    user = await database.getUserById(id);
+    user = await database.getUserById(id)
     // do something with user
   } catch (error) {
     // do something with error
   }
 
-  return user;
+  return user
 }
 ```
 
@@ -55,12 +60,11 @@ This broke all the conciseness from async/await again, because instead of having
 
 ```javascript{3-5}
 async function findUserById(id) {
-  const user = await database.getUserById(id)
-    .catch(error => {
-      // do something with error
-    });
+  const user = await database.getUserById(id).catch((error) => {
+    // do something with error
+  })
 
-  return user;
+  return user
 }
 ```
 
@@ -68,10 +72,9 @@ This works, the only flaw here is that in a case of an error all the code after 
 
 ```javascript{7-11}
 async function findUserById(id) {
-  const user = await database.getUserById(id)
-    .catch(error => {
-      // do something with error
-    });
+  const user = await database.getUserById(id).catch((error) => {
+    // do something with error
+  })
 
   if (!user) {
     // do something if there is no user
@@ -79,7 +82,7 @@ async function findUserById(id) {
     // or use if/else instead for returning the user in else
   }
 
-  return user;
+  return user
 }
 ```
 
@@ -87,13 +90,12 @@ We could also return the error and do the error handling in the if block:
 
 ```javascript{2-3,5-9}
 async function findUserById(id) {
-  const maybeUser = await database.getUserById(id)
-    .catch(error => error);
+  const maybeUser = await database.getUserById(id).catch((error) => error)
 
   if (maybeUser instanceof Error) {
     // do something with error
   } else {
-    return maybeUser;
+    return maybeUser
   }
 }
 ```

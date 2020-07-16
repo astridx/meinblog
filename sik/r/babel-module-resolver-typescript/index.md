@@ -1,13 +1,13 @@
 ---
-title: "Babel Module Resolver with TypeScript"
-description: "How to use TypeScript with Babel Module Resolver for aliases that are defined in your .babelrc file ..."
-date: "2020-02-01T13:56:46+02:00"
-categories: ["Tooling"]
-keywords: ["babel module resolver typescript"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Babel Module Resolver with TypeScript'
+description: 'How to use TypeScript with Babel Module Resolver for aliases that are defined in your .babelrc file ...'
+date: '2020-02-01T13:56:46+02:00'
+categories: ['Tooling']
+keywords: ['babel module resolver typescript']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -34,7 +34,7 @@ Here you will learn how to use TypeScript with Babel Module Resolver for aliases
 }
 ```
 
-In order to get the same alias mappings to TypeScript, the *tsconfig.json* file needs to look like this:
+In order to get the same alias mappings to TypeScript, the _tsconfig.json_ file needs to look like this:
 
 ```javascript
 {

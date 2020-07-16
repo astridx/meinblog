@@ -1,12 +1,21 @@
 ---
-title: "A apollo-link-state Tutorial for Local State in React"
+title: 'A apollo-link-state Tutorial for Local State in React'
 description: "A tutorial about how to use Apollo Link State as local state management solution in a React application when having a GraphQL powered server in the first place. The example shows you how to use Apollo Link State instead of React's Local State, but also instead of Redux or MobX to manage global state ..."
-date: "2018-05-13T06:50:46+02:00"
-categories: ["React", "GraphQL"]
-keywords: ["apollo link state tutorial", "apollo link state example", "apollo link state local state", "apollo link state local state management", "apollo link state react", "react graphql book", "react graphql apollo book"]
-hashtag: ["#ReactJs", "#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
+date: '2018-05-13T06:50:46+02:00'
+categories: ['React', 'GraphQL']
+keywords:
+  [
+    'apollo link state tutorial',
+    'apollo link state example',
+    'apollo link state local state',
+    'apollo link state local state management',
+    'apollo link state react',
+    'react graphql book',
+    'react graphql apollo book',
+  ]
+hashtag: ['#ReactJs', '#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
 ---
 
 <Sponsorship />
@@ -105,7 +114,7 @@ const Repositories = ({ repositories }) => (
     repositories={repositories}
     selectedRepositoryIds={selectedRepositoryIds}
   />
-);
+)
 ```
 
 So where does the list of selected repository identifiers come from? Since they are in Apollo Client's Cache due to Apollo Link State and not in React's local state anymore, you can query them with a normal GraphQL query and the Query component which you have used before for querying remote data. This time they are used for querying local data though.
@@ -142,7 +151,7 @@ const GET_SELECTED_REPOSITORIES = gql`
       selectedRepositoryIds
     }
   }
-`;
+`
 ```
 
 Since a GraphQL operation is fine-tuned of a field level, the @client directive can be used for only a part of the data. All the remaining fields are fetched by using a network request with the Apollo HTTP Link. The following query gives you an example of how one query can be used to fetch local data and remote data.
@@ -158,7 +167,7 @@ const GET_SELECTED_REPOSITORIES = gql`
       url
     }
   }
-`;
+`
 ```
 
 Nevertheless, let's stick to the initial implementation of the query for not adding too much noise and keeping the example simple.
@@ -168,7 +177,7 @@ const GET_SELECTED_REPOSITORIES = gql`
   query {
     selectedRepositoryIds @client
   }
-`;
+`
 ```
 
 When you start your application again, you should see that one of the repositories is selected, because you have defined the identifier in the `defaults` of the Apollo Link State initialization. Basically it is pre-selected because of the initial state. It is similar to telling React's local state to have an initial state:
@@ -284,20 +293,20 @@ In this example, the `info` argument isn't needed and thus doesn't appear in the
 
 After all, you only need the `args` and `context` arguments. While the former has all the parameters which where provided as GraphQL arguments to the GraphQL mutation, the latter has access to the Apollo Client's Cache instance. Thus, both can be used to write the local data to the local state.
 
-Before you can write data to the local state, you often need to read data from it in order to update it. In this case, you need to read the list of selected repositories from the local state in order to update it with the new selected or unselected identifier. Therefore, you can use the same query which you have used in your Repositories component. In order to use it in the *src/index.js* file for the resolver function, you have to export it from the *src/App.js* file first:
+Before you can write data to the local state, you often need to read data from it in order to update it. In this case, you need to read the list of selected repositories from the local state in order to update it with the new selected or unselected identifier. Therefore, you can use the same query which you have used in your Repositories component. In order to use it in the _src/index.js_ file for the resolver function, you have to export it from the _src/App.js_ file first:
 
 ```javascript{1}
 export const GET_SELECTED_REPOSITORIES = gql`
   query {
     selectedRepositoryIds @client
   }
-`;
+`
 ```
 
-Afterward, you can import it in the *src/index.js* file for your resolver function:
+Afterward, you can import it in the _src/index.js_ file for your resolver function:
 
 ```javascript{1}
-import App, { GET_SELECTED_REPOSITORIES } from './App';
+import App, { GET_SELECTED_REPOSITORIES } from './App'
 ```
 
 Finally, as first step, the query can be used in the resolver function to retrieved the list of selected repository identifiers. The cache instance offers methods such as `readQuery()` or `readFragment()` to read data from it. That's why you had to import the query.
@@ -355,19 +364,19 @@ Last but not least, a mutation result should be returned. In this case, no resul
 const toggleSelectRepository = (_, { id, isSelected }, { cache }) => {
   let { selectedRepositoryIds } = cache.readQuery({
     query: GET_SELECTED_REPOSITORIES,
-  });
+  })
 
   selectedRepositoryIds = isSelected
-    ? selectedRepositoryIds.filter(itemId => itemId !== id)
-    : selectedRepositoryIds.concat(id);
+    ? selectedRepositoryIds.filter((itemId) => itemId !== id)
+    : selectedRepositoryIds.concat(id)
 
   cache.writeQuery({
     query: GET_SELECTED_REPOSITORIES,
     data: { selectedRepositoryIds },
-  });
+  })
 
-  return null;
-};
+  return null
+}
 ```
 
 That's it for writing local data in Apollo's local state by using a GraphQL mutation which is only used locally. Once you start your application again, the select interaction should work. But this time, the data is stored and retrieved in/from Apollo Link State by using GraphQL operations instead of React's local state.
@@ -382,7 +391,7 @@ const SELECT_REPOSITORY = gql`
       isSelected
     }
   }
-`;
+`
 ```
 
 Next, the resolver function can return the updated result:
@@ -391,44 +400,41 @@ Next, the resolver function can return the updated result:
 const toggleSelectRepository = (_, { id, isSelected }, { cache }) => {
   let { selectedRepositoryIds } = cache.readQuery({
     query: GET_SELECTED_REPOSITORIES,
-  });
+  })
 
   selectedRepositoryIds = isSelected
-    ? selectedRepositoryIds.filter(itemId => itemId !== id)
-    : selectedRepositoryIds.concat(id);
+    ? selectedRepositoryIds.filter((itemId) => itemId !== id)
+    : selectedRepositoryIds.concat(id)
 
   cache.writeQuery({
     query: GET_SELECTED_REPOSITORIES,
     data: { selectedRepositoryIds },
-  });
+  })
 
-  return { id, isSelected: !isSelected };
-};
+  return { id, isSelected: !isSelected }
+}
 ```
 
 And finally you would be able to access it in the Mutation's render prop child function as second argument.
 
 ```javascript{6}
 const Select = ({ id, isSelected }) => (
-  <Mutation
-    mutation={SELECT_REPOSITORY}
-    variables={{ id, isSelected }}
-  >
+  <Mutation mutation={SELECT_REPOSITORY} variables={{ id, isSelected }}>
     {(toggleSelectRepository, result) => (
       <button type="button" onClick={toggleSelectRepository}>
         {isSelected ? 'Unselect' : 'Select'}
       </button>
     )}
   </Mutation>
-);
+)
 ```
 
 In the end, you should be able to access the result with the previous implementations. However, in the case of this mutation it is not really needed. In case you need it in the future, you have the necessary knowledge to do it. The application which you have implemented in the previous sections can be found [here as GitHub repository](https://github.com/rwieruch/react-apollo-link-state-example).
 
 ### Exercises:
 
-* Implement select and unselect all repositories in the list mutations
-* Implement a batch star and unstar mutation for all selected repositories
+- Implement select and unselect all repositories in the list mutations
+- Implement a batch star and unstar mutation for all selected repositories
 
 # Async Query Resolver and Device Data
 

@@ -62,7 +62,7 @@ const gimli = {
   name: 'Gimli',
   race: 'dwarf',
   weapon: 'axe',
-  greet: function() {
+  greet: function () {
     return `Hi, my name is ${this.name}!`
   },
 }
@@ -110,7 +110,7 @@ const gimli = {
   name: 'Gimli',
   race: 'dwarf',
   weapon: 'axe',
-  greet: function() {
+  greet: function () {
     return `Hi, my name is ${this.name}!`
   },
 }
@@ -184,7 +184,7 @@ A method can also be added to the object by using the same process.
 
 ```js
 // Add new fight method to gimli
-gimli.fight = function() {
+gimli.fight = function () {
   return `Gimli attacks with an ${this.weapon}.`
 }
 ```

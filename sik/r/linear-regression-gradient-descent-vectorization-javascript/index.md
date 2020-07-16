@@ -1,13 +1,19 @@
 ---
-title: "Gradient Descent with Vectorization in JavaScript"
-description: "An article guiding through the vectorized implementation of gradient descent in JavaScript by using matrix operations in a univariate regression problem ..."
-date: "2017-11-21T09:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "linear regression javascript", "vectorized gradient descent javascript", "vectorization gradient descent javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Gradient Descent with Vectorization in JavaScript'
+description: 'An article guiding through the vectorized implementation of gradient descent in JavaScript by using matrix operations in a univariate regression problem ...'
+date: '2017-11-21T09:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  [
+    'machine learning javascript',
+    'linear regression javascript',
+    'vectorized gradient descent javascript',
+    'vectorization gradient descent javascript',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -23,12 +29,12 @@ Gradient descent by nature is an iterative process. You take a number of iterati
 ```javascript
 for (let i = 0; i < ITERATIONS; i++) {
   for (let j = 0; j < m; j++) {
-    thetaZeroSum += hypothesis(x[j]) - y[j];
-    thetaOneSum += (hypothesis(x[j]) - y[j]) * x[j];
+    thetaZeroSum += hypothesis(x[j]) - y[j]
+    thetaOneSum += (hypothesis(x[j]) - y[j]) * x[j]
   }
 
-  thetaZero = thetaZero - (ALPHA / m) * thetaZeroSum;
-  thetaOne = thetaOne - (ALPHA / m) * thetaOneSum;
+  thetaZero = thetaZero - (ALPHA / m) * thetaZeroSum
+  thetaOne = thetaOne - (ALPHA / m) * thetaOneSum
 }
 ```
 
@@ -64,22 +70,21 @@ Before implementing the cost function in JavaScript, the matrix X needs to add a
 
 ```javascript{12,14,16,17}
 function init(matrix) {
-
   // Part 0: Preparation
 
   let X = math.eval('matrix[:, 1]', {
     matrix,
-  });
+  })
   let y = math.eval('matrix[:, 2]', {
     matrix,
-  });
+  })
 
-  let m = y.length;
+  let m = y.length
 
   // Part 1: Cost
 
   // Add Intercept Term
-  X = math.concat(math.ones([m, 1]).valueOf(), X);
+  X = math.concat(math.ones([m, 1]).valueOf(), X)
 }
 ```
 
@@ -149,24 +154,24 @@ And last but not least, computing the cost with the squared errors and the train
 
 ```javascript{14,15,16,17}
 function computeCost(X, y, theta) {
-  let m = y.length;
+  let m = y.length
 
   let predictions = math.eval('X * theta', {
     X,
     theta,
-  });
+  })
 
   let sqrErrors = math.eval('(predictions - y).^2', {
     predictions,
     y,
-  });
+  })
 
   let J = math.eval(`1 / (2 * m) * sum(sqrErrors)`, {
     m,
     sqrErrors,
-  });
+  })
 
-  return J;
+  return J
 }
 ```
 
@@ -260,37 +265,43 @@ Second, you can compute the parameters theta by using matrix operations as well.
 
 ```javascript{13,14,15,16,17,18,19,20,22,23,24,25,26,27,28,29}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = y.length;
+  let m = y.length
 
-  let thetaZero = theta[0];
-  let thetaOne = theta[1];
+  let thetaZero = theta[0]
+  let thetaOne = theta[1]
 
   for (let i = 0; i < ITERATIONS; i++) {
     let predictions = math.eval('X * theta', {
       X,
       theta: [thetaZero, thetaOne],
-    });
+    })
 
-    thetaZero = math.eval(`thetaZero - ALPHA * (1 / m) * sum((predictions - y) .* X[:, 1])`, {
-      thetaZero,
-      ALPHA,
-      m,
-      predictions,
-      y,
-      X,
-    });
+    thetaZero = math.eval(
+      `thetaZero - ALPHA * (1 / m) * sum((predictions - y) .* X[:, 1])`,
+      {
+        thetaZero,
+        ALPHA,
+        m,
+        predictions,
+        y,
+        X,
+      }
+    )
 
-    thetaOne = math.eval(`thetaOne - ALPHA * (1 / m) * sum((predictions - y) .* X[:, 2])`, {
-      thetaOne,
-      ALPHA,
-      m,
-      predictions,
-      y,
-      X,
-    });
+    thetaOne = math.eval(
+      `thetaOne - ALPHA * (1 / m) * sum((predictions - y) .* X[:, 2])`,
+      {
+        thetaOne,
+        ALPHA,
+        m,
+        predictions,
+        y,
+        X,
+      }
+    )
   }
 
-  return [thetaZero, thetaOne];
+  return [thetaZero, thetaOne]
 }
 ```
 
@@ -298,36 +309,42 @@ In addition, by looking at the mathematical expression, you can see why the inte
 
 ```javascript{13,14,15,16,17,18,19}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = y.length;
+  let m = y.length
 
-  let thetaZero = theta[0];
-  let thetaOne = theta[1];
+  let thetaZero = theta[0]
+  let thetaOne = theta[1]
 
   for (let i = 0; i < ITERATIONS; i++) {
     let predictions = math.eval('X * theta', {
       X,
       theta: [thetaZero, thetaOne],
-    });
+    })
 
-    thetaZero = math.eval(`thetaZero - ALPHA * (1 / m) * sum(predictions - y)`, {
-      thetaZero,
-      ALPHA,
-      m,
-      predictions,
-      y,
-    });
+    thetaZero = math.eval(
+      `thetaZero - ALPHA * (1 / m) * sum(predictions - y)`,
+      {
+        thetaZero,
+        ALPHA,
+        m,
+        predictions,
+        y,
+      }
+    )
 
-    thetaOne = math.eval(`thetaOne - ALPHA * (1 / m) * sum((predictions - y) .* X[:, 2])`, {
-      thetaOne,
-      ALPHA,
-      m,
-      predictions,
-      y,
-      X,
-    });
+    thetaOne = math.eval(
+      `thetaOne - ALPHA * (1 / m) * sum((predictions - y) .* X[:, 2])`,
+      {
+        thetaOne,
+        ALPHA,
+        m,
+        predictions,
+        y,
+        X,
+      }
+    )
   }
 
-  return [thetaZero, thetaOne];
+  return [thetaZero, thetaOne]
 }
 ```
 
@@ -335,36 +352,42 @@ Alternatively, you can also exchange the element wise multiplication by using a 
 
 ```javascript{21}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = y.length;
+  let m = y.length
 
-  let thetaZero = theta[0];
-  let thetaOne = theta[1];
+  let thetaZero = theta[0]
+  let thetaOne = theta[1]
 
   for (let i = 0; i < ITERATIONS; i++) {
     let predictions = math.eval('X * theta', {
       X,
       theta: [thetaZero, thetaOne],
-    });
+    })
 
-    thetaZero = math.eval(`thetaZero - ALPHA * (1 / m) * sum(predictions - y)`, {
-      thetaZero,
-      ALPHA,
-      m,
-      predictions,
-      y,
-    });
+    thetaZero = math.eval(
+      `thetaZero - ALPHA * (1 / m) * sum(predictions - y)`,
+      {
+        thetaZero,
+        ALPHA,
+        m,
+        predictions,
+        y,
+      }
+    )
 
-    thetaOne = math.eval(`thetaOne - ALPHA * (1 / m) * sum((predictions - y)' * X[:, 2])`, {
-      thetaOne,
-      ALPHA,
-      m,
-      predictions,
-      y,
-      X,
-    });
+    thetaOne = math.eval(
+      `thetaOne - ALPHA * (1 / m) * sum((predictions - y)' * X[:, 2])`,
+      {
+        thetaOne,
+        ALPHA,
+        m,
+        predictions,
+        y,
+        X,
+      }
+    )
   }
 
-  return [thetaZero, thetaOne];
+  return [thetaZero, thetaOne]
 }
 ```
 

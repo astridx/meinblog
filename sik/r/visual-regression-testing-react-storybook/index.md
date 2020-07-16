@@ -1,13 +1,13 @@
 ---
-title: "Visual Regression Testing and React Storybook"
-description: "The article gives advice on how to implement visual regression testing in React and UI components with React Storybook. You will get to know React Storybook and all its testing capabilities ..."
-date: "2018-10-30T13:50:46+02:00"
-categories: ["React", "Web Development"]
-keywords: ["visual regression testing react", "react storybook testing"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Visual Regression Testing and React Storybook'
+description: 'The article gives advice on how to implement visual regression testing in React and UI components with React Storybook. You will get to know React Storybook and all its testing capabilities ...'
+date: '2018-10-30T13:50:46+02:00'
+categories: ['React', 'Web Development']
+keywords: ['visual regression testing react', 'react storybook testing']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -30,121 +30,120 @@ First, you can install React Storybook on the command line:
 npm install @storybook/react --save-dev
 ```
 
-Second, create a *.storybook/* folder in your project folder. It is the default place for all the Storybook configuration. Later, it is up to you to choose another place for it. In the folder, create a *.storybook/config.js* file. There you can put the following configuration:
+Second, create a _.storybook/_ folder in your project folder. It is the default place for all the Storybook configuration. Later, it is up to you to choose another place for it. In the folder, create a _.storybook/config.js_ file. There you can put the following configuration:
 
 ```javascript
-import { configure } from '@storybook/react';
+import { configure } from '@storybook/react'
 
 // pick all stories.js files within the src/ folder
-const req = require.context('../src', true, /stories\.js$/);
+const req = require.context('../src', true, /stories\.js$/)
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach((filename) => req(filename))
 }
 
-configure(loadStories, module);
+configure(loadStories, module)
 ```
 
-The fourth line of the configuration is the most important one. It specifies the location and name of the stories which should end up in React Storybook. In this particular configuration, it says "pick all stories that are located in the *src/* folder with the name *stories.js*". If you want to have a different name for your files, such as *MyComponent.stories.js*, use an appropriate regular expression for it such as:
+The fourth line of the configuration is the most important one. It specifies the location and name of the stories which should end up in React Storybook. In this particular configuration, it says "pick all stories that are located in the _src/_ folder with the name _stories.js_". If you want to have a different name for your files, such as _MyComponent.stories.js_, use an appropriate regular expression for it such as:
 
 ```javascript{3,4}
-import { configure } from '@storybook/react';
+import { configure } from '@storybook/react'
 
 // pick all *.stories.js files within the src/ folder
-const req = require.context('../src', true, /\.stories\.js$/);
+const req = require.context('../src', true, /\.stories\.js$/)
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach((filename) => req(filename))
 }
 
-configure(loadStories, module);
+configure(loadStories, module)
 ```
 
-Third, define a story for one of your components. Let's say we have a Checkbox component which is stateless and only communicates its value to the outside world by using a function as a prop. It could be in a *src/Checkbox/index.js* file:
+Third, define a story for one of your components. Let's say we have a Checkbox component which is stateless and only communicates its value to the outside world by using a function as a prop. It could be in a _src/Checkbox/index.js_ file:
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Checkbox extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event) {
-    this.props.onCheckboxChange(event.target.checked);
-  };
+    this.props.onCheckboxChange(event.target.checked)
+  }
 
   render() {
-    const { value, children } = this.props;
+    const { value, children } = this.props
 
     return (
       <label>
         {children}:
         <input type="checkbox" checked={value} onChange={this.handleChange} />
       </label>
-    );
+    )
   }
 }
 
-export default Checkbox;
+export default Checkbox
 ```
 
-Next to it, you can create your stories for it in a *src/Checkbox/stories.js* file:
+Next to it, you can create your stories for it in a _src/Checkbox/stories.js_ file:
 
 ```javascript
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Checkbox from './';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import Checkbox from './'
 
-storiesOf('Checkbox', module)
-  .add('with checked', () => {
-    const value = true;
-    const children = 'My Checkbox Label';
-    const onCheckboxChange = () => {};
+storiesOf('Checkbox', module).add('with checked', () => {
+  const value = true
+  const children = 'My Checkbox Label'
+  const onCheckboxChange = () => {}
 
-    return (
-      <Checkbox value={value} onCheckboxChange={onCheckboxChange}>
-        {children}
-      </Checkbox>
-    );
-  });
+  return (
+    <Checkbox value={value} onCheckboxChange={onCheckboxChange}>
+      {children}
+    </Checkbox>
+  )
+})
 ```
 
 It is important for a story to return the rendered component to make it appear in Storybook. The previous construct allows you to have multiple stories for one component by using the `add()` method. Each story for a component should be different when implementing multiple stories. Most often stories for a component differ because of the props that are passed to the component.
 
 ```javascript{17,18,19,20,21,22,23,24,25,26,27}
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Checkbox from './';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import Checkbox from './'
 
 storiesOf('Checkbox', module)
   .add('with checked', () => {
-    const value = true;
-    const children = 'My Checkbox Label';
-    const onCheckboxChange = () => {};
+    const value = true
+    const children = 'My Checkbox Label'
+    const onCheckboxChange = () => {}
 
     return (
       <Checkbox value={value} onCheckboxChange={onCheckboxChange}>
         {children}
       </Checkbox>
-    );
+    )
   })
   .add('with unchecked', () => {
-    const value = false;
-    const children = 'My Checkbox Label';
-    const onCheckboxChange = () => {};
+    const value = false
+    const children = 'My Checkbox Label'
+    const onCheckboxChange = () => {}
 
     return (
       <Checkbox value={value} onCheckboxChange={onCheckboxChange}>
         {children}
       </Checkbox>
-    );
-  });
+    )
+  })
 ```
 
-That's how you can add multiple stories to a component resembling different component states. Last but not least, add a npm script to your *package.json* file to run React Storybook on the command line:
+That's how you can add multiple stories to a component resembling different component states. Last but not least, add a npm script to your _package.json_ file to run React Storybook on the command line:
 
 ```javascript{3}
 "scripts": {
@@ -155,29 +154,29 @@ That's how you can add multiple stories to a component resembling different comp
 
 Now you can run it on the command line with `npm run storybook` and visit your React Storybook with the specified port in the browser: http://localhost:9001. You should see both stories for your Checkbox component.
 
-Surprisingly nothing happens when clicking the checkbox, because it is a stateless component. In this case, the component is implemented in a way where the state is managed outside of the component. In order to make your non developers and designers happy, you can add a wrapping stateful component around your Checkbox component. It can happen in your *stories.js* file which is then only used for your stories but not for the actual application. After all, stories are implemented in JavaScript (and React), so you can add any helpful implementation to it.
+Surprisingly nothing happens when clicking the checkbox, because it is a stateless component. In this case, the component is implemented in a way where the state is managed outside of the component. In order to make your non developers and designers happy, you can add a wrapping stateful component around your Checkbox component. It can happen in your _stories.js_ file which is then only used for your stories but not for the actual application. After all, stories are implemented in JavaScript (and React), so you can add any helpful implementation to it.
 
 ```javascript{5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,41,43,52,54}
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Checkbox from './';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import Checkbox from './'
 
 class CheckboxStateful extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: this.props.value,
-    };
+    }
 
-    this.onCheckboxChange = this.onCheckboxChange.bind(this);
+    this.onCheckboxChange = this.onCheckboxChange.bind(this)
   }
 
   onCheckboxChange(value) {
-    this.setState({ value });
+    this.setState({ value })
 
-    this.props.onCheckboxChange(value);
-  };
+    this.props.onCheckboxChange(value)
+  }
 
   render() {
     return (
@@ -187,34 +186,33 @@ class CheckboxStateful extends React.Component {
       >
         {this.props.children}
       </Checkbox>
-    );
+    )
   }
 }
 
 storiesOf('Checkbox', module)
   .add('with checked', () => {
-    const value = true;
-    const children = 'My Checkbox Label';
-    const onCheckboxChange = () => {};
+    const value = true
+    const children = 'My Checkbox Label'
+    const onCheckboxChange = () => {}
 
     return (
       <CheckboxStateful value={value} onCheckboxChange={onCheckboxChange}>
         {children}
       </CheckboxStateful>
-    );
+    )
   })
   .add('with unchecked', () => {
-    const value = false;
-    const children = 'My Checkbox Label';
-    const onCheckboxChange = () => {};
+    const value = false
+    const children = 'My Checkbox Label'
+    const onCheckboxChange = () => {}
 
     return (
       <CheckboxStateful value={value} onCheckboxChange={onCheckboxChange}>
         {children}
       </CheckboxStateful>
-    );
-  });
-
+    )
+  })
 ```
 
 After starting Storybook again, you should see again both stories for your Checkbox component. But this time it is possible to check and uncheck the Checkbox state.
@@ -233,28 +231,28 @@ npm install @storybook/addon-knobs --save-dev
 
 For instance, imagine a button which has a fixed width but renders any number of chars as text. Soon it should be clear, by adjusting the variables in Storybook, that most often the text will not fit in the button with a fixed width. That's one of the various use cases why Storybook Knobs makes sense.
 
-You have to create a *.storybook/addons.js* file in your Storybook configuring folder to register the addon in order to use it in your stories. In the file, you can import the newly installed addon.
+You have to create a _.storybook/addons.js_ file in your Storybook configuring folder to register the addon in order to use it in your stories. In the file, you can import the newly installed addon.
 
 ```javascript
-import '@storybook/addon-knobs/register';
+import '@storybook/addon-knobs/register'
 ```
 
-Next, you can add the Knobs to all your stories globally (you could do it for each story individually too) by using a **Storybook Decorator** in your *.storybook/config.js* file.
+Next, you can add the Knobs to all your stories globally (you could do it for each story individually too) by using a **Storybook Decorator** in your _.storybook/config.js_ file.
 
 ```javascript{1,2,7}
-import { configure, addDecorator } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { configure, addDecorator } from '@storybook/react'
+import { withKnobs } from '@storybook/addon-knobs'
 
 // pick all stories.js files within the src/ folder
-const req = require.context('../src', true, /stories\.js$/);
+const req = require.context('../src', true, /stories\.js$/)
 
-addDecorator(withKnobs);
+addDecorator(withKnobs)
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach((filename) => req(filename))
 }
 
-configure(loadStories, module);
+configure(loadStories, module)
 ```
 
 And last but not least, you can make use of the Knobs addon by specifying flexible variables with it in your Checkbox stories.
@@ -305,8 +303,8 @@ npm install @storybook/addon-actions --save-dev
 Next, register it to your list of addons:
 
 ```javascript{2}
-import '@storybook/addon-knobs/register';
-import '@storybook/addon-actions/register';
+import '@storybook/addon-knobs/register'
+import '@storybook/addon-actions/register'
 ```
 
 And last but not least, import the `action()` function from the addon to your stories. Afterward, you can use it to generate a callback function, by passing in an identifier, and use it as prop for your Component rather than having an empty function for it.
@@ -366,7 +364,7 @@ Otherwise, you need to make at least sure to have Jest up and running, because i
 npm install babel-plugin-require-context-hook/register --save-dev
 ```
 
-Use it in your *.babelrc* file:
+Use it in your _.babelrc_ file:
 
 ```javascript{6,7,8,9,10}
 {
@@ -382,15 +380,15 @@ Use it in your *.babelrc* file:
 }
 ```
 
-And include it in a new *test/jest.setup* file:
+And include it in a new _test/jest.setup_ file:
 
 ```javascript{2,3}
-import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register'
 
-registerRequireContextHook();
+registerRequireContextHook()
 ```
 
-In order to run the setup file, which initializes and transforms the stories to snapshot tests before your actual snapshot tests are executed, you need to include the new file in the *test/jest.config.json* file.
+In order to run the setup file, which initializes and transforms the stories to snapshot tests before your actual snapshot tests are executed, you need to include the new file in the _test/jest.config.json_ file.
 
 ```javascript{4}
 {
@@ -406,14 +404,14 @@ Finally you can install the Storybook Storyshots addon for your project on your 
 npm install @storybook/addon-storyshots --save-dev
 ```
 
-In the next step, there needs to be a configurational part where Storybook and Jest are connected to transform the stories into automatic snapshot tests. In the *test/jest.setup.js* file for Jest you can initialize the Storyshots addon.
+In the next step, there needs to be a configurational part where Storybook and Jest are connected to transform the stories into automatic snapshot tests. In the _test/jest.setup.js_ file for Jest you can initialize the Storyshots addon.
 
 ```javascript{2,5}
-import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
-import initStoryshots from '@storybook/addon-storyshots';
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register'
+import initStoryshots from '@storybook/addon-storyshots'
 
-registerRequireContextHook();
-initStoryshots();
+registerRequireContextHook()
+initStoryshots()
 ```
 
 Now, when running your Jest snapshot tests on the command line with `npm run test:snapshot` or your own command, all your stories should be executed as snapshot tests next to your actual snapshot tests. They are grouped under the Storyshots test suite. In conclusion, Storybook not only helps you to document your UI components but also to test them automatically as snapshot tests. It's powerful, isn't it?
@@ -426,20 +424,20 @@ Now you will learn how to transform those snapshot tests automatically into visu
 npm install @storybook/addon-storyshots-puppeteer --save-dev
 ```
 
-And second, adjust the *test/jest.setup.js* file:
+And second, adjust the _test/jest.setup.js_ file:
 
 ```javascript{3,6,7,8,9,10,11}
-import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
-import initStoryshots from '@storybook/addon-storyshots';
-import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer';
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register'
+import initStoryshots from '@storybook/addon-storyshots'
+import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer'
 
-registerRequireContextHook();
+registerRequireContextHook()
 initStoryshots({
   suite: 'Storyshots',
   test: imageSnapshot({
     storybookUrl: 'http://localhost:9001',
   }),
-});
+})
 ```
 
 The important part is defining where your Storybook can be found locally when running it. Before running again your snapshot tests on the command line in one tab, you need to make sure to run the Storybook script in another command line tab. Afterward, run the snapshot tests and verify the test output. The screenshot driven visual regression tests should work now.
@@ -454,25 +452,25 @@ First, you can install the [Storybook Viewport](https://github.com/storybooks/st
 npm install @storybook/addon-viewport --save-dev
 ```
 
-Second, you need to register **Storybook Viewport** as addon again in your *.storybook/addons.js* file:
+Second, you need to register **Storybook Viewport** as addon again in your _.storybook/addons.js_ file:
 
 ```javascript{3}
-import '@storybook/addon-knobs/register';
-import '@storybook/addon-actions/register';
-import '@storybook/addon-viewport/register';
+import '@storybook/addon-knobs/register'
+import '@storybook/addon-actions/register'
+import '@storybook/addon-viewport/register'
 ```
 
-Third, you can optionally setup different viewport sizes in your *.storybook/config.js* file. But it isn't necessary, because by registering the addon you have already access to a handful of pre-defined viewports.
+Third, you can optionally setup different viewport sizes in your _.storybook/config.js_ file. But it isn't necessary, because by registering the addon you have already access to a handful of pre-defined viewports.
 
 ```javascript{3,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,34,35,36}
-import { configure, addDecorator } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { configureViewport } from '@storybook/addon-viewport';
+import { configure, addDecorator } from '@storybook/react'
+import { withKnobs } from '@storybook/addon-knobs'
+import { configureViewport } from '@storybook/addon-viewport'
 
 // pick all stories.js files within the src/ folder
-const req = require.context('../src', true, /stories\.js$/);
+const req = require.context('../src', true, /stories\.js$/)
 
-addDecorator(withKnobs);
+addDecorator(withKnobs)
 
 const viewports = {
   small: {
@@ -496,17 +494,17 @@ const viewports = {
       height: '1024px',
     },
   },
-};
+}
 
 configureViewport({
   viewports,
-});
+})
 
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach((filename) => req(filename))
 }
 
-configure(loadStories, module);
+configure(loadStories, module)
 ```
 
 Last but not least, you can use the Viewport component from the Storybook Viewport addon to render your component as child in a specified viewport. The viewport can be defined in your previous custom viewports, but it can be also a viewport which comes already with the Viewport addon.

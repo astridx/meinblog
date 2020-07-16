@@ -44,12 +44,12 @@ function next(current, pages) {
   return pages[index + 1]
 }
 
-behind.addEventListener('click', function() {
+behind.addEventListener('click', function () {
   var newUrl = prev(host + window.location.pathname, pages)
   window.location.href = newUrl
 })
 
-forward.addEventListener('click', function() {
+forward.addEventListener('click', function () {
   var newUrl = next(host + window.location.pathname, pages)
   window.location.href = newUrl
 })

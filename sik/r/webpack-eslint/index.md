@@ -1,13 +1,13 @@
 ---
-title: "How to use ESLint in Webpack"
-description: "The tutorial walks you through a Webpack with ESLint setup to improve the code style of your JavaScript applications ..."
-date: "2019-06-15T13:53:46+02:00"
-categories: ["Tooling", "Webpack", "Babel", "ESLint"]
-keywords: ["webpack eslint"]
-hashtags: ["#100DaysOfCode", "#Webpack"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use ESLint in Webpack'
+description: 'The tutorial walks you through a Webpack with ESLint setup to improve the code style of your JavaScript applications ...'
+date: '2019-06-15T13:53:46+02:00'
+categories: ['Tooling', 'Webpack', 'Babel', 'ESLint']
+keywords: ['webpack eslint']
+hashtags: ['#100DaysOfCode', '#Webpack']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -30,7 +30,7 @@ Since the project uses Webpack, you have to tell Webpack that you want to use es
 npm install --save-dev eslint-loader
 ```
 
-Next, you can use the Webpack Loader for ESLint in your Webpack *webpack.config.js* file:
+Next, you can use the Webpack Loader for ESLint in your Webpack _webpack.config.js_ file:
 
 ```javascript{7}
 ...
@@ -49,10 +49,10 @@ module: {
 Now, all source code that goes through Weback will be checked by ESLint automatically. Once you start your application, it will output an error though: "No ESLint configuration found". You need this file to define your ESLint configuration. Create it in your project's root directory on the command line:
 
 ```javascript
-touch .eslintrc
+touch.eslintrc
 ```
 
-Then, create an empty ESLint rule set in this new *.eslintrc* file:
+Then, create an empty ESLint rule set in this new _.eslintrc_ file:
 
 ```javascript
 {
@@ -66,7 +66,7 @@ Later on you can specify rules in this file. But first, let's try to start your 
 npm install --save-dev babel-eslint
 ```
 
-Then, in your *.eslintrc* configuration file, add babel-eslint as parser:
+Then, in your _.eslintrc_ configuration file, add babel-eslint as parser:
 
 ```javascript{2}
 {
@@ -75,13 +75,13 @@ Then, in your *.eslintrc* configuration file, add babel-eslint as parser:
 }
 ```
 
-*Note: If the previous error regarding Babel enabled JavaScript features still shows up in your IDE/editor -- because you may have installed an ESLint plugin/extension, restart your IDE/editor and check whether the error still shows up. It shouldn't.*
+_Note: If the previous error regarding Babel enabled JavaScript features still shows up in your IDE/editor -- because you may have installed an ESLint plugin/extension, restart your IDE/editor and check whether the error still shows up. It shouldn't._
 
 You should be able to start your application without any ESLint errors now. There are no errors displayed, because you didn’t specify any rules yet.
 
 # ESLint Rules
 
-ESLint rules apply for a lot of different code style use cases. Check out the [list of available ESLint rules](http://eslint.org/docs/rules/) yourself. For the sake of learning about ESLint rules, let’s add our first rule in the *.eslintrc* configuration file for ESLint:
+ESLint rules apply for a lot of different code style use cases. Check out the [list of available ESLint rules](http://eslint.org/docs/rules/) yourself. For the sake of learning about ESLint rules, let’s add our first rule in the _.eslintrc_ configuration file for ESLint:
 
 ```javascript{4}
 {
@@ -109,8 +109,8 @@ If you still see warnings, it is your first chance to improve the code style in 
 
 ### Exercises:
 
-* Fix all the code style violations in your source code
-* Try out more ESLint rules yourself
+- Fix all the code style violations in your source code
+- Try out more ESLint rules yourself
 
 # Shareable ESLint Configuration
 
@@ -120,7 +120,7 @@ Now, it would be very tidious to come up with a set of ESLint rules for every Ja
 npx install-peerdeps --dev eslint-config-airbnb
 ```
 
-Afterward, you can introduce it in your *.eslintrc* configuration file for ESLint:
+Afterward, you can introduce it in your _.eslintrc_ configuration file for ESLint:
 
 ```javascript{3}
 {
@@ -132,7 +132,7 @@ Afterward, you can introduce it in your *.eslintrc* configuration file for ESLin
 }
 ```
 
-*Note: It's up to you to keep your own ESLint rules (e.g. max-len from before) to extend the ESLint rule set from Airbnb. However, my recommendation would not be to come with your own ESLint rules. Instead, pick one of the more popular ESLint configuration by large companies and follow their guidance. If you are already advanced in JavaScript, you (and your team) can start to add your own flavor to the ESLint rules by extending it or by coming up with a configuration entirely on your own.*
+_Note: It's up to you to keep your own ESLint rules (e.g. max-len from before) to extend the ESLint rule set from Airbnb. However, my recommendation would not be to come with your own ESLint rules. Instead, pick one of the more popular ESLint configuration by large companies and follow their guidance. If you are already advanced in JavaScript, you (and your team) can start to add your own flavor to the ESLint rules by extending it or by coming up with a configuration entirely on your own._
 
 ```javascript{3}
 {
@@ -145,14 +145,14 @@ After starting your application on the command line again or checking the output
 
 ### Exercises:
 
-* Fix all your ESLint violations
-* Get to know other reputable ESLint configurations (e.g. Google, Standard) other than Airbnb's ESLint configuration
+- Fix all your ESLint violations
+- Get to know other reputable ESLint configurations (e.g. Google, Standard) other than Airbnb's ESLint configuration
 
 # How to disable ESLint Rules
 
 Sometimes you might see a lot of ESLint rule violations on your command line or in your IDE/editor. Often it is up to you to fix them to follow the common best practices. However, whenever you are unsure about the ESLint warning, search it in your favorite search engine and evaluate whether you want to have this ESLint rule or not. You can either fix the warning in the mentioned source code file or remove/disable the rule altogether, if you think you don’t need it.
 
-In case you want to *remove* a ESLint rule globally, just remove it from your *.eslintrc* file in case you specified it yourself and it doesn't come from any popular style guide (e.g. Airbnb). If the latter is the case, you can only *disable* the rule. For instance, the no-unused-vars ESLint rule from Airbnb's ESLint configuration could be disable the following way:
+In case you want to _remove_ a ESLint rule globally, just remove it from your _.eslintrc_ file in case you specified it yourself and it doesn't come from any popular style guide (e.g. Airbnb). If the latter is the case, you can only _disable_ the rule. For instance, the no-unused-vars ESLint rule from Airbnb's ESLint configuration could be disable the following way:
 
 ```javascript{4,5,6}
 {
@@ -168,7 +168,7 @@ However, you can also disable your own or extended ESLint rules in the respectiv
 
 ```javascript{1,3}
 /* eslint-disable no-unused-vars */
-const myUnusedVariable = 42;
+const myUnusedVariable = 42
 /* eslint-enable no-unused-vars */
 ```
 
@@ -176,7 +176,7 @@ Also you can disable an ESLint rule in the whole or rest of a file by not enabli
 
 ```javascript{1,3}
 /* eslint-disable no-unused-vars */
-const myUnusedVariable = 42;
+const myUnusedVariable = 42
 ```
 
 Now, you should have all the ESLint knowledge at your hands to have a unified code style with best practices by using a popular ESLint configuration such as the one from Airbnb. You also know how to add your own rules, how to show violations in your IDE/editor/command line, how to fix violations, and how to remove/disable ESLint rules.
@@ -189,7 +189,7 @@ Still, once your JavaScript project is set up, you need to run `eslint --init` i
 
 ### Exercises:
 
-* Set up a new JavaScript project and run `eslint --init` yourself
+- Set up a new JavaScript project and run `eslint --init` yourself
 
 <LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint/" }]} />
 

@@ -1,13 +1,13 @@
 ---
-title: "How to groupBy in JavaScript"
-description: "Learn how to groupBy in JavaScript without Lodash but just using vanilla JavaScript to group objects by property ..."
-date: "2020-06-02T13:50:46+02:00"
-categories: ["JavaScript"]
-keywords: ["javascript groupBy"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to groupBy in JavaScript'
+description: 'Learn how to groupBy in JavaScript without Lodash but just using vanilla JavaScript to group objects by property ...'
+date: '2020-06-02T13:50:46+02:00'
+categories: ['JavaScript']
+keywords: ['javascript groupBy']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -21,11 +21,9 @@ const users = [
   { name: 'Jim', color: 'blue' },
   { name: 'Sam', color: 'blue' },
   { name: 'Eddie', color: 'green' },
-];
+]
 
-const usersByColor = // TODO: implement groupBy
-
-console.log(usersByColor);
+const usersByColor = console.log(usersByColor) // TODO: implement groupBy
 
 // {
 //   blue: [{
@@ -42,8 +40,8 @@ We can use JavaScript's reduce method on an array to iterate over every item:
 const usersByColor = users.reduce((acc, value) => {
   // TODO: implement groupBy
 
-  return acc;
-}, {});
+  return acc
+}, {})
 ```
 
 We start with an empty object as our accumulator (here `acc`) for this reduce's [callback function](/javascript-callback-function). For every iteration of the function, we return the changed (here still unchanged) accumulator. Let's implement groupBy:
@@ -51,13 +49,13 @@ We start with an empty object as our accumulator (here `acc`) for this reduce's 
 ```javascript{2-4,6}
 const usersByColor = users.reduce((acc, value) => {
   if (!acc[value.color]) {
-    acc[value.color] = [];
+    acc[value.color] = []
   }
 
   // TODO: implement grouping
 
-  return acc;
-}, {});
+  return acc
+}, {})
 ```
 
 If the accumulator has no array initialized for the currently iterated value's color, we create an empty array for it allocated in the object whereas the color is the key. Afterward, we can assume that there is an array for the color and just push the value to it:
@@ -65,13 +63,13 @@ If the accumulator has no array initialized for the currently iterated value's c
 ```javascript{2-4,6}
 const usersByColor = users.reduce((acc, value) => {
   if (!acc[value.color]) {
-    acc[value.color] = [];
+    acc[value.color] = []
   }
 
-  acc[value.color].push(value);
+  acc[value.color].push(value)
 
-  return acc;
-}, {});
+  return acc
+}, {})
 ```
 
 The groupBy in JavaScript is done. Here again with comments for both steps:
@@ -80,14 +78,14 @@ The groupBy in JavaScript is done. Here again with comments for both steps:
 const usersByColor = users.reduce((acc, value) => {
   // Group initialization
   if (!acc[value.color]) {
-    acc[value.color] = [];
+    acc[value.color] = []
   }
 
   // Grouping
-  acc[value.color].push(value);
+  acc[value.color].push(value)
 
-  return acc;
-}, {});
+  return acc
+}, {})
 ```
 
 Essentially we start with an empty object and for every iterated value, we negotiate whether we need to allocate a new array based on the property (here color) in this object. Afterward, we push the value to the (new) array.

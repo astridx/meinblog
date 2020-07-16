@@ -307,7 +307,11 @@ Using JSX is not mandatory for writing React. Under the hood, it's running `crea
 <div class="filename">No JSX</div>
 
 ```jsx
-const heading = React.createElement('h1', { className: 'site-heading' }, 'Hello, React!')
+const heading = React.createElement(
+  'h1',
+  { className: 'site-heading' },
+  'Hello, React!'
+)
 ```
 
 JSX is actually closer to JavaScript, not HTML, so there are a few key differences to note when writing it.
@@ -668,7 +672,7 @@ We're going to pass the props through as a parameter, and [map through the array
 <div class="filename">src/Table.js</div>
 
 ```jsx
-const TableBody = props => {
+const TableBody = (props) => {
   const rows = props.characterData.map((row, index) => {
     return (
       <tr key={index}>
@@ -742,7 +746,7 @@ To retrieve the state, we'll get `this.state.characters` using the same ES6 meth
 <div class="filename">src/App.js</div>
 
 ```jsx
-removeCharacter = index => {
+removeCharacter = (index) => {
   const { characters } = this.state
 
   this.setState({
@@ -779,14 +783,17 @@ In addition, since it turns out that the only components having their own states
 
 ```jsx
 const Table = (props) => {
-  const { characterData, removeCharacter } = props;
+  const { characterData, removeCharacter } = props
 
   return (
     <table>
       <TableHeader />
-      <TableBody characterData={characterData} removeCharacter={removeCharacter} />
+      <TableBody
+        characterData={characterData}
+        removeCharacter={removeCharacter}
+      />
     </table>
-  );
+  )
 }
 ```
 
@@ -860,7 +867,7 @@ First, we'll make the function that will run every time a change is made to an i
 <div class="filename">src/Form.js</div>
 
 ```jsx
-handleChange = event => {
+handleChange = (event) => {
   const { name, value } = event.target
 
   this.setState({
@@ -922,7 +929,7 @@ Cool. Last step is to allow us to actually submit that data and update the paren
 <div class="filename">src/App.js</div>
 
 ```jsx
-handleSubmit = character => {
+handleSubmit = (character) => {
   this.setState({ characters: [...this.state.characters, character] })
 }
 ```
@@ -984,8 +991,8 @@ class App extends Component {
       'https://en.wikipedia.org/w/api.php?action=opensearch&search=Seona+Dancing&format=json&origin=*'
 
     fetch(url)
-      .then(result => result.json())
-      .then(result => {
+      .then((result) => result.json())
+      .then((result) => {
         this.setState({
           data: result,
         })

@@ -1,13 +1,13 @@
 ---
-title: "Custom Errors in JavaScript"
-description: "Learn about custom errors in JavaScript, how to create a new custom error and how to extend errors from third party libraries and APIs ..."
-date: "2020-05-22T07:50:46+02:00"
-categories: ["JavaScript"]
-keywords: ["javascript custom error"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Custom Errors in JavaScript'
+description: 'Learn about custom errors in JavaScript, how to create a new custom error and how to extend errors from third party libraries and APIs ...'
+date: '2020-05-22T07:50:46+02:00'
+categories: ['JavaScript']
+keywords: ['javascript custom error']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,14 +16,14 @@ There are two error handling scenarios in JavaScript. Either an error is thrown 
 
 ```javascript
 function throwAnError() {
-  throw new Error('Something went wrong.');
+  throw new Error('Something went wrong.')
 }
 
 try {
-  throwAnError();
+  throwAnError()
 } catch (error) {
-  console.log(error.message); // 'Something went wrong.'
-  console.log(error.name); // Error
+  console.log(error.message) // 'Something went wrong.'
+  console.log(error.name) // Error
 }
 ```
 
@@ -32,21 +32,21 @@ Sometimes you want to throw custom errors though. I learned that you can create 
 ```javascript{1-7,10,17}
 class BadRequestError extends Error {
   constructor(message) {
-    super(message);
+    super(message)
 
-    this.name = 'BadRequestError';
+    this.name = 'BadRequestError'
   }
 }
 
 function throwAnError() {
-  throw new BadRequestError('Something went wrong.');
+  throw new BadRequestError('Something went wrong.')
 }
 
 try {
-  throwAnError();
+  throwAnError()
 } catch (error) {
-  console.log(error.message); // 'Something went wrong.'
-  console.log(error.name); // BadRequestError
+  console.log(error.message) // 'Something went wrong.'
+  console.log(error.name) // BadRequestError
 }
 ```
 
@@ -55,23 +55,23 @@ You can overload this new custom error with more properties. For instance, if th
 ```javascript{6,19}
 class BadRequestError extends Error {
   constructor(message) {
-    super(message);
+    super(message)
 
-    this.name = 'BadRequestError';
-    this.statusCode = 400;
+    this.name = 'BadRequestError'
+    this.statusCode = 400
   }
 }
 
 function throwAnError() {
-  throw new BadRequestError('Something went wrong.');
+  throw new BadRequestError('Something went wrong.')
 }
 
 try {
-  throwAnError();
+  throwAnError()
 } catch (error) {
-  console.log(error.message); // 'Something went wrong.'
-  console.log(error.name); // BadRequestError
-  console.log(error.statusCode); // 400
+  console.log(error.message) // 'Something went wrong.'
+  console.log(error.name) // BadRequestError
+  console.log(error.statusCode) // 400
 }
 ```
 
@@ -80,11 +80,11 @@ Now what happens if you don't want to create a new error but inherit from an err
 ```javascript
 async function findUserById(id) {
   try {
-    return await database.getUserById(id);
+    return await database.getUserById(id)
   } catch (error) {
-    return error;
+    return error
   }
-};
+}
 ```
 
 This may be alright for most cases, but in certain scenarios, [like having this happen for a REST API](/node-express-error-handling), I may want to customize the error with an HTTP status code for my server middleware. Then again, I create a custom error class for it, extend from the native error, and pass in all the properties from the third party error plus my other information:
@@ -92,22 +92,20 @@ This may be alright for most cases, but in certain scenarios, [like having this 
 ```javascript{1-8,14}
 export class BadRequestError extends Error {
   constructor(error) {
-    super(error.message);
+    super(error.message)
 
-    this.data = { error };
-    this.statusCode = 400;
+    this.data = { error }
+    this.statusCode = 400
   }
 }
 
 async function findUserById(id) {
   try {
-    return await database.getUserById(id);
+    return await database.getUserById(id)
   } catch (error) {
-    return new BadRequestError(error);
+    return new BadRequestError(error)
   }
-};
+}
 ```
 
 This is how I can extend from an error which is already coming from somewhere else. After all, the last examples have covered both cases: throwing a new custom error from scratch and customizing an error which comes from somewhere else.
-
-

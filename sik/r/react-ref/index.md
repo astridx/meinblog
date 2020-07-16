@@ -1,13 +1,13 @@
 ---
-title: "How to use React Ref"
+title: 'How to use React Ref'
 description: "Learn everything about React refs and JSX's ref attribute with React's useRef Hook and the infamous callback refs for DOM operations and instance variables ..."
-date: "2020-04-25T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react ref", "react refs", "react useRef", "react callback ref"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2020-04-25T07:52:46+02:00'
+categories: ['React']
+keywords: ['react ref', 'react refs', 'react useRef', 'react callback ref']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,12 +20,12 @@ React refs are strongly associated with the DOM. This has been true in the past,
 
 ```javascript
 function Counter() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function onClick() {
-    const newCount = count + 1;
+    const newCount = count + 1
 
-    setCount(newCount);
+    setCount(newCount)
   }
 
   return (
@@ -36,7 +36,7 @@ function Counter() {
         Increase
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -44,19 +44,19 @@ React offers us the **React useRef Hook** which is the status quo API when using
 
 ```javascript{2,11,14}
 function Counter() {
-  const hasClickedButton = React.useRef(false);
+  const hasClickedButton = React.useRef(false)
 
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function onClick() {
-    const newCount = count + 1;
+    const newCount = count + 1
 
-    setCount(newCount);
+    setCount(newCount)
 
-    hasClickedButton.current = true;
+    hasClickedButton.current = true
   }
 
-  console.log('Has clicked button? ' + hasClickedButton.current);
+  console.log('Has clicked button? ' + hasClickedButton.current)
 
   return (
     <div>
@@ -66,7 +66,7 @@ function Counter() {
         Increase
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -76,22 +76,22 @@ The thing about setting the React ref to a new value is that it doesn't trigger 
 
 ```javascript{7,9,14-16}
 function Counter() {
-  const hasClickedButton = React.useRef(false);
+  const hasClickedButton = React.useRef(false)
 
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function onClick() {
     // const newCount = count + 1;
 
     // setCount(newCount);
 
-    hasClickedButton.current = true;
+    hasClickedButton.current = true
   }
 
   // Does only run for the first render.
   // Component does not render again, because no state is set anymore.
   // Only the ref's current property is set, which does not trigger a re-render.
-  console.log('Has clicked button? ' + hasClickedButton.current);
+  console.log('Has clicked button? ' + hasClickedButton.current)
 
   return (
     <div>
@@ -101,7 +101,7 @@ function Counter() {
         Increase
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -113,19 +113,19 @@ The ref can be used as **instance variable** for a function component in React w
 
 ```javascript{8,10-14,24-28}
 function ComponentWithRefInstanceVariable() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function onClick() {
-    setCount(count + 1);
+    setCount(count + 1)
   }
 
-  const isFirstRender = React.useRef(true);
+  const isFirstRender = React.useRef(true)
 
   React.useEffect(() => {
     if (isFirstRender.current) {
-      isFirstRender.current = false;
+      isFirstRender.current = false
     }
-  });
+  })
 
   return (
     <div>
@@ -141,7 +141,7 @@ function ComponentWithRefInstanceVariable() {
       */}
       <p>{isFirstRender.current ? 'First render.' : 'Re-render.'}</p>
     </div>
-  );
+  )
 }
 ```
 
@@ -151,17 +151,17 @@ Now we gain the ability to create a useEffect Hook which only runs its logic for
 
 ```javascript{13-21}
 function ComponentWithRefInstanceVariable() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function onClick() {
-    setCount(count + 1);
+    setCount(count + 1)
   }
 
-  const isFirstRender = React.useRef(true);
+  const isFirstRender = React.useRef(true)
 
   React.useEffect(() => {
     if (isFirstRender.current) {
-      isFirstRender.current = false;
+      isFirstRender.current = false
     } else {
       console.log(
         `
@@ -169,9 +169,9 @@ function ComponentWithRefInstanceVariable() {
           which runs for a component's
           re-render.
         `
-      );
+      )
     }
-  });
+  })
 
   return (
     <div>
@@ -181,7 +181,7 @@ function ComponentWithRefInstanceVariable() {
         Increase
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -197,30 +197,24 @@ This React component shows the most popular example for the interplay of a React
 
 ```javascript{}
 function App() {
-  return (
-    <ComponentWithDomApi
-      label="Label"
-      value="Value"
-      isFocus
-    />
-  );
+  return <ComponentWithDomApi label="Label" value="Value" isFocus />
 }
 
 function ComponentWithDomApi({ label, value, isFocus }) {
-  const ref = React.useRef(); // (1)
+  const ref = React.useRef() // (1)
 
   React.useEffect(() => {
     if (isFocus) {
-      ref.current.focus(); // (3)
+      ref.current.focus() // (3)
     }
-  }, [isFocus]);
+  }, [isFocus])
 
   return (
     <label>
       {/* (2) */}
       {label}: <input type="text" value={value} ref={ref} />
     </label>
-  );
+  )
 }
 ```
 
@@ -230,19 +224,19 @@ The previous example has shown us how to interact with the DOM API in React. Nex
 
 ```javascript{8,11,20}
 function ComponentWithRefRead() {
-  const [text, setText] = React.useState('Some text ...');
+  const [text, setText] = React.useState('Some text ...')
 
   function handleOnChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
-  const ref = React.useRef();
+  const ref = React.useRef()
 
   React.useEffect(() => {
-    const { width } = ref.current.getBoundingClientRect();
+    const { width } = ref.current.getBoundingClientRect()
 
-    document.title = `Width:${width}`;
-  }, []);
+    document.title = `Width:${width}`
+  }, [])
 
   return (
     <div>
@@ -251,7 +245,7 @@ function ComponentWithRefRead() {
         <span ref={ref}>{text}</span>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -261,19 +255,19 @@ Reading the DOM node's size happens only for the initial render though. If you w
 
 ```javascript{14}
 function ComponentWithRefRead() {
-  const [text, setText] = React.useState('Some text ...');
+  const [text, setText] = React.useState('Some text ...')
 
   function handleOnChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
-  const ref = React.useRef();
+  const ref = React.useRef()
 
   React.useEffect(() => {
-    const { width } = ref.current.getBoundingClientRect();
+    const { width } = ref.current.getBoundingClientRect()
 
-    document.title = `Width:${width}`;
-  }, [text]);
+    document.title = `Width:${width}`
+  }, [text])
 
   return (
     <div>
@@ -282,7 +276,7 @@ function ComponentWithRefRead() {
         <span ref={ref}>{text}</span>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -294,19 +288,19 @@ A better approach to the previous examples is using a so called **callback ref**
 
 ```javascript{8-14}
 function ComponentWithRefRead() {
-  const [text, setText] = React.useState('Some text ...');
+  const [text, setText] = React.useState('Some text ...')
 
   function handleOnChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
   const ref = (node) => {
-    if (!node) return;
+    if (!node) return
 
-    const { width } = node.getBoundingClientRect();
+    const { width } = node.getBoundingClientRect()
 
-    document.title = `Width:${width}`;
-  };
+    document.title = `Width:${width}`
+  }
 
   return (
     <div>
@@ -315,7 +309,7 @@ function ComponentWithRefRead() {
         <span ref={ref}>{text}</span>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -325,19 +319,19 @@ Before when you used the useRef + useEffect combination, you were able to run th
 
 ```javascript{8,14}
 function ComponentWithRefRead() {
-  const [text, setText] = React.useState('Some text ...');
+  const [text, setText] = React.useState('Some text ...')
 
   function handleOnChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
   const ref = React.useCallback((node) => {
-    if (!node) return;
+    if (!node) return
 
-    const { width } = node.getBoundingClientRect();
+    const { width } = node.getBoundingClientRect()
 
-    document.title = `Width:${width}`;
-  }, []);
+    document.title = `Width:${width}`
+  }, [])
 
   return (
     <div>
@@ -346,7 +340,7 @@ function ComponentWithRefRead() {
         <span ref={ref}>{text}</span>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -354,19 +348,22 @@ You could also be more specific here with the dependency array of the useCallbac
 
 ```javascript{14}
 function ComponentWithRefRead() {
-  const [text, setText] = React.useState('Some text ...');
+  const [text, setText] = React.useState('Some text ...')
 
   function handleOnChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
-  const ref = React.useCallback((node) => {
-    if (!node) return;
+  const ref = React.useCallback(
+    (node) => {
+      if (!node) return
 
-    const { width } = node.getBoundingClientRect();
+      const { width } = node.getBoundingClientRect()
 
-    document.title = `Width:${width}`;
-  }, [text]);
+      document.title = `Width:${width}`
+    },
+    [text]
+  )
 
   return (
     <div>
@@ -375,7 +372,7 @@ function ComponentWithRefRead() {
         <span ref={ref}>{text}</span>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -383,27 +380,27 @@ However, then we would end up again with the same behavior like we had before wi
 
 # React Ref for read/write Operations
 
-So far, we have used the DOM ref only for *read operations* (e.g. reading the size of a DOM node). It's also possible to modify the referenced DOM nodes (*write operations*). The next example shows us how to apply style with React's ref without managing any extra React state for it:
+So far, we have used the DOM ref only for _read operations_ (e.g. reading the size of a DOM node). It's also possible to modify the referenced DOM nodes (_write operations_). The next example shows us how to apply style with React's ref without managing any extra React state for it:
 
 ```javascript{13-17}
 function ComponentWithRefReadWrite() {
-  const [text, setText] = React.useState('Some text ...');
+  const [text, setText] = React.useState('Some text ...')
 
   function handleOnChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
   const ref = (node) => {
-    if (!node) return;
+    if (!node) return
 
-    const { width } = node.getBoundingClientRect();
+    const { width } = node.getBoundingClientRect()
 
     if (width >= 150) {
-      node.style.color = 'red';
+      node.style.color = 'red'
     } else {
-      node.style.color = 'blue';
+      node.style.color = 'blue'
     }
-  };
+  }
 
   return (
     <div>
@@ -412,7 +409,7 @@ function ComponentWithRefReadWrite() {
         <span ref={ref}>{text}</span>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -422,14 +419,14 @@ Just for the sake of learning about it, we could also manage state this way in a
 
 ```javascript{2,5,9,15}
 function ComponentWithImperativeRefState() {
-  const ref = React.useRef();
+  const ref = React.useRef()
 
   React.useEffect(() => {
-    ref.current.textContent = 0;
-  }, []);
+    ref.current.textContent = 0
+  }, [])
 
   function handleClick() {
-    ref.current.textContent = Number(ref.current.textContent) + 1;
+    ref.current.textContent = Number(ref.current.textContent) + 1
   }
 
   return (
@@ -442,7 +439,7 @@ function ComponentWithImperativeRefState() {
         Increase
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -451,4 +448,3 @@ It's not recommended to go down this rabbit hole though... Essentially it should
 <Divider />
 
 This introduction should have shown you how to use React's ref for references to DOM nodes and instance variables by using React's useRef Hooks or callback refs. For the sake of completeness, I want to mention React's `createRef()` top-level API too, which is the [equivalent of useRef() for React class components](/react-hooks-migration). There are also other refs called **string refs** which are deprecated in React.
-

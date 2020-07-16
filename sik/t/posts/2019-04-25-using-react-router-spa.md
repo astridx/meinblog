@@ -177,7 +177,9 @@ export default function UserPage(props) {
   useEffect(() => {
     const getUser = async () => {
       // Pass our param (:id) to the API call
-      const { data } = await axios(`https://api.github.com/users/${props.match.params.id}`)
+      const { data } = await axios(
+        `https://api.github.com/users/${props.match.params.id}`
+      )
 
       // Update state
       setUser(data)

@@ -1,13 +1,28 @@
 ---
-title: "GraphQL Server Tutorial with Apollo Server and Express"
-description: "Learn how to build a GraphQL server with Apollo Server and Express with authentication, authorization, pagination, subscription, database access, tests ..."
-date: "2018-08-22T13:50:46+02:00"
-categories: ["Starter", "React", "GraphQL"]
-keywords: ["graphql apollo server", "graphql express server", "graphql apollo server tutorial", "graphql apollo server book", "apollo server example", "apollo server query", "apollo server mutation", "apollo server", "apollo server demo", "graphql dataloader", "graphql authorization", "graphql authentication", "graphql caching"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'GraphQL Server Tutorial with Apollo Server and Express'
+description: 'Learn how to build a GraphQL server with Apollo Server and Express with authentication, authorization, pagination, subscription, database access, tests ...'
+date: '2018-08-22T13:50:46+02:00'
+categories: ['Starter', 'React', 'GraphQL']
+keywords:
+  [
+    'graphql apollo server',
+    'graphql express server',
+    'graphql apollo server tutorial',
+    'graphql apollo server book',
+    'apollo server example',
+    'apollo server query',
+    'apollo server mutation',
+    'apollo server',
+    'apollo server demo',
+    'graphql dataloader',
+    'graphql authorization',
+    'graphql authentication',
+    'graphql caching',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs,#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,24 +30,24 @@ author: ""
 <ReactGraphQLBook />
 
 <LinkCollection
-  label="This tutorial is part 4 of 4 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "Why GraphQL: Advantages, Disadvantages & Alternatives",
-      url: "/why-graphql-advantages-disadvantages-alternatives/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "Why Apollo: Advantages, Disadvantages & Alternatives",
-      url: "/why-apollo-advantages-disadvantages-alternatives/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup"
-    }
-  ]}
+label="This tutorial is part 4 of 4 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "Why GraphQL: Advantages, Disadvantages & Alternatives",
+url: "/why-graphql-advantages-disadvantages-alternatives/"
+},
+{
+prefix: "Part 2:",
+label: "Why Apollo: Advantages, Disadvantages & Alternatives",
+url: "/why-apollo-advantages-disadvantages-alternatives/"
+},
+{
+prefix: "Part 3:",
+label: "The minimal Node.js with Babel Setup",
+url: "/minimal-node-js-babel-setup"
+}
+]}
 />
 
 In this chapter, you will implement server-side architecture using GraphQL and Apollo Server. The GraphQL query language is implemented as a reference implementation in JavaScript by Facebook, while Apollo Server builds on it to simplify building GraphQL servers in JavaScript. Since GraphQL is a query language, its transport layer and data format is not set in stone. GraphQL isn't opinionated about it, but it is used as alternative to the popular REST architecture for client-server communication over HTTP with JSON.
@@ -51,7 +66,7 @@ There are two ways to start out with this application. You can follow my guidanc
 
 Apollo Server can be used with several popular libraries for Node.js like Express, Koa, Hapi. It is kept library agnostic, so it's possible to connect it with many different third-party libraries in client and server applications. In this application, you will use [Express](https://expressjs.com/), because it is the most popular and common middleware library for Node.js.
 
-Install these two dependencies to the *package.json* file and *node_modules* folder:
+Install these two dependencies to the _package.json_ file and _node_modules_ folder:
 
 ```javascript
 npm install apollo-server apollo-server-express --save
@@ -63,11 +78,11 @@ As you can see by the library names, you can use any other middleware solution (
 npm install express graphql --save
 ```
 
-Now every library is set to get started with the source code in the *src/index.js* file. First, you have to import the necessary parts for getting started with Apollo Server in Express:
+Now every library is set to get started with the source code in the _src/index.js_ file. First, you have to import the necessary parts for getting started with Apollo Server in Express:
 
 ```javascript
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
+import express from 'express'
+import { ApolloServer } from 'apollo-server-express'
 ```
 
 Second, use both imports for initializing your Apollo Server with Express:
@@ -131,7 +146,7 @@ const data = {
   me: {
     username: 'Robin Wieruch',
   },
-};
+}
 ```
 
 In the GraphQL schema for setting up an Apollo Server, **resolvers** are used to return data for fields from the schema. The data source doesn't matter, because the data can be hardcoded, can come from a database, or from another (RESTful) API endpoint. You will learn more about potential data sources later. For now, it only matters that the resolvers are agnostic according to where the data comes from, which separates GraphQL from your typical database query language. Resolvers are functions that resolve data for your GraphQL fields in the schema. In the previous example, only a user object with the username "Robin Wieruch" gets resolved from the `me` field.
@@ -182,15 +197,15 @@ CORS is needed to perform HTTP requests from another domain than your server dom
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VsfJJK)
-  * Confirm the [changes from the last section](http://bit.ly/2VnZy09)
-* Read more about [GraphQL](https://graphql.org/learn)
-* Experiment with the schema and the resolver
-  * Add more fields to the user type
-  * Fulfill the requirements in the resolver
-  * Query your fields in the GraphQL Playground
-* Read more about [Apollo Server Standalone](https://www.apollographql.com/docs/apollo-server/v2/getting-started.html)
-* Read more about [Apollo Server in Express Setup](https://www.apollographql.com/docs/apollo-server/v2/essentials/server.html)
+- Confirm your [source code for the last section](http://bit.ly/2VsfJJK)
+  - Confirm the [changes from the last section](http://bit.ly/2VnZy09)
+- Read more about [GraphQL](https://graphql.org/learn)
+- Experiment with the schema and the resolver
+  - Add more fields to the user type
+  - Fulfill the requirements in the resolver
+  - Query your fields in the GraphQL Playground
+- Read more about [Apollo Server Standalone](https://www.apollographql.com/docs/apollo-server/v2/getting-started.html)
+- Read more about [Apollo Server in Express Setup](https://www.apollographql.com/docs/apollo-server/v2/essentials/server.html)
 
 # Apollo Server: Type Definitions
 
@@ -210,7 +225,7 @@ const schema = gql`
   type User {
     username: String!
   }
-`;
+`
 ```
 
 **GraphQL arguments** can be used to make more fine-grained queries because you can provide them to the GraphQL query. Arguments can be used on a per-field level with parentheses. You must also define the type, which in this case is a non-nullable identifier to retrieve a user from a data source. The query returns the User type, which can be null because a user entity might not be found in the data source when providing a non identifiable `id` for it. Now you can see how two queries share the same GraphQL type, so when adding fields to it, a client can use them implicitly for both queries `id` field:
@@ -226,7 +241,7 @@ const schema = gql`
     id: ID!
     username: String!
   }
-`;
+`
 ```
 
 You may be wondering about the ID scalar type. The ID denotes an identifier used internally for advanced features like caching or refetching. It is a superior string scalar type. All that's missing from the new GraphQL query is the resolver, so we'll add it to the map of resolvers with sample data:
@@ -237,15 +252,15 @@ const resolvers = {
     me: () => {
       return {
         username: 'Robin Wieruch',
-      };
+      }
     },
     user: () => {
       return {
         username: 'Dave Davids',
-      };
+      }
     },
   },
-};
+}
 ```
 
 Second, make use of the incoming `id` argument from the GraphQL query to decide which user to return. All the arguments can be found in the second argument in the resolver function's signature:
@@ -256,15 +271,15 @@ const resolvers = {
     me: () => {
       return {
         username: 'Robin Wieruch',
-      };
+      }
     },
     user: (parent, args) => {
       return {
         username: 'Dave Davids',
-      };
+      }
     },
   },
-};
+}
 ```
 
 The first argument is called `parent` as well, but you shouldn't worry about it for now. Later, it will be showcased where it can be used in your resolvers. Now, to make the example more realistic, extract a map of sample users and return a user based on the `id` used as a key in the extracted map:
@@ -279,20 +294,20 @@ let users = {
     id: '2',
     username: 'Dave Davids',
   },
-};
+}
 
-const me = users[1];
+const me = users[1]
 
 const resolvers = {
   Query: {
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: () => {
-      return me;
+      return me
     },
   },
-};
+}
 ```
 
 Now try out your queries in GraphQL Playground:
@@ -337,7 +352,7 @@ const schema = gql`
     id: ID!
     username: String!
   }
-`;
+`
 ```
 
 In this case, the `users` field returns a list of users of type User, which is denoted with the square brackets. Within the list, no user is allowed to be null, but the list itself can be null in case there are no users (otherwise, it could be also `[User!]!`). Once you add a new query to your schema, you are obligated to define it in your resolvers within the Query object:
@@ -346,27 +361,27 @@ In this case, the `users` field returns a list of users of type User, which is d
 const resolvers = {
   Query: {
     users: () => {
-      return Object.values(users);
+      return Object.values(users)
     },
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: () => {
-      return me;
+      return me
     },
   },
-};
+}
 ```
 
 You have three queries that can be used in your GraphQL client (e.g. GraphQL Playground) applications. All of them operate on the same User type to fulfil the data requirements in the resolvers, so each query has to have a matching resolver. All queries are grouped under one unique, mandatory Query type, which lists all available GraphQL queries exposed to your clients as your GraphQL API for reading data. Later, you will learn about the Mutation type, for grouping a GraphQL API for writing data.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VnGOxK)
-  * Confirm the [changes from the last section](http://bit.ly/2VnX2Xv)
-* Read more about [the GraphQL schema with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/essentials/schema.html)
-* Read more about [the GraphQL mindset: Thinking in Graphs](https://graphql.github.io/learn/thinking-in-graphs/)
-* Read more about [nullability in GraphQL](https://blog.apollographql.com/using-nullability-in-graphql-2254f84c4ed7)
+- Confirm your [source code for the last section](http://bit.ly/2VnGOxK)
+  - Confirm the [changes from the last section](http://bit.ly/2VnX2Xv)
+- Read more about [the GraphQL schema with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/essentials/schema.html)
+- Read more about [the GraphQL mindset: Thinking in Graphs](https://graphql.github.io/learn/thinking-in-graphs/)
+- Read more about [nullability in GraphQL](https://blog.apollographql.com/using-nullability-in-graphql-2254f84c4ed7)
 
 # Apollo Server: Resolvers
 
@@ -378,20 +393,20 @@ In JavaScript, the resolvers are grouped in a JavaScript object, often called a 
 const resolvers = {
   Query: {
     users: () => {
-      return Object.values(users);
+      return Object.values(users)
     },
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: () => {
-      return me;
+      return me
     },
   },
 
   User: {
     username: () => 'Hans',
   },
-};
+}
 ```
 
 Once you start your application again and query for a list of users, every user should have an identical username.
@@ -430,22 +445,22 @@ Let's evolve this a bit by diving into the function signatures of resolver funct
 const resolvers = {
   Query: {
     users: () => {
-      return Object.values(users);
+      return Object.values(users)
     },
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: () => {
-      return me;
+      return me
     },
   },
 
   User: {
-    username: parent => {
-      return parent.username;
-    }
+    username: (parent) => {
+      return parent.username
+    },
   },
-};
+}
 ```
 
 When you query your list of users again in a running application, all usernames should complete correctly. That's because GraphQL first resolves all users in the `users` resolver, and then goes through the User's `username` resolver for each user. Each user is accessible as the first argument in the resolver function, so they can be used to access more properties on the entity. You can rename your parent argument to make it more explicit:
@@ -491,7 +506,7 @@ const server = new ApolloServer({
   context: {
     me: users[1],
   },
-});
+})
 ```
 
 Next, access it in the resolver's function signature as a third argument, which gets destructured into the `me` property from the context object.
@@ -500,16 +515,16 @@ Next, access it in the resolver's function signature as a third argument, which 
 const resolvers = {
   Query: {
     users: () => {
-      return Object.values(users);
+      return Object.values(users)
     },
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: (parent, args, { me }) => {
-      return me;
+      return me
     },
   },
-};
+}
 ```
 
 The context should be the same for all resolvers now. Every resolver that needs to access the context, or in this case the `me` user, can do so using the third argument of the resolver function.
@@ -520,9 +535,9 @@ A couple of words about the resolver's return values: a resolver can return arra
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2Vp9XbR)
-  * Confirm the [changes from the last section](http://bit.ly/2VmdcR7)
-* Read more about [GraphQL resolvers in Apollo](https://www.apollographql.com/docs/apollo-server/v2/essentials/data.html)
+- Confirm your [source code for the last section](http://bit.ly/2Vp9XbR)
+  - Confirm the [changes from the last section](http://bit.ly/2VmdcR7)
+- Read more about [GraphQL resolvers in Apollo](https://www.apollographql.com/docs/apollo-server/v2/essentials/data.html)
 
 # Apollo Server: Type Relationships
 
@@ -548,7 +563,7 @@ const schema = gql`
     id: ID!
     text: String!
   }
-`;
+`
 ```
 
 Second, you have to add two resolvers for Apollo Server to match the two new top level queries:
@@ -563,27 +578,27 @@ let messages = {
     id: '2',
     text: 'By World',
   },
-};
+}
 
 const resolvers = {
   Query: {
     users: () => {
-      return Object.values(users);
+      return Object.values(users)
     },
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: (parent, args, { me }) => {
-      return me;
+      return me
     },
     messages: () => {
-      return Object.values(messages);
+      return Object.values(messages)
     },
     message: (parent, { id }) => {
-      return messages[id];
+      return messages[id]
     },
   },
-};
+}
 ```
 
 Once you run your application again, your new GraphQL queries should work in GraphQL playground. Now we'll add relationships to both GraphQL types. Historically, it was common with REST to add an identifier to each entity to resolve its relationship.
@@ -609,7 +624,7 @@ const schema = gql`
     text: String!
     userId: ID!
   }
-`;
+`
 ```
 
 With GraphQL, Instead of using an identifier and resolving the entities with multiple waterfall requests, you can use the User entity within the message entity directly:
@@ -623,7 +638,7 @@ const schema = gql`
     text: String!
     user: User!
   }
-`;
+`
 ```
 
 Since a message doesn't have a user entity in your model, the default resolver doesn't work. You need to set up an explicit resolver for it.
@@ -632,28 +647,28 @@ Since a message doesn't have a user entity in your model, the default resolver d
 const resolvers = {
   Query: {
     users: () => {
-      return Object.values(users);
+      return Object.values(users)
     },
     user: (parent, { id }) => {
-      return users[id];
+      return users[id]
     },
     me: (parent, args, { me }) => {
-      return me;
+      return me
     },
     messages: () => {
-      return Object.values(messages);
+      return Object.values(messages)
     },
     message: (parent, { id }) => {
-      return messages[id];
+      return messages[id]
     },
   },
 
   Message: {
     user: (parent, args, { me }) => {
-      return me;
+      return me
     },
   },
-};
+}
 ```
 
 In this case, every message is written by the authenticated `me` user. If you query the following about messages, you will get this result:
@@ -700,7 +715,7 @@ let messages = {
     text: 'By World',
     userId: '2',
   },
-};
+}
 ```
 
 The parent argument in your resolver function can be used to get a message's `userId`, which can then be used to retrieve the appropriate user.
@@ -733,7 +748,7 @@ let users = {
     username: 'Dave Davids',
     messageIds: [2],
   },
-};
+}
 ```
 
 This sample data could come from any data source. The important part is that it has a key that defines a relationship to another entity. All of this is independent from GraphQL, so let's define the relationship from users to their messages in GraphQL.
@@ -760,7 +775,7 @@ const schema = gql`
     text: String!
     user: User!
   }
-`;
+`
 ```
 
 Since a user entity doesn't have messages, but message identifiers, you can write a custom resolver for the messages of a user again. In this case, the resolver retrieves all messages from the user from the list of sample messages.
@@ -789,11 +804,11 @@ This section has shown you how to expose relationships in your GraphQL schema. I
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VkQrNK)
-  * Confirm the [changes from the last section](http://bit.ly/2VoPrYL)
-* Query a list of users with their messages
-* Query a list of messages with their user
-* Read more about [the GraphQL schema](https://graphql.github.io/learn/schema/)
+- Confirm your [source code for the last section](http://bit.ly/2VkQrNK)
+  - Confirm the [changes from the last section](http://bit.ly/2VoPrYL)
+- Query a list of users with their messages
+- Query a list of messages with their user
+- Read more about [the GraphQL schema](https://graphql.github.io/learn/schema/)
 
 # Apollo Server: Queries and Mutations
 
@@ -815,7 +830,7 @@ const schema = gql`
   }
 
   ...
-`;
+`
 ```
 
 Apart from the Query type, there are also Mutation and Subscription types. There, you can group all your GraphQL operations for writing data instead of reading it. In this case, the `createMessage` mutation accepts a non-nullable `text` input as an argument, and returns the created message. Again, you have to implement the resolver as counterpart for the mutation the same as with the previous queries, which happens in the mutation part of the resolver map:
@@ -850,7 +865,7 @@ npm install uuid --save
 And import it to your file:
 
 ```javascript
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 ```
 
 Now you can give your message a unique identifier:
@@ -936,7 +951,7 @@ const schema = gql`
   }
 
   ...
-`;
+`
 ```
 
 The mutation returns a boolean that tells if the deletion was successful or not, and it takes an identifier as input to identify the message. The counterpart of the GraphQL schema implementation is a resolver:
@@ -973,16 +988,16 @@ There is only one GraphQL operation missing for making the messages features com
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VsfRJe)
-  * Confirm the [changes from the last section](http://bit.ly/2VqAMfA)
-* Create a message in GraphQL Playground with a mutation
-  * Query all messages
-  * Query the `me` user with messages
-* Delete a message in GraphQL Playground with a mutation
-  * Query all messages
-  * Query the me user with messages
-* Implement an `updateMessage` mutation for completing all CRUD operations for a message in GraphQL
-* Read more about [GraphQL queries and mutations](https://graphql.github.io/learn/queries/)
+- Confirm your [source code for the last section](http://bit.ly/2VsfRJe)
+  - Confirm the [changes from the last section](http://bit.ly/2VqAMfA)
+- Create a message in GraphQL Playground with a mutation
+  - Query all messages
+  - Query the `me` user with messages
+- Delete a message in GraphQL Playground with a mutation
+  - Query all messages
+  - Query the me user with messages
+- Implement an `updateMessage` mutation for completing all CRUD operations for a message in GraphQL
+- Read more about [GraphQL queries and mutations](https://graphql.github.io/learn/queries/)
 
 # GraphQL Schema Stitching with Apollo Server
 
@@ -994,20 +1009,20 @@ In our case, let's start with a separation by technical concerns for the GraphQL
 
 ## Technical Separation
 
-Let's take the GraphQL schema from the application where you have a User type and Message type. In the same step, split out the resolvers to a dedicated place. The *src/index.js* file, where the schema and resolvers are needed for the Apollo Server instantiation, should only import both things. It becomes three things when outsourcing data, which in this case is the sample data, now called models.
+Let's take the GraphQL schema from the application where you have a User type and Message type. In the same step, split out the resolvers to a dedicated place. The _src/index.js_ file, where the schema and resolvers are needed for the Apollo Server instantiation, should only import both things. It becomes three things when outsourcing data, which in this case is the sample data, now called models.
 
 ```javascript{3,5,6,7,17,18}
-import cors from 'cors';
-import express from 'express';
-import { ApolloServer } from 'apollo-server-express';
+import cors from 'cors'
+import express from 'express'
+import { ApolloServer } from 'apollo-server-express'
 
-import schema from './schema';
-import resolvers from './resolvers';
-import models from './models';
+import schema from './schema'
+import resolvers from './resolvers'
+import models from './models'
 
-const app = express();
+const app = express()
 
-app.use(cors());
+app.use(cors())
 
 const server = new ApolloServer({
   typeDefs: schema,
@@ -1016,16 +1031,16 @@ const server = new ApolloServer({
     models,
     me: models.users[1],
   },
-});
+})
 
-server.applyMiddleware({ app, path: '/graphql' });
+server.applyMiddleware({ app, path: '/graphql' })
 
 app.listen({ port: 8000 }, () => {
-  console.log('Apollo Server on http://localhost:8000/graphql');
-});
+  console.log('Apollo Server on http://localhost:8000/graphql')
+})
 ```
 
-As an improvement, models are passed to the resolver function's as context. The models are your data access layer, which can be sample data, a database, or a third-party API. It's always good to pass those things from the outside to keep the resolver functions pure. Then, you don't need to import the models in each resolver file. In this case, the models are the sample data moved to the *src/models/index.js* file:
+As an improvement, models are passed to the resolver function's as context. The models are your data access layer, which can be sample data, a database, or a third-party API. It's always good to pass those things from the outside to keep the resolver functions pure. Then, you don't need to import the models in each resolver file. In this case, the models are the sample data moved to the _src/models/index.js_ file:
 
 ```javascript
 let users = {
@@ -1039,7 +1054,7 @@ let users = {
     username: 'Dave Davids',
     messageIds: [2],
   },
-};
+}
 
 let messages = {
   1: {
@@ -1052,86 +1067,86 @@ let messages = {
     text: 'By World',
     userId: '2',
   },
-};
+}
 
 export default {
   users,
   messages,
-};
+}
 ```
 
-Since you have passed the models to your Apollo Server context, they are accessible in each resolver. Next, move the resolvers to the *src/resolvers/index.js* file, and adjust the resolver's function signature by adding the models when they are needed to read/write users or messages.
+Since you have passed the models to your Apollo Server context, they are accessible in each resolver. Next, move the resolvers to the _src/resolvers/index.js_ file, and adjust the resolver's function signature by adding the models when they are needed to read/write users or messages.
 
 ```javascript{5,6,8,9,14,15,17,18,23,31,32,37,38,44,51,52,59,60}
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
   Query: {
     users: (parent, args, { models }) => {
-      return Object.values(models.users);
+      return Object.values(models.users)
     },
     user: (parent, { id }, { models }) => {
-      return models.users[id];
+      return models.users[id]
     },
     me: (parent, args, { me }) => {
-      return me;
+      return me
     },
     messages: (parent, args, { models }) => {
-      return Object.values(models.messages);
+      return Object.values(models.messages)
     },
     message: (parent, { id }, { models }) => {
-      return models.messages[id];
+      return models.messages[id]
     },
   },
 
   Mutation: {
     createMessage: (parent, { text }, { me, models }) => {
-      const id = uuidv4();
+      const id = uuidv4()
       const message = {
         id,
         text,
         userId: me.id,
-      };
+      }
 
-      models.messages[id] = message;
-      models.users[me.id].messageIds.push(id);
+      models.messages[id] = message
+      models.users[me.id].messageIds.push(id)
 
-      return message;
+      return message
     },
 
     deleteMessage: (parent, { id }, { models }) => {
-      const { [id]: message, ...otherMessages } = models.messages;
+      const { [id]: message, ...otherMessages } = models.messages
 
       if (!message) {
-        return false;
+        return false
       }
 
-      models.messages = otherMessages;
+      models.messages = otherMessages
 
-      return true;
+      return true
     },
   },
 
   User: {
     messages: (user, args, { models }) => {
       return Object.values(models.messages).filter(
-        message => message.userId === user.id,
-      );
+        (message) => message.userId === user.id
+      )
     },
   },
 
   Message: {
     user: (message, args, { models }) => {
-      return models.users[message.userId];
+      return models.users[message.userId]
     },
   },
-};
+}
 ```
 
-The resolvers receive all sample data as models in the context argument rather than operating directly on the sample data as before. As mentioned, it keeps the resolver functions pure. Later, you will have an easier time testing resolver functions in isolation. Next, move your schema's type definitions in the *src/schema/index.js* file:
+The resolvers receive all sample data as models in the context argument rather than operating directly on the sample data as before. As mentioned, it keeps the resolver functions pure. Later, you will have an easier time testing resolver functions in isolation. Next, move your schema's type definitions in the _src/schema/index.js_ file:
 
 ```javascript
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   type Query {
@@ -1159,17 +1174,17 @@ export default gql`
     text: String!
     user: User!
   }
-`;
+`
 ```
 
 The technical separation is complete, but the separation by domains, where schema stitching is needed, isn't done yet. So far, you have only outsourced the schema, resolvers and data (models) from your Apollo Server instantiation file. Everything is separated by technical concerns now. You also made a small improvement for passing the models through the context, rather than importing them in resolver files.
 
 ## Domain Separation
 
-In the next step, modularize the GraphQL schema by domains (user and message). First, separate the user-related entity in its own schema definition file called *src/schema/user.js*:
+In the next step, modularize the GraphQL schema by domains (user and message). First, separate the user-related entity in its own schema definition file called _src/schema/user.js_:
 
 ```javascript{4}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -1183,13 +1198,13 @@ export default gql`
     username: String!
     messages: [Message!]
   }
-`;
+`
 ```
 
-The same applies for the message schema definition in *src/schema/message.js*:
+The same applies for the message schema definition in _src/schema/message.js_:
 
 ```javascript{4,9}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -1207,16 +1222,16 @@ export default gql`
     text: String!
     user: User!
   }
-`;
+`
 ```
 
-Each file only describes its own entity, with a type and its relations. A relation can be a type from a different file, such as a Message type that still has the relation to a User type even though the User type is defined somewhere else. Note the `extend` statement on the Query and Mutation types. Since you have more than one of those types now, you need to extend the types. Next, define shared base types for them in the *src/schema/index.js*:
+Each file only describes its own entity, with a type and its relations. A relation can be a type from a different file, such as a Message type that still has the relation to a User type even though the User type is defined somewhere else. Note the `extend` statement on the Query and Mutation types. Since you have more than one of those types now, you need to extend the types. Next, define shared base types for them in the _src/schema/index.js_:
 
 ```javascript
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
-import userSchema from './user';
-import messageSchema from './message';
+import userSchema from './user'
+import messageSchema from './message'
 
 const linkSchema = gql`
   type Query {
@@ -1230,14 +1245,14 @@ const linkSchema = gql`
   type Subscription {
     _: Boolean
   }
-`;
+`
 
-export default [linkSchema, userSchema, messageSchema];
+export default [linkSchema, userSchema, messageSchema]
 ```
 
 In this file, both schemas are merged with the help of a utility called `linkSchema`. The `linkSchema` defines all types shared within the schemas. It already defines a Subscription type for GraphQL subscriptions, which may be implemented later. As a workaround, there is an empty underscore field with a Boolean type in the merging utility schema, because there is no official way of completing this action yet. The utility schema defines the shared base types, extended with the `extend` statement in the other domain-specific schemas.
 
-This time, the application runs with a stitched schema instead of one global schema. What's missing are the domain separated resolver maps. Let's start with the user domain again in file in the *src/resolvers/user.js* file, whereas I leave out the implementation details for saving space here:
+This time, the application runs with a stitched schema instead of one global schema. What's missing are the domain separated resolver maps. Let's start with the user domain again in file in the _src/resolvers/user.js_ file, whereas I leave out the implementation details for saving space here:
 
 ```javascript
 export default {
@@ -1261,7 +1276,7 @@ export default {
 };
 ```
 
-Next, add the message resolvers in the *src/resolvers/message.js* file:
+Next, add the message resolvers in the _src/resolvers/message.js_ file:
 
 ```javascript
 import { v4 as uuidv4 } from 'uuid';
@@ -1294,18 +1309,18 @@ export default {
 };
 ```
 
-Since the Apollo Server accepts a list of resolver maps too, you can import all of your resolver maps in your *src/resolvers/index.js* file, and export them as a list of resolver maps again:
+Since the Apollo Server accepts a list of resolver maps too, you can import all of your resolver maps in your _src/resolvers/index.js_ file, and export them as a list of resolver maps again:
 
 ```javascript
-import userResolvers from './user';
-import messageResolvers from './message';
+import userResolvers from './user'
+import messageResolvers from './message'
 
-export default [userResolvers, messageResolvers];
+export default [userResolvers, messageResolvers]
 ```
 
 Then, the Apollo Server can take the resolver list to be instantiated. Start your application again and verify that everything is working for you.
 
-In the last section, you extracted schema and resolvers from your main file and separated both by domains. The sample data is placed in a *src/models* folder, where it can be migrated to a database-driven approach later. The folder structure should look similar to this:
+In the last section, you extracted schema and resolvers from your main file and separated both by domains. The sample data is placed in a _src/models_ folder, where it can be migrated to a database-driven approach later. The folder structure should look similar to this:
 
 ```javascript
 * src/
@@ -1326,12 +1341,12 @@ You now have a good starting point for a GraphQL server application with Node.js
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VnMlnT)
-  * Confirm the [changes from the last section](http://bit.ly/2VkZMF8)
-* Read more about [schema stitching with Apollo Server](https://www.apollographql.com/docs/graphql-tools/schema-stitching.html)
-* Schema stitching is only a part of **schema delegation**
-  * Read more about [schema delegation](https://www.apollographql.com/docs/graphql-tools/schema-delegation.html)
-  * Familiarize yourself with the motivation behind **remote schemas** and **schema transforms**
+- Confirm your [source code for the last section](http://bit.ly/2VnMlnT)
+  - Confirm the [changes from the last section](http://bit.ly/2VkZMF8)
+- Read more about [schema stitching with Apollo Server](https://www.apollographql.com/docs/graphql-tools/schema-stitching.html)
+- Schema stitching is only a part of **schema delegation**
+  - Read more about [schema delegation](https://www.apollographql.com/docs/graphql-tools/schema-delegation.html)
+  - Familiarize yourself with the motivation behind **remote schemas** and **schema transforms**
 
 # PostgreSQL with Sequelize for a GraphQL Server
 
@@ -1339,14 +1354,14 @@ To create a full-stack GraphQL application, you'll need to introduce a sophistic
 
 This [setup guide](/postgres-express-setup-tutorial/) will walk you through the basic PostgreSQL setup, including installation, your first database, administrative database user setup, and essential commands. These are the things you should have accomplished after going through the instructions:
 
-* A running installation of PostgreSQL
-* A database super user with username and password
-* A database created with `createdb` or `CREATE DATABASE`
+- A running installation of PostgreSQL
+- A database super user with username and password
+- A database created with `createdb` or `CREATE DATABASE`
 
 You should be able to run and stop your database with the following commands:
 
-* pg_ctl -D /usr/local/var/postgres start
-* pg_ctl -D /usr/local/var/postgres stop
+- pg_ctl -D /usr/local/var/postgres start
+- pg_ctl -D /usr/local/var/postgres stop
 
 Use the `psql` command to connect to your database in the command line, where you can list databases and execute SQL statements against them. You should find a couple of these operations in the PostgreSQL setup guide, but this section will also show some of them. Consider performing these in the same way you've been completing GraphQL operations with GraphQL Playground. The `psql` command line interface and GraphQL Playground are effective tools for testing applications manually.
 
@@ -1358,14 +1373,14 @@ npm install pg sequelize --save
 
 Now you can create models for the user and message domains. Models are usually the data access layer in applications. Then, set up your models with Sequelize to make read and write operations to your PostgreSQL database. The models can then be used in GraphQL resolvers by passing them through the context object to each resolver. These are the essential steps:
 
-* Creating a model for the user domain
-* Creating a model for the message domain
-* Connecting the application to a database
-  * Providing super user's username and password
-  * Combining models for database use
-* Synchronizing the database once application starts
+- Creating a model for the user domain
+- Creating a model for the message domain
+- Connecting the application to a database
+  - Providing super user's username and password
+  - Combining models for database use
+- Synchronizing the database once application starts
 
-First, implement the *src/models/user.js* model:
+First, implement the _src/models/user.js_ model:
 
 ```javascript
 const user = (sequelize, DataTypes) => {
@@ -1373,19 +1388,19 @@ const user = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
     },
-  });
+  })
 
-  User.associate = models => {
-    User.hasMany(models.Message, { onDelete: 'CASCADE' });
-  };
+  User.associate = (models) => {
+    User.hasMany(models.Message, { onDelete: 'CASCADE' })
+  }
 
-  return User;
-};
+  return User
+}
 
-export default user;
+export default user
 ```
 
-Next, implement the *src/models/message.js* model:
+Next, implement the _src/models/message.js_ model:
 
 ```javascript
 const message = (sequelize, DataTypes) => {
@@ -1393,24 +1408,24 @@ const message = (sequelize, DataTypes) => {
     text: {
       type: DataTypes.STRING,
     },
-  });
+  })
 
-  Message.associate = models => {
-    Message.belongsTo(models.User);
-  };
+  Message.associate = (models) => {
+    Message.belongsTo(models.User)
+  }
 
-  return Message;
-};
+  return Message
+}
 
-export default message;
+export default message
 ```
 
 Both models define the shapes of their entities. The message model has a database column with the name text of type string. You can add multiple database columns horizontally to your model. All columns of a model make up a table row in the database, and each row reflects a database entry, such as a message or user. The database table name is defined by an argument in the Sequelize model definition. The message domain has the table "message". You can define relationships between entities with Sequelize using associations. In this case, a message entity belongs to one user, and that user has many messages. That's a minimal database setup with two domains, but since we're focusing on server-side GraphQL, you should consider reading more about databases subjects outside of these applications to fully grasp the concept.
 
-Next, connect to your database from within your application in the *src/models/index.js* file. We'll need the database name, a database super user, and the user's password. You may also want to define a database dialect, because Sequelize supports other databases as well.
+Next, connect to your database from within your application in the _src/models/index.js_ file. We'll need the database name, a database super user, and the user's password. You may also want to define a database dialect, because Sequelize supports other databases as well.
 
 ```javascript
-import Sequelize from 'sequelize';
+import Sequelize from 'sequelize'
 
 const sequelize = new Sequelize(
   process.env.DATABASE,
@@ -1418,18 +1433,18 @@ const sequelize = new Sequelize(
   process.env.DATABASE_PASSWORD,
   {
     dialect: 'postgres',
-  },
-);
+  }
+)
 
-export { sequelize };
+export { sequelize }
 ```
 
-*Note: To access the environment variables in your source code, install and add the [dotenv package](https://github.com/motdotla/dotenv) as described in this [setup tutorial](/minimal-node-js-babel-setup/).*
+_Note: To access the environment variables in your source code, install and add the [dotenv package](https://github.com/motdotla/dotenv) as described in this [setup tutorial](/minimal-node-js-babel-setup/)._
 
 In the same file, you can physically associate all your models with each other to expose them to your application as data access layer (models) for the database.
 
 ```javascript{12,13,14,15,17,18,19,20,21,25}
-import Sequelize from 'sequelize';
+import Sequelize from 'sequelize'
 
 const sequelize = new Sequelize(
   process.env.DATABASE,
@@ -1437,34 +1452,34 @@ const sequelize = new Sequelize(
   process.env.DATABASE_PASSWORD,
   {
     dialect: 'postgres',
-  },
-);
+  }
+)
 
 const models = {
   User: sequelize.import('./user'),
   Message: sequelize.import('./message'),
-};
+}
 
-Object.keys(models).forEach(key => {
+Object.keys(models).forEach((key) => {
   if ('associate' in models[key]) {
-    models[key].associate(models);
+    models[key].associate(models)
   }
-});
+})
 
-export { sequelize };
+export { sequelize }
 
-export default models;
+export default models
 ```
 
-The database credentials--database name, database super user name, database super user password--can be stored as environment variables. In your *.env* file, add those credentials as key value pairs. My defaults for local development are:
+The database credentials--database name, database super user name, database super user password--can be stored as environment variables. In your _.env_ file, add those credentials as key value pairs. My defaults for local development are:
 
 ```javascript
-DATABASE=postgres
-DATABASE_USER=postgres
-DATABASE_PASSWORD=postgres
+DATABASE = postgres
+DATABASE_USER = postgres
+DATABASE_PASSWORD = postgres
 ```
 
-You set up environment variables when you started creating this application. If not, you can also leave credentials in the source code for now. Finally, the database needs to be migrated/synchronized once your Node.js application starts. To complete this operation in your *src/index.js* file:
+You set up environment variables when you started creating this application. If not, you can also leave credentials in the source code for now. Finally, the database needs to be migrated/synchronized once your Node.js application starts. To complete this operation in your _src/index.js_ file:
 
 ```javascript{6,10,14}
 import express from 'express';
@@ -1487,35 +1502,35 @@ We've completed the database setup for a GraphQL server. Next, you'll replace th
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2Vv1fJj)
-  * Confirm the [changes from the last section](http://bit.ly/2VmdqHX)
-* Familiarize yourself with databases
-  * Try the `psql` command-line interface to access a database
-  * Check the Sequelize API by reading through their documentation
-  * Look up any unfamiliar database jargon mentioned here.
+- Confirm your [source code for the last section](http://bit.ly/2Vv1fJj)
+  - Confirm the [changes from the last section](http://bit.ly/2VmdqHX)
+- Familiarize yourself with databases
+  - Try the `psql` command-line interface to access a database
+  - Check the Sequelize API by reading through their documentation
+  - Look up any unfamiliar database jargon mentioned here.
 
 # Connecting Resolvers and Database
 
 Your PostgreSQL database is ready to connect to a GraphQL server on startup. Now, instead of using the sample data, you will use data access layer (models) in GraphQL resolvers for reading and writing data to and from a database. In the next section, we will cover the following:
 
-* Use the new models in your GraphQL resolvers
-* Seed your database with data when your application starts
-* Add a user model method for retrieving a user by username
-* Learn the essentials about `psql` for the command line
+- Use the new models in your GraphQL resolvers
+- Seed your database with data when your application starts
+- Add a user model method for retrieving a user by username
+- Learn the essentials about `psql` for the command line
 
-Let's start by refactoring the GraphQL resolvers. You passed the models via Apollo Server's context object to each GraphQL resolver earlier. We used sample data before, but the Sequelize API is necessary for our real-word database operations. In the *src/resolvers/user.js* file, change the following lines of code to use the Sequelize API:
+Let's start by refactoring the GraphQL resolvers. You passed the models via Apollo Server's context object to each GraphQL resolver earlier. We used sample data before, but the Sequelize API is necessary for our real-word database operations. In the _src/resolvers/user.js_ file, change the following lines of code to use the Sequelize API:
 
 ```javascript{3,4,6,7,9,10,15,16,17,18,19,20}
 export default {
   Query: {
     users: async (parent, args, { models }) => {
-      return await models.User.findAll();
+      return await models.User.findAll()
     },
     user: async (parent, { id }, { models }) => {
-      return await models.User.findByPk(id);
+      return await models.User.findByPk(id)
     },
     me: async (parent, args, { models, me }) => {
-      return await models.User.findByPk(me.id);
+      return await models.User.findByPk(me.id)
     },
   },
 
@@ -1525,24 +1540,24 @@ export default {
         where: {
           userId: user.id,
         },
-      });
+      })
     },
   },
-};
+}
 ```
 
 The `findAll()` and `findByPk()` are commonly used Sequelize methods for database operations. Finding all messages for a specific user is more specific, though. Here, you used the `where` clause to narrow down messages by the `userId` entry in the database. Accessing a database will add another layer of complexity to your application's architecture, so be sure to reference the Sequelize API documentation as much as needed going forward.
 
-Next, return to the *src/resolvers/message.js* file and perform adjustments to use the Sequelize API:
+Next, return to the _src/resolvers/message.js_ file and perform adjustments to use the Sequelize API:
 
 ```javascript{3,4,6,7,12,13,14,15,19,20,25,26}
 export default {
   Query: {
     messages: async (parent, args, { models }) => {
-      return await models.Message.findAll();
+      return await models.Message.findAll()
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findByPk(id);
+      return await models.Message.findByPk(id)
     },
   },
 
@@ -1551,27 +1566,27 @@ export default {
       return await models.Message.create({
         text,
         userId: me.id,
-      });
+      })
     },
 
     deleteMessage: async (parent, { id }, { models }) => {
-      return await models.Message.destroy({ where: { id } });
+      return await models.Message.destroy({ where: { id } })
     },
   },
 
   Message: {
     user: async (message, args, { models }) => {
-      return await models.User.findByPk(message.userId);
+      return await models.User.findByPk(message.userId)
     },
   },
-};
+}
 ```
 
 Apart from the `findByPk()` and `findAll()` methods, you are creating and deleting a message in the mutations as well. Before, you had to generate your own identifier for the message, but now Sequelize takes care of adding a unique identifier to your message once it is created in the database.
 
 There was one more crucial change in the two files: [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function). Sequelize is a JavaScript promise-based ORM, so it always returns a JavaScript promise when operating on a database. That's where async/await can be used as a more readable version for asynchronous requests in JavaScript. You learned about the returned results of GraphQL resolvers in Apollo Server in a previous section. A result can be a JavaScript promise as well, because the resolvers are waiting for its actual result. In this case, you can also get rid of the async/await statements and your resolvers would still work. Sometimes it is better to be more explicit, however, especially when we add more business logic within the resolver's function body later, so we will keep the statements for now.
 
-Now we'll shift to seeding the database with sample data when your applications starts with `npm start`. Once your database synchronizes before your server listens, you can create two user records manually with messages in your database. The following code for the *src/index.js* file shows how to perform these operations with async/await. Users will have a `username` with associated `messages`.
+Now we'll shift to seeding the database with sample data when your applications starts with `npm start`. Once your database synchronizes before your server listens, you can create two user records manually with messages in your database. The following code for the _src/index.js_ file shows how to perform these operations with async/await. Users will have a `username` with associated `messages`.
 
 ```javascript{3,5,6,7,8,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46}
 ...
@@ -1624,7 +1639,7 @@ const createUsersWithMessages = async () => {
 
 The `force` flag in your Sequelize `sync()` method can be used to seed the database on every application startup. You can either remove the flag or set it to `false` if you want to keep accumulated database changes over time. The flag should be removed for your production database at some point.
 
-Next, we have to handle the `me` user. Before, you used one of the users from the sample data; now, the user will come from a database. It's a good opportunity to write a custom method for your user model in the *src/models/user.js* file:
+Next, we have to handle the `me` user. Before, you used one of the users from the sample data; now, the user will come from a database. It's a good opportunity to write a custom method for your user model in the _src/models/user.js_ file:
 
 ```javascript{12,13,14,15,16,17,18,19,20,21,22,23,24}
 const user = (sequelize, DataTypes) => {
@@ -1632,37 +1647,37 @@ const user = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
     },
-  });
+  })
 
-  User.associate = models => {
-    User.hasMany(models.Message, { onDelete: 'CASCADE' });
-  };
+  User.associate = (models) => {
+    User.hasMany(models.Message, { onDelete: 'CASCADE' })
+  }
 
-  User.findByLogin = async login => {
+  User.findByLogin = async (login) => {
     let user = await User.findOne({
       where: { username: login },
-    });
+    })
 
     if (!user) {
       user = await User.findOne({
         where: { email: login },
-      });
+      })
     }
 
-    return user;
-  };
+    return user
+  }
 
-  return User;
-};
+  return User
+}
 
-export default user;
+export default user
 ```
 
 The `findByLogin()` method on your user model retrieves a user by `username` or by `email` entry. You don't have an `email` entry on the user yet, but it will be added when the application has an authentication mechanism. The `login` argument is used for both `username` and `email`, for retrieving the user from the database, and you can see how it is used to sign in to an application with username or email.
 
-You have introduced your first custom method on a database model. It is always worth considering where to put this business logic. When giving your model these access methods, you may end up with a concept called *fat models*. An alternative would be writing separate services like functions or classes for these data access layer functionalities.
+You have introduced your first custom method on a database model. It is always worth considering where to put this business logic. When giving your model these access methods, you may end up with a concept called _fat models_. An alternative would be writing separate services like functions or classes for these data access layer functionalities.
 
-The new model method can be used to retrieve the `me` user from the database. Then you can put it into the context object when the Apollo Server is instantiated in the *src/index.js* file:
+The new model method can be used to retrieve the `me` user from the database. Then you can put it into the context object when the Apollo Server is instantiated in the _src/index.js_ file:
 
 ```javascript{6}
 const server = new ApolloServer({
@@ -1672,7 +1687,7 @@ const server = new ApolloServer({
     models,
     me: models.User.findByLogin('rwieruch'),
   },
-});
+})
 ```
 
 However, this cannot work yet, because the user is read asynchronously from the database, so `me` would be a JavaScript promise rather than the actual user; and because you may want to retrieve the `me` user on a per-request basis from the database. Otherwise, the `me` user has to stay the same after the Apollo Server is created. Instead, use a function that returns the context object rather than an object for the context in Apollo Server. This function uses the async/await statements. The function is invoked every time a request hits your GraphQL API, so the `me` user is retrieved from the database with every request.
@@ -1685,7 +1700,7 @@ const server = new ApolloServer({
     models,
     me: await models.User.findByLogin('rwieruch'),
   }),
-});
+})
 ```
 
 You should be able to start your application again. Try out different GraphQL queries and mutations in GraphQL Playground, and verify that everything is working for you. If there are any errors regarding the database, make sure that it is properly connected to your application and that the database is running on the command line too.
@@ -1728,12 +1743,12 @@ In this section, you have used a PostgreSQL database as data source for your Gra
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VnMnMx)
-  * Confirm the [changes from the last section](http://bit.ly/2VqMNBJ)
-* Experiment with psql and the seeding of your database
-* Experiment with GraphQL playground and query data which comes from a database now
-* Remove and add the async/await statements in your resolvers and see how they still work
-  * Read more about [GraphQL execution](https://graphql.github.io/learn/execution/)
+- Confirm your [source code for the last section](http://bit.ly/2VnMnMx)
+  - Confirm the [changes from the last section](http://bit.ly/2VqMNBJ)
+- Experiment with psql and the seeding of your database
+- Experiment with GraphQL playground and query data which comes from a database now
+- Remove and add the async/await statements in your resolvers and see how they still work
+  - Read more about [GraphQL execution](https://graphql.github.io/learn/execution/)
 
 # Apollo Server: Validation and Errors
 
@@ -1765,7 +1780,7 @@ It may be a good idea keeping the resolvers surface slim but adding business log
 
 Let's start with the validation, which will lead to error handling. GraphQL isn't directly concerned about validation, but it operates between tech stacks that are: the client application (e.g. showing validation messages) and the database (e.g. validation of entities before writing to the database).
 
-Let's add some basic validation rules to your database models. This section gives an introduction to the topic, as it would become too verbose to cover all uses cases in this application. First, add validation to your user model in the *src/models/user.js* file:
+Let's add some basic validation rules to your database models. This section gives an introduction to the topic, as it would become too verbose to cover all uses cases in this application. First, add validation to your user model in the _src/models/user.js_ file:
 
 ```javascript{5,6,7,8,9}
 const user = (sequelize, DataTypes) => {
@@ -1788,7 +1803,7 @@ const user = (sequelize, DataTypes) => {
 export default user;
 ```
 
-Next, add validation rules to your message model  in the *src/models/message.js* file:
+Next, add validation rules to your message model in the _src/models/message.js_ file:
 
 ```javascript{5}
 const message = (sequelize, DataTypes) => {
@@ -1797,16 +1812,16 @@ const message = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: { notEmpty: true },
     },
-  });
+  })
 
-  Message.associate = models => {
-    Message.belongsTo(models.User);
-  };
+  Message.associate = (models) => {
+    Message.belongsTo(models.User)
+  }
 
-  return Message;
-};
+  return Message
+}
 
-export default message;
+export default message
 ```
 
 Now, try to create a message with an empty text in GraphQL Playground. It still requires a non-empty text for your message in the database. The same applies to your user entities, which now require a unique username. GraphQL and Apollo Server can handle these cases. Let's try to create a message with an empty text. You should see a similar input and output:
@@ -1880,16 +1895,16 @@ const message = (sequelize, DataTypes) => {
         },
       },
     },
-  });
+  })
 
-  Message.associate = models => {
-    Message.belongsTo(models.User);
-  };
+  Message.associate = (models) => {
+    Message.belongsTo(models.User)
+  }
 
-  return Message;
-};
+  return Message
+}
 
-export default message;
+export default message
 ```
 
 This would lead to the following error(s) when attempting to create a message with an empty text. Again, it is straightforward in your client application, because the error format stays the same:
@@ -1916,43 +1931,43 @@ That's one of the main benefits of using Apollo Server for GraphQL. Error handli
 const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
-  formatError: error => {
+  formatError: (error) => {
     // remove the internal sequelize error message
     // leave only the important validation error
     const message = error.message
       .replace('SequelizeValidationError: ', '')
-      .replace('Validation error: ', '');
+      .replace('Validation error: ', '')
 
     return {
       ...error,
       message,
-    };
+    }
   },
   context: async () => ({
     models,
     me: await models.User.findByLogin('rwieruch'),
   }),
-});
+})
 ```
 
 These are the essentials for validation and error handling with GraphQL in Apollo Server. Validation can happen on a database (model) level or on a business logic level (resolvers). It can happen on a directive level too (see exercises). If there is an error, GraphQL and Apollo Server will format it to work with GraphQL clients. You can also format errors globally in Apollo Server.
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VqeomC)
-  * Confirm the [changes from the last section](http://bit.ly/2VqQKqb)
-* Add more validation rules to your database models
-  * Read more about validation in the Sequelize documentation
-* Read more about [Error Handling with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/features/errors.html)
-  * Get to know the different custom errors in Apollo Server
-* Read more about [GraphQL field level validation with custom directives](https://blog.apollographql.com/graphql-validation-using-directives-4908fd5c1055)
-  * Read more about [custom schema directives](https://www.apollographql.com/docs/apollo-server/v2/features/directives.html)
+- Confirm your [source code for the last section](http://bit.ly/2VqeomC)
+  - Confirm the [changes from the last section](http://bit.ly/2VqQKqb)
+- Add more validation rules to your database models
+  - Read more about validation in the Sequelize documentation
+- Read more about [Error Handling with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/features/errors.html)
+  - Get to know the different custom errors in Apollo Server
+- Read more about [GraphQL field level validation with custom directives](https://blog.apollographql.com/graphql-validation-using-directives-4908fd5c1055)
+  - Read more about [custom schema directives](https://www.apollographql.com/docs/apollo-server/v2/features/directives.html)
 
 # Apollo Server: Authentication
 
 Authentication in GraphQL is a popular topic. There is no opinionated way of doing it, but many people need it for their applications. GraphQL itself isn't opinionated about authentication since it is only a query language. If you want authentication in GraphQL, consider using GraphQL mutations. In this section, we use a minimalistic approach to add authentication to your GraphQL server. Afterward, it should be possible to register (sign up) and login (sign in) a user to your application. The previously used `me` user will be the authenticated user.
 
-In preparation for the authentication mechanism with GraphQL, extend the user model in the *src/models/user.js* file. The user needs an email address (as unique identifier) and a password. Both email address and username (another unique identifier) can be used to sign in to the application, which is why both properties were used for the user's `findByLogin()` method.
+In preparation for the authentication mechanism with GraphQL, extend the user model in the _src/models/user.js_ file. The user needs an email address (as unique identifier) and a password. Both email address and username (another unique identifier) can be used to sign in to the application, which is why both properties were used for the user's `findByLogin()` method.
 
 ```javascript{13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29}
 ...
@@ -1996,10 +2011,10 @@ export default user;
 
 The two new entries for the user model have their own validation rules, same as before. The password of a user should be between 7 and 42 characters, and the email should have a valid email format. If any of these validations fails during user creation, it generates a JavaScript error, transforms and transfers the error with GraphQL. The registration form in the client application could display the validation error then.
 
-You may want to add the email, but not the password, to your GraphQL user schema in the *src/schema/user.js* file too:
+You may want to add the email, but not the password, to your GraphQL user schema in the _src/schema/user.js_ file too:
 
 ```javascript{9}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   ...
@@ -2010,10 +2025,10 @@ export default gql`
     email: String!
     messages: [Message!]
   }
-`;
+`
 ```
 
-Next, add the new properties to your seed data in the *src/index.js* file:
+Next, add the new properties to your seed data in the _src/index.js_ file:
 
 ```javascript{5,6,17,18}
 const createUsersWithMessages = async () => {
@@ -2047,10 +2062,10 @@ That's the data migration of your database to get started with GraphQL authentic
 
 ## Registration (Sign Up) with GraphQL
 
-Now, let's examine the details for GraphQL authentication. You will implement two GraphQL mutations: one to register a user, and one to log in to the application. Let's start with the sign up mutation in the *src/schema/user.js* file:
+Now, let's examine the details for GraphQL authentication. You will implement two GraphQL mutations: one to register a user, and one to log in to the application. Let's start with the sign up mutation in the _src/schema/user.js_ file:
 
 ```javascript{10,11,12,13,14,15,16,18,19,20}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -2060,11 +2075,7 @@ export default gql`
   }
 
   extend type Mutation {
-    signUp(
-      username: String!
-      email: String!
-      password: String!
-    ): Token!
+    signUp(username: String!, email: String!, password: String!): Token!
   }
 
   type Token {
@@ -2076,14 +2087,14 @@ export default gql`
     username: String!
     messages: [Message!]
   }
-`;
+`
 ```
 
 The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the database. The user should be able to take the username or email address combined with the password to enable a successful login.
 
 Now we'll consider the return type of the `signUp` mutation. Since we are going to use a token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
 
-First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your *src/resolvers/user.js* file, add the following resolver function that creates a user in the database and returns an object with the token value as string.
+First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your _src/resolvers/user.js_ file, add the following resolver function that creates a user in the database and returns an object with the token value as string.
 
 ```javascript{1,2,3,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24}
 const createToken = async (user) => {
@@ -2182,7 +2193,7 @@ In this implementation, the `generatePasswordHash()` function is added to the us
 
 We still need to implement the token based authentication. So far, there is only a placeholder in your application for creating the token that is returned on a sign up and sign in mutation. A signed in user can be identified with this token, and is allowed to read and write data from the database. Since a registration will automatically lead to a login, the token is generated in both phases.
 
-Next are the implementation details for the token-based authentication in GraphQL. Regardless of GraphQL, you are going to use a [JSON web token (JWT)](https://jwt.io/) to identify your user. The definition for a JWT from the official website says: *JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.* In other words, a JWT is a secure way to handle the communication between two parties (e.g. a client and a server application). If you haven't worked on security related applications before, the following section will guide you through the process, and you'll see the token is just a secured JavaScript object with user information.
+Next are the implementation details for the token-based authentication in GraphQL. Regardless of GraphQL, you are going to use a [JSON web token (JWT)](https://jwt.io/) to identify your user. The definition for a JWT from the official website says: _JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties._ In other words, a JWT is a secure way to handle the communication between two parties (e.g. a client and a server application). If you haven't worked on security related applications before, the following section will guide you through the process, and you'll see the token is just a secured JavaScript object with user information.
 
 To create JWT in this application, we'll use the popular [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) node package. Install it on the command line:
 
@@ -2190,7 +2201,7 @@ To create JWT in this application, we'll use the popular [jsonwebtoken](https://
 npm install jsonwebtoken --save
 ```
 
-Now, import it in your *src/resolvers/user.js* file and use it to create the token:
+Now, import it in your _src/resolvers/user.js_ file and use it to create the token:
 
 ```javascript{1,4,5}
 import jwt from 'jsonwebtoken';
@@ -2205,7 +2216,7 @@ const createToken = async user => {
 
 The first argument to "sign" a token can be any user information except sensitive data like passwords, because the token will land on the client side of your application stack. Signing a token means putting data into it, which you've done, and securing it, which you haven't done yet. To secure your token, pass in a secret (**any** long string) that is **only available to you and your server**. No third-party entities should have access, because it is used to encode (sign) and decode your token.
 
-Add the secret to your environment variables in the *.env* file:
+Add the secret to your environment variables in the _.env_ file:
 
 ```javascript{5}
 DATABASE=postgres
@@ -2215,7 +2226,7 @@ DATABASE_PASSWORD=postgres
 SECRET=wr3r23fwfwefwekwself.2456342.dawqdq
 ```
 
-Then, in the *src/index.js* file, pass the secret via Apollo Server's context to all resolver functions:
+Then, in the _src/index.js_ file, pass the secret via Apollo Server's context to all resolver functions:
 
 ```javascript{8}
 const server = new ApolloServer({
@@ -2273,10 +2284,10 @@ That's it for the registration: you are creating a user and returning a valid to
 
 ## Login (Sign In) with GraphQL
 
-Before you dive into the authorization with the token on a per-request basis, let's implement the second mutation for the authentication mechanism: the `signIn` mutation (or login mutation). Again, first we add the GraphQL mutation to your user's schema in the *src/schema/user.js* file:
+Before you dive into the authorization with the token on a per-request basis, let's implement the second mutation for the authentication mechanism: the `signIn` mutation (or login mutation). Again, first we add the GraphQL mutation to your user's schema in the _src/schema/user.js_ file:
 
 ```javascript{13}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   ...
@@ -2296,10 +2307,10 @@ export default gql`
   }
 
   ...
-`;
+`
 ```
 
-Second, add the resolver counterpart to your *src/resolvers/user.js* file:
+Second, add the resolver counterpart to your _src/resolvers/user.js_ file:
 
 ```javascript{2,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36}
 import jwt from 'jsonwebtoken';
@@ -2346,7 +2357,7 @@ export default {
 
 Let's go through the new resolver function for the login step by step. As arguments, the resolver has access to the input arguments from the GraphQL mutation (login, password) and the context (models, secret). When a user tries to sign in to your application, the login, which can be either the unique username or unique email, is taken to retrieve a user from the database. If there is no user, the application throws an error that can be used in the client application to notify the user. If there is an user, the user's password is validated. You will see this method on the user model in the next example. If the password is not valid, the application throws an error to the client application. If the password is valid, the `signIn` mutation returns a token identical to the `signUp` mutation. The client application either performs a successful login or shows an error message for invalid credentials. You can also see specific Apollo Server Errors used over generic JavaScript Error classes.
 
-Next, we want to implement the `validatePassword()` method on the user instance. Place it in the *src/models/user.js* file, because that's where all the model methods for the user are stored, same as the `findByLogin()` method.
+Next, we want to implement the `validatePassword()` method on the user instance. Place it in the _src/models/user.js_ file, because that's where all the model methods for the user are stored, same as the `findByLogin()` method.
 
 ```javascript{29,30,31}
 import bcrypt from 'bcrypt';
@@ -2395,13 +2406,13 @@ The next section will teach you about authorization in GraphQL on the server-sid
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VqNgnB)
-  * Confirm the [changes from the last section](http://bit.ly/2VnPMLj)
-* Register (sign up) a new user with GraphQL Playground
-* Check your users and their hashed passwords in the database with `psql`
-* Read more about [JSON web tokens (JWT)](https://jwt.io/)
-* Login (sign in) a user with GraphQL Playground
-  * copy and paste the token to the interactive token decoding on the JWT website (conclusion: the information itself isn't secure, that's why you shouldn't put a password in the token)
+- Confirm your [source code for the last section](http://bit.ly/2VqNgnB)
+  - Confirm the [changes from the last section](http://bit.ly/2VnPMLj)
+- Register (sign up) a new user with GraphQL Playground
+- Check your users and their hashed passwords in the database with `psql`
+- Read more about [JSON web tokens (JWT)](https://jwt.io/)
+- Login (sign in) a user with GraphQL Playground
+  - copy and paste the token to the interactive token decoding on the JWT website (conclusion: the information itself isn't secure, that's why you shouldn't put a password in the token)
 
 # Authorization with GraphQL and Apollo Server
 
@@ -2409,7 +2420,7 @@ In the last section, you set up GraphQL mutations to enable authentication with 
 
 The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](/local-storage-react). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
 
-Now we just need to perform the server part of the equation. Let's do it in the *src/index.js* file by adding a global authorization that verifies the incoming token before the request hits the GraphQL resolvers.
+Now we just need to perform the server part of the equation. Let's do it in the _src/index.js_ file by adding a global authorization that verifies the incoming token before the request hits the GraphQL resolvers.
 
 ```javascript{1,4,8,9,10,11,12,13,14,15,16,17,18,19,20,26,27,28,29,30,31,32,33,34}
 import jwt from 'jsonwebtoken';
@@ -2463,7 +2474,7 @@ That's the most high-level authentication for your GraphQL server application. Y
 
 A GraphQL HTTP request comes through the `getMe()` function, even if it has no HTTP header for a token. This is good default behavior, because you want to register new users and login to the application without a token for now. You might want to query messages or users without being authenticated with the application. It is acceptable and sometimes necessary to wave through some requests without authorization token, to grant different levels of access to different user types. There will be an error only when the token becomes invalid or expires.
 
-However, certain GraphQL operations should have more specific authorizations. Creating a message should only be possible for authorized users. Otherwise, or there would be no way to track the messages' authors. The `createMessage` GraphQL mutation can be protected, or "guarded", on a GraphQL resolver level. The naive approach of protecting the GraphQL operation is to guard it with an if-else statement in the *src/resolvers/message.js* file:
+However, certain GraphQL operations should have more specific authorizations. Creating a message should only be possible for authorized users. Otherwise, or there would be no way to track the messages' authors. The `createMessage` GraphQL mutation can be protected, or "guarded", on a GraphQL resolver level. The naive approach of protecting the GraphQL operation is to guard it with an if-else statement in the _src/resolvers/message.js_ file:
 
 ```javascript{1,10,11,12}
 import { ForbiddenError } from 'apollo-server';
@@ -2498,17 +2509,17 @@ You can imagine how this becomes repetitive and error prone if it is used for al
 npm install graphql-resolvers --save
 ```
 
-Let's implement a protecting resolver function with this package in a new *src/resolvers/authorization.js* file. It should only check whether there is a `me` user or not.
+Let's implement a protecting resolver function with this package in a new _src/resolvers/authorization.js_ file. It should only check whether there is a `me` user or not.
 
 ```javascript
-import { ForbiddenError } from 'apollo-server';
-import { skip } from 'graphql-resolvers';
+import { ForbiddenError } from 'apollo-server'
+import { skip } from 'graphql-resolvers'
 
 export const isAuthenticated = (parent, args, { me }) =>
-  me ? skip : new ForbiddenError('Not authenticated as user.');
+  me ? skip : new ForbiddenError('Not authenticated as user.')
 ```
 
-The `isAuthenticated()` resolver function acts as middleware, either continuing with the next resolver (skip), or performing another action, like returning an error. In this case, an error is returned when the `me` user is not available. Since it is a resolver function itself, it has the same arguments as a normal resolver. A guarding resolver can be used when a message is created in the *src/resolvers/message.js* file. Import it with the `combineResolvers()` from the newly installed node package. The new resolver is used to protect the resolvers by combining them.
+The `isAuthenticated()` resolver function acts as middleware, either continuing with the next resolver (skip), or performing another action, like returning an error. In this case, an error is returned when the `me` user is not available. Since it is a resolver function itself, it has the same arguments as a normal resolver. A guarding resolver can be used when a message is created in the _src/resolvers/message.js_ file. Import it with the `combineResolvers()` from the newly installed node package. The new resolver is used to protect the resolvers by combining them.
 
 ```javascript{1,3,11,12,13,14,15,16,17,18,19}
 import { combineResolvers } from 'graphql-resolvers';
@@ -2538,11 +2549,11 @@ export default {
 };
 ```
 
-Now the `isAuthenticated()` resolver function always runs before the resolver that creates the message associated with the authenticated user in the database. The resolvers get chained to each other, and you can reuse the protecting resolver function wherever you need it. It only adds a small footprint to your actual resolvers, which can be changed in the *src/resolvers/authorization.js* file.
+Now the `isAuthenticated()` resolver function always runs before the resolver that creates the message associated with the authenticated user in the database. The resolvers get chained to each other, and you can reuse the protecting resolver function wherever you need it. It only adds a small footprint to your actual resolvers, which can be changed in the _src/resolvers/authorization.js_ file.
 
 ## Permission-based GraphQL Authorization
 
-The previous resolver only checks if a user is authenticated or not, so it is only applicable to the higher level. Cases like permissions require another protecting resolver that is more specific than the one in the *src/resolvers/authorization.js* file:
+The previous resolver only checks if a user is authenticated or not, so it is only applicable to the higher level. Cases like permissions require another protecting resolver that is more specific than the one in the _src/resolvers/authorization.js_ file:
 
 ```javascript{3,4,5,6,7,8,9,10,11,12,13,14,15}
 ...
@@ -2564,7 +2575,7 @@ export const isMessageOwner = async (
 
 This resolver checks whether the authenticated user is the message owner. It's a useful check before deleting a message, since you only want the message creator to be able to delete it. The guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver.
 
-Let's protect a resolver with this fine-tuned authorization permission resolver in the *src/resolvers/message.js* file:
+Let's protect a resolver with this fine-tuned authorization permission resolver in the _src/resolvers/message.js_ file:
 
 ```javascript{3,13,14,15,16,17,18}
 import { combineResolvers } from 'graphql-resolvers';
@@ -2627,7 +2638,7 @@ The second combined resolver is for permission checks, because it decides whethe
 
 We went from a high-level authorization to a more specific authorization with permission-based resolver protection. Now we'll cover yet another way to enable authorization called **roles**. The next code block is a GraphQL mutation that requires role-based authorization, because it has the ability to delete a user. This allows you to create users with admin roles.
 
-Let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your *src/resolvers/user.js* file with a resolver function that deletes a user in the database by identifier:
+Let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your _src/resolvers/user.js_ file with a resolver function that deletes a user in the database by identifier:
 
 ```javascript{11,12,13,14,15}
 ...
@@ -2651,10 +2662,10 @@ export default {
 };
 ```
 
-New GraphQL operations must be implemented in the resolvers and schema. Next, we'll add the new mutation in the *src/schema/user.js* file. It returns a boolean that tells you whether the deletion was successful or not:
+New GraphQL operations must be implemented in the resolvers and schema. Next, we'll add the new mutation in the _src/schema/user.js_ file. It returns a boolean that tells you whether the deletion was successful or not:
 
 ```javascript{16}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -2673,10 +2684,10 @@ export default gql`
   }
 
   ...
-`;
+`
 ```
 
-Before you can implement role-based protections for it, you must introduce the actual roles for the user entities. Add a `role` entry to your user's entity in the *src/models/user.js* file:
+Before you can implement role-based protections for it, you must introduce the actual roles for the user entities. Add a `role` entry to your user's entity in the _src/models/user.js_ file:
 
 ```javascript{14,15,16}
 ...
@@ -2705,10 +2716,10 @@ const user = (sequelize, DataTypes) => {
 export default user;
 ```
 
-Add the role to your GraphQL user schema in the *src/schema/user.js* file too:
+Add the role to your GraphQL user schema in the _src/schema/user.js_ file too:
 
 ```javascript{10}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   ...
@@ -2720,10 +2731,10 @@ export default gql`
     role: String
     messages: [Message!]
   }
-`;
+`
 ```
 
-Since you already have seed data in your *src/index.js* file for two users, you can give one of them a role. The admin role used in this case will be checked if the user attempts a delete operation:
+Since you already have seed data in your _src/index.js_ file for two users, you can give one of them a role. The admin role used in this case will be checked if the user attempts a delete operation:
 
 ```javascript{9}
 ...
@@ -2750,47 +2761,41 @@ const createUsersWithMessages = async () => {
 };
 ```
 
-Because you are not retrieving the actual `me` user from the database in the *src/index.js* file, but the user from the token instead, you must add the role information of the user for the token when it's created in the *src/resolvers/user.js* file:
+Because you are not retrieving the actual `me` user from the database in the _src/index.js_ file, but the user from the token instead, you must add the role information of the user for the token when it's created in the _src/resolvers/user.js_ file:
 
 ```javascript{2,3}
 const createToken = async (user, secret, expiresIn) => {
-  const { id, email, username, role } = user;
+  const { id, email, username, role } = user
   return await jwt.sign({ id, email, username, role }, secret, {
     expiresIn,
-  });
-};
+  })
+}
 ```
 
-Next, protect the new GraphQL mutation with a role-based authorization. Create a new guarding resolver in your *src/resolvers/authorization.js* file:
+Next, protect the new GraphQL mutation with a role-based authorization. Create a new guarding resolver in your _src/resolvers/authorization.js_ file:
 
 ```javascript{2,7,8,9,10,11,12,13}
-import { ForbiddenError } from 'apollo-server';
-import { combineResolvers, skip } from 'graphql-resolvers';
+import { ForbiddenError } from 'apollo-server'
+import { combineResolvers, skip } from 'graphql-resolvers'
 
 export const isAuthenticated = (parent, args, { me }) =>
-  me ? skip : new ForbiddenError('Not authenticated as user.');
+  me ? skip : new ForbiddenError('Not authenticated as user.')
 
 export const isAdmin = combineResolvers(
   isAuthenticated,
   (parent, args, { me: { role } }) =>
-    role === 'ADMIN'
-      ? skip
-      : new ForbiddenError('Not authorized as admin.'),
-);
+    role === 'ADMIN' ? skip : new ForbiddenError('Not authorized as admin.')
+)
 
-export const isMessageOwner = async (
-  parent,
-  { id },
-  { models, me },
-) => {
-  const message = await models.Message.findByPk(id, { raw: true });
+export const isMessageOwner = async (parent, { id }, { models, me }) => {
+  const message = await models.Message.findByPk(id, { raw: true })
 
   if (message.userId !== me.id) {
-    throw new ForbiddenError('Not authenticated as owner.');
+    throw new ForbiddenError('Not authenticated as owner.')
   }
 
-  return skip;
-};
+  return skip
+}
 ```
 
 The new resolver checks to see if the authenticated user has the `ADMIN` role. If it doesn't, the resolver returns an error; if it does, the next resolver is called. Unlike the `isMessageOwner` resolver, the `isAdmin` resolver is already combined, using the `isAuthenticated` resolver. Put this check in your actual resolver, which you are going to protect in the next step:
@@ -2891,19 +2896,19 @@ If you want to be even more exact than resolver level authorization, check out *
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VqxetM)
-  * Confirm the [changes from the last section](http://bit.ly/2VnQc4l)
-* Read more about [GraphQL authorization](https://graphql.github.io/learn/authorization/)
-* Work through the different authorization scenarios with GraphQL Playground
-* Find out more about field level authorization with Apollo Server and GraphQL
-* Find out more about data access level authorization with Apollo Server and GraphQL
+- Confirm your [source code for the last section](http://bit.ly/2VqxetM)
+  - Confirm the [changes from the last section](http://bit.ly/2VnQc4l)
+- Read more about [GraphQL authorization](https://graphql.github.io/learn/authorization/)
+- Work through the different authorization scenarios with GraphQL Playground
+- Find out more about field level authorization with Apollo Server and GraphQL
+- Find out more about data access level authorization with Apollo Server and GraphQL
 
 # GraphQL Custom Scalars in Apollo Server
 
-So far, you have used a couple of scalars in your GraphQL application, because each field resolves eventually to a scalar type. Let's add a String scalar for the date when a message got created. First, we'll extend the *src/schema/message.js* which uses this field for a message:
+So far, you have used a couple of scalars in your GraphQL application, because each field resolves eventually to a scalar type. Let's add a String scalar for the date when a message got created. First, we'll extend the _src/schema/message.js_ which uses this field for a message:
 
 ```javascript{17}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -2922,10 +2927,10 @@ export default gql`
     createdAt: String!
     user: User!
   }
-`;
+`
 ```
 
-Second, adjust the seed data in the *src/index.js* file. At the moment, all seed data is created at once, which applies to the messages as well. It would be better to have each message created in one second intervals. The creation date should differ for each message.
+Second, adjust the seed data in the _src/index.js_ file. At the moment, all seed data is created at once, which applies to the messages as well. It would be better to have each message created in one second intervals. The creation date should differ for each message.
 
 ```javascript{5,13,23,40,44}
 ...
@@ -3015,7 +3020,7 @@ You may have noticed something odd: While the date returned from a GraphQL Playg
 npm install graphql-iso-date --save
 ```
 
-Second, introduce a `Date` scalar in your schema in the *src/schema/index.js* file:
+Second, introduce a `Date` scalar in your schema in the _src/schema/index.js_ file:
 
 ```javascript{2}
 const linkSchema = gql`
@@ -3032,32 +3037,28 @@ const linkSchema = gql`
   type Subscription {
     _: Boolean
   }
-`;
+`
 ```
 
-Third, define the scalar with the help of the installed node package in your *src/resolvers/index.js* file:
+Third, define the scalar with the help of the installed node package in your _src/resolvers/index.js_ file:
 
 ```javascript{1,6,7,8,11}
-import { GraphQLDateTime } from 'graphql-iso-date';
+import { GraphQLDateTime } from 'graphql-iso-date'
 
-import userResolvers from './user';
-import messageResolvers from './message';
+import userResolvers from './user'
+import messageResolvers from './message'
 
 const customScalarResolver = {
   Date: GraphQLDateTime,
-};
+}
 
-export default [
-  customScalarResolver,
-  userResolvers,
-  messageResolvers,
-];
+export default [customScalarResolver, userResolvers, messageResolvers]
 ```
 
-And last but not least, change the scalar type from String to Date for your message schema in the *src/schema/message.js*:
+And last but not least, change the scalar type from String to Date for your message schema in the _src/schema/message.js_:
 
 ```javascript{17}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -3076,7 +3077,7 @@ export default gql`
     createdAt: Date!
     user: User!
   }
-`;
+`
 ```
 
 Now, query again your messages. The output for the `createdAt` date should be different.
@@ -3099,9 +3100,9 @@ It's in a readable format now. You can dive deeper into the date formatting that
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2Vncsva)
-  * Confirm the [changes from the last section](http://bit.ly/2Vtm4os)
-* Read more about [custom scalars in GraphQL](https://www.apollographql.com/docs/apollo-server/features/scalars-enums.html)
+- Confirm your [source code for the last section](http://bit.ly/2Vncsva)
+  - Confirm the [changes from the last section](http://bit.ly/2Vtm4os)
+- Read more about [custom scalars in GraphQL](https://www.apollographql.com/docs/apollo-server/features/scalars-enums.html)
 
 # Pagination in GraphQL with Apollo Server
 
@@ -3113,10 +3114,10 @@ You will implement pagination in GraphQL with two different approaches in the fo
 
 Offset/limit-based pagination isn't too difficult to implement. The limit states how many items you want to retrieve from the entire list, and the offset states where to begin in the whole list. Using different offsets, you can shift through the entire list of items and retrieve a sublist (page) of it with the limit.
 
-We set the message schema in the *src/schema/message.js* file to consider the two new arguments:
+We set the message schema in the _src/schema/message.js_ file to consider the two new arguments:
 
 ```javascript{5}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -3135,10 +3136,10 @@ export default gql`
     createdAt: Date!
     user: User!
   }
-`;
+`
 ```
 
-Then you can adjust the resolver in the *src/resolvers/message.js* file to handle the new arguments:
+Then you can adjust the resolver in the _src/resolvers/message.js_ file to handle the new arguments:
 
 ```javascript{5,6,7,8,9,10,11,12,13}
 ...
@@ -3178,16 +3179,16 @@ query {
 }
 ```
 
-Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which  can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handle deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
+Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handle deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
 
 ## Cursor-based Pagination with Apollo Server and GraphQL
 
 In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to express "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database and we expose it already in the schema of the message entity. That's the creation date of each message that will be the cursor.
 
-Now we have to change the original pagination to cursor-based in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
+Now we have to change the original pagination to cursor-based in the _src/schema/message.js_ file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
 
 ```javascript{5}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -3206,10 +3207,10 @@ export default gql`
     createdAt: Date!
     user: User!
   }
-`;
+`
 ```
 
-Since you adjusted the schema for the messages, reflect these changes in your *src/resolvers/message.js* file as well:
+Since you adjusted the schema for the messages, reflect these changes in your _src/resolvers/message.js_ file as well:
 
 ```javascript{1,7,10,11,12,13,14}
 import Sequelize from 'sequelize';
@@ -3375,10 +3376,10 @@ That's a basic implementation of a cursor-based pagination using the creation da
 
 ## Cursor-based Pagination: Page Info, Connections and Hashes
 
-In this last section about pagination in GraphQL, we advance the cursor-based pagination with a few improvements. Currently, you have to query all creation dates of the messages to use the creation date of the last message for the next page as a cursor. GraphQL connections add only a structural change to your list fields in GraphQL that allow you to pass meta information. Let's add a GraphQL connection in the *src/schema/message.js* file:
+In this last section about pagination in GraphQL, we advance the cursor-based pagination with a few improvements. Currently, you have to query all creation dates of the messages to use the creation date of the last message for the next page as a cursor. GraphQL connections add only a structural change to your list fields in GraphQL that allow you to pass meta information. Let's add a GraphQL connection in the _src/schema/message.js_ file:
 
 ```javascript{5,14,15,16,17,19,20,21}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -3406,10 +3407,10 @@ export default gql`
     createdAt: Date!
     user: User!
   }
-`;
+`
 ```
 
-You introduced an intermediate layer that holds meta information with the PageInfo type with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then, you won't need to query every `createdAt` date of every message, only the `endCursor`. Place these changes in the *src/resolvers/message.js* file:
+You introduced an intermediate layer that holds meta information with the PageInfo type with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then, you won't need to query every `createdAt` date of every message, only the `endCursor`. Place these changes in the _src/resolvers/message.js_ file:
 
 ```javascript{16,22,23,24,25,26,27}
 ...
@@ -3507,10 +3508,10 @@ query {
 
 Again, this will only return the remaining last message in the list. You are no longer required to query the creation date of every message, only to query the cursor for the last message. The client application doesn't need the details for the cursor of the last message, as it just needs `endCursor` now.
 
-You can add relevant information in the intermediate GraphQL connection layer. Sometimes, a GraphQL client needs to know whether there are more pages of a list to query, because every list is finite. Let's add this information to the schema for the message's connection in the *src/schema/message.js* file:
+You can add relevant information in the intermediate GraphQL connection layer. Sometimes, a GraphQL client needs to know whether there are more pages of a list to query, because every list is finite. Let's add this information to the schema for the message's connection in the _src/schema/message.js_ file:
 
 ```javascript{20}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -3534,10 +3535,10 @@ export default gql`
   }
 
   ...
-`;
+`
 ```
 
-In the resolver in the *src/resolvers/message.js* file, you can find this information with the following:
+In the resolver in the _src/resolvers/message.js_ file, you can find this information with the following:
 
 ```javascript{10,14,15,18,20,21}
 ...
@@ -3627,10 +3628,10 @@ export default {
 };
 ```
 
-The returned cursor as meta information is hashed by the new utility function. Remember to stringify the date before hashing it. In addition, the `endCursor` in the *src/schema/message.js* file isn't a Date anymore, but a String scalar again.
+The returned cursor as meta information is hashed by the new utility function. Remember to stringify the date before hashing it. In addition, the `endCursor` in the _src/schema/message.js_ file isn't a Date anymore, but a String scalar again.
 
 ```javascript{13}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   ...
@@ -3646,7 +3647,7 @@ export default gql`
   }
 
   ...
-`;
+`
 ```
 
 The GraphQL client receives a hashed `endCursor` field. The hashed value can be used as a cursor to query the next page. In the resolver, the incoming cursor is reverse hashed to the actual date, which is used for the database query.
@@ -3655,18 +3656,18 @@ Hashing the cursor is a common approach for cursor-based pagination because it h
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VoLW4z)
-  * Confirm the [changes from the last section](http://bit.ly/2VkTc1y)
-* Read more about [GraphQL pagination](https://graphql.github.io/learn/pagination/)
+- Confirm your [source code for the last section](http://bit.ly/2VoLW4z)
+  - Confirm the [changes from the last section](http://bit.ly/2VkTc1y)
+- Read more about [GraphQL pagination](https://graphql.github.io/learn/pagination/)
 
 # GraphQL Subscriptions
 
 So far, you used GraphQL to read and write data with queries and mutations. These are the two essential GraphQL operations to get a GraphQL server ready for CRUD operations. Next, you will learn about GraphQL Subscriptions for real-time communication between GraphQL client and server.
 
-Next, you will implement real-time communication for created messages. If a user creates a message, another user should get this message in a GraphQL client application as a real-time update. To start, we add the Subscription root level type to the *src/schema/message.js* schema:
+Next, you will implement real-time communication for created messages. If a user creates a message, another user should get this message in a GraphQL client application as a real-time update. To start, we add the Subscription root level type to the _src/schema/message.js_ schema:
 
 ```javascript{21,22,23,25,26,27}
-import { gql } from 'apollo-server-express';
+import { gql } from 'apollo-server-express'
 
 export default gql`
   extend type Query {
@@ -3693,7 +3694,7 @@ export default gql`
   type MessageCreated {
     message: Message!
   }
-`;
+`
 ```
 
 As a naive GraphQL consumer, a subscription works like a GraphQL query. The difference is that the subscription emits changes (events) over time. Every time a message is created, the subscribed GraphQL client receives the created message as payload. A subscription from a GraphQL client for the schema would look like this:
@@ -3718,7 +3719,7 @@ In the first part, you'll set up the subscription architecture for your applicat
 
 ## Apollo Server Subscription Setup
 
-Because we are using Express as middleware, expose the subscriptions with an advanced HTTP server setup in the *src/index.js* file:
+Because we are using Express as middleware, expose the subscriptions with an advanced HTTP server setup in the _src/index.js_ file:
 
 ```javascript{1,7,8,17}
 import http from 'http';
@@ -3776,41 +3777,41 @@ const server = new ApolloServer({
 ...
 ```
 
-To complete the subscription setup, you'll need to use one of the available [PubSub engines](https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html#PubSub-Implementations) for publishing and subscribing to events. Apollo Server comes with its own by default, but there are links for other options should you find it lacking. In a new *src/subscription/index.js* file, add the following:
+To complete the subscription setup, you'll need to use one of the available [PubSub engines](https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html#PubSub-Implementations) for publishing and subscribing to events. Apollo Server comes with its own by default, but there are links for other options should you find it lacking. In a new _src/subscription/index.js_ file, add the following:
 
 ```javascript
-import { PubSub } from 'apollo-server';
+import { PubSub } from 'apollo-server'
 
-export default new PubSub();
+export default new PubSub()
 ```
 
 This PubSub instance is your API which enables subscriptions in your application. The overarching setup for subscriptions is done now.
 
 ## Subscribing and Publishing with PubSub
 
-Let's implement the specific subscription for the message creation. It should be possible for another GraphQL client to listen to message creations. For instance, in a chat application it should be possible to see a message of someone else in real-time. Therefore, extend the previous *src/subscription/index.js* file with the following implementation:
+Let's implement the specific subscription for the message creation. It should be possible for another GraphQL client to listen to message creations. For instance, in a chat application it should be possible to see a message of someone else in real-time. Therefore, extend the previous _src/subscription/index.js_ file with the following implementation:
 
 ```javascript{3,5,6,7}
-import { PubSub } from 'apollo-server';
+import { PubSub } from 'apollo-server'
 
-import * as MESSAGE_EVENTS from './message';
+import * as MESSAGE_EVENTS from './message'
 
 export const EVENTS = {
   MESSAGE: MESSAGE_EVENTS,
-};
+}
 
-export default new PubSub();
+export default new PubSub()
 ```
 
-And add your first event in a new *src/subscription/message.js* file, which we used earlier:
+And add your first event in a new _src/subscription/message.js_ file, which we used earlier:
 
 ```javascript
-export const CREATED = 'CREATED';
+export const CREATED = 'CREATED'
 ```
 
 This folder structure allows you to separate your events at the domain level. By exporting all events with their domains, you can import all events elsewhere and make use of the domain-specific events.
 
-The only piece missing is using the event and the PubSub instance in your message resolver. In the beginning of this section, you added the new subscription to the message schema. Now you have to implement its counterpart in the *src/resolvers/message.js* file:
+The only piece missing is using the event and the PubSub instance in your message resolver. In the beginning of this section, you added the new subscription to the message schema. Now you have to implement its counterpart in the _src/resolvers/message.js_ file:
 
 ```javascript{3,20,21,22,23,24}
 ...
@@ -3958,10 +3959,10 @@ You have implemented GraphQL subscriptions. It can be a challenge to wrap your h
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VpaUAX)
-  * Confirm the [changes from the last section](http://bit.ly/2Vq0mRW)
-* Read more about [Subscriptions with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html)
-* Watch a talk about [GraphQL Subscriptions](http://youtu.be/bn8qsi8jVew)
+- Confirm your [source code for the last section](http://bit.ly/2VpaUAX)
+  - Confirm the [changes from the last section](http://bit.ly/2Vq0mRW)
+- Read more about [Subscriptions with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html)
+- Watch a talk about [GraphQL Subscriptions](http://youtu.be/bn8qsi8jVew)
 
 # Testing a GraphQL Server
 
@@ -3981,7 +3982,7 @@ To use these programs, you must first install a library called [axios](https://g
 npm install axios --save-dev
 ```
 
-Mocha is run using npm scripts in your *package.json* file. The pattern used here matches all test files with the suffix *.spec.js* within the *src/* folder.
+Mocha is run using npm scripts in your _package.json_ file. The pattern used here matches all test files with the suffix _.spec.js_ within the _src/_ folder.
 
 ```javascript{5}
 {
@@ -3994,21 +3995,21 @@ Mocha is run using npm scripts in your *package.json* file. The pattern used her
 }
 ```
 
-Don't forget to install the babel node package with `npm install @babel/register --save-dev`. That should be sufficient to run your first test. Add a *src/tests/user.spec.js* to your application. and write your first test there:
+Don't forget to install the babel node package with `npm install @babel/register --save-dev`. That should be sufficient to run your first test. Add a _src/tests/user.spec.js_ to your application. and write your first test there:
 
 ```javascript{5}
-import { expect } from 'chai';
+import { expect } from 'chai'
 
 describe('users', () => {
   it('user is user', () => {
-    expect('user').to.eql('user');
-  });
-});
+    expect('user').to.eql('user')
+  })
+})
 ```
 
 The test is executed by typing `npm test` into the command line. While it doesn't test any logic of your application, the test will verify that Mocha, Chai, and your new npm script are working.
 
-Before you can write end-to-end tests for the GraphQL server, the database must be addressed. Since the tests run against the actual GraphQL server, so you only need to run against a test database rather than the production database. Add an npm script in the *package.json* to start the GraphQL server with a test database:
+Before you can write end-to-end tests for the GraphQL server, the database must be addressed. Since the tests run against the actual GraphQL server, so you only need to run against a test database rather than the production database. Add an npm script in the _package.json_ to start the GraphQL server with a test database:
 
 ```javascript{5}
 {
@@ -4022,7 +4023,7 @@ Before you can write end-to-end tests for the GraphQL server, the database must 
 }
 ```
 
-The script must be started before the E2E GraphQL server tests. If the `TEST_DATABASE` environment flag is set, you have to adjust the database setup in the *src/models/index.js* file to use the test database instead:
+The script must be started before the E2E GraphQL server tests. If the `TEST_DATABASE` environment flag is set, you have to adjust the database setup in the _src/models/index.js_ file to use the test database instead:
 
 ```javascript{4}
 import Sequelize from 'sequelize';
@@ -4039,9 +4040,9 @@ const sequelize = new Sequelize(
 ...
 ```
 
-You also need to make sure to create such a database. Mine is called *mytestdatabase* in the npm script, which I added in the command line with `psql` and `createdb` or `CREATE DATABASE`.
+You also need to make sure to create such a database. Mine is called _mytestdatabase_ in the npm script, which I added in the command line with `psql` and `createdb` or `CREATE DATABASE`.
 
-Finally, you must start with a seeded and consistent database every time you run a test server. To do this, set the database re-seeding flag to depend on the set test database environment variable in the *src/index.js* file:
+Finally, you must start with a seeded and consistent database every time you run a test server. To do this, set the database re-seeding flag to depend on the set test database environment variable in the _src/index.js_ file:
 
 ```javascript{3,5,6}
 ...
@@ -4061,7 +4062,7 @@ sequelize.sync({ force: isTest }).then(async () => {
 ...
 ```
 
-Now you are ready to write tests against an actual running test sever (`npm run test-server`) that uses a consistently seeded test database. If you want to use async/await in your test environment, adjust your *.babelrc* file:
+Now you are ready to write tests against an actual running test sever (`npm run test-server`) that uses a consistently seeded test database. If you want to use async/await in your test environment, adjust your _.babelrc_ file:
 
 ```javascript
 {
@@ -4081,10 +4082,10 @@ Now you can write tests with asynchronous business logic with async/await.
 
 ## Testing User Scenarios with E2E Tests
 
-Every E2E test sends an actual request with axios to the API of the running GraphQL test server. Testing your `user` GraphQL query would look like the following in the *src/tests/user.spec.js* file:
+Every E2E test sends an actual request with axios to the API of the running GraphQL test server. Testing your `user` GraphQL query would look like the following in the _src/tests/user.spec.js_ file:
 
 ```javascript{4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21}
-import { expect } from 'chai';
+import { expect } from 'chai'
 
 describe('users', () => {
   describe('user(id: String!): User', () => {
@@ -4098,26 +4099,26 @@ describe('users', () => {
             role: 'ADMIN',
           },
         },
-      };
+      }
 
-      const result = await userApi.user({ id: '1' });
+      const result = await userApi.user({ id: '1' })
 
-      expect(result.data).to.eql(expectedResult);
-    });
-  });
-});
+      expect(result.data).to.eql(expectedResult)
+    })
+  })
+})
 ```
 
 Each test should be as straightforward as this one. You make a GraphQL API request with axios, expecting a query/mutation result from the API. Behind the scenes, data is read or written from or to the database. The business logic such as authentication, authorization, and pagination works in between. A request goes through the whole GraphQL server stack from API to database. An end-to-end test doesn't test an isolated unit (unit test) or a smaller composition of units (integration test), but the entire pipeline.
 
-The `userApi` function is the final piece needed to set up effective testing for this application. It's not implemented in the test, but in another *src/tests/api.js* file for portability. In this file, you will find all your functions which can be used to run requests against your GraphQL test server.
+The `userApi` function is the final piece needed to set up effective testing for this application. It's not implemented in the test, but in another _src/tests/api.js_ file for portability. In this file, you will find all your functions which can be used to run requests against your GraphQL test server.
 
 ```javascript
-import axios from 'axios';
+import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/graphql';
+const API_URL = 'http://localhost:8000/graphql'
 
-export const user = async variables =>
+export const user = async (variables) =>
   axios.post(API_URL, {
     query: `
       query ($id: ID!) {
@@ -4130,7 +4131,7 @@ export const user = async variables =>
       }
     `,
     variables,
-  });
+  })
 ```
 
 You can use basic HTTP to perform GraphQL operations across the network layer. It only needs a payload, which is the query/mutation and the variables. Beyond that, the URL of the GraphQL server must be known. Now, import the user API in your actual test file:
@@ -4167,7 +4168,7 @@ users
 
 If your output is erroneous, the console logs may help you figure out what went wrong. Another option is to take the query from the axios request and put it into GraphQL Playground. The error reporting in Playground might make it easier to find problems.
 
-That's your first E2E test against a GraphQL server. The next one uses the same API, and you can see how useful it is to extract the API layer as reusable functions. In your *src/tests/user.spec.js* file add another test:
+That's your first E2E test against a GraphQL server. The next one uses the same API, and you can see how useful it is to extract the API layer as reusable functions. In your _src/tests/user.spec.js_ file add another test:
 
 ```javascript{17,18,19,20,21,22,23,24,25,26,27}
 import { expect } from 'chai';
@@ -4203,7 +4204,7 @@ describe('users', () => {
 
 It is valuable to test the common path, but also less common edge cases. In this case, the uncommon path didn't return an error, but null for the user.
 
-Let's add another test that verifies non-admin user authorization related to deleting messages. Here you will implement a complete scenario from login to user deletion. First, implement the sign in and delete user API in the *src/tests/api.js* file:
+Let's add another test that verifies non-admin user authorization related to deleting messages. Here you will implement a complete scenario from login to user deletion. First, implement the sign in and delete user API in the _src/tests/api.js_ file:
 
 ```javascript{3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31}
 ...
@@ -4293,12 +4294,12 @@ This section only covered E2E tests. With Chai and Mocha at your disposal, you c
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2Vri0VI)
-  * Confirm the [changes from the last section](http://bit.ly/2VqCgXc)
-* Implement tests for the message domain similar to the user domain
-* Write more fine-granular unit/integration tests for both domains
-* Read more about [GraphQL and HTTP](https://graphql.github.io/learn/serving-over-http/)
-* Read more about [Mocking with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/features/mocking.html)
+- Confirm your [source code for the last section](http://bit.ly/2Vri0VI)
+  - Confirm the [changes from the last section](http://bit.ly/2VqCgXc)
+- Implement tests for the message domain similar to the user domain
+- Write more fine-granular unit/integration tests for both domains
+- Read more about [GraphQL and HTTP](https://graphql.github.io/learn/serving-over-http/)
+- Read more about [Mocking with Apollo Server](https://www.apollographql.com/docs/apollo-server/v2/features/mocking.html)
 
 # Batching and Caching in GraphQL with Data Loader
 
@@ -4356,7 +4357,7 @@ Executing (default): SELECT "id", "username", "email", "password", "role", "crea
 Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" = 1;
 ```
 
-There is one request made for the list of messages, and three requests for each individual user. That's the nature of GraphQL. Even though you can nest your GraphQL relationships and query structure, there will still be database requests. Check the resolvers for the message user in your *src/resolvers/message.js* file to see where this is happening. At some point, you may run into performance bottlenecks when nesting GraphQL queries or mutations too deeply, because a lot of items need to be retrieved from your database.
+There is one request made for the list of messages, and three requests for each individual user. That's the nature of GraphQL. Even though you can nest your GraphQL relationships and query structure, there will still be database requests. Check the resolvers for the message user in your _src/resolvers/message.js_ file to see where this is happening. At some point, you may run into performance bottlenecks when nesting GraphQL queries or mutations too deeply, because a lot of items need to be retrieved from your database.
 
 In the following, you will optimize these database accesses with batching. It's a strategy used for a GraphQL server and its database, but also for other programming environments. Compare the query result in GraphQL Playground and your database output in the command line.
 
@@ -4370,7 +4371,7 @@ The same two principals can be applied to the 4 database accesses which should b
 npm install dataloader --save
 ```
 
-Now, in your *src/index.js* file you can import and make use of it:
+Now, in your _src/index.js_ file you can import and make use of it:
 
 ```javascript{1,5,6,7,8,9,10,11,12,13,14,15,33,34,35}
 import DataLoader from 'dataloader';
@@ -4420,7 +4421,7 @@ The loaders act as abstraction on top of the models, and can be passed as contex
 
 Now we'll consider the function as argument for the DataLoader instantiation. The function gives you access to a list of keys in its arguments. These keys are your set of identifiers, purged of duplication, which can be used to retrieve items from a database. That's why keys (identifiers) and models (data access layer) are passed to the `batchUser()` function. The function then takes the keys to retrieve the entities via the model from the database. By the end of the function, the keys are mapped in the same order as the retrieved entities. Otherwise, it's possible to return users right after their retrieval from the database, though they have a different order than the incoming keys. As a result, users need to be returned in the same order as their incoming identifiers (keys).
 
-That's the setup for the loader, an improved abstraction on top of the model. Now, since you are passing the loader for the batched user retrieval as context to the resolvers, you can make use of it in the *src/resolvers/message.js* file:
+That's the setup for the loader, an improved abstraction on top of the model. Now, since you are passing the loader for the batched user retrieval as context to the resolvers, you can make use of it in the _src/resolvers/message.js_ file:
 
 ```javascript{13,14}
 ...
@@ -4511,9 +4512,9 @@ Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FRO
 
 In this case, the users are not read from the database twice, only the messages, because they are not using a dataloader yet. That's how you can achieve caching in GraphQL with dataloaders. Choosing a caching strategy isn't quite as simple. For example, if a cached user is updated in between actions, the GraphQL client application still queries the cached user.
 
-It's difficult to find the right timing for invalidating the cache, so I recommended performing the dataloader instantiation with every incoming GraphQL request. You lose the benefit of caching over multiple GraphQL requests, but still use the cache for every database access with one incoming GraphQL request. The dataloader package expresses it like this: *"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."* If you want to get into real caching on the database level, give [Redis](https://redis.io/) a shot.
+It's difficult to find the right timing for invalidating the cache, so I recommended performing the dataloader instantiation with every incoming GraphQL request. You lose the benefit of caching over multiple GraphQL requests, but still use the cache for every database access with one incoming GraphQL request. The dataloader package expresses it like this: _"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."_ If you want to get into real caching on the database level, give [Redis](https://redis.io/) a shot.
 
-Outsource the loaders into a different folder/file structure. Put the batching for the individual users into a new *src/loaders/user.js* file:
+Outsource the loaders into a different folder/file structure. Put the batching for the individual users into a new _src/loaders/user.js_ file:
 
 ```javascript
 export const batchUsers = async (keys, models) => {
@@ -4523,21 +4524,21 @@ export const batchUsers = async (keys, models) => {
         $in: keys,
       },
     },
-  });
+  })
 
-  return keys.map(key => users.find(user => user.id === key));
-};
+  return keys.map((key) => users.find((user) => user.id === key))
+}
 ```
 
-And in a new *src/loaders/index.js* file export all the functions:
+And in a new _src/loaders/index.js_ file export all the functions:
 
 ```javascript
-import * as user from './user';
+import * as user from './user'
 
-export default { user };
+export default { user }
 ```
 
-Finally, import it in your *src/index.js* file and use it:
+Finally, import it in your _src/index.js_ file and use it:
 
 ```javascript{5,26,27,28}
 ...
@@ -4611,10 +4612,10 @@ Feel free to add more loaders on your own, maybe for the message domain. The pra
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2VnY1Hr)
-  * Confirm the [changes from the last section](http://bit.ly/2Vo8L8L)
-* Read more about [GraphQL and Dataloader](https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader)
-* Read more about [GraphQL Best Practices](https://graphql.github.io/learn/best-practices/)
+- Confirm your [source code for the last section](http://bit.ly/2VnY1Hr)
+  - Confirm the [changes from the last section](http://bit.ly/2Vo8L8L)
+- Read more about [GraphQL and Dataloader](https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader)
+- Read more about [GraphQL Best Practices](https://graphql.github.io/learn/best-practices/)
 
 # GraphQL Server + PostgreSQL Deployment to Heroku
 
@@ -4624,9 +4625,9 @@ This section guides you through the process in the command line. For the visual 
 
 Initially you need to complete three requirements to use Heroku:
 
-* [Install git for your command line and push your project to GitHub](/git-essential-commands/)
-* Create an account for [Heroku](https://www.heroku.com/)
-* Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for accessing Heroku's features on the command line
+- [Install git for your command line and push your project to GitHub](/git-essential-commands/)
+- Create an account for [Heroku](https://www.heroku.com/)
+- Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for accessing Heroku's features on the command line
 
 In the command line, verify your Heroku installation with `heroku version`. If there is a valid installation, sign in to your Heroku account with `heroku login`. That's it for the general Heroku setup. In your project's folder, create a new Heroku application and give it a name:
 
@@ -4653,7 +4654,7 @@ Use heroku addons:docs heroku-postgresql to view documentation
 
 Check the [Heroku PostgreSQL documentation](https://devcenter.heroku.com/articles/heroku-postgresql) for more in depth instructions for your database setup.
 
-You are ready to take your application online. With the PostgreSQL add-on, you received a database URL as well. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production. In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL, you can use this to make the decision:
+You are ready to take your application online. With the PostgreSQL add-on, you received a database URL as well. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production. In your _src/models/index.js_, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL, you can use this to make the decision:
 
 ```javascript{3,4,5,6,7,8,17}
 import Sequelize from 'sequelize';
@@ -4677,11 +4678,11 @@ if (process.env.DATABASE_URL) {
 ...
 ```
 
-If you check your *.env* file, you will see the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables, which is why the `DATABASE_URL` isn't applied for your local development environment.
+If you check your _.env_ file, you will see the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables, which is why the `DATABASE_URL` isn't applied for your local development environment.
 
-Another environment variable used in the *src/index.js* file is called *SECRET* for your authentication strategy. If you haven't included an *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku using `heroku config:set SECRET=wr3r23fwfwefwekwself.2456342.dawqdq`. The secret is just made up and you can choose your own custom string for it.
+Another environment variable used in the _src/index.js_ file is called _SECRET_ for your authentication strategy. If you haven't included an _.env_ file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku using `heroku config:set SECRET=wr3r23fwfwefwekwself.2456342.dawqdq`. The secret is just made up and you can choose your own custom string for it.
 
-Also, consider the application's port in the *src/index.js* file. Heroku adds its own `PORT` environment variable, and you should use the port from an environment variable as a fallback.
+Also, consider the application's port in the _src/index.js_ file. Heroku adds its own `PORT` environment variable, and you should use the port from an environment variable as a fallback.
 
 ```javascript{3,10,11}
 ...
@@ -4753,14 +4754,14 @@ In a real world scenario, you would want to use something else to start your app
 
 ### Exercises:
 
-* Confirm your [source code for the last section](http://bit.ly/2Vnd7Na)
-  * Confirm the [changes from the last section](http://bit.ly/2VkollD)
-* Feedback whether the troubleshooting area for Heroku was useful is very appreciated
-* Create sample data in your production database with GraphQL Playground
-* Get familiar with the [Heroku Dashboard](https://dashboard.heroku.com/apps)
-  * Find your application's logs
-  * Find your application's environment variables
-* access your PostgreSQL database on Heroku with `heroku pg:psql`
+- Confirm your [source code for the last section](http://bit.ly/2Vnd7Na)
+  - Confirm the [changes from the last section](http://bit.ly/2VkollD)
+- Feedback whether the troubleshooting area for Heroku was useful is very appreciated
+- Create sample data in your production database with GraphQL Playground
+- Get familiar with the [Heroku Dashboard](https://dashboard.heroku.com/apps)
+  - Find your application's logs
+  - Find your application's environment variables
+- access your PostgreSQL database on Heroku with `heroku pg:psql`
 
 <Divider />
 

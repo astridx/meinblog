@@ -91,15 +91,18 @@ Here is the actual, final HTML for one card. It's inside a container to keep the
     <h1>The Second City</h1>
     <div class="subtitle">City of Big Shoulders</div>
     <p>
-      Chicago is the home of the blues and the truth of jazz, the heart of comedy and the idea of
-      the skyscraper. It's a city with a swagger, but without the surliness or even the fake smiles
-      found in other cities of its size.
+      Chicago is the home of the blues and the truth of jazz, the heart of
+      comedy and the idea of the skyscraper. It's a city with a swagger, but
+      without the surliness or even the fake smiles found in other cities of its
+      size.
     </p>
 
     <div class="card-details">
       <div class="card-details-inner">
         <div class="read-more">
-          <a class="button" href="https://en.wikivoyage.org/wiki/Chicago">Read Article</a>
+          <a class="button" href="https://en.wikivoyage.org/wiki/Chicago"
+            >Read Article</a
+          >
         </div>
         <div class="options">
           <div class="comments">
@@ -245,7 +248,10 @@ If you really don't know what you're doing with fonts, here's an easy bit of adv
 Load it in...
 
 ```html
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Nunito:400,700"
+/>
 ```
 
 ```css

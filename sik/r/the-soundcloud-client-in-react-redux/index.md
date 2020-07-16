@@ -1,13 +1,13 @@
 ---
-title: "The SoundCloud Client in React + Redux"
-description: "Build a React + Redux SoundCloud Client. It is a huge tutorial where you build an example real world application. Learn React JS and Redux along the way. Consume the SoundCloud API, login and interact..."
-date: "2016-06-11T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["react redux"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'The SoundCloud Client in React + Redux'
+description: 'Build a React + Redux SoundCloud Client. It is a huge tutorial where you build an example real world application. Learn React JS and Redux along the way. Consume the SoundCloud API, login and interact...'
+date: '2016-06-11T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['react redux']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -34,12 +34,12 @@ In the future I am going to write some [smaller tutorials](#extensions) based on
 
 A list of extensions which can be applied on top of the SoundCloud Client with React + Redux tutorial afterwards.
 
-* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs/)
-* [MobX React: Simplified State Management in React](/mobx-react/)
+- [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
+- [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
+- [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
+- [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
+- [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs/)
+- [MobX React: Simplified State Management in React](/mobx-react/)
 
 # A project from scratch
 
@@ -47,7 +47,7 @@ I must say I learned a lot from implementing a project from scratch. It makes to
 
 The whole tutorial contains a lot of information. I wouldn't suggest to do everything at once when you are still learning React + Redux. Make some breaks between the chapters. Once you build your first React component, don't continue with Redux immediately. Experiment a bit with the code, do some internal state management with React, before you use Redux for state management. Take your time.
 
-Additionally I can recommend to read *The Road to learn React* before you dive into Redux. It teaches React by building a Hacker News App without configuration, tooling and Redux. If you are new to React, do yourself a favour and learn React first.
+Additionally I can recommend to read _The Road to learn React_ before you dive into Redux. It teaches React by building a Hacker News App without configuration, tooling and Redux. If you are new to React, do yourself a favour and learn React first.
 
 {{% package_box "The Road to React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 200+ pages of learning material. Pay what you want like <strong>50.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
@@ -57,33 +57,31 @@ Before you can write your first React component, you have to install Webpack and
 
 Is your project set up? Then let's render some data. It makes sense to render a list of tracks, since we are writing a SoundCloud application.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{4,5,6,7,8,9,10,11,14,15,16,17,18,19,20}
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
 ReactDOM.render(
   <div>
-    {
-      tracks.map((track) => {
-        return <div className="track">{track.title}</div>;
-      })
-    }
+    {tracks.map((track) => {
+      return <div className="track">{track.title}</div>
+    })}
   </div>,
   document.getElementById('app')
-);
+)
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 The [JSX syntax](https://facebook.github.io/react/docs/jsx-in-depth.html) takes getting used to. Basically we can use JavaScript in HTML. In our code snippet we map over a list of tracks and return a HTML node with track properties.
@@ -91,59 +89,58 @@ The [JSX syntax](https://facebook.github.io/react/docs/jsx-in-depth.html) takes 
 The console output gives the hint of a missing key property. [React elements need that key property to uniquely identify themselves in a list of elements](https://facebook.github.io/react/docs/lists-and-keys.html). Let’s fix this, save the file and see how hot reloading kicks in and refreshes our page!
 
 ```javascript{16,17}
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
 ReactDOM.render(
   <div>
-    {
-      tracks.map((track, key) => {
-        return <div className="track" key={key}>{track.title}</div>;
-      })
-    }
+    {tracks.map((track, key) => {
+      return (
+        <div className="track" key={key}>
+          {track.title}
+        </div>
+      )
+    })}
   </div>,
   document.getElementById('app')
-);
+)
 ```
 
-Now it's time to write our first real component. We can extract the rendered list of tracks in an own component, because the *src/index.js* should be only seen as entry point to the React application.
+Now it's time to write our first real component. We can extract the rendered list of tracks in an own component, because the _src/index.js_ should be only seen as entry point to the React application.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{3,15}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Stream from './components/Stream';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Stream from './components/Stream'
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
-ReactDOM.render(
-  <Stream tracks={tracks} />,
-  document.getElementById('app')
-);
+ReactDOM.render(<Stream tracks={tracks} />, document.getElementById('app'))
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 We import a Stream component which gets a list of tracks as props. Moreover we use that component as first parameter for `ReactDOM.render`. Now let's implement the Stream component.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir components
@@ -157,30 +154,30 @@ Our src folder is getting its first structure. We will organise our files by a t
 
 Let’s give our recent created file some content.
 
-*src/components/Stream.js*
+_src/components/Stream.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 class Stream extends React.Component {
-
   render() {
-    const { tracks = [] } = this.props;
+    const { tracks = [] } = this.props
 
     return (
       <div>
-        {
-          tracks.map((track, key) => {
-            return <div className="track" key={key}>{track.title}</div>;
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.title}
+            </div>
+          )
+        })}
       </div>
-    );
+    )
   }
-
 }
 
-export default Stream;
+export default Stream
 ```
 
 The Stream component is a React ES6 class component. The render shorthand function returns the element. Additionally we retrieve the props from `this` by using ES6 destructuring and providing a default empty list.
@@ -206,124 +203,121 @@ class Stream extends React.Component {
 ES6 class components can have internal component state. Imagine you could like a track. You would have to save the state whether a track is liked or not liked. I will demonstrate how you can achieve it.
 
 ```javascript{5,6,7,8,17,20,21,22,24}
-import React from 'react';
+import React from 'react'
 
 class Stream extends React.Component {
-
   constructor() {
-    super();
-    this.state = {};
+    super()
+    this.state = {}
   }
 
   render() {
-    const { tracks = [] } = this.props;
+    const { tracks = [] } = this.props
 
     return (
       <div>
-        {
-          tracks.map((track, key) => {
-            return (
-              <div className="track" key={key}>
-                {track.title}
-                <button onClick={() => this.setState({ [key]: !this.state[key] })} type="button">
-                  { this.state[key] ? 'Dislike' : 'Like' }
-                </button>
-              </div>
-            );
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.title}
+              <button
+                onClick={() => this.setState({ [key]: !this.state[key] })}
+                type="button"
+              >
+                {this.state[key] ? 'Dislike' : 'Like'}
+              </button>
+            </div>
+          )
+        })}
       </div>
-    );
+    )
   }
-
 }
 
-export default Stream;
+export default Stream
 ```
 
 You would need a contructor to setup the initial internal component state. Afterwards you can use `setState()` to modify the state and `this.state` to get the state. We modify the state in the `onClick` handler and get the state to show a button label.
 
 Let's keep the state out of our component for the sake of simplicity.
 
-*src/components/Stream.js*
+_src/components/Stream.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 class Stream extends React.Component {
-
   render() {
-    const { tracks = [] } = this.props;
+    const { tracks = [] } = this.props
 
     return (
       <div>
-        {
-          tracks.map((track, key) => {
-            return <div className="track" key={key}>{track.title}</div>;
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.title}
+            </div>
+          )
+        })}
       </div>
-    );
+    )
   }
-
 }
 
-export default Stream;
+export default Stream
 ```
 
 Since we don't need internal component state nor lifecycle methods, we can refactor our ES6 class component to a [stateless functional component](https://facebook.github.io/react/docs/components-and-props.html).
 
-*src/components/Stream.js*
+_src/components/Stream.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function Stream({ tracks = [] }) {
   return (
     <div>
-      {
-        tracks.map((track, key) => {
-          return <div className="track" key={key}>{track.title}</div>;
-        })
-      }
+      {tracks.map((track, key) => {
+        return (
+          <div className="track" key={key}>
+            {track.title}
+          </div>
+        )
+      })}
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
 It's called stateless functional component, because it only gets an input and generates an output. There are no side effects happening (functional) and our component doesn’t know internal state at all (stateless). It's only a function which gets a state and returns a view: `(State) => View`.
 
 You can use ES6 class components whenever you need component lifecycle methods or internal component state. If that's not the case, use functional stateless components.
 
-*Folder structure:*
+_Folder structure:_
 
 ```javascript
-- dist
--- index.html
-- node_modules
-- src
--- components
---- Stream.js
--- index.js
-- package.json
-- webpack.config.js
+;-dist
+--index.html - node_modules - src
+--components
+---Stream.js
+--index.js - package.json - webpack.config.js
 ```
 
 It’s done. We have written our first React code!
 
 A lot of things already happened during the last chapters. Let’s summarise these with some notes:
 
-* we use webpack + webpack-dev-server for bundling, building and serving our app
-* we use Babel
-  * to write in ES6 syntax
-  * to have .js rather than .jsx files
-* the src/index.js file is used by Webpack as entry point to bundle all of its used imports in one file named bundle.js
-* bundle.js is used in dist/index.html
-* dist/index.html provides us an identifier as entry point for our React root component
-* we set up our first React hook via the id attribute in src/index.js
-* we implemented our first component as stateless functional component src/components/Stream.js
+- we use webpack + webpack-dev-server for bundling, building and serving our app
+- we use Babel
+  - to write in ES6 syntax
+  - to have .js rather than .jsx files
+- the src/index.js file is used by Webpack as entry point to bundle all of its used imports in one file named bundle.js
+- bundle.js is used in dist/index.html
+- dist/index.html provides us an identifier as entry point for our React root component
+- we set up our first React hook via the id attribute in src/index.js
+- we implemented our first component as stateless functional component src/components/Stream.js
 
 > You may want to experiment a bit more with React before you dive into Redux. Build some more ES6 class and functional stateless components. Additionally use lifecycle methods and internal component state to get used to it. Only then you will see the benefits of using Redux for state management.
 
@@ -335,7 +329,7 @@ I want to show you a simple setup to test your React components. I will do this 
 
 We will use [mocha](https://github.com/mochajs/mocha) as test framework, [chai](https://github.com/chaijs/chai) as assertion library and [jsdom](https://github.com/tmpvar/jsdom) to provide us with a pure JavaScript DOM implementation which runs in node.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save-dev mocha chai jsdom
@@ -343,7 +337,7 @@ npm install --save-dev mocha chai jsdom
 
 Moreover we need a test setup file for some more configuration especially for our virtual DOM setup.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 mkdir test
@@ -351,34 +345,34 @@ cd test
 touch setup.js
 ```
 
-*test/setup.js*
+_test/setup.js_
 
 ```javascript
-import React from 'react';
-import { expect } from 'chai';
-import jsdom from 'jsdom';
+import React from 'react'
+import { expect } from 'chai'
+import jsdom from 'jsdom'
 
-const doc = jsdom.jsdom('<!doctype html><html><body></body></html>');
-const win = doc.defaultView;
+const doc = jsdom.jsdom('<!doctype html><html><body></body></html>')
+const win = doc.defaultView
 
-global.document = doc;
-global.window = win;
+global.document = doc
+global.window = win
 
 Object.keys(window).forEach((key) => {
   if (!(key in global)) {
-    global[key] = window[key];
+    global[key] = window[key]
   }
-});
+})
 
-global.React = React;
-global.expect = expect;
+global.React = React
+global.expect = expect
 ```
 
 Essentially we are exposing globally a jsdom generated document and window object, which can be used by React during tests. Additionally we need to expose all properties from the window object that our running tests later on can use them. Last but not least we are giving global access to the objects React and expect. It helps us that we don’t have to import each of them in our tests.
 
-In package.json we will have to add a new script to run our tests which respects Babel, uses mocha as test framework, uses our previously written *test/setup.js* file and traverses through all of our files within the *src* folder with a *spec.js* suffix.
+In package.json we will have to add a new script to run our tests which respects Babel, uses mocha as test framework, uses our previously written _test/setup.js_ file and traverses through all of our files within the _src_ folder with a _spec.js_ suffix.
 
-*package.json*
+_package.json_
 
 ```javascript{4}
 ...
@@ -393,7 +387,7 @@ Additionally there are some more neat libraries to help us with React component 
 
 > [Jest](https://facebook.github.io/jest/docs/tutorial-react.html) can be used alone or in combination with enzyme to test React components. It's the official library by Facebook.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save-dev react-addons-test-utils enzyme
@@ -401,36 +395,34 @@ npm install --save-dev react-addons-test-utils enzyme
 
 Now we are set to write our first component test.
 
-*From components folder:*
+_From components folder:_
 
 ```javascript
 touch Stream.spec.js
 ```
 
-*src/components/Stream.spec.js*
+_src/components/Stream.spec.js_
 
 ```javascript
-import Stream from './Stream';
-import { shallow } from 'enzyme';
+import Stream from './Stream'
+import { shallow } from 'enzyme'
 
 describe('Stream', () => {
-
   const props = {
     tracks: [{ title: 'x' }, { title: 'y' }],
-  };
+  }
 
   it('shows two elements', () => {
-    const element = shallow(<Stream { ...props } />);
+    const element = shallow(<Stream {...props} />)
 
-    expect(element.find('.track')).to.have.length(2);
-  });
-
-});
+    expect(element.find('.track')).to.have.length(2)
+  })
+})
 ```
 
 Here we are serving our Stream component with an array of two tracks. As we know both of these tracks should get rendered. The expect assertion checks whether we are rendering two DOM elements with the class track. When we run our tests, they should pass.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm test
@@ -438,7 +430,7 @@ npm test
 
 Moreover we can enhance our package.json scripts collection by a test:watch script.
 
-*package.json*
+_package.json_
 
 ```javascript{5}
 ...
@@ -452,27 +444,22 @@ Moreover we can enhance our package.json scripts collection by a test:watch scri
 
 By running the script we can see our tests executed every time we change something in our source code.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run test:watch
 ```
 
-*Folder structure:*
+_Folder structure:_
 
 ```javascript
-- dist
--- index.html
-- node_modules
-- src
--- components
---- Stream.js
---- Stream.spec.js
--- index.js
-- test
--- setup.js
-- package.json
-- webpack.config.js
+;-dist
+--index.html - node_modules - src
+--components
+---Stream.js
+---Stream.spec.js
+--index.js - test
+--setup.js - package.json - webpack.config.js
 ```
 
 We won't create anymore tests during this tutorial. As exercise feel free to add more tests during the next chapters!
@@ -481,7 +468,7 @@ We won't create anymore tests during this tutorial. As exercise feel free to add
 
 [Redux](https://github.com/reactjs/redux) describes itself as predictable state container for JS apps. Most of the time you will see Redux coupled with React used in client side applications. But it's far more than that. Like JavaScript itself is spreading on server side applications or IoT applications, Redux can be used everywhere to have a predictable state container. You will see that Redux is not strictly coupled to React, because it has its own module, while you can install another module to [connect it to the React world](https://github.com/reactjs/react-redux). There exist modules to [connect Redux to other frameworks](https://github.com/angular-redux/ng-redux) as well. Moreover the ecosystem around Redux itself is huge. Once you dive into it, you can learn tons of new stuff. Most of the time it is not only just another library: You have to look behind the facade to grasp which problem it will solve for you. Only then you should use it! When you don’t run into that problem, don’t use it. But be curious what is out there and how people get creative in that ecosystem!
 
-At this point I want to show some respect to [Dan Abramov](https://twitter.com/dan_abramov), the inventor of Redux, who is not only providing us with a simple yet mature library to control our state, but also showing a huge contribution in the open source community on a daily basis. Watch his talk from React Europe 2016 where he speaks about [the journey of Redux](https://www.youtube.com/watch?v=uvAXVMwHJXU&amp;index=1&amp;list=PLCC436JpVnK09bZeayg-KeLuHfHgc-tDa) and what made Redux successful.
+At this point I want to show some respect to [Dan Abramov](https://twitter.com/dan_abramov), the inventor of Redux, who is not only providing us with a simple yet mature library to control our state, but also showing a huge contribution in the open source community on a daily basis. Watch his talk from React Europe 2016 where he speaks about [the journey of Redux](https://www.youtube.com/watch?v=uvAXVMwHJXU&index=1&list=PLCC436JpVnK09bZeayg-KeLuHfHgc-tDa) and what made Redux successful.
 
 ## Redux Roundtrip
 
@@ -489,7 +476,7 @@ I call it the Redux Roundtrip, because it encourages you to use a unidirectional
 
 Let’s get started with Redux by implementing our first roundtrip!
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save redux
@@ -499,33 +486,30 @@ npm install --save redux
 
 Let’s dispatch our first action and get some explanation afterwards.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{3,4,16,17,20}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import configureStore from './stores/configureStore';
-import * as actions from './actions';
-import Stream from './components/Stream';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import configureStore from './stores/configureStore'
+import * as actions from './actions'
+import Stream from './components/Stream'
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
-const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+const store = configureStore()
+store.dispatch(actions.setTracks(tracks))
 
-ReactDOM.render(
-  <Stream />,
-  document.getElementById('app')
-);
+ReactDOM.render(<Stream />, document.getElementById('app'))
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 As you can see we initialise a store object with some imported function we didn’t define yet. The store is a singleton Redux object and holds our global state object. Moreover it is possible to use a lightweight store API to dispatch an action, get the state of the store or subscribe to the store when updates occur.
@@ -540,7 +524,7 @@ It is good to have a constants folder in general, but in early Redux projects yo
 
 > When your project grows, there exist other [folder/file structure patterns](https://github.com/erikras/ducks-modular-redux) to organise your Redux code.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir constants
@@ -548,17 +532,17 @@ cd constants
 touch actionTypes.js
 ```
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript
-export const TRACKS_SET = 'TRACKS_SET';
+export const TRACKS_SET = 'TRACKS_SET'
 ```
 
 ## Action Creators
 
 Now we get to the action creators. They return an object with a type and a payload. The type is an action constant like the one we defined in our previous created action types. The payload can be anything which will be used to change the global state.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir actions
@@ -566,37 +550,35 @@ cd actions
 touch track.js
 ```
 
-*src/actions/track.js*
+_src/actions/track.js_
 
 ```javascript
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function setTracks(tracks) {
   return {
     type: actionTypes.TRACKS_SET,
-    tracks
-  };
-};
+    tracks,
+  }
+}
 ```
 
 Our first action creator takes as input some tracks which we want to set to our global state. It returns an object with an action type and a payload.
 
-To keep our folder structure tidy, we need to setup an entry point to our action creators via an *index.js* file.
+To keep our folder structure tidy, we need to setup an entry point to our action creators via an _index.js_ file.
 
-*From actions folder:*
+_From actions folder:_
 
 ```javascript
 touch index.js
 ```
 
-*src/actions/index.js*
+_src/actions/index.js_
 
 ```javascript
-import { setTracks } from './track';
+import { setTracks } from './track'
 
-export {
-  setTracks
-};
+export { setTracks }
 ```
 
 In that file we can bundle all of our action creators to export them as public interface to the rest of the app. Whenever we need to access some action creator from somewhere else, we have a clearly defined interface for that, without reaching into every action creator file itself. We will do the same later on for our reducers.
@@ -609,7 +591,7 @@ The state in Redux must be treated as immutable state. You will never modify the
 
 Let’s create our first reducer.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir reducers
@@ -617,24 +599,24 @@ cd reducers
 touch track.js
 ```
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
-const initialState = [];
+const initialState = []
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { tracks } = action;
-  return [ ...state, ...tracks ];
+  const { tracks } = action
+  return [...state, ...tracks]
 }
 ```
 
@@ -648,34 +630,34 @@ After all we use the ES6 spread operator to put our previous state plus the acti
 
 Again to keep our folder interfaces tidy, we create an entry point to our reducers.
 
-*From reducers folder:*
+_From reducers folder:_
 
 ```javascript
 touch index.js
 ```
 
-*src/reducers/index.js*
+_src/reducers/index.js_
 
 ```javascript
-import { combineReducers } from 'redux';
-import track from './track';
+import { combineReducers } from 'redux'
+import track from './track'
 
 export default combineReducers({
-  track
-});
+  track,
+})
 ```
 
-Saving us some refactoring, I already use a helper function [combineReducers](http://redux.js.org/docs/api/combineReducers.html) here. Normally you would start to export one plain reducer. That reducer would return the *whole state*. When you use `combineReducers`, you are able to have multiple reducers, where each reducer only returns a *substate*. Without `combineReducers` you would access your tracks in the global state with `state.tracks`. But with `combineReducers` you get these intermediate layer to get to the subset of states produced by multiple reducers. In that case `state.track.tracks` where track is our substate to handle all track states in the future.
+Saving us some refactoring, I already use a helper function [combineReducers](http://redux.js.org/docs/api/combineReducers.html) here. Normally you would start to export one plain reducer. That reducer would return the _whole state_. When you use `combineReducers`, you are able to have multiple reducers, where each reducer only returns a _substate_. Without `combineReducers` you would access your tracks in the global state with `state.tracks`. But with `combineReducers` you get these intermediate layer to get to the subset of states produced by multiple reducers. In that case `state.track.tracks` where track is our substate to handle all track states in the future.
 
 ## Store with Global State
 
-Now we dispatched our first action, implemented a pair of action type and action creator, and generated a new state via a reducer. What is missing is our store, which we already created from some not yet implemented function in our *src/index.js*.
+Now we dispatched our first action, implemented a pair of action type and action creator, and generated a new state via a reducer. What is missing is our store, which we already created from some not yet implemented function in our _src/index.js_.
 
-Remember when we dispatched our first action via the store interface *store.dispatch(actionCreator(payload))*? The store is aware of the state and thus it is aware of our reducers with their state manipulations.
+Remember when we dispatched our first action via the store interface _store.dispatch(actionCreator(payload))_? The store is aware of the state and thus it is aware of our reducers with their state manipulations.
 
 Let’s create the store file.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 mkdir stores
@@ -683,14 +665,14 @@ cd stores
 touch configureStore.js
 ```
 
-*src/stores/configureStore.js*
+_src/stores/configureStore.js_
 
 ```javascript
-import { createStore } from 'redux';
-import rootReducer from '../reducers/index';
+import { createStore } from 'redux'
+import rootReducer from '../reducers/index'
 
 export default function configureStore(initialState) {
-  return createStore(rootReducer, initialState);
+  return createStore(rootReducer, initialState)
 }
 ```
 
@@ -698,16 +680,16 @@ Redux provides us with a [createStore](http://redux.js.org/docs/api/createStore.
 
 Let's add a store middleware to even the way to a mature Redux application.
 
-*src/stores/configureStore.js*
+_src/stores/configureStore.js_
 
 ```javascript{1,4,7}
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducers/index';
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from '../reducers/index'
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware()(createStore)
 
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState);
+  return createStoreWithMiddleware(rootReducer, initialState)
 }
 ```
 
@@ -719,25 +701,25 @@ npm install --save redux-logger
 
 The logger middleware shows us console output for each action: the previous state, the action itself and the next state. It helps us to keep track of our state changes in our application.
 
-*src/stores/configureStore.js*
+_src/stores/configureStore.js_
 
 ```javascript{2,5,7}
-import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers/index';
+import { createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import rootReducer from '../reducers/index'
 
-const logger = createLogger();
+const logger = createLogger()
 
-const createStoreWithMiddleware = applyMiddleware(logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(logger)(createStore)
 
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState);
+  return createStoreWithMiddleware(rootReducer, initialState)
 }
 ```
 
 Let’s start our app again and see what happens.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start
@@ -751,7 +733,7 @@ Let’s connect our Stream component to the Redux store to close the Redux Round
 
 As I mentioned early there exist some libraries to wire Redux to other environments. Since we are using React, we want to [connect Redux to our React components](https://github.com/reactjs/react-redux).
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save react-redux
@@ -765,36 +747,36 @@ Essentially we need two steps to wire the Redux store to our components. Let’s
 
 The Provider from react-redux helps us to make the store and its functionalities available in all child components. The only thing we have to do is to initiate our store and wrap our child components within the Provider component. At the end the Provider component uses the store as property.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{3,21,22,23}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './stores/configureStore';
-import * as actions from './actions';
-import Stream from './components/Stream';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import configureStore from './stores/configureStore'
+import * as actions from './actions'
+import Stream from './components/Stream'
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
-const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+const store = configureStore()
+store.dispatch(actions.setTracks(tracks))
 
 ReactDOM.render(
   <Provider store={store}>
     <Stream />
   </Provider>,
   document.getElementById('app')
-);
+)
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 Now we made the Redux store available to all child components, in that case the Stream component.
@@ -805,32 +787,34 @@ The connect functionality from react-redux helps us to wire React components, wh
 
 Remember when we passed the hardcoded tracks directly to the Stream component? Now we set these tracks via the Redux Roundtrip in our global state and want to retrieve a part of this state in the Stream component.
 
-*src/components/Stream.js*
+_src/components/Stream.js_
 
 ```javascript{2,16,17,18,19,20,21,22,23}
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
 function Stream({ tracks = [] }) {
   return (
     <div>
-      {
-        tracks.map((track, key) => {
-          return <div className="track" key={key}>{track.title}</div>;
-        })
-      }
+      {tracks.map((track, key) => {
+        return (
+          <div className="track" key={key}>
+            {track.title}
+          </div>
+        )
+      })}
     </div>
-  );
+  )
 }
 
 function mapStateToProps(state) {
-  const tracks = state.track;
+  const tracks = state.track
   return {
-    tracks
+    tracks,
   }
 }
 
-export default connect(mapStateToProps)(Stream);
+export default connect(mapStateToProps)(Stream)
 ```
 
 As you can see the component itself doesn’t change at all.
@@ -871,62 +855,62 @@ The Stream folder consists of an index.js file (container), presenter.js file (p
 
 Let’s refactor by each file. While every line of code is new in these files, I highlighted the important new parts coming with that refactoring. Most of the old code gets only separated in the new files.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{3}
-import React from 'react';
-import { connect } from 'react-redux';
-import Stream from './presenter';
+import React from 'react'
+import { connect } from 'react-redux'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const tracks = state.track;
+  const tracks = state.track
   return {
-    tracks
+    tracks,
   }
 }
 
-export default connect(mapStateToProps)(Stream);
+export default connect(mapStateToProps)(Stream)
 ```
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function Stream({ tracks = [] }) {
   return (
     <div>
-      {
-        tracks.map((track, key) => {
-          return <div className="track" key={key}>{track.title}</div>;
-        })
-      }
+      {tracks.map((track, key) => {
+        return (
+          <div className="track" key={key}>
+            {track.title}
+          </div>
+        )
+      })}
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
-*src/components/Stream/spec.js*
+_src/components/Stream/spec.js_
 
 ```javascript{1}
-import Stream from './presenter';
-import { shallow } from 'enzyme';
+import Stream from './presenter'
+import { shallow } from 'enzyme'
 
 describe('Stream', () => {
-
   const props = {
     tracks: [{ title: 'x' }, { title: 'y' }],
-  };
+  }
 
   it('shows two elements', () => {
-    const element = shallow(<Stream { ...props } />);
+    const element = shallow(<Stream {...props} />)
 
-    expect(element.find('.track')).to.have.length(2);
-  });
-
-});
+    expect(element.find('.track')).to.have.length(2)
+  })
+})
 ```
 
 Now you can delete the old files Stream.js and Stream.spec.js, because they got refactored into the new Stream folder.
@@ -955,68 +939,68 @@ In the last registration step you give your app a “Redirect URI” to fulfil t
 
 The previous step gives us two constants which we have to use in our app: Client ID and Redirect URI. We need both to setup our authentication process. Let’s transfer these constants into a file.
 
-*From constants folder:*
+_From constants folder:_
 
 ```javascript
 touch auth.js
 ```
 
-*src/constants/auth.js*
+_src/constants/auth.js_
 
 ```javascript
-export const CLIENT_ID = '1fb0d04a94f035059b0424154fd1b18c'; // Use your client ID
-export const REDIRECT_URI = `${window.location.protocol}//${window.location.host}/callback`;
+export const CLIENT_ID = '1fb0d04a94f035059b0424154fd1b18c' // Use your client ID
+export const REDIRECT_URI = `${window.location.protocol}//${window.location.host}/callback`
 ```
 
 Now we can authenticate with SoundCloud.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm --save install soundcloud
 ```
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{1,8,10}
-import SC from 'soundcloud';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './stores/configureStore';
-import * as actions from './actions';
-import Stream from './components/Stream';
-import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+import SC from 'soundcloud'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import configureStore from './stores/configureStore'
+import * as actions from './actions'
+import Stream from './components/Stream'
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth'
 
-SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI })
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
-const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+const store = configureStore()
+store.dispatch(actions.setTracks(tracks))
 
 ReactDOM.render(
   <Provider store={store}>
     <Stream />
   </Provider>,
   document.getElementById('app')
-);
+)
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 ## React Router
 
 The authentication process relies on a route called “/callback” in our app. Therefore we need to setup [React Router](https://github.com/reactjs/react-router) to provide our app with some simple routing.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm --save install react-router react-router-redux
@@ -1024,73 +1008,75 @@ npm --save install react-router react-router-redux
 
 You have to add the following line to your web pack configuration.
 
-*webpack.config.js*
+_webpack.config.js_
 
 ```javascript{25}
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.js',
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'react-hot-loader!babel-loader',
+      },
+    ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
   },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     contentBase: './dist',
     hot: true,
-    historyApiFallback: true
-  }
-};
+    historyApiFallback: true,
+  },
+}
 ```
 
 The historyApiFallback allows our app to do routing purely on the client side. Usually a route change would result into a server request to fetch new resources.
 
 Let’s provide our app with two routes: one for our app, another one for the callback and authentication handling. Therefore we use some helper components provided by react-router. In general we have to specify path and component pairs. Therefore we define to see the Stream component on the root path “/” and the Callback component on “/callback” (that’s where the authentication happens). Additionally we can specify a wrapper component like App. We will see during its implementation, why it is good to have a wrapper component like App. Moreover we use react-router-redux to synchronise the browser history with the store. This would help us to react to route changes.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{4,5,9,10,28,32,33,34,35,36,37,38}
-import SC from 'soundcloud';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { Provider } from 'react-redux';
-import configureStore from './stores/configureStore';
-import * as actions from './actions';
-import App from './components/App';
-import Callback from './components/Callback';
-import Stream from './components/Stream';
-import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+import SC from 'soundcloud'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { Provider } from 'react-redux'
+import configureStore from './stores/configureStore'
+import * as actions from './actions'
+import App from './components/App'
+import Callback from './components/Callback'
+import Stream from './components/Stream'
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth'
 
-SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI })
 
 const tracks = [
   {
-    title: 'Some track'
+    title: 'Some track',
   },
   {
-    title: 'Some other track'
-  }
-];
+    title: 'Some other track',
+  },
+]
 
-const store = configureStore();
-store.dispatch(actions.setTracks(tracks));
+const store = configureStore()
+store.dispatch(actions.setTracks(tracks))
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -1103,14 +1089,14 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('app')
-);
+)
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 At the end there are two new components: App as component wrapper and Callback for the authentication. Let’s create the first one.
 
-*From components folder:*
+_From components folder:_
 
 ```javascript
 mkdir App
@@ -1118,23 +1104,23 @@ cd App
 touch index.js
 ```
 
-*src/components/App/index.js*
+_src/components/App/index.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function App({ children }) {
-  return <div>{children}</div>;
+  return <div>{children}</div>
 }
 
-export default App;
+export default App
 ```
 
 App does not much here but passing all children. We will not use this component in this tutorial anymore, but in future implementations you could use this component to have static Header, Footer, Playlist or Player components while the children are changing.
 
 Let’s create our Callback component.
 
-*From components folder:*
+_From components folder:_
 
 ```javascript
 mkdir Callback
@@ -1142,58 +1128,61 @@ cd Callback
 touch index.js
 ```
 
-*src/components/Calback/index.js*
+_src/components/Calback/index.js_
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 class Callback extends React.Component {
-
   componentDidMount() {
-    window.setTimeout(opener.SC.connectCallback, 1);
+    window.setTimeout(opener.SC.connectCallback, 1)
   }
 
   render() {
-    return <div><p>This page should close soon.</p></div>;
+    return (
+      <div>
+        <p>This page should close soon.</p>
+      </div>
+    )
   }
 }
 
-export default Callback;
+export default Callback
 ```
 
 That’s the default implementation to create the callback for the SoundCloud API. We do not need to touch this file anymore in the future.
 
 The last step for the Router setup is to provide our store with the route state when we navigate from page to page.
 
-*src/reducers/index.js*
+_src/reducers/index.js_
 
 ```javascript{2,7}
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import track from './track';
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import track from './track'
 
 export default combineReducers({
   track,
-  routing: routerReducer
-});
+  routing: routerReducer,
+})
 ```
 
-*src/stores/configureStore.js*
+_src/stores/configureStore.js_
 
 ```javascript{3,4,8,10}
-import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
-import { browserHistory } from 'react-router';
-import { routerMiddleware } from 'react-router-redux';
-import rootReducer from '../reducers/index';
+import { createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import { browserHistory } from 'react-router'
+import { routerMiddleware } from 'react-router-redux'
+import rootReducer from '../reducers/index'
 
-const logger = createLogger();
-const router = routerMiddleware(browserHistory);
+const logger = createLogger()
+const router = routerMiddleware(browserHistory)
 
-const createStoreWithMiddleware = applyMiddleware(router, logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(router, logger)(createStore)
 
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState);
+  return createStoreWithMiddleware(rootReducer, initialState)
 }
 ```
 
@@ -1203,41 +1192,38 @@ Moreover we sync our store with the browser history, so that we can listen later
 
 Let’s authenticate with SoundCloud! We need to setup a new action to trigger that an event to authenticate. Let’s expose the auth function already and add the required action file afterwards.
 
-*src/actions/index.js*
+_src/actions/index.js_
 
 ```javascript{1,5}
-import { auth } from './auth';
-import { setTracks } from './track';
+import { auth } from './auth'
+import { setTracks } from './track'
 
-export {
-  auth,
-  setTracks
-};
+export { auth, setTracks }
 ```
 
-*From actions folder:*
+_From actions folder:_
 
 ```javascript
 touch auth.js
 ```
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript
-import SC from 'soundcloud';
+import SC from 'soundcloud'
 
 export function auth() {
   SC.connect().then((session) => {
-    fetchMe(session);
-  });
-};
+    fetchMe(session)
+  })
+}
 
 function fetchMe(session) {
   fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
-    });
+      console.log(data)
+    })
 }
 ```
 
@@ -1245,109 +1231,116 @@ We are able to connect to the SoundCloud API, login with our credentials and see
 
 Nobody is triggering that action though, so let’s do that for the sake of simplicity in our Stream component.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{2,4,14,15,16,17,18,20}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const tracks = state.track;
+  const tracks = state.track
   return {
-    tracks
+    tracks,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAuth: bindActionCreators(actions.auth, dispatch)
-  };
+    onAuth: bindActionCreators(actions.auth, dispatch),
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 In our container component we did only map some state to our presenter component. Now it comes to a second function we can pass to the connect function: mapDispatchToProps. This function helps us to pass actions to our presenter component. Within the mapDispatchToProps we return an object with functions, in this case one function named onAuth, and use our previously created action auth within that. Moreover we need to bind our action creator with the dispatch function.
 
 Now let’s use this new available action in our presenter component.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{3,6,7,8,9,10,16}
-import React from 'react';
+import React from 'react'
 
 function Stream({ tracks = [], onAuth }) {
   return (
     <div>
       <div>
-        <button onClick={onAuth} type="button">Login</button>
+        <button onClick={onAuth} type="button">
+          Login
+        </button>
       </div>
-      <br/>
+      <br />
       <div>
-        {
-          tracks.map((track, key) => {
-            return <div className="track" key={key}>{track.title}</div>;
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.title}
+            </div>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
 We simply put in a button and pass the onAuth function as onClick handler. After we start our app again, we should see the current user in the console output after we clicked the Login button. Additionally we will still see some error message, because our action goes nowhere, since we didn’t supply a according reducer for it.
 
 > We might need to install a polyfill for fetch, because some browser do not support the fetch API yet.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm --save install whatwg-fetch
 npm --save-dev install imports-loader exports-loader
 ```
 
-*webpack.config.js*
+_webpack.config.js_
 
 ```javascript{1,29,30,31,32,33}
-var webpack = require('webpack');
+var webpack = require('webpack')
 
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.js',
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader'
-    }]
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'react-hot-loader!babel-loader',
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   devServer: {
     contentBase: './dist',
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.ProvidePlugin({
-      'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
-    })
-  ]
-};
+      fetch:
+        'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
+    }),
+  ],
+}
 ```
 
 ## Redux Thunk
@@ -1358,12 +1351,12 @@ We can see our current user object in the console output, but we don’t store i
 
 Some side-effect middleware in Redux:
 
-* [Redux Thunk](https://github.com/gaearon/redux-thunk)
-* [Redux Promise](https://github.com/acdlite/redux-promise)
-* [Redux Saga](https://github.com/yelouafi/redux-saga)
-* [Redux Observable](https://github.com/redux-observable/redux-observable)
+- [Redux Thunk](https://github.com/gaearon/redux-thunk)
+- [Redux Promise](https://github.com/acdlite/redux-promise)
+- [Redux Saga](https://github.com/yelouafi/redux-saga)
+- [Redux Observable](https://github.com/redux-observable/redux-observable)
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm --save install redux-thunk
@@ -1371,23 +1364,27 @@ npm --save install redux-thunk
 
 Let’s add thunk as middleware to our store.
 
-*src/stores/configurationStore.js*
+_src/stores/configurationStore.js_
 
 ```javascript{3,11}
-import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
-import thunk from 'redux-thunk';
-import { browserHistory } from 'react-router';
+import { createStore, applyMiddleware } from 'redux'
+import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk'
+import { browserHistory } from 'react-router'
 import { routerMiddleware } from 'react-router-redux'
-import rootReducer from '../reducers/index';
+import rootReducer from '../reducers/index'
 
-const logger = createLogger();
-const router = routerMiddleware(browserHistory);
+const logger = createLogger()
+const router = routerMiddleware(browserHistory)
 
-const createStoreWithMiddleware = applyMiddleware(thunk, router, logger)(createStore);
+const createStoreWithMiddleware = applyMiddleware(
+  thunk,
+  router,
+  logger
+)(createStore)
 
 export default function configureStore(initialState) {
-  return createStoreWithMiddleware(rootReducer, initialState);
+  return createStoreWithMiddleware(rootReducer, initialState)
 }
 ```
 
@@ -1395,42 +1392,42 @@ export default function configureStore(initialState) {
 
 Now we have everything in place to save our user object to the store. Therefore we need to create a new set of action type, action creator and reducer.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{1}
-export const ME_SET = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
+export const ME_SET = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
 ```
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{2,4,5,6,7,8,9,12,14,16,20,24,26}
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
 
 function setMe(user) {
   return {
     type: actionTypes.ME_SET,
-    user
-  };
+    user,
+  }
 }
 
 export function auth() {
   return function (dispatch) {
     SC.connect().then((session) => {
-      dispatch(fetchMe(session));
-    });
-  };
-};
+      dispatch(fetchMe(session))
+    })
+  }
+}
 
 function fetchMe(session) {
   return function (dispatch) {
     fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
       .then((response) => response.json())
       .then((data) => {
-        dispatch(setMe(data));
-      });
-  };
+        dispatch(setMe(data))
+      })
+  }
 }
 ```
 
@@ -1438,45 +1435,45 @@ Instead of doing the console output when we retrieved the user object, we simply
 
 Let's add the new reducer.
 
-*src/reducers/index.js*
+_src/reducers/index.js_
 
 ```javascript{3,7}
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import auth from './auth';
-import track from './track';
+import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import auth from './auth'
+import track from './track'
 
 export default combineReducers({
   auth,
   track,
-  routing: routerReducer
-});
+  routing: routerReducer,
+})
 ```
 
-*From reducers folder:*
+_From reducers folder:_
 
 ```javascript
 touch auth.js
 ```
 
-*src/reducers/auth.js*
+_src/reducers/auth.js_
 
 ```javascript
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
-const initialState = {};
+const initialState = {}
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actionTypes.ME_SET:
-      return setMe(state, action);
+      return setMe(state, action)
   }
-  return state;
+  return state
 }
 
 function setMe(state, action) {
-  const { user } = action;
-  return { ...state, user };
+  const { user } = action
+  return { ...state, user }
 }
 ```
 
@@ -1484,68 +1481,72 @@ The reducer respects the new action type and returns a newState with our user in
 
 Now we want to see visually in our DOM whether the login was successful. Therefor we can exchange the Login button once the login itself was successful.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{8,11}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const tracks = state.track;
+  const { user } = state.auth
+  const tracks = state.track
   return {
     user,
-    tracks
+    tracks,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAuth: bindActionCreators(actions.auth, dispatch)
-  };
+    onAuth: bindActionCreators(actions.auth, dispatch),
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 In our container component we map our new state, the current user, to the presenter component.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{3,7,8,9,10,11}
-import React from 'react';
+import React from 'react'
 
 function Stream({ user, tracks = [], onAuth }) {
   return (
     <div>
       <div>
-        {
-          user ?
-            <div>{user.username}</div> :
-            <button onClick={onAuth} type="button">Login</button>
-        }
+        {user ? (
+          <div>{user.username}</div>
+        ) : (
+          <button onClick={onAuth} type="button">
+            Login
+          </button>
+        )}
       </div>
-      <br/>
+      <br />
       <div>
-        {
-          tracks.map((track, key) => {
-            return <div className="track" key={key}>{track.title}</div>;
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.title}
+            </div>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
 The presenter component decides whether it has to show the username or the Login button. When we start our app again and login, we should the displayed username instead of a button.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start
@@ -1555,26 +1556,26 @@ npm start
 
 Now we are authenticated with the SoundCloud server. Let’s get real and fetch some real tracks and replace the hardcoded tracks.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript
-import SC from 'soundcloud';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { Provider } from 'react-redux';
-import configureStore from './stores/configureStore';
-import App from './components/App';
-import Callback from './components/Callback';
-import Stream from './components/Stream';
-import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+import SC from 'soundcloud'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { Provider } from 'react-redux'
+import configureStore from './stores/configureStore'
+import App from './components/App'
+import Callback from './components/Callback'
+import Stream from './components/Stream'
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth'
 
-SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI })
 
-const store = configureStore();
+const store = configureStore()
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -1587,54 +1588,56 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('app')
-);
+)
 
-module.hot.accept();
+module.hot.accept()
 ```
 
 We only removed the hardcoded tracks in here. Moreover we don’t dispatch anymore an action to set some initial state.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{3,16,31,32,33,34,35,36,37,38,39}
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
-import { setTracks } from '../actions/track';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
+import { setTracks } from '../actions/track'
 
 function setMe(user) {
   return {
     type: actionTypes.ME_SET,
-    user
-  };
+    user,
+  }
 }
 
 export function auth() {
   return function (dispatch) {
     SC.connect().then((session) => {
-      dispatch(fetchMe(session));
-      dispatch(fetchStream(session));
-    });
-  };
-};
+      dispatch(fetchMe(session))
+      dispatch(fetchStream(session))
+    })
+  }
+}
 
 function fetchMe(session) {
-    return function (dispatch) {
-      fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(setMe(data));
-        });
-    };
+  return function (dispatch) {
+    fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(setMe(data))
+      })
+  }
 }
 
 function fetchStream(session) {
   return function (dispatch) {
-    fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+    fetch(
+      `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+    )
       .then((response) => response.json())
       .then((data) => {
-        dispatch(setTracks(data.collection));
-      });
-  };
+        dispatch(setTracks(data.collection))
+      })
+  }
 }
 ```
 
@@ -1644,64 +1647,66 @@ After the authentication we simply dispatch a new asynchronous action to fetch t
 
 The data structure of the SoundCloud tracks looks a bit different than our hardcoded tracks before. We need to change that in our Stream presenter component.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{17}
-import React from 'react';
+import React from 'react'
 
 function Stream({ user, tracks = [], onAuth }) {
   return (
     <div>
       <div>
-        {
-          user ?
-            <div>{user.username}</div> :
-            <button onClick={onAuth} type="button">Login</button>
-        }
+        {user ? (
+          <div>{user.username}</div>
+        ) : (
+          <button onClick={onAuth} type="button">
+            Login
+          </button>
+        )}
       </div>
-      <br/>
+      <br />
       <div>
-        {
-          tracks.map((track, key) => {
-            return <div className="track" key={key}>{track.origin.title}</div>;
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.origin.title}
+            </div>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
 Moreover we need to adjust our test that it respects the new track data structure.
 
-*src/components/Stream/spec.js*
+_src/components/Stream/spec.js_
 
 ```javascript{7}
-import Stream from './presenter';
-import { shallow } from 'enzyme';
+import Stream from './presenter'
+import { shallow } from 'enzyme'
 
 describe('Stream', () => {
-
   const props = {
     tracks: [{ origin: { title: 'x' } }, { origin: { title: 'y' } }],
-  };
+  }
 
   it('shows two elements', () => {
-    const element = shallow(<Stream { ...props } />);
+    const element = shallow(<Stream {...props} />)
 
-    expect(element.find('.track')).to.have.length(2);
-  });
-
-});
+    expect(element.find('.track')).to.have.length(2)
+  })
+})
 ```
 
 When you start your app now, you should see some tracks from your personal stream listed after the login.
 
 > Even if you created a new SoundCloud account, I hope you have a stream displayed though. If you get some empty stream data, you have to use SoundCloud directly to generate some e.g. via following some people.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm start
@@ -1715,178 +1720,176 @@ How would it be to have your own audio player within the browser? Therefor the l
 
 You should be already familiar with the procedure of creating action, action creator and reducer. Moreover you have to trigger that from within a component. Let’s start by providing our Stream component some yet not existing onPlay functionality. Moreover we will display a Play button next to each track which triggers that functionality.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{3,17,18,19,20,21,22}
-import React from 'react';
+import React from 'react'
 
 function Stream({ user, tracks = [], onAuth, onPlay }) {
   return (
     <div>
       <div>
-        {
-          user ?
-            <div>{user.username}</div> :
-            <button onClick={onAuth} type="button">Login</button>
-        }
+        {user ? (
+          <div>{user.username}</div>
+        ) : (
+          <button onClick={onAuth} type="button">
+            Login
+          </button>
+        )}
       </div>
-      <br/>
+      <br />
       <div>
-        {
-          tracks.map((track, key) => {
-            return (
-              <div className="track" key={key}>
-                {track.origin.title}
-                <button type="button" onClick={() => onPlay(track)}>Play</button>
-              </div>
-            );
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.origin.title}
+              <button type="button" onClick={() => onPlay(track)}>
+                Play
+              </button>
+            </div>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
 In our container Stream component we can map that action to the presenter component.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{19}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const tracks = state.track;
+  const { user } = state.auth
+  const tracks = state.track
   return {
     user,
-    tracks
+    tracks,
   }
-};
+}
 
 function mapDispatchToProps(dispatch) {
   return {
     onAuth: bindActionCreators(actions.auth, dispatch),
     onPlay: bindActionCreators(actions.playTrack, dispatch),
-  };
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 Now we will have to implement the non existent playTrack action creator.
 
-*src/actions/index.js*
+_src/actions/index.js_
 
 ```javascript{2,7}
-import { auth } from './auth';
-import { setTracks, playTrack } from './track';
+import { auth } from './auth'
+import { setTracks, playTrack } from './track'
 
-export {
-  auth,
-  setTracks,
-  playTrack
-};
+export { auth, setTracks, playTrack }
 ```
 
-*src/actions/track.js*
+_src/actions/track.js_
 
 ```javascript{10,11,12,13,14,15}
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function setTracks(tracks) {
   return {
     type: actionTypes.TRACKS_SET,
-    tracks
-  };
-};
+    tracks,
+  }
+}
 
 export function playTrack(track) {
   return {
     type: actionTypes.TRACK_PLAY,
-    track
-  };
+    track,
+  }
 }
 ```
 
 Don’t forget to export a new action type as constant.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{3}
-export const ME_SET = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
+export const ME_SET = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
 ```
 
 In our reducer we make place for another initial state. In the beginning there will be no active track set, but when we trigger to play a track, the track should be set as activeTrack.
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript{3,4,5,6,12,13,20,23,24,25,26}
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 const initialState = {
-    tracks: [],
-    activeTrack: null
-};
+  tracks: [],
+  activeTrack: null,
+}
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
     case actionTypes.TRACK_PLAY:
-      return setPlay(state, action);
+      return setPlay(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { tracks } = action;
-  return { ...state, tracks };
+  const { tracks } = action
+  return { ...state, tracks }
 }
 
 function setPlay(state, action) {
-  const { track } = action;
-  return { ...state, activeTrack: track };
+  const { track } = action
+  return { ...state, activeTrack: track }
 }
 ```
 
 Additionally we want to show the currently played track, therefore we need to map the activeTrack in our Stream container component.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{9,13}
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import Stream from './presenter';
+import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as actions from '../../actions'
+import Stream from './presenter'
 
 function mapStateToProps(state) {
-  const { user } = state.auth;
-  const { tracks, activeTrack } = state.track;
+  const { user } = state.auth
+  const { tracks, activeTrack } = state.track
   return {
     user,
     tracks,
-    activeTrack
+    activeTrack,
   }
-};
+}
 
 function mapDispatchToProps(dispatch) {
   return {
     onAuth: bindActionCreators(actions.auth, dispatch),
     onPlay: bindActionCreators(actions.playTrack, dispatch),
-  };
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stream);
+export default connect(mapStateToProps, mapDispatchToProps)(Stream)
 ```
 
 By starting our app, we should be able to login, to see our tracks and to play a track. The redux-logger should show some console output that we have set an activeTrack. But there is no music yet! Let’s implement that!
@@ -1895,45 +1898,49 @@ By starting our app, we should be able to login, to see our tracks and to play a
 
 In our last step we already handed the activeTrack to our presenter Stream component. Let’s see what we can do about that.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{2,4,27,28,29,30,31}
-import React from 'react';
-import { CLIENT_ID } from '../../constants/auth';
+import React from 'react'
+import { CLIENT_ID } from '../../constants/auth'
 
 function Stream({ user, tracks = [], activeTrack, onAuth, onPlay }) {
   return (
     <div>
       <div>
-        {
-          user ?
-            <div>{user.username}</div> :
-            <button onClick={onAuth} type="button">Login</button>
-        }
+        {user ? (
+          <div>{user.username}</div>
+        ) : (
+          <button onClick={onAuth} type="button">
+            Login
+          </button>
+        )}
       </div>
-      <br/>
+      <br />
       <div>
-        {
-          tracks.map((track, key) => {
-            return (
-              <div className="track" key={key}>
-                {track.origin.title}
-                <button type="button" onClick={() => onPlay(track)}>Play</button>
-              </div>
-            );
-          })
-        }
+        {tracks.map((track, key) => {
+          return (
+            <div className="track" key={key}>
+              {track.origin.title}
+              <button type="button" onClick={() => onPlay(track)}>
+                Play
+              </button>
+            </div>
+          )
+        })}
       </div>
-      {
-        activeTrack ?
-          <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
-          null
-      }
+      {activeTrack ? (
+        <audio
+          id="audio"
+          ref="audio"
+          src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}
+        ></audio>
+      ) : null}
     </div>
-  );
+  )
 }
 
-export default Stream;
+export default Stream
 ```
 
 We need the CLIENT_ID to authenticate the audio player with the SoundCloud API in order to stream a track via its stream_url. In React 15 you can return null, when there is no activeTrack. In older versions you had to return `<noscript />`.
@@ -1942,65 +1949,70 @@ When we start our app and try to play a track, the console output says that we c
 
 > After all you should avoid to have stateful components and try to stick to functional stateless components. In this case we have no other choice.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{1,2,5,7,8,10,12,14,15,16,17,18,19,21,22,53}
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { CLIENT_ID } from '../../constants/auth';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { CLIENT_ID } from '../../constants/auth'
 
 class Stream extends Component {
-
   componentDidUpdate() {
-    const audioElement = ReactDOM.findDOMNode(this.refs.audio);
+    const audioElement = ReactDOM.findDOMNode(this.refs.audio)
 
-    if (!audioElement) { return; }
+    if (!audioElement) {
+      return
+    }
 
-    const { activeTrack } = this.props;
+    const { activeTrack } = this.props
 
     if (activeTrack) {
-      audioElement.play();
+      audioElement.play()
     } else {
-      audioElement.pause();
+      audioElement.pause()
     }
   }
 
-  render () {
-    const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props;
+  render() {
+    const { user, tracks = [], activeTrack, onAuth, onPlay } = this.props
 
     return (
       <div>
         <div>
-          {
-            user ?
-              <div>{user.username}</div> :
-              <button onClick={onAuth} type="button">Login</button>
-          }
+          {user ? (
+            <div>{user.username}</div>
+          ) : (
+            <button onClick={onAuth} type="button">
+              Login
+            </button>
+          )}
         </div>
-        <br/>
+        <br />
         <div>
-          {
-            tracks.map((track, key) => {
-              return (
-                <div className="track" key={key}>
-                  {track.origin.title}
-                  <button type="button" onClick={() => onPlay(track)}>Play</button>
-                </div>
-              );
-            })
-          }
+          {tracks.map((track, key) => {
+            return (
+              <div className="track" key={key}>
+                {track.origin.title}
+                <button type="button" onClick={() => onPlay(track)}>
+                  Play
+                </button>
+              </div>
+            )
+          })}
         </div>
-        {
-          activeTrack ?
-            <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}></audio> :
-            null
-        }
+        {activeTrack ? (
+          <audio
+            id="audio"
+            ref="audio"
+            src={`${activeTrack.origin.stream_url}?client_id=${CLIENT_ID}`}
+          ></audio>
+        ) : null}
       </div>
-    );
+    )
   }
 }
 
-export default Stream;
+export default Stream
 ```
 
 Let’s start our app again. We login, we see our tracks as a list, we are able to hit the play button, we listen to music! I hope it works for you!
@@ -2009,18 +2021,18 @@ Let’s start our app again. We login, we see our tracks as a list, we are able 
 
 Add one of the following tutorials on top of your current SoundCloud project:
 
-* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs)
-* [MobX React: Simplified State Management in React](/mobx-react)
+- [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
+- [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
+- [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
+- [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
+- [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs)
+- [MobX React: Simplified State Management in React](/mobx-react)
 
 # Troubleshoot
 
 In case you want to know which versions npm installed during that tutorial, here a list of all npm packages in my package.json.
 
-*package.json*
+_package.json_
 
 ```javascript
 "devDependencies": {

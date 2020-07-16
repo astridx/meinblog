@@ -8,10 +8,9 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 ## Bitte beachte
 
-Die Beschreibungen sind alle mithilfe der englischen Sprachdateien erstellt. 
-
+Die Beschreibungen sind alle mithilfe der englischen Sprachdateien erstellt.

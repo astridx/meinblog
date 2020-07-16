@@ -1,13 +1,13 @@
 ---
-title: "MobX React: Refactor your application from Redux to MobX"
-description: "Refactor your React application from Redux to MobX. Use MobX instead of Redux for state management in React JS. Get to know actions, reactions and derivations in MobX and best practices..."
-date: "2016-07-18T13:50:46+02:00"
-categories: ["React", "MobX"]
-keywords: ["mobx react"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'MobX React: Refactor your application from Redux to MobX'
+description: 'Refactor your React application from Redux to MobX. Use MobX instead of Redux for state management in React JS. Get to know actions, reactions and derivations in MobX and best practices...'
+date: '2016-07-18T13:50:46+02:00'
+categories: ['React', 'MobX']
+keywords: ['mobx react']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -30,7 +30,7 @@ The MobX React: Refactor your application from Redux to MobX tutorial will teach
 
 Let's begin with the dependencies of MobX. It comes as standalone library, but can also be used in combination with React. Therefore we need to install both libraries, [mobx](https://github.com/mobxjs/mobx) and [mobx-react](https://github.com/mobxjs/mobx-react), to use MobX in combination with React.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save mobx mobx-react
@@ -45,7 +45,7 @@ npm install --save-dev babel-plugin-transform-decorators-legacy
 
 Now we can add both plugins to our babel configuration, that Babel is able to transpile decorators and class properties.
 
-*package.json*
+_package.json_
 
 ```javascript{7,8,9,10}
 "babel": {
@@ -67,31 +67,29 @@ Redux uses Actions to change the global state with the help of a Reducer. Action
 
 MobX revives the "old" single page application concepts, when you would have some service/object(/ES6 class) to hold some application state. In MobX one could call these containers either store or state. Let's begin by implementing the first store to hold our user state.
 
-*From stores folder:*
+_From stores folder:_
 
 ```javascript
 touch userStore.js
 ```
 
-*src/stores/userStore.js*
+_src/stores/userStore.js_
 
 ```javascript
-import { observable } from 'mobx';
+import { observable } from 'mobx'
 
 class UserStore {
-
-  @observable me;
+  @observable me
 
   constructor() {
-    this.me = null;
+    this.me = null
   }
-
 }
 
-const userStore = new UserStore();
+const userStore = new UserStore()
 
-export default userStore;
-export { UserStore };
+export default userStore
+export { UserStore }
 ```
 
 The UserStore class has a simple constructor which sets the initial state of a login user (me) to null. Nothing unusual so far. MobX comes into place when we decorate the me property with @observable to clarify that the property can change over time.
@@ -102,33 +100,31 @@ Moreover we can new the store to make sure that we export it as a singleton inst
 
 What else do we have as state in the present application? Next to the user object (me), there is an array of tracks and an active track once a user clicked a Play button. Let's implement the second store to hold that MobX State.
 
-*From stores folder:*
+_From stores folder:_
 
 ```javascript
 touch trackStore.js
 ```
 
-*src/stores/trackStore.js*
+_src/stores/trackStore.js_
 
 ```javascript
-import { observable } from 'mobx';
+import { observable } from 'mobx'
 
 class TrackStore {
-
-  @observable tracks;
-  @observable activeTrack;
+  @observable tracks
+  @observable activeTrack
 
   constructor(tracks = []) {
-    this.tracks = tracks;
-    this.activeTrack = null;
+    this.tracks = tracks
+    this.activeTrack = null
   }
-
 }
 
-const trackStore = new TrackStore();
+const trackStore = new TrackStore()
 
-export default trackStore;
-export { TrackStore };
+export default trackStore
+export { TrackStore }
 ```
 
 Similar to the UserStore, we decorate the two properties tracks and activeTrack with `@observable` to indicate that these can change over time. Additionally to the UserStore the TrackStore can be initialized with an array of tracks.
@@ -141,80 +137,84 @@ State mutations are called Actions in MobX. Rather than mutating the state via A
 
 Let's use our first MobX Action in the authentication process. Afterwards we can get rid of all the Redux Action aware implementations.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 Before:
 
 ```javascript
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
-import { setTracks } from '../actions/track';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
+import { setTracks } from '../actions/track'
 
 function setMe(user) {
   return {
     type: actionTypes.ME_SET,
-    user
-  };
+    user,
+  }
 }
 
 export function auth() {
   return function (dispatch) {
     SC.connect().then((session) => {
-      dispatch(fetchMe(session));
-      dispatch(fetchStream(session));
-    });
-  };
-};
+      dispatch(fetchMe(session))
+      dispatch(fetchStream(session))
+    })
+  }
+}
 
 function fetchMe(session) {
-    return function (dispatch) {
-      fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(setMe(data));
-        });
-    };
+  return function (dispatch) {
+    fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(setMe(data))
+      })
+  }
 }
 
 function fetchStream(session) {
   return function (dispatch) {
-    fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+    fetch(
+      `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+    )
       .then((response) => response.json())
       .then((data) => {
-        dispatch(setTracks(data.collection));
-      });
-  };
+        dispatch(setTracks(data.collection))
+      })
+  }
 }
 ```
 
 After:
 
 ```javascript
-import SC from 'soundcloud';
-import userStore from '../stores/userStore';
-import trackStore from '../stores/trackStore';
+import SC from 'soundcloud'
+import userStore from '../stores/userStore'
+import trackStore from '../stores/trackStore'
 
 export function auth() {
   SC.connect().then((session) => {
-    fetchMe(session);
-    fetchStream(session);
-  });
-};
+    fetchMe(session)
+    fetchStream(session)
+  })
+}
 
 function fetchMe(session) {
   fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
     .then((response) => response.json())
     .then((me) => {
-      userStore.me = me;
-    });
+      userStore.me = me
+    })
 }
 
 function fetchStream(session) {
-  fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+  fetch(
+    `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+  )
     .then((response) => response.json())
     .then((data) => {
-      trackStore.tracks = data.collection;
-    });
+      trackStore.tracks = data.collection
+    })
 }
 ```
 
@@ -228,7 +228,7 @@ Let's remove some Redux dependent files/folders.
 
 Since we are not using Redux Actions anymore, one can remove all remaining files in that folder.
 
-*From actions folder: *
+_From actions folder: _
 
 ```javascript
 rm index.js
@@ -237,7 +237,7 @@ rm track.js
 
 Additionally we don't need Action Types anymore.
 
-*From constants folder:*
+_From constants folder:_
 
 ```javascript
 rm actionTypes.js
@@ -245,7 +245,7 @@ rm actionTypes.js
 
 Moreover one can remove the reducers folder, because we mutate our state directly in the stores.
 
-*From src folder:*
+_From src folder:_
 
 ```javascript
 rm -rf reducers
@@ -253,7 +253,7 @@ rm -rf reducers
 
 Last but not least let's remove the configureStore.js file, which sets up the Redux store and uses the removed reducers.
 
-*From stores folder:*
+_From stores folder:_
 
 ```javascript
 rm configureStore.js
@@ -267,28 +267,28 @@ We have our stores and the overhauled authentication process, which mutates the 
 
 Now we have to marry the components with MobX instead of Redux. Let's begin with the entry point.
 
-*src/index.js*
+_src/index.js_
 
 Before:
 
 ```javascript
-import SC from 'soundcloud';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { Provider } from 'react-redux';
-import configureStore from './stores/configureStore';
-import App from './components/App';
-import Callback from './components/Callback';
-import Stream from './components/Stream';
-import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+import SC from 'soundcloud'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
+import { Provider } from 'react-redux'
+import configureStore from './stores/configureStore'
+import App from './components/App'
+import Callback from './components/Callback'
+import Stream from './components/Stream'
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth'
 
-SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI })
 
-const store = configureStore();
+const store = configureStore()
 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -301,22 +301,22 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('app')
-);
+)
 ```
 
 After:
 
 ```javascript
-import SC from 'soundcloud';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import App from './components/App';
-import Callback from './components/Callback';
-import Stream from './components/Stream';
-import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+import SC from 'soundcloud'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import App from './components/App'
+import Callback from './components/Callback'
+import Stream from './components/Stream'
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth'
 
-SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI })
 
 ReactDOM.render(
   <Router history={browserHistory}>
@@ -327,7 +327,7 @@ ReactDOM.render(
     </Route>
   </Router>,
   document.getElementById('app')
-);
+)
 ```
 
 First we removed the wrapping Provider component. The [react-redux](https://github.com/reactjs/react-redux) Provider helped us to inject the Redux store into the React component tree. We don't need that anymore, because we can import the stores directly. Later we will learn about a MobX decorator which helps us to update the components after observed properties changed.
@@ -336,16 +336,16 @@ First we removed the wrapping Provider component. The [react-redux](https://gith
 
 Now we can move on to the Stream component. There are no real best practices yet for MobX aware components, but the concept of container and presenter components can still be applied. We begin by refactoring the container component, because that one can still pass the state and the MobX Actions to the presenter component.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript
-import React from 'react';
-import { observer } from 'mobx-react';
-import Stream from './presenter';
-import { CLIENT_ID } from '../../constants/auth';
-import { auth } from '../../actions/auth';
-import userStore from '../../stores/userStore';
-import trackStore from '../../stores/trackStore';
+import React from 'react'
+import { observer } from 'mobx-react'
+import Stream from './presenter'
+import { CLIENT_ID } from '../../constants/auth'
+import { auth } from '../../actions/auth'
+import userStore from '../../stores/userStore'
+import trackStore from '../../stores/trackStore'
 
 const StreamContainer = observer(() => {
   return (
@@ -355,12 +355,12 @@ const StreamContainer = observer(() => {
       activeTrack={trackStore.activeTrack}
       clientId={CLIENT_ID}
       onAuth={auth}
-      onPlay={(track) => trackStore.activeTrack = track}
+      onPlay={(track) => (trackStore.activeTrack = track)}
     />
-  );
+  )
 })
 
-export default StreamContainer;
+export default StreamContainer
 ```
 
 The stores get imported and their properties get passed to the presenter component. Moreover the onPlay callback mutates the state directly on the store. There is no Action and Reducer roundtrip like in Redux. The onAuth callback triggers the authentication and fetches all the relevant data. Additionally we wrapped the stateless functional component into an MobX observer helper function. Now every time an observable property in the stores changes, the component will trigger a re-render. I will dive more into details for the Stream presenter component.
@@ -369,64 +369,69 @@ The stores get imported and their properties get passed to the presenter compone
 
 Let's move on to the Stream presenter component. The component needs to show the recent data of the stores. In MobX the updates due to I/O and Networking are called Reactions.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { observer } from 'mobx-react';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { observer } from 'mobx-react'
 
 @observer
 class Stream extends Component {
-
   componentDidUpdate() {
-    const audioElement = ReactDOM.findDOMNode(this.refs.audio);
+    const audioElement = ReactDOM.findDOMNode(this.refs.audio)
 
-    if (!audioElement) { return; }
+    if (!audioElement) {
+      return
+    }
 
     if (this.props.activeTrack) {
-      audioElement.play();
+      audioElement.play()
     } else {
-      audioElement.pause();
+      audioElement.pause()
     }
   }
 
   render() {
-    const { me, tracks, activeTrack, clientId, onAuth, onPlay } = this.props;
+    const { me, tracks, activeTrack, clientId, onAuth, onPlay } = this.props
 
     return (
       <div>
         <div>
-          {
-            me ?
-              <div>{me.username}</div> :
-              <button onClick={onAuth} type="button">Login</button>
-          }
+          {me ? (
+            <div>{me.username}</div>
+          ) : (
+            <button onClick={onAuth} type="button">
+              Login
+            </button>
+          )}
         </div>
-        <br/>
+        <br />
         <div>
-        {
-          tracks.map((track, key) => {
-              return (
-                <div className="track" key={key}>
-                  {track.origin.title}
-                  <button type="button" onClick={() => onPlay(track)}>Play</button>
-                </div>
-              );
-          })
-        }
+          {tracks.map((track, key) => {
+            return (
+              <div className="track" key={key}>
+                {track.origin.title}
+                <button type="button" onClick={() => onPlay(track)}>
+                  Play
+                </button>
+              </div>
+            )
+          })}
         </div>
-        {
-          activeTrack ?
-            <audio id="audio" ref="audio" src={`${activeTrack.origin.stream_url}?client_id=${clientId}`}></audio> :
-            null
-        }
+        {activeTrack ? (
+          <audio
+            id="audio"
+            ref="audio"
+            src={`${activeTrack.origin.stream_url}?client_id=${clientId}`}
+          ></audio>
+        ) : null}
       </div>
-    );
+    )
   }
 }
 
-export default Stream;
+export default Stream
 ```
 
 The component itself didn't change a lot. It receives the props as before consisting of some state and callbacks.
@@ -445,53 +450,51 @@ Let's introduce the last MobX concept: Derivations. A MobX Derivation is any val
 
 Let's extend the TrackStore by a computation.
 
-*src/stores/trackStore.js*
+_src/stores/trackStore.js_
 
 ```javascript{1,6,10,13,14,15,16,17,18,19,20,12}
-import { observable, computed } from 'mobx';
+import { observable, computed } from 'mobx'
 
 class TrackStore {
-
-  @observable tracks;
-  @observable activeTrackId;
+  @observable tracks
+  @observable activeTrackId
 
   constructor(tracks = []) {
-    this.tracks = tracks;
-    this.activeTrackId = null;
+    this.tracks = tracks
+    this.activeTrackId = null
   }
 
   @computed get activeTrack() {
-    let activeTrack = null;
+    let activeTrack = null
     trackStore.tracks.forEach((track) => {
       if (track.origin.id === trackStore.activeTrackId) {
-        activeTrack = track;
+        activeTrack = track
       }
-    });
-    return activeTrack;
+    })
+    return activeTrack
   }
-
 }
 
-const trackStore = new TrackStore();
+const trackStore = new TrackStore()
 
-export default trackStore;
-export { TrackStore };
+export default trackStore
+export { TrackStore }
 ```
 
 The activeTrack decorated function uses an id and a list of tracks to derive the active track. Before we saved the activeTrack directly in the store. Now we save only the id of the active track.
 
 After that we have to change the Stream container onPlay callback by setting an id rather than a whole track object.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{17}
-import React from 'react';
-import { observer } from 'mobx-react';
-import Stream from './presenter';
-import { CLIENT_ID } from '../../constants/auth';
-import { auth } from '../../actions/auth';
-import userStore from '../../stores/userStore';
-import trackStore from '../../stores/trackStore';
+import React from 'react'
+import { observer } from 'mobx-react'
+import Stream from './presenter'
+import { CLIENT_ID } from '../../constants/auth'
+import { auth } from '../../actions/auth'
+import userStore from '../../stores/userStore'
+import trackStore from '../../stores/trackStore'
 
 const StreamContainer = observer(() => {
   return (
@@ -501,12 +504,12 @@ const StreamContainer = observer(() => {
       activeTrack={trackStore.activeTrack}
       clientId={CLIENT_ID}
       onAuth={auth}
-      onPlay={(track) => trackStore.activeTrackId = track.origin.id}
+      onPlay={(track) => (trackStore.activeTrackId = track.origin.id)}
     />
-  );
+  )
 })
 
-export default StreamContainer;
+export default StreamContainer
 ```
 
 We don't have to change the Stream presenter component. There we can still derive the activeTrack with trackStore.activeTrack since it is a MobX Derivation.
@@ -515,7 +518,7 @@ We don't have to change the Stream presenter component. There we can still deriv
 
 MobX has a strict mode which is off by default. When the strict mode is enabled and it enforces globally that state mutations are only allowed inside actions. In our approach we are mutating the state from outside the stores. Let's use the strict mode globally and implement proper explicit actions to change the state.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{5,13}
 import SC from 'soundcloud';
@@ -539,86 +542,82 @@ When you start your app now, the console output will give you an error that you 
 
 Now let's implement the actions in our stores.
 
-*src/stores/trackStore.js*
+_src/stores/trackStore.js_
 
 ```javascript{1,23,24,25,27,28,29}
-import { observable, computed, action } from 'mobx';
+import { observable, computed, action } from 'mobx'
 
 class TrackStore {
-
-  @observable tracks;
-  @observable activeTrackId;
+  @observable tracks
+  @observable activeTrackId
 
   constructor(tracks = []) {
-    this.tracks = tracks;
-    this.activeTrackId = null;
+    this.tracks = tracks
+    this.activeTrackId = null
   }
 
   @computed get activeTrack() {
-    let activeTrack = null;
+    let activeTrack = null
     trackStore.tracks.forEach((track) => {
       if (track.origin.id === trackStore.activeTrackId) {
-        activeTrack = track;
+        activeTrack = track
       }
-    });
-    return activeTrack;
+    })
+    return activeTrack
   }
 
   @action setTracks = (tracks) => {
-    this.tracks = tracks;
+    this.tracks = tracks
   }
 
   @action onPlay = (track) => {
-    this.activeTrackId = track.origin.id;
+    this.activeTrackId = track.origin.id
   }
-
 }
 
-const trackStore = new TrackStore();
+const trackStore = new TrackStore()
 
-export default trackStore;
-export { TrackStore };
+export default trackStore
+export { TrackStore }
 ```
 
 The same applies for the userStore.
 
-*src/stores/userStore.js*
+_src/stores/userStore.js_
 
 ```javascript{1,11,12,13}
-import { observable, action } from 'mobx';
+import { observable, action } from 'mobx'
 
 class UserStore {
-
-  @observable me;
+  @observable me
 
   constructor() {
-    this.me = null;
+    this.me = null
   }
 
   @action setMe = (me) => {
-    this.me = me;
+    this.me = me
   }
-
 }
 
-const userStore = new UserStore();
+const userStore = new UserStore()
 
-export default userStore;
-export { UserStore };
+export default userStore
+export { UserStore }
 ```
 
 Last but not least we have to exchange all the direct state mutations on the store with explicit action invocations.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{17}
-import React from 'react';
-import { observer } from 'mobx-react';
-import Stream from './presenter';
-import { CLIENT_ID } from '../../constants/auth';
-import { auth } from '../../actions/auth';
-import userStore from '../../stores/userStore';
-import trackStore from '../../stores/trackStore';
+import React from 'react'
+import { observer } from 'mobx-react'
+import Stream from './presenter'
+import { CLIENT_ID } from '../../constants/auth'
+import { auth } from '../../actions/auth'
+import userStore from '../../stores/userStore'
+import trackStore from '../../stores/trackStore'
 
 const StreamContainer = observer(() => {
   return (
@@ -630,40 +629,42 @@ const StreamContainer = observer(() => {
       onAuth={auth}
       onPlay={trackStore.onPlay}
     />
-  );
+  )
 })
 
-export default StreamContainer;
+export default StreamContainer
 ```
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{16,24}
-import SC from 'soundcloud';
-import userStore from '../stores/userStore';
-import trackStore from '../stores/trackStore';
+import SC from 'soundcloud'
+import userStore from '../stores/userStore'
+import trackStore from '../stores/trackStore'
 
 export function auth() {
   SC.connect().then((session) => {
-    fetchMe(session);
-    fetchStream(session);
-  });
-};
+    fetchMe(session)
+    fetchStream(session)
+  })
+}
 
 function fetchMe(session) {
   fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
     .then((response) => response.json())
     .then((me) => {
-      userStore.setMe(me);
-    });
+      userStore.setMe(me)
+    })
 }
 
 function fetchStream(session) {
-  fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+  fetch(
+    `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+  )
     .then((response) => response.json())
     .then((data) => {
-      trackStore.setTracks(data.collection);
-    });
+      trackStore.setTracks(data.collection)
+    })
 }
 ```
 
@@ -673,30 +674,30 @@ I would recommend to turn strict mode on as best practice when using MobX, becau
 
 One last step is missing. We are still importing our stores somewhere in between of our components hierarchy in the Stream container. MobX provides some helpers to inject stores, but also other objects, from above. Let's begin in the React root component to provide the stores to the underlying component hierarchy. Therefore we can use the Provider component, which makes all its props available for its children.
 
-*src/index.js*
+_src/index.js_
 
 ```javascript{2,10,11,18,21,29}
-import SC from 'soundcloud';
-import { Provider } from 'mobx-react';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { configure } from 'mobx';
-import App from './components/App';
-import Callback from './components/Callback';
-import StreamContainer from './components/Stream';
-import userStore from './stores/userStore';
-import trackStore from './stores/trackStore';
-import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
+import SC from 'soundcloud'
+import { Provider } from 'mobx-react'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { configure } from 'mobx'
+import App from './components/App'
+import Callback from './components/Callback'
+import StreamContainer from './components/Stream'
+import userStore from './stores/userStore'
+import trackStore from './stores/trackStore'
+import { CLIENT_ID, REDIRECT_URI } from './constants/auth'
 
-SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
+SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI })
 
-configure({ enforceActions: true });
+configure({ enforceActions: true })
 
-const stores = { userStore, trackStore };
+const stores = { userStore, trackStore }
 
 ReactDOM.render(
-  <Provider { ...stores }>
+  <Provider {...stores}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={StreamContainer} />
@@ -706,39 +707,44 @@ ReactDOM.render(
     </Router>
   </Provider>,
   document.getElementById('app')
-);
+)
 ```
 
 Now we can refactor the Stream container component to get the stores with the inject higher order component. Inject uses the React context to pass the props from the Provider component above.
 
-*src/components/Stream/index.js*
+_src/components/Stream/index.js_
 
 ```javascript{2,9,20}
-import React from 'react';
-import { observer, inject } from 'mobx-react';
-import Stream from './presenter';
-import { CLIENT_ID } from '../../constants/auth';
-import { auth } from '../../actions/auth';
+import React from 'react'
+import { observer, inject } from 'mobx-react'
+import Stream from './presenter'
+import { CLIENT_ID } from '../../constants/auth'
+import { auth } from '../../actions/auth'
 
-const StreamContainer = inject('userStore', 'trackStore')(observer(({ userStore, trackStore }) => {
-  return (
-    <Stream
-      me={userStore.me}
-      tracks={trackStore.tracks}
-      activeTrack={trackStore.activeTrack}
-      clientId={CLIENT_ID}
-      onAuth={auth}
-      onPlay={trackStore.onPlay}
-    />
-  );
-}))
+const StreamContainer = inject(
+  'userStore',
+  'trackStore'
+)(
+  observer(({ userStore, trackStore }) => {
+    return (
+      <Stream
+        me={userStore.me}
+        tracks={trackStore.tracks}
+        activeTrack={trackStore.activeTrack}
+        clientId={CLIENT_ID}
+        onAuth={auth}
+        onPlay={trackStore.onPlay}
+      />
+    )
+  })
+)
 
-export default StreamContainer;
+export default StreamContainer
 ```
 
 At the end one can remove all the unused libraries which we used in the Redux environment.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm uninstall --save redux react-redux redux-logger redux-thunk react-router-redux

@@ -1,6 +1,6 @@
 ---
 date: 2016-06-07
-title: "Adding Syntax Highlighting to Code Snippets in a Blog or Website"
+title: 'Adding Syntax Highlighting to Code Snippets in a Blog or Website'
 template: post
 thumbnail: '../thumbnails/newmoon.png'
 slug: adding-syntax-highlighting-to-code-snippets
@@ -94,17 +94,13 @@ And link to the JS before the closing `<body>` tag.
 Finally, wrap your desired code in `<pre><code class="language-whatever">`. You're defining the language, and the `<pre>` ensures that all your indentation will be properly preserved.
 
 ```html
-<pre><code class="language-css">body {
-      font: 100% Helvetica, sans-serif;
-      color: #333;
-    }
-
-    .box {
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      border-radius: 10px;
-    }
+<pre>
+  <code class="language-css"
+    >body { font: 100% Helvetica, sans-serif; color: #333; } .box {
+    -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius:
+    10px; border-radius: 10px; }</code
+  ></pre
+>
 ```
 
 </pre>

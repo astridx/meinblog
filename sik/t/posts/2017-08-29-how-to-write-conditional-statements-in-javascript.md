@@ -168,7 +168,9 @@ const phone = 600
 if (phone <= balance) {
   console.log('You have enough money to purchase the item!')
 } else {
-  console.log('You do not have enough money in your account to purchase this item.')
+  console.log(
+    'You do not have enough money in your account to purchase this item.'
+  )
 }
 ```
 
@@ -255,7 +257,8 @@ In this example, we will create a program that checks if a user is `21` or older
 let age = 20
 
 // Place result of ternary operation in a variable
-const oldEnough = age >= 21 ? 'You may enter.' : 'Sorry, you are not old enough to enter.'
+const oldEnough =
+  age >= 21 ? 'You may enter.' : 'Sorry, you are not old enough to enter.'
 
 // Print output
 oldEnough

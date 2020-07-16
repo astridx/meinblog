@@ -1,13 +1,18 @@
 ---
-title: "How to use Firebase Realtime Database in React"
+title: 'How to use Firebase Realtime Database in React'
 description: "A React with Firebase tutorial on how to work with Firebase's realtime database in React. Learn about the get, create, update and remove operations, how to enable pagination and how to order your list of data, and how fo associate items with each other ..."
-date: "2019-01-16T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firebase realtime database", "react firebase associate", "react firebase data fetching"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-01-16T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'react firebase realtime database',
+    'react firebase associate',
+    'react firebase data fetching',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,44 +20,44 @@ author: ""
 <ReactFirebaseBook />
 
 <LinkCollection
-  label="This tutorial is part 8 of 8 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "A Firebase in React Tutorial for Beginners",
-      url: "/complete-firebase-authentication-react-tutorial"
-    },
-    {
-      prefix: "Part 2:",
-      label: "React Firebase Authorization with Roles",
-      url: "/react-firebase-authorization-roles-permissions"
-    },
-    {
-      prefix: "Part 3:",
-      label: "React Firebase Auth Persistence with Local Storage",
-      url: "/react-firebase-auth-persistence"
-    },
-    {
-      prefix: "Part 4:",
-      label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "/react-firebase-social-login"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React Firebase: Link Social Logins",
-      url: "/react-firebase-link-social-logins"
-    },
-    {
-      prefix: "Part 6:",
-      label: "React Firebase: Email Verification",
-      url: "/react-firebase-email-verification"
-    },
-    {
-      prefix: "Part 7:",
-      label: "How to use React Router with Firebase",
-      url: "/react-firebase-router"
-    }
-  ]}
+label="This tutorial is part 8 of 8 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "A Firebase in React Tutorial for Beginners",
+url: "/complete-firebase-authentication-react-tutorial"
+},
+{
+prefix: "Part 2:",
+label: "React Firebase Authorization with Roles",
+url: "/react-firebase-authorization-roles-permissions"
+},
+{
+prefix: "Part 3:",
+label: "React Firebase Auth Persistence with Local Storage",
+url: "/react-firebase-auth-persistence"
+},
+{
+prefix: "Part 4:",
+label: "React Firebase Social Login: Google, Facebook, Twitter",
+url: "/react-firebase-social-login"
+},
+{
+prefix: "Part 5:",
+label: "React Firebase: Link Social Logins",
+url: "/react-firebase-link-social-logins"
+},
+{
+prefix: "Part 6:",
+label: "React Firebase: Email Verification",
+url: "/react-firebase-email-verification"
+},
+{
+prefix: "Part 7:",
+label: "How to use React Router with Firebase",
+url: "/react-firebase-router"
+}
+]}
 />
 
 Now we've worked with a list of data and single entities with the Firebase's realtime database to create an admin dashboard in the previous sections. In this section, I want to introduce a new entity to demonstrate a business-related feature for a Firebase in React application, a message entity that lets you create a chat application. We'll cover how to interact with Firebase's realtime database; specifically, how to structure data, work with lists of data, and how to create, update, and remove data. Also, you will see how ordering and pagination works with Firebase. In the end, it's up to you to decide whether your application should become a chat application with a message entity or a book application with a book entity in the database. The message entity is only there as example.
@@ -120,30 +125,30 @@ The Messages component has a local state for a loading indicator and the list of
 ```javascript{2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,21,22,23,25,26,27,28,29,30,31,32,33,34,35}
 class MessagesBase extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       loading: false,
       messages: [],
-    };
+    }
   }
 
   componentDidMount() {
-    this.setState({ loading: true });
+    this.setState({ loading: true })
 
-    this.props.firebase.messages().on('value', snapshot => {
+    this.props.firebase.messages().on('value', (snapshot) => {
       // convert messages list from snapshot
 
-      this.setState({ loading: false });
-    });
+      this.setState({ loading: false })
+    })
   }
 
   componentWillUnmount() {
-    this.props.firebase.messages().off();
+    this.props.firebase.messages().off()
   }
 
   render() {
-    const { messages, loading } = this.state;
+    const { messages, loading } = this.state
 
     return (
       <div>
@@ -151,7 +156,7 @@ class MessagesBase extends Component {
 
         <MessageList messages={messages} />
       </div>
-    );
+    )
   }
 }
 ```
@@ -161,17 +166,17 @@ The new MessageList and MessageItem components only render the message content:
 ```javascript{1,2,3,4,5,6,7,9,10,11,12,13}
 const MessageList = ({ messages }) => (
   <ul>
-    {messages.map(message => (
+    {messages.map((message) => (
       <MessageItem key={message.uid} message={message} />
     ))}
   </ul>
-);
+)
 
 const MessageItem = ({ message }) => (
   <li>
     <strong>{message.userId}</strong> {message.text}
   </li>
-);
+)
 ```
 
 If you run the application, the loading indicator disappears after a few seconds when the Firebase realtime database listener is called for the first time. Every other time the loading indicator isn't shown, because it is only `true` when the component mounts and the first message fetching starts.
@@ -450,7 +455,7 @@ The MessageList component in between just pass the function through to the Messa
 ```javascript{1,7}
 const MessageList = ({ messages, onRemoveMessage }) => (
   <ul>
-    {messages.map(message => (
+    {messages.map((message) => (
       <MessageItem
         key={message.uid}
         message={message}
@@ -458,7 +463,7 @@ const MessageList = ({ messages, onRemoveMessage }) => (
       />
     ))}
   </ul>
-);
+)
 ```
 
 Finally it can be used in the MessageItem component. When clicking the button, we will pass the message identifier to the function. Then in our parent component that has access to Firebase we can remove the message associated with the identifier.
@@ -467,14 +472,11 @@ Finally it can be used in the MessageItem component. When clicking the button, w
 const MessageItem = ({ message, onRemoveMessage }) => (
   <li>
     <strong>{message.userId}</strong> {message.text}
-    <button
-      type="button"
-      onClick={() => onRemoveMessage(message.uid)}
-    >
+    <button type="button" onClick={() => onRemoveMessage(message.uid)}>
       Delete
     </button>
   </li>
-);
+)
 ```
 
 Last, implement the class method that deletes the item from the list. Since we have access to the identifier of the message, we can use the reference of a single message to remove it.
@@ -536,13 +538,9 @@ class MessagesBase extends Component {
 Again, the MessageList component just passes it through to the MessageItem component:
 
 ```javascript{3,11}
-const MessageList = ({
-  messages,
-  onEditMessage,
-  onRemoveMessage,
-}) => (
+const MessageList = ({ messages, onEditMessage, onRemoveMessage }) => (
   <ul>
-    {messages.map(message => (
+    {messages.map((message) => (
       <MessageItem
         key={message.uid}
         message={message}
@@ -551,7 +549,7 @@ const MessageList = ({
       />
     ))}
   </ul>
-);
+)
 ```
 
 Editing a message involves a few more rendered elements, business logic, and state in the MessageItem component. That's why we refactor it to a class component:
@@ -866,7 +864,7 @@ const MessageList = ({
   onRemoveMessage,
 }) => (
   <ul>
-    {messages.map(message => (
+    {messages.map((message) => (
       <MessageItem
         authUser={authUser}
         key={message.uid}
@@ -876,7 +874,7 @@ const MessageList = ({
       />
     ))}
   </ul>
-);
+)
 ```
 
 Now in your MessageItem component, you can secure the buttons to edit and remove messages by comparing the message's `userId` with the authenticated user's id:
@@ -1086,12 +1084,12 @@ Everything you have learned in this chapter should make you proficient with stru
 
 ### Exercises:
 
-* Read more about [structuring data in Firebase](https://firebase.google.com/docs/database/web/structure-data)
-* Read more about [working with lists of data in Firebase](https://firebase.google.com/docs/database/web/lists-of-data)
-* Read more about [indexing your Firebase data](https://firebase.google.com/docs/database/security/indexing-data)
-* Confirm your [source code for the last section](http://bit.ly/2Vng1Sc)
-* Refactoring:
-  * Move all user related components on the AdminPage to their own folder/file module.
-  * Move all message related components on the HomePage to their own folder/file module.
-  * Confirm your [source code for this refactoring](http://bit.ly/2VplDLI)
-* Prevent fetching more items with the "More" button when there are no more items available.
+- Read more about [structuring data in Firebase](https://firebase.google.com/docs/database/web/structure-data)
+- Read more about [working with lists of data in Firebase](https://firebase.google.com/docs/database/web/lists-of-data)
+- Read more about [indexing your Firebase data](https://firebase.google.com/docs/database/security/indexing-data)
+- Confirm your [source code for the last section](http://bit.ly/2Vng1Sc)
+- Refactoring:
+  - Move all user related components on the AdminPage to their own folder/file module.
+  - Move all message related components on the HomePage to their own folder/file module.
+  - Confirm your [source code for this refactoring](http://bit.ly/2VplDLI)
+- Prevent fetching more items with the "More" button when there are no more items available.

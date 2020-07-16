@@ -1,38 +1,42 @@
 ---
-title: "Prevent React setState on unmounted Component"
-description: "How to avoid the React warning: Can only update a mounted or mounting component. It usually means you have called setState on an unmounted component ..."
-date: "2018-10-21T13:50:46+02:00"
-categories: ["React"]
-keywords: ["can't call setstate on an unmounted component", "react prevent setState on unmounted Component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Prevent React setState on unmounted Component'
+description: 'How to avoid the React warning: Can only update a mounted or mounting component. It usually means you have called setState on an unmounted component ...'
+date: '2018-10-21T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    "can't call setstate on an unmounted component",
+    'react prevent setState on unmounted Component',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
 There are too many people who encounter the following warnings. I have seen many GitHub issues regarding it and many people are asking me about it as well. That's why I wanted to have this article to address it and reference to it.
 
-* **Warning: Can only update a mounted or mounting component. This usually means you called setState, replaceState, or forceUpdate on an unmounted component. This is a no-op.**
+- **Warning: Can only update a mounted or mounting component. This usually means you called setState, replaceState, or forceUpdate on an unmounted component. This is a no-op.**
 
-* **Warning: Can't call setState (or forceUpdate) on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.**
+- **Warning: Can't call setState (or forceUpdate) on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.**
 
 In general, warnings don't crash your application. But you should care about them. For instance, the previous warning(s) can lead to performance issues when not properly unmounting your stateful components. Let's discuss what these warnings are about.
 
 The shown warning(s) usually show up when `this.setState()` is called in a component even though the component got already unmounted. The unmounting can happen for different cases:
 
-* You don't render a component anymore due to [React's conditional rendering](/conditional-rendering-react/).
+- You don't render a component anymore due to [React's conditional rendering](/conditional-rendering-react/).
 
-* You navigate away from a component by using a library such as React Router.
+- You navigate away from a component by using a library such as React Router.
 
-When not rendering the component anymore, it can still happen that `this.setState()` is called  if you have done asynchronous business logic in your component and updated the local state of the component afterward. The following cases are the most common causes:
+When not rendering the component anymore, it can still happen that `this.setState()` is called if you have done asynchronous business logic in your component and updated the local state of the component afterward. The following cases are the most common causes:
 
-* You made an asynchronous request to an [API](/what-is-an-api-javascript/), the request (e.g. Promise) isn't resolved yet, but you unmount the component. Then the request resolves, `this.setState()` is called to set the new state, but it hits an unmounted component.
+- You made an asynchronous request to an [API](/what-is-an-api-javascript/), the request (e.g. Promise) isn't resolved yet, but you unmount the component. Then the request resolves, `this.setState()` is called to set the new state, but it hits an unmounted component.
 
-* You have a [listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) in your component, but didn't remove it on `componentWillUnmount()`. Then the listener may be triggered when the component unmounted.
+- You have a [listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) in your component, but didn't remove it on `componentWillUnmount()`. Then the listener may be triggered when the component unmounted.
 
-* You have an interval (e.g. [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)) set up in your component and within the interval `this.setState()` is called. If you forgot to remove the interval on `componentWillUnmount()`, you will update state on an unmounted component again.
+- You have an interval (e.g. [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setInterval)) set up in your component and within the interval `this.setState()` is called. If you forgot to remove the interval on `componentWillUnmount()`, you will update state on an unmounted component again.
 
 **What's the worst that can happen when seeing this warning?** It can have an performance impact on your React application, because it introduces memory leaks over time for your application running in the browser. If you only missed once preventing to set state after a component unmounted, it may doesn't have a huge performance impact. However, if you have a list of these components with asynchronous requests and you miss preventing to set state for all of them, it can start to slow down your React application. Still, that's not the worst about it. The worst case would be to miss removing event listeners and especially intervals. Imagine an interval every second updating the local state of a component even though the component got unmounted. If you miss to remove this interval, you may experience how it slows down your application.
 
@@ -51,31 +55,31 @@ But what about asynchronous requests in React components? It can happen that you
 ```javascript
 class News extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       news: [],
-    };
+    }
   }
 
   componentDidMount() {
     axios
       .get('https://hn.algolia.com/api/v1/search?query=react')
-      .then(result =>
+      .then((result) =>
         this.setState({
           news: result.data.hits,
-        }),
-      );
+        })
+      )
   }
 
   render() {
     return (
       <ul>
-        {this.state.news.map(topic => (
+        {this.state.news.map((topic) => (
           <li key={topic.objectID}>{topic.title}</li>
         ))}
       </ul>
-    );
+    )
   }
 }
 ```

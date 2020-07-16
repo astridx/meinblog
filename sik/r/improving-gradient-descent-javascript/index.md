@@ -1,13 +1,18 @@
 ---
-title: "Improving Gradient Descent in JavaScript"
-description: "Strategies to optimize / improve gradient descent: learning rate, feature scaling, vectorization, parameter initialization ..."
-date: "2017-11-16T07:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "optimize gradient descent javascript", "improve gradient descent javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Improving Gradient Descent in JavaScript'
+description: 'Strategies to optimize / improve gradient descent: learning rate, feature scaling, vectorization, parameter initialization ...'
+date: '2017-11-16T07:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  [
+    'machine learning javascript',
+    'optimize gradient descent javascript',
+    'improve gradient descent javascript',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -48,10 +53,10 @@ In a multivariate training set, not all features share the same range. For insta
 
 The optional range is between -1 and 1 for each variable of a feature. But it isn't a strict requirement, since it should only help to improve gradient descent. There are different [methods for feature scaling](https://en.wikipedia.org/wiki/Feature_scaling):
 
-* Mean normalisation
-* Standardization
-* Rescaling
-* ...
+- Mean normalisation
+- Standardization
+- Rescaling
+- ...
 
 For instance, in a **mean normalization** the feature scaling can be performed with `xScaled = (x - mean(x)) / (max(x) - min(x))`. So if x represents number of bedrooms with a range of 3 to 5 and a mean value of 4, then `x = (bedrooms - 4) / 2`.
 
@@ -74,12 +79,12 @@ rather than
 ```javascript
 for (let i = 0; i < ITERATIONS; i++) {
   for (let j = 0; j < m; j++) {
-    thetaZeroSum += hypothesis(x[j]) - y[j];
-    thetaOneSum += (hypothesis(x[j]) - y[j]) * x[j];
+    thetaZeroSum += hypothesis(x[j]) - y[j]
+    thetaOneSum += (hypothesis(x[j]) - y[j]) * x[j]
   }
 
-  thetaZero = thetaZero - (ALPHA / m) * thetaZeroSum;
-  thetaOne = thetaOne - (ALPHA / m) * thetaOneSum;
+  thetaZero = thetaZero - (ALPHA / m) * thetaZeroSum
+  thetaOne = thetaOne - (ALPHA / m) * thetaOneSum
 }
 ```
 

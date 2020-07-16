@@ -1,13 +1,13 @@
 ---
-title: "How to setup MongoDB on Windows"
+title: 'How to setup MongoDB on Windows'
 description: "A installation guide for a MongoDB on Windows setup for having a NoSQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date: "2019-01-25T13:50:46+02:00"
-categories: ["Node"]
-keywords: ["mongodb windows", "mongodb setup", "mongodb os setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-01-25T13:50:46+02:00'
+categories: ['Node']
+keywords: ['mongodb windows', 'mongodb setup', 'mongodb os setup']
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,14 +20,14 @@ If you want to run MongoDB on MacOS instead, you will find guidance over here: [
 
 For Microsoft Windows, it requires a manual download of the installer (.msi) from the [MongoDB Download Center](https://www.mongodb.com/download-center/community):
 
-* The Download Center should display MongoDB Community Server download information. If not, select Server, then click the MongoDB Community Server tab.
-* In the Version dropdown, select the version that corresponds to the latest MongoDB Server.
-* In the OS dropdown, Windows 64-bit X64 should be selected.
-* In the Package dropdown, MSI should be selected.
-* Click Download.
-* Go to the directory where you downloaded the MongoDB installer (.msi file) and run it. Accept the license agreement and do a complete installation.
+- The Download Center should display MongoDB Community Server download information. If not, select Server, then click the MongoDB Community Server tab.
+- In the Version dropdown, select the version that corresponds to the latest MongoDB Server.
+- In the OS dropdown, Windows 64-bit X64 should be selected.
+- In the Package dropdown, MSI should be selected.
+- Click Download.
+- Go to the directory where you downloaded the MongoDB installer (.msi file) and run it. Accept the license agreement and do a complete installation.
 
-To use MongoDB on Windows, the *bin* folder must be included under thepath in the environmental variables. To do this navigate to System Properties and find the Advanced System Settings tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery. Add the directory *C:\Program Files\MongoDB\Server\4.0\binunder* the system variablePath. Here, *4.0* is for the versions *4.x.x* , in the future it can be different depending on your version. You can verify the installation in the command prompt by navigating to the MongoDB installation folder and running this command:
+To use MongoDB on Windows, the _bin_ folder must be included under thepath in the environmental variables. To do this navigate to System Properties and find the Advanced System Settings tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery. Add the directory _C:\Program Files\MongoDB\Server\4.0\binunder_ the system variablePath. Here, _4.0_ is for the versions _4.x.x_ , in the future it can be different depending on your version. You can verify the installation in the command prompt by navigating to the MongoDB installation folder and running this command:
 
 ```text
 mongo --version

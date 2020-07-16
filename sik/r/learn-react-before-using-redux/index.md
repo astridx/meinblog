@@ -1,13 +1,13 @@
 ---
-title: "8 things to learn in React before using Redux"
-description: "Facts about React that should be known before using Redux (or MobX). Most important: Learn React first, then opt-in Redux but only if you need it. There are various techniques in React.js for scaling your local state management. Only if these are not sufficient, use a library like Redux ..."
-date: "2017-07-19T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["learn react redux"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: '8 things to learn in React before using Redux'
+description: 'Facts about React that should be known before using Redux (or MobX). Most important: Learn React first, then opt-in Redux but only if you need it. There are various techniques in React.js for scaling your local state management. Only if these are not sufficient, use a library like Redux ...'
+date: '2017-07-19T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['learn react redux']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,12 +16,12 @@ State management is difficult. A view library, such as React, enables you to man
 
 Often people learn React and Redux altogether. But it has drawbacks:
 
-* people never run into the problems of scaling state management with local state (this.state) only
-  * thus people don't understand the need of a state management library like Redux
-  * thus people complain that it adds too much boilerplate
-* people never learn to manage local state in React
-  * thus people will manage (and clutter) **all** of their state in a state container provided by Redux
-  * thus people never use the local state management
+- people never run into the problems of scaling state management with local state (this.state) only
+  - thus people don't understand the need of a state management library like Redux
+  - thus people complain that it adds too much boilerplate
+- people never learn to manage local state in React
+  - thus people will manage (and clutter) **all** of their state in a state container provided by Redux
+  - thus people never use the local state management
 
 Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues [only apply for larger applications](/react-global-state-without-redux). Often you will [not need a state management library](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) such as Redux on top. The book [The Road to learn React](/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
 
@@ -34,21 +34,20 @@ The already mentioned most important advice is to learn React first. Thus you ca
 ```javascript
 class Counter extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
+    super(props)
+    this.state = { counter: 0 }
   }
 
   render() {
     return (
       <div>
         Counter: {this.state.counter}
-
         <button
           type="button"
           onClick={() => this.setState({ counter: this.state.counter + 1 })}
         />
       </div>
-    );
+    )
   }
 }
 ```
@@ -62,15 +61,15 @@ The `this.setState()` method updates the local state asynchronously. Thus, you c
 However, imagine you rely on the current local state when computing the next state of your component. Basically as the previously example did:
 
 ```javascript
-this.setState({ counter: this.state.counter + 1 });
+this.setState({ counter: this.state.counter + 1 })
 ```
 
 The local state (this.state.counter) that is used for the computation is only a snapshot in time. Thus when you update your state with `this.setState()` but the local state changes before the asynchronous execution kicks in, you would operate with a stale state. That can be difficult to grasp the first time being confronted with it. That's why a code snippet says more than a thousand words:
 
 ```javascript
-this.setState({ counter: this.state.counter + 1 }); // this.state: { counter: 0 }
-this.setState({ counter: this.state.counter + 1 }); // this.state: { counter: 0 }
-this.setState({ counter: this.state.counter + 1 }); // this.state: { counter: 0 }
+this.setState({ counter: this.state.counter + 1 }) // this.state: { counter: 0 }
+this.setState({ counter: this.state.counter + 1 }) // this.state: { counter: 0 }
+this.setState({ counter: this.state.counter + 1 }) // this.state: { counter: 0 }
 
 // updated state: { counter: 1 }
 // instead of: { counter: 3 }
@@ -81,7 +80,7 @@ As you can see, you cannot rely on the local state being the updated state when 
 The `this.setState()` function takes as alternative a function instead of an object. The function that it takes has the local state in its function signature at the time when `this.setState()` executes asynchronously. It is a callback that executes with the correct state at this point in time and thus can be relied upon.
 
 ```javascript
-this.setState(previousState => ({ counter: previousState.counter + 1 }));
+this.setState((previousState) => ({ counter: previousState.counter + 1 }))
 ```
 
 That way, you can keep using `this.setState()` but with a function instead of an object when you rely on previous state.
@@ -95,7 +94,9 @@ this.setState((prevState, props) => ...);
 This way you can ensure to update your state depending on correct state and props.
 
 ```javascript
-this.setState((prevState, props) => ({ counter: prevState.counter + props.addition }));
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.addition,
+}))
 ```
 
 Another benefit is that you can test the state updating in isolation when using a function. Simply extract the [callback function](/javascript-callback-function) that is used in `this.setState(fn)` to be standalone and export it to make it testable. It should be a pure function where you can test simply the output depending on the input.
@@ -110,7 +111,7 @@ However, the child components are not aware of the origin nor the functionality 
 
 It is important that you grasp the idea of props and state. All the properties that are used in your component tree can be divided into state and props ( and derived properties from state/props). Everything that needs to stay interactive goes into the state. Everything else is just passed down as props.
 
-Before relying on a sophisticated state management library, you should have passed your props a couple of components down the component tree. You should know the feeling of *"there needs to be a better way to do this"* when you only pass props down a handful of components without using these props in the components between but only in the very last child component.
+Before relying on a sophisticated state management library, you should have passed your props a couple of components down the component tree. You should know the feeling of _"there needs to be a better way to do this"_ when you only pass props down a handful of components without using these props in the components between but only in the very last child component.
 
 # Lifting React's State
 
@@ -313,11 +314,7 @@ React comes with two versions of component declarations: ES6 class components an
 
 ```javascript
 function Counter({ counter }) {
-  return (
-    <div>
-      {counter}
-    </div>
-  );
+  return <div>{counter}</div>
 }
 ```
 
@@ -326,11 +323,11 @@ React's ES6 class components, on the other hand, can have local state and lifecy
 ```javascript
 class FocusedInputField extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   componentDidMount() {
-    this.input.focus();
+    this.input.focus()
   }
 
   render() {
@@ -338,10 +335,10 @@ class FocusedInputField extends React.Component {
       <input
         type="text"
         value={this.props.value}
-        ref={node => this.input = node}
-        onChange={event => this.props.onChange(event.target.value)}
+        ref={(node) => (this.input = node)}
+        onChange={(event) => this.props.onChange(event.target.value)}
       />
-    );
+    )
   }
 }
 ```
@@ -368,9 +365,9 @@ When using React's higher order components, you can opt-in local state to any co
 
 # Container and Presenter Pattern
 
-The container and presenter pattern got popular in a [blog post](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) by Dan Abramov. If you are not familiar with it, now is your chance to dig into it. Basically it divides components into two types: container and presenter. A container component describes *how things work* and a presenter component describes *how things look*. Often it implies that a container component is a ES6 class component, for instance because it manages local state, and a presenter component is a functional stateless component, for instance because it only displays its props and uses a couple of functions that were passed down from the parent component.
+The container and presenter pattern got popular in a [blog post](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) by Dan Abramov. If you are not familiar with it, now is your chance to dig into it. Basically it divides components into two types: container and presenter. A container component describes _how things work_ and a presenter component describes _how things look_. Often it implies that a container component is a ES6 class component, for instance because it manages local state, and a presenter component is a functional stateless component, for instance because it only displays its props and uses a couple of functions that were passed down from the parent component.
 
-Before diving into Redux, it makes sense to understand the principle behind this pattern. With a state management library you will "connect" components to your state. These component don't care *how things look*, but more about *how things work*. Thus these components are container components. To be more specific, you will often hear the term **connected component** when a component gets connected to the state management layer.
+Before diving into Redux, it makes sense to understand the principle behind this pattern. With a state management library you will "connect" components to your state. These component don't care _how things look_, but more about _how things work_. Thus these components are container components. To be more specific, you will often hear the term **connected component** when a component gets connected to the state management layer.
 
 # MobX or Redux?
 

@@ -91,7 +91,7 @@ class HomePage extends Component {
   render() {
     return (
       <UserConsumer>
-        {props => {
+        {(props) => {
           return <div>{props.name}</div>
         }}
       </UserConsumer>

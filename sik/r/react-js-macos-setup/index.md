@@ -1,13 +1,14 @@
 ---
-title: "How to setup React.js on MacOS"
-description: "A concise step by step guide on how to setup React.js on MacOS. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Mac OS ..."
-date: "2018-02-20T13:50:46+02:00"
-categories: ["React", "VS Code", "Web Development"]
-keywords: ["react macos setup", "react mac os", "how to install react", "install react"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to setup React.js on MacOS'
+description: 'A concise step by step guide on how to setup React.js on MacOS. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Mac OS ...'
+date: '2018-02-20T13:50:46+02:00'
+categories: ['React', 'VS Code', 'Web Development']
+keywords:
+  ['react macos setup', 'react mac os', 'how to install react', 'install react']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />

@@ -1,13 +1,13 @@
 ---
-title: "Host a single or multiple applications on Digital Ocean"
-description: "An extensive walkthrough on how to host your application on Digital Ocean. It showcases how multiple static websites can be hosted in one Droplet by using server blocks and how to deploy multiple APIs or node.js applications side by side in one Droplet with Dokku ..."
-date: "2017-10-31T13:50:46+02:00"
-categories: ["JavaScript", "Web Development"]
-keywords: ["single multiple applications digital ocean"]
-hashtags: ["#100DaysOfCode", "#DigitalOcean"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Host a single or multiple applications on Digital Ocean'
+description: 'An extensive walkthrough on how to host your application on Digital Ocean. It showcases how multiple static websites can be hosted in one Droplet by using server blocks and how to deploy multiple APIs or node.js applications side by side in one Droplet with Dokku ...'
+date: '2017-10-31T13:50:46+02:00'
+categories: ['JavaScript', 'Web Development']
+keywords: ['single multiple applications digital ocean']
+hashtags: ['#100DaysOfCode', '#DigitalOcean']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,7 +16,7 @@ There a various tutorials showing you how to host your web applications with a c
 
 So what is the definition of an "application" for this article? In my cases, I host static websites, node.js applications with server-side rendered applications and node.js applications as pure APIs on Digital Ocean. It might be something different for you, but if you know the basic steps to setup a static website or node application on your hosting provider's platform, I believe that you can host any type of "application" on it.
 
-All of my static websites, node applications and standalone APIs are hosted on Digital Ocean's Droplets. In the end of this article, you should be able to do the same for your applications. It should be horizontally scalable and you should be able to take ownership of it. Digital Ocean gave me a perfect start in the world of hosting and taking control of it, because it is a pleasant experience to use their platform. They have a handful of out of the box solutions to bootstrap your virtual machine and there are plenty of high quality tutorials guiding you through the most common scenarios. Most of the time, you can just copy and paste their instructions to the command line of your local machine or remote server, but if you need elaborated explanations for these commands, you will surely find them in their tutorials. Furthermore, I find it is a cost efficient way to host applications on their platform. For instance, I host a bunch of websites side by side on a single 5$ Droplet and you can do the same with your applications.
+All of my static websites, node applications and standalone APIs are hosted on Digital Ocean's Droplets. In the end of this article, you should be able to do the same for your applications. It should be horizontally scalable and you should be able to take ownership of it. Digital Ocean gave me a perfect start in the world of hosting and taking control of it, because it is a pleasant experience to use their platform. They have a handful of out of the box solutions to bootstrap your virtual machine and there are plenty of high quality tutorials guiding you through the most common scenarios. Most of the time, you can just copy and paste their instructions to the command line of your local machine or remote server, but if you need elaborated explanations for these commands, you will surely find them in their tutorials. Furthermore, I find it is a cost efficient way to host applications on their platform. For instance, I host a bunch of websites side by side on a single 5\$ Droplet and you can do the same with your applications.
 
 The article is a checklist, because it doesn't explain every step from scratch, but refers to all the necessary tutorials written by Digital Ocean for the whole setup. Furthermore, the article describes the whole process for macOS users, because I use it myself. However, I believe you can substitute most of the things for Windows and Linux.
 
@@ -26,11 +26,11 @@ The following walkthrough will guide you through the setup process of hosting a 
 
 In the end, there will be a couple of dedicated articles, following up after this article, about
 
-* [Hosting Hugo on Digital Ocean](/own-website-in-five-days/) (1)
-* (Soon) Hosting create-react-app on Digital Ocean (1)
-* (Soon) Hosting gatsby.js on Digital Ocean (1)
-* (Soon) Hosting next.js on Digital Ocean (2)
-* (Soon) Hosting a Sripe Payment Server on Digital Ocean (2)
+- [Hosting Hugo on Digital Ocean](/own-website-in-five-days/) (1)
+- (Soon) Hosting create-react-app on Digital Ocean (1)
+- (Soon) Hosting gatsby.js on Digital Ocean (1)
+- (Soon) Hosting next.js on Digital Ocean (2)
+- (Soon) Hosting a Sripe Payment Server on Digital Ocean (2)
 
 whereas the (1)s could share a Digital Ocean Droplet and the (2)s could share another Digital Ocean Droplet. After all, this article should be sufficient to understand the fundamentals of how it works.
 
@@ -40,15 +40,15 @@ If I didn't loose your attention by now, let's start with the walkthrough. Befor
 
 # Sign Up, Droplet Creation and Initial Setup
 
-Sign up at [Digital Ocean](https://m.do.co/c/fb27c90322f3) and earn a $10 referral bonus. It would allow you to try a Droplet to host all of your applications on their platform for 2 months. If you like it, stay with them and I earn a little bonus as well. If you don't like it, you can always try a different hosting solution.
+Sign up at [Digital Ocean](https://m.do.co/c/fb27c90322f3) and earn a \$10 referral bonus. It would allow you to try a Droplet to host all of your applications on their platform for 2 months. If you like it, stay with them and I earn a little bonus as well. If you don't like it, you can always try a different hosting solution.
 
 Next you are going to create a Droplet on their platform. It is basically a server that is hosted somewhere else for you. When creating the Droplet, you can make decisions for a couple of properties: image, size and datacenter region. All the other properties aren't that important in the beginning and you can keep their default settings. You don't need to add anything for the SSH properties as well, because you will do it from scratch later on.
 
-* **Image:** The image can either be a Linux distribution or a pre-configured Linux distribution by using a one-click app. I recommend to use Ubuntu as Linux distribution to get you started from scratch for (1). By going this path, you will understand every step that you take along the way and learn about hosting your own application(s). If you want to setup your node applications for (2), choose the Dokku one-click app instead of a plain Linux Distribution.
+- **Image:** The image can either be a Linux distribution or a pre-configured Linux distribution by using a one-click app. I recommend to use Ubuntu as Linux distribution to get you started from scratch for (1). By going this path, you will understand every step that you take along the way and learn about hosting your own application(s). If you want to setup your node applications for (2), choose the Dokku one-click app instead of a plain Linux Distribution.
 
-* **Size:** The smallest Droplet size should be everything you need to get you started in hosting your own applications. Later on, you can always resize your Droplet. It makes sense if you need the performance and storage benefits comming with it. Personally I never ran into problems using 5$ or $10 Droplets even though more than 100 visitors are simultanously on your website.
+- **Size:** The smallest Droplet size should be everything you need to get you started in hosting your own applications. Later on, you can always resize your Droplet. It makes sense if you need the performance and storage benefits comming with it. Personally I never ran into problems using 5$ or $10 Droplets even though more than 100 visitors are simultanously on your website.
 
-* **Datacenter Region:** The datacenter region should be located not far away from the greater part of your audience. If your application users will be from the US, choose a datacenter region that is closest to the US. But don't worry too much about it now, because there are solutions to serve your audience in every region well by using services such as Cloudfare later on.
+- **Datacenter Region:** The datacenter region should be located not far away from the greater part of your audience. If your application users will be from the US, choose a datacenter region that is closest to the US. But don't worry too much about it now, because there are solutions to serve your audience in every region well by using services such as Cloudfare later on.
 
 Here you will find everything in a detailed version: [How To Create Your First DigitalOcean Droplet](https://www.digitalocean.com/community/tutorials/how-to-create-your-first-digitalocean-droplet). After your Droplet has been created, you can access your Droplet dashboard on Digital Ocean where you can find your Droplet and its IP address. By having the IP address, you can access it on the command line by using [SSH](https://en.wikipedia.org/wiki/Secure_Shell).
 
@@ -74,7 +74,7 @@ You are ready to serve your own applications. Before you have created server blo
 
 Before you continue to read, checkout if you are using on the earlier mentioned dedicated solutions, such as Gatsby.js or create-react-app, and use the article to complement it with the following paragraphs.
 
-Various web application projects are using a build tool. That way, you are able to build your application on the command line and get all files to host it on a web server excluding the source code files. Often the command is simply `npm run build` and you will get a *public/* folder with all your build files. I will refer to the *public/* folder as build folder in the next parts of this post. Keep in mind, the name of the build folder can be something different in your case. The `npm run build` command will be used as well in the next part, even though it might differ for you too.
+Various web application projects are using a build tool. That way, you are able to build your application on the command line and get all files to host it on a web server excluding the source code files. Often the command is simply `npm run build` and you will get a _public/_ folder with all your build files. I will refer to the _public/_ folder as build folder in the next parts of this post. Keep in mind, the name of the build folder can be something different in your case. The `npm run build` command will be used as well in the next part, even though it might differ for you too.
 
 Next you have to make a decision: You can either decide to build your application on your local machine and only synchronize the build folder with Git to your remote server or synchronize the whole application to your remote server and build it there. The article will use the former option. If you have only a $5 Droplet, you should do it as well, because the Droplet isn't powerful enough to build your application on the remote server. If you have a more powerful Droplet than 5$, you could take the latter option and build your application on your remote server. But keep in mind that you may have to install [node and npm](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04) on your remote server. Check if those are installed there by using `node -v` and `npm -v` on the remote sever's command line.
 
@@ -92,20 +92,20 @@ That's it for the local machine part. Now login to your remote server by using S
 git clone git@github.com:username/my-application-foo-bar.git
 ```
 
-Previously, when you have set up your server blocks with your simple websites, you only had an *index.html* file in your */var/www/mydomain.com/html* folder. Your build folder of your application should have an *index.html* file as entry point as well. You can check it on the command line coming from your home folder.
+Previously, when you have set up your server blocks with your simple websites, you only had an _index.html_ file in your _/var/www/mydomain.com/html_ folder. Your build folder of your application should have an _index.html_ file as entry point as well. You can check it on the command line coming from your home folder.
 
 ```javascript
 cd my-application-foo-bar/public
 ls
 ```
 
-Now, you only need to put the build folder somehow in the */var/www/mydomain.com/html* folder. Afterward, your website would already be served for your mapped domain or plain IP address. The naive way would be to copy the whole build folder into the */var/www/mydomain.com/html* folder. However, if you want to keep an updated application that you can easily synchronized with GitHub, you would always have to move the build folder to the *html/* folder once you have pulled a new update from GitHub in your application folder. Therefore, it is more efficient to symlink your build folder with your */var/www/mydomain.com/html* folder. A symbolic link is only a reference to this folder and thus both destinations stay updated once you pull an updated version from  GitHub. On the command line, on your remote server, it is only one command to symlink both folders:
+Now, you only need to put the build folder somehow in the _/var/www/mydomain.com/html_ folder. Afterward, your website would already be served for your mapped domain or plain IP address. The naive way would be to copy the whole build folder into the _/var/www/mydomain.com/html_ folder. However, if you want to keep an updated application that you can easily synchronized with GitHub, you would always have to move the build folder to the _html/_ folder once you have pulled a new update from GitHub in your application folder. Therefore, it is more efficient to symlink your build folder with your _/var/www/mydomain.com/html_ folder. A symbolic link is only a reference to this folder and thus both destinations stay updated once you pull an updated version from GitHub. On the command line, on your remote server, it is only one command to symlink both folders:
 
 ```javascript
 sudo ln -s /home/username/my-application-foo-bar/public /var/www/mydomain.com/html
 ```
 
-Make sure to replace the placeholder username, mydomain.com, my-application-foo-bar and the public folder name (in case you have a different one). Now when you naviagte on the command line to your */var/www/mydomain.com/html*, you should be able to see the *public/* folder in it with the `ls` command. Before your application can be seen online, you need to adjust one part in your server block. Open your server block file with `sudo nano /etc/nginx/sites-available/mydomain.com` and add the public folder to the extended path.
+Make sure to replace the placeholder username, mydomain.com, my-application-foo-bar and the public folder name (in case you have a different one). Now when you naviagte on the command line to your _/var/www/mydomain.com/html_, you should be able to see the _public/_ folder in it with the `ls` command. Before your application can be seen online, you need to adjust one part in your server block. Open your server block file with `sudo nano /etc/nginx/sites-available/mydomain.com` and add the public folder to the extended path.
 
 ```javascript{5}
 server {
@@ -198,9 +198,9 @@ sudo systemctl restart nginx
 
 If you have choosen Dokku as your image for your Droplet creation to host your node applications, you can continue to read here after you have finished the initial setup and perhaps your domain setup. Basically you only have to follow one guide, [How to Use the DigitalOcean Dokku Application](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-dokku-application), which covers 3 essential steps (plus the deployment of your application).
 
-* Browsing to your IP address
-* Add your public SSH key that you created in a previous step
-* Configure your domain, if you have obtained one, otherwise keep using the IP address
+- Browsing to your IP address
+- Add your public SSH key that you created in a previous step
+- Configure your domain, if you have obtained one, otherwise keep using the IP address
 
 Afterward, you are able to deploy your application directly form your local machine. You will need Git on the command line to synchronize your application from your local machine with your Droplet. If you haven't installed Git and GitHub yet, follow this article: [GitHub and Git essentials](/git-essential-commands/).
 
@@ -217,12 +217,12 @@ You can use subdomains to distribute your applications horizontally on your Dokk
 
 For instance, this way I could end up with the following applications distributed along multiple subdomains in one Dokku instance.
 
-* **Stripe Payment Server as standalone API:** stripe-payment.mydomain.com
-* **Passport.js Authentication Server as standalone API:** authentication-passport.mydomain.com
-* **Email Server as standalone API:** email.mydomain.com
-* **Application (Test):** 02-test.mydomain.com
-* **Application (Staging):** 01-staging.mydomain.com
-* **User Facing Application (Production):** 00-production.mydomain.com
+- **Stripe Payment Server as standalone API:** stripe-payment.mydomain.com
+- **Passport.js Authentication Server as standalone API:** authentication-passport.mydomain.com
+- **Email Server as standalone API:** email.mydomain.com
+- **Application (Test):** 02-test.mydomain.com
+- **Application (Staging):** 01-staging.mydomain.com
+- **User Facing Application (Production):** 00-production.mydomain.com
 
 I could even add other public facing applications next to it, where the domain isn't crucial. I did it to [automate the Slack invitation](https://slack-the-road-to-learn-react.wieruch.com/) for people learning React.js.
 

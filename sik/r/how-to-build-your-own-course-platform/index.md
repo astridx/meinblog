@@ -1,13 +1,13 @@
 ---
-title: "How I built my own course platform"
-description: "From having the idea to launching your own product: The article is a case study on how I built my own course platform in React, Stripe, Firebase to give other people a platform to learn React. It came with lots of challenges but also learnings beyond the implementation ..."
-date: "2017-10-25T13:50:46+02:00"
-categories: ["Web Development"]
-keywords: ["online course platform open source"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How I built my own course platform'
+description: 'From having the idea to launching your own product: The article is a case study on how I built my own course platform in React, Stripe, Firebase to give other people a platform to learn React. It came with lots of challenges but also learnings beyond the implementation ...'
+date: '2017-10-25T13:50:46+02:00'
+categories: ['Web Development']
+keywords: ['online course platform open source']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -18,19 +18,19 @@ Recently, I built [my own course platform](https://courses.robinwieruch.de/) to 
 
 So why did I decide to build my own course platform in the first place? I know that there are various alternatives such as Udemy and Teachable out there. So what's the motivation behind building your own course platform?
 
-* **Learning:** I wanted to build an own platform to face all the challenges when shipping an own product. A lot of these challenges are explained in the following article. They didn't only challenge my abilities to code (which wasn't the hardest part), but also in challenging myself by creating, launching and advertising a product.
+- **Learning:** I wanted to build an own platform to face all the challenges when shipping an own product. A lot of these challenges are explained in the following article. They didn't only challenge my abilities to code (which wasn't the hardest part), but also in challenging myself by creating, launching and advertising a product.
 
-* **Independence:** The reasoning behind it is the same as for having an own website with an own domain rather than hosting your content on third-party platforms or using their third-party APIs. You never know how long these platforms survive, you never know how far the vendor lock-in reaches and you will have a hard time to transfer your audience to another platform eventually.
+- **Independence:** The reasoning behind it is the same as for having an own website with an own domain rather than hosting your content on third-party platforms or using their third-party APIs. You never know how long these platforms survive, you never know how far the vendor lock-in reaches and you will have a hard time to transfer your audience to another platform eventually.
 
-* **Tailored Solution:** I wanted to have an own platform for my content where I am able to make all the fine-grained decisions. I didn't want to be restricted by a third-party platform. I didn't want to integrate with the services another platform might suggest or any course structure which is recommend by it. For instance, since my content evolved around ebooks so far, I wanted to have an option to download these in different formats. Afterward, it should still be possible to offer links to source code projects for exciting applications or to give access to screencasts series to supplement the learning experience.
+- **Tailored Solution:** I wanted to have an own platform for my content where I am able to make all the fine-grained decisions. I didn't want to be restricted by a third-party platform. I didn't want to integrate with the services another platform might suggest or any course structure which is recommend by it. For instance, since my content evolved around ebooks so far, I wanted to have an option to download these in different formats. Afterward, it should still be possible to offer links to source code projects for exciting applications or to give access to screencasts series to supplement the learning experience.
 
-* **Pricing & Fees:** Many third-party platforms come with a membership pricing model or/and high fees when your course is sold. I wanted to avoid both by having an own platform. I wanted to cut out most of the middlemen when selling a course. It is similar to self-publishing an ebook rather than having a dedicated publisher for it. In addition, I can choose the third-party services that are integrated in my platform based on my needs, their pricing and features, and an effortless integration. I would only pay the services that are needed for my course platform and only the payment gateways would apply a fee for every payment that goes through them.
+- **Pricing & Fees:** Many third-party platforms come with a membership pricing model or/and high fees when your course is sold. I wanted to avoid both by having an own platform. I wanted to cut out most of the middlemen when selling a course. It is similar to self-publishing an ebook rather than having a dedicated publisher for it. In addition, I can choose the third-party services that are integrated in my platform based on my needs, their pricing and features, and an effortless integration. I would only pay the services that are needed for my course platform and only the payment gateways would apply a fee for every payment that goes through them.
 
-* **Experiencing the Journey:** It was always a milestone in my life to have a product one day that goes beyond an informational product such as an ebook or course. That's why I wanted to build a platform around my educational content. It would grow my abilities by facing all the challenges that come along the way. I wanted to experience the journey from an idea to the launch of a product on my own.
+- **Experiencing the Journey:** It was always a milestone in my life to have a product one day that goes beyond an informational product such as an ebook or course. That's why I wanted to build a platform around my educational content. It would grow my abilities by facing all the challenges that come along the way. I wanted to experience the journey from an idea to the launch of a product on my own.
 
-* **Full-Control:** It goes hand in hand with having a tailored solution to my own needs and having independence rather than using a third-party platform. But it goes far beyond it. I wanted to make the decisions when it comes to supporting students that cannot afford to pay for the courses. I wanted to be able to apply discounts whenever I believed it would support people from developing countries. I wanted to support diversity in the developer community by enabling minorities to take the courses. By having a third-party course platform, I wouldn't be able to apply those fine-grained rules, would I?
+- **Full-Control:** It goes hand in hand with having a tailored solution to my own needs and having independence rather than using a third-party platform. But it goes far beyond it. I wanted to make the decisions when it comes to supporting students that cannot afford to pay for the courses. I wanted to be able to apply discounts whenever I believed it would support people from developing countries. I wanted to support diversity in the developer community by enabling minorities to take the courses. By having a third-party course platform, I wouldn't be able to apply those fine-grained rules, would I?
 
-* **Open Sourcing:** I keep the idea in my head to open source the whole thing eventually. It would be great to be able to strip out all the specific parts and only leave the generic parts of the course platform so that everybody could use it for their own educational domain to serve courses on their own hosted solution. It is still a long journey to make it happen, but you can support me if you like the idea.
+- **Open Sourcing:** I keep the idea in my head to open source the whole thing eventually. It would be great to be able to strip out all the specific parts and only leave the generic parts of the course platform so that everybody could use it for their own educational domain to serve courses on their own hosted solution. It is still a long journey to make it happen, but you can support me if you like the idea.
 
 In the following, I tried to break up the different areas of building an own course platform. It will outline a few of the challenges I faced along the way, the decisions I made and the things I have chosen to work with to realize the platform.
 
@@ -110,7 +110,7 @@ After I finished writing the ebook, I had the idea to add screencasts to complem
 
 ![react background rotate](./images/abstracted-design-6.jpg)
 
-The last course of mine had three packages ranging from only buying the 250-page ebook, that offers a practical learning experience, to having access to exciting source code projects and screencast series. It is always hard to estimate what people would pay for a course. Over the last 6 months I invested every free minute in the content, so I would argue it has a great quality. After completing the course, students are set up to build their own applicatiions using the taught topics in a practical environment. It goes beyond the basics and teaches best practices in scaling applications. In the end, students bought all kinds of packages evenly distributed. Hence, I would assume that the pricing matched pretty well. Surprisingly though, the complete course package was sold the most for $99.
+The last course of mine had three packages ranging from only buying the 250-page ebook, that offers a practical learning experience, to having access to exciting source code projects and screencast series. It is always hard to estimate what people would pay for a course. Over the last 6 months I invested every free minute in the content, so I would argue it has a great quality. After completing the course, students are set up to build their own applicatiions using the taught topics in a practical environment. It goes beyond the basics and teaches best practices in scaling applications. In the end, students bought all kinds of packages evenly distributed. Hence, I would assume that the pricing matched pretty well. Surprisingly though, the complete course package was sold the most for \$99.
 
 # How to administer users and courses?
 
@@ -126,9 +126,9 @@ Furthermore, I built a simple admin page before launching the platform. The page
 
 Especially the ability to add courses manually to a user was important for me, because of these following three things:
 
-* First, it was my backup in case of a successful payment that didn't lead to an enrollment in the course. Luckily it never happened.
-* Second, it would give me the opportunity to add courses to users who bought the course somewhere else. For instance, before launching the course, I had several people pre-ordering it on other platforms. That way, I could easily add them to their pre-ordered packages when they signed up on the platform.
-* Third, I can provide students who cannot afford to pay for the course an option to access the course without going through the payment flow. That way, I hope to support groups of minorities and people from developing countries. Last but not least, I can manually upgrade the packages of students.
+- First, it was my backup in case of a successful payment that didn't lead to an enrollment in the course. Luckily it never happened.
+- Second, it would give me the opportunity to add courses to users who bought the course somewhere else. For instance, before launching the course, I had several people pre-ordering it on other platforms. That way, I could easily add them to their pre-ordered packages when they signed up on the platform.
+- Third, I can provide students who cannot afford to pay for the course an option to access the course without going through the payment flow. That way, I hope to support groups of minorities and people from developing countries. Last but not least, I can manually upgrade the packages of students.
 
 # What about the server-side application?
 
@@ -150,10 +150,10 @@ Using an own payment solution was one goal of having an own course platform. It 
 
 There were 4 different payment options that I found out about:
 
-* Stripe
-* PayPal
-* Braintree
-* Gumroad
+- Stripe
+- PayPal
+- Braintree
+- Gumroad
 
 Previously, I used Gumroad to sell pre-orders of my course. It is a great solution for offering a product. The payment flow is fully handled by Gumroad and it doesn't take any effort to embed their checkout form on your platform. It comes with a great design as well. In the end, there was one missing feature. After purchasing a course, I would have wanted a callback function that notifies the course platform about a successful payment. Afterward, the course platform would enroll the student in a course. But without having the callback function, there was no way to enroll a student. It would only be possible to manually lookup the order on the Gumroad platform. It wouldn't have been possible to provide the whole checkout experience on the course platform. That's why I didn't use Gumroad for the course platform.
 
@@ -237,26 +237,26 @@ The biggest challenge was to make the payment flow as robust as possible. I didn
 
 **So what steps did I take to have a robust payment flow?**
 
-* Unit and integration tests for the payment business logic
-* Snapshot tests with [Jest](https://facebook.github.io/jest/) for components involved in the payment flow
-* Manually going through the payment flow once in a while and before the launch
-* Type checking with [Flow](/the-soundcloud-client-in-react-redux-flow/)
-  * making sure that all parameters reach their respective APIs (Firebase, Stripe, PayPal) without being undefined
+- Unit and integration tests for the payment business logic
+- Snapshot tests with [Jest](https://facebook.github.io/jest/) for components involved in the payment flow
+- Manually going through the payment flow once in a while and before the launch
+- Type checking with [Flow](/the-soundcloud-client-in-react-redux-flow/)
+  - making sure that all parameters reach their respective APIs (Firebase, Stripe, PayPal) without being undefined
 
 **And what steps did I take to have fallbacks in case of payment issues?**
 
-* Fallback email templates if a user ran into a payment issue on the "Troubleshoot & Contact" page
-  * no one had to make use of it
-* Getting familiar with the Stripe and PayPal dashboards
-* Setting up an admin page to have an overview of users and courses
- * being able to associate accounts with courses, payments on the Stripe and PayPal dashboards, and emails
- * being able to enroll users manually in case a payment was successful, but he/she didn't enroll in the course
+- Fallback email templates if a user ran into a payment issue on the "Troubleshoot & Contact" page
+  - no one had to make use of it
+- Getting familiar with the Stripe and PayPal dashboards
+- Setting up an admin page to have an overview of users and courses
+- being able to associate accounts with courses, payments on the Stripe and PayPal dashboards, and emails
+- being able to enroll users manually in case a payment was successful, but he/she didn't enroll in the course
 
 That way, I was prepared in case of any payment issues. In the end, nothing bad happened due to testing, type checking and manual testing. But I must admit that the payment flow was the feature that was tested the most on the course platform.
 
 # Where to host the course platform?
 
-You can choose whatever hosting platform suits you. The most efficient one for me was using [Digital Ocean](https://m.do.co/c/fb27c90322f3). It powers all of my websites, applications and APIs. Regarding all of my websites, they are powered by one $5 Droplet using [Nginx's Server Blocks](/own-website-in-five-days/). Furthermore, all of my applications and APIs are hosted on a few Droplets using [Dokku](https://github.com/dokku/dokku) as underlying PaaS. Maybe Dokku is not the newest kid on the block, but I like its simplicity to get people without much experience started in this domain. It is simple to implement things such as SSL or an own database by using its plugin system. Dokku is great for running different kinds of one application as well. For instance, the course platform has a staging and production instance. So I am always able to test the production ready application when deploying it to my staging instance.
+You can choose whatever hosting platform suits you. The most efficient one for me was using [Digital Ocean](https://m.do.co/c/fb27c90322f3). It powers all of my websites, applications and APIs. Regarding all of my websites, they are powered by one \$5 Droplet using [Nginx's Server Blocks](/own-website-in-five-days/). Furthermore, all of my applications and APIs are hosted on a few Droplets using [Dokku](https://github.com/dokku/dokku) as underlying PaaS. Maybe Dokku is not the newest kid on the block, but I like its simplicity to get people without much experience started in this domain. It is simple to implement things such as SSL or an own database by using its plugin system. Dokku is great for running different kinds of one application as well. For instance, the course platform has a staging and production instance. So I am always able to test the production ready application when deploying it to my staging instance.
 
 <ReadMore label="Host a single or multiple applications on Digital Ocean" link="/deploy-applications-digital-ocean" />
 
@@ -266,9 +266,9 @@ When I briefly investigated alternatives, I was pretty excited about [now](https
 
 Basically, I use 2 out of 3 services for tracking:
 
-* First, the course platform uses Google Analytics with the [react-ga](https://github.com/react-ga/react-ga) node package. It is a simple drop in solution that makes it easy to track the most important user activities on your website. Since I use Google Analytics for all of my websites and applications, it makes it maintainable to manage those properties at one place.
-* Second, the course platform uses [Sentry](https://sentry.io) for error tracking. It is only a small JavaScript ES6 service that forwards errors to the Sentry API with the help of the [raven](https://github.com/getsentry/raven-node) and [raven-js](https://github.com/getsentry/raven-js) node packages for the server-side and client-side. It is used for errors in React components and as a Redux middleware. Before, I wanted to use [Track.js](https://trackjs.com/pricing/), because I knew it from my former job, but it turned out to be too expensive. Sentry has a free version.
-* The third service is not used yet, but I am planning to integrate it in the future. It is called [Mixpanel](https://mixpanel.com) and would allow me to track fine-grained activity on the platform. For instance, it would be valuable to know how many times a preview of an ebook was downloaded or how often different formats (PDF, EPUB, MOBI) were consumed.
+- First, the course platform uses Google Analytics with the [react-ga](https://github.com/react-ga/react-ga) node package. It is a simple drop in solution that makes it easy to track the most important user activities on your website. Since I use Google Analytics for all of my websites and applications, it makes it maintainable to manage those properties at one place.
+- Second, the course platform uses [Sentry](https://sentry.io) for error tracking. It is only a small JavaScript ES6 service that forwards errors to the Sentry API with the help of the [raven](https://github.com/getsentry/raven-node) and [raven-js](https://github.com/getsentry/raven-js) node packages for the server-side and client-side. It is used for errors in React components and as a Redux middleware. Before, I wanted to use [Track.js](https://trackjs.com/pricing/), because I knew it from my former job, but it turned out to be too expensive. Sentry has a free version.
+- The third service is not used yet, but I am planning to integrate it in the future. It is called [Mixpanel](https://mixpanel.com) and would allow me to track fine-grained activity on the platform. For instance, it would be valuable to know how many times a preview of an ebook was downloaded or how often different formats (PDF, EPUB, MOBI) were consumed.
 
 In the end, Google Analytics and Sentry give me a bigger picture of user activities and great error reporting for the course platform.
 
@@ -310,26 +310,26 @@ In the end, I want to thank everyone who supported the launch of the course. Be 
 
 # How much to pay for an own course platform?
 
-The costs for an own course platform can be summarized into ongoing subscriptions and one time payments. In the beginning, when I started to write the ebook, I made a one time payment on Leanpub to create an ebook on their platform. It costs $99 at at time of writing this article. Leanpub makes it effortless to self-publish an ebook and they offer plenty of options to write it. In my case, I simply connected my GitHub repository with the manuscript to my Leanpub account and the platform took over to generate an ebook from the markdown. Afterward, you can decide on your own if you want to sell your ebook on their platform or take it on another platform. I decided to make use of both. As a cheaper alternative to Leanpub, you can convert several input formats into your own ebook formats by using something like [Pandoc](https://pandoc.org/).
+The costs for an own course platform can be summarized into ongoing subscriptions and one time payments. In the beginning, when I started to write the ebook, I made a one time payment on Leanpub to create an ebook on their platform. It costs \$99 at at time of writing this article. Leanpub makes it effortless to self-publish an ebook and they offer plenty of options to write it. In my case, I simply connected my GitHub repository with the manuscript to my Leanpub account and the platform took over to generate an ebook from the markdown. Afterward, you can decide on your own if you want to sell your ebook on their platform or take it on another platform. I decided to make use of both. As a cheaper alternative to Leanpub, you can convert several input formats into your own ebook formats by using something like [Pandoc](https://pandoc.org/).
 
-There was no way around buying an own domain for the course platform. But that was only $11.99 for a year, because it wasn't too fancy. In addition, as already mentioned in the article, I host all of my websites, applications and APIs on [Digital Ocean](https://m.do.co/c/fb27c90322f3). The dedicated droplet for the course platform costs $10 a month, even though I am sure it would run with a $5 droplet as well.
+There was no way around buying an own domain for the course platform. But that was only $11.99 for a year, because it wasn't too fancy. In addition, as already mentioned in the article, I host all of my websites, applications and APIs on [Digital Ocean](https://m.do.co/c/fb27c90322f3). The dedicated droplet for the course platform costs $10 a month, even though I am sure it would run with a \$5 droplet as well.
 
-The platform uses the free Firebase plan at the moment. Only for the launch I was cautious and upgraded to the $25 plan to allow more than 100 simultaneous connections. It was a one time investment.
+The platform uses the free Firebase plan at the moment. Only for the launch I was cautious and upgraded to the \$25 plan to allow more than 100 simultaneous connections. It was a one time investment.
 
-Last but not least, the videos streamed on the course platform are powered by Vimeo Plus. It offers domain access level controls when being on this plan and costs $5 per month.
+Last but not least, the videos streamed on the course platform are powered by Vimeo Plus. It offers domain access level controls when being on this plan and costs \$5 per month.
 
 One time payments:
 
-* 99$ Leanpub
-* 25$ Firebase
+- 99\$ Leanpub
+- 25\$ Firebase
 
 Monthly Subscription:
 
-* $1 Domain
-* $5 Vimeo Plus
-* $10 Digital Ocean
+- \$1 Domain
+- \$5 Vimeo Plus
+- \$10 Digital Ocean
 
-So effectively it costs me $16 per month to run the course platform now.
+So effectively it costs me \$16 per month to run the course platform now.
 
 # Any planned features for the course platform?
 

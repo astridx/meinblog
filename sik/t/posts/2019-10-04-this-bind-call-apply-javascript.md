@@ -11,7 +11,7 @@ tags:
   - fundamentals
 ---
 
-*This article was originally written for [DigitalOcean](https://www.digitalocean.com/community/conceptual_articles/understanding-this-bind-call-and-apply-in-javascript). I selected the [Open Internet/Free Speech Fund](https://www.brightfunds.org/open-internet-free-speech) to receive a donation as part of the [Write for DOnations](https://do.co/w4do-cta) program.*
+_This article was originally written for [DigitalOcean](https://www.digitalocean.com/community/conceptual_articles/understanding-this-bind-call-and-apply-in-javascript). I selected the [Open Internet/Free Speech Fund](https://www.brightfunds.org/open-internet-free-speech) to receive a donation as part of the [Write for DOnations](https://do.co/w4do-cta) program._
 
 The [`this`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this) keyword is a very important concept in JavaScript, and also a particularly confusing one to both new developers and those who have experience in other programming languages. In JavaScript, `this` is a reference to an object. The object that `this` refers to can vary, implicitly based on whether it is global, on an object, or in a constructor, and can also vary explicitly based on usage of the `Function` prototype methods `bind`, `call`, and `apply`.
 
@@ -119,7 +119,9 @@ const america = {
     symbol: 'eagle',
     currency: 'USD',
     printDetails() {
-      console.log(`The symbol is the ${this.symbol} and the currency is ${this.currency}.`)
+      console.log(
+        `The symbol is the ${this.symbol} and the currency is ${this.currency}.`
+      )
     },
   },
 }
@@ -142,7 +144,7 @@ function Country(name, yearFounded) {
   this.name = name
   this.yearFounded = yearFounded
 
-  this.describe = function() {
+  this.describe = function () {
     console.log(`${this.name} was founded in ${this.yearFounded}.`)
   }
 }
@@ -196,7 +198,7 @@ const button = document.createElement('button')
 button.textContent = 'Click me'
 document.body.append(button)
 
-button.addEventListener('click', function(event) {
+button.addEventListener('click', function (event) {
   console.log(this)
 })
 ```
@@ -356,7 +358,7 @@ Although this example tries to bind `braveNewWorldSummary` once again, it retain
 ```js
 const whoAmI = {
   name: 'Leslie Knope',
-  regularFunction: function() {
+  regularFunction: function () {
     console.log(this.name)
   },
   arrowFunction: () => {
@@ -381,7 +383,7 @@ class Display {
   constructor() {
     this.buttonText = 'New text'
 
-    button.addEventListener('click', event => {
+    button.addEventListener('click', (event) => {
       event.target.textContent = this.buttonText
     })
   }

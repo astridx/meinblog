@@ -1,13 +1,13 @@
 ---
-title: "Gatsby.js - A powerful Static Site Generator"
-description: "Are you considering to use Gatsby.js as static side generator for your website or web application? Learn about all the benefits of using Gatsby.js with React ..."
-date: "2019-07-08T07:50:46+02:00"
-categories: ["React", "Gatsby"]
-keywords: ["gatsby.js", "gatsbyjs", "gatsby react"]
-hashtags: ["#100DaysOfCode", "#GatsbyJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Gatsby.js - A powerful Static Site Generator'
+description: 'Are you considering to use Gatsby.js as static side generator for your website or web application? Learn about all the benefits of using Gatsby.js with React ...'
+date: '2019-07-08T07:50:46+02:00'
+categories: ['React', 'Gatsby']
+keywords: ['gatsby.js', 'gatsbyjs', 'gatsby react']
+hashtags: ['#100DaysOfCode', '#GatsbyJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -24,7 +24,7 @@ In this article, I want to tell you why I literally migrate(d) my business over 
 
 I start with the most obvious benefit: **Gatsby.js is built on top of React.js**. As an at least intermediate React developer, you feel immediately comfortable with it. You structure your pages as components, implement a repertoire of UI components, style your components with CSS modules or styled components, and update state with common sense. But also as a non React developer -- coming from another framework of choice -- you will not have a hard time to grasp how things work if you are [comfortable with JavaScript](/javascript-fundamentals-react-requirements/).
 
-*Note: I do not recommend to [learn React.js](/learn-react-js/) while learning Gatsby.js. The latter comes with lots of things on top that you should learn in separation. Learning both frameworks in one step will blur the lines between React and Gatsby. Not to mention the plugin system, GraphQL, and the parts related to Node.js. Get a [good grasp about React.js first](/the-road-to-learn-react/) before learning Gatsby.js.*
+_Note: I do not recommend to [learn React.js](/learn-react-js/) while learning Gatsby.js. The latter comes with lots of things on top that you should learn in separation. Learning both frameworks in one step will blur the lines between React and Gatsby. Not to mention the plugin system, GraphQL, and the parts related to Node.js. Get a [good grasp about React.js first](/the-road-to-learn-react/) before learning Gatsby.js._
 
 With React.js in place, **I am in control** even though there will be a new React.js or Gatsby.js version in the future. I can handle the breaking changes and deal with migration paths. But that's only because my daily business is related to React and JavaScript. In contrast, most static site generators I used before were coupled to other programming languages (Go, Ruby, PHP) which I am rarely using. That's fine for widening one's horizon, but in everyday business life, it was a burden to deal with issues. **If your business depends on it, use a tech stack that makes it painless for you.**
 
@@ -34,8 +34,8 @@ Gatsby comes as a full-blown framework to create static websites. Whereas in Rea
 
 For instance, Gatsby ships with a build in Router and the Gatsby team decides which React Router makes most for their environment. As a developer, you don't need to care about it like in a plain React application. The implementation of the [routing in Gatsby](https://www.gatsbyjs.org/docs/routing/) is different from React. It has two modes to create routes: static and dynamic routes.
 
-* Static Routes: Every component in the *src/pages* folder becomes automatically a route.
-* Dynamic Routes: The `createPage` API allows you to create dynamic routes.
+- Static Routes: Every component in the _src/pages_ folder becomes automatically a route.
+- Dynamic Routes: The `createPage` API allows you to create dynamic routes.
 
 Most of your routes will be static anyway, so it's not getting easier as just implementing a component for it. Then you only need to use the [Gatsby Link](https://www.gatsbyjs.org/docs/gatsby-link/) component to give your user elements to interact with. That's only the beginning for routing in Gatsby though. Under the hood, Gatsby applies improvements for you. For instance, it catches routes that are going nowhere, [preloads other pages of routes linking to these pages](https://www.gatsbyjs.org/docs/gatsby-link/), and prevents a browser refresh when navigating from page to page. **Basically Gatsby Routing comes with all the improvements you would expect an application to have by default.**
 
@@ -73,14 +73,14 @@ From the very beginning, Gatsby.js presented itself with a well-structured plugi
 [GraphQL is commonly seen as alternative to REST.](/why-graphql-advantages-disadvantages-alternatives/) However, whereas REST is mostly used for client-server communication via HTTP, GraphQL is just a query language independently of the communication protocol and data representation. Essentially GraphQL can be used anywhere where a client requests data. [Gatsby makes use of these GraphQL circumstances](https://www.gatsbyjs.org/docs/querying-with-graphql/) to query all of its internal (e.g. files) and external (e.g. third-party APIs of integrations) data. GraphQL becomes the interface between Gatsby and all its data sources.
 
 ```javascript
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from 'react'
+import { graphql } from 'gatsby'
 
 export default ({ data }) => (
   <div>
     <h1>{data.site.siteMetadata.title}</h1>
   </div>
-);
+)
 
 export const query = graphql`
   query {
@@ -90,10 +90,10 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 ```
 
-*Note: GraphQL is another aspect which makes it difficult to learn Gatsby.js as a beginner. Like React it comes with its own ecosystem, best practices, and libraries. However, in Gatsby.js you are only using GraphQL from a client's perspective, so once you start to think of Gatsby's data sources as a graph, you are good to use it. However, I'd recommend people to [learn GraphQL](/the-road-to-graphql-book/) on the side to get a better understanding of it.*
+_Note: GraphQL is another aspect which makes it difficult to learn Gatsby.js as a beginner. Like React it comes with its own ecosystem, best practices, and libraries. However, in Gatsby.js you are only using GraphQL from a client's perspective, so once you start to think of Gatsby's data sources as a graph, you are good to use it. However, I'd recommend people to [learn GraphQL](/the-road-to-graphql-book/) on the side to get a better understanding of it._
 
 Once you start your Gatsby.js application, you can open up GraphiQL, an explorative GraphQL client which comes with Gatsby, to traverse through all your data that's aggregated by Gatsby. This starts by having access to images and markdown via GraphQL, but also by accessing third-party APIs which come with Gatsby's plugin system (see integrations).
 
@@ -106,16 +106,16 @@ After all, it takes some time to adjust to this **new mindset of using GraphQL f
 The performance of your website influences your SEO score and the UX of your website. If you are showing larger images in your blog posts or on your landing pages, you will not get around performance optimizations for them. Before I started to use Gatsby.js, I had to implement features like [lazy loading](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/) or [source sets for responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) myself. Once implemented everything worked great, but I always felt that this implementation detail should not be in my hands. Every other website needs these features, so why isn't there an effortless abstraction for it? Gatsby solves this problem perfectly for you with [Gatsby Images and their Image Plugins](https://www.gatsbyjs.org/packages/gatsby-image/).
 
 ```javascript
-import React from 'react';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 export default ({ data }) => (
   <div>
     <h1>Hello gatsby-image</h1>
     <Img sizes={data.file.childImageSharp.sizes} />
   </div>
-);
+)
 
 export const query = graphql`
   query {
@@ -127,7 +127,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 ```
 
 Lazy loading and responsive image source sets are a thing of the past. Everything is applied under the hood for you. Also the well-known Blur Effect kicks in for people visiting your website making lazy loading of images not a dealbreaker for UX. And this scratches only the surface of Gatsby Image which handles various image formats and offers a rich API. **Don't worry about commonly used image features anymore, because Gatsby takes care of them.**
@@ -173,7 +173,7 @@ query {
 
 The previous code shows you everything that's needed to connect to Contenful's API. Initially you need to install and set up the Gatsby plugin with your credentials. Next, you can start to query your data sets with GraphQL which are managed by Contentful. Any non developer can take over from here to provide more data in the CMS while developers make sure everything is displayed properly in the source code or markdown.
 
-Headless CMS are only one of Gatsby's set of neat third-party integrations. You have seen before how it integrates neatly with tracking APIs like Google Analytics or Sentry.  Also A/B testing tools like Segment are available. Another sort of integrations comes in form of deployments (e.g. Netlify). Here you can find [all of Gatsby's integrations](https://www.gatsbyjs.com/integrations/). Use them to abstract away the pain that every website suffers.
+Headless CMS are only one of Gatsby's set of neat third-party integrations. You have seen before how it integrates neatly with tracking APIs like Google Analytics or Sentry. Also A/B testing tools like Segment are available. Another sort of integrations comes in form of deployments (e.g. Netlify). Here you can find [all of Gatsby's integrations](https://www.gatsbyjs.com/integrations/). Use them to abstract away the pain that every website suffers.
 
 # Next Level Markdown: MDX
 
@@ -263,13 +263,13 @@ After all, Gatsby's plugin system, themes and content distribution makes it poss
 
 # Gatsby integrates into the JAMstack
 
-Gatsby integrates nicely into the JAMstack where website development becomes painless because of its plug and play nature of technologies related to this tech stack. For instance, in a JAMstack you could use Netlify to serve your website and Contentful as API based CMS to provide your content. If authentication is needed, you just plug in another API that deals with it. *"A modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup"* (Source: Mathias Biilmann, CEO & Co-founder of Netlify).
+Gatsby integrates nicely into the JAMstack where website development becomes painless because of its plug and play nature of technologies related to this tech stack. For instance, in a JAMstack you could use Netlify to serve your website and Contentful as API based CMS to provide your content. If authentication is needed, you just plug in another API that deals with it. _"A modern web development architecture based on client-side JavaScript, reusable APIs, and prebuilt Markup"_ (Source: Mathias Biilmann, CEO & Co-founder of Netlify).
 
 Basically you are not running a client-server architecture with a database yourself anymore, but only your client-side application which is API driven. Since Gatsby.js gives you the perfect foundation to integrate with third-parties because of it's plugin system and GraphQL, **I believe Gatsby.js will become one of the most crucial building blocks in the future of JAMstack.**
 
 # It's blazing fast ...
 
-The most important mantra of Gatsby.js: *"[it] helps developers build blazing fast websites and apps"*. The statement holds true for building the website even lots of data is fetched from third-party APIs, lots of logic is weaved into your *gatsby-node.js* file, and lots of different pages get created. [Only if the build crashes I would wish that there would be a default rollback.](https://github.com/gatsbyjs/gatsby/issues/10701)
+The most important mantra of Gatsby.js: _"[it] helps developers build blazing fast websites and apps"_. The statement holds true for building the website even lots of data is fetched from third-party APIs, lots of logic is weaved into your _gatsby-node.js_ file, and lots of different pages get created. [Only if the build crashes I would wish that there would be a default rollback.](https://github.com/gatsbyjs/gatsby/issues/10701)
 
 The statement holds also true for the perceived performance of users visiting your website. Lazy image loading, preloading of pages, and responsive image source sets improve the UX tremendously. If you are [performing a Google Lighthouse Audit](https://www.gatsbyjs.org/docs/audit-with-lighthouse/) with the Gatsby.js defaults, [it's not a surprise anymore that your scores are above average](https://twitter.com/dan_abramov/status/1085265495283171328).
 
@@ -291,7 +291,7 @@ module.exports = {
         display: `standalone`,
       },
     },
-    `gatsby-plugin-offline`
+    `gatsby-plugin-offline`,
   ],
 }
 ```
@@ -302,8 +302,8 @@ If you would create a website yourself, everything would be up to you. Especiall
 
 However, [if service worker go wrong](https://twitter.com/kentcdodds/status/1053338165363142656), they make your business crash. It happens when an old version of your website gets cached and you have no control to serve your users a new website except for having them to delete their service workers manually in the browser's developer tools. Therefore I must say I didn't use the service worker plugin from Gatsby yet. I wish there would be more than one configuration default to serve different purposes:
 
-* 1) minimal service worker configuration without caching; just to please Google Lighthouse
-* 2) default service worker configuration
+- 1. minimal service worker configuration without caching; just to please Google Lighthouse
+- 2. default service worker configuration
 
 Then I would choose the "pseudo" service worker and be happy without eager caching.
 
@@ -319,7 +319,7 @@ Implementing SEO in Gatsby isn't much different from any other static website ge
 
 Gatsby takes steps **beyond being just a static website generator**. Actually you can implement pretty dynamic web applications with it. Hence I considered to not only move my website to Gatsby.js, but also my entire [course platform](/how-to-build-your-own-course-platform/) with authentication, authorization and payment methods. Always just think about all the pages in your web applications which can be visited by your user. For instance, if you have an ecommerce store, you need to create all the product detail pages during build time.
 
-Since you can create dynamic routes in your *gatsby-node.js* file, you can do lots of experimental stuff in there. **Gatsby.js gives you a way to create dynamic pages.** For instance, my new website uses simple NLP to recommend readers more reading material after finishing one of my articles. But one could imagine more complex machine learning usages here to create the best reading experience for your audience.
+Since you can create dynamic routes in your _gatsby-node.js_ file, you can do lots of experimental stuff in there. **Gatsby.js gives you a way to create dynamic pages.** For instance, my new website uses simple NLP to recommend readers more reading material after finishing one of my articles. But one could imagine more complex machine learning usages here to create the best reading experience for your audience.
 
 In another experimental catalog application of mine, I created all the different search filters and their permutations as dynamic pages. It would lead to SEO benefits as well, because there would be URLs like "/books-for-kids-older-than-six" or "/books-large-format-for-kids-between-six-and-twelve". It really depends on you, your requirements and your creativity, **how far you push the boundaries of Gatsby being a static website generator**.
 
@@ -331,6 +331,6 @@ After all, I don't want to miss mentioning the Gatsby community. It's awesome! A
 
 <Divider />
 
-Whereas Gatsby.js gives you a full-blown framework with all the expected defaults (routing, image handling, plugin system), you still use React.js under the hood to create pages and UI components. It merges an abstraction with a concrete world perfectly into one solution for static websites.  Many other static websites are way behind the innovations Gatsby.js brings on the table -- most importantly being API first driven. And it will just get better with a striving community, plugin ecosystem and themes.
+Whereas Gatsby.js gives you a full-blown framework with all the expected defaults (routing, image handling, plugin system), you still use React.js under the hood to create pages and UI components. It merges an abstraction with a concrete world perfectly into one solution for static websites. Many other static websites are way behind the innovations Gatsby.js brings on the table -- most importantly being API first driven. And it will just get better with a striving community, plugin ecosystem and themes.
 
 If you find any other things about Gatsby.js that you enjoy, please leave a comment below. Otherwise I hope this blog post will become a great reference for people considering Gatsby.js. If you want to get a notification whether I do a course about static website development with Gatsby.js, sign up for my newsletter :-) It might come up in the future, because I want to share all the things I learned in implementation detail.

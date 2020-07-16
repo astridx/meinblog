@@ -1,13 +1,13 @@
 ---
-title: "Giving Back, By Learning React"
-description: "Self-reflection as a privileged developer who travels South East Asia. An attempt to give something back, by learning React, to contribute solving the diversity problem in software development..."
-date: "2017-04-11T13:50:46+02:00"
-categories: ["React"]
-keywords: ["learn react"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Giving Back, By Learning React'
+description: 'Self-reflection as a privileged developer who travels South East Asia. An attempt to give something back, by learning React, to contribute solving the diversity problem in software development...'
+date: '2017-04-11T13:50:46+02:00'
+categories: ['React']
+keywords: ['learn react']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />

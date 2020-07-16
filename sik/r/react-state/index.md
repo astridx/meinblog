@@ -1,13 +1,13 @@
 ---
-title: "React State Management"
-description: "Everything you need to know about React State. From simple state to complex state, local state to global state, State in React Components to State with Hooks, over to external state management solutions like Redux ..."
-date: "2019-10-14T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react state"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React State Management'
+description: 'Everything you need to know about React State. From simple state to complex state, local state to global state, State in React Components to State with Hooks, over to external state management solutions like Redux ...'
+date: '2019-10-14T07:52:46+02:00'
+categories: ['React']
+keywords: ['react state']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -27,20 +27,20 @@ Once you went through this state management in React walkthrough, you should hav
 The UI of a frontend application is a representation of its state. State is just a snapshot in time. If a user changes state by interacting with your application, the UI may look completely different afterward, because it's represented by this new state rather than the old state.
 
 ```javascript
-State => UI
+;(State) => UI
 ```
 
 State can be various things:
 
-* 1) A boolean which tells the UI that a dialog/modal/popover component is opened or closed.
-* 2) An user object which reflects the currently signed in user of the application.
-* 3) Data from a [remote API](/what-is-an-api-javascript) (e.g. an object/list of users), that is [fetched in React](/react-fetching-data) and displayed in your UI.
+- 1. A boolean which tells the UI that a dialog/modal/popover component is opened or closed.
+- 2. An user object which reflects the currently signed in user of the application.
+- 3. Data from a [remote API](/what-is-an-api-javascript) (e.g. an object/list of users), that is [fetched in React](/react-fetching-data) and displayed in your UI.
 
 State is just another fancy word for a JavaScript data structure representing the state with JavaScript primitives and objects. For instance, a simple state could be a JavaScript boolean whereas a more complex UI state could be a JavaScript object:
 
 ```javascript
 // 1)
-const isOpen = true;
+const isOpen = true
 
 // 2)
 const user = {
@@ -48,7 +48,7 @@ const user = {
   firstName: 'Robin',
   lastName: 'Wieruch',
   email: 'hello@robinwieruch.com',
-};
+}
 
 // 3)
 const users = {
@@ -62,30 +62,30 @@ const users = {
     lastName: 'Wieruch',
     email: 'hello@thomaswieruch.com',
   },
-};
+}
 ```
 
 Every of these states could be managed by a single React component which is mainly doing three things:
 
-* A) storing the state
-* B) enabling the user to modify the state
-* C) updating the UI once the state has been changed
+- A) storing the state
+- B) enabling the user to modify the state
+- C) updating the UI once the state has been changed
 
-This can be done *within* a React component with [React Hooks](/react-hooks/). I am saying *within* here, because it's co-located state to the React component by using Hooks. Later you will learn about other state that is managed *globally and outside* of React components. Let's explore the React Hooks for state first.
+This can be done _within_ a React component with [React Hooks](/react-hooks/). I am saying _within_ here, because it's co-located state to the React component by using Hooks. Later you will learn about other state that is managed _globally and outside_ of React components. Let's explore the React Hooks for state first.
 
 # React State: useState
 
 React's useState hook is for many React beginners their first encounter with state in React:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 const App = () => {
-  const [counter, setCounter] = React.useState(42);
+  const [counter, setCounter] = React.useState(42)
 
   const handleClick = () => {
-    setCounter(counter + 5);
-  };
+    setCounter(counter + 5)
+  }
 
   return (
     <>
@@ -95,8 +95,8 @@ const App = () => {
         Increase by 5
       </button>
     </>
-  );
-};
+  )
+}
 ```
 
 The useState hook takes an initial state as argument, just for the first time the React component renders, and returns an array with two values: the current state and the state update function. Whereas the current state is used to display it somewhere within your React component, the state update function is used to change the current state (e.g. HTML button `onClick`).
@@ -104,14 +104,14 @@ The useState hook takes an initial state as argument, just for the first time th
 Taking it one step further, it cannot be just used to increase an integer, but also to capture more dynamic state of an input HTML element when typing into it. Because the input HTML element takes the current state as value, it becomes a controlled component/element. Not the internal HTML manages the state anymore, but React's state management:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 const App = () => {
-  const [text, setText] = React.useState('Hello React');
+  const [text, setText] = React.useState('Hello React')
 
-  const handleChange = event => {
-    setText(event.target.value);
-  };
+  const handleChange = (event) => {
+    setText(event.target.value)
+  }
 
   return (
     <>
@@ -119,23 +119,23 @@ const App = () => {
 
       <input type="text" value={text} onChange={handleChange} />
     </>
-  );
-};
+  )
+}
 ```
 
 After all, React's useState is your gateway into state management with React. Everything that follows from here is more powerful yet more complex.
 
 ### Exercises:
 
-* Read more about [React's useState Hook](/react-usestate-hook)
-* Read more about [Controlled Components in React](/react-controlled-components)
+- Read more about [React's useState Hook](/react-usestate-hook)
+- Read more about [Controlled Components in React](/react-controlled-components)
 
 # React State: useReducer
 
 React's useReducer derives from the concept of a [JavaScript Reducer](/javascript-reducer). The idea: A reducer function takes the current state and an action with payload and computes it to a new state:
 
 ```javascript
-(state, action) => newState
+;(state, action) => newState
 ```
 
 A reducer function may look like the following for managing the state of a list of todo items and their `complete` status:
@@ -144,25 +144,25 @@ A reducer function may look like the following for managing the state of a list 
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'DO_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          return { ...todo, complete: true };
+          return { ...todo, complete: true }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
     case 'UNDO_TODO':
-      return state.map(todo => {
+      return state.map((todo) => {
         if (todo.id === action.id) {
-          return { ...todo, complete: false };
+          return { ...todo, complete: false }
         } else {
-          return todo;
+          return todo
         }
-      });
+      })
     default:
-      return state;
+      return state
   }
-};
+}
 ```
 
 Depending on the incoming action's type, one of the switch cases is taken to either complete or incomplete a todo item. The action's payload, here the `id` property, tells the reducer which todo item in the list, which is the `state` itself, should be toggled. All the other todo items are not changed.
@@ -181,28 +181,25 @@ const initialTodos = [
     task: 'Learn Firebase',
     complete: false,
   },
-];
+]
 ```
 
 A React component using this reducer function with React's useReducer hook may look like the following:
 
 ```javascript
 const App = () => {
-  const [todos, dispatch] = React.useReducer(
-    todoReducer,
-    initialTodos
-  );
+  const [todos, dispatch] = React.useReducer(todoReducer, initialTodos)
 
-  const handleChange = todo => {
+  const handleChange = (todo) => {
     dispatch({
       type: todo.complete ? 'UNDO_TODO' : 'DO_TODO',
       id: todo.id,
-    });
-  };
+    })
+  }
 
   return (
     <ul>
-      {todos.map(todo => (
+      {todos.map((todo) => (
         <li key={todo.id}>
           <label>
             <input
@@ -215,8 +212,8 @@ const App = () => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 ```
 
 In this scenario, there is only an initial list of todo items where an individual item can be toggled to completed or in-completed. The useReducer hook takes the previously defined reducer and an initial state as arguments, just for the first time the React component renders, and returns an array with two values: the current state and the state update function.
@@ -227,9 +224,9 @@ In contrast to the React's useState hook, the state update function from the use
 
 ### Exercises:
 
-* Read more about [JavaScript Reducer](/javascript-reducer)
-* Read more about [React's useReducer Hook](/react-usereducer-hook)
-* Read more about [when to use useState or useReducer](/react-usereducer-vs-usestate)
+- Read more about [JavaScript Reducer](/javascript-reducer)
+- Read more about [React's useReducer Hook](/react-usereducer-hook)
+- Read more about [when to use useState or useReducer](/react-usereducer-vs-usestate)
 
 # React State: useContext
 
@@ -260,33 +257,33 @@ In the previous code snippet, the ability to modify todo items with the `dispatc
 
 **When to combine useContext with useReducer or useState?**
 
-* 1) Generally speaking, React's useContext hook should be used with React's useState hook and/or useReducer hook, if it becomes a burden to pass state and state update function down multiple component levels.
-* 2) Strategically speaking, React's useContext hook can be used to move state from being local state to global state. While state would be managed globally at a top-level component, React's useContext hook is used to pass down state and state updater function to all child components interested in it. You will read more about this later.
+- 1. Generally speaking, React's useContext hook should be used with React's useState hook and/or useReducer hook, if it becomes a burden to pass state and state update function down multiple component levels.
+- 2. Strategically speaking, React's useContext hook can be used to move state from being local state to global state. While state would be managed globally at a top-level component, React's useContext hook is used to pass down state and state updater function to all child components interested in it. You will read more about this later.
 
 ### Exercises:
 
-* Read more about [React's useContext Hook](/react-usecontext-hook)
-* Read more about [useContext combined with useState and useReducer for React state](/react-state-usereducer-usestate-usecontext/)
+- Read more about [React's useContext Hook](/react-usecontext-hook)
+- Read more about [useContext combined with useState and useReducer for React state](/react-state-usereducer-usestate-usecontext/)
 
 # Local vs Global State
 
 These are the three main strategies for state management in React:
 
-* (1) Manage state within a React component.
-* (2) Manage state within a top-level React component where it gets distributed to all child components.
-* (3) Manage state outside of React with a third-party state management library.
+- (1) Manage state within a React component.
+- (2) Manage state within a top-level React component where it gets distributed to all child components.
+- (3) Manage state outside of React with a third-party state management library.
 
 All three strategies map to the following types of state:
 
-* (1) local state
-* (2) global state, but managed in React
-* (3) global state, managed by a third-party state management library
+- (1) local state
+- (2) global state, but managed in React
+- (3) global state, managed by a third-party state management library
 
 In addition, enabling all three strategies map to various features or combinations of these features within or outside of React's capabilities:
 
-* (1) useState and useReducer
-* (2) useState/useReducer with useContext
-* (3) Redux, MobX and various other state management libraries
+- (1) useState and useReducer
+- (2) useState/useReducer with useContext
+- (3) Redux, MobX and various other state management libraries
 
 You are not limited to just one of these strategies. Whereas smaller applications start out with managing state in a React component with useState and useReducer hooks, in a growing application developers start to manage state globally too, for state that is needed by more than one React component and state that is needed to be shared among a multitude of React components.
 
@@ -307,8 +304,8 @@ Let's explore such implementation together with `useCombinedReducers` in the exe
 
 ### Exercises:
 
-* Read more about [how to create Redux with useReducer and useContext](/redux-with-react-hooks)
-  * Postpone reading this tutorial to the next section, if you need more clarity about Redux first
+- Read more about [how to create Redux with useReducer and useContext](/redux-with-react-hooks)
+  - Postpone reading this tutorial to the next section, if you need more clarity about Redux first
 
 # React State: Redux
 
@@ -322,36 +319,35 @@ Whereas `Action => Reducer(s) => Store` encapsulates Redux. Let's recap all part
 
 ```javascript
 function reducer(state, action) {
-  switch(action.type) {
-    case 'TODO_ADD' : {
-      return applyAddTodo(state, action);
+  switch (action.type) {
+    case 'TODO_ADD': {
+      return applyAddTodo(state, action)
     }
-    case 'TODO_TOGGLE' : {
-      return applyToggleTodo(state, action);
+    case 'TODO_TOGGLE': {
+      return applyToggleTodo(state, action)
     }
-    default : return state;
+    default:
+      return state
   }
 }
 
 function applyAddTodo(state, action) {
-  return state.concat(action.todo);
+  return state.concat(action.todo)
 }
 
 function applyToggleTodo(state, action) {
-  return state.map(todo =>
-    todo.id === action.todo.id
-      ? { ...todo, completed: !todo.completed }
-      : todo
-  );
+  return state.map((todo) =>
+    todo.id === action.todo.id ? { ...todo, completed: !todo.completed } : todo
+  )
 }
 ```
 
 The Redux store which knows about the Redux Reducer:
 
 ```javascript
-import { createStore } from 'redux';
+import { createStore } from 'redux'
 
-const store = createStore(reducer, []);
+const store = createStore(reducer, [])
 ```
 
 Then, the Redux Store offers a small API surface to interact with it -- e.g. dispatching a Redux Action:
@@ -360,15 +356,15 @@ Then, the Redux Store offers a small API surface to interact with it -- e.g. dis
 store.dispatch({
   type: 'TODO_ADD',
   todo: { id: '0', name: 'learn redux', completed: false },
-});
+})
 ```
 
 Finally, in JavaScript, you can listen to changes with the Redux Store:
 
 ```javascript
 store.subscribe(() => {
-  console.log(store.getState());
-});
+  console.log(store.getState())
+})
 ```
 
 That's Redux in a nutshell with all its fragments: Action, Reducer, Store. If you attach the store subscription to React, the React UI can update whenever the state in Redux changes.
@@ -377,10 +373,10 @@ That's Redux in a nutshell with all its fragments: Action, Reducer, Store. If yo
 
 ### Exercises:
 
-* Read more about [why Redux makes you a better JS developer](/redux-javascript)
-* Read more about [Redux vs useReducer](/redux-vs-usereducer)
-* Read more about [Redux vs MobX](/redux-mobx)
-  * Optional: [Learn Redux and Redux with React](/react-redux-tutorial)
+- Read more about [why Redux makes you a better JS developer](/redux-javascript)
+- Read more about [Redux vs useReducer](/redux-vs-usereducer)
+- Read more about [Redux vs MobX](/redux-mobx)
+  - Optional: [Learn Redux and Redux with React](/react-redux-tutorial)
 
 # Origin of State
 
@@ -388,21 +384,21 @@ What makes all kinds of state the same is the nature of its transitions from one
 
 For instance, state that origins within the client application can be a boolean flag of for the status of an open/closed dialog component. The client application defines the initial state (e.g. closed dialog) and defines the state transitions + the actual possible states (e.g. boolean flag is set to false or true):
 
-* Open/Closed state for Dialog, Dropdown, Popover and DatePicker components.
-* Selected item in a Dropdown component.
-* Filter/Sort state of a Table component.
-* Text in an InputField component.
+- Open/Closed state for Dialog, Dropdown, Popover and DatePicker components.
+- Selected item in a Dropdown component.
+- Filter/Sort state of a Table component.
+- Text in an InputField component.
 
 In contrast, if state origins from a remote server application, the initial state and the transitions may be defined in the client application -- e.g. the initial state is `null` but once data arrives from an API the state is set to the actual `data` -- but the possible state coming from the backend application isn't foreseeable for the client application.
 
-* List of users coming from a remote API.
-* Currently signed in user coming from a remote API.
+- List of users coming from a remote API.
+- Currently signed in user coming from a remote API.
 
 Why do we need to know about this at all? Managing state that origins within the client application tends to be easier to manage than managing state coming from a backend application. The former, managing state that origins from the client application, can be achieved with all three strategies we have learned about:
 
-* (1) useState and useReducer
-* (2) useState/useReducer with useContext
-* (3) Redux, MobX and various other state management libraries
+- (1) useState and useReducer
+- (2) useState/useReducer with useContext
+- (3) Redux, MobX and various other state management libraries
 
 The latter, managing state that origins from the server application, tends to be more complex. It doesn't only come with no data (e.g. `null`) or actual filled data states, but also with additional states for error and progress. In addition, it's a repetitive process to set up all these states with your chosen strategy and it's a real pain once you consider advanced topics like caching and stale state. It comes with lots of pain points.
 
@@ -415,9 +411,9 @@ GraphQL is not strictly related to state. [GraphQL is an alternative to REST for
 For instance, Apollo Client is one of these GraphQL client libraries. It can be used to read and write data from and to a remote GraphQL API via GraphQL queries and mutations. For instance, using a query to read data with Apollo within a React component may look the following way:
 
 ```javascript
-import React from 'react';
-import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import React from 'react'
+import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
 
 const GET_CURRENT_USER = gql`
   {
@@ -426,29 +422,29 @@ const GET_CURRENT_USER = gql`
       name
     }
   }
-`;
+`
 
 const Profile = () => (
   <Query query={GET_CURRENT_USER}>
     {({ data, loading }) => {
       if (data.viewer) {
-        return null;
+        return null
       }
 
       if (loading) {
-        return <div>Loading ...</div>;
+        return <div>Loading ...</div>
       }
 
       return (
         <div>
           {data.viewer.name} {data.viewer.login}
         </div>
-      );
+      )
     }}
   </Query>
-);
+)
 
-export default Profile;
+export default Profile
 ```
 
 Even though GraphQL is just used to define the GraphQL query, the Query component from Apollo Client makes sure to give you all the states necessary to represent the whole data fetching process in the UI. In this case, it gives you `data` and a `loading` state, but you can also access `error` state and more. There is no need to write all the state transitions yourself, you just leave it to the Apollo Client GraphQL library.
@@ -457,55 +453,52 @@ Also caching is taken care of in advanced GraphQL Client library. There are mult
 
 Now, knowing about state that origins in client and server applications, it may be the best solution to differentiate between both origins by splitting up the responsibilities the following way:
 
-* client origin state management solutions
-  * useState/useReducer + useContext/Redux/MobX
+- client origin state management solutions
 
-* server origin state management solutions
-  * GraphQL + powerful GraphQL library
+  - useState/useReducer + useContext/Redux/MobX
+
+- server origin state management solutions
+  - GraphQL + powerful GraphQL library
 
 For many React applications, I strongly believe it would make state management a breeze if just GraphQL and a powerful GraphQL client library would be used to accommodate the server originated state. What's left is the UI state which can be easily managed by React's Hooks. There is even no strong need for Redux anymore.
 
 ### Exercises:
 
-* [Learn GraphQL with React](/the-road-to-graphql-book)
+- [Learn GraphQL with React](/the-road-to-graphql-book)
 
 # React State: this.state and setState (Legacy)
 
 If you are not using React Class Components but only [React Function Components](/react-function-component/), you don't need to read any further here. If you are still using React Class Components, then either
 
-* [migrate them to React Function Components](/react-hooks-migration) for enabling React Hooks
-* deal with state management in React Class Components the old-school way
+- [migrate them to React Function Components](/react-hooks-migration) for enabling React Hooks
+- deal with state management in React Class Components the old-school way
 
 The following example shows you how to manage state in React Class Components:
 
 ```javascript{5,6,7,11,20,25}
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       value: '',
-    };
+    }
   }
 
-  onChange = event => {
-    this.setState({ value: event.target.value });
-  };
+  onChange = (event) => {
+    this.setState({ value: event.target.value })
+  }
 
   render() {
     return (
       <div>
         <h1>Hello React ES6 Class Component!</h1>
 
-        <input
-          value={this.state.value}
-          type="text"
-          onChange={this.onChange}
-        />
+        <input value={this.state.value} type="text" onChange={this.onChange} />
 
         <p>{this.state.value}</p>
       </div>
-    );
+    )
   }
 }
 ```

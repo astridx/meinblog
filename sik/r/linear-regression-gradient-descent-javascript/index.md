@@ -1,13 +1,18 @@
 ---
-title: "Linear Regression with Gradient Descent in JavaScript"
-description: "Implementing a (univariate) linear regression with gradient descent, cost function and hypothesis in JavaScript ..."
-date: "2017-10-19T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript"]
-keywords: ["machine learning javascript", "linear regression javascript", "gradient descent javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Linear Regression with Gradient Descent in JavaScript'
+description: 'Implementing a (univariate) linear regression with gradient descent, cost function and hypothesis in JavaScript ...'
+date: '2017-10-19T13:50:46+02:00'
+categories: ['Machine Learning', 'JavaScript']
+keywords:
+  [
+    'machine learning javascript',
+    'linear regression javascript',
+    'gradient descent javascript',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript,#MachineLearning']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -94,7 +99,7 @@ In addition, in the example, I have chosen a **linear model**, so a straight lin
 In order to predict a price of a house with a particular size, we need to come up with the straight line that goes through the data set as most predicting as possible. The straight line can be defined as a function. The function is called **hypothesis** in machine learning. The function can be defined as `h(x) => thetaZero + thetaOne * x` for a univariate linear regression problem whereas the chosen model type is a linear model. Otherwise it would be a [polynomial linear regression](/polynomial-regression-model-selection-javascript/). In JavaScript, it can be expressed as:
 
 ```javascript
-const hypothesis = x => thetaZero + thetaOne * x;
+const hypothesis = (x) => thetaZero + thetaOne * x
 ```
 
 If you remember from your calculus classes in math, in this case the thetaOne of the function defines the slope and the thetaZero the intersection on the y-axis. In the end, it is a straight line in your 2-dimensional coordinate system.
@@ -124,13 +129,13 @@ In JavaScript, the cost function can be defined as the following function. The x
 
 ```javascript
 const cost = () => {
-  let sum = 0;
+  let sum = 0
 
   for (let i = 0; i < M; i++) {
-    sum += Math.pow(hypothesis(x[i]) - y[i], 2);
+    sum += Math.pow(hypothesis(x[i]) - y[i], 2)
   }
 
-  return sum / (2 * M);
+  return sum / (2 * M)
 }
 ```
 
@@ -193,14 +198,14 @@ Imagine a hilly landscape and you are standing on one of the hills. This one pos
 If the learning rate alpha is too high, it can be that you just pass through the local minima and end up on another hill. So the learning rate should be low to converge slowly to the local minima but not too low because otherwise it could take ages.
 
 ```javascript
-const LEARNING_RATE = 0.0003;
+const LEARNING_RATE = 0.0003
 ```
 
 Your position in the hilly landscape can be chosen by random in the beginning. It can happen that it is already a vale (local minima) and not a hill. That would be a lucky shot. Often it starts for thetaZero = 0, thetaOne = 0 which concludes to `h(x) => 0x + 0`. So you start with a random hypothesis, but try to adjust its paramaters to minimize the cost by using gradient descent.
 
 ```javascript
-let thetaOne = 0;
-let thetaZero = 0;
+let thetaOne = 0
+let thetaZero = 0
 ```
 
 There is one interesting catch to the story when having a multivariate linear regression which is not discussed in this article (multiple features instead of one feature). It doesn't matter for the sake of explaining an univariate linear regression by using gradient descent, but I found it an interesting addition to the metaphor. In the beginning, you decided randomly to stay on one of the hills in the hilly landscape. By using gradient descent, you went down the hill to your local vale. The local vale can be described as one local minima. When using multiple features instead of only one, it can happen that you have multiple local minima and one global minima. Depending on the randomly selected hill in the hilly landscape in the beginning, you might end up in different local vales that doesn't need to be necessary the global minima.
@@ -209,16 +214,16 @@ In JavaScript, a gradient descent algorithm for a univariate linear regression c
 
 ```javascript
 const learn = (alpha) => {
-  let thetaZeroSum = 0;
-  let thetaOneSum = 0;
+  let thetaZeroSum = 0
+  let thetaOneSum = 0
 
   for (let i = 0; i < M; i++) {
-    thetaZeroSum += hypothesis(x[i]) - y[i];
-    thetaOneSum += (hypothesis(x[i]) - y[i]) * x[i];
+    thetaZeroSum += hypothesis(x[i]) - y[i]
+    thetaOneSum += (hypothesis(x[i]) - y[i]) * x[i]
   }
 
-  thetaZero = thetaZero - (alpha / M) * thetaZeroSum;
-  thetaOne = thetaOne - (alpha / M) * thetaOneSum;
+  thetaZero = thetaZero - (alpha / M) * thetaZeroSum
+  thetaOne = thetaOne - (alpha / M) * thetaOneSum
 }
 ```
 

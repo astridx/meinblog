@@ -1,13 +1,13 @@
 ---
-title: "React useState with Callback"
-description: "If you have used setState before, you may be missing a callback function for the useState hook. This tutorial explains how to implement it with useEffect ..."
-date: "2019-06-03T03:52:46+02:00"
-categories: ["React"]
-keywords: ["react usestate callback"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React useState with Callback'
+description: 'If you have used setState before, you may be missing a callback function for the useState hook. This tutorial explains how to implement it with useEffect ...'
+date: '2019-06-03T03:52:46+02:00'
+categories: ['React']
+keywords: ['react usestate callback']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -26,11 +26,11 @@ const App = () => {
 
   React.useEffect(() => {
     if (count > 1) {
-      console.log('Threshold of over 1 reached.');
+      console.log('Threshold of over 1 reached.')
     } else {
-      console.log('No threshold reached.');
+      console.log('No threshold reached.')
     }
-  }, [count]);
+  }, [count])
 
   return (
     <div>
@@ -40,8 +40,8 @@ const App = () => {
         Increase
       </button>
     </div>
-  );
-};
+  )
+}
 ```
 
 The function you pass to the useEffect hook is your callback function which runs after the provided state changes from the useState hook's second argument. If you perform changes in this callback function that should be reflected in your component's rendered output, you may want to use [useLayoutEffect instead of useEffect](/react-useeffect-vs-uselayouteffect).
@@ -49,16 +49,16 @@ The function you pass to the useEffect hook is your callback function which runs
 If you are looking for an out of the box solution, check out [this custom hook](https://github.com/the-road-to-learn-react/use-state-with-callback) that works like useState but accepts as second parameter as callback function:
 
 ```javascript{1,4,5,6,7,8,9,10}
-import useStateWithCallback from 'use-state-with-callback';
+import useStateWithCallback from 'use-state-with-callback'
 
 const App = () => {
-  const [count, setCount] = useStateWithCallback(0, count => {
+  const [count, setCount] = useStateWithCallback(0, (count) => {
     if (count > 1) {
-      console.log('Threshold of over 1 reached.');
+      console.log('Threshold of over 1 reached.')
     } else {
-      console.log('No threshold reached.');
+      console.log('No threshold reached.')
     }
-  });
+  })
 
   return (
     <div>
@@ -68,8 +68,8 @@ const App = () => {
         Increase
       </button>
     </div>
-  );
-};
+  )
+}
 ```
 
 The custom hook can be installed via `npm install use-state-with-callback`. At the end, the React team decided consciously against a second argument for useState for providing a callback function, because useEffect or useLayoutEffect can be used instead. However, if you are lazy, you can use the custom hook to get the same effect as setState from React class components.

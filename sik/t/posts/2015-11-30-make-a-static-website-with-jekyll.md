@@ -21,7 +21,7 @@ This is what the website we make will look like:
 
 ![](../images/Screen-Shot-2015-11-30-at-2.20.25-AM.png)
 
-- [View Demo](http://taniarascia.github.io/startjekyll/) 
+- [View Demo](http://taniarascia.github.io/startjekyll/)
 - [View on GitHub](http://github.com/taniarascia/startjekyll/)
 
 #### Prerequisites
@@ -245,7 +245,9 @@ Any `head` metadata.
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>
+    {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
+  </title>
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link
@@ -316,8 +318,8 @@ The layout that your content will conform to.
 #### page.html
 
 ```html
---- 
-layout: default 
+---
+layout: default
 ---
 
 <h2>{{ page.title }}</h2>
@@ -332,14 +334,14 @@ All the dashes at the top are **mandatory**. If you don't include them, the webs
 Same as the page, but with date and author metadata.
 
 ```html
---- 
-layout: default 
+---
+layout: default
 ---
 
 <h2>{{ page.title }}</h2>
 <time
-  >{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if
-  page.meta %} • {{ page.meta }}{% endif %}</time
+  >{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author
+  }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</time
 >
 
 {{ content }}
@@ -355,7 +357,6 @@ Now we're creating the markdown files. Prepending them with a number ensures tha
 
 ```markdown
 ---
-
 layout: page
 title: About
 permalink: /about/
@@ -363,15 +364,14 @@ permalink: /about/
 
 About content goes here.
 
-* A list item
-* Another list item
+- A list item
+- Another list item
 ```
 
 #### 02_contact.md
 
 ```markdown
 ---
-
 layout: page
 title: Contact
 permalink: /contact/
@@ -393,8 +393,8 @@ Delete about.md from the main directory, since we've put it in the **\_pages** d
 **index.html** in the main directory will be the main page of the site.
 
 ```html
---- 
-layout: default 
+---
+layout: default
 ---
 
 <h2>Main Page</h2>
@@ -428,10 +428,8 @@ The **css** directory in the root should contain one file - **main.scss**. Edit 
 ---
 # Front matter comment to ensure Jekyll properly reads file.
 ---
-@import
-	"base",
-  "layout",
-  "syntax-highlighting"
+
+@import 'base', 'layout', 'syntax-highlighting';
 ```
 
 Leave the top part exactly as is.
@@ -621,8 +619,8 @@ Duplicate your **\_config.yml** and call it **\_config_dev.yml**.
 Leave the **\_config_dev.yml** as is, and change **\_config.yml** for the live site.
 
 ```yaml
-baseurl: "/startjekyll"
-url: "https://taniarascia.github.io"
+baseurl: '/startjekyll'
+url: 'https://taniarascia.github.io'
 ```
 
 Now, when you want to work on the site locally, you will run the following command:

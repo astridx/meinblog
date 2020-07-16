@@ -113,7 +113,10 @@ First, we'll create a simple HTML front end with **index.html**. I'm loading in 
 
     <title>New Tab App</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/primitive-ui/dist/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/primitive-ui/dist/css/main.css"
+    />
   </head>
 
   <body>
@@ -122,7 +125,7 @@ First, we'll create a simple HTML front end with **index.html**. I'm loading in 
 
       <!-- more will go here -->
     </div>
-  
+
     <script src="js/scripts.js"></script>
   </body>
 </html>
@@ -177,7 +180,7 @@ Next, I'm going to make a function that creates an `li` element, since I'll be d
 <div class="filename">scripts.js</div>
 
 ```js
-const liMaker = text => {
+const liMaker = (text) => {
   const li = document.createElement('li')
   li.textContent = text
   ul.appendChild(li)
@@ -191,7 +194,7 @@ Instead, the form will submit the value of the `input`. We're going to call the 
 <div class="filename">scripts.js</div>
 
 ```js
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault()
 
   liMaker(input.value)
@@ -240,7 +243,7 @@ We're going to loop through everything in our `data` variable above, which conta
 <div class="filename">scripts.js</div>
 
 ```js
-data.forEach(item => {
+data.forEach((item) => {
   liMaker(item)
 })
 ```
@@ -250,7 +253,7 @@ Last, we'll add a click event to the button that will clear all data from `local
 <div class="filename">scripts.js</div>
 
 ```js
-button.addEventListener('click', function() {
+button.addEventListener('click', function () {
   localStorage.clear()
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild)
@@ -287,7 +290,9 @@ A little more concise would be to use a [ternary operator](https://www.digitaloc
 <div class="filename">scripts.js</div>
 
 ```js
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+let itemsArray = localStorage.getItem('items')
+  ? JSON.parse(localStorage.getItem('items'))
+  : []
 ```
 
 With that, our app is complete! Now when you enter in some information and refresh or close the browser window, the data will persist until you manually clear the data in Developer Tools (under Application -> Storage) or by running the `localStorage.clear()` command. Here is the full JavaScript code.
@@ -299,18 +304,20 @@ const form = document.querySelector('form')
 const ul = document.querySelector('ul')
 const button = document.querySelector('button')
 const input = document.getElementById('item')
-let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : []
+let itemsArray = localStorage.getItem('items')
+  ? JSON.parse(localStorage.getItem('items'))
+  : []
 
 localStorage.setItem('items', JSON.stringify(itemsArray))
 const data = JSON.parse(localStorage.getItem('items'))
 
-const liMaker = text => {
+const liMaker = (text) => {
   const li = document.createElement('li')
   li.textContent = text
   ul.appendChild(li)
 }
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault()
 
   itemsArray.push(input.value)
@@ -319,11 +326,11 @@ form.addEventListener('submit', function(e) {
   input.value = ''
 })
 
-data.forEach(item => {
+data.forEach((item) => {
   liMaker(item)
 })
 
-button.addEventListener('click', function() {
+button.addEventListener('click', function () {
   localStorage.clear()
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild)
@@ -333,7 +340,7 @@ button.addEventListener('click', function() {
 
 Here is the demo and source code once again.
 
-- [View Demo](https://taniarascia.github.io/sandbox/tab/) 
+- [View Demo](https://taniarascia.github.io/sandbox/tab/)
 - [View Source](https://github.com/taniarascia/sandbox/tree/master/tab)
 
 ## Conclusion

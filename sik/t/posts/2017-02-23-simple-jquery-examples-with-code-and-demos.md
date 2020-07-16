@@ -26,12 +26,9 @@ An accordion is a list of headers that open and collapse more content when click
 
 ```js
 // Clicking on the accordion header title...
-$('.accordion').on('click', '.accordion-header', function() {
+$('.accordion').on('click', '.accordion-header', function () {
   // will (slide) toggle the related panel.
-  $(this)
-    .toggleClass('active')
-    .next()
-    .slideToggle()
+  $(this).toggleClass('active').next().slideToggle()
 })
 ```
 
@@ -44,7 +41,7 @@ Tabs are a form of navigation that switches the content inside a panel. I had a 
 
 ```js
 // Clicking on the tab...
-$('.tab-list').on('click', '.tab', function(e) {
+$('.tab-list').on('click', '.tab', function (e) {
   e.preventDefault()
 
   // will remove all active classes from the tabs...
@@ -67,21 +64,17 @@ A dropdown is a menu that toggles when you click on it. It's usually indicated b
 
 ```js
 // Clicking away from the dropdown will collapse it.
-$('html').click(function() {
+$('html').click(function () {
   $('.dropdown').hide()
 })
 
 // Any nav item that is not an only child...
-$('nav ul li a:not(:only-child)').click(function(e) {
+$('nav ul li a:not(:only-child)').click(function (e) {
   // will be toggled.
-  $(this)
-    .siblings('.dropdown')
-    .toggle()
+  $(this).siblings('.dropdown').toggle()
 
   // Opening a new dropdown will collapse any other dropdown.
-  $('.dropdown')
-    .not($(this).siblings())
-    .hide()
+  $('.dropdown').not($(this).siblings()).hide()
 
   e.stopPropagation()
 })
@@ -96,17 +89,17 @@ A modal is a dialog box that pops up on the screen, usually blocking access to r
 
 ```js
 // Clicking the open class will open the modal.
-$('.open').on('click', function() {
+$('.open').on('click', function () {
   $('.overlay, .modal').addClass('active')
 })
 
 // Clicking the close class will close it.
-$('.close, .overlay').on('click', function() {
+$('.close, .overlay').on('click', function () {
   $('.overlay, .modal').removeClass('active')
 })
 
 // Pressing the escape key will also close the modal.
-$(document).keyup(function(e) {
+$(document).keyup(function (e) {
   if (e.keyCode === 27) {
     $('.overlay, .modal').removeClass('active')
   }
@@ -122,7 +115,7 @@ Sometimes you might want to change an element (in this case, the navigation) aft
 
 ```js
 // Activates when you scroll.
-$(window).on('scroll', function() {
+$(window).on('scroll', function () {
   var position = $('#begin').offset()
 
   // If the top of the screen is greater than the #begin element.

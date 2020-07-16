@@ -1,13 +1,13 @@
 ---
-title: "How to establish a Git Team Workflow"
-description: "Learn how to establish a Git Team Workflow with branching techniques, pull/push strategies, and common sense git commands to make your team more productive ..."
-date: "2019-08-22T13:56:46+02:00"
-categories: ["Web Development"]
-keywords: ["git team workflow", "git team cheatsheet"]
-hashtags: ["#100DaysOfCode", "#Git"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to establish a Git Team Workflow'
+description: 'Learn how to establish a Git Team Workflow with branching techniques, pull/push strategies, and common sense git commands to make your team more productive ...'
+date: '2019-08-22T13:56:46+02:00'
+categories: ['Web Development']
+keywords: ['git team workflow', 'git team cheatsheet']
+hashtags: ['#100DaysOfCode', '#Git']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -18,22 +18,22 @@ When I have been working with my clients over the last years, I have seen how cr
 
 After I have been through this struggle a couple of times, I wanted to write down what I have learned about git for teams which may help you to align your team on one workflow. If this blog post turns out too long for you, go through it with your team in a "lunch and learn"-break; and condense the most important points in a git workflow cheatsheet for your team. If you come up with the cheatsheet yourself after all, your team will own it and can iterate on it with the learnings that make sense for your particular case.
 
-*Note: Everything that follows conveys only my experience working with a team of 5 - 25 people with git as version control system. Nothing you will read here is set in stone, but I have seen productive teams once this workflow (or any other workflow) got established in an organization. If you follow a different workflow in your company, I would be curious to hear about it.*
+_Note: Everything that follows conveys only my experience working with a team of 5 - 25 people with git as version control system. Nothing you will read here is set in stone, but I have seen productive teams once this workflow (or any other workflow) got established in an organization. If you follow a different workflow in your company, I would be curious to hear about it._
 
 # Git Team Workflow: Branches
 
 Basically there are three kinds of branches when working as a team in git:
 
-* master branch
-* staging branch
-* feature branch(es)
+- master branch
+- staging branch
+- feature branch(es)
 
-Whereas there can be more than one feature branch in your git workflow, there is only one master branch and one staging branch. The staging branch varies in its naming -- e.g. I have seen a staging branch being called *develop* and *development* branch as well. The master branch gets its name from git itself. The feature branches can be called whatever your team aligns on for the naming convention. I have seen something like:
+Whereas there can be more than one feature branch in your git workflow, there is only one master branch and one staging branch. The staging branch varies in its naming -- e.g. I have seen a staging branch being called _develop_ and _development_ branch as well. The master branch gets its name from git itself. The feature branches can be called whatever your team aligns on for the naming convention. I have seen something like:
 
-* feat/user-authentication
-* fix/landing-page-transition
+- feat/user-authentication
+- fix/landing-page-transition
 
-Often people use namings like *feat/YMC-1634* for feature branches as well, to link them directly to a ticket in their scrum/kanban/... board. Note that feature branches are not only used for feature development, but also for bug fixes and other things. Feature branches are the place where all the implementation takes place, whereas staging and master branches are only used for releases of your application. In the following, I will use \<branch_name> for any of these branches.
+Often people use namings like _feat/YMC-1634_ for feature branches as well, to link them directly to a ticket in their scrum/kanban/... board. Note that feature branches are not only used for feature development, but also for bug fixes and other things. Feature branches are the place where all the implementation takes place, whereas staging and master branches are only used for releases of your application. In the following, I will use \<branch_name> for any of these branches.
 
 # Git Team Workflow: Where am I?
 
@@ -44,7 +44,7 @@ git status
 git log
 ```
 
-Whereas the former command shows your changed files in staged and unstaged mode -- important: get familiar with these modes --, the latter command shows you the git history. Sometimes *git reflog* can save your ass if you screwed something up and you want to jump back in time. With the following git workflow, it's one of our goals to keep a well-arranged git history which can be seen with `git log`.
+Whereas the former command shows your changed files in staged and unstaged mode -- important: get familiar with these modes --, the latter command shows you the git history. Sometimes _git reflog_ can save your ass if you screwed something up and you want to jump back in time. With the following git workflow, it's one of our goals to keep a well-arranged git history which can be seen with `git log`.
 
 # Git Team Workflow: Branch Lifecycles
 
@@ -84,7 +84,7 @@ git commit -m "<commit_message>"
 git push origin <branch_name>
 ```
 
-Whereas `git add .` moves *all* changed/added/deleted files to staging for the next commit, you can use [variations of git add](https://git-scm.com/docs/git-add) to move only a subset of the changed files to staging. This is helpful if you follow an [atomic commit strategy](https://en.wikipedia.org/wiki/Atomic_commit). For instance, I like to use `git add -u` to move all changed but not new files to staging.
+Whereas `git add .` moves _all_ changed/added/deleted files to staging for the next commit, you can use [variations of git add](https://git-scm.com/docs/git-add) to move only a subset of the changed files to staging. This is helpful if you follow an [atomic commit strategy](https://en.wikipedia.org/wiki/Atomic_commit). For instance, I like to use `git add -u` to move all changed but not new files to staging.
 
 If you are using `git status` in between, you will see that there are staged and unstaged files. Also git gives you instructions to move files from 1) staged to staging and from 2) staging to non changed:
 
@@ -101,20 +101,20 @@ After moving your files into staging, every of these files gets committed with y
 
 which can have the following types:
 
-* feat - actual feature implementation
-* style - code style and code clean up
-* test - actual test implementation
-* fix - bug fix
-* refactor - refactoring that doesn't affect the behavior of the code
-* chore - no production code changes, but more like configuration and setup
+- feat - actual feature implementation
+- style - code style and code clean up
+- test - actual test implementation
+- fix - bug fix
+- refactor - refactoring that doesn't affect the behavior of the code
+- chore - no production code changes, but more like configuration and setup
 
 Thus, a commit message could look like the following:
 
-* feat(users) add authentication
-* fix(logout) clean up cookie
-* test(login) cookie set with access token
-* style(*) fix indentation
-* chore(.gitignore) add .env file
+- feat(users) add authentication
+- fix(logout) clean up cookie
+- test(login) cookie set with access token
+- style(\*) fix indentation
+- chore(.gitignore) add .env file
 
 As mentioned, you don't need to follow this naming convention, but to keep everyone in your team on the same page, align on one naming convention yourself. This applies to commit messages more importantly than branch namings.
 
@@ -124,8 +124,8 @@ Last but not leats, after you have added and committed your changes, push everyt
 
 Regardless of the branch (staging/feature) you are working on, sometimes you need to update your local version of this branch with the changes from the remote branch, because someone else pushed updates to it. Before you start to update the branch, follow these optional steps:
 
-* If the branch isn't available locally for you, because someone else started it, you start with a `git fetch`. Next you navigate to the branch with `git checkout <branch_name>`.
-* If you have changed files, `git commit` or `git stash` them. The latter is used for storing your changes to apply them in a later stage again.
+- If the branch isn't available locally for you, because someone else started it, you start with a `git fetch`. Next you navigate to the branch with `git checkout <branch_name>`.
+- If you have changed files, `git commit` or `git stash` them. The latter is used for storing your changes to apply them in a later stage again.
 
 Then you can start to pull the latest changes. My recommendation would be to always use a rebase which puts your commits on top of the remote branch's commits:
 
@@ -148,8 +148,8 @@ After the pull rebase finishes, all your commits should be listed on top of the 
 
 Once you started to work on a feature branch, you may want to keep the branch up to date with the staging branch in case anyone else merged their feature branches into staging. So when do you want to keep your feature branch up to date with staging?
 
-* If you want to create a pull request (PR) of your feature branch to merge it into staging, but all the recent changes from staging should be included to reflect the latest changes but also to not run into merge conflicts.
-* If you need to include an update from staging (e.g. hotfix, library upgrade, dependent feature from someone else) to continue working on your feature branch without blocking issues.
+- If you want to create a pull request (PR) of your feature branch to merge it into staging, but all the recent changes from staging should be included to reflect the latest changes but also to not run into merge conflicts.
+- If you need to include an update from staging (e.g. hotfix, library upgrade, dependent feature from someone else) to continue working on your feature branch without blocking issues.
 
 Follow this git workflow to keep your feature branch up to date with the staging branch:
 
@@ -186,15 +186,15 @@ But be careful with a force push: If someone else made changes in between on thi
 
 A pull request (PR) will merge all your feature branch's changes into the staging branch. Afterward, you can delete your feature branch locally and remotely. Even though a merge would be possible without a PR, a PR enables other people to review your feature on platforms like GitHub or Gitlab. That's why a best practice would be to open a PR for your feature branch once you finished the implementation of the actual feature on this branch and pushed everything to your remote repository. The git workflow looks as follows:
 
-* **follow:** How to keep a feature branch up-to-date with staging?
-* **do:** Open Pull Request on GitHub/Gitlab/... for your feature branch.
-* **wait:** CI/CD, discussion/review, approval of team members.
-* **optional:** Push more commits to your remote branch if changes are needed due to discussion.
+- **follow:** How to keep a feature branch up-to-date with staging?
+- **do:** Open Pull Request on GitHub/Gitlab/... for your feature branch.
+- **wait:** CI/CD, discussion/review, approval of team members.
+- **optional:** Push more commits to your remote branch if changes are needed due to discussion.
 
 If everything is fine with your feature branch, continue with one of the following ways:
 
-* 1) Merge your PR directly on your GitHub/Gitlab/...
-* 2) Or continue on the command line with the merge:
+- 1. Merge your PR directly on your GitHub/Gitlab/...
+- 2. Or continue on the command line with the merge:
 
 ```javascript
 git checkout staging

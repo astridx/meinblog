@@ -8,7 +8,7 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie.
@@ -19,7 +19,7 @@ Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -29,15 +29,15 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Menüpunkt `Fields ` in diesem neuen Menü. 
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Menüpunkt `Fields` in diesem neuen Menü.
 
 ![Joomla! Custom Fields in eine eigene Komponente integrieren](../images/j4x17x1.png)
 
 3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text`, falls du dies nicht im vorherigen Kapitel erledigt hast.
 
-4. Edieren ein veröffentlichtes Foo-Item. Stelle sicher, dass du das Custom Field mit einem Wert versiehst. 
+4. Edieren ein veröffentlichtes Foo-Item. Stelle sicher, dass du das Custom Field mit einem Wert versiehst.
 
 ![Joomla! Custom Fields in eine eigene Komponente integrieren](../images/j4x18x1.png)
 

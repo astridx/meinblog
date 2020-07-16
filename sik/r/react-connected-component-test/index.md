@@ -1,13 +1,13 @@
 ---
-title: "How to test React-Redux connected Components"
+title: 'How to test React-Redux connected Components'
 description: "By Example: How to unit test React-Redux connected components? By getting full control over your Redux store, testing whether every dispatched action from a React component reaches the Redux isn't too difficult ..."
-date: "2019-08-30T13:56:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["react connected component test"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-08-30T13:56:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['react connected component test']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -32,14 +32,10 @@ Imagine following scenario: The React component receives a string in `myState` t
 
 ```javascript
 describe('My Connected React-Redux Component', () => {
-  it('should render with given state from Redux store', () => {
+  it('should render with given state from Redux store', () => {})
 
-  });
-
-  it('should dispatch an action on button click', () => {
-
-  });
-});
+  it('should dispatch an action on button click', () => {})
+})
 ```
 
 In order to get full control over the Redux store, we will use a Redux specific testing library called [Redux Mock Store](https://github.com/dmitry-zaets/redux-mock-store). If you haven't installed it yet, you can do so on the command line:
@@ -57,65 +53,57 @@ Redux State (Mock) -> React Component (Unit Test) -> Redux Action (Mock)
 Let's see how we can set up the Redux mock store in our unit test:
 
 ```javascript{1,3,6,8-12}
-import configureStore from 'redux-mock-store';
+import configureStore from 'redux-mock-store'
 
-const mockStore = configureStore([]);
+const mockStore = configureStore([])
 
 describe('My Connected React-Redux Component', () => {
-  let store;
+  let store
 
   beforeEach(() => {
     store = mockStore({
       myState: 'sample text',
-    });
-  });
+    })
+  })
 
-  it('should render with given state from Redux store', () => {
+  it('should render with given state from Redux store', () => {})
 
-  });
-
-  it('should dispatch an action on button click', () => {
-
-  });
-});
+  it('should dispatch an action on button click', () => {})
+})
 ```
 
 Everything you pass into `mockStore` will be your Redux store's initial state. So make sure you provide everything that's needed by your connected React component to render without any problems. Next, create the React component with a renderer of your choice for your test:
 
 ```javascript{1,2,3,6,12,19-23}
-import React from 'react';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
-import configureStore from 'redux-mock-store';
+import React from 'react'
+import { Provider } from 'react-redux'
+import renderer from 'react-test-renderer'
+import configureStore from 'redux-mock-store'
 
-import MyConnectedComponent from '.';
+import MyConnectedComponent from '.'
 
-const mockStore = configureStore([]);
+const mockStore = configureStore([])
 
 describe('My Connected React-Redux Component', () => {
-  let store;
-  let component;
+  let store
+  let component
 
   beforeEach(() => {
     store = mockStore({
       myState: 'sample text',
-    });
+    })
 
     component = renderer.create(
       <Provider store={store}>
         <MyConnectedComponent />
       </Provider>
-    );
-  });
+    )
+  })
 
-  it('should render with given state from Redux store', () => {
+  it('should render with given state from Redux store', () => {})
 
-  });
-
-  it('should dispatch an action on button click', () => {
-
-  });
-});
+  it('should dispatch an action on button click', () => {})
+})
 ```
 
 You can see how the mocked Redux store is used in the wrapping Provider from the actual react-redux library. Thus, the mocked Redux store is provided for your React component for the purpose of this test. For your first unit test, the simplest thing you can do is performing a snapshot test of the rendered component:
@@ -198,7 +186,7 @@ describe('My Connected React-Redux Component', () => {
 
 With Jest, we simulate a click event on the button and expect the Redux store's dispatch function to have been called one time with the returned values from our desired Redux action.
 
-**Important:** Always make sure to clean up your mocks in testing, otherwise another test may run into a mocked function. You can clear mocks in Jest individually, like the previous code snippets has shown it, but also [globally](https://jestjs.io/docs/en/configuration.html#clearmocks-boolean) by setting the `clearMocks` flag to true in your *jest.config.json* file. This will clear all mocks after every test without leaving any zombie mocks around.
+**Important:** Always make sure to clean up your mocks in testing, otherwise another test may run into a mocked function. You can clear mocks in Jest individually, like the previous code snippets has shown it, but also [globally](https://jestjs.io/docs/en/configuration.html#clearmocks-boolean) by setting the `clearMocks` flag to true in your _jest.config.json_ file. This will clear all mocks after every test without leaving any zombie mocks around.
 
 <Divider />
 
@@ -232,7 +220,7 @@ In this case, for instance, we assume that the input field updates internal stat
 
 Ultimately, that's already it for testing the second part of the connected react-redux component:
 
-* 1) Provide State -> React Component (Unit Test) => Component Renders
-* 2) React Component (Unit Test) -> Simulate Event => Dispatch Action Triggers
+- 1. Provide State -> React Component (Unit Test) => Component Renders
+- 2. React Component (Unit Test) -> Simulate Event => Dispatch Action Triggers
 
 There are many ways to test connected React components that know about the Redux store. Using a Jest Mock for functions (e.g. Redux dispatch function) and a Redux Store Mock for faking the received state are only one way for unit testing these kind of components. Other approaches try to fully integrate their Redux store into their testing equation or to Jest mock the react-redux connect higher-order component. Anyway, you can add this learned testing method to your tool belt of unit testing best practices for React now.

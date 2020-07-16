@@ -1,13 +1,13 @@
 ---
-title: "Lessons learned from On Writing Well"
-description: "The article is a summary of my lessons learned from On Writing Well by William Zinsser. By providing a summary I hope to help other developers to improve their writing. Apart from that it helps me to memorize my lessons learned."
-date: "2017-01-25T13:50:46+02:00"
-categories: ["Growth"]
-keywords: ["book summary on writing well"]
-hashtags: ["#100DaysOfCode", "#growth"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'Lessons learned from On Writing Well'
+description: 'The article is a summary of my lessons learned from On Writing Well by William Zinsser. By providing a summary I hope to help other developers to improve their writing. Apart from that it helps me to memorize my lessons learned.'
+date: '2017-01-25T13:50:46+02:00'
+categories: ['Growth']
+keywords: ['book summary on writing well']
+hashtags: ['#100DaysOfCode', '#growth']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -16,7 +16,7 @@ As a software engineer you will come to a point where writing matters. Perhaps y
 
 The article is a summary of my lessons learned from [On Writing Well](http://amzn.to/2AsoDzh) by William Zinsser. I am no expert in this field, even less as a non native speaker, but by providing a summary I hope to help other developers to improve their writing skills. Apart from that it helps me to memorize my lessons learned.
 
-I am eager to improve my language and writing skills. *On Writing Well* had topics which are easier applicable than other topics for non native speakers. For instance, it is easier to leave out all the clutter and keep the sentences and words simple. As a non native speaker you are less intended to write in complex sentences with difficult words. However *On Writing Well* had topics that were more difficult to apply. The english language has a rich set of words and synonyms that are not always known for non native speakers. Especially this fact makes it hard for non native speaker to fine tune their writing in its meaning. But let's dive into my lessons learned.
+I am eager to improve my language and writing skills. _On Writing Well_ had topics which are easier applicable than other topics for non native speakers. For instance, it is easier to leave out all the clutter and keep the sentences and words simple. As a non native speaker you are less intended to write in complex sentences with difficult words. However _On Writing Well_ had topics that were more difficult to apply. The english language has a rich set of words and synonyms that are not always known for non native speakers. Especially this fact makes it hard for non native speaker to fine tune their writing in its meaning. But let's dive into my lessons learned.
 
 # How to learn?
 
@@ -50,9 +50,9 @@ The quickest fix according to William Zinsser is to strike things. Ask yourself 
 
 # Make it Personal
 
-Once you removed the clutter and made your text simple and clear, there might be no personal style left. But there is always a human being behind the text. Be yourself, be warm and be natural. If you can, write in the first person. Use *I*, *me*, *we* and *us*. Avoid to use *one*, because the reader wants to experience the transaction between a reader and writer. He or she wants to know you. Stand out as a real human. Never lack the human ingredient.
+Once you removed the clutter and made your text simple and clear, there might be no personal style left. But there is always a human being behind the text. Be yourself, be warm and be natural. If you can, write in the first person. Use _I_, _me_, _we_ and _us_. Avoid to use _one_, because the reader wants to experience the transaction between a reader and writer. He or she wants to know you. Stand out as a real human. Never lack the human ingredient.
 
-If you can't write in the first person, at least think as if you would write from your point of view. You can write your first draft in the first person. Afterwards you cut out all the *I* and *me*. Still it will keep your implicit personal style.
+If you can't write in the first person, at least think as if you would write from your point of view. You can write your first draft in the first person. Afterwards you cut out all the _I_ and _me_. Still it will keep your implicit personal style.
 
 Believe in your opinion. Sell yourself. When your subject is your expertise, the subject will sell itself. Avoid timidities (quite, a bit, ...) in your writing. Mean it, be confident with it or strike it. Be bold.
 
@@ -66,7 +66,7 @@ The spoken word is looser than the written word. You should use common words ove
 
 # Unity
 
-Stick to *one set of variables*. William Zinsser calls it the *unity*. Stick to one style and tone. Stick to one perspective. Do you write in the first or third person? Use a consistent tense. Don't switch from past tense to present tense and back again. Write formal or casual. Believe in your mood.
+Stick to _one set of variables_. William Zinsser calls it the _unity_. Stick to one style and tone. Stick to one perspective. Do you write in the first or third person? Use a consistent tense. Don't switch from past tense to present tense and back again. Write formal or casual. Believe in your mood.
 
 Don't change the set of variables in between of your writing. "If you do, the writing will control you and not the other way around". When you change variables, adjust the writing from before. However, don't overplan. You should experiment where your writing guides you. If it feels right, stick to it and adjust the variables from before. But in the end have one unity of variables.
 
@@ -86,27 +86,27 @@ In your research always collect more material than you will use. Research your m
 
 # Know your Language (II)
 
-* Verbs - Use strong and precise active verbs over weak passive verbs. Your verbs are the most important elements in your sentence. "They push the sentence forward and give it momentum" says William Zinsser.
+- Verbs - Use strong and precise active verbs over weak passive verbs. Your verbs are the most important elements in your sentence. "They push the sentence forward and give it momentum" says William Zinsser.
 
-* Nouns - After verbs, plain nouns come as strong elements in your writing.
+- Nouns - After verbs, plain nouns come as strong elements in your writing.
 
-* Adverbs and Adjectives - Avoid to use adverbs and adjectives. They weaken your verbs. Take them only when they do work for you that needs to be done. Don't write about "the green grass". Write about "grass" except it has another color than green.
+- Adverbs and Adjectives - Avoid to use adverbs and adjectives. They weaken your verbs. Take them only when they do work for you that needs to be done. Don't write about "the green grass". Write about "grass" except it has another color than green.
 
-* Punctuations - Avoid exclamation points except you want to achieve a certain effect. Most of the time that effect should be achieved by your writing alone. Avoid semicolons except you want the reader to make a pause.
+- Punctuations - Avoid exclamation points except you want to achieve a certain effect. Most of the time that effect should be achieved by your writing alone. Avoid semicolons except you want the reader to make a pause.
 
-* Dashes - Use dashes for two use cases: Use one dash to jusitfy the main sentence. Use two dashes in between of a sentence to add an enhancing detail.
+- Dashes - Use dashes for two use cases: Use one dash to jusitfy the main sentence. Use two dashes in between of a sentence to add an enhancing detail.
 
 "The tools of grammar haven't survived for so many centuries by chance; they are props the reader need and subconsciously want" - William Zinsser
 
-* Use *that* over *which* whenever you can.
+- Use _that_ over _which_ whenever you can.
 
-* Nounism is a sequence of nouns. It adds complexity. Avoid nounism where one noun or verb can describe it.
+- Nounism is a sequence of nouns. It adds complexity. Avoid nounism where one noun or verb can describe it.
 
-* Keep your credibility, don't sell something as true that actually isn't.
+- Keep your credibility, don't sell something as true that actually isn't.
 
 # Use Mood Changers
 
-Mood changers are words like *but*, *yet*, *however*, *nevertheless* and *still*. Add them at the beginning of your sentence. As early as possible make your reader clear that something has changed. If you use too often *but*, you can substitute it with *however*. Use mood changers like *meanwhile* and *today* to make your reader aware of the time.
+Mood changers are words like _but_, _yet_, _however_, _nevertheless_ and _still_. Add them at the beginning of your sentence. As early as possible make your reader clear that something has changed. If you use too often _but_, you can substitute it with _however_. Use mood changers like _meanwhile_ and _today_ to make your reader aware of the time.
 
 # Make it visual
 
@@ -114,9 +114,9 @@ In order to keep your writing visual you have to keep your paragraphs short. Rea
 
 # Make it sound
 
-Always listen to what you write. You can choose your words based on their sound. William Zinsser compared the words *serene* and *tranquil* whereas the one is soft and the other one is irregular because of its unusual characters. Depending on your context choose one of them.
+Always listen to what you write. You can choose your words based on their sound. William Zinsser compared the words _serene_ and _tranquil_ whereas the one is soft and the other one is irregular because of its unusual characters. Depending on your context choose one of them.
 
-Use the same voice in each of your writings. It comes back to the term *unity*. Don't adjust your voice to fit the subject. Find your simple voice and make the writing effortless for your reader. Don't add clutter like slang and nounism to the path of reading.
+Use the same voice in each of your writings. It comes back to the term _unity_. Don't adjust your voice to fit the subject. Find your simple voice and make the writing effortless for your reader. Don't add clutter like slang and nounism to the path of reading.
 
 # Rewrite Often
 
@@ -126,7 +126,7 @@ Use the same voice in each of your writings. It comes back to the term *unity*. 
 
 The last paragraph form the last chapter, "Write as Well as You Can", is still stuck in my head. It doesn't necessarily apply only to writing, but to all our doings:
 
-*A reporter once asked him [a baseball player] how he managed to play so well so consistently, and he said "I always thought that there was at least one person in the stands who had never seen me play, and I didn't want to let him down."*
+_A reporter once asked him [a baseball player] how he managed to play so well so consistently, and he said "I always thought that there was at least one person in the stands who had never seen me play, and I didn't want to let him down."_
 
 I can recommend to read the book [On Writing Well by William Zinsser](http://amzn.to/2AsoDzh). It taught me a lot. But these are only my lessons learned. Maybe you can distill other learnings when you read it.
 

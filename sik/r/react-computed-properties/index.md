@@ -1,32 +1,32 @@
 ---
-title: "Computed Properties in React"
-description: "There are no computed properties in React. However, deriving values from state is a common implementation in React too ..."
-date: "2020-05-18T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react computed properties"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Computed Properties in React'
+description: 'There are no computed properties in React. However, deriving values from state is a common implementation in React too ...'
+date: '2020-05-18T07:52:46+02:00'
+categories: ['React']
+keywords: ['react computed properties']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
-Today I came across a question in my Newsletter regarding computed properties in React. I didn't know about the term computed properties before, because such a term doesn't really exist in React, but it exists in other frameworks like Vue.  Maybe I would call it *computed values*, *computed state*, or *derived state* (not from props though) in React. So the question was totally valid and I want to address it here.
+Today I came across a question in my Newsletter regarding computed properties in React. I didn't know about the term computed properties before, because such a term doesn't really exist in React, but it exists in other frameworks like Vue. Maybe I would call it _computed values_, _computed state_, or _derived state_ (not from props though) in React. So the question was totally valid and I want to address it here.
 
 # Computed Properties in React
 
 Before we dive into computed properties in React, I want to show you the problem in React code which came up in the question of my Newsletter. In this minimal React application, we use a React [function component](/react-function-component) as a specialized [React list component](/react-list-component) with [React's useState Hook](/react-usestate-hook) to manage a stateful list:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function App() {
   const [list, setList] = React.useState([
     { id: '1', name: 'Apple', count: 5 },
     { id: '2', name: 'Banana', count: 3 },
     { id: '3', name: 'Peach', count: 10 },
-  ]);
+  ])
 
   return (
     <div>
@@ -40,33 +40,33 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 The feature of this list component is that it allows us to sort properties in the list. Imagine that in a larger list component there could be multiple sortable properties. In this case, we are just using two buttons though with [event handlers](/react-event-handler) for the sorting mechanism via Lodash's sort function of these two properties:
 
 ```javascript{2,11-14,16-19,25-30}
-import React from 'react';
-import sortBy from 'lodash.sortby';
+import React from 'react'
+import sortBy from 'lodash.sortby'
 
 function App() {
   const [list, setList] = React.useState([
     { id: '1', name: 'Apple', count: 5 },
     { id: '2', name: 'Banana', count: 3 },
     { id: '3', name: 'Peach', count: 10 },
-  ]);
+  ])
 
   function handleSortName() {
-    const sortedList = sortBy(list, 'name');
-    setList(sortedList);
+    const sortedList = sortBy(list, 'name')
+    setList(sortedList)
   }
 
   function handleSortCount() {
-    const sortedList = sortBy(list, 'count');
-    setList(sortedList);
+    const sortedList = sortBy(list, 'count')
+    setList(sortedList)
   }
 
   return (
@@ -88,10 +88,10 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 And here it already presents the potential pitfall: With every sort on a button click we create a new state based on the current state. The stateful list only tells us implicitly about its sorting state, because we applied the modification directly on the list.
@@ -99,31 +99,31 @@ And here it already presents the potential pitfall: With every sort on a button 
 In terms of efficient this approach is great, because all we need to manage is just the sorted list in state. We didn't add any other state in our component. However, we would soonish get into trouble if we would want to implement more features based on the sort feature. For example, how would you implement a reverse sort which happens if a button is clicked two times in a row? Then you would need to implement a sorting state. Another example, which I want to demonstrate, would be adding more items to the list from an input field:
 
 ```javascript{3,6,24-26,28-36,42-47}
-import React from 'react';
-import sortBy from 'lodash.sortby';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react'
+import sortBy from 'lodash.sortby'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState('')
 
   const [list, setList] = React.useState([
     { id: '1', name: 'Apple', count: 5 },
     { id: '2', name: 'Banana', count: 3 },
     { id: '3', name: 'Peach', count: 10 },
-  ]);
+  ])
 
   function handleSortName() {
-    const sortedList = sortBy(list, 'name');
-    setList(sortedList);
+    const sortedList = sortBy(list, 'name')
+    setList(sortedList)
   }
 
   function handleSortCount() {
-    const sortedList = sortBy(list, 'count');
-    setList(sortedList);
+    const sortedList = sortBy(list, 'count')
+    setList(sortedList)
   }
 
   function handleChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   function handleAdd() {
@@ -131,9 +131,9 @@ function App() {
       id: uuidv4(),
       name: name,
       count: 0,
-    };
-    const newList = list.concat(newItem);
-    setList(newList);
+    }
+    const newList = list.concat(newItem)
+    setList(newList)
   }
 
   return (
@@ -162,37 +162,37 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 After we add the item with a button click, we cannot apply any sorting state, because we don't know about it. If we would have sorted the list previously, the list would just concatenate the new item to its array but wouldn't know how to incorporate the new item in the sorted list. That's where we would need an explicit sorting state. In the next step, I will remove the last feature and refactor the previous code block for using a explicit sort state:
 
 ```javascript{11,14,18,21-22,36}
-import React from 'react';
-import sortBy from 'lodash.sortby';
+import React from 'react'
+import sortBy from 'lodash.sortby'
 
 function App() {
   const [list, setList] = React.useState([
     { id: '1', name: 'Apple', count: 5 },
     { id: '2', name: 'Banana', count: 3 },
     { id: '3', name: 'Peach', count: 10 },
-  ]);
+  ])
 
-  const [sort, setSort] = React.useState('name'); // A
+  const [sort, setSort] = React.useState('name') // A
 
   function handleSortName() {
-    setSort('name'); // B
+    setSort('name') // B
   }
 
   function handleSortCount() {
-    setSort('count'); // B
+    setSort('count') // B
   }
 
   // computed property
-  const sortedList = sortBy(list, sort); // C
+  const sortedList = sortBy(list, sort) // C
 
   return (
     <div>
@@ -213,10 +213,10 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 Instead of storing the sorted list, we leave the list unchanged and just store a sort state (A). Whenever we change the sort with one of the buttons, the new sort state is stored (B). The crucial moment happens just in our component's function body where we compute `sortedList` on the fly with every component render (C).
@@ -226,31 +226,31 @@ Now we have both states in its raw form: list and sort. Everything that results 
 Now we always know about the sort state in an explicit way. This way implementing the other feature for adding an item to the list isn't much different from the previous version anymore. However, this time we know about the sort state and thus with every re-render after adding a new item it will be sorted (C) right away:
 
 ```javascript{3,6,24-26,28-36,44-49}
-import React from 'react';
-import sortBy from 'lodash.sortby';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react'
+import sortBy from 'lodash.sortby'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState('')
 
   const [list, setList] = React.useState([
     { id: '1', name: 'Apple', count: 5 },
     { id: '2', name: 'Banana', count: 3 },
     { id: '3', name: 'Peach', count: 10 },
-  ]);
+  ])
 
-  const [sort, setSort] = React.useState('name');
+  const [sort, setSort] = React.useState('name')
 
   function handleSortName() {
-    setSort('name');
+    setSort('name')
   }
 
   function handleSortCount() {
-    setSort('count');
+    setSort('count')
   }
 
   function handleChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   function handleAdd() {
@@ -258,12 +258,12 @@ function App() {
       id: uuidv4(),
       name: name,
       count: 0,
-    };
-    const newList = list.concat(newItem);
-    setList(newList);
+    }
+    const newList = list.concat(newItem)
+    setList(newList)
   }
 
-  const sortedList = sortBy(list, sort); // C
+  const sortedList = sortBy(list, sort) // C
 
   return (
     <div>
@@ -291,45 +291,45 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 If you would want to extend your component for being able to offer the reverse sort feature whenever a sort button is clicked twice, you could introduce a more complex state object for the sort feature which doesn't only keep track of the current sort, but also if this sort is reversed:
 
 ```javascript{14-17,20-21,25-26,43-45}
-import React from 'react';
-import sortBy from 'lodash.sortby';
-import { v4 as uuidv4 } from 'uuid';
+import React from 'react'
+import sortBy from 'lodash.sortby'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState('')
 
   const [list, setList] = React.useState([
     { id: '1', name: 'Apple', count: 5 },
     { id: '2', name: 'Banana', count: 3 },
     { id: '3', name: 'Peach', count: 10 },
-  ]);
+  ])
 
   const [sort, setSort] = React.useState({
     property: 'name',
     isReverse: false,
-  });
+  })
 
   function handleSortName() {
-    const isReverse = sort.property === 'name' && !sort.isReverse;
-    setSort({ property: 'name', isReverse });
+    const isReverse = sort.property === 'name' && !sort.isReverse
+    setSort({ property: 'name', isReverse })
   }
 
   function handleSortCount() {
-    const isReverse = sort.property === 'count' && !sort.isReverse;
-    setSort({ property: 'count', isReverse });
+    const isReverse = sort.property === 'count' && !sort.isReverse
+    setSort({ property: 'count', isReverse })
   }
 
   function handleChange(event) {
-    setName(event.target.value);
+    setName(event.target.value)
   }
 
   function handleAdd() {
@@ -337,14 +337,14 @@ function App() {
       id: uuidv4(),
       name: name,
       count: 0,
-    };
-    const newList = list.concat(newItem);
-    setList(newList);
+    }
+    const newList = list.concat(newItem)
+    setList(newList)
   }
 
   const sortedList = sort.isReverse
     ? sortBy(list, sort.property).reverse()
-    : sortBy(list, sort.property);
+    : sortBy(list, sort.property)
 
   return (
     <div>
@@ -372,10 +372,10 @@ function App() {
         ))}
       </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 ```
 
 Again, we are just deriving values from the raw state. Now, React performance enthusiast may go up on the fence because the sorted list is calculated on every render of the component. If it really becomes the case that computations in a React's component function's body has some kind of performance impact, you can use [React's useMemo Hook](/react-usememo-hook):

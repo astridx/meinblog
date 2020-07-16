@@ -218,12 +218,14 @@ I decided I want one of those big, space-wasting, attention-grabbing headers, wh
   <div class="container">
     <h1>Ready. Set. Code.</h1>
     <p>
-      Are you ready to boilerstrap your cross-compatible buzzword? We're Sassy, flat and semantic,
-      so what are you waiting for?
+      Are you ready to boilerstrap your cross-compatible buzzword? We're Sassy,
+      flat and semantic, so what are you waiting for?
     </p>
     <br />
     <p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Download Free Trial »</a>
+      <a class="btn btn-primary btn-lg" href="#" role="button"
+        >Download Free Trial »</a
+      >
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a>
     </p>
   </div>
@@ -260,21 +262,24 @@ Bootstrap works on a 12-column system, so as long as you add up to 12, you're go
       <span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
       <h3>Cloud Computable</h3>
       <p>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-        tortor mauris condimentum nibh.
+        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus
+        ac cursus commodo, tortor mauris condimentum nibh.
       </p>
     </div>
     <div class="col-md-4">
       <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
       <h3>Backwards Compatible</h3>
-      <p>Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Lorem ipsum dolor.</p>
+      <p>
+        Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+        Lorem ipsum dolor.
+      </p>
     </div>
     <div class="col-md-4">
       <span class="glyphicon glyphicon-console" aria-hidden="true"></span>
       <h3>GUI Free</h3>
       <p>
-        Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo,
-        tortor mauris condimentum nibh.
+        Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus
+        ac cursus commodo, tortor mauris condimentum nibh.
       </p>
     </div>
   </div>
@@ -410,7 +415,10 @@ Back in my HTML, I'm going to wrap a `section` tag around my grid, and call it `
 ```html
 <section class="call-to-action">
   <!-- .rows and .columns -->
-  <span class="glyphicon glyphicon-cloud glyphicon-large" aria-hidden="true"></span>
+  <span
+    class="glyphicon glyphicon-cloud glyphicon-large"
+    aria-hidden="true"
+  ></span>
   <!-- /.rows and .columns -->
 </section>
 ```

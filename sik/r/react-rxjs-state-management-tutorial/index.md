@@ -1,13 +1,24 @@
 ---
-title: "React with RxJS for State Management Tutorial"
-description: "A tutorial on how to use RxJS in React for state management. It shows how to implement a Rx.js higher-order component (hoc) that takes over the observable streams ..."
-date: "2018-10-22T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react rxjs tutorial", "rxjs react js tutorial", "react rxjs hoc", "react with rxjs", "react rxjs example", "react rxjs event", "react rxjs state", "react rxjs observable", "react rxjs component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'React with RxJS for State Management Tutorial'
+description: 'A tutorial on how to use RxJS in React for state management. It shows how to implement a Rx.js higher-order component (hoc) that takes over the observable streams ...'
+date: '2018-10-22T13:50:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react rxjs tutorial',
+    'rxjs react js tutorial',
+    'react rxjs hoc',
+    'react with rxjs',
+    'react rxjs example',
+    'react rxjs event',
+    'react rxjs state',
+    'react rxjs observable',
+    'react rxjs component',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,9 +27,9 @@ Recently a [client of mine](/work-with-me) inspired me to learn [RxJS](https://w
 
 **The application was a marketplace for cryptocurrencies which had lots of real-time widgets. The challenges:**
 
-* Managing the control flow of many (asynchronously) data requests
-* Real-time updates of various widgets on the dashboard
-* Widgets and data coupling, because widgets needed data from other widgets too
+- Managing the control flow of many (asynchronously) data requests
+- Real-time updates of various widgets on the dashboard
+- Widgets and data coupling, because widgets needed data from other widgets too
 
 In conclusion, the challenge was not about React itself, even though I was able to help here and there with it, but managing everything behind the scenes that couple the cryptocurrency domain to React. That's where RxJS got interesting and the prototype they showed me looked really promising.
 
@@ -29,7 +40,7 @@ In this tutorial, I want to guide you through building a simple application with
 Let's say we have an application which will make a request to a [third-party API](https://hn.algolia.com/api) eventually. Before we can do this request, we have to capture a search term that is used for the data fetching to create the API URL.
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 const App = ({ query, onChangeQuery }) => (
   <div>
@@ -38,14 +49,14 @@ const App = ({ query, onChangeQuery }) => (
     <input
       type="text"
       value={query}
-      onChange={event => onChangeQuery(event.target.value)}
+      onChange={(event) => onChangeQuery(event.target.value)}
     />
 
     <p>{`http://hn.algolia.com/api/v1/search?query=${query}`}</p>
   </div>
-);
+)
 
-export default App;
+export default App
 ```
 
 What's missing in this React component is the state management. No one stores the state for the `query` property and no one updates the state with the `onChangeQuery` function. Usually you would add local state management to this React component.
@@ -53,16 +64,16 @@ What's missing in this React component is the state management. No one stores th
 ```javascript{2,3,4,5,6,7,8,10,11,12,21,23,28}
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       query: '',
-    };
+    }
   }
 
-  onChangeQuery = query => {
-    this.setState({ query });
-  };
+  onChangeQuery = (query) => {
+    this.setState({ query })
+  }
 
   render() {
     return (
@@ -72,20 +83,16 @@ class App extends React.Component {
         <input
           type="text"
           value={this.state.query}
-          onChange={event =>
-            this.onChangeQuery(event.target.value)
-          }
+          onChange={(event) => this.onChangeQuery(event.target.value)}
         />
 
-        <p>{`http://hn.algolia.com/api/v1/search?query=${
-          this.state.query
-        }`}</p>
+        <p>{`http://hn.algolia.com/api/v1/search?query=${this.state.query}`}</p>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 But that's not the approach we are going to use here. Instead, we want to manage the state somehow with RxJS. Let's see how we can do this with a higher-order component. If you want, you can implement the following logic in your App component too, but you will most likely extract it as a [reusable higher-order component (HOC)](/react-higher-order-components/) at some point anyway.
@@ -168,32 +175,30 @@ export default withObservableStream(
 
 The App component itself didn't change. We have only passed two arguments to the higher-order component.
 
-* **Observable:** The `query` argument is an observable which has an initial value, but also emits its new values over time (hence the BehaviorSubject). Anyone can subscribe to this observable. Explanation from the [RxJS documentation](http://reactivex.io/rxjs/manual/overview.html#subject) about the BehaviorSubject: *"One of the variants of Subjects is the BehaviorSubject, which has a notion of "the current value". It stores the latest value emitted to its consumers, and whenever a new Observer subscribes, it will immediately receive the "current value" from the BehaviorSubject. BehaviorSubjects are useful for representing "values over time"."*
+- **Observable:** The `query` argument is an observable which has an initial value, but also emits its new values over time (hence the BehaviorSubject). Anyone can subscribe to this observable. Explanation from the [RxJS documentation](http://reactivex.io/rxjs/manual/overview.html#subject) about the BehaviorSubject: _"One of the variants of Subjects is the BehaviorSubject, which has a notion of "the current value". It stores the latest value emitted to its consumers, and whenever a new Observer subscribes, it will immediately receive the "current value" from the BehaviorSubject. BehaviorSubjects are useful for representing "values over time"."_
 
-* **Triggers on Observable(s):** The `onChangeQuery()` function that is passed via the HOC to the App component is only a function that pushes the next value into the observable. It's an object, because we may want to pass more of these functions that are doing something with the observables to the higher-order component.
+- **Triggers on Observable(s):** The `onChangeQuery()` function that is passed via the HOC to the App component is only a function that pushes the next value into the observable. It's an object, because we may want to pass more of these functions that are doing something with the observables to the higher-order component.
 
 By creating the observable and subscribing to it, the stream for the query value should work. However, so far the higher-order component is a black box for us. Let's implement it:
 
 ```javascript{1,4,5,6,10,15}
-const withObservableStream = (observable, triggers) => Component => {
+const withObservableStream = (observable, triggers) => (Component) => {
   return class extends React.Component {
     componentDidMount() {
-      this.subscription = observable.subscribe(newState =>
-        this.setState({ ...newState }),
-      );
+      this.subscription = observable.subscribe((newState) =>
+        this.setState({ ...newState })
+      )
     }
 
     componentWillUnmount() {
-      this.subscription.unsubscribe();
+      this.subscription.unsubscribe()
     }
 
     render() {
-      return (
-        <Component {...this.props} {...this.state} {...triggers} />
-      );
+      return <Component {...this.props} {...this.state} {...triggers} />
     }
-  };
-};
+  }
+}
 ```
 
 The higher-order component receives the observable and the object of triggers (perhaps there is a better term in RxJS lingua for it) in its function signature.
@@ -212,12 +217,12 @@ const App = ({ query = '', onChangeQuery }) => (
     <input
       type="text"
       value={query}
-      onChange={event => onChangeQuery(event.target.value)}
+      onChange={(event) => onChangeQuery(event.target.value)}
     />
 
     <p>{`http://hn.algolia.com/api/v1/search?query=${query}`}</p>
   </div>
-);
+)
 ```
 
 Another way of coping with this problem would have been to set an initial state for the query component in the higher-order component:
@@ -280,25 +285,20 @@ Let's introduce a second value stream that can be manipulated in the App compone
 const SUBJECT = {
   POPULARITY: 'search',
   DATE: 'search_by_date',
-};
+}
 
-const App = ({
-  query = '',
-  subject,
-  onChangeQuery,
-  onSelectSubject,
-}) => (
+const App = ({ query = '', subject, onChangeQuery, onSelectSubject }) => (
   <div>
     <h1>React with RxJS</h1>
 
     <input
       type="text"
       value={query}
-      onChange={event => onChangeQuery(event.target.value)}
+      onChange={(event) => onChangeQuery(event.target.value)}
     />
 
     <div>
-      {Object.values(SUBJECT).map(value => (
+      {Object.values(SUBJECT).map((value) => (
         <button
           key={value}
           onClick={() => onSelectSubject(value)}
@@ -311,7 +311,7 @@ const App = ({
 
     <p>{`http://hn.algolia.com/api/v1/${subject}?query=${query}`}</p>
   </div>
-);
+)
 ```
 
 As you can see, the subject can be used to adjust the API URL. Either you search for stories by popularity or by date. Next, introduce another observable that can be used to change the subject. The observable can be used to wire up the App component with the higher-order component. Otherwise, the props passed to the App component wouldn't work.
@@ -430,21 +430,16 @@ Now you can provide the new observable to your higher-order component again. By 
 
 ```javascript{5,6,9}
 export default withObservableStream(
-  combineLatest(
-    subject$,
-    query$,
-    fetch$,
-    (subject, query, stories) => ({
-      subject,
-      query,
-      stories,
-    }),
-  ),
+  combineLatest(subject$, query$, fetch$, (subject, query, stories) => ({
+    subject,
+    query,
+    stories,
+  })),
   {
-    onChangeQuery: value => query$.next(value),
-    onSelectSubject: subject => subject$.next(subject),
-  },
-)(App);
+    onChangeQuery: (value) => query$.next(value),
+    onSelectSubject: (subject) => subject$.next(subject),
+  }
+)(App)
 ```
 
 There is no trigger, because the observable is activated implicitly by the other two observable streams. Every time you change the value in the input element (query) or click a button (subject), the fetch observable is triggered again with the latest values from both streams.
@@ -479,44 +474,40 @@ The debounce happens when entering something in the input element now. However, 
 Now, the initial values for the query and subject that we are seeing when the App component renders for the first time are not the ones from the initial observable values:
 
 ```javascript
-const query$ = new BehaviorSubject('react');
-const subject$ = new BehaviorSubject(SUBJECT.POPULARITY);
+const query$ = new BehaviorSubject('react')
+const subject$ = new BehaviorSubject(SUBJECT.POPULARITY)
 ```
 
 The subject is undefined and the query is an empty string, because that's what we have provided as default parameter for the destructuring in the function signature of the App component. All this is because we have to wait for the initial request of the fetch observable. Since I am not sure how to retrieve the values from the query and subject observables immediately in the higher-order component to set them as local state, I would provide an initial state for the higher-order component again.
 
 ```javascript{4,7,8,9,10,11,12,13}
-const withObservableStream = (
-  observable,
-  triggers,
-  initialState,
-) => Component => {
+const withObservableStream = (observable, triggers, initialState) => (
+  Component
+) => {
   return class extends React.Component {
     constructor(props) {
-      super(props);
+      super(props)
 
       this.state = {
         ...initialState,
-      };
+      }
     }
 
     componentDidMount() {
-      this.subscription = observable.subscribe(newState =>
-        this.setState({ ...newState }),
-      );
+      this.subscription = observable.subscribe((newState) =>
+        this.setState({ ...newState })
+      )
     }
 
     componentWillUnmount() {
-      this.subscription.unsubscribe();
+      this.subscription.unsubscribe()
     }
 
     render() {
-      return (
-        <Component {...this.props} {...this.state} {...triggers} />
-      );
+      return <Component {...this.props} {...this.state} {...triggers} />
     }
-  };
-};
+  }
+}
 ```
 
 Now you can provide the initial state as third argument to the higher-order component. Then we can leave out the default parameters for the App component too.

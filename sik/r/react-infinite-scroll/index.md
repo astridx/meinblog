@@ -1,13 +1,13 @@
 ---
-title: "Infinite Scroll in React - Build a powerful Component (Part II)"
-description: "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces infinite scroll in React in an elegant way by using higher order components. You will implement an infinite scrolling higher order component ..."
-date: "2017-06-07T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react infinite scroll"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+title: 'Infinite Scroll in React - Build a powerful Component (Part II)'
+description: 'The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces infinite scroll in React in an elegant way by using higher order components. You will implement an infinite scrolling higher order component ...'
+date: '2017-06-07T13:50:46+02:00'
+categories: ['React']
+keywords: ['react infinite scroll']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -18,9 +18,9 @@ This part of the series will show you how to build an infinite scroll in React. 
 
 In this part of the series, both functionalities, the manual and automatic retrieval, should be opt-in exclusively. In the third part of the series you will learn how to combine both enhancements in one advanced List component with error and fallback handling.
 
-* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
-* **Infinite Scroll in React - Build a powerful Component (Part II)**
-* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
+- [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
+- **Infinite Scroll in React - Build a powerful Component (Part II)**
+- [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
 
 # Infinite Scroll in React
 
@@ -28,25 +28,30 @@ The infinite scroll requires you to use lifecycle methods in the List component.
 
 ```javascript{10,11,12,13,14,15,16,17,18,19,20,21,22}
 // functional stateless component
-const List = ({ list }) =>
+const List = ({ list }) => (
   <div className="list">
-    {list.map(item => <div className="list-row" key={item.objectID}>
-      <a href={item.url}>{item.title}</a>
-    </div>)}
+    {list.map((item) => (
+      <div className="list-row" key={item.objectID}>
+        <a href={item.url}>{item.title}</a>
+      </div>
+    ))}
   </div>
+)
 
 // React ES6 class component
 class List extends React.Component {
   render() {
-    const { list } = this.props;
+    const { list } = this.props
     return (
       <div className="list">
-        {list.map(item => <div className="list-row" key={item.objectID}>
-          <a href={item.url}>{item.title}</a>
-        </div>)}
+        {list.map((item) => (
+          <div className="list-row" key={item.objectID}>
+            <a href={item.url}>{item.title}</a>
+          </div>
+        ))}
       </div>
-    );
-  };
+    )
+  }
 }
 ```
 
@@ -91,24 +96,25 @@ If you are not familiar with higher order components, as in the first part of th
 const withInfiniteScroll = (Component) =>
   class WithInfiniteScroll extends React.Component {
     componentDidMount() {
-      window.addEventListener('scroll', this.onScroll, false);
+      window.addEventListener('scroll', this.onScroll, false)
     }
 
     componentWillUnmount() {
-      window.removeEventListener('scroll', this.onScroll, false);
+      window.removeEventListener('scroll', this.onScroll, false)
     }
 
     onScroll = () => {
       if (
-        (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 500) &&
+        window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 500 &&
         this.props.list.length
       ) {
-        this.props.onPaginatedSearch();
+        this.props.onPaginatedSearch()
       }
     }
 
     render() {
-      return <Component {...this.props} />;
+      return <Component {...this.props} />
     }
   }
 ```
@@ -116,12 +122,15 @@ const withInfiniteScroll = (Component) =>
 The List component becomes simple again. In addition, it doesn't need lifecycle methods anymore and can be refactored to a functional stateless component again.
 
 ```javascript{1,2,3,4,5,6,7}
-const List = ({ list }) =>
+const List = ({ list }) => (
   <div className="list">
-    {list.map(item => <div className="list-row" key={item.objectID}>
-      <a href={item.url}>{item.title}</a>
-    </div>)}
+    {list.map((item) => (
+      <div className="list-row" key={item.objectID}>
+        <a href={item.url}>{item.title}</a>
+      </div>
+    ))}
   </div>
+)
 ```
 
 Finally you can use the automatic infinite scroll instead of the manual paginated list.

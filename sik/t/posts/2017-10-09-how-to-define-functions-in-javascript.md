@@ -155,7 +155,7 @@ Now the `sum` constant is a function. We can make this expression more concise b
 
 ```js
 // Assign function to sum constant
-const sum = function(x, y) {
+const sum = function (x, y) {
   return x + y
 }
 
@@ -195,7 +195,7 @@ In the case of only one parameter, the parentheses can be excluded. In this exam
 
 ```js
 // Define square function
-const square = x => {
+const square = (x) => {
   return x * x
 }
 
@@ -213,7 +213,7 @@ With these particular examples that only consist of a `return` statement, arrow 
 
 ```js
 // Define square function
-const square = x => x * x
+const square = (x) => x * x
 
 // Invoke function to find product
 square(10)

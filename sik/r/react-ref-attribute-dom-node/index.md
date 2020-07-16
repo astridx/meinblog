@@ -1,13 +1,13 @@
 ---
 title: "When to use React's Ref on a DOM node in React"
 description: "What about the ref attribute in React.js? This article gives you clarification around the ref attribute to access DOM nodes in React. It shows you how you can use it, when you should use it and where it can be used and where it shouldn't be used ..."
-date: "2017-03-22T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react ref"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2017-03-22T13:50:46+02:00'
+categories: ['React']
+keywords: ['react ref']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -22,37 +22,31 @@ An input element is the perfect example to showcase the `ref` attribute. When yo
 
 ```javascript{10,24}
 class SearchForm extends Component {
+  constructor(props) {
+    super(props)
 
-    constructor(props) {
-        super(props);
+    this.onSubmit = this.onSubmit.bind(this)
+  }
 
-        this.onSubmit = this.onSubmit.bind(this);
-    }
+  onSubmit(event) {
+    const value = this.input.value
 
-    onSubmit(event) {
-        const value = this.input.value;
+    // do something with the search value
+    // e.g. propagate it up to the parent component
+    // (not relevant to show the use case of the ref attribute)
+    this.props.onSearch(value)
 
-        // do something with the search value
-        // e.g. propagate it up to the parent component
-        // (not relevant to show the use case of the ref attribute)
-        this.props.onSearch(value);
+    event.preventDefault()
+  }
 
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    ref={node => this.input = node}
-                    type="text"
-                />
-                <button type="submit">
-                    Search
-                </button>
-            </form>
-        );
-    }
+  render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <input ref={(node) => (this.input = node)} type="text" />
+        <button type="submit">Search</button>
+      </form>
+    )
+  }
 }
 ```
 
@@ -62,9 +56,9 @@ The input element defines a `ref` attribute. The `ref` attribute definition alwa
 
 But it is not always a good idea to use the `ref` attribute. The general rule of thumb is to avoid it. The [official React documentation](https://facebook.github.io/react/docs/refs-and-the-dom.html) mentions three occasions where you can use it because you have no other choice.
 
-* *Managing focus, text selection, or media playback.*
-* *Integrating with third-party DOM libraries.*
-* *Triggering imperative animations.*
+- _Managing focus, text selection, or media playback._
+- _Integrating with third-party DOM libraries._
+- _Triggering imperative animations._
 
 First, you can use the `ref` attribute to access the DOM API ([What's an API?](/what-is-an-api-javascript/)). You can get a value of an input element yet you can also trigger methods like a `focus()`. It gives you control over the DOM API, for instance to use the media elements.
 
@@ -78,36 +72,33 @@ Let's revisit the input element and the value retrieval. It could be solved diff
 
 ```javascript{6,12,23}
 class SearchForm extends Component {
+  constructor(props) {
+    super(props)
 
-    constructor(props) {
-        super(props);
+    this.state = { value: '' }
 
-        this.state = { value: '' };
+    this.onSubmit = this.onSubmit.bind(this)
+  }
 
-        this.onSubmit = this.onSubmit.bind(this);
-    }
+  onSubmit(event) {
+    const value = this.state.value
 
-    onSubmit(event) {
-        const value = this.state.value;
+    this.props.onSearch(value)
 
-        this.props.onSearch(value);
+    event.preventDefault()
+  }
 
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    onChange={event => this.setState({ value: event.target.value })}
-                    type="text"
-                />
-                <button type="submit">
-                    Search
-                </button>
-            </form>
-        );
-    }
+  render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <input
+          onChange={(event) => this.setState({ value: event.target.value })}
+          type="text"
+        />
+        <button type="submit">Search</button>
+      </form>
+    )
+  }
 }
 ```
 
@@ -143,21 +134,15 @@ Often functional stateless components are not mentioned regarding the `ref` attr
 
 ```javascript{2,6,10}
 function SearchForm({ onSearch }) {
-    let input;
-    return (
-        <div>
-            <input
-                ref={node => input = node}
-                type="text"
-            />
-            <button
-                onClick={() => onSearch(input.value)}
-                type="button"
-            >
-                Search
-            </button>
-        </div>
-    );
+  let input
+  return (
+    <div>
+      <input ref={(node) => (input = node)} type="text" />
+      <button onClick={() => onSearch(input.value)} type="button">
+        Search
+      </button>
+    </div>
+  )
 }
 ```
 
@@ -167,18 +152,13 @@ After all, often you have to refactor a functional stateless component to an ES6
 
 ```javascript{3,9}
 class FocusedInput extends Component {
-    componentDidMount() {
-        this.input.focus();
-    }
+  componentDidMount() {
+    this.input.focus()
+  }
 
-    render() {
-        return (
-            <input
-                ref={node => this.input = node}
-                type="text"
-            />
-        );
-    }
+  render() {
+    return <input ref={(node) => (this.input = node)} type="text" />
+  }
 }
 ```
 

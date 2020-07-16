@@ -1,13 +1,13 @@
 ---
-title: "How to accept Paypal payments with React"
-description: "Ever wondered how to integrate Paypal in your React application? This tutorial guides you through the setup process from using a Paypal checkout form in your React application. Afterward you are ready to receive Paypal payments in your React.js application ..."
-date: "2018-02-04T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react paypal", "react paypal integration"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to accept Paypal payments with React'
+description: 'Ever wondered how to integrate Paypal in your React application? This tutorial guides you through the setup process from using a Paypal checkout form in your React application. Afterward you are ready to receive Paypal payments in your React.js application ...'
+date: '2018-02-04T13:50:46+02:00'
+categories: ['React']
+keywords: ['react paypal', 'react paypal integration']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -31,16 +31,16 @@ After you have created the app on the PayPal dashboard, you should find your Cli
 Now let's build the PayPal React component from scratch. It will be a class component, because we have to manage state in React's local state and use a couple of lifecycle methods.
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 class PaypalButton extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       showButton: false,
-    };
+    }
   }
 
   componentDidMount() {
@@ -56,7 +56,7 @@ class PaypalButton extends React.Component {
   }
 }
 
-export default PaypalButton;
+export default PaypalButton
 ```
 
 Why is it necessary to manage a local state? The PayPal API library can be loaded asynchronously in our component. After we have loaded everything, the `showButton` state can be used to render the button. Doing it like this, enables you also to use the PayPal button for server-side rendering.
@@ -64,20 +64,20 @@ Why is it necessary to manage a local state? The PayPal API library can be loade
 Let's load the PayPal script asynchronously in our React component. Additionally, make sure to bind React and ReactDOM to the window object, because its needed for the PayPal React Component which comes with the library.
 
 ```javascript{3,13,14,30}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import scriptLoader from 'react-async-script-loader';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import scriptLoader from 'react-async-script-loader'
 
 class PaypalButton extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       showButton: false,
-    };
+    }
 
-    window.React = React;
-    window.ReactDOM = ReactDOM;
+    window.React = React
+    window.ReactDOM = ReactDOM
   }
 
   componentDidMount() {
@@ -93,7 +93,9 @@ class PaypalButton extends React.Component {
   }
 }
 
-export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
+export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(
+  PaypalButton
+)
 ```
 
 If you haven't installed by now, you need to install the [react-async-script-loader](https://github.com/leozdgao/react-async-script-loader) via npm. The `scriptLoader` is a [higher order component](/react-higher-order-components/) which can be used in React to lazy load scripts.
@@ -105,30 +107,27 @@ npm install react-async-script-loader
 Now, in the `componentDidMount()` lifecycle method, you can decide if the button should be rendered already. The `scriptLoader` gives you access to two properties in the props of the component, `isScriptLoaded` and `isScriptLoadSucceed`, to check if the script was loaded successfully. If that is the case, you could already render the PayPal button.
 
 ```javascript{17,18,19,20,21,22,23,24,25,26}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import scriptLoader from 'react-async-script-loader';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import scriptLoader from 'react-async-script-loader'
 
 class PaypalButton extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       showButton: false,
-    };
+    }
 
-    window.React = React;
-    window.ReactDOM = ReactDOM;
+    window.React = React
+    window.ReactDOM = ReactDOM
   }
 
   componentDidMount() {
-    const {
-      isScriptLoaded,
-      isScriptLoadSucceed
-    } = this.props;
+    const { isScriptLoaded, isScriptLoadSucceed } = this.props
 
     if (isScriptLoaded && isScriptLoadSucceed) {
-      this.setState({ showButton: true });
+      this.setState({ showButton: true })
     }
   }
 
@@ -141,53 +140,47 @@ class PaypalButton extends React.Component {
   }
 }
 
-export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
+export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(
+  PaypalButton
+)
 ```
 
 In most cases the script isn't loaded in the `componentDidMount()` lifecycle method. This lifecycle method runs only once when the component is instantiated and it's not 100% certain to have the script loaded at this point in time. Therefore you still have the `componentWillReceiveProps()` lifecycle method to check for the loaded script.
 
 ```javascript{28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import scriptLoader from 'react-async-script-loader';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import scriptLoader from 'react-async-script-loader'
 
 class PaypalButton extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       showButton: false,
-    };
+    }
 
-    window.React = React;
-    window.ReactDOM = ReactDOM;
+    window.React = React
+    window.ReactDOM = ReactDOM
   }
 
   componentDidMount() {
-    const {
-      isScriptLoaded,
-      isScriptLoadSucceed
-    } = this.props;
+    const { isScriptLoaded, isScriptLoadSucceed } = this.props
 
     if (isScriptLoaded && isScriptLoadSucceed) {
-      this.setState({ showButton: true });
+      this.setState({ showButton: true })
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      isScriptLoaded,
-      isScriptLoadSucceed,
-    } = nextProps;
+    const { isScriptLoaded, isScriptLoadSucceed } = nextProps
 
     const isLoadedButWasntLoadedBefore =
-      !this.state.showButton &&
-      !this.props.isScriptLoaded &&
-      isScriptLoaded;
+      !this.state.showButton && !this.props.isScriptLoaded && isScriptLoaded
 
     if (isLoadedButWasntLoadedBefore) {
       if (isScriptLoadSucceed) {
-        this.setState({ showButton: true });
+        this.setState({ showButton: true })
       }
     }
   }
@@ -197,7 +190,9 @@ class PaypalButton extends React.Component {
   }
 }
 
-export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
+export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(
+  PaypalButton
+)
 ```
 
 Now the only lifecycle method missing is the `render()` method. Let's see what should be rendered in this method.
@@ -252,14 +247,14 @@ export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(Pay
 
 There are many props which are passed to your PayPal component. Let's check what they stand for:
 
-* currency: Your desired currency (e.g. USD) to charge a customer.
-* total: The total amount of your desired currency (e.g. $1 would be a total amount of 100).
-* commit: If set to true then the PayPal checkout flow will display a 'Pay Now' button.
-* client: An object which has your Client IDs for Sandbox and Production.
-* env: Environment mode (development, production) to choose a Client ID from the `client` object.
-* onSuccess: A handler to do something in case the payment was successful.
-* onError: A handler to do something in case the payment was erroneous.
-* onCancel: A handler to do something in case the payment was cancelled.
+- currency: Your desired currency (e.g. USD) to charge a customer.
+- total: The total amount of your desired currency (e.g. \$1 would be a total amount of 100).
+- commit: If set to true then the PayPal checkout flow will display a 'Pay Now' button.
+- client: An object which has your Client IDs for Sandbox and Production.
+- env: Environment mode (development, production) to choose a Client ID from the `client` object.
+- onSuccess: A handler to do something in case the payment was successful.
+- onError: A handler to do something in case the payment was erroneous.
+- onCancel: A handler to do something in case the payment was cancelled.
 
 You will see in a later step how these props are passed to the PayPal component from a parent component which uses the PayPal component. For now, let's focus on finishing the implementation. As you can see, the `showButton` boolean from React's local component state is used for a [conditional rendering](/conditional-rendering-react/) of the PayPal button.
 
@@ -339,28 +334,24 @@ export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(Pay
 That's it for the PayPal button implementation. Now, how would you finally make use of it in another component?
 
 ```javascript
-import React from 'react';
-import PaypalButton from './PaypalButton';
+import React from 'react'
+import PaypalButton from './PaypalButton'
 
 const CLIENT = {
   sandbox: 'xxxXXX',
   production: 'xxxXXX',
-};
+}
 
-const ENV = process.env.NODE_ENV === 'production'
-  ? 'production'
-  : 'sandbox';
+const ENV = process.env.NODE_ENV === 'production' ? 'production' : 'sandbox'
 
 class App extends React.Component {
   render() {
-    const onSuccess = (payment) =>
-      console.log('Successful payment!', payment);
+    const onSuccess = (payment) => console.log('Successful payment!', payment)
 
     const onError = (error) =>
-      console.log('Erroneous payment OR failed to load script!', error);
+      console.log('Erroneous payment OR failed to load script!', error)
 
-    const onCancel = (data) =>
-      console.log('Cancelled payment!', data);
+    const onCancel = (data) => console.log('Cancelled payment!', data)
 
     return (
       <div>
@@ -375,11 +366,11 @@ class App extends React.Component {
           onCancel={onCancel}
         />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 ```
 
 It's a security risk to keep the Client IDs in your source code. It's better to include them in a .env file. That way, you prevent to make them publicly available. Don't forget to add the .env file to your .gitignore file if you are using GitHub.
@@ -401,4 +392,3 @@ export default App;
 ```
 
 That's basically the whole implementation of the PayPal component in React with the official PayPal libraries. Now you can use it in various applications. Hopefully, the tutorial helped you to setup PayPal in React on your own.
-

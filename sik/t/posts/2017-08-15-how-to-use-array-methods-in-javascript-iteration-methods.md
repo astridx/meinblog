@@ -32,7 +32,7 @@ Many examples throughout this tutorial will be using JavaScript [arrow function 
 A **function** is a block of reusable code that can be executed. Traditionally, a function can be written with the following syntax:
 
 ```js
-var example = function() {
+var example = function () {
   // code to execute
 }
 
@@ -52,7 +52,7 @@ example()
 The parentheses in either case may contain parameters. When there is only one parameter, the parentheses can be omitted, as such:
 
 ```js
-var example = parameter1 => {
+var example = (parameter1) => {
   // code to execute
 }
 ```
@@ -73,7 +73,7 @@ We can use `forEach()` to print each item in the `fish` array to the console.
 
 ```js
 // Print out each item in the array
-fish.forEach(individualFish => {
+fish.forEach((individualFish) => {
   console.log(individualFish)
 })
 ```
@@ -108,7 +108,7 @@ For an example of how to use the iteration method `map()`, we can print each ite
 let fish = ['piranha', 'barracuda', 'cod', 'eel']
 
 // Print out each item in the array
-let printFish = fish.map(individualFish => {
+let printFish = fish.map((individualFish) => {
   console.log(individualFish)
 })
 
@@ -126,7 +126,7 @@ We can also use `map()` to change the values of each item in an array. To demons
 
 ```js
 // Pluralize all items in the fish array
-let pluralFish = fish.map(individualFish => {
+let pluralFish = fish.map((individualFish) => {
   return `${individualFish}s`
 })
 
@@ -149,7 +149,7 @@ We could use `filter()` to return a new array containing only the items in a lis
 let seaCreatures = ['shark', 'whale', 'squid', 'starfish', 'narwhal']
 
 // Filter all creatures that start with "s" into a new list
-let filteredList = seaCreatures.filter(creature => {
+let filteredList = seaCreatures.filter((creature) => {
   return creature[0] === 's'
 })
 
@@ -201,7 +201,7 @@ Then we will use the `find()` method to test if any of the creatures in the arra
 
 ```js
 // Check if a given value is a cephalopod
-const isCephalopod = cephalopod => {
+const isCephalopod = (cephalopod) => {
   return ['cuttlefish', 'octopus'].includes(cephalopod)
 }
 
@@ -230,7 +230,7 @@ Using the `isCephalopod` test, we will find the index number instead of the valu
 
 ```js
 // Check if a given value is a cephalopod
-const isCephalopod = cephalopod => {
+const isCephalopod = (cephalopod) => {
   return ['cuttlefish', 'octopus'].includes(cephalopod)
 }
 

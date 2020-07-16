@@ -1,13 +1,19 @@
 ---
-title: "My development setup as a JavaScript web developer"
-description: "Are you just getting started with web development? This list of web development tools gives you the perfect head start as being a striving web developer. It walks you through the tools that I am using in my daily life as a freelancer and consultant..."
-date: "2016-11-09T13:50:46+02:00"
-categories: ["Web Development"]
-keywords: ["web developer setup", "javascript developer setup", "web development setup", "web development environment"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'My development setup as a JavaScript web developer'
+description: 'Are you just getting started with web development? This list of web development tools gives you the perfect head start as being a striving web developer. It walks you through the tools that I am using in my daily life as a freelancer and consultant...'
+date: '2016-11-09T13:50:46+02:00'
+categories: ['Web Development']
+keywords:
+  [
+    'web developer setup',
+    'javascript developer setup',
+    'web development setup',
+    'web development environment',
+  ]
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,8 +22,8 @@ This concise cheatsheet will give you an overview on how to setup your developme
 
 The following short checklist reflects my own development environment as being a developer who operates on MacOS. There are different philosophies to shape your development setup. Whereas there are people who prefer to have everything in one [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment), there are also people who use several lightweight tools (e.g. editor, command line) but combine them for their purposes. Personally, I follow the latter philosophy. That's why you will find a bunch of lightweight tools in the following list. However, if you want to have a more thorough guide on how to setup your machine with a sophisticated IDE, head over to these guides. They are dedicated for a React setup, but you can simply leave out React.js from the equation and you have an up and running IDE after following one of these guides. Still, the list below might offer you a couple of useful tools to complement your IDE as well.
 
-* [React setup guide for Windows users](/react-js-windows-setup)
-* [React setup guide for MacOS users](/react-js-macos-setup)
+- [React setup guide for Windows users](/react-js-windows-setup)
+- [React setup guide for MacOS users](/react-js-macos-setup)
 
 What if you are not sure which philosophy to follow? If you are just beginning with web development, I encourage you to start out with an IDE which would mean you should follow one of the guides from above. There you get everything out of the box and don't need to worry about the tooling around your code. Once you become an intermediate developer, checkout the more lightweight approach below.
 
@@ -71,15 +77,15 @@ link: ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /us
 
 Now you should be able to open any directory from the command line with `sublime .` Sublime comes with powerful settings and amazing customizations. You can choose from a wide range of [themes and packages](https://packagecontrol.io/browse/popular) to make your experience as a developer even more comfortable. Here a list of a couple of my installed packages for Sublime:
 
-* [Agila Theme](https://packagecontrol.io/packages/Agila%20Theme)
-* [All Autocomplete](https://packagecontrol.io/packages/All%20Autocomplete)
-* [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
-* [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
-* [Emmet](https://packagecontrol.io/packages/Emmet)
-* [GitGutter](https://packagecontrol.io/packages/GitGutter)
-* [SublimeLinter](https://packagecontrol.io/packages/SublimeLinter)
-* [JsPrettier](https://packagecontrol.io/packages/JsPrettier)
-* [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements)
+- [Agila Theme](https://packagecontrol.io/packages/Agila%20Theme)
+- [All Autocomplete](https://packagecontrol.io/packages/All%20Autocomplete)
+- [BracketHighlighter](https://packagecontrol.io/packages/BracketHighlighter)
+- [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
+- [Emmet](https://packagecontrol.io/packages/Emmet)
+- [GitGutter](https://packagecontrol.io/packages/GitGutter)
+- [SublimeLinter](https://packagecontrol.io/packages/SublimeLinter)
+- [JsPrettier](https://packagecontrol.io/packages/JsPrettier)
+- [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements)
 
 # iTerm2 (Optional)
 

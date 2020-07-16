@@ -1,13 +1,13 @@
 ---
-title: "JavaScript Closure by Example"
-description: "A brief JavaScript Closure Example to get you to know closures in JavaScript, why we need them, how to implement them, how to use them, and what JavaScript patterns they can be used for ..."
-date: "2019-07-16T13:52:46+02:00"
-categories: ["JavaScript"]
-keywords: ["javascript closure"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'JavaScript Closure by Example'
+description: 'A brief JavaScript Closure Example to get you to know closures in JavaScript, why we need them, how to implement them, how to use them, and what JavaScript patterns they can be used for ...'
+date: '2019-07-16T13:52:46+02:00'
+categories: ['JavaScript']
+keywords: ['javascript closure']
+hashtags: ['#100DaysOfCode', '#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,13 +20,13 @@ Let's say we have the following JavaScript function which just returns an object
 
 ```javascript
 function getEmployee(name, country) {
-  return { name, country };
+  return { name, country }
 }
 
-const employeeOne = getEmployee('Robin', 'Germany');
-const employeeTwo = getEmployee('Markus', 'Canada');
+const employeeOne = getEmployee('Robin', 'Germany')
+const employeeTwo = getEmployee('Markus', 'Canada')
 
-const employees = [employeeOne, employeeTwo];
+const employees = [employeeOne, employeeTwo]
 ```
 
 In our case, the function creates an object for an employee object. The function can be used to create multiple objects one by one. It's up to you what you are doing with these objects afterwards. For instance, put them in an array to get a list of your company's employees.
@@ -35,16 +35,16 @@ In order to distinguish our employees, we should give them an employee number (i
 
 ```javascript{2,3,13,14,15,16}
 function getEmployee(name, country) {
-  let employeeNumber = 1;
-  return { employeeNumber, name, country };
+  let employeeNumber = 1
+  return { employeeNumber, name, country }
 }
 
-const employeeOne = getEmployee('Robin', 'Germany');
-const employeeTwo = getEmployee('Markus', 'Canada');
+const employeeOne = getEmployee('Robin', 'Germany')
+const employeeTwo = getEmployee('Markus', 'Canada')
 
-const employees = [employeeOne, employeeTwo];
+const employees = [employeeOne, employeeTwo]
 
-console.log(employees);
+console.log(employees)
 
 // [
 //   { employeeNumber: 1, name: 'Robin', country: 'Germany' },
@@ -57,18 +57,18 @@ At the moment, every employee has an employee number of 1 which isn't right. It 
 Since **a function doesn't keep any internal state**, we need to move the variable outside of the function, to increment it within the function with every created employee. We keep track of the state by incrementing the number every time the function gets called.
 
 ```javascript{1,4,15,16}
-let employeeNumber = 1;
+let employeeNumber = 1
 
 function getEmployee(name, country) {
-  return { employeeNumber: employeeNumber++, name, country };
+  return { employeeNumber: employeeNumber++, name, country }
 }
 
-const employeeOne = getEmployee('Robin', 'Germany');
-const employeeTwo = getEmployee('Markus', 'Canada');
+const employeeOne = getEmployee('Robin', 'Germany')
+const employeeTwo = getEmployee('Markus', 'Canada')
 
-const employees = [employeeOne, employeeTwo];
+const employees = [employeeOne, employeeTwo]
 
-console.log(employees);
+console.log(employees)
 
 // [
 //   { employeeNumber: 1, name: 'Robin', country: 'Germany' },
@@ -76,26 +76,26 @@ console.log(employees);
 // ]
 ```
 
-*Note: The ++ operator (called [Increment Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Increment_())) increments an integer by one. If it is used postfix (e.g. `myInteger++`), it increments the integer but returns the value from before incrementing it. If it is used prefix (e.g. `++myInteger`), it increments the integer and returns the value after incrementing it. In contrast, there exists an [Decrement Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Decrement_(--)) in JavaScript too.*
+_Note: The ++ operator (called [Increment Operator](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Increment_()>)) increments an integer by one. If it is used postfix (e.g. `myInteger++`), it increments the integer but returns the value from before incrementing it. If it is used prefix (e.g. `++myInteger`), it increments the integer and returns the value after incrementing it. In contrast, there exists an [Decrement Operator](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Decrement_(--)>) in JavaScript too._
 
 There is one crucial step we did to implement this feature: We moved the variable outside of the **function's scope** in order to keep track of its state. Before it was internally managed by the function and thus only the function knew about this variable. Now we moved it outside and made it available in the **global scope**.
 
 Now it's possible to mess up things with the new **global scope of the variable**:
 
 ```javascript{8,17}
-let employeeNumber = 1;
+let employeeNumber = 1
 
 function getEmployee(name, country) {
-  return { employeeNumber: employeeNumber++, name, country };
+  return { employeeNumber: employeeNumber++, name, country }
 }
 
-const employeeOne = getEmployee('Robin', 'Germany');
-employeeNumber = 50;
-const employeeTwo = getEmployee('Markus', 'Canada');
+const employeeOne = getEmployee('Robin', 'Germany')
+employeeNumber = 50
+const employeeTwo = getEmployee('Markus', 'Canada')
 
-const employees = [employeeOne, employeeTwo];
+const employees = [employeeOne, employeeTwo]
 
-console.log(employees);
+console.log(employees)
 
 // [
 //   { employeeNumber: 1, name: 'Robin', country: 'Germany' },
@@ -113,20 +113,20 @@ A JavaScript Closure fixes the problem of our variable's scope. A closure makes 
 
 ```javascript{1,2,3,4,5,6,8}
 function getEmployeeFactory() {
-  let employeeNumber = 1;
-  return function(name, country) {
-    return { employeeNumber: employeeNumber++, name, country };
-  };
+  let employeeNumber = 1
+  return function (name, country) {
+    return { employeeNumber: employeeNumber++, name, country }
+  }
 }
 
-const getEmployee = getEmployeeFactory();
+const getEmployee = getEmployeeFactory()
 
-const employeeOne = getEmployee('Robin', 'Germany');
-const employeeTwo = getEmployee('Markus', 'Canada');
+const employeeOne = getEmployee('Robin', 'Germany')
+const employeeTwo = getEmployee('Markus', 'Canada')
 
-const employees = [employeeOne, employeeTwo];
+const employees = [employeeOne, employeeTwo]
 
-console.log(employees);
+console.log(employees)
 
 // [
 //   { employeeNumber: 1, name: 'Robin', country: 'Germany' },
@@ -136,11 +136,11 @@ console.log(employees);
 
 The new function became a higher-order function, because the first time calling it returns a function. This returned function can be used to create our employee as we did before. However, since **the surrounding function creates a stateful environment around the returned function** -- in this case the stateful employee number -- it is called a closure.
 
-*"Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure 'remembers' the environment in which it was created."* (Source: [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures))
+_"Closures are functions that refer to independent (free) variables. In other words, the function defined in the closure 'remembers' the environment in which it was created."_ (Source: [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures))
 
 From the outside, it's not possible to mess with the employee number anymore. It's not in the global scope, but in the closure of our function. Once you create your `getEmployee` function, which you can give any name, the employee number is kept internally as state.
 
-*Note: It's worth to mention that the previous implementation of a JavaScript Closure for our example is also called "factory pattern" in software development. Basically the outer function is our factory function and the internal function our function to create an "item" (here employee) out of this factory's specification.*
+_Note: It's worth to mention that the previous implementation of a JavaScript Closure for our example is also called "factory pattern" in software development. Basically the outer function is our factory function and the internal function our function to create an "item" (here employee) out of this factory's specification._
 
 <Divider />
 

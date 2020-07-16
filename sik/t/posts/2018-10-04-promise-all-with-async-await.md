@@ -19,7 +19,10 @@ Let's say I have an API call that returns all the users from a database and take
 // First promise returns an array after a delay
 const getUsers = () => {
   return new Promise((resolve, reject) => {
-    return setTimeout(() => resolve([{ id: 'jon' }, { id: 'andrey' }, { id: 'tania' }]), 600)
+    return setTimeout(
+      () => resolve([{ id: 'jon' }, { id: 'andrey' }, { id: 'tania' }]),
+      600
+    )
   })
 }
 ```
@@ -28,7 +31,7 @@ Now there's another call that relies on some information that exists in the enti
 
 ```js
 // Second promise relies on the result of first promise
-const getIdFromUser = users => {
+const getIdFromUser = (users) => {
   return new Promise((resolve, reject) => {
     return setTimeout(() => resolve(users.id), 500)
   })
@@ -39,7 +42,7 @@ And a third call that modifies the second call.
 
 ```js
 // Third promise relies on the result of the second promise
-const capitalizeIds = id => {
+const capitalizeIds = (id) => {
   return new Promise((resolve, reject) => {
     return setTimeout(() => resolve(id.toUpperCase()), 200)
   })
@@ -85,7 +88,7 @@ const runAsyncFunctions = async () => {
   const users = await getUsers()
 
   Promise.all(
-    users.map(async user => {
+    users.map(async (user) => {
       const userId = await getIdFromUser(user)
       console.log(userId)
 
@@ -116,19 +119,22 @@ Here's the whole snippet you can run in the console.
 // First promise returns an array
 const getUsers = () => {
   return new Promise((resolve, reject) => {
-    return setTimeout(() => resolve([{ id: 'jon' }, { id: 'andrey' }, { id: 'tania' }]), 600)
+    return setTimeout(
+      () => resolve([{ id: 'jon' }, { id: 'andrey' }, { id: 'tania' }]),
+      600
+    )
   })
 }
 
 // Second promise relies on the resulting array of first promise
-const getIdFromUser = users => {
+const getIdFromUser = (users) => {
   return new Promise((resolve, reject) => {
     return setTimeout(() => resolve(users.id), 500)
   })
 }
 
 // Third promise relies on the result of the second promise
-const capitalizeIds = id => {
+const capitalizeIds = (id) => {
   return new Promise((resolve, reject) => {
     return setTimeout(() => resolve(id.toUpperCase()), 200)
   })
@@ -138,7 +144,7 @@ const runAsyncFunctions = async () => {
   const users = await getUsers()
 
   Promise.all(
-    users.map(async user => {
+    users.map(async (user) => {
       const userId = await getIdFromUser(user)
       console.log(userId)
 

@@ -1,13 +1,20 @@
 ---
-title: "Writing Tests for Apollo Client in React"
-description: "The tutorial builds up on a mocked GraphQL API enabling you to write tests for your Apollo Client queries and mutations in React. It answers the question: How to test Apollo Client in React ..."
-date: "2018-10-19T13:50:46+02:00"
-categories: ["React", "GraphQL"]
-keywords: ["apollo client test", "apollo client testing", "apollo client query test", "apollo client mutation test", "apollo client react test"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Writing Tests for Apollo Client in React'
+description: 'The tutorial builds up on a mocked GraphQL API enabling you to write tests for your Apollo Client queries and mutations in React. It answers the question: How to test Apollo Client in React ...'
+date: '2018-10-19T13:50:46+02:00'
+categories: ['React', 'GraphQL']
+keywords:
+  [
+    'apollo client test',
+    'apollo client testing',
+    'apollo client query test',
+    'apollo client mutation test',
+    'apollo client react test',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs,#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -23,58 +30,56 @@ In a previous application, you have learned how to mock a GraphQL server in diff
 If you have the previous application with the mocked Apollo Client at your disposal, you can start writing tests with it. Otherwise, you find the application with the mocking of the Apollo Client in this [GitHub repository](https://github.com/rwieruch/apollo-client-mocking-example). Let's start to separate both concerns, the actual Apollo Client and the mocked Apollo Client, before using the former for the actual application and the latter for testing the application. The Apollo Client setup for the React application can be done in a couple of steps for the GitHub client application:
 
 ```javascript
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache()
 
-const GITHUB_BASE_URL = 'https://api.github.com/graphql';
+const GITHUB_BASE_URL = 'https://api.github.com/graphql'
 
 const httpLink = new HttpLink({
   uri: GITHUB_BASE_URL,
   headers: {
-    authorization: `Bearer ${
-      process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
-    }`,
+    authorization: `Bearer ${process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN}`,
   },
-});
+})
 
 export default new ApolloClient({
   link: httpLink,
   cache,
-});
+})
 ```
 
 Afterward, the Apollo Client instance can be imported in your React root component for using it in React Apollo's Provider component:
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { ApolloProvider } from 'react-apollo';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ApolloProvider } from 'react-apollo'
 
-import App from './App';
-import client from './client';
+import App from './App'
+import client from './client'
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-  document.getElementById('root'),
-);
+  document.getElementById('root')
+)
 ```
 
 That's the part for the actual application. So what about the mocked Apollo Client from the previous application? You can implement it in another file which is only used by your tests later on.
 
 ```javascript
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { SchemaLink } from 'apollo-link-schema';
-import { makeExecutableSchema } from 'graphql-tools';
+import { ApolloClient } from 'apollo-client'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { SchemaLink } from 'apollo-link-schema'
+import { makeExecutableSchema } from 'graphql-tools'
 
-import { schema, resolvers } from './schema';
+import { schema, resolvers } from './schema'
 
-const cache = new InMemoryCache();
+const cache = new InMemoryCache()
 
 const executableSchema = makeExecutableSchema({
   typeDefs: schema,
@@ -82,12 +87,12 @@ const executableSchema = makeExecutableSchema({
   resolverValidationOptions: {
     requireResolversForResolveType: false,
   },
-});
+})
 
 export default new ApolloClient({
   link: new SchemaLink({ schema: executableSchema }),
   cache,
-});
+})
 ```
 
 In this case, a client-side schema is used (and no GraphQL introspection) to define the executable GraphQL schema with its resolvers. Whereas the resolvers deliver all the mock data for your tests, the schema itself defines all the GraphQL types and their structure. You have implemented both, client-side schema and resolvers, in the previous application where you have mocked the Apollo Client.
@@ -102,24 +107,24 @@ npm install enzyme enzyme-adapter-react-16 sinon --save-dev
 
 So what are these libraries, Enzyme and Sinon, including Jest doing for us to test a React application with Apollo Client?
 
-* **Jest**: Since this application already comes with Jest, Jest is used as test runner (e.g. tests can be started from the command line, tests can be grouped in test suites and test cases) and assertion library (e.g. making expectations such as "to equal" or "to be" between result and expected result).
-* **Enzyme**: The library is used for rendering React components in tests. Afterward, components rendered by Enzyme have an API to access them (e.g. find all input HTML nodes in the component) to conduct assertions with them. In addition, it is possible to simulate events such as a click on a button element or writing in an input element.
-* **Sinon**: The library is used to spy, stub and mock functions. It is often used to make expectations on how many times a function is called, with which arguments a function is called or to return dummy output from a stubbed/mocked function.
+- **Jest**: Since this application already comes with Jest, Jest is used as test runner (e.g. tests can be started from the command line, tests can be grouped in test suites and test cases) and assertion library (e.g. making expectations such as "to equal" or "to be" between result and expected result).
+- **Enzyme**: The library is used for rendering React components in tests. Afterward, components rendered by Enzyme have an API to access them (e.g. find all input HTML nodes in the component) to conduct assertions with them. In addition, it is possible to simulate events such as a click on a button element or writing in an input element.
+- **Sinon**: The library is used to spy, stub and mock functions. It is often used to make expectations on how many times a function is called, with which arguments a function is called or to return dummy output from a stubbed/mocked function.
 
-Before you can start with using Enzyme in your Jest test files (by default all files which end with the *test.js* suffix are executed as tests by the Jest test runner), you have to setup Enzyme with the recent React version. You can do this in a separate file which you only have to import once in your test files. As alternative, you can do the Enzyme setup in your test files too.
+Before you can start with using Enzyme in your Jest test files (by default all files which end with the _test.js_ suffix are executed as tests by the Jest test runner), you have to setup Enzyme with the recent React version. You can do this in a separate file which you only have to import once in your test files. As alternative, you can do the Enzyme setup in your test files too.
 
 ```javascript
-import Adapter from 'enzyme-adapter-react-16';
-import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16'
+import { configure } from 'enzyme'
 
-configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() })
 ```
 
 Now you are ready to write your tests with Jest, Enzyme and Sinon for your React components which are using Apollo Client for GraphQL queries and mutations. In case of the tests, it will be the mocked Apollo Client and not the actual Apollo Client connecting to the real API.
 
 # Testing a Apollo Client Mutation in React
 
-If you continued with the previous application, most of your React component implementation should be in the *src/App.js* file. So what about writing the tests for a couple of its React components in a *src/App.test.js* file next to it? In the following, you will test the execution of a GraphQL mutation which is conducted with the mocked Apollo Client. In your *src/App.js* file, the Star component is a perfect candidate to be tested in isolation. It only receives an identifier as prop which is used for the GraphQL mutation when clicking the button in the component at some point. In order to make the component accessible in other files (e.g. test file), you have to export it. Along with it you have to export the mutation to make assertions with it in your test file.
+If you continued with the previous application, most of your React component implementation should be in the _src/App.js_ file. So what about writing the tests for a couple of its React components in a _src/App.test.js_ file next to it? In the following, you will test the execution of a GraphQL mutation which is conducted with the mocked Apollo Client. In your _src/App.js_ file, the Star component is a perfect candidate to be tested in isolation. It only receives an identifier as prop which is used for the GraphQL mutation when clicking the button in the component at some point. In order to make the component accessible in other files (e.g. test file), you have to export it. Along with it you have to export the mutation to make assertions with it in your test file.
 
 ```javascript{15}
 ...
@@ -141,49 +146,41 @@ export { Star, STAR_REPOSITORY };
 export default App;
 ```
 
-Now comes the exciting part: writing a test for a GraphQL mutation. In your *src/App.test.js* file, import all the parts which are needed for the testing. If you are wondering about the *src/test/setup.js* file, it is the part where you had to set up Enzyme with its adapter to React from the previous section.
+Now comes the exciting part: writing a test for a GraphQL mutation. In your _src/App.test.js_ file, import all the parts which are needed for the testing. If you are wondering about the _src/test/setup.js_ file, it is the part where you had to set up Enzyme with its adapter to React from the previous section.
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
-import './test/setup';
+import './test/setup'
 
-import {
-  Star,
-  STAR_REPOSITORY,
-} from './App';
+import { Star, STAR_REPOSITORY } from './App'
 
 describe('Star', () => {
-  it('calls the mutate method on Apollo Client', () => {
-
-  });
-});
+  it('calls the mutate method on Apollo Client', () => {})
+})
 ```
 
 Now you can use the mocked Apollo Client instance and React Apollo's Provider component to render the Star component with Enzyme.
 
 ```javascript{2,3,6,15,16,17,18,19,20}
-import React from 'react';
-import { ApolloProvider } from 'react-apollo';
-import { mount } from 'enzyme';
+import React from 'react'
+import { ApolloProvider } from 'react-apollo'
+import { mount } from 'enzyme'
 
-import './test/setup';
-import clientMock from './test/client-mock';
+import './test/setup'
+import clientMock from './test/client-mock'
 
-import {
-  Star,
-  STAR_REPOSITORY,
-} from './App';
+import { Star, STAR_REPOSITORY } from './App'
 
 describe('Star', () => {
   it('calls the mutate method on Apollo Client', () => {
     const wrapper = mount(
       <ApolloProvider client={clientMock}>
         <Star id={'1'} />
-      </ApolloProvider>,
-    );
-  });
-});
+      </ApolloProvider>
+    )
+  })
+})
 ```
 
 If you revisit your resolvers where you have set up all the mocked data in the previous application, it should have a repository with the `id` property, because this is the repository you are going to star in the test.
@@ -271,7 +268,7 @@ That's it for testing the GraphQL mutation in Apollo Client in a React applicati
 
 # Testing a Apollo Client Query in React
 
-This time you are going to test the App component itself which queries a list of items (repositories). The list of items is defined as mocked data in your client-side resolvers which are used for the mocked Apollo Client. Therefore, make sure the App component is exported from the *src/App.js* file, which should already be there with a default export, along with its query, which is used in the Query component, to make them accessible for your test file.
+This time you are going to test the App component itself which queries a list of items (repositories). The list of items is defined as mocked data in your client-side resolvers which are used for the mocked Apollo Client. Therefore, make sure the App component is exported from the _src/App.js_ file, which should already be there with a default export, along with its query, which is used in the Query component, to make them accessible for your test file.
 
 ```javascript{22}
 ...
@@ -301,7 +298,7 @@ export {
 export default App;
 ```
 
-In your *src/App.test.js* file, import these things and create a new test suite with two test cases. Whereas the former test case is similar to the mutation test case from before, the latter test case should make an assertion about the rendered component after the queried (mocked) data arrived and thus is used to display something with it.
+In your _src/App.test.js_ file, import these things and create a new test suite with two test cases. Whereas the former test case is similar to the mutation test case from before, the latter test case should make an assertion about the rendered component after the queried (mocked) data arrived and thus is used to display something with it.
 
 ```javascript{3,6,13,14,15,16,17,18,19,20,21}
 ...
@@ -405,72 +402,68 @@ Whereas the previous application has shown you how to mock Apollo Client for you
 If you are not able to create a mock for your GraphQL server, you can intercept the actual request made by your Apollo Client instance and stub the result instead. At this time, Apollo Client is using the [native fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API) as default to conduct HTTP requests under the hood. That's why you can use it as your advantage to stub the fetch API with Sinon. The following code snippets demonstrate how it could work:
 
 ```javascript
-import sinon from 'sinon';
-import { print } from 'graphql/language/printer';
+import sinon from 'sinon'
+import { print } from 'graphql/language/printer'
 
 const mockData = [
   { id: '1', title: 'Foo' },
   { id: '2', title: 'Bar' },
-];
-const uri = 'https://api.github.com/graphql';
+]
+const uri = 'https://api.github.com/graphql'
 
 // Promise implementation for a returned result from the fetch API
 const promise = Promise.resolve({
   text: () => Promise.resolve(JSON.stringify({ data: mockData })),
-});
+})
 
-sinon
-  .stub(global, 'fetch')
-  .withArgs(uri)
-  .returns(promise);
+sinon.stub(global, 'fetch').withArgs(uri).returns(promise)
 ```
 
 That's basically your test setup for stubbing your GraphQL API endpoint and having control over the returned data by having a promise in place. Then it should be possible to resolve the promise in your test and expect the correct data from the stubbed fetch API.
 
 ```javascript
-test('query result of Query component', done => {
+test('query result of Query component', (done) => {
   // using the real Apollo Client instance
   const wrapper = mount(
     <ApolloProvider client={client}>
       <App />
-    </ApolloProvider>,
-  );
+    </ApolloProvider>
+  )
 
-  expect(wrapper.find('[data-test-id="loading"]')).toHaveLength(1);
+  expect(wrapper.find('[data-test-id="loading"]')).toHaveLength(1)
 
   promise.then().then(() => {
     setImmediate(() => {
-      wrapper.update();
+      wrapper.update()
 
-      expect(wrapper.find('li')).toHaveLength(2);
+      expect(wrapper.find('li')).toHaveLength(2)
 
-      expect(wrapper.find('li').at(0).text())
-        .toEqual(mockData[0].title);
+      expect(wrapper.find('li').at(0).text()).toEqual(mockData[0].title)
 
-      done();
-    });
-  });
-});
+      done()
+    })
+  })
+})
 ```
 
 This way, you are able to stub your GraphQL query, but also get more fine-grained control over the resolving promise(s) and the different rendering states (e.g. loading, finish) of your React component. You can even stub your request more fine-grained by providing the arguments that are expected in the native fetch API request when using Apollo Client.
 
 ```javascript{9,10,11,17,18,19,20,21,22,23,24,25,26,30}
-import sinon from 'sinon';
-import { print } from 'graphql/language/printer';
+import sinon from 'sinon'
+import { print } from 'graphql/language/printer'
 
 const mockData = [
   { id: '1', title: 'Foo' },
   { id: '2', title: 'Bar' },
-];
-const uri = 'https://api.github.com/graphql';
+]
+const uri = 'https://api.github.com/graphql'
 const mockInput = {
   query: print(GET_REPOSITORIES_OF_ORGANIZATION),
-};
+}
 
 const promise = Promise.resolve({
   text: () => Promise.resolve(JSON.stringify({ data: mockData })),
-});
+})
 
 const args = {
   method: 'POST',
@@ -481,12 +474,9 @@ const args = {
     variables: mockInput.variables || {},
     query: print(mockInput.query),
   }),
-};
+}
 
-sinon
-  .stub(global, 'fetch')
-  .withArgs(uri, args)
-  .returns(promise);
+sinon.stub(global, 'fetch').withArgs(uri, args).returns(promise)
 ```
 
 Keep in mind, that you can provide Apollo Client something else (e.g. [axios](https://github.com/axios/axios)) than the default fetch API. Then you would have to stub this (e.g. axios) instead of the fetch API. In addition, the structure of the arguments (here `args`) can change in the future, because they are internally provided by Apollo Client to the fetch API and you don't have any control over their structure.
@@ -496,17 +486,17 @@ Keep in mind, that you can provide Apollo Client something else (e.g. [axios](ht
 Both components, the Query and the Mutation component, come with the render props pattern where you use a child function. The children function has access to the query/mutation results, but also to the function which calls the mutation itself. The following example will show you how you can get access to the child function of a render prop component (Mutation) in order to make assertions (with a spy) on it. You will use Jest to manipulate the Mutation component and Sinon to give you a spy for the mutation function which is then available in the children's arguments.
 
 ```javascript
-import React from 'react';
-import * as ReactApollo from 'react-apollo';
-import sinon from 'sinon';
+import React from 'react'
+import * as ReactApollo from 'react-apollo'
+import sinon from 'sinon'
 
-const spy = sinon.spy();
+const spy = sinon.spy()
 
 ReactApollo.Mutation = ({ mutation, variables, children }) => (
   <div>{children(() => spy({ mutation, variables }))}</div>
-);
+)
 
-jest.setMock('react-apollo', ReactApollo);
+jest.setMock('react-apollo', ReactApollo)
 ```
 
 That's again basically your test setup to spy the mutation function from every Mutation component that is used in your tested components. In this scenario, you mock the Mutation component from the React Apollo package. The spy is used for the mutation function. Afterward, when testing a component which has the Mutation component, you can use the spy to verify that it was called. For instance, in case of the Star component:
@@ -514,13 +504,13 @@ That's again basically your test setup to spy the mutation function from every M
 ```javascript
 const Star = ({ id }) => (
   <Mutation mutation={STAR_REPOSITORY} variables={{ id }}>
-    {starRepository => (
+    {(starRepository) => (
       <button type="button" onClick={starRepository}>
         Star
       </button>
     )}
   </Mutation>
-);
+)
 ```
 
 You can verify that the mutation was called (also with the correct arguments if you wish to do so) after the button has been clicked:
@@ -530,30 +520,30 @@ test('interaction with mutation function from the Mutation component', () => {
   const wrapper = mount(
     <ApolloProvider client={client}>
       <Star id={'1'} />
-    </ApolloProvider>,
-  );
+    </ApolloProvider>
+  )
 
-  wrapper.find('button').simulate('click');
+  wrapper.find('button').simulate('click')
 
-  expect(sinonSpy.calledOnce).toEqual(true);
-});
+  expect(sinonSpy.calledOnce).toEqual(true)
+})
 ```
 
 That's how you get access to the `starRepository()` function in your tests from the arguments of the child function of the Mutation component. If you want to advance the previous test setup, you can even provide a mutation result as second argument to your child function and verify the rendered output in your Mutation component (only when the mutation result is used there) after the button has been clicked.
 
 ```javascript{5,9}
-import React from 'react';
-import * as ReactApollo from 'react-apollo';
-import sinon from 'sinon';
+import React from 'react'
+import * as ReactApollo from 'react-apollo'
+import sinon from 'sinon'
 
-const mockData = { id: '1', starred: true };
-const spy = sinon.spy();
+const mockData = { id: '1', starred: true }
+const spy = sinon.spy()
 
 ReactApollo.Mutation = ({ mutation, variables, children }) => (
   <div>{children(() => spy({ mutation, variables }), mockData)}</div>
-);
+)
 
-jest.setMock('react-apollo', ReactApollo);
+jest.setMock('react-apollo', ReactApollo)
 ```
 
 That's how you get full control over the Mutation component (but also Query component) in your tests. Jest enables you to mock the render prop components.

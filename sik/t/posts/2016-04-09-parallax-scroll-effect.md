@@ -74,7 +74,10 @@ On the `.parallax` div, I edit the style attribute and add a background image.
 
 ```html
 <section class="parallax-container">
-  <div class="parallax" style="background: url(image.jpg) center center / cover no-repeat;"></div>
+  <div
+    class="parallax"
+    style="background: url(image.jpg) center center / cover no-repeat;"
+  ></div>
 </section>
 ```
 
@@ -86,7 +89,10 @@ Here’s the final HTML:
 <section class="content"></section>
 
 <section class="parallax-container">
-  <div class="parallax" style="background: url(image.jpg) center center / cover no-repeat;"></div>
+  <div
+    class="parallax"
+    style="background: url(image.jpg) center center / cover no-repeat;"
+  ></div>
 </section>
 
 <section class="content"></section>
@@ -114,7 +120,7 @@ Next, we'll create a `scroll` function.
 var parallaxElements = $('.parallax'),
   parallaxQuantity = parallaxElements.length
 
-$(window).on('scroll', function() {
+$(window).on('scroll', function () {
   // more...
 })
 ```
@@ -125,8 +131,8 @@ Let the browser know that we're going to do an animation with [requestAnimationF
 var parallaxElements = $('.parallax'),
   parallaxQuantity = parallaxElements.length
 
-$(window).on('scroll', function() {
-  window.requestAnimationFrame(function() {
+$(window).on('scroll', function () {
+  window.requestAnimationFrame(function () {
     // more...
   })
 })
@@ -138,8 +144,8 @@ Create a for loop, capturing each parallax element in `currentElement`, and how 
 var parallaxElements = $('.parallax'),
   parallaxQuantity = parallaxElements.length
 
-$(window).on('scroll', function() {
-  window.requestAnimationFrame(function() {
+$(window).on('scroll', function () {
+  window.requestAnimationFrame(function () {
     for (var i = 0; i < parallaxQuantity; i++) {
       var currentElement = parallaxElements.eq(i)
       var scrolled = $(window).scrollTop()
@@ -155,8 +161,8 @@ Finally, multiply how much has been scrolled with a negative pixel value, and ap
 var parallaxElements = $('.parallax'),
   parallaxQuantity = parallaxElements.length
 
-$(window).on('scroll', function() {
-  window.requestAnimationFrame(function() {
+$(window).on('scroll', function () {
+  window.requestAnimationFrame(function () {
     for (var i = 0; i < parallaxQuantity; i++) {
       var currentElement = parallaxElements.eq(i)
       var scrolled = $(window).scrollTop()

@@ -1,36 +1,44 @@
 ---
-title: "Setup PostgreSQL with Sequelize in Express"
-description: "A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ..."
-date: "2020-04-28T07:50:46+02:00"
-categories: ["Node"]
-keywords: ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Setup PostgreSQL with Sequelize in Express'
+description: 'A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ...'
+date: '2020-04-28T07:50:46+02:00'
+categories: ['Node']
+keywords:
+  [
+    'postgresql express',
+    'postgres express',
+    'postgres sequelize',
+    'postgresql sequelize',
+    'node postgresql',
+    'node postgres',
+  ]
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
 
 <LinkCollection
-  label="This tutorial is part 4 of 4 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "How to setup Express.js in Node.js",
-      url: "/node-js-express-tutorial/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "How to create a REST API with Express.js in Node.js",
-      url: "/node-express-server-rest-api/"
-    }
-  ]}
+label="This tutorial is part 4 of 4 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "The minimal Node.js with Babel Setup",
+url: "/minimal-node-js-babel-setup/"
+},
+{
+prefix: "Part 2:",
+label: "How to setup Express.js in Node.js",
+url: "/node-js-express-tutorial/"
+},
+{
+prefix: "Part 3:",
+label: "How to create a REST API with Express.js in Node.js",
+url: "/node-express-server-rest-api/"
+}
+]}
 />
 
 Eventually every Node.js project running with Express.js as web application will need a database. Since most server applications are stateless, in order to scale them horizontally with multiple server instances, there is no way to persist data without another third-party (e.g. database). That's why it is fine to develop an initial application with sample data, where it is possible to read and write data without a database, but at some point you want to introduce a database to manage the data. The database would keep the data persistence across servers or even though one of your servers is not running.
@@ -55,17 +63,17 @@ After you have installed both libraries as node packages, we'll plan and impleme
 
 The following case implements a database for your application with two database entities: User and Message. Often a database entity is called database schema or database model as well. You can distinguish them the following way:
 
-* Database Schema: A database schema is close to the implementation details and tells the database (and developer) how an entity (e.g. user entity) looks like in a database table whereas every instance of an entity is represented by a table row. For instance, the schema defines fields (e.g. username) and relationships (e.g. a user has messages) of an entity. Each field is represented as a column in the database. Basically a schema is the blueprint for an entity.
+- Database Schema: A database schema is close to the implementation details and tells the database (and developer) how an entity (e.g. user entity) looks like in a database table whereas every instance of an entity is represented by a table row. For instance, the schema defines fields (e.g. username) and relationships (e.g. a user has messages) of an entity. Each field is represented as a column in the database. Basically a schema is the blueprint for an entity.
 
-* Database Model: A database model is a more abstract perspective on the schema. It offers the developer a conceptual framework on what models are available and how to use models as interfaces to connect an application to a database to interact with the entities. Often models are implemented with ORMs.
+- Database Model: A database model is a more abstract perspective on the schema. It offers the developer a conceptual framework on what models are available and how to use models as interfaces to connect an application to a database to interact with the entities. Often models are implemented with ORMs.
 
-* Database Entity: A database entity is actual instance of a stored item in the database that is created with a database schema. Each database entity uses a row in the database table whereas each field of the entity is defined by a column. A relationship to another entity is often described with an identifier of the other entity and ends up as field in the database as well.
+- Database Entity: A database entity is actual instance of a stored item in the database that is created with a database schema. Each database entity uses a row in the database table whereas each field of the entity is defined by a column. A relationship to another entity is often described with an identifier of the other entity and ends up as field in the database as well.
 
 Before diving into the code for your application, it's always a good idea to map the relationships between entities and how to handle the data that must pass between them. A [UML (Unified Modeling Language)](https://en.wikipedia.org/wiki/Unified_Modeling_Language) diagram is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to additional information in the database schema to it. An UML diagram could appear as such:
 
 ![uml diagram](./images/uml.png)
 
-The User and Message entities have fields that define both their identity within the construct and their relationships to each other. Let's get back to our Express application. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/user.js* and *src/models/message.js*). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. *src/models/index.js*) that combines all models and exports all them as database interface to the Express application. We can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the *src/models/user.js* file:
+The User and Message entities have fields that define both their identity within the construct and their relationships to each other. Let's get back to our Express application. Usually, there is a folder in your Node.js application called _src/models/_ that contains files for each model in your database (e.g. _src/models/user.js_ and _src/models/message.js_). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. _src/models/index.js_) that combines all models and exports all them as database interface to the Express application. We can start with the two models in the _src/models/[modelname].js_ files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the _src/models/user.js_ file:
 
 ```javascript
 const user = (sequelize, DataTypes) => {
@@ -78,12 +86,12 @@ const user = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-  });
+  })
 
-  return User;
-};
+  return User
+}
 
-export default user;
+export default user
 ```
 
 As you can see, the user has a username field which is represented as string type. In addition, we added some more validation for our user entity. First, we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. And second, we want to make the username string required, so that there is no user without a username. Each user will automatically come with a `createdAt` and a `updatedAt` field.
@@ -101,19 +109,19 @@ const user = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-  });
+  })
 
-  User.associate = models => {
-    User.hasMany(models.Message);
-  };
+  User.associate = (models) => {
+    User.hasMany(models.Message)
+  }
 
-  return User;
-};
+  return User
+}
 
-export default user;
+export default user
 ```
 
-We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
+We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username _or_ email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
 
 ```javascript{17-29}
 const user = (sequelize, DataTypes) => {
@@ -126,30 +134,30 @@ const user = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-  });
+  })
 
-  User.associate = models => {
-    User.hasMany(models.Message);
-  };
+  User.associate = (models) => {
+    User.hasMany(models.Message)
+  }
 
-  User.findByLogin = async login => {
+  User.findByLogin = async (login) => {
     let user = await User.findOne({
       where: { username: login },
-    });
+    })
 
     if (!user) {
       user = await User.findOne({
         where: { email: login },
-      });
+      })
     }
 
-    return user;
-  };
+    return user
+  }
 
-  return User;
-};
+  return User
+}
 
-export default user;
+export default user
 ```
 
 The message model looks quite similar, even though we don't add any custom methods to it and the fields are pretty straightforward with only a text field and another message to user association:
@@ -163,17 +171,17 @@ const message = (sequelize, DataTypes) => {
       validate: {
         notEmpty: true,
       },
-    }
-  });
+    },
+  })
 
-  Message.associate = models => {
-    Message.belongsTo(models.User);
-  };
+  Message.associate = (models) => {
+    Message.belongsTo(models.User)
+  }
 
-  return Message;
-};
+  return Message
+}
 
-export default message;
+export default message
 ```
 
 Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with a CASCADE flag. In this case, we add the flag to our user schema to remove all messages of this user on its deletion:
@@ -189,36 +197,36 @@ const user = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
-  });
+  })
 
-  User.associate = models => {
-    User.hasMany(models.Message, { onDelete: 'CASCADE' });
-  };
+  User.associate = (models) => {
+    User.hasMany(models.Message, { onDelete: 'CASCADE' })
+  }
 
-  User.findByLogin = async login => {
+  User.findByLogin = async (login) => {
     let user = await User.findOne({
       where: { username: login },
-    });
+    })
 
     if (!user) {
       user = await User.findOne({
         where: { email: login },
-      });
+      })
     }
 
-    return user;
-  };
+    return user
+  }
 
-  return User;
-};
+  return User
+}
 
-export default user;
+export default user
 ```
 
-Sequelize is used to define the model with its content (composed of `DataTypes` and optional configuration). Furthermore, additional methods can be added to shape the database interface and the associate property is used to create relations between models. An user can have multiple messages, but a Message belongs to only one user. You can dive deeper into these concepts in the [Sequelize documentation](http://docs.sequelizejs.com/). Next, in your *src/models/index.js* file, import and combine those models and resolve their associations using the Sequelize API:
+Sequelize is used to define the model with its content (composed of `DataTypes` and optional configuration). Furthermore, additional methods can be added to shape the database interface and the associate property is used to create relations between models. An user can have multiple messages, but a Message belongs to only one user. You can dive deeper into these concepts in the [Sequelize documentation](http://docs.sequelizejs.com/). Next, in your _src/models/index.js_ file, import and combine those models and resolve their associations using the Sequelize API:
 
 ```javascript
-import Sequelize from 'sequelize';
+import Sequelize from 'sequelize'
 
 const sequelize = new Sequelize(
   process.env.DATABASE,
@@ -226,31 +234,31 @@ const sequelize = new Sequelize(
   process.env.DATABASE_PASSWORD,
   {
     dialect: 'postgres',
-  },
-);
+  }
+)
 
 const models = {
   User: sequelize.import('./user'),
   Message: sequelize.import('./message'),
-};
+}
 
-Object.keys(models).forEach(key => {
+Object.keys(models).forEach((key) => {
   if ('associate' in models[key]) {
-    models[key].associate(models);
+    models[key].associate(models)
   }
-});
+})
 
-export { sequelize };
+export { sequelize }
 
-export default models;
+export default models
 ```
 
-At the top of the file, you create a Sequelize instance by passing mandatory arguments (database name, database superuser, database superuser's password and additional configuration) to the constructor. For instance, you need to tell Sequelize the dialect of your database, which is postgres rather than mysql or sqlite. In our case, we are using environment variables, but you can pass these arguments as strings in the source code too. For example, the environment variables could look like the following in an *.env* file:
+At the top of the file, you create a Sequelize instance by passing mandatory arguments (database name, database superuser, database superuser's password and additional configuration) to the constructor. For instance, you need to tell Sequelize the dialect of your database, which is postgres rather than mysql or sqlite. In our case, we are using environment variables, but you can pass these arguments as strings in the source code too. For example, the environment variables could look like the following in an _.env_ file:
 
 ```javascript
-DATABASE=mydatabase
-DATABASE_USER=postgres
-DATABASE_PASSWORD=postgres
+DATABASE = mydatabase
+DATABASE_USER = postgres
+DATABASE_PASSWORD = postgres
 ```
 
 Note: If you don't have a super user or dedicated database for your application yet, head over to the PostgreSQL setup guide to create them. You only have to create a superuser once, but every of your applications should have its own database.
@@ -292,8 +300,8 @@ That's it for defining your database models for your Express application and for
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/postgres-sequelize-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
-  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/init...postgres-sequelize-setup?expand=1).
+- Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/postgres-sequelize-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  - Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/init...postgres-sequelize-setup?expand=1).
 
 # How to seed a PostgreSQL Database?
 
@@ -400,38 +408,38 @@ That's it. In our case, we have used our models to create users with associated 
 
 ### Exercises:
 
-* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/seed). Be aware that the project cannot run properly in the Sandbox, because there is no database.
-  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/postgres-sequelize-setup...seed?expand=1).
-* Explore:
-  * What else could be used instead of Sequelize as ORM alternative?
-  * What else could be used instead of PostgreSQL as database alternative?
-  * Compare your source code with the source code from the [MongoDB + Mongoose alternative](https://github.com/rwieruch/node-express-mongodb-server).
-* Ask yourself:
-  * When would you seed an application in a production ready environment?
-  * Are ORMs like Sequelize essential to connect your application to a database?
+- Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/seed). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  - Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/postgres-sequelize-setup...seed?expand=1).
+- Explore:
+  - What else could be used instead of Sequelize as ORM alternative?
+  - What else could be used instead of PostgreSQL as database alternative?
+  - Compare your source code with the source code from the [MongoDB + Mongoose alternative](https://github.com/rwieruch/node-express-mongodb-server).
+- Ask yourself:
+  - When would you seed an application in a production ready environment?
+  - Are ORMs like Sequelize essential to connect your application to a database?
 
 <LinkCollection
-  label="This tutorial is part 4 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "How to setup Express.js in Node.js",
-      url: "/node-js-express-tutorial/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "How to create a REST API with Express.js in Node.js",
-      url: "/node-express-server-rest-api/"
-    },
-    {
-      prefix: "Part 5:",
-      label: "Creating a REST API with Express.js and PostgreSQL",
-      url: "/postgresql-express-node-rest-api/"
-    }
-  ]}
+label="This tutorial is part 4 of 5 in this series."
+links={[
+{
+prefix: "Part 1:",
+label: "The minimal Node.js with Babel Setup",
+url: "/minimal-node-js-babel-setup/"
+},
+{
+prefix: "Part 2:",
+label: "How to setup Express.js in Node.js",
+url: "/node-js-express-tutorial/"
+},
+{
+prefix: "Part 3:",
+label: "How to create a REST API with Express.js in Node.js",
+url: "/node-express-server-rest-api/"
+},
+{
+prefix: "Part 5:",
+label: "Creating a REST API with Express.js and PostgreSQL",
+url: "/postgresql-express-node-rest-api/"
+}
+]}
 />

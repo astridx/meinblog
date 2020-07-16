@@ -8,7 +8,7 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 Dein Ziel ist es, dass nicht jeder das Recht hat, alles zu bearbeiten. Dazu bietet Joomla! eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.
@@ -17,7 +17,7 @@ Dein Ziel ist es, dass nicht jeder das Recht hat, alles zu bearbeiten. Dazu biet
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t10...t11a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -25,7 +25,7 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
 Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Datenbank für dich.
 
@@ -37,7 +37,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ![Joomla! Konfiguration](../images/j4x12x2.png)
 
-4. Öffne die Optionen. Hier hast du die Möglichkeit, die Berechtigungen für die Nutzung der Komponente selbst zu setzten. 
+4. Öffne die Optionen. Hier hast du die Möglichkeit, die Berechtigungen für die Nutzung der Komponente selbst zu setzten.
 
 ![Joomla! Konfiguration](../images/j4x12x3.png)
 

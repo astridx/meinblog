@@ -205,12 +205,16 @@ const getBooks = (request, response) => {
 const addBook = (request, response) => {
   const { author, title } = request.body
 
-  pool.query('INSERT INTO books (author, title) VALUES ($1, $2)', [author, title], error => {
-    if (error) {
-      throw error
+  pool.query(
+    'INSERT INTO books (author, title) VALUES ($1, $2)',
+    [author, title],
+    (error) => {
+      if (error) {
+        throw error
+      }
+      response.status(201).json({ status: 'success', message: 'Book added.' })
     }
-    response.status(201).json({ status: 'success', message: 'Book added.' })
-  })
+  )
 }
 
 app
@@ -458,16 +462,8 @@ If someone manages to send invalid data to the PostgreSQL database, the app can 
 app.post(
   '/books',
   [
-    check('author')
-      .not()
-      .isEmpty()
-      .isLength({ min: 5, max: 255 })
-      .trim(),
-    check('title')
-      .not()
-      .isEmpty()
-      .isLength({ min: 5, max: 255 })
-      .trim(),
+    check('author').not().isEmpty().isLength({ min: 5, max: 255 }).trim(),
+    check('title').not().isEmpty().isLength({ min: 5, max: 255 }).trim(),
   ],
   postLimiter,
   (request, response) => {
@@ -479,12 +475,16 @@ app.post(
 
     const { author, title } = request.body
 
-    pool.query('INSERT INTO books (author, title) VALUES ($1, $2)', [author, title], error => {
-      if (error) {
-        throw error
+    pool.query(
+      'INSERT INTO books (author, title) VALUES ($1, $2)',
+      [author, title],
+      (error) => {
+        if (error) {
+          throw error
+        }
+        response.status(201).json({ status: 'success', message: 'Book added.' })
       }
-      response.status(201).json({ status: 'success', message: 'Book added.' })
-    })
+    )
   }
 )
 ```
@@ -503,8 +503,13 @@ If the request to the endpoint does not contain the proper header, it can return
 
 ```js
 const deleteBook = (request, response) => {
-  if (!request.header('apiKey') || request.header('apiKey') !== process.env.API_KEY) {
-    return response.status(401).json({ status: 'error', message: 'Unauthorized.' })
+  if (
+    !request.header('apiKey') ||
+    request.header('apiKey') !== process.env.API_KEY
+  ) {
+    return response
+      .status(401)
+      .json({ status: 'error', message: 'Unauthorized.' })
   }
   // ...
 }
@@ -545,14 +550,17 @@ const newBook = {
 }
 
 try {
-  const response = await fetch('https://<example-node-api>.herokuapp.com/books', {
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    method: 'post',
-    body: JSON.stringify(newBook),
-  })
+  const response = await fetch(
+    'https://<example-node-api>.herokuapp.com/books',
+    {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'post',
+      body: JSON.stringify(newBook),
+    }
+  )
 } catch (error) {
   console.log(error)
 }

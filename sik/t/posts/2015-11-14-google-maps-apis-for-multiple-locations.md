@@ -72,7 +72,9 @@ I have a regular HTML5 document, linking to a CSS stylesheet and JS script. The 
   </head>
 
   <body>
-    <div id="map">
+    <div id="map"></div>
+  </body>
+</html>
 ```
 
     <script src="script.js"></script>
@@ -81,6 +83,7 @@ I have a regular HTML5 document, linking to a CSS stylesheet and JS script. The 
       defer
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
     ></script>
+
   </body>
 </html>
 ```
@@ -235,8 +238,8 @@ for (i = 0; i < locations.length; i++) {
   google.maps.event.addListener(
     marker,
     'click',
-    (function(marker, i) {
-      return function() {
+    (function (marker, i) {
+      return function () {
         infowindow.setContent(locations[i][0])
         infowindow.open(map, marker)
       }
@@ -301,8 +304,8 @@ function initMap() {
     google.maps.event.addListener(
       marker,
       'click',
-      (function(marker, i) {
-        return function() {
+      (function (marker, i) {
+        return function () {
           infowindow.setContent(locations[i][0])
           infowindow.open(map, marker)
         }

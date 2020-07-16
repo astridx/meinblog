@@ -1,13 +1,13 @@
 ---
-title: "Flow: Type Checking with Flow in React + Redux"
-description: "The Flow: Type Checking with Flow in React + Redux tutorial will teach you how to use Flow in a React JS + Redux environment. JavaScript as dynamically typed.."
-date: "2016-06-21T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["redux flow"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Flow: Type Checking with Flow in React + Redux'
+description: 'The Flow: Type Checking with Flow in React + Redux tutorial will teach you how to use Flow in a React JS + Redux environment. JavaScript as dynamically typed..'
+date: '2016-06-21T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['redux flow']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -26,7 +26,7 @@ The Flow: Type Checking with Flow in React + Redux tutorial will teach you how t
 
 First of all we have to install flow-bin in our project.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm install --save-dev flow-bin
@@ -34,15 +34,15 @@ npm install --save-dev flow-bin
 
 Next we have to create a flow configuration file.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
-touch .flowconfig
+touch.flowconfig
 ```
 
 We keep our configuration empty in the beginning and add a flow script to our package.json.
 
-*package.json*
+_package.json_
 
 ```javascript{4}
 ...
@@ -57,7 +57,7 @@ We keep our configuration empty in the beginning and add a flow script to our pa
 
 Now we can start our type checking already.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -67,23 +67,23 @@ npm run-script flow
 
 # Flow in Action
 
-There are no errors yet, but Flow should check our types shouldn’t it? It’s up to you to setup type checking for each file. Basically Flow will only check files which have either a /* @flow */ or // @flow annotations.
+There are no errors yet, but Flow should check our types shouldn’t it? It’s up to you to setup type checking for each file. Basically Flow will only check files which have either a /_ @flow _/ or // @flow annotations.
 
 Let’s begin by adding our first type checking in one of our constant files.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{1}
 // @flow
 
-export const ME_SET = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
+export const ME_SET = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
 ```
 
 Check again whether you have any errors now.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -95,19 +95,19 @@ Still no errors, because we didn’t specify a type yet.
 
 Let’s add our first type check. Flow comes with several [built-in types](https://flowtype.org/docs/builtins.html).
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{3}
 // @flow
 
-export const ME_SET: number = 'ME_SET';
-export const TRACKS_SET = 'TRACKS_SET';
-export const TRACK_PLAY = 'TRACK_PLAY';
+export const ME_SET: number = 'ME_SET'
+export const TRACKS_SET = 'TRACKS_SET'
+export const TRACK_PLAY = 'TRACK_PLAY'
 ```
 
 When we run our script again, we will see an error, because ME_SET is a string.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -115,19 +115,18 @@ npm run-script flow
 
 The output will show you the error with an additional description.
 
-
 > You are still able to start the app with npm start and open it in a browser. Flow doesn’t prevent you from starting your app.
 
 Let’s fix the type error and add more type checks.
 
-*src/constants/actionTypes.js*
+_src/constants/actionTypes.js_
 
 ```javascript{3,4,5}
 // @flow
 
-export const ME_SET: string = 'ME_SET';
-export const TRACKS_SET: string = 'TRACKS_SET';
-export const TRACK_PLAY: string = 'TRACK_PLAY';
+export const ME_SET: string = 'ME_SET'
+export const TRACKS_SET: string = 'TRACKS_SET'
+export const TRACK_PLAY: string = 'TRACK_PLAY'
 ```
 
 There should be no errors when you run the script again.
@@ -136,40 +135,40 @@ There should be no errors when you run the script again.
 
 Let’s add some more type checking in our reducers. First only add the annotation.
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript{1}
 // @flow
 
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 const initialState = {
-    tracks: [],
-    activeTrack: null
-};
+  tracks: [],
+  activeTrack: null,
+}
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
     case actionTypes.TRACK_PLAY:
-      return setPlay(state, action);
+      return setPlay(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { tracks } = action;
-  return { ...state, tracks };
+  const { tracks } = action
+  return { ...state, tracks }
 }
 
 function setPlay(state, action) {
-  const { track } = action;
-  return { ...state, activeTrack: track };
+  const { track } = action
+  return { ...state, activeTrack: track }
 }
 ```
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -177,36 +176,36 @@ npm run-script flow
 
 As already noted, flow requires to specify the input and output of exported functions by only annotating the file. We need to specify our [function input and output](https://flowtype.org/docs/functions.html) to prevent these errors.
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript{10}
 // @flow
 
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 const initialState = {
-    tracks: [],
-    activeTrack: null
-};
+  tracks: [],
+  activeTrack: null,
+}
 
-export default function(state: Object = initialState, action: Object): Object {
+export default function (state: Object = initialState, action: Object): Object {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
     case actionTypes.TRACK_PLAY:
-      return setPlay(state, action);
+      return setPlay(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { tracks } = action;
-  return { ...state, tracks };
+  const { tracks } = action
+  return { ...state, tracks }
 }
 
 function setPlay(state, action) {
-  const { track } = action;
-  return { ...state, activeTrack: track };
+  const { track } = action
+  return { ...state, activeTrack: track }
 }
 ```
 
@@ -214,41 +213,41 @@ The reducers’ input and output gets type checked now. We say that the incoming
 
 At the end we didn’t win a lot here, because we still input two generic Objects and output one generic Object. We can use [type aliases](https://flowtype.org/docs/type-aliases.html) to define our state object more specific.
 
-*src/reducers/track.js*
+_src/reducers/track.js_
 
 ```javascript{3,4,5,6,15}
 // @flow
 
 type State = {
-  tracks: Array<Object>;
-  activeTrack: ?Object;
-};
+  tracks: Array<Object>,
+  activeTrack: ?Object,
+}
 
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 const initialState = {
-    tracks: [],
-    activeTrack: null
-};
+  tracks: [],
+  activeTrack: null,
+}
 
-export default function(state: State = initialState, action: Object): State {
+export default function (state: State = initialState, action: Object): State {
   switch (action.type) {
     case actionTypes.TRACKS_SET:
-      return setTracks(state, action);
+      return setTracks(state, action)
     case actionTypes.TRACK_PLAY:
-      return setPlay(state, action);
+      return setPlay(state, action)
   }
-  return state;
+  return state
 }
 
 function setTracks(state, action) {
-  const { tracks } = action;
-  return { ...state, tracks };
+  const { tracks } = action
+  return { ...state, tracks }
 }
 
 function setPlay(state, action) {
-  const { track } = action;
-  return { ...state, activeTrack: track };
+  const { track } = action
+  return { ...state, activeTrack: track }
 }
 ```
 
@@ -258,9 +257,9 @@ There should be still no errors when you run the script again. We could even be 
 
 ```javascript
 type State = {
-  tracks: Array<Object>;
-  activeTrack: ?Object;
-};
+  tracks: Array<Object>,
+  activeTrack: ?Object,
+}
 ```
 
 to
@@ -268,51 +267,51 @@ to
 ```javascript
 type Track = {
   // specify your track object
-};
+}
 
 type State = {
-  tracks: Array<Track>;
-  activeTrack: ?Track;
-};
+  tracks: Array<Track>,
+  activeTrack: ?Track,
+}
 ```
 
 but for the sake of simplicity, let’s leave the reducer as it is and be more specific in our next case.
 
 So far we have type checked some of our actionTypes and one of our reducers. Let’s have a look at one of our action creators and make it type safe as well.
 
-*src/actions/track.js*
+_src/actions/track.js_
 
 ```javascript{1,3,4,5,7,8,9,10,12,13,14,15,19,26}
 // @flow
 
 type Track = {
-  foo: string;
-};
+  foo: string,
+}
 
 type SetTracksAction = {
-    type: string;
-    tracks: Array<Track>;
-};
+  type: string,
+  tracks: Array<Track>,
+}
 
 type PlayTrackAction = {
-    type: string;
-    track: Track;
-};
+  type: string,
+  track: Track,
+}
 
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function setTracks(tracks: Array<Track>): SetTracksAction {
   return {
     type: actionTypes.TRACKS_SET,
-    tracks
-  };
-};
+    tracks,
+  }
+}
 
 export function playTrack(track: Track): PlayTrackAction {
   return {
     type: actionTypes.TRACK_PLAY,
-    track
-  };
+    track,
+  }
 }
 ```
 
@@ -320,47 +319,47 @@ A lot is happening here already! Let’s examine it from top to bottom. We defin
 
 Additionally you could also describe all actions under one type, but it doesn’t guarantee you that you returned the correct object in the end.
 
-*src/actions/track.js*
+_src/actions/track.js_
 
 ```javascript{17,21,28}
 // @flow
 
 type Track = {
-  foo: string;
-};
+  foo: string,
+}
 
 type SetTracksAction = {
-    type: string;
-    tracks: Array<Track>;
-};
+  type: string,
+  tracks: Array<Track>,
+}
 
 type PlayTrackAction = {
-    type: string;
-    track: Track;
-};
+  type: string,
+  track: Track,
+}
 
-type Action = SetTracksAction | PlayTrackAction;
+type Action = SetTracksAction | PlayTrackAction
 
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes from '../constants/actionTypes'
 
 export function setTracks(tracks: Array<Track>): Action {
   return {
     type: actionTypes.TRACKS_SET,
-    tracks
-  };
-};
+    tracks,
+  }
+}
 
 export function playTrack(track: Track): Action {
   return {
     type: actionTypes.TRACK_PLAY,
-    track
-  };
+    track,
+  }
 }
 ```
 
 The unified type is called a [disjoint union type](https://flowtype.org/docs/disjoint-unions.html).
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -372,63 +371,65 @@ There should be no errors.
 
 Let’s step in our file where we initially retrieve the track objects and make this one type safe.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{3,4,5,7,8,9,23,32,42,45}
 // @flow
 
 type Track = {
-  foo: number;
-};
+  foo: number,
+}
 
 type StreamData = {
-  collection: Array<Track>;
-};
+  collection: Array<Track>,
+}
 
-import SC from 'soundcloud';
-import * as actionTypes from '../constants/actionTypes';
-import { setTracks } from '../actions/track';
+import SC from 'soundcloud'
+import * as actionTypes from '../constants/actionTypes'
+import { setTracks } from '../actions/track'
 
 function setMe(user) {
   return {
     type: actionTypes.ME_SET,
-    user
-  };
+    user,
+  }
 }
 
 export function auth() {
   return function (dispatch: Function) {
     SC.connect().then((session) => {
-      dispatch(fetchMe(session));
-      dispatch(fetchStream(session));
-    });
-  };
-};
+      dispatch(fetchMe(session))
+      dispatch(fetchStream(session))
+    })
+  }
+}
 
 function fetchMe(session) {
-    return function (dispatch: Function) {
-      fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch(setMe(data));
-        });
-    };
+  return function (dispatch: Function) {
+    fetch(`//api.soundcloud.com/me?oauth_token=${session.oauth_token}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(setMe(data))
+      })
+  }
 }
 
 function fetchStream(session) {
   return function (dispatch: Function) {
-    fetch(`//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`)
+    fetch(
+      `//api.soundcloud.com/me/activities?limit=20&offset=0&oauth_token=${session.oauth_token}`
+    )
       .then((response) => response.json())
       .then((data: StreamData) => {
-        dispatch(setTracks(data.collection));
-      });
-  };
+        dispatch(setTracks(data.collection))
+      })
+  }
 }
 ```
 
 Again we define a type alias for the track object. Moreover we define a more complex type alias StreamData which uses the Track type. It defines a property collection which is typed as an Array of Track types.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -438,7 +439,7 @@ You should get an error now. If you look closer at the error, you will notice th
 
 We can easily fix that by changing our Track type.
 
-*src/actions/auth.js*
+_src/actions/auth.js_
 
 ```javascript{4}
 // @flow
@@ -457,7 +458,7 @@ import SC from 'soundcloud';
 
 You should see no errors anymore when you run the type checking script.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -469,17 +470,17 @@ One problem from the previous step still remains. We had to define two times the
 
 We can use [declarations](https://flowtype.org/docs/declarations.html) to define new types at one place and reuse them with Flow. Remember when we added the flow configuration? We can use that file to define the declarations.
 
-*.flowconfig*
+_.flowconfig_
 
 ```javascript
-[libs]
+;[libs]
 
 decls
 ```
 
 Now we need a folder decls where we can decelerate our types at one place.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 mkdir decls
@@ -487,25 +488,25 @@ cd decls
 touch flowTypes.js
 ```
 
-*decls/flowTypes.js*
+_decls/flowTypes.js_
 
 ```javascript
 declare type Track = {
-  foo: string;
-};
+  foo: string,
+}
 ```
 
 Now we can remove the
 
 ```javascript
 type Track = {
-  foo: string;
-};
+  foo: string,
+}
 ```
 
 from the files src/actions/track.js and src/actions/auth.js. There should be no error when you run the type checking script.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm run-script flow
@@ -517,7 +518,7 @@ Flow makes it possible to type check the [props and state of nested components](
 
 Let’s add the Flow annotation and the props objects we want to type check in the next step.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{1,9,10}
 // @flow
@@ -555,7 +556,7 @@ export default Stream;
 
 Since the prop object is an empty object, we will get several errors when we check our types. We can adjust our props type check to justify the required props of our component.
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{3,4,5,6,7}
 ...
@@ -573,51 +574,51 @@ That way we can exactly specify each property. Moreover you can see that we can 
 
 We still get errors and now comes the crucial point. In our auth.js we defined the StreamData which we will get from the SoundCloud API ([What's an API?](/what-is-an-api-javascript/)). At this point we have no chance to know about the property types inside of Track. Since we are now defining the component where we want to make the tracks visible in the browser, we know which properties we need. Let’s change our Track declaration according to the properties we are showing in our Stream component.
 
-*decls/flowTypes.js*
+_decls/flowTypes.js_
 
 ```javascript{2}
 declare type Track = {
-  origin: Object;
-};
+  origin: Object,
+}
 ```
 
 We can even be more specific:
 
-*decls/flowTypes.js*
+_decls/flowTypes.js_
 
 ```javascript{1,2,3,4,7}
 declare type Origin = {
-  stream_url: string;
-  title: string;
-};
+  stream_url: string,
+  title: string,
+}
 
 declare type Track = {
-  origin: Origin;
-};
+  origin: Origin,
+}
 ```
 
 Now the Track declaration should align with the required props on our track object in the Stream component.
 
 As little extra we can declare a User type, which we can use in the Stream component.
 
-*decls/flowTypes.js*
+_decls/flowTypes.js_
 
 ```javascript{10,11,12}
 declare type Origin = {
-  stream_url: string;
-  title: string;
-};
+  stream_url: string,
+  title: string,
+}
 
 declare type Track = {
-  origin: Origin;
-};
+  origin: Origin,
+}
 
 declare type User = {
-  username: string;
-};
+  username: string,
+}
 ```
 
-*src/components/Stream/presenter.js*
+_src/components/Stream/presenter.js_
 
 ```javascript{3}
 ...
@@ -655,7 +656,7 @@ property `done`. Property not found in
 
 which happens in node_modules/fbjs/lib/. We can ignore that error in the flow configuration.
 
-*.flowconfig*
+_.flowconfig_
 
 ```javascript
 [ignore]
@@ -675,13 +676,13 @@ Missing class properties transform
 
 To fix that problem you can install the following package.
 
-*From root folder:*
+_From root folder:_
 
 ```javascript
 npm --save-dev install babel-plugin-transform-class-properties
 ```
 
-*package.json*
+_package.json_
 
 ```javascript{8,9,19}
 ...

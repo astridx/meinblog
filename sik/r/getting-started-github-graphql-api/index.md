@@ -1,13 +1,14 @@
 ---
 title: "Getting Started with GitHub's GraphQL API"
 description: "Everything you need to get started with GitHub's GraphQL API for learning GraphQL in JavaScript. This walkthrough demonstrates you how to set up your data on GitHub, how to create a personal access token, and how to consume their API without any source code with GraphiQL or GitHub's GraphQL Explorer ..."
-date: "2018-06-09T13:50:46+02:00"
-categories: ["React", "GraphQL"]
-keywords: ["github graphql API", "github graphql apollo", "github graphql react"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2018-06-09T13:50:46+02:00'
+categories: ['React', 'GraphQL']
+keywords:
+  ['github graphql API', 'github graphql apollo', 'github graphql react']
+hashtags: ['#100DaysOfCode', '#ReactJs,#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -15,29 +16,29 @@ author: ""
 <ReactGraphQLBook />
 
 <LinkCollection
-  label="This tutorial is part 1 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 2:",
-      label: "GraphQL Tutorial for Beginners",
-      url: "/graphql-tutorial/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "A complete React with GraphQL Tutorial",
-      url: "/react-with-graphql-tutorial/"
-    },
-    {
-      prefix: "Part 4:",
-      label: "Apollo Client Tutorial for Beginners",
-      url: "/graphql-apollo-client-tutorial/"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React with Apollo and GraphQL Tutorial",
-      url: "/react-graphql-apollo-tutorial/"
-    }
-  ]}
+label="This tutorial is part 1 of 5 in this series."
+links={[
+{
+prefix: "Part 2:",
+label: "GraphQL Tutorial for Beginners",
+url: "/graphql-tutorial/"
+},
+{
+prefix: "Part 3:",
+label: "A complete React with GraphQL Tutorial",
+url: "/react-with-graphql-tutorial/"
+},
+{
+prefix: "Part 4:",
+label: "Apollo Client Tutorial for Beginners",
+url: "/graphql-apollo-client-tutorial/"
+},
+{
+prefix: "Part 5:",
+label: "React with Apollo and GraphQL Tutorial",
+url: "/react-graphql-apollo-tutorial/"
+}
+]}
 />
 
 Step-by-step is often the easiest way to learn something new, so it's fortunate that learning GraphQL in JavaScript teaches both the client and the server-side of an application. Seeing both sides of the web transactions is useful, but the catch is you have to learn two environments. The step-by-step mentality can be difficult to apply here, so I encourage beginners to start with a client-side application by consuming a third-party GraphQL API before the server side, which uses a GraphQL server.
@@ -54,18 +55,18 @@ For our interactions with GitHub's GraphQL API, you will use your own account wi
 
 ### Exercises:
 
-* Create a GitHub account if you don't have one
-* Provide additional information for your GitHub profile
+- Create a GitHub account if you don't have one
+- Provide additional information for your GitHub profile
 
 ## GitHub Repositories
 
-You can also create repositories on GitHub. In the words of their official glossary: *"A repository is the most basic element of GitHub. They're easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private."* [GitHub's glossary](https://help.github.com/articles/github-glossary/) will explain the key terms--repository, issue, clone, fork, push--which are necessary to follow along with the upcoming chapters to learn about GraphQL. Basically a repository is the place for application source code that can be shared with others. I encourage you to put a few of your projects into GitHub repositories, so you can access them all later with what you've learned about their GraphQL API.
+You can also create repositories on GitHub. In the words of their official glossary: _"A repository is the most basic element of GitHub. They're easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private."_ [GitHub's glossary](https://help.github.com/articles/github-glossary/) will explain the key terms--repository, issue, clone, fork, push--which are necessary to follow along with the upcoming chapters to learn about GraphQL. Basically a repository is the place for application source code that can be shared with others. I encourage you to put a few of your projects into GitHub repositories, so you can access them all later with what you've learned about their GraphQL API.
 
 If you don't have any projects to upload, you can always 'fork' repositories from other GitHub users and work on copies of them. A fork is basically a clone of a repository where you can add changes without altering the original. There are many public repositories on GitHub that can be cloned to your local machine or forked to your list so you can get an understanding of the mechanics through experimentation. For example, if you visit [my GitHub profile](https://github.com/rwieruch), you can see all my public repositories, though not all of these are mine, because some of them are just forks of others. Feel free to fork these repositories if you'd like to use them as practice, and if you'd like them to be accessible via GitHub's GraphQL API from your own account.
 
 ### Exercises:
 
-* Create/Fork a couple of GitHub repositories, and verify that they show in your account as copies. Copies are indicated by the username that proceeds the repository name in all its titles; for example, a repo called *OriginalAuthor/TestRepo* would be renamed to *YourUserName/TestRepo* once you've forked it.
+- Create/Fork a couple of GitHub repositories, and verify that they show in your account as copies. Copies are indicated by the username that proceeds the repository name in all its titles; for example, a repo called _OriginalAuthor/TestRepo_ would be renamed to _YourUserName/TestRepo_ once you've forked it.
 
 ## Paginated Data
 
@@ -79,12 +80,12 @@ Once you dive deeper into GitHub's GraphQL API and you start to request nested r
 
 ### Exercises:
 
-* Read more about the different terms in [GitHub's glossary](https://help.github.com/articles/github-glossary/). Consider these questions:
-  * What is a GitHub organization and GitHub user?
-  * What are repositories, issues and pull requests?
-  * What are GitHub repository stars and GitHub repository watchers?
-* Create or fork enough repositories to use the pagination feature.
-* Create pull requests and issues in a few of your GitHub repositories.
+- Read more about the different terms in [GitHub's glossary](https://help.github.com/articles/github-glossary/). Consider these questions:
+  - What is a GitHub organization and GitHub user?
+  - What are repositories, issues and pull requests?
+  - What are GitHub repository stars and GitHub repository watchers?
+- Create or fork enough repositories to use the pagination feature.
+- Create pull requests and issues in a few of your GitHub repositories.
 
 # Read/Write Data with GitHub's Personal Access Token
 
@@ -115,27 +116,27 @@ This section provided you with two ways to interact with GitHub's GraphQL API. W
 After you've set up GitHub to use their GraphQL API to learn about GraphQL, you should be ready to implement your first GraphQL client interactions. Follow along and create your first GraphQL client-side application with the tools you have just set up but also with React.
 
 <LinkCollection
-  label="This tutorial is part 1 of 5 in this series."
-  links={[
-    {
-      prefix: "Part 2:",
-      label: "GraphQL Tutorial for Beginners",
-      url: "/graphql-tutorial/"
-    },
-    {
-      prefix: "Part 3:",
-      label: "A complete React with GraphQL Tutorial",
-      url: "/react-with-graphql-tutorial/"
-    },
-    {
-      prefix: "Part 4:",
-      label: "Apollo Client Tutorial for Beginners",
-      url: "/graphql-apollo-client-tutorial/"
-    },
-    {
-      prefix: "Part 5:",
-      label: "React with Apollo and GraphQL Tutorial",
-      url: "/react-graphql-apollo-tutorial/"
-    }
-  ]}
+label="This tutorial is part 1 of 5 in this series."
+links={[
+{
+prefix: "Part 2:",
+label: "GraphQL Tutorial for Beginners",
+url: "/graphql-tutorial/"
+},
+{
+prefix: "Part 3:",
+label: "A complete React with GraphQL Tutorial",
+url: "/react-with-graphql-tutorial/"
+},
+{
+prefix: "Part 4:",
+label: "Apollo Client Tutorial for Beginners",
+url: "/graphql-apollo-client-tutorial/"
+},
+{
+prefix: "Part 5:",
+label: "React with Apollo and GraphQL Tutorial",
+url: "/react-graphql-apollo-tutorial/"
+}
+]}
 />

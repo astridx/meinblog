@@ -1,13 +1,13 @@
 ---
-title: "What are Reusable Components in React?"
-description: "A brief walkthrough that explains reusable components in React by example. You will refactor a specific to a more generic component by offering a clean API for this component for the outside world ..."
-date: "2019-05-26T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react reusable components", "react reusable component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'What are Reusable Components in React?'
+description: 'A brief walkthrough that explains reusable components in React by example. You will refactor a specific to a more generic component by offering a clean API for this component for the outside world ...'
+date: '2019-05-26T07:52:46+02:00'
+categories: ['React']
+keywords: ['react reusable components', 'react reusable component']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,10 +19,10 @@ Basically a React application is just a bunch of components in a component tree.
 Generally speaking we make a component more reusable by turning it from specific to more generic. That can be achieved by offering an [API](/what-is-an-api-javascript/) for the component. In React, a component's API is its [props](/react-pass-props-to-component/). Let's experience this by refactoring a component from being very specific to being more generic. Usually when we start off with our React application, we don't have any components except for our root component commonly called App:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 const App = () => {
-  const handleClick = () => console.log('Clicked!');
+  const handleClick = () => console.log('Clicked!')
 
   return (
     <div>
@@ -30,42 +30,42 @@ const App = () => {
         Click me!
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 ```
 
 For instance, in order to make this HTML button reusable in React, we have to extract it to its own component. Let's define a Button component for it:
 
 ```javascript{6,11,12,13,14,15,16,17,18,19}
-import React from 'react';
+import React from 'react'
 
 const App = () => {
   return (
     <div>
       <Button />
     </div>
-  );
-};
+  )
+}
 
 const Button = () => {
-  const handleClick = () => console.log('Clicked!');
+  const handleClick = () => console.log('Clicked!')
 
   return (
     <button type="button" onClick={handleClick}>
       Click me!
     </button>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 ```
 
 Using this Button component as element in React's JSX creates every time a new instance of this Button component. That's already half of the work you have to perform in order to make a component reusable in React. However, even though the component is reusable in React's perspective, it isn't really reusable yet, because every Button component implements the same behavior. In the next code snippet, all components would do the same because they follow the same implementation details:
 
 ```javascript{6,7}
-import React from 'react';
+import React from 'react'
 
 const App = () => {
   return (
@@ -73,8 +73,8 @@ const App = () => {
       <Button />
       <Button />
     </div>
-  );
-};
+  )
+}
 ```
 
 Let's change this by giving the Button component an API which is our interface to command our Button component from the outside. For instance, the most important thing to implement from the outside would be the click handler. Every button should behave differently when clicking it:
@@ -85,8 +85,8 @@ const Button = ({ handleClick }) => {
     <button type="button" onClick={handleClick}>
       Click me!
     </button>
-  );
-};
+  )
+}
 ```
 
 Now, in your component using the Button component, you can pass the click handler function as props to the component, but specify it for each Button component individually:
@@ -95,15 +95,11 @@ Now, in your component using the Button component, you can pass the click handle
 const App = () => {
   return (
     <div>
-      <Button
-        handleClick={() => console.log('Clicked button One!')}
-      />
-      <Button
-        handleClick={() => console.log('Clicked button Two!')}
-      />
+      <Button handleClick={() => console.log('Clicked button One!')} />
+      <Button handleClick={() => console.log('Clicked button Two!')} />
     </div>
-  );
-};
+  )
+}
 ```
 
 From there you can refactor it step by step by moving more properties outside of the specific Button component to make it more generic by using its API. Another property could be the label showing up for the button:
@@ -121,16 +117,16 @@ const App = () => {
         handleClick={() => console.log('Clicked button Two!')}
       />
     </div>
-  );
-};
+  )
+}
 
 const Button = ({ label, handleClick }) => {
   return (
     <button type="button" onClick={handleClick}>
       {label}
     </button>
-  );
-};
+  )
+}
 ```
 
 We can also use React's built-in children property which is commonly used for [composition in React](/react-component-composition/):
@@ -146,16 +142,16 @@ const App = () => {
         Click Button Two!
       </Button>
     </div>
-  );
-};
+  )
+}
 
 const Button = ({ handleClick, children }) => {
   return (
     <button type="button" onClick={handleClick}>
       {children}
     </button>
-  );
-};
+  )
+}
 ```
 
 The Button component is almost a 100% generic by offering an API to the outside. One piece is missing though. The `type` attribute of our button is wired in the Button component and we cannot do anything about it from the outside. However, we have also seen that it makes things easier, because most of the time HTML button elements have the `type="button"` and thus we don't need to provide it for every Button component from the outside. But what about cases where we want to change the `type` attribute (e.g. changing it to `submit`)?
@@ -174,16 +170,16 @@ const App = () => {
         Click Button Two!
       </Button>
     </div>
-  );
-};
+  )
+}
 
 const Button = ({ type = 'button', handleClick, children }) => {
   return (
     <button type={type} onClick={handleClick}>
       {children}
     </button>
-  );
-};
+  )
+}
 ```
 
 We can implement a default prop for our Button component for the `type` property. Every time we specify this property from the outside, we override the default prop given in the Button component (here: Button Two). But every time nothing is provided, the default prop is used instead (here: Button One).

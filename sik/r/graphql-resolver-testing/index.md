@@ -1,13 +1,13 @@
 ---
-title: "GraphQL resolver testing"
-description: "Learn how to test GraphQL resolvers with Jest. More advanced resolvers will have authorization and permission checks which may return errors, so make sure to test these too ..."
-date: "2020-03-08T13:56:46+02:00"
-categories: ["Firebase"]
-keywords: ["graphql resolver testing", "graphql testing"]
-hashtags: ["#100DaysOfCode", "#GraphQL"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'GraphQL resolver testing'
+description: 'Learn how to test GraphQL resolvers with Jest. More advanced resolvers will have authorization and permission checks which may return errors, so make sure to test these too ...'
+date: '2020-03-08T13:56:46+02:00'
+categories: ['Firebase']
+keywords: ['graphql resolver testing', 'graphql testing']
+hashtags: ['#100DaysOfCode', '#GraphQL']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -17,16 +17,12 @@ We will test the following GraphQL resolver which has authorization and permissi
 ```javascript
 export default {
   Mutation: {
-    createFreeCourse: async (
-      parent,
-      { courseId, bundleId },
-      { me }
-    ) => {
+    createFreeCourse: async (parent, { courseId, bundleId }, { me }) => {
       if (!me) {
-        return new Error('Not authenticated as user.');
+        return new Error('Not authenticated as user.')
       }
 
-      const price = getPrice(courseId, bundleId);
+      const price = getPrice(courseId, bundleId)
       if (price !== 0) {
         return new Error('This course is not for free.')
       }
@@ -37,12 +33,12 @@ export default {
         bundleId,
         amount: 0,
         paymentType: 'FREE',
-      });
+      })
 
-      return true;
+      return true
     },
   },
-};
+}
 ```
 
 If we would use a [GraphQL resolver middleware](/graphql-resolver-middleware) -- which is optional --, it can be simplified to the following:
@@ -60,19 +56,19 @@ export default {
           bundleId,
           amount: 0,
           paymentType: 'FREE',
-        });
+        })
 
-        return true;
+        return true
       }
     ),
   },
-};
+}
 ```
 
 Either way, let's jump into testing this GraphQL resolver with Jest. We call the resolver function with all its arguments and expect to resolve its returned promise to true if all requirements are met:
 
 ```javascript
-import resolvers from './';
+import resolvers from './'
 
 describe('createFreeCourse', () => {
   it('creates a course', async () => {
@@ -84,17 +80,17 @@ describe('createFreeCourse', () => {
       },
       { me: { uid: '1', email: 'example@example.com' } },
       null
-    );
+    )
 
-    await expect(result).resolves.toEqual(true);
-  });
-});
+    await expect(result).resolves.toEqual(true)
+  })
+})
 ```
 
-If you need to mock the database request with Jest, check out this tutorial about [Jest mocking](/firebase-test). Once you mocked your database API, you *could* add more assertions to your test case:
+If you need to mock the database request with Jest, check out this tutorial about [Jest mocking](/firebase-test). Once you mocked your database API, you _could_ add more assertions to your test case:
 
 ```javascript{17,19-29}
-import resolvers from './';
+import resolvers from './'
 
 describe('createFreeCourse', () => {
   it('creates a course', async () => {
@@ -106,11 +102,11 @@ describe('createFreeCourse', () => {
       },
       { me: { uid: '1', email: 'example@example.com' } },
       null
-    );
+    )
 
-    await expect(result).resolves.toEqual(true);
+    await expect(result).resolves.toEqual(true)
 
-    expect(mockedSet).toHaveBeenCalledTimes(1);
+    expect(mockedSet).toHaveBeenCalledTimes(1)
 
     expect(mockedSet).toHaveBeenCalledWith({
       courseId: 'THE_ROAD_TO_GRAPHQL',
@@ -122,9 +118,9 @@ describe('createFreeCourse', () => {
         currency: 'USD',
         paymentType: 'FREE',
       },
-    });
-  });
-});
+    })
+  })
+})
 ```
 
 Anyway, let's keep the test case simple without the database assertions. So far, we have only tested the happy path of the resolver logic where we meet all the requirements. What about if the user isn't authenticated?

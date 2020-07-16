@@ -1,13 +1,13 @@
 ---
-title: "Redux vs MobX without Confusion"
-description: "Using Redux or MobX in your React application? The article shows you all the differences between both state management libraries that can be used in React. It gives you guidance to learn MobX vs Redux in React.js applications, their strengths and weaknesses and when to use them ..."
-date: "2017-03-28T13:50:46+02:00"
-categories: ["Redux", "MobX"]
-keywords: ["redux mobx"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Redux vs MobX without Confusion'
+description: 'Using Redux or MobX in your React application? The article shows you all the differences between both state management libraries that can be used in React. It gives you guidance to learn MobX vs Redux in React.js applications, their strengths and weaknesses and when to use them ...'
+date: '2017-03-28T13:50:46+02:00'
+categories: ['Redux', 'MobX']
+keywords: ['redux mobx']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -30,8 +30,8 @@ Everyone wants to have state management in an application. But what problem does
 
 Nowadays, the status quo is to build a frontend application with components. Components have internal state. For instance, in React such a local state is handled with `this.state` and `this.setState()`. In a growing application, the state management can become chaotic with local state, because:
 
-* a component needs to share state with another component
-* a component needs to mutate the state of another component
+- a component needs to share state with another component
+- a component needs to mutate the state of another component
 
 At some point, it gets more difficult to reason about the application state. It becomes a messy web of state objects and state mutations across your component hierarchy. Most of the time, the state objects and state mutations are not necessarily bound to one component. They reach through your component tree and you have to [lift state up and down](https://facebook.github.io/react/docs/lifting-state-up.html).
 
@@ -54,7 +54,7 @@ Redux is influenced by **functional programming (FP) principles**. FP can be don
 Since Redux embraces functional programming, it uses **pure functions**. A function gets an input, returns an output and does not have other dependencies but pure functions. A pure function produces always the same output with the same input and doesn't have any side-effects.
 
 ```javascript
-(state, action) => newState
+;(state, action) => newState
 ```
 
 Your Redux **state is immutable**. Instead of mutating your state, you always return a new state. You don't perform state mutations or depend on object references.
@@ -62,12 +62,12 @@ Your Redux **state is immutable**. Instead of mutating your state, you always re
 ```javascript
 // don't do this in Redux, because it mutates the array
 function addAuthor(state, action) {
-  return state.authors.push(action.author);
+  return state.authors.push(action.author)
 }
 
 // stay immutable and always return a new object
 function addAuthor(state, action) {
-  return [ ...state.authors, action.author ];
+  return [...state.authors, action.author]
 }
 ```
 
@@ -94,7 +94,7 @@ In Mobx your **state is mutable**. Thus you mutate the state directly:
 
 ```javascript
 function addAuthor(author) {
-  this.authors.push(author);
+  this.authors.push(author)
 }
 ```
 
@@ -159,12 +159,12 @@ In MobX a store would only **manage a substate** (like a reducer in Redux manage
 class UserStore {
   @observable users = [
     {
-      name: 'Dan'
+      name: 'Dan',
     },
     {
-      name: 'Michel'
-    }
-  ];
+      name: 'Michel',
+    },
+  ]
 }
 ```
 
@@ -174,15 +174,15 @@ Now it is possible to call `userStore.users.push(user);` on a store instance. It
 class UserStore {
   @observable users = [
     {
-      name: 'Dan'
+      name: 'Dan',
     },
     {
-      name: 'Michel'
-    }
-  ];
+      name: 'Michel',
+    },
+  ]
 
   @action addUser = (user) => {
-    this.users.push(user);
+    this.users.push(user)
   }
 }
 ```
@@ -238,9 +238,9 @@ It would make the state mutating more explicit with actions. Moreover there exis
 
 ```javascript
 // root file
-import { configure } from 'mobx';
+import { configure } from 'mobx'
 
-configure({ enforceActions: true });
+configure({ enforceActions: true })
 ```
 
 Mutating the state directly in the store like we did in the first example wouldn't work anymore. Coming from the first to the latter example shows how to embrace best practices in MobX. Moreover once you are doing explicit actions only, you are already using Redux constraints.
@@ -253,14 +253,14 @@ Once your application gets bigger and has multiple developers working on it, you
 
 ```javascript
 // reducer
-(state, action) => newState
+;(state, action) => newState
 ```
 
 Redux gives you a whole architecture for state management with clear constraints. That is the [success story behind Redux](https://www.youtube.com/watch?v=uvAXVMwHJXU).
 
 Another advantage of Redux is using it on the server side. Since we are dealing with plain JavaScript, you could send the state across the network. Serializing and deserializing a state object works out of the box. Yet it is possible in MobX too.
 
-MobX is less opinionated, but by using `configure({ enforceActions: true })` you can enforce clearer constraints like in Redux. That's why I wouldn't say you cannot use MobX in scaling applications, but there is a clear way of doing things in Redux. The documentation in MobX even says: *"[MobX] does not tell you how to structure your code, where to store state or how to process events."* The development team would have to establish a state management architecture in the first place.
+MobX is less opinionated, but by using `configure({ enforceActions: true })` you can enforce clearer constraints like in Redux. That's why I wouldn't say you cannot use MobX in scaling applications, but there is a clear way of doing things in Redux. The documentation in MobX even says: _"[MobX] does not tell you how to structure your code, where to store state or how to process events."_ The development team would have to establish a state management architecture in the first place.
 
 After all the state management learning curve isn't that steep. When we recap the recommendations, a beginner in React would **first learn to use setState() and this.state** properly. After a while you would **realize the problems of using only setState()** to maintain state in a React application. When looking for a solution, you stumble upon state management libraries like MobX or Redux. But which one to choose? Since MobX is less opinionated, has less boilerplate and can be used similar to `setState()` I would recommend in smaller projects to give MobX a shot. Once the application grows in size and contributors, you should consider to enforce more restrictions in MobX or give Redux a shot. I enjoyed using both libraries. Even if you don't use one of them after all, it makes sense to have seen an alternative way of doing state management.
 
@@ -320,7 +320,7 @@ There exists a tutorial on [how to refactor from Redux to MobX](/mobx-react/). B
 
 # Final Thoughts
 
-Whenever I read the comments in a Redux vs MobX discussion, there is always this one comment: *"Redux has too much boilerplate, you should use MobX instead. I was able to remove XXX lines of code."* The comment might be true, but no one considers the trade off. **Redux comes with more boilerplate as MobX, because it was added for specific design constraints.** It allows you to reason about your application state even though it is on a larger scale. All the ceremony around state handling is there for a reason.
+Whenever I read the comments in a Redux vs MobX discussion, there is always this one comment: _"Redux has too much boilerplate, you should use MobX instead. I was able to remove XXX lines of code."_ The comment might be true, but no one considers the trade off. **Redux comes with more boilerplate as MobX, because it was added for specific design constraints.** It allows you to reason about your application state even though it is on a larger scale. All the ceremony around state handling is there for a reason.
 
 Redux library is pretty small. Most of the time you are **dealing only with plain JavaScript objects and arrays**. It is closer to vanilla JavaScript than MobX. In MobX one wraps the objects and arrays into observable objects which hide most of the boilerplate. It builds up on hidden abstractions. There the magic happens, but it is harder to understand the underlying mechanisms. In Redux it is easier to reason about it with plain JavaScript. It makes it easier for testing and easier for debugging your application.
 
@@ -338,62 +338,63 @@ Both libraries are great. While Redux is already well established, MobX becomes 
 
 # Fact Sheet
 
-* Redux
-  * single store
-  * functional programming paradigm
-  * immutable
-  * pure
-  * explicit update logic
-  * plain JavaScript
-  * more boilerplate
-  * normalized state
-  * flat state
+- Redux
 
-* MobX
-  * multiple stores
-  * object-oriented programming and reactive programming paradigms
-  * mutable
-  * impure
-  * implicit update logic
-  * "magic" JavaScript
-  * less boilerplate
-  * denormalized state
-  * nested state
+  - single store
+  - functional programming paradigm
+  - immutable
+  - pure
+  - explicit update logic
+  - plain JavaScript
+  - more boilerplate
+  - normalized state
+  - flat state
+
+- MobX
+  - multiple stores
+  - object-oriented programming and reactive programming paradigms
+  - mutable
+  - impure
+  - implicit update logic
+  - "magic" JavaScript
+  - less boilerplate
+  - denormalized state
+  - nested state
 
 # Key Takeaways
 
-* learn React with setState and this.state to manage local state
-  * get comfortable with it
-  * experience the issues you run into without a state managament library like Redux or MobX
-* learning recommendations
-  * setState -> MobX -> MobX more restricted (e.g. configure enforceActions) -> Redux
-  * or stick to one solution after setState:
-* use MobX over Redux:
-  * short learning curve
-  * simple to use (magic)
-  * quick start
-  * less opinionated
-  * minimal boilerplate
-  * used in lightweight applications
-  * mutable data
-  * object-oriented programming
-  * in a smaller size &amp; few developers project
-  * but can be used in bigger size projects too, when used with explicit constraints
-* use Redux over MobX:
-  * clear constraints
-  * testable lightweight parts
-  * opinionated state management architecture
-  * mature best practices
-  * used in complex applications
-  * immutable data
-  * functional programming
-  * in a bigger size &amp; several developers / teams project
-  * testability, scaleability, maintainability
-* container + presenter components is a valid pattern for both
-* react-redux and mobx-react are exchangeable interfaces to React container components
-* configured enforced actions of MobX makes state changes more obvious in a scaling app and should be best practice
+- learn React with setState and this.state to manage local state
+  - get comfortable with it
+  - experience the issues you run into without a state managament library like Redux or MobX
+- learning recommendations
+  - setState -> MobX -> MobX more restricted (e.g. configure enforceActions) -> Redux
+  - or stick to one solution after setState:
+- use MobX over Redux:
+  - short learning curve
+  - simple to use (magic)
+  - quick start
+  - less opinionated
+  - minimal boilerplate
+  - used in lightweight applications
+  - mutable data
+  - object-oriented programming
+  - in a smaller size &amp; few developers project
+  - but can be used in bigger size projects too, when used with explicit constraints
+- use Redux over MobX:
+  - clear constraints
+  - testable lightweight parts
+  - opinionated state management architecture
+  - mature best practices
+  - used in complex applications
+  - immutable data
+  - functional programming
+  - in a bigger size &amp; several developers / teams project
+  - testability, scaleability, maintainability
+- container + presenter components is a valid pattern for both
+- react-redux and mobx-react are exchangeable interfaces to React container components
+- configured enforced actions of MobX makes state changes more obvious in a scaling app and should be best practice
 
 # More Resources
 
-* [comparison by Michel Weststrate](https://www.youtube.com/watch?v=etnPDw5PKqg) - the creator of MobX
-* [comparison by Preethi Kasireddy](https://www.youtube.com/watch?v=76FRrbY18Bs)
+- [comparison by Michel Weststrate](https://www.youtube.com/watch?v=etnPDw5PKqg) - the creator of MobX
+- [comparison by Preethi Kasireddy](https://www.youtube.com/watch?v=76FRrbY18Bs)

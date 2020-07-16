@@ -1,13 +1,13 @@
 ---
-title: "React Event Handlers: onClick, onChange ..."
+title: 'React Event Handlers: onClick, onChange ...'
 description: "Learn about React's event handlers and how to use them for onClick (button) and onChange (events) ..."
-date: "2020-01-15T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react event handler"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2020-01-15T07:52:46+02:00'
+categories: ['React']
+keywords: ['react event handler']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -19,11 +19,11 @@ In this React tutorial, we will get to know event handlers in React for HTML ele
 First, we will start with a button example in React for a specific **onClick event handler**. It's the most basic example on how to handle events in React with an **event handler** (also called **event handler function** or **handler**). A button has a onClick attribute which receives a function. This function is called every time the event is triggered (here: when clicking the button):
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function App() {
   function handleClick() {
-    console.log('Button click ...');
+    console.log('Button click ...')
   }
 
   return (
@@ -32,18 +32,18 @@ function App() {
         Event Handler
       </button>
     </div>
-  );
+  )
 }
 ```
 
 It works similar for other attributes like onChange (onChange event handler) and onSubmit (onSubmit event handler). For beginners, often the onClick is not working, because instead of passing a function, they call the function directly in the JSX. For example, in the next version, the event handler is only called once when rendering the component for the first time. Every other click doesn't call the event handler function, because the function's return value is used in the onClick attribute and not the function itself. So there is nothing to call; unless the function returns another function:
 
 ```javascript{8,11}
-import React from 'react';
+import React from 'react'
 
 function App() {
   function handleClick() {
-    console.log('Button click ...');
+    console.log('Button click ...')
   }
 
   // don't do this
@@ -53,19 +53,19 @@ function App() {
         Event Handler
       </button>
     </div>
-  );
+  )
 }
 ```
 
 By using a [JavaScript arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), the event handler function can be made more concise. That's an optional step though. Personally, I like to have event handlers as arrow functions:
 
 ```javascript{4,6}
-import React from 'react';
+import React from 'react'
 
 function App() {
   const handleClick = () => {
-    console.log('Button click ...');
-  };
+    console.log('Button click ...')
+  }
 
   return (
     <div>
@@ -73,7 +73,7 @@ function App() {
         Event Handler
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -107,37 +107,36 @@ function App() {
 After all, the event handler for the onClick event should implement some business logic. In this example, React's [useState](/react-usestate-hook) [Hook](/react-hooks) is used to update some state via a onClick button event:
 
 ```javascript{4,7,12,15}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function handleClick() {
-    setCount(count + 1);
+    setCount(count + 1)
   }
 
   return (
     <div>
       Count: {count}
-
       <button type="button" onClick={handleClick}>
         Increase Count
       </button>
     </div>
-  );
+  )
 }
 ```
 
 The next example shows you an input field instead of a button. There, we are using the actual **event** which is always passed as first parameter to the event handler function. The event is a **synthetic event** from React which essentially encapsulates the native HTML event and adds some functionality on top of it. This event gives you the value from the input field every time someone types into it with the event's target property:
 
 ```javascript{4,6-8,12-14}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('')
 
   function handleChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
   return (
@@ -146,20 +145,20 @@ function App() {
 
       {text}
     </div>
-  );
+  )
 }
 ```
 
 Previously we haven't used the event, because in our button example we didn't need it. In the input field example we needed it though. Last but not least, don't forget to pass the value to the input element to make it a [controlled component](/react-controlled-components):
 
 ```javascript{12}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('')
 
   function handleChange(event) {
-    setText(event.target.value);
+    setText(event.target.value)
   }
 
   return (
@@ -168,7 +167,7 @@ function App() {
 
       {text}
     </div>
-  );
+  )
 }
 ```
 
@@ -179,48 +178,43 @@ That's event handlers in a nutshell. Let's learn about more advanced handlers in
 Inline event handlers, also called **inline handlers**, give us lots of new options by using an event handler directly in JSX:
 
 ```javascript{12-14}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   return (
     <div>
       Count: {count}
-
       <button
         type="button"
-        onClick={function() {
-          setCount(count + 1);
+        onClick={function () {
+          setCount(count + 1)
         }}
       >
         Increase Count
       </button>
     </div>
-  );
+  )
 }
 ```
 
 Using the common function statement in JSX is verbose though. Hence, JavaScript arrow functions come in handy to define inline handlers more concise:
 
 ```javascript{12}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   return (
     <div>
       Count: {count}
-
-      <button
-        type="button"
-        onClick={() => setCount(count + 1)}
-      >
+      <button type="button" onClick={() => setCount(count + 1)}>
         Increase Count
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -229,19 +223,18 @@ In general, developers are lazy people, so often inline event handlers are used 
 Inline handlers are also used to pass a parameter to a more universal handler which is defined outside of the JSX:
 
 ```javascript{6-8,14-19}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function handleCount(delta) {
-    setCount(count + delta);
+    setCount(count + delta)
   }
 
   return (
     <div>
       Count: {count}
-
       <button type="button" onClick={() => handleCount(1)}>
         Increase Count
       </button>
@@ -249,34 +242,33 @@ function App() {
         Decrease Count
       </button>
     </div>
-  );
+  )
 }
 ```
 
 This way, it's also possible to pass event and parameter side-by-side. Even though it's not needed in this example, you will surely experience one or the other case in the future where you will need the event (e.g. [preventDefault for React Forms](/react-preventdefault)):
 
 ```javascript{6-8,14-19}
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
 
   function handleCount(event, delta) {
-    setCount(count + delta);
+    setCount(count + delta)
   }
 
   return (
     <div>
       Count: {count}
-
-      <button type="button" onClick={event => handleCount(event, 1)}>
+      <button type="button" onClick={(event) => handleCount(event, 1)}>
         Increase Count
       </button>
-      <button type="button" onClick={event => handleCount(event, -1)}>
+      <button type="button" onClick={(event) => handleCount(event, -1)}>
         Decrease Count
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -287,14 +279,14 @@ So whenever you need to **pass event and parameter**, for instance when you need
 Last but not least, there are **callback event handlers** or **callback handlers** in short. They are used when a child component needs to communicate to a parent component. Since [React props](/react-pass-props-to-component) are only passed down the component tree, a callback handler, which is a function at its core, is used to communicate upward:
 
 ```javascript
-import React from 'react';
+import React from 'react'
 
 function App() {
-  const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('')
 
   // 1
   function handleTextChange(event) {
-    setText(event.target.value); // 3
+    setText(event.target.value) // 3
   }
 
   return (
@@ -303,14 +295,12 @@ function App() {
 
       {text}
     </div>
-  );
+  )
 }
 
 // 2
 function MyInput({ inputValue, onInputChange }) {
-  return (
-    <input type="text" value={inputValue} onChange={onInputChange} />
-  );
+  return <input type="text" value={inputValue} onChange={onInputChange} />
 }
 ```
 

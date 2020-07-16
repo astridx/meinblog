@@ -1,13 +1,22 @@
 ---
-title: "A Firestore in React Tutorial for Beginners [2019]"
-description: "A beginners tutorial to learn Firestore in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firestore boilerplate project ..."
-date: "2019-01-26T07:50:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["react firestore", "react firestore tutorial", "react authentication", "react firestore authentication tutorial", "react session", "react authorization", "react protected routes"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'A Firestore in React Tutorial for Beginners [2019]'
+description: 'A beginners tutorial to learn Firestore in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firestore boilerplate project ...'
+date: '2019-01-26T07:50:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'react firestore',
+    'react firestore tutorial',
+    'react authentication',
+    'react firestore authentication tutorial',
+    'react session',
+    'react authorization',
+    'react protected routes',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,17 +25,17 @@ author: ""
 
 Those who follow my content know that I always use the good old Firebase Realtime Database in React applications. I am saying good old here, because there is this new cool kid on the block: **Firebase's Cloud Firestore**. It can be used as **alternative to Firebase's Realtime Database**. According to Google's documentation, there are four major advantages of using Cloud Firestore over Firebase's Realtime Database:
 
-* more intuitive data model
-* more features
-* faster queries
-* scales better for larger applications
+- more intuitive data model
+- more features
+- faster queries
+- scales better for larger applications
 
 I experienced the first argument from a code perspective, but also when inspecting the database entries on my Firebase project's dashboard, because it shifts the focus from JSON to document-oriented database. You can read more about which database to choose in [this comprehensive article that pivots Firebase's Cloud Firestore vs. Realtime Database](https://firebase.google.com/docs/database/rtdb-vs-firestore).
 
 Before I migrate my React tutorials and books from the older Realtime Database to Cloud Firestore, I'd like to show you a **straight forward migration path** regarding the source code. That's how you can still use all the educational content I have written about Firebase and Firebase's Realtime Database, but exchange the database with Firebase's Cloud Firestore. As a result, I am not building a React application with Cloud Firestore from scratch, but migrating a [feature-rich React with Firebase application](/complete-firebase-authentication-react-tutorial/) that uses Firebase's Realtime Database over to Firebase's Cloud Firestore. Both versions are accessible as source code on GitHub:
 
-* [React with Firebase Realtime Database](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication).
-* [React with Firebase Cloud Firestore](https://github.com/the-road-to-react-with-firebase/react-firestore-authentication).
+- [React with Firebase Realtime Database](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication).
+- [React with Firebase Cloud Firestore](https://github.com/the-road-to-react-with-firebase/react-firestore-authentication).
 
 Except for the database, everything else stays the same; thus, everything else you learned from my previous React Firebase tutorials is still up-to-date. Before we start with migration, consider reading through this [visual Firebase tutorial](/firebase-tutorial/) to set up your Firebase project with Cloud Firestore.
 
@@ -35,9 +44,9 @@ Except for the database, everything else stays the same; thus, everything else y
 First, our project has a Firebase class that connects our React application with the Firebase API (e.g. authentication API, database API). It currently uses Firebase's Realtime Database:
 
 ```javascript{3,20,26,70,72,97,99,103,105}
-import app from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import app from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -46,71 +55,68 @@ const config = {
   projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-};
+}
 
 class Firebase {
   constructor() {
-    app.initializeApp(config);
+    app.initializeApp(config)
 
     /* Helper */
 
-    this.serverValue = app.database.ServerValue;
-    this.emailAuthProvider = app.auth.EmailAuthProvider;
+    this.serverValue = app.database.ServerValue
+    this.emailAuthProvider = app.auth.EmailAuthProvider
 
     /* Firebase APIs */
 
-    this.auth = app.auth();
-    this.db = app.database();
+    this.auth = app.auth()
+    this.db = app.database()
 
     /* Social Sign In Method Provider */
 
-    this.googleProvider = new app.auth.GoogleAuthProvider();
-    this.facebookProvider = new app.auth.FacebookAuthProvider();
-    this.twitterProvider = new app.auth.TwitterAuthProvider();
+    this.googleProvider = new app.auth.GoogleAuthProvider()
+    this.facebookProvider = new app.auth.FacebookAuthProvider()
+    this.twitterProvider = new app.auth.TwitterAuthProvider()
   }
 
   // *** Auth API ***
 
   doCreateUserWithEmailAndPassword = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password);
+    this.auth.createUserWithEmailAndPassword(email, password)
 
   doSignInWithEmailAndPassword = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
+    this.auth.signInWithEmailAndPassword(email, password)
 
-  doSignInWithGoogle = () =>
-    this.auth.signInWithPopup(this.googleProvider);
+  doSignInWithGoogle = () => this.auth.signInWithPopup(this.googleProvider)
 
-  doSignInWithFacebook = () =>
-    this.auth.signInWithPopup(this.facebookProvider);
+  doSignInWithFacebook = () => this.auth.signInWithPopup(this.facebookProvider)
 
-  doSignInWithTwitter = () =>
-    this.auth.signInWithPopup(this.twitterProvider);
+  doSignInWithTwitter = () => this.auth.signInWithPopup(this.twitterProvider)
 
-  doSignOut = () => this.auth.signOut();
+  doSignOut = () => this.auth.signOut()
 
-  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+  doPasswordReset = (email) => this.auth.sendPasswordResetEmail(email)
 
   doSendEmailVerification = () =>
     this.auth.currentUser.sendEmailVerification({
       url: process.env.REACT_APP_CONFIRMATION_EMAIL_REDIRECT,
-    });
+    })
 
-  doPasswordUpdate = password =>
-    this.auth.currentUser.updatePassword(password);
+  doPasswordUpdate = (password) =>
+    this.auth.currentUser.updatePassword(password)
 
   // *** Merge Auth and DB User API *** //
 
   onAuthUserListener = (next, fallback) =>
-    this.auth.onAuthStateChanged(authUser => {
+    this.auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         this.user(authUser.uid)
           .once('value')
-          .then(snapshot => {
-            const dbUser = snapshot.val();
+          .then((snapshot) => {
+            const dbUser = snapshot.val()
 
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = {};
+              dbUser.roles = {}
             }
 
             // merge auth and db user
@@ -120,29 +126,29 @@ class Firebase {
               emailVerified: authUser.emailVerified,
               providerData: authUser.providerData,
               ...dbUser,
-            };
+            }
 
-            next(authUser);
-          });
+            next(authUser)
+          })
       } else {
-        fallback();
+        fallback()
       }
-    });
+    })
 
   // *** User API ***
 
-  user = uid => this.db.ref(`users/${uid}`);
+  user = (uid) => this.db.ref(`users/${uid}`)
 
-  users = () => this.db.ref('users');
+  users = () => this.db.ref('users')
 
   // *** Message API ***
 
-  message = uid => this.db.ref(`messages/${uid}`);
+  message = (uid) => this.db.ref(`messages/${uid}`)
 
-  messages = () => this.db.ref('messages');
+  messages = () => this.db.ref('messages')
 }
 
-export default Firebase;
+export default Firebase
 ```
 
 The previous code snippet has all the lines highlighted that need to be changed for the Firestore migration. It's not much, because all the other authentication related code stays the same. Only the database setup changes when using Cloud Firestore and the API to read and write on user and message entities. Let's exchange the setup first. The usual `npm install firebase` node package comes with the Cloud Firestore and Realtime Database, so we can exchange this one straight forward.
@@ -297,15 +303,15 @@ In our case, the merge operation makes sense because we can't be sure if a user 
 ```javascript{19}
 class SignInGoogleBase extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.state = { error: null };
+    this.state = { error: null }
   }
 
-  onSubmit = event => {
+  onSubmit = (event) => {
     this.props.firebase
       .doSignInWithGoogle()
-      .then(socialAuthUser => {
+      .then((socialAuthUser) => {
         // Create a user in your Firebase Realtime Database too
         return this.props.firebase.user(socialAuthUser.user.uid).set(
           {
@@ -313,26 +319,26 @@ class SignInGoogleBase extends Component {
             email: socialAuthUser.user.email,
             roles: {},
           },
-          { merge: true },
-        );
+          { merge: true }
+        )
       })
       .then(() => {
-        this.setState({ error: null });
-        this.props.history.push(ROUTES.HOME);
+        this.setState({ error: null })
+        this.props.history.push(ROUTES.HOME)
       })
-      .catch(error => {
+      .catch((error) => {
         if (error.code === ERROR_CODE_ACCOUNT_EXISTS) {
-          error.message = ERROR_MSG_ACCOUNT_EXISTS;
+          error.message = ERROR_MSG_ACCOUNT_EXISTS
         }
 
-        this.setState({ error });
-      });
+        this.setState({ error })
+      })
 
-    event.preventDefault();
-  };
+    event.preventDefault()
+  }
 
   render() {
-    const { error } = this.state;
+    const { error } = this.state
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -340,7 +346,7 @@ class SignInGoogleBase extends Component {
 
         {error && <p>{error.message}</p>}
       </form>
-    );
+    )
   }
 }
 ```

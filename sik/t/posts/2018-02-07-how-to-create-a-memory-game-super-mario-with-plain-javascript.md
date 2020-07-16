@@ -74,7 +74,6 @@ First, let's create the setup. We'll create **index.html**, which will just be a
     <div id="game"></div>
 
     <script src="js/script.js"></script>
-
   </body>
 </html>
 ```
@@ -204,7 +203,7 @@ Now we want to get the images to display on the front end. We'll loop through ea
 
 ```js
 // For each item in the cardsArray array...
-cardsArray.forEach(item => {
+cardsArray.forEach((item) => {
   // Create a div
   const card = document.createElement('div')
 
@@ -298,7 +297,7 @@ We'll add an event listener to the entire grid. Anytime an element is clicked, t
 
 ```js
 // Add event listener to grid
-grid.addEventListener('click', function(event) {
+grid.addEventListener('click', function (event) {
   // The event target is our clicked item
   let clicked = event.target
 
@@ -376,7 +375,7 @@ I'm going to make a function for matching elements. This will just loop through 
 // Add match CSS
 const match = () => {
   var selected = document.querySelectorAll('.selected')
-  selected.forEach(card => {
+  selected.forEach((card) => {
     card.classList.add('match')
   })
 }
@@ -387,7 +386,7 @@ Now I have to call the `match()` function at the right time in the code. Back in
 <div class="filename">script.js</div>
 
 ```js
-grid.addEventListener('click', function(event) {
+grid.addEventListener('click', function (event) {
   //...
   if (count < 2) {
     count++
@@ -468,7 +467,7 @@ const resetGuesses = () => {
   count = 0
 
   var selected = document.querySelectorAll('.selected')
-  selected.forEach(card => {
+  selected.forEach((card) => {
     card.classList.remove('selected')
   })
 }
@@ -551,7 +550,7 @@ We'll modify the card creation loop to add the front and back elements.
 <div class="filename">script.js</div>
 
 ```js
-gameGrid.forEach(item => {
+gameGrid.forEach((item) => {
   // Create card element with the name dataset
   const card = document.createElement('div')
   card.classList.add('card')
@@ -621,7 +620,8 @@ The front of each card (technically the back if you're thinking like a deck of c
 
 ```css
 .front {
-  background: #fab942 url('../img/question.gif') no-repeat center center / contain;
+  background: #fab942 url('../img/question.gif') no-repeat center center /
+    contain;
 }
 ```
 

@@ -1,13 +1,20 @@
 ---
-title: "How to setup PostgreSQL on Windows"
+title: 'How to setup PostgreSQL on Windows'
 description: "A installation guide for a PostgreSQL on Windows setup for having a SQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date: "2019-01-08T13:50:46+02:00"
-categories: ["Node"]
-keywords: ["postgres windows", "postgresql windows", "postgres setup", "postgresql setup", "postgres os setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+date: '2019-01-08T13:50:46+02:00'
+categories: ['Node']
+keywords:
+  [
+    'postgres windows',
+    'postgresql windows',
+    'postgres setup',
+    'postgresql setup',
+    'postgres os setup',
+  ]
+hashtags: ['#100DaysOfCode', '#NodeJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -20,7 +27,7 @@ If you want to run PostgreSQL on MacOS instead, you will find guidance over here
 
 For Microsoft Windows, it is possible to run an unattended install using the command prompt or PowerShell. However, since it will still require a manual download of the installation files, it's easier to [download the .exe from the PostgreSQL Development Group](https://www.postgresql.org/download/windows/). It comes with an installation wizard that covers the base setup, and you can still perform command-line operations on the directory after its installed.
 
-To use PosgresQL on Windows, two of its directories must be included under the *Path* in the environmental variables: the *bin* folder and the *lib* folder. To do this navigate to System Properities and find the Advanced tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery. Add the directories `C:\Program Files\PostgreSQL\11\bin` and `C:\Program Files\PostgreSQL\11\lib` under the system variable *Path*, next to to the default paths, and separate them by a semicolon (;). You can verify the installation in the command prompt by navigating to the PostgreSQL installation folder and entering a version check:
+To use PosgresQL on Windows, two of its directories must be included under the _Path_ in the environmental variables: the _bin_ folder and the _lib_ folder. To do this navigate to System Properities and find the Advanced tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery. Add the directories `C:\Program Files\PostgreSQL\11\bin` and `C:\Program Files\PostgreSQL\11\lib` under the system variable _Path_, next to to the default paths, and separate them by a semicolon (;). You can verify the installation in the command prompt by navigating to the PostgreSQL installation folder and entering a version check:
 
 ```javascript
 postgres --version

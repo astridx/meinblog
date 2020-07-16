@@ -1,13 +1,13 @@
 ---
-title: "Redux State Keys - A predictable yet dynamic substate"
-description: "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often: There is no time to plan state structure..."
-date: "2016-10-31T13:50:46+02:00"
-categories: ["React", "Redux"]
-keywords: ["redux state keys"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Redux State Keys - A predictable yet dynamic substate'
+description: 'Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often: There is no time to plan state structure...'
+date: '2016-10-31T13:50:46+02:00'
+categories: ['React', 'Redux']
+keywords: ['redux state keys']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -156,21 +156,21 @@ First define your state keys and second divide them into groups.
 
 ```javascript
 // isLoading group
-const USER = 'USER';
-const MESSAGES = 'MESSAGES';
-const AUTHORS = 'AUTHORS';
+const USER = 'USER'
+const MESSAGES = 'MESSAGES'
+const AUTHORS = 'AUTHORS'
 ```
 
 ```javascript
 // isError group
-const USER_EDIT = 'USER_EDIT';
-const AUTHORS_FETCH = 'AUTHORS_FETCH';
+const USER_EDIT = 'USER_EDIT'
+const AUTHORS_FETCH = 'AUTHORS_FETCH'
 ```
 
 ```javascript
 // nextHref group
-const MESSAGES = 'MESSAGES';
-const AUTHORS = 'AUTHORS';
+const MESSAGES = 'MESSAGES'
+const AUTHORS = 'AUTHORS'
 ```
 
 You can have a constants file for each group.
@@ -222,24 +222,24 @@ Once again in JavaScript syntax with some dummy state:
 
 Now it's time to implement a reducer + action pair for each group. To keep it simple, I show it only for the isLoading group.
 
-*reducer.js*
+_reducer.js_
 
 ```javascript
-export default function(state = {}, action) {
+export default function (state = {}, action) {
   switch (action.type) {
     case 'SET_IS_LOADING':
-      return applyIsLoading(state, action);
+      return applyIsLoading(state, action)
   }
-  return state;
+  return state
 }
 
 function applyIsLoading(state, action) {
-  const { stateKey, isLoading } = action.payload;
-  return { ...state, [stateKey]: isLoading };
+  const { stateKey, isLoading } = action.payload
+  return { ...state, [stateKey]: isLoading }
 }
 ```
 
-*action.js*
+_action.js_
 
 ```javascript
 export function setIsLoading(stateKey, isLoading) {
@@ -249,7 +249,7 @@ export function setIsLoading(stateKey, isLoading) {
       isLoading,
       stateKey,
     },
-  };
+  }
 }
 ```
 
@@ -267,9 +267,9 @@ Now one could allocate all stateKeys (USER, MESSAGES, AUTHORS) in the group (sub
 
 ```javascript
 // dispatch an action to indicate loading
-import * as loadingStateKeys from '../StateKeys/isLoading';
+import * as loadingStateKeys from '../StateKeys/isLoading'
 
-dispatch(setIsLoading(loadingStateKeys.MESSAGES, true));
+dispatch(setIsLoading(loadingStateKeys.MESSAGES, true))
 ```
 
 Since it is a finite number of state keys in each group, the substate is predictable when you follow the constraints of state keys.
@@ -291,17 +291,17 @@ Moreover it's even possible to retrieve the substates easily by their state keys
 
 ```javascript
 function getIsLoading(state, stateKey) {
-  return state.isLoading[stateKey];
+  return state.isLoading[stateKey]
 }
 ```
 
 Optionally you can even more decouple the substate from the state.
 
 ```javascript
-const SUBSTATE_GROUP = 'isLoading';
+const SUBSTATE_GROUP = 'isLoading'
 
 function getIsLoading(state, stateKey) {
-  return state[SUBSTATE_GROUP][stateKey];
+  return state[SUBSTATE_GROUP][stateKey]
 }
 ```
 
@@ -315,36 +315,38 @@ Now the following use case: We want to fetch paginated data from the backend.
 
 ```javascript
 function fetchMessages(nextHref) {
-  return function(dispatch) {
-    dispatch(setIsLoading(loadingStateKeys.MESSAGES, true));
+  return function (dispatch) {
+    dispatch(setIsLoading(loadingStateKeys.MESSAGES, true))
 
-    const promise = fetch(nextHref);
+    const promise = fetch(nextHref)
 
     promise.then((data) => {
-      dispatch(setNextHref(nextHrefStateKeys.MESSAGES, data.nextHref));
+      dispatch(setNextHref(nextHrefStateKeys.MESSAGES, data.nextHref))
 
       // todo: handle data
-    });
+    })
 
     promise.catch((error) => {
-      dispatch(setIsError(isErrorStateKeys.MESSAGES, true, 'Something Went Wrong'));
+      dispatch(
+        setIsError(isErrorStateKeys.MESSAGES, true, 'Something Went Wrong')
+      )
 
       // todo: handle error
-    });
+    })
 
     promise.finally(() => {
-      dispatch(setIsLoading(loadingStateKeys.MESSAGES, false));
-    });
-  };
+      dispatch(setIsLoading(loadingStateKeys.MESSAGES, false))
+    })
+  }
 }
 ```
 
 The state key abstraction made it easy to deal with all the shown cases for asynchronous requests.
 
-* set loading indicator while fetching
-* set nextHref from data to fetch even more paginated data
-* set a error when request fails and even more store a error message
-* reset loading indicator after fetching
+- set loading indicator while fetching
+- set nextHref from data to fetch even more paginated data
+- set a error when request fails and even more store a error message
+- reset loading indicator after fetching
 
 Moreover imagine a button component beneath our list of messages, which could be responsible to fetch paginated data. Once you click the button, the implemented `fetchMessages` action would get triggered. The button knows about the `nextHref` to pass it to the `fetchMessages` action, since its container component retrieves `nextHref` by using a state key selector `getNextHref(state, 'MESSAGES')`.
 
@@ -387,16 +389,16 @@ messages: {
 
 # Key Takeaways of State Keys
 
-State keys enable a dynamically allocated yet predictable substate. State keys are used in [favesound-redux](https://github.com/rwieruch/favesound-redux) - a real world SoundCloud Client application. They are located in *src/constants*.
+State keys enable a dynamically allocated yet predictable substate. State keys are used in [favesound-redux](https://github.com/rwieruch/favesound-redux) - a real world SoundCloud Client application. They are located in _src/constants_.
 
 At the end I want to give you some key takeaways of state keys:
 
-* they organize abstract state
-* they prevent clutter in domain specific state
-* they define an own domain specific state
-* they remove duplications of reducer and actions
-* they are scalable: add a new state key which benefits from the available reducer + action pairs immediately
-* they make substate accessible (with selectors) by using a finite number of constants
-* they make feature folder specific state accessible again
+- they organize abstract state
+- they prevent clutter in domain specific state
+- they define an own domain specific state
+- they remove duplications of reducer and actions
+- they are scalable: add a new state key which benefits from the available reducer + action pairs immediately
+- they make substate accessible (with selectors) by using a finite number of constants
+- they make feature folder specific state accessible again
 
 Even though you can apply the pattern without a library, a very good friend of mine already implemented [redux-state-keys](https://github.com/LFDM/redux-state-keys) for you.

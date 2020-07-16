@@ -1,13 +1,20 @@
 ---
-title: "How to React Range"
-description: "In this React component tutorial, we will build a React Range Component that can be used horizontally as example, but can be extended to be used vertically too ..."
-date: "2019-12-02T07:52:46+02:00"
-categories: ["React"]
-keywords: ["react range", "react range component", "react range example", "react range range", "react range"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to React Range'
+description: 'In this React component tutorial, we will build a React Range Component that can be used horizontally as example, but can be extended to be used vertically too ...'
+date: '2019-12-02T07:52:46+02:00'
+categories: ['React']
+keywords:
+  [
+    'react range',
+    'react range component',
+    'react range example',
+    'react range range',
+    'react range',
+  ]
+hashtags: ['#100DaysOfCode', '#ReactJs']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -18,7 +25,7 @@ In this React component tutorial by example, we will create a React Range Compon
 
 # React Range: Component
 
-We are starting off with the previous tutorial where we have implemented a React Slider Component. Let's rename all its internals from *Slider/slider* to *Range/range* to keep our naming of things consistent. This tutorial will extend the component to a Range Slider which has a couple of more features. Let's get started.
+We are starting off with the previous tutorial where we have implemented a React Slider Component. Let's rename all its internals from _Slider/slider_ to _Range/range_ to keep our naming of things consistent. This tutorial will extend the component to a Range Slider which has a couple of more features. Let's get started.
 
 First, we want to colorize the range -- or also called track -- which is used for our interactive thumb to move from minimum to maximum of the range's capacity. But we will only colorize the part left of the thumb. This way, we get a visual feedback about which range has been selected and which not.
 
@@ -92,10 +99,10 @@ const Range = ({
 
 Essentially we are doing four things here to update the range without React's state management:
 
-* defining a styled Range Progress for our colorized part of the track
-* creating a ref with React's useRef and using it for DOM manipulation on our rendered Range Progress
-* rendering this new Range Progress with an initial width coming from our calculated percentage (declarative)
-* using the ref when our mouse event fires to set the new width of the Range Progress (imperative)
+- defining a styled Range Progress for our colorized part of the track
+- creating a ref with React's useRef and using it for DOM manipulation on our rendered Range Progress
+- rendering this new Range Progress with an initial width coming from our calculated percentage (declarative)
+- using the ref when our mouse event fires to set the new width of the Range Progress (imperative)
 
 Next, we are going to introduce a minimum (`min`) value next to our already familiar maximum (`max`) value. This way, we are not always counting from 0 to maximum, but can choose to have two dynamic values (min and max) for our range. If no minimum value is set for our Range component, we will default to zero.
 
@@ -221,7 +228,7 @@ const Range = ({ ... }) => {
 };
 ```
 
-However, since we are already using the imperative way to *update* all of these values once someone moves the range in our component, we could use the imperative way of doing things for the *initial* rendering as well. Let's remove the JSX for the initial rendering and use a React Hook instead to trigger the update function imperatively.
+However, since we are already using the imperative way to _update_ all of these values once someone moves the range in our component, we could use the imperative way of doing things for the _initial_ rendering as well. Let's remove the JSX for the initial rendering and use a React Hook instead to trigger the update function imperatively.
 
 First, let's move everything that needs to be updated to its own function:
 
@@ -302,7 +309,7 @@ Now we run this React hook on the first render and every time one of its depende
 
 Last, we need to wrap our update function into React's useCallback hook, otherwise the update function would change on every render and run our useLayoutEffect hook again and again. The `handleUpdate` function should only be re-defined when one of its dependencies (here `formatFn`) changes.
 
-*The 'handleUpdate' function makes the dependencies of useLayoutEffect Hook change on every render. To fix this, wrap the 'handleUpdate' definition into its own useCallback() Hook.*
+_The 'handleUpdate' function makes the dependencies of useLayoutEffect Hook change on every render. To fix this, wrap the 'handleUpdate' definition into its own useCallback() Hook._
 
 ```javascript{4,10-11}
 const Range = ({ ... }) => {
@@ -331,8 +338,8 @@ Everything should work again. However, keep in mind that it's recommended to avo
 
 ### Exercises:
 
-* Give your Range Component a disabled state where it's no longer possible to interact with it.
-* Add a second thumb to the Range Component for being able to select a part *within* the track which doesn't start with our defined `min` value.
+- Give your Range Component a disabled state where it's no longer possible to interact with it.
+- Add a second thumb to the Range Component for being able to select a part _within_ the track which doesn't start with our defined `min` value.
 
 <Divider />
 

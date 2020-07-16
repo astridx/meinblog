@@ -1,13 +1,14 @@
 ---
-title: "The Road to React [Book 2020]"
+title: 'The Road to React [Book 2020]'
 description: "The Road to React book is your way to learn React.js by building a real world application. It's a huge tutorial where you will learn all the fundamentals in plain React before you dive into more advanced topics in React with Redux. Along the way, you will learn everything about JavaScript ES6 ..."
-date: "2020-02-29T13:50:46+02:00"
-categories: ["React"]
-keywords: ["react book", "react ebook", "learn react", "react.js book", "react js book"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
-contribute: ""
-banner: "./images/banner.jpg"
-author: ""
+date: '2020-02-29T13:50:46+02:00'
+categories: ['React']
+keywords:
+  ['react book', 'react ebook', 'learn react', 'react.js book', 'react js book']
+hashtags: ['#100DaysOfCode', '#ReactJs']
+contribute: ''
+banner: './images/banner.jpg'
+author: ''
 ---
 
 <Sponsorship />
@@ -26,127 +27,127 @@ I keep the learning material up to date to the recent changes in the React ecosy
 
 **10. January 2017:**
 
-* even more beginner friendly
-* 37% more content
-* 30% improved content
-* 13 improved and new chapters
-* 140 pages of learning material
-* [interactive course of the book on educative.io](https://www.educative.io/collection/5740745361195008/5676830073815040)
+- even more beginner friendly
+- 37% more content
+- 30% improved content
+- 13 improved and new chapters
+- 140 pages of learning material
+- [interactive course of the book on educative.io](https://www.educative.io/collection/5740745361195008/5676830073815040)
 
 **08. March 2017:**
 
-* 20% more content
-* 25% improved content
-* 9 new chapters
-* 170 pages of learning material
+- 20% more content
+- 25% improved content
+- 9 new chapters
+- 170 pages of learning material
 
 **15. April 2017:**
 
-* upgrade to React 15.5.
+- upgrade to React 15.5.
 
 **5. July 2017:**
 
-* upgrade to node 8.1.3
-* upgrade to npm 5.0.4
-* upgrade to create-react-app 1.3.3
+- upgrade to node 8.1.3
+- upgrade to npm 5.0.4
+- upgrade to create-react-app 1.3.3
 
 **17. October 2017:**
 
-* upgrade to node 8.3.0
-* upgrade to npm 5.5.1
-* upgrade to create-react-app 1.4.1
-* upgrade to React 16
-* 15% more content
-* 15% improved content
-* 3 new chapters (Bindings, Event Handlers, Error Handling)
-* 200+ pages of learning material
-* +9 Source Code Projects
+- upgrade to node 8.3.0
+- upgrade to npm 5.5.1
+- upgrade to create-react-app 1.4.1
+- upgrade to React 16
+- 15% more content
+- 15% improved content
+- 3 new chapters (Bindings, Event Handlers, Error Handling)
+- 200+ pages of learning material
+- +9 Source Code Projects
 
 **17. February 2018:**
 
-* upgrade to node 8.9.4
-* upgrade to npm 5.6.0
-* upgrade to create-react-app 1.5.1
-* more learning paths
-* extra reading material
-* 1 new chapter (Axios instead of Fetch)
-* [Amazon Print/E Book](https://amzn.to/2QY2ONp)
+- upgrade to node 8.9.4
+- upgrade to npm 5.6.0
+- upgrade to create-react-app 1.5.1
+- more learning paths
+- extra reading material
+- 1 new chapter (Axios instead of Fetch)
+- [Amazon Print/E Book](https://amzn.to/2QY2ONp)
 
 **31. August 2018:**
 
-* professional proofreading and editing by Emmanuel Stalling
-* 18 Source Code Projects
+- professional proofreading and editing by Emmanuel Stalling
+- 18 Source Code Projects
 
 **3. October 2018:**
 
-* upgrade to node 10.11.0
-* upgrade to npm 6.4.1
-* upgrade to create-react-app 2.0.2
+- upgrade to node 10.11.0
+- upgrade to npm 6.4.1
+- upgrade to create-react-app 2.0.2
 
 **29. February 2020:**
 
-* major rewrite with React Hooks
+- major rewrite with React Hooks
 
 # Table of Contents
 
-* Fundamentals of React
-  * Hello React
-  * Requirements
-  * Setting up a React Project
-  * Meet the React Component
-  * React JSX
-  * Lists in React
-  * Meet another React Component
-  * React Component Instantiation
-  * ReactDOM
-  * React Component Definition (Advanced)
-  * Handler Function in JSX
-  * React Props
-  * React State
-  * Callback Handlers in JSX
-  * Lifting State in React
-  * React Controlled Components
-  * Props Handling (Advanced)
-  * React Side-Effects
-  * React Custom Hooks (Advanced)
-  * React Fragments
-  * Reusable React Component
-  * React Component Composition
-  * Imperative React
-  * Inline Handler in JSX
-  * React Asynchronous Data
-  * React Conditional Rendering
-  * React Advanced State
-  * React Impossible States
-  * Data Fetching with React
-  * Data Re-Fetching in React
-  * Memoized Handler in React (Advanced)
-  * Explicit Data Fetching with React
-  * Third-Party Libraries in React
-  * Async/Await in React (Advanced)
-  * Forms in React
-* React's Legacy
-  * React Class Components
-  * React Class Components: State
-  * Imperative React
-* Styling in React
-  * CSS in React
-  * CSS Modules in React
-  * Styled Components in React
-  * SVGs in React
-* React Maintenance
-  * Performance in React (Advanced)
-  * TypeScript in React
-  * Unit Testing to Integration Testing
-  * React Project Structure
-* Real World React (Advanced)
-  * Sorting
-  * Reverse Sort
-  * Remember Last Searches
-  * Paginated Fetch
-* Deploying a React Application
-  * Build Process
-  * Deploy to Firebase
+- Fundamentals of React
+  - Hello React
+  - Requirements
+  - Setting up a React Project
+  - Meet the React Component
+  - React JSX
+  - Lists in React
+  - Meet another React Component
+  - React Component Instantiation
+  - ReactDOM
+  - React Component Definition (Advanced)
+  - Handler Function in JSX
+  - React Props
+  - React State
+  - Callback Handlers in JSX
+  - Lifting State in React
+  - React Controlled Components
+  - Props Handling (Advanced)
+  - React Side-Effects
+  - React Custom Hooks (Advanced)
+  - React Fragments
+  - Reusable React Component
+  - React Component Composition
+  - Imperative React
+  - Inline Handler in JSX
+  - React Asynchronous Data
+  - React Conditional Rendering
+  - React Advanced State
+  - React Impossible States
+  - Data Fetching with React
+  - Data Re-Fetching in React
+  - Memoized Handler in React (Advanced)
+  - Explicit Data Fetching with React
+  - Third-Party Libraries in React
+  - Async/Await in React (Advanced)
+  - Forms in React
+- React's Legacy
+  - React Class Components
+  - React Class Components: State
+  - Imperative React
+- Styling in React
+  - CSS in React
+  - CSS Modules in React
+  - Styled Components in React
+  - SVGs in React
+- React Maintenance
+  - Performance in React (Advanced)
+  - TypeScript in React
+  - Unit Testing to Integration Testing
+  - React Project Structure
+- Real World React (Advanced)
+  - Sorting
+  - Reverse Sort
+  - Remember Last Searches
+  - Paginated Fetch
+- Deploying a React Application
+  - Build Process
+  - Deploy to Firebase
 
 <Divider />
 

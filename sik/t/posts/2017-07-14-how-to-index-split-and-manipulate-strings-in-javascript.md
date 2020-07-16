@@ -266,7 +266,8 @@ Where are you?
 In addition to being able to replace a value with another string value, we can also use [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to make `replace()` more powerful. For instance, `replace()` only affects the first value, but we can use the `g` (global) flag to catch all instances of a value, and the `i` (case insensitive) flag to ignore case.
 
 ```js
-const originalString = "Javascript is a programming language. I'm learning javascript."
+const originalString =
+  "Javascript is a programming language. I'm learning javascript."
 
 // Search string for "javascript" and replace with "JavaScript"
 const newString = originalString.replace(/javascript/gi, 'JavaScript')

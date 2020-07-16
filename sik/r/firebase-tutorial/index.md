@@ -1,13 +1,21 @@
 ---
-title: "A visual Firebase Tutorial"
-description: "A short visual Firebase tutorial should help you to create your first Firebase application that can be used with any web framework/library such as React, Angular or Vue ..."
-date: "2018-12-07T07:52:46+02:00"
-categories: ["React", "Firebase"]
-keywords: ["firebase tutorial", "firebase authentication", "firebase cloud firestore", "firestore", "firebase realtime database", "firebase hosting"]
-hashtags: ["#100DaysOfCode", "#Firebase"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'A visual Firebase Tutorial'
+description: 'A short visual Firebase tutorial should help you to create your first Firebase application that can be used with any web framework/library such as React, Angular or Vue ...'
+date: '2018-12-07T07:52:46+02:00'
+categories: ['React', 'Firebase']
+keywords:
+  [
+    'firebase tutorial',
+    'firebase authentication',
+    'firebase cloud firestore',
+    'firestore',
+    'firebase realtime database',
+    'firebase hosting',
+  ]
+hashtags: ['#100DaysOfCode', '#Firebase']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,7 +24,7 @@ author: ""
 
 This short visual Firebase tutorial should help you to create your first Firebase application that can be used with any web framework/library such as React, Angular or Vue. For instance, you can use it for this [extensive Firebase in React tutorial](/complete-firebase-authentication-react-tutorial/) that uses all the features we will discuss in this visual guide.
 
-Let's start by [creating a Firebase application with your Google Account](https://console.firebase.google.com). Therefore, hit the "Add Project" button to create a new Firebase project: 
+Let's start by [creating a Firebase application with your Google Account](https://console.firebase.google.com). Therefore, hit the "Add Project" button to create a new Firebase project:
 
 ![firebase tutorial](./images/banner.jpg)
 ￼
@@ -36,7 +44,7 @@ Above of the "Add an app to get started" you find three icons whereas the last o
 ￼
 ![firebase configuration](./images/firebase-configuration.jpg)
 
-It is recommended to keep this sensitive data in your environment variables in your project to configure your application. Even though this information is accessible in your client-side application, it's okay to have them publicly available. You need to project your Firebase application later with other mechanisms (.e.g Read/Write Rules, Domain Restrictions). That's it for the Firebase setup with a configuration. You should be able to get along with the initial steps of setting up a Firebase application. 
+It is recommended to keep this sensitive data in your environment variables in your project to configure your application. Even though this information is accessible in your client-side application, it's okay to have them publicly available. You need to project your Firebase application later with other mechanisms (.e.g Read/Write Rules, Domain Restrictions). That's it for the Firebase setup with a configuration. You should be able to get along with the initial steps of setting up a Firebase application.
 
 # Firebase Authentication
 

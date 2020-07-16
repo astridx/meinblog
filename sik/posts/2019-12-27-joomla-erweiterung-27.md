@@ -8,7 +8,7 @@ categories:
   - Entwicklung
 tags:
   - Tutorial
-  - Joomla 
+  - Joomla
 ---
 
 Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung.
@@ -19,7 +19,7 @@ Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten. 
+Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
 
 ## Teste deine Joomla-Komponente
 
@@ -27,11 +27,11 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation. 
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Hilfelink und vergewissere dich davon, dass du zu der von dir eingegebenen Hilfeseite weitergeleitet wirst. 
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Hilfelink und vergewissere dich davon, dass du zu der von dir eingegebenen Hilfeseite weitergeleitet wirst.
 
 ![Joomla! Hilfelink](../images/j4x27x1.png)
 

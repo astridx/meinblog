@@ -1,13 +1,20 @@
 ---
-title: "How to use Prettier in VS Code"
-description: "Tutorial on how to install Prettier for VS Code (Visual Studio Code). Get to know how to configure Prettier to format on save and how to write a configuration file for line length and other formatting options ..."
-date: "2019-06-14T13:50:46+02:00"
-categories: ["JavaScript", "VS Code", "Tooling"]
-keywords: ["vscode prettier", "vscode prettier on save", "vscode prettier format on save", "vscode prettier line length", "install prettier vscode"]
-hashtags: ["#100DaysOfCode", "#VSCode"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'How to use Prettier in VS Code'
+description: 'Tutorial on how to install Prettier for VS Code (Visual Studio Code). Get to know how to configure Prettier to format on save and how to write a configuration file for line length and other formatting options ...'
+date: '2019-06-14T13:50:46+02:00'
+categories: ['JavaScript', 'VS Code', 'Tooling']
+keywords:
+  [
+    'vscode prettier',
+    'vscode prettier on save',
+    'vscode prettier format on save',
+    'vscode prettier line length',
+    'install prettier vscode',
+  ]
+hashtags: ['#100DaysOfCode', '#VSCode']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,7 +23,7 @@ author: ""
 
 A brief step by step tutorial on how to install and use Prettier in VS Code. [Prettier](https://prettier.io/) is an opinionated code formatter which ensures one unified code format. It can be used within VS Code by installing it from the VS Code marketplace. Once you have integrated it in VS Code, you can configure Prettier to format your files when saving them or committing them to a version control system (e.g. Git, SVN). This way, you never need to worry about your source code formatting and Prettier takes care about it. In addition, you can give Prettier a global or project based configuration file to adapt it to your needs. For instance, you can decide the length of your code lines and when the code line should break into two lines.
 
-*Note: If you want to get started with React in VS Code, you may want to follow either the [MacOS](/react-js-macos-setup/) or [Windows](/react-js-windows-setup/) setup before continuing with this tutorial. Afterward, continue with this tutorial to integrate Prettier into Visual Studio Code.*
+_Note: If you want to get started with React in VS Code, you may want to follow either the [MacOS](/react-js-macos-setup/) or [Windows](/react-js-windows-setup/) setup before continuing with this tutorial. Afterward, continue with this tutorial to integrate Prettier into Visual Studio Code._
 
 # How to install Prettier in VS Code
 
@@ -37,10 +44,10 @@ If you open up the VS Code User's settings/preferences as UI, search for "Format
 
 # How to configure Prettier
 
-If you want to have a configuration for each project, you can add a *.prettierrc* configuration file to it. On the command line, add the following file to your project root directory:
+If you want to have a configuration for each project, you can add a _.prettierrc_ configuration file to it. On the command line, add the following file to your project root directory:
 
 ```javascript
-touch .prettierrc
+touch.prettierrc
 ```
 
 The following configuration is only my personal recommendation for a Prettier configuration file in a project, but you can find all available configuration over [here](https://prettier.io/docs/en/configuration.html).

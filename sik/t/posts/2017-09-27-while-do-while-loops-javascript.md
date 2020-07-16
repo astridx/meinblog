@@ -58,7 +58,9 @@ let fish = 0
 while (fish < populationLimit) {
   // add one fish for each iteration
   fish++
-  console.log('The aquarium has room for ' + (populationLimit - fish) + ' more fish.')
+  console.log(
+    'The aquarium has room for ' + (populationLimit - fish) + ' more fish.'
+  )
 }
 ```
 

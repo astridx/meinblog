@@ -97,16 +97,20 @@ From here out, we'll put all JSON data into its own `.json` file. This way, we c
 Here's what **data.json** will look like.
 
 ```js
-[{
-	"name": "Aragorn",
-	"race": "Human"
-}, {
-	"name": "Legolas",
-	"race": "Elf"
-}, {
-	"name": "Gimli",
-	"race": "Dwarf"
-}]
+;[
+  {
+    name: 'Aragorn',
+    race: 'Human',
+  },
+  {
+    name: 'Legolas',
+    race: 'Elf',
+  },
+  {
+    name: 'Gimli',
+    race: 'Dwarf',
+  },
+]
 ```
 
 And here's how we'll extract that data in PHP.
@@ -293,7 +297,8 @@ We made a PHP array and encoded it. Here's the output:
 We're going to create a JavaScript variable called `data` and apply the JSON string.
 
 ```js
-var data = '[ { "name": "Aragorn", "race": "Human" }, { "name": "Gimli", "race": "Dwarf" } ]'
+var data =
+  '[ { "name": "Aragorn", "race": "Human" }, { "name": "Gimli", "race": "Dwarf" } ]'
 ```
 
 Now we'll use JavaScript built in `JSON.parse()` function to decode the string.
@@ -356,7 +361,7 @@ request.open('GET', 'data.json', true)
 From here, we'll parse and work with all our JSON data within the `onload` function.
 
 ```js
-request.onload = function() {
+request.onload = function () {
   // begin accessing JSON data here
 }
 ```
@@ -374,7 +379,7 @@ var request = new XMLHttpRequest()
 
 request.open('GET', 'data.json', true)
 
-request.onload = function() {
+request.onload = function () {
   // begin accessing JSON data here
   var data = JSON.parse(this.response)
 
@@ -400,14 +405,14 @@ Now you can also use the Fetch API to do the same thing. Read [How to use the Ja
 ```js
 // Replace ./data.json with your JSON feed
 fetch('./data.json')
-  .then(response => {
+  .then((response) => {
     return response.json()
   })
-  .then(data => {
+  .then((data) => {
     // Work with JSON data here
     console.log(data)
   })
-  .catch(err => {
+  .catch((err) => {
     // Do something for an error here
   })
 ```
@@ -417,8 +422,8 @@ fetch('./data.json')
 As you can see, it's not too difficult to retrieve a JSON feed with plain JavaScript. However, it's even easier with jQuery, using the `getJSON()` function. If you don't know how jQuery works, you'll need to load the [jQuery JavaScript library](https://jquery.com/) before any of this custom code.
 
 ```js
-$(document).ready(function() {
-  $.getJSON('data.json', function(data) {
+$(document).ready(function () {
+  $.getJSON('data.json', function (data) {
     // begin accessing JSON data here
     console.log(data[0].name)
   })
@@ -428,13 +433,13 @@ $(document).ready(function() {
 You might also see jQuery access JSON via an AJAX request, which is a little more verbose.
 
 ```js
-$(document).ready(function() {
+$(document).ready(function () {
   var data
   $.ajax({
     dataType: 'json',
     url: 'data.json',
     data: data,
-    success: function(data) {
+    success: function (data) {
       // begin accessing JSON data here
       console.log(data[0].name)
     },
