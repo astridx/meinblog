@@ -19,7 +19,38 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+## Schritt für Schritt
+
+Im aktuellen Abschnitte kommt eine Datei hinzu und es wird keine geändert.
+
+![Übersicht über die Dateien im vierten Kapitel](/images/j4xvier.png)
+
+### Neue Dateien - components/com_foos/tmpl/foo/default.xml
+
+Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Aber im Moment halten wir es unkompliziert. Wir fügen einige Sprachstrings für Text hinzu. Später werden wir sehen, wie wir diese übersetzen.
+
+#### src/components/com_foos/tmpl/foo/default.xml
+
+Erstelle die Datei default.xml unter components / com_foos / tmpl / foo / und fügen Sie den folgenden Code hinzu.
+
+Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
+Der Text im `message`-Tag wird als Beschreibung angezeigt.
+
+> Der Sprachstring bleibt nicht so. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
+
+Diese Datei enthält alle Informationen für einen Menüpunkt im Frontend.
+
+[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_FOOS_FOO_VIEW_DEFAULT_TITLE">
+		<message>
+			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+</metadata>
+```
 
 ## Teste deine Joomla-Komponente
 

@@ -13,13 +13,15 @@ tags:
 
 Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
 
-![Die erste Ansicht im Backend](/images/j4x1x3.png){ width=250px }
+![Die erste Ansicht im Backend](/images/j4x1x3.png)
+
+## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t0...t1) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-![Übersicht über die Dateien im ersten Kapitel](../images/eins.png)
+![Übersicht über die Dateien im ersten Kapitel](/images/j4xeins.png)
 
 ### Blaupause für die Installation
 
@@ -319,11 +321,11 @@ return new class implements ServiceProviderInterface
 
 \normalsize
 
-### Einstiegspunkt in den Administrationsbereich{#einsdisplaycontroller}
+### Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
 
 Dies ist der Einstiegspunkt für den Model-View-Controller-Teil in den Administrationsbereich der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla! erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
 
-Die Hauptaufgabe dieses Controllers ist es, die Anzeige vorzubereiten. Daher heißt der Standardcontroller DisplayController. Er ruft die Methode `display()` der Elternklasse `/src/MVC/Controller/BaseController.php` auf. Im Model-View-Controller-Modell werden Controller oft zum Einrichten der Startumgebung genutzt.
+Die Hauptaufgabe dieses Controllers ist es, die Anzeige vorzubereiten. Daher heißt der Standardcontroller DisplayController. Er ruft die Methode `display()` der Elternklasse `BaseController` im Namespace `Joomla\CMS\MVC\Controller` - genau ist dies die Datei `/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php` - auf. Im Model-View-Controller-Modell werden Controller oft zum Einrichten der Startumgebung genutzt.
 
 Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _DocBlock_ an. Hier ist ein Beispiel für einen typischen Dokumentarblock.
 
@@ -458,7 +460,9 @@ class AdministratorService
 
 \normalsize
 
-### Hier sind Objekte (Symbolleiste, Titel) definiert, und das Modell (Daten) wird aufgerufen.
+### Die Ansicht - administrator/components/com_foos/View/Foos/HtmlView.php
+
+Hier sind Objekte (Symbolleiste, Titel) definiert, und das Modell (Daten) wird aufgerufen.
 
 Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!
 
@@ -489,7 +493,7 @@ class HtmlView extends BaseHtmlView
 
 ### Das layout/Template zum Rendern der Ansicht
 
-Und hier in dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausgabe des Textes "Hello Foos".
+In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 
 \small
 [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)

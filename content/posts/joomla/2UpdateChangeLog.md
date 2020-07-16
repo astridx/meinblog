@@ -25,7 +25,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-Im aktuellen Abschnittel kommen zwei Datei hinzu, die außerhalb der Website im Internet gespeichert werden. Die Adressen oder URLS zu diesen hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingefügt.
+Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website im Internet gespeichert werden. Die Adressen oder URLs unter diesen diesen abgelegt sind, hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingefügt.
 
 ![Übersicht über die Dateien im zweiten Kapitel](/images/j4xzwei.png)
 
@@ -207,7 +207,7 @@ changelog.xml
 
 ### Geänderte Dateien
 
-Lediglich die Versinsnummer wurde angepasst. Diese Änderunge mache in jedem neuen Kapitel, da immer eine neue Funktion hinzu kommt. Ich erwähne das nicht mehr explizit.
+Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das nicht mehr explizit.
 
 #### src/administrator/components/com_foos/foos.xml
 

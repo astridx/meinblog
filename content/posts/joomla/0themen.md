@@ -1,5 +1,5 @@
 ---
-date: 2019-11-31
+date: 2019-11-30
 title: 'Der Weg zu Joomla 4 Erweiterungen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
