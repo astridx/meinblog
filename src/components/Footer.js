@@ -11,6 +11,7 @@ export default function Footer() {
         <nav className="footer-links">
           <Link to="/blog">Blog</Link>
           <Link to="https://astrid-guenther.de/impressum">Impressum</Link>
+          <Link to="https://astrid-guenther.de/datenschutzerklaerung">Datenschutz</Link>
         </nav>
         <nav className="flex">
           <a

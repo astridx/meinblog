@@ -19,7 +19,18 @@ Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich b
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24...t24b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+Nichts Neues.
+
+### Geänderte Dateien
+
+#### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
+
+
 
 ## Teste deine Joomla-Komponente
 

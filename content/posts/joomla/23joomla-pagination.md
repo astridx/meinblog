@@ -19,7 +19,20 @@ Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist ni
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+Es kommt keine neue Datei hinzu.
+
+### Geänderte Dateien
+
+#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
+
+#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
+
+
 
 ## Teste deine Joomla-Komponente
 

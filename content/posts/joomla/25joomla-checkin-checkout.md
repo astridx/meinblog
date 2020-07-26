@@ -17,7 +17,24 @@ Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftret
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+#### [src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-5646e047332531426be00a18128422a6)
+
+
+### Geänderte Dateien
+
+#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t20...t21#diff-262e27353fbe755d3813ea2df19cd0ed)
+
+#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-896f245bc8e493f91277fd33913ef974)
+
+#### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-2daf62ad6c51630353e31eaa3cc28626)
+
+#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-3186af99ea4e3321b497b86fcd1cd757)
+
 
 ## Teste deine Joomla-Komponente
 

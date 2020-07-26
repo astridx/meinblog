@@ -17,7 +17,24 @@ Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu ges
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+####  [src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
+
+####  [src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
+
+#### [src/components/com_foos/tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-51b2e02f000a9a06e0fc5a6cfd9456c9)
+
+### Geänderte Dateien
+
+#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
+
+####  [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-599caddf64a6ed0c335bc9c9f828f029)
+
+####  [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 ## Teste deine Joomla-Komponente
 

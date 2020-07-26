@@ -42,7 +42,7 @@ export default function BlogIndex({ data }) {
             Open Source.
           </a>{' '}
           Diese Website ist eine Art Kompendium. Hier sammele ich Wissen,
-          welches ich im Laufe der Jahre lerne.
+          welches ich im Laufe der Jahre aufbaue.
         </p>
       </section>
       <Section title="Neu">

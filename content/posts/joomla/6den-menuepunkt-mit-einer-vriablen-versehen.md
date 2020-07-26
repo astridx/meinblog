@@ -19,7 +19,29 @@ Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich.
+
+### Geänderte Dateien
+
+#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+
+```
+
+```
+
+
+#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+
+```
+
+```
+
+
 
 ## Teste deine Joomla-Komponente
 

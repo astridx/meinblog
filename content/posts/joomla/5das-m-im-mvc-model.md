@@ -19,7 +19,49 @@ Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t3...t4) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+## Schritt für Schritt
+
+### Neue Dateien
+
+#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
+
+```
+<?php
+namespace Joomla\Component\Foos\Site\Model;
+
+\defined('_JEXEC') or die
+
+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+
+class FooModel extends BaseDatabaseModel
+{
+	protected $message;
+
+	public function getMsg()
+	{
+		if (!isset($this->message))
+		{
+			$this->message = 'Hello Foo!';
+		}
+
+		return $this->message;
+	}
+}
+```
+
+### Geänderte Dateien
+
+#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
+
+```
+
+```
+
+#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
+
+```
+
+```
 
 ## Teste deine Joomla-Komponente
 

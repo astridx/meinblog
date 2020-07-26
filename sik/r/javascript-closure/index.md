@@ -76,7 +76,7 @@ console.log(employees)
 // ]
 ```
 
-_Note: The ++ operator (called [Increment Operator](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Increment_()>)) increments an integer by one. If it is used postfix (e.g. `myInteger++`), it increments the integer but returns the value from before incrementing it. If it is used prefix (e.g. `++myInteger`), it increments the integer and returns the value after incrementing it. In contrast, there exists an [Decrement Operator](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Decrement_(--)>) in JavaScript too._
+_Note: The ++ operator (called [Increment Operator](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Increment_()>)) increments an integer by one. If it is used postfix (e.g. `myInteger++`), it increments the integer but returns the value from before incrementing it. If it is used prefix (e.g. `++myInteger`), it increments the integer and returns the value after incrementing it. In contrast, there exists an [Decrement Operator](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Decrement_(--)>) in JavaScript too.\_
 
 There is one crucial step we did to implement this feature: We moved the variable outside of the **function's scope** in order to keep track of its state. Before it was internally managed by the function and thus only the function knew about this variable. Now we moved it outside and made it available in the **global scope**.
 

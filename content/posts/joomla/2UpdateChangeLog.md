@@ -13,7 +13,7 @@ tags:
 
 Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User immer die neueste Version verwenden? Woher wissen sie von einem Update? Jetzt, wo das Grundgerüst der Erweiterung fertig ist, ist es wichtig, dass deine Anwender von Weiterentwicklungen erfahren.
 
-In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. __Überspringe dann einfach diese Einheit.__
+In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. **Überspringe dann einfach diese Einheit.**
 
 Update Server klingt kompliziert, im Grunde ist es nur eine URL zu einer XML-Datei, die in der XML-Installationsdatei angegeben ist. Diese XML enthält eine Reihe von Details, einschließlich der neuen Version und der Download-URL. Wenn Joomla! eine Aktualisierung findet, wird dies im Administrationsbereich angezeigt.
 
@@ -33,12 +33,11 @@ Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website im I
 
 Die Änderungen, die das Changelog und den Joomla Update Server betreffen, erwähne ich nur in diesem Kapitel. In jedem weiteren ist erforderlich, dass du die Nummern selbst anpasst, wenn dir dies wichtig ist. Das ist kein Hexenwerk. Wenn ich dies immer wieder neu beschrieb, langweilte dich das nicht nur - es blähte diesen Text unnötig auf.
 
-#### foo_update.xml (Update Server)
-
+#### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b) (Update Server)
 
 Du hast der Komponente in der Datei [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) mitgeteilt, wo sie sich über Updates informiert.
 
-Erstelle die Datei [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). Die Datei kann beliebig benannt werden, solange sie mit dem Namen übereinstimmt, den du in der Installations-XML [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) festgelegt hast.   
+Erstelle die Datei [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). Die Datei kann beliebig benannt werden, solange sie mit dem Namen übereinstimmt, den du in der Installations-XML [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) festgelegt hast.
 
 Das Tag `updates` umgibt alle Update-Elemente. Erstelle jedes Mal einen weiteren Update-Abschnitt, wenn du eine neue Version veröffentlichst.
 
@@ -54,11 +53,13 @@ Der Wert von `name` wird in der Ansicht "Extension Manager Update" angezeigt. We
 ```xml
         <name>com_foos</name>
 ```
+
 Der Wert des Tags `description` wird angezeigt, wenn du den Mauszeiger über den Namen in der Aktualisierungsansicht bewegen.
 
 ```xml
         <description>This is com_foo</description>
 ```
+
 Der Wert des `element`-Tags ist der installierte Name der Erweiterung. Dies sollte mit dem Wert in der Elementspalte in der Tabelle `#__extensions` in Ihrer Datenbank übereinstimmen.
 
 ```xml
@@ -80,7 +81,7 @@ Der Wert des Tags `version` ist die Versionsnummer für diese Version. Diese Ver
 Das Tag `changelogurl` ist optional und ermöglicht es, einen Link anzuzeigen, der über die Änderungen in dieser Version informiert. Diese Datei ist ebenfalls Thema dieses Kapitels.
 
 ```xml
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>  
+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
 
 ```
 
@@ -112,7 +113,7 @@ The Tags `maintainer` und `maintainerurl` sind selbsterklärend.
 
 Das Tag `targetplatform` beschreibt die Joomla! Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte immer auf "joomla" gesetzt werden.
 
-> Wenn du dein Update auf eine bestimmtes Joomla! Version erstellst kannst du `min_dev_level` und` max_dev_level` verwenden.
+> Wenn du dein Update auf eine bestimmtes Joomla! Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
 
 ```xml
 
@@ -130,16 +131,17 @@ Schließe alle Tags.
 ```xml
     </update>
 </updates>
-``` 
+```
 
 > Für Plugins füge ein Tag mit dem Namen `folder` und ein Tag mit dem Namen `client` hinzu. Diese Tags werden nur für Plugins benötigt.
 
-Das Tag `folder` beschreibt den Typ des Plugins. Abhängig von Ihrem Plugin-Typ kann dies  `system`, `content`, `search` usw. sein.
-Der Wert des `client` -Tags beschreibt die client_id in der Tabelle #__extension, die Joomla! Wenn dies ein Site- (0) oder ein Administrator- (1) Erweiterungstyp ist. Plugins sind immer 0, Komponenten sind immer 1; Module können jedoch variieren, je nachdem, ob es sich um ein Front-End- oder ein Back-End-Modul handelt.
+Das Tag `folder` beschreibt den Typ des Plugins. Abhängig von Ihrem Plugin-Typ kann dies `system`, `content`, `search` usw. sein.
+Der Wert des `client` -Tags beschreibt die client_id in der Tabelle #\_\_extension, die Joomla! Wenn dies ein Site- (0) oder ein Administrator- (1) Erweiterungstyp ist. Plugins sind immer 0, Komponenten sind immer 1; Module können jedoch variieren, je nachdem, ob es sich um ein Front-End- oder ein Back-End-Modul handelt.
 
 Nachfolgend siehst du die vollständige Datei.
 
 foo_update.xml
+
 ```xml
 <updates>
     <update>
@@ -148,7 +150,7 @@ foo_update.xml
         <element>com_foos</element>
         <type>component</type>
         <version>1.0.1</version>
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>      
+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
 		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
@@ -161,11 +163,12 @@ foo_update.xml
 </updates>
 ```
 
-#### changelog.xml (Changelog)
+#### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 
 Informationen zum Changelog findest du unter in Github [Github](https://github.com/joomla/joomla-cms/pull/24026) und der [Dokumentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file).
 
 changelog.xml
+
 ```xml
 <changelogs>
 	<changelog>
@@ -207,20 +210,22 @@ changelog.xml
 
 ### Geänderte Dateien
 
+#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+
 Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das nicht mehr explizit.
 
-#### src/administrator/components/com_foos/foos.xml
-
 src/administrator/components/com_foos/foos.xml
+
 ```xml
 ...
 <version>1.0.1</version>
 ...
 ```
 
-Die folgenden Zeilen haben wir nicht geändert. Da sie in diesem Kapitel eine wichtig Rolle spielen, füge sie hier ein. 
+Die folgenden Zeilen haben wir nicht geändert. Da sie in diesem Kapitel eine wichtig Rolle spielen, füge sie hier ein.
 
 src/administrator/components/com_foos/foos.xml
+
 ```xml
 ...
 	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
@@ -228,7 +233,6 @@ src/administrator/components/com_foos/foos.xml
 		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
 	</updateservers>...
 ```
-
 
 ## Teste deine Joomla-Komponente
 

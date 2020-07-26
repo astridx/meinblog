@@ -19,7 +19,21 @@ Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wic
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t8...t9) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+## Schritt für Schritt
+
+### Neue Dateien
+
+#### [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-9be56d6cedb2c832265e47642f0afb25)
+
+### Geänderte Dateien
+
+#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
+
+#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
+
+####  [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
+
+#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
 
 ## Teste deine Joomla-Komponente
 

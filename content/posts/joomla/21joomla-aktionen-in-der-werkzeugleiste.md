@@ -19,7 +19,18 @@ Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t16...t17) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
+
+### Geänderte Dateien
+
+#### [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+
+#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 ## Teste deine Joomla-Komponente
 

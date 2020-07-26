@@ -19,7 +19,19 @@ Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter unten.
+
+## Schritt für Schritt
+
+### Neue Dateien
+
+In diesem Kapitel kommen keine neuen Dateien hinzu
+
+### Geänderte Dateien
+
+#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-c77adeff4ff9e321c996e0e12c54b656)
+
+####  [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-a33732ebd6992540b8adca5615b51a1f)
+
 
 ## Teste deine Joomla-Komponente
 

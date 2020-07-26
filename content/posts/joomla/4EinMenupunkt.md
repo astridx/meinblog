@@ -25,13 +25,13 @@ Im aktuellen Abschnitte kommt eine Datei hinzu und es wird keine geändert.
 
 ![Übersicht über die Dateien im vierten Kapitel](/images/j4xvier.png)
 
-### Neue Dateien - components/com_foos/tmpl/foo/default.xml
+### Neue Dateien
 
 Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Aber im Moment halten wir es unkompliziert. Wir fügen einige Sprachstrings für Text hinzu. Später werden wir sehen, wie wir diese übersetzen.
 
-#### src/components/com_foos/tmpl/foo/default.xml
+#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-Erstelle die Datei default.xml unter components / com_foos / tmpl / foo / und fügen Sie den folgenden Code hinzu.
+Erstelle die Datei default.xml unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu.
 
 Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
 Der Text im `message`-Tag wird als Beschreibung angezeigt.
@@ -41,6 +41,7 @@ Der Text im `message`-Tag wird als Beschreibung angezeigt.
 Diese Datei enthält alle Informationen für einen Menüpunkt im Frontend.
 
 [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>

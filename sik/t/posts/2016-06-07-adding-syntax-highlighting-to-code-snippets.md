@@ -99,8 +99,7 @@ Finally, wrap your desired code in `<pre><code class="language-whatever">`. You'
     >body { font: 100% Helvetica, sans-serif; color: #333; } .box {
     -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius:
     10px; border-radius: 10px; }</code
-  ></pre
->
+  ></pre>
 ```
 
 </pre>
