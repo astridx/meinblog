@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann Webservice(https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente ermöglicht es anderen, zusätzliche Software für diese zu erstellen oder Daten in eigenen Programmen zu nutzen – zusammenzuarbeiten.
+In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente ermöglicht es anderen, zusätzliche Software für diese zu erstellen oder Daten in eigenen Programmen zu nutzen – zusammenzuarbeiten.
 
 ## Für Ungeduldige
 
@@ -19,7 +19,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt bearbeiten die Komponenten und fügen ein Plugin hinzu.
+In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 ### Neue Dateien
 
@@ -27,7 +27,7 @@ In diesem Abschnitt bearbeiten die Komponenten und fügen ein Plugin hinzu.
 
 ##### [src/api/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
 
-Erstelle den Controller `FooController` die von `ApiController` erbt. In der Klasse `ApiController` ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe die folgenden Felder für deine Komponente: 
+Erstelle den Controller `FooController` der von `ApiController` erbt. In der Klasse `ApiController` ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe lediglich die folgenden Felder für deine Komponente: 
 
 `protected $contentType = 'foos';` und `protected $default_view = 'foos';`.
 
@@ -222,7 +222,7 @@ In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werde
 
 ## Teste deine Joomla-Komponente
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und Kopiere alle Dateien erneut.
+1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
@@ -242,16 +242,13 @@ Installiere deine Komponenten __und das Plugin__ wie in Teil eins beschrieben, n
 
 4. Die Schnittstelle bietet dir nun folgende Abfragemöglichkeiten:
 
-- Eine Liste von Foos 
-`curl -X GET /api/index.php/v1/foos`
+Eine Liste von Foos: `curl -X GET /api/index.php/v1/foos`  
+Ein einzelnes Foo-Element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
+Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`  
 
-- Ein einzelnes Foo-Element
-`curl -X GET /api/index.php/v1/foos/{foo_id}`
+> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere dies gegebenenfalls. 
 
-- Lösche ein Foo Element
-`curl -X DELETE /api/index.php/v1/foos/{foo_id}`
-
-> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
+> Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
 
 Nutzt du [Curl](https://curl.haxx.se/)? Die folgende Abfrage listet dir alle Elemente auf: 
 

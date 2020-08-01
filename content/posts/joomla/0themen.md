@@ -1,5 +1,5 @@
 ---
-date: 2019-11-30
+date: 2019-11-29
 title: 'Der Weg zu Joomla 4 Erweiterungen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -12,6 +12,7 @@ tags:
   - Joomla
 ---
 
+1. [Vorwort](/joomla-tutorial-vorwort)
 1. [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend)
 2. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
 3. [Die erste Ansicht im Frontend](/die-erste-ansicht-im-frontend)

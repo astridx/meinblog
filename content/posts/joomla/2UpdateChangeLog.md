@@ -163,6 +163,8 @@ foo_update.xml
 </updates>
 ```
 
+> Magst du eine Prüfsumme verwenden?  Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an.
+
 #### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 
 Informationen zum Changelog findest du unter in Github [Github](https://github.com/joomla/joomla-cms/pull/24026) und der [Dokumentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file).

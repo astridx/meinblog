@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
+Wir fangen mit den Grundlagen an. Dazu erstellen wir die *View* im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
@@ -83,7 +83,7 @@ Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du
 	<description>COM_FOOS_XML_DESCRIPTION</description>
 ```
 
-Als Nächstes setzen wir das Namespace `tag`. Im [Vorwort]() habe ich erklärt, warum wir Namespaces verwenden.
+Als Nächstes setzen wir das Namespace `tag`. Im [Vorwort](joomla-tutorial-vorwort) habe ich erklärt, warum wir Namespaces verwenden.
 
 Wie benennst du deinen Namespace?
 
@@ -138,10 +138,9 @@ Wir schließen zuletzt das `</extension>`-Tag.
 
 Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine Komponente zu erstellen. Hier aber erst einmal der vollständige Code:
 
-\small
+
 [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
 
-\scriptsize
 
 ```{#c1591434410 .xml .sourceCode .numberLines startFrom="1" data-caption="src/administrator/components/com_foos/foos.xml"}
 <?xml version="1.0" encoding="utf-8" ?>
@@ -179,8 +178,6 @@ Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine K
 </extension>
 ```
 
-\normalsize
-
 #### [src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40) - Code während der Installation aufrufen
 
 Mit der Installationsskriptdatei rufst du Code auf
@@ -193,10 +190,7 @@ Mit der Installationsskriptdatei rufst du Code auf
 
 Erstelle die Datei script.php mit folgendem Inhalt:
 
-\small
 [administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/script.php)
-
-\scriptsize
 
 ```{#c1591434411 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/script.php"}
 <?php
@@ -260,8 +254,6 @@ class Com_FoosInstallerScript
 }
 ```
 
-\normalsize
-
 Die `install`-Funktion wird, wie der Name schon sagt, aufgerufen, wenn die Komponente installiert wird. Im Moment werden Text ausgegeben. Möglich ist es Beispieldaten zu installieren.
 
 `uninstall` wird aufgerufen, wenn jemand die Komponente deinstalliert. Derzeit wird auch nur Text angezeigt.
@@ -321,8 +313,6 @@ return new class implements ServiceProviderInterface
 };
 ```
 
-\normalsize
-
 #### [src/administrator/components/com_foos/src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19) Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
 
 Dies ist der Einstiegspunkt für den Model-View-Controller-Teil in den Administrationsbereich der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla! erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
@@ -331,7 +321,6 @@ Die Hauptaufgabe dieses Controllers ist es, die Anzeige vorzubereiten. Daher hei
 
 Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _DocBlock_ an. Hier ist ein Beispiel für einen typischen Dokumentarblock.
 
-\small
 [administrator/components/com_foos/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Controller/DisplayController.php)
 
 \scriptsize
@@ -346,41 +335,26 @@ Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _Do
  */
 ```
 
-\normalsize
-
 Wie du DocBlocks für Joomla erstellst, erklärten die Joomla! [Codierungsstandards](https://developer.joomla.org/coding-standards/docblocks.html)^[https://developer.joomla.org/coding-standards/docblocks.html]
 
 > Vor jeder Klasse und Funktion wird ein DocBlock angezeigt. Der gesamte Code enthält diese DocBlock-Kommentare, die es automatisierten Tools erleichtern, die Dokumentation von APIs zu generieren. Dies hilft einigen IDEs, die Code-Vervollständigung bereitzustellen. Und manchmal ist der Kommentar für Programmierer hilfreich. Ich drucke die Dokumentarblöcke hier nicht weiter ab. In den Code-Beispielen auf Github sind sie vorhanden.
 
 Nach dem DocBlock fügst du den _Namespace_ ein. Diesen deklarierst du mit dem entsprechenden Schlüsselwort. Namespaces wurde in Joomla 4 eingeführt. Wenn diesses Konzept dir neu ist, lese die [Übersicht über Namespace](https://www.php.net/manual/de/language.namespaces.php)^[https://www.php.net/manual/de/language.namespaces.php]. Es zwingend, dass er vor allem anderen Code in der Datei steht. Ich werde dir später erklären, wie sich der Name des Namespaces zusammensetzt:
 
-\scriptsize
-
 ```{.php}
 namespace Joomla\Component\Foos\Administrator\Controller;
 ```
 
-\normalsize
-
 Nach dem Namespace fügen wir `\defined('_JEXEC') or die;` ein, sodass diese PHP-Datei nicht direkt aufrufbar ist.
-
-\scriptsize
 
 ```{.php}
 \defined('_JEXEC') or die;
 ```
-
-\normalsize
-
 Als Nächstes importieren wir mit dem Schlüsselwort `use` den Namespace der vererbenden Klasse `BaseController` um diese nutzen zu können.
-
-\scriptsize
 
 ```{.php}
 use Joomla\CMS\MVC\Controller\BaseController;
 ```
-
-\normalsize
 
 Anschließend erstellen wir die Klasse für den Controller. Ich hatte schon geschrieben, dass du diese am besten DisplayController nennst und die Klasse BaseController erweiterst. Definiere dann die Variable `$default_view` in der du die Standardansicht mit `foos`. Du wählst `foos` als Ansicht, weil der Name der Komponente `foos` ist und aus dem Grund auch das Verzeichnis `/administrator/components/com_foos/src/View/ F o o s` angelegt haben. Wenn nichts definiert ist, wird standardmäßig die Foos-Ansicht mit dem Standardlayout verwendet. Das setzten dieser Variable erforderlich. Aber ich denke, es ist immer besser, dies einzufügen.
 
@@ -389,8 +363,6 @@ Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich 
 > Die Sichtbarkeit wird in PHP mit `public`, `private` oder `protected` definiert. Wann du was einsetzt erklärt das [PHP-Handbuch](https://www.php.net/manual/de/language.oop5.visibility.php)^[https://www.php.net/manual/de/language.oop5.visibility.php].
 
 Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deiner implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
-
-\scriptsize
 
 ```{#c1591434414 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Controller/DisplayController.php"}
 <?php
@@ -407,16 +379,11 @@ class DisplayController extends BaseController
 }
 ```
 
-\normalsize
-
 #### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
 
 `FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla! die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217].
 
-\small
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
-
-\scriptsize
 
 ```{#c1591434415 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Extension/FoosComponent.php"}
 <?php
@@ -440,16 +407,11 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 }
 ```
 
-\normalsize
-
 #### [src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e) - Funktionen / Dienste hinzufügen
 
 Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Administratordateien benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
 
-\small
 [administrator/components/com_foos/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
-
-\scriptsize
 
 ```{#c1591434416 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php"}
 <?php
@@ -459,8 +421,6 @@ class AdministratorService
 {
 }
 ```
-
-\normalsize
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250) - Die Ansicht - administrator/components/com_foos/View/Foos/HtmlView.php
 
@@ -472,10 +432,7 @@ Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu gen
 
 In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleiste definiert. Das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten. Im Moment rufen wir nur die Funktion der Eltern-Klasse auf, um das Standardtemplate anzuzeigen: `parent::display($tpl);`. Warum selbst Hand anlegen, wenn es Funktionen in Joomla! gibt.
 
-\small
 [administrator/components/com_foos/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/View/Foos/HtmlView.php)
-
-\scriptsize
 
 ```{#c1591434417 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/View/Foos/HtmlView.php"}
 <?php
@@ -490,17 +447,11 @@ class HtmlView extends BaseHtmlView
 	}
 }
 ```
-
-\normalsize
-
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757) - Das layout/Template zum Rendern der Ansicht
 
 In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 
-\small
 [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
-
-\scriptsize
 
 ```{#c1591434418 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/tmpl/foos/default.php"}
 <?php
@@ -508,23 +459,15 @@ In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausga
 ?>
 Hello Foos
 ```
-
-\normalsize
-
 #### [src/components/com_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15) ... damit das Installationspaket vollständig ist
 
-Ich habe im [Vorwort](#vorwort) geschrieben, dass die Datei `index.html` nicht benötigt wird. Das ist korrekt so! Hier habe ich diese nur hinzugefügt, weil ich ein Installationspaket zusammenstelle, aber Joomla meldet einen Fehler während der Installation, wenn kein Ordner für das Frontend vorhanden ist oder wenn ein leeres Verzeichnis im Installationspaket übergeben wird. Und im Moment haben wir keinen Inhalt für das Frontend. Das Einfügen der Datei ist an dieser Stelle nur eine Hilfe, um Fehlermeldungen während der Installation zu vermeiden.
+Ich habe im [Vorwort](joomla-tutorial-vorwort) geschrieben, dass die Datei `index.html` nicht benötigt wird. Das ist korrekt so! Hier habe ich diese nur hinzugefügt, weil ich ein Installationspaket zusammenstelle, aber Joomla meldet einen Fehler während der Installation, wenn kein Ordner für das Frontend vorhanden ist oder wenn ein leeres Verzeichnis im Installationspaket übergeben wird. Und im Moment haben wir keinen Inhalt für das Frontend. Das Einfügen der Datei ist an dieser Stelle nur eine Hilfe, um Fehlermeldungen während der Installation zu vermeiden.
 
-\small
 [components/com_foos/index.html](https://github.com/astridx/boilerplate/blob/t1/src/components/com_foos/index.html)
-
-\scriptsize
 
 ```{#c1591434419 .html .numberLines startFrom="1" caption="src/components/com_foos/index.html"}
 <!DOCTYPE html><title></title>
 ```
-
-\normalsize
 
 ### Geänderte Dateien
 

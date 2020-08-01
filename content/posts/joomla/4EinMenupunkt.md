@@ -31,14 +31,7 @@ Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereic
 
 #### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-Erstelle die Datei default.xml unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu.
-
-Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
-Der Text im `message`-Tag wird als Beschreibung angezeigt.
-
-> Der Sprachstring bleibt nicht so. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
-
-Diese Datei enthält alle Informationen für einen Menüpunkt im Frontend.
+Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu:
 
 [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -52,6 +45,11 @@ Diese Datei enthält alle Informationen für einen Menüpunkt im Frontend.
 	</layout>
 </metadata>
 ```
+
+Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
+Der Text im `message`-Tag wird als Beschreibung angezeigt.
+
+> Der Sprachstring bleibt nicht so. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
 
 ## Teste deine Joomla-Komponente
 
