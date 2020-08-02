@@ -25,23 +25,68 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
 
+[]()
+```
+
+```
+
 #### [src/administrator/components/com_foos/tmpl/foo/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a28edea128d439c54b0508bb61d58f12)
+
+[]()
+```
+
+```
 
 #### [src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
+[]()
+```
+
+```
+
 #### [src/media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
+
+[]()
+```
+
+```
 
 ### Geänderte Dateien
 
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
+[]()
+```
+
+```
+
 #### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029)
+
+[]()
+```
+
+```
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
 
+[]()
+```
+
+```
+
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
 
+[]()
+```
+
+```
+
 #### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+
+[]()
+```
+
+```
 
 ## Teste deine Joomla-Komponente
 

@@ -30,8 +30,17 @@ In diesem Kapitel kommen keine neuen Dateien hinzu
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-c77adeff4ff9e321c996e0e12c54b656)
 
+[]()
+```
+
+```
+
 ####  [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-a33732ebd6992540b8adca5615b51a1f)
 
+[]()
+```
+
+```
 
 ## Teste deine Joomla-Komponente
 

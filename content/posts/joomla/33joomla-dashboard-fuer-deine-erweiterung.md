@@ -24,14 +24,33 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
 
+[]()
+```
+
+```
+
 ### Geänderte Dateien
 
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
+[]()
+```
+
+```
+
 #### [src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+
+[]()
+```
+
+```
 
 #### [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
+[]()
+```
+
+```
 
 ## Teste deine Joomla-Komponente
 

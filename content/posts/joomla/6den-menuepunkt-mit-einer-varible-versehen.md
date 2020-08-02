@@ -3,7 +3,7 @@ date: 2019-12-06
 title: 'Den Menüpunkt mit einer Variablen versehen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: den-menuepunkt-mit-einer-vriablen-versehen
+slug: den-menuepunkt-mit-einer-variable-versehen
 categories:
   - Code
 tags:
@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu.
+Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.
 
 ![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x1.png)
 

@@ -24,10 +24,24 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/tmpl/foos/default_batch.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-65971ae28621cbc5d5d6f2b11fe2da7d)
 
+[]()
+```
+
+```
+
 #### [src/administrator/components/com_foos/tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-a9b2d92dcca8384605c7c4c4e7111093)
+
+[]()
+```
+
+```
 
 #### [src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-d653f1f236af4637ec0c4a7ff789bde1)
 
+[]()
+```
+
+```
 
 ### Geänderte Dateien
 

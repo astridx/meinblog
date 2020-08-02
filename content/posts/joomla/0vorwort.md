@@ -13,7 +13,7 @@ tags:
 
 Wenn du neu bei Joomla! bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
 
-Dieses Tutorial ist für Joomla® 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla® 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
+Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla® 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
 
 Du brauchst Joomla! 4.x für dieses Tutorial (zum Zeitpunkt des Schreibens von Joomla! 4.0.0-alpha11-dev). Sie können Joomla! 4 unter [GitHub] (https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
 
@@ -38,13 +38,13 @@ In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist k
 
 > Mit diesem Tutorial erstellst du eine Komponente für Joomla! 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla! bietet eine ganze Reihe von Standardfunktionen.
 
-Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige theoretische Kommentare zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst.
+Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber *gut zu Wissen*.
 
-# Nebensächliche theoretische Kommentare
+# Nebensächlich aber *Gut zu wissen*
 
 ## Die Datei autoload_psr4.php
 
-Während der Installation werden Einträge in der `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
+Während der Installation werden Einträge in der `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls auf du merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
 
 ## Namespace
 
@@ -85,3 +85,28 @@ Siehe: https://github.com/joomla/joomla-cms/pull/17624
 
 Die `index.html` ist nicht mehr erforderlich, da die Verzeichnislisten [in der Standardkonfiguration nicht zulässig] sind (https://github.com/joomla/joomla-cms/pull/4171).
 Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s) zu finden.
+
+## Technische Anforderungen
+
+Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unterstützt werden und was nicht weiter verfolgt wird? Dafür gibt es das [Statistik-Plugin](https://developer.joomla.org/about/stats.html). Dank der Benutzer, die diese Erweiterung aktivieren, fließen wichtige Informationen in die Entwicklung ein.
+
+## Alternative Syntax für Kontrollstrukturen
+
+PHP bietet eine [weitere Schreibweise](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für Kontrollstrukturen an. Diese ist vor allem praktisch, wenn man größere Blöcke HTML direkt ausgibt - ohne `echo` zu benutzen. Nutze diese in Template-Dateien. So bleiben die übersichtlich.
+
+```php
+<?php foreach ($this->items as $i => $item) : ?>
+<?php echo $item->name; ?>
+</br>
+<?php endforeach; ?>
+```
+
+anstelle von
+
+```php
+foreach ($this->items as $i => $item) {
+	echo $item->name;
+	echo '</br>';
+}
+```
+Auf diese Art und Weise ist eine einzelne Zeile ins ich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
