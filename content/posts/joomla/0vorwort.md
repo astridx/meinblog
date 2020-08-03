@@ -110,3 +110,7 @@ foreach ($this->items as $i => $item) {
 }
 ```
 Auf diese Art und Weise ist eine einzelne Zeile ins ich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
+
+## Datenbanktabellenpräfix
+
+Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung so, dass das Präfix variable ist. Sie nutzen die Zeichenkette `#__`, um immer den korrekten String wiederzugeben. Dies wird zur Laufzeit von Joomla durch die passende Zeichenfolge ersetzt.
