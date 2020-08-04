@@ -83,9 +83,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-[]()
+[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
 ```
-
+...
+    <media folder="media/com_foos" destination="com_foos">
+	  	<folder>js</folder>
+    </media>
+...
 ```
 
 ## Teste deine Joomla-Komponente

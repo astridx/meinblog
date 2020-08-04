@@ -15,7 +15,7 @@ Wenn du neu bei Joomla! bist, lese bitte [Absolute Grundlagen der Funktionsweise
 
 Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla® 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
 
-Du brauchst Joomla! 4.x für dieses Tutorial (zum Zeitpunkt des Schreibens von Joomla! 4.0.0-alpha11-dev). Sie können Joomla! 4 unter [GitHub] (https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
+Du brauchst Joomla! 4.x für dieses Tutorial (zum Zeitpunkt des Schreibens von Joomla! 4.0.0-alpha11-dev). Sie können Joomla! 4 unter [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
 
 ## Für wen ist dieses Tutorial?
 
@@ -83,7 +83,7 @@ Siehe: https://github.com/joomla/joomla-cms/pull/17624
 
 ## Benötigst du in jedem Ordner deiner Komponente eine leere Datei "index.html"?
 
-Die `index.html` ist nicht mehr erforderlich, da die Verzeichnislisten [in der Standardkonfiguration nicht zulässig] sind (https://github.com/joomla/joomla-cms/pull/4171).
+Die `index.html` ist nicht mehr erforderlich, da das Verzeichnislisten [in der Standardkonfiguration nicht zulässig](https://github.com/joomla/joomla-cms/pull/4171) ist.
 Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s) zu finden.
 
 ## Technische Anforderungen

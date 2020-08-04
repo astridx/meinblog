@@ -117,7 +117,7 @@ Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statemen
   ...
 ```
 
-> Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken nutzt, findest du eine Implementierung zum Abgucken in der [Patchtester Komponenten](https://github.com/joomla-extensions/patchtester). 
+> Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstüzt, findest du eine Implementierung zum Abgucken in der [Patchtester Komponenten](https://github.com/joomla-extensions/patchtester). 
 
 #### [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
