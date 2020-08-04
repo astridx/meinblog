@@ -114,3 +114,8 @@ Auf diese Art und Weise ist eine einzelne Zeile ins ich geschlossen und HTML-Cod
 ## Datenbanktabellenpräfix
 
 Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung so, dass das Präfix variable ist. Sie nutzen die Zeichenkette `#__`, um immer den korrekten String wiederzugeben. Dies wird zur Laufzeit von Joomla durch die passende Zeichenfolge ersetzt.
+
+## Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?
+
+Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices) empfehlen dies ebenfalls.
+
