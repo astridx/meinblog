@@ -35,7 +35,7 @@ Die clientseitige Validierung erfolgt über eine Klasse mithilfe einer JavaScrip
 
 #### [src/media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
 
-Auch hier geht es um das Prinzip. Die Qualtiät der Validierung spielt keine Rolle.
+Auch hier geht es um das Prinzip. Die Qualtiät der Validierung spielt keine Rolle. Wieder sind lediglich Zahlen verboten.
 
 [src/media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
