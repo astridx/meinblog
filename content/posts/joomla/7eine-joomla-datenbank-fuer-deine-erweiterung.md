@@ -119,6 +119,29 @@ Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statemen
 
 > Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstüzt, findest du eine Implementierung zum Abgucken in der [Patchtester Komponenten](https://github.com/joomla-extensions/patchtester). 
 
+
+##### Aktualisierungen 
+
+Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezügltich Aktualisierunge vorweg:  
+
+Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen aufzunehmen. Diese speicherst du in einer separaten Datei pro Version ab. Das Verzeichnis, in dem die Dateien für die Áktualisierung abgelegt sind, schreibst du in das folgende Tag.
+
+```xml
+  ...
+  <update>  <!-- Runs on update -->
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+  </update>  
+  ...
+```
+Nachfolgend siehst du die Aktualisierungsdatei `src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql` als Beispiel. Diese Datei wird später in diesem Beispiel hinzugefügt.
+
+```sql
+ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
+ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
+```
+
 #### [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 Bisher war es nicht notwendig, jetzt ist es erforderlich, die `MVC factory` zu setzten. Andernfalls siehst du die nachfolgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.

@@ -372,6 +372,8 @@ Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank
 ...
 ```
 
+> Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de) nutzt, dann kümmert sich Joomla für dich um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
+
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = $this->get('Item');` aus.
