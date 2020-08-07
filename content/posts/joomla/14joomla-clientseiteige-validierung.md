@@ -65,15 +65,80 @@ document.addEventListener('DOMContentLoaded', function(){
 
 #### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-[]()
-```
+Der Eintrag `->useScript('com_foos.admin-foos-letter');` fügt die JavaScript-Datei, welche für das Prüfen zuständig ist, zum Webasset-Manager hinzu.
 
+[src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
+
+```php
+...
+$wa = $this->document->getWebAssetManager();
+$wa->useScript('keepalive')
+	->useScript('form.validate')
+	->useScript('com_foos.admin-foos-letter');
+...
 ```
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-[]()
+Wir ergänzen `class="validate-letter"`, so weiß Joomla, welche CSS-Klasse gepürft wird.
+
+[https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
+
+```xml
+...
+<field
+	name="name"
+	type="text"
+	validate="Letter"
+	class="validate-letter"
+	label="COM_FOOS_FIELD_NAME_LABEL"
+	size="40"
+	required="true"
+/>
+...
+
 ```
+
+#### [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-a0586cff274e553e62750bbea954e91d)
+
+Last but not least registrieren wir die neue Datei unter dem Namen `com_foos.admin-foos-letter` im Webasset-Manager.
+
+[src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/media/com_foos/joomla.asset.json)
+
+```json
+...
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_foos",
+  "version": "1.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "com_foos.admin-foos-letter",
+      "type": "script",
+      "uri": "com_foos/admin-foos-letter.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_foos.admin-foos-modal",
+      "type": "script",
+      "uri": "com_foos/admin-foos-modal.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}
+...
 
 ```
 

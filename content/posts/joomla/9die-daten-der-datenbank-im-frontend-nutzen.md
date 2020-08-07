@@ -273,6 +273,35 @@ $onclick   = $this->escape($function);
 </div>
 ```
 
+#### [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
+
+Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Dieses mal fügen wir ein eigenes Webasset hinzu. Falls du dieses nicht korrekt einbindest, wird dir folgender Fehler angezeigt, wenn du für den Menüpunkt ein Foo-Element auswählst: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+
+[src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
+
+```json
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_foos",
+  "version": "1.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "com_foos.admin-foos-modal",
+      "type": "script",
+      "uri": "com_foos/admin-foos-modal.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}
+```
+
 #### [src/media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 
 Wir schreiben den JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes ein Foo-Element auswählbar ist. Die Klasse `select-link` werden wir später im Feld der entsprechenden Schaltfläche geben.
