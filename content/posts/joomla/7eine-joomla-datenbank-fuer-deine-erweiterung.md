@@ -117,7 +117,7 @@ Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statemen
   ...
 ```
 
-> Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstüzt, findest du eine Implementierung zum Abgucken in der [Patchtester Komponenten](https://github.com/joomla-extensions/patchtester). 
+> Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstüzt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponenten](https://github.com/joomla-extensions/weblinks). Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt, `mysqli`, `pdomysql` und `pgsql` werden angepasst.
 
 
 ##### Aktualisierungen 

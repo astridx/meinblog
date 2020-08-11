@@ -30,15 +30,47 @@ In diesem Kapitel kommen keine neuen Dateien hinzu
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-[]()
-```
+Die benutzerdefinierten Felder werden mithilfe von Ereignissen an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig wird es vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`. Dies erledigen wir in der View.
+
+> Über  `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` werden, neben den benutzerdefinierten Felder andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.
+
+[src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/src/View/Foo/HtmlView.php)
+
+```php
+...
+public function display($tpl = null)
+{
+  $item = $this->item = $this->get('Item');
+
+  Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
+
+  $item->event = new \stdClass;
+  $results = Factory::getApplication()->triggerEvent('onContentAfterTitle', array('com_foos.foo', &$item, &$item->params));
+  $item->event->afterDisplayTitle = trim(implode("\n", $results));
+
+  $results = Factory::getApplication()->triggerEvent('onContentBeforeDisplay', array('com_foos.foo', &$item, &$item->params));
+  $item->event->beforeDisplayContent = trim(implode("\n", $results));
+
+  $results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', array('com_foos.foo', &$item, &$item->params));
+  $item->event->afterDisplayContent = trim(implode("\n", $results));
+
+  return parent::display($tpl);
+}
+...
 
 ```
 
 ####  [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-a33732ebd6992540b8adca5615b51a1f)
 
-[]()
+Im Template geben wir die benutzerdefinierten Felder aus. Dieses ist nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei wir die Anweisung an der passenden Stelle eingefügt.
+
+[src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
+
 ```
+...
+echo $this->item->event->afterDisplayTitle; 
+echo $this->item->event->beforeDisplayContent;
+echo $this->item->event->afterDisplayContent;
 
 ```
 
