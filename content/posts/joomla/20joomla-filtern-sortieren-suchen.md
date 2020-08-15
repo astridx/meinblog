@@ -170,7 +170,8 @@ Das Formular mit dem ein Element angelegt beziehungsweise geändert wird, ergän
 Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Reihenfolge hinzu.
 
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
-```
+
+```sql
 ...
 ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 
@@ -178,26 +179,128 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 
 #### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-[]()
+Im Model für die Liste gibt es eine Menge Änderungen. Im Konstruktor speichern wir zunächst die Filterfelder in die Konfiguration. 
+
+[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php
+...
+	public function __construct($config = array())
+	{
 
+		if (empty($config['filter_fields']))
+		{
+			$config['filter_fields'] = array(
+				'id', 'a.id',
+				'name', 'a.name',
+				'catid', 'a.catid', 'category_id', 'category_title',
+				'published', 'a.published',
+				'access', 'a.access', 'access_level',
+				'ordering', 'a.ordering',
+				'language', 'a.language', 'language_title',
+				'publish_up', 'a.publish_up',
+				'publish_down', 'a.publish_down',
+			);
+
+			$assoc = Associations::isEnabled();
+
+			if ($assoc)
+			{
+				$config['filter_fields'][] = 'association';
+			}
+		}
+
+		parent::__construct($config);
+	}
+...
+```
+
+Und in der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie die die Filter und Sortierung beachtet. So sind die Daten sofort in der Form, in der wir sie anzeigen.
+
+[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/Model/FoosModel.php)
+
+```php
+...
+...
+		if ($access = $this->getState('filter.access'))
+		{
+			$query->where($db->quoteName('a.access') . ' = ' . (int) $access);
+		}
+
+		$published = (string) $this->getState('filter.published');
+
+		if (is_numeric($published))
+		{
+			$query->where($db->quoteName('a.published') . ' = ' . (int) $published);
+		}
+		elseif ($published === '')
+		{
+			$query->where('(' . $db->quoteName('a.published') . ' = 0 OR ' . $db->quoteName('a.published') . ' = 1)');
+		}
+
+		$categoryId = $this->getState('filter.category_id');
+
+		if (is_numeric($categoryId))
+		{
+			$query->where($db->quoteName('a.catid') . ' = ' . (int) $categoryId);
+		}
+		elseif (is_array($categoryId))
+		{
+			$query->where($db->quoteName('a.catid') . ' IN (' . implode(',', ArrayHelper::toInteger($categoryId)) . ')');
+		}
+
+		$search = $this->getState('filter.search');
+
+		if (!empty($search))
+		{
+			if (stripos($search, 'id:') === 0)
+			{
+				$query->where('a.id = ' . (int) substr($search, 3));
+			}
+			else
+			{
+				$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
+				$query->where(
+					'(' . $db->quoteName('a.name') . ' LIKE ' . $search . ')'
+				);
+			}
+		}
+
+		$orderCol = $this->state->get('list.ordering', 'a.name');
+		$orderDirn = $this->state->get('list.direction', 'asc');
+
+		if ($orderCol == 'a.ordering' || $orderCol == 'category_title')
+		{
+			$orderCol = $db->quoteName('c.title') . ' ' . $orderDirn . ', ' . $db->quoteName('a.ordering');
+		}
+
+		$query->order($db->escape($orderCol . ' ' . $orderDirn));
+...
 ```
 
 ####  [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-[]()
+Die View lädt das Filterformular, welches im oberen Bereich angezeigt wird.
+
+[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php
+...
+$this->filterForm = $this->get('FilterForm');
+$this->activeFilters = $this->get('ActiveFilters');
+$this->state = $this->get('State');
 
-```
+if (count($errors = $this->get('Errors')))
+{
+	throw new GenericDataException(implode("\n", $errors), 500);
+}
 
-####  [src/administrator/components/com_foos/tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-00a681faa92b56a5268be6268afbe52f)
-
-[]()
-
-```php
-
+foreach ($this->items as &$item)
+{
+	$item->order_up = true;
+	$item->order_dn = true;
+}
+...		
 ```
 
 ####  [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757)
