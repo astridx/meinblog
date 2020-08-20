@@ -134,6 +134,8 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 </form>
 ```
 
+> `featured` ist hier der Vollständigkeit halber als Filterfeld aufgenommen, obwohl wir das in der Erweiterung noch nicht unterstützen.
+
 #### [src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe)
 
 Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spalte zur Speicherung der Reihenfolge hinzu.
