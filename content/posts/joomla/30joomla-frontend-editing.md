@@ -17,12 +17,13 @@ Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu erm�
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24b...t25) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
 
 #### [src/administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
+
+Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf dies.
 
 [src/administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)
 
@@ -39,7 +40,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-use Joomla\Component\Foos\Site\Helper\Route as RouteHelper;
+use Joomla\Component\Foos\Site\Helper\RouteHelper;
 use Joomla\Registry\Registry;
 
 class Icon
@@ -169,41 +170,16 @@ class Icon
 }
 ```
 
-> Beachte `use Joomla\Component\Foos\Site\Helper\Route as RouteHelper;`. Es wäre besser, die Datei und die Klasse sofort `RouteHelper` anstelle von `Route` zu nennen. Dies ist in Joomla 4 Standard. Ich habe dies nicht beachtet und helfe mir deshalb mit `use ...\Route as RouteHelper;`
-
 #### [src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
 
-Die Datei benötigen wir, um einen Menüpunkt zu erstellen.
+Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
-[src/components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.xml)
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<metadata>
-	<layout title="COM_FOOS_FORM_VIEW_DEFAULT_TITLE">
-		<help
-			key="JHELP_MENUS_MENU_ITEM_FOO_CREATE"
-		/>
-		<message>
-			<![CDATA[COM_FOOS_FORM_VIEW_DEFAULT_DESC]]>
-		</message>
-	</layout>
-	<fields name="params">
-
-	</fields>
-</metadata>
-```
-
-#### [src/components/com_foos/forms/form.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-25cdf185a10fb87362dd1ac8c2e820bf)
-
-Wir erstellen das Formular zum Bearbeiten der Elemente im Frontend.
-
-[src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/forms/foo.xml)
+[src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset 
+	<fieldset
 		addruleprefix="Joomla\Component\Foos\Administrator\Rule"
 		addfieldprefix="Joomla\Component\Foos\Administrator\Field"
 	>
@@ -352,6 +328,10 @@ Wir erstellen das Formular zum Bearbeiten der Elemente im Frontend.
 
 #### [src/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
 
+`FormController` enhält die Logik für die Bearbeitung im Formular.
+
+> Beachte die Funktion `save`. Diese ist im `FormController` nicht üblich, weil Joomla alles für dich übernimmt. Da beim Erstellen eines Elementes die ID erst erstellt wird und deshalb nicht bekannt ist, leitet Joomla nach dem Erstellen zur Übersichtsseite weiter. Diese haben wir im Frontend noch nicht erstellt. Deshalb habe ich diese Funktion hier abgeändert.
+
 [src/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
 
 ```php
@@ -419,6 +399,15 @@ class FooController extends FormController
 		return parent::allowEdit($data, $key);
 	}
 
+	public function save($key = null, $urlVar = null)
+	{
+		$result = parent::save($key, $urlVar = null);
+
+		$this->setRedirect(Route::_($this->getReturnPage(), false));
+
+		return $result;
+	}
+
 	public function cancel($key = null)
 	{
 		$result = parent::cancel($key);
@@ -481,7 +470,9 @@ class FooController extends FormController
 
 #### [src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
 
-[https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
+`FormModel` organisiert alle notwendigen Daten für die Bearbeitung im Formular.
+
+[src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
 ```php
 namespace Joomla\Component\Foos\Site\Model;
@@ -615,185 +606,11 @@ class FormModel extends \Joomla\Component\Foos\Administrator\Model\FooModel
 }
 ```
 
-#### [src/components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-6e8e84b1a865c4d53d5a754fe6331601)
-
-[src/components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Service/Router.php)
-
-```php
-namespace Joomla\Component\Foos\Site\Service;
-
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Application\SiteApplication;
-use Joomla\CMS\Categories\CategoryFactoryInterface;
-use Joomla\CMS\Component\ComponentHelper;
-use Joomla\CMS\Component\Router\RouterView;
-use Joomla\CMS\Component\Router\RouterViewConfiguration;
-use Joomla\CMS\Component\Router\Rules\MenuRules;
-use Joomla\CMS\Component\Router\Rules\NomenuRules;
-use Joomla\CMS\Component\Router\Rules\StandardRules;
-use Joomla\CMS\Menu\AbstractMenu;
-use Joomla\Database\DatabaseInterface;
-use Joomla\Database\ParameterType;
-
-class Router extends RouterView
-{
-	protected $noIDs = false;
-
-	private $categoryFactory;
-
-	private $db;
-
-	public function __construct(SiteApplication $app, AbstractMenu $menu, CategoryFactoryInterface $categoryFactory, DatabaseInterface $db)
-	{
-		$this->categoryFactory = $categoryFactory;
-		$this->db = $db;
-
-		$params = ComponentHelper::getParams('com_foos');
-		$this->noIDs = (bool) $params->get('sef_ids');
-		$categories = new RouterViewConfiguration('categories');
-		$categories->setKey('id');
-		$this->registerView($categories);
-		$category = new RouterViewConfiguration('category');
-		$category->setKey('id')->setParent($categories, 'catid')->setNestable();
-		$this->registerView($category);
-		$foo = new RouterViewConfiguration('foo');
-		$foo->setKey('id')->setParent($category, 'catid');
-		$this->registerView($foo);
-		$this->registerView(new RouterViewConfiguration('featured'));
-		$form = new RouterViewConfiguration('form');
-		$form->setKey('id');
-		$this->registerView($form);
-
-		parent::__construct($app, $menu);
-
-		$this->attachRule(new MenuRules($this));
-		$this->attachRule(new StandardRules($this));
-		$this->attachRule(new NomenuRules($this));
-	}
-
-	public function getCategorySegment($id, $query)
-	{
-		$category = $this->categoryFactory->createCategory()->get($id);
-
-		if ($category)
-		{
-			$path = array_reverse($category->getPath(), true);
-			$path[0] = '1:root';
-
-			if ($this->noIDs)
-			{
-				foreach ($path as &$segment)
-				{
-					list($id, $segment) = explode(':', $segment, 2);
-				}
-			}
-
-			return $path;
-		}
-
-		return array();
-	}
-
-	public function getCategoriesSegment($id, $query)
-	{
-		return $this->getCategorySegment($id, $query);
-	}
-
-	public function getFooSegment($id, $query)
-	{
-		if (!strpos($id, ':'))
-		{
-			$id = (int) $id;
-			$dbquery = $this->db->getQuery(true);
-			$dbquery->select($this->db->quoteName('alias'))
-				->from($this->db->quoteName('#__foos_details'))
-				->where($this->db->quoteName('id') . ' = :id')
-				->bind(':id', $id, ParameterType::INTEGER);
-			$this->db->setQuery($dbquery);
-
-			$id .= ':' . $this->db->loadResult();
-		}
-
-		if ($this->noIDs)
-		{
-			list($void, $segment) = explode(':', $id, 2);
-
-			return array($void => $segment);
-		}
-
-		return array((int) $id => $id);
-	}
-
-	public function getFormSegment($id, $query)
-	{
-		return $this->getFooSegment($id, $query);
-	}
-
-	public function getCategoryId($segment, $query)
-	{
-		if (isset($query['id']))
-		{
-			$category = $this->categoryFactory->createCategory(['access' => false])->get($query['id']);
-
-			if ($category)
-			{
-				foreach ($category->getChildren() as $child)
-				{
-					if ($this->noIDs)
-					{
-						if ($child->alias == $segment)
-						{
-							return $child->id;
-						}
-					}
-					else
-					{
-						if ($child->id == (int) $segment)
-						{
-							return $child->id;
-						}
-					}
-				}
-			}
-		}
-
-		return false;
-	}
-
-	public function getCategoriesId($segment, $query)
-	{
-		return $this->getCategoryId($segment, $query);
-	}
-
-	public function getFooId($segment, $query)
-	{
-		if ($this->noIDs)
-		{
-			$dbquery = $this->db->getQuery(true);
-			$dbquery->select($this->db->quoteName('id'))
-				->from($this->db->quoteName('#__foos_details'))
-				->where(
-					[
-						$this->db->quoteName('alias') . ' = :alias',
-						$this->db->quoteName('catid') . ' = :catid',
-					]
-				)
-				->bind(':alias', $segment)
-				->bind(':catid', $query['id'], ParameterType::INTEGER);
-			$this->db->setQuery($dbquery);
-
-			return (int) $this->db->loadResult();
-		}
-
-		return (int) $segment;
-	}
-}
-```
-
 #### [src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
 
-[https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
+`HtmlView.php` holt alle notwendigen Daten und gibt diese an die Templatedatei `edit.php` weiter.
+
+[src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php
 namespace Joomla\Component\Foos\Site\View\Form;
@@ -910,6 +727,8 @@ class HtmlView extends BaseHtmlView
 
 #### [src/components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
 
+`edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
+
 [src/components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
 
 ```php
@@ -964,7 +783,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 			</div>
 		</div>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-		
+
 		<?php if ( !$isModal && $assoc) : ?>
 			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 			<?php echo $this->loadTemplate('associations'); ?>
@@ -972,7 +791,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 		<?php elseif ($isModal && $assoc) : ?>
 			<div class="hidden"><?php echo $this->loadTemplate('associations'); ?></div>
 		<?php endif; ?>
-		
+
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
@@ -1047,7 +866,6 @@ public function boot(ContainerInterface $container)
 }
 ...
 ```
-
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
 

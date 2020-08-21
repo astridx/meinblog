@@ -27,7 +27,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen *später* im Manifest ein. Gleichzeitig speichern wir mit `INSERT INTO ...` Beispielinhalte in der Datenbanktabelle.
+Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen _später_ im Manifest ein. Gleichzeitig speichern wir mit `INSERT INTO ...` Beispielinhalte in der Datenbanktabelle.
 
 > Lies im [Vorwort](joomla-tutorial-vorwort), was das Präfix `#__` genau bedeutet, wenn du dies nicht weißt.
 
@@ -49,7 +49,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 
 #### [src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
 
-Damit Joomla im Falle einer Deinstallation keinen unnötigen Code enthält, erstellen wir gleichzeitig eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. 
+Damit Joomla im Falle einer Deinstallation keinen unnötigen Code enthält, erstellen wir gleichzeitig eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet.
 
 [src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
@@ -59,7 +59,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 
 #### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Als Nächstes erstellen wir ein *Model* für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. 
+Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an.
 
 > Falls bisher nicht geschehen, wird dir hier klar, warum die Trennung von Model und View sinnvoll ist. Sieh dir einmal die Methode `getListQuery()` in Joomla-Komponenten an, zum Beispiel in com_content. Das SQL-Statement ist meist umfangreich.
 
@@ -78,7 +78,7 @@ class FoosModel extends ListModel
 	{
 		parent::__construct($config);
   }
-  
+
 	protected function getListQuery()
 	{
 		$db = $this->getDbo();
@@ -119,10 +119,9 @@ Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statemen
 
 > Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstüzt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponenten](https://github.com/joomla-extensions/weblinks). Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt, `mysqli`, `pdomysql` und `pgsql` werden angepasst.
 
+##### Aktualisierungen
 
-##### Aktualisierungen 
-
-Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezügltich Aktualisierunge vorweg:  
+Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezügltich Aktualisierunge vorweg:
 
 Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen aufzunehmen. Diese speicherst du in einer separaten Datei pro Version ab. Das Verzeichnis, in dem die Dateien für die Áktualisierung abgelegt sind, schreibst du in das folgende Tag.
 
@@ -132,9 +131,10 @@ Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen auf
 		<schemas>
 			<schemapath type="mysql">sql/updates/mysql</schemapath>
 		</schemas>
-  </update>  
+  </update>
   ...
 ```
+
 Nachfolgend siehst du die Aktualisierungsdatei `src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql` als Beispiel. Diese Datei wird später in diesem Beispiel hinzugefügt.
 
 ```sql
@@ -174,7 +174,7 @@ protected $items;
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Last but not least zeigen wir alles mithilfe der Templatedatei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife. 
+Last but not least zeigen wir alles mithilfe der Templatedatei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife.
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
 

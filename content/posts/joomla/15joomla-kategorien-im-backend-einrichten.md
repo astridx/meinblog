@@ -23,7 +23,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8)
 
-Im Falle einer Aktualisierung ist es wichtig, die Datenbank um eine Spalte zu 
+Im Falle einer Aktualisierung ist es wichtig, die Datenbank um eine Spalte zu
 
 [src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
@@ -55,7 +55,7 @@ Die Einträge in der `access.xml` sind notwendig, um Berechtigungen für die Kat
 
 ```
 
-####  [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Der Eintrag `<menu link="option=com_categories&amp;extension=com_foos"` bewirkt, dass im Menu des Administrationsbereichs ein Menüpunkt zur Bearbeitung der Kategorie hinzugefügt wird.
 
@@ -71,7 +71,7 @@ Der Eintrag `<menu link="option=com_categories&amp;extension=com_foos"` bewirkt,
 ...
 ```
 
-####  [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Das Formular, mit dem ein Foo-Item angelegt wird, ergänzen wir um ein Auswahlfeld mit passenden Kategorien. Wir nutzen hierzu das Joomla eigenes Feld `categoryedit`. Beachte die Zeile `extension="com_foos"`. Diese bewirkt, dass ausschließlich Kategorien angezeigt werden, die zu deiner Komponente gehören.
 
@@ -92,9 +92,9 @@ Das Formular, mit dem ein Foo-Item angelegt wird, ergänzen wir um ein Auswahlfe
 
 ```
 
-####  [src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
-Damit zu Beginn schon eine Kategorie vorhanden ist, ergänzen wir das Skript, welches bei der Installation aufgerufen wird. Über die Methode `install` legen wir mithilfe der Datenbank ab jetzt bei einer Neuinstallation eine Kategorie mit dem Titel `Uncategorised` für die Komponente an. 
+Damit zu Beginn schon eine Kategorie vorhanden ist, ergänzen wir das Skript, welches bei der Installation aufgerufen wird. Über die Methode `install` legen wir mithilfe der Datenbank ab jetzt bei einer Neuinstallation eine Kategorie mit dem Titel `Uncategorised` für die Komponente an.
 
 [https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php)
 
@@ -134,7 +134,7 @@ public function install($parent): bool
 ...
 ```
 
-Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir die  ID des Administrators ab.
+Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir die ID des Administrators ab.
 
 ```php
 ...
@@ -179,10 +179,9 @@ Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir
 
 ```
 
-####  [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 Im Service Provider registrieren wir `CategoryFactoryInterface`. Es ist nicht notwendig, `CategoryFactoryInterface` selbst zu erstellen. Wir nutzen die Joomla eigene Funktionen.
-
 
 [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/services/provider.php)
 
@@ -213,7 +212,7 @@ Im Service Provider registrieren wir `CategoryFactoryInterface`. Es ist nicht no
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-896f245bc8e493f91277fd33913ef974)
 
-Damit bei einer Installation die TAbellenspalte angelegt wird, in der die Kategorie eines Foo-Elements gespeichert wird, fügen wir in SQL-Datei die bei der Installation aufgerufen wird, den Eintrag `ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;` hinzu.
+Damit bei einer Installation die TAbellenspalte angelegt wird, in der die Kategorie eines Foo-Elements gespeichert wird, fügen wir in SQL-Datei die bei der Installation aufgerufen wird, den Eintrag `ALTER TABLE`#\_\_foos_details`ADD COLUMN`catid`int(11) NOT NULL DEFAULT 0 AFTER`alias`;` hinzu.
 
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 

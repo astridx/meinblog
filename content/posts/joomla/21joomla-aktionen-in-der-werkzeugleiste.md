@@ -19,7 +19,6 @@ Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t16...t17) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 Ich zeige dir hier, wie du die Standardfunktionen in die Werkzeugleiste integrierst. Jede Komponente hat eigenen Funktionen. Genau wie die in Joomla üblichen fügst du die speziellen über Schaltflächen in der Werkzeugleiste hinzu. Gucke hier bei den Standardfunktionen ab.
@@ -37,7 +36,7 @@ Der nachfolgende Code zeigt dir, welche Funktionen du beim Editieren eines Eleme
 [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php
-...    
+...
     $user = Factory::getUser();
 		$userId = $user->id;
 ...

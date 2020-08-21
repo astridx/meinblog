@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Wir fangen mit den Grundlagen an. Dazu erstellen wir die *View* im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
+Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
@@ -138,9 +138,7 @@ Wir schließen zuletzt das `</extension>`-Tag.
 
 Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine Komponente zu erstellen. Hier aber erst einmal der vollständige Code:
 
-
 [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
-
 
 ```{#c1591434410 .xml .sourceCode .numberLines startFrom="1" data-caption="src/administrator/components/com_foos/foos.xml"}
 <?xml version="1.0" encoding="utf-8" ?>
@@ -350,6 +348,7 @@ Nach dem Namespace fügen wir `\defined('_JEXEC') or die;` ein, sodass diese PHP
 ```{.php}
 \defined('_JEXEC') or die;
 ```
+
 Als Nächstes importieren wir mit dem Schlüsselwort `use` den Namespace der vererbenden Klasse `BaseController` um diese nutzen zu können.
 
 ```{.php}
@@ -447,6 +446,7 @@ class HtmlView extends BaseHtmlView
 	}
 }
 ```
+
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757) - Das layout/Template zum Rendern der Ansicht
 
 In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausgabe des Textes "Hello Foos".
@@ -459,6 +459,7 @@ In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausga
 ?>
 Hello Foos
 ```
+
 #### [src/components/com_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15) ... damit das Installationspaket vollständig ist
 
 Ich habe im [Vorwort](joomla-tutorial-vorwort) geschrieben, dass die Datei `index.html` nicht benötigt wird. Das ist korrekt so! Hier habe ich diese nur hinzugefügt, weil ich ein Installationspaket zusammenstelle, aber Joomla meldet einen Fehler während der Installation, wenn kein Ordner für das Frontend vorhanden ist oder wenn ein leeres Verzeichnis im Installationspaket übergeben wird. Und im Moment haben wir keinen Inhalt für das Frontend. Das Einfügen der Datei ist an dieser Stelle nur eine Hilfe, um Fehlermeldungen während der Installation zu vermeiden.

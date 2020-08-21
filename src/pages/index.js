@@ -32,7 +32,14 @@ export default function BlogIndex({ data }) {
 
   return (
     <Layout>
-      <Helmet title={config.siteTitle} />
+      <Helmet>
+        <html lang="de" />
+        <title>{config.siteTitle}</title>
+        <meta
+          name="google-site-verification"
+          content="8sATwOAKtrKDsV9NVV7JXILrY0DNAmQgyFGnrE3MnAU"
+        />
+      </Helmet>
       <SEO />
       <section className="small lead">
         <h1>Willkommen</h1>

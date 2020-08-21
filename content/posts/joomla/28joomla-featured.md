@@ -17,7 +17,6 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla! ein spezielle
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t23...t24) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -357,8 +356,6 @@ class HtmlView extends BaseHtmlView
 </div>
 ```
 
-
-
 #### [src/components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
 
 Die XML-Datei benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
@@ -415,7 +412,7 @@ Die XML-Datei benötigen wir, damit im Frontend die Anzeige der `featured` Eleme
 </metadata>
 ```
 
-#### [src/components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4) 
+#### [src/components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
 
 [src/components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
 
@@ -576,7 +573,7 @@ public function featured()
 
 #### [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Im Model eines Elementes implementieren wir die Methode, mit der die Eigenschaft `featured` verändert wird. 
+Im Model eines Elementes implementieren wir die Methode, mit der die Eigenschaft `featured` verändert wird.
 
 [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FooModel.php)
 
@@ -727,6 +724,7 @@ In der Übersicht fügen wir eine Spalte ein, in der der Zustand mit einem ausge
 #### [src/components/com_foos/src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641)
 
 []()
+
 ```
 
 ```

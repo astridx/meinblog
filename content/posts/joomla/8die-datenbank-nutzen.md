@@ -65,7 +65,7 @@ Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in ein
 </form>
 ```
 
-####  [src/administrator/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
+#### [src/administrator/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
 
 Wir erstellen hier mehr oder weniger eine leere Klasse. Obwohl die nichts beinhaltet, brauchen wir sie, weil diese von `FormController` erbt. Joomla erwartet `FooController` als Controller der Erweiterung an genau der Stelle unter dem Namen.
 
@@ -133,9 +133,9 @@ class FooModel extends AdminModel
 }
 ```
 
-####  [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
+#### [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
 
-Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten des `	$this->typeAlias` und die Angabe des Namens der Tabelle `#__foos_details`. 
+Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten des `$this->typeAlias` und die Angabe des Namens der Tabelle `#__foos_details`.
 
 > Lies im [Vorwort](joomla-tutorial-vorwort), was das Präfix `#__` genau bedeutet, wenn du dies nicht weißt.
 
@@ -276,8 +276,6 @@ Damit bei einer neuen Installation das Verzeichnis `forms` an Joomla übergeben 
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-
-
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php
@@ -302,6 +300,7 @@ Damit bei einer neuen Installation das Verzeichnis `forms` an Joomla übergeben 
 In der Übersicht ersetzten wir die einfachen Text. Wir löschen den Text.
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
+
 ```php
 <?php foreach ($this->items as $i => $item) : ?>
 <?php echo $item->name; ?>
@@ -312,6 +311,7 @@ In der Übersicht ersetzten wir die einfachen Text. Wir löschen den Text.
 Neu hinzu kommt ein Formular:
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
+
 ```php
 <form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
 	<div class="row">

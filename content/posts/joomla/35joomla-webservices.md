@@ -27,7 +27,7 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 ##### [src/api/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
 
-Erstelle den Controller `FooController` der von `ApiController` erbt. In der Klasse `ApiController` ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe lediglich die folgenden Felder für deine Komponente: 
+Erstelle den Controller `FooController` der von `ApiController` erbt. In der Klasse `ApiController` ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe lediglich die folgenden Felder für deine Komponente:
 
 `protected $contentType = 'foos';` und `protected $default_view = 'foos';`.
 
@@ -73,7 +73,7 @@ class FooController extends ApiController
 
 ##### [src/api/components/com_foos/src/View/Foos/JsonapiView.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187)
 
-Erstelle die Schnittstelle `JsonapiView` die von `BaseApiView` erbt. Greife wieder auf fertigen Joomla Code zu. Überschreibe die folgenden Felder für deine Komponente: 
+Erstelle die Schnittstelle `JsonapiView` die von `BaseApiView` erbt. Greife wieder auf fertigen Joomla Code zu. Überschreibe die folgenden Felder für deine Komponente:
 
 `protected $fieldsToRenderItem = ['id', 'alias', 'name', 'catid'];` und `protected $fieldsToRenderList = ['id', 'alias', 'name', 'catid'];`.
 
@@ -129,10 +129,9 @@ class JsonapiView extends BaseApiView
 
 #### Plugin
 
-
 ##### [src/plugins/webservices/foos/foos.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089)
 
-In der Plugin-Datei erstellen wir die Klasse `PlgWebservicesFoos` und registrieren in der `onBeforeApiRoute`-Methode alle Routen, die wir für den Webservice benötigen. 
+In der Plugin-Datei erstellen wir die Klasse `PlgWebservicesFoos` und registrieren in der `onBeforeApiRoute`-Methode alle Routen, die wir für den Webservice benötigen.
 
 ```php
 <?php
@@ -208,7 +207,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 ### Komponente
 
-#####  [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
+##### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werden die Dateien im Unterordner `api` bei einer Installation nicht in das richtige Verzeichnis kopiert.
 
@@ -230,13 +229,13 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
 Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla! 4 Installation.
 Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla! 4 Installation.
 
-Installiere deine Komponenten __und das Plugin__ wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+Installiere deine Komponenten **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
 
 2. Aktiviere das Plugin
 
 ![Joomla Plugin aktivieren](/images/j4x35x1.png)
 
-3. Aktive das Plugin *Basic Auth*
+3. Aktive das Plugin _Basic Auth_
 
 ![Joomla Plugin Basic Auth aktivieren](/images/j4x35x2.png)
 
@@ -244,13 +243,13 @@ Installiere deine Komponenten __und das Plugin__ wie in Teil eins beschrieben, n
 
 Eine Liste von Foos: `curl -X GET /api/index.php/v1/foos`  
 Ein einzelnes Foo-Element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
-Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`  
+Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere dies gegebenenfalls. 
+> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere dies gegebenenfalls.
 
 > Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
 
-Nutzt du [Curl](https://curl.haxx.se/)? Die folgende Abfrage listet dir alle Elemente auf: 
+Nutzt du [Curl](https://curl.haxx.se/)? Die folgende Abfrage listet dir alle Elemente auf:
 
 ```bash
 curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foos' \
@@ -262,46 +261,45 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 
 ```json
 {
-    "links": {
-        "self": "http://localhost/joomla-cms4/api/index.php/v1/foos"
+  "links": {
+    "self": "http://localhost/joomla-cms4/api/index.php/v1/foos"
+  },
+  "data": [
+    {
+      "type": "foos",
+      "id": "2",
+      "attributes": {
+        "id": 2,
+        "name": "Astrid",
+        "catid": 8
+      }
     },
-    "data": [
-        {
-            "type": "foos",
-            "id": "2",
-            "attributes": {
-                "id": 2,
-                "name": "Astrid",
-                "catid": 8
-            }
-        },
-        {
-            "type": "foos",
-            "id": "3",
-            "attributes": {
-                "id": 3,
-                "name": "Elmar",
-                "catid": 0
-            }
-        },
-        {
-            "type": "foos",
-            "id": "1",
-            "attributes": {
-                "id": 1,
-                "name": "Nina",
-                "catid": 0
-            }
-        }
-    ],
-    "meta": {
-        "total-pages": 1
+    {
+      "type": "foos",
+      "id": "3",
+      "attributes": {
+        "id": 3,
+        "name": "Elmar",
+        "catid": 0
+      }
+    },
+    {
+      "type": "foos",
+      "id": "1",
+      "attributes": {
+        "id": 1,
+        "name": "Nina",
+        "catid": 0
+      }
     }
+  ],
+  "meta": {
+    "total-pages": 1
+  }
 }
 ```
 
-Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json) unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten. 
-
+Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json) unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
 
 > Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/) in Firefox.
 

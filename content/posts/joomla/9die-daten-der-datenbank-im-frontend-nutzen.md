@@ -25,7 +25,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
 
-Als Erstes erstellen wir das Feld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen. 
+Als Erstes erstellen wir das Feld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen.
 
 > Es ist möglich, das Feld so zu erweitern, dass ein Foo-Elemente über eine Schaltfläche angelegt wird. Dies habe ich hier der Übersicht halber außen vor gelassen. Beispielcode bietet die Komponente com_contact.
 
@@ -56,7 +56,7 @@ class FooField extends FormField
 
 		$modalId = 'Foo_' . $this->id;
 
-		HTMLHelper::_('script', 'system/fields/modal-fields.min.js', 
+		HTMLHelper::_('script', 'system/fields/modal-fields.min.js',
 			array('version' => 'auto', 'relative' => true));
 
 		if ($allowSelect)
@@ -71,9 +71,9 @@ class FooField extends FormField
 			if (!isset($scriptSelect[$this->id]))
 			{
 				Factory::getDocument()->addScriptDeclaration("
-				function jSelectFoo_" 
-					. $this->id 
-					. "(id, title, object) { window.processModalSelect('Foo', '" 
+				function jSelectFoo_"
+					. $this->id
+					. "(id, title, object) { window.processModalSelect('Foo', '"
 					. $this->id . "', id, title, '', object);}"
 				);
 
@@ -81,9 +81,9 @@ class FooField extends FormField
 			}
 		}
 
-		$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;' 
+		$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'
 			. Session::getFormToken() . '=1';
-		$linkFoo  = 'index.php?option=com_foos&amp;view=foo&amp;layout=modal&amp;tmpl=component&amp;' 
+		$linkFoo  = 'index.php?option=com_foos&amp;view=foo&amp;layout=modal&amp;tmpl=component&amp;'
 			. Session::getFormToken() . '=1';
 		$modalTitle   = Text::_('COM_FOOS_CHANGE_FOO');
 
@@ -117,8 +117,8 @@ class FooField extends FormField
 			$html .= '<span class="input-group">';
 		}
 
-		$html .= '<input class="form-control" id="' . $this->id 
-			. '_name" type="text" value="' 
+		$html .= '<input class="form-control" id="' . $this->id
+			. '_name" type="text" value="'
 			. $title . '" disabled="disabled" size="35">';
 
 		if ($allowSelect || $allowNew || $allowEdit || $allowClear)
@@ -177,12 +177,12 @@ class FooField extends FormField
 
 		$class = $this->required ? ' class="required modal-value"' : '';
 
-		$html .= '<input type="hidden" id="' 
-			. $this->id . '_id"' 
-			. $class . ' data-required="' . (int) $this->required 
+		$html .= '<input type="hidden" id="'
+			. $this->id . '_id"'
+			. $class . ' data-required="' . (int) $this->required
 			. '" name="' . $this->name
-			. '" data-text="' 
-			. htmlspecialchars(Text::_('COM_FOOS_SELECT_A_FOO', true), ENT_COMPAT, 'UTF-8') 
+			. '" data-text="'
+			. htmlspecialchars(Text::_('COM_FOOS_SELECT_A_FOO', true), ENT_COMPAT, 'UTF-8')
 			. '" value="' . $value . '">';
 
 		return $html;
@@ -199,7 +199,7 @@ class FooField extends FormField
 
 Die Auswahl öffnen wir in einem Modal-Fenster. Der nachfolgende Code zeigt dir das Template für dieses.
 
-> Ein [Modal](https://de.wikipedia.org/w/index.php?title=Dialog_(Benutzeroberfl%C3%A4che)&oldid=197073746) ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
+> Ein [Modal](<https://de.wikipedia.org/w/index.php?title=Dialog_(Benutzeroberfl%C3%A4che)&oldid=197073746>) ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
 
 [src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
@@ -291,9 +291,7 @@ Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/
       "name": "com_foos.admin-foos-modal",
       "type": "script",
       "uri": "com_foos/admin-foos-modal.js",
-      "dependencies": [
-        "core"
-      ],
+      "dependencies": ["core"],
       "attributes": {
         "defer": true
       }
@@ -309,26 +307,34 @@ Wir schreiben den JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpun
 [src/media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
 ```js
-(function () {
-  'use strict';
+;(function () {
+  'use strict'
 
   document.addEventListener('DOMContentLoaded', function () {
-    var elements = document.querySelectorAll('.select-link');
+    var elements = document.querySelectorAll('.select-link')
 
     for (var i = 0, l = elements.length; l > i; i += 1) {
       elements[i].addEventListener('click', function (event) {
-        event.preventDefault();
-        var functionName = event.target.getAttribute('data-function');
+        event.preventDefault()
+        var functionName = event.target.getAttribute('data-function')
 
-        window.parent[functionName](event.target.getAttribute('data-id'), event.target.getAttribute('data-title'), null, null, event.target.getAttribute('data-uri'), event.target.getAttribute('data-language'), null);
+        window.parent[functionName](
+          event.target.getAttribute('data-id'),
+          event.target.getAttribute('data-title'),
+          null,
+          null,
+          event.target.getAttribute('data-uri'),
+          event.target.getAttribute('data-language'),
+          null
+        )
 
         if (window.parent.Joomla.Modal) {
-          window.parent.Joomla.Modal.getCurrent().close();
+          window.parent.Joomla.Modal.getCurrent().close()
         }
-      });
+      })
     }
-  });
-})();
+  })
+})()
 ```
 
 ### Geänderte Dateien
@@ -407,7 +413,6 @@ Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank
 
 In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = $this->get('Item');` aus.
 
-
 [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php
@@ -423,7 +428,7 @@ In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = 
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Wir erstellen ein eigenes Feld, um beim Menüpunkt die Auswahl eines Foo-Elementes zu ermöglichen. Im Wesentlichen sind die die Einträge `addfieldprefix="Joomla\Component\Foos\Administrator\Field"` und `type="modal_foo"` wichtige. 
+Wir erstellen ein eigenes Feld, um beim Menüpunkt die Auswahl eines Foo-Elementes zu ermöglichen. Im Wesentlichen sind die die Einträge `addfieldprefix="Joomla\Component\Foos\Administrator\Field"` und `type="modal_foo"` wichtige.
 
 Nachfolgend der gesamte Code der Datei.
 

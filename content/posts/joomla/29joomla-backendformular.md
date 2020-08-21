@@ -19,7 +19,6 @@ Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich b
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24...t24b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -47,6 +46,7 @@ Wir ersetzen die bisher rudimentär eingefügten Formularfelder.
 <?php echo $this->getForm()->renderField('featured'); ?>
 ...
 ```
+
 Hinzukommt eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 
 [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/d23cc2ecdd8487d416f0370be5661a5689cde753/src/administrator/components/com_foos/tmpl/foo/edit.php)

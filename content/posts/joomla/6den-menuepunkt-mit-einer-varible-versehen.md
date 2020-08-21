@@ -19,7 +19,6 @@ Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -71,7 +70,7 @@ Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-
 				name="show_text"
 				type="text"
 				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
-				default="Hi" 
+				default="Hi"
 			/>
 		</fieldset>
 	</fields>

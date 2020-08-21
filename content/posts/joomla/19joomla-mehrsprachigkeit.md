@@ -21,7 +21,6 @@ Mit Joomla! ist es möglich, eine mehrsprachige Website einzurichten, ohne Erwei
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14b...t15a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -80,7 +79,6 @@ class AssociationsHelper extends AssociationExtensionHelper
 			$catidField = '';
 		}
 
-		// Get the associations.
 		$associations = Associations::getAssociations(
 			$this->extension,
 			$type['tables']['a'],
@@ -347,7 +345,7 @@ Außerdem fügen wir ein Feld hinzu, in dem dein Item einer Sprache zugeordnet w
 
 ```xml
 ...
-<fieldset 
+<fieldset
 		addruleprefix="Joomla\Component\Foos\Administrator\Rule"
 		addfieldprefix="Joomla\Component\Foos\Administrator\Field"
 >
@@ -382,8 +380,6 @@ Im Provider registrieren wir den Service.
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-896f245bc8e493f91277fd33913ef974)
 
-
-
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Datenbanktabelle hinzu. Bei Neuinstallationen ist das Skript `install.mysql.utf8.sql` dasjenige, welches aufgerufen wird.
@@ -399,7 +395,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 
 In FoosComponent ergänzen wir den `AssociationServiceTrait`.
 
-> [Traits](https://www.php.net/manual/de/language.oop5.traits.php) sind ein Mechanismus zur Wiederverwendung von Code, der in Programmiersprachen mit einfacher Vererbung wie PHP verwendet wird. 
+> [Traits](https://www.php.net/manual/de/language.oop5.traits.php) sind ein Mechanismus zur Wiederverwendung von Code, der in Programmiersprachen mit einfacher Vererbung wie PHP verwendet wird.
 
 [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
@@ -504,6 +500,7 @@ public function getItem($pk = null)
 Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen jetzt wichtig, den Status zu aktualisieren. Anderfalls ist nicht jederzeit die passende Sprache aktiv.
 
 [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FoosModel.php)
+
 ```php
 ...
 	protected function populateState($ordering = 'a.name', $direction = 'asc')
@@ -650,6 +647,7 @@ Wenn nur eine Sprache möglich ist, setzte den Wert des Sprachauswahlfeldes und 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 []()
+
 ```
 
 ```

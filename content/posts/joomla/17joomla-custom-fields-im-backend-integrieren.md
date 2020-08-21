@@ -23,7 +23,6 @@ Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich progr
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien

@@ -33,7 +33,6 @@ Beim Menüpunkt hatten wir schon einen Parameter gesetzt und für die Komponente
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t17...t18) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -131,7 +130,7 @@ In der Klasse, die die Tabelle verwaltete, stellen sicher, dass die Parameter zu
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-Die View mischt die Daten zu den Parametern so zusammen, dass die Anzeige passt. 
+Die View mischt die Daten zu den Parametern so zusammen, dass die Anzeige passt.
 
 > In Joomla ist es üblich, dass die Einstellung beim Menüpunkt alles überschreibt. Falls es hier keinen Parameter gibt, zieht der Wert, der beim Element gespeichert wurde. Last but not least wird der Wert der Konfiguration herangezogen. Den aktiven Menüpunkt fragst du über `$active = $app->getMenu()->getActive();` ab.
 

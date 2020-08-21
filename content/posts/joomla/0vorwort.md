@@ -19,28 +19,29 @@ Du brauchst Joomla! 4.x für dieses Tutorial (zum Zeitpunkt des Schreibens von J
 
 ## Für wen ist dieses Tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla! funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen. 
+Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla! funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen.
 
 > Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten.
-Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla! 3 Komponente, wenn diese Ihre Komponente für Joomla! 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
+> Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla! 3 Komponente, wenn diese Ihre Komponente für Joomla! 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
 
 ## Die Struktur dieses Tutorials
 
 Jedes Kapitel baut auf den vorherigen Builds auf. Wenn du dich jedoch für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an.
 
 Es gibt viele Beispiele für Komponenten im Standard Joomla!. Beispielsweise
-* com_content
-* com_banner
-* com_tags oder
-* com_contact
+
+- com_content
+- com_banner
+- com_tags oder
+- com_contact
 
 In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist komplex und das Finden und Trennen bestimmter Elemente der Implementierung, wie z. B. Seitennummerierung, benutzerdefinierte Felder ..., ist mühsam und umständlich.
 
 > Mit diesem Tutorial erstellst du eine Komponente für Joomla! 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla! bietet eine ganze Reihe von Standardfunktionen.
 
-Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber *gut zu Wissen*.
+Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
 
-# Nebensächlich aber *Gut zu wissen*
+# Nebensächlich aber _Gut zu wissen_
 
 ## Die Datei autoload_psr4.php
 
@@ -57,12 +58,13 @@ und als Tag in der Manifestdatei
 `<Namespace>Joomla\Component\Foos</ Namespace>`.
 
 Warum Namespaces verwenden?
-* Klassen werden so in einer definierten Struktur organisiert und
-* automatisch über den `Classloader` geladen.
-* Beispiel "ContentModelArticles" wird zu "\Joomla\Component\Content\Administrator\Model\ArticlesModel"
-* `JLoader` kann die Namespaces automatisch verarbeiten
-* Wir können zwischen Front-End- und Back-End-Klassen unterscheiden
-* Dateien mit Namespaces findest du unter [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
+
+- Klassen werden so in einer definierten Struktur organisiert und
+- automatisch über den `Classloader` geladen.
+- Beispiel "ContentModelArticles" wird zu "\Joomla\Component\Content\Administrator\Model\ArticlesModel"
+- `JLoader` kann die Namespaces automatisch verarbeiten
+- Wir können zwischen Front-End- und Back-End-Klassen unterscheiden
+- Dateien mit Namespaces findest du unter [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
 
 ## Großschreibung von Ordnernamen
 
@@ -79,7 +81,6 @@ Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispiel
 Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen "DisplayController", um besser zu reflektieren, was die Klasse tut.
 
 Siehe: https://github.com/joomla/joomla-cms/pull/17624
-
 
 ## Benötigst du in jedem Ordner deiner Komponente eine leere Datei "index.html"?
 
@@ -109,6 +110,7 @@ foreach ($this->items as $i => $item) {
 	echo '</br>';
 }
 ```
+
 Auf diese Art und Weise ist eine einzelne Zeile ins ich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
 
 ## Datenbanktabellenpräfix
@@ -118,4 +120,3 @@ Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung 
 ## Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?
 
 Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices) empfehlen dies ebenfalls.
-

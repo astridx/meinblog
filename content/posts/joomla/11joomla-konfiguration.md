@@ -70,7 +70,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 ...
 ```
 
-####  [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist und für den gesamten Code zugänglich ist. Wir ergänzen hier für den Site-Bereich den neuen Parameter.
 
@@ -93,6 +93,7 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist 
 Wir ersetzten `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit dem nachfolgenden Text.
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php)
+
 ```php
 ...
 if ($this->get('State')->get('params')->get('show_foo_name_label'))

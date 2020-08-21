@@ -45,7 +45,7 @@ Als Erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 
 #### [src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
 
-Die Berechtigungen bestehen permanent und werden in der Datenbank gespeichert. 
+Die Berechtigungen bestehen permanent und werden in der Datenbank gespeichert.
 
 Bei einem Update sind ausschließlich die Änderungen relevant. Diese tragen wir in diese Datei diese ein. Bei einer neuen Installation wird die Datenbank über die Hauptdatei `administrator/components/com_foos/sql/install.mysql.utf8.sql` gleich korrekt eingerichtet.
 
@@ -124,7 +124,7 @@ Das Formular zum Erstellen eines neuen Foo-Items wird um die Möglichkeit erweit
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
 
-Das SQL-Skript für die Installation wird ebenfalls um die notwendigen Felder erweitert. 
+Das SQL-Skript für die Installation wird ebenfalls um die notwendigen Felder erweitert.
 
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 

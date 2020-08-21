@@ -13,13 +13,11 @@ tags:
 
 Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftreten, wenn zwei Benutzer denselben Datensatz gleichzeitig editieren. Das Auschecken sperrt ein Item, wenn ein Anwender es zur Bearbeitung öffnet. Beim Speichern und Schließen wird es dann wieder freigegeben. Eine sinnvolle Funktion, die wir in diesem Teil der Artikelserie unsere Beispielerweiterung integrieren.
 
-> Manchmal kommt es vor, dass ein Element als ausgecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war. 
-
+> Manchmal kommt es vor, dass ein Element als ausgecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war.
 
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21) an und übernimm diese Änderungen in deine Entwicklungsversion.
-
 
 ## Schritt für Schritt
 
@@ -42,7 +40,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t20...t21#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut hidden, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund. 
+Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut hidden, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund.
 
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -65,7 +63,7 @@ Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir ver
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-896f245bc8e493f91277fd33913ef974)
 
-Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten Datei eingetragen haben, ergänzen wir im Skript, welches bei einer neuen Installation aufgerufen wird. 
+Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten Datei eingetragen haben, ergänzen wir im Skript, welches bei einer neuen Installation aufgerufen wird.
 
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -77,7 +75,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 
 #### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen werden. 
+Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen werden.
 
 [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -116,13 +114,13 @@ protected function getListQuery()
 ...
 ```
 
-> Beachte die Änderung `array(...)` in `explode(', ',$this->getState(...)...)`. 
+> Beachte die Änderung `array(...)` in `explode(', ',$this->getState(...)...)`.
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht. 
+In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht.
 
 ```php
 ...
@@ -133,7 +131,7 @@ In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Sy
 
 ```
 
-> Ich habe es hier unkompliziert gehalten. Ich prüfe nicht, ob jemand berechtigt ist, einen ausgecheckten Beitrag wieder freizugeben. Die Komponenten in Joomla gestalten dies restriktiver. In com_contact sieht die betreffende Zeile beispielsweise so aus: `<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'contacts.', $canCheckin); ?>`. Wenn du ebenfalls nicht jedem das Freigeben erlaubst, sieh dir die Implementierung in `com_contact` an, sprich den Code, der `$canCheckin` berechnet. 
+> Ich habe es hier unkompliziert gehalten. Ich prüfe nicht, ob jemand berechtigt ist, einen ausgecheckten Beitrag wieder freizugeben. Die Komponenten in Joomla gestalten dies restriktiver. In com*contact sieht die betreffende Zeile beispielsweise so aus: `<?php echo HTMLHelper::*('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'contacts.', $canCheckin); ?>`. Wenn du ebenfalls nicht jedem das Freigeben erlaubst, sieh dir die Implementierung in`com_contact`an, sprich den Code, der`\$canCheckin` berechnet.
 
 ## Teste deine Joomla-Komponente
 

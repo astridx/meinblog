@@ -17,7 +17,6 @@ Wenn du mit Joomla! arbeitetest, kennst du es aus anderen Komponenten: Elemente 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12...t13) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -42,7 +41,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
 ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
-####  [src/administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
+#### [src/administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
 
 Jetzt benötigen wir `AdminController`. Deshalb erstellen wir `FoosController` und lassen ihn von `AdminController` erben.
 
@@ -73,7 +72,7 @@ class FoosController extends AdminController
 }
 ```
 
-####  [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird und zwei, über die eine terminierte Veröffentlichung mithilfe eines Kalenders erreicht wird.
 
@@ -118,7 +117,7 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 ...
 ```
 
-####  [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
+#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
 
 Wir implementieren die notwendigen Informationen in der Datenbank für den Fall einer Neuinstallation.
 
@@ -229,7 +228,7 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Wir nehmen zum Schluß die Felder in der Übersicht auf. 
+Wir nehmen zum Schluß die Felder in der Übersicht auf.
 
 > Wunderst du dich über die Verteilung der Tags `<td>` und `th`. Das erscheint auf den ersten Blick ein Fehler. Es ist aber korrekt. Weitere Informationen findest du in diesem [Github-Issue](https://github.com/joomla/joomla-cms/pull/24546).
 
@@ -251,8 +250,8 @@ Wir nehmen zum Schluß die Felder in der Übersicht auf.
 	</td>
 ...
 	<td class="text-center">
-		<?php 
-			echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', true, 'cb', $item->publish_up, $item->publish_down); 
+		<?php
+			echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', true, 'cb', $item->publish_up, $item->publish_down);
 		?>
 	</td>
 ...

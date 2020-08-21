@@ -19,7 +19,6 @@ Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist ni
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -30,7 +29,7 @@ Es kommt keine neue Datei hinzu.
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Wenn du keine speziellen Wünsche hast, greifst du wieder auf Joomla Funktionen zu. Um die Standard Paginierung angezeigt zu bekommen, reichen mehr oder weniger zwei Zeilen. In der View rufst du 
+Wenn du keine speziellen Wünsche hast, greifst du wieder auf Joomla Funktionen zu. Um die Standard Paginierung angezeigt zu bekommen, reichen mehr oder weniger zwei Zeilen. In der View rufst du
 `$this->pagination = $this->get('Pagination');` auf, um die Variable `$this->pagination` zu setzen.
 
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)

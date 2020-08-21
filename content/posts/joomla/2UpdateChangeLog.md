@@ -163,7 +163,7 @@ foo_update.xml
 </updates>
 ```
 
-> Magst du eine Prüfsumme verwenden?  Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an.
+> Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an.
 
 #### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 

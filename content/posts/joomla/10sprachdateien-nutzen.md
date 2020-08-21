@@ -27,9 +27,9 @@ Die Ansicht der Website und der Administrationsbereich haben jeweils eigene Spra
 
 ### Neue Dateien
 
-Erstelle die folgenden Dateien, um neben der englischen die deutsche Sprache zu unterstützen.  
+Erstelle die folgenden Dateien, um neben der englischen die deutsche Sprache zu unterstützen.
 
-Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Erweiterungsnamen, in unserem Fall mit `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig. 
+Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Erweiterungsnamen, in unserem Fall mit `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig.
 
 Die rechte Seite der Sprachzeichenfolge ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, reicht es, wenn der Übersetzer nur diese rechte Seite des Sprachstrings in seiner neuen Sprachdatei ändert.
 
@@ -79,7 +79,7 @@ COM_FOOS_CHANGE_FOO="Ändern Sie ein foo"
 COM_FOOS_SELECT_A_FOO="Wählen Sie ein foo aus"
 ```
 
-####  [src/administrator/components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
+#### [src/administrator/components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
 
 [src/administrator/components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
 
@@ -89,7 +89,7 @@ COM_FOOS_CONFIGURATION="Foo Options"
 ...
 ```
 
-####  [src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
+#### [src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
 [src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
@@ -157,9 +157,9 @@ Damit die Sprachdateien bei einer Installation kopiert werden, fügen wir den Ei
 ```
 
 > Wo werden die Sprachdateien idealerweise gespeichert?  
-Die Joomla eigenen Komponenten speichern die Dateien für den Administrationsbereich im Ordner `/administrator/language/en-GB/` und die für die Site im Ordner `/language/en-GB/`. Dies ist der erste Ort, in dem Joomla nach den Sprachdateien sucht. Aus diesem Grund war es üblich, dass Erweiterungsentwickler hier ihre Dateien ablegten. Manchmal ist es unkomplizierter, sie im eigenen Komponentenordner abzulegen. In unserem Beispiel ist dies der Ordner `administrator/components/com_foos/language/en-GB/`  und `components/com_foos/language/en-GB/` für das Frontend. Das ist der Ort, an dem Joomla nach der Sprachdatei sucht, wenn es im Verzeichnis `/administrator/language/en-GB /` beziehungsweise `/ language/en-GB/` nicht passendes findet.
+> Die Joomla eigenen Komponenten speichern die Dateien für den Administrationsbereich im Ordner `/administrator/language/en-GB/` und die für die Site im Ordner `/language/en-GB/`. Dies ist der erste Ort, in dem Joomla nach den Sprachdateien sucht. Aus diesem Grund war es üblich, dass Erweiterungsentwickler hier ihre Dateien ablegten. Manchmal ist es unkomplizierter, sie im eigenen Komponentenordner abzulegen. In unserem Beispiel ist dies der Ordner `administrator/components/com_foos/language/en-GB/` und `components/com_foos/language/en-GB/` für das Frontend. Das ist der Ort, an dem Joomla nach der Sprachdatei sucht, wenn es im Verzeichnis `/administrator/language/en-GB /` beziehungsweise `/ language/en-GB/` nicht passendes findet.
 
-Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst du das language Tag zur Installationsdatei wie folgt hinzu 
+Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst du das language Tag zur Installationsdatei wie folgt hinzu
 
 ```xml
 ...
@@ -182,13 +182,13 @@ Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Bisher haben wir den Namen ohne Label im Frontend ausgegeben `echo $this->item->name;`. Bei einem Label beachten wir die unterschiedlichen Sprachen. Der nachfolgende Code bewirkt, dass anstelle von `Text::_('COM_FOOS_NAME')` im Frontend der String ausgegeben wir, der in der entsprechenden Sprachdatei eingetragen ist. Gib es eine spanische Sprachdatei mit dem Eintrag `COM_FOOS_FIELD_NAME_LABEL="Nombre"` und ist im Frondend die spanische Sprache aktiv, dann wird `Nombre` ausgegeben. Ist die deutsche Sprache eingestellt und gibt es die deutsche Sprachdatei mit dem Eintrag `COM_FOOS_FIELD_NAME_LABEL="Name"` steht an der Stelle `Name`. 
+Bisher haben wir den Namen ohne Label im Frontend ausgegeben `echo $this->item->name;`. Bei einem Label beachten wir die unterschiedlichen Sprachen. Der nachfolgende Code bewirkt, dass anstelle von `Text::_('COM_FOOS_NAME')` im Frontend der String ausgegeben wir, der in der entsprechenden Sprachdatei eingetragen ist. Gib es eine spanische Sprachdatei mit dem Eintrag `COM_FOOS_FIELD_NAME_LABEL="Nombre"` und ist im Frondend die spanische Sprache aktiv, dann wird `Nombre` ausgegeben. Ist die deutsche Sprache eingestellt und gibt es die deutsche Sprachdatei mit dem Eintrag `COM_FOOS_FIELD_NAME_LABEL="Name"` steht an der Stelle `Name`.
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/tmpl/foo/default.php)
 
 ```php
 ...
-<?php 
+<?php
 use Joomla\CMS\Language\Text;
 
 echo Text::_('COM_FOOS_NAME') . $this->item->name;
@@ -209,7 +209,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla! Sprachdateien werden genutzt](/images/j4x10x1.png)
 
-3. Probe die Neuerung aus. Erstelle Sprachdateien für unterschiedliche Sprachen und verändere die Standardsprache in Joomla. Überzeuge dich davon, dass Joomla korrekt übersetzt. 
+3. Probe die Neuerung aus. Erstelle Sprachdateien für unterschiedliche Sprachen und verändere die Standardsprache in Joomla. Überzeuge dich davon, dass Joomla korrekt übersetzt.
 
 ## Geänderte Dateien
 

@@ -17,12 +17,11 @@ Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu ges
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-
 ## Schritt für Schritt
 
 ### Neue Dateien
 
-####  [src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
+#### [src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
 
 [src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
 
@@ -43,13 +42,13 @@ if ($this->item->params->get('show_name')) {
 	}
 }
 
-echo $this->item->event->afterDisplayTitle; 
+echo $this->item->event->afterDisplayTitle;
 echo $this->item->event->beforeDisplayContent;
 echo $this->item->event->afterDisplayContent;
 
 ```
 
-####  [src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
+#### [src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
 
 [src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
@@ -105,7 +104,7 @@ if ($this->item->params->get('show_name')) {
 
 echo "<hr>Hier kannst du eine Fußzeile anzeigen.<hr>";
 
-echo $this->item->event->afterDisplayTitle; 
+echo $this->item->event->afterDisplayTitle;
 echo $this->item->event->beforeDisplayContent;
 echo $this->item->event->afterDisplayContent;
 ```
@@ -129,7 +128,7 @@ echo $this->item->event->afterDisplayContent;
 
 ```
 
-####  [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 Im Falle eines Menüpunktes finde ich es wichtig, dass dieser immer einheitlich angezeigt wird. Deshalb fragen wir hier den aktiven Menüpunkt ab. Das Element könnte ja auch über eine Kategorieansicht angezeigt werden.
 
