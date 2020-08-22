@@ -229,7 +229,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
 Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla! 4 Installation.
 Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla! 4 Installation.
 
-Installiere deine Komponenten **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+Installiere deine Komponente **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
 
 2. Aktiviere das Plugin
 
