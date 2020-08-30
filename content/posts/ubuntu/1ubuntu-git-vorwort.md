@@ -14,3 +14,5 @@ tags:
 Ich habe das Desktop Image von [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/) heruntergeladen und installiert. Das war kein Hexenwerk.
 
 Angepasst habe ich [Region und Sprache](https://help.ubuntu.com/stable/ubuntu-help/prefs-language.html.de).
+
+Installiert habe ich [Visual Studio Code](https://code.visualstudio.com/).
