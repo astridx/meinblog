@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+## Komponente
+
 1. [Vorwort](/joomla-tutorial-vorwort)
 1. [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend)
 1. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
@@ -47,4 +49,18 @@ tags:
 1. [Einen Service hinzufügen - Routing](/joomla-einen-service-hinzufuegen-routing)
 1. [Zugriff auf das Dashboard](/joomla-dashboard-fuer-deine-erweiterung)
 1. [Tags](/joomla-tags)
-1. [Webservices - Unterstützen der Joomla-API](/joomla-webservices)
+
+## Plugin und Komponente
+
+1. [Webservices inklusive Plugin - Unterstützen der Joomla-API](/joomla-webservices)
+
+## Module
+
+1. [Module - Erste Schritte](/joomla-module-simple/)
+1. [Module - Namespace und Helper](/joomla-module-namespace-und-helper)
+1. [Module - Parameter](/joomla-module-parameter)
+1. [Module - Installationsskript](/joomla-module-installation-script)
+
+## Template
+
+1. [Template - Erste Schritte](/joomla-template-erste-schritte)

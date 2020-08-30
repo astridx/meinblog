@@ -1,4 +1,294 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TaAstrid Günther | RSS Feed]]></title><description><![CDATA[Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 22 Aug 2020 09:34:36 GMT</lastBuildDate><item><title><![CDATA[Erste Schritte mit React]]></title><description><![CDATA[Immer mal wieder habe ich in eine SPA hineingeschnuppert. Unter anderem habe ich mir React angesehen. Auf den ersten Blick hat die…]]></description><link>https://blog.astrid-guenther.de/erste-schritte-mit-react/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/erste-schritte-mit-react/</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[SPA]]></category><category><![CDATA[Bibliothek]]></category><category><![CDATA[Framework]]></category><category><![CDATA[React]]></category><pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Immer mal wieder habe ich in eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Single-Page-Webanwendung&quot;&gt;SPA&lt;/a&gt; hineingeschnuppert. Unter anderem habe ich mir &lt;a href=&quot;https://de.reactjs.org/&quot;&gt;React&lt;/a&gt; angesehen. Auf den ersten Blick hat die JavaScript-Softwarebibliothek mich abgeschreckt. Zum einen wirkte es kompliziert.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TaAstrid Günther | RSS Feed]]></title><description><![CDATA[Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Aug 2020 14:56:02 GMT</lastBuildDate><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Anwendungsprozessen in Containern. Docker Compose ist ein Tool, welches Anwendungsumgebungen mit…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><category><![CDATA[Docker Compose]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Docker erleichtert die Verwaltung von Anwendungsprozessen in Containern. Docker Compose ist ein Tool, welches Anwendungsumgebungen mit mehreren Containern vereinfacht. Ich installiere &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;Docker Compose&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
+&lt;h2&gt;Voraussetzungen&lt;/h2&gt;
+&lt;p&gt;Nach der Installation des Desktop Images von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; verfüge ich über ein &lt;em&gt;non-root-Superuser-Konto&lt;/em&gt; und kann direkt mit der Installation von &lt;em&gt;Docker Compose&lt;/em&gt; beginnen.&lt;/p&gt;
+&lt;h2&gt;Installieren von Docker Compose&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[Docker unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><pubDate>Tue, 04 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Docker_(Software)&amp;#x26;oldid=203149728&quot;&gt;Docker&lt;/a&gt; vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler, ressourcenschonender und vom Host-Betriebssystem abhängig. Ich installiere &lt;a href=&quot;https://docs.docker.com/get-docker/&quot;&gt;Docker&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
+&lt;h2&gt;Voraussetzungen&lt;/h2&gt;
+&lt;p&gt;Nach der Installation des Desktop Images von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; verfüge ich über ein &lt;em&gt;non-root-Superuser-Konto&lt;/em&gt; und kann direkt mit der Installation von Docker beginnen.&lt;/p&gt;
+&lt;h2&gt;Installieren von Docker&lt;/h2&gt;
+&lt;p&gt;Um sicherzustellen, dass ich die neueste Version erhalte, installieren ich Docker aus dem offiziellen Docker-Repository.&lt;/p&gt;
+&lt;p&gt;Ich aktualisiere zunächst die Paketliste:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dann installiere ich notwendige Pakete:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; apt-transport-https ca-certificates &lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; software-properties-common&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Danach füge ich den GPG-Schlüssel für das offizielle Docker-Repository hinzu:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; -fsSL https://download.docker.com/linux/ubuntu/gpg &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; apt-key &lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt; -&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Daraufhin ergänze ich das Docker-Repository in den APT Quelle:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; add-apt-repository „deb &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;arch&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;amd64&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; https://download.docker.com/linux/ubuntu focal stable“&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Anschließend aktualisiere ich die Paketdatenbank mit den Docker-Paketen aus dem neu hinzugefügten Repo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ich stelle sicher, dass ich vom Docker-Repo anstelle des Standard-Ubuntu-Repos installieren:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;apt-cache&lt;/span&gt; policy docker-ce&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe ist beispielsweise wie folgt:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Docker-ce:
+  Installiert: &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;keine&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  Kandidat: &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;: &lt;span class=&quot;token number&quot;&gt;19.03&lt;/span&gt;.12~3-0~Ubuntu-Focal
+  Versionstabelle:
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Beachte: &lt;code class=&quot;language-text&quot;&gt;docker-ce&lt;/code&gt; ist nicht installiert. Ich installiere &lt;code class=&quot;language-text&quot;&gt;docker-ce&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; docker-ce&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Docker ist jetzt installiert und der Dämon gestartet. Dies prüfe ich:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; systemctl status docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Der Dienst ist aktiv:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker.service - Docker Application Container Engine
+     Loaded: loaded &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;/lib/systemd/system/docker.service&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; enabled&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; vendor preset: enabled&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+     Active: active &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;running&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; since Tue &lt;span class=&quot;token number&quot;&gt;2020&lt;/span&gt;-08-30 &lt;span class=&quot;token number&quot;&gt;17&lt;/span&gt;:00:41 UTC&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; 17s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: &lt;span class=&quot;token number&quot;&gt;11517&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;dockerd&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      Tasks: &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;
+     Memory: &lt;span class=&quot;token number&quot;&gt;38&lt;/span&gt;.4M
+     CGroup: /system.slice/docker.service
+             └─11517 /usr/bin/dockerd -H fd:// --containerd&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;/run/containerd/containerd.sock
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Der Docker-Befehls ohne &lt;code class=&quot;language-text&quot;&gt;sudo&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Wenn ein normaler Benutzer versucht, den Befehl &lt;code class=&quot;language-text&quot;&gt;docker&lt;/code&gt; auszuführen, ohne ihm &lt;code class=&quot;language-text&quot;&gt;sudo&lt;/code&gt; voranzustellen oder ohne zur Gruppe &lt;code class=&quot;language-text&quot;&gt;Docker&lt;/code&gt; zu gehören, sieht er einen Hinweis darauf, dass er nicht berechtigt ist.&lt;/p&gt;
+&lt;p&gt;Der beste Workaround ist, alle Benutzer die &lt;code class=&quot;language-text&quot;&gt;docker&lt;/code&gt; nutzten, zur Gruppe &lt;strong&gt;Docker&lt;/strong&gt; zu hinzuzufügen.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;usermod&lt;/span&gt; -aG docker &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;USER&lt;/span&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um die neue Gruppenmitgliedschaft anzuwenden, melde dich vom Rechner ab und wieder an oder rufe folgenden Befehl auf:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;su&lt;/span&gt; - &lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;USER&lt;/span&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Bestätige, dass dein Benutzer zur Gruppe &lt;strong&gt;Docker&lt;/strong&gt; hinzugefügt wurde.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;id&lt;/span&gt; -nG&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Alle Gruppen werden angezeigt, in denen du dich befindest:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;astrid adm cdrom &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; dip plugdev lpadmin lxd sambashare docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Einen anderen Benutzer fügst du wie folgt zur Gruppe &lt;strong&gt;Docker&lt;/strong&gt; hinzu If you need to add a user to the &lt;code class=&quot;language-text&quot;&gt;docker&lt;/code&gt; group that you&apos;re not logged in as, declare that username explicitly using: &lt;code class=&quot;language-text&quot;&gt;sudo usermod -aG docker username&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sehen wir uns den Befehl „Docker“ genauer an.&lt;/p&gt;
+&lt;h2&gt;Using the Docker Command&lt;/h2&gt;
+&lt;p&gt;Die Syntax eines &lt;code class=&quot;language-text&quot;&gt;docker&lt;/code&gt;-Befehls:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;option&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;command&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;arguments&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lass dir alle verfügbaren Unterbefehle anzeigen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Beispielausgabe:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;  attach      Attach &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container&lt;span class=&quot;token string&quot;&gt;&apos;s changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container&apos;&lt;/span&gt;s filesystem
+  events      Get real &lt;span class=&quot;token function&quot;&gt;time&lt;/span&gt; events from the server
+  &lt;span class=&quot;token builtin class-name&quot;&gt;exec&lt;/span&gt;        Run a &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; a running container
+  &lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt;      Export a container&apos;s filesystem as a &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; archive
+  &lt;span class=&quot;token function&quot;&gt;history&lt;/span&gt;     Show the &lt;span class=&quot;token function&quot;&gt;history&lt;/span&gt; of an image
+  images      List images
+  &lt;span class=&quot;token function&quot;&gt;import&lt;/span&gt;      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  &lt;span class=&quot;token function&quot;&gt;kill&lt;/span&gt;        Kill one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; running containers
+  load        Load an image from a &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; archive or STDIN
+  login       Log &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; to a Docker registry
+  &lt;span class=&quot;token builtin class-name&quot;&gt;logout&lt;/span&gt;      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers
+  port        List port mappings or a specific mapping &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; the container
+  &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt;          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  &lt;span class=&quot;token function&quot;&gt;rename&lt;/span&gt;      Rename a container
+  restart     Restart one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers
+  &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt;          Remove one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers
+  rmi         Remove one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; images
+  run         Run a &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; a new container
+  save        Save one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; images to a &lt;span class=&quot;token function&quot;&gt;tar&lt;/span&gt; archive &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;streamed to STDOUT by default&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  search      Search the Docker Hub &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; images
+  start       Start one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; stopped containers
+  stats       Display a live stream of container&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; resource usage statistics
+  stop        Stop one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  &lt;span class=&quot;token function&quot;&gt;top&lt;/span&gt;         Display the running processes of a container
+  unpause     Unpause all processes within one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers
+  update      Update configuration of one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers
+  version     Show the Docker version information
+  &lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;        Block &lt;span class=&quot;token keyword&quot;&gt;until&lt;/span&gt; one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers stop, &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt; print their &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; codes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sieh dir detailierter Optionen an:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker docker-unterbefehl--help&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lass dir System-Informationen zu Docker anzeigen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker info&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Schauen wir uns Images genauer an.&lt;/p&gt;
+&lt;h2&gt;Docker Images&lt;/h2&gt;
+&lt;p&gt;Docker-Container werden aus Docker-Images erstellt. Standardmäßig ruft Docker diese Bilder von &lt;a href=&quot;https://hub.docker.com&quot;&gt;Docker Hub&lt;/a&gt; ab. Lade über Docker Hub ein Image herunter:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker run hello-world&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe zeigt an, dass Docker ordnungsgemäß funktioniert:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Unable to &lt;span class=&quot;token function&quot;&gt;find&lt;/span&gt; image &lt;span class=&quot;token string&quot;&gt;&apos;hello-world:latest&apos;&lt;/span&gt; locally
+latest: Pulling from library/hello-world
+0e03bdcc26d7: Pull complete
+Digest: sha256:6a65f928fb91fcfbc963f7aa6d57c8eeb426ad9a20c7ee045538ef34847f44f1
+Status: Downloaded newer image &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; hello-world:latest
+
+Hello from Docker&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+This message shows that your installation appears to be working correctly.
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Suche nach Images, zum Beispiel dem Ubuntu-Image:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker search ubuntu&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Rufe den folgenden Befehl auf, um das offizielle Ubuntu-Image auf deinen Computer herunterzuladen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker pull ubuntu&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Du siehst folgendes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Using default tag: latest
+latest: Pulling from library/ubuntu
+d51af753c3d3: Pull complete
+fc878cd0a91c: Pull complete
+6154df8ff988: Pull complete
+fee5db0ff82f: Pull complete
+Digest: sha256:31dfdbbaaee995098c9792d99bd333c6783ce56150d1b11e333bbceed5c54d7
+Status: Downloaded newer image &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; ubuntu:latest
+docker.io/library/ubuntu:latest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nachdem ein Images heruntergeladen wurde, führst du es mit &lt;code class=&quot;language-text&quot;&gt;run&lt;/code&gt; aus.&lt;/p&gt;
+&lt;p&gt;So zeigst du heruntergeladene Images Bilder an:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker images&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The output will look similar to the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ubuntu              latest              4e622ef86b13        &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; days ago         &lt;span class=&quot;token number&quot;&gt;73&lt;/span&gt;.9MB
+hello-world         latest              bf756fb1ae65        &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; months ago        &lt;span class=&quot;token number&quot;&gt;13&lt;/span&gt;.3kB&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Schauen wir uns Container genauer an.&lt;/p&gt;
+&lt;h2&gt;Docker Container&lt;/h2&gt;
+&lt;p&gt;Lassen Sie uns als Beispiel einen Container mit dem neuesten Image von Ubuntu aufrufen.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Die Kombination von &lt;strong&gt;-i&lt;/strong&gt; und &lt;strong&gt;-t&lt;/strong&gt; ermöglicht dir den interaktiven Shell-Zugriff auf den Container:&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker run -it ubuntu&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Eingabeaufforderung ändert sich. Du befindest dich jetzt im Container:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;root@3fee0f2f636:/&lt;span class=&quot;token comment&quot;&gt;#&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In diesem Beispiel ist die Container ID &lt;code class=&quot;language-text&quot;&gt;3fee0f2f636&lt;/code&gt;. Mithilfe von ihr identifizierst du den Container.&lt;/p&gt;
+&lt;p&gt;Rufe einen beliebigen Befehl im Container auf. Aktualisiere beispielsweise die Paketdatenbank im Container. &lt;code class=&quot;language-text&quot;&gt;sudo&lt;/code&gt; ist nicht notwendig, da du im Container als &lt;strong&gt;Root&lt;/strong&gt;-Benutzer arbeitest:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Oder installiere Node.js:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Überprüfe, ob die Installation:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;node -v&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Alle Änderungen gelten nur für diesen Container.&lt;/p&gt;
+&lt;p&gt;Um den Container zu verlassen, gib in der Eingabeaufforderung &lt;code class=&quot;language-text&quot;&gt;exit&lt;/code&gt; ein. Überzeuge dich davon, dass Node.js nicht außerhalb des Containers installiert ist.&lt;/p&gt;
+&lt;p&gt;Schauen wir uns als nächstes die Verwaltung der Container an.&lt;/p&gt;
+&lt;h2&gt;Docker Container verwalten&lt;/h2&gt;
+&lt;p&gt;Sieh dir die &lt;strong&gt;activen&lt;/strong&gt; Container an:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Du siehst beispielsweise dies:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;CONTAINER ID        IMAGE               COMMAND             CREATED
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this tutorial, you started two containers; one from the &lt;code class=&quot;language-text&quot;&gt;hello-world&lt;/code&gt; image and another from the &lt;code class=&quot;language-text&quot;&gt;ubuntu&lt;/code&gt; image. Both containers are no longer running, but they still exist on your system.&lt;/p&gt;
+&lt;p&gt;To view all containers --- active and inactive, run &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt; with the &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; switch:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Du siehst beispielsweise dies:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;3fee0f2f636         ubuntu              &lt;span class=&quot;token string&quot;&gt;&quot;/bin/bash&quot;&lt;/span&gt;         &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; minutes ago       Exited &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; seconds ago                       Quirky_driscoll
+ef3d221a5f6c        hello-world         &lt;span class=&quot;token string&quot;&gt;&quot;/hello&quot;&lt;/span&gt;            &lt;span class=&quot;token number&quot;&gt;12&lt;/span&gt; minutes ago      Exited &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt; minutes ago                       elegant_wilson&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um den zuletzt erstellten Container anzuzeigen, nutze &lt;code class=&quot;language-text&quot;&gt;-l&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -l&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um einen gestoppten Container zu starten, verwende &lt;code class=&quot;language-text&quot;&gt;docker start&lt;/code&gt;, gefolgt von der Container-ID oder dem Namen des Containers. :&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker start 3fee0f2f636&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Der Container staret und du kannst mit &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt; den Status prüfen&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Um einen gestoppten Container zu stoppen, verwende &lt;code class=&quot;language-text&quot;&gt;docker stop&lt;/code&gt;. Lösche einen Container mit &lt;code class=&quot;language-text&quot;&gt;docker rm&lt;/code&gt;. Finde die Container ID mit &lt;code class=&quot;language-text&quot;&gt;docker ps -a&lt;/code&gt; heraus.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Festschreiben von Änderungen in einem Container an einem Docker-Image&lt;/h2&gt;
+&lt;p&gt;Wenn du ein Docker-Image aufrufst, ist es möglich, Dateien zu erstellen, zu ändern und zu löschen. Wie speicherst du diesen neuen Status?&lt;/p&gt;
+&lt;p&gt;Nach der Installation von Node.js im Ubuntu-Container unterscheidet dieser sich vom ursprünglichen Image. Übernimm die Änderungen mit dem folgenden Befehl in eine neue Docker-Image-Instanz.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker commit -m &lt;span class=&quot;token string&quot;&gt;&quot;Meine Änderung&quot;&lt;/span&gt; -a &lt;span class=&quot;token string&quot;&gt;&quot;Autor Name&quot;&lt;/span&gt; container_id repository/new_image_name&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;-m&lt;/strong&gt; steht für den Kommentar, mit du bescheibst, welche Änderungen du vorgenommen hast. &lt;strong&gt;-a&lt;/strong&gt; ist für die Angabe des Autors. Die &lt;code class=&quot;language-text&quot;&gt;container_id&lt;/code&gt; ist zur Identifiezierung des Containers. Beispiel für&lt;/p&gt;
+&lt;p&gt;Der Benutzer &lt;strong&gt;astrid&lt;/strong&gt; ändert den Container mit der ID &lt;code class=&quot;language-text&quot;&gt;00000000&lt;/code&gt; wie folgt:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker commit -m &lt;span class=&quot;token string&quot;&gt;&quot;added Node.js&quot;&lt;/span&gt; -a &lt;span class=&quot;token string&quot;&gt;&quot;astrid&quot;&lt;/span&gt; 00000000 astrid/ubuntu-und-node-js&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Das geändert Image wird zunächst lokal abgespeichert. Überprüfe dies mit &lt;code class=&quot;language-text&quot;&gt;docker images&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Teilen wir das Image als nächstes mit anderen.&lt;/p&gt;
+&lt;h2&gt;Docker Images im Docker Repository veröffentlichen&lt;/h2&gt;
+&lt;p&gt;Senden wir ein Docker-Image an Docker Hub. Melden Sie sich zuerst bei &lt;a href=&quot;https://hub.docker.com/&quot;&gt;Docker Hub&lt;/a&gt; an, um dein Image zu übertragen.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker login -u dein-docker-username&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Bildes verwendet hast ist folgende Eränzugn wichtig:
+&lt;code class=&quot;language-text&quot;&gt;docker tag astrid/ubuntu-node-js docker-registry-username/ubuntu-und-node-js&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Lade dein eigenes Image hoch:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker push docker-registry-username/docker-image-name&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um &lt;code class=&quot;language-text&quot;&gt;ubuntu-und-node-js&lt;/code&gt; in das Repository &lt;strong&gt;astrid&lt;/strong&gt; zu laden verwende ich:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker push astrid/ubuntu-und-node-js&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In der Kommandozeile kannst du den Fortschritt verfolgen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;The push refers to a repository &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;docker.io/astrid/ubuntu-und-node-js&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+edfrbfbf4187: Pushed
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nachdem alles hochgeladen ist, siehst du im Docker Hub Dashboard das neue Image.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5d10310b4b4f20b55287d0b837e5755/53ac9/docker1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABc0lEQVQoz5WQTS9DQRSGp0Qi8c+kJBJBd5ouJASJlbBghU0pP0esSlQjyh+wFvF1W713Pu+8zplpriIkFk/ec2fOeXLmCjG1B2Z0Zr9ghJhYqGO80sDIfAOluSOMVY5Rmq1DlPciU0M5fYBSeRdicgdi49pgrW2w3SFuDLY6kU2qV1oKi02JKlE7l1i+VFhvayy3NFavNN1r1C4U5psW1dNHLJ09QsAqMN5IeKvhNaXKAGfCOej8C3ooncTtQ4qTux4O7/q4f5EQr28Jnt+66FPm3S6cdXCeevMclnE/4TtDfUobKOOQ9DOkyiCTGiIhSZpJ5I5ECUmfnuF6PRrycIPh7+Sc1G+MhbUWSqlBsjAhYZrBexIAoTk3JuYfRKEJ0owW4gxCfnLv/Z2aPDw1sjiQx/xLqEnIpFkWhFqTkAszuAipTdHINQ+Gp7ohim8X4Odyhg15UEpJKEj6F0UtYx03+m1TX8CvCcLP4Yj6VvP/+Q8f3rLWq0w5ZngAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Docker Image in Docker Hub&quot;
+        title=&quot;Docker Image in Docker Hub&quot;
+        src=&quot;/static/a5d10310b4b4f20b55287d0b837e5755/a6d36/docker1.png&quot;
+        srcset=&quot;/static/a5d10310b4b4f20b55287d0b837e5755/222b7/docker1.png 163w,
+/static/a5d10310b4b4f20b55287d0b837e5755/ff46a/docker1.png 325w,
+/static/a5d10310b4b4f20b55287d0b837e5755/a6d36/docker1.png 650w,
+/static/a5d10310b4b4f20b55287d0b837e5755/e548f/docker1.png 975w,
+/static/a5d10310b4b4f20b55287d0b837e5755/53ac9/docker1.png 1287w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nutze &lt;code class=&quot;language-text&quot;&gt;docker pull astrid/ubuntu-nodejs&lt;/code&gt; um das Image auf einer anderen Maschine zu verwenden.&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[Git unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert…]]></description><link>https://blog.astrid-guenther.de/ubuntu-git-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-git-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Git]]></category><pubDate>Mon, 03 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.&lt;/p&gt;
+&lt;h2&gt;Voraussetzungen&lt;/h2&gt;
+&lt;p&gt;Nach der Installation des Desktop Images von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; verfüge ich über ein &lt;em&gt;non-root-Superuser-Konto&lt;/em&gt; und kann direkt mit der Installation von Git beginnen.&lt;/p&gt;
+&lt;h2&gt;Installieren von Git mit Standardpaketen&lt;/h2&gt;
+&lt;p&gt;Ich nutze die Standardinstallation.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In den Standardpaketen ist nicht immer die aktuellste Version. Falls du die neuesten Git Funktionen nutzt, installiere &lt;a href=&quot;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&quot;&gt;https://git-scm.com/book/en/v2/Getting-Started-Installing-Git&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Git wird oft zusammen mit anderen Softwarepaketen installiert. Prüfe, ob dies auf deinem Rechner schon vorhanden ist:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; --version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Überspringe diesen Schritt, wenn dir eine Version angezeigt wird, dann in dann ist Git installiert.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;version &lt;span class=&quot;token number&quot;&gt;2.25&lt;/span&gt;.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wird dir keine Git-Versionsnummer angezeigt? Installiere in diesem Fall Git mit APT, dem standardmäßigen Paketmanager von Ubuntu.&lt;/p&gt;
+&lt;p&gt;Verwenden wie gewohnt als erstes die APT-Paketmanagement-Tools zur Aktualisierung des lokalen Paketindexes.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Installiere dann Git:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Überprüfe die Installation.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; --version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe sollte wie folgt sein:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;version &lt;span class=&quot;token number&quot;&gt;2.25&lt;/span&gt;.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Richte Git nach erfolgreicher Installation ein.&lt;/p&gt;
+&lt;h2&gt;Einrichten von Git&lt;/h2&gt;
+&lt;p&gt;Richte Git so ein, dass es dich bei der Erstellung deiner Softwareprojekte unterstützt.&lt;/p&gt;
+&lt;p&gt;Nutze den Befehls &lt;code class=&quot;language-text&quot;&gt;git config&lt;/code&gt; zur Konfiguration des Namens und der E-Mail-Adresse:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global user.name „DeinName“
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global user.email „deineemailadresse@example.com“&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Überprüfe die Konfiguration:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe sollte wie folgt sein.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;user.name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;Deinname
+user.email&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; deineemailadresse@example.com
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Informationen werden in der Git-Konfigurationsdatei gespeichert. Mit einem Editor kann man diese einsehen und ebenfalls bearbeiten, beispielsweise mit &lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Nano_(Texteditor)&amp;#x26;oldid=191546214&quot;&gt;Nano&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;nano&lt;/span&gt; ~/.gitconfig&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe sollte wie folgt sein.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[user]
+  name = Deinname
+  email = deineemailadresse@example.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Drücken Sie &lt;code class=&quot;language-text&quot;&gt;STRG&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;X&lt;/code&gt;, dann &lt;code class=&quot;language-text&quot;&gt;Y&lt;/code&gt; und anschließend die &lt;code class=&quot;language-text&quot;&gt;Eingabetaste&lt;/code&gt;, um den Texteditor Nano zu verlassen.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Es gibt viele weitere Optionen. Die beschreibenen sind meiner Meinung nach die wichtigsten.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Ubuntu 20.02 Vorwort]]></title><description><![CDATA[Ich habe das Desktop Image von Ubuntu 20.04 LTS (Focal Fossa) heruntergeladen und installiert. Das war kein Hexenwerk. Angepasst habe ich…]]></description><link>https://blog.astrid-guenther.de/ubuntu-vorwort/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-vorwort/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><pubDate>Sun, 02 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Ich habe das Desktop Image von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; heruntergeladen und installiert. Das war kein Hexenwerk.&lt;/p&gt;
+&lt;p&gt;Angepasst habe ich &lt;a href=&quot;https://help.ubuntu.com/stable/ubuntu-help/prefs-language.html.de&quot;&gt;Region und Sprache&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Einrichten eines Ubuntu 20.04 Desktop]]></title><description><![CDATA[Ubuntu 20.04 Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation. Vorwort Git Docker Docker Compose]]></description><link>https://blog.astrid-guenther.de/mein-ubuntu-rechner/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/mein-ubuntu-rechner/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><pubDate>Sat, 01 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Ubuntu 20.04&lt;/h2&gt;
+&lt;p&gt;Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/ubuntu-vorwort&quot;&gt;Vorwort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ubuntu-git-einrichten&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ubuntu-docker-einrichten&quot;&gt;Docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ubuntu-docker-compose-einrichten&quot;&gt;Docker Compose&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Erste Schritte mit React]]></title><description><![CDATA[Immer mal wieder habe ich in eine SPA hineingeschnuppert. Unter anderem habe ich mir React angesehen. Auf den ersten Blick hat die…]]></description><link>https://blog.astrid-guenther.de/erste-schritte-mit-react/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/erste-schritte-mit-react/</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[SPA]]></category><category><![CDATA[Bibliothek]]></category><category><![CDATA[Framework]]></category><category><![CDATA[React]]></category><pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Immer mal wieder habe ich in eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Single-Page-Webanwendung&quot;&gt;SPA&lt;/a&gt; hineingeschnuppert. Unter anderem habe ich mir &lt;a href=&quot;https://de.reactjs.org/&quot;&gt;React&lt;/a&gt; angesehen. Auf den ersten Blick hat die JavaScript-Softwarebibliothek mich abgeschreckt. Zum einen wirkte es kompliziert.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Ich habe im Studium objektorientiert Java und deklarativ Haskell gelernt. Als ich dann in der Praxis gezwungen war PHP zu nutzen, war ich nicht vollends begeistert - aber die Einfachheit hat mir gefallen.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1088,26 +1378,34 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;ol&gt;
 &lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.  &lt;/p&gt;
-&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.&lt;/p&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Template Style Facile als aktiv.&lt;/li&gt;
+&lt;li&gt;Installiere die Beispieldaten für die Tests&lt;/li&gt;
+&lt;li&gt;Rufe die URL &lt;code class=&quot;language-text&quot;&gt;joomla-cms4/index.php?tp=1&lt;/code&gt; auf.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
 &lt;h3&gt;Links&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/C-Lodder/lightning&quot;&gt;Joomla 4 Template Lightning&lt;/a&gt;
-&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Module - Installationsskript]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-module-script/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-module-script/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Wed, 08 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Module - Installationsskript]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-module-installation-script/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-module-installation-script/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Wed, 08 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
 &lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
 &lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t33...t34&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
 &lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
-&lt;p&gt;In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.&lt;/p&gt;
+&lt;p&gt;In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu bestimmten Ereignissen ausgeführt wird.&lt;/p&gt;
 &lt;h3&gt;Neue Dateien&lt;/h3&gt;
 &lt;h4&gt;Module&lt;/h4&gt;
 &lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten ...&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Teste dein Joomla-Module&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.  &lt;/p&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
 &lt;p&gt;Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.&lt;/p&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
@@ -1120,17 +1418,20 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;h3&gt;Neue Dateien&lt;/h3&gt;
 &lt;h4&gt;Module&lt;/h4&gt;
 &lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Parameter aus einer Komponente nutzen.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Teste dein Joomla-Module&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.  &lt;/p&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
 &lt;p&gt;Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.&lt;/p&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
 &lt;h3&gt;Links&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de&quot;&gt;Joomla Dokumentation&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Module - Namespace und Helper]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-module-namespace-and-helper/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-module-namespace-and-helper/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Mon, 06 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de&quot;&gt;Joomla Dokumentation&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Module - Namespace und Helper]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-module-namespace-und-helper/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-module-namespace-und-helper/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Mon, 06 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
 &lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
 &lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t31...t32&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
 &lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
@@ -1139,16 +1440,19 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;h4&gt;Module&lt;/h4&gt;
 &lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Eigentlich gibt es keine Helper&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Teste dein Joomla-Module&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.  &lt;/p&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
 &lt;p&gt;Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.&lt;/p&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
 &lt;h3&gt;Links&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de&quot;&gt;Joomla Dokumentation&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Module - Erste Schritte]]></title><description><![CDATA[Wir erstellen ein einfaches Module. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese…]]></description><link>https://blog.astrid-guenther.de/joomla-module-simple/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-module-simple/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Sun, 05 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir erstellen ein einfaches Module.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de&quot;&gt;Joomla Dokumentation&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Module - Erste Schritte]]></title><description><![CDATA[Wir erstellen ein einfaches Module. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese…]]></description><link>https://blog.astrid-guenther.de/joomla-module-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-module-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Sun, 05 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir erstellen ein einfaches Module.&lt;/p&gt;
 &lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
 &lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t30...t31&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
 &lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
@@ -1161,7 +1465,7 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;ol&gt;
 &lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.  &lt;/p&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;modules&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
 &lt;p&gt;Installiere (Menü &lt;code class=&quot;language-text&quot;&gt;System | Install | Discover&lt;/code&gt;) dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
@@ -10857,7 +11161,8 @@ Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer &lt
 &lt;h2&gt;Datenbanktabellenpräfix&lt;/h2&gt;
 &lt;p&gt;Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung so, dass das Präfix variable ist. Sie nutzen die Zeichenkette &lt;code class=&quot;language-text&quot;&gt;#__&lt;/code&gt;, um immer den korrekten String wiederzugeben. Dies wird zur Laufzeit von Joomla durch die passende Zeichenfolge ersetzt.&lt;/p&gt;
 &lt;h2&gt;Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?&lt;/h2&gt;
-&lt;p&gt;Speichere diese Daten im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media&lt;/code&gt; im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die &lt;a href=&quot;https://docs.joomla.org/Development_Best_Practices&quot;&gt;Best Praxis Richtlinien&lt;/a&gt; empfehlen dies ebenfalls.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Der Weg zu Joomla 4 Erweiterungen]]></title><description><![CDATA[Vorwort Die erste Ansicht im Backend Joomla Update und Change Log einrichten Die erste Ansicht im Frontend Ein Menüpunkt Das M im MVC: Model…]]></description><link>https://blog.astrid-guenther.de/der-weg-zu-joomlae4-erweiterungen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/der-weg-zu-joomlae4-erweiterungen/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Fri, 29 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;p&gt;Speichere diese Daten im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media&lt;/code&gt; im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die &lt;a href=&quot;https://docs.joomla.org/Development_Best_Practices&quot;&gt;Best Praxis Richtlinien&lt;/a&gt; empfehlen dies ebenfalls.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Der Weg zu Joomla 4 Erweiterungen]]></title><description><![CDATA[Komponente Vorwort Die erste Ansicht im Backend Joomla Update und Change Log einrichten Die erste Ansicht im Frontend Ein Menüpunkt Das M im…]]></description><link>https://blog.astrid-guenther.de/der-weg-zu-joomlae4-erweiterungen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/der-weg-zu-joomlae4-erweiterungen/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Fri, 29 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Komponente&lt;/h2&gt;
+&lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;/joomla-tutorial-vorwort&quot;&gt;Vorwort&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/die-erste-ansicht-im-backend&quot;&gt;Die erste Ansicht im Backend&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/joomla-update-und-change-logeinrichten&quot;&gt;Joomla Update und Change Log einrichten&lt;/a&gt;&lt;/li&gt;
@@ -10893,7 +11198,21 @@ Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer &lt
 &lt;li&gt;&lt;a href=&quot;/joomla-einen-service-hinzufuegen-routing&quot;&gt;Einen Service hinzufügen - Routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/joomla-dashboard-fuer-deine-erweiterung&quot;&gt;Zugriff auf das Dashboard&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/joomla-tags&quot;&gt;Tags&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;/joomla-webservices&quot;&gt;Webservices - Unterstützen der Joomla-API&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Plugin und Komponente&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-webservices&quot;&gt;Webservices inklusive Plugin - Unterstützen der Joomla-API&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Module&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-module-simple/&quot;&gt;Module - Erste Schritte&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-module-namespace-und-helper&quot;&gt;Module - Namespace und Helper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-module-parameter&quot;&gt;Module - Parameter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-module-installation-script&quot;&gt;Module - Installationsskript&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-template-erste-schritte&quot;&gt;Template - Erste Schritte&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Erstellen Sie Ihr erstes Leaflet-Layer-Plugin - Ein Tutorial für Anfänger]]></title><description><![CDATA[In diesem Beitrag erkläre ich Ihnen, wie Sie ein Plugin für LeafletJs erstellen. Ganz genau zeige ich Ihnen, wie Sie ein Layer-Plugin…]]></description><link>https://blog.astrid-guenther.de/leaflet-layer-plugin-first-steps/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/leaflet-layer-plugin-first-steps/</guid><category><![CDATA[geografische Daten]]></category><category><![CDATA[Leaflet]]></category><pubDate>Tue, 11 Dec 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In diesem Beitrag erkläre ich Ihnen, wie Sie ein Plugin für &lt;a href=&quot;http://leafletjs.com/&quot;&gt;LeafletJs&lt;/a&gt; erstellen. Ganz genau zeige ich Ihnen, wie Sie ein Layer-Plugin programmieren. Ein Layer-Plugin ermöglicht es Ihnen, Daten auf der Leaflet-Karte anzuzeigen.&lt;/p&gt;
 &lt;p&gt;Sie können zum Beispiel&lt;/p&gt;
 &lt;ul&gt;
