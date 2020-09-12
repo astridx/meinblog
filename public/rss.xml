@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TaAstrid Günther | RSS Feed]]></title><description><![CDATA[Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Aug 2020 17:12:30 GMT</lastBuildDate><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><category><![CDATA[Docker Compose]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern vereinfacht. Ich installiere &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;Docker Compose&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TaAstrid Günther | RSS Feed]]></title><description><![CDATA[Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 12 Sep 2020 18:49:02 GMT</lastBuildDate><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><category><![CDATA[Docker Compose]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern vereinfacht. Ich installiere &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;Docker Compose&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
 &lt;h2&gt;Voraussetzungen&lt;/h2&gt;
 &lt;p&gt;Nach der Installation des Desktop Images von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; verfüge ich über ein &lt;em&gt;non-root-Superuser-Konto&lt;/em&gt; und kann direkt mit der Installation von &lt;em&gt;Docker Compose&lt;/em&gt; beginnen.&lt;/p&gt;
 &lt;h2&gt;Installieren von Docker Compose&lt;/h2&gt;
@@ -78,7 +78,19 @@ web_1  | 172.19.0.1 - - [30/Aug/2020:20:58:13 +0000] &amp;quot;GET / HTTP/1.1&am
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dash&quot;&gt;&lt;pre class=&quot;language-dash&quot;&gt;&lt;code class=&quot;language-dash&quot;&gt;docker-compose down&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Das Image entferne ich mit:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dash&quot;&gt;&lt;pre class=&quot;language-dash&quot;&gt;&lt;code class=&quot;language-dash&quot;&gt;docker image rm nginx:alpine&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Eine vollständige Referenz aller verfügbaren &lt;code class=&quot;language-text&quot;&gt;docker-compose&lt;/code&gt; Befehle ist die &lt;a href=&quot;https://docs.docker.com/compose/reference/&quot;&gt;offizielle Dokumentation&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Docker unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><pubDate>Tue, 04 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Docker_(Software)&amp;#x26;oldid=203149728&quot;&gt;Docker&lt;/a&gt; vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler, ressourcenschonender und vom Host-Betriebssystem abhängig. Ich installiere &lt;a href=&quot;https://docs.docker.com/get-docker/&quot;&gt;Docker&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
+&lt;p&gt;Eine vollständige Referenz aller verfügbaren &lt;code class=&quot;language-text&quot;&gt;docker-compose&lt;/code&gt; Befehle ist die &lt;a href=&quot;https://docs.docker.com/compose/reference/&quot;&gt;offizielle Dokumentation&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeit mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[DPDocker]]></category><category><![CDATA[Joomla]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Docker&lt;/em&gt; erleichtert die Verwaltung von Software in Containern. &lt;em&gt;Docker Compose&lt;/em&gt; ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. &lt;em&gt;DPDocker&lt;/em&gt; enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.&lt;/p&gt;
+&lt;h2&gt;Voraussetzungen&lt;/h2&gt;
+&lt;p&gt;Neben &lt;a href=&quot;/ubuntu-docker-einrichten&quot;&gt;Docker&lt;/a&gt; ist &lt;a href=&quot;/ubuntu-docker-compose-einrichten&quot;&gt;Docker Compose&lt;/a&gt; notwendig. Um die Skripte automatisch auszuführen, solltest du unter Linux arbeiten. Wenn du diesem &lt;a href=&quot;mein-ubuntu-rechner/&quot;&gt;Set&lt;/a&gt; bisher gefolgt bist, passt alles.&lt;/p&gt;
+&lt;h2&gt;Installieren von DPDocker&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/Digital-Peak/DPDocker.git
+
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone  https://github.com/astridx/boilerplate.git
+
+&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; DPDocker
+
+&lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; images/build.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;./run.sh&lt;/p&gt;
+&lt;p&gt;Eine vollständige Referenz aller verfügbaren &lt;code class=&quot;language-text&quot;&gt;DPDocker&lt;/code&gt; Befehle ist die &lt;a href=&quot;https://github.com/Digital-Peak/DPDocker/blob/master/README.md&quot;&gt;Dokumentation&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Docker unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><pubDate>Tue, 04 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Docker_(Software)&amp;#x26;oldid=203149728&quot;&gt;Docker&lt;/a&gt; vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler, ressourcenschonender und vom Host-Betriebssystem abhängig. Ich installiere &lt;a href=&quot;https://docs.docker.com/get-docker/&quot;&gt;Docker&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
 &lt;h2&gt;Voraussetzungen&lt;/h2&gt;
 &lt;p&gt;Nach der Installation des Desktop Images von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; verfüge ich über ein &lt;em&gt;non-root-Superuser-Konto&lt;/em&gt; und kann direkt mit der Installation von Docker beginnen.&lt;/p&gt;
 &lt;h2&gt;Installieren von Docker&lt;/h2&gt;
@@ -366,7 +378,360 @@ user.email&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; deineemail
 &lt;li&gt;&lt;a href=&quot;/ubuntu-git-einrichten&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/ubuntu-docker-einrichten&quot;&gt;Docker&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/ubuntu-docker-compose-einrichten&quot;&gt;Docker Compose&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Erste Schritte mit React]]></title><description><![CDATA[Immer mal wieder habe ich in eine SPA hineingeschnuppert. Unter anderem habe ich mir React angesehen. Auf den ersten Blick hat die…]]></description><link>https://blog.astrid-guenther.de/erste-schritte-mit-react/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/erste-schritte-mit-react/</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[SPA]]></category><category><![CDATA[Bibliothek]]></category><category><![CDATA[Framework]]></category><category><![CDATA[React]]></category><pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Immer mal wieder habe ich in eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Single-Page-Webanwendung&quot;&gt;SPA&lt;/a&gt; hineingeschnuppert. Unter anderem habe ich mir &lt;a href=&quot;https://de.reactjs.org/&quot;&gt;React&lt;/a&gt; angesehen. Auf den ersten Blick hat die JavaScript-Softwarebibliothek mich abgeschreckt. Zum einen wirkte es kompliziert.&lt;/p&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Grundlegendes zu Ereignisschleifen (Event Loop), Rückruffunktionen (Callback), Promises und Async/Await in JavaScript]]></title><description><![CDATA[Vor nicht allzulanger Zeit bestanden eine Website in der Regel aus statischen Daten in einer HTML-Datei. Dies hat sich rasant verändert…]]></description><link>https://blog.astrid-guenther.de/ereignisschleifen-rueckruffunktionen-promises-und-async-await-in-javascript/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ereignisschleifen-rueckruffunktionen-promises-und-async-await-in-javascript/</guid><category><![CDATA[JavaScript]]></category><pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Vor nicht allzulanger Zeit bestanden eine Website in der Regel aus statischen Daten in einer HTML-Datei. Dies hat sich rasant verändert. Eine Webanwendung ist heute interaktive und dynamisch. Meist ist es unerlässlich, externe Netzwerkanforderungen über eine Schnittstelle durchzuführen. Im Falle von JavaScript sind dann &lt;em&gt;asynchrone&lt;/em&gt; Programmiertechniken erforderlich.&lt;/p&gt;
+&lt;p&gt;Standardmäßig wird ein Skript innerhalb eines Browsers in Form eines einzigen Threads abgearbeitet. Eine Aktion wie das Anfordern einer Datei über eine API nimmt eine unbestimmte Zeit in Anspruch. Sie ist abhängig von der Größe der angeforderten Daten, der Geschwindigkeit der Netzwerkverbindung und anderen Faktoren. Wenn API-Aufrufe ausschließlich synchron abliefen, wäre es nicht möglich gleichzeitig Benutzereingaben wie Scrollen oder Klicken auf eine Schaltfläche zu verarbeiten. In einem Singlethread-Programm wird die Benutzeroberfläche &lt;em&gt;blockiert&lt;/em&gt;, während andere Berechnungen ablaufen.&lt;/p&gt;
+&lt;p&gt;Um eine Blockierung zu verhindern, verfügt die Browserumgebung über Web-APIs die &lt;em&gt;asynchron&lt;/em&gt; sind und auf die JavaScript zugreift. Dies bedeutet, dass diese parallel zu anderen Vorgängen – anstatt nacheinander – ablaufen und es dem Benutzer gleichzeitig möglich ist, Eingaben zu tätigen.&lt;/p&gt;
+&lt;p&gt;Als JavaScript-Entwickler arbeitet man mit den asynchronen Web-APIs und behandelt potenzielle Fehler. Ich habe mir Ereignisschleifen, Rückruffunktionen, Promises und die moderne Praxis – sprich der Verwendung von „async/await“ – genauer angesehen.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hinweis&lt;/strong&gt;: Dieser Artikel konzentriert sich auf clientseitiges JavaScript in der Browserumgebung. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Die Ereignisschleife (Event Loop)&lt;/h2&gt;
+&lt;p&gt;Thema des ersten Teils ist, wie JavaScript mit asynchronem Code in der Ereignisschleife umgeht. Wir sehen uns eine simple Schleife an. Dabei unterscheiden wir die beiden Hauptelemente: den Stapel und die Warteschlange.&lt;/p&gt;
+&lt;p&gt;JavaScript-Code, der keine asynchronen Web-APIs verwendet, läuft synchron ab - einzeln nacheinander. Dies demonstriert der nachstehende Beispielcode. Dieser ruft drei Funktionen auf, die jeweils eine Nummer in der Konsole ausgeben.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token doctype&quot;&gt;&amp;lt;!DOCTYPE html&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+		&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Titel&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+		&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;meta&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;charset&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;UTF-8&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+		&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;meta&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;viewport&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;width=device-width, initial-scale=1.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;head&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+		&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;
+			&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+				console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+				console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+				console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+			&lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+			&lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+	&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In diesem Code definierst du drei Funktionen, die Zahlen mit &lt;code class=&quot;language-text&quot;&gt;console.log()&lt;/code&gt; drucken und rufst diese auf.&lt;/p&gt;
+&lt;p&gt;Die Ausgabe basiert auf der Reihenfolge, in der die Funktionen aufgerufen wurden:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1
+2
+3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wird eine asynchrone Schnittstelle verwendet, ist das Ganze komplizierter. Nutzen wir die Funktion &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt;, um uns dies zu verdeutlichen. &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; setzt einen Timer fest und führt nach einer festgelegten Zeit eine Aktion aus. &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; ist asynchron, ansonsten würde das Skript nicht weiterlaufen.&lt;/p&gt;
+&lt;p&gt;Fügen wir der Funktion &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; hinzu, um eine asynchrone Anforderung zu simulieren:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Bei einem auf 0 gesetzten &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; erwartet man, dass der Aufruf dieser drei Funktionen weiterhin die Zahlen aufeinanderfolgend ausgibt. Dies ist aber nicht so:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1
+3
+2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dies liegt daran, dass die JavaScript-Umgebung, in diesem Fall der Browser, ein Konzept namens &lt;em&gt;Ereignisschleife&lt;/em&gt; oder &lt;em&gt;Event Loop&lt;/em&gt; verwendet, um parallele Ereignisse zu verarbeiten. JavaScript ist sequentiell und ruft jeweils nur eine Anweisung auf. Deshalb wird ein Speichermodell verwendet, bei dem drei wichtige Bereiche zum Einsatz kommen: der Stack (Stapel), die Queue (Warteschlange) und der Heap (Haufen).&lt;/p&gt;
+&lt;h3&gt;Heap (Haufen)&lt;/h3&gt;
+&lt;p&gt;Der Heap ist ein größerer Speicher, in dem Variablen, Funktionen und Objekte, die du mit deinem JavaScript erzeugst, gespeichert werden.&lt;/p&gt;
+&lt;h3&gt;Stack (Stapel)&lt;/h3&gt;
+&lt;p&gt;Im Stack werden die zur aktuellen Ausführung benötigten Funktionen abgelegt und verarbeitet. Jede beinhaltet einen Zeiger zum Heap und den jeweils dazugehörigen Objekten, sprich: den Status der aktuell ausgeführten Funktion. JavaScript führt den aktuellen Funktionsaufruf im Stapel aus, entfernt ihn dann und fährt mit dem nächsten fort.&lt;/p&gt;
+&lt;p&gt;Führst du beispielsweise den oben stehenden synchronen Code aus, passiert Folgendes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Füge &lt;code class=&quot;language-text&quot;&gt;eins()&lt;/code&gt; zum Stapel hinzu, führe &lt;code class=&quot;language-text&quot;&gt;eins()&lt;/code&gt; aus, und entferne &lt;code class=&quot;language-text&quot;&gt;eins()&lt;/code&gt; vom Stapel.&lt;/li&gt;
+&lt;li&gt;Füge &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; zum Stapel hinzu, führe &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; aus und entferne &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; vom Stapel.&lt;/li&gt;
+&lt;li&gt;Füge &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt; zum Stapel hinzu, führe &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt; aus und entferne &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt;vom Stapel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Das Beispiel mit &lt;code class=&quot;language-text&quot;&gt;setTimout&lt;/code&gt; sieht so aus:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Füge &lt;code class=&quot;language-text&quot;&gt;eins()&lt;/code&gt; zum Stapel hinzu, führe &lt;code class=&quot;language-text&quot;&gt;eins()&lt;/code&gt; aus und entferne &lt;code class=&quot;language-text&quot;&gt;eins()&lt;/code&gt; vom Stapel.&lt;/li&gt;
+&lt;li&gt;Füge &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; zum Stapel hinzu und führe &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; aus.&lt;/li&gt;
+&lt;li&gt;Füge dem Stapel &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; hinzu, führe &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; aus (welche einen Timer aufruft und die anonyme Funktion zur * Warteschlange * hinzufügt) und entferne &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt; vom dem Stapel.&lt;/li&gt;
+&lt;li&gt;entferne &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; vom Stapel.&lt;/li&gt;
+&lt;li&gt;Füge &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt; zum Stapel hinzu, führe &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt; aus und entferne &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt;vom Stapel.&lt;/li&gt;
+&lt;li&gt;Die Ereignisschleife überprüft die Warteschlange auf ausstehende Nachrichten und findet die anonyme Funktion von &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt;, fügt diese dem Stapel hinzu und entfernt sie vom Stapel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Jetzt ist die Warteschlange in Spiel gekommen, die wir uns als Nächstes ansehen.&lt;/p&gt;
+&lt;h3&gt;Queue (Warteschlange)&lt;/h3&gt;
+&lt;p&gt;Die Warteschlange ist ein Wartebereich für Funktionen. Die Queue enthält alle JavaScript-Befehle die zur Verarbeitung anstehen. Wenn du eine Funktion aufrufst, wird sie zusammen mit weiteren Dazugehörigen in der Queue abgelegt. Der Stack arbeitet die Queue in der gegebenen Reihenfolge ab.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=First_In_%E2%80%93_First_Out&amp;#x26;oldid=199843383&quot;&gt;First In – First out&lt;/a&gt; bezeichnet Verfahren der Speicherung, bei denen diejenigen Elemente, die zuerst gespeichert wurden, als erstes wieder aus dem Speicher entnommen werden. Eine solche Datenstruktur wird als Warteschlange bezeichnet.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Im Beispiel &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; wird die anonyme nach den anderen Funktionen aufgerufen. Sie wartete in der Queue. Der festgelegte Zeitwert ist die Minimum-Zeit und keine Garantie-Zeit bis zur Ausführung.&lt;/p&gt;
+&lt;h2&gt;Rückruffunktionen (Callback)&lt;/h2&gt;
+&lt;p&gt;Im Beispiel &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; wurde die Funktion mit dem Timeout am Ende des Skriptes aufgerufen. Manchmal ist es wichtig, dass Aufruf am Ende geschieht. Dann greifen wir auf asynchrone Codierungsmethoden zu. Zum Beispiel auf Rückruffunktionen. Diese haben keine spezielle Syntax. Sie sind nichts weiter als eine Funktion, die als Argument an eine andere übergeben wird. Die andere heißt dabei &lt;em&gt;Funktion höherer Ordnung&lt;/em&gt;. Jede ist eine Rückruffunktion, wenn sie als Argument eingesetzt wird. Rückrufe sind von Natur aus nicht asynchron, werden aber für diesen Zweck verwendet.&lt;/p&gt;
+&lt;p&gt;Zur Veranschaulichung ein Codebeispiel:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eineFunktion&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Eine Funktion&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;funktionHoehererOrndung&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;funktionHoehererOrndung&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;eineFunktion&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In diesem Code definieren wir zwei Funktionen. &lt;code class=&quot;language-text&quot;&gt;eineFunktion&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;funktionHoehererOrndung&lt;/code&gt;, die &lt;code class=&quot;language-text&quot;&gt;callback&lt;/code&gt; als Argument verwendet. Am Ende übergeben wir &lt;code class=&quot;language-text&quot;&gt;eineFunktion&lt;/code&gt; als Rückruf an &lt;code class=&quot;language-text&quot;&gt;funktionHoehererOrndung&lt;/code&gt;. Abstrahiert sieht der Einsatz einer Rückruffunktion simpel aus. Rufe den Code auf und die siehts Folgendes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Eine Funktion&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Kehren wir zum ersten Beispiel zurück. Bisher haben wir folgenden Code:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ziel ist es, &lt;code class=&quot;language-text&quot;&gt;drei()&lt;/code&gt; dazu zu bringen, die Ausführung zu verzögern bis &lt;code class=&quot;language-text&quot;&gt;zwei()&lt;/code&gt; abgeschlossen ist. Hier kommen Rückrufe ins Spiel. Anstatt &lt;code class=&quot;language-text&quot;&gt;eins&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;zwei&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;drei&lt;/code&gt; auf der obersten Ausführungsebene auszuführen, übergeben wir &lt;code class=&quot;language-text&quot;&gt;drei&lt;/code&gt; als Argument an &lt;code class=&quot;language-text&quot;&gt;zwei&lt;/code&gt;. &lt;code class=&quot;language-text&quot;&gt;zwei&lt;/code&gt; führt den Rückruf aus, nachdem die eigene Aktion abgeschlossen ist.&lt;/p&gt;
+&lt;p&gt;Hier siehst du die drei Funktionen, auf die ein Rückruf angewendet wird:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;9000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;drei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;drei&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;	
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dieser Code bewirkt die Ausgabe, wobei 2 und 3 erst nach 9 Sekunden abgedruckt werden:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1
+2
+3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Durch Übergeben einer Funktion als Rückruf haben wir die Reihenfolge der Ausführung verzögert. Die Rückruffunktion ist nicht asynchron. Mit einem Callback informieren wir vielmehr darüber, dass eine andere Aufgabe abgeschlossen ist.&lt;/p&gt;
+&lt;h3&gt;Verschachtelte Rückrufe und die Pyramide des Untergangs (Pyramid of Doom)&lt;/h3&gt;
+&lt;p&gt;So unkompliziert wie dies in der übersichtlichen Form wirkt, ist die Codiertechnik nicht. Es gibt Fallstricke – beispielsweise beim Verschachteln.&lt;/p&gt;
+&lt;p&gt;Rückruffunktionen sind eine effektive Möglichkeit, um die verzögerte Ausführung einer Funktion sicherzustellen, bis eine andere abgeschlossen ist. Aufgrund der verschachtelten Natur von Rückrufen wird Code schnell unübersichtlich:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;pyramideDesUntergangs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;pyramideDesUntergangs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In diesem Code ist jedes neue &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; in einer Funktion höherer Ordnung verschachtelt, wodurch eine Pyramidenform mit immer tieferen Rückrufen entsteht. Dieses Beispiel bewirkt folgende Ausgabe:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1
+2
+3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In der Praxis ist Code komplizierter als in diesem Beispiel und Rückrufe führen zu schwer zu lesendem und zu wartenden Code. Aus dem Grund wurde das Konzept der &lt;a href=&quot;https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise&quot;&gt;Promises&lt;/a&gt; in &lt;a href=&quot;https://developer.mozilla.org/de/docs/Web/JavaScript&quot;&gt;ECMAScript 2015 oder ES6&lt;/a&gt; eingeführt.&lt;/p&gt;
+&lt;h2&gt;Promise&lt;/h2&gt;
+&lt;p&gt;Ein Promise steht für den Abschluss einer asynchronen Funktion. Es ist ein Objekt, welches in Zukunft einen Wert zurückgibt. Es erreicht das Gleiche wie eine Rückruffunktion – mit vielen zusätzlichen Funktionen und einer besser lesbaren Syntax.&lt;/p&gt;
+&lt;h3&gt;Ein Promise erstellen&lt;/h3&gt;
+&lt;p&gt;Initialisiere ein  Promise mit der Syntax &lt;code class=&quot;language-text&quot;&gt;new Promise&lt;/code&gt;. Die Funktion, die an ein  Promise übergeben wird, hat die Parameter &lt;code class=&quot;language-text&quot;&gt;resolve (auflösen)&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;reject (zurückweisen)&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wenn du das Promise über die Konsole protokollierst &lt;code class=&quot;language-text&quot;&gt;console.log(promise);&lt;/code&gt;, siehst du &lt;code class=&quot;language-text&quot;&gt;Promise { &amp;lt;state&amp;gt;: &amp;quot;pending&amp;quot; }&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Testen wir das Promise, indem wir es erfüllen. Dazu weisen wir ihm einen Wert zu:		&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	  &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Aufgelöst!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wenn du das Promise über die Konsole protokollierst &lt;code class=&quot;language-text&quot;&gt;console.log(promise);&lt;/code&gt;, siehst du &lt;code class=&quot;language-text&quot;&gt;Promise { &amp;lt;state&amp;gt;: &amp;quot;fulfilled&amp;quot;, &amp;lt;value&amp;gt;: &amp;quot;Aufgelöst!&amp;quot; }&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Es gibt drei mögliche Zustände: ausstehend, erfüllt und abgelehnt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pending (ausstehend) - Anfangszustand&lt;/li&gt;
+&lt;li&gt;Fulfilled (erfüllt) - erfolgreich,  Promise ist gelöst&lt;/li&gt;
+&lt;li&gt;Rejected abgelehnt) - fehlgeschlagen,  Promise abgelehnt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Ein Promise konsumieren&lt;/h3&gt;
+&lt;p&gt;Die Promise im letzten Abschnitt wurde mit einem Wert erfüllt. Wie greifen wir auf diesen Wer zu? Hierfür gibt es die Methode &lt;code class=&quot;language-text&quot;&gt;then&lt;/code&gt;. Die gibt den Wert des Promises als Parameter zurück. Zum Beispiel so wie im folgenden Code:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Aufgelöst!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Unser Promise hat den Wert &lt;code class=&quot;language-text&quot;&gt;Aufgelöst!&lt;/code&gt;. Dieser wird in der Konsole abgedruckt.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Aufgelöst!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Testen wir mit &lt;code class=&quot;language-text&quot;&gt;setTimeout&lt;/code&gt; das Verhalten im Falle einer asynchrone Anfrage:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Aufgelöst!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Verwendung der &lt;code class=&quot;language-text&quot;&gt;then&lt;/code&gt;-Syntax stellt sicher, dass die Antwort &lt;code class=&quot;language-text&quot;&gt;response&lt;/code&gt; nur protokolliert wird, wenn die &lt;code class=&quot;language-text&quot;&gt;setTimeout()&lt;/code&gt;-Operation nach &lt;code class=&quot;language-text&quot;&gt;3000&lt;/code&gt; Millisekunden abgeschlossen ist. Nach drei Sekunden wird der Promise-Wert aufgelöst und ausgegeben.&lt;/p&gt;
+&lt;p&gt;Es ist möglich, ein Promise mit einer anderen zu verketten:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;aufgelöst!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+promise
+	&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Verkettung &apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; eins
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;zwei&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;zwei&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die erfüllte Antwort sieht wie folgt aus:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Verkettung aufgelöst!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Da &lt;code class=&quot;language-text&quot;&gt;then&lt;/code&gt; verkettet und nicht verschachtelt wird, ist er Code besser lesbar.&lt;/p&gt;
+&lt;h3&gt;Fehlerbehandlung&lt;/h3&gt;
+&lt;p&gt;Bisher haben wir ein Promise nur in einem erfolgreichen Zustand verwendet. Bei asynchronen Anfragen kommt es häufig zu Fehlern. Simulieren wir eine solchen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fehler!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Aufgelöst!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+promise
+	&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe ist &lt;code class=&quot;language-text&quot;&gt;Uncaught (in promise) Fehler!&lt;/code&gt;. Den Fehler fangen wir mit der Methode &lt;code class=&quot;language-text&quot;&gt;catch&lt;/code&gt; ab:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; promise &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fehler!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Aufgelöst!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+promise
+	&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;error&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe ist nun &lt;code class=&quot;language-text&quot;&gt;Fehler!&lt;/code&gt;. Der Fehler ist nicht gelöst, aber wir haben in der Methode &lt;code class=&quot;language-text&quot;&gt;catch&lt;/code&gt; Handlungsmöglichkeiten.&lt;/p&gt;
+&lt;p&gt;Als Referenz eine Tabelle mit den Handler-Methoden für Promise-Objekte:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Methode&lt;/th&gt;
+&lt;th&gt;Beschreibung&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;then()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Behandelt eine &lt;code class=&quot;language-text&quot;&gt;Lösung&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;catch()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Behandelt eine Ablehnung.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;finally()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Unabhängig, ob das Promise erfolgreich erfüllt wurde oder nicht.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;Async-Funktionen mit &lt;code class=&quot;language-text&quot;&gt;async/await&lt;/code&gt;&lt;/h2&gt;
+&lt;h3&gt;async&lt;/h3&gt;
+&lt;p&gt;Mit der Funktion &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; behandeln wir asynchronen Code synchron, indem wir das Schlüsselwort &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; voranstellen:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Obwohl diese Funktion bisher nichts Asynchrones verarbeitet, verhält sie sich anders als eine herkömmliche. Wenn wir sie aufrufen, werden wir feststellen, dass sie ein Promise zurückgibt. Die Ausgabe ist:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Promise { &amp;lt;state&amp;gt;: &amp;quot;fulfilled&amp;quot;, &amp;lt;value&amp;gt;: undefined }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dies bedeutet, dass eine &lt;code class=&quot;language-text&quot;&gt;asynchrone&lt;/code&gt; Funktion mit &lt;code class=&quot;language-text&quot;&gt;then&lt;/code&gt; anwendbar ist. Probiere dies mit folgendem Code aus:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// oder kurz: eins().then(console.log);&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe ist:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;await&lt;/h3&gt;
+&lt;p&gt;Der wahre Vorteil von asynchronen Funktionen wird deutlich, wenn wir sie mit dem Schlüsselwort &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt; kombinieren. &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt; funktioniert nur in asynchronen Umgebungen.&lt;/p&gt;
+&lt;p&gt;Hier ist ein triviales Beispiel:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;nach x&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Ausgabe ist:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1
+nach x&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Zur Veranschaulichung ändern wir den Code wie folgt ab. Es fehlt nur das Wort &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;resolve&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;eins&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;nach x&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;f1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jetzt wurde Auflösen des Promise nicht abgewartet. Die Ausgabe ist:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Promise { &amp;lt;state&amp;gt;: &amp;quot;pending&amp;quot; }
+nach x&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Fazit&lt;/h2&gt;
+&lt;p&gt;Da Daten häufig ungleichzeitig bereitstehen, ist das Erlernen von asynchronen Aktionen ein wesentlicher Bestandteil eines JavaScript-Entwicklers. In diesem Beitrag hast du erfahren, wie Browser die Ereignisschleife (Event Loop) verwenden, um die Reihenfolge der Codeausführung mit dem Stack und der Queue zu handhaben. Außerdem haben wir drei Beispiele ausprobiert, um den Erfolg oder Misserfolg eines asynchronen Ereignisses mit Rückrufen (Callbacks), Promise (Versprechen) und der Syntax &lt;code class=&quot;language-text&quot;&gt;async/await&lt;/code&gt; zu behandeln.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Erste Schritte mit React]]></title><description><![CDATA[Immer mal wieder habe ich in eine SPA hineingeschnuppert. Unter anderem habe ich mir React angesehen. Auf den ersten Blick hat die…]]></description><link>https://blog.astrid-guenther.de/erste-schritte-mit-react/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/erste-schritte-mit-react/</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[SPA]]></category><category><![CDATA[Bibliothek]]></category><category><![CDATA[Framework]]></category><category><![CDATA[React]]></category><pubDate>Sun, 28 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Immer mal wieder habe ich in eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Single-Page-Webanwendung&quot;&gt;SPA&lt;/a&gt; hineingeschnuppert. Unter anderem habe ich mir &lt;a href=&quot;https://de.reactjs.org/&quot;&gt;React&lt;/a&gt; angesehen. Auf den ersten Blick hat die JavaScript-Softwarebibliothek mich abgeschreckt. Zum einen wirkte es kompliziert.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Ich habe im Studium objektorientiert Java und deklarativ Haskell gelernt. Als ich dann in der Praxis gezwungen war PHP zu nutzen, war ich nicht vollends begeistert - aber die Einfachheit hat mir gefallen.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1443,7 +1808,127 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/astridx/react-tutorial&quot;&gt;Quellcode auf GitHub anzeigen&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://astridx.github.io/react-tutorial/&quot;&gt;Projekt Demo ansehen&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Template - Erste Schritte]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-template-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-template-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Thu, 09 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Paket - Alle Erweiterungen in einer Installationsdatei]]></title><description><![CDATA[Erstellen ein Installationspaket. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-paket-alles-zusammen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-paket-alles-zusammen/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Tue, 14 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Erstellen ein Installationspaket.&lt;/p&gt;
+&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
+&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t39...t40&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
+&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
+&lt;p&gt;In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.&lt;/p&gt;
+&lt;h3&gt;Neue Dateien&lt;/h3&gt;
+&lt;h4&gt;Module&lt;/h4&gt;
+&lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Teste dein Joomla-Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Template Style Facile als aktiv.&lt;/li&gt;
+&lt;li&gt;Installiere die Beispieldaten für die Tests&lt;/li&gt;
+&lt;li&gt;Rufe die URL &lt;code class=&quot;language-text&quot;&gt;joomla-cms4/index.php?tp=1&lt;/code&gt; auf.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
+&lt;h3&gt;Übersicht&lt;/h3&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/C-Lodder/lightning&quot;&gt;Joomla 4 Template Lightning&lt;/a&gt;
+&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Template - Erste Schritte]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-template-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-template-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Mon, 13 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
+&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t38...t39&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
+&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
+&lt;p&gt;In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.&lt;/p&gt;
+&lt;h3&gt;Neue Dateien&lt;/h3&gt;
+&lt;h4&gt;Module&lt;/h4&gt;
+&lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Teste dein Joomla-Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Template Style Facile als aktiv.&lt;/li&gt;
+&lt;li&gt;Installiere die Beispieldaten für die Tests&lt;/li&gt;
+&lt;li&gt;Rufe die URL &lt;code class=&quot;language-text&quot;&gt;joomla-cms4/index.php?tp=1&lt;/code&gt; auf.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
+&lt;h3&gt;Übersicht&lt;/h3&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/C-Lodder/lightning&quot;&gt;Joomla 4 Template Lightning&lt;/a&gt;
+&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Template - Erste Schritte]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-template-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-template-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Sun, 12 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
+&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t37...t38&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
+&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
+&lt;p&gt;In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.&lt;/p&gt;
+&lt;h3&gt;Neue Dateien&lt;/h3&gt;
+&lt;h4&gt;Module&lt;/h4&gt;
+&lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Teste dein Joomla-Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Template Style Facile als aktiv.&lt;/li&gt;
+&lt;li&gt;Installiere die Beispieldaten für die Tests&lt;/li&gt;
+&lt;li&gt;Rufe die URL &lt;code class=&quot;language-text&quot;&gt;joomla-cms4/index.php?tp=1&lt;/code&gt; auf.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
+&lt;h3&gt;Übersicht&lt;/h3&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/C-Lodder/lightning&quot;&gt;Joomla 4 Template Lightning&lt;/a&gt;
+&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Template - Erste Schritte]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-template-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-template-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Sat, 11 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
+&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t36...t37&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
+&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
+&lt;p&gt;In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.&lt;/p&gt;
+&lt;h3&gt;Neue Dateien&lt;/h3&gt;
+&lt;h4&gt;Module&lt;/h4&gt;
+&lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Teste dein Joomla-Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Template Style Facile als aktiv.&lt;/li&gt;
+&lt;li&gt;Installiere die Beispieldaten für die Tests&lt;/li&gt;
+&lt;li&gt;Rufe die URL &lt;code class=&quot;language-text&quot;&gt;joomla-cms4/index.php?tp=1&lt;/code&gt; auf.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
+&lt;h3&gt;Übersicht&lt;/h3&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/C-Lodder/lightning&quot;&gt;Joomla 4 Template Lightning&lt;/a&gt;
+&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Template - Erste Schritte]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-template-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-template-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Fri, 10 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
+&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
+&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t35...t36&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
+&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
+&lt;p&gt;In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.&lt;/p&gt;
+&lt;h3&gt;Neue Dateien&lt;/h3&gt;
+&lt;h4&gt;Module&lt;/h4&gt;
+&lt;h5&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Teste dein Joomla-Template&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;templates&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Template Style Facile als aktiv.&lt;/li&gt;
+&lt;li&gt;Installiere die Beispieldaten für die Tests&lt;/li&gt;
+&lt;li&gt;Rufe die URL &lt;code class=&quot;language-text&quot;&gt;joomla-cms4/index.php?tp=1&lt;/code&gt; auf.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
+&lt;h3&gt;Übersicht&lt;/h3&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/C-Lodder/lightning&quot;&gt;Joomla 4 Template Lightning&lt;/a&gt;
+&lt;a href=&quot;https://github.com/dgrammatiko/sloth-pkg&quot;&gt;Joomla 4 Template Sloth&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Template - Erste Schritte]]></title><description><![CDATA[Wir ergänzen Namespace und Helper. Für Ungeduldige Sieh dir den geänderten Programmcode in der Diff-Ansicht an und übernimm diese Änderungen…]]></description><link>https://blog.astrid-guenther.de/joomla-template-erste-schritte/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-template-erste-schritte/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Thu, 09 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir ergänzen Namespace und Helper.&lt;/p&gt;
 &lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
 &lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t34...t35&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
 &lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
@@ -2050,7 +2535,37 @@ Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;media&lt;/cod
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension&quot;&gt;https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Zugriff auf das Dashboard]]></title><description><![CDATA[Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. In diesem Teil erstellen wir ein…]]></description><link>https://blog.astrid-guenther.de/joomla-dashboard-fuer-deine-erweiterung/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-dashboard-fuer-deine-erweiterung/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Thu, 02 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. In diesem Teil erstellen wir ein solches für unsere Beispielkomponente.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/j4x33x1.png&quot; alt=&quot;Dashboard in Joomla Erweiterung&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/406b7f7351a1a7095ae312bdba2db066/53ac9/j4x33x1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABfElEQVQoz31Ry0rEMBTNxh8Q/ApXKg6KO8GFI4qPjaIbwY0vRhHED3Hjb8h8hHtBXAkjjo7Wtukrzas9ppl2pupo4HBzb5Jzzz0h440DjE3uYaKxj4XNMzTWTjHVPMTMyjGmDao4u3pi91PNI3tnbr2F5e0LLO1eYWHrHIs7l5jfaIHctB9wffuI9l0H3Z6L51cXcZIi5QIs7YMLiVcnQs9N8OGn+PCYRc/g3dZM9Ew0IChXylN4kUAqFLTOBpBKI88z3D+5cAOJiGUIEm0RlghqkUQJB+NGwZuLz1DCjyQc09HxQtM9gEOLRqZGBbzy/D8Qzw+RSgW30wU143osNw+FOeTwQ16SqMEDGqsapMWgbu6RwqNiMalBXxzQng/KtCWpHg7JaoRVXiMrchJECZRS1ju/8KH7CerGoGb/XclvZT/JipwkjFuFXPSVWKJvo/1QNmJMu688FMY/IEfCxJ8e/aksVrW8D6K1RpZlKH579FijPJOlx0NlVfwC88nbIkioEC0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Dashboard in Joomla Erweiterung&quot;
+        title=&quot;Dashboard in Joomla Erweiterung&quot;
+        src=&quot;/static/406b7f7351a1a7095ae312bdba2db066/a6d36/j4x33x1.png&quot;
+        srcset=&quot;/static/406b7f7351a1a7095ae312bdba2db066/222b7/j4x33x1.png 163w,
+/static/406b7f7351a1a7095ae312bdba2db066/ff46a/j4x33x1.png 325w,
+/static/406b7f7351a1a7095ae312bdba2db066/a6d36/j4x33x1.png 650w,
+/static/406b7f7351a1a7095ae312bdba2db066/e548f/j4x33x1.png 975w,
+/static/406b7f7351a1a7095ae312bdba2db066/53ac9/j4x33x1.png 1287w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
 &lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t27...t28&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
 &lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
@@ -2142,7 +2657,37 @@ Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;media&lt;/cod
 &lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;Nutze im Backend das Dashboard.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;/images/j4x33x1.png&quot; alt=&quot;Joomla! Dahboard&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/406b7f7351a1a7095ae312bdba2db066/53ac9/j4x33x1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABfElEQVQoz31Ry0rEMBTNxh8Q/ApXKg6KO8GFI4qPjaIbwY0vRhHED3Hjb8h8hHtBXAkjjo7Wtukrzas9ppl2pupo4HBzb5Jzzz0h440DjE3uYaKxj4XNMzTWTjHVPMTMyjGmDao4u3pi91PNI3tnbr2F5e0LLO1eYWHrHIs7l5jfaIHctB9wffuI9l0H3Z6L51cXcZIi5QIs7YMLiVcnQs9N8OGn+PCYRc/g3dZM9Ew0IChXylN4kUAqFLTOBpBKI88z3D+5cAOJiGUIEm0RlghqkUQJB+NGwZuLz1DCjyQc09HxQtM9gEOLRqZGBbzy/D8Qzw+RSgW30wU143osNw+FOeTwQ16SqMEDGqsapMWgbu6RwqNiMalBXxzQng/KtCWpHg7JaoRVXiMrchJECZRS1ju/8KH7CerGoGb/XclvZT/JipwkjFuFXPSVWKJvo/1QNmJMu688FMY/IEfCxJ8e/aksVrW8D6K1RpZlKH579FijPJOlx0NlVfwC88nbIkioEC0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla! Dahboard&quot;
+        title=&quot;Joomla! Dahboard&quot;
+        src=&quot;/static/406b7f7351a1a7095ae312bdba2db066/a6d36/j4x33x1.png&quot;
+        srcset=&quot;/static/406b7f7351a1a7095ae312bdba2db066/222b7/j4x33x1.png 163w,
+/static/406b7f7351a1a7095ae312bdba2db066/ff46a/j4x33x1.png 325w,
+/static/406b7f7351a1a7095ae312bdba2db066/a6d36/j4x33x1.png 650w,
+/static/406b7f7351a1a7095ae312bdba2db066/e548f/j4x33x1.png 975w,
+/static/406b7f7351a1a7095ae312bdba2db066/53ac9/j4x33x1.png 1287w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/joomla/joomla-cms/pull/28027&quot;&gt;https://github.com/joomla/joomla-cms/pull/28027&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Einen Service hinzufügen - Routing]]></title><description><![CDATA[Suchmaschinenfreundliche URLs funktionieren nicht. Anhand eines Services reparieren wir diesen Missstand. Für Ungeduldige Sieh dir den…]]></description><link>https://blog.astrid-guenther.de/joomla-einen-service-hinzufuegen-routing/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-einen-service-hinzufuegen-routing/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Suchmaschinenfreundliche URLs funktionieren nicht. Anhand eines Services reparieren wir diesen Missstand.&lt;/p&gt;
@@ -10199,6 +10744,181 @@ Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;components&lt
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;Geänderte Dateien&lt;/h2&gt;
+&lt;h3&gt;Übersicht&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Die erste Ansicht im Frontend]]></title><description><![CDATA[Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung…]]></description><link>https://blog.astrid-guenther.de/die-erste-ansicht-im-frontend/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/die-erste-ansicht-im-frontend/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Mon, 02 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung möglich, einen statischen Text anzuzeigen. Wir haben bisher keine dynamischen Daten. Aber das wird sich bald ändern. Zunächst bauen wir die grobe Struktur auf. Nachfolgend siehst du die simple Ansicht.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz52O20oCURSG5zUqIoIISzyRqHdFF11JSBSeNU9EjYVvIFkUgRa9Rm8SdNllRAciU8ZxZjSd49/eg5IOFNkPi7X22mt962dmXEk41w7gWS/Cv1GCe5XFlC2O6aUEZpdTmLOnMe/IYMGZxaIrD5u7ALtnD46Vfbi8ZM/Lwus7hM9/hECgBCaUqiDJVpEuXmKXrZkRjJQRDJexGTlGKFrBVuwE2/FT7CTOEE6eI5a6QJTkBMnpTBWZbA253BUK+WswHC/g6fkN9fcGmm0JzZYAXpDQFjtoC5YgPfondT7R4tsQJQmyLKPX60NVVRi6AUYhhUaa4DiADPxVXQKhu7qmQdc1GIZh9pnhAG0YBEyvmPUvQcUTh4Igmg473a4JN4FjwxQ8hP8EMzNJmgpVUYg7A6IofQMxuIjB8NjbolGH9y8feG1wZq2PHGQwgegCdUR1c/eA28c6NH3g+L/AoSOqvqqhKytjhyYGWqHW/hcuX8awn1IG6wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla Ansicht im Frontend&quot;
+        title=&quot;Joomla Ansicht im Frontend&quot;
+        src=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png&quot;
+        srcset=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/222b7/j4x3x1.png 163w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/ff46a/j4x3x1.png 325w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png 650w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/e548f/j4x3x1.png 975w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png 1287w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
+&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t1c...t2&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
+&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
+&lt;p&gt;Im aktuellen Abschnitte kommen drei Datei hinzu und zwei werden geändert.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cf6e6e6900a08a61f598343e7058695c/853cd/j4xdrei.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.331288343558285%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA4klEQVQoz3WR2QqFMAxE/f/P80XBBxFxF9z3JZdTaEHtDYSWJjOZTJ1t2+Q8T9Fx3/fj1Pd3/nt3KDRNI0EQSBRFkue51HX9ANjCNoBQhFVVieu6EoaheJ4naZo+VLLBcRxyXZdK2xCj8F2c59kAISFQzSDf9yVJEtOre5ZlUVsx2LF5NU2TDMMg+Lvvu7RtK+u6GjBv9OmThNys/PaiLEtlAwBI+75XPmMFpNQZwl1nlmUK47x/F5I4jtUKEKEUdQAgZQAbjONo/OTEKrAfQooQoAAlRVEoIr2SDnq6rvt80A9FFXD6dC4NMAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Übersicht über die Dateien im dritten Kapitel&quot;
+        title=&quot;Übersicht über die Dateien im dritten Kapitel&quot;
+        src=&quot;/static/cf6e6e6900a08a61f598343e7058695c/a6d36/j4xdrei.png&quot;
+        srcset=&quot;/static/cf6e6e6900a08a61f598343e7058695c/222b7/j4xdrei.png 163w,
+/static/cf6e6e6900a08a61f598343e7058695c/ff46a/j4xdrei.png 325w,
+/static/cf6e6e6900a08a61f598343e7058695c/a6d36/j4xdrei.png 650w,
+/static/cf6e6e6900a08a61f598343e7058695c/e548f/j4xdrei.png 975w,
+/static/cf6e6e6900a08a61f598343e7058695c/3c492/j4xdrei.png 1300w,
+/static/cf6e6e6900a08a61f598343e7058695c/853cd/j4xdrei.png 4925w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;Neue Dateien&lt;/h3&gt;
+&lt;p&gt;Der Administrationsbereich unserer Komponente ist im Ordner &lt;code class=&quot;language-text&quot;&gt;com_foos&lt;/code&gt; unter &lt;code class=&quot;language-text&quot;&gt;/administrator/component&lt;/code&gt;. Jetzt arbeiten wir am Frontend, das im Ordner &lt;code class=&quot;language-text&quot;&gt;com_foos&lt;/code&gt; direkt unter &lt;code class=&quot;language-text&quot;&gt;/components&lt;/code&gt; gespeichert ist.&lt;/p&gt;
+&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702&quot;&gt;src/components/com_foos/src/Controller/DisplayController.php&lt;/a&gt; - Einstiegspunkt ins Frontend&lt;/h4&gt;
+&lt;p&gt;Dies ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse &lt;em&gt;DisplayController&lt;/em&gt;. Joomla! erwartet das so. Erweitere &lt;em&gt;BaseController&lt;/em&gt;, um viele Dinge Out-of-the-Box zu nutzen.&lt;/p&gt;
+&lt;p&gt;Alles was ich in Kapitel zur &lt;em&gt;ersten Ansicht im Backend&lt;/em&gt; geschrieben habe, trifft hier analog zu.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php&quot;&gt;components/com_foos/src/Controller/DisplayController.php&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Component&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Foos&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Site&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Controller&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+\&lt;span class=&quot;token package&quot;&gt;defined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;_JEXEC&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;CMS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVC&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Controller&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;BaseController&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;CMS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVC&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Factory&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVCFactoryInterface&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DisplayController&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BaseController&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$config&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; MVCFactoryInterface &lt;span class=&quot;token variable&quot;&gt;$factory&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$app&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$input&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$factory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$cachable&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean constant&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$urlparams&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$cachable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656&quot;&gt;src/components/com_foos/src/View/Foo/HtmlView.php&lt;/a&gt; - Die Ansicht&lt;/h4&gt;
+&lt;p&gt;Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!&lt;/p&gt;
+&lt;p&gt;Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.&lt;/p&gt;
+&lt;p&gt;In der Datei &lt;code class=&quot;language-text&quot;&gt;HtmlView.php&lt;/code&gt; wir das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten.&lt;/p&gt;
+&lt;p&gt;Alles was ich in Kapitel zur &lt;em&gt;ersten Ansicht im Backend&lt;/em&gt; geschrieben habe, trifft hier analog zu.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php&quot;&gt;components/com_foos/src/View/Foo/HtmlView.php&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Component&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Foos&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Site&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+\&lt;span class=&quot;token package&quot;&gt;defined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;_JEXEC&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;CMS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVC&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;HtmlView&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; BaseHtmlView&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HtmlView&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BaseHtmlView&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$tpl&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$tpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f&quot;&gt;src/components/com_foos/tmpl/foo/default.php&lt;/a&gt; - Template&lt;/h4&gt;
+&lt;p&gt;In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur &lt;em&gt;ersten Ansicht im Backend&lt;/em&gt; geschrieben habe, trifft hier analog zu.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php&quot;&gt;components/com_foos/tmpl/foo/default.php&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+\&lt;span class=&quot;token package&quot;&gt;defined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;_JEXEC&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;
+Hello Foos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Geänderte Dateien&lt;/h3&gt;
+&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578&quot;&gt;src/administrator/components/com_foos/foos.xml&lt;/a&gt; - XML-Datei (Manifest)&lt;/h4&gt;
+&lt;p&gt;Dies ist die Datei, die Joomla! mitteilt, wie unsere Komponente installiert wird. Deshalb tragen wie die beiden neuen Dateien hier ein, so weiß Joomla bei einer Installatin, dass es die Verzeichnisse &lt;code class=&quot;language-text&quot;&gt;src&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;tmpl&lt;/code&gt; gibt und wo &lt;code class=&quot;language-text&quot;&gt;components/com_foos&lt;/code&gt; es sie hin kopieren soll.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml&quot;&gt;administrator/components/com_foos/foos.xml&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;...
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;files&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;components/com_foos&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;src&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;tmpl&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;files&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Die Behelfsdatei - components/com_foos/index.html&lt;/h4&gt;
+&lt;p&gt;Diese Datei war nur ein Behelf und sie kann nun gelöscht werden.&lt;/p&gt;
+&lt;h2&gt;Teste deine Joomla-Komponente&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Führe eine neue Installation durch. Dies ist erforderlich, da die neuen Dateien im Frontend sonst nicht erkannt werden. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/p&gt;
+&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;administrator&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;administrator&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;br&gt;
+Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;components&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;components&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
+&lt;p&gt;Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! richtet bei der bei der Installation Namespaces für dich ein.&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Öffne dann in einem Browser die Adresse &lt;code class=&quot;language-text&quot;&gt;JOOMLA4/index.php?option=com_foos&amp;amp;view=foo&lt;/code&gt;. Du siehst die eben erstelle Frontend-Ansicht.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz52O20oCURSG5zUqIoIISzyRqHdFF11JSBSeNU9EjYVvIFkUgRa9Rm8SdNllRAciU8ZxZjSd49/eg5IOFNkPi7X22mt962dmXEk41w7gWS/Cv1GCe5XFlC2O6aUEZpdTmLOnMe/IYMGZxaIrD5u7ALtnD46Vfbi8ZM/Lwus7hM9/hECgBCaUqiDJVpEuXmKXrZkRjJQRDJexGTlGKFrBVuwE2/FT7CTOEE6eI5a6QJTkBMnpTBWZbA253BUK+WswHC/g6fkN9fcGmm0JzZYAXpDQFjtoC5YgPfondT7R4tsQJQmyLKPX60NVVRi6AUYhhUaa4DiADPxVXQKhu7qmQdc1GIZh9pnhAG0YBEyvmPUvQcUTh4Igmg473a4JN4FjwxQ8hP8EMzNJmgpVUYg7A6IofQMxuIjB8NjbolGH9y8feG1wZq2PHGQwgegCdUR1c/eA28c6NH3g+L/AoSOqvqqhKytjhyYGWqHW/hcuX8awn1IG6wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla Ansicht im Frontend&quot;
+        title=&quot;Joomla Ansicht im Frontend&quot;
+        src=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png&quot;
+        srcset=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/222b7/j4x3x1.png 163w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/ff46a/j4x3x1.png 325w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png 650w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/e548f/j4x3x1.png 975w,
+/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png 1287w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h3&gt;Übersicht&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Joomla Update und Change Log einrichten]]></title><description><![CDATA[Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User immer die neueste Version verwenden? Woher wissen sie von…]]></description><link>https://blog.astrid-guenther.de/joomla-update-und-change-logeinrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-update-und-change-logeinrichten/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Mon, 02 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User immer die neueste Version verwenden? Woher wissen sie von einem Update? Jetzt, wo das Grundgerüst der Erweiterung fertig ist, ist es wichtig, dass deine Anwender von Weiterentwicklungen erfahren.&lt;/p&gt;
 &lt;p&gt;In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. &lt;strong&gt;Überspringe dann einfach diese Einheit.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Update Server klingt kompliziert, im Grunde ist es nur eine URL zu einer XML-Datei, die in der XML-Installationsdatei angegeben ist. Diese XML enthält eine Reihe von Details, einschließlich der neuen Version und der Download-URL. Wenn Joomla! eine Aktualisierung findet, wird dies im Administrationsbereich angezeigt.&lt;/p&gt;
@@ -10506,182 +11226,7 @@ Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;components&lt
         loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Die erste Ansicht im Frontend]]></title><description><![CDATA[Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung…]]></description><link>https://blog.astrid-guenther.de/die-erste-ansicht-im-frontend/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/die-erste-ansicht-im-frontend/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Mon, 02 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung möglich, einen statischen Text anzuzeigen. Wir haben bisher keine dynamischen Daten. Aber das wird sich bald ändern. Zunächst bauen wir die grobe Struktur auf. Nachfolgend siehst du die simple Ansicht.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz52O20oCURSG5zUqIoIISzyRqHdFF11JSBSeNU9EjYVvIFkUgRa9Rm8SdNllRAciU8ZxZjSd49/eg5IOFNkPi7X22mt962dmXEk41w7gWS/Cv1GCe5XFlC2O6aUEZpdTmLOnMe/IYMGZxaIrD5u7ALtnD46Vfbi8ZM/Lwus7hM9/hECgBCaUqiDJVpEuXmKXrZkRjJQRDJexGTlGKFrBVuwE2/FT7CTOEE6eI5a6QJTkBMnpTBWZbA253BUK+WswHC/g6fkN9fcGmm0JzZYAXpDQFjtoC5YgPfondT7R4tsQJQmyLKPX60NVVRi6AUYhhUaa4DiADPxVXQKhu7qmQdc1GIZh9pnhAG0YBEyvmPUvQcUTh4Igmg473a4JN4FjwxQ8hP8EMzNJmgpVUYg7A6IofQMxuIjB8NjbolGH9y8feG1wZq2PHGQwgegCdUR1c/eA28c6NH3g+L/AoSOqvqqhKytjhyYGWqHW/hcuX8awn1IG6wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla Ansicht im Frontend&quot;
-        title=&quot;Joomla Ansicht im Frontend&quot;
-        src=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png&quot;
-        srcset=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/222b7/j4x3x1.png 163w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/ff46a/j4x3x1.png 325w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png 650w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/e548f/j4x3x1.png 975w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png 1287w&quot;
-        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2&gt;Für Ungeduldige&lt;/h2&gt;
-&lt;p&gt;Sieh dir den geänderten Programmcode in der &lt;a href=&quot;https://github.com/astridx/boilerplate/compare/t1c...t2&quot;&gt;Diff-Ansicht&lt;/a&gt; an und übernimm diese Änderungen in deine Entwicklungsversion.&lt;/p&gt;
-&lt;h2&gt;Schritt für Schritt&lt;/h2&gt;
-&lt;p&gt;Im aktuellen Abschnitte kommen drei Datei hinzu und zwei werden geändert.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/cf6e6e6900a08a61f598343e7058695c/853cd/j4xdrei.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 42.331288343558285%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA4klEQVQoz3WR2QqFMAxE/f/P80XBBxFxF9z3JZdTaEHtDYSWJjOZTJ1t2+Q8T9Fx3/fj1Pd3/nt3KDRNI0EQSBRFkue51HX9ANjCNoBQhFVVieu6EoaheJ4naZo+VLLBcRxyXZdK2xCj8F2c59kAISFQzSDf9yVJEtOre5ZlUVsx2LF5NU2TDMMg+Lvvu7RtK+u6GjBv9OmThNys/PaiLEtlAwBI+75XPmMFpNQZwl1nlmUK47x/F5I4jtUKEKEUdQAgZQAbjONo/OTEKrAfQooQoAAlRVEoIr2SDnq6rvt80A9FFXD6dC4NMAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Übersicht über die Dateien im dritten Kapitel&quot;
-        title=&quot;Übersicht über die Dateien im dritten Kapitel&quot;
-        src=&quot;/static/cf6e6e6900a08a61f598343e7058695c/a6d36/j4xdrei.png&quot;
-        srcset=&quot;/static/cf6e6e6900a08a61f598343e7058695c/222b7/j4xdrei.png 163w,
-/static/cf6e6e6900a08a61f598343e7058695c/ff46a/j4xdrei.png 325w,
-/static/cf6e6e6900a08a61f598343e7058695c/a6d36/j4xdrei.png 650w,
-/static/cf6e6e6900a08a61f598343e7058695c/e548f/j4xdrei.png 975w,
-/static/cf6e6e6900a08a61f598343e7058695c/3c492/j4xdrei.png 1300w,
-/static/cf6e6e6900a08a61f598343e7058695c/853cd/j4xdrei.png 4925w&quot;
-        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3&gt;Neue Dateien&lt;/h3&gt;
-&lt;p&gt;Der Administrationsbereich unserer Komponente ist im Ordner &lt;code class=&quot;language-text&quot;&gt;com_foos&lt;/code&gt; unter &lt;code class=&quot;language-text&quot;&gt;/administrator/component&lt;/code&gt;. Jetzt arbeiten wir am Frontend, das im Ordner &lt;code class=&quot;language-text&quot;&gt;com_foos&lt;/code&gt; direkt unter &lt;code class=&quot;language-text&quot;&gt;/components&lt;/code&gt; gespeichert ist.&lt;/p&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702&quot;&gt;src/components/com_foos/src/Controller/DisplayController.php&lt;/a&gt; - Einstiegspunkt ins Frontend&lt;/h4&gt;
-&lt;p&gt;Dies ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse &lt;em&gt;DisplayController&lt;/em&gt;. Joomla! erwartet das so. Erweitere &lt;em&gt;BaseController&lt;/em&gt;, um viele Dinge Out-of-the-Box zu nutzen.&lt;/p&gt;
-&lt;p&gt;Alles was ich in Kapitel zur &lt;em&gt;ersten Ansicht im Backend&lt;/em&gt; geschrieben habe, trifft hier analog zu.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php&quot;&gt;components/com_foos/src/Controller/DisplayController.php&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Component&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Foos&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Site&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Controller&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-\&lt;span class=&quot;token package&quot;&gt;defined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;_JEXEC&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;CMS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVC&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Controller&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;BaseController&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;CMS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVC&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Factory&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVCFactoryInterface&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;DisplayController&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BaseController&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$config&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; MVCFactoryInterface &lt;span class=&quot;token variable&quot;&gt;$factory&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$app&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$input&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;__construct&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$config&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$factory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$app&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$cachable&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean constant&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$urlparams&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$cachable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656&quot;&gt;src/components/com_foos/src/View/Foo/HtmlView.php&lt;/a&gt; - Die Ansicht&lt;/h4&gt;
-&lt;p&gt;Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!&lt;/p&gt;
-&lt;p&gt;Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.&lt;/p&gt;
-&lt;p&gt;In der Datei &lt;code class=&quot;language-text&quot;&gt;HtmlView.php&lt;/code&gt; wir das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten.&lt;/p&gt;
-&lt;p&gt;Alles was ich in Kapitel zur &lt;em&gt;ersten Ansicht im Backend&lt;/em&gt; geschrieben habe, trifft hier analog zu.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php&quot;&gt;components/com_foos/src/View/Foo/HtmlView.php&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Component&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Foos&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Site&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;Foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-\&lt;span class=&quot;token package&quot;&gt;defined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;_JEXEC&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;token package&quot;&gt;Joomla&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;CMS&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;MVC&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;HtmlView&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; BaseHtmlView&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HtmlView&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;BaseHtmlView&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$tpl&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$tpl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f&quot;&gt;src/components/com_foos/tmpl/foo/default.php&lt;/a&gt; - Template&lt;/h4&gt;
-&lt;p&gt;In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur &lt;em&gt;ersten Ansicht im Backend&lt;/em&gt; geschrieben habe, trifft hier analog zu.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php&quot;&gt;components/com_foos/tmpl/foo/default.php&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
-\&lt;span class=&quot;token package&quot;&gt;defined&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;_JEXEC&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;
-Hello Foos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Geänderte Dateien&lt;/h3&gt;
-&lt;h4&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578&quot;&gt;src/administrator/components/com_foos/foos.xml&lt;/a&gt; - XML-Datei (Manifest)&lt;/h4&gt;
-&lt;p&gt;Dies ist die Datei, die Joomla! mitteilt, wie unsere Komponente installiert wird. Deshalb tragen wie die beiden neuen Dateien hier ein, so weiß Joomla bei einer Installatin, dass es die Verzeichnisse &lt;code class=&quot;language-text&quot;&gt;src&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;tmpl&lt;/code&gt; gibt und wo &lt;code class=&quot;language-text&quot;&gt;components/com_foos&lt;/code&gt; es sie hin kopieren soll.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml&quot;&gt;administrator/components/com_foos/foos.xml&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;...
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;files&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;components/com_foos&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;src&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;tmpl&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;folder&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;files&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Die Behelfsdatei - components/com_foos/index.html&lt;/h4&gt;
-&lt;p&gt;Diese Datei war nur ein Behelf und sie kann nun gelöscht werden.&lt;/p&gt;
-&lt;h2&gt;Teste deine Joomla-Komponente&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Installiere am Ende deine Komponente in Joomla! Version 4, um sie zu testen:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Führe eine neue Installation durch. Dies ist erforderlich, da die neuen Dateien im Frontend sonst nicht erkannt werden. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.&lt;/p&gt;
-&lt;p&gt;Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;administrator&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;administrator&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;br&gt;
-Kopiere die Dateien im &lt;code class=&quot;language-text&quot;&gt;components&lt;/code&gt; Ordner in den &lt;code class=&quot;language-text&quot;&gt;components&lt;/code&gt; Ordner deiner Joomla! 4 Installation.&lt;/p&gt;
-&lt;p&gt;Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! richtet bei der bei der Installation Namespaces für dich ein.&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;Öffne dann in einem Browser die Adresse &lt;code class=&quot;language-text&quot;&gt;JOOMLA4/index.php?option=com_foos&amp;amp;view=foo&lt;/code&gt;. Du siehst die eben erstelle Frontend-Ansicht.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.46625766871166%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABcklEQVQoz52O20oCURSG5zUqIoIISzyRqHdFF11JSBSeNU9EjYVvIFkUgRa9Rm8SdNllRAciU8ZxZjSd49/eg5IOFNkPi7X22mt962dmXEk41w7gWS/Cv1GCe5XFlC2O6aUEZpdTmLOnMe/IYMGZxaIrD5u7ALtnD46Vfbi8ZM/Lwus7hM9/hECgBCaUqiDJVpEuXmKXrZkRjJQRDJexGTlGKFrBVuwE2/FT7CTOEE6eI5a6QJTkBMnpTBWZbA253BUK+WswHC/g6fkN9fcGmm0JzZYAXpDQFjtoC5YgPfondT7R4tsQJQmyLKPX60NVVRi6AUYhhUaa4DiADPxVXQKhu7qmQdc1GIZh9pnhAG0YBEyvmPUvQcUTh4Igmg473a4JN4FjwxQ8hP8EMzNJmgpVUYg7A6IofQMxuIjB8NjbolGH9y8feG1wZq2PHGQwgegCdUR1c/eA28c6NH3g+L/AoSOqvqqhKytjhyYGWqHW/hcuX8awn1IG6wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla Ansicht im Frontend&quot;
-        title=&quot;Joomla Ansicht im Frontend&quot;
-        src=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png&quot;
-        srcset=&quot;/static/e0069a2b94ed5f88e9492fe1d63eda02/222b7/j4x3x1.png 163w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/ff46a/j4x3x1.png 325w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/a6d36/j4x3x1.png 650w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/e548f/j4x3x1.png 975w,
-/static/e0069a2b94ed5f88e9492fe1d63eda02/53ac9/j4x3x1.png 1287w&quot;
-        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3&gt;Übersicht&lt;/h3&gt;</content:encoded></item><item><title><![CDATA[Die erste Ansicht im Backend]]></title><description><![CDATA[Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du…]]></description><link>https://blog.astrid-guenther.de/die-erste-ansicht-im-backend/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/die-erste-ansicht-im-backend/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Sun, 01 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir fangen mit den Grundlagen an. Dazu erstellen wir die &lt;em&gt;View&lt;/em&gt; im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Die erste Ansicht im Backend]]></title><description><![CDATA[Wir fangen mit den Grundlagen an. Dazu erstellen wir die View im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du…]]></description><link>https://blog.astrid-guenther.de/die-erste-ansicht-im-backend/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/die-erste-ansicht-im-backend/</guid><category><![CDATA[CMS]]></category><category><![CDATA[Joomla]]></category><pubDate>Sun, 01 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Wir fangen mit den Grundlagen an. Dazu erstellen wir die &lt;em&gt;View&lt;/em&gt; im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; &quot;
@@ -11647,58 +12192,7 @@ map&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;h3&gt;Welche Inhalt möchten Sie anbieten? Wie soll die Website aufgebaut sein?&lt;/h3&gt;
 &lt;p&gt;Was möchten Sie sage oder zeigen? Gibt es schon Texte oder Bilder? Möchten Sie die Inhalte selbst pflegen?&lt;/p&gt;
 &lt;h3&gt;Wie soll die Navigation auf Ihrer Website erfolgen?&lt;/h3&gt;
-&lt;p&gt;Menüs sind ein entscheidendes Elemente einer Website. Die Navigation beeinflusst die Nutzerfreundlichkeit Ihrer Website erheblich. Umso wichtiger ist es, dass Sie genau überlegen, wie Navigationsmenüs angeordnet werden sollen und welche Art von Menü verwendet werden soll.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Webdesign versus Grafikdesign - gibt es Unterschiede?]]></title><description><![CDATA[Alle durch Medien vermittelten Inhalte werden durch Grafikdesign geprägt. Aufgrund der fortschreitenden technologischen Entwicklung der…]]></description><link>https://blog.astrid-guenther.de/design/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/design/</guid><category><![CDATA[Agentur]]></category><category><![CDATA[Webdesign]]></category><category><![CDATA[Sicherheit]]></category><pubDate>Fri, 01 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Alle durch Medien vermittelten Inhalte werden durch Grafikdesign geprägt. Aufgrund der fortschreitenden technologischen Entwicklung der digitalen Medien hat sich das Design in diesem Bereich zu einer eigenständigen Disziplin fortentwickelt. Viele Webentwickler graust es vor den Diskussionen mit dem Grafiker, der auf der Umsetzung seiner statischen Entwürfe pocht, obwohl man ihn auf die technischen Nachteile hinweist. Der Grafiker ärgert sich über den Webentwickler, der scheinbar immer alles abblockt.&lt;/p&gt;
-&lt;h2&gt;Was ist Grafikdesign?&lt;/h2&gt;
-&lt;p&gt;Beim Grafikdesign geht es darum&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Sprache,&lt;/li&gt;
-&lt;li&gt;Gedanken und&lt;/li&gt;
-&lt;li&gt;größere gedankliche Zusammenhänge&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;mittels&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Typographie,&lt;/li&gt;
-&lt;li&gt;Bild,&lt;/li&gt;
-&lt;li&gt;Farbe und&lt;/li&gt;
-&lt;li&gt;Material&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;visuell darzustellen zu machen.&lt;/p&gt;
-&lt;h2&gt;Was ist Webdesign?&lt;/h2&gt;
-&lt;p&gt;Grafikdesign ist ein kleiner Bereich im Webdesign. Webdesign wird auch Webgestaltung genannt. Die Gestaltung einer Website umfasst die&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;visuelle,&lt;/li&gt;
-&lt;li&gt;funktionale und&lt;/li&gt;
-&lt;li&gt;strukturelle&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Gestaltung von Websites für das Internet.&lt;/p&gt;
-&lt;p&gt;Dabei spielt die technische Implementierung, die Webentwicklung, von Websites eine große Rolle. Webdesign ist ein Bereich des Mediendesigns.&lt;/p&gt;
-&lt;h2&gt;Ein Beispiele zur Verdeutlichung&lt;/h2&gt;
-&lt;p&gt;Beim Lesen der beiden vorherigen Absätze &quot;Was ist Grafikdesign&quot; und &quot;Was ist Webdesign&quot; wird klar: Beim Grafikdesign wird das Hauptaugenmerk auf das Aussehen gelegt. Und das ist bei einer Grafik fix. Beim Webdesign ist das Visuelle ein Punkt unter vielen anderen. Die Funktion und die Struktur der Seite spielen eine weitere Rolle.&lt;/p&gt;
-&lt;p&gt;Zum Beispiel ist bei der Gestaltung einer Navigation das Aussehen der einzelnen Links nur ein Punkt von vielen. Wichtiger ist die Funktion. Sind alle Hyperlinks bei allen Displaygrößen komfortabel klickbar? Wie ändert sich das Aussehen, wenn man die Maus über einen Link bewegt - erkennt ein Benutzer, dass ein Text ein Link ist? Außerdem ist es Aufgabe des Webdesigners, darauf zu achten, dass die Struktur der Site logisch ist. Ein Website-Besucher orientiert. Oft passiert es, dass man erstklassige Inhalte nicht findet, weil man die Struktur der Site nicht durchschaut. Man fühlt sich beim Navigieren so, als ob man sich verlaufen hat. Man sieht keinen roten Faden und verlässt die Seite, um sein Glück auf einer anderen zu probieren.&lt;/p&gt;
-&lt;h2&gt;Konkrete Unterschiede zwischen Webdesign und Grafikdesign&lt;/h2&gt;
-&lt;p&gt;Das ein Slider mit großen Bildern mobil besser ausgeblendet wird, leuchtet jedem schnell ein. Welche Auswirkungen eine Silbentrennung hat, ist nicht offensichtlich. Manchmal ist in Eigennamen ein Trennstrich vorhanden. Nutzt man eine automatische Trennung, passiert es, dass dieser Name in unterschiedlichen Zeilen getrennt angezeigt wird. Dies wirkt unseriös. Wenn man die Silbentrennung aber gar nicht nutzt, werden Wörter mobil nicht getrennt. Dies führt oft dazu, dass eine Überschrift, die in der Regel in einer großen Schriftgröße dargestellt wird, über den Rand hinaus ragt.&lt;/p&gt;
-&lt;p&gt;Diese Probleme hat ein Grafikdesigner nicht. Bei ihm ändert sich die Breite seines Darstellungsmediums nicht.&lt;/p&gt;
-&lt;h3&gt;Visuelle Elemente&lt;/h3&gt;
-&lt;h4&gt;Farben&lt;/h4&gt;
-&lt;p&gt;Auf einem Flyer kann der Grafikdesigner Hintergrundfarben und Schriftfarben bei jedem einzelnen Element konkret testen und individuell anpassen. Im Falle einer Website legt man allgemeine Stile fest.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Welche Farben sind für die Schrift vorgesehen,&lt;/li&gt;
-&lt;li&gt;welche für Hintergrundflächen und Linien,&lt;/li&gt;
-&lt;li&gt;welche für Hyperlinks und Schaltflächen?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Für eine Website ist nur schwer möglich, Design individuell und konkret festzulegen, weil Vieles von der Breite des Anzeigebereiches abhängt. Und, was noch schwerer wiegt: Sofern Sie Ihre Website barrierefrei anbieten möchten sollten Sie auf die Kontraste achten.&lt;/p&gt;
-&lt;h4&gt;Schriftart&lt;/h4&gt;
-&lt;p&gt;Wir sind heute in der glücklichen Lage, eine Vielzahl von Webfonts verwenden zu können. Bei der Auswahl einer Schrift für eine Website sollten Sie einerseits klären, ob Lizenzgebühren für den Einsatz anfallen und andererseits, dass die Schrift auf unterschiedlichen Betriebssystemen, Browsern und Ausgabegeräten korrekt dargestellt wird. Wichtig ist auch, dass eine Größenveränderung für kleiner Displaybreiten vorgesehen ist.&lt;/p&gt;
-&lt;h4&gt;Grafik&lt;/h4&gt;
-&lt;p&gt;Auf einem Medium mit fester Breite, zum Beispiel einem Blatt Papier, kann eine Grafik im goldenen Schnitt präsentiert werden. Ein Internet-Browser ist kein Medium mit fester Breite. Man kann die Breite zwar künstlich festlegen. Das ist aber meiner Meinung nach ein fauler Kompromiss. Die meiste Zeit werden die Inhalte nämlich in einer Breite angezeigt, die nicht optimiert ist.&lt;/p&gt;
-&lt;p&gt;Bei der Anzeige von Bildern sollte deshalb genau festgelegt werden was passiert, wenn der Text neben einem Bild in der Länge mehr Platz einnimmt als das Bild - und umgekehrt. Und, was oft nicht nicht bedacht wird, wo und wie sollten Bildbeschriftungen angezeigt werden?&lt;/p&gt;
-&lt;h3&gt;Darstellungsmethode&lt;/h3&gt;
-&lt;p&gt;Während im Grafikdesign alles statisch ist, überwiegen beim Webdesign die dynamischen Elemente. Die Aufmerksamkeit des Website-Besuchers kann über visuelle Effekte gelenkt werden. Auch eine Interaktion ist möglich. Zum Beispiel kann man einem Benutzer über ein Pop-up Fenster eine Frage stellen. Je nach Antwort kann der Benutzer nun eine andere Anzeige geboten bekommen.&lt;/p&gt;
-&lt;h2&gt;Wireframes - Werkzeuge mit denen ich gerne arbeite&lt;/h2&gt;
-&lt;p&gt;Haben Sie schon einmal von Wireframes gehört? Es handelt sich dabei meiner Meinung nach um ein wirklich wertvolles Instrument. In skizzenhafter Weise wird die Anordnung von Funktionselemente und Inhaltselementen grob visualisiert mit dem Ziel, sich darüber zu verständigen, wie Anforderungen umgesetzt und was gestaltet werden soll.&lt;/p&gt;
-&lt;p&gt;Es kann festgelegt werden, ob ein Bild eine Vorgabe ist oder eine Option und wie umfangreich die Texte neben dem Bild sind. Eine weitere Frage, die geklärt werden kann: Sollen dreizeilige Überschriften möglich sein, oder kommen nur kurze Überschriften vor? Am besten werden diese Gestaltungsprinzipien in einer für alle verständlichen Weise aufgeschrieben. Das Ergebnis ist dann nicht ein statisches Photoshop-Layout, sondern eine - für alle verständliche - Zusammenfassung der wichtigsten Gestaltungselementen.&lt;/p&gt;
-&lt;h2&gt;Ein gutes Konzept kann viele Gesichter haben&lt;/h2&gt;
-&lt;p&gt;Einer der Vorteile, die Ihnen ein CMS wie Joomla! bietet: Die Inhalte werden unabhängig vom Layout gespeichert. Konkret bedeutet das, dass Sie Ihre Inhalte nicht ändern müssen, wenn Sie eine andere Farbe oder eine andere Schriftart nutzen möchten. Auch dann nicht, wenn Sie das bestehende Design für mobile Geräte erweitern möchten. Ihre Website könnte somit bei jedem neuesten Schrei der Mode mitmachen, ohne dass Sie Ihre Inhalte ändern müssen.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Warum habe ich mich für Open-Source wie Joomla, Leaflet, Gatsby oder OpenStreetMap entschieden?]]></title><description><![CDATA[Manchmal träume ich. Gestern habe ich mir vorgestellt, was wäre, wenn jeder die Möglichkeit hätte sich das, was er braucht, zu nehmen. Das…]]></description><link>https://blog.astrid-guenther.de/open-source/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/open-source/</guid><category><![CDATA[Agentur]]></category><category><![CDATA[Webdesign]]></category><category><![CDATA[Sicherheit]]></category><pubDate>Fri, 01 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Manchmal träume ich. Gestern habe ich mir vorgestellt, was wäre, wenn jeder die Möglichkeit hätte sich das, was er braucht, zu nehmen. Das funktioniert im wirklichen Leben nicht. Materielle Dinge sind begrenzt. Es wäre schnell alles aufgebraucht. Aber Moment, bei Software ist das anders!&lt;/p&gt;
+&lt;p&gt;Menüs sind ein entscheidendes Elemente einer Website. Die Navigation beeinflusst die Nutzerfreundlichkeit Ihrer Website erheblich. Umso wichtiger ist es, dass Sie genau überlegen, wie Navigationsmenüs angeordnet werden sollen und welche Art von Menü verwendet werden soll.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Warum habe ich mich für Open-Source wie Joomla, Leaflet, Gatsby oder OpenStreetMap entschieden?]]></title><description><![CDATA[Manchmal träume ich. Gestern habe ich mir vorgestellt, was wäre, wenn jeder die Möglichkeit hätte sich das, was er braucht, zu nehmen. Das…]]></description><link>https://blog.astrid-guenther.de/open-source/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/open-source/</guid><category><![CDATA[Agentur]]></category><category><![CDATA[Webdesign]]></category><category><![CDATA[Sicherheit]]></category><pubDate>Fri, 01 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Manchmal träume ich. Gestern habe ich mir vorgestellt, was wäre, wenn jeder die Möglichkeit hätte sich das, was er braucht, zu nehmen. Das funktioniert im wirklichen Leben nicht. Materielle Dinge sind begrenzt. Es wäre schnell alles aufgebraucht. Aber Moment, bei Software ist das anders!&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Es ist ohne nennenswerte Mehrkosten möglich einen Programmcode, der einmal entwickelt wurde, unendlich oft zu kopieren und zu verwenden.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -11763,4 +12257,55 @@ Der Lizenztext macht keine Vorgaben.&lt;/li&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Open_Data_Commons&amp;#x26;oldid=183117708#Open_Database_License_(ODC-ODbL)&quot;&gt;Open Database License (ODC-ODbL)&lt;br&gt;
 &lt;/a&gt;zum Beispiel die Daten von &lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=OpenStreetMap&amp;#x26;oldid=182716046&quot;&gt;Openstreetmap&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item></channel></rss>
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Webdesign versus Grafikdesign - gibt es Unterschiede?]]></title><description><![CDATA[Alle durch Medien vermittelten Inhalte werden durch Grafikdesign geprägt. Aufgrund der fortschreitenden technologischen Entwicklung der…]]></description><link>https://blog.astrid-guenther.de/design/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/design/</guid><category><![CDATA[Agentur]]></category><category><![CDATA[Webdesign]]></category><category><![CDATA[Sicherheit]]></category><pubDate>Fri, 01 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Alle durch Medien vermittelten Inhalte werden durch Grafikdesign geprägt. Aufgrund der fortschreitenden technologischen Entwicklung der digitalen Medien hat sich das Design in diesem Bereich zu einer eigenständigen Disziplin fortentwickelt. Viele Webentwickler graust es vor den Diskussionen mit dem Grafiker, der auf der Umsetzung seiner statischen Entwürfe pocht, obwohl man ihn auf die technischen Nachteile hinweist. Der Grafiker ärgert sich über den Webentwickler, der scheinbar immer alles abblockt.&lt;/p&gt;
+&lt;h2&gt;Was ist Grafikdesign?&lt;/h2&gt;
+&lt;p&gt;Beim Grafikdesign geht es darum&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sprache,&lt;/li&gt;
+&lt;li&gt;Gedanken und&lt;/li&gt;
+&lt;li&gt;größere gedankliche Zusammenhänge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;mittels&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Typographie,&lt;/li&gt;
+&lt;li&gt;Bild,&lt;/li&gt;
+&lt;li&gt;Farbe und&lt;/li&gt;
+&lt;li&gt;Material&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;visuell darzustellen zu machen.&lt;/p&gt;
+&lt;h2&gt;Was ist Webdesign?&lt;/h2&gt;
+&lt;p&gt;Grafikdesign ist ein kleiner Bereich im Webdesign. Webdesign wird auch Webgestaltung genannt. Die Gestaltung einer Website umfasst die&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;visuelle,&lt;/li&gt;
+&lt;li&gt;funktionale und&lt;/li&gt;
+&lt;li&gt;strukturelle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Gestaltung von Websites für das Internet.&lt;/p&gt;
+&lt;p&gt;Dabei spielt die technische Implementierung, die Webentwicklung, von Websites eine große Rolle. Webdesign ist ein Bereich des Mediendesigns.&lt;/p&gt;
+&lt;h2&gt;Ein Beispiele zur Verdeutlichung&lt;/h2&gt;
+&lt;p&gt;Beim Lesen der beiden vorherigen Absätze &quot;Was ist Grafikdesign&quot; und &quot;Was ist Webdesign&quot; wird klar: Beim Grafikdesign wird das Hauptaugenmerk auf das Aussehen gelegt. Und das ist bei einer Grafik fix. Beim Webdesign ist das Visuelle ein Punkt unter vielen anderen. Die Funktion und die Struktur der Seite spielen eine weitere Rolle.&lt;/p&gt;
+&lt;p&gt;Zum Beispiel ist bei der Gestaltung einer Navigation das Aussehen der einzelnen Links nur ein Punkt von vielen. Wichtiger ist die Funktion. Sind alle Hyperlinks bei allen Displaygrößen komfortabel klickbar? Wie ändert sich das Aussehen, wenn man die Maus über einen Link bewegt - erkennt ein Benutzer, dass ein Text ein Link ist? Außerdem ist es Aufgabe des Webdesigners, darauf zu achten, dass die Struktur der Site logisch ist. Ein Website-Besucher orientiert. Oft passiert es, dass man erstklassige Inhalte nicht findet, weil man die Struktur der Site nicht durchschaut. Man fühlt sich beim Navigieren so, als ob man sich verlaufen hat. Man sieht keinen roten Faden und verlässt die Seite, um sein Glück auf einer anderen zu probieren.&lt;/p&gt;
+&lt;h2&gt;Konkrete Unterschiede zwischen Webdesign und Grafikdesign&lt;/h2&gt;
+&lt;p&gt;Das ein Slider mit großen Bildern mobil besser ausgeblendet wird, leuchtet jedem schnell ein. Welche Auswirkungen eine Silbentrennung hat, ist nicht offensichtlich. Manchmal ist in Eigennamen ein Trennstrich vorhanden. Nutzt man eine automatische Trennung, passiert es, dass dieser Name in unterschiedlichen Zeilen getrennt angezeigt wird. Dies wirkt unseriös. Wenn man die Silbentrennung aber gar nicht nutzt, werden Wörter mobil nicht getrennt. Dies führt oft dazu, dass eine Überschrift, die in der Regel in einer großen Schriftgröße dargestellt wird, über den Rand hinaus ragt.&lt;/p&gt;
+&lt;p&gt;Diese Probleme hat ein Grafikdesigner nicht. Bei ihm ändert sich die Breite seines Darstellungsmediums nicht.&lt;/p&gt;
+&lt;h3&gt;Visuelle Elemente&lt;/h3&gt;
+&lt;h4&gt;Farben&lt;/h4&gt;
+&lt;p&gt;Auf einem Flyer kann der Grafikdesigner Hintergrundfarben und Schriftfarben bei jedem einzelnen Element konkret testen und individuell anpassen. Im Falle einer Website legt man allgemeine Stile fest.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Welche Farben sind für die Schrift vorgesehen,&lt;/li&gt;
+&lt;li&gt;welche für Hintergrundflächen und Linien,&lt;/li&gt;
+&lt;li&gt;welche für Hyperlinks und Schaltflächen?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Für eine Website ist nur schwer möglich, Design individuell und konkret festzulegen, weil Vieles von der Breite des Anzeigebereiches abhängt. Und, was noch schwerer wiegt: Sofern Sie Ihre Website barrierefrei anbieten möchten sollten Sie auf die Kontraste achten.&lt;/p&gt;
+&lt;h4&gt;Schriftart&lt;/h4&gt;
+&lt;p&gt;Wir sind heute in der glücklichen Lage, eine Vielzahl von Webfonts verwenden zu können. Bei der Auswahl einer Schrift für eine Website sollten Sie einerseits klären, ob Lizenzgebühren für den Einsatz anfallen und andererseits, dass die Schrift auf unterschiedlichen Betriebssystemen, Browsern und Ausgabegeräten korrekt dargestellt wird. Wichtig ist auch, dass eine Größenveränderung für kleiner Displaybreiten vorgesehen ist.&lt;/p&gt;
+&lt;h4&gt;Grafik&lt;/h4&gt;
+&lt;p&gt;Auf einem Medium mit fester Breite, zum Beispiel einem Blatt Papier, kann eine Grafik im goldenen Schnitt präsentiert werden. Ein Internet-Browser ist kein Medium mit fester Breite. Man kann die Breite zwar künstlich festlegen. Das ist aber meiner Meinung nach ein fauler Kompromiss. Die meiste Zeit werden die Inhalte nämlich in einer Breite angezeigt, die nicht optimiert ist.&lt;/p&gt;
+&lt;p&gt;Bei der Anzeige von Bildern sollte deshalb genau festgelegt werden was passiert, wenn der Text neben einem Bild in der Länge mehr Platz einnimmt als das Bild - und umgekehrt. Und, was oft nicht nicht bedacht wird, wo und wie sollten Bildbeschriftungen angezeigt werden?&lt;/p&gt;
+&lt;h3&gt;Darstellungsmethode&lt;/h3&gt;
+&lt;p&gt;Während im Grafikdesign alles statisch ist, überwiegen beim Webdesign die dynamischen Elemente. Die Aufmerksamkeit des Website-Besuchers kann über visuelle Effekte gelenkt werden. Auch eine Interaktion ist möglich. Zum Beispiel kann man einem Benutzer über ein Pop-up Fenster eine Frage stellen. Je nach Antwort kann der Benutzer nun eine andere Anzeige geboten bekommen.&lt;/p&gt;
+&lt;h2&gt;Wireframes - Werkzeuge mit denen ich gerne arbeite&lt;/h2&gt;
+&lt;p&gt;Haben Sie schon einmal von Wireframes gehört? Es handelt sich dabei meiner Meinung nach um ein wirklich wertvolles Instrument. In skizzenhafter Weise wird die Anordnung von Funktionselemente und Inhaltselementen grob visualisiert mit dem Ziel, sich darüber zu verständigen, wie Anforderungen umgesetzt und was gestaltet werden soll.&lt;/p&gt;
+&lt;p&gt;Es kann festgelegt werden, ob ein Bild eine Vorgabe ist oder eine Option und wie umfangreich die Texte neben dem Bild sind. Eine weitere Frage, die geklärt werden kann: Sollen dreizeilige Überschriften möglich sein, oder kommen nur kurze Überschriften vor? Am besten werden diese Gestaltungsprinzipien in einer für alle verständlichen Weise aufgeschrieben. Das Ergebnis ist dann nicht ein statisches Photoshop-Layout, sondern eine - für alle verständliche - Zusammenfassung der wichtigsten Gestaltungselementen.&lt;/p&gt;
+&lt;h2&gt;Ein gutes Konzept kann viele Gesichter haben&lt;/h2&gt;
+&lt;p&gt;Einer der Vorteile, die Ihnen ein CMS wie Joomla! bietet: Die Inhalte werden unabhängig vom Layout gespeichert. Konkret bedeutet das, dass Sie Ihre Inhalte nicht ändern müssen, wenn Sie eine andere Farbe oder eine andere Schriftart nutzen möchten. Auch dann nicht, wenn Sie das bestehende Design für mobile Geräte erweitern möchten. Ihre Website könnte somit bei jedem neuesten Schrei der Mode mitmachen, ohne dass Sie Ihre Inhalte ändern müssen.&lt;/p&gt;</content:encoded></item></channel></rss>
