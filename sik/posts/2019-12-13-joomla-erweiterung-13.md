@@ -194,7 +194,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Rule;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Rule;</span>
         </div>
     </td>
 </tr><tr>
@@ -565,7 +565,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins d2h-change">
         <div class="d2h-code-line d2h-ins d2h-change">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">	&lt;fieldset<ins> addruleprefix=&quot;Joomla\Component\Foos\Administrator\Rule&quot;</ins>&gt;</span>
+            <span class="d2h-code-line-ctn">	&lt;fieldset<ins> addruleprefix=&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;</ins>&gt;</span>
         </div>
     </td>
 </tr><tr>

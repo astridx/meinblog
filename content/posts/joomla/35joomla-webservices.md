@@ -36,7 +36,7 @@ Erstelle den Controller `FooController` der von `ApiController` erbt. In der Kla
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Api\Controller;
+namespace FooNamespace\Component\Foos\Api\Controller;
 
 defined('_JEXEC') or die;
 
@@ -82,7 +82,7 @@ Erstelle die Schnittstelle `JsonapiView` die von `BaseApiView` erbt. Greife wied
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Api\View\Foos;
+namespace FooNamespace\Component\Foos\Api\View\Foos;
 
 defined('_JEXEC') or die;
 

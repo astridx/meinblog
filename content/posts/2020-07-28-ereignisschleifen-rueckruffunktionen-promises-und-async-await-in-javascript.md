@@ -11,15 +11,15 @@ tags:
   - JavaScript
 ---
 
-Vor nicht allzulanger Zeit bestanden eine Website in der Regel aus statischen Daten in einer HTML-Datei. Dies hat sich rasant verändert. Eine Webanwendung ist heute interaktive und dynamisch. Meist ist es unerlässlich, externe Netzwerkanforderungen über eine Schnittstelle durchzuführen. Im Falle von JavaScript sind dann *asynchrone* Programmiertechniken erforderlich.
+Vor nicht allzulanger Zeit bestanden eine Website in der Regel aus statischen Daten in einer HTML-Datei. Dies hat sich rasant verändert. Eine Webanwendung ist heute interaktive und dynamisch. Meist ist es unerlässlich, externe Netzwerkanforderungen über eine Schnittstelle durchzuführen. Im Falle von JavaScript sind dann _asynchrone_ Programmiertechniken erforderlich.
 
-Standardmäßig wird ein Skript innerhalb eines Browsers in Form eines einzigen Threads abgearbeitet. Eine Aktion wie das Anfordern einer Datei über eine API nimmt eine unbestimmte Zeit in Anspruch. Sie ist abhängig von der Größe der angeforderten Daten, der Geschwindigkeit der Netzwerkverbindung und anderen Faktoren. Wenn API-Aufrufe ausschließlich synchron abliefen, wäre es nicht möglich gleichzeitig Benutzereingaben wie Scrollen oder Klicken auf eine Schaltfläche zu verarbeiten. In einem Singlethread-Programm wird die Benutzeroberfläche *blockiert*, während andere Berechnungen ablaufen.
+Standardmäßig wird ein Skript innerhalb eines Browsers in Form eines einzigen Threads abgearbeitet. Eine Aktion wie das Anfordern einer Datei über eine API nimmt eine unbestimmte Zeit in Anspruch. Sie ist abhängig von der Größe der angeforderten Daten, der Geschwindigkeit der Netzwerkverbindung und anderen Faktoren. Wenn API-Aufrufe ausschließlich synchron abliefen, wäre es nicht möglich gleichzeitig Benutzereingaben wie Scrollen oder Klicken auf eine Schaltfläche zu verarbeiten. In einem Singlethread-Programm wird die Benutzeroberfläche _blockiert_, während andere Berechnungen ablaufen.
 
-Um eine Blockierung zu verhindern, verfügt die Browserumgebung über Web-APIs die *asynchron* sind und auf die JavaScript zugreift. Dies bedeutet, dass diese parallel zu anderen Vorgängen – anstatt nacheinander – ablaufen und es dem Benutzer gleichzeitig möglich ist, Eingaben zu tätigen.
+Um eine Blockierung zu verhindern, verfügt die Browserumgebung über Web-APIs die _asynchron_ sind und auf die JavaScript zugreift. Dies bedeutet, dass diese parallel zu anderen Vorgängen – anstatt nacheinander – ablaufen und es dem Benutzer gleichzeitig möglich ist, Eingaben zu tätigen.
 
 Als JavaScript-Entwickler arbeitet man mit den asynchronen Web-APIs und behandelt potenzielle Fehler. Ich habe mir Ereignisschleifen, Rückruffunktionen, Promises und die moderne Praxis – sprich der Verwendung von „async/await“ – genauer angesehen.
 
-> **Hinweis**: Dieser Artikel konzentriert sich auf clientseitiges JavaScript in der Browserumgebung. 
+> **Hinweis**: Dieser Artikel konzentriert sich auf clientseitiges JavaScript in der Browserumgebung.
 
 ## Die Ereignisschleife (Event Loop)
 
@@ -30,29 +30,29 @@ JavaScript-Code, der keine asynchronen Web-APIs verwendet, läuft synchron ab - 
 ```html
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Titel</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<script>
-			function eins() {
-				console.log(1);
-			}
+  <head>
+    <title>Titel</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script>
+      function eins() {
+        console.log(1)
+      }
 
-			function zwei() {
-				console.log(2);
-			}
+      function zwei() {
+        console.log(2)
+      }
 
-			function drei() {
-				console.log(3);
-			}
-			eins();
-			zwei();
-			drei();
-		</script>
-	</body>
+      function drei() {
+        console.log(3)
+      }
+      eins()
+      zwei()
+      drei()
+    </script>
+  </body>
 </html>
 ```
 
@@ -99,7 +99,7 @@ Bei einem auf 0 gesetzten `setTimeout()` erwartet man, dass der Aufruf dieser dr
 2
 ```
 
-Dies liegt daran, dass die JavaScript-Umgebung, in diesem Fall der Browser, ein Konzept namens *Ereignisschleife* oder *Event Loop* verwendet, um parallele Ereignisse zu verarbeiten. JavaScript ist sequentiell und ruft jeweils nur eine Anweisung auf. Deshalb wird ein Speichermodell verwendet, bei dem drei wichtige Bereiche zum Einsatz kommen: der Stack (Stapel), die Queue (Warteschlange) und der Heap (Haufen).
+Dies liegt daran, dass die JavaScript-Umgebung, in diesem Fall der Browser, ein Konzept namens _Ereignisschleife_ oder _Event Loop_ verwendet, um parallele Ereignisse zu verarbeiten. JavaScript ist sequentiell und ruft jeweils nur eine Anweisung auf. Deshalb wird ein Speichermodell verwendet, bei dem drei wichtige Bereiche zum Einsatz kommen: der Stack (Stapel), die Queue (Warteschlange) und der Heap (Haufen).
 
 ### Heap (Haufen)
 
@@ -113,15 +113,15 @@ Führst du beispielsweise den oben stehenden synchronen Code aus, passiert Folge
 
 - Füge `eins()` zum Stapel hinzu, führe `eins()` aus, und entferne `eins()` vom Stapel.
 - Füge `zwei()` zum Stapel hinzu, führe `zwei()` aus und entferne `zwei()` vom Stapel.
-- Füge `drei()` zum Stapel hinzu, führe `drei()` aus und entferne ` drei() `vom Stapel.
+- Füge `drei()` zum Stapel hinzu, führe `drei()` aus und entferne `drei()`vom Stapel.
 
 Das Beispiel mit `setTimout` sieht so aus:
 
 - Füge `eins()` zum Stapel hinzu, führe `eins()` aus und entferne `eins()` vom Stapel.
 - Füge `zwei()` zum Stapel hinzu und führe `zwei()` aus.
-- Füge dem Stapel `setTimeout()` hinzu, führe `setTimeout()` aus (welche einen Timer aufruft und die anonyme Funktion zur * Warteschlange * hinzufügt) und entferne `setTimeout()` vom dem Stapel.
+- Füge dem Stapel `setTimeout()` hinzu, führe `setTimeout()` aus (welche einen Timer aufruft und die anonyme Funktion zur _ Warteschlange _ hinzufügt) und entferne `setTimeout()` vom dem Stapel.
 - entferne `zwei()` vom Stapel.
-- Füge `drei()` zum Stapel hinzu, führe `drei()` aus und entferne ` drei() `vom Stapel.
+- Füge `drei()` zum Stapel hinzu, führe `drei()` aus und entferne `drei()`vom Stapel.
 - Die Ereignisschleife überprüft die Warteschlange auf ausstehende Nachrichten und findet die anonyme Funktion von `setTimeout()`, fügt diese dem Stapel hinzu und entfernt sie vom Stapel.
 
 Jetzt ist die Warteschlange in Spiel gekommen, die wir uns als Nächstes ansehen.
@@ -136,7 +136,7 @@ Im Beispiel `setTimeout` wird die anonyme nach den anderen Funktionen aufgerufen
 
 ## Rückruffunktionen (Callback)
 
-Im Beispiel `setTimeout` wurde die Funktion mit dem Timeout am Ende des Skriptes aufgerufen. Manchmal ist es wichtig, dass Aufruf am Ende geschieht. Dann greifen wir auf asynchrone Codierungsmethoden zu. Zum Beispiel auf Rückruffunktionen. Diese haben keine spezielle Syntax. Sie sind nichts weiter als eine Funktion, die als Argument an eine andere übergeben wird. Die andere heißt dabei *Funktion höherer Ordnung*. Jede ist eine Rückruffunktion, wenn sie als Argument eingesetzt wird. Rückrufe sind von Natur aus nicht asynchron, werden aber für diesen Zweck verwendet.
+Im Beispiel `setTimeout` wurde die Funktion mit dem Timeout am Ende des Skriptes aufgerufen. Manchmal ist es wichtig, dass Aufruf am Ende geschieht. Dann greifen wir auf asynchrone Codierungsmethoden zu. Zum Beispiel auf Rückruffunktionen. Diese haben keine spezielle Syntax. Sie sind nichts weiter als eine Funktion, die als Argument an eine andere übergeben wird. Die andere heißt dabei _Funktion höherer Ordnung_. Jede ist eine Rückruffunktion, wenn sie als Argument eingesetzt wird. Rückrufe sind von Natur aus nicht asynchron, werden aber für diesen Zweck verwendet.
 
 Zur Veranschaulichung ein Codebeispiel:
 
@@ -204,7 +204,7 @@ function drei() {
 	console.log(3)
 }
 eins();
-zwei(drei);	
+zwei(drei);
 ...
 ```
 
@@ -257,7 +257,7 @@ Ein Promise steht für den Abschluss einer asynchronen Funktion. Es ist ein Obje
 
 ### Ein Promise erstellen
 
-Initialisiere ein  Promise mit der Syntax `new Promise`. Die Funktion, die an ein  Promise übergeben wird, hat die Parameter `resolve (auflösen)` und `reject (zurückweisen)`:
+Initialisiere ein Promise mit der Syntax `new Promise`. Die Funktion, die an ein Promise übergeben wird, hat die Parameter `resolve (auflösen)` und `reject (zurückweisen)`:
 
 ```javascript
 ...
@@ -267,8 +267,7 @@ const promise = new Promise((resolve, reject) => {})
 
 Wenn du das Promise über die Konsole protokollierst `console.log(promise);`, siehst du `Promise { <state>: "pending" }`.
 
-Testen wir das Promise, indem wir es erfüllen. Dazu weisen wir ihm einen Wert zu:		
-
+Testen wir das Promise, indem wir es erfüllen. Dazu weisen wir ihm einen Wert zu:
 
 ```javascript
 ...
@@ -283,8 +282,8 @@ Wenn du das Promise über die Konsole protokollierst `console.log(promise);`, si
 Es gibt drei mögliche Zustände: ausstehend, erfüllt und abgelehnt:
 
 - Pending (ausstehend) - Anfangszustand
-- Fulfilled (erfüllt) - erfolgreich,  Promise ist gelöst
-- Rejected abgelehnt) - fehlgeschlagen,  Promise abgelehnt
+- Fulfilled (erfüllt) - erfolgreich, Promise ist gelöst
+- Rejected abgelehnt) - fehlgeschlagen, Promise abgelehnt
 
 ### Ein Promise konsumieren
 
@@ -338,11 +337,13 @@ promise
 	});
 ...
 ```
+
 Die erfüllte Antwort sieht wie folgt aus:
 
 ```text
 Verkettung aufgelöst!
 ```
+
 Da `then` verkettet und nicht verschachtelt wird, ist er Code besser lesbar.
 
 ### Fehlerbehandlung
@@ -390,11 +391,11 @@ Die Ausgabe ist nun `Fehler!`. Der Fehler ist nicht gelöst, aber wir haben in d
 
 Als Referenz eine Tabelle mit den Handler-Methoden für Promise-Objekte:
 
-| Methode | Beschreibung |
-| --- | --- |
-| [`then()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) | Behandelt eine `Lösung`.
-| [`catch()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) | Behandelt eine Ablehnung.
-| [`finally()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally	) | Unabhängig, ob das Promise erfolgreich erfüllt wurde oder nicht.
+| Methode                                                                                                      | Beschreibung                                                     |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| [`then()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)       | Behandelt eine `Lösung`.                                         |
+| [`catch()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)     | Behandelt eine Ablehnung.                                        |
+| [`finally()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/finally) | Unabhängig, ob das Promise erfolgreich erfüllt wurde oder nicht. |
 
 ## Async-Funktionen mit `async/await`
 
@@ -443,7 +444,7 @@ Hier ist ein triviales Beispiel:
 
 ```javascript
 ...
-function eins() { 
+function eins() {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve('1');
@@ -471,7 +472,7 @@ Zur Veranschaulichung ändern wir den Code wie folgt ab. Es fehlt nur das Wort `
 
 ```javascript
 ...
-function eins() { 
+function eins() {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve('1');

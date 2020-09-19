@@ -682,7 +682,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Helper;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Helper;</span>
         </div>
     </td>
 </tr><tr>
@@ -1143,7 +1143,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,11 +11,13 @@ namespace Joomla\Component\Foos\Administrator\View\Foos;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,11 +11,13 @@ namespace FooNamespace\Component\Foos\Administrator\View\Foos;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -1250,7 +1250,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Helper\FooHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;</span>
         </div>
     </td>
 </tr><tr>

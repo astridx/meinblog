@@ -1352,7 +1352,7 @@ Spiele mit den Einstellungen herum. Erlaube einmal nur dem Super Admin, neue Ele
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,6 +11,7 @@ namespace Joomla\Component\Foos\Administrator\View\Foos;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,6 +11,7 @@ namespace FooNamespace\Component\Foos\Administrator\View\Foos;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">

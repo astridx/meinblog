@@ -31,7 +31,7 @@ Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiter
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Site\Model;
+namespace FooNamespace\Component\Foos\Site\Model;
 
 \defined('_JEXEC') or die
 

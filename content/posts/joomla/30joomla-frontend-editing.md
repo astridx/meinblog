@@ -29,7 +29,7 @@ Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearb
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Service\HTML;
+namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
 
 \defined('_JEXEC') or die;
 
@@ -40,7 +40,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-use Joomla\Component\Foos\Site\Helper\RouteHelper;
+use FooNamespace\Component\Foos\Site\Helper\RouteHelper;
 use Joomla\Registry\Registry;
 
 class Icon
@@ -180,8 +180,8 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<fieldset
-		addruleprefix="Joomla\Component\Foos\Administrator\Rule"
-		addfieldprefix="Joomla\Component\Foos\Administrator\Field"
+		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
+		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 	>
 		<field
 			name="id"
@@ -336,7 +336,7 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Site\Controller;
+namespace FooNamespace\Component\Foos\Site\Controller;
 
 \defined('_JEXEC') or die;
 
@@ -475,7 +475,7 @@ class FooController extends FormController
 [src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
 ```php
-namespace Joomla\Component\Foos\Site\Model;
+namespace FooNamespace\Component\Foos\Site\Model;
 
 \defined('_JEXEC') or die;
 
@@ -486,7 +486,7 @@ use Joomla\CMS\Language\Multilanguage;
 use Joomla\Registry\Registry;
 use Joomla\Utilities\ArrayHelper;
 
-class FormModel extends \Joomla\Component\Foos\Administrator\Model\FooModel
+class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooModel
 {
 	public $typeAlias = 'com_foos.foo';
 
@@ -613,7 +613,7 @@ class FormModel extends \Joomla\Component\Foos\Administrator\Model\FooModel
 [src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php
-namespace Joomla\Component\Foos\Site\View\Form;
+namespace FooNamespace\Component\Foos\Site\View\Form;
 
 \defined('_JEXEC') or die;
 
@@ -621,7 +621,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Multilanguage;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
-use Joomla\Component\Foos\Administrator\Helper\FooHelper;
+use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
 
 class HtmlView extends BaseHtmlView
 {

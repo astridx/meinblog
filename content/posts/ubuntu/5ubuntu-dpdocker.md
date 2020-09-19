@@ -33,5 +33,4 @@ bash images/build.sh
 
 ./run.sh
 
-
 Eine vollständige Referenz aller verfügbaren `DPDocker` Befehle ist die [Dokumentation](https://github.com/Digital-Peak/DPDocker/blob/master/README.md).

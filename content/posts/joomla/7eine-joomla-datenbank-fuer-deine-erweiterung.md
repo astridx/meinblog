@@ -66,7 +66,7 @@ Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir 
 [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php
-namespace Joomla\Component\Foos\Administrator\Model;
+namespace FooNamespace\Component\Foos\Administrator\Model;
 
 \defined('_JEXEC') or die;
 

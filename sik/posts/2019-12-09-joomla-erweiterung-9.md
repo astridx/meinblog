@@ -414,7 +414,7 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Field\Modal;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Field\Modal;</span>
         </div>
     </td>
 </tr><tr>
@@ -4578,7 +4578,7 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">			addfieldprefix=&quot;Joomla\Component\Foos\Administrator\Field&quot;</span>
+            <span class="d2h-code-line-ctn">			addfieldprefix=&quot;FooNamespace\Component\Foos\Administrator\Field&quot;</span>
         </div>
     </td>
 </tr><tr>

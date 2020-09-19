@@ -21,7 +21,7 @@ Du brauchst Joomla! 4.x für dieses Tutorial (zum Zeitpunkt des Schreibens von J
 
 Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla! funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen.
 
-> Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten.
+> Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen.
 > Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla! 3 Komponente, wenn diese Ihre Komponente für Joomla! 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
 
 ## Die Struktur dieses Tutorials
@@ -41,6 +41,29 @@ In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist k
 
 Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
 
+## Theoretische Grundlagen zu Joomla!
+
+### Joomlaǃ 4 bietet fünf Arten von Erweiterungenː
+
+- [Komponenten](https://docs.joomla.org/Special:MyLanguage/Component/de):
+  Eine Komponente ist der Hauptteil der Site. Eine Komponente übernimmt die Datenmanipulation sowie die Eingabe und Speicherung in die Datenbank. Eine Komponente auf den meisten Websites steht im Mittelpunkt der Seite.
+- [Module](https://docs.joomla.org/Special:MyLanguage/Module/de):
+  Ein Modul ist ein Add-On zur Site, das die Funktionalität erweitert. Es nimmt einen sekundären Teil der Webseite ein und wird nicht als primärer Fokus einer Seite betrachtet. Es wird an verschiedenen Positionen angezeigt und es ist auswählbar, auf welchen aktiven Menüelementen es ausgegeben wird. Module sind leichte und flexible Erweiterungen. Man verwendet sie für kleine Teile der Seite, die im Allgemeinen weniger komplex sind und über verschiedene Komponenten hinweg angezeigt werden.
+- [Plugins](https://docs.joomla.org/Special:MyLanguage/Plugin/de):
+  Ein Plugin bearbeitet die Ausgabe, die vom System generiert wurde. Es wird normalerweise nicht als separater Teil der Site aufgerufen. Es nimmt Daten aus anderen Quellen und bearbeitet diese vor dem Anzeigen. Ein Plugin funktioniert normalerweise hinter den Kulissen.
+- [Sprachen](https://docs.joomla.org/Language/de):
+  Die grundlegendsten Erweiterungen sind Sprachen. Im Wesentlichen bestehen die Sprachpaketdateien aus Schlüssel/Wert-Paaren, die die Übersetzung statischer Textzeichenfolgen im Joomla! Quellcode ermöglichen.
+- [Templates](https://docs.joomla.org/Special:MyLanguage/Templates/de):
+  Ein Template ist das Design deiner Joomla! Website.
+
+### Joomla! 4 besteht aus fünf verschiedenen Anwendungen:
+
+- Installation (wird für die Installation von Joomla verwendet und muss nach der Installation gelöscht werden);
+- Administrator (Backend - zum Verwalten von Inhalten);
+- Öffentlich oder Website (Frontend - zur Anzeige von Inhalten);
+- CLI (wird für den Zugriff auf Joomla über die Befehlszeile und für Cron-Jobs verwendet);
+- API (Webdienste - zum Erstellen von APIs für maschinenzugängliche Inhalte);
+
 # Nebensächlich aber _Gut zu wissen_
 
 ## Die Datei autoload_psr4.php
@@ -51,11 +74,11 @@ Während der Installation werden Einträge in der `/library/autoload_psr4.php` v
 
 Beachte das Namespace-Tag oben in jeder Datei
 
-`Namespace Joomla\Component\Foos\Administrator\View\Foos;`
+`Namespace FooNamespace\Component\Foos\Administrator\View\Foos;`
 
 und als Tag in der Manifestdatei
 
-`<Namespace>Joomla\Component\Foos</ Namespace>`.
+`<Namespace>FooNamespace\Component\Foos</ Namespace>`.
 
 Warum Namespaces verwenden?
 
@@ -76,7 +99,7 @@ Weitere Informationen findest du unter: [https://github.com/joomla/joomla-cms/is
 
 ## Die Klassen erhalten aussagekräftigere Namen
 
-Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise haben die Controller jetzt Controller als Suffix für ihren Klassennamen. So wird "Joomla\Component\Foos\Administrator\Controller\Foos" zu "Joomla\Component\Foos\Administrator\Controller\FoosController".
+Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise haben die Controller jetzt Controller als Suffix für ihren Klassennamen. So wird "FooNamespace\Component\Foos\Administrator\Controller\Foos" zu "FooNamespace\Component\Foos\Administrator\Controller\FoosController".
 
 Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen "DisplayController", um besser zu reflektieren, was die Klasse tut.
 

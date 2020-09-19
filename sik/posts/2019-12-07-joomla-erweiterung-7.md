@@ -170,7 +170,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">	&lt;namespace path=&quot;src&quot;&gt;Joomla\Component\Foos&lt;&#x2F;namespace&gt;</span>
+            <span class="d2h-code-line-ctn">	&lt;namespace path=&quot;src&quot;&gt;FooNamespace\Component\Foos&lt;&#x2F;namespace&gt;</span>
         </div>
     </td>
 </tr><tr>
@@ -507,7 +507,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Extension\FoosComponent;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;</span>
         </div>
     </td>
 </tr>
@@ -897,7 +897,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Model;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Model;</span>
         </div>
     </td>
 </tr><tr>

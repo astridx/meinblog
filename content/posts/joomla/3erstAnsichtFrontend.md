@@ -38,7 +38,7 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 [components/com_foos/src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php)
 
 ```php
-namespace Joomla\Component\Foos\Site\Controller;
+namespace FooNamespace\Component\Foos\Site\Controller;
 
 \defined('_JEXEC') or die;
 
@@ -74,7 +74,7 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Site\View\Foo;
+namespace FooNamespace\Component\Foos\Site\View\Foo;
 
 \defined('_JEXEC') or die;
 

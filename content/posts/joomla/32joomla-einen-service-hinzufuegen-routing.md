@@ -28,7 +28,7 @@ Der Service wandelt die URLs in suchmaschinenfreundliche Versionen.
 [src/components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
 ```php
-namespace Joomla\Component\Foos\Site\Service;
+namespace FooNamespace\Component\Foos\Site\Service;
 
 \defined('_JEXEC') or die;
 
@@ -268,7 +268,7 @@ Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so 
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Extension;
+namespace FooNamespace\Component\Foos\Administrator\Extension;
 
 defined('JPATH_PLATFORM') or die;
 

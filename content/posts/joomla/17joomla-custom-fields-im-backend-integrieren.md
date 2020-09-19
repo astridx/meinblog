@@ -34,7 +34,7 @@ In einer Hilfsdatei erstellen wir ein Untermenü für die benutzerdefinnierten F
 [src/administrator/components/com_foos/src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
 
 ```php
-namespace Joomla\Component\Foos\Administrator\Helper;
+namespace FooNamespace\Component\Foos\Administrator\Helper;
 
 \defined('_JEXEC') or die;
 

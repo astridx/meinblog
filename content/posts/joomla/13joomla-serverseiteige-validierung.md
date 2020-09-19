@@ -36,7 +36,7 @@ Hier das Hauptziel nicht, JavaScript und sinnvolle Validierung zu lernen. Ich ze
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Rule;
+namespace FooNamespace\Component\Foos\Administrator\Rule;
 
 \defined('_JEXEC') or die;
 
@@ -54,14 +54,14 @@ class LetterRule extends FormRule
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Geändert hat sich hier `<fieldset addruleprefix="Joomla\Component\Foos\Administrator\Rule">` und `validate="Letter"`
+Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` und `validate="Letter"`
 
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset addruleprefix="Joomla\Component\Foos\Administrator\Rule">
+	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
 		<field
 			name="id"
 			type="number"

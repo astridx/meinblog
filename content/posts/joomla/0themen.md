@@ -56,7 +56,7 @@ tags:
 
 ## Module
 
-1. [Module - Erste Schritte](/joomla-module-simple/)
+1. [Module - Erste Schritte](/joomla-module-erste-schritte/)
 1. [Module - Namespace und Helper](/joomla-module-namespace-und-helper)
 1. [Module - Parameter](/joomla-module-parameter)
 1. [Module - Installationsskript](/joomla-module-installation-script)

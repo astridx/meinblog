@@ -49,7 +49,7 @@ Jetzt benötigen wir `AdminController`. Deshalb erstellen wir `FoosController` u
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Controller;
+namespace FooNamespace\Component\Foos\Administrator\Controller;
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\MVC\Controller\AdminController;

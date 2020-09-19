@@ -16,9 +16,9 @@ tags:
   - MapBox
 ---
 
-Geografische Daten haben mich schon immer fasziniert. Ich verwende [LeafletJs](https://leafletjs.com/), zur Zeit in Kombination mit [Joomla](https://www.joomla.de/). Parallel arbeite ich mich in [React](https://reactjs.org/) und [Mapbox GL](https://docs.mapbox.com/mapbox-gl-js/api/) ein. 
+Geografische Daten haben mich schon immer fasziniert. Ich verwende [LeafletJs](https://leafletjs.com/), zur Zeit in Kombination mit [Joomla](https://www.joomla.de/). Parallel arbeite ich mich in [React](https://reactjs.org/) und [Mapbox GL](https://docs.mapbox.com/mapbox-gl-js/api/) ein.
 
-Ich habe beschlossen, eine Anwendung mit React- und Mapbox GL neu zu erstellen. Obwohl ich kein Mapbox-Experte bin, teile ich einige meiner Erkenntnisse in der Hoffnung, dass dies für jemanden hilfreich ist. 
+Ich habe beschlossen, eine Anwendung mit React- und Mapbox GL neu zu erstellen. Obwohl ich kein Mapbox-Experte bin, teile ich einige meiner Erkenntnisse in der Hoffnung, dass dies für jemanden hilfreich ist.
 
 #### Voraussetzungen
 
@@ -35,7 +35,7 @@ Sieh dir hier den Code und eine Demo des Endergebnisses an.
 
 ## Warum MapBox GL?
 
-Mapbox GL ist ein leistungsstarkes und vielseitiges Tool zum Erstellen interaktiver Karten und zum Visualisieren von geografischen Daten, genau wie LeafletJS und Mapbox  JS (ohne GL). Unzählige seriöse Unternehmen setzen es für eine Vielzahl von Anwendungsfällen ein. Bei Basiskarten zeigen Mapbox JS und LeafletJS PNG- und JPEG-Dateien (Raster Kacheln) an, mithilfe von HTML und CSS. Mapbox GL JS nutzt [Vektorkacheln](https://en.wikipedia.org/wiki/Vector_tiles) und zeigt sie mithilfe der Programmierschnittstelle [WebGL](https://de.wikipedia.org/wiki/WebGL) an.
+Mapbox GL ist ein leistungsstarkes und vielseitiges Tool zum Erstellen interaktiver Karten und zum Visualisieren von geografischen Daten, genau wie LeafletJS und Mapbox JS (ohne GL). Unzählige seriöse Unternehmen setzen es für eine Vielzahl von Anwendungsfällen ein. Bei Basiskarten zeigen Mapbox JS und LeafletJS PNG- und JPEG-Dateien (Raster Kacheln) an, mithilfe von HTML und CSS. Mapbox GL JS nutzt [Vektorkacheln](https://en.wikipedia.org/wiki/Vector_tiles) und zeigt sie mithilfe der Programmierschnittstelle [WebGL](https://de.wikipedia.org/wiki/WebGL) an.
 
 ## Einrichtung und Installation
 
@@ -43,7 +43,7 @@ Wir erstellen eine interaktive Karte, die einige Daten basierend auf dem Mittelp
 
 ### React Anwendung
 
-Erstellen wir zunächst eine neue React-App und installieren Sie ` mapbox-gl` als Abhängigkeit:
+Erstellen wir zunächst eine neue React-App und installieren Sie `mapbox-gl` als Abhängigkeit:
 
 ```bash
 npx create-react-app react-mapbox-example
@@ -51,18 +51,21 @@ cd react-mapbox-example
 yarn add mapbox-gl
 ```
 
-Erstelle als Nächstes ein kostenloses Mapbox-Konto und erhalte ein API-Zugriffstoken [hier] (https://account.mapbox.com/). Lege im Stammverzeichnis deines Projekts eine `.env.local`-Datei an und füge das Token hinzu:
+Erstelle als Nächstes ein kostenloses Mapbox-Konto und erhalte ein API-Zugriffstoken [hier](https://account.mapbox.com/). Lege im Stammverzeichnis deines Projekts eine `.env.local`-Datei an und füge das Token hinzu:
 
 ```bash
 /* .env.local */
 REACT_APP_MAPBOX_ACCESS_TOKEN=DEIN_TOKEN
 ```
 
-Füge dann die Mapbox-CSS-Datei im `<head>` der Datei  `Public / index.html`-Datei hinzu. In deinem Fall ist die Versionsnummer unter Umständen eine andere. Passe diese dann an. 
+Füge dann die Mapbox-CSS-Datei im `<head>` der Datei `Public / index.html`-Datei hinzu. In deinem Fall ist die Versionsnummer unter Umständen eine andere. Passe diese dann an.
 
 ```html
 /* public/index.html */
-<link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
 ```
 
 ### Erstelle die Karte
@@ -75,15 +78,15 @@ Vor Kurzem habe ich mitgeholfen, die bis dahin auf Klassen basierenden [Mapbox B
 Um die Karte hinzuzufügen, ersetze ich den Inhalt von `src/App.js` durch den folgenden Code:
 
 ```jsx
-import React, { useRef, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
+import React, { useRef, useEffect } from 'react'
+import mapboxgl from 'mapbox-gl'
 
-import './App.css';
+import './App.css'
 
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN
 
 const App = () => {
-  const mapContainerRef = useRef(null);
+  const mapContainerRef = useRef(null)
 
   // initialize map when component mounts
   useEffect(() => {
@@ -93,19 +96,19 @@ const App = () => {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-104.9876, 39.7405],
       zoom: 12.5,
-    });
+    })
 
     // add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+    map.addControl(new mapboxgl.NavigationControl(), 'bottom-right')
 
     // clean up on unmount
-    return () => map.remove();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => map.remove()
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  return <div className="map-container" ref={mapContainerRef} />;
-};
+  return <div className="map-container" ref={mapContainerRef} />
+}
 
-export default App;
+export default App
 ```
 
 Um die Karte zu formatieren, ersetze ich den Inhalt von `src/Apps.css` durch:
@@ -147,40 +150,40 @@ Mapbox unterstützt verschiedenen Datenformate. In diesem Beispiel nutzen wir Ge
 Wir erstellen eine Datei namens `src/api/fetchFakeData.js`. Über diese geben wir eine Liste mit 20 Koordinaten zurück, die basierend auf dem Kartenmittelpunkt zufällig generiert werden.
 
 ```jsx
-const fetchFakeData = centerCoordinates => {
-  const newFeaturesList = [];
+const fetchFakeData = (centerCoordinates) => {
+  const newFeaturesList = []
   for (let i = 0; i < 20; i++) {
-    const id = i;
-    const { longitude, latitude } = getRandomCoordinate(centerCoordinates);
+    const id = i
+    const { longitude, latitude } = getRandomCoordinate(centerCoordinates)
     newFeaturesList.push({
-      type: "Feature",
+      type: 'Feature',
       geometry: {
-        type: "Point",
-        coordinates: [longitude, latitude]
+        type: 'Point',
+        coordinates: [longitude, latitude],
       },
       properties: {
         id,
         name: `Random Point #${id}`,
-        description: `description for Random Point #${id}`
-      }
-    });
+        description: `description for Random Point #${id}`,
+      },
+    })
   }
 
   return Promise.resolve({
-    type: "FeatureCollection",
-    features: newFeaturesList
-  });
-};
+    type: 'FeatureCollection',
+    features: newFeaturesList,
+  })
+}
 
 const getRandomCoordinate = ({ longitude: centerLon, latitude: centerLat }) => {
-  const r = 0.025 * Math.sqrt(Math.random());
-  const theta = Math.random() * 2 * Math.PI;
-  const latitude = centerLat + r * Math.cos(theta);
-  const longitude = centerLon + r * Math.sin(theta);
-  return { longitude, latitude };
-};
+  const r = 0.025 * Math.sqrt(Math.random())
+  const theta = Math.random() * 2 * Math.PI
+  const latitude = centerLat + r * Math.cos(theta)
+  const longitude = centerLon + r * Math.sin(theta)
+  return { longitude, latitude }
+}
 
-export default fetchFakeData;
+export default fetchFakeData
 ```
 
 Zunächst plante ich, die Punkte mit [Markern](https://docs.mapbox.com/mapbox-gl-js/api/markers/) darzustellen. Ich habe mich später für einen Layer entschieden. Diese sind im Wesentlichen Sammlungen von Daten, die Gemeinsamkeiten haben. Mapbox unterstützt verschiedene Datentypen, die als [Sources](https://docs.mapbox.com/mapbox-gl-js/api/sources/) bezeichnet und über eine Ebene angezeigt werden.
@@ -226,7 +229,7 @@ map.on("moveend", async () => {
 
 Wenn die Karte beweg wird, erscheinen Marker-Symbole.
 
-> Wenn wir Marker verwendet hätten, dann wäre es notwendig, alle in einem Array abzulegen und zu durchlaufen. 
+> Wenn wir Marker verwendet hätten, dann wäre es notwendig, alle in einem Array abzulegen und zu durchlaufen.
 
 ### Marker versus Layer
 
@@ -239,20 +242,20 @@ Größere, dynamische Datensätze lassen sich mit Ebenen besser verwalten. Sie s
 Um die Karte interaktiver zu gestalten, fügen wir ein Popup-Feld hinzu. Dieses zeigt Details an, wenn Benutzer auf eine Funktion klicken. Zunächst erstelle ich eine neue React-Komponente in der Datei `src/components/Popup.js`:
 
 ```jsx
-import React from "react";
+import React from 'react'
 
 const Popup = ({ feature }) => {
-  const { id, name, description } = feature.properties;
+  const { id, name, description } = feature.properties
 
   return (
     <div id={`popup-${id}`}>
       <h3>{name}</h3>
       {description}
     </div>
-  );
-};
+  )
+}
 
-export default Popup;
+export default Popup
 ```
 
 Zurück in `src/App.js` importieren wir die gerade erstellte Komponente sowie `ReactDOM` aus `react-dom`. Damit dieses Popup, genau wie die Karte, während der gesamten Lebensdauer der `App`-Komponente erhalten bleibt füge ich unmittelbar nach dem `mapContainerRef` ein `popUpRef` hinzu:
@@ -285,7 +288,6 @@ map.on("click", "random-points-layer", e => {
 
 Jetzt wird das Popup per Klick angezeigt. Um die Karte benutzerfreundlicher zu gestalten, ändern wir zuletzt den Maus-Zeiger, wenn er den Mauszeiger darüber bewegt mithilfe eines Ereignisses.
 
-
 ```jsx
 ...
 // Ändere den Cursor in einen Zeiger, wenn der Benutzer mit der Maus über eine anklickbare Funktion fährt
@@ -306,11 +308,10 @@ Fertig!
 
 ### Fazit
 
-Wie du siehst, ist Mapbox unkompliziert anpassbar. Ich ende hier jetzt. Wie überall, gibt es jede Menge zu verbessern. 
+Wie du siehst, ist Mapbox unkompliziert anpassbar. Ich ende hier jetzt. Wie überall, gibt es jede Menge zu verbessern.
 
-Du wirst beispielsweise feststellen, dass das Vergrößern oder Verkleinern der Karte den Listener „moveend“ auslöst und neue Punkte generiert. Das macht nicht immer Sinn. Eine bessere Lösung besteht darin, den „moveend“-Listener zu verwenden, um die Koordinaten für den Status der Komponente zu aktualisieren und dann einen neuen „useEffect“-Hook zu erstellen, der nur aufgerufen wird, wenn sich die Mittelkoordinate ändert. 
+Du wirst beispielsweise feststellen, dass das Vergrößern oder Verkleinern der Karte den Listener „moveend“ auslöst und neue Punkte generiert. Das macht nicht immer Sinn. Eine bessere Lösung besteht darin, den „moveend“-Listener zu verwenden, um die Koordinaten für den Status der Komponente zu aktualisieren und dann einen neuen „useEffect“-Hook zu erstellen, der nur aufgerufen wird, wenn sich die Mittelkoordinate ändert.
 Hoffentlich war dies für dich genauso hilfreich wie für mich, als ich anfing, in Mapbox GL einzutauchen!
-
 
 Ein Blogbeitrag informiert nicht allumfassend. Er gibt nur einen Eindruck. Ich hoffe, dass ich dir diesen vermittelt habe. Wenn du nun Lust hast, tiefer in React hinein zu blicken, dann ist das [Buch](https://github.com/the-road-to-learn-react/the-road-to-react-german) sicher etwas für dich.
 

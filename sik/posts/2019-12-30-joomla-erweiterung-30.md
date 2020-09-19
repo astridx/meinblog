@@ -226,7 +226,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,6 +11,7 @@ namespace Joomla\Component\Foos\Administrator\Extension;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,6 +11,7 @@ namespace FooNamespace\Component\Foos\Administrator\Extension;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -339,7 +339,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Service\HTML\AdministratorService;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;</span>
         </div>
     </td>
 </tr><tr>
@@ -350,7 +350,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Service\HTML\Icon;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;</span>
         </div>
     </td>
 </tr><tr>
@@ -596,7 +596,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Service\HTML;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Service\HTML;</span>
         </div>
     </td>
 </tr><tr>
@@ -715,7 +715,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Site\Helper\RouteHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Site\Helper\RouteHelper;</span>
         </div>
     </td>
 </tr><tr>
@@ -3615,7 +3615,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Controller;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Controller;</span>
         </div>
     </td>
 </tr><tr>
@@ -5883,7 +5883,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Helper;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Helper;</span>
         </div>
     </td>
 </tr><tr>
@@ -6929,7 +6929,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Model;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Model;</span>
         </div>
     </td>
 </tr><tr>
@@ -7102,7 +7102,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">class FormModel extends \Joomla\Component\Foos\Administrator\Model\FooModel</span>
+            <span class="d2h-code-line-ctn">class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooModel</span>
         </div>
     </td>
 </tr><tr>
@@ -9387,7 +9387,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Service;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Service;</span>
         </div>
     </td>
 </tr><tr>
@@ -12329,7 +12329,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\View\Form;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\View\Form;</span>
         </div>
     </td>
 </tr><tr>
@@ -12426,7 +12426,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Helper\FooHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;</span>
         </div>
     </td>
 </tr><tr>

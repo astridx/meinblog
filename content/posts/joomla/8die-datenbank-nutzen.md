@@ -73,7 +73,7 @@ Wir erstellen hier mehr oder weniger eine leere Klasse. Obwohl die nichts beinha
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Controller;
+namespace FooNamespace\Component\Foos\Administrator\Controller;
 
 \defined('_JEXEC') or die;
 
@@ -92,7 +92,7 @@ Jetzt erstellen wir das Model, um die Daten für ein Element zu holen. Dieses ne
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Model;
+namespace FooNamespace\Component\Foos\Administrator\Model;
 
 \defined('_JEXEC') or die;
 
@@ -143,7 +143,7 @@ Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Table;
+namespace FooNamespace\Component\Foos\Administrator\Table;
 
 \defined('_JEXEC') or die;
 
@@ -185,7 +185,7 @@ class FooTable extends Table
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\View\Foo;
+namespace FooNamespace\Component\Foos\Administrator\View\Foo;
 
 \defined('_JEXEC') or die;
 

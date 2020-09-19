@@ -154,7 +154,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
-use Joomla\Component\Foos\Site\Helper\RouteHelper;
+use FooNamespace\Component\Foos\Site\Helper\RouteHelper;
 
 HTMLHelper::_('behavior.core');
 ?>

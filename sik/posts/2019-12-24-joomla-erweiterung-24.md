@@ -663,7 +663,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">			addfieldprefix=&quot;Joomla\Component\Foos\Administrator\Field&quot;</span>
+            <span class="d2h-code-line-ctn">			addfieldprefix=&quot;FooNamespace\Component\Foos\Administrator\Field&quot;</span>
         </div>
     </td>
 </tr><tr>

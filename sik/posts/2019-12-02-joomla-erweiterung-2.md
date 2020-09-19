@@ -835,7 +835,7 @@ Die Änderungen, die das Changelog und den Joomla Update Server betreffen, zeige
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">	&lt;namespace path=&quot;src&quot;&gt;Joomla\Component\Foos&lt;&#x2F;namespace&gt;</span>
+            <span class="d2h-code-line-ctn">	&lt;namespace path=&quot;src&quot;&gt;FooNamespace\Component\Foos&lt;&#x2F;namespace&gt;</span>
         </div>
     </td>
 </tr><tr>

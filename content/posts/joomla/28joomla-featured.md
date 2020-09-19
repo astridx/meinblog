@@ -38,7 +38,7 @@ Um die Daten, die `featured` sind zu holfen, erstellen wir ein eigenes Model.
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Site\Model;
+namespace FooNamespace\Component\Foos\Site\Model;
 
 \defined('_JEXEC') or die;
 
@@ -191,7 +191,7 @@ class FeaturedModel extends ListModel
 ```php
 <?php
 
-namespace Joomla\Component\Foos\Site\View\Featured;
+namespace FooNamespace\Component\Foos\Site\View\Featured;
 
 \defined('_JEXEC') or die;
 

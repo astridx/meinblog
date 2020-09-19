@@ -1036,7 +1036,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Controller;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Controller;</span>
         </div>
     </td>
 </tr><tr>

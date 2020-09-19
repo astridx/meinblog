@@ -95,7 +95,7 @@ So erstellst du mehrere Menüpunkte, die jeweils einen anderen Text enthalten. E
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -12,6 +12,7 @@ namespace Joomla\Component\Foos\Site\Model;</div>
+        <div class="d2h-code-line d2h-info">@@ -12,6 +12,7 @@ namespace FooNamespace\Component\Foos\Site\Model;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">

@@ -63,7 +63,7 @@ echo $this->item->event->afterDisplayContent;
 	<!-- Add fields to the request variables for the layout. -->
 	<fields name="request">
 		<fieldset name="request"
-			addfieldprefix="Joomla\Component\Foos\Administrator\Field"
+			addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 		>
 			<field
 				name="id"

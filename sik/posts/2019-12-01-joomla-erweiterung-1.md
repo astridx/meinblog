@@ -35,7 +35,7 @@ Eine ausführlichere Erklärung des geänderten Programmcodes findest du weiter 
 	<license>GNU General Public License version 2 or later;</license>
 	<version>1.0.0</version>
 	<description>COM_FOOS_XML_DESCRIPTION</description>
-	<namespace path="src">Joomla\Component\Foos</namespace>
+	<namespace path="src">FooNamespace\Component\Foos</namespace>
 	<scriptfile>script.php</scriptfile>
 	<!-- Back-end files -->
 	<administration>
@@ -130,7 +130,7 @@ use Joomla\CMS\Extension\Service\Provider\MVCFactory;
 use Joomla\CMS\HTML\Registry;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use Joomla\Component\Foos\Administrator\Extension\FoosComponent;
+use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
 return new class implements ServiceProviderInterface
 {
 	public function register(Container $container)
@@ -157,7 +157,7 @@ return new class implements ServiceProviderInterface
 
 ```{#c1591434414 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Controller/DisplayController.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\Controller;
+namespace FooNamespace\Component\Foos\Administrator\Controller;
 \defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Controller\BaseController;
 class DisplayController extends BaseController
@@ -176,14 +176,14 @@ class DisplayController extends BaseController
 
 ```{#c1591434415 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Extension/FoosComponent.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\Extension;
+namespace FooNamespace\Component\Foos\Administrator\Extension;
 defined('JPATH_PLATFORM') or die;
 use Joomla\CMS\Categories\CategoryServiceInterface;
 use Joomla\CMS\Categories\CategoryServiceTrait;
 use Joomla\CMS\Extension\BootableExtensionInterface;
 use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
-use Joomla\Component\Foos\Administrator\Service\HTML\AdministratorService;
+use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
 use Psr\Container\ContainerInterface;
 class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface
 {
@@ -202,7 +202,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 ```{#c1591434416 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\Service\HTML;
+namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
 defined('JPATH_BASE') or die;
 class AdministratorService
 {
@@ -215,7 +215,7 @@ class AdministratorService
 
 ```{#c1591434417 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/View/Foos/HtmlView.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\View\Foos;
+namespace FooNamespace\Component\Foos\Administrator\View\Foos;
 \defined('_JEXEC') or die;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 class HtmlView extends BaseHtmlView

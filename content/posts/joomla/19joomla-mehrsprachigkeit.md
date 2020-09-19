@@ -44,14 +44,14 @@ Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Spr
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Helper;
+namespace FooNamespace\Component\Foos\Administrator\Helper;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Association\AssociationExtensionHelper;
 use Joomla\CMS\Language\Associations;
 use Joomla\CMS\Table\Table;
-use Joomla\Component\Foos\Site\Helper\AssociationHelper;
+use FooNamespace\Component\Foos\Site\Helper\AssociationHelper;
 
 class AssociationsHelper extends AssociationExtensionHelper
 {
@@ -224,14 +224,14 @@ Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Spr
 [src/components/com_foos/src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/components/com_foos/src/Helper/AssociationHelper.php)
 
 ```php
-namespace Joomla\Component\Foos\Site\Helper;
+namespace FooNamespace\Component\Foos\Site\Helper;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Associations;
 use Joomla\Component\Categories\Administrator\Helper\CategoryAssociationHelper;
-use Joomla\Component\Foos\Site\Helper\Route as FoosHelperRoute;
+use FooNamespace\Component\Foos\Site\Helper\Route as FoosHelperRoute;
 
 abstract class AssociationHelper extends CategoryAssociationHelper
 {
@@ -277,7 +277,7 @@ Wir erzeugen die Klasse `Route`, damit die Links korrekt zusammengesetzt werden,
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Site\Helper;
+namespace FooNamespace\Component\Foos\Site\Helper;
 
 \defined('_JEXEC') or die;
 
@@ -337,7 +337,7 @@ abstract class Route
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Wir erstellen ein Feld, über das du die Sprachverknüpfung auswählst. Damit Joomla dieses Feld findet, gibst du Pfad in der Form `addfieldprefix="Joomla\Component\Foos\Administrator\Field"` an.
+Wir erstellen ein Feld, über das du die Sprachverknüpfung auswählst. Damit Joomla dieses Feld findet, gibst du Pfad in der Form `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` an.
 
 Außerdem fügen wir ein Feld hinzu, in dem dein Item einer Sprache zugeordnet wird.
 
@@ -346,8 +346,8 @@ Außerdem fügen wir ein Feld hinzu, in dem dein Item einer Sprache zugeordnet w
 ```xml
 ...
 <fieldset
-		addruleprefix="Joomla\Component\Foos\Administrator\Rule"
-		addfieldprefix="Joomla\Component\Foos\Administrator\Field"
+		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
+		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 >
 ...
 ...

@@ -33,7 +33,7 @@ Als Erstes erstellen wir das Feld, über welches es möglich ist, ein Foo-Elemen
 
 ```php
 <?php
-namespace Joomla\Component\Foos\Administrator\Field\Modal;
+namespace FooNamespace\Component\Foos\Administrator\Field\Modal;
 
 defined('JPATH_BASE') or die;
 
@@ -428,7 +428,7 @@ In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = 
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Wir erstellen ein eigenes Feld, um beim Menüpunkt die Auswahl eines Foo-Elementes zu ermöglichen. Im Wesentlichen sind die die Einträge `addfieldprefix="Joomla\Component\Foos\Administrator\Field"` und `type="modal_foo"` wichtige.
+Wir erstellen ein eigenes Feld, um beim Menüpunkt die Auswahl eines Foo-Elementes zu ermöglichen. Im Wesentlichen sind die die Einträge `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` und `type="modal_foo"` wichtige.
 
 Nachfolgend der gesamte Code der Datei.
 
@@ -444,7 +444,7 @@ Nachfolgend der gesamte Code der Datei.
 	</layout>
 	<fields name="request">
 		<fieldset name="request"
-			addfieldprefix="Joomla\Component\Foos\Administrator\Field"
+			addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 		>
 			<field
 				name="id"

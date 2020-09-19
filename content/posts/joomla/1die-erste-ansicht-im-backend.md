@@ -94,7 +94,7 @@ Wie benennst du deinen Namespace?
 - Das dritte Element ist der Name der Erweiterung ohne vorherige com*, mod* oder tpl\_, in unserem Fall `Foos`.
 
 ```xml
-	<namespace>Joomla\Component\Foos</namespace>
+	<namespace>FooNamespace\Component\Foos</namespace>
 ```
 
 Mit der `script`-datei rufst du Code auf, wenn deine Komponente installiert, deinstalliert oder aktualisiert wird.
@@ -152,7 +152,7 @@ Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine K
 	<license>GNU General Public License version 2 or later;</license>
 	<version>1.0.0</version>
 	<description>COM_FOOS_XML_DESCRIPTION</description>
-	<namespace path="src">Joomla\Component\Foos</namespace>
+	<namespace path="src">FooNamespace\Component\Foos</namespace>
 	<scriptfile>script.php</scriptfile>
 	<!-- Back-end files -->
 	<administration>
@@ -289,7 +289,7 @@ use Joomla\CMS\Extension\Service\Provider\MVCFactory;
 use Joomla\CMS\HTML\Registry;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
-use Joomla\Component\Foos\Administrator\Extension\FoosComponent;
+use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
 return new class implements ServiceProviderInterface
 {
 	public function register(Container $container)
@@ -340,7 +340,7 @@ Wie du DocBlocks für Joomla erstellst, erklärten die Joomla! [Codierungsstanda
 Nach dem DocBlock fügst du den _Namespace_ ein. Diesen deklarierst du mit dem entsprechenden Schlüsselwort. Namespaces wurde in Joomla 4 eingeführt. Wenn diesses Konzept dir neu ist, lese die [Übersicht über Namespace](https://www.php.net/manual/de/language.namespaces.php)^[https://www.php.net/manual/de/language.namespaces.php]. Es zwingend, dass er vor allem anderen Code in der Datei steht. Ich werde dir später erklären, wie sich der Name des Namespaces zusammensetzt:
 
 ```{.php}
-namespace Joomla\Component\Foos\Administrator\Controller;
+namespace FooNamespace\Component\Foos\Administrator\Controller;
 ```
 
 Nach dem Namespace fügen wir `\defined('_JEXEC') or die;` ein, sodass diese PHP-Datei nicht direkt aufrufbar ist.
@@ -365,7 +365,7 @@ Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, we
 
 ```{#c1591434414 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Controller/DisplayController.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\Controller;
+namespace FooNamespace\Component\Foos\Administrator\Controller;
 \defined('_JEXEC') or die;
 use Joomla\CMS\MVC\Controller\BaseController;
 class DisplayController extends BaseController
@@ -386,14 +386,14 @@ class DisplayController extends BaseController
 
 ```{#c1591434415 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Extension/FoosComponent.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\Extension;
+namespace FooNamespace\Component\Foos\Administrator\Extension;
 defined('JPATH_PLATFORM') or die;
 use Joomla\CMS\Categories\CategoryServiceInterface;
 use Joomla\CMS\Categories\CategoryServiceTrait;
 use Joomla\CMS\Extension\BootableExtensionInterface;
 use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
-use Joomla\Component\Foos\Administrator\Service\HTML\AdministratorService;
+use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
 use Psr\Container\ContainerInterface;
 class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface
 {
@@ -414,7 +414,7 @@ Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Admi
 
 ```{#c1591434416 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\Service\HTML;
+namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
 defined('JPATH_BASE') or die;
 class AdministratorService
 {
@@ -435,7 +435,7 @@ In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleist
 
 ```{#c1591434417 .php .numberLines startFrom="1" caption="src/administrator/components/com_foos/src/View/Foos/HtmlView.php"}
 <?php
-namespace Joomla\Component\Foos\Administrator\View\Foos;
+namespace FooNamespace\Component\Foos\Administrator\View\Foos;
 \defined('_JEXEC') or die;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 class HtmlView extends BaseHtmlView

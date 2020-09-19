@@ -625,7 +625,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Controller;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Controller;</span>
         </div>
     </td>
 </tr><tr>
@@ -3998,7 +3998,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Model;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Model;</span>
         </div>
     </td>
 </tr><tr>
@@ -6175,7 +6175,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\View\Featured;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\View\Featured;</span>
         </div>
     </td>
 </tr><tr>
@@ -9384,7 +9384,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Site\Helper\RouteHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Site\Helper\RouteHelper;</span>
         </div>
     </td>
 </tr><tr>

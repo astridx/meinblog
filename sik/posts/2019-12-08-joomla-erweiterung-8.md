@@ -725,7 +725,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Controller;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Controller;</span>
         </div>
     </td>
 </tr><tr>
@@ -997,7 +997,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Model;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Model;</span>
         </div>
     </td>
 </tr><tr>
@@ -1954,7 +1954,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Table;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Table;</span>
         </div>
     </td>
 </tr><tr>
@@ -2639,7 +2639,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\View\Foo;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\View\Foo;</span>
         </div>
     </td>
 </tr><tr>
@@ -3356,7 +3356,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,7 +11,10 @@ namespace Joomla\Component\Foos\Administrator\View\Foos;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,7 +11,10 @@ namespace FooNamespace\Component\Foos\Administrator\View\Foos;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">

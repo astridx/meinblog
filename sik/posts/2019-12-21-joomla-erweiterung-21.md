@@ -90,7 +90,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,6 +11,9 @@ namespace Joomla\Component\Foos\Administrator\View\Foo;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,6 +11,9 @@ namespace FooNamespace\Component\Foos\Administrator\View\Foo;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">

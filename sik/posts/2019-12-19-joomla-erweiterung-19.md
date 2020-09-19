@@ -326,7 +326,7 @@ diff2html t14b
     <td class="d2h-del d2h-change">
         <div class="d2h-code-line d2h-del d2h-change">
             <span class="d2h-code-line-prefix">-</span>
-            <span class="d2h-code-line-ctn">	&lt;fieldset <del>addruleprefix=&quot;Joomla\Component\Foos\Administrator\Rule&quot;&gt;</del></span>
+            <span class="d2h-code-line-ctn">	&lt;fieldset <del>addruleprefix=&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;&gt;</del></span>
         </div>
     </td>
 </tr><tr>
@@ -348,7 +348,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">		addruleprefix=&quot;Joomla\Component\Foos\Administrator\Rule&quot;</span>
+            <span class="d2h-code-line-ctn">		addruleprefix=&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;</span>
         </div>
     </td>
 </tr><tr>
@@ -359,7 +359,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">		addfieldprefix=&quot;Joomla\Component\Foos\Administrator\Field&quot;</span>
+            <span class="d2h-code-line-ctn">		addfieldprefix=&quot;FooNamespace\Component\Foos\Administrator\Field&quot;</span>
         </div>
     </td>
 </tr><tr>
@@ -617,7 +617,7 @@ diff2html t14b
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Extension\FoosComponent;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;</span>
         </div>
     </td>
 </tr><tr>
@@ -628,7 +628,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Helper\AssociationsHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Helper\AssociationsHelper;</span>
         </div>
     </td>
 </tr><tr>
@@ -1022,7 +1022,7 @@ diff2html t14b
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,6 +11,8 @@ namespace Joomla\Component\Foos\Administrator\Extension;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,6 +11,8 @@ namespace FooNamespace\Component\Foos\Administrator\Extension;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -1539,7 +1539,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Administrator\Helper;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Administrator\Helper;</span>
         </div>
     </td>
 </tr><tr>
@@ -1614,7 +1614,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Site\Helper\AssociationHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Site\Helper\AssociationHelper;</span>
         </div>
     </td>
 </tr><tr>
@@ -4031,7 +4031,7 @@ diff2html t14b
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -12,7 +12,9 @@ namespace Joomla\Component\Foos\Administrator\Model;</div>
+        <div class="d2h-code-line d2h-info">@@ -12,7 +12,9 @@ namespace FooNamespace\Component\Foos\Administrator\Model;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -5238,7 +5238,7 @@ diff2html t14b
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -12,6 +12,8 @@ namespace Joomla\Component\Foos\Administrator\Model;</div>
+        <div class="d2h-code-line d2h-info">@@ -12,6 +12,8 @@ namespace FooNamespace\Component\Foos\Administrator\Model;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -6337,7 +6337,7 @@ diff2html t14b
                 <tr>
     <td class="d2h-code-linenumber d2h-info"></td>
     <td class="d2h-info">
-        <div class="d2h-code-line d2h-info">@@ -11,6 +11,12 @@ namespace Joomla\Component\Foos\Administrator\Service\HTML;</div>
+        <div class="d2h-code-line d2h-info">@@ -11,6 +11,12 @@ namespace FooNamespace\Component\Foos\Administrator\Service\HTML;</div>
     </td>
 </tr><tr>
     <td class="d2h-code-linenumber d2h-cntx">
@@ -7496,7 +7496,7 @@ diff2html t14b
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Helper\FooHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;</span>
         </div>
     </td>
 </tr><tr>
@@ -9300,7 +9300,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Helper;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Helper;</span>
         </div>
     </td>
 </tr><tr>
@@ -9375,7 +9375,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Site\Helper\Route as FoosHelperRoute;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Site\Helper\Route as FoosHelperRoute;</span>
         </div>
     </td>
 </tr><tr>
@@ -10049,7 +10049,7 @@ diff2html t14b
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Helper;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Helper;</span>
         </div>
     </td>
 </tr><tr>

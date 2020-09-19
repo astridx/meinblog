@@ -217,7 +217,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
     <td class="d2h-ins">
         <div class="d2h-code-line d2h-ins">
             <span class="d2h-code-line-prefix">+</span>
-            <span class="d2h-code-line-ctn">namespace Joomla\Component\Foos\Site\Model;</span>
+            <span class="d2h-code-line-ctn">namespace FooNamespace\Component\Foos\Site\Model;</span>
         </div>
     </td>
 </tr><tr>

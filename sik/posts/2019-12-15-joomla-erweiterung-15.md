@@ -2225,7 +2225,7 @@ Die Kategorien helfen dir, im Frontend deine Daten strukturiert anzuzeigen. Die 
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Service\HTML\AdministratorService;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;</span>
         </div>
     </td>
 </tr><tr>

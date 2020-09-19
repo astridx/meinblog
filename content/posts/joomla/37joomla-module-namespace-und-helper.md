@@ -19,19 +19,61 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
-
 ### Neue Dateien
 
 #### Module
 
-##### []()
+##### [src/modules/mod_foo/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
 
 ```php
+namespace FooNamespace\Module\Foo\Site\Helper;
+
+\defined('_JEXEC') or die;
+
+class FooHelper
+{
+  	public static function getText()
+	{
+		return 'FooHelpertest';
+	}
+}
+```
+
+### Geänderte Dateien
+
+##### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+
+```php
+...
+use FooNamespace\Module\Foo\Site\Helper\FooHelper;
+...
+...
+$test  = FooHelper::getText();
+...
 
 ```
 
-> Eigentlich gibt es keine Helper
+##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+
+```xml
+...
+<namespace>FooNamespace\Module\Foo</namespace>
+...
+...
+	<files>
+...
+		<folder>Helper</folder>
+...
+```
+
+##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/tmpl/default.php)
+
+```php
+...
+'[PROJECT_NAME]' . $test;
+```
+
+> Eigentlich gibt es keine Helper. Wie meine ich das?
 
 ## Teste dein Joomla-Module
 

@@ -2805,7 +2805,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Ins
     <td class="d2h-cntx">
         <div class="d2h-code-line d2h-cntx">
             <span class="d2h-code-line-prefix">&nbsp;</span>
-            <span class="d2h-code-line-ctn">use Joomla\Component\Foos\Administrator\Helper\FooHelper;</span>
+            <span class="d2h-code-line-ctn">use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;</span>
         </div>
     </td>
 </tr><tr>
