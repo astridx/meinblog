@@ -129,7 +129,7 @@ Alle Gruppen werden angezeigt, in denen du dich befindest:
 astrid adm cdrom sudo dip plugdev lpadmin lxd sambashare docker
 ```
 
-> Einen anderen Benutzer fügst du wie folgt zur Gruppe **Docker** hinzu If you need to add a user to the `docker` group that you're not logged in as, declare that username explicitly using: `sudo usermod -aG docker username`
+> Einen anderen Benutzer fügst du wie folgt zur Gruppe **Docker** hinzu: `sudo usermod -aG docker username`
 
 Sehen wir uns den Befehl „Docker“ genauer an.
 
@@ -194,11 +194,10 @@ Beispielausgabe:
 
 ```
 
-Sieh dir detailierter Optionen an:
+Sieh dir einzelne Optionen detailierter an:
 
 ```bash
 docker docker-unterbefehl--help
-
 ```
 
 Lass dir System-Informationen zu Docker anzeigen:
@@ -268,7 +267,7 @@ So zeigst du heruntergeladene Images Bilder an:
 docker images
 ```
 
-The output will look similar to the following:
+Die Ausgabe sieht wie folgt aus:
 
 ```bash
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -281,7 +280,7 @@ Schauen wir uns Container genauer an.
 
 ## Docker Container
 
-Lassen Sie uns als Beispiel einen Container mit dem neuesten Image von Ubuntu aufrufen.
+Lasse uns als Beispiel einen Container mit dem neuesten Image von Ubuntu aufrufen.
 
 > Die Kombination von **-i** und **-t** ermöglicht dir den interaktiven Shell-Zugriff auf den Container:
 
@@ -339,9 +338,9 @@ CONTAINER ID        IMAGE               COMMAND             CREATED
 ...
 ```
 
-In this tutorial, you started two containers; one from the `hello-world` image and another from the `ubuntu` image. Both containers are no longer running, but they still exist on your system.
+Bisher haben wir zwei Container gestartet. Einen aus dem `hello-world`-Image und einen aus dem `ubuntu`-Image. Beide Container werden nicht mehr ausgeführt, sind jedoch auf Ihrem System noch vorhanden.
 
-To view all containers --- active and inactive, run `docker ps` with the `-a` switch:
+Rufe `docker ps` mit der Option `-a` auf, um alle Container anzuzeigen --- aktiv und inaktiv:
 
 ```bash
 docker ps -a
@@ -399,12 +398,12 @@ Teilen wir das Image als nächstes mit anderen.
 
 Senden wir ein Docker-Image an Docker Hub. Melden Sie sich zuerst bei [Docker Hub](https://hub.docker.com/) an, um dein Image zu übertragen.
 
-```
+```bash
 docker login -u dein-docker-username
 
 ```
 
-> Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Bildes verwendet hast ist folgende Eränzugn wichtig:
+> Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Bildes verwendet hast, ist folgende Ergänzung wichtig:
 > `docker tag astrid/ubuntu-node-js docker-registry-username/ubuntu-und-node-js`
 
 Lade dein eigenes Image hoch:

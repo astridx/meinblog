@@ -1,0 +1,1100 @@
+---
+date: 2020-09-25
+title: 'Erste Schritte mit responsive Webdesign'
+template: post
+thumbnail: '../thumbnails/css.png'
+slug: erste-schritte-responsive-webdesign
+categories:
+  - Code
+  - Popular
+tags:
+  - Grundlagen
+  - CSS
+  - HTML
+  - CSSGrid
+---
+
+Einführung in die CSS-Grid-Herausforderungen
+
+Mit CSS Grid können Sie auf einfache Weise komplexe Webdesigns erstellen. Es verwandelt ein HTML-Element in einen Rastercontainer mit Zeilen und Spalten, damit Sie untergeordnete Elemente an der gewünschten Stelle im Raster platzieren können.
+
+
+#### Voraussetzungen
+
+Interesse an meiner Sammlung.
+
+#### Ziel
+
+Ein Überblick.
+
+## CSS Grid
+
+### Erstellen Sie Ihr erstes CSS-Raster
+
+Verwandeln wir jedes HTML-Element in eine Grid, indem Sie seine Anzeigeeigenschaft auf Raster setzen. Auf diese Weise können Sie alle anderen mit CSS Grid verknüpften Eigenschaften verwenden.
+
+Hinweis: In CSS Grid wird das übergeordnete Element als Container bezeichnet, und seine untergeordneten Elemente werden als Elemente bezeichnet.
+
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    /* Only change code below this line */
+
+    display:grid;
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+```
+
+### Fügen Sie Spalten mit Rastervorlagenspalten hinzu
+
+Das einfache Erstellen eines Rasterelements bringt uns nicht weit. 
+Wir müssen auch die Struktur des Rasters definieren. 
+Verwenden wir zum Hinzufügen einiger Spalten zum Raster 
+die Eigenschaft `grid-template-columns` für einen Rastercontainer:
+
+```
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px;
+}
+```
+
+Dadurch erhält Ihr Raster zwei Spalten mit einer Breite von jeweils 50 Pixel. Die Anzahl der Parameter, die der Eigenschaft grid-template-column angegeben werden, gibt die Anzahl der Spalten im Raster an, und der Wert jedes Parameters gibt die Breite jeder Spalte an.
+
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+grid-template-columns: 100px 100px 100px;
+    
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+```
+### Fügen Sie Zeilen mit Rastervorlagenzeilen hinzu
+
+Das Raster, das Sie in der letzten Herausforderung erstellt haben, legt die Anzahl der Zeilen automatisch fest. Um die Zeilen manuell anzupassen, verwenden Sie die Eigenschaft grid-template-rows auf dieselbe Weise, wie Sie in der vorherigen Herausforderung Rastervorlagenspalten verwendet haben.
+
+
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    
+    /* Only change code below this line */
+
+    grid-template-rows: 50px 50px;
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+```
+### Verwenden Sie CSS-Rastereinheiten, um die Größe von Spalten und Zeilen zu ändern
+
+Sie können absolute und relative Einheiten wie `px` und `em` in CSS Grid verwenden, um die Größe von Zeilen und Spalten zu definieren. Sie können diese auch verwenden:
+
+`fr`: Setzt die Spalte oder Zeile auf einen Bruchteil des verfügbaren Speicherplatzes.
+
+`auto`: Setzt die Spalte oder Zeile automatisch auf die Breite oder Höhe ihres Inhalts.
+
+`%`: Passt die Spalte oder Zeile an die prozentuale Breite des Containers an.
+
+Hier ist der Code, der die Ausgabe in der Vorschau generiert:
+
+
+```
+grid-template-columns: auto 50px 10% 2fr 1fr;
+
+
+```
+
+Dieses Snippet erstellt fünf Spalten. Die erste Spalte ist so breit wie ihr Inhalt, die zweite Spalte ist 50px, die dritte Spalte ist 10% ihres Containers und für die letzten beiden Spalten; Der verbleibende Platz ist in drei Abschnitte unterteilt, zwei für die vierte Spalte und einer für die fünfte.
+
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+
+    grid-template-columns: 1fr 100px 2fr;
+
+    /* Only change code above this line */
+    grid-template-rows: 50px 50px;
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+
+```
+
+### Lücken
+
+Bisher waren in den von Ihnen erstellten Gittern alle Spalten eng aneinander. Manchmal möchten Sie eine Lücke zwischen den Spalten. Verwenden Sie die Eigenschaft grid-column-gap wie folgt, um eine Lücke zwischen den Spalten hinzuzufügen:
+
+```
+grid-column-gap: 10px;
+
+
+```
+Dadurch entsteht zwischen allen unseren Spalten ein Leerraum von 10 Pixel.
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Only change code below this line */
+
+  grid-column-gap: 20px;
+ 
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+
+```
+Wir können eine Lücke zwischen den Zeilen eines Rasters mithilfe der 
+Raster-Zeilen-Lücke auf dieselbe Weise hinzufügen, wie Sie in der vorherigen Herausforderung eine Lücke zwischen den Spalten hinzugefügt haben.
+
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Only change code below this line */
+grid-row-gap:5px;
+    
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+```
+
+### Lücken schneller mit Gitterlücke hinzufügen
+
+Grid-Gap ist eine Abkürzungseigenschaft für Grid-Row-Gap und Grid-Column-Gap aus den beiden vorherigen Herausforderungen, die bequemer zu verwenden ist. Wenn die Rasterlücke einen Wert hat, wird eine Lücke zwischen allen Zeilen und Spalten erstellt. Wenn jedoch zwei Werte vorhanden sind, wird der erste verwendet, um die Lücke zwischen den Zeilen und dem zweiten Wert für die Spalten festzulegen.
+
+
+```
+<style>
+  .d1{background:LightSkyBlue;}
+  .d2{background:LightSalmon;}
+  .d3{background:PaleTurquoise;}
+  .d4{background:LightPink;}
+  .d5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* Only change code below this line */
+grid-gap: 20px 10px;
+    
+    /* Only change code above this line */
+  }
+</style>
+<div class="container">
+  <div class="d1">1</div>
+  <div class="d2">2</div>
+  <div class="d3">3</div>
+  <div class="d4">4</div>
+  <div class="d5">5</div>
+</div>
+
+
+```
+
+### Verwenden Sie die Rasterspalte, um den Abstand zu steuern
+
+Bis zu diesem Punkt gelten alle besprochenen Eigenschaften für Rastercontainer. Die Eigenschaft "Rasterspalte" ist die erste, die für die Rasterelemente selbst verwendet wird.
+
+Die hypothetischen horizontalen und vertikalen Linien, die das Gitter bilden, werden als Linien bezeichnet. Diese Zeilen sind beginnend mit 1 in der oberen linken Ecke des Rasters nummeriert und bewegen sich für Spalten nach rechts und für Zeilen nach unten, wobei sie nach oben zählen.
+
+
+Um die Anzahl der Spalten zu steuern, die ein Element verbraucht, können Sie die Eigenschaft grid-column in Verbindung mit den Zeilennummern verwenden, bei denen das Element beginnen und enden soll.
+
+Hier ist ein Beispiel:
+
+```
+grid-column: 1 / 3;
+
+
+```
+
+
+Dadurch beginnt das Element an der ersten vertikalen Linie des Gitters auf der linken Seite und erstreckt sich bis zur dritten Linie des Gitters, wobei zwei Spalten benötigt werden.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    /* Only change code below this line */
+grid-column: 2 / 4;
+
+
+
+
+
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+
+```
+grid-row
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    grid-column: 2 / 4;
+    /* Only change code below this line */
+grid-row: 2/4;
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+```
+
+### Richten Sie ein Element mithilfe von "Rechtfertigung" horizontal aus
+
+In CSS Grid befindet sich der Inhalt jedes Elements in einem Feld, das als Zelle bezeichnet wird. Sie können die Position des Inhalts innerhalb seiner Zelle horizontal ausrichten, indem Sie die Berechtigung-self-Eigenschaft für ein Rasterelement verwenden. Standardmäßig hat diese Eigenschaft den Wert "Dehnung", wodurch der Inhalt die gesamte Breite der Zelle ausfüllt. Diese CSS-Grid-Eigenschaft akzeptiert auch andere Werte:
+
+start: richtet den Inhalt links von der Zelle aus,
+
+center: Richtet den Inhalt in der Mitte der Zelle aus.
+
+end: Richtet den Inhalt rechts von der Zelle aus.
+
+
+```
+<style>
+  .item1{background: LightSkyBlue;}
+
+  .item2 {
+    background: LightSalmon;
+    /* Only change code below this line */
+
+    justify-self:center;
+    /* Only change code above this line */
+  }
+
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+```
+
+### Alle Elemente mithilfe von Ausrichtungselementen vertikal ausrichten
+
+Wenn Sie die Eigenschaft align-items in einem Rastercontainer verwenden, wird die vertikale Ausrichtung für alle Elemente in unserem Raster festgelegt.
+
+
+```
+
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    /* Only change code below this line */
+
+    align-items:end;
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+```
+
+### Teilen Sie das Raster in eine Bereichsvorlage
+
+Sie können Zellen Ihres Rasters zu einem Bereich zusammenfassen und dem Bereich einen benutzerdefinierten Namen geben. Verwenden Sie dazu Rastervorlagenbereiche auf dem Container wie folgt:
+
+```
+grid-template-areas:
+  "header header header"
+  "advert content content"
+  "footer footer footer";
+
+```
+
+Der obige Code führt die oberen drei Zellen zu einem Bereich mit dem Namen 
+Kopfzeile zusammen, die unteren drei Zellen zu einem Fußzeilenbereich 
+und bildet zwei Bereiche in der mittleren Reihe. Werbung und Inhalt. 
+
+Hinweis: Jedes Wort im Code steht für eine Zelle und jedes Anführungszeichenpaar 
+für eine Zeile. Zusätzlich zu benutzerdefinierten Beschriftungen können 
+wir einen Punkt (.) Verwenden, um eine leere Zelle im Raster zu kennzeichnen.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+    /* Only change code below this line */
+      "header header header"
+      " . content content"
+      "footer footer footer";
+    /* Only change code above this line */
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+```
+
+### Platzieren von Elementen in Rasterbereichen mithilfe der Rasterbereichseigenschaft
+
+Nachdem Sie die Vorlage eines Bereichs für Ihren Rastercontainer erstellt haben, wie in der vorherigen Herausforderung gezeigt, können Sie ein Element in Ihrem benutzerdefinierten Bereich platzieren, indem Sie auf den Namen verweisen, den Sie ihm gegeben haben. Dazu verwenden Sie die Eigenschaft "Rasterbereich" für ein Element wie das folgende:
+
+```
+.item1 {
+  grid-area: header;
+}
+
+
+```
+
+Dadurch wird dem Raster mitgeteilt, dass die item1-Klasse in den Bereich mit dem Namen header verschoben werden soll. In diesem Fall verwendet das Element die gesamte obere Zeile, da diese gesamte Zeile als Kopfbereich benannt ist.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    /* Only change code below this line */
+grid-area: footer;
+    
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+      "header header header"
+      "advert content content"
+      "footer footer footer";
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+```
+
+### Rasterbereich verwenden, ohne eine Bereichsvorlage zu erstellen
+
+Die Rasterflächeneigenschaft, die Sie in der letzten Herausforderung gelernt haben, kann auf andere Weise verwendet werden. Wenn in Ihrem Raster keine Bereichsvorlage zum Verweisen vorhanden ist, können Sie im laufenden Betrieb einen Bereich für ein Element erstellen, das wie folgt platziert werden soll:
+
+```
+item1 { grid-area: 1/1/2/4; }
+
+```
+
+Hierbei werden die Zeilennummern verwendet, die Sie zuvor kennengelernt haben, um zu definieren, wo sich der Bereich für dieses Element befindet. Die Zahlen im obigen Beispiel repräsentieren diese Werte:
+
+```
+grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;
+
+```
+Das Element im Beispiel belegt also die Zeilen zwischen den Zeilen 1 und 2 und die Spalten zwischen den Zeilen 1 und 4.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+
+  .item5 {
+    background: PaleGreen;
+    /* Only change code below this line */
+grid-area: 3 / 1 / 4 / 4;
+
+
+    /* Only change code above this line */
+  }
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+```
+
+### Wiederholung reduzieren Mit der Wiederholungsfunktion
+
+Wenn Sie die Struktur eines Rasters mit Rastervorlagenspalten und Rastervorlagenzeilen definiert haben, haben Sie für jede von Ihnen erstellte Zeile oder Spalte einen Wert eingegeben.
+
+Angenommen, Sie möchten ein Raster mit 100 Zeilen gleicher Höhe. Es ist nicht sehr praktisch, 100 Werte einzeln einzufügen. Glücklicherweise gibt es einen besseren Weg: Verwenden Sie die Wiederholungsfunktion, um anzugeben, wie oft Ihre Spalte oder Zeile wiederholt werden soll, gefolgt von einem Komma und dem Wert, den Sie wiederholen möchten.
+
+Hier ist ein Beispiel, mit dem das Raster mit 100 Zeilen erstellt wird, wobei jede Zeile 50 Pixel hoch ist.
+
+```
+grid-template-rows: repeat(100, 50px);
+
+```
+
+Sie können mit der Wiederholungsfunktion auch mehrere Werte wiederholen und die Funktion unter anderen Werten einfügen, wenn Sie eine Gitterstruktur definieren. So sieht das aus:
+
+```
+grid-template-columns: repeat(2, 1fr 50px) 20px;
+
+```
+
+Dies bedeutet:
+
+```
+grid-template-columns: 1fr 50px 1fr 50px 20px;
+
+```
+
+Hinweis: Die 1fr 50px wird zweimal wiederholt, gefolgt von 20px.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+    //grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: repeat(3, 1fr);
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+```
+
+### Begrenzen Sie die Elementgröße mit der Minmax-Funktion
+
+Es gibt eine weitere integrierte Funktion für Rastervorlagenspalten und Rastervorlagenzeilen mit dem Namen minmax. Es wird verwendet, um die Größe von Elementen zu begrenzen, wenn der Rastercontainer die Größe ändert. Dazu müssen Sie den zulässigen Größenbereich für Ihren Artikel angeben. Hier ist ein Beispiel:
+
+```
+grid-template-columns: 100px minmax(50px, 200px);
+
+```
+
+Im obigen Code werden Rastervorlagenspalten so festgelegt, dass zwei Spalten erstellt werden. Die erste ist 100 Pixel breit und die zweite hat die minimale Breite von 50 Pixel und die maximale Breite von 200 Pixel.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+
+    //grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(90px, 1fr));
+
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+```
+
+### Erstellen Sie flexible Layouts mithilfe der automatischen Füllung
+
+Die Wiederholungsfunktion verfügt über eine Option namens Auto-Fill. Auf diese Weise können Sie je nach Größe des Containers automatisch so viele Zeilen oder Spalten wie möglich einfügen. Sie können flexible Layouts erstellen, wenn Sie Auto-Fill mit Minmax kombinieren:
+
+```
+repeat(auto-fill, minmax(60px, 1fr));
+
+
+```
+Wenn sich die Größe des Containers ändert, fügt dieses Setup weiterhin 60-Pixel-Spalten ein und streckt sie, bis eine weitere eingefügt werden kann. Hinweis: Wenn Ihr Container nicht alle Ihre Artikel in eine Zeile passen kann, werden sie in eine neue verschoben.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    /* Only change code below this line */
+
+grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+   // grid-template-columns: repeat(3, minmax(60px, 1fr));
+
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .container2 {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: Silver;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(60px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+<div class="container2">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+
+```
+
+### Erstellen Sie flexible Layouts mithilfe der automatischen Anpassung
+
+Auto-Fit funktioniert fast identisch mit Auto-Fill. Der einzige Unterschied besteht darin, dass beim automatischen Ausfüllen immer dann, wenn die Größe des Containers die Größe aller kombinierten Elemente überschreitet, leere Zeilen oder Spalten eingefügt und Ihre Elemente zur Seite geschoben werden, während beim automatischen Anpassen diese leeren Zeilen oder Spalten reduziert und Ihre Elemente gestreckt werden Passen Sie die Größe des Behälters an.
+
+Hinweis: Wenn Ihr Container nicht alle Ihre Artikel in eine Zeile passen kann, werden sie in eine neue verschoben.
+
+
+```
+<style>
+  .item1{background:LightSkyBlue;}
+  .item2{background:LightSalmon;}
+  .item3{background:PaleTurquoise;}
+  .item4{background:LightPink;}
+  .item5{background:PaleGreen;}
+
+  .container {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .container2 {
+    font-size: 40px;
+    min-height: 100px;
+    width: 100%;
+    background: Silver;
+    display: grid;
+    /* Only change code below this line */
+
+   // grid-template-columns: repeat(3, minmax(60px, 1fr));
+grid-template-columns: repeat( autofit,minmax(60px, 1fr));
+    /* Only change code above this line */
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+<div class="container2">
+  <div class="item1">1</div>
+  <div class="item2">2</div>
+  <div class="item3">3</div>
+  <div class="item4">4</div>
+  <div class="item5">5</div>
+</div>
+
+
+```
+
+### Verwenden Sie Medienabfragen, um reaktionsschnelle Layouts zu erstellen
+
+CSS-Raster kann eine einfache Möglichkeit sein, Ihre Website reaktionsschneller zu gestalten, indem Medienabfragen verwendet werden, um Rasterbereiche neu anzuordnen, die Abmessungen eines Rasters zu ändern und die Platzierung von Elementen neu zu ordnen.
+
+Wenn in der Vorschau die Breite des Ansichtsfensters 300 Pixel oder mehr beträgt, ändert sich die Anzahl der Spalten von 1 auf 2. Der Werbebereich belegt dann die linke Spalte vollständig.
+
+
+```
+<style>
+  .item1 {
+    background: LightSkyBlue;
+    grid-area: header;
+  }
+
+  .item2 {
+    background: LightSalmon;
+    grid-area: advert;
+  }
+
+  .item3 {
+    background: PaleTurquoise;
+    grid-area: content;
+  }
+
+  .item4 {
+    background: lightpink;
+    grid-area: footer;
+  }
+
+  .container {
+    font-size: 1.5em;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 1fr auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "header"
+      "advert"
+      "content"
+      "footer";
+  }
+
+  @media (min-width: 300px){
+    .container{
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "header header"
+        "advert content"
+        "footer footer";
+    }
+  }
+
+  @media (min-width: 400px){
+    .container{
+      grid-template-areas:
+      /* Only change code below this line */
+        "header header"
+        "advert content"
+        "footer footer";
+      /* Only change code above this line */
+    }
+  }
+</style>
+
+<div class="container">
+  <div class="item1">header</div>
+  <div class="item2">advert</div>
+  <div class="item3">content</div>
+  <div class="item4">footer</div>
+</div>
+
+```
+
+### Erstellen Sie Gitter innerhalb von Gittern
+
+Das Verwandeln eines Elements in ein Raster wirkt sich nur auf das Verhalten seiner direkten Nachkommen aus. Wenn Sie also einen direkten Nachkommen in ein Raster verwandeln, haben Sie ein Raster innerhalb eines Rasters.
+
+Wenn Sie beispielsweise die Eigenschaften für Anzeige und Raster-Vorlagenspalten des Elements mit der Klasse item3 festlegen, erstellen Sie ein Raster in Ihrem Raster.
+
+
+```
+<style>
+  .container {
+    font-size: 1.5em;
+    min-height: 300px;
+    width: 100%;
+    background: LightGray;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 10px;
+    grid-template-areas:
+      "advert header"
+      "advert content"
+      "advert footer";
+  }
+  .item1 {
+    background: LightSkyBlue;
+    grid-area: header;
+  }
+
+  .item2 {
+    background: LightSalmon;
+    grid-area: advert;
+  }
+
+  .item3 {
+    background: PaleTurquoise;
+    grid-area: content;
+    /* Only change code below this line */
+    display: grid;
+grid-template-columns: auto 1fr;
+
+    /* Only change code above this line */
+  }
+
+  .item4 {
+    background: lightpink;
+    grid-area: footer;
+  }
+
+  .itemOne {
+    background: PaleGreen;
+  }
+
+  .itemTwo {
+    background: BlanchedAlmond;
+  }
+
+</style>
+
+<div class="container">
+  <div class="item1">header</div>
+  <div class="item2">advert</div>
+  <div class="item3">
+    <div class="itemOne">paragraph1</div>
+    <div class="itemTwo">paragraph2</div>
+  </div>
+  <div class="item4">footer</div>
+</div>
+
+
+```
+
+### 
+
+```
+
+
+```
+
+### 
+
+```
+
+
+```
+
+
+
+
+
+Fertig!
+
+## Fazit
+
+x

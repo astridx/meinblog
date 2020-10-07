@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TaAstrid Günther | RSS Feed]]></title><description><![CDATA[Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 19 Sep 2020 10:37:17 GMT</lastBuildDate><item><title><![CDATA[Erste Schritte mit Mapbox GL in React]]></title><description><![CDATA[Geografische Daten haben mich schon immer fasziniert. Ich verwende LeafletJs, zur Zeit in Kombination mit Joomla. Parallel arbeite ich mich…]]></description><link>https://blog.astrid-guenther.de/erste-schritte-mit-mapbox-gl-in-react/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/erste-schritte-mit-mapbox-gl-in-react/</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[SPA]]></category><category><![CDATA[Bibliothek]]></category><category><![CDATA[Framework]]></category><category><![CDATA[React]]></category><category><![CDATA[MapBox]]></category><pubDate>Wed, 16 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Geografische Daten haben mich schon immer fasziniert. Ich verwende &lt;a href=&quot;https://leafletjs.com/&quot;&gt;LeafletJs&lt;/a&gt;, zur Zeit in Kombination mit &lt;a href=&quot;https://www.joomla.de/&quot;&gt;Joomla&lt;/a&gt;. Parallel arbeite ich mich in &lt;a href=&quot;https://reactjs.org/&quot;&gt;React&lt;/a&gt; und &lt;a href=&quot;https://docs.mapbox.com/mapbox-gl-js/api/&quot;&gt;Mapbox GL&lt;/a&gt; ein.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TaAstrid Günther | RSS Feed]]></title><description><![CDATA[Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 07 Oct 2020 19:25:53 GMT</lastBuildDate><item><title><![CDATA[Erste Schritte mit Mapbox GL in React]]></title><description><![CDATA[Geografische Daten haben mich schon immer fasziniert. Ich verwende LeafletJs, zur Zeit in Kombination mit Joomla. Parallel arbeite ich mich…]]></description><link>https://blog.astrid-guenther.de/erste-schritte-mit-mapbox-gl-in-react/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/erste-schritte-mit-mapbox-gl-in-react/</guid><category><![CDATA[JavaScript]]></category><category><![CDATA[SPA]]></category><category><![CDATA[Bibliothek]]></category><category><![CDATA[Framework]]></category><category><![CDATA[React]]></category><category><![CDATA[MapBox]]></category><pubDate>Wed, 16 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Geografische Daten haben mich schon immer fasziniert. Ich verwende &lt;a href=&quot;https://leafletjs.com/&quot;&gt;LeafletJs&lt;/a&gt;, zur Zeit in Kombination mit &lt;a href=&quot;https://www.joomla.de/&quot;&gt;Joomla&lt;/a&gt;. Parallel arbeite ich mich in &lt;a href=&quot;https://reactjs.org/&quot;&gt;React&lt;/a&gt; und &lt;a href=&quot;https://docs.mapbox.com/mapbox-gl-js/api/&quot;&gt;Mapbox GL&lt;/a&gt; ein.&lt;/p&gt;
 &lt;p&gt;Ich habe beschlossen, eine Anwendung mit React- und Mapbox GL neu zu erstellen. Obwohl ich kein Mapbox-Experte bin, teile ich einige meiner Erkenntnisse in der Hoffnung, dass dies für jemanden hilfreich ist.&lt;/p&gt;
 &lt;h4&gt;Voraussetzungen&lt;/h4&gt;
 &lt;p&gt;In diesem Artikel gehe ich davon aus, dass du Erfahrung mit React hast und Mapbox GL neu für dich ist.&lt;/p&gt;
@@ -226,19 +226,130 @@ Hoffentlich war dies für dich genauso hilfreich wie für mich, als ich anfing, 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/astridx/react-mapbox-example&quot;&gt;Quellcode auf GitHub anzeigen&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://astridx.github.io/react-mapbox-example/&quot;&gt;Projekt Demo ansehen&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeit mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[DPDocker]]></category><category><![CDATA[Joomla]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Docker&lt;/em&gt; erleichtert die Verwaltung von Software in Containern. &lt;em&gt;Docker Compose&lt;/em&gt; ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. &lt;em&gt;DPDocker&lt;/em&gt; enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Eine eigene Joomla-Erweiterung mit DPDocker]]></title><description><![CDATA[Zur Erinnerung: Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeit mit mehreren…]]></description><link>https://blog.astrid-guenther.de/joomla-erweiterung-mit-dpdocker/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/joomla-erweiterung-mit-dpdocker/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[DPDocker]]></category><category><![CDATA[Joomla]]></category><pubDate>Fri, 07 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Zur Erinnerung: &lt;em&gt;Docker&lt;/em&gt; erleichtert die Verwaltung von Software in Containern. &lt;em&gt;Docker Compose&lt;/em&gt; ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. &lt;em&gt;DPDocker&lt;/em&gt; enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.&lt;/p&gt;
+&lt;p&gt;DPDocker bietet den Task &lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt;, mit dem Joomla Erweiterungen optimal integriert werden. Dazu ist es erforderlich, Regeln einzuhalten. Bei einer neuen Erweiterung würde dies Voraussetzungen beachten. Das Umbauen meiner Erweiterungen wäre aufwendig. In diesem Kapitel führe ich mit &lt;a href=&quot;https://packagist.org/packages/astridx/jorobo&quot;&gt;jorobo&lt;/a&gt; erstellte Extension mit DPDocker zusammen. So kann ich weiterhin meine Skripte zum Mappen, Builden, Zippen und Testen anwenden.&lt;/p&gt;
+&lt;h2&gt;Voraussetzungen&lt;/h2&gt;
+&lt;p&gt;Neben &lt;a href=&quot;/ubuntu-docker-einrichten&quot;&gt;Docker&lt;/a&gt; und &lt;a href=&quot;/ubuntu-docker-compose-einrichten&quot;&gt;Docker Compose&lt;/a&gt; ist &lt;a href=&quot;https://github.com/Digital-Peak/DPDocker.git&quot;&gt;DPDocker&lt;/a&gt; notwendig. Wenn du diesem &lt;a href=&quot;mein-ubuntu-rechner/&quot;&gt;Set&lt;/a&gt; bisher gefolgt bist, passt alles.&lt;/p&gt;
+&lt;h2&gt;Installieren von Composer und PHP&lt;/h2&gt;
+&lt;h3&gt;Installieren von Abhängigkeiten&lt;/h3&gt;
+&lt;p&gt;Aktualisieren wir den Cache des Paketmanagers und installieren die erforderlichen Abhängigkeiten, einschließlich &lt;code class=&quot;language-text&quot;&gt;php-cli&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt update
+sudo apt install php-cli unzip&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Herunterladen und Installieren von Composer&lt;/h3&gt;
+&lt;p&gt;Wir rufen das &lt;a href=&quot;https://getcomposer.org/installer&quot;&gt;Composer Installationsprogramm&lt;/a&gt; mit &lt;code class=&quot;language-text&quot;&gt;curl&lt;/code&gt; auf:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd ~
+curl -sS https://getcomposer.org/installer -o composer-setup.php&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jetzt überprüfen wir, ob das heruntergeladene Installationsprogramm mit dem SHA-384-Hash übereinstimmt.&lt;/p&gt;
+&lt;p&gt;Mithilfe von &lt;code class=&quot;language-text&quot;&gt;curl&lt;/code&gt; rufen wir die neueste Signatur ab und speichern diese in einer Shell-Variable:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;HASH=`curl -sS https://composer.github.io/installer.sig`&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Der folgende PHP-Codeprüft das Installationsskript und gibt &lt;code class=&quot;language-text&quot;&gt;Installer verified&lt;/code&gt; aus, wenn alles korrekt ist.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;php -r „if (hash_file(‚SHA384‘, ‚composer-setup.php‘) === ‚$HASH‘) { echo ‚Installer verified‘; } else { echo ‚Installer corrupt‘; unlink(‚composer-setup.php‘); } echo PHP_EOL;“&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Über folgenden Befehl wird Composer global (unter &lt;code class=&quot;language-text&quot;&gt;/usr/local/bin&lt;/code&gt; heruntergeladen) installiert:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ich teste die Installation mit:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;composer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Output   ______
+  / ____/___  ____ ___  ____  ____  ________  _____
+ / /   / __ \/ __ `__ \/ __ \/ __ \/ ___/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ (__  )  __/ /
+\____/\____/_/ /_/ /_/ .___/\____/____/\___/_/
+                    /_/
+Composer version 1.10.5 2020-04-10 11:44:22
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help                     Display this help message
+  -q, --quiet                    Do not output any message
+  -V, --version                  Display this application version
+      --ansi                     Force ANSI output
+      --no-ansi                  Disable ANSI output
+  -n, --no-interaction           Do not ask any interactive question
+      --profile                  Display timing and memory usage information
+      --no-plugins               Whether to disable plugins.
+  -d, --working-dir=WORKING-DIR  If specified, use the given directory as working directory.
+      --no-cache                 Prevent use of the cache
+  -v|vv|vvv, --verbose           Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Damit ist überprüft, dass Composer erfolgreich auf dem System installiert und systemweit verfügbar ist.&lt;/p&gt;
+&lt;h3&gt;PHP unter Ubuntu 20.04 intallieren inklusive notwendiger Erweiterungen&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; update
+&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;apt&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt; php php-cli php-fpm php-json php-pdo php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;php -- version&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Clonen einer mit Jorobo erstellten Joomla Erweiterung&lt;/h2&gt;
+&lt;p&gt;Als nächstes clone ich eines meiner Repositorys, in welchem sich eine Joomla Erweiterung befindet. Ich achte darauf, dass das Repo &lt;strong&gt;neben&lt;/strong&gt; DPDocker abgelegt wird.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone  https://github.com/astridx/boilerplate.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Als nächstes wechsele ich in den Ordner &lt;code class=&quot;language-text&quot;&gt;boilerplate&lt;/code&gt; und führe den Befehl aus, der alle notwendigen Abhängigkeiten herunterlädt.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; boilerplate
+
+composer &lt;span class=&quot;token function&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jetzt sind alle Abhängikeiten im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;vendor&lt;/code&gt; abgelegt.&lt;/p&gt;
+&lt;h2&gt;Joomla Erweiterung erstellen&lt;/h2&gt;
+&lt;p&gt;Ich verwende &lt;code class=&quot;language-text&quot;&gt;vendor/bin/robo build&lt;/code&gt;. Im Ergebnis sehe ich das Unterverzeichnis &lt;code class=&quot;language-text&quot;&gt;dist&lt;/code&gt;, in dem sich gepackte Installationsdateien befinden.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;vendor/bin/robo build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Der Befehl &lt;code class=&quot;language-text&quot;&gt;vendor/bin/robo list&lt;/code&gt; zeigt mir alle möglichen Skripte an.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;vendor/bin/robo list
+
+&lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.
+Available commands:
+  build     Build the joomla extension package
+  bump      Bump Version placeholder __DEPLOY_VERSION__ &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; this project. &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Set the version up &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; the jorobo.ini&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  generate  Generate an extension skeleton - not implemented yet
+  headers   Update copyright headers &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; this project. &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Set the text up &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; the jorobo.ini&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token builtin class-name&quot;&gt;help&lt;/span&gt;      Displays &lt;span class=&quot;token builtin class-name&quot;&gt;help&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; a &lt;span class=&quot;token builtin class-name&quot;&gt;command&lt;/span&gt;
+  list      Lists commands
+  map       Map into Joomla installation.
+  umap      Unmap from Joomla installation.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In der &lt;a href=&quot;https://astridx.github.io/9997_jorobo/presentation/index.html#/&quot;&gt;Präsentation&lt;/a&gt; sind die Befehle beschrieben.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Joomla Erweiterung mit DPDocker nutzen&lt;/h2&gt;
+&lt;p&gt;Jetzt wechsele ich wieder ein Verzeichnis zurück - in das Verzeichnis, in dem &lt;code class=&quot;language-text&quot;&gt;boilerplate&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;DPDocker&lt;/code&gt; nebeneinader abgelegt sind. Hier rufe ich &lt;a href=&quot;https://github.com/Digital-Peak/DPDocker/tree/master/webserver#execute&quot;&gt;./DPDocker/webserer/run.sh mysql rebuild&lt;/a&gt; auf, wobei die Parameter optional sind:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;./DPDocker/webserer/run.sh mysql rebuild&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mein Rechner arbeitet einige Minuten. In der Zeit erstellt er alle notwendigen Docker Container.&lt;/p&gt;
+&lt;h2&gt;Mögliche Fehlermeldungen&lt;/h2&gt;
+&lt;h3&gt;Hilfe bei der Meldung: &lt;code class=&quot;language-text&quot;&gt;Docker Error bind: address already in use&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Unter Umständen hilft es schon, alle Container zu entfernen.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a - q&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Falls das problem weiterhin auftritt, lasse ich mir alle Dienste anzeigen, die den Port verwenden.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;lsof&lt;/span&gt; -i -P -n &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;port number&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Unter Ubuntu 20.04 stoppe ich diese Dienst mit&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;process id&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[DPDocker einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeit mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-dpdocker/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-dpdocker/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[DPDocker]]></category><category><![CDATA[Joomla]]></category><pubDate>Thu, 06 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Docker&lt;/em&gt; erleichtert die Verwaltung von Software in Containern. &lt;em&gt;Docker Compose&lt;/em&gt; ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. &lt;em&gt;DPDocker&lt;/em&gt; enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.&lt;/p&gt;
 &lt;h2&gt;Voraussetzungen&lt;/h2&gt;
 &lt;p&gt;Neben &lt;a href=&quot;/ubuntu-docker-einrichten&quot;&gt;Docker&lt;/a&gt; ist &lt;a href=&quot;/ubuntu-docker-compose-einrichten&quot;&gt;Docker Compose&lt;/a&gt; notwendig. Um die Skripte automatisch auszuführen, solltest du unter Linux arbeiten. Wenn du diesem &lt;a href=&quot;mein-ubuntu-rechner/&quot;&gt;Set&lt;/a&gt; bisher gefolgt bist, passt alles.&lt;/p&gt;
+&lt;h3&gt;Optional: Entfernen von Docker-Images, -Containern&lt;/h3&gt;
+&lt;p&gt;Bei der Arbeit mit Docker passiert es leicht, dass viele nicht verwendete Images, Container und Datenvolumen gesammelt werden, die Ausgabe verkomplizieren und unnötigen Festplattenspeicher verbrauchen.&lt;/p&gt;
+&lt;p&gt;Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelemente auf. Ich nenne das &lt;a href=&quot;https://de.wikipedia.org/wiki/Tabula_rasa&quot;&gt;Tabula rasa&lt;/a&gt;!&lt;/p&gt;
+&lt;h4&gt;Images&lt;/h4&gt;
+&lt;h5&gt;Auflisten&lt;/h5&gt;
+&lt;p&gt;Ich überprüfe die Images in meinem System mit &lt;code class=&quot;language-text&quot;&gt;docker images&lt;/code&gt;. Durch Hinzufügen des Flag &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; werden alle angezeigt.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker images -a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;Entfernen&lt;/h5&gt;
+&lt;p&gt;Wenn ich sicher bin, ergänze ich das Flag &lt;code class=&quot;language-text&quot;&gt;-q&lt;/code&gt;, um die IDs an den Befehle Docker &lt;code class=&quot;language-text&quot;&gt;rmi&lt;/code&gt; zu übergeben:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker rmi &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;docker images -a -q&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Container&lt;/h4&gt;
+&lt;h5&gt;Auflisten&lt;/h5&gt;
+&lt;p&gt;Ich überprüfe die Container in meinem System mit &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt;. Durch Hinzufügen des Flag &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; werden alle angezeigt.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;Stoppen und Entfernen&lt;/h5&gt;
+&lt;p&gt;Wenn ich sicher bin, ergänze ich das Flag &lt;code class=&quot;language-text&quot;&gt;-q&lt;/code&gt;, um die IDs an die Befehle &lt;code class=&quot;language-text&quot;&gt;docker stop&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;docker rm&lt;/code&gt; zu übergeben:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker stop &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a -q&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;
+docker &lt;span class=&quot;token function&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$(&lt;/span&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a -q&lt;span class=&quot;token variable&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;digitalocean.com behandelt in einem &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de&quot;&gt;Artikel&lt;/a&gt; alle gängigen Befehle, die zum Entfernen von Images, Containern und Volumen bei Docker verwendet werden.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Installieren von DPDocker&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/Digital-Peak/DPDocker.git
-
-&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone  https://github.com/astridx/boilerplate.git
-
-&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; DPDocker
+&lt;p&gt;Ich verfüge über eine frische Dockerinstallation. Auf meinem Rechner ist kein Image und somit kein Container. Die folgenden Befehle zeigen beide eine leere Tabelle:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker images -a
+docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun clone ich das DPDocker Github Repository.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; clone https://github.com/Digital-Peak/DPDocker.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Als nächstes wechsele ich in den Ordner DPDocker und führe den Befehl aus, der alle notwendigen Images herunterlädt.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;cd&lt;/span&gt; DPDocker
 
 &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt; images/build.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;./run.sh&lt;/p&gt;
-&lt;p&gt;Eine vollständige Referenz aller verfügbaren &lt;code class=&quot;language-text&quot;&gt;DPDocker&lt;/code&gt; Befehle ist die &lt;a href=&quot;https://github.com/Digital-Peak/DPDocker/blob/master/README.md&quot;&gt;Dokumentation&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><category><![CDATA[Docker Compose]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern vereinfacht. Ich installiere &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;Docker Compose&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
+&lt;p&gt;Der Befehl arbeitet einige Minuten. Im Anschluss werden mir eine Reihe von Images angezeigt, wenn ich &lt;code class=&quot;language-text&quot;&gt;docker images -a&lt;/code&gt; eingebe. &lt;code class=&quot;language-text&quot;&gt;docker ps -a&lt;/code&gt; listet keine Container auf. Diese werden über spezielle Kommandos angelegt. Eine vollständige Referenz aller verfügbaren &lt;code class=&quot;language-text&quot;&gt;DPDocker&lt;/code&gt; Befehle ist die &lt;a href=&quot;https://github.com/Digital-Peak/DPDocker/blob/master/README.md&quot;&gt;Dokumentation&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Docker Compose unter Ubuntu 20.04 einrichten]]></title><description><![CDATA[Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern…]]></description><link>https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-docker-compose-einrichten/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><category><![CDATA[Docker]]></category><category><![CDATA[Docker Compose]]></category><pubDate>Wed, 05 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern vereinfacht. Ich installiere &lt;a href=&quot;https://docs.docker.com/compose/&quot;&gt;Docker Compose&lt;/a&gt; unter Ubuntu 20.04.&lt;/p&gt;
 &lt;h2&gt;Voraussetzungen&lt;/h2&gt;
 &lt;p&gt;Nach der Installation des Desktop Images von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; verfüge ich über ein &lt;em&gt;non-root-Superuser-Konto&lt;/em&gt; und kann direkt mit der Installation von &lt;em&gt;Docker Compose&lt;/em&gt; beginnen.&lt;/p&gt;
 &lt;h2&gt;Installieren von Docker Compose&lt;/h2&gt;
@@ -369,7 +480,7 @@ TriggeredBy: ● docker.socket
 &lt;p&gt;Alle Gruppen werden angezeigt, in denen du dich befindest:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;astrid adm cdrom &lt;span class=&quot;token function&quot;&gt;sudo&lt;/span&gt; dip plugdev lpadmin lxd sambashare docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Einen anderen Benutzer fügst du wie folgt zur Gruppe &lt;strong&gt;Docker&lt;/strong&gt; hinzu If you need to add a user to the &lt;code class=&quot;language-text&quot;&gt;docker&lt;/code&gt; group that you&apos;re not logged in as, declare that username explicitly using: &lt;code class=&quot;language-text&quot;&gt;sudo usermod -aG docker username&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Einen anderen Benutzer fügst du wie folgt zur Gruppe &lt;strong&gt;Docker&lt;/strong&gt; hinzu: &lt;code class=&quot;language-text&quot;&gt;sudo usermod -aG docker username&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Sehen wir uns den Befehl „Docker“ genauer an.&lt;/p&gt;
 &lt;h2&gt;Using the Docker Command&lt;/h2&gt;
@@ -418,7 +529,7 @@ TriggeredBy: ● docker.socket
   update      Update configuration of one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers
   version     Show the Docker version information
   &lt;span class=&quot;token function&quot;&gt;wait&lt;/span&gt;        Block &lt;span class=&quot;token keyword&quot;&gt;until&lt;/span&gt; one or &lt;span class=&quot;token function&quot;&gt;more&lt;/span&gt; containers stop, &lt;span class=&quot;token keyword&quot;&gt;then&lt;/span&gt; print their &lt;span class=&quot;token builtin class-name&quot;&gt;exit&lt;/span&gt; codes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Sieh dir detailierter Optionen an:&lt;/p&gt;
+&lt;p&gt;Sieh dir einzelne Optionen detailierter an:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker docker-unterbefehl--help&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Lass dir System-Informationen zu Docker anzeigen:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker info&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -453,13 +564,13 @@ docker.io/library/ubuntu:latest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Nachdem ein Images heruntergeladen wurde, führst du es mit &lt;code class=&quot;language-text&quot;&gt;run&lt;/code&gt; aus.&lt;/p&gt;
 &lt;p&gt;So zeigst du heruntergeladene Images Bilder an:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker images&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The output will look similar to the following:&lt;/p&gt;
+&lt;p&gt;Die Ausgabe sieht wie folgt aus:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ubuntu              latest              4e622ef86b13        &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt; days ago         &lt;span class=&quot;token number&quot;&gt;73&lt;/span&gt;.9MB
 hello-world         latest              bf756fb1ae65        &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; months ago        &lt;span class=&quot;token number&quot;&gt;13&lt;/span&gt;.3kB&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Schauen wir uns Container genauer an.&lt;/p&gt;
 &lt;h2&gt;Docker Container&lt;/h2&gt;
-&lt;p&gt;Lassen Sie uns als Beispiel einen Container mit dem neuesten Image von Ubuntu aufrufen.&lt;/p&gt;
+&lt;p&gt;Lasse uns als Beispiel einen Container mit dem neuesten Image von Ubuntu aufrufen.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Die Kombination von &lt;strong&gt;-i&lt;/strong&gt; und &lt;strong&gt;-t&lt;/strong&gt; ermöglicht dir den interaktiven Shell-Zugriff auf den Container:&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -482,8 +593,8 @@ hello-world         latest              bf756fb1ae65        &lt;span class=&quot
 &lt;p&gt;Du siehst beispielsweise dies:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;CONTAINER ID        IMAGE               COMMAND             CREATED
 &lt;span class=&quot;token punctuation&quot;&gt;..&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In this tutorial, you started two containers; one from the &lt;code class=&quot;language-text&quot;&gt;hello-world&lt;/code&gt; image and another from the &lt;code class=&quot;language-text&quot;&gt;ubuntu&lt;/code&gt; image. Both containers are no longer running, but they still exist on your system.&lt;/p&gt;
-&lt;p&gt;To view all containers --- active and inactive, run &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt; with the &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; switch:&lt;/p&gt;
+&lt;p&gt;Bisher haben wir zwei Container gestartet. Einen aus dem &lt;code class=&quot;language-text&quot;&gt;hello-world&lt;/code&gt;-Image und einen aus dem &lt;code class=&quot;language-text&quot;&gt;ubuntu&lt;/code&gt;-Image. Beide Container werden nicht mehr ausgeführt, sind jedoch auf Ihrem System noch vorhanden.&lt;/p&gt;
+&lt;p&gt;Rufe &lt;code class=&quot;language-text&quot;&gt;docker ps&lt;/code&gt; mit der Option &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; auf, um alle Container anzuzeigen --- aktiv und inaktiv:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker &lt;span class=&quot;token function&quot;&gt;ps&lt;/span&gt; -a&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Du siehst beispielsweise dies:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;3fee0f2f636         ubuntu              &lt;span class=&quot;token string&quot;&gt;&quot;/bin/bash&quot;&lt;/span&gt;         &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt; minutes ago       Exited &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt; seconds ago                       Quirky_driscoll
@@ -507,9 +618,9 @@ ef3d221a5f6c        hello-world         &lt;span class=&quot;token string&quot;&
 &lt;p&gt;Teilen wir das Image als nächstes mit anderen.&lt;/p&gt;
 &lt;h2&gt;Docker Images im Docker Repository veröffentlichen&lt;/h2&gt;
 &lt;p&gt;Senden wir ein Docker-Image an Docker Hub. Melden Sie sich zuerst bei &lt;a href=&quot;https://hub.docker.com/&quot;&gt;Docker Hub&lt;/a&gt; an, um dein Image zu übertragen.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker login -u dein-docker-username&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;docker login -u dein-docker-username&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Bildes verwendet hast ist folgende Eränzugn wichtig:
+&lt;p&gt;Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Bildes verwendet hast, ist folgende Ergänzung wichtig:
 &lt;code class=&quot;language-text&quot;&gt;docker tag astrid/ubuntu-node-js docker-registry-username/ubuntu-und-node-js&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Lade dein eigenes Image hoch:&lt;/p&gt;
@@ -599,13 +710,15 @@ user.email&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; deineemail
 &lt;/blockquote&gt;
 &lt;p&gt;Es gibt viele weitere Optionen. Die beschreibenen sind meiner Meinung nach die wichtigsten.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Ubuntu 20.02 Vorwort]]></title><description><![CDATA[Ich habe das Desktop Image von Ubuntu 20.04 LTS (Focal Fossa) heruntergeladen und installiert. Das war kein Hexenwerk. Angepasst habe ich…]]></description><link>https://blog.astrid-guenther.de/ubuntu-vorwort/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ubuntu-vorwort/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><pubDate>Sun, 02 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Ich habe das Desktop Image von &lt;a href=&quot;https://releases.ubuntu.com/20.04/&quot;&gt;Ubuntu 20.04 LTS (Focal Fossa)&lt;/a&gt; heruntergeladen und installiert. Das war kein Hexenwerk.&lt;/p&gt;
 &lt;p&gt;Angepasst habe ich &lt;a href=&quot;https://help.ubuntu.com/stable/ubuntu-help/prefs-language.html.de&quot;&gt;Region und Sprache&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Installiert habe ich &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Einrichten eines Ubuntu 20.04 Desktop]]></title><description><![CDATA[Ubuntu 20.04 Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation. Vorwort Git Docker Docker Compose]]></description><link>https://blog.astrid-guenther.de/mein-ubuntu-rechner/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/mein-ubuntu-rechner/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><pubDate>Sat, 01 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Ubuntu 20.04&lt;/h2&gt;
+&lt;p&gt;Installiert habe ich &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Einrichten eines Ubuntu 20.04 Desktop]]></title><description><![CDATA[Ubuntu 20.04 Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation. Vorwort Git Docker Docker Compose DPDocker Joomla…]]></description><link>https://blog.astrid-guenther.de/mein-ubuntu-rechner/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/mein-ubuntu-rechner/</guid><category><![CDATA[Linux]]></category><category><![CDATA[Ubuntu]]></category><pubDate>Sat, 01 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Ubuntu 20.04&lt;/h2&gt;
 &lt;p&gt;Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;/ubuntu-vorwort&quot;&gt;Vorwort&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/ubuntu-git-einrichten&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/ubuntu-docker-einrichten&quot;&gt;Docker&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;/ubuntu-docker-compose-einrichten&quot;&gt;Docker Compose&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/ubuntu-dpdocker&quot;&gt;DPDocker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/joomla-erweiterung-mit-dpdocker&quot;&gt;Joomla Erweiterung mit JoRobo und DPDocker&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Grundlegendes zu Ereignisschleifen (Event Loop), Rückruffunktionen (Callback), Promises und Async/Await in JavaScript]]></title><description><![CDATA[Vor nicht allzulanger Zeit bestanden eine Website in der Regel aus statischen Daten in einer HTML-Datei. Dies hat sich rasant verändert…]]></description><link>https://blog.astrid-guenther.de/ereignisschleifen-rueckruffunktionen-promises-und-async-await-in-javascript/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/ereignisschleifen-rueckruffunktionen-promises-und-async-await-in-javascript/</guid><category><![CDATA[JavaScript]]></category><pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Vor nicht allzulanger Zeit bestanden eine Website in der Regel aus statischen Daten in einer HTML-Datei. Dies hat sich rasant verändert. Eine Webanwendung ist heute interaktive und dynamisch. Meist ist es unerlässlich, externe Netzwerkanforderungen über eine Schnittstelle durchzuführen. Im Falle von JavaScript sind dann &lt;em&gt;asynchrone&lt;/em&gt; Programmiertechniken erforderlich.&lt;/p&gt;
 &lt;p&gt;Standardmäßig wird ein Skript innerhalb eines Browsers in Form eines einzigen Threads abgearbeitet. Eine Aktion wie das Anfordern einer Datei über eine API nimmt eine unbestimmte Zeit in Anspruch. Sie ist abhängig von der Größe der angeforderten Daten, der Geschwindigkeit der Netzwerkverbindung und anderen Faktoren. Wenn API-Aufrufe ausschließlich synchron abliefen, wäre es nicht möglich gleichzeitig Benutzereingaben wie Scrollen oder Klicken auf eine Schaltfläche zu verarbeiten. In einem Singlethread-Programm wird die Benutzeroberfläche &lt;em&gt;blockiert&lt;/em&gt;, während andere Berechnungen ablaufen.&lt;/p&gt;
 &lt;p&gt;Um eine Blockierung zu verhindern, verfügt die Browserumgebung über Web-APIs die &lt;em&gt;asynchron&lt;/em&gt; sind und auf die JavaScript zugreift. Dies bedeutet, dass diese parallel zu anderen Vorgängen – anstatt nacheinander – ablaufen und es dem Benutzer gleichzeitig möglich ist, Eingaben zu tätigen.&lt;/p&gt;
