@@ -17,6 +17,11 @@ Wenn du mit Joomla! arbeitetest, kennst du es aus anderen Komponenten: Elemente 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12...t13) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t12...t13.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

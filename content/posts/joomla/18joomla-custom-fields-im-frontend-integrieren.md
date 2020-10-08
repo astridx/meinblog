@@ -19,6 +19,11 @@ Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t14a...t14b.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

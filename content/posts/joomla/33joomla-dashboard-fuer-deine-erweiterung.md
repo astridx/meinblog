@@ -19,6 +19,11 @@ Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörig
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t27...t28) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t27...t28.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

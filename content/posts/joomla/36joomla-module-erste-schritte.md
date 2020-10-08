@@ -25,6 +25,11 @@ Dieser Abschnitt erklärt, wie du ein simples Modul erstellst. Darauf bauen wir 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t30...t31) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t30...t31.diff
+}
+```
+
 ## Schritt für Schritt
 
 In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dateien, die im Standardmuster der Modulentwicklung verwendet werden. Diese erstellen wir in diesem Abschnitt

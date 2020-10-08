@@ -17,6 +17,11 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla! ein spezielle
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t23...t24) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t23...t24.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

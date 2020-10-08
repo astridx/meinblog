@@ -19,6 +19,12 @@ Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t3...t4) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+````php
+// https://github.com/astridx/boilerplate/compare/t3...t4.diff
+
+}
+
+
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -51,7 +57,7 @@ class FooModel extends BaseDatabaseModel
 		return $this->message;
 	}
 }
-```
+````
 
 ### Geänderte Dateien
 

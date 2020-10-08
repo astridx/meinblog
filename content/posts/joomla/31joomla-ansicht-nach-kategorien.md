@@ -17,6 +17,11 @@ Todo
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t25...t26) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t25...t26.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

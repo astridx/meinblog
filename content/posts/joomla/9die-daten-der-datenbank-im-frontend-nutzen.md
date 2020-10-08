@@ -19,6 +19,11 @@ Wir haben mittlerweile eine Datenbank, in der die Daten zur Komponente gespeiche
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6b...t7) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t6b...t7.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

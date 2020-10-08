@@ -19,6 +19,11 @@ Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wic
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t8...t9) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t8...t9.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

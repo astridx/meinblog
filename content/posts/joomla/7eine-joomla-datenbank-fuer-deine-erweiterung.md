@@ -21,6 +21,12 @@ In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen d
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t5...t6) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t5...t6.diff
+
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

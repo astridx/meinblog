@@ -19,6 +19,11 @@ Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Text
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t7...t8) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t7...t8.diff
+}
+```
+
 ## Schritt für Schritt
 
 Die Ansicht der Website und der Administrationsbereich haben jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine gibt, gibt es im Backend zwei. Kurz erklärt: Die Datei mit der Endung `sys.ini` wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die `ini` ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt eingetragen werden.

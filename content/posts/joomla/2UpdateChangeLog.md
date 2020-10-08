@@ -23,6 +23,91 @@ Update Server klingt kompliziert, im Grunde ist es nur eine URL zu einer XML-Dat
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t1...t1b.diff
+
+diff --git a/changelog.xml b/changelog.xml
+new file mode 100644
+index 00000000..a3bf6ce0
+--- /dev/null
++++ b/changelog.xml
+@@ -0,0 +1,36 @@
++<changelogs>
++	<changelog>
++		<element>com_foos</element>
++		<type>component</type>
++		<version>1.0.0</version>
++		<note>
++			<item>Initial Version</item>
++		</note>
++	</changelog>
++	<changelog>
++		<element>com_foos</element>
++		<type>component</type>
++		<version>1.0.1</version>
++		<security>
++			<item><![CDATA[<p>No security issues.</p>]]></item>
++		</security>
++		<fix>
++			<item>No fix</item>
++		</fix>
++		<language>
++			<item>English</item>
++		</language>
++		<addition>
++			<item>Change log and Update Server added.</item>
++		</addition>
++		<change>
++			<item>No change</item>
++		</change>
++		<remove>
++			<item>No remove</item>
++		</remove>
++		<note>
++			<item>Change log and Update Server added.</item>
++		</note>
++	</changelog>
++</changelogs>
+diff --git a/foo_update.xml b/foo_update.xml
+new file mode 100644
+index 00000000..c710894d
+--- /dev/null
++++ b/foo_update.xml
+@@ -0,0 +1,18 @@
++<updates>
++    <update>
++        <name>com_foos</name>
++        <description>This is com_foo</description>
++        <element>com_foos</element>
++        <type>component</type>
++        <version>1.0.1</version>
++		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
++		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
++        <downloads>
++            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
++        </downloads>
++        <maintainer>Foo Creator</maintainer>
++        <maintainerurl>http://www.example.com</maintainerurl>
++        <targetplatform name="joomla" version="4.*"/>
++		<php_minimum>7.1</php_minimum>
++    </update>
++</updates>
+diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
+index b41bb7c4..fab65ebc 100644
+--- a/src/administrator/components/com_foos/foos.xml
++++ b/src/administrator/components/com_foos/foos.xml
+@@ -7,7 +7,7 @@
+ 	<authorUrl>[AUTHOR_URL]</authorUrl>
+ 	<copyright>[COPYRIGHT]</copyright>
+ 	<license>GNU General Public License version 2 or later;</license>
+-	<version>1.0.0</version>
++	<version>1.0.1</version>
+ 	<description>COM_FOOS_XML_DESCRIPTION</description>
+ 	<namespace path="src">FooNamespace\Component\Foos</namespace>
+ 	<scriptfile>script.php</scriptfile>
+
+```
+
 ## Schritt für Schritt
 
 Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website im Internet gespeichert werden. Die Adressen oder URLs unter diesen diesen abgelegt sind, hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingefügt.

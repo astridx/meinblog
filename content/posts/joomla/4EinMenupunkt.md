@@ -19,6 +19,11 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+````php
+// https://github.com/astridx/boilerplate/compare/t2...t3.diff
+
+}
+
 ## Schritt für Schritt
 
 Im aktuellen Abschnitte kommt eine Datei hinzu und es wird keine geändert.
@@ -44,7 +49,7 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 		</message>
 	</layout>
 </metadata>
-```
+````
 
 Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
 Der Text im `message`-Tag wird als Beschreibung angezeigt.

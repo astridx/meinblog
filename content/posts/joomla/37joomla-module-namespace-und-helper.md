@@ -17,6 +17,11 @@ Wir ergänzen Namespace und Helper.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t31...t32) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t31...t32.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

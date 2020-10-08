@@ -19,6 +19,12 @@ Nachdem du ein funktionierendes Backend für deine Komponente hast, implementier
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1c...t2) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+````php
+// https://github.com/astridx/boilerplate/compare/t1c...t2.diff
+
+}
+
+
 ## Schritt für Schritt
 
 Im aktuellen Abschnitte kommen drei Datei hinzu und zwei werden geändert.
@@ -58,7 +64,7 @@ class DisplayController extends BaseController
 		return $this;
 	}
 }
-```
+````
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656) - Die Ansicht
 

@@ -17,6 +17,11 @@ Dein Ziel ist es, dass nicht jeder das Recht hat, alles zu bearbeiten. Dazu biet
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t9...t10) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t9...t10.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

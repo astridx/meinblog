@@ -19,6 +19,12 @@ Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t4...t5.diff
+
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

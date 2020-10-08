@@ -17,6 +17,11 @@ Wir ergänzen Namespace und Helper.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t33...t34) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t33...t34.diff
+}
+```
+
 ## Schritt für Schritt
 
 In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu bestimmten Ereignissen ausgeführt wird.

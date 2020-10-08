@@ -17,6 +17,11 @@ Erstellen ein Installationspaket.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t39...t40) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t39...t40.diff
+}
+```
+
 ## Schritt für Schritt
 
 In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.

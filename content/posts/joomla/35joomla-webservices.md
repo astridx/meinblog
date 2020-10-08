@@ -17,6 +17,11 @@ In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf J
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t29...t30) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t29...t30.diff
+}
+```
+
 ## Schritt für Schritt
 
 In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.

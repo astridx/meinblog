@@ -19,6 +19,11 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in deine Joomla! 4 Kom
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t15a...t16) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t15a...t16.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

@@ -19,6 +19,11 @@ Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich b
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24...t24b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t24...t24b.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

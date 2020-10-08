@@ -17,6 +17,11 @@ Joomla! bietet eine Reihe von Funktionen, mit denen es Administratoren möglich 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t21...t22.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

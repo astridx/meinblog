@@ -22,6 +22,11 @@ Dieser Teil behandelt die die serverseitige Validierung in Joomla! 4.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t10...t11a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t10...t11a.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

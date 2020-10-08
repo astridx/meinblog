@@ -17,6 +17,11 @@ Fast jede Website teilt ihre Inhalte in Kategorien ein. Joomla! bietet dieses n�
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11b...t12) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t11b...t12.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

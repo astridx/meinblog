@@ -19,6 +19,11 @@ Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftret
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t20...t21.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

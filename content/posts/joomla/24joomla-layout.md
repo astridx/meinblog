@@ -17,6 +17,11 @@ Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu ges
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t19...t20.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien

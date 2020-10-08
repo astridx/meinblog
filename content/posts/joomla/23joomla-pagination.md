@@ -19,6 +19,11 @@ Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist ni
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+```php
+// https://github.com/astridx/boilerplate/compare/t18...t19.diff
+}
+```
+
 ## Schritt für Schritt
 
 ### Neue Dateien
