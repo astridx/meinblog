@@ -19,9 +19,10 @@ Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t16...t17) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t16...t17.diff
-}
+
+
 ```
 
 ## Schritt für Schritt

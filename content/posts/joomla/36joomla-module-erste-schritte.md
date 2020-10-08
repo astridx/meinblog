@@ -25,9 +25,90 @@ Dieser Abschnitt erklärt, wie du ein simples Modul erstellst. Darauf bauen wir 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t30...t31) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t30...t31.diff
-}
+
+diff --git a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
+new file mode 100644
+index 00000000..e20c4602
+--- /dev/null
++++ b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
+@@ -0,0 +1,2 @@
++MOD_FOO="[PROJECT_NAME]"
++MOD_FOO_XML_DESCRIPTION="Foo Module"
+diff --git a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini
+new file mode 100644
+index 00000000..e20c4602
+--- /dev/null
++++ b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini
+@@ -0,0 +1,2 @@
++MOD_FOO="[PROJECT_NAME]"
++MOD_FOO_XML_DESCRIPTION="Foo Module"
+diff --git a/src/modules/mod_foo/mod_foo.php b/src/modules/mod_foo/mod_foo.php
+new file mode 100644
+index 00000000..918a2313
+--- /dev/null
++++ b/src/modules/mod_foo/mod_foo.php
+@@ -0,0 +1,15 @@
++<?php
++/**
++/**
++ * @package     Joomla.Administrator
++ * @subpackage  mod_foo
++ *
++ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
++ * @license     GNU General Public License version 2 or later; see LICENSE.txt
++ */
++
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\Helper\ModuleHelper;
++
++require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
+diff --git a/src/modules/mod_foo/mod_foo.xml b/src/modules/mod_foo/mod_foo.xml
+new file mode 100644
+index 00000000..482aa45e
+--- /dev/null
++++ b/src/modules/mod_foo/mod_foo.xml
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?>
++<extension type="module" client="site" method="upgrade">
++	<name>MOD_FOO</name>
++	<creationDate>[DATE]</creationDate>
++	<author>[AUTHOR]</author>
++	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
++	<authorUrl>[AUTHOR_URL]</authorUrl>
++	<copyright>[COPYRIGHT]</copyright>
++	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
++	<version>__BUMP_VERSION__</version>
++	<description>MOD_FOO_XML_DESCRIPTION</description>
++
++	<files>
++		<filename module="mod_foo">mod_foo.php</filename>
++		<folder>tmpl</folder>
++		<folder>language</folder>
++		<filename>mod_foo.xml</filename>
++	</files>
++</extension>
+diff --git a/src/modules/mod_foo/tmpl/default.php b/src/modules/mod_foo/tmpl/default.php
+new file mode 100644
+index 00000000..c2256e7e
+--- /dev/null
++++ b/src/modules/mod_foo/tmpl/default.php
+@@ -0,0 +1,12 @@
++<?php
++/**
++ * @package     Joomla.Administrator
++ * @subpackage  mod_foo
++ *
++ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
++ * @license     GNU General Public License version 2 or later; see LICENSE.txt
++ */
++
++\defined('_JEXEC') or die;
++
++echo '[PROJECT_NAME]';
+
 ```
 
 ## Schritt für Schritt

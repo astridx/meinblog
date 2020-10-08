@@ -19,7 +19,7 @@ Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administratio
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t0...t1) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t0...t1.diff
 
 diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml

@@ -19,9 +19,10 @@ Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t22...t23.diff
-}
+
+
 ```
 
 ## Schritt für Schritt

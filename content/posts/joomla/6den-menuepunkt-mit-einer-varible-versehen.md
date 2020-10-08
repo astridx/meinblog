@@ -19,10 +19,55 @@ Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t4...t5.diff
 
-}
+diff --git a/src/components/com_foos/src/Model/FooModel.php b/src/components/com_foos/src/Model/FooModel.php
+index 70dd4d2b..654cb0d9 100644
+--- a/src/components/com_foos/src/Model/FooModel.php
++++ b/src/components/com_foos/src/Model/FooModel.php
+@@ -12,6 +12,7 @@
+ 
+ \defined('_JEXEC') or die;
+ 
++use Joomla\CMS\Factory;
+ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+ 
+ /**
+@@ -33,10 +34,8 @@ class FooModel extends BaseDatabaseModel
+ 	 */
+ 	public function getMsg()
+ 	{
+-		if (!isset($this->message))
+-		{
+-			$this->message = 'Hello Foo!';
+-		}
++		$app = Factory::getApplication();
++		$this->message = $app->input->get('show_text', "Hi");
+ 
+ 		return $this->message;
+ 	}
+diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
+index cda926c9..03e19bbe 100644
+--- a/src/components/com_foos/tmpl/foo/default.xml
++++ b/src/components/com_foos/tmpl/foo/default.xml
+@@ -5,4 +5,15 @@
+ 			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
+ 		</message>
+ 	</layout>
++	<!-- Add fields to the request variables for the layout. -->
++	<fields name="request">
++		<fieldset name="request">
++			<field
++				name="show_text"
++				type="text"
++				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
++				default="Hi" 
++			/>
++		</fieldset>
++	</fields>
+ </metadata>
+
 ```
 
 ## Schritt für Schritt

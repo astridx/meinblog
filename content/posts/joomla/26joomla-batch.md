@@ -17,9 +17,227 @@ Joomla! bietet eine Reihe von Funktionen, mit denen es Administratoren möglich 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t21...t22.diff
-}
+
+diff --git a/src/administrator/components/com_foos/src/Controller/FooController.php b/src/administrator/components/com_foos/src/Controller/FooController.php
+index 08c1ec19..858537bf 100644
+--- a/src/administrator/components/com_foos/src/Controller/FooController.php
++++ b/src/administrator/components/com_foos/src/Controller/FooController.php
+@@ -12,6 +12,7 @@
+ \defined('_JEXEC') or die;
+ 
+ use Joomla\CMS\MVC\Controller\FormController;
++use Joomla\CMS\Router\Route;
+ 
+ /**
+  * Controller for a single foo
+@@ -20,4 +21,24 @@
+  */
+ class FooController extends FormController
+ {
++	/**
++	 * Method to run batch operations.
++	 *
++	 * @param   object  $model  The model.
++	 *
++	 * @return  boolean   True if successful, false otherwise and internal error is set.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function batch($model = null)
++	{
++		$this->checkToken();
++
++		$model = $this->getModel('Foo', 'Administrator', array());
++
++		// Preset the redirect
++		$this->setRedirect(Route::_('index.php?option=com_foos&view=foos' . $this->getRedirectToListAppend(), false));
++
++		return parent::batch($model);
++	}
+ }
+diff --git a/src/administrator/components/com_foos/src/Model/FooModel.php b/src/administrator/components/com_foos/src/Model/FooModel.php
+index 70fdd2e0..80ff2907 100644
+--- a/src/administrator/components/com_foos/src/Model/FooModel.php
++++ b/src/administrator/components/com_foos/src/Model/FooModel.php
+@@ -39,6 +39,24 @@ class FooModel extends AdminModel
+ 	 */
+ 	protected $associationsContext = 'com_foos.item';
+ 
++	/**
++	 * Batch copy/move command. If set to false, the batch copy/move command is not supported
++	 *
++	 * @var  string
++	 */
++	protected $batch_copymove = 'category_id';
++
++	/**
++	 * Allowed batch commands
++	 *
++	 * @var array
++	 */
++	protected $batch_commands = array(
++		'assetgroup_id' => 'batchAccess',
++		'language_id'   => 'batchLanguage',
++		'user_id'       => 'batchUser',
++	);
++
+ 	/**
+ 	 * Method to get the row form.
+ 	 *
+diff --git a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
+index 6593ecd1..4d35af80 100644
+--- a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
++++ b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
+@@ -144,5 +144,8 @@ protected function addToolbar()
+ 
+ 			ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
+ 		}
++
++		ToolbarHelper::divider();
++		ToolbarHelper::help('', false, 'http://joomla.org');
+ 	}
+ }
+diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+index 6ff2d395..622ff2db 100644
+--- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
++++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+@@ -175,14 +175,25 @@ protected function addToolbar()
+ 			{
+ 				$childBar->trash('foos.trash')->listCheck(true);
+ 			}
+-		}
+ 
+-		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
+-		{
+-			$toolbar->delete('foos.delete')
+-				->text('JTOOLBAR_EMPTY_TRASH')
+-				->message('JGLOBAL_CONFIRM_DELETE')
+-				->listCheck(true);
++			if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
++			{
++				$childBar->delete('foos.delete')
++					->text('JTOOLBAR_EMPTY_TRASH')
++					->message('JGLOBAL_CONFIRM_DELETE')
++					->listCheck(true);
++			}
++
++			// Add a batch button
++			if ($user->authorise('core.create', 'com_foos')
++				&& $user->authorise('core.edit', 'com_foos')
++				&& $user->authorise('core.edit.state', 'com_foos'))
++			{
++				$childBar->popupButton('batch')
++					->text('JTOOLBAR_BATCH')
++					->selector('collapseModal')
++					->listCheck(true);
++			}
+ 		}
+ 
+ 		if ($user->authorise('core.admin', 'com_foos') || $user->authorise('core.options', 'com_foos'))
+@@ -190,6 +201,9 @@ protected function addToolbar()
+ 			$toolbar->preferences('com_foos');
+ 		}
+ 
++		ToolbarHelper::divider();
++		ToolbarHelper::help('', false, 'http://joomla.org');
++
+ 		HTMLHelper::_('sidebar.setAction', 'index.php?option=com_foos');
+ 	}
+ }
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
+index 74f0ef88..3aa053c4 100644
+--- a/src/administrator/components/com_foos/tmpl/foos/default.php
++++ b/src/administrator/components/com_foos/tmpl/foos/default.php
+@@ -156,6 +156,16 @@
+ 
+ 					<?php echo $this->pagination->getListFooter(); ?>
+ 				
++					<?php echo HTMLHelper::_(
++						'bootstrap.renderModal',
++						'collapseModal',
++						array(
++							'title'  => Text::_('COM_FOOS_BATCH_OPTIONS'),
++							'footer' => $this->loadTemplate('batch_footer'),
++						),
++						$this->loadTemplate('batch_body')
++					); ?>
++
+ 				<?php endif; ?>
+ 				<input type="hidden" name="task" value="">
+ 				<input type="hidden" name="boxchecked" value="0">
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php b/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
+new file mode 100644
+index 00000000..9052b7b2
+--- /dev/null
++++ b/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
+@@ -0,0 +1,39 @@
++<?php
++/**
++ * @package     Joomla.Administrator
++ * @subpackage  com_foos
++ *
++ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
++ * @license     GNU General Public License version 2 or later; see LICENSE.txt
++ */
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\Layout\LayoutHelper;
++
++$published = $this->state->get('filter.published');
++$noUser    = true;
++?>
++
++<div class="container">
++	<div class="row">
++		<div class="form-group col-md-6">
++			<div class="controls">
++				<?php echo LayoutHelper::render('joomla.html.batch.language', []); ?>
++			</div>
++		</div>
++		<div class="form-group col-md-6">
++			<div class="controls">
++				<?php echo LayoutHelper::render('joomla.html.batch.access', []); ?>
++			</div>
++		</div>
++	</div>
++	<div class="row">
++		<?php if ($published >= 0) : ?>
++			<div class="form-group col-md-6">
++				<div class="controls">
++					<?php echo LayoutHelper::render('joomla.html.batch.item', ['extension' => 'com_foos']); ?>
++				</div>
++			</div>
++		<?php endif; ?>
++	</div>
++</div>
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php b/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
+new file mode 100644
+index 00000000..8c5d7158
+--- /dev/null
++++ b/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
+@@ -0,0 +1,19 @@
++<?php
++/**
++ * @package     Joomla.Administrator
++ * @subpackage  com_foos
++ *
++ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
++ * @license     GNU General Public License version 2 or later; see LICENSE.txt
++ */
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\Language\Text;
++
++?>
++<button type="button" class="btn btn-secondary" onclick="document.getElementById('batch-category-id').value='';document.getElementById('batch-access').value='';document.getElementById('batch-language-id').value='';document.getElementById('batch-user-id').value='';document.getElementById('batch-tag-id').value=''" data-dismiss="modal">
++	<?php echo Text::_('JCANCEL'); ?>
++</button>
++<button type="submit" class="btn btn-success" onclick="Joomla.submitbutton('foo.batch');return false">
++	<?php echo Text::_('JGLOBAL_BATCH_PROCESS'); ?>
++</button>
+
 ```
 
 ## Schritt für Schritt

@@ -17,9 +17,334 @@ Fast jede Website teilt ihre Inhalte in Kategorien ein. Joomla! bietet dieses n�
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11b...t12) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t11b...t12.diff
-}
+
+diff --git a/src/administrator/components/com_foos/access.xml b/src/administrator/components/com_foos/access.xml
+index fa1d9b04..8ab72721 100644
+--- a/src/administrator/components/com_foos/access.xml
++++ b/src/administrator/components/com_foos/access.xml
+@@ -9,5 +9,13 @@
+ 		<action name="core.edit" title="JACTION_EDIT" />
+ 		<action name="core.edit.state" title="JACTION_EDITSTATE" />
+ 		<action name="core.edit.own" title="JACTION_EDITOWN" />
++		<action name="core.edit.value" title="JACTION_EDITVALUE" />
++	</section>
++	<section name="category">
++		<action name="core.create" title="JACTION_CREATE" />
++		<action name="core.delete" title="JACTION_DELETE" />
++		<action name="core.edit" title="JACTION_EDIT" />
++		<action name="core.edit.state" title="JACTION_EDITSTATE" />
++		<action name="core.edit.own" title="JACTION_EDITOWN" />
+ 	</section>
+ </access>
+diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
+index da9849dc..5f647bde 100644
+--- a/src/administrator/components/com_foos/foos.xml
++++ b/src/administrator/components/com_foos/foos.xml
+@@ -41,6 +41,8 @@
+ 		<menu view="foos">COM_FOOS</menu>
+ 		<submenu>
+ 			<menu link="option=com_foos">COM_FOOS</menu>
++			<menu link="option=com_categories&amp;extension=com_foos"
++				view="categories" img="class:foos-cat" alt="Foos/Categories">JCATEGORY</menu>
+ 		</submenu>
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>access.xml</filename>
+diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
+index ca0f0090..75acaa0e 100644
+--- a/src/administrator/components/com_foos/forms/foo.xml
++++ b/src/administrator/components/com_foos/forms/foo.xml
+@@ -28,6 +28,16 @@
+ 			hint="JFIELD_ALIAS_PLACEHOLDER"
+ 		/>
+ 
++		<field
++			name="catid"
++			type="categoryedit"
++			label="JCATEGORY"
++			extension="com_foos"
++			addfieldprefix="Joomla\Component\Categories\Administrator\Field"
++			required="true"
++			default=""
++		/>
++
+ 		<field
+ 			name="access"
+ 			type="accesslevel"
+diff --git a/src/administrator/components/com_foos/script.php b/src/administrator/components/com_foos/script.php
+index bda68ee3..4e74d518 100644
+--- a/src/administrator/components/com_foos/script.php
++++ b/src/administrator/components/com_foos/script.php
+@@ -7,9 +7,13 @@
+  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+  */
+ \defined('_JEXEC') or die;
++
++use Joomla\CMS\Application\ApplicationHelper;
++use Joomla\CMS\Factory;
+ use Joomla\CMS\Installer\InstallerAdapter;
+ use Joomla\CMS\Language\Text;
+ use Joomla\CMS\Log\Log;
++use Joomla\CMS\Table\Table;
+ 
+ /**
+  * Script file of Foo Component
+@@ -47,6 +51,50 @@ public function install($parent): bool
+ 	{
+ 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
+ 
++		$db = Factory::getDbo();
++		$alias   = ApplicationHelper::stringURLSafe('FooUncategorised');
++
++		// Initialize a new category.
++		$category = Table::getInstance('Category');
++
++		$data = array(
++			'extension' => 'com_foos',
++			'title' => 'FooUncategorised',
++			'alias' => $alias . '(en-GB)',
++			'description' => '',
++			'published' => 1,
++			'access' => 1,
++			'params' => '{"target":"","image":""}',
++			'metadesc' => '',
++			'metakey' => '',
++			'metadata' => '{"page_title":"","author":"","robots":""}',
++			'created_time' => Factory::getDate()->toSql(),
++			'created_user_id' => (int) $this->getAdminId(),
++			'language' => 'en-GB',
++			'rules' => array(),
++			'parent_id' => 1,
++		);
++
++		$category->setLocation(1, 'last-child');
++
++		// Bind the data to the table
++		if (!$category->bind($data))
++		{
++			return false;
++		}
++
++		// Check to make sure our data is valid.
++		if (!$category->check())
++		{
++			return false;
++		}
++
++		// Store the category.
++		if (!$category->store(true))
++		{
++			return false;
++		}
++
+ 		return true;
+ 	}
+ 
+@@ -146,4 +194,49 @@ public function postflight($type, $parent)
+ 
+ 		return true;
+ 	}
++
++	/**
++	 * Retrieve the admin user id.
++	 *
++	 * @return  integer|boolean  One Administrator ID.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	private function getAdminId()
++	{
++		$db    = Factory::getDbo();
++		$query = $db->getQuery(true);
++
++		// Select the admin user ID
++		$query
++			->clear()
++			->select($db->quoteName('u') . '.' . $db->quoteName('id'))
++			->from($db->quoteName('#__users', 'u'))
++			->join(
++				'LEFT',
++				$db->quoteName('#__user_usergroup_map', 'map')
++				. ' ON ' . $db->quoteName('map') . '.' . $db->quoteName('user_id')
++				. ' = ' . $db->quoteName('u') . '.' . $db->quoteName('id')
++			)
++			->join(
++				'LEFT',
++				$db->quoteName('#__usergroups', 'g')
++				. ' ON ' . $db->quoteName('map') . '.' . $db->quoteName('group_id')
++				. ' = ' . $db->quoteName('g') . '.' . $db->quoteName('id')
++			)
++			->where(
++				$db->quoteName('g') . '.' . $db->quoteName('title')
++				. ' = ' . $db->quote('Super Users')
++			);
++
++		$db->setQuery($query);
++		$id = $db->loadResult();
++
++		if (!$id || $id instanceof \Exception)
++		{
++			return false;
++		}
++
++		return $id;
++	}
+ }
+diff --git a/src/administrator/components/com_foos/services/provider.php b/src/administrator/components/com_foos/services/provider.php
+index b67c35d4..47fb5974 100644
+--- a/src/administrator/components/com_foos/services/provider.php
++++ b/src/administrator/components/com_foos/services/provider.php
+@@ -9,6 +9,7 @@
+ 
+ \defined('_JEXEC') or die;
+ 
++use Joomla\CMS\Categories\CategoryFactoryInterface;
+ use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
+ use Joomla\CMS\Extension\ComponentInterface;
+ use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
+@@ -51,6 +52,7 @@ function (Container $container)
+ 
+ 				$component->setRegistry($container->get(Registry::class));
+ 				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
++				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
+ 
+ 				return $component;
+ 			}
+diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
+index 4c925493..72b267ef 100644
+--- a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
++++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
+@@ -13,3 +13,5 @@ INSERT INTO `#__foos_details` (`name`) VALUES
+ ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
+ 
+ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
++
++ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
+diff --git a/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql b/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql
+new file mode 100644
+index 00000000..05b3b565
+--- /dev/null
++++ b/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql
+@@ -0,0 +1,3 @@
++ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
+diff --git a/src/administrator/components/com_foos/src/Extension/FoosComponent.php b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
+index 5c8cc6ba..44e1255a 100644
+--- a/src/administrator/components/com_foos/src/Extension/FoosComponent.php
++++ b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
+@@ -18,6 +18,7 @@
+ use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
+ use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
+ use Psr\Container\ContainerInterface;
++use Joomla\CMS\Helper\ContentHelper;
+ 
+ /**
+  * Component class for com_foos
+@@ -46,4 +47,48 @@ public function boot(ContainerInterface $container)
+ 	{
+ 		$this->getRegistry()->register('foosadministrator', new AdministratorService);
+ 	}
++
++	/**
++	 * Adds Count Items for Category Manager.
++	 *
++	 * @param   \stdClass[]  $items    The category objects
++	 * @param   string       $section  The section
++	 *
++	 * @return  void
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function countItems(array $items, string $section)
++	{
++		try
++		{
++			$config = (object) array(
++				'related_tbl'   => $this->getTableNameForSection($section),
++				'state_col'     => 'published',
++				'group_col'     => 'catid',
++				'relation_type' => 'category_or_group',
++			);
++
++			ContentHelper::countRelations($items, $config);
++		}
++		catch (\Exception $e)
++		{
++			// Ignore it
++		}
++	}
++
++	/**
++	 * Returns the table for the count items functions for the given section.
++	 *
++	 * @param   string  $section  The section
++	 *
++	 * @return  string|null
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	protected function getTableNameForSection(string $section = null)
++	{
++		return ($section === 'category' ? 'categories' : 'foos_details');
++
++	}
+ }
+diff --git a/src/administrator/components/com_foos/src/Model/FoosModel.php b/src/administrator/components/com_foos/src/Model/FoosModel.php
+index 0038575c..163953b2 100644
+--- a/src/administrator/components/com_foos/src/Model/FoosModel.php
++++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
+@@ -48,7 +48,7 @@ protected function getListQuery()
+ 
+ 		// Select the required fields from the table.
+ 		$query->select(
+-			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access'))
++			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'))
+ 		);
+ 
+ 		$query->from($db->quoteName('#__foos_details', 'a'));
+@@ -60,6 +60,13 @@ protected function getListQuery()
+ 				$db->quoteName('#__viewlevels', 'ag') . ' ON ' . $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access')
+ 			);
+ 
++		// Join over the categories.
++		$query->select($db->quoteName('c.title', 'category_title'))
++			->join(
++				'LEFT',
++				$db->quoteName('#__categories', 'c') . ' ON ' . $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid')
++			);
++
+ 		return $query;
+ 	}
+ }
+diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
+index 70e17c50..de3327e9 100644
+--- a/src/administrator/components/com_foos/tmpl/foo/edit.php
++++ b/src/administrator/components/com_foos/tmpl/foo/edit.php
+@@ -29,6 +29,7 @@
+ 	<?php echo $this->getForm()->renderField('name'); ?>
+ 	<?php echo $this->getForm()->renderField('alias'); ?>
+ 	<?php echo $this->getForm()->renderField('access'); ?>
++	<?php echo $this->getForm()->renderField('catid'); ?>
+ 	<input type="hidden" name="task" value="">
+ 	<?php echo HTMLHelper::_('form.token'); ?>
+ </form>
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
+index e597fc4c..628d268d 100644
+--- a/src/administrator/components/com_foos/tmpl/foos/default.php
++++ b/src/administrator/components/com_foos/tmpl/foos/default.php
+@@ -49,6 +49,9 @@
+ 									<a class="hasTooltip" href="<?php echo Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id); ?>" title="<?php echo Text::_('JACTION_EDIT'); ?> <?php echo $this->escape(addslashes($item->name)); ?>">
+ 										<?php echo $editIcon; ?><?php echo $this->escape($item->name); ?></a>
+ 
++									<div class="small">
++										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
++ 									</div>
+ 								</th>
+ 								<td class="small d-none d-md-table-cell">
+ 									<?php echo $item->access_level; ?>
+
 ```
 
 ## Schritt für Schritt

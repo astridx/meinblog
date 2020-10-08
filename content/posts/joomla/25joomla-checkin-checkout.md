@@ -19,9 +19,116 @@ Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftret
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t20...t21.diff
-}
+
+diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
+index f451d9e2..1b8a4c73 100644
+--- a/src/administrator/components/com_foos/forms/foo.xml
++++ b/src/administrator/components/com_foos/forms/foo.xml
+@@ -91,6 +91,18 @@
+ 			size="1"
+ 		/>
+ 
++		<field
++			name="checked_out"
++			type="hidden"
++			filter="unset"
++		/>
++
++		<field
++			name="checked_out_time"
++			type="hidden"
++			filter="unset"
++		/>
++
+ 		<field
+ 			name="ordering"
+ 			type="ordering"
+diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
+index ab768e01..862fa7c9 100644
+--- a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
++++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
+@@ -35,3 +35,10 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
+ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
+ 
+ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD COLUMN `checked_out` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD COLUMN `checked_out_time` datetime AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
++
+diff --git a/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql b/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql
+new file mode 100644
+index 00000000..9498eedf
+--- /dev/null
++++ b/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql
+@@ -0,0 +1,5 @@
++ALTER TABLE `#__foos_details` ADD COLUMN `checked_out` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD COLUMN `checked_out_time` datetime AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
+diff --git a/src/administrator/components/com_foos/src/Model/FoosModel.php b/src/administrator/components/com_foos/src/Model/FoosModel.php
+index d2cab389..1e8d6c88 100644
+--- a/src/administrator/components/com_foos/src/Model/FoosModel.php
++++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
+@@ -75,10 +75,20 @@ protected function getListQuery()
+ 		// Select the required fields from the table.
+ 		$query->select(
+ 			$db->quoteName(
+-				array(
+-					'a.id', 'a.name', 'a.alias', 'a.access',
+-					'a.catid', 'a.published', 'a.publish_up', 'a.publish_down',
+-					'a.language', 'a.ordering', 'a.state'
++				explode(
++					', ',
++					$this->getState(
++						'list.select',
++						'a.id, a.name, a.catid' .
++						', a.access' .
++						', a.checked_out' .
++						', a.checked_out_time' .
++						', a.language' .
++						', a.ordering' .
++						', a.state' .
++						', a.published' .
++						', a.publish_up, a.publish_down'
++					)
+ 				)
+ 			)
+ 		);
+@@ -124,6 +134,13 @@ protected function getListQuery()
+ 			$query->select('(' . $subQuery . ') AS ' . $db->quoteName('association'));
+ 		}
+ 
++		// Join over the users for the checked out user.
++		$query->select($db->quoteName('uc.name', 'editor'))
++			->join(
++				'LEFT',
++				$db->quoteName('#__users', 'uc') . ' ON ' . $db->quoteName('uc.id') . ' = ' . $db->quoteName('a.checked_out')
++			);
++
+ 		// Filter on the language.
+ 		if ($language = $this->getState('filter.language'))
+ 		{
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
+index c18a6c04..74f0ef88 100644
+--- a/src/administrator/components/com_foos/tmpl/foos/default.php
++++ b/src/administrator/components/com_foos/tmpl/foos/default.php
+@@ -108,6 +108,9 @@
+ 									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
+ 								</td>
+ 								<th scope="row" class="has-context">
++									<?php if ($item->checked_out) : ?>
++										<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true); ?>
++									<?php endif; ?>
+ 									<div>
+ 										<?php echo $this->escape($item->name); ?>
+ 									</div>
+
 ```
 
 ## Schritt für Schritt

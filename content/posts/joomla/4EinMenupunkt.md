@@ -19,10 +19,25 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-````php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t2...t3.diff
 
-}
+diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
+new file mode 100644
+index 00000000..cda926c9
+--- /dev/null
++++ b/src/components/com_foos/tmpl/foo/default.xml
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="utf-8"?>
++<metadata>
++	<layout title="COM_FOOS_FOO_VIEW_DEFAULT_TITLE">
++		<message>
++			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
++		</message>
++	</layout>
++</metadata>
+
+```
 
 ## Schritt für Schritt
 

@@ -19,9 +19,122 @@ Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörig
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t27...t28) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t27...t28.diff
-}
+
+diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
+index 5f647bde..a6f64efa 100644
+--- a/src/administrator/components/com_foos/foos.xml
++++ b/src/administrator/components/com_foos/foos.xml
+@@ -37,12 +37,28 @@
+     </media>
+ 	<!-- Back-end files -->
+ 	<administration>
+-		<!-- Menu entries -->
+-		<menu view="foos">COM_FOOS</menu>
++		<menu img="class:comment">
++			COM_FOOS
++			<params>
++				<dashboard>foos</dashboard>
++			</params>
++		</menu>
+ 		<submenu>
+-			<menu link="option=com_foos">COM_FOOS</menu>
++			<menu link="option=com_foos">
++				COM_FOOS
++				<params>
++					<menu-quicktask-title>COM_FOOS</menu-quicktask-title>
++					<menu-quicktask>index.php?option=com_foos&amp;view=foo&amp;layout=edit</menu-quicktask>
++				</params>
++			</menu>
+ 			<menu link="option=com_categories&amp;extension=com_foos"
+-				view="categories" img="class:foos-cat" alt="Foos/Categories">JCATEGORY</menu>
++				view="categories" img="class:foos-cat" alt="Foos/Categories">
++				JCATEGORY
++				<params>
++					<menu-quicktask-title>JCATEGORY</menu-quicktask-title>
++					<menu-quicktask>index.php?option=com_categories&amp;view=category&amp;layout=edit&amp;extension=com_foos</menu-quicktask>
++				</params>
++			</menu>
+ 		</submenu>
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>access.xml</filename>
+diff --git a/src/administrator/components/com_foos/presets/foos.xml b/src/administrator/components/com_foos/presets/foos.xml
+new file mode 100644
+index 00000000..35cad3e5
+--- /dev/null
++++ b/src/administrator/components/com_foos/presets/foos.xml
+@@ -0,0 +1,31 @@
++<?xml version="1.0"?>
++<menu
++	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++	xmlns="urn:joomla.org"
++	xsi:schemaLocation="urn:joomla.org menu.xsd"
++	>
++	<menuitem
++		title="COM_FOOS"
++		type="heading"
++		icon="comment"
++		class="class:comment"
++		>
++		<menuitem
++			title="COM_FOOS"
++			type="component"
++			element="com_foos"
++			link="index.php?option=com_foos"
++			quicktask="index.php?option=com_foos&amp;view=foo&amp;layout=edit"
++			quicktask-title="COM_FOOS"
++		/>
++
++		<menuitem
++			title="JCATEGORY"
++			type="component"
++			element="com_foos"
++			link="index.php?option=com_categories&amp;extension=com_foos"
++			quicktask="index.php?option=com_categories&amp;view=category&amp;layout=edit&amp;extension=com_foos"
++			quicktask-title="JCATEGORY"
++		/>
++	</menuitem>
++</menu>
+diff --git a/src/administrator/components/com_foos/script.php b/src/administrator/components/com_foos/script.php
+index 4e74d518..c5f6cf10 100644
+--- a/src/administrator/components/com_foos/script.php
++++ b/src/administrator/components/com_foos/script.php
+@@ -14,13 +14,14 @@
+ use Joomla\CMS\Language\Text;
+ use Joomla\CMS\Log\Log;
+ use Joomla\CMS\Table\Table;
++use Joomla\CMS\Installer\InstallerScript;
+ 
+ /**
+  * Script file of Foo Component
+  *
+  * @since  __BUMP_VERSION__
+  */
+-class Com_FoosInstallerScript
++class Com_FoosInstallerScript extends InstallerScript
+ {
+ 	/**
+ 	 * Minimum Joomla version to check
+@@ -95,6 +96,8 @@ public function install($parent): bool
+ 			return false;
+ 		}
+ 
++		$this->addDashboardMenu('foos', 'foos');
++
+ 		return true;
+ 	}
+ 
+@@ -128,6 +131,8 @@ public function update($parent): bool
+ 	{
+ 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
+ 
++		$this->addDashboardMenu('foo', 'foo');
++
+ 		return true;
+ 	}
+ 
+
 ```
 
 ## Schritt für Schritt

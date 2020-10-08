@@ -21,10 +21,185 @@ In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen d
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t5...t6) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
+```php {numberLines diff}
 // https://github.com/astridx/boilerplate/compare/t5...t6.diff
 
-}
+diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
+index e24d1127..ec9a6270 100644
+--- a/src/administrator/components/com_foos/foos.xml
++++ b/src/administrator/components/com_foos/foos.xml
+@@ -11,6 +11,16 @@
+ 	<description>COM_FOOS_XML_DESCRIPTION</description>
+ 	<namespace path="src">FooNamespace\Component\Foos</namespace>
+ 	<scriptfile>script.php</scriptfile>
++	<install> <!-- Runs on install -->
++		<sql>
++			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
++		</sql>
++	</install>
++	<uninstall> <!-- Runs on uninstall -->
++		<sql>
++			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
++		</sql>
++	</uninstall>
+ 	<!-- Frond-end files -->
+ 	<files folder="components/com_foos">
+ 		<folder>src</folder>
+@@ -26,6 +36,7 @@
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>foos.xml</filename>
+ 			<folder>services</folder>
++			<folder>sql</folder>
+ 			<folder>src</folder>
+ 			<folder>tmpl</folder>
+ 		</files>
+diff --git a/src/administrator/components/com_foos/services/provider.php b/src/administrator/components/com_foos/services/provider.php
+index 3e3ba4e4..b67c35d4 100644
+--- a/src/administrator/components/com_foos/services/provider.php
++++ b/src/administrator/components/com_foos/services/provider.php
+@@ -15,6 +15,7 @@
+ use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
+ use Joomla\CMS\Extension\Service\Provider\MVCFactory;
+ use Joomla\CMS\HTML\Registry;
++use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
+ use Joomla\DI\Container;
+ use Joomla\DI\ServiceProviderInterface;
+ use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
+@@ -49,6 +50,7 @@ function (Container $container)
+ 				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
+ 
+ 				$component->setRegistry($container->get(Registry::class));
++				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
+ 
+ 				return $component;
+ 			}
+diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
+new file mode 100644
+index 00000000..634065b8
+--- /dev/null
++++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
+@@ -0,0 +1,11 @@
++CREATE TABLE IF NOT EXISTS `#__foos_details` (
++  `id` int(11) NOT NULL AUTO_INCREMENT,
++  `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
++  `name` varchar(255) NOT NULL DEFAULT '',
++  PRIMARY KEY (`id`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_ci;
++
++INSERT INTO `#__foos_details` (`name`) VALUES
++('Nina'),
++('Astrid'),
++('Elmar');
+diff --git a/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql b/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql
+new file mode 100644
+index 00000000..0fd7415a
+--- /dev/null
++++ b/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql
+@@ -0,0 +1 @@
++DROP TABLE IF EXISTS `#__foos_details`;
+diff --git a/src/administrator/components/com_foos/src/Model/FoosModel.php b/src/administrator/components/com_foos/src/Model/FoosModel.php
+new file mode 100644
+index 00000000..4767b474
+--- /dev/null
++++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
+@@ -0,0 +1,57 @@
++<?php
++/**
++ * @package     Joomla.Administrator
++ * @subpackage  com_foos
++ *
++ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
++ * @license     GNU General Public License version 2 or later; see LICENSE.txt
++ */
++
++namespace FooNamespace\Component\Foos\Administrator\Model;
++
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\MVC\Model\ListModel;
++
++/**
++ * Methods supporting a list of foo records.
++ *
++ * @since  __BUMP_VERSION__
++ */
++class FoosModel extends ListModel
++{
++	/**
++	 * Constructor.
++	 *
++	 * @param   array  $config  An optional associative array of configuration settings.
++	 *
++	 * @see     \JControllerLegacy
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function __construct($config = array())
++	{
++		parent::__construct($config);
++	}
++	/**
++	 * Build an SQL query to load the list data.
++	 *
++	 * @return  \JDatabaseQuery
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	protected function getListQuery()
++	{
++		// Create a new query object.
++		$db = $this->getDbo();
++		$query = $db->getQuery(true);
++
++		// Select the required fields from the table.
++		$query->select(
++			$db->quoteName(array('id', 'name', 'alias'))
++		);
++		$query->from($db->quoteName('#__foos_details'));
++
++		return $query;
++	}
++}
+diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+index fa0bfd4a..d317d93c 100644
+--- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
++++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+@@ -20,6 +20,13 @@
+  */
+ class HtmlView extends BaseHtmlView
+ {
++	/**
++	 * An array of items
++	 *
++	 * @var  array
++	 */
++	protected $items;
++
+ 	/**
+ 	 * Method to display the view.
+ 	 *
+@@ -31,6 +38,7 @@ class HtmlView extends BaseHtmlView
+ 	 */
+ 	public function display($tpl = null): void
+ 	{
++		$this->items = $this->get('Items');
+ 		parent::display($tpl);
+ 	}
+ }
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
+index 4796008d..0f12849b 100644
+--- a/src/administrator/components/com_foos/tmpl/foos/default.php
++++ b/src/administrator/components/com_foos/tmpl/foos/default.php
+@@ -8,4 +8,7 @@
+  */
+ \defined('_JEXEC') or die;
+ ?>
+-Hello Foos
++<?php foreach ($this->items as $i => $item) : ?>
++<?php echo $item->name; ?>
++</br>
++<?php endforeach; ?>
+
 ```
 
 ## Schritt für Schritt
