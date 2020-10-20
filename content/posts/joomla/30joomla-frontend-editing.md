@@ -25,9 +25,9 @@ index 0aca19d5..8aee99f2 100644
 --- a/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 +++ b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 @@ -11,6 +11,7 @@
- 
+
  defined('JPATH_PLATFORM') or die;
- 
+
 +use Joomla\CMS\Application\SiteApplication;
  use Joomla\CMS\Association\AssociationServiceInterface;
  use Joomla\CMS\Association\AssociationServiceTrait;
@@ -39,14 +39,14 @@ index 0aca19d5..8aee99f2 100644
 +use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;
  use Psr\Container\ContainerInterface;
  use Joomla\CMS\Helper\ContentHelper;
- 
+
 @@ -50,6 +52,7 @@ class FoosComponent extends MVCComponent
  	public function boot(ContainerInterface $container)
  	{
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);
 +		$this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
  	}
- 
+
  	/**
 diff --git a/src/administrator/components/com_foos/src/Service/HTML/Icon.php b/src/administrator/components/com_foos/src/Service/HTML/Icon.php
 new file mode 100644
@@ -260,7 +260,7 @@ index 00000000..37a9c36b
 @@ -0,0 +1,147 @@
 +<?xml version="1.0" encoding="utf-8"?>
 +<form>
-+	<fieldset 
++	<fieldset
 +		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 +		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 +	>
@@ -1056,25 +1056,25 @@ index f4e516eb..3f1907c9 100644
 @@ -8,17 +8,39 @@
   */
  \defined('_JEXEC') or die;
- 
+
 +use Joomla\CMS\Factory;
 +use Joomla\CMS\Helper\ContentHelper;
  use Joomla\CMS\Language\Text;
- 
+
 -if ($this->item->params->get('show_name')) {
 +$canDo   = ContentHelper::getActions('com_foos', 'category', $this->item->catid);
 +$canEdit = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == Factory::getUser()->id);
 +$tparams = $this->item->params;
- 
+
 +if ($tparams->get('show_name')) {
  	if ($this->Params->get('show_foo_name_label')) {
  		echo Text::_('COM_FOOS_NAME');
  	}
- 
+
  	echo $this->item->name;
  }
 +?>
- 
+
 +<?php if ($canEdit) : ?>
 +	<div class="icons">
 +		<div class="btn-group float-right">
@@ -1091,7 +1091,7 @@ index f4e516eb..3f1907c9 100644
 +<?php endif; ?>
 +
 +<?php
- echo $this->item->event->afterDisplayTitle; 
+ echo $this->item->event->afterDisplayTitle;
  echo $this->item->event->beforeDisplayContent;
  echo $this->item->event->afterDisplayContent;
 diff --git a/src/components/com_foos/tmpl/form/edit.php b/src/components/com_foos/tmpl/form/edit.php
@@ -1159,7 +1159,7 @@ index 00000000..ffa27556
 +			</div>
 +		</div>
 +		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-+		
++
 +		<?php if ( !$isModal && $assoc) : ?>
 +			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 +			<?php echo $this->loadTemplate('associations'); ?>
@@ -1167,7 +1167,7 @@ index 00000000..ffa27556
 +		<?php elseif ($isModal && $assoc) : ?>
 +			<div class="hidden"><?php echo $this->loadTemplate('associations'); ?></div>
 +		<?php endif; ?>
-+		
++
 +		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 +
 +		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>

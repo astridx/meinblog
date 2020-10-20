@@ -12,7 +12,7 @@ tags:
   - Docker
 ---
 
-[Docker](<https://de.wikipedia.org/w/index.php?title=Docker_(Software)&oldid=203149728>) vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler, ressourcenschonender und vom Host-Betriebssystem abhängig. Ich installiere [Docker](https://docs.docker.com/get-docker/) unter Ubuntu 20.04.
+[Docker](<https://de.wikipedia.org/w/index.php?title=Docker_(Software)&oldid=203149728>) vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler, ressourcenschonender und vom Host-Betriebssystem abhängig. Ich installiere [Docker](https://docs.docker.com/get-docker/) unter Ubuntu 20.04 und veröffentliche ein eigenes Docker Imaage.
 
 ## Voraussetzungen
 
@@ -133,7 +133,7 @@ astrid adm cdrom sudo dip plugdev lpadmin lxd sambashare docker
 
 Sehen wir uns den Befehl „Docker“ genauer an.
 
-## Using the Docker Command
+## Der Befehl Docker im überblick
 
 Die Syntax eines `docker`-Befehls:
 

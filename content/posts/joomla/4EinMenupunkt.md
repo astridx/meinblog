@@ -64,7 +64,7 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 		</message>
 	</layout>
 </metadata>
-````
+```
 
 Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
 Der Text im `message`-Tag wird als Beschreibung angezeigt.

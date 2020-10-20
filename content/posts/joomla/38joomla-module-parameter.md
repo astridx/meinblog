@@ -33,9 +33,9 @@ index 153977ef..4763eb19 100644
 --- a/src/modules/mod_foo/mod_foo.php
 +++ b/src/modules/mod_foo/mod_foo.php
 @@ -15,4 +15,6 @@
- 
+
  $test  = FooHelper::getText();
- 
+
 +$url = $params->get('domain');
 +
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
@@ -47,7 +47,7 @@ index afd93ad1..826039ad 100644
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
--		<folder>Helper</folder>		
+-		<folder>Helper</folder>
 +		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
@@ -113,9 +113,9 @@ index 70d865c4..2fc95b64 100644
 --- a/src/modules/mod_foo/tmpl/default.php
 +++ b/src/modules/mod_foo/tmpl/default.php
 @@ -9,4 +9,4 @@
- 
+
  \defined('_JEXEC') or die;
- 
+
 -echo '[PROJECT_NAME]' . $test;
 +echo '[PROJECT_NAME]' . $test . '<br />' . $url;
 

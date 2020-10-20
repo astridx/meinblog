@@ -13,7 +13,9 @@ tags:
   - Joomla
 ---
 
-_Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. _DPDocker_ enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.
+Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
+
+Hier geht es um _DPDocker_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung mit und für Joomla unterstützen.
 
 ## Voraussetzungen
 

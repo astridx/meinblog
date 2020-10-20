@@ -27,7 +27,7 @@ index 75acaa0e..29030084 100644
 @@ -28,6 +28,41 @@
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
- 
+
 +		<field
 +			name="published"
 +			type="list"
@@ -72,7 +72,7 @@ index 72b267ef..87a3a0a0 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -15,3 +15,15 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
- 
+
  ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `state` tinyint(3) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -169,7 +169,7 @@ index 44e1255a..831a13f6 100644
 +++ b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 @@ -91,4 +91,18 @@ protected function getTableNameForSection(string $section = null)
  		return ($section === 'category' ? 'categories' : 'foos_details');
- 
+
  	}
 +
 +	/**
@@ -191,20 +191,20 @@ index 163953b2..20e61378 100644
 --- a/src/administrator/components/com_foos/src/Model/FoosModel.php
 +++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
 @@ -48,7 +48,7 @@ protected function getListQuery()
- 
+
  		// Select the required fields from the table.
  		$query->select(
 -			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'))
 +			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'))
  		);
- 
+
  		$query->from($db->quoteName('#__foos_details', 'a'));
 diff --git a/src/administrator/components/com_foos/src/Table/FooTable.php b/src/administrator/components/com_foos/src/Table/FooTable.php
 index 509baa3b..e92cd58a 100644
 --- a/src/administrator/components/com_foos/src/Table/FooTable.php
 +++ b/src/administrator/components/com_foos/src/Table/FooTable.php
 @@ -58,4 +58,47 @@ public function generateAlias()
- 
+
  		return $this->alias;
  	}
 +
@@ -300,8 +300,8 @@ index 628d268d..dd3557dd 100644
   									</div>
  								</th>
 +								<td class="text-center">
-+									<?php 
-+									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', true, 'cb', $item->publish_up, $item->publish_down); 
++									<?php
++									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', true, 'cb', $item->publish_up, $item->publish_down);
 +									?>
 +								</td>
  								<td class="small d-none d-md-table-cell">

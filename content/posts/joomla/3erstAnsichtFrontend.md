@@ -168,7 +168,6 @@ index 00000000..661ed99b
 
 ```
 
-
 ## Schritt für Schritt
 
 Im aktuellen Abschnitte kommen drei Datei hinzu und zwei werden geändert.
@@ -208,7 +207,7 @@ class DisplayController extends BaseController
 		return $this;
 	}
 }
-````
+```
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656) - Die Ansicht
 

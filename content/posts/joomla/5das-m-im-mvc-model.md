@@ -130,7 +130,7 @@ class FooModel extends BaseDatabaseModel
 		return $this->message;
 	}
 }
-````
+```
 
 ### Geänderte Dateien
 

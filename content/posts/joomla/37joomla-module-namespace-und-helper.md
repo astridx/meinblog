@@ -65,12 +65,12 @@ index 918a2313..153977ef 100644
 +++ b/src/modules/mod_foo/mod_foo.php
 @@ -11,5 +11,8 @@
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\Helper\ModuleHelper;
 +use FooNamespace\Module\Foo\Site\Helper\FooHelper;
 +
 +$test  = FooHelper::getText();
- 
+
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 diff --git a/src/modules/mod_foo/mod_foo.xml b/src/modules/mod_foo/mod_foo.xml
 index 482aa45e..afd93ad1 100644
@@ -85,7 +85,7 @@ index 482aa45e..afd93ad1 100644
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
-+		<folder>Helper</folder>		
++		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
  	</files>
@@ -94,9 +94,9 @@ index c2256e7e..70d865c4 100644
 --- a/src/modules/mod_foo/tmpl/default.php
 +++ b/src/modules/mod_foo/tmpl/default.php
 @@ -9,4 +9,4 @@
- 
+
  \defined('_JEXEC') or die;
- 
+
 -echo '[PROJECT_NAME]';
 +echo '[PROJECT_NAME]' . $test;
 

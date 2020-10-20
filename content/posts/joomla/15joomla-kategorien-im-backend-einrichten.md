@@ -58,7 +58,7 @@ index ca0f0090..75acaa0e 100644
 @@ -28,6 +28,16 @@
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
- 
+
 +		<field
 +			name="catid"
 +			type="categoryedit"
@@ -87,13 +87,13 @@ index bda68ee3..4e74d518 100644
  use Joomla\CMS\Language\Text;
  use Joomla\CMS\Log\Log;
 +use Joomla\CMS\Table\Table;
- 
+
  /**
   * Script file of Foo Component
 @@ -47,6 +51,50 @@ public function install($parent): bool
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
- 
+
 +		$db = Factory::getDbo();
 +		$alias   = ApplicationHelper::stringURLSafe('FooUncategorised');
 +
@@ -140,9 +140,9 @@ index bda68ee3..4e74d518 100644
 +
  		return true;
  	}
- 
+
 @@ -146,4 +194,49 @@ public function postflight($type, $parent)
- 
+
  		return true;
  	}
 +
@@ -196,19 +196,19 @@ index b67c35d4..47fb5974 100644
 --- a/src/administrator/components/com_foos/services/provider.php
 +++ b/src/administrator/components/com_foos/services/provider.php
 @@ -9,6 +9,7 @@
- 
+
  \defined('_JEXEC') or die;
- 
+
 +use Joomla\CMS\Categories\CategoryFactoryInterface;
  use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
  use Joomla\CMS\Extension\ComponentInterface;
  use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
 @@ -51,6 +52,7 @@ function (Container $container)
- 
+
  				$component->setRegistry($container->get(Registry::class));
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
 +				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
- 
+
  				return $component;
  			}
 diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
@@ -217,7 +217,7 @@ index 4c925493..72b267ef 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -13,3 +13,5 @@ INSERT INTO `#__foos_details` (`name`) VALUES
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
- 
+
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -239,7 +239,7 @@ index 5c8cc6ba..44e1255a 100644
  use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
  use Psr\Container\ContainerInterface;
 +use Joomla\CMS\Helper\ContentHelper;
- 
+
  /**
   * Component class for com_foos
 @@ -46,4 +47,48 @@ public function boot(ContainerInterface $container)
@@ -296,18 +296,18 @@ index 0038575c..163953b2 100644
 --- a/src/administrator/components/com_foos/src/Model/FoosModel.php
 +++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
 @@ -48,7 +48,7 @@ protected function getListQuery()
- 
+
  		// Select the required fields from the table.
  		$query->select(
 -			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access'))
 +			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'))
  		);
- 
+
  		$query->from($db->quoteName('#__foos_details', 'a'));
 @@ -60,6 +60,13 @@ protected function getListQuery()
  				$db->quoteName('#__viewlevels', 'ag') . ' ON ' . $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access')
  			);
- 
+
 +		// Join over the categories.
 +		$query->select($db->quoteName('c.title', 'category_title'))
 +			->join(
@@ -337,7 +337,7 @@ index e597fc4c..628d268d 100644
 @@ -49,6 +49,9 @@
  									<a class="hasTooltip" href="<?php echo Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id); ?>" title="<?php echo Text::_('JACTION_EDIT'); ?> <?php echo $this->escape(addslashes($item->name)); ?>">
  										<?php echo $editIcon; ?><?php echo $this->escape($item->name); ?></a>
- 
+
 +									<div class="small">
 +										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
 + 									</div>

@@ -113,6 +113,6 @@ Die Ausgabe sollte wie folgt sein.
 
 ```
 
-> Drücken Sie `STRG` und `X`, dann `Y` und anschließend die `Eingabetaste`, um den Texteditor Nano zu verlassen.
+> Drücke `STRG` und `X`, dann `Y` und anschließend die `Eingabetaste`, um den Texteditor Nano zu verlassen.
 
-Es gibt viele weitere Optionen. Die beschreibenen sind meiner Meinung nach die wichtigsten.
+Es gibt viele weitere Optionen. Die beschriebenen sind meiner Meinung nach die wichtigsten.

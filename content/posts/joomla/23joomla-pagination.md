@@ -29,7 +29,7 @@ index b8e1ab33..6ff2d395 100644
 @@ -35,6 +35,13 @@ class HtmlView extends BaseHtmlView
  	 */
  	protected $items;
- 
+
 +	/**
 +	 * The pagination object
 +	 *
@@ -56,9 +56,9 @@ index bfbedd84..c18a6c04 100644
 @@ -151,6 +151,8 @@
  						</tbody>
  					</table>
- 
+
 +					<?php echo $this->pagination->getListFooter(); ?>
-+				
++
  				<?php endif; ?>
  				<input type="hidden" name="task" value="">
  				<input type="hidden" name="boxchecked" value="0">

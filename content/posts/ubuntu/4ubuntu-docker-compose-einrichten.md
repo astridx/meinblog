@@ -13,7 +13,7 @@ tags:
   - Docker Compose
 ---
 
-Docker erleichtert die Verwaltung von Software in Containern. Docker Compose ist ein Tool, welches die Arbeite mit mehreren Containern vereinfacht. Ich installiere [Docker Compose](https://docs.docker.com/compose/) unter Ubuntu 20.04.
+Docker erleichtert die Konfiguration von Software mithilfe von Containern. Docker Compose vereinfacht die Arbeite mit mehreren Containern. Ich installiere [Docker Compose](https://docs.docker.com/compose/) unter Ubuntu 20.04.
 
 ## Voraussetzungen
 
@@ -141,7 +141,7 @@ docker-compose logs
 
 ```
 
-Sie sehen eine Ausgabe, die dieser ähnelt:
+Die Ausgabe des Befehls ähnelt:
 
 ```
 Attaching to compose-test_web_1

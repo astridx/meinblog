@@ -64,19 +64,19 @@ index 5ddf2d7b..29a8871f 100644
 +++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 @@ -63,6 +63,8 @@ protected function addToolbar()
  		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
- 
+
  		$toolbar->addNew('foo.add');
 +
 +		$toolbar->preferences('com_foos');
  	}
- 
+
  }
 diff --git a/src/components/com_foos/src/Model/FooModel.php b/src/components/com_foos/src/Model/FooModel.php
 index 7efa1d2e..87caca68 100644
 --- a/src/components/com_foos/src/Model/FooModel.php
 +++ b/src/components/com_foos/src/Model/FooModel.php
 @@ -76,4 +76,21 @@ public function getItem($pk = null)
- 
+
  		return $this->_item[$pk];
  	}
 +
@@ -102,9 +102,9 @@ index e5205d7e..87f2a1a2 100644
 --- a/src/components/com_foos/tmpl/foo/default.php
 +++ b/src/components/com_foos/tmpl/foo/default.php
 @@ -10,4 +10,9 @@
- 
+
  use Joomla\CMS\Language\Text;
- 
+
 -echo Text::_('COM_FOOS_NAME') . $this->item->name;
 +if ($this->get('State')->get('params')->get('show_foo_name_label'))
 +{

@@ -26,10 +26,10 @@ index 08c1ec19..858537bf 100644
 +++ b/src/administrator/components/com_foos/src/Controller/FooController.php
 @@ -12,6 +12,7 @@
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\MVC\Controller\FormController;
 +use Joomla\CMS\Router\Route;
- 
+
  /**
   * Controller for a single foo
 @@ -20,4 +21,24 @@
@@ -64,7 +64,7 @@ index 70fdd2e0..80ff2907 100644
 @@ -39,6 +39,24 @@ class FooModel extends AdminModel
  	 */
  	protected $associationsContext = 'com_foos.item';
- 
+
 +	/**
 +	 * Batch copy/move command. If set to false, the batch copy/move command is not supported
 +	 *
@@ -91,7 +91,7 @@ index 6593ecd1..4d35af80 100644
 --- a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 @@ -144,5 +144,8 @@ protected function addToolbar()
- 
+
  			ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
  		}
 +
@@ -108,7 +108,7 @@ index 6ff2d395..622ff2db 100644
  				$childBar->trash('foos.trash')->listCheck(true);
  			}
 -		}
- 
+
 -		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
 -		{
 -			$toolbar->delete('foos.delete')
@@ -134,12 +134,12 @@ index 6ff2d395..622ff2db 100644
 +					->listCheck(true);
 +			}
  		}
- 
+
  		if ($user->authorise('core.admin', 'com_foos') || $user->authorise('core.options', 'com_foos'))
 @@ -190,6 +201,9 @@ protected function addToolbar()
  			$toolbar->preferences('com_foos');
  		}
- 
+
 +		ToolbarHelper::divider();
 +		ToolbarHelper::help('', false, 'http://joomla.org');
 +
@@ -151,9 +151,9 @@ index 74f0ef88..3aa053c4 100644
 --- a/src/administrator/components/com_foos/tmpl/foos/default.php
 +++ b/src/administrator/components/com_foos/tmpl/foos/default.php
 @@ -156,6 +156,16 @@
- 
+
  					<?php echo $this->pagination->getListFooter(); ?>
- 				
+
 +					<?php echo HTMLHelper::_(
 +						'bootstrap.renderModal',
 +						'collapseModal',

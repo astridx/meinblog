@@ -36,7 +36,7 @@ index 5aae7519..d5a8cdf9 100644
 +	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
  	<div>
  		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
- 
+
 @@ -42,15 +43,14 @@
  			<div class="col-md-9">
  				<div class="row">
@@ -62,9 +62,9 @@ index 5aae7519..d5a8cdf9 100644
  				</div>
  			</div>
 @@ -65,6 +65,19 @@
- 		
+
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
- 
+
 +		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
 +		<div class="row">
 +			<div class="col-md-6">

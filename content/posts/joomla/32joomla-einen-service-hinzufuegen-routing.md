@@ -30,7 +30,7 @@ index 0ccbffc4..0a9d9654 100644
  use Joomla\CMS\Association\AssociationExtensionInterface;
 +use Joomla\CMS\Component\Router\RouterFactoryInterface;
 +use Joomla\CMS\Extension\Service\Provider\RouterFactory;
- 
+
  /**
   * The foos service provider.
 @@ -47,6 +49,7 @@ public function register(Container $container)
@@ -38,7 +38,7 @@ index 0ccbffc4..0a9d9654 100644
  		$container->registerServiceProvider(new MVCFactory('\\Joomla\\Component\\Foos'));
  		$container->registerServiceProvider(new ComponentDispatcherFactory('\\Joomla\\Component\\Foos'));
 +		$container->registerServiceProvider(new RouterFactory('\\Joomla\\Component\\Foos'));
- 
+
  		$container->set(
  			ComponentInterface::class,
 @@ -58,6 +61,7 @@ function (Container $container)
@@ -46,7 +46,7 @@ index 0ccbffc4..0a9d9654 100644
  				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
  				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
 +				$component->setRouterFactory($container->get(RouterFactoryInterface::class));
- 
+
  				return $component;
  			}
 diff --git a/src/administrator/components/com_foos/src/Extension/FoosComponent.php b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
@@ -59,7 +59,7 @@ index 8aee99f2..25ef544c 100644
  use Joomla\CMS\Helper\ContentHelper;
 +use Joomla\CMS\Component\Router\RouterServiceInterface;
 +use Joomla\CMS\Component\Router\RouterServiceTrait;
- 
+
  /**
   * Component class for com_foos
 @@ -30,11 +32,12 @@
@@ -73,7 +73,7 @@ index 8aee99f2..25ef544c 100644
  	use AssociationServiceTrait;
  	use HTMLRegistryAwareTrait;
 +	use RouterServiceTrait;
- 
+
  	/**
  	 * Booting the extension. This is the function to set up the environment of the extension like
 diff --git a/src/components/com_foos/src/Service/Router.php b/src/components/com_foos/src/Service/Router.php

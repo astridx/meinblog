@@ -3,7 +3,7 @@ date: 2020-08-01
 title: 'Einrichten eines Ubuntu 20.04 Desktop'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
-slug: mein-ubuntu-rechner
+slug: mein-ubuntu-rechner-themen
 categories:
   - Betriebssystem
   - Tutorial

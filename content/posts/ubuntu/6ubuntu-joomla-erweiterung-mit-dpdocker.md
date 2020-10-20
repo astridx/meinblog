@@ -13,9 +13,9 @@ tags:
   - Joomla
 ---
 
-Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. _DPDocker_ enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.
+Zur Erinnerung: [_Docker_](/ubuntu-dpdocker/) erleichtert die Verwaltung von Software in Containern. [_Docker Compose_](/ubuntu-docker-compose-einrichten) ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. [_DPDocker_](/ubuntu-dpdocker) enthält vorgefertigte Images, Container und Skripte, die dich bei der Entwicklung mit und für Joomla unterstützen.
 
-DPDocker bietet den Task `build`, mit dem Joomla Erweiterungen optimal integriert werden. Dazu ist es erforderlich, Regeln einzuhalten. Bei einer neuen Erweiterung würde dies Voraussetzungen beachten. Das Umbauen meiner Erweiterungen wäre aufwendig. In diesem Kapitel führe ich mit [jorobo](https://packagist.org/packages/astridx/jorobo) erstellte Extension mit DPDocker zusammen. So kann ich weiterhin meine Skripte zum Mappen, Builden, Zippen und Testen anwenden.
+DPDocker bietet den Task `build`, mit dem Joomla Erweiterungen optimal integriert werden. Dazu ist es erforderlich, Regeln einzuhalten. Bei einer neuen Erweiterung würde ich diese beachten. Das Umbauen meiner schon ferigen Erweiterungen wäre aufwendig. In diesem Kapitel führe ich eine mit [jorobo](https://packagist.org/packages/astridx/jorobo) erstellte Extension mit DPDocker zusammen. So kann ich weiterhin meine Skripte zum Mappen, Builden, Zippen und Testen anwenden.
 
 ## Voraussetzungen
 
@@ -23,9 +23,11 @@ Neben [Docker](/ubuntu-docker-einrichten) und [Docker Compose](/ubuntu-docker-co
 
 ## Installieren von Composer und PHP
 
+Composer ist erforderlich, um [jorobo](https://packagist.org/packages/astridx/jorobo) mit dem Paketmanager herunterzuladen.
+
 ### Installieren von Abhängigkeiten
 
-Aktualisieren wir den Cache des Paketmanagers und installieren die erforderlichen Abhängigkeiten, einschließlich `php-cli`:
+Als erstes aktualisieren wir den Cache des Paketmanagers und installieren die erforderlichen Abhängigkeiten, einschließlich `php-cli`:
 
 ```
 sudo apt update
@@ -100,7 +102,7 @@ Options:
 
 ```
 
-Damit ist überprüft, dass Composer erfolgreich auf dem System installiert und systemweit verfügbar ist.
+Damit ist sichergestellt, dass Composer erfolgreich auf dem System installiert und systemweit verfügbar ist.
 
 ### PHP unter Ubuntu 20.04 intallieren inklusive notwendiger Erweiterungen
 
@@ -115,13 +117,17 @@ php -- version
 
 ## Clonen einer mit Jorobo erstellten Joomla Erweiterung
 
-Als nächstes clone ich eines meiner Repositorys, in welchem sich eine Joomla Erweiterung befindet. Ich achte darauf, dass das Repo **neben** DPDocker abgelegt wird.
+> Magst du selbst eine Erweiterung erstellen? Hier findest du einen Einstieg: [Jrobo Workshop](https://astridx.github.io/9997_jorobo/presentation/index.html#/).
+
+Als nächstes clone ich eines meiner Repositorys, in welchem sich eine Joomla Erweiterung befindet. Ich achte darauf, dass das Repo in einem Verzeichnis **neben** DPDocker abgelegt wird. Das ist wichtig!
 
 ```bash
 git clone  https://github.com/astridx/boilerplate.git
 ```
 
-Als nächstes wechsele ich in den Ordner `boilerplate` und führe den Befehl aus, der alle notwendigen Abhängigkeiten herunterlädt.
+> Alternativ kannst du die Joomla Beispiel Eweiterung [Weblinks](https://github.com/joomla-extensions/weblinks) verwenden, welche ebenfalls mit Jorobo erstellt ist.
+
+Dann wechsele ich in den Ordner `boilerplate` und führe den Befehl aus, der alle notwendigen Abhängigkeiten herunterlädt.
 
 ```bash
 cd boilerplate
@@ -133,7 +139,7 @@ Jetzt sind alle Abhängikeiten im Verzeichnis `vendor` abgelegt.
 
 ## Joomla Erweiterung erstellen
 
-Ich verwende `vendor/bin/robo build`. Im Ergebnis sehe ich das Unterverzeichnis `dist`, in dem sich gepackte Installationsdateien befinden.
+Ich verwende `vendor/bin/robo build`. Im Ergebnis sehe ich das Unterverzeichnis `dist`, in dem sich die gepackte Installationsdatei befinden.
 
 ```bash
 vendor/bin/robo build
@@ -158,15 +164,21 @@ Available commands:
 
 > In der [Präsentation](https://astridx.github.io/9997_jorobo/presentation/index.html#/) sind die Befehle beschrieben.
 
-## Joomla Erweiterung mit DPDocker nutzen
+Mit `vendor/bin/robo map \Pfad-zu-deinem-joomla` werden Symlinks zur Joomla Installation `Pfad-zu-deinem-joomla` gesetzt. Das ist pratktisch. Denn, so kannst du die Dateien in deinem Entwicklungsverzeichnis bearbeiten und das Ergebnis direkt in Joomla testen.
 
-Jetzt wechsele ich wieder ein Verzeichnis zurück - in das Verzeichnis, in dem `boilerplate` und `DPDocker` nebeneinader abgelegt sind. Hier rufe ich [./DPDocker/webserer/run.sh mysql rebuild](https://github.com/Digital-Peak/DPDocker/tree/master/webserver#execute) auf, wobei die Parameter optional sind:
+Leider ist es nicht problemlos möglich, in einen Container zu symlinken. Außerdem bietet DPDocker mit der [`webserver`-Funktion](https://github.com/Digital-Peak/DPDocker/tree/master/webserver#webserver-task) eine ideale Umgebung.
+
+## Joomla Erweiterung mit dem DPDocker Webserver nutzen
+
+Jetzt wechsele ich wieder ein Verzeichnis zurück - in das Verzeichnis, in dem `boilerplate` und `DPDocker` nebeneinader abgelegt sind. Hier rufe ich [./DPDocker/webserer/run.sh mysql rebuild](https://github.com/Digital-Peak/DPDocker/tree/master/webserver#execute) auf:
 
 ```bash
-./DPDocker/webserer/run.sh mysql rebuild
+./DPDocker/webserer/run.sh
 ```
 
 Mein Rechner arbeitet einige Minuten. In der Zeit erstellt er alle notwendigen Docker Container.
+
+> Wenn du eine spezielle Datenbankversion testen möchtest, ist dies mit [optionalen Parametern](https://github.com/Digital-Peak/DPDocker/tree/master/webserver#execute) möglich.
 
 ## Mögliche Fehlermeldungen
 
@@ -178,7 +190,7 @@ Unter Umständen hilft es schon, alle Container zu entfernen.
 docker rm $(docker ps -a - q)
 ```
 
-Falls das problem weiterhin auftritt, lasse ich mir alle Dienste anzeigen, die den Port verwenden.
+Falls das Problem weiterhin auftritt, lasse ich mir alle Dienste anzeigen, die den Port verwenden.
 
 ```bash
 sudo lsof -i -P -n | grep <port number>
