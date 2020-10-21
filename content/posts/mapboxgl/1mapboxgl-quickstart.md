@@ -1,19 +1,23 @@
 ---
-date: 2020-08-02
-title: 'Ubuntu 20.02 Vorwort'
+date: 2020-10-02
+title: 'Mapbox GL Quickstart'
 template: post
-thumbnail: '../../thumbnails/ubuntu.png'
-slug: webgl-quickstart
+thumbnail: '../../thumbnails/mapboxgl.png'
+slug: mapboxgl-quickstart
 categories:
   - MapboxGL
 tags:
-  - Linux
-  - Ubuntu
+  - MapBoxGL
+  - geografische Daten
+  - Geoinformationssystem
+  - JavaScript-Bibliothek
+  - Vektor-Tiles
+  - Karten
 ---
 
 Zu Beginn benötigen wir ein [Zugriffstoken](https://docs.mapbox.com/help/how-mapbox-works/access-tokens/) und eine Stil-URL. Wir wählen anfangs einen der professionell gestalteten Stile. Möglich ist es, später einen eigenen Stil zu erstellen.
 
-Fügen wir die JavaScript- und CSS-Dateien in den `<head>` unserer HTML-Datei ein.
+Als Erstes fügen wir die JavaScript- und CSS-Dateien in den `<head>` unserer HTML-Datei ein.
 
 ```html
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
@@ -23,7 +27,7 @@ Fügen wir die JavaScript- und CSS-Dateien in den `<head>` unserer HTML-Datei ei
 />
 ```
 
-Fügen wir den folgenden Code in den `<body>` unserer HTML-Datei ein.
+Dann schreiben wir den folgenden Code in den `<body>` unserer HTML-Datei.
 
 ```html
 <div id="map" style="width: 100vw; height: 100vw;"></div>
@@ -42,5 +46,6 @@ Fertig! Die Karte wird mit dem Stil `streets-v11` über den gesamten Anzeigebere
 
 Die Grundlage haben wir gelegt. Mithilfe der Karte ist es möglich geografische Geschichten zu erzählen oder standortbezogene Informationen weiterzugeben.
 
-[Demo]https://astridx.github.io/mapboxexamples/quickstart.html)
-[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/quickstart.html)
+[Demo](https://astridx.github.io/mapboxexamples/quickstart.html)  
+[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/quickstart.html)  
+[Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox)

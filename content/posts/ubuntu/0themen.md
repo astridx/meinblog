@@ -1,6 +1,6 @@
 ---
 date: 2020-08-01
-title: 'Einrichten eines Ubuntu 20.04 Desktop'
+title: 'Einrichten eines Ubuntu 20.04 Desktop für die Entwicklung mit Docker und Joomla'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: mein-ubuntu-rechner-themen
