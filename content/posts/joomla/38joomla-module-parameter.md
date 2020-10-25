@@ -17,7 +17,37 @@ Wir ergänzen Namespace und Helper.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t32...t33) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
+## Schritt für Schritt
+
+In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
+
+### Neue Dateien
+
+#### Module
+
+##### []()
+
+> Parameter aus einer Komponente nutzen.
+
+```php
+
+```
+
+## Teste dein Joomla-Module
+
+1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+
+Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
+
+Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
+
+## Geänderte Dateien
+
+### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
 // https://github.com/astridx/boilerplate/compare/t32...t33.diff
 
 diff --git a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
@@ -121,34 +151,6 @@ index 70d865c4..2fc95b64 100644
 
 ```
 
-## Schritt für Schritt
-
-In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
-
-### Neue Dateien
-
-#### Module
-
-##### []()
-
-> Parameter aus einer Komponente nutzen.
-
-```php
-
-```
-
-## Teste dein Joomla-Module
-
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
-
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
-
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Links
+## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)

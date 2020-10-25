@@ -27,85 +27,6 @@ Dieser Teil behandelt die die clientseitige Validierung in Joomla! 4.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11a...t11b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
-// https://github.com/astridx/boilerplate/compare/t11a...t11b.diff
-
-diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
-index b3f1ceff..ca0f0090 100644
---- a/src/administrator/components/com_foos/forms/foo.xml
-+++ b/src/administrator/components/com_foos/forms/foo.xml
-@@ -14,6 +14,7 @@
- 			name="name"
- 			type="text"
- 			validate="Letter"
-+			class="validate-letter"
- 			label="COM_FOOS_FIELD_NAME_LABEL"
- 			size="40"
- 			required="true"
-diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
-index 1531aec6..70e17c50 100644
---- a/src/administrator/components/com_foos/tmpl/foo/edit.php
-+++ b/src/administrator/components/com_foos/tmpl/foo/edit.php
-@@ -18,7 +18,8 @@
-
- $wa = $this->document->getWebAssetManager();
- $wa->useScript('keepalive')
--	->useScript('form.validate');
-+	->useScript('form.validate')
-+	->useScript('com_foos.admin-foos-letter');
-
- $layout  = 'edit';
- $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
-diff --git a/src/media/com_foos/joomla.asset.json b/src/media/com_foos/joomla.asset.json
-index 21642a25..86b65d9d 100644
---- a/src/media/com_foos/joomla.asset.json
-+++ b/src/media/com_foos/joomla.asset.json
-@@ -5,6 +5,17 @@
-   "description": "Joomla CMS",
-   "license": "GPL-2.0-or-later",
-   "assets": [
-+    {
-+      "name": "com_foos.admin-foos-letter",
-+      "type": "script",
-+      "uri": "com_foos/admin-foos-letter.js",
-+      "dependencies": [
-+        "core"
-+      ],
-+      "attributes": {
-+        "defer": true
-+      }
-+    },
-     {
-       "name": "com_foos.admin-foos-modal",
-       "type": "script",
-diff --git a/src/media/com_foos/js/admin-foos-letter.js b/src/media/com_foos/js/admin-foos-letter.js
-new file mode 100644
-index 00000000..7091b51d
---- /dev/null
-+++ b/src/media/com_foos/js/admin-foos-letter.js
-@@ -0,0 +1,19 @@
-+document.addEventListener('DOMContentLoaded', function(){
-+	"use strict";
-+	setTimeout(function() {
-+		if (document.formvalidator) {
-+			document.formvalidator.setHandler('letter', function (value) {
-+
-+				var returnedValue = false;
-+
-+				var regex = /^([a-z]+)$/i;
-+
-+				if (regex.test(value))
-+					returnedValue = true;
-+
-+				return returnedValue;
-+			});
-+			//console.log(document.formvalidator);
-+		}
-+	}, (1000));
-+});
-
-```
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -240,3 +161,86 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ## Geänderte Dateien
 
 ### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t11a...t11b.diff
+
+diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
+index b3f1ceff..ca0f0090 100644
+--- a/src/administrator/components/com_foos/forms/foo.xml
++++ b/src/administrator/components/com_foos/forms/foo.xml
+@@ -14,6 +14,7 @@
+ 			name="name"
+ 			type="text"
+ 			validate="Letter"
++			class="validate-letter"
+ 			label="COM_FOOS_FIELD_NAME_LABEL"
+ 			size="40"
+ 			required="true"
+diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
+index 1531aec6..70e17c50 100644
+--- a/src/administrator/components/com_foos/tmpl/foo/edit.php
++++ b/src/administrator/components/com_foos/tmpl/foo/edit.php
+@@ -18,7 +18,8 @@
+
+ $wa = $this->document->getWebAssetManager();
+ $wa->useScript('keepalive')
+-	->useScript('form.validate');
++	->useScript('form.validate')
++	->useScript('com_foos.admin-foos-letter');
+
+ $layout  = 'edit';
+ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
+diff --git a/src/media/com_foos/joomla.asset.json b/src/media/com_foos/joomla.asset.json
+index 21642a25..86b65d9d 100644
+--- a/src/media/com_foos/joomla.asset.json
++++ b/src/media/com_foos/joomla.asset.json
+@@ -5,6 +5,17 @@
+   "description": "Joomla CMS",
+   "license": "GPL-2.0-or-later",
+   "assets": [
++    {
++      "name": "com_foos.admin-foos-letter",
++      "type": "script",
++      "uri": "com_foos/admin-foos-letter.js",
++      "dependencies": [
++        "core"
++      ],
++      "attributes": {
++        "defer": true
++      }
++    },
+     {
+       "name": "com_foos.admin-foos-modal",
+       "type": "script",
+diff --git a/src/media/com_foos/js/admin-foos-letter.js b/src/media/com_foos/js/admin-foos-letter.js
+new file mode 100644
+index 00000000..7091b51d
+--- /dev/null
++++ b/src/media/com_foos/js/admin-foos-letter.js
+@@ -0,0 +1,19 @@
++document.addEventListener('DOMContentLoaded', function(){
++	"use strict";
++	setTimeout(function() {
++		if (document.formvalidator) {
++			document.formvalidator.setHandler('letter', function (value) {
++
++				var returnedValue = false;
++
++				var regex = /^([a-z]+)$/i;
++
++				if (regex.test(value))
++					returnedValue = true;
++
++				return returnedValue;
++			});
++			//console.log(document.formvalidator);
++		}
++	}, (1000));
++});
+
+```
+
+## Links

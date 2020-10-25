@@ -17,11 +17,6 @@ Wir ergänzen Namespace und Helper.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php
-// https://github.com/astridx/boilerplate/compare/t35...t36.diff
-}
-```
-
 ## Schritt für Schritt
 
 In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
@@ -54,7 +49,15 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 
 ### Übersicht
 
-### Links
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t35...t36.diff
+
+
+```
+
+## Links
 
 [Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)

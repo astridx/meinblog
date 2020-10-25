@@ -17,156 +17,6 @@ Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu ges
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
-// https://github.com/astridx/boilerplate/compare/t19...t20.diff
-
-diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
-index 2496f7d5..f451d9e2 100644
---- a/src/administrator/components/com_foos/forms/foo.xml
-+++ b/src/administrator/components/com_foos/forms/foo.xml
-@@ -109,6 +109,16 @@
- 				<option value="0">JHIDE</option>
- 				<option value="1">JSHOW</option>
- 			</field>
-+
-+			<field
-+				name="foos_layout"
-+				type="componentlayout"
-+				label="JFIELD_ALT_LAYOUT_LABEL"
-+				class="custom-select"
-+				extension="com_foos"
-+				view="foo"
-+				useglobal="true"
-+			/>
- 		</fieldset>
- 	</fields>
- </form>
-diff --git a/src/components/com_foos/src/Model/FooModel.php b/src/components/com_foos/src/Model/FooModel.php
-index 87caca68..5e9a0b78 100644
---- a/src/components/com_foos/src/Model/FooModel.php
-+++ b/src/components/com_foos/src/Model/FooModel.php
-@@ -14,6 +14,7 @@
-
- use Joomla\CMS\Factory;
- use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-+use Joomla\CMS\Language\Text;
-
- /**
-  * Foo model for the Joomla Foos component.
-diff --git a/src/components/com_foos/src/View/Foo/HtmlView.php b/src/components/com_foos/src/View/Foo/HtmlView.php
-index a0ef47fa..f4c801e0 100644
---- a/src/components/com_foos/src/View/Foo/HtmlView.php
-+++ b/src/components/com_foos/src/View/Foo/HtmlView.php
-@@ -74,6 +74,23 @@ public function display($tpl = null)
- 		$temp->merge($itemparams);
- 		$item->params = $temp;
-
-+		$active = Factory::getApplication()->getMenu()->getActive();
-+
-+		// Override the layout only if this is not the active menu item
-+		// If it is the active menu item, then the view and item id will match
-+		if ((!$active) || ((strpos($active->link, 'view=foo') === false) || (strpos($active->link, '&id=' . (string) $this->item->id) === false)))
-+		{
-+			if (($layout = $item->params->get('foos_layout')))
-+			{
-+				$this->setLayout($layout);
-+			}
-+		}
-+		elseif (isset($active->query['layout']))
-+		{
-+			// We need to set the layout in case this is an alternative menu item (with an alternative layout)
-+			$this->setLayout($active->query['layout']);
-+		}
-+
- 		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
- 		// Store the events for later
-diff --git a/src/components/com_foos/tmpl/foo/withhead.php b/src/components/com_foos/tmpl/foo/withhead.php
-new file mode 100644
-index 00000000..c8baf688
---- /dev/null
-+++ b/src/components/com_foos/tmpl/foo/withhead.php
-@@ -0,0 +1,19 @@
-+<?php
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\Language\Text;
-+
-+echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
-+
-+if ($this->item->params->get('show_name')) {
-+	if ($this->Params->get('show_foo_name_label')) {
-+		echo Text::_('COM_FOOS_NAME') . $this->item->name;
-+	} else {
-+		echo $this->item->name;
-+	}
-+}
-+
-+echo $this->item->event->afterDisplayTitle;
-+echo $this->item->event->beforeDisplayContent;
-+echo $this->item->event->afterDisplayContent;
-diff --git a/src/components/com_foos/tmpl/foo/withhead.xml b/src/components/com_foos/tmpl/foo/withhead.xml
-new file mode 100644
-index 00000000..74fff879
---- /dev/null
-+++ b/src/components/com_foos/tmpl/foo/withhead.xml
-@@ -0,0 +1,25 @@
-+<?xml version="1.0" encoding="utf-8"?>
-+<metadata>
-+	<layout title="COM_FOOS_FOO_VIEW_WITHHEAD_TITLE">
-+		<message>
-+			<![CDATA[COM_FOOS_FOO_VIEW_WITHHEAD_DESC]]>
-+		</message>
-+	</layout>
-+	<!-- Add fields to the request variables for the layout. -->
-+	<fields name="request">
-+		<fieldset name="request"
-+			addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
-+		>
-+			<field
-+				name="id"
-+				type="modal_foo"
-+				label="COM_FOOS_SELECT_FOO_LABEL"
-+				required="true"
-+				select="true"
-+				new="true"
-+				edit="true"
-+				clear="true"
-+			/>
-+		</fieldset>
-+	</fields>
-+</metadata>
-diff --git a/src/components/com_foos/tmpl/foo/withheadandfoot.php b/src/components/com_foos/tmpl/foo/withheadandfoot.php
-new file mode 100644
-index 00000000..de144ee1
---- /dev/null
-+++ b/src/components/com_foos/tmpl/foo/withheadandfoot.php
-@@ -0,0 +1,21 @@
-+<?php
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\Language\Text;
-+
-+echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
-+
-+if ($this->item->params->get('show_name')) {
-+	if ($this->Params->get('show_foo_name_label')) {
-+		echo Text::_('COM_FOOS_NAME') . $this->item->name;
-+	} else {
-+		echo $this->item->name;
-+	}
-+}
-+
-+echo "<hr>Hier kannst du eine Fußzeile anzeigen.<hr>";
-+
-+echo $this->item->event->afterDisplayTitle;
-+echo $this->item->event->beforeDisplayContent;
-+echo $this->item->event->afterDisplayContent;
-
-```
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -327,4 +177,160 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 > Da bei der Ansteuerung über einen Menüpunkt die Ansicht einheitlich erwartet wird, wird das im Menüitem eingestellte Layout bevorzugt.
 
+## Geänderte Dateien
+
 ### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t19...t20.diff
+
+diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
+index 2496f7d5..f451d9e2 100644
+--- a/src/administrator/components/com_foos/forms/foo.xml
++++ b/src/administrator/components/com_foos/forms/foo.xml
+@@ -109,6 +109,16 @@
+ 				<option value="0">JHIDE</option>
+ 				<option value="1">JSHOW</option>
+ 			</field>
++
++			<field
++				name="foos_layout"
++				type="componentlayout"
++				label="JFIELD_ALT_LAYOUT_LABEL"
++				class="custom-select"
++				extension="com_foos"
++				view="foo"
++				useglobal="true"
++			/>
+ 		</fieldset>
+ 	</fields>
+ </form>
+diff --git a/src/components/com_foos/src/Model/FooModel.php b/src/components/com_foos/src/Model/FooModel.php
+index 87caca68..5e9a0b78 100644
+--- a/src/components/com_foos/src/Model/FooModel.php
++++ b/src/components/com_foos/src/Model/FooModel.php
+@@ -14,6 +14,7 @@
+
+ use Joomla\CMS\Factory;
+ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
++use Joomla\CMS\Language\Text;
+
+ /**
+  * Foo model for the Joomla Foos component.
+diff --git a/src/components/com_foos/src/View/Foo/HtmlView.php b/src/components/com_foos/src/View/Foo/HtmlView.php
+index a0ef47fa..f4c801e0 100644
+--- a/src/components/com_foos/src/View/Foo/HtmlView.php
++++ b/src/components/com_foos/src/View/Foo/HtmlView.php
+@@ -74,6 +74,23 @@ public function display($tpl = null)
+ 		$temp->merge($itemparams);
+ 		$item->params = $temp;
+
++		$active = Factory::getApplication()->getMenu()->getActive();
++
++		// Override the layout only if this is not the active menu item
++		// If it is the active menu item, then the view and item id will match
++		if ((!$active) || ((strpos($active->link, 'view=foo') === false) || (strpos($active->link, '&id=' . (string) $this->item->id) === false)))
++		{
++			if (($layout = $item->params->get('foos_layout')))
++			{
++				$this->setLayout($layout);
++			}
++		}
++		elseif (isset($active->query['layout']))
++		{
++			// We need to set the layout in case this is an alternative menu item (with an alternative layout)
++			$this->setLayout($active->query['layout']);
++		}
++
+ 		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
+
+ 		// Store the events for later
+diff --git a/src/components/com_foos/tmpl/foo/withhead.php b/src/components/com_foos/tmpl/foo/withhead.php
+new file mode 100644
+index 00000000..c8baf688
+--- /dev/null
++++ b/src/components/com_foos/tmpl/foo/withhead.php
+@@ -0,0 +1,19 @@
++<?php
++
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\Language\Text;
++
++echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
++
++if ($this->item->params->get('show_name')) {
++	if ($this->Params->get('show_foo_name_label')) {
++		echo Text::_('COM_FOOS_NAME') . $this->item->name;
++	} else {
++		echo $this->item->name;
++	}
++}
++
++echo $this->item->event->afterDisplayTitle;
++echo $this->item->event->beforeDisplayContent;
++echo $this->item->event->afterDisplayContent;
+diff --git a/src/components/com_foos/tmpl/foo/withhead.xml b/src/components/com_foos/tmpl/foo/withhead.xml
+new file mode 100644
+index 00000000..74fff879
+--- /dev/null
++++ b/src/components/com_foos/tmpl/foo/withhead.xml
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="utf-8"?>
++<metadata>
++	<layout title="COM_FOOS_FOO_VIEW_WITHHEAD_TITLE">
++		<message>
++			<![CDATA[COM_FOOS_FOO_VIEW_WITHHEAD_DESC]]>
++		</message>
++	</layout>
++	<!-- Add fields to the request variables for the layout. -->
++	<fields name="request">
++		<fieldset name="request"
++			addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
++		>
++			<field
++				name="id"
++				type="modal_foo"
++				label="COM_FOOS_SELECT_FOO_LABEL"
++				required="true"
++				select="true"
++				new="true"
++				edit="true"
++				clear="true"
++			/>
++		</fieldset>
++	</fields>
++</metadata>
+diff --git a/src/components/com_foos/tmpl/foo/withheadandfoot.php b/src/components/com_foos/tmpl/foo/withheadandfoot.php
+new file mode 100644
+index 00000000..de144ee1
+--- /dev/null
++++ b/src/components/com_foos/tmpl/foo/withheadandfoot.php
+@@ -0,0 +1,21 @@
++<?php
++
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\Language\Text;
++
++echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
++
++if ($this->item->params->get('show_name')) {
++	if ($this->Params->get('show_foo_name_label')) {
++		echo Text::_('COM_FOOS_NAME') . $this->item->name;
++	} else {
++		echo $this->item->name;
++	}
++}
++
++echo "<hr>Hier kannst du eine Fußzeile anzeigen.<hr>";
++
++echo $this->item->event->afterDisplayTitle;
++echo $this->item->event->beforeDisplayContent;
++echo $this->item->event->afterDisplayContent;
+
+```
+
+## Links

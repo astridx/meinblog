@@ -49,7 +49,15 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 
 ### Übersicht
 
-### Links
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t37...t38.diff
+
+
+```
+
+## Links
 
 [Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)

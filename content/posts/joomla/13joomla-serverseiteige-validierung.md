@@ -22,75 +22,6 @@ Dieser Teil behandelt die die serverseitige Validierung in Joomla! 4.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t10...t11a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
-// https://github.com/astridx/boilerplate/compare/t10...t11a.diff
-
-diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
-index 15615cf6..b3f1ceff 100644
---- a/src/administrator/components/com_foos/forms/foo.xml
-+++ b/src/administrator/components/com_foos/forms/foo.xml
-@@ -1,6 +1,6 @@
- <?xml version="1.0" encoding="utf-8"?>
- <form>
--	<fieldset>
-+	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
- 		<field
- 			name="id"
- 			type="number"
-@@ -13,6 +13,7 @@
- 		<field
- 			name="name"
- 			type="text"
-+			validate="Letter"
- 			label="COM_FOOS_FIELD_NAME_LABEL"
- 			size="40"
- 			required="true"
-diff --git a/src/administrator/components/com_foos/src/Rule/LetterRule.php b/src/administrator/components/com_foos/src/Rule/LetterRule.php
-new file mode 100644
-index 00000000..c1a46ee5
---- /dev/null
-+++ b/src/administrator/components/com_foos/src/Rule/LetterRule.php
-@@ -0,0 +1,37 @@
-+<?php
-+/**
-+ * Joomla! Content Management System
-+ *
-+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Administrator\Rule;
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\Form\FormRule;
-+
-+/**
-+ * Form Rule class for the Joomla Platform.
-+ *
-+ * @since  __DEPLOY_VERSION__
-+ */
-+class LetterRule extends FormRule
-+{
-+	/**
-+	 * The regular expression to use in testing a form field value.
-+	 *
-+	 * @var    string
-+	 * @since  __DEPLOY_VERSION__
-+	 */
-+	protected $regex = '^([a-z]+)$';
-+
-+	/**
-+	 * The regular expression modifiers to use when testing a form field value.
-+	 *
-+	 * @var    string
-+	 * @since  __DEPLOY_VERSION__
-+	 */
-+	protected $modifiers = 'i';
-+}
-
-```
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -174,3 +105,76 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ## Geänderte Dateien
 
 ### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t10...t11a.diff
+
+diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
+index 15615cf6..b3f1ceff 100644
+--- a/src/administrator/components/com_foos/forms/foo.xml
++++ b/src/administrator/components/com_foos/forms/foo.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <form>
+-	<fieldset>
++	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
+ 		<field
+ 			name="id"
+ 			type="number"
+@@ -13,6 +13,7 @@
+ 		<field
+ 			name="name"
+ 			type="text"
++			validate="Letter"
+ 			label="COM_FOOS_FIELD_NAME_LABEL"
+ 			size="40"
+ 			required="true"
+diff --git a/src/administrator/components/com_foos/src/Rule/LetterRule.php b/src/administrator/components/com_foos/src/Rule/LetterRule.php
+new file mode 100644
+index 00000000..c1a46ee5
+--- /dev/null
++++ b/src/administrator/components/com_foos/src/Rule/LetterRule.php
+@@ -0,0 +1,37 @@
++<?php
++/**
++ * Joomla! Content Management System
++ *
++ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
++ * @license    GNU General Public License version 2 or later; see LICENSE.txt
++ */
++
++namespace FooNamespace\Component\Foos\Administrator\Rule;
++
++\defined('_JEXEC') or die;
++
++use Joomla\CMS\Form\FormRule;
++
++/**
++ * Form Rule class for the Joomla Platform.
++ *
++ * @since  __DEPLOY_VERSION__
++ */
++class LetterRule extends FormRule
++{
++	/**
++	 * The regular expression to use in testing a form field value.
++	 *
++	 * @var    string
++	 * @since  __DEPLOY_VERSION__
++	 */
++	protected $regex = '^([a-z]+)$';
++
++	/**
++	 * The regular expression modifiers to use when testing a form field value.
++	 *
++	 * @var    string
++	 * @since  __DEPLOY_VERSION__
++	 */
++	protected $modifiers = 'i';
++}
+
+```
+
+## Links

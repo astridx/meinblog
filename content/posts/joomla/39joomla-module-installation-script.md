@@ -17,7 +17,37 @@ Wir ergänzen Namespace und Helper.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t33...t34) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
+## Schritt für Schritt
+
+In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu bestimmten Ereignissen ausgeführt wird.
+
+### Neue Dateien
+
+#### Module
+
+##### []()
+
+> Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten ...
+
+```php
+
+```
+
+## Teste dein Joomla-Module
+
+1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+
+Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
+
+Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
+
+## Geänderte Dateien
+
+### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
 // https://github.com/astridx/boilerplate/compare/t33...t34.diff
 
 diff --git a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini
@@ -174,34 +204,6 @@ index 00000000..bd57bcd7
 
 ```
 
-## Schritt für Schritt
-
-In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu bestimmten Ereignissen ausgeführt wird.
-
-### Neue Dateien
-
-#### Module
-
-##### []()
-
-> Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten ...
-
-```php
-
-```
-
-## Teste dein Joomla-Module
-
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
-
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
-
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Links
+## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)

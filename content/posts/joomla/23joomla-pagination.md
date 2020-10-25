@@ -19,52 +19,6 @@ Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist ni
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
-// https://github.com/astridx/boilerplate/compare/t18...t19.diff
-
-diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-index b8e1ab33..6ff2d395 100644
---- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-+++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-@@ -35,6 +35,13 @@ class HtmlView extends BaseHtmlView
- 	 */
- 	protected $items;
-
-+	/**
-+	 * The pagination object
-+	 *
-+	 * @var  \JPagination
-+	 */
-+	protected $pagination;
-+
- 	/**
- 	 * The model state
- 	 *
-@@ -75,7 +82,7 @@ class HtmlView extends BaseHtmlView
- 	public function display($tpl = null): void
- 	{
- 		$this->items = $this->get('Items');
--
-+		$this->pagination = $this->get('Pagination');
- 		$this->filterForm = $this->get('FilterForm');
- 		$this->activeFilters = $this->get('ActiveFilters');
- 		$this->state = $this->get('State');
-diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
-index bfbedd84..c18a6c04 100644
---- a/src/administrator/components/com_foos/tmpl/foos/default.php
-+++ b/src/administrator/components/com_foos/tmpl/foos/default.php
-@@ -151,6 +151,8 @@
- 						</tbody>
- 					</table>
-
-+					<?php echo $this->pagination->getListFooter(); ?>
-+
- 				<?php endif; ?>
- 				<input type="hidden" name="task" value="">
- 				<input type="hidden" name="boxchecked" value="0">
-
-```
-
 ## Schritt für Schritt
 
 ### Neue Dateien
@@ -117,3 +71,53 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ## Geänderte Dateien
 
 ### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t18...t19.diff
+
+diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+index b8e1ab33..6ff2d395 100644
+--- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
++++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+@@ -35,6 +35,13 @@ class HtmlView extends BaseHtmlView
+ 	 */
+ 	protected $items;
+
++	/**
++	 * The pagination object
++	 *
++	 * @var  \JPagination
++	 */
++	protected $pagination;
++
+ 	/**
+ 	 * The model state
+ 	 *
+@@ -75,7 +82,7 @@ class HtmlView extends BaseHtmlView
+ 	public function display($tpl = null): void
+ 	{
+ 		$this->items = $this->get('Items');
+-
++		$this->pagination = $this->get('Pagination');
+ 		$this->filterForm = $this->get('FilterForm');
+ 		$this->activeFilters = $this->get('ActiveFilters');
+ 		$this->state = $this->get('State');
+diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
+index bfbedd84..c18a6c04 100644
+--- a/src/administrator/components/com_foos/tmpl/foos/default.php
++++ b/src/administrator/components/com_foos/tmpl/foos/default.php
+@@ -151,6 +151,8 @@
+ 						</tbody>
+ 					</table>
+
++					<?php echo $this->pagination->getListFooter(); ?>
++
+ 				<?php endif; ?>
+ 				<input type="hidden" name="task" value="">
+ 				<input type="hidden" name="boxchecked" value="0">
+
+```
+
+## Links

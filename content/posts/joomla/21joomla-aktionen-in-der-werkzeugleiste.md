@@ -19,12 +19,6 @@ Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t16...t17) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-```php {numberLines diff}
-// https://github.com/astridx/boilerplate/compare/t16...t17.diff
-
-
-```
-
 ## Schritt für Schritt
 
 Ich zeige dir hier, wie du die Standardfunktionen in die Werkzeugleiste integrierst. Jede Komponente hat eigenen Funktionen. Genau wie die in Joomla üblichen fügst du die speziellen über Schaltflächen in der Werkzeugleiste hinzu. Gucke hier bei den Standardfunktionen ab.
@@ -169,3 +163,13 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ## Geänderte Dateien
 
 ### Übersicht
+
+### Alle Änderungen
+
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t16...t17.diff
+
+
+```
+
+## Links
