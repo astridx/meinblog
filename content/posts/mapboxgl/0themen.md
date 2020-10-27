@@ -25,3 +25,6 @@ tags:
 1. [Stadtführung](/mapboxgl-scrolltofly)
 1. [Höhenangaben per Tilequery abfragen](/mapboxgl-axios-tilequery-elevation)
 1. [Kartenansichten vergleichen](/mapboxgl-swipe)
+1. [Style Switcher](/mapboxgl-style-switcher)
+1. [Scale Control](/mapboxgl-scale-control)
+1. [Kartenansichten vergleichen](/mapboxgl-show-and-hide-layers)

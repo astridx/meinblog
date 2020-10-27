@@ -49,3 +49,4 @@ Die Grundlage haben wir gelegt. Mithilfe der Karte ist es möglich geografische 
 [Demo](https://astridx.github.io/mapboxexamples/quickstart.html)  
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/quickstart.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox)
+

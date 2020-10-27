@@ -20,7 +20,7 @@ tags:
 1. [Die erste Ansicht im Frontend](/die-erste-ansicht-im-frontend)
 1. [Ein Menüpunkt](/ein-menuepunkt)
 1. [Das M im MVC: Model](/das-m-im-mvc-model)
-1. [Den Menüpunkt mit einer Variablen versehen](/den-menuepunkt-mit-einer-vriablen-versehen)
+1. [Den Menüpunkt mit einer Variablen versehen](/den-menupunkt-mit-einer-variablen-versehen)
 1. [Eine Joomla-Datenbank für deine Erweiterung](/eine-joomla-datenbank-fuer-deine-erweiterung)
 1. [Die Datenbank nutzen](/die-datenbank-nutzen)
 1. [Die Daten der Datenbank im Frontend nutzen](/die-daten-der-datenbank-im-frontend-nutzen)
