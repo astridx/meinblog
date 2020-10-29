@@ -86,7 +86,7 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'TaAstrid Günther | RSS Feed',
+            title: 'Astrid Günther | RSS Feed',
           },
         ],
       },
