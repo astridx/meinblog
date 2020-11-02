@@ -42,11 +42,12 @@ Dann schreiben wir den folgenden Code in den `<body>` unserer HTML-Datei.
 </script>
 ```
 
-Fertig! Die Karte wird mit dem Stil `streets-v11` über den gesamten Anzeigebereich [`style='width: 100vw; height: 100vw;'`](https://wiki.selfhtml.org/wiki/CSS/Wertetypen/Zahlen,_Ma%C3%9Fe_und_Ma%C3%9Feinheiten/Viewportabmessungen) zentriert auf die [Position](https://astrid-guenther.de/dies-und-das/39-geographische-koordinaten) `[7.5, 50.1]` mit der [Zoomstufe](https://wiki.openstreetmap.org/wiki/DE:Zoom_levels) 9 angezeigt.
+Fertig! Die Karte wird mit dem Stil `streets-v11` über den gesamten Anzeigebereich [`style='width: 100vw; height: 100vw;'`](https://wiki.selfhtml.org/wiki/CSS/Wertetypen/Zahlen,_Ma%C3%9Fe_und_Ma%C3%9Feinheiten/Viewportabmessungen) zentriert auf die [Position](https://astrid-guenther.de/dies-und-das/39-geographische-koordinaten) `[7.5, 50.1]` mit der [Zoomstufe](https://wiki.openstreetmap.org/wiki/DE:Zoom_levels) 9 angezeigt:
+
+[![Full Screen Map Gatsby Mapbox GL Starter](https://user-images.githubusercontent.com/9974686/97810139-0f17ce80-1c72-11eb-987f-aea7edadfd6f.png)](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/map-full)
 
 Die Grundlage haben wir gelegt. Mithilfe der Karte ist es möglich geografische Geschichten zu erzählen oder standortbezogene Informationen weiterzugeben.
 
 [Demo](https://astridx.github.io/mapboxexamples/quickstart.html)  
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/quickstart.html)  
-[Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox)
-
+[Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)

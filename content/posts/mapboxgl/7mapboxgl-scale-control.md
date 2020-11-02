@@ -1,6 +1,6 @@
 ---
 date: 2020-10-08
-title: 'Karten mit Mapbox GL vergleichen - Das Plugin Swipe'
+title: 'Mapbox GL - Maßstab'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-scale-control
@@ -17,93 +17,52 @@ tags:
   - Scale Control
 ---
 
-[Demo](https://astridx.github.io/mapboxexamples/plugins/mapbox-gl-compare-swipe-between-maps.html)  
-[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/plugins/mapbox-gl-compare-swipe-between-maps.html)  
-[Gatsby Starter mit dieser Funktion](https://github.com/astridx/mapbox-react-examples/)
+Kennt man sich in einer Gegend nicht aus, ist ein Maßstab hilfreich.
 
+[![Full Screen Map with Scale Control Gatsby Mapbox GL Starter](https://user-images.githubusercontent.com/9974686/97810150-18a13680-1c72-11eb-8843-2e16801738e9.png)](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/map-scale-control)
 
-```html 
-<!--  https://raw.githubusercontent.com/astridx/mapboxexamples/master/plugins/mapbox-gl-compare-swipe-between-maps.html -->
+```html {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/mapboxexamples/master/examples/scale_control.html -->
 
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <title>Swipe between maps</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Scale Control Map Box GL Beispiel</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
 
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-
-<body>
-    <style>
-        body {
-            overflow: hidden;
-        }
-
-        body * {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        .map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.js"></script>
-    <link rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.4.0/mapbox-gl-compare.css"
-        type="text/css" />
-    <div id="comparison-container">
-        <div id="before" class="map"></div>
-        <div id="after" class="map"></div>
-    </div>
+  <body>
+    <div id="map" style="width: 100vw; height: 100vh;"></div>
     <script>
-        mapboxgl.accessToken = '<Zugriffstoken>';
-        var beforeMap = new mapboxgl.Map({
-            container: 'before',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [7.221275, 50.326111],
-            zoom: 15
-        });
-
-        var afterMap = new mapboxgl.Map({
-            container: 'after',
-            style: 'mapbox://styles/mapbox/satellite-v9',
-            center: [7.221275, 50.326111],
-            zoom: 15
-        });
-
-        // A selector or reference to HTML element
-        var container = '#comparison-container';
-
-        var map = new mapboxgl.Compare(beforeMap, afterMap, container, {
-            // Set this to enable comparing two maps by mouse movement:
-            // m ousemove: true
-        });
+      mapboxgl.accessToken = '<Zugriffstoken>'
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [7.2, 50.3],
+        zoom: 12,
+      })
+      var scale = new mapboxgl.ScaleControl({
+        maxWidth: 80,
+        unit: 'metric',
+      })
+      map.addControl(scale)
     </script>
-
-</body>
-
+  </body>
 </html>
 ```
+
+Alle
+Optionen sind in der [MapBox GL Dokumentation](https://docs.mapbox.com/mapbox.js/api/v3.3.1/l-control-scale/) beschrieben.
+
+[Demo](https://astridx.github.io/mapboxexamples/plugins/mapbox-gl-compare-swipe-between-maps.html)  
+[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/plugins/mapbox-gl-compare-swipe-between-maps.html)  
+[Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)

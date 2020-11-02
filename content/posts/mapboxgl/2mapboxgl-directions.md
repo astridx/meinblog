@@ -3,7 +3,7 @@ date: 2020-10-03
 title: 'Mapbox GL Routing mit dem Plugin Directions'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
-slug: mapboxgl-derections
+slug: mapboxgl-directions
 categories:
   - MapboxGL
 tags:
@@ -16,106 +16,100 @@ tags:
   - Routing
 ---
 
-Directions
+Wegbeschreibungen anzeigen: Ich verwende das [Mapbox-GL-Direcitons-Plugin](https://github.com/mapbox/mapbox-gl-directions), um Ergebnisse der [Mapbox Directions API](https://www.mapbox.com/navigation/) anzuzeigen.
+Eine vollständige Referenz findest du unter [API.md](https://github.com/mapbox/mapbox-gl-directions/blob/master/API.md). Nachfolgend ein einfaches Beispiel:
 
+[![Full Screen Map with Route / Directions Gatsby Mapbox GL Starter](https://user-images.githubusercontent.com/9974686/97810148-1808a000-1c72-11eb-86cd-77aa3f72a7b8.png)](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/map-direction)
 
+Zunächst der Programmcode:
 
-[Demo](https://astridx.github.io/mapboxexamples/plugins/mapbox-gl-directions.html)  
-[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/plugins/mapbox-gl-directions.html)  
-[Gatsby Starter mit dieser Funktion](https://github.com/astridx/mapbox-react-examples/)
-
-```html 
+```html {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/mapboxexamples/master/plugins/mapbox-gl-directions.html -->
 
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>Display driving directions</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .eleInfo {
-            position: absolute;
-            background-color: #fff;
-            z-index: 1;
-        }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <script
-        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet"
-        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
-        type="text/css" />
+  <body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+      type="text/css"
+    />
     <div id="map"></div>
 
     <script>
-        var lngDisplay = document.getElementById('lng');
-        var latDisplay = document.getElementById('lat');
-        var eleDisplay = document.getElementById('ele');
+      mapboxgl.accessToken = '<Zugriffstoken>'
+      new MapboxDirections({
+        accessToken: this.accessToken,
+        unit: 'metric',
+        profile: 'mapbox/driving',
+        flyTo: false,
+        controls: {
+          inputs: false,
+          instructions: true,
+          profileSwitcher: false,
+        },
+        exclude: 'ferry',
+      })
 
-        mapboxgl.accessToken = '<Zugriffstoken>';
-        new MapboxDirections({
-            accessToken: this.accessToken,
-            unit: 'metric',
-            profile: 'mapbox/driving',
-            flyTo: false,
-            controls: {
-                inputs: false,
-                instructions: true,
-                profileSwitcher: false
-            },
-            exclude: 'ferry'
-        });
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-4.488582, 36.86133],
+        zoom: 15,
+      })
 
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-4.488582, 36.861330],
-            zoom: 15
-        });
-        //style: 'mapbox://styles/mapbox/satellite-v9'
-        //style: 'mapbox://styles/mapbox/streets-v11',
+      var directions = new MapboxDirections({
+        accessToken: mapboxgl.accessToken,
+        language: 'de-DE',
+        steps: true,
+        exclude: 'toll',
+        unit: 'metric',
+        interactive: false,
+        controls: 'true',
+        profile: 'mapbox/driving',
+        flyTo: false,
+      })
 
-        var directions = new MapboxDirections({
-            accessToken: mapboxgl.accessToken,
-            language: 'de-DE',
-            steps: true,
-            exclude: 'toll',
-            unit: 'metric',
-            interactive: false,
-            controls: 'true',
-            profile: 'mapbox/driving',
-            flyTo: false
-        });
+      var marker1 = new mapboxgl.Marker()
+        .setLngLat([1.81108, 47.069302])
+        .addTo(map)
+      var marker2 = new mapboxgl.Marker()
+        .setLngLat([-0.610723, 43.185493])
+        .addTo(map)
+      var marker3 = new mapboxgl.Marker()
+        .setLngLat([-3.479979, 39.819714])
+        .addTo(map)
 
-        var marker1 = new mapboxgl.Marker()
-            .setLngLat([1.811080, 47.069302])
-            .addTo(map);
-        var marker2 = new mapboxgl.Marker()
-            .setLngLat([-0.610723, 43.185493])
-            .addTo(map);
-        var marker3 = new mapboxgl.Marker()
-            .setLngLat([-3.479979, 39.819714])
-            .addTo(map);
-
-        /*        directions.on('route', e => {
+      // Jeden Zwischenschritt abfragen
+      /*        directions.on('route', e => {
                     let routes = e.route
                     routes.map(r => r.legs[0].steps[0].name)
                     tail = routes.map(r => r.legs[0].steps)
@@ -127,18 +121,152 @@ Directions
                     }
                 });*/
 
-        this.map.on('load', () => {
-            showRoute()
-        });
+      this.map.on('load', () => {
+        showRoute()
+      })
 
-        function showRoute() {
-            directions.setOrigin("kehrig");
-            directions.setDestination("-4.488582, 36.861330");
-            // directions.addWaypoint(1, [-1.497526, 43.307164]);
-        }
-        map.addControl(directions, 'top-left');
+      function showRoute() {
+        directions.setOrigin('kehrig')
+        directions.setDestination('-4.488582, 36.861330')
+        // Webpunkte hinzufügen
+        // directions.addWaypoint(1, [-1.497526, 43.307164]);
+      }
+      map.addControl(directions, 'top-left')
     </script>
-</body>
-
+  </body>
 </html>
 ```
+
+Ich gebe zwei Koordinaten ein. Die Mapbox Directions-API gibt ein JSON-Objekt zurück, das eine Route mit Reisedauer, geschätzten Entfernungen und Turn-by-Turn-Anweisungen enthält. Bei Verwendung des Mapbox GL Directions-Plugins werden alle diese Informationen automatisch zur Karte hinzugefügt, wenn eine Anforderung abgeschlossen ist.
+
+Nachfolgend zeige ich eine kurze JSON-Rohantwort an, um zu veranschaulichen, welche Informationen im Richtungsantwortobjekt enthalten sind.
+
+```json
+[
+  {
+    "geometry": "m~zqHwnbk@UhCoCt@G@",
+    "legs": [
+      {
+        "summary": "Veilchenhang, Sonnenhang",
+        "weight": 50.1,
+        "duration": 47.4,
+        "steps": [
+          {
+            "intersections": [
+              {
+                "out": 0,
+                "entry": [true],
+                "bearings": [284],
+                "location": [7.226839, 50.278312]
+              }
+            ],
+            "driving_side": "right",
+            "geometry": "m~zqHwnbk@UhC",
+            "mode": "driving",
+            "maneuver": {
+              "bearing_after": 284,
+              "bearing_before": 0,
+              "location": [7.226839, 50.278312],
+              "type": "depart",
+              "instruction": "Head west on Veilchenhang"
+            },
+            "weight": 21.5,
+            "duration": 18.8,
+            "name": "Veilchenhang",
+            "distance": 50.8
+          },
+          {
+            "intersections": [
+              {
+                "out": 2,
+                "in": 0,
+                "entry": [false, true, true],
+                "bearings": [105, 195, 345],
+                "location": [7.226145, 50.278421]
+              }
+            ],
+            "driving_side": "right",
+            "geometry": "c_{qHmjbk@oCt@G@",
+            "mode": "driving",
+            "maneuver": {
+              "bearing_after": 345,
+              "bearing_before": 282,
+              "location": [7.226145, 50.278421],
+              "modifier": "right",
+              "type": "turn",
+              "instruction": "Turn right onto Sonnenhang"
+            },
+            "weight": 28.6,
+            "duration": 28.6,
+            "name": "Sonnenhang",
+            "distance": 87
+          },
+          {
+            "intersections": [
+              {
+                "in": 0,
+                "entry": [true],
+                "bearings": [169],
+                "location": [7.225868, 50.279183]
+              }
+            ],
+            "driving_side": "right",
+            "geometry": "{c{qHuhbk@",
+            "mode": "driving",
+            "maneuver": {
+              "bearing_after": 0,
+              "bearing_before": 349,
+              "location": [7.225868, 50.279183],
+              "type": "arrive",
+              "instruction": "You have arrived at your destination"
+            },
+            "weight": 0,
+            "duration": 0,
+            "name": "Sonnenhang",
+            "distance": 0
+          }
+        ],
+        "distance": 137.8
+      }
+    ],
+    "weight_name": "routability",
+    "weight": 50.1,
+    "duration": 47.4,
+    "distance": 137.8
+  }
+]
+```
+
+Das Richtungsobjekt ist beispielsweise mit folgendem Code manipulierbar.
+
+```js
+directions.on('route', (e) => {
+  let routes = e.route
+  routes.map((r) => r.legs[0].steps[0].name)
+  tail = routes.map((r) => r.legs[0].steps)
+  var i
+  for (i = 0; i < tail[0].length; i++) {
+    console.log(
+      i +
+        ': ' +
+        tail[0][i].maneuver.location[0] +
+        '---' +
+        tail[0][i].maneuver.location[1]
+    )
+  }
+})
+```
+
+Ein Marker kann wie gewohnt zur Karte hinzugefügt werden.
+
+```js
+var marker3 = new mapboxgl.Marker().setLngLat([-3.479979, 39.819714]).addTo(map)
+```
+
+Soll die Koordinate des Markers als Zwischenziel verwendet werden, ist das Hinzufügen von `directions.addWaypoint(1, [-3.479979, 39.819714]);` erforderlich.
+
+[Demo](https://astridx.github.io/mapboxexamples/plugins/mapbox-gl-directions.html)  
+[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/plugins/mapbox-gl-directions.html)  
+[Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)  
+[Mapbox GL Dokumentation](https://docs.mapbox.com/help/how-mapbox-works/directions/)  
+[Mapbox GL Directions plugin ](https://github.com/mapbox/mapbox-gl-directions)

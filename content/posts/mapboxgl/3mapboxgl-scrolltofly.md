@@ -17,14 +17,17 @@ tags:
   - Stadtführung
 ---
 
+Fliege zu einem Ort, der auf der Position einer Bildlaufposition basiert. Scrolle beispielsweise durch eine Liste von Sehenswürdigkeiten einer Stadt und die Karte fliegt passenden zum Ort.
 
-Scrolltofly
+Das könnte so aussehen:
 
-[Demo](https://astridx.github.io/mapboxexamples/examples/scroll-fly-to.html)  
-[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/examples/scroll-fly-to.html)  
-[Gatsby Starter mit dieser Funktion](https://github.com/astridx/mapbox-react-examples/)
+[![Map with Scroll Fly To in Gatsby Mapbox GL Starter](https://user-images.githubusercontent.com/9974686/97810143-13dc8280-1c72-11eb-9c7a-ba29536eeedd.png)](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/scrollflyto)
 
-```html 
+Im Beispiel gibt es Sektionen wie `<section id="genovevaburg" class="active">`, die Erläuterungen zu Sehenswürdigkeiten der Stadt Mayen in der Eifel beschreiben. Diese sind per Maus wie eine Liste von oben nach unten durch-scrollbar `overflow-y: scroll`. Immer dann wenn eine per ID identifizierbare Sektion den Anzeigebereich erreicht sorgt das Event `window.onscroll` in Verbindung mit `setActiveChapter()` dafür, dass sie die Klasse `active` erhält und die Funktion `map.flyTo()` wird aufgerufen. Letztere verändert die Ansicht der Karte in animierter Form. Wie die Animation genau verläuft, legt die Variable `chapterName` fest.
+
+Hier das vollständige Beispiel:
+
+```html {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/mapboxexamples/master/examples/scroll-fly-to.html -->
 
 <!DOCTYPE html>
@@ -403,3 +406,8 @@ Scrolltofly
 
 </html>
 ```
+
+[Demo](https://astridx.github.io/mapboxexamples/examples/scroll-fly-to.html)  
+[Quellcode](https://github.com/astridx/mapboxexamples/blob/master/examples/scroll-fly-to.html)  
+[Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
+[MapBox GL Example](https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/)
