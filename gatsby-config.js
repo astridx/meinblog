@@ -17,7 +17,6 @@ module.exports = {
     // ===================================================================================
 
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-netlify',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -27,7 +26,7 @@ module.exports = {
           'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
         start_url: '/',
         background_color: 'white',
-        theme_color: '#5183f5',
+        theme_color: '#16868F',
         display: 'minimal-ui',
         icon: `static/logo.png`,
       },
@@ -122,43 +121,25 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-images',
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: true,
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: true,
-              },
-            },
-          },
-          'gatsby-remark-prismjs',
-        ],
-      },
-    },
-
-    // ===================================================================================
-    // Gitdiff
-    // ===================================================================================
-
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
             resolve: `gatsby-remark-vscode`,
             options: {
               theme: 'Solarized Light',
             },
           },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 630,
+            },
+          },
           'gatsby-remark-prismjs',
         ],
       },
     },
+
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    `gatsby-plugin-offline`,
 
     // ===================================================================================
     // Search

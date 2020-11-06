@@ -3,7 +3,7 @@ date: 2020-01-12
 title: 'Template - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: joomla-template-erste-schritte
+slug: joomla-template-erste-schritte-4
 categories:
   - Code
 tags:

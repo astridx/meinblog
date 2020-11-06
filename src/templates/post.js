@@ -3,7 +3,9 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
-import Sidebar from '../components/Sidebar'
+import SidebarUnten from '../components/SidebarUnten'
+import SidebarOben from '../components/SidebarOben'
+import SidebarUeberTitel from '../components/SidebarUeberTitel'
 import Suggested from '../components/Suggested'
 import SEO from '../components/SEO'
 
@@ -15,18 +17,20 @@ export default function PostTemplate({ data, pageContext }) {
 
   return (
     <Layout>
+      <SidebarUeberTitel post={post} />
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
       <header className="article-header medium">
         <h1>{post.frontmatter.title}</h1>
       </header>
-      <section className="grid post">
+      <SidebarOben post={post} />
+      <section className="post">
         <article>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
-        <Sidebar post={post} />
       </section>
       <Suggested previous={previous} next={next} />
+      <SidebarUnten post={post} />
     </Layout>
   )
 }
@@ -45,7 +49,7 @@ export const pageQuery = graphql`
         tags
         thumbnail {
           childImageSharp {
-            fixed(width: 150, height: 150) {
+            fixed(width: 80, height: 80) {
               ...GatsbyImageSharpFixed
             }
           }

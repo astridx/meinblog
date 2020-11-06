@@ -16,6 +16,20 @@
   --font-weight-biggest: 350;
 }
 
+pre {
+  font-size: 0.7rem;
+}
+@media screen and (min-width: 800px) {
+  pre {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  pre {
+    font-size: 1.0rem;
+  }
+}
+
 /* Reset */ 
 
 *,
