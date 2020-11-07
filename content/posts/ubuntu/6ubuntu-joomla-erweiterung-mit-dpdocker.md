@@ -19,7 +19,7 @@ DPDocker bietet den Task `build`, mit dem Joomla Erweiterungen optimal integrier
 
 ## Voraussetzungen
 
-Neben [Docker](/ubuntu-docker-einrichten) und [Docker Compose](/ubuntu-docker-compose-einrichten) ist [DPDocker](https://github.com/Digital-Peak/DPDocker.git) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner/) bisher gefolgt bist, passt alles.
+Neben [Docker](/ubuntu-docker-einrichten) und [Docker Compose](/ubuntu-docker-compose-einrichten) ist [DPDocker](https://github.com/Digital-Peak/DPDocker.git) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-themen/) bisher gefolgt bist, passt alles.
 
 ## Installieren von Composer und PHP
 
