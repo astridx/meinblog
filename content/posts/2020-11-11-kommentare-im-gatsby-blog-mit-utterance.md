@@ -1,0 +1,186 @@
+---
+date: 2020-11-11
+title: 'Kommentar im Gatsby-Blog mit Github Utterances'
+template: post
+thumbnail: '../thumbnails/gatsby.png'
+slug: kommentare-im-gatsby-blog-mit-utterance
+categories:
+  - Code
+  - Popular
+tags:
+  - JavaScript
+  - SPA
+  - Bibliothek
+  - Framework
+  - React
+---
+
+Ich wünsche mir ein Feedback zu meinen Texten. Dabei ist es mir wichtig, dass die Kommentarfunktion sicher und werbefrei ist. Bei [Tania Rascia](https://www.taniarascia.com/) habe ich mir eine Lösung abgeguckt, die meiner Meinung nach vorerst dem Zweck dient.
+
+Im Folgenden findest du eine Kurzanleitung zum Integrieren des Kommentarsystems [Utterances von Github](https://github.com/utterance) in einen Gatsby Blog.
+Utternaces ist eine Kommentarfunktion, die auf Github-Issues aufbaut. Einige der Highlights sind:
+
+- Open Source.
+- Kein Tracking, keine Werbung und kostenlos.
+- Keine versteckten Daten. Alle in GitHub gespeicherten Daten sind öffentlich.
+- Gestylt mit Primer, dem CSS-Toolkit, das GitHub unterstützt.
+- Themes
+- Leicht und unkompliziert in Vanille TypeScript. Keine Schriftdownloads, JavaScript-Frameworks oder Polyfills für Browser.
+
+> Hinweis: Voraussetzung bei Utterances ist, dass die Zielgruppe über ein Github-Konto verfügt. Da sich mein Blog hauptsächlich an Entwickler richtet, passt dies perfekt.
+
+Die [Dokumentation](https://utteranc.es/) zeigt die Integration des Kommentar-Widgets in eine statische HTML-Website. Das funktioniert in meinem Fall nicht, da ich eine [GatsbyJS](https://www.gatsbyjs.org/) Website betreibe. Gatsby verwendet React unter der Haube, was bedeutete, dass ich Utterances als [React-Komponente](https://reactjs.org/docs/components-and-props.html) integriere.
+
+Fangen wir vorne an. Zuerst richte ich ein Github-Repository ein. Es ist zwingend, dass dieses öffentlich ist. Ich habe [github.com/astridx/meinblog](github.com/astridx/meinblog) erstellt.
+Dann wechsele ich zu [https://github.com/apps/utterances](https://github.com/apps/utterances). Auf der rechten Seite sehe ich einen grünen Button mit dem Text `install`, weil ich Utterances bisher nicht installiert habe. Ich klicke auf die Schaltfläch und wähle im nächsten Schritt das Repository, in dem ich das Widget zur Verfügung haben möchte. In meinem Fall ist das [github.com/astridx/meinblog](github.com/astridx/meinblog).
+
+Nach der Installation werde ich zu dieser [Seite https://utteranc.es/](https://utteranc.es/) weitergeleitet, die mir im unteren Bereich das Code-Schnippsel zum Aktivieren der Kommentare zeigt:
+
+```
+<script src=“https://utteranc.es/client.js“
+        repo=“[ENTER REPO HERE]“
+        issue-term=“pathname“
+        theme=“github-light“
+        crossorigin=“anonymous“
+        async>
+</script>
+```
+
+Wie oben erwähnt, ist es erforderlich, das Skript in ein Container-Tag einzufügen. Ich brauche eine React-Komponente, die aufgerufen wird, wenn ein Blogpost gerendert wird.
+
+Ich implementiere zuerst die [Funktionskomponente](https://www.robinwieruch.de/react-function-component) `Comments.js`:
+
+```jsx
+// meinblog/src/components/Comment.js
+
+import React from ‚react‘
+
+export default function Comment({ commentBox }) {
+  return <div ref={commentBox} className=“comments“ />
+}
+```
+
+Dies ist eine triviale Komponente. Wichtig ist die `commentBox`-Referenz. [React Refs](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs) bietet eine Möglichkeit, auf DOM-Knoten oder React-Elemente zuzugreifen, die mit der Rendermethode einer Komponente erstellt wurden. Wir werden später sehen, wie das verwendet wird.
+
+Als Nächstes bearbeite ich das `<Post>`-Template in meinem Blog, welches jeden Blog-Beitrag rendert. Hier soll das Kommentar-Widget am Ende jedes Beitrags erscheinen:
+
+```jsx {13,21-41,57-60}
+// meinblog/src/template/Post.js
+
+import React, { useEffect } from 'react'
+import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
+
+import Layout from '../components/Layout'
+import SidebarUnten from '../components/SidebarUnten'
+import SidebarOben from '../components/SidebarOben'
+import SidebarUeberTitel from '../components/SidebarUeberTitel'
+import Suggested from '../components/Suggested'
+import SEO from '../components/SEO'
+import Comment from '../components/Comment'
+
+import config from '../utils/config'
+
+export default function PostTemplate({ data, pageContext }) {
+  const post = data.markdownRemark
+  const { previous, next } = pageContext
+
+  const commentBox = React.createRef()
+
+  useEffect(() => {
+    const commentScript = document.createElement('script')
+    const theme =
+      typeof window !== 'undefined' && localStorage.getItem('theme') === 'dark'
+        ? 'github-dark'
+        : 'github-light'
+    commentScript.async = true
+    commentScript.src = 'https://utteranc.es/client.js'
+    commentScript.setAttribute('repo', 'astridx/meinblog')
+    commentScript.setAttribute('issue-term', 'pathname')
+    commentScript.setAttribute('id', 'utterances')
+    commentScript.setAttribute('theme', theme)
+    commentScript.setAttribute('crossorigin', 'anonymous')
+    if (commentBox && commentBox.current) {
+      commentBox.current.appendChild(commentScript)
+    } else {
+      console.log(`Error adding utterances comments on: ${commentBox}`)
+    }
+  }, [])
+
+  return (
+    <Layout>
+      <SidebarUeberTitel post={post} />
+      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
+      <SEO postPath={post.fields.slug} postNode={post} postSEO />
+      <header className="article-header medium">
+        <h1>{post.frontmatter.title}</h1>
+      </header>
+      <SidebarOben post={post} />
+      <section className="post">
+        <article>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </article>
+      </section>
+      <div id="comments">
+        <h2>Comments</h2>
+        <Comment commentBox={commentBox} />
+      </div>
+
+      <Suggested previous={previous} next={next} />
+      <SidebarUnten post={post} />
+    </Layout>
+  )
+}
+
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      excerpt
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        date(formatString: "DD.MM.YYYY")
+        tags
+        thumbnail {
+          childImageSharp {
+            fixed(width: 80, height: 80) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
+  }
+`
+```
+
+Das Kommentar-Widget hat eine `commentBox`-Prop, die übergeben wird. Auf diese Weise erhalten wir Zugriff auf die Komponente `Comment`. Im `Posts`-Template erstelle ich eine Referenz `const commentBox = React.createRef()`, die an die `commentBox`-Prop der `Comment`-Komponente angehängt wird. Dann benutze ich den Hook `useEffect`, um das Skript-Tag der Komponente `Comment` über die Referenz hinzuzufügen:
+
+```jsx
+useEffect(() => {
+  const commentScript = document.createElement('script')
+  const theme =
+    typeof window !== 'undefined' && localStorage.getItem('theme') === 'dark'
+      ? 'github-dark'
+      : 'github-light'
+  commentScript.async = true
+  commentScript.src = 'https://utteranc.es/client.js'
+  commentScript.setAttribute('repo', 'astridx/meinblog')
+  commentScript.setAttribute('issue-term', 'pathname')
+  commentScript.setAttribute('id', 'utterances')
+  commentScript.setAttribute('theme', theme)
+  commentScript.setAttribute('crossorigin', 'anonymous')
+  if (commentBox && commentBox.current) {
+    commentBox.current.appendChild(commentScript)
+  } else {
+    console.log(`Error adding utterances comments on: ${commentBox}`)
+  }
+}, [])
+```
+
+Der Code in `useEffect` wird jedes Mal aufgerufen, wenn ein Beitrag gerendert wird, der dann das Kommentar-Widget an jede Blog-Post-Seite anfügt. Die notwendigen Skriptattribute werden mit Javascript hinzugefügt. Wir hängen es dann mithilfe der Eigenschaft `current` an die `commentBox`-Referenz an, die beim Rendern aktiv ist.
+
+Das war alles!

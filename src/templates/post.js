@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
@@ -8,12 +8,35 @@ import SidebarOben from '../components/SidebarOben'
 import SidebarUeberTitel from '../components/SidebarUeberTitel'
 import Suggested from '../components/Suggested'
 import SEO from '../components/SEO'
+import Comment from '../components/Comment'
 
 import config from '../utils/config'
 
 export default function PostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
   const { previous, next } = pageContext
+
+  const commentBox = React.createRef()
+
+  useEffect(() => {
+    const commentScript = document.createElement('script')
+    const theme =
+      typeof window !== 'undefined' && localStorage.getItem('theme') === 'dark'
+        ? 'github-dark'
+        : 'github-light'
+    commentScript.async = true
+    commentScript.src = 'https://utteranc.es/client.js'
+    commentScript.setAttribute('repo', 'astridx/meinblog')
+    commentScript.setAttribute('issue-term', 'pathname')
+    commentScript.setAttribute('id', 'utterances')
+    commentScript.setAttribute('theme', theme)
+    commentScript.setAttribute('crossorigin', 'anonymous')
+    if (commentBox && commentBox.current) {
+      commentBox.current.appendChild(commentScript)
+    } else {
+      console.log(`Error adding utterances comments on: ${commentBox}`)
+    }
+  }, []) // eslint-disable-line
 
   return (
     <Layout>
@@ -29,6 +52,11 @@ export default function PostTemplate({ data, pageContext }) {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
       </section>
+      <div id="utterances">
+        <h2>Comments</h2>
+        <Comment commentBox={commentBox} />
+      </div>
+
       <Suggested previous={previous} next={next} />
       <SidebarUnten post={post} />
     </Layout>
