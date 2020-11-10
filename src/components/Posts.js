@@ -5,7 +5,7 @@ import { slugify } from '../utils/helpers'
 
 export default function Posts({ data, tags }) {
   return (
-    <div className={tags ? 'grid posts with-tags' : 'grid posts'}>
+    <div className={tags ? 'posts with-tags' : 'grid posts'}>
       {data.map((node) => {
         return (
           <Link to={node.slug} className="row" key={node.id}>

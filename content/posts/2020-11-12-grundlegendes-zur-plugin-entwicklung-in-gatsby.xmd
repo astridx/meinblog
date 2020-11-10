@@ -1,0 +1,789 @@
+---
+date: 2020-11-12
+title: 'Grundlegendes zur Plugin-Entwicklung in Gatsby'
+template: post
+thumbnail: '../thumbnails/gatsby.png'
+slug: grundlegendes-zur-plugin-entwicklung-in-gatsby
+categories:
+  - Code
+  - Popular
+tags:
+  - JavaScript
+  - Gatsby
+  - Plugin
+  - Blog
+  - MapBoxGL
+  - React
+---
+
+https://www.smashingmagazine.com/2020/07/understanding-plugin-development-gatsby/
+
+[Gatsby](https://www.gatsbyjs.org/) ist ein moderner Generator für statische Websites. In diesem Beitrag werden wir Gatsby-Plugins ansehen und ein eigenes Plugin entwickeln.
+
+## Was ist ein Gatsby-Plugin?
+
+[Gatsby](https://www.gatsbyjs.org/) ist als statischer Website-Generator in [seinen Möglichkeiten](https://www.gatsbyjs.org/features/) begrenzt. Plugins sind Mittel, um Gatsby mit Funktionen zu erweitern, die nicht unmittelbar verfügbar sind. Wir können Aufgaben wie das Erstellen einer manifest.json-Datei für eine progressive Web-App (PWA), das [Einbetten von Kommentaren](/kommentare-im-gatsby-blog-mit-utterance) auf einer Seite, das Protokollieren von Seitenaufrufen und vieles mehr auf einer Gatsby-Website mithilfe von Plugins integrieren.
+
+## Arten von Gatsby-Plugins
+
+Es gibt zwei Arten von Gatsby-Plugins: _lokale_ und _externe_. Lokale Plugins werden in einem Gatsby-Projektverzeichnis im Verzeichnis `/plugins` entwickelt. Externe Plugins sind über [npm](https://www.npmjs.com/) oder [yarn](https://classic.yarnpkg.com/en/docs/migrating-from-npm/) erhältlich.
+
+## Typen von Gatsby-Plugins
+
+Plugins sind in drei Hauptformen unterteilbar und werden durch ihre Anwendungsfälle definiert:
+
+- Source Plugins: Diese Art von Plugins bieten Datenquellen für eine Gatsby-Website. Beispiele hierfür sind [gatsby-source-filesystem](https://www.gatsbyjs.org/packages/gatsby-source-filesystem), [gatsby-source-contentful](https://www.gatsbyjs.org/packages/gatsby-source-contentful/), und [gatsby-source-wordpress](https://www.gatsbyjs.org/packages/gatsby-source-wordpress/).
+- Transformer Plugins: Diese Arten von Plugins wandeln Daten aus den Quellen anderer Plugins in eine benutzerfreundlichere und konsumierbarere Form um. Beispiele hierfür sind [gatsby-transformer-remark](https://www.gatsbyjs.org/packages/gatsby-transformer-remark), [gatsby-transformer-json](https://www.gatsbyjs.org/packages/gatsby-transformer-json), und [gatsby-transformer-sharp](https://www.gatsbyjs.org/packages/gatsby-transformer-sharp/).
+- Generic Plugins: Diese Plugins gehen über die Transformation und Beschaffung von Daten hinaus. Bemerkenswertes Beispiel sind [gatsby-plugin-mdx](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx) und [gatsby-plugin-sharp](https://www.gatsbyjs.org/packages/gatsby-plugin-sharp).. Wir werden eines in diesem Beitrag erstellen.
+
+### Komponenten eines Gatsby-Plugins
+
+Um ein Gatsby-Plugin zu erstellen, müssen wir einige Dateien definieren:
+
+- [`gatsby-node.js`](https://www.gatsbyjs.org/docs/api-files-gatsby-node)\
+   Ermöglicht das Abhören der Build-Prozesse von Gatsby.
+- [`gatsby-config.js`](https://www.gatsbyjs.org/docs/api-files-gatsby-config)\
+   Wird hauptsächlich für die Konfiguration und Einrichtung verwendet.
+- [`gatsby-browser.js`](https://www.gatsbyjs.org/docs/api-files-gatsby-browser)\
+   Ermöglicht Plugins, Code während eines der Gatsby-Prozesse im Browser auszuführen.
+- [`gatsby-ssr.js`](https://www.gatsbyjs.org/docs/api-files-gatsby-ssr)\
+   Passt den serverseitigen Rendering-Prozess (SSR) an und erweitert ihn um Funktionen.
+
+Diese Dateien werden in der Dokumentation von Gatsby als API-Dateien bezeichnet und sollten sich im Stammverzeichnis eines lokalen oder externen Plugin-Verzeichnisses befinden.
+
+Nicht alle dieser Dateien sind erforderlich, um ein Gatsby-Plugin zu erstellen. In unserem Fall implementieren wir nur die API-Dateien `gatsby-node.js` und`gatsby-config.js`.
+
+### Mapbox GL-Plugins für Gatsby
+
+Lerning by doing. Wir entwickeln ein Gatsby-MapBox-GL-Plugin, das in einen Gatsby-Blog integriert werden kann. Den vollständige Code für das Plugin findest du [auf GitHub](https://github.com/astridx/gatsby-plugin-mapboxgl).
+
+#### Plugin Boilerplate
+
+Ähnlich wie beim Erstellen eines [Gatsby-Blogs](https://www.gatsbyjs.org/tutorial/blog-netlify-cms-tutorial/), beginnen wir zum Erstellen eines externen Plugins mit dem [Plugin Boilerplate](https://github.com/gatsbyjs/gatsby-starter-plugin).
+
+##### Ordner initialisieren
+
+Führe in der Befehlszeilenschnittstelle (CLI) den folgenden Befehl aus:
+
+```
+gatsby new gatsby-plugin-mapboxgl https://github.com/Gatsbyjs/gatsby-starter-plugin
+```
+
+Wechsele dann in das Plugin-Verzeichnis und öffnen es in einem Code-Editor.
+
+##### MapBox GL installieren
+
+Zunächst installieren wir das MapBoxGL-Paket:
+
+```
+npm install mapbox-gl --save
+// or
+yarn add mapbox-gl
+```
+
+##### Adding a New Node Type
+
+Before pulling comments from the comments server, we need to define a new node type that the comments would extend. For this, in the plugin folder, our `gatsby-node.js` file should contain the code below:
+
+```
+exports.sourceNodes = async ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type CommentServer implements Node {
+      _id: String
+      author: String
+      string: String
+      content: String
+      website: String
+      slug: String
+      createdAt: Date
+      updatedAt: Date
+    }
+  `;
+  createTypes(typeDefs);
+};
+```
+
+First, we pulled [`actions`](https://www.gatsbyjs.org/docs/actions/#createNode) from the APIs provided by Gatsby. Then, we pulled out the [`createTypes`](https://www.gatsbyjs.org/docs/actions/#createTypes) action, after which we defined a `CommentServer` type that extends Node.js. Then, we called `createTypes` with the new node type that we set.
+
+##### Fetching Comments From the Comments Server
+
+Now, we can use axios to pull comments and then store them in the data-access layer as the `CommentServer` type. This action is called "node sourcing" in Gatsby.
+
+To source for new nodes, we have to implement the [`sourceNodes`](https://www.gatsbyjs.org/docs/node-apis/#sourceNodes) API in `gatsby-node.js`. In our case, we would use axios to make network requests, then parse the data from the API to match a GraphQL type that we would define, and then create a [node](https://www.gatsbyjs.org/docs/node-model/) in the GraphQL layer of Gatsby using the [`createNode`](https://www.gatsbyjs.org/docs/actions/#createNode) action.
+
+We can add the code below to the plugin's `gatsby-node.js` API file, creating the functionality we've described:
+
+```
+const axios = require("axios");
+
+exports.sourceNodes = async (
+  { actions, createNodeId, createContentDigest },
+  pluginOptions
+) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type CommentServer implements Node {
+      _id: String
+      author: String
+      string: String
+      website: String
+      content: String
+      slug: String
+      createdAt: Date
+      updatedAt: Date
+    }
+  `;
+  createTypes(typeDefs);
+
+  const { createNode } = actions;
+  const { limit, website } = pluginOptions;
+  const _website = website || "";
+
+  const result = await axios({
+    url: `https://Gatsbyjs-comment-server.herokuapp.com/comments?limit=${_limit}&website=${_website}`,
+  });
+
+  const comments = result.data;
+
+  function convertCommentToNode(comment, { createContentDigest, createNode }) {
+    const nodeContent = JSON.stringify(comment);
+
+    const nodeMeta = {
+      id: createNodeId(`comments-${comment._id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: `CommentServer`,
+        mediaType: `text/html`,
+        content: nodeContent,
+        contentDigest: createContentDigest(comment),
+      },
+    };
+
+    const node = Object.assign({}, comment, nodeMeta);
+    createNode(node);
+  }
+
+  for (let i = 0; i < comments.data.length; i++) {
+    const comment = comments.data[i];
+    convertCommentToNode(comment, { createNode, createContentDigest });
+  }
+};
+```
+
+Here, we have imported the axios package, then set defaults in case our plugin's options are not provided, and then made a request to the endpoint that serves our comments.
+
+We then defined a function to convert the comments into Gatsby nodes, using the action helpers provided by Gatsby. After this, we iterated over the fetched comments and called `convertCommentToNode` to convert the comments into Gatsby [nodes](https://www.gatsbyjs.org/docs/node-model/).
+
+- [
+
+  ![Hopin.io](https://cats.smashing.services/catch?uri=https://res.cloudinary.com/indysigner/image/upload/v1604587336/ads/HopinLogo.svg)
+
+  Learn how event teams are using Hopin to delight their attendees, speakers, and sponsors.
+
+  Create event](https://cats.smashing.services/ball?uri=https://bit.ly/3l2gmqj)
+
+##### Transforming Data (Comments)
+
+Next, we need to resolve the comments to posts. Gatsby has an API for that called [`createResolvers`](https://www.gatsbyjs.org/docs/schema-customization/#createresolvers-api). We can make this possible by appending the code below in the `gatsby-node.js` file of the plugin:
+
+```
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    MarkdownRemark: {
+      comments: {
+        type: ["CommentServer"],
+        resolve(source, args, context, info) {
+          return context.nodeModel.runQuery({
+            query: {
+              filter: {
+                slug: { eq: source.fields.slug },
+              },
+            },
+            type: "CommentServer",
+            firstOnly: false,
+          });
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
+};
+```
+
+Here, we are extending `MarkdownRemark` to include a `comments` field. The newly added `comments` field will resolve to the `CommentServer` type, based on the slug that the comment was saved with and the slug of the post.
+
+##### Final Code for Comment Sourcing and Transforming
+
+The final code for the `gatsby-node.js` file of our comments plugin should look like this:
+
+```
+const axios = require("axios");
+
+exports.sourceNodes = async (
+  { actions, createNodeId, createContentDigest },
+  pluginOptions
+) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type CommentServer implements Node {
+      _id: String
+      author: String
+      string: String
+      website: String
+      content: String
+      slug: String
+      createdAt: Date
+      updatedAt: Date
+    }
+  `;
+  createTypes(typeDefs);
+
+  const { createNode } = actions;
+  const { limit, website } = pluginOptions;
+  const _limit = parseInt(limit || 10000); // FETCH ALL COMMENTS
+  const _website = website || "";
+
+  const result = await axios({
+    url: `https://Gatsbyjs-comment-server.herokuapp.com/comments?limit=${_limit}&website=${_website}`,
+  });
+
+  const comments = result.data;
+
+  function convertCommentToNode(comment, { createContentDigest, createNode }) {
+    const nodeContent = JSON.stringify(comment);
+
+    const nodeMeta = {
+      id: createNodeId(`comments-${comment._id}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: `CommentServer`,
+        mediaType: `text/html`,
+        content: nodeContent,
+        contentDigest: createContentDigest(comment),
+      },
+    };
+
+    const node = Object.assign({}, comment, nodeMeta);
+    createNode(node);
+  }
+
+  for (let i = 0; i < comments.data.length; i++) {
+    const comment = comments.data[i];
+    convertCommentToNode(comment, { createNode, createContentDigest });
+  }
+};
+
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    MarkdownRemark: {
+      comments: {
+        type: ["CommentServer"],
+        resolve(source, args, context, info) {
+          return context.nodeModel.runQuery({
+            query: {
+              filter: {
+                website: { eq: source.fields.slug },
+              },
+            },
+            type: "CommentServer",
+            firstOnly: false,
+          });
+        },
+      },
+    },
+  };
+  createResolvers(resolvers);
+};
+```
+
+##### Saving Comments as JSON Files
+
+We need to save the comments for page slugs in their respective JSON files. This makes it possible to fetch the comments on demand over HTTP without having to use a GraphQL query.
+
+To do this, we will implement the `createPageStatefully` API in the`gatsby-node.js` API file of the plugin. We will use the `fs` module to check whether the path exists before creating a file in it. The code below shows how we can implement this:
+
+```
+import fs from "fs"
+import {resolve: pathResolve} from "path"
+exports.createPagesStatefully = async ({ graphql }) => {
+  const comments = await graphql(
+    `
+      {
+        allCommentServer(limit: 1000) {
+          edges {
+            node {
+              name
+              slug
+              _id
+              createdAt
+              content
+            }
+          }
+        }
+      }
+    `
+  )
+
+  if (comments.errors) {
+    throw comments.errors
+  }
+
+  const markdownPosts = await graphql(
+    `
+      {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+
+  const posts = markdownPosts.data.allMarkdownRemark.edges
+  const _comments = comments.data.allCommentServer.edges
+
+  const commentsPublicPath = pathResolve(process.cwd(), "public/comments")
+
+  var exists = fs.existsSync(commentsPublicPath) //create destination directory if it doesn't exist
+
+  if (!exists) {
+    fs.mkdirSync(commentsPublicPath)
+  }
+
+  posts.forEach((post, index) => {
+    const path = post.node.fields.slug
+    const commentsForPost = _comments
+      .filter(comment => {
+        return comment.node.slug === path
+      })
+      .map(comment => comment.node)
+
+    const strippedPath = path
+      .split("/")
+      .filter(s => s)
+      .join("/")
+    const _commentPath = pathResolve(
+      process.cwd(),
+      "public/comments",
+      `${strippedPath}.json`
+    )
+    fs.writeFileSync(_commentPath, JSON.stringify(commentsForPost))
+  })
+}
+```
+
+First, we require the `fs`, and `resolve` the function of the `path` module. We then use the GraphQL helper to pull the comments that we stored earlier, to avoid extra HTTP requests. We remove the Markdown files that we created using the GraphQL helper. And then we check whether the comment path is not missing from the public path, so that we can create it before proceeding.
+
+Finally, we loop through all of the nodes in the Markdown type. We pull out the comments for the current posts and store them in the `public/comments` directory, with the post's slug as the name of the file.
+
+The `.gitignore` in the root in a Gatsby website excludes the public path from being committed. Saving files in this directory is safe.
+
+During each rebuild, Gatsby would call this API in our plugin to fetch the comments and save them locally in JSON files.
+
+#### Rendering Comments
+
+To render comments in the browser, we have to use the `gatsby-browser.js` API file.
+
+##### Define the Root Container for HTML
+
+In order for the plugin to identify an insertion point in a page, we would have to set an HTML element as the container for rendering and listing the plugin's components. We can expect that every page that requires it should have an HTML element with an ID set to `commentContainer`.
+
+##### Implement the Route Update API in the gatsby-browser.js File
+
+The best time to do the file fetching and component insertion is when a page has just been visited. The `onRouteUpdate` API provides this functionality and passes the `apiHelpers` and `pluginOpions` as arguments to the callback function.
+
+```
+exports.onRouteUpdate = async (apiHelpers, pluginOptions) => {
+  const { location, prevLocation } = apiHelpers
+}
+```
+
+##### Create Helper That Creates HTML Elements
+
+To make our code cleaner, we have to define a function that can create an HTML element, set its `className`, and add content. At the top of the `gatsby-browser.js` file, we can add the code below:
+
+```
+// Creates element, set class. innerhtml then returns it.
+ function createEl (name, className, html = null) {
+  const el = document.createElement(name)
+  el.className = className
+  el.innerHTML = html
+  return el
+}
+```
+
+##### Create Header of Comments Section
+
+At this point, we can add a header into the insertion point of comments components, in the `onRouteUpdate` browser API . First, we would ensure that the element exists in the page, then create an element using the `createEl` helper, and then append it to the insertion point.
+
+```
+// ...
+
+exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
+  const commentContainer = document.getElementById("commentContainer")
+  if (commentContainer && location.path !== "/") {
+    const header = createEl("h2")
+    header.innerHTML = "Comments"
+    commentContainer.appendChild(header)
+  }
+}
+```
+
+##### Listing Comments
+
+To list comments, we would append a `ul` element to the component insertion point. We will use the `createEl` helper to achieve this, and set its `className` to `comment-list`:
+
+```
+exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
+  const commentContainer = document.getElementById("commentContainer")
+  if (commentContainer && location.path !== "/") {
+    const header = createEl("h2")
+    header.innerHTML = "Comments"
+    commentContainer.appendChild(header)
+    const commentListUl = createEl("ul")
+    commentListUl.className = "comment-list"
+    commentContainer.appendChild(commentListUl)
+}
+```
+
+Next, we need to render the comments that we have saved in the public directory to a `ul` element, inside of `li` elements. For this, we define a helper that fetches the comments for a page using the path name.
+
+```
+// Other helpers
+const getCommentsForPage = async slug => {
+  const path = slug
+    .split("/")
+    .filter(s => s)
+    .join("/")
+  const data = await fetch(`/comments/${path}.json`)
+  return data.json()
+}
+// ... implements routeupdate below
+```
+
+We have defined a helper, named `getCommentsForPage`, that accepts paths and uses `fetch` to load the comments from the `public/comments` directory, before parsing them to JSON and returning them back to the calling function.
+
+Now, in our `onRouteUpdate` callback, we will load the comments:
+
+```
+// ... helpers
+exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
+  const commentContainer = document.getElementById("commentContainer")
+  if (commentContainer && location.path !== "/") {
+    //... inserts header
+    const commentListUl = createEl("ul")
+    commentListUl.className = "comment-list"
+    commentContainer.appendChild(commentListUl)
+   const comments = await getCommentsForPage(location.pathname)
+}
+```
+
+Next, let's define a helper to create the list items:
+
+```
+// .... other helpers
+
+const getCommentListItem = comment => {
+  const li = createEl("li")
+  li.className = "comment-list-item"
+
+  const nameCont = createEl("div")
+  const name = createEl("strong", "comment-author", comment.name)
+  const date = createEl(
+    "span",
+    "comment-date",
+    new Date(comment.createdAt).toLocaleDateString()
+  )
+  // date.className="date"
+  nameCont.append(name)
+  nameCont.append(date)
+
+  const commentCont = createEl("div", "comment-cont", comment.content)
+
+  li.append(nameCont)
+  li.append(commentCont)
+  return li
+}
+
+// ... onRouteUpdateImplementation
+```
+
+In the snippet above, we created an `li` element with a `className` of `comment-list-item`, and a `div` for the comment's author and time. We then created another `div` for the comment's text, with a `className` of `comment-cont`.
+
+To render the list items of comments, we iterate through the comments fetched using the `getComments` helper, and then call the `getCommentListItem` helper to create a list item. Finally, we append it to the `<ul class="comment-list"></ul>` element:
+
+```
+// ... helpers
+exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
+  const commentContainer = document.getElementById("commentContainer")
+  if (commentContainer && location.path !== "/") {
+    //... inserts header
+    const commentListUl = createEl("ul")
+    commentListUl.className = "comment-list"
+    commentContainer.appendChild(commentListUl)
+   const comments = await getCommentsForPage(location.pathname)
+    if (comments && comments.length) {
+      comments.map(comment => {
+        const html = getCommentListItem(comment)
+        commentListUl.append(html)
+        return comment
+      })
+    }
+}
+```
+
+- [
+
+  ![Shopify Partners](https://cats.smashing.services/catch?uri=https://res.cloudinary.com/indysigner/image/upload/c_scale,w_250/v1598870722/ads/ShopifyPartners-Panel.svg)
+
+  Earn recurring revenue designing and developing eCommerce stores
+
+  Sign up today](https://cats.smashing.services/ball?uri=https://bit.ly/2QHapBz)
+
+#### Posting a Comment
+
+##### Post Comment Form Helper
+
+To enable users to post a comment, we have to make a `POST` request to the `/comments` endpoint of the API. We need a form in order to create this form. Let's create a form helper that returns an HTML form element.
+
+```
+// ... other helpers
+const createCommentForm = () => {
+  const form = createEl("form")
+  form.className = "comment-form"
+  const nameInput = createEl("input", "name-input", null)
+  nameInput.type = "text"
+  nameInput.placeholder = "Your Name"
+  form.appendChild(nameInput)
+  const commentInput = createEl("textarea", "comment-input", null)
+  commentInput.placeholder = "Comment"
+  form.appendChild(commentInput)
+  const feedback = createEl("span", "feedback")
+  form.appendChild(feedback)
+  const button = createEl("button", "comment-btn", "Submit")
+  button.type = "submit"
+  form.appendChild(button)
+  return form
+}
+```
+
+The helper creates an input element with a `className` of `name-input`, a `textarea` with a `className` of `comment-input`, a `span` with a `className` of `feedback`, and a button with a `className` of `comment-btn`.
+
+##### Append the Post Comment Form
+
+We can now append the form into the insertion point, using the `createCommentForm` helper:
+
+```
+// ... helpers
+exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
+  const commentContainer = document.getElementById("commentContainer")
+  if (commentContainer && location.path !== "/") {
+    // insert header
+    // insert comment list
+    commentContainer.appendChild(createCommentForm())
+  }
+}
+```
+
+#### Post Comments to Server
+
+To post a comment to the server, we have to tell the user what is happening --- for example, either that an input is required or that the API returned an error. The `<span class="feedback" />` element is meant for this. To make it easier to update this element, we create a helper that sets the element and inserts a new class based on the type of the feedback (whether error, info, or success).
+
+```
+// ... other helpers
+// Sets the class and text of the form feedback
+const updateFeedback = (str = "", className) => {
+  const feedback = document.querySelector(".feedback")
+  feedback.className = `feedback ${className ? className : ""}`.trim()
+  feedback.innerHTML = str
+  return feedback
+}
+// onRouteUpdate callback
+```
+
+We are using the `querySelector` API to get the element. Then we set the class by updating the `className` attribute of the element. Finally, we use `innerHTML` to update the contents of the element before returning it.
+
+##### Submitting a Comment With the Comment Form
+
+We will listen to the `onSubmit` event of the comment form to determine when a user has decided to submit the form. We don't want empty data to be submitted, so we would set a feedback message and disable the submit button until needed:
+
+```
+exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
+  // Appends header
+  // Appends comment list
+  // Appends comment form
+  document
+    .querySelector("body .comment-form")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault()
+      updateFeedback()
+      const name = document.querySelector(".name-input").value
+      const comment = document.querySelector(".comment-input").value
+      if (!name) {
+        return updateFeedback("Name is required")
+      }
+      if (!comment) {
+        return updateFeedback("Comment is required")
+      }
+      updateFeedback("Saving comment", "info")
+      const btn = document.querySelector(".comment-btn")
+      btn.disabled = true
+      const data = {
+        name,
+        content: comment,
+        slug: location.pathname,
+        website: pluginOptions.website,
+      }
+
+      fetch(
+        "https://cors-anywhere.herokuapp.com/gatsbyjs-comment-server.herokuapp.com/comments",
+        {
+          body: JSON.stringify(data),
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      ).then(async function (result) {
+        const json = await result.json()
+        btn.disabled = false
+
+        if (!result.ok) {
+          updateFeedback(json.error.msg, "error")
+        } else {
+          document.querySelector(".name-input").value = ""
+          document.querySelector(".comment-input").value = ""
+          updateFeedback("Comment has been saved!", "success")
+        }
+      }).catch(async err => {
+        const errorText = await err.text()
+        updateFeedback(errorText, "error")
+      })
+    })
+}
+```
+
+We use `document.querySelector` to get the form from the page, and we listen to its `submit` event. Then, we set the feedback to an empty string, from whatever it might have been before the user attempted to submit the form.
+
+We also check whether the name or comment field is empty, setting an error message accordingly.
+
+Next, we make a `POST` request to the comments server at the `/comments` endpoint, listening for the response. We use the feedback to tell the user whether there was an error when they created the comment, and we also use it to tell them whether the comment's submission was successful.
+
+##### Adding a Style Sheet
+
+To add styles to the component, we have to create a new file, `style.css`, at the root of our plugin folder, with the following content:
+
+```
+#commentContainer {
+}
+
+.comment-form {
+  display: grid;
+}
+```
+
+At the top of `gatsby-browser.js`, import it like this:
+
+```
+import "./style.css"
+```
+
+This style rule will make the form's components occupy 100% of the width of their container.
+
+Finally, all of the components for our comments plugin are complete. Time to install and test this fantastic plugin we have built.
+
+### Test the Plugin
+
+#### Create a Gatsby Website
+
+Run the following command from a directory one level above the plugin's directory:
+
+```
+// PARENT
+// ├── PLUGIN
+// ├── Gatsby Website
+
+gatsby new private-blog https://github.com/gatsbyjs/gatsby-starter-blog
+```
+
+#### Install the Plugin Locally and Add Options
+
+##### Link With npm
+
+Next, change to the blog directory, because we need to create a link for the new plugin:
+
+```
+cd /path/to/blog
+npm link ../path/to/plugin/folder
+```
+
+##### Add to gatsby-config.js
+
+In the `gatsby-config.js` file of the blog folder, we should add a new object that has a `resolve` key and that has `name-of-plugin-folder` as the value of the plugin's installation. In this case, the name is `gatsby-comment-server-plugin`:
+
+```
+module.exports = {
+  // ...
+  plugins: [
+    // ...
+    "gatsby-plugin-dom-injector",
+    {
+      resolve: "gatsby-comment-server-plugin",
+      options: {website: "https://url-of-website.com"},
+    },
+  ],
+}
+```
+
+Notice that the plugin accepts a `website` option to distinguish the source of the comments when fetching and saving comments.
+
+##### Update the blog-post Component
+
+For the insertion point, we will add `<section class="comments" id="commentContainer">` to the post template component at `src/templates/blog-post.js` of the blog project. This can be inserted at any suitable position; I have inserted mine after the last `hr` element and before the `footer`.
+
+##### Start the Development Server
+
+Finally, we can start the development server with `gatsby develop`, which will make our website available locally at `http://localhost:8000`. Navigating to any post page, like `http://localhost:8000/new-beginnings`, will reveal the comment at the insertion point that we specified above.
+
+##### Create a Comment
+
+We can create a comment using the comment form, and it will provide helpful feedback as we interact with it.
+
+##### List Comments
+
+To list newly posted comments, we have to restart the server, because our content is static.
+
+### Conclusion
+
+In this tutorial, we have introduced Gatsby plugins and demonstrated how to create one.
+
+Our plugin uses different APIs of Gatsby and its own API files to provide comments for our website, illustrating how we can use plugins to add significant functionality to a Gatsby website.
+
+Although we are pulling from a live server, the plugin is saving the comments in JSON files. We could make the plugin load comments on demand from the API server, but that would defeat the notion that our blog is a static website that does not require dynamic content.
+
+The plugin built in this post exists as an [npm module](https://www.npmjs.com/package/gatsby-plugin-commentator), while the full code is [on GitHub](https://github.com/limistah/gatsby-plugin-commentator).
+
+#### References:
+
+- [Documentation](https://www.gatsbyjs.org/docs/), Gatsby
+- [Gatsby Source Comment Server](https://github.com/limistah/gatsby-source-comment-server) (plugin source), GitHub
+- [Gatsby Plugin Commentator](https://github.com/limistah/gatsby-plugin-commentator) (repository), GitHub
+
+#### Resources:
+
+- [Gatsby's blog starter](https://github.com/limistah/sm-gatsby-private-blog-tutorial), GitHub\
+  A private blog repository available for you to create a Gatsby website to consume the plugin.
+- [Gatsby Starter Blog](https://private-blog.netlify.app/), Netlify\
+  The blog website for this tutorial, deployed on Netlify for testing.

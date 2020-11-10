@@ -1,6 +1,6 @@
 ---
 date: 2020-11-11
-title: 'Kommentar im Gatsby-Blog mit Github Utterances'
+title: 'Kommentare im Gatsby-Blog mit Github Utterances'
 template: post
 thumbnail: '../thumbnails/gatsby.png'
 slug: kommentare-im-gatsby-blog-mit-utterance
@@ -9,9 +9,9 @@ categories:
   - Popular
 tags:
   - JavaScript
-  - SPA
-  - Bibliothek
-  - Framework
+  - Kommentare
+  - Gatsby
+  - Blog
   - React
 ---
 
@@ -181,6 +181,6 @@ useEffect(() => {
 }, [])
 ```
 
-Der Code in `useEffect` wird jedes Mal aufgerufen, wenn ein Beitrag gerendert wird, der dann das Kommentar-Widget an jede Blog-Post-Seite anfügt. Die notwendigen Skriptattribute werden mit Javascript hinzugefügt. Wir hängen es dann mithilfe der Eigenschaft `current` an die `commentBox`-Referenz an, die beim Rendern aktiv ist.
+Der Code in `useEffect` wird jedes Mal aufgerufen, wenn ein Beitrag gerendert wird, welcher dann das Kommentar-Widget an jede Blog-Post-Seite anfügt. Die notwendigen Skriptattribute werden mit Javascript hinzugefügt. Wir hängen es dann mithilfe der Eigenschaft `current` an die `commentBox`-Referenz an, die beim Rendern aktiv ist.
 
-Das war alles!
+Das war es!
