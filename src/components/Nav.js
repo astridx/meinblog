@@ -5,16 +5,17 @@ export default function Nav() {
   return (
     <nav className="navbar">
       <div className="container flex">
-        <Link style={{ margin: 'auto' }} to="/">
+        <Link to="/">
           <img src="/logo2.png" alt="" />
         </Link>
       </div>
       <div className="container flex">
-        <div style={{ margin: 'auto' }}>
+        <div>
           <Link to="/blog">Blog</Link>
           <Link to="/tutorial">Sets</Link>
         </div>
         <button
+          style={{ 'margin-left': '10px' }}
           id="dark-mode-button"
           onClick={(event) => {
             const theme =
