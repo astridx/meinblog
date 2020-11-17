@@ -29,7 +29,7 @@ export default function PostTemplate({ data, pageContext }) {
     commentScript.setAttribute('repo', 'astridx/meinblog')
     commentScript.setAttribute('issue-term', 'pathname')
     commentScript.setAttribute('id', 'utterances')
-    commentScript.setAttribute('theme', theme)
+    //commentScript.setAttribute('theme', theme)
     commentScript.setAttribute('crossorigin', 'anonymous')
     if (commentBox && commentBox.current) {
       commentBox.current.appendChild(commentScript)
