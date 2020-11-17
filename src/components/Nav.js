@@ -4,9 +4,13 @@ import { Link } from 'gatsby'
 export default function Nav() {
   return (
     <nav className="navbar">
-      <div className="container flex">
+      <div>
         <Link to="/">
-          <img src="/logo2.png" alt="" />
+          <img
+            style={{ display: 'block', 'max-width': '100%', margin: 'auto' }}
+            src="/logo2.png"
+            alt=""
+          />
         </Link>
       </div>
       <div className="container flex">
@@ -15,7 +19,7 @@ export default function Nav() {
           <Link to="/tutorial">Sets</Link>
         </div>
         <button
-          style={{ 'margin-left': '10px' }}
+          style={{ 'margin-left': '20px' }}
           id="dark-mode-button"
           onClick={(event) => {
             const theme =

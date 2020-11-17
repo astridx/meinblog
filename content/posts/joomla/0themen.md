@@ -27,6 +27,7 @@ tags:
 1. [Sprachdateien nutzen](/sprachdateien-nutzen)
 1. [Konfiguration](/joomla-konfiguration)
 1. [ACL](/joomla-acl)
+
 1. [Serverseiteige Validierung](/joomla-serverseiteige-validierung)
 1. [Clientseitige Validierung](/joomla-clientseiteige-validierung)
 1. [Kategorien im Backend einrichten](/joomla-kategorien-im-backend-einrichten)

@@ -26,7 +26,7 @@ export default function Search({ posts }) {
       <input
         id="search"
         type="search"
-        placeholder="Search all posts..."
+        placeholder="Suche in allen Beiträgen ..."
         onChange={(e) => setQuery(e.target.value)}
       />
       <section>
@@ -34,7 +34,7 @@ export default function Search({ posts }) {
           results.length > 0 ? (
             <Posts data={results} tags />
           ) : (
-            <p>Sorry, nothing matched that search.</p>
+            <p>Nichts gefunden.</p>
           )
         ) : (
           <Posts data={posts} tags />

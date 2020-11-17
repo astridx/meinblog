@@ -12,9 +12,9 @@ tags:
 ---
 
 Deine Komponente ist benutzerfreundlich. User Experience (UX) oder Nutzererfahrung ist in aller Munde. Wenn ein Benutzer fehlerhafte Daten eingibt, ist es dir wichtig, dass dieser hierzu eine Erklärung erhält.
-Dazu fügen wir die Validierung hinzu. Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla! ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicherer, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprache sind problemloser auszutricksen. Eindringlinge umgehen sie und senden bösartige Eingaben an den Server.
+Dazu fügen wir die Validierung hinzu. Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla! ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicher, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprachen sind problemloser auszutricksen. Eindringlinge umgehen sie und senden so bösartige Eingaben an den Server.
 
-> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen sie gleichzeitig zu verwenden. Die serverseitige Validierung ist sicherer. Die Clientseitige benutzerfreundlicher!
+> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlenn sie gleichzeitig nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer. Die Clientseitige benutzerfreundlicher!
 
 Dieser Teil behandelt die die serverseitige Validierung in Joomla! 4.
 
@@ -28,7 +28,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679)
 
-Hier das Hauptziel nicht, JavaScript und sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen.
+Hier ist das Hauptziel nicht sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen.
 
 > Hier im Beispiel ändere ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck).
 
@@ -58,28 +58,23 @@ Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Ad
 
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<form>
-	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
-		<field
-			name="id"
-			type="number"
-			label="JGLOBAL_FIELD_ID_LABEL"
-			default="0"
-			class="readonly"
-			readonly="true"
-		/>
+```php {diff}
+ <?xml version="1.0" encoding="utf-8"?>
+ <form>
+-	<fieldset>
++	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
+ 		<field
+ 			name="id"
+ 			type="number"
+@@ -13,6 +13,7 @@
+ 		<field
+ 			name="name"
+ 			type="text"
++			validate="Letter"
+ 			label="COM_FOOS_FIELD_NAME_LABEL"
+ 			size="40"
+ 			required="true"
 
-		<field
-			name="name"
-			type="text"
-			validate="Letter"
-			label="COM_FOOS_FIELD_NAME_LABEL"
-			size="40"
-			required="true"
-		 />
-...
 ```
 
 ## Teste deine Joomla-Komponente
