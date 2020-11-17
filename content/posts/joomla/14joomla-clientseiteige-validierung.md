@@ -11,15 +11,15 @@ tags:
   - Joomla
 ---
 
-Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche Speichern an den Server gesendet wurde.
+Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche `Speichern` an den Server gesendet wurde.
 
-In der clientseitigen Validierung bieten Sie eine bessere Benutzererfahrung, indem Sie schnell auf Browserebene reagieren. Hier werden alle Benutzereingaben im Browser des Benutzers selbst validiert. Für die clientseitige Validierung ist keine Rückfrage beim Server erforderlich, so das der und das Netzwerk entlastet werden. Diese Art der Überprüfung arbeitet auf der Browserseite mithilfe von Skriptsprachen wie JavaScript oder mit HTML5-Attributen.
+In der clientseitigen Validierung bieten wir eine bessere Benutzererfahrung, indem wir schnell auf Browserebene reagieren. Hier werden alle Eingaben im Browser des Benutzers selbst validiert. Für die clientseitige Validierung ist keine Rückfrage beim Server erforderlich, so das dieser und das Netzwerk entlastet werden. Diese Art der Überprüfung arbeitet auf der Browserseite mithilfe von Skriptsprachen wie JavaScript oder mit HTML5-Attributen.
 
-Wenn der Benutzer beispielsweise ein ungültiges E-Mail-Format eingibt, geben Sie unmittelbar vor dem Wechsel zum nächsten Feld eine Fehlermeldung aus. So ist eine Korrektur möglich, bevor er das Formular sendet.
+Wenn der Benutzer beispielsweise ein ungültiges E-Mail-Format eingibt, geben wir unmittelbar nach dem Wechsel zum nächsten Feld eine Fehlermeldung aus. So ist zeitnah eine Korrektur möglich.
 
-Meistens hängt die clientseitige Validierung davon ab, dass im Browser JavaScript aktiviert ist. Bei deaktiviertem JavaScript werden Benutzer-Eingaben ungeprüft zum Server gesandt. Es ist möglich, dass dies bösartige Daten sind! Daher schützt die clientseitige Validierung die Nutzer deiner Komponente nicht sicher vor böswilligen Angriffen.
+Meistens hängt die clientseitige Validierung davon ab, dass im Browser JavaScript aktiviert ist. Bei deaktiviertem JavaScript werden Benutzer-Eingaben ungeprüft zum Server gesandt. Es ist möglich, dass es sich hierbei um bösartige Daten handelt! Daher schützt die clientseitige Validierung die Nutzer deiner Komponente nicht sicher vor böswilligen Angriffen.
 
-> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen sie gleichzeitig zu verwenden. Die serverseitige Validierung ist sicherer. Die Clientseitige benutzerfreundlicher!
+> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen, sie nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer - die clientseitige benutzerfreundlicher!
 
 Dieser Teil behandelt die die clientseitige Validierung in Joomla! 4.
 
@@ -35,11 +35,13 @@ Die clientseitige Validierung erfolgt über eine Klasse mithilfe einer JavaScrip
 
 #### [src/media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
 
-Auch hier geht es um das Prinzip. Die Qualtiät der Validierung spielt keine Rolle. Wieder sind lediglich Zahlen verboten.
+Auch hier geht es um das Prinzip. Die Qualtiät der Validierung ist Nebensache. Wieder sind Zahlen im Textfeld für den Namen verboten.
 
 [src/media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
 ```js
+// https://raw.githubusercontent.com/astridx/boilerplate/b4078c00700f28ba31229246bd941b24fabf8dbb/src/media/com_foos/js/admin-foos-letter.js
+
 document.addEventListener('DOMContentLoaded', function () {
   'use strict'
   setTimeout(function () {
@@ -61,39 +63,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ### Geänderte Dateien
 
+#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+
+Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein, damit Joomla weiß, das die Datei `joomla.asset.json` zur Erweiterung gehört und ins `media/com_foos` Verzeichnis kopiert wird.
+
+[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+
+```xml {diff}
+ 		<folder>tmpl</folder>
+ 	</files>
+     <media folder="media/com_foos" destination="com_foos">
++		<filename>joomla.asset.json</filename>
+ 		<folder>js</folder>
+     </media>
+ 	<!-- Back-end files -->
+
+```
+
 #### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Der Eintrag `->useScript('com_foos.admin-foos-letter');` fügt die JavaScript-Datei, welche für das Prüfen zuständig ist, zum Webasset-Manager hinzu.
+Der Eintrag `->useScript('com_foos.admin-foos-letter');` fügt die JavaScript-Datei, welche für das Prüfen zuständig ist, zum [Webasset-Manager](https://docs.joomla.org/J4.x:Web_Assets/de) hinzu.
 
 [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
-```php
-...
-$wa = $this->document->getWebAssetManager();
-$wa->useScript('keepalive')
-	->useScript('form.validate')
-	->useScript('com_foos.admin-foos-letter');
-...
+```php {diff}
+
+ $wa = $this->document->getWebAssetManager();
+ $wa->useScript('keepalive')
+-	->useScript('form.validate');
++	->useScript('form.validate')
++	->useScript('com_foos.admin-foos-letter');
+
+ $layout  = 'edit';
+ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
+
 ```
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Wir ergänzen `class="validate-letter"`, so weiß Joomla, welche CSS-Klasse gepürft wird.
+Wir ergänzen `class="validate-letter"`, so weiß Joomla, welche CSS-Klasse geprüft wird.
 
 [https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
 
-```xml
-...
-<field
-	name="name"
-	type="text"
-	validate="Letter"
-	class="validate-letter"
-	label="COM_FOOS_FIELD_NAME_LABEL"
-	size="40"
-	required="true"
-/>
-...
+```xml {diff}
+ 			name="name"
+ 			type="text"
+ 			validate="Letter"
++			class="validate-letter"
+ 			label="COM_FOOS_FIELD_NAME_LABEL"
+ 			size="40"
+ 			required="true"
 
 ```
 
@@ -103,40 +122,25 @@ Last but not least registrieren wir die neue Datei unter dem Namen `com_foos.adm
 
 [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/media/com_foos/joomla.asset.json)
 
-```json
-...
-{
-  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
-  "name": "com_foos",
-  "version": "1.0.0",
-  "description": "Joomla CMS",
-  "license": "GPL-2.0-or-later",
-  "assets": [
-    {
-      "name": "com_foos.admin-foos-letter",
-      "type": "script",
-      "uri": "com_foos/admin-foos-letter.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "defer": true
-      }
-    },
-    {
-      "name": "com_foos.admin-foos-modal",
-      "type": "script",
-      "uri": "com_foos/admin-foos-modal.js",
-      "dependencies": [
-        "core"
-      ],
-      "attributes": {
-        "defer": true
-      }
-    }
-  ]
-}
-...
+```json {diff}
+
+"description": "Joomla CMS",
+   "license": "GPL-2.0-or-later",
+   "assets": [
++    {
++      "name": "com_foos.admin-foos-letter",
++      "type": "script",
++      "uri": "com_foos/admin-foos-letter.js",
++      "dependencies": [
++        "core"
++      ],
++      "attributes": {
++        "defer": true
++      }
++    },
+     {
+       "name": "com_foos.admin-foos-modal",
+       "type": "script",
 
 ```
 
@@ -167,6 +171,18 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ```php {diff}
 // https://github.com/astridx/boilerplate/compare/t11a...t11b.diff
 
+diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
+index da9849dc..a18f1c25 100644
+--- a/src/administrator/components/com_foos/foos.xml
++++ b/src/administrator/components/com_foos/foos.xml
+@@ -33,6 +33,7 @@
+ 		<folder>tmpl</folder>
+ 	</files>
+     <media folder="media/com_foos" destination="com_foos">
++		<filename>joomla.asset.json</filename>
+ 		<folder>js</folder>
+     </media>
+ 	<!-- Back-end files -->
 diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
 index b3f1ceff..ca0f0090 100644
 --- a/src/administrator/components/com_foos/forms/foo.xml
