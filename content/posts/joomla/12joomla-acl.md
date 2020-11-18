@@ -27,7 +27,7 @@ Als Erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 
 [src/administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
-```xml {numberLines}
+```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -53,7 +53,7 @@ Bei einem Update sind ausschließlich die Änderungen relevant. Diese tragen wir
 
 [src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
-```xml {numberLines diff}
+```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
@@ -68,11 +68,6 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration ein. Hierfür legen wir ein Feld an.
 
 ```xml {diff}
-diff --git a/src/administrator/components/com_foos/config.xml b/src/administrator/components/com_foos/config.xml
-index bbd807ae..241609ff 100644
---- a/src/administrator/components/com_foos/config.xml
-+++ b/src/administrator/components/com_foos/config.xml
-@@ -15,4 +15,19 @@
  			<option value="1">JYES</option>
  		</field>
  	</fieldset>
@@ -99,11 +94,6 @@ index bbd807ae..241609ff 100644
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 ```xml {diff}
-diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-index a9d7b587..da9849dc 100644
---- a/src/administrator/components/com_foos/foos.xml
-+++ b/src/administrator/components/com_foos/foos.xml
-@@ -21,6 +21,11 @@
  			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
  		</sql>
  	</uninstall>
@@ -134,11 +124,6 @@ Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzuk
 Das Formular zum Erstellen eines neuen Foo-Items wird um die Möglichkeit erweitert, Berechtigungen für ein einzelnes Element zu setzten. Wir ergänzen das Feld `name="access"`.
 
 ```xml {diff}
-diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
-index 827d7946..15615cf6 100644
---- a/src/administrator/components/com_foos/forms/foo.xml
-+++ b/src/administrator/components/com_foos/forms/foo.xml
-@@ -25,5 +25,12 @@
  			size="45"
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
@@ -160,11 +145,6 @@ index 827d7946..15615cf6 100644
 Das SQL-Skript für die Installation wird ebenfalls um die notwendigen Felder erweitert.
 
 ```xml {diff}
-diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
-index 634065b8..4c925493 100644
---- a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
-+++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
-@@ -9,3 +9,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
  ('Nina'),
  ('Astrid'),
  ('Elmar');
@@ -181,11 +161,6 @@ index 634065b8..4c925493 100644
 Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage für dich komplex. Es ist jetzt erforderlich, Daten aus zwei Datenbanktabellen zu kombinieren. Die Tabelle, die die Berechtigungen von `com_user` verwaltet `#__viewlevels`, und die unsere Beispielkomponenete.
 
 ```php {diff}
-diff --git a/src/administrator/components/com_foos/src/Model/FoosModel.php b/src/administrator/components/com_foos/src/Model/FoosModel.php
-index 4767b474..0038575c 100644
---- a/src/administrator/components/com_foos/src/Model/FoosModel.php
-+++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
-@@ -48,9 +48,17 @@ protected function getListQuery()
 
  		// Select the required fields from the table.
  		$query->select(
@@ -218,11 +193,6 @@ index 4767b474..0038575c 100644
 Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - `$canDo` kommt hinzu.
 
 ```php {diff}
-diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-index 29a8871f..4748083d 100644
---- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-+++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-@@ -11,6 +11,7 @@
 
  \defined('_JEXEC') or die;
 
@@ -264,11 +234,6 @@ index 29a8871f..4748083d 100644
 Der Eintrag `<?php echo $this->getForm()->renderField(‚access‘);` ist notwendig, damit das Feld im Formular aufgenommen wird, welches wir in er XML Datei schon konfiguriert haben. Nur so ist es möglich, die Berechtigungen pro Element zu verändern.
 
 ```php {diff}
-diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
-index 93e36b40..1531aec6 100644
---- a/src/administrator/components/com_foos/tmpl/foo/edit.php
-+++ b/src/administrator/components/com_foos/tmpl/foo/edit.php
-@@ -27,6 +27,7 @@
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
  	<?php echo $this->getForm()->renderField('name'); ?>
  	<?php echo $this->getForm()->renderField('alias'); ?>
@@ -285,11 +250,6 @@ index 93e36b40..1531aec6 100644
 Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in der Übersicht auf.
 
 ```php {diff}
-diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
-index f2c891bd..e597fc4c 100644
---- a/src/administrator/components/com_foos/tmpl/foos/default.php
-+++ b/src/administrator/components/com_foos/tmpl/foos/default.php
-@@ -27,6 +27,9 @@
  								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">
  									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_NAME'); ?>
  								</th>
