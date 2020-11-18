@@ -847,6 +847,7 @@ time,
 .tags {
   display: flex !important;
   align-items: center;
+  overflow: scroll;
 }
 
 .tags > a {
