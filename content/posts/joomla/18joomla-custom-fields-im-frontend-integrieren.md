@@ -27,49 +27,63 @@ In diesem Kapitel kommen keine neuen Dateien hinzu
 
 ### Geänderte Dateien
 
-#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [src/components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
 
-Die benutzerdefinierten Felder werden mithilfe von Ereignissen an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig wird es vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`. Dies erledigen wir in der View.
+Custom Fields geben im Frontend Ihre Daten mithilfe von Ereignisse aus. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`. Dies erledigen wir in der `View`.
+
+Konkret sorgen wir dafür, dass die Ereignisse [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
+
+[src/components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
+
+```php {diff}
+ \defined('_JEXEC') or die;
+
+ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
++use Joomla\CMS\Factory;
+
+ /**
+  * HTML Foos View class for the Foo component
+@@ -37,7 +38,20 @@ class HtmlView extends BaseHtmlView
+ 	 */
+ 	public function display($tpl = null)
+ 	{
+-		$this->item = $this->get('Item');
++		$item = $this->item = $this->get('Item');
++
++		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
++
++		// Store the events for later
++		$item->event = new \stdClass;
++		$results = Factory::getApplication()->triggerEvent('onContentAfterTitle', array('com_foos.foo', &$item, &$item->params));
++		$item->event->afterDisplayTitle = trim(implode("\n", $results));
++
++		$results = Factory::getApplication()->triggerEvent('onContentBeforeDisplay', array('com_foos.foo', &$item, &$item->params));
++		$item->event->beforeDisplayContent = trim(implode("\n", $results));
++
++		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', array('com_foos.foo', &$item, &$item->params));
++		$item->event->afterDisplayContent = trim(implode("\n", $results));
+
+ 		return parent::display($tpl);
+ 	}
+
+```
 
 > Über `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` werden, neben den benutzerdefinierten Felder andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.
 
-[src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/src/View/Foo/HtmlView.php)
+#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
-```php
-...
-public function display($tpl = null)
-{
-  $item = $this->item = $this->get('Item');
-
-  Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
-  $item->event = new \stdClass;
-  $results = Factory::getApplication()->triggerEvent('onContentAfterTitle', array('com_foos.foo', &$item, &$item->params));
-  $item->event->afterDisplayTitle = trim(implode("\n", $results));
-
-  $results = Factory::getApplication()->triggerEvent('onContentBeforeDisplay', array('com_foos.foo', &$item, &$item->params));
-  $item->event->beforeDisplayContent = trim(implode("\n", $results));
-
-  $results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', array('com_foos.foo', &$item, &$item->params));
-  $item->event->afterDisplayContent = trim(implode("\n", $results));
-
-  return parent::display($tpl);
-}
-...
-
-```
-
-#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-a33732ebd6992540b8adca5615b51a1f)
-
-Im Template geben wir die benutzerdefinierten Felder aus. Dieses ist nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei wir die Anweisung an der passenden Stelle eingefügt.
+Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei wir die Anweisung an der passenden Stelle eingefügt.
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
 
-```
-...
-echo $this->item->event->afterDisplayTitle;
-echo $this->item->event->beforeDisplayContent;
-echo $this->item->event->afterDisplayContent;
+```php {diff}
+ }
+
+ echo $this->item->name;
++
++echo $this->item->event->afterDisplayTitle;
++echo $this->item->event->beforeDisplayContent;
++echo $this->item->event->afterDisplayContent;
 
 ```
 
@@ -96,8 +110,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst neben den vorher vorhanden Werten jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
 
 ![Joomla! Custom Fields in eine eigene Komponente integrieren](/images/j4x18x2.png)
-
-## Geänderte Dateien
 
 ### Übersicht
 
