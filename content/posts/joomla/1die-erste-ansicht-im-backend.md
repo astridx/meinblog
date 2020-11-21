@@ -955,6 +955,13 @@ index 00000000..4796008d
 +\defined('_JEXEC') or die;
 +?>
 +Hello Foos
+diff --git a/src/api/com_foos/index.html b/src/api/com_foos/index.html
+new file mode 100644
+index 00000000..2efb97f3
+--- /dev/null
++++ b/src/api/com_foos/index.html
+@@ -0,0 +1 @@
++<!DOCTYPE html><title></title>
 diff --git a/src/components/com_foos/index.html b/src/components/com_foos/index.html
 new file mode 100644
 index 00000000..2efb97f3

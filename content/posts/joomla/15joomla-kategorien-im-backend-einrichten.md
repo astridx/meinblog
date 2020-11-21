@@ -459,10 +459,10 @@ index fa1d9b04..8ab72721 100644
  	</section>
  </access>
 diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-index da9849dc..5f647bde 100644
+index a18f1c25..1fe73eb1 100644
 --- a/src/administrator/components/com_foos/foos.xml
 +++ b/src/administrator/components/com_foos/foos.xml
-@@ -41,6 +41,8 @@
+@@ -42,6 +42,8 @@
  		<menu view="foos">COM_FOOS</menu>
  		<submenu>
  			<menu link="option=com_foos">COM_FOOS</menu>

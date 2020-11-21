@@ -33,8 +33,17 @@ In einer Hilfsdatei erstellen wir eine Sidebar - ein eigenes Untermenü - für d
 
 [src/administrator/components/com_foos/src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
 
-```php {numberLines: -2}
+```php {numberLines: -3}
 // https://raw.githubusercontent.com/astridx/boilerplate/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/src/Helper/FooHelper.php
+
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 namespace FooNamespace\Component\Foos\Administrator\Helper;
 
@@ -44,8 +53,22 @@ use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\Language\Text;
 
+/**
+ * Foo component helper.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FooHelper extends ContentHelper
 {
+	/**
+	 * Configure the Linkbar.
+	 *
+	 * @param   string  $vName  The name of the active view.
+	 *
+	 * @return  void
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	public static function addSubmenu($vName)
 	{
 		if (ComponentHelper::isEnabled('com_fields') && ComponentHelper::getParams('com_foos')->get('custom_fields_enable', '1'))
@@ -63,6 +86,7 @@ class FooHelper extends ContentHelper
 		}
 	}
 }
+
 ```
 
 ### Geänderte Dateien

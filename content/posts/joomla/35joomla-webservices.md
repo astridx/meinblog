@@ -313,10 +313,10 @@ Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https:
 // https://github.com/astridx/boilerplate/compare/t29...t30.diff
 
 diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-index a6f64efa..b78c5974 100644
+index 6580fe15..f4462cc4 100644
 --- a/src/administrator/components/com_foos/foos.xml
 +++ b/src/administrator/components/com_foos/foos.xml
-@@ -72,6 +72,11 @@
+@@ -73,6 +73,11 @@
  			<folder>tmpl</folder>
  		</files>
  	</administration>

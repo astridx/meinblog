@@ -139,10 +139,10 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 // https://github.com/astridx/boilerplate/compare/t27...t28.diff
 
 diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-index 5f647bde..a6f64efa 100644
+index 1fe73eb1..6580fe15 100644
 --- a/src/administrator/components/com_foos/foos.xml
 +++ b/src/administrator/components/com_foos/foos.xml
-@@ -37,12 +37,28 @@
+@@ -38,12 +38,28 @@
      </media>
  	<!-- Back-end files -->
  	<administration>
