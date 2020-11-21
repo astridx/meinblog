@@ -322,6 +322,19 @@ Die View lädt das Filterformular `src/administrator/components/com_foos/forms/f
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
+ \defined('_JEXEC') or die;
+
++use Joomla\CMS\Component\ComponentHelper;
++use Joomla\CMS\Helper\ContentHelper;
++use Joomla\CMS\Language\Associations;
+ use Joomla\CMS\Factory;
+ use Joomla\CMS\Language\Text;
+ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
+diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+index af7c2fa6..f966bd96 100644
+--- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
++++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+@@ -19,6 +19,7 @@
  use Joomla\CMS\Toolbar\ToolbarHelper;
  use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
  use Joomla\CMS\Factory;
@@ -396,62 +409,14 @@ Die View lädt das Filterformular `src/administrator/components/com_foos/forms/f
  			}
  		}
 
-@@ -86,19 +133,52 @@ protected function addToolbar()
- 		FooHelper::addSubmenu('foos');
- 		$this->sidebar = \JHtmlSidebar::render();
-
--		$canDo = ContentHelper::getActions('com_foos');
-+		$canDo = ContentHelper::getActions('com_foos', 'category', $this->state->get('filter.category_id'));
-+		$user  = Factory::getUser();
-
- 		// Get the toolbar object instance
- 		$toolbar = Toolbar::getInstance('toolbar');
-
- 		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
-
--		if ($canDo->get('core.create'))
-+		if ($canDo->get('core.create') || count($user->getAuthorisedCategories('com_foos', 'core.create')) > 0)
- 		{
- 			$toolbar->addNew('foo.add');
- 		}
-
--		if ($canDo->get('core.options'))
-+		if ($canDo->get('core.edit.state'))
-+		{
-+			$dropdown = $toolbar->dropdownButton('status-group')
-+				->text('JTOOLBAR_CHANGE_STATUS')
-+				->toggleSplit(false)
-+				->icon('fa fa-ellipsis-h')
-+				->buttonClass('btn btn-action')
-+				->listCheck(true);
-+			$childBar = $dropdown->getChildToolbar();
-+			$childBar->publish('foos.publish')->listCheck(true);
-+			$childBar->unpublish('foos.unpublish')->listCheck(true);
-+			$childBar->archive('foos.archive')->listCheck(true);
-+
-+			if ($user->authorise('core.admin'))
-+			{
-+				$childBar->checkin('foos.checkin')->listCheck(true);
-+			}
-+
-+			if ($this->state->get('filter.published') != -2)
-+			{
-+				$childBar->trash('foos.trash')->listCheck(true);
-+			}
-+		}
-+
-+		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
-+		{
-+			$toolbar->delete('foos.delete')
-+				->text('JTOOLBAR_EMPTY_TRASH')
-+				->message('JGLOBAL_CONFIRM_DELETE')
-+				->listCheck(true);
-+		}
-+
-+		if ($user->authorise('core.admin', 'com_foos') || $user->authorise('core.options', 'com_foos'))
- 		{
- 			$toolbar->preferences('com_foos');
- 		}
+@@ -83,9 +130,6 @@ public function display($tpl = null): void
+ 	 */
+ 	protected function addToolbar()
+ 	{
+-		FooHelper::addSubmenu('foos');
+-		$this->sidebar = \JHtmlSidebar::render();
+-
+ 		$canDo = ContentHelper::getActions('com_foos');
 
 ```
 
@@ -886,7 +851,7 @@ index a168ab54..d2cab389 100644
  	}
 
 diff --git a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
-index 206f748c..6593ecd1 100644
+index 206f748c..aadba595 100644
 --- a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 @@ -11,6 +11,9 @@
@@ -899,81 +864,8 @@ index 206f748c..6593ecd1 100644
  use Joomla\CMS\Factory;
  use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
-@@ -76,11 +79,70 @@ protected function addToolbar()
- 	{
- 		Factory::getApplication()->input->set('hidemainmenu', true);
-
-+		$user = Factory::getUser();
-+		$userId = $user->id;
-+
- 		$isNew = ($this->item->id == 0);
-
- 		ToolbarHelper::title($isNew ? Text::_('COM_FOOS_MANAGER_FOO_NEW') : Text::_('COM_FOOS_MANAGER_FOO_EDIT'), 'address foo');
-
--		ToolbarHelper::apply('foo.apply');
--		ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
-+		// Since we don't track these assets at the item level, use the category id.
-+		$canDo = ContentHelper::getActions('com_foos', 'category', $this->item->catid);
-+
-+		// Build the actions for new and existing records.
-+		if ($isNew)
-+		{
-+			// For new records, check the create permission.
-+			if ($isNew && (count($user->getAuthorisedCategories('com_foos', 'core.create')) > 0))
-+			{
-+				ToolbarHelper::apply('foo.apply');
-+				ToolbarHelper::saveGroup(
-+					[
-+						['save', 'foo.save'],
-+						['save2new', 'foo.save2new']
-+					],
-+					'btn-success'
-+				);
-+			}
-+
-+			ToolbarHelper::cancel('foo.cancel');
-+		}
-+		else
-+		{
-+			// Since it's an existing record, check the edit permission, or fall back to edit own if the owner.
-+			$itemEditable = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == $userId);
-+			$toolbarButtons = [];
-+
-+			// Can't save the record if it's not editable
-+			if ($itemEditable)
-+			{
-+				ToolbarHelper::apply('foo.apply');
-+				$toolbarButtons[] = ['save', 'foo.save'];
-+
-+				// We can save this record, but check the create permission to see if we can return to make a new one.
-+				if ($canDo->get('core.create'))
-+				{
-+					$toolbarButtons[] = ['save2new', 'foo.save2new'];
-+				}
-+			}
-+
-+			// If checked out, we can still save
-+			if ($canDo->get('core.create'))
-+			{
-+				$toolbarButtons[] = ['save2copy', 'foo.save2copy'];
-+			}
-+
-+			ToolbarHelper::saveGroup(
-+				$toolbarButtons,
-+				'btn-success'
-+			);
-+
-+			if (Associations::isEnabled() && ComponentHelper::isEnabled('com_associations'))
-+			{
-+				ToolbarHelper::custom('foo.editAssociations', 'contract', 'contract', 'JTOOLBAR_ASSOCIATIONS', false, false);
-+			}
-+
-+			ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
-+		}
- 	}
- }
 diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-index af7c2fa6..b8e1ab33 100644
+index af7c2fa6..f966bd96 100644
 --- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 @@ -19,6 +19,7 @@
@@ -1051,62 +943,16 @@ index af7c2fa6..b8e1ab33 100644
  			}
  		}
 
-@@ -86,19 +133,52 @@ protected function addToolbar()
- 		FooHelper::addSubmenu('foos');
- 		$this->sidebar = \JHtmlSidebar::render();
-
--		$canDo = ContentHelper::getActions('com_foos');
-+		$canDo = ContentHelper::getActions('com_foos', 'category', $this->state->get('filter.category_id'));
-+		$user  = Factory::getUser();
+@@ -83,9 +130,6 @@ public function display($tpl = null): void
+ 	 */
+ 	protected function addToolbar()
+ 	{
+-		FooHelper::addSubmenu('foos');
+-		$this->sidebar = \JHtmlSidebar::render();
+-
+ 		$canDo = ContentHelper::getActions('com_foos');
 
  		// Get the toolbar object instance
- 		$toolbar = Toolbar::getInstance('toolbar');
-
- 		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
-
--		if ($canDo->get('core.create'))
-+		if ($canDo->get('core.create') || count($user->getAuthorisedCategories('com_foos', 'core.create')) > 0)
- 		{
- 			$toolbar->addNew('foo.add');
- 		}
-
--		if ($canDo->get('core.options'))
-+		if ($canDo->get('core.edit.state'))
-+		{
-+			$dropdown = $toolbar->dropdownButton('status-group')
-+				->text('JTOOLBAR_CHANGE_STATUS')
-+				->toggleSplit(false)
-+				->icon('fa fa-ellipsis-h')
-+				->buttonClass('btn btn-action')
-+				->listCheck(true);
-+			$childBar = $dropdown->getChildToolbar();
-+			$childBar->publish('foos.publish')->listCheck(true);
-+			$childBar->unpublish('foos.unpublish')->listCheck(true);
-+			$childBar->archive('foos.archive')->listCheck(true);
-+
-+			if ($user->authorise('core.admin'))
-+			{
-+				$childBar->checkin('foos.checkin')->listCheck(true);
-+			}
-+
-+			if ($this->state->get('filter.published') != -2)
-+			{
-+				$childBar->trash('foos.trash')->listCheck(true);
-+			}
-+		}
-+
-+		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
-+		{
-+			$toolbar->delete('foos.delete')
-+				->text('JTOOLBAR_EMPTY_TRASH')
-+				->message('JGLOBAL_CONFIRM_DELETE')
-+				->listCheck(true);
-+		}
-+
-+		if ($user->authorise('core.admin', 'com_foos') || $user->authorise('core.options', 'com_foos'))
- 		{
- 			$toolbar->preferences('com_foos');
- 		}
 diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
 index 5014bb2d..bfbedd84 100644
 --- a/src/administrator/components/com_foos/tmpl/foos/default.php
