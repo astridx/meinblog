@@ -43,7 +43,9 @@ Damit bei einem Update die Spalte erstellt wird, in der die Parameter gespeicher
 
 [src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
-```sql
+```sql {numberLines: -2}
+/* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
+
 ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 ```
 
@@ -55,19 +57,26 @@ In der Konfiguration wird der Parameter in Joomla üblicherweise gespeichert, um
 
 [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
 
-```xml
-...
-<field
-  name="show_name"
-  type="radio"
-  label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
-  default="1"
-  class="switcher"
-  >
-  <option value="0">JHIDE</option>
-  <option value="1">JSHOW</option>
-</field>
-...
+```xml {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
+
+ 			<option value="0">JNO</option>
+ 			<option value="1">JYES</option>
+ 		</field>
++
++		<field
++			name="show_name"
++			type="radio"
++			label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
++			default="1"
++			class="switcher"
++			>
++			<option value="0">JHIDE</option>
++			<option value="1">JSHOW</option>
++		</field>
+ 	</fieldset>
+ 	<fieldset
+ 		name="permissions"
 
 ```
 
@@ -77,22 +86,26 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir eine Feld `param
 
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
 
-```xml
-...
-<fields name="params" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
-  <fieldset name="display" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
-    <field
-      name="show_name"
-      type="list"
-      label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
-      useglobal="true"
-    >
-      <option value="0">JHIDE</option>
-      <option value="1">JSHOW</option>
-    </field>
-  </fieldset>
-</fields>
-...
+```xml {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
+
+ 			content_type="com_foos.foo"
+ 		/>
+ 	</fieldset>
++	<fields name="params" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
++		<fieldset name="display" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
++			<field
++				name="show_name"
++				type="list"
++				label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
++				useglobal="true"
++			>
++				<option value="0">JHIDE</option>
++				<option value="1">JSHOW</option>
++			</field>
++		</fieldset>
++	</fields>
+ </form>
 
 ```
 
@@ -102,9 +115,15 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql
-...
-ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
+```sql {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
+
+ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
+
+ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
++
++ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
+
 ```
 
 #### [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
@@ -113,19 +132,38 @@ In der Klasse, die die Tabelle verwaltete, stellen sicher, dass die Parameter zu
 
 [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
-```php
-...
-	public function store($updateNulls = false)
-	{
-		if (is_array($this->params))
-		{
-			$registry = new Registry($this->params);
-			$this->params = (string) $registry;
-		}
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
 
-		return parent::store($updateNulls);
-	}
-...
+ 		parent::__construct('#__foos_details', 'id', $db);
+ 	}
+
++	/**
++	 * Stores a foo.
++	 *
++	 * @param   boolean  $updateNulls  True to update fields even if they are null.
++	 *
++	 * @return  boolean  True on success, false on failure.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function store($updateNulls = false)
++	{
++		// Transform the params field
++		if (is_array($this->params))
++		{
++			$registry = new Registry($this->params);
++			$this->params = (string) $registry;
++		}
++
++		return parent::store($updateNulls);
++	}
++
+ 	/**
+ 	 * Generate a valid alias from title / date.
+ 	 * Remains public to be able to check for duplicated alias before saving
+
+
 ```
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
@@ -138,17 +176,62 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 
 [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
-...
-		$state = $this->State = $this->get('State');
-		$params = $this->Params = $state->get('params');
-		$itemparams = new Registry(json_decode($item->params));
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
 
-		$temp = clone $params;
+ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
+ use Joomla\CMS\Factory;
++use Joomla\Registry\Registry;
 
-		$temp->merge($itemparams);
-		$item->params = $temp;
-...
+ /**
+  * HTML Foos View class for the Foo component
+@@ -21,6 +22,22 @@
+  */
+ class HtmlView extends BaseHtmlView
+ {
++	/**
++	 * The page parameters
++	 *
++	 * @var    \Joomla\Registry\Registry|null
++	 * @since  __BUMP_VERSION__
++	 */
++	protected $params = null;
++
++	/**
++	 * The item model state
++	 *
++	 * @var    \Joomla\Registry\Registry
++	 * @since  __BUMP_VERSION__
++	 */
++	protected $state;
++
+ 	/**
+ 	 * The item object details
+ 	 *
+@@ -40,6 +57,23 @@ public function display($tpl = null)
+ 	{
+ 		$item = $this->item = $this->get('Item');
+
++		$state = $this->State = $this->get('State');
++		$params = $this->Params = $state->get('params');
++		$itemparams = new Registry(json_decode($item->params));
++
++		$temp = clone $params;
++
++		/**
++		 * $item->params are the foo params, $temp are the menu item params
++		 * Merge so that the menu item params take priority
++		 *
++		 * $itemparams->merge($temp);
++		 */
++
++		// Merge so that foo params take priority
++		$temp->merge($itemparams);
++		$item->params = $temp;
++
+ 		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
+
+ 		// Store the events for later
 
 ```
 
@@ -158,15 +241,29 @@ Am Ende nutzen wir den Parameter im Template für die Anzeige. Wenn es den Param
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
-```php
-...
-if ($this->item->params->get('show_name')) {
+```php {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
 
-	if ($this->Params->get('show_foo_name_label')) {
-		echo Text::_('COM_FOOS_NAME');
-  }
-}
-...
+ use Joomla\CMS\Language\Text;
+
+-if ($this->get('State')->get('params')->get('show_foo_name_label'))
+-{
+-	echo Text::_('COM_FOOS_NAME');
+-}
++if ($this->item->params->get('show_name')) {
++
++	if ($this->Params->get('show_foo_name_label')) {
++		echo Text::_('COM_FOOS_NAME');
++	}
+
+-echo $this->item->name;
++	echo $this->item->name;
++}
+
+ echo $this->item->event->afterDisplayTitle;
+ echo $this->item->event->beforeDisplayContent;
+
+
 ```
 
 #### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
@@ -175,23 +272,29 @@ if ($this->item->params->get('show_name')) {
 
 Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ein Feld in der XML-Datei hinzu. Wichtig ist, dass es unter `fields` angeordnet wirde und `params` heißt!
 
-```xml
-...
-<fields name="params">
-  <fieldset name="basic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
-    <field
-      name="show_name"
-      type="radio"
-      label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
-      default="1"
-      class=""
-      >
-      <option value="0">JHIDE</option>
-      <option value="1">JSHOW</option>
-    </field>
-  </fieldset>
-</fields>
-...
+```xml {diff}
+// https://github.com/astridx/boilerplate/compare/t17...t18.diff
+
+ 			/>
+ 		</fieldset>
+ 	</fields>
++	<!-- Add fields to the parameters object for the layout. -->
++	<fields name="params">
++		<fieldset name="basic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
++			<field
++				name="show_name"
++				type="radio"
++				label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
++				default="1"
++				class=""
++				>
++				<option value="0">JHIDE</option>
++				<option value="1">JSHOW</option>
++			</field>
++		</fieldset>
++	</fields>
+ </metadata>
+
 ```
 
 ## Teste deine Joomla-Komponente

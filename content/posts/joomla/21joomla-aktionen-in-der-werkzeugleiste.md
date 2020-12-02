@@ -21,7 +21,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-Ich zeige dir hier, wie du die Standardfunktionen in die Werkzeugleiste integrierst. Jede Komponente hat eigenen Funktionen. Genau wie die in Joomla üblichen fügst du die speziellen über Schaltflächen in der Werkzeugleiste hinzu. Gucke hier bei den Standardfunktionen ab.
+Ich zeige dir hier, wie du die Standardfunktionen in die Werkzeugleiste integrierst. Jede Komponente hat eigene Funktionen. Genau wie die in Joomla üblichen fügst du die speziellen über Schaltflächen in der Werkzeugleiste hinzu. Gucke hier bei den Standardfunktionen ab.
 
 ### Neue Dateien
 
@@ -31,7 +31,15 @@ Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
 
 #### [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-Der nachfolgende Code zeigt dir, welche Funktionen du beim Editieren eines Elementes nutzt. Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur angezeigt, wenn der Betrachter berechtigt ist, sie zu nutzen.
+Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editieren eines Elementes nutzt. Die Klasse [ToolbarHelper](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Toolbar/ToolbarHelper.php) bietet eine Menge hilfreicher Funktionen. Beispielweise
+
+- [`ToolbarHelper::title`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L26) um einen Titel passend zu positionieren,
+- [`ToolbarHelper::apply`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L474) um Schaltfäche mit der Standardfunktion zum Speichern hinzuzufügen
+- und [`ToolbarHelper::saveGroup`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L653) um ein Dropdown mit den üblichen Speicherbefehlen zu integrieren.
+
+> Sieh dir an, wie du [`ToolbarHelper::custom`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L88) für eigene Tasks verwendest.
+
+Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur angezeigt, wenn der Betrachter berechtigt ist, sie zu nutzen. Die Funktion [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) sammelt die in der Datei `access.xml` implementierten Rechte, welche dem gerade angemeldeten Benutzer erlaubt sind. Ist dies der Fall, dann ist `$canDo->get('...')` gleich `true`. Ein konkretes Beispiel: `$canDo->get('core.create')` ist `true`, wenn der Benutzer Inhalte erstellen darf.
 
 [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
