@@ -34,10 +34,29 @@ Wenn du keine speziellen Wünsche hast, greifst du wieder auf Joomla Funktionen 
 
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
-```
-...
-$this->pagination = $this->get('Pagination');
-...
+```php {diff}
+ 	protected $items;
+
++	/**
++	 * The pagination object
++	 *
++	 * @var  \JPagination
++	 */
++	protected $pagination;
++
+ 	/**
+ 	 * The model state
+ 	 *
+@@ -75,7 +82,7 @@ class HtmlView extends BaseHtmlView
+ 	public function display($tpl = null): void
+ 	{
+ 		$this->items = $this->get('Items');
+-
++		$this->pagination = $this->get('Pagination');
+ 		$this->filterForm = $this->get('FilterForm');
+ 		$this->activeFilters = $this->get('ActiveFilters');
+ 		$this->state = $this->get('State');
+
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
@@ -46,10 +65,16 @@ Im Template nutzen wir die Methode `getListFooter` der Variable `$this->paginati
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-```php
-...
-<?php echo $this->pagination->getListFooter(); ?>
-...
+```php {diff}
+ 						</tbody>
+ 					</table>
+
++					<?php echo $this->pagination->getListFooter(); ?>
++
+ 				<?php endif; ?>
+ 				<input type="hidden" name="task" value="">
+ 				<input type="hidden" name="boxchecked" value="0">
+
 ```
 
 > Unter Globale Konfiguration kannst du Anzahl bestimmen, die Standardmäßig angezeigt wird. Üblicherweise steht diese auf 20 Elemente.

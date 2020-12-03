@@ -123,6 +123,8 @@ Auch die benutzerdefinierten Felder werden mit Berechtiungen versehen. So ist es
 
 Über die Konfiguration `config.xml` wird mithilfe eines Paramters festgelegt, ob die Erweiterung benutzerdefinierte Felder verwendet.
 
+> Fragst du dich, ob warum es diesen Parameter gibt? Er ist [nicht zwingend](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
+
 [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/config.xml)
 
 ```php {diff}

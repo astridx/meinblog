@@ -5,7 +5,7 @@
 <li>für die ganze Komponente und</li>
 <li>für einen Menüpunkt.</li>
 </ul>
-<p>Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, dann gilt folgende Hierarchie:</p>
+<p>Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, dann gilt in Joomla folgende Hierarchie:</p>
 <ul>
 <li>Der Menüpunkt schlägt alles.</li>
 <li>Danach zieht der Parameter, der für das Item speziell gilt.</li>
@@ -99,6 +99,9 @@
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">fields</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">form</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<blockquote>
+<p>In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert <a href="https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F">global</a> zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu <code class="language-text">useglobal=&quot;true&quot;</code> wie <a href="https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395">com_contact</a>.</p>
+</blockquote>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974">src/administrator/components/com_foos/sql/install.mysql.utf8.sql</a></h4>
 <p>Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die folgende SQL-Datei.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql">src/administrator/components/com_foos/sql/install.mysql.utf8.sql</a></p>
@@ -250,6 +253,9 @@
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">fields</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">metadata</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<blockquote>
+<p>In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert <a href="https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F">global</a> zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu <code class="language-text">useglobal=&quot;true&quot;</code> wie <a href="https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/components/com_contact/tmpl/contact/default.xml#L42">com_contact</a>.</p>
+</blockquote>
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
 <li>Installiere deine Komponente in Joomla! Version 4, um sie zu testen:</li>

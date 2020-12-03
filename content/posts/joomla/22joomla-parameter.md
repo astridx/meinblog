@@ -19,7 +19,7 @@ Parameter gibt es für
 - für die ganze Komponente und
 - für einen Menüpunkt.
 
-Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, dann gilt folgende Hierarchie:
+Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, dann gilt in Joomla folgende Hierarchie:
 
 - Der Menüpunkt schlägt alles.
 - Danach zieht der Parameter, der für das Item speziell gilt.
@@ -108,6 +108,8 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir eine Feld `param
  </form>
 
 ```
+
+> In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F) zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu `useglobal="true"` wie [com_contact](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
@@ -296,6 +298,8 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
  </metadata>
 
 ```
+
+> In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F) zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu `useglobal="true"` wie [com_contact](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/components/com_contact/tmpl/contact/default.xml#L42).
 
 ## Teste deine Joomla-Komponente
 

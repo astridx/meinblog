@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Erweiterung ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.
+Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Komponente ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Das Template sorgt für ein einheitliches Aussehen. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.
 
 ## Für Ungeduldige
 
@@ -25,8 +25,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 [src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
 
-```php
+```php {numberLines: -2}
 <?php
+// https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withhead.php
 
 \defined('_JEXEC') or die;
 
@@ -52,7 +53,9 @@ echo $this->item->event->afterDisplayContent;
 
 [src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
-```xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withhead.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_FOOS_FOO_VIEW_WITHHEAD_TITLE">
@@ -85,7 +88,9 @@ echo $this->item->event->afterDisplayContent;
 
 [src/components/com_foos/tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withheadandfoot.php
+
 <?php
 
 \defined('_JEXEC') or die;
@@ -113,43 +118,76 @@ echo $this->item->event->afterDisplayContent;
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
 
+Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
+
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
 
+```php {diff}
+ 				<option value="0">JHIDE</option>
+ 				<option value="1">JSHOW</option>
+ 			</field>
++
++			<field
++				name="foos_layout"
++				type="componentlayout"
++				label="JFIELD_ALT_LAYOUT_LABEL"
++				class="custom-select"
++				extension="com_foos"
++				view="foo"
++				useglobal="true"
++			/>
+ 		</fieldset>
+ 	</fields>
+ </form>
+
 ```
-<field
-  name="foos_layout"
-  type="componentlayout"
-  label="JFIELD_ALT_LAYOUT_LABEL"
-  class="custom-select"
-  extension="com_foos"
-  view="foo"
-  useglobal="true"
-/>
+
+#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
+
+So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
+
+[src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
+
+```php {diff}
+ use Joomla\CMS\Factory;
+ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
++use Joomla\CMS\Language\Text;
+
+ /**
+  * Foo model for the Joomla Foos component.
 
 ```
 
 #### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-Im Falle eines Menüpunktes finde ich es wichtig, dass dieser immer einheitlich angezeigt wird. Deshalb fragen wir hier den aktiven Menüpunkt ab. Das Element könnte ja auch über eine Kategorieansicht angezeigt werden.
+Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt - immer einheitlich angezeigt wird. Deshalb fragen wir den aktiven Menüpunkt ab. Das Element könnte über eine Kategorieansicht oder als einzelnes Element angezeigt werden.
 
 [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
-...
-$active = Factory::getApplication()->getMenu()->getActive();
+```php {diff}
+ 		$temp->merge($itemparams);
+ 		$item->params = $temp;
 
-if ((!$active) || ((strpos($active->link, 'view=foo') === false) || (strpos($active->link, '&id=' . (string) $this->item->id) === false)))
-{
-  if (($layout = $item->params->get('foos_layout')))
-  {
-    $this->setLayout($layout);
-  }
-}
-elseif (isset($active->query['layout']))
-{
-  $this->setLayout($active->query['layout']);
-}
-...
++		$active = Factory::getApplication()->getMenu()->getActive();
++
++		// Override the layout only if this is not the active menu item
++		// If it is the active menu item, then the view and item id will match
++		if ((!$active) || ((strpos($active->link, 'view=foo') === false) || (strpos($active->link, '&id=' . (string) $this->item->id) === false)))
++		{
++			if (($layout = $item->params->get('foos_layout')))
++			{
++				$this->setLayout($layout);
++			}
++		}
++		elseif (isset($active->query['layout']))
++		{
++			// We need to set the layout in case this is an alternative menu item (with an alternative layout)
++			$this->setLayout($active->query['layout']);
++		}
++
+ 		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
+
+ 		// Store the events for later
 
 ```
 

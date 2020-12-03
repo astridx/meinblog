@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Joomla! bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist dir möglich, eigenen Funktionen hinzuzufügen.
+Joomla! bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen hinzuzufügen.
 
 ## Für Ungeduldige
 
@@ -27,7 +27,9 @@ Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum An
 
 [src/administrator/components/com_foos/tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
+
 <?php
 \defined('_JEXEC') or die;
 
@@ -67,7 +69,8 @@ Die nachfolgende Datei erstellt den Footer des Formulars, welches zum Anstoßen 
 
 [src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
 <?php
 \defined('_JEXEC') or die;
 
@@ -87,23 +90,45 @@ use Joomla\CMS\Language\Text;
 
 #### [src/administrator/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-181b1576846350fbb4a7a1a73291de4b)
 
-Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein; den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit `return parent::batch($model);` die interne Implementierung von Joomla auf. Fertig!
+Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit `return parent::batch($model);` die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereis von Joomla erfunden.
 
 [src/administrator/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Controller/FooController.php)
 
-```php
-...
-public function batch($model = null)
-{
-  $this->checkToken();
+```php {diff}
 
-  $model = $this->getModel('Foo', 'Administrator', array());
+\defined('_JEXEC') or die;
 
-  $this->setRedirect(Route::_('index.php?option=com_foos&view=foos' . $this->getRedirectToListAppend(), false));
+ use Joomla\CMS\MVC\Controller\FormController;
++use Joomla\CMS\Router\Route;
 
-  return parent::batch($model);
-}
-...
+ /**
+  * Controller for a single foo
+@@ -20,4 +21,24 @@
+  */
+ class FooController extends FormController
+ {
++	/**
++	 * Method to run batch operations.
++	 *
++	 * @param   object  $model  The model.
++	 *
++	 * @return  boolean   True if successful, false otherwise and internal error is set.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function batch($model = null)
++	{
++		$this->checkToken();
++
++		$model = $this->getModel('Foo', 'Administrator', array());
++
++		// Preset the redirect
++		$this->setRedirect(Route::_('index.php?option=com_foos&view=foos' . $this->getRedirectToListAppend(), false));
++
++		return parent::batch($model);
++	}
+ }
+
 ```
 
 #### [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-c1b8160bef2d2b36367dc59381d6bcb7)
@@ -112,16 +137,31 @@ Im Model geben wir an, ob das Kopieren und Verschieben unterstützt wird. Im Fal
 
 [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Model/FooModel.php)
 
-```php
-...
-protected $batch_copymove = 'category_id';
+```php {diff}
+protected $associationsContext = 'com_foos.item';
 
-protected $batch_commands = array(
-  'assetgroup_id' => 'batchAccess',
-  'language_id'   => 'batchLanguage',
-  'user_id'       => 'batchUser',
-);
-...
++	/**
++	 * Batch copy/move command. If set to false, the batch copy/move command is not supported
++	 *
++	 * @var  string
++	 */
++	protected $batch_copymove = 'category_id';
++
++	/**
++	 * Allowed batch commands
++	 *
++	 * @var array
++	 */
++	protected $batch_commands = array(
++		'assetgroup_id' => 'batchAccess',
++		'language_id'   => 'batchLanguage',
++		'user_id'       => 'batchUser',
++	);
++
+ 	/**
+ 	 * Method to get the row form.
+ 	 *
+
 ```
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-8e3d37bbd99544f976bf8fd323eb5250)
@@ -130,26 +170,39 @@ Damit die Stapelverarbeitung nutzbar ist, fügen wir einen Eintrag in der Werkze
 
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
-```php
-...
-if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
-{
-  $childBar->delete('foos.delete')
-    ->text('JTOOLBAR_EMPTY_TRASH')
-    ->message('JGLOBAL_CONFIRM_DELETE')
-    ->listCheck(true);
-}
+```php {diff}
+ 			{
+ 				$childBar->trash('foos.trash')->listCheck(true);
+ 			}
+-		}
 
-if ($user->authorise('core.create', 'com_foos')
-  && $user->authorise('core.edit', 'com_foos')
-  && $user->authorise('core.edit.state', 'com_foos'))
-{
-  $childBar->popupButton('batch')
-    ->text('JTOOLBAR_BATCH')
-    ->selector('collapseModal')
-    ->listCheck(true);
-}
-...
+-		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
+-		{
+-			$toolbar->delete('foos.delete')
+-				->text('JTOOLBAR_EMPTY_TRASH')
+-				->message('JGLOBAL_CONFIRM_DELETE')
+-				->listCheck(true);
++			if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
++			{
++				$childBar->delete('foos.delete')
++					->text('JTOOLBAR_EMPTY_TRASH')
++					->message('JGLOBAL_CONFIRM_DELETE')
++					->listCheck(true);
++			}
++
++			// Add a batch button
++			if ($user->authorise('core.create', 'com_foos')
++				&& $user->authorise('core.edit', 'com_foos')
++				&& $user->authorise('core.edit.state', 'com_foos'))
++			{
++				$childBar->popupButton('batch')
++					->text('JTOOLBAR_BATCH')
++					->selector('collapseModal')
++					->listCheck(true);
++			}
+ 		}
+
+ 		if ($user->authorise('core.admin', 'com_foos') || $user->authorise('core.options', 'com_foos'))
 
 ```
 
@@ -159,18 +212,22 @@ Das Template, mit dem das Formular zum Anstoßen der Stapelverarbeitung angelegt
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-```php
-...
-<?php echo HTMLHelper::_(
-  'bootstrap.renderModal',
-  'collapseModal',
-  array(
-    'title'  => Text::_('COM_FOOS_BATCH_OPTIONS'),
-    'footer' => $this->loadTemplate('batch_footer'),
-  ),
-  $this->loadTemplate('batch_body')
-); ?>
-...
+```php {diff}
+		<?php echo $this->pagination->getListFooter(); ?>
+
++		<?php echo HTMLHelper::_(
++			'bootstrap.renderModal',
++			'collapseModal',
++			array(
++				'title'  => Text::_('COM_FOOS_BATCH_OPTIONS'),
++				'footer' => $this->loadTemplate('batch_footer'),
++			),
++			$this->loadTemplate('batch_body')
++		); ?>
++
+	<?php endif; ?>
+	<input type="hidden" name="task" value="">
+	<input type="hidden" name="boxchecked" value="0">
 ```
 
 ## Teste deine Joomla-Komponente

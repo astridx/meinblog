@@ -43,95 +43,34 @@ Das Tag `updates` umgibt alle Update-Elemente. Erstelle jedes Mal einen weiteren
 
 > Wenn deine Erweiterung andere Joomla! Versionen unterstütz, erstelle für jede Version eine separate `<update>`-Definitionen.
 
-```xml
-<updates>
-    <update>
-```
-
 Der Wert von `name` wird in der Ansicht "Extension Manager Update" angezeigt. Wenn du denselben Namen wie die Erweiterung verwendest, vermeidst u Verwirrung:
-
-```xml
-        <name>com_foos</name>
-```
 
 Der Wert des Tags `description` wird angezeigt, wenn du den Mauszeiger über den Namen in der Aktualisierungsansicht bewegen.
 
-```xml
-        <description>This is com_foo</description>
-```
-
 Der Wert des `element`-Tags ist der installierte Name der Erweiterung. Dies sollte mit dem Wert in der Elementspalte in der Tabelle `#__extensions` in Ihrer Datenbank übereinstimmen.
-
-```xml
-        <element>com_foos</element>
-```
 
 Der Wert des Tags `type` beschreibt, um welche Erweiterung es sich handelt, z. B. ob es sich um eine Komponente, ein Modul oder ein Plugin handelt.
 
-```xml
-        <type>component</type>
-```
-
 Der Wert des Tags `version` ist die Versionsnummer für diese Version. Diese Versionsnummer muss höher sein, als die aktuell installierte Version der Erweiterung, damit das verfügbare Update angezeigt wird.
-
-```xml
-        <version>1.0.1</version>
-```
 
 Das Tag `changelogurl` ist optional und ermöglicht es, einen Link anzuzeigen, der über die Änderungen in dieser Version informiert. Diese Datei ist ebenfalls Thema dieses Kapitels.
 
-```xml
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-
-```
-
 Das Tag `infourl` ist optional und ermöglicht es dir, einen Link anzuzeigen, der über das Update oder einen Versionshinweis informiert.
-
-```xml
-    <infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
-```
 
 Das Tag `downloads` zeigt alle verfügbaren Download-Speicherorte für ein Update an.
 Der Wert des Tags `downloadurl` ist die URL zum Herunterladen der Erweiterung. Diese Datei kann sich an einer beliebigen Stelle befinden.
 Das Attribut `type` beschreibt, ob es sich um ein vollständiges Paket oder ein Update handelt, und das Format.
 Und das Attribut `format` definiert den Pakettyp wie `zip` or `tar`.
 
-```xml
-        <downloads>
-            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
-        </downloads>
-
-```
-
 The Tags `maintainer` und `maintainerurl` sind selbsterklärend.
 
-```xml
+Das Tag `targetplatform` beschreibt die Joomla! Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte immer auf "joomla" gesetzt werden: `<targetplatform name="joomla" version="4.*"/>`.
 
-        <maintainer>Foo Creator</maintainer>
-        <maintainerurl>http://www.example.com</maintainerurl>
-```
-
-Das Tag `targetplatform` beschreibt die Joomla! Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte immer auf "joomla" gesetzt werden.
-
-> Wenn du dein Update auf eine bestimmtes Joomla! Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
-
-```xml
-
-        <targetplatform name="joomla" version="4.*"/>
-```
+> Wenn du dein Update für eine bestimmte Joomla! Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
 
 Manchmal möchtest du, dass dein Update für eine Mindest-PHP-Version verfügbar ist. Ereldig dies mit dem Tag `php_minimum`.
 
-```xml
-	<php_minimum>7.1</php_minimum>
-```
-
-Schließe alle Tags.
-
-```xml
-    </update>
-</updates>
-```
+Schließe am Ende alle Tags `</update></updates>`
 
 > Für Plugins füge ein Tag mit dem Namen `folder` und ein Tag mit dem Namen `client` hinzu. Diese Tags werden nur für Plugins benötigt.
 
@@ -140,103 +79,100 @@ Der Wert des `client` -Tags beschreibt die client_id in der Tabelle #\_\_extensi
 
 Nachfolgend siehst du die vollständige Datei.
 
-foo_update.xml
+[foo_update.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml)
 
-```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t1b/foo_update.xml -->
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml
 
-<updates>
-    <update>
-        <name>com_foos</name>
-        <description>This is com_foo</description>
-        <element>com_foos</element>
-        <type>component</type>
-        <version>1.0.1</version>
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
-        <downloads>
-            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
-        </downloads>
-        <maintainer>Foo Creator</maintainer>
-        <maintainerurl>http://www.example.com</maintainerurl>
-        <targetplatform name="joomla" version="4.*"/>
-		<php_minimum>7.1</php_minimum>
-    </update>
-</updates>
++<updates>
++    <update>
++        <name>com_foos</name>
++        <description>This is com_foo</description>
++        <element>com_foos</element>
++        <type>component</type>
++        <version>1.0.1</version>
++		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
++		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
++        <downloads>
++            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
++        </downloads>
++        <maintainer>Foo Creator</maintainer>
++        <maintainerurl>http://www.example.com</maintainerurl>
++        <targetplatform name="joomla" version="4.*"/>
++		<php_minimum>7.1</php_minimum>
++    </update>
++</updates>
 
 ```
 
-> Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an.
+> Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an, wenn du nicht weißt wie du dies umsetzt.
 
 #### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 
 Informationen zum Changelog findest du unter in Github [Github](https://github.com/joomla/joomla-cms/pull/24026) und der [Dokumentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file).
 
-changelog.xml
+[changelog.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml)
 
-```xml
-<changelogs>
-	<changelog>
-		<element>com_foos</element>
-		<type>component</type>
-		<version>1.0.0</version>
-		<note>
-			<item>Initial Version</item>
-		</note>
-	</changelog>
-	<changelog>
-		<element>com_foos</element>
-		<type>component</type>
-		<version>1.0.1</version>
-		<security>
-			<item><![CDATA[<p>No security issues.</p>]]></item>
-		</security>
-		<fix>
-			<item>No fix</item>
-		</fix>
-		<language>
-			<item>English</item>
-		</language>
-		<addition>
-			<item>Change log and Update Server added.</item>
-		</addition>
-		<change>
-			<item>No change</item>
-		</change>
-		<remove>
-			<item>No remove</item>
-		</remove>
-		<note>
-			<item>Change log and Update Server added.</item>
-		</note>
-	</changelog>
-</changelogs>
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml
+
++<changelogs>
++	<changelog>
++		<element>com_foos</element>
++		<type>component</type>
++		<version>1.0.0</version>
++		<note>
++			<item>Initial Version</item>
++		</note>
++	</changelog>
++	<changelog>
++		<element>com_foos</element>
++		<type>component</type>
++		<version>1.0.1</version>
++		<security>
++			<item><![CDATA[<p>No security issues.</p>]]></item>
++		</security>
++		<fix>
++			<item>No fix</item>
++		</fix>
++		<language>
++			<item>English</item>
++		</language>
++		<addition>
++			<item>Change log and Update Server added.</item>
++		</addition>
++		<change>
++			<item>No change</item>
++		</change>
++		<remove>
++			<item>No remove</item>
++		</remove>
++		<note>
++			<item>Change log and Update Server added.</item>
++		</note>
++	</changelog>
++</changelogs>
+
 ```
 
 ### Geänderte Dateien
 
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das nicht mehr explizit.
+Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im Weiteren nicht explizit.
 
-src/administrator/components/com_foos/foos.xml
+[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
-```xml
-...
-<version>1.0.1</version>
-...
-```
+```php {diff}
+ 	<authorUrl>[AUTHOR_URL]</authorUrl>
+ 	<copyright>[COPYRIGHT]</copyright>
+ 	<license>GNU General Public License version 2 or later;</license>
+-	<version>1.0.0</version>
++	<version>1.0.1</version>
+ 	<description>COM_FOOS_XML_DESCRIPTION</description>
+ 	<namespace path="src">FooNamespace\Component\Foos</namespace>
+ 	<scriptfile>script.php</scriptfile>
 
-Die folgenden Zeilen haben wir nicht geändert. Da sie in diesem Kapitel eine wichtig Rolle spielen, füge sie hier ein.
-
-src/administrator/components/com_foos/foos.xml
-
-```xml
-...
-	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-	<updateservers>
-		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
-	</updateservers>...
 ```
 
 ## Teste deine Joomla-Komponente
