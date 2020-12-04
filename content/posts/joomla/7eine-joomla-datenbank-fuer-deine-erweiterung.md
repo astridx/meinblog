@@ -1,5 +1,5 @@
 ---
-date: 2019-12-07
+date: 2020-12-07
 title: 'Eine Joomla-Datenbank für deine Erweiterung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -33,7 +33,9 @@ Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle
 
 [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql
+```sql {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
+
 CREATE TABLE IF NOT EXISTS `#__foos_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `alias` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '',
@@ -53,7 +55,9 @@ Damit Joomla im Falle einer Deinstallation keinen unnötigen Code enthält, erst
 
 [src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
-```sql
+```sql {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
+
 DROP TABLE IF EXISTS `#__foos_details`;
 ```
 
@@ -65,7 +69,9 @@ Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir 
 
 [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/src/Model/FoosModel.php
+
 namespace FooNamespace\Component\Foos\Administrator\Model;
 
 \defined('_JEXEC') or die;
@@ -102,19 +108,32 @@ Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statemen
 
 [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/foos.xml)
 
-```xml
-  ...
-  <install> <!-- Runs on install -->
-		<sql>
-			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
-		</sql>
-	</install>
-	<uninstall> <!-- Runs on uninstall -->
-		<sql>
-			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
-		</sql>
-	</uninstall>
-  ...
+```xml {diff}
+ 	<description>COM_FOOS_XML_DESCRIPTION</description>
+ 	<namespace path="src">FooNamespace\Component\Foos</namespace>
+ 	<scriptfile>script.php</scriptfile>
++	<install> <!-- Runs on install -->
++		<sql>
++			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
++		</sql>
++	</install>
++	<uninstall> <!-- Runs on uninstall -->
++		<sql>
++			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
++		</sql>
++	</uninstall>
+ 	<!-- Frond-end files -->
+ 	<files folder="components/com_foos">
+ 		<folder>src</folder>
+@@ -26,6 +36,7 @@
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>foos.xml</filename>
+ 			<folder>services</folder>
++			<folder>sql</folder>
+ 			<folder>src</folder>
+ 			<folder>tmpl</folder>
+ 		</files>
+
 ```
 
 > Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://www.joomla.de/news/joomla/612-joomla-4-on-the-move) neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstüzt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponenten](https://github.com/joomla-extensions/weblinks). Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt, `mysqli`, `pdomysql` und `pgsql` werden angepasst.
@@ -148,13 +167,22 @@ Bisher war es nicht notwendig, jetzt ist es erforderlich, die `MVC factory` zu s
 
 [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php)
 
-```php
-...
-use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
-...
-...
-$component->setMVCFactory($container->get(MVCFactoryInterface::class));
-...
+```php {diff}
+ use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
+ use Joomla\CMS\Extension\Service\Provider\MVCFactory;
+ use Joomla\CMS\HTML\Registry;
++use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
+ use Joomla\DI\Container;
+ use Joomla\DI\ServiceProviderInterface;
+ use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
+@@ -49,6 +50,7 @@ function (Container $container)
+ 				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
+
+ 				$component->setRegistry($container->get(Registry::class));
++				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
+
+ 				return $component;
+ 			}
 ```
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250)
@@ -163,13 +191,29 @@ In der View holen wir am Ende die Elemente. Hierzu rufen wir die passende Method
 
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
-```
-...
-protected $items;
-...
-...
-		$this->items = $this->get('Items');
-...
+```php {diff}
+  */
+ class HtmlView extends BaseHtmlView
+ {
++	/**
++	 * An array of items
++	 *
++	 * @var  array
++	 */
++	protected $items;
++
+ 	/**
+ 	 * Method to display the view.
+ 	 *
+@@ -31,6 +38,7 @@ class HtmlView extends BaseHtmlView
+ 	 */
+ 	public function display($tpl = null): void
+ 	{
++		$this->items = $this->get('Items');
+ 		parent::display($tpl);
+ 	}
+ }
+
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
@@ -178,12 +222,16 @@ Last but not least zeigen wir alles mithilfe der Templatedatei an. Anstelle des 
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-```
-...
-<?php foreach ($this->items as $i => $item) : ?>
-<?php echo $item->name; ?>
-</br>
-<?php endforeach; ?>
+```php {diff}
+  */
+ \defined('_JEXEC') or die;
+ ?>
+-Hello Foos
++<?php foreach ($this->items as $i => $item) : ?>
++<?php echo $item->name; ?>
++</br>
++<?php endforeach; ?>
+
 ```
 
 > Wunderst du dich über die Schreibweise? Im [Vorwort](/joomla-tutorial-vorwort) hatte ich erklärt, warum ich in einer Template-Datei die [alternative Syntax](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für PHP wähle und die einzelnen Zeilen in PHP-Tags einschließe.

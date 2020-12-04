@@ -1,5 +1,5 @@
 ---
-date: 2019-12-21
+date: 2020-12-21
 title: 'Aktionen in der Werkzeugleiste'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

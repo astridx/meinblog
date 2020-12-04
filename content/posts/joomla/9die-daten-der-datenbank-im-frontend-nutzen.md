@@ -1,5 +1,5 @@
 ---
-date: 2019-12-09
+date: 2020-12-09
 title: 'Die Daten der Datenbank im Frontend nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

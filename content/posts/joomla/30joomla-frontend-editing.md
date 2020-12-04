@@ -1,5 +1,5 @@
 ---
-date: 2019-12-30
+date: 2020-12-30
 title: 'Frontend Editing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

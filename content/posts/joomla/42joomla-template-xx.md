@@ -1,5 +1,5 @@
 ---
-date: 2020-01-11
+date: 2021-01-11
 title: 'Template - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

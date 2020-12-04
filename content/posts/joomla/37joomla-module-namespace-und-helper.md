@@ -1,5 +1,5 @@
 ---
-date: 2020-01-06
+date: 2021-01-06
 title: 'Module - Namespace und Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

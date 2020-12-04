@@ -1,5 +1,5 @@
 ---
-date: 2019-12-18
+date: 2020-12-18
 title: 'Custom Fields im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

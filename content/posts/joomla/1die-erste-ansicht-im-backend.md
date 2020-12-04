@@ -1,5 +1,5 @@
 ---
-date: 2019-12-01
+date: 2020-12-01
 title: 'Die erste Ansicht im Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -39,23 +39,13 @@ Die Installations-XML-Datei enthält Details wie
 
 Erstelle eine neue Datei und nennen Sie sie `foos.xml`. Dies ist der Name der Erweiterung ohne das Präfix `com_`. Wir werden dann jede Zeile durchgehen und uns ansehen, was sie bewirkt.
 
-Die erste Zeile ist nicht spezifisch für Joomla!. Es sagt uns, dass dies eine XML-Datei ist.
+Die erste Zeile ist nicht spezifisch für Joomla!. Es sagt uns, dass dies eine XML-Datei ist `<?xml version="1.0" encoding="utf-8" ?>`.
 
-```xml
-<?xml version="1.0" encoding="utf-8" ?>
-```
+Dann teilen wir Joomla! mit, dass dies eine Komponente ist. Und wir wünschen uns, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen `<extension type="component" method="upgrade">`.
 
-Dann teilen wir Joomla! mit, dass dies eine Komponente ist. Und wir wünschen uns, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen. Manchmal findest du einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du [hier](https://github.com/joomla/joomla-cms/pull/25820)^[https://github.com/joomla/joomla-cms/pull/25820].
+> Manchmal findest du einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du [hier](https://github.com/joomla/joomla-cms/pull/25820).
 
-```xml
-<extension type="component" method="upgrade">
-```
-
-Dann definieren wir den Namen der Komponente. In diesem Fall `COM_FOOS`. Mehr [Informationen](https://github.com/joomla/joomla-cms/issues/26221)^[https://github.com/joomla/joomla-cms/issues/26221] zum Namen.
-
-```xml
-	<name>COM_FOOS</name>
-```
+Dann definieren wir den Namen der Komponente. In diesem Fall `COM_FOOS`. Mehr [Informationen](https://github.com/joomla/joomla-cms/issues/26221) zum Namen.
 
 Die nächsten Zeilen sind selbsterklärend. Ergänze deine Daten.
 
@@ -68,22 +58,14 @@ Die nächsten Zeilen sind selbsterklärend. Ergänze deine Daten.
 	<license>GNU General Public License version 2 or later;</license>
 ```
 
-Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.0.0` geben. Wenn wir einen kleinen Fehler beheben, wäre die nächste Nummer `1.0.1`. Wenn wir eine neue Funktion einführen, wählen wir `1.1.0`. Wenn wir größere Änderungen vorgenommen haben, die Auswirkungen auf frühere Versionen haben, heißt die nächste Version `2.0.0`. Es ist wichtig, dass du die dreiteilige Versionsnummerierung verwendest, da dies das spätere Erstellen von Updates mithilfe der semantischen Versionierung erleichtert.
+Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.0.0` geben: `<version>1.0.0</version>`. Wenn wir einen kleinen Fehler beheben, wäre die nächste Nummer `1.0.1`. Wenn wir eine neue Funktion einführen, wählen wir `1.1.0`. Wenn wir größere Änderungen vorgenommen haben, die Auswirkungen auf frühere Versionen haben, heißt die nächste Version `2.0.0`. Es ist wichtig, dass du die dreiteilige Versionsnummerierung verwendest, da dies das spätere Erstellen von Updates mithilfe der semantischen Versionierung erleichtert.
 
-Joomla folgt strikt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering)^[https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering]. Ich empfehle dir, dies ebenfalls.
+Joomla folgt strikt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering). Ich empfehle dir, dies ebenfalls.
 
-```xml
-	<version>1.0.0</version>
-```
-
-Im Beschreibungsfeld verwenden wir einen Sprachstring. Daher ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten [Kapitel](#sprachdateiennutzen) einführen.
+Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Daher ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten [Kapitel](#sprachdateiennutzen) einführen.
 Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du das Menü `System` klickst und `Manage | Extensions` öffnest.
 
-```xml
-	<description>COM_FOOS_XML_DESCRIPTION</description>
-```
-
-Als Nächstes setzen wir das Namespace `tag`. Im [Vorwort](joomla-tutorial-vorwort) habe ich erklärt, warum wir Namespaces verwenden.
+Als Nächstes setzen wir das Namespace `tag`: `<namespace>FooNamespace\Component\Foos</namespace>`. Im [Vorwort](joomla-tutorial-vorwort) habe ich erklärt, warum wir Namespaces verwenden.
 
 Wie benennst du deinen Namespace?
 
@@ -93,15 +75,7 @@ Wie benennst du deinen Namespace?
 
 - Das dritte Element ist der Name der Erweiterung ohne vorherige com*, mod* oder tpl\_, in unserem Fall `Foos`.
 
-```xml
-	<namespace>FooNamespace\Component\Foos</namespace>
-```
-
-Mit der `script`-datei rufst du Code auf, wenn deine Komponente installiert, deinstalliert oder aktualisiert wird.
-
-```xml
-        <scriptfile>script.php</scriptfile>
-```
+Mit der `script`-datei rufst du Code auf, wenn deine Komponente installiert, deinstalliert oder aktualisiert wird: `<scriptfile>script.php</scriptfile>`.
 
 Wie Joomla! selbst haben Komponenten ein Frontend und einen Administrationsbereich. Der Ordner `administrator/components/com_foos` enthält alle vom Backend verwendeten Dateien. Einzelne fügst du mit dem Tag `filename` hinzu. Für ein vollständiges Verzeichnis verwendest du besser das Tag `folder`. Die Dateien für den Administrationsbereich deiner Komponente sind alle innerhalb des Tags `administration`. Hier ist ebenfalls ein `menu`-Tag. Dies ist der Menüpunkt, der in der Seitenleiste im Backend angezeigt wird. Wir verwenden den Sprachstring `COM_FOOS`, den wir später mit Text aus einer Sprachdatei ersetzen werden.
 
@@ -126,21 +100,15 @@ Wie Joomla! selbst haben Komponenten ein Frontend und einen Administrationsberei
 
 Kommen wir zum _dlid_-tag `<dlid prefix=“dlid=“ suffix=““ />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf [Github](https://github.com/joomla/joomla-cms/pull/25553).
 
-```xml
-	<dlid prefix="dlid=" suffix="" />
-```
-
 Wir schließen zuletzt das `</extension>`-Tag.
-
-```xml
-</extension>
-```
 
 Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine Komponente zu erstellen. Hier aber erst einmal der vollständige Code:
 
 [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
 
-```xml {numberLines}
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/foos.xml -->
+
 <?xml version="1.0" encoding="utf-8" ?>
 <extension type="component" method="upgrade">
 	<name>COM_FOOS</name>
@@ -186,11 +154,13 @@ Mit der Installationsskriptdatei rufst du Code auf
 - bevor deine Komponente deinstalliert wird,
 - oder wenn deine Komponente aktualisiert wird.
 
-Erstelle die Datei script.php mit folgendem Inhalt:
+Erstelle die Datei `script.php` mit folgendem Inhalt:
 
 [administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/script.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/script.php
+
 <?php
 \defined('_JEXEC') or die;
 use Joomla\CMS\Installer\InstallerAdapter;
@@ -273,12 +243,11 @@ Wenn du mit dem Konzept von DI Container nicht vertraut bist, findest du hier Er
 
 Weitere Informationen zu Implementierung findest du auf Github(https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217];
 
-\small
 [administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 
-\scriptsize
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/services/provider.php
 
-```php
 <?php
 \defined('_JEXEC') or die;
 use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
@@ -321,8 +290,6 @@ Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _Do
 
 [administrator/components/com_foos/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Controller/DisplayController.php)
 
-\scriptsize
-
 ```php
 /**
  * @package     Joomla.Administrator
@@ -333,27 +300,15 @@ Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _Do
  */
 ```
 
-Wie du DocBlocks für Joomla erstellst, erklärten die Joomla! [Codierungsstandards](https://developer.joomla.org/coding-standards/docblocks.html)^[https://developer.joomla.org/coding-standards/docblocks.html]
+Wie du DocBlocks für Joomla erstellst, erklärten die Joomla! [Codierungsstandards](https://developer.joomla.org/coding-standards/docblocks.html) und der [Pull Request](https://github.com/joomla/joomla-cms/pull/31504)
 
 > Vor jeder Klasse und Funktion wird ein DocBlock angezeigt. Der gesamte Code enthält diese DocBlock-Kommentare, die es automatisierten Tools erleichtern, die Dokumentation von APIs zu generieren. Dies hilft einigen IDEs, die Code-Vervollständigung bereitzustellen. Und manchmal ist der Kommentar für Programmierer hilfreich. Ich drucke die Dokumentarblöcke hier nicht weiter ab. In den Code-Beispielen auf Github sind sie vorhanden.
 
-Nach dem DocBlock fügst du den _Namespace_ ein. Diesen deklarierst du mit dem entsprechenden Schlüsselwort. Namespaces wurde in Joomla 4 eingeführt. Wenn diesses Konzept dir neu ist, lese die [Übersicht über Namespace](https://www.php.net/manual/de/language.namespaces.php)^[https://www.php.net/manual/de/language.namespaces.php]. Es zwingend, dass er vor allem anderen Code in der Datei steht. Ich werde dir später erklären, wie sich der Name des Namespaces zusammensetzt:
-
-```php
-namespace FooNamespace\Component\Foos\Administrator\Controller;
-```
+Nach dem DocBlock fügst du den _Namespace_ ein: `namespace FooNamespace\Component\Foos\Administrator\Controller;`. Diesen deklarierst du mit dem entsprechenden Schlüsselwort. Namespaces wurde in Joomla 4 eingeführt. Wenn diesses Konzept dir neu ist, lese die [Übersicht über Namespace](https://www.php.net/manual/de/language.namespaces.php). Es zwingend, dass er vor allem anderen Code in der Datei steht. Ich werde dir später erklären, wie sich der Name des Namespaces zusammensetzt:
 
 Nach dem Namespace fügen wir `\defined('_JEXEC') or die;` ein, sodass diese PHP-Datei nicht direkt aufrufbar ist.
 
-```php
-\defined('_JEXEC') or die;
-```
-
-Als Nächstes importieren wir mit dem Schlüsselwort `use` den Namespace der vererbenden Klasse `BaseController` um diese nutzen zu können.
-
-```php
-use Joomla\CMS\MVC\Controller\BaseController;
-```
+Als Nächstes importieren wir mit dem Schlüsselwort `use` den Namespace der vererbenden Klasse `BaseController` um diese nutzen zu können: `use Joomla\CMS\MVC\Controller\BaseController;`.
 
 Anschließend erstellen wir die Klasse für den Controller. Ich hatte schon geschrieben, dass du diese am besten DisplayController nennst und die Klasse BaseController erweiterst. Definiere dann die Variable `$default_view` in der du die Standardansicht mit `foos`. Du wählst `foos` als Ansicht, weil der Name der Komponente `foos` ist und aus dem Grund auch das Verzeichnis `/administrator/components/com_foos/src/View/ F o o s` angelegt haben. Wenn nichts definiert ist, wird standardmäßig die Foos-Ansicht mit dem Standardlayout verwendet. Das setzten dieser Variable erforderlich. Aber ich denke, es ist immer besser, dies einzufügen.
 
@@ -363,7 +318,9 @@ Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich 
 
 Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deiner implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
 
-```php
+```php  {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Controller/DisplayController.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\Controller;
 \defined('_JEXEC') or die;
@@ -384,7 +341,9 @@ class DisplayController extends BaseController
 
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 
-```php
+```php  {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Extension/FoosComponent.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\Extension;
 defined('JPATH_PLATFORM') or die;
@@ -412,7 +371,9 @@ Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Admi
 
 [administrator/components/com_foos/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
 defined('JPATH_BASE') or die;
@@ -433,7 +394,9 @@ In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleist
 
 [administrator/components/com_foos/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/View/Foos/HtmlView.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\View\Foos;
 \defined('_JEXEC') or die;
@@ -453,7 +416,9 @@ In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausga
 
 [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/tmpl/foos/default.php
+
 <?php
 \defined('_JEXEC') or die;
 ?>
@@ -466,7 +431,9 @@ Ich habe im [Vorwort](joomla-tutorial-vorwort) geschrieben, dass die Datei `inde
 
 [components/com_foos/index.html](https://github.com/astridx/boilerplate/blob/t1/src/components/com_foos/index.html)
 
-```html
+```html {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/api/com_foos/index.html -- >
+
 <!DOCTYPE html><title></title>
 ```
 

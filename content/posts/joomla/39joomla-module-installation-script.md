@@ -1,5 +1,5 @@
 ---
-date: 2020-01-08
+date: 2021-01-08
 title: 'Module - Installationsskript'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

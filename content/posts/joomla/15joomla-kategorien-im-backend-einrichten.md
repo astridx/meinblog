@@ -1,5 +1,5 @@
 ---
-date: 2019-12-15
+date: 2020-12-15
 title: 'Kategorien im Backend einrichten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

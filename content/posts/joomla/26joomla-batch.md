@@ -1,5 +1,5 @@
 ---
-date: 2019-12-26
+date: 2020-12-26
 title: 'Stapelverarbeitung/Batch'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Joomla! bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen hinzuzufügen.
+Joomla! bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen "stapelverarbeitend" hinzuzufügen.
 
 ## Für Ungeduldige
 

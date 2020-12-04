@@ -1,5 +1,5 @@
 ---
-date: 2019-12-04
+date: 2020-12-04
 title: 'Ein Menüpunkt'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -35,7 +35,8 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 
 [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
 
-```xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/ce0e5277606e146de4044e6fa0c54af836bd7dd9/src/components/com_foos/tmpl/foo/default.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_FOOS_FOO_VIEW_DEFAULT_TITLE">

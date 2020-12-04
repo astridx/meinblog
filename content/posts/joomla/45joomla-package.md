@@ -1,5 +1,5 @@
 ---
-date: 2020-01-14
+date: 2021-01-14
 title: 'Paket - Alle Erweiterungen in einer Installationsdatei'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

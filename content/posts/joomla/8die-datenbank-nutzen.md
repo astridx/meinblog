@@ -1,5 +1,5 @@
 ---
-date: 2019-12-08
+date: 2020-12-08
 title: 'Die Datenbank nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -33,7 +33,9 @@ Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in ein
 
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/forms/foo.xml)
 
-```xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/forms/foo.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<fieldset>
@@ -71,7 +73,9 @@ Wir erstellen hier mehr oder weniger eine leere Klasse. Obwohl die nichts beinha
 
 [src/administrator/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Controller/FooController.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Controller/FooController.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\Controller;
 
@@ -90,7 +94,9 @@ Jetzt erstellen wir das Model, um die Daten für ein Element zu holen. Dieses ne
 
 [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Model/FooModel.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Model/FooModel.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\Model;
 
@@ -141,7 +147,9 @@ Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten
 
 [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Table/FooTable.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Table/FooTable.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\Table;
 
@@ -183,7 +191,9 @@ class FooTable extends Table
 
 [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
+
 <?php
 namespace FooNamespace\Component\Foos\Administrator\View\Foo;
 
@@ -232,7 +242,9 @@ In dieser Datei ist die Ansicht implementiert, die zum Bearbeiten aufgerufen wir
 
 [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/tmpl/foo/edit.php
+
 <?php
 \defined('_JEXEC') or die;
 
@@ -267,10 +279,14 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 
 Damit bei einer neuen Installation das Verzeichnis `forms` an Joomla übergeben wird, tragen wird diese im Installationsmanifest ein.
 
-```xml
-...
-<folder>forms</folder>
-...
+```php {diff}
+ 		</submenu>
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>foos.xml</filename>
++			<folder>forms</folder>
+ 			<folder>services</folder>
+ 			<folder>sql</folder>
+ 			<folder>src</folder>
 
 ```
 
@@ -278,92 +294,115 @@ Damit bei einer neuen Installation das Verzeichnis `forms` an Joomla übergeben 
 
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
-```php
-...
+```php {diff}
+\defined('_JEXEC') or die;
 
-		$this->addToolbar();
-...
-...
-	protected function addToolbar()
-	{
-		$toolbar = Toolbar::getInstance('toolbar');
++use Joomla\CMS\Language\Text;
+ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
++use Joomla\CMS\Toolbar\Toolbar;
++use Joomla\CMS\Toolbar\ToolbarHelper;
 
-		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
+ /**
+  * View class for a list of foos.
+@@ -39,6 +42,27 @@ class HtmlView extends BaseHtmlView
+ 	public function display($tpl = null): void
+ 	{
+ 		$this->items = $this->get('Items');
++
++		$this->addToolbar();
++
+ 		parent::display($tpl);
+ 	}
++
++	/**
++	 * Add the page title and toolbar.
++	 *
++	 * @return  void
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	protected function addToolbar()
++	{
++		// Get the toolbar object instance
++		$toolbar = Toolbar::getInstance('toolbar');
++
++		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
++
++		$toolbar->addNew('foo.add');
++	}
++
+ }
 
-		$toolbar->addNew('foo.add');
-	}
-...
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersicht ersetzten wir die einfachen Text. Wir löschen den Text.
+In der Übersicht ersetzten wir den einfachen Text. Neu hinzu kommt ein Formular.
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-```php
-<?php foreach ($this->items as $i => $item) : ?>
-<?php echo $item->name; ?>
-</br>
-<?php endforeach; ?>
-```
-
-Neu hinzu kommt ein Formular:
-
-[src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
-
-```php
-<form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
-	<div class="row">
-        <div class="col-md-12">
-			<div id="j-main-container" class="j-main-container">
-				<?php if (empty($this->items)) : ?>
-					<div class="alert alert-warning">
-						<?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
-					</div>
-				<?php else : ?>
-					<table class="table" id="fooList">
-						<thead>
-							<tr>
-								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">
-									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_NAME'); ?>
-								</th>
-								<th scope="col">
-									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_ID'); ?>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php
-						$n = count($this->items);
-						foreach ($this->items as $i => $item) :
-							?>
-							<tr class="row<?php echo $i % 2; ?>">
-								<th scope="row" class="has-context">
-									<div>
-										<?php echo $this->escape($item->name); ?>
-									</div>
-									<?php $editIcon = '<span class="fa fa-pencil-square mr-2" aria-hidden="true"></span>'; ?>
-									<a class="hasTooltip" href="<?php echo Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id); ?>" title="<?php echo Text::_('JACTION_EDIT'); ?> <?php echo $this->escape(addslashes($item->name)); ?>">
-										<?php echo $editIcon; ?><?php echo $this->escape($item->name); ?></a>
-
-								</th>
-								<td class="d-none d-md-table-cell">
-									<?php echo $item->id; ?>
-								</td>
-							</tr>
-							<?php endforeach; ?>
-						</tbody>
-					</table>
-
-				<?php endif; ?>
-				<input type="hidden" name="task" value="">
-				<input type="hidden" name="boxchecked" value="0">
-				<?php echo HTMLHelper::_('form.token'); ?>
-			</div>
-		</div>
-	</div>
-</form>
+```php {diff}
+ \defined('_JEXEC') or die;
++
++use Joomla\CMS\HTML\HTMLHelper;
++use Joomla\CMS\Language\Text;
++use Joomla\CMS\Router\Route;
+ ?>
+-<?php foreach ($this->items as $i => $item) : ?>
+-<?php echo $item->name; ?>
+-</br>
+-<?php endforeach; ?>
++<form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
++	<div class="row">
++        <div class="col-md-12">
++			<div id="j-main-container" class="j-main-container">
++				<?php if (empty($this->items)) : ?>
++					<div class="alert alert-warning">
++						<?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
++					</div>
++				<?php else : ?>
++					<table class="table" id="fooList">
++						<thead>
++							<tr>
++								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">
++									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_NAME'); ?>
++								</th>
++								<th scope="col">
++									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_ID'); ?>
++								</th>
++							</tr>
++						</thead>
++						<tbody>
++						<?php
++						$n = count($this->items);
++						foreach ($this->items as $i => $item) :
++							?>
++							<tr class="row<?php echo $i % 2; ?>">
++								<th scope="row" class="has-context">
++									<div>
++										<?php echo $this->escape($item->name); ?>
++									</div>
++									<?php $editIcon = '<span class="fa fa-pencil-square mr-2" aria-hidden="true"></span>'; ?>
++									<a class="hasTooltip" href="<?php echo Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id); ?>" title="<?php echo Text::_('JACTION_EDIT'); ?> <?php echo $this->escape(addslashes($item->name)); ?>">
++										<?php echo $editIcon; ?><?php echo $this->escape($item->name); ?></a>
++
++								</th>
++								<td class="d-none d-md-table-cell">
++									<?php echo $item->id; ?>
++								</td>
++							</tr>
++							<?php endforeach; ?>
++						</tbody>
++					</table>
++
++				<?php endif; ?>
++				<input type="hidden" name="task" value="">
++				<input type="hidden" name="boxchecked" value="0">
++				<?php echo HTMLHelper::_('form.token'); ?>
++			</div>
++		</div>
++	</div>
++</form>
 
 ```
 

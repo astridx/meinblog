@@ -1,5 +1,5 @@
 ---
-date: 2019-12-16
+date: 2020-12-16
 title: 'Veröffentlichen und Verstecken'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

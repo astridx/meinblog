@@ -1,5 +1,5 @@
 ---
-date: 2019-12-19
+date: 2020-12-19
 title: 'Mehrsprachigkeit'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

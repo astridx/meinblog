@@ -1,5 +1,5 @@
 ---
-date: 2019-12-10
+date: 2020-12-10
 title: 'Sprachdateien nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

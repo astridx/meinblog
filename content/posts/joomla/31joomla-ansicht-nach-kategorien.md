@@ -1,5 +1,5 @@
 ---
-date: 2019-12-31
+date: 2020-12-31
 title: 'Ansicht nach Kategorien'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

@@ -1,5 +1,5 @@
 ---
-date: 2019-12-27
+date: 2020-12-27
 title: 'Hilfe'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

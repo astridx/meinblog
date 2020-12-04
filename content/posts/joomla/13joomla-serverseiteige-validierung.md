@@ -1,5 +1,5 @@
 ---
-date: 2019-12-13
+date: 2020-12-13
 title: 'Serverseiteige Validierung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

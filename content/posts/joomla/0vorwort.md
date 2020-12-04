@@ -1,5 +1,5 @@
 ---
-date: 2019-11-30
+date: 2020-11-30
 title: 'Vowort'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -13,9 +13,9 @@ tags:
 
 Wenn du neu bei Joomla! bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
 
-Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla® 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
+Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
 
-Du brauchst Joomla! 4.x für dieses Tutorial (zum Zeitpunkt des Schreibens von Joomla! 4.0.0-alpha11-dev). Sie können Joomla! 4 unter [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
+Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du unter [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
 
 ## Für wen ist dieses Tutorial?
 

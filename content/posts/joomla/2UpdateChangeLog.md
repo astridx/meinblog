@@ -1,5 +1,5 @@
 ---
-date: 2019-12-02
+date: 2020-12-02
 title: 'Joomla Update und Change Log einrichten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

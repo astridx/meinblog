@@ -1,5 +1,5 @@
 ---
-date: 2019-12-06
+date: 2020-12-06
 title: 'Den Menüpunkt mit einer Variablen versehen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -46,14 +46,27 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
-```php
-...
-use Joomla\CMS\Factory;
-...
-...
-		$app = Factory::getApplication();
-		$this->message = $app->input->get('show_text', "Hi");
-...
+```php {diff}
+\defined('_JEXEC') or die;
+
++use Joomla\CMS\Factory;
+ use Joomla\CMS\MVC\Model\BaseDatabaseModel;
+
+ /**
+@@ -33,10 +34,8 @@ class FooModel extends BaseDatabaseModel
+ 	 */
+ 	public function getMsg()
+ 	{
+-		if (!isset($this->message))
+-		{
+-			$this->message = 'Hello Foo!';
+-		}
++		$app = Factory::getApplication();
++		$this->message = $app->input->get('show_text', "Hi");
+
+ 		return $this->message;
+ 	}
+
 ```
 
 #### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
@@ -62,19 +75,23 @@ Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-
 
 [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
 
-```xml
-	...
-	<fields name="request">
-		<fieldset name="request">
-			<field
-				name="show_text"
-				type="text"
-				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
-				default="Hi"
-			/>
-		</fieldset>
-	</fields>
-  ...
+```php {diff}
+ 			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
+ 		</message>
+ 	</layout>
++	<!-- Add fields to the request variables for the layout. -->
++	<fields name="request">
++		<fieldset name="request">
++			<field
++				name="show_text"
++				type="text"
++				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
++				default="Hi"
++			/>
++		</fieldset>
++	</fields>
+ </metadata>
+
 ```
 
 ## Teste deine Joomla-Komponente

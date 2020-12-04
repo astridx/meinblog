@@ -1,5 +1,5 @@
 ---
-date: 2019-12-20
+date: 2020-12-20
 title: 'Filtern, Sortieren, Suchen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

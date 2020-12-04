@@ -1,5 +1,5 @@
 ---
-date: 2019-12-05
+date: 2020-12-05
 title: 'Das M im MVC: Model'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -11,9 +11,10 @@ tags:
   - Joomla
 ---
 
-In diesem Teil kommt keine neue Funktion hinzu. Wir bessern den bisherigen Aufbau. Jede Web-Anwendung besteht aus Eingaben, Daten und der Darstellung.
-Problematisch wäre es vor allem bei größeren Projekten die drei Elemente in einer Klasse zusammenzufassen. Joomla! verwendet das Model-View-Controller-Konzept für die Aufteilung. In diesem Tutorial-Teil fügen wir ein Model zum Frontend hinzu.
-Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
+In diesem Teil kommt keine neue Funktion hinzu. Wir verbessern den bisherigen Aufbau. Jede Web-Anwendung besteht aus Logik, Daten und der Darstellung.
+Problematisch wäre es die drei Elemente in einer Klasse zusammenzufassen, vor allem bei größeren Projekten. Joomla verwendet das [Model-View-Controller-Konzept (MVC)](https://de.wikipedia.org/wiki/Model_View_Controller) für die Unterteilung.
+
+In diesem Tutorial-Teil fügen wir ein Model zum Frontend hinzu. Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
 
 ## Für Ungeduldige
 
@@ -25,11 +26,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
 
-Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiterst die Joomla Klasse `BaseDatabaseModel`. Implementiere dann nur das, was du anders einsetzt. In unserem Fall es die Ausgabe `$this->message = 'Hello Foo!';` für die wir die Methode `getMsg()` erstellen.
+Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiterst die Joomla Klasse `BaseDatabaseModel`. Implementiere dann nur das, was du anders einsetzt. In unserem Fall ist es die Ausgabe `$this->message = 'Hello Foo!';`, für die wir die Methode `getMsg()` erstellen.
 
 [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/ae88836668a85602657d7fa96df890bd4c5465d7/src/components/com_foos/src/Model/FooModel.php
+
 <?php
 namespace FooNamespace\Component\Foos\Site\Model;
 
@@ -61,15 +64,14 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 
 [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
-	...
-	public function display($tpl = null)
-	{
-		$this->msg = $this->get('Msg');
-
-		return parent::display($tpl);
-	}
-	...
+```php {diff}
+ 	public function display($tpl = null)
+ 	{
++		$this->msg = $this->get('Msg');
++
+ 		return parent::display($tpl);
+ 	}
+ }
 
 ```
 
@@ -81,9 +83,12 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/tmpl/foo/default.php)
 
-```php
-...
-Hello Foos: <?php echo $this->msg;
+```php {diff}
+ \defined('_JEXEC') or die;
+ ?>
+-Hello Foos
++
++Hello Foos: <?php echo $this->msg;
 
 ```
 

@@ -1,5 +1,5 @@
 ---
-date: 2019-12-02
+date: 2020-12-03
 title: 'Die erste Ansicht im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -11,7 +11,9 @@ tags:
   - Joomla
 ---
 
-Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung möglich, einen statischen Text anzuzeigen. Wir haben bisher keine dynamischen Daten. Aber das wird sich bald ändern. Zunächst bauen wir die grobe Struktur auf. Nachfolgend siehst du die simple Ansicht.
+Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung möglich, einen statischen Text anzuzeigen. Wir haben bisher keine dynamischen Daten. Aber das wird sich bald ändern. Zunächst bauen wir die grobe Struktur auf.
+
+Nachfolgend siehst du die erste simple Ansicht.
 
 ![Joomla Ansicht im Frontend](/images/j4x3x1.png)
 
@@ -37,7 +39,7 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 
 [components/com_foos/src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php)
 
-```php
+```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php
 
 <?php
@@ -112,7 +114,9 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 
 [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/8580f231d09836d20e0f1be2046d513b09c4be12/src/components/com_foos/src/View/Foo/HtmlView.php
+
 <?php
 namespace FooNamespace\Component\Foos\Site\View\Foo;
 
@@ -135,7 +139,9 @@ In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur _er
 
 [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/8580f231d09836d20e0f1be2046d513b09c4be12/src/components/com_foos/tmpl/foo/default.php
+
 <?php
 \defined('_JEXEC') or die;
 ?>
@@ -150,13 +156,19 @@ Dies ist die Datei, die Joomla! mitteilt, wie unsere Komponente installiert wird
 
 [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml)
 
-```xml
-...
-<files folder="components/com_foos">
-  <folder>src</folder>
-  <folder>tmpl</folder>
-</files>
-...
+```php {diff}
+ 	<description>COM_FOOS_XML_DESCRIPTION</description>
+ 	<namespace path="src">FooNamespace\Component\Foos</namespace>
+ 	<scriptfile>script.php</scriptfile>
++	<!-- Frond-end files -->
++	<files folder="components/com_foos">
++		<folder>src</folder>
++		<folder>tmpl</folder>
++	</files>
+ 	<!-- Back-end files -->
+ 	<administration>
+ 		<!-- Menu entries -->
+
 ```
 
 #### Die Behelfsdatei - components/com_foos/index.html

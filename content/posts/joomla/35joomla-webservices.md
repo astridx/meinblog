@@ -1,5 +1,5 @@
 ---
-date: 2020-01-04
+date: 2021-01-04
 title: 'Webservices - Unterstützen der Joomla-API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

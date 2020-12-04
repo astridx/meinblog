@@ -1,5 +1,5 @@
 ---
-date: 2020-01-02
+date: 2021-01-02
 title: 'Zugriff auf das Dashboard'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
