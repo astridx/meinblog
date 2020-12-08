@@ -1,6 +1,6 @@
 ---
 date: 2021-01-08
-title: 'Module - Installationsskript'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Installationsskript'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-installation-script

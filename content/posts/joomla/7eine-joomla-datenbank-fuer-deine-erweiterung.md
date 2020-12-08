@@ -1,6 +1,6 @@
 ---
 date: 2020-12-07
-title: 'Eine Joomla-Datenbank für deine Erweiterung'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Eine Joomla-Datenbank für deine Erweiterung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: eine-joomla-datenbank-fuer-deine-erweiterung
@@ -27,7 +27,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen _später_ im Manifest ein. Gleichzeitig speichern wir mit `INSERT INTO ...` Beispielinhalte in der Datenbanktabelle.
+Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen später im Manifest ein. Gleichzeitig speichern wir mit `INSERT INTO ...` Beispielinhalte in der Datenbanktabelle.
 
 > Lies im [Vorwort](joomla-tutorial-vorwort), was das Präfix `#__` genau bedeutet, wenn du dies nicht weißt.
 
@@ -51,15 +51,17 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 
 #### [src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
 
-Damit Joomla im Falle einer Deinstallation keinen unnötigen Code enthält, erstellen wir gleichzeitig eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet.
+Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir gleichzeitig eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet.
 
 [src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
-```sql {numberLines: -2}
+```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
 
 DROP TABLE IF EXISTS `#__foos_details`;
 ```
+
+> Vielleicht denkst du weiter und fragst dich schon jetzt, wie du potenitelle zukünftige Datenbankänderungen handhabst. Was ist notwendig, um in einer späteren Version neben dem Namen auch den Vornamen zu speichern. SQL-Updates sind in Joomla namensbasiert. Für jede Version der Komponente muss eine Datei angelegt werden, deren Name aus der Versionsnummer und der Dateiendung `.sql` besteht. Praktisch wirst du dies im weiteren Verlauf dieser Tutorialreihe erleben.
 
 #### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
 
@@ -72,24 +74,55 @@ Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/src/Model/FoosModel.php
 
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Model;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\MVC\Model\ListModel;
 
+/**
+ * Methods supporting a list of foo records.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FoosModel extends ListModel
 {
+	/**
+	 * Constructor.
+	 *
+	 * @param   array  $config  An optional associative array of configuration settings.
+	 *
+	 * @see     \JControllerLegacy
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	public function __construct($config = array())
 	{
 		parent::__construct($config);
-  }
-
+	}
+	/**
+	 * Build an SQL query to load the list data.
+	 *
+	 * @return  \JDatabaseQuery
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	protected function getListQuery()
 	{
+		// Create a new query object.
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
 
+		// Select the required fields from the table.
 		$query->select(
 			$db->quoteName(array('id', 'name', 'alias'))
 		);
@@ -98,6 +131,7 @@ class FoosModel extends ListModel
 		return $query;
 	}
 }
+
 ```
 
 ### Geänderte Dateien
@@ -218,7 +252,7 @@ In der View holen wir am Ende die Elemente. Hierzu rufen wir die passende Method
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Last but not least zeigen wir alles mithilfe der Templatedatei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife.
+Last but not least zeigen wir alles mithilfe der Templatedatei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 
 [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
 

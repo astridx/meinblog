@@ -1,6 +1,6 @@
 ---
 date: 2021-01-04
-title: 'Webservices - Unterstützen der Joomla-API'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Webservices - Unterstützen der Joomla-API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-webservices

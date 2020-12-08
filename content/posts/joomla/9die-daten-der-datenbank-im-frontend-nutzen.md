@@ -1,6 +1,6 @@
 ---
 date: 2020-12-09
-title: 'Die Daten der Datenbank im Frontend nutzen'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die Daten der Datenbank im Frontend nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-daten-der-datenbank-im-frontend-nutzen
@@ -31,8 +31,18 @@ Als Erstes erstellen wir das Feld, über welches es möglich ist, ein Foo-Elemen
 
 [src/administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
-```php
+```php  {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/administrator/components/com_foos/src/Field/Modal/FooField.php
+
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Field\Modal;
 
 defined('JPATH_BASE') or die;
@@ -43,22 +53,45 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Session\Session;
 
+/**
+ * Supports a modal foo picker.
+ *
+ * @since  __DEPLOY_VERSION__
+ */
 class FooField extends FormField
 {
+	/**
+	 * The form field type.
+	 *
+	 * @var     string
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected $type = 'Modal_Foo';
 
+	/**
+	 * Method to get the field input markup.
+	 *
+	 * @return  string  The field input markup.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function getInput()
 	{
 		$allowClear  = ((string) $this->element['clear'] != 'false');
 		$allowSelect = ((string) $this->element['select'] != 'false');
 
+		// The active foo id field.
 		$value = (int) $this->value > 0 ? (int) $this->value : '';
 
+		// Create the modal id.
 		$modalId = 'Foo_' . $this->id;
 
+		// Add the modal field script to the document head.
 		HTMLHelper::_('script', 'system/fields/modal-fields.min.js',
-			array('version' => 'auto', 'relative' => true));
+			array('version' => 'auto', 'relative' => true)
+		);
 
+		// Script to proxy the select modal function to the modal-fields.js file.
 		if ($allowSelect)
 		{
 			static $scriptSelect = null;
@@ -81,6 +114,7 @@ class FooField extends FormField
 			}
 		}
 
+		// Setup variables for display.
 		$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'
 			. Session::getFormToken() . '=1';
 		$linkFoo  = 'index.php?option=com_foos&amp;view=foo&amp;layout=modal&amp;tmpl=component&amp;'
@@ -110,6 +144,7 @@ class FooField extends FormField
 
 		$title = empty($title) ? Text::_('COM_FOOS_SELECT_A_FOO') : htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
 
+		// The current foo display field.
 		$html  = '';
 
 		if ($allowSelect || $allowNew || $allowEdit || $allowClear)
@@ -126,6 +161,7 @@ class FooField extends FormField
 			$html .= '<span class="input-group-append">';
 		}
 
+		// Select foo button
 		if ($allowSelect)
 		{
 			$html .= '<button'
@@ -139,6 +175,7 @@ class FooField extends FormField
 				. '</button>';
 		}
 
+		// Clear foo button
 		if ($allowClear)
 		{
 			$html .= '<button'
@@ -155,6 +192,7 @@ class FooField extends FormField
 			$html .= '</span></span>';
 		}
 
+		// Select foo modal
 		if ($allowSelect)
 		{
 			$html .= HTMLHelper::_(
@@ -175,6 +213,7 @@ class FooField extends FormField
 			);
 		}
 
+		// Note: class='required' for client side validation.
 		$class = $this->required ? ' class="required modal-value"' : '';
 
 		$html .= '<input type="hidden" id="'
@@ -188,11 +227,19 @@ class FooField extends FormField
 		return $html;
 	}
 
+	/**
+	 * Method to get the field label markup.
+	 *
+	 * @return  string  The field label markup.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function getLabel()
 	{
 		return str_replace($this->id, $this->id . '_name', parent::getLabel());
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
@@ -203,8 +250,18 @@ Die Auswahl öffnen wir in einem Modal-Fenster. Der nachfolgende Code zeigt dir 
 
 [src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/administrator/components/com_foos/tmpl/foos/modal.php
+
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
@@ -215,7 +272,8 @@ use Joomla\CMS\Session\Session;
 
 $app = Factory::getApplication();
 
-HTMLHelper::_('script', 'com_foos/admin-foos-modal.min.js', array('version' => 'auto', 'relative' => true));
+$wa = $this->document->getWebAssetManager();
+$wa->useScript('com_foos.admin-foos-modal');
 
 $function  = $app->input->getCmd('function', 'jSelectFoos');
 $onclick   = $this->escape($function);
@@ -271,6 +329,7 @@ $onclick   = $this->escape($function);
 
 	</form>
 </div>
+
 ```
 
 #### [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
@@ -279,7 +338,9 @@ Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/
 
 [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
-```json
+```js {numberLines: -2}
+/* https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/media/com_foos/joomla.asset.json */
+
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
   "name": "com_foos",
@@ -306,7 +367,9 @@ Wir schreiben den JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpun
 
 [src/media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
-```js
+```js  {numberLines: -2}
+/* https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/media/com_foos/js/admin-foos-modal.js */
+
 ;(function () {
   'use strict'
 
@@ -341,18 +404,22 @@ Wir schreiben den JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpun
 
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-Wir haben eine JavaScript Datei neu erstellt. Diese legen wir im `media` Verzeichnis ab, welches im XML-Manifest hinzugefügt wird.
+Wir haben eine JavaScript Datei neu erstellt. Diese legen wir im `media` Verzeichnis ab. Damit sie bei der Installation der Komponente kopiert wird, tragen wir das Verzeichnis im Installationsmanifest ein.
 
 > Lies im [Vorwort](joomla-tutorial-vorwort), warum du das `media` Verzeichnis idealerweise wählst.
 
 [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
 
-```xml
-...
-<media folder="media/com_foos" destination="com_foos">
-	<folder>js</folder>
-</media>
-...
+```php {diff}
+ 		<folder>src</folder>
+ 		<folder>tmpl</folder>
+ 	</files>
++    <media folder="media/com_foos" destination="com_foos">
++		<folder>js</folder>
++    </media>
+ 	<!-- Back-end files -->
+ 	<administration>
+ 		<!-- Menu entries -->
 
 ```
 
@@ -362,49 +429,72 @@ Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank
 
 [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/Model/FooModel.php)
 
-```php
-...
-	public function getItem($pk = null)
-	{
-		$app = Factory::getApplication();
-		$pk = $app->input->getInt('id');
+```php {diff}
+ class FooModel extends BaseDatabaseModel
+ {
+ 	/**
+-	 * @var string message
++	 * @var string item
+ 	 */
+-	protected $message;
++	protected $_item = null;
 
-		if ($this->_item === null)
-		{
-			$this->_item = array();
-		}
+ 	/**
+-	 * Get the message
++	 * Gets a foo
+ 	 *
+-	 * @return  string  The message to be displayed to the user
++	 * @param   integer  $pk  Id for the foo
++	 *
++	 * @return  mixed Object or null
++	 *
++	 * @since   __BUMP_VERSION__
+ 	 */
+-	public function getMsg()
++	public function getItem($pk = null)
+ 	{
+ 		$app = Factory::getApplication();
+-		$this->message = $app->input->get('show_text', "Hi");
++		$pk = $app->input->getInt('id');
++
++		if ($this->_item === null)
++		{
++			$this->_item = array();
++		}
++
++		if (!isset($this->_item[$pk]))
++		{
++			try
++			{
++				$db = $this->getDbo();
++				$query = $db->getQuery(true);
++
++				$query->select('*')
++					->from($db->quoteName('#__foos_details', 'a'))
++					->where('a.id = ' . (int) $pk);
++
++				$db->setQuery($query);
++				$data = $db->loadObject();
++
++				if (empty($data))
++				{
++					throw new \Exception(Text::_('COM_FOOS_ERROR_FOO_NOT_FOUND'), 404);
++				}
++
++				$this->_item[$pk] = $data;
++			}
++			catch (\Exception $e)
++			{
++				$this->setError($e);
++				$this->_item[$pk] = false;
++			}
++		}
 
-		if (!isset($this->_item[$pk]))
-		{
-			try
-			{
-				$db = $this->getDbo();
-				$query = $db->getQuery(true);
+-		return $this->message;
++		return $this->_item[$pk];
+ 	}
+ }
 
-				$query->select('*')
-					->from($db->quoteName('#__foos_details', 'a'))
-					->where('a.id = ' . (int) $pk);
-
-				$db->setQuery($query);
-				$data = $db->loadObject();
-
-				if (empty($data))
-				{
-					throw new \Exception(Text::_('COM_FOOS_ERROR_FOO_NOT_FOUND'), 404);
-				}
-
-				$this->_item[$pk] = $data;
-			}
-			catch (\Exception $e)
-			{
-				$this->setError($e);
-				$this->_item[$pk] = false;
-			}
-		}
-
-		return $this->_item[$pk];
-	}
-...
 ```
 
 > Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de) nutzt, dann kümmert sich Joomla für dich um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
@@ -415,15 +505,46 @@ In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = 
 
 [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
-...
-	public function display($tpl = null)
-	{
-		$this->item = $this->get('Item');
+```php {diff}
+ class HtmlView extends BaseHtmlView
+ {
++	/**
++	 * The item object details
++	 *
++	 * @var    \JObject
++	 * @since  __BUMP_VERSION__
++	 */
++	protected $item;
++
+ 	/**
+ 	 * Execute and display a template script.
+ 	 *
+@@ -29,7 +37,7 @@ class HtmlView extends BaseHtmlView
+ 	 */
+ 	public function display($tpl = null)
+ 	{
+-		$this->msg = $this->get('Msg');
++		$this->item = $this->get('Item');
 
-		return parent::display($tpl);
-	}
-...
+ 		return parent::display($tpl);
+ 	}
+
+```
+
+#### [src/components/com_foos/tmpl/foo/default.php](hhttps://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+
+Zur Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Element `item` und dessen Eigenschaft `name` zu. Auf diese Art können wir in Zukunft weitere Eigenschaften flexibel hinzufügen.
+
+[src/administrator/components/com_foos/foos.php](https://github.com/astridx/boilerplate/blob/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/components/com_foos/tmpl/foo/default.php)
+
+```php {diff}
+ \defined('_JEXEC') or die;
+ ?>
+
+-Hello Foos: <?php echo $this->msg;
++<?php
++echo $this->item->name;
+
 ```
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
@@ -434,45 +555,31 @@ Nachfolgend der gesamte Code der Datei.
 
 [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/tmpl/foo/default.xml)
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<metadata>
-	<layout title="COM_FOOS_FOO_VIEW_DEFAULT_TITLE">
-		<message>
-			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
-		</message>
-	</layout>
-	<fields name="request">
-		<fieldset name="request"
-			addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
-		>
-			<field
-				name="id"
-				type="modal_foo"
-				label="COM_FOOS_SELECT_FOO_LABEL"
-				required="true"
-				select="true"
-				new="true"
-				edit="true"
-				clear="true"
-			/>
-		</fieldset>
-	</fields>
-</metadata>
-```
+```xml {diff}
+ 	</layout>
+ 	<!-- Add fields to the request variables for the layout. -->
+ 	<fields name="request">
+-		<fieldset name="request">
++		<fieldset name="request"
++			addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
++		>
+ 			<field
+-				name="show_text"
+-				type="text"
+-				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
+-				default="Hi"
++				name="id"
++				type="modal_foo"
++				label="COM_FOOS_SELECT_FOO_LABEL"
++				required="true"
++				select="true"
++				new="true"
++				edit="true"
++				clear="true"
+ 			/>
+ 		</fieldset>
+ 	</fields>
 
-#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-35fa310ee8efa91ecb0e9f7c604d413f)
-
-Damit bei der Installation der Komponente der JavaScript Code kopiert wird, tragen wir das Verzeichnis im Installationsmanifest ein.
-
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
-
-```xml
-...
-    <media folder="media/com_foos" destination="com_foos">
-	  	<folder>js</folder>
-    </media>
-...
 ```
 
 ## Teste deine Joomla-Komponente

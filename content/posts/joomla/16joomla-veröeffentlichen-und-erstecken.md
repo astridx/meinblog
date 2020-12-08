@@ -1,6 +1,6 @@
 ---
 date: 2020-12-16
-title: 'Veröffentlichen und Verstecken'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Veröffentlichen und Verstecken'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-veröeffentlichen-und-erstecken

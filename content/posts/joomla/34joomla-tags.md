@@ -1,6 +1,6 @@
 ---
 date: 2021-01-03
-title: 'Tags'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Tags'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-tags

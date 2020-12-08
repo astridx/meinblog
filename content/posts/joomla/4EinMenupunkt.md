@@ -1,6 +1,6 @@
 ---
 date: 2020-12-04
-title: 'Ein Menüpunkt'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Ein Menüpunkt'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: ein-menuepunkt
@@ -37,6 +37,7 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/ce0e5277606e146de4044e6fa0c54af836bd7dd9/src/components/com_foos/tmpl/foo/default.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_FOOS_FOO_VIEW_DEFAULT_TITLE">
@@ -45,6 +46,7 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 		</message>
 	</layout>
 </metadata>
+
 ```
 
 Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.

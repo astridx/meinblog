@@ -1,6 +1,6 @@
 ---
 date: 2021-01-02
-title: 'Zugriff auf das Dashboard'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Zugriff auf das Dashboard'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-dashboard-fuer-deine-erweiterung

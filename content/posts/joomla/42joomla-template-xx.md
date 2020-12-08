@@ -1,6 +1,6 @@
 ---
 date: 2021-01-11
-title: 'Template - Erste Schritte'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-erste-schritte-3

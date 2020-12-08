@@ -1,6 +1,6 @@
 ---
 date: 2021-01-06
-title: 'Module - Namespace und Helper'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Namespace und Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-namespace-und-helper

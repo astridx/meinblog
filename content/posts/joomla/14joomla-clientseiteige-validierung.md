@@ -1,6 +1,6 @@
 ---
 date: 2020-12-14
-title: 'Clientseitige Validierung'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Clientseitige Validierung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-clientseiteige-validierung

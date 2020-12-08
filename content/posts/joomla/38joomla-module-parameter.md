@@ -1,6 +1,6 @@
 ---
 date: 2021-01-07
-title: 'Module - Parameter'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-parameter

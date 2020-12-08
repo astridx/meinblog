@@ -1,6 +1,6 @@
 ---
 date: 2020-12-25
-title: 'Checkin und Checkout'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Checkin und Checkout'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-checkin-checkout

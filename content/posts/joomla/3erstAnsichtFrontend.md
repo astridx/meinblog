@@ -1,6 +1,6 @@
 ---
 date: 2020-12-03
-title: 'Die erste Ansicht im Frontend'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die erste Ansicht im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-erste-ansicht-im-frontend
@@ -118,19 +118,40 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 // https://raw.githubusercontent.com/astridx/boilerplate/8580f231d09836d20e0f1be2046d513b09c4be12/src/components/com_foos/src/View/Foo/HtmlView.php
 
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Site\View\Foo;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 
+/**
+ * HTML Foos View class for the Foo component
+ *
+ * @since  __BUMP_VERSION__
+ */
 class HtmlView extends BaseHtmlView
 {
+	/**
+	 * Execute and display a template script.
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  mixed  A string if successful, otherwise an Error object.
+	 */
 	public function display($tpl = null)
 	{
 		return parent::display($tpl);
 	}
 }
+
 ```
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f) - Template
@@ -143,9 +164,17 @@ In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur _er
 // https://raw.githubusercontent.com/astridx/boilerplate/8580f231d09836d20e0f1be2046d513b09c4be12/src/components/com_foos/tmpl/foo/default.php
 
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 \defined('_JEXEC') or die;
 ?>
 Hello Foos
+
 ```
 
 ### Geänderte Dateien

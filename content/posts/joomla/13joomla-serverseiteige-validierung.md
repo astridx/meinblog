@@ -1,6 +1,6 @@
 ---
 date: 2020-12-13
-title: 'Serverseiteige Validierung'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Serverseiteige Validierung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-serverseiteige-validierung

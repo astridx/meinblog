@@ -1,6 +1,6 @@
 ---
 date: 2021-01-05
-title: 'Module - Erste Schritte'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-erste-schritte

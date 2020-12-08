@@ -1,6 +1,6 @@
 ---
 date: 2020-12-21
-title: 'Aktionen in der Werkzeugleiste'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Aktionen in der Werkzeugleiste'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-aktionen-in-der-werkzeugleiste

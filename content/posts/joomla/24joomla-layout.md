@@ -1,6 +1,6 @@
 ---
 date: 2020-12-24
-title: 'Layout'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Layout'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-layout
@@ -112,6 +112,7 @@ echo "<hr>Hier kannst du eine Fußzeile anzeigen.<hr>";
 echo $this->item->event->afterDisplayTitle;
 echo $this->item->event->beforeDisplayContent;
 echo $this->item->event->afterDisplayContent;
+
 ```
 
 ### Geänderte Dateien

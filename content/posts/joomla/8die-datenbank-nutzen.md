@@ -1,6 +1,6 @@
 ---
 date: 2020-12-08
-title: 'Die Datenbank nutzen'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die Datenbank nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-datenbank-nutzen
@@ -13,7 +13,7 @@ tags:
 
 Im vorhergehenden Teil hatten wir eine Datenbank für deine Joomla!-Komponenten eingerichtet. In diesem Teil lernst du, wie du mithilfe eines Formulars im Administrationsbereich die Daten änderst oder ergänzt.
 
-Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du auf den Titel klickst.
+Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du in der Listenansicht auf den Titel klickst.
 
 ![Joomla Componente im Backend bearbeiten](/images/j4x8x1.png)
 
@@ -29,7 +29,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in einer XML-Datei vorgibst. Nachfolgend siehst du diese für unser Beispiel.
 
-> Du wünschts dir einen Überblick über alle möglichen Formular-Elemente? In der [Joomla Dokumentation](https://docs.joomla.org/Form_field/de) sind alle standardmäßig enthaltenen Eingabe-Felder aufgelistet.
+> Du wünschst dir einen Überblick über alle möglichen Formular-Elemente? In der [Joomla Dokumentation](https://docs.joomla.org/Form_field/de) sind alle standardmäßig enthaltenen Eingabe-Felder aufgelistet.
 
 [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -77,15 +77,29 @@ Wir erstellen hier mehr oder weniger eine leere Klasse. Obwohl die nichts beinha
 // https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Controller/FooController.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Controller;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\MVC\Controller\FormController;
 
+/**
+ * Controller for a single foo
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FooController extends FormController
 {
 }
+
 ```
 
 #### [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
@@ -98,6 +112,14 @@ Jetzt erstellen wir das Model, um die Daten für ein Element zu holen. Dieses ne
 // https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Model/FooModel.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Model;
 
 \defined('_JEXEC') or die;
@@ -105,13 +127,35 @@ namespace FooNamespace\Component\Foos\Administrator\Model;
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\AdminModel;
 
+/**
+ * Item Model for a Foo.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FooModel extends AdminModel
 {
+	/**
+	 * The type alias for this content type.
+	 *
+	 * @var    string
+	 * @since  __BUMP_VERSION__
+	 */
 	public $typeAlias = 'com_foos.foo';
 
+	/**
+	 * Method to get the row form.
+	 *
+	 * @param   array    $data      Data for the form.
+	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
+	 *
+	 * @return  \JForm|boolean  A \JForm object on success, false on failure
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	public function getForm($data = array(), $loadData = true)
 	{
-		$form = $this->loadForm('com_foos.foo', 'foo', array('control' => 'jform', 'load_data' => $loadData));
+		// Get the form.
+		$form = $this->loadForm($this->typeAlias, 'foo', array('control' => 'jform', 'load_data' => $loadData));
 
 		if (empty($form))
 		{
@@ -121,22 +165,39 @@ class FooModel extends AdminModel
 		return $form;
 	}
 
+	/**
+	 * Method to get the data that should be injected in the form.
+	 *
+	 * @return  mixed  The data for the form.
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	protected function loadFormData()
 	{
 		$app = Factory::getApplication();
 
 		$data = $this->getItem();
 
-		$this->preprocessData('com_foos.foo', $data);
+		$this->preprocessData($this->typeAlias, $data);
 
 		return $data;
 	}
 
+	/**
+	 * Prepare and sanitise the table prior to saving.
+	 *
+	 * @param   \Joomla\CMS\Table\Table  $table  The Table object
+	 *
+	 * @return  void
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	protected function prepareTable($table)
 	{
 		$table->generateAlias();
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
@@ -151,6 +212,14 @@ Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten
 // https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Table/FooTable.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Table;
 
 \defined('_JEXEC') or die;
@@ -159,8 +228,20 @@ use Joomla\CMS\Application\ApplicationHelper;
 use Joomla\CMS\Table\Table;
 use Joomla\Database\DatabaseDriver;
 
+/**
+ * Foos Table class.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FooTable extends Table
 {
+	/**
+	 * Constructor
+	 *
+	 * @param   DatabaseDriver  $db  Database connector object
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	public function __construct(DatabaseDriver $db)
 	{
 		$this->typeAlias = 'com_foos.foo';
@@ -168,6 +249,12 @@ class FooTable extends Table
 		parent::__construct('#__foos_details', 'id', $db);
 	}
 
+	/**
+	 * Generate a valid alias from title / date.
+	 * Remains public to be able to check for duplicated alias before saving
+	 *
+	 * @return  string
+	 */
 	public function generateAlias()
 	{
 		if (empty($this->alias))
@@ -185,6 +272,7 @@ class FooTable extends Table
 		return $this->alias;
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
@@ -195,6 +283,14 @@ class FooTable extends Table
 // https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\View\Foo;
 
 \defined('_JEXEC') or die;
@@ -204,22 +300,51 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 
+/**
+ * View to edit a foo.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class HtmlView extends BaseHtmlView
 {
+	/**
+	 * The \JForm object
+	 *
+	 * @var  \JForm
+	 */
 	protected $form;
 
+	/**
+	 * The active item
+	 *
+	 * @var  object
+	 */
 	protected $item;
 
+	/**
+	 * Display the view.
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  mixed  A string if successful, otherwise an Error object.
+	 */
 	public function display($tpl = null)
 	{
-    $this->item = $this->get('Item');
-    $this->form  = $this->get('Form');
+		$this->form  = $this->get('Form');
+		$this->item = $this->get('Item');
 
 		$this->addToolbar();
 
 		return parent::display($tpl);
 	}
 
+	/**
+	 * Add the page title and toolbar.
+	 *
+	 * @return  void
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	protected function addToolbar()
 	{
 		Factory::getApplication()->input->set('hidemainmenu', true);
@@ -232,6 +357,7 @@ class HtmlView extends BaseHtmlView
 		ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1637778e5f7d1d56dd1751af1970f01b)
@@ -246,6 +372,14 @@ In dieser Datei ist die Ansicht implementiert, die zum Bearbeiten aufgerufen wir
 // https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/tmpl/foo/edit.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
@@ -269,6 +403,7 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 	<input type="hidden" name="task" value="">
 	<?php echo HTMLHelper::_('form.token'); ?>
 </form>
+
 ```
 
 ### Geänderte Dateien

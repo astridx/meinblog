@@ -1,6 +1,6 @@
 ---
 date: 2020-12-26
-title: 'Stapelverarbeitung/Batch'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Stapelverarbeitung/Batch'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-batch
@@ -31,6 +31,13 @@ Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum An
 // https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Layout\LayoutHelper;
@@ -38,6 +45,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 $published = $this->state->get('filter.published');
 $noUser    = true;
 ?>
+
 <div class="container">
 	<div class="row">
 		<div class="form-group col-md-6">
@@ -61,6 +69,7 @@ $noUser    = true;
 		<?php endif; ?>
 	</div>
 </div>
+
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-d653f1f236af4637ec0c4a7ff789bde1)
@@ -71,7 +80,15 @@ Die nachfolgende Datei erstellt den Footer des Formulars, welches zum Anstoßen 
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
+
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
@@ -80,7 +97,7 @@ use Joomla\CMS\Language\Text;
 <button type="button" class="btn btn-secondary" onclick="document.getElementById('batch-category-id').value='';document.getElementById('batch-access').value='';document.getElementById('batch-language-id').value='';document.getElementById('batch-user-id').value='';document.getElementById('batch-tag-id').value=''" data-dismiss="modal">
 	<?php echo Text::_('JCANCEL'); ?>
 </button>
-<button type="submit" class="btn btn-success" onclick="Joomla.submitbutton('foo.batch');">
+<button type="submit" class="btn btn-success" onclick="Joomla.submitbutton('foo.batch');return false">
 	<?php echo Text::_('JGLOBAL_BATCH_PROCESS'); ?>
 </button>
 

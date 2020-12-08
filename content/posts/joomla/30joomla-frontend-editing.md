@@ -1,6 +1,6 @@
 ---
 date: 2020-12-30
-title: 'Frontend Editing'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Frontend Editing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-frontend-editing
@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen finden Nutzer das benutzerfreundlicher. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freigeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten.
+Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen finden Nutzer das benutzerfreundlicher. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freizugeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten.
 
 ## Für Ungeduldige
 
@@ -27,8 +27,18 @@ Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearb
 
 [src/administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/administrator/components/com_foos/src/Service/HTML/Icon.php
+
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
 
 \defined('_JEXEC') or die;
@@ -43,15 +53,45 @@ use Joomla\CMS\Uri\Uri;
 use FooNamespace\Component\Foos\Site\Helper\RouteHelper;
 use Joomla\Registry\Registry;
 
+/**
+ * Content Component HTML Helper
+ *
+ * @since  __DEPLOY_VERSION__
+ */
 class Icon
 {
+	/**
+	 * The application
+	 *
+	 * @var    CMSApplication
+	 *
+	 * @since  __DEPLOY_VERSION__
+	 */
 	private $application;
 
+	/**
+	 * Service constructor
+	 *
+	 * @param   CMSApplication  $application  The application
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function __construct(CMSApplication $application)
 	{
 		$this->application = $application;
 	}
 
+	/**
+	 * Method to generate a link to the create item page for the given category
+	 *
+	 * @param   object    $category  The category information
+	 * @param   Registry  $params    The item parameters
+	 * @param   array     $attribs   Optional attributes for the link
+	 *
+	 * @return  string  The HTML markup for the create item link
+	 *
+	 * @since  __DEPLOY_VERSION__
+	 */
 	public static function create($category, $params, $attribs = array())
 	{
 		$uri = Uri::getInstance();
@@ -60,6 +100,7 @@ class Icon
 
 		$text = LayoutHelper::render('joomla.content.icons.create', array('params' => $params, 'legacy' => false));
 
+		// Add the button classes to the attribs array
 		if (isset($attribs['class']))
 		{
 			$attribs['class'] .= ' btn btn-primary';
@@ -76,23 +117,42 @@ class Icon
 		return $output;
 	}
 
+	/**
+	 * Display an edit icon for the foo.
+	 *
+	 * This icon will not display in a popup window, nor if the foo is trashed.
+	 * Edit access checks must be performed in the calling code.
+	 *
+	 * @param   object    $foo  The foo information
+	 * @param   Registry  $params   The item parameters
+	 * @param   array     $attribs  Optional attributes for the link
+	 * @param   boolean   $legacy   True to use legacy images, false to use icomoon based graphic
+	 *
+	 * @return  string   The HTML for the foo edit icon.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public static function edit($foo, $params, $attribs = array(), $legacy = false)
 	{
 		$user = Factory::getUser();
 		$uri  = Uri::getInstance();
 
+		// Ignore if in a popup window.
 		if ($params && $params->get('popup'))
 		{
 			return '';
 		}
 
+		// Ignore if the state is negative (trashed).
 		if ($foo->published < 0)
 		{
 			return '';
 		}
 
+		// Set the link class
 		$attribs['class'] = 'dropdown-item';
 
+		// Show checked_out icon if the foo is checked out by a different user
 		if (property_exists($foo, 'checked_out')
 			&& property_exists($foo, 'checked_out_time')
 			&& $foo->checked_out > 0
@@ -168,6 +228,7 @@ class Icon
 		return $output;
 	}
 }
+
 ```
 
 #### [src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
@@ -176,7 +237,9 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
 [src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
 
-```xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<fieldset
@@ -324,6 +387,7 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 		</fieldset>
 	</fields>
 </form>
+
 ```
 
 #### [src/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
@@ -334,8 +398,18 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
 [src/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Controller/FooController.php
+
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Site\Controller;
 
 \defined('_JEXEC') or die;
@@ -346,27 +420,70 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\Utilities\ArrayHelper;
 
+/**
+ * Controller for single foo view
+ *
+ * @since  __DEPLOY_VERSION__
+ */
 class FooController extends FormController
 {
+	/**
+	 * The URL view item variable.
+	 *
+	 * @var    string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $view_item = 'form';
 
+	/**
+	 * Method to get a model object, loading it if required.
+	 *
+	 * @param   string  $name    The model name. Optional.
+	 * @param   string  $prefix  The class prefix. Optional.
+	 * @param   array   $config  Configuration array for model. Optional.
+	 *
+	 * @return  \Joomla\CMS\MVC\Model\BaseDatabaseModel  The model.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function getModel($name = 'form', $prefix = '', $config = array('ignore_request' => true))
 	{
 		return parent::getModel($name, $prefix, array('ignore_request' => false));
 	}
 
+	/**
+	 * Method override to check if you can add a new record.
+	 *
+	 * @param   array  $data  An array of input data.
+	 *
+	 * @return  boolean
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function allowAdd($data = array())
 	{
 		if ($categoryId = ArrayHelper::getValue($data, 'catid', $this->input->getInt('catid'), 'int'))
 		{
 			$user = Factory::getUser();
 
+			// If the category has been passed in the data or URL check it.
 			return $user->authorise('core.create', 'com_foos.category.' . $categoryId);
 		}
 
+		// In the absence of better information, revert to the component permissions.
 		return parent::allowAdd();
 	}
 
+	/**
+	 * Method override to check if you can edit an existing record.
+	 *
+	 * @param   array   $data  An array of input data.
+	 * @param   string  $key   The name of the key for the primary key; default is id.
+	 *
+	 * @return  boolean
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function allowEdit($data = array(), $key = 'id')
 	{
 		$recordId = (int) isset($data[$key]) ? $data[$key] : 0;
@@ -376,6 +493,7 @@ class FooController extends FormController
 			return false;
 		}
 
+		// Need to do a lookup from the model.
 		$record     = $this->getModel()->getItem($recordId);
 		$categoryId = (int) $record->catid;
 
@@ -383,11 +501,13 @@ class FooController extends FormController
 		{
 			$user = Factory::getUser();
 
+			// The category has been set. Check the category permissions.
 			if ($user->authorise('core.edit', $this->option . '.category.' . $categoryId))
 			{
 				return true;
 			}
 
+			// Fallback on edit.own.
 			if ($user->authorise('core.edit.own', $this->option . '.category.' . $categoryId))
 			{
 				return ($record->created_by == $user->id);
@@ -396,9 +516,20 @@ class FooController extends FormController
 			return false;
 		}
 
+		// Since there is no asset tracking, revert to the component permissions.
 		return parent::allowEdit($data, $key);
 	}
 
+	/**
+	 * Method to save a record.
+	 *
+	 * @param   string  $key     The name of the primary key of the URL variable.
+	 * @param   string  $urlVar  The name of the URL variable if different from the primary key (sometimes required to avoid router collisions).
+	 *
+	 * @return  boolean  True if successful, false otherwise.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function save($key = null, $urlVar = null)
 	{
 		$result = parent::save($key, $urlVar = null);
@@ -408,6 +539,15 @@ class FooController extends FormController
 		return $result;
 	}
 
+	/**
+	 * Method to cancel an edit.
+	 *
+	 * @param   string  $key  The name of the primary key of the URL variable.
+	 *
+	 * @return  boolean  True if access level checks pass, false otherwise.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function cancel($key = null)
 	{
 		$result = parent::cancel($key);
@@ -417,12 +557,24 @@ class FooController extends FormController
 		return $result;
 	}
 
+	/**
+	 * Gets the URL arguments to append to an item redirect.
+	 *
+	 * @param   integer  $recordId  The primary key id for the item.
+	 * @param   string   $urlVar    The name of the URL variable for the id.
+	 *
+	 * @return  string    The arguments to append to the redirect URL.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function getRedirectToItemAppend($recordId = 0, $urlVar = 'id')
 	{
+		// Need to override the parent method completely.
 		$tmpl = $this->input->get('tmpl');
 
 		$append = '';
 
+		// Setup redirect info.
 		if ($tmpl)
 		{
 			$append .= '&tmpl=' . $tmpl;
@@ -454,6 +606,15 @@ class FooController extends FormController
 		return $append;
 	}
 
+	/**
+	 * Get the return URL.
+	 *
+	 * If a "return" variable has been passed in the request
+	 *
+	 * @return  string    The return URL.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function getReturnPage()
 	{
 		$return = $this->input->get('return', null, 'base64');
@@ -466,6 +627,7 @@ class FooController extends FormController
 		return base64_decode($return);
 	}
 }
+
 ```
 
 #### [src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
@@ -474,7 +636,18 @@ class FooController extends FormController
 
 [src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Model/FormModel.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Site\Model;
 
 \defined('_JEXEC') or die;
@@ -486,20 +659,49 @@ use Joomla\CMS\Language\Multilanguage;
 use Joomla\Registry\Registry;
 use Joomla\Utilities\ArrayHelper;
 
+/**
+ * Foo Component Foo Model
+ *
+ * @since  __DEPLOY_VERSION__
+ */
 class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooModel
 {
+	/**
+	 * Model typeAlias string. Used for version history.
+	 *
+	 * @var  string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	public $typeAlias = 'com_foos.foo';
 
+	/**
+	 * Name of the form
+	 *
+	 * @var string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $formName = 'form';
 
+	/**
+	 * Method to get the row form.
+	 *
+	 * @param   array    $data      Data for the form.
+	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
+	 *
+	 * @return  \JForm|boolean  A \JForm object on success, false on failure
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function getForm($data = array(), $loadData = true)
 	{
 		$form = parent::getForm($data, $loadData);
 
+		// Prevent messing with article language and category when editing existing foo with associations
 		if ($id = $this->getState('foo.id') && Associations::isEnabled())
 		{
 			$associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $id);
 
+			// Make fields read only
 			if (!empty($associations))
 			{
 				$form->setFieldAttribute('language', 'readonly', 'true');
@@ -525,8 +727,10 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 	{
 		$itemId = (int) (!empty($itemId)) ? $itemId : $this->getState('foo.id');
 
+		// Get a row instance.
 		$table = $this->getTable();
 
+		// Attempt to load the row.
 		try
 		{
 			if (!$table->load($itemId))
@@ -544,18 +748,37 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 		$properties = $table->getProperties();
 		$value      = ArrayHelper::toObject($properties, 'JObject');
 
+		// Convert field to Registry.
 		$value->params = new Registry($value->params);
 
 		return $value;
 	}
 
+	/**
+	 * Get the return URL.
+	 *
+	 * @return  string  The return URL.
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function getReturnPage()
 	{
 		return base64_encode($this->getState('return_page'));
 	}
 
+	/**
+	 * Method to save the form data.
+	 *
+	 * @param   array  $data  The form data.
+	 *
+	 * @return  boolean  True on success.
+	 *
+	 * @throws Exception
+	 * @since   __DEPLOY_VERSION__
+	 */
 	public function save($data)
 	{
+		// Associations are not edited in frontend ATM so we have to inherit them
 		if (Associations::isEnabled() && !empty($data['id'])
 			&& $associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $data['id']))
 		{
@@ -570,10 +793,22 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 		return parent::save($data);
 	}
 
+	/**
+	 * Method to auto-populate the model state.
+	 *
+	 * Note. Calling getState in this method will result in recursion.
+	 *
+	 * @return  void
+	 *
+	 * @throws  Exception
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function populateState()
 	{
 		$app = Factory::getApplication();
 
+		// Load state from the request.
 		$pk = $app->input->getInt('id');
 		$this->setState('foo.id', $pk);
 
@@ -582,12 +817,24 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 		$return = $app->input->get('return', null, 'base64');
 		$this->setState('return_page', base64_decode($return));
 
+		// Load the parameters.
 		$params = $app->getParams();
 		$this->setState('params', $params);
 
 		$this->setState('layout', $app->input->getString('layout'));
 	}
 
+	/**
+	 * Allows preprocessing of the JForm object.
+	 *
+	 * @param   Form    $form   The form object
+	 * @param   array   $data   The data to be merged into the form object
+	 * @param   string  $group  The plugin group to be executed
+	 *
+	 * @return  Form
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
 	protected function preprocessForm(Form $form, $data, $group = 'foo')
 	{
 		if (!Multilanguage::isEnabled())
@@ -599,11 +846,24 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 		return parent::preprocessForm($form, $data, $group);
 	}
 
+	/**
+	 * Method to get a table object, load it if necessary.
+	 *
+	 * @param   string  $name     The table name. Optional.
+	 * @param   string  $prefix   The class prefix. Optional.
+	 * @param   array   $options  Configuration array for model. Optional.
+	 *
+	 * @return  Table  A Table object
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 * @throws  \Exception
+	 */
 	public function getTable($name = 'Foo', $prefix = 'Administrator', $options = array())
 	{
 		return parent::getTable($name, $prefix, $options);
 	}
 }
+
 ```
 
 #### [src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
@@ -612,7 +872,18 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 
 [src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/View/Form/HtmlView.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Site\View\Form;
 
 \defined('_JEXEC') or die;
@@ -623,25 +894,65 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
 
+/**
+ * HTML Foo View class for the Foo component
+ *
+ * @since  __DEPLOY_VERSION__
+ */
 class HtmlView extends BaseHtmlView
 {
+	/**
+	 * @var    \Joomla\CMS\Form\Form
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $form;
 
+	/**
+	 * @var    object
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $item;
 
+	/**
+	 * @var    string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $return_page;
 
+	/**
+	 * @var    string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $pageclass_sfx;
 
+	/**
+	 * @var    \Joomla\Registry\Registry
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $state;
 
+	/**
+	 * @var    \Joomla\Registry\Registry
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $params;
 
+	/**
+	 * Execute and display a template script.
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  mixed  A string if successful, otherwise an Error object.
+	 *
+	 * @throws Exception
+	 * @since  __DEPLOY_VERSION__
+	 */
 	public function display($tpl = null)
 	{
 		$user = Factory::getUser();
 		$app  = Factory::getApplication();
 
+		// Get model data.
 		$this->state = $this->get('State');
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
@@ -653,6 +964,7 @@ class HtmlView extends BaseHtmlView
 		}
 		else
 		{
+			// Since we don't track these assets at the item level, use the category id.
 			$canDo = FooHelper::getActions('com_foos', 'category', $this->item->catid);
 			$authorised = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == $user->id);
 		}
@@ -665,6 +977,7 @@ class HtmlView extends BaseHtmlView
 			return false;
 		}
 
+		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{
 			$app->enqueueMessage(implode("\n", $errors), 'error');
@@ -672,12 +985,16 @@ class HtmlView extends BaseHtmlView
 			return false;
 		}
 
+		// Create a shortcut to the parameters.
 		$this->params = $this->state->params;
 
+		// Escape strings for HTML output
 		$this->pageclass_sfx = htmlspecialchars($this->params->get('pageclass_sfx'));
 
+		// Override global params with foo specific params
 		$this->params->merge($this->item->params);
 
+		// Propose current language as default when creating new foo
 		if (empty($this->item->id) && Multilanguage::isEnabled())
 		{
 			$lang = Factory::getLanguage()->getTag();
@@ -689,12 +1006,23 @@ class HtmlView extends BaseHtmlView
 		parent::display($tpl);
 	}
 
+	/**
+	 * Prepares the document
+	 *
+	 * @return  void
+	 *
+	 * @throws Exception
+	 *
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected function _prepareDocument()
 	{
 		$app   = Factory::getApplication();
 		$menus = $app->getMenu();
 		$title = null;
 
+		// Because the application sets a default page title,
+		// we need to get it from the menu item itself
 		$menu = $menus->getActive();
 
 		if ($menu)
@@ -723,6 +1051,7 @@ class HtmlView extends BaseHtmlView
 		$pathway->addItem($title, '');
 	}
 }
+
 ```
 
 #### [src/components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
@@ -731,8 +1060,18 @@ class HtmlView extends BaseHtmlView
 
 [src/components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.php
+
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
@@ -824,6 +1163,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 		</button>
 	</div>
 </form>
+
 ```
 
 #### [src/components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
@@ -832,7 +1172,9 @@ Diese Datei benötigen wir zum Anlegen des Menüpunktes.
 
 [src/components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
 
-```xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_FOOS_FORM_VIEW_DEFAULT_TITLE">
@@ -853,43 +1195,84 @@ Diese Datei benötigen wir zum Anlegen des Menüpunktes.
 
 #### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Hier registrieren wir das Icon.
+Hier registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
 
 [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
-```
-...
-public function boot(ContainerInterface $container)
-{
-  $this->getRegistry()->register('foosadministrator', new AdministratorService);
-  $this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
-}
-...
+```php {diff}
+ defined('JPATH_PLATFORM') or die;
+
++use Joomla\CMS\Application\SiteApplication;
+ use Joomla\CMS\Association\AssociationServiceInterface;
+ use Joomla\CMS\Association\AssociationServiceTrait;
+ use Joomla\CMS\Categories\CategoryServiceInterface;
+@@ -19,6 +20,7 @@
+ use Joomla\CMS\Extension\MVCComponent;
+ use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
+ use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
++use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;
+ use Psr\Container\ContainerInterface;
+ use Joomla\CMS\Helper\ContentHelper;
+
+@@ -50,6 +52,7 @@ class FoosComponent extends MVCComponent
+ 	public function boot(ContainerInterface $container)
+ 	{
+ 		$this->getRegistry()->register('foosadministrator', new AdministratorService);
++		$this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
+ 	}
+
+ 	/**
+
 ```
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Wenn man das Element bearbeiten darf, dann sieht man das Icon zum Öffnen des Formulares.
+Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zum Öffnen des Formulares.
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
 
-```php
-...
-<?php if ($canEdit) : ?>
-	<div class="icons">
-		<div class="btn-group float-right">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-<?php echo $this->item->id; ?>"
-				aria-label="<?php echo JText::_('JUSER_TOOLS'); ?>"
-				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="fa fa-cog" aria-hidden="true"></span>
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-<?php echo $this->item->id; ?>">
-				<li class="edit-icon"> <?php echo JHtml::_('fooicon.edit', $this->item, $tparams); ?> </li>
-			</ul>
-		</div>
-	</div>
-<?php endif; ?>
-...
+```php {diff}
+  */
+ \defined('_JEXEC') or die;
+
++use Joomla\CMS\Factory;
++use Joomla\CMS\Helper\ContentHelper;
+ use Joomla\CMS\Language\Text;
+
+-if ($this->item->params->get('show_name')) {
++$canDo   = ContentHelper::getActions('com_foos', 'category', $this->item->catid);
++$canEdit = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == Factory::getUser()->id);
++$tparams = $this->item->params;
+
++if ($tparams->get('show_name')) {
+ 	if ($this->Params->get('show_foo_name_label')) {
+ 		echo Text::_('COM_FOOS_NAME');
+ 	}
+
+ 	echo $this->item->name;
+ }
++?>
+
++<?php if ($canEdit) : ?>
++	<div class="icons">
++		<div class="btn-group float-right">
++			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-<?php echo $this->item->id; ?>"
++				aria-label="<?php echo JText::_('JUSER_TOOLS'); ?>"
++				data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
++				<span class="fa fa-cog" aria-hidden="true"></span>
++			</button>
++			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-<?php echo $this->item->id; ?>">
++				<li class="edit-icon"> <?php echo JHtml::_('fooicon.edit', $this->item, $tparams); ?> </li>
++			</ul>
++		</div>
++	</div>
++<?php endif; ?>
++
++<?php
+ echo $this->item->event->afterDisplayTitle;
+ echo $this->item->event->beforeDisplayContent;
+ echo $this->item->event->afterDisplayContent;
+
 ```
 
 ## Teste deine Joomla-Komponente

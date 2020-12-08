@@ -1,6 +1,6 @@
 ---
 date: 2020-12-29
-title: 'Backendformular aufräumen'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Backendformular aufräumen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-backendformular
@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So sieht dein Backend aufgeräumt und `joomlamäßig` aus.
+Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So wie im nachfolgenden Bild sieht dein Backend aufgeräumt und `joomlamäßig` aus.
 
 ![Joomla! Ansicht im Backend](/images/j4x29x1.png)
 
@@ -29,46 +29,64 @@ Nichts Neues.
 
 #### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Wir ersetzen die bisher rudimentär eingefügten Formularfelder.
+Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Hinzukommt eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 
-[src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/d23cc2ecdd8487d416f0370be5661a5689cde753/src/administrator/components/com_foos/tmpl/foo/edit.php)
+```php {diff}
+ $layout  = 'edit';
+ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
+ ?>
+-
+ <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
++
++	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
+ 	<div>
+ 		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
 
-```php
-...
-<?php echo $this->getForm()->renderField('name'); ?>
-<?php echo $this->getForm()->renderField('alias'); ?>
-<?php echo $this->getForm()->renderField('access'); ?>
-<?php echo $this->getForm()->renderField('published'); ?>
-<?php echo $this->getForm()->renderField('publish_up'); ?>
-<?php echo $this->getForm()->renderField('publish_down'); ?>
-<?php echo $this->getForm()->renderField('catid'); ?>
-<?php echo $this->getForm()->renderField('language'); ?>
-<?php echo $this->getForm()->renderField('featured'); ?>
-...
-```
+@@ -42,15 +43,14 @@
+ 			<div class="col-md-9">
+ 				<div class="row">
+ 					<div class="col-md-6">
+-						<?php echo $this->getForm()->renderField('name'); ?>
+-						<?php echo $this->getForm()->renderField('alias'); ?>
+-						<?php echo $this->getForm()->renderField('access'); ?>
+-						<?php echo $this->getForm()->renderField('published'); ?>
+-						<?php echo $this->getForm()->renderField('publish_up'); ?>
+-						<?php echo $this->getForm()->renderField('publish_down'); ?>
+-						<?php echo $this->getForm()->renderField('catid'); ?>
+-						<?php echo $this->getForm()->renderField('language'); ?>
+-						<?php echo $this->getForm()->renderField('featured'); ?>
++						<?php echo 'Hier ist Platz für die Inhalte deiner Erweiterung'; ?>
++					</div>
++				</div>
++			</div>
++			<div class="col-lg-3">
++				<div class="card">
++					<div class="card-body">
++						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
+ 					</div>
+ 				</div>
+ 			</div>
+@@ -65,6 +65,19 @@
 
-Hinzukommt eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
+ 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
-[src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/d23cc2ecdd8487d416f0370be5661a5689cde753/src/administrator/components/com_foos/tmpl/foo/edit.php)
++		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
++		<div class="row">
++			<div class="col-md-6">
++				<fieldset id="fieldset-publishingdata" class="options-form">
++					<legend><?php echo Text::_('JGLOBAL_FIELDSET_PUBLISHING'); ?></legend>
++					<div>
++					<?php echo LayoutHelper::render('joomla.edit.publishingdata', $this); ?>
++					</div>
++				</fieldset>
++			</div>
++		</div>
++		<?php echo HTMLHelper::_('uitab.endTab'); ?>
++
+ 		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
+ 	</div>
+ 	<input type="hidden" name="task" value="">
 
-```php
-...
-<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
-...
-...
-<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
-		<div class="row">
-			<div class="col-md-6">
-				<fieldset id="fieldset-publishingdata" class="options-form">
-					<legend><?php echo Text::_('JGLOBAL_FIELDSET_PUBLISHING'); ?></legend>
-					<div>
-					<?php echo LayoutHelper::render('joomla.edit.publishingdata', $this); ?>
-					</div>
-				</fieldset>
-			</div>
-		</div>
-		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-...
 ```
 
 ## Teste deine Joomla-Komponente

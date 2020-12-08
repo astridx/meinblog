@@ -1,6 +1,6 @@
 ---
 date: 2020-12-20
-title: 'Filtern, Sortieren, Suchen'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Filtern, Sortieren, Suchen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-filtern-sortieren-suchen
@@ -146,7 +146,7 @@ Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spal
 [src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```sql {numberLines: -2}
-<!-- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql -- >
+-- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 

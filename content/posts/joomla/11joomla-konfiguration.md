@@ -1,6 +1,6 @@
 ---
 date: 2020-12-11
-title: 'Konfiguration'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Konfiguration'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-konfiguration
@@ -19,60 +19,119 @@ Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wic
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t8...t9) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
+### Neue Dateien
+
+#### [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
+
+Wir ergänzen die Konfigurationsdatei.
+
+[src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml)
+
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset
+		name="foo"
+		label="COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY"
+		description="COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC"
+		>
+		<field
+			name="show_foo_name_label"
+			type="list"
+			label="COM_FOOS_FIELD_FOO_SHOW_CATEGORY_LABEL"
+			default="1"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+	</fieldset>
+</config>
+
+```
+
 ### Geänderte Dateien
 
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/foos.xml)
 
-```xml
-...
-			<filename>config.xml</filename>
-...
+```xml {diff}
+ 		</submenu>
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>foos.xml</filename>
++			<filename>config.xml</filename>
+ 			<folder>forms</folder>
+ 			<folder>language</folder>
+ 			<folder>services</folder>
+
 ```
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
-```php
-...
-  $toolbar->preferences('com_foos');
-...
+```php {diff}
+ 		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
+
+ 		$toolbar->addNew('foo.add');
++
++		$toolbar->preferences('com_foos');
+ 	}
+
+ }
+
 ```
 
 #### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist und für den gesamten Code zugänglich ist. Wir ergänzen hier für den Site-Bereich den neuen Parameter.
 
+`populateState()` wird automatisch aufgerufen, wenn wir `getState()` zum ersten Mal verwenden. Wenn wir etwas Besonderes in der Methode benötigen, überschreiben wir sie im eigenen Modell - so wie in unserem Beispiel.
+
 [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/src/Model/FooModel.php)
 
-```php
-...
-	protected function populateState()
-	{
-		$app = Factory::getApplication();
+```php {diff}
+ 		return $this->_item[$pk];
+ 	}
++
++	/**
++	 * Method to auto-populate the model state.
++	 *
++	 * Note. Calling getState in this method will result in recursion.
++	 *
++	 * @return  void
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	protected function populateState()
++	{
++		$app = Factory::getApplication();
++
++		$this->setState('foo.id', $app->input->getInt('id'));
++		$this->setState('params', $app->getParams());
++	}
+ }
 
-		$this->setState('foo.id', $app->input->getInt('id'));
-		$this->setState('params', $app->getParams());
-	}
-...
 ```
 
 #### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Wir ersetzten `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit dem nachfolgenden Text.
+Zum Schluss ersetzen `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit dem Text, der den Status prüft.
 
 [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php)
 
-```php
-...
-if ($this->get('State')->get('params')->get('show_foo_name_label'))
-{
-	echo Text::_('COM_FOOS_NAME');
-}
+```php {diff}
+ use Joomla\CMS\Language\Text;
 
-echo $this->item->name;
+-echo Text::_('COM_FOOS_NAME') . $this->item->name;
++if ($this->get('State')->get('params')->get('show_foo_name_label'))
++{
++	echo Text::_('COM_FOOS_NAME');
++}
++
++echo $this->item->name;
 
 ```
 

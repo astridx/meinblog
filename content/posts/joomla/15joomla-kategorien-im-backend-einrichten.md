@@ -1,6 +1,6 @@
 ---
 date: 2020-12-15
-title: 'Kategorien im Backend einrichten'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Kategorien im Backend einrichten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-kategorien-im-backend-einrichten

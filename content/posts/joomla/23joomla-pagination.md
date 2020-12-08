@@ -1,6 +1,6 @@
 ---
 date: 2020-12-23
-title: 'Pagination'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Pagination'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-pagination

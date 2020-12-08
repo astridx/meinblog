@@ -1,6 +1,6 @@
 ---
 date: 2020-11-30
-title: 'Vowort'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Vorwort'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-tutorial-vorwort

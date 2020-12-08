@@ -1,6 +1,6 @@
 ---
 date: 2020-12-18
-title: 'Custom Fields im Frontend'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Custom Fields im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-custom-fields-im-frontend-integrieren

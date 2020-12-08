@@ -1,6 +1,6 @@
 ---
 date: 2020-12-01
-title: 'Die erste Ansicht im Backend'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die erste Ansicht im Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-erste-ansicht-im-backend
@@ -136,12 +136,13 @@ Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine K
 			<folder>tmpl</folder>
 		</files>
 	</administration>
-	<changelogurl>https://...</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
 	<updateservers>
-		<server type="extension" name="Foo Updates">https://...</server>
+		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
 	</updateservers>
 	<dlid prefix="dlid=" suffix="" />
 </extension>
+
 ```
 
 #### [src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40) - Code während der Installation aufrufen
@@ -162,35 +163,108 @@ Erstelle die Datei `script.php` mit folgendem Inhalt:
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/script.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 \defined('_JEXEC') or die;
 use Joomla\CMS\Installer\InstallerAdapter;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
+
+/**
+ * Script file of Foo Component
+ *
+ * @since  1.0.0
+ */
 class Com_FoosInstallerScript
 {
+	/**
+	 * Minimum Joomla version to check
+	 *
+	 * @var    string
+	 * @since  1.0.0
+	 */
 	private $minimumJoomlaVersion = '4.0';
+
+	/**
+	 * Minimum PHP version to check
+	 *
+	 * @var    string
+	 * @since  1.0.0
+	 */
 	private $minimumPHPVersion = JOOMLA_MINIMUM_PHP;
+
+	/**
+	 * Method to install the extension
+	 *
+	 * @param   InstallerAdapter  $parent  The class calling this method
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since  1.0.0
+	 */
 	public function install($parent): bool
 	{
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
+
 		return true;
 	}
+
+	/**
+	 * Method to uninstall the extension
+	 *
+	 * @param   InstallerAdapter  $parent  The class calling this method
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since  1.0.0
+	 */
 	public function uninstall($parent): bool
 	{
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UNINSTALL');
+
 		return true;
 	}
+
+	/**
+	 * Method to update the extension
+	 *
+	 * @param   InstallerAdapter  $parent  The class calling this method
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since  1.0.0
+	 *
+	 */
 	public function update($parent): bool
 	{
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
+
 		return true;
 	}
+
+	/**
+	 * Function called before extension installation/update/removal procedure commences
+	 *
+	 * @param   string            $type    The type of change (install, update or discover_install, not uninstall)
+	 * @param   InstallerAdapter  $parent  The class calling this method
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since  1.0.0
+	 *
+	 * @throws Exception
+	 */
 	public function preflight($type, $parent): bool
 	{
 		if ($type !== 'uninstall')
 		{
-			if (!empty($this->minimumPHPVersion)
-			&& version_compare(PHP_VERSION, $this->minimumPHPVersion, '<'))
+			// Check for the minimum PHP version before continuing
+			if (!empty($this->minimumPHPVersion) && version_compare(PHP_VERSION, $this->minimumPHPVersion, '<'))
 			{
 				Log::add(
 					Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPHPVersion),
@@ -200,26 +274,44 @@ class Com_FoosInstallerScript
 
 				return false;
 			}
-			if (!empty($this->minimumJoomlaVersion)
-			&& version_compare(JVERSION, $this->minimumJoomlaVersion, '<'))
+
+			// Check for the minimum Joomla version before continuing
+			if (!empty($this->minimumJoomlaVersion) && version_compare(JVERSION, $this->minimumJoomlaVersion, '<'))
 			{
 				Log::add(
 					Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomlaVersion),
 					Log::WARNING,
 					'jerror'
 				);
+
 				return false;
 			}
 		}
+
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_PREFLIGHT');
+
 		return true;
 	}
+
+	/**
+	 * Function called after extension installation/update/removal procedure commences
+	 *
+	 * @param   string            $type    The type of change (install, update or discover_install, not uninstall)
+	 * @param   InstallerAdapter  $parent  The class calling this method
+	 *
+	 * @return  boolean  True on success
+	 *
+	 * @since  1.0.0
+	 *
+	 */
 	public function postflight($type, $parent)
 	{
 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT');
+
 		return true;
 	}
 }
+
 ```
 
 Die `install`-Funktion wird, wie der Name schon sagt, aufgerufen, wenn die Komponente installiert wird. Im Moment werden Text ausgegeben. Möglich ist es Beispieldaten zu installieren.
@@ -249,7 +341,16 @@ Weitere Informationen zu Implementierung findest du auf Github(https://github.co
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/services/provider.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
+
 use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
 use Joomla\CMS\Extension\ComponentInterface;
 use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
@@ -259,25 +360,44 @@ use Joomla\CMS\HTML\Registry;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
+
+/**
+ * The foos service provider.
+ * https://github.com/joomla/joomla-cms/pull/20217
+ *
+ * @since  1.0.0
+ */
 return new class implements ServiceProviderInterface
 {
+	/**
+	 * Registers the service provider with a DI container.
+	 *
+	 * @param   Container  $container  The DI container.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.0.0
+	 */
 	public function register(Container $container)
 	{
-		$container->registerServiceProvider(new CategoryFactory('\\Joomla\\Component\\Foos'));
-		$container->registerServiceProvider(new MVCFactory('\\Joomla\\Component\\Foos'));
-		$container->registerServiceProvider(new ComponentDispatcherFactory('\\Joomla\\Component\\Foos'));
+		$container->registerServiceProvider(new CategoryFactory('\\FooNamespace\\Component\\Foos'));
+		$container->registerServiceProvider(new MVCFactory('\\FooNamespace\\Component\\Foos'));
+		$container->registerServiceProvider(new ComponentDispatcherFactory('\\FooNamespace\\Component\\Foos'));
+
 		$container->set(
 			ComponentInterface::class,
 			function (Container $container)
 			{
-				$component
-				= new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
+				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
+
 				$component->setRegistry($container->get(Registry::class));
+
 				return $component;
 			}
 		);
 	}
 };
+
 ```
 
 #### [src/administrator/components/com_foos/src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19) Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
@@ -322,17 +442,53 @@ Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, we
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Controller/DisplayController.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Controller;
+
 \defined('_JEXEC') or die;
+
 use Joomla\CMS\MVC\Controller\BaseController;
+
+/**
+ * Foos master display controller.
+ *
+ * @since  1.0.0
+ */
 class DisplayController extends BaseController
 {
+	/**
+	 * The default view.
+	 *
+	 * @var    string
+	 * @since  1.0.0
+	 */
 	protected $default_view = 'foos';
+
+	/**
+	 * Method to display a view.
+	 *
+	 * @param   boolean  $cachable   If true, the view output will be cached
+	 * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link \JFilterInput::clean()}.
+	 *
+	 * @return  BaseController|bool  This object to support chaining.
+	 *
+	 * @since   1.0.0
+	 *
+	 * @throws  \Exception
+	 */
 	public function display($cachable = false, $urlparams = array())
 	{
 		return parent::display();
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
@@ -345,8 +501,18 @@ class DisplayController extends BaseController
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Extension;
+
 defined('JPATH_PLATFORM') or die;
+
 use Joomla\CMS\Categories\CategoryServiceInterface;
 use Joomla\CMS\Categories\CategoryServiceTrait;
 use Joomla\CMS\Extension\BootableExtensionInterface;
@@ -354,15 +520,36 @@ use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
 use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
 use Psr\Container\ContainerInterface;
+
+/**
+ * Component class for com_foos
+ *
+ * @since  1.0.0
+ */
 class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface
 {
 	use CategoryServiceTrait;
 	use HTMLRegistryAwareTrait;
+
+	/**
+	 * Booting the extension. This is the function to set up the environment of the extension like
+	 * registering new class loaders, etc.
+	 *
+	 * If required, some initial set up can be done from services of the container, eg.
+	 * registering HTML services.
+	 *
+	 * @param   ContainerInterface  $container  The container
+	 *
+	 * @return  void
+	 *
+	 * @since   1.0.0
+	 */
 	public function boot(ContainerInterface $container)
 	{
 		$this->getRegistry()->register('foosadministrator', new AdministratorService);
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e) - Funktionen / Dienste hinzufügen
@@ -375,11 +562,27 @@ Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Admi
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
+
 defined('JPATH_BASE') or die;
+
+/**
+ * Foo HTML class.
+ *
+ * @since  1.0.0
+ */
 class AdministratorService
 {
 }
+
 ```
 
 #### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250) - Die Ansicht - administrator/components/com_foos/View/Foos/HtmlView.php
@@ -398,16 +601,42 @@ In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleist
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\View\Foos;
+
 \defined('_JEXEC') or die;
+
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
+
+/**
+ * View class for a list of foos.
+ *
+ * @since  1.0.0
+ */
 class HtmlView extends BaseHtmlView
 {
+	/**
+	 * Method to display the view.
+	 *
+	 * @param   string  $tpl  A template file to load. [optional]
+	 *
+	 * @return  void
+	 *
+	 * @since   1.0.0
+	 */
 	public function display($tpl = null): void
 	{
 		parent::display($tpl);
 	}
 }
+
 ```
 
 #### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757) - Das layout/Template zum Rendern der Ansicht
@@ -420,9 +649,17 @@ In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausga
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/tmpl/foos/default.php
 
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 \defined('_JEXEC') or die;
 ?>
 Hello Foos
+
 ```
 
 #### [src/components/com_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15) ... damit das Installationspaket vollständig ist

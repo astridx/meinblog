@@ -1,6 +1,6 @@
 ---
 date: 2020-12-06
-title: 'Den Menüpunkt mit einer Variablen versehen'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Den Menüpunkt mit einer Variablen versehen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: den-menupunkt-mit-einer-variablen-versehen

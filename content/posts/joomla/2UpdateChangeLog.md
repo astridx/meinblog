@@ -1,6 +1,6 @@
 ---
 date: 2020-12-02
-title: 'Joomla Update und Change Log einrichten'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Joomla Update und Change Log einrichten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-update-und-change-logeinrichten
@@ -84,24 +84,24 @@ Nachfolgend siehst du die vollständige Datei.
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml
 
-+<updates>
-+    <update>
-+        <name>com_foos</name>
-+        <description>This is com_foo</description>
-+        <element>com_foos</element>
-+        <type>component</type>
-+        <version>1.0.1</version>
-+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-+		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
-+        <downloads>
-+            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
-+        </downloads>
-+        <maintainer>Foo Creator</maintainer>
-+        <maintainerurl>http://www.example.com</maintainerurl>
-+        <targetplatform name="joomla" version="4.*"/>
-+		<php_minimum>7.1</php_minimum>
-+    </update>
-+</updates>
+<updates>
+    <update>
+        <name>com_foos</name>
+        <description>This is com_foo</description>
+        <element>com_foos</element>
+        <type>component</type>
+        <version>1.0.1</version>
+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
+        </downloads>
+        <maintainer>Foo Creator</maintainer>
+        <maintainerurl>http://www.example.com</maintainerurl>
+        <targetplatform name="joomla" version="4.*"/>
+		<php_minimum>7.1</php_minimum>
+    </update>
+</updates>
 
 ```
 
@@ -116,42 +116,42 @@ Informationen zum Changelog findest du unter in Github [Github](https://github.c
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml
 
-+<changelogs>
-+	<changelog>
-+		<element>com_foos</element>
-+		<type>component</type>
-+		<version>1.0.0</version>
-+		<note>
-+			<item>Initial Version</item>
-+		</note>
-+	</changelog>
-+	<changelog>
-+		<element>com_foos</element>
-+		<type>component</type>
-+		<version>1.0.1</version>
-+		<security>
-+			<item><![CDATA[<p>No security issues.</p>]]></item>
-+		</security>
-+		<fix>
-+			<item>No fix</item>
-+		</fix>
-+		<language>
-+			<item>English</item>
-+		</language>
-+		<addition>
-+			<item>Change log and Update Server added.</item>
-+		</addition>
-+		<change>
-+			<item>No change</item>
-+		</change>
-+		<remove>
-+			<item>No remove</item>
-+		</remove>
-+		<note>
-+			<item>Change log and Update Server added.</item>
-+		</note>
-+	</changelog>
-+</changelogs>
+<changelogs>
+	<changelog>
+		<element>com_foos</element>
+		<type>component</type>
+		<version>1.0.0</version>
+		<note>
+			<item>Initial Version</item>
+		</note>
+	</changelog>
+	<changelog>
+		<element>com_foos</element>
+		<type>component</type>
+		<version>1.0.1</version>
+		<security>
+			<item><![CDATA[<p>No security issues.</p>]]></item>
+		</security>
+		<fix>
+			<item>No fix</item>
+		</fix>
+		<language>
+			<item>English</item>
+		</language>
+		<addition>
+			<item>Change log and Update Server added.</item>
+		</addition>
+		<change>
+			<item>No change</item>
+		</change>
+		<remove>
+			<item>No remove</item>
+		</remove>
+		<note>
+			<item>Change log and Update Server added.</item>
+		</note>
+	</changelog>
+</changelogs>
 
 ```
 
