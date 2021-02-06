@@ -2,7 +2,7 @@
 date: 2020-08-07
 title: 'Eine eigene Joomla-Erweiterung mit DPDocker'
 template: post
-thumbnail: '../../thumbnails/ubuntu.png'
+thumbnail: '../../thumbnails/dp_logo.png'
 slug: joomla-erweiterung-mit-dpdocker
 categories:
   - Betriebssystem

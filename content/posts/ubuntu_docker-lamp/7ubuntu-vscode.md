@@ -1,8 +1,8 @@
 ---
-date: 2021-02-08
+date: 2021-02-10
 title: 'Ubuntu 20.02, Docker, DPDocker und Joomla  Vorwort'
 template: post
-thumbnail: '../../thumbnails/dp_logo.png'
+thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-vscode-docker-lamp
 categories:
   - Betriebssystem

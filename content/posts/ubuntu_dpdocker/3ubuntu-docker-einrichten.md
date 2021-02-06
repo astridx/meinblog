@@ -2,7 +2,7 @@
 date: 2020-08-04
 title: 'Docker unter Ubuntu 20.04 einrichten'
 template: post
-thumbnail: '../../thumbnails/ubuntu.png'
+thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-docker-einrichten
 categories:
   - Betriebssystem

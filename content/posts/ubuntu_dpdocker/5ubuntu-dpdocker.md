@@ -2,7 +2,7 @@
 date: 2020-08-06
 title: 'DPDocker einrichten'
 template: post
-thumbnail: '../../thumbnails/ubuntu.png'
+thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-dpdocker
 categories:
   - Betriebssystem

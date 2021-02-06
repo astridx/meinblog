@@ -1,6 +1,6 @@
 ---
-date: 2020-08-01
-title: 'Einrichten eines Ubuntu 20.04 Desktop für die Entwicklung mit Docker, docker-lamp für Joomla'
+date: 2021-02-01
+title: 'Einrichten eines Ubuntu 20.04 Desktop mit Docker und docker-lamp für die Entwicklung mit Joomla'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: mein-ubuntu-rechner-mit-docker-lamp-themen

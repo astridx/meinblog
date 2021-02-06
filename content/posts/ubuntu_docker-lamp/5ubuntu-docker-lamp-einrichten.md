@@ -68,6 +68,8 @@ docker rm $(docker ps -a -q)
 
 ## Installieren von docker-lamp
 
+### Eine frische Umgebung
+
 Ich verfüge über eine frische Dockerinstallation. Auf meinem Rechner ist kein Image und somit kein Container. Die folgenden Befehle zeigen beide eine leere Tabelle:
 
 ```bash
@@ -75,11 +77,7 @@ docker images -a
 docker ps -a
 ```
 
-`docker-lamp` verwendet das Hilfsprogramm `make`, welches mithilfe des nachfolgenden Befehls installiert wird.
-
-```
-sudo apt install make
-```
+### docker-lamp Repository von Github klonen
 
 Nun klone ich das `docker-lamp` Github Repository in ein Verzeichnis nach Wahl.
 
@@ -92,6 +90,8 @@ Als nächstes wechsele ich in den Ordner `docker-lamp`.
 ```bash
 cd docker-lamp
 ```
+
+### Umgebungsvariablen
 
 In `docker-lamp` kopiere ich als erstes die versteckte Datei `.env-example` nach `.env`.
 
@@ -115,9 +115,29 @@ Das Ende der Datei sieht dann beispielsweise so aus, wie im folgenden Block.
 REMOTE_HOST_IP=192.168.209.138
 ```
 
+Ich nutze /srv/www als Stammverzeichnis für den Webserver und ändere deshalb die Variable WWW_BASEDIR wie folgt ab.
+
+```
+...
+...
+# Set Your projekt folder for websites
+#
+WWW_BASEDIR=/srv/www
+...
+...
+```
+
 > Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden und diese sind versteckt.
 
-Im `docker-lamp`-Verzeichnis führe ich desweiteren den Befehl `make` aus, der alle möglichen Kommandos anzeigt.
+### Die make Commandos
+
+`docker-lamp` verwendet das Hilfsprogramm `make`, welches mithilfe des nachfolgenden Befehls installiert wird.
+
+```
+sudo apt install make
+```
+
+Im `docker-lamp`-Verzeichnis führe ich nach erfolgreicher Installation von `make` den Befehl `make` aus, der alle möglichen Kommandos anzeigt.
 
 ```bash
 make
@@ -184,6 +204,166 @@ c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 
 
 Wenn du nicht sofort mit dem nächsten Teil weiter machst, stoppe den Server über `make server-down`.
 
+### Eigene Projekte in den Container mappen
+
+Um des Verzeichnis mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei `docker-compose.yml` zu überschreiben. Dazu erstellen wir eine Kopie unter dem Namen `docker-compose-override.yml`. Im Verzeichnis `docker-lamp` geben wir folgenden Befehl ein.
+
+```
+cp docker-compose.yml docker-compose-override.yml
+```
+
+> Wir nutzen die Datei `docker-compose-override.yml` und ändern nicht direkt die Datei `docker-compose-override.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
+
+Nun öffnen wir die Datei `docker-compose-override.yml` zum editieren.
+
+```
+nano docker-compose.yml docker-compose-override.yml
+```
+
+Angenommen Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in jedem Containern der das Stammverzeichnis eines Webservers enthält, ebenfalls als `/home/deinBenutzer/git/joomla-development` gemappt werden.
+
+Suchen wir als erstes nach dem folgenden Eintrag:
+
+```
+      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
+```
+
+Jedesmal, wenn wir den obigen Eintrag finden, fügen wir die nachfolgende Zeile hinter diesem ein.
+
+```
+      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
+```
+
+Für den httpd Container würde der Eintrag beispielsweise wie folgt aussehen.
+
+```
+...
+  httpd:
+    image: degobbis/apache24-alpine:latest
+    container_name: ${COMPOSE_PROJECT_NAME}_httpd
+    hostname: httpd
+    links:
+      - bind
+      - php56
+      - php73
+      - php74
+      - php80
+      - mailhog
+    volumes:
+      - ./data/ca:/usr/local/apache2/ca:rw
+      - ./.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
+      - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
+      - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw
+      - ./data/phpinfo:/srv/phpinfo:rw
+      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
+      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
+      - pma:/srv/pma
+      - phpsocket:/run/php
+    ports:
+      - "80:${MAP_POT_80:-8074}"
+      - "8000:8000"
+      - "8056:8056"
+      - "8073:8073"
+      - "8074:8074"
+      - "8080:8080"
+      - "443:${MAP_POT_443:-8474}"
+      - "8400:8400"
+      - "8456:8456"
+      - "8473:8473"
+      - "8474:8474"
+      - "8480:8480"
+    environment:
+      TZ: ${MY_TZ:-UTC}
+      LC_ALL: ${MY_LOCALES:-en_GB.UTF-8}
+      APP_USER_ID: ${APP_USER_ID:-1000}
+      APP_GROUP_ID: ${APP_GROUP_ID:-1000}
+    dns:
+      - 172.16.238.100
+    networks:
+      net:
+        ipv4_address: 172.16.238.10
+...
+```
+
+Insgesamt wird der Eintrag 5 Mal eingefügt. Die Container
+`httpd`, `php56`, `phpo73`, `php74` und `php80` sind betroffen.
+
+Jetzt den Server neu starten, damit die Änderungen übernommen werden.
+
+```
+make server-up
+```
+
+### Zertifikat
+
+#### Minica
+
+Wir benötigen ein selbsterstelltes Zertifikat auf unserem lokalen Webserver, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica). Dieses Tool erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.
+
+##### Angabe im `Makefile`
+
+Standardmäßig werden die im Makefile in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegten Domains zertifiziert.
+
+```
+...
+MINICA_DEFAULT_DOMAINS:=localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test
+...
+```
+
+##### Angaben in der Datei `.env`
+
+Um zusätzliche Domains zu zertifizieren, git es die Variablen `.env` und `SSL_LOCALDOMAINS` in der `.env`.
+
+```
+...
+SSL_DOMAINS=
+SSL_LOCALDOMAINS=
+...
+```
+
+##### Zusätzliche Domain hinzufügen
+
+todo
+Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu.
+
+```
+docker-compose down
+nano .env
+```
+
+Hier dann folgende Einträge erweitert:
+
+```
+...
+TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1,xxx.local=127.0.0.1
+...
+SSL_LOCALDOMAINS=xxx.local,*.xxx.local
+```
+
+Dann den Ordner `/data/ca/localdomains` löschen.
+Einen entsprechenden Ordner in `/data/www/xxx` erstellen.
+
+```
+make server-up
+```
+
+#### Ansicht im Browser vor dem Importieren des Zertifikates
+
+Öffne als nächstes einen Webbrowser und öffne die URL `https://joomla.test/` oder `https://joomla.local/`. Du siehst einen Zertifikatsfehler. Den Fehler beheben wir als nächstes.
+
+![Zertifikatsfehler](/images/dockerlamp_zert.png)
+
+> Hinter `https://joomla.test/` oder `https://joomla.local/` befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
+
+#### Zertifikat importieren
+
+In Mozilla Firefox importierst du das Zertifikat wie folgt. Öffne die
+Einstellungen (Preferences). Klicke dann in der linken Seiteleiste auf Datenschutz & Sicherheit (Privacy and Security). Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates). Im Tabulator Zertifizierungsstellen (Authorities) importierst du die Datei `/docker-lamp/data/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
+
+![Zertifikat importieren](/images/dockerlamp_zertbrowser.png)
+
+> Das Zertifikat ist für die `https://joomla.test/` oder `https://joomla.local/` erstellt. Unter `https://joomla.test/` oder `https://joomla.local/` gibt es weiterhin den Fehler.
+
 ## Mögliche Fehler
 
 Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von `make server-up` zu einem Fehler
@@ -213,20 +393,20 @@ In diesem Verzeichnis alle Rechte prüfen. Alle Inhalte sollten dem aktuellen Be
 ```bash
 /docker-lamp/data$ ll
 insgesamt 28
-drwxrwxr-x 7 astrid astrid 4096 Feb  4 17:33 ./
-drwxrwxr-x 5 astrid astrid 4096 Feb  4 20:41 ../
-drwxrwxr-x 2 astrid astrid 4096 Feb  4 17:33 apache24/
+drwxrwxr-x 7 deinBenutzer deinBenutzer 4096 Feb  4 17:33 ./
+drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 20:41 ../
+drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:33 apache24/
 drwxr-xr-x 3 root   root   4096 Feb  4 17:33 ca/
--rw-rw-r-- 1 astrid astrid    0 Feb  4 17:16 .gitkeep
-drwxrwxr-x 2 astrid astrid 4096 Feb  4 17:16 initDB/
-drwxrwxr-x 2 astrid astrid 4096 Feb  4 17:16 phpinfo/
-drwxrwxr-x 5 astrid astrid 4096 Feb  4 17:16 www/
+-rw-rw-r-- 1 deinBenutzer deinBenutzer    0 Feb  4 17:16 .gitkeep
+drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:16 initDB/
+drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:16 phpinfo/
+drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 17:16 www/
 ```
 
-Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal astrid, zuweisen.
+Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal deinBenutzer, zuweisen.
 
 ```bash
-sudo chown -R astrid:astrid .
+sudo chown -R deinBenutzer:deinBenutzer .
 ```
 
 Am Ende wieder zurück in das `docker-lamp`-Verzeichnis wechseln und den Befehl `make server-up` wiederholen.
