@@ -38,6 +38,18 @@ export default function PostTemplate({ data, pageContext }) {
     }
   }, []) // eslint-disable-line
 
+  function getGitMarkdownUrl() {
+    const pathConst = '/content/posts/'
+    const gitURL = 'https://github.com/astridx/meinblog'
+    const sliceIndex =
+      post.fileAbsolutePath.indexOf(pathConst) + pathConst.length
+    const markdownFileGitPath = post.fileAbsolutePath.slice(sliceIndex)
+    const blogPostOnGit = `${gitURL}/blob/master/content/posts/${markdownFileGitPath}`
+    return blogPostOnGit
+  }
+
+  const gitMarkdownUrl = getGitMarkdownUrl()
+
   return (
     <Layout>
       <SidebarUeberTitel post={post} />
@@ -45,12 +57,18 @@ export default function PostTemplate({ data, pageContext }) {
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
       <header className="article-header medium">
         <h1>{post.frontmatter.title}</h1>
+        <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
+          Ändere diesen Beitrag
+        </a>
       </header>
       <SidebarOben post={post} />
       <section className="post">
         <article>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
+        <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
+          Ändere diesen Beitrag
+        </a>
       </section>
       <div id="utterances">
         <h2>Comments</h2>
@@ -67,6 +85,7 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      fileAbsolutePath
       excerpt
       fields {
         slug

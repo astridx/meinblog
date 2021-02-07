@@ -22,4 +22,5 @@ Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation.
 4. [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp)
 5. [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten)
 6. [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden)
-7. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
+7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
+8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)

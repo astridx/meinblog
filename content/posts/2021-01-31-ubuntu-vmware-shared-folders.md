@@ -9,7 +9,7 @@ categories:
 tags:
   - Linux
   - VMWare
-  - Tipp
+  - Dockerproblem
 ---
 
 Ich verwende VMWare Workstation unter Windows 10 Pro , um eine VM für Ubuntu 20.04 zu testen. Um auf den freigegebenen Ordner in Ubuntu zuzugreifen waren folgende Eintstellungen erforderlich.

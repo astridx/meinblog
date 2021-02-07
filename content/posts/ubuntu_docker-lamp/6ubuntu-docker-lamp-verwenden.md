@@ -15,7 +15,7 @@ tags:
 
 Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
 
-Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung auf einem Webserver unterstützen. Im letzten Teil haben wir die Umgebung eingerichtet. Nun füge ich eines meiner Projekte hinzu.
+Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung auf einem Webserver unterstützen. Im letzten Teil haben wir die Umgebung eingerichtet. Nun installiere ich Joomla in unterschiedlichen Versionen. Im nächsten Teil füge ich eines meiner Projekte hinzu.
 
 ## Voraussetzungen
 
@@ -33,7 +33,7 @@ Im Webbrowser sollte nun URL `https://joomla.test/` oder `https://joomla.local/`
 
 #### Den Standard verwenden
 
-Wer das Verzeichnis `/www`, welches unter `/docker-lamp/data/www` vorhanden ist, als Stammverzeichnis des Webservers nutzt, kann diesen Abschnitt überspringen und dafür im weiteren meine Beschreibung anpassen. Diese beziehen sich auf `/srv/www`. 
+Wer das Verzeichnis `/www`, welches unter `/docker-lamp/data/www` vorhanden ist, als Stammverzeichnis des Webservers nutzt, kann diesen Abschnitt überspringen und dafür im weiteren meine Beschreibung anpassen. Diese beziehen sich auf `/srv/www`.
 
 #### Stammverzeichnis des Webservers unter /srv/www einrichten
 
@@ -51,9 +51,9 @@ WWW_BASEDIR=/srv/www
 ...
 ```
 
-> Eine einfachere Alternative ist es, das Verzeichnis `/www` welches unter `/docker-lamp/data/www` zu finden ist, nach `/srv` zu kopieren. Dann verfügt man über die von docker-lamp als Standard vorgesehen Verzeichnisse und kann diesen Abschnitt überspringen. 
+> Eine einfachere Alternative ist es, das Verzeichnis `/www` welches unter `/docker-lamp/data/www` zu finden ist, nach `/srv` zu kopieren. Dann verfügt man über die von docker-lamp als Standard vorgesehen Verzeichnisse und kann diesen Abschnitt überspringen.
 
-Als erstes lege ich das Verzeichnis `/srv/www/joomla` an. `/srv/www` soll mein Webserver Stammverzeichnis sein. In den Unterordner `joomla` kommen zur besseren Übersicht alle Joomla Projekte. Logisch, richtig? 
+Als erstes lege ich das Verzeichnis `/srv/www/joomla` an. `/srv/www` soll mein Webserver Stammverzeichnis sein. In den Unterordner `joomla` kommen zur besseren Übersicht alle Joomla Projekte. Logisch, richtig?
 
 In den meisten Server Setups ist es sinnvoller, dass derjenige, der die Dateien ändert, entweder Eigentümer der Dateien ist oder zu einer Gruppe gehört, die Schreibrechte für die Dateien hat. So vermeidet man Konflikte mit Benutzerrechten, manchmal auch [`www-run`-Problem](https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem) genannt. Die nachfolgende Befehlsreihe stellt sicher, dass Ordner und Dateien die richtigen Rechte besitzen.
 
@@ -74,6 +74,7 @@ In der Root sollte das Verzeichnis srv dem Benutzer root gehören.
 drwxr-xr-x   4 root root       4096 Feb  3 17:42 srv/
 ...
 ```
+
 Das Verzeichnis /srv
 
 ```
@@ -100,11 +101,11 @@ drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  6 19:50 joomla/
 
 Jenachdem, ob du mit der Entwicklerversion von Joomla arbeitest oder einer stable Variante nutzt, unterscheidet sich die Installation.
 
-##### Entwicklerversion 
+##### Entwicklerversion
 
 ###### Joomla 4
 
-Die Developement Versionen klonen wir von Github in den Unterordner `joomla` des Webserver-Stammverzeichnises, also in `/srv/www/joomla`.
+Die Developement Versionen klonen wir von Github in den Unterordner `joomla` des Webserver-Stammverzeichnises, genau in `/srv/www/joomla`.
 
 Ich wechsele in `/srv/www/joomla` und setze den folgenden Aufruf ab.
 
@@ -115,7 +116,7 @@ git clone --depth 1 https://github.com/joomla/joomla-cms.git -b 4.0-dev
 
 ```
 
-Als Ergebnis sehe ich 
+Als Ergebnis sehe ich
 
 ```
 /srv/www/joomla$ ll
@@ -131,8 +132,7 @@ Damit ich auf den ersten Blick erkenne, um welches Joomla es sich handelt, gebe 
 mv joomla-cms/ j4dev
 ```
 
-Ich schaue ich mir das Ergebnis im Browser an. `j4dev/joomla/local` oder `j4dev/joomla/test` sind die passenden URLs für das Verzeichnis.
-
+Ich schaue mir das Ergebnis im Browser an. `j4dev/joomla/local` oder `j4dev/joomla/test` sind die passenden URLs für das Verzeichnis.
 
 ![Joomla 4 Oberfläche vor dem Einrichten der Entwicklungsumgebung](/images/j4dev1.png)
 
@@ -157,55 +157,19 @@ Der nachfolgende Befehl führt composer install im Verzeichnis /srv/www/joomla/j
 
 ```
 docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install
-
 ```
 
-Der nachfolgende Befehl führt npm ci im Verzeichnis /srv/www/joomla/j4dev des docker-lamp_php80 Containers als Benutzer root aus. Wir möchten npm aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters --rm. Warum nutzen wir keinen Benutzer? Ganz einfach: In Docker sind alle Ordner Eigentum von root. 
-
-sudo apt install net-tools
-
-
-
-
-
-docker run --rm -it -v /srv/www/joomla/j4dev:/app -w /app node:latest npm ci  --unsafe-perm
-
-
-
-https://stackoverflow.com/questions/24308760/running-app-inside-docker-as-non-root-user
-
-
-
-docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci
-
-
+Der nachfolgende Befehl führt `npm ci` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80` Containers als Benutzer 1000 aus. Wir möchten `npm` aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters `--rm`.
 
 ```
 docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci
 ```
+
+Ich überprüfe die Ausgabe im Browser. `j4dev/joomla/local` oder `j4dev/joomla/test` sind die passenden URLs für das Verzeichnis.
 
 ![Joomla 4 Oberfläche nach dem Einrichten der Entwicklungsumgebung](/images/j4dev2.png)
 
-
-
-
-```
-docker exec -ti docker-lamp_php80 sh
-
-server-down 
-reboot
-docker ps
-docker volume ls
-```
-
-```
-
-
-
-
-
-
-
+Soweit so gut! Joomla ist nun bereit für die Installation.
 
 ###### Joomla 3
 
@@ -216,37 +180,34 @@ cd /srv/www/joomla
 
 git clone --depth 1 https://github.com/joomla/joomla-cms.git -b staging
 
-
 mv joomla-cms/ j3dev
 ```
+
 Ich seje mir das Ergebnis im Browser an `j3dev/joomla/local` oder `j3dev/joomla/test` sind die passenden URLs für das Verzeichnis.
 
 ![Joomla 3 Oberfläche](/images/j3dev1.png)
+
+Soweit so gut! Joomla ist nun bereit für die Installation.
 
 ##### Stable Versionen
 
 Für eine stable Version downloaden wir ein Zipfile und entpacken dieses im www-Verzeichnis.
 
-Im Falle einer stabilen Version besorge ich mir das ZIP File von [Github](https://github.com/joomla/joomla-cms/releases) und entpacke es im Ordner `/srv/www/joomla`. 
+Im Falle einer stabilen Version besorge ich mir das ZIP File von [Github](https://github.com/joomla/joomla-cms/releases) und entpacke es im Ordner `/srv/www/joomla`.
 
 ```
 mv joomla-cms/ j3
 ```
 
-#### Eigene Projekte einbinden
+#### Nach der Installation von Joomla einen Überblick verschafften
 
-##### Projekte symlinken
+Ich habe Joomla im Container `docker-lamp_php80` installiert. Eine Befehlszeile dieses Containers erreiche ich über `docker exec -ti docker-lamp_php80 sh`. Aus dem Container komme ich mit `exit` wieder heraus. Die Namen der Container erfahre ich mittels `docker ps`.
 
-##### JRobo
+Alle PHP Versionen
 
-## Ein Projekt in docker-lamp integrieren
+Konfiguration
 
-### phpMyAdmin und MailHog 
-
-
-
-
-
+### phpMyAdmin und MailHog
 
 #### phpMyAdmin
 
