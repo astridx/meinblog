@@ -23,13 +23,47 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 ### Neue Dateien
 
-#### Module
+#### Template
 
-##### []()
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. 
 
-```php
+##### [src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php)
 
+[src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php)
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php
 ```
+
+##### [src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-754d06b92d8b132af8eb955c0e6d9cd66a493f7b0055c4820f5b3f474a02da83)
+
+[src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini)
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
+```
+
+##### [src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-f430f52316f61d2dd90ac59a813bcd36cf84549945e7eb5055302d54858a169f)
+
+[src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini)
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
+```
+
+##### [src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
+
+[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/templateDetails.xml)
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/templateDetails.xml
+```
+
+##### src/templates/facile/template_preview.png and src/templates/facile/template_thumbnail.png
+
+### Geänderte Dateien
+
+In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 
 ## Teste dein Joomla-Template
 

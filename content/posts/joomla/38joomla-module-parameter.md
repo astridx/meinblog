@@ -21,17 +21,10 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
-### Neue Dateien
+### Geänderte Dateien
 
 #### Module
 
-##### []()
-
-> Parameter aus einer Komponente nutzen.
-
-```php
-
-```
 
 ## Teste dein Joomla-Module
 
@@ -42,6 +35,27 @@ Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4
 Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
 
 ## Geänderte Dateien
+
+#### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+
+[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+
+```php {diff}
+```
+
+#### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+
+[src/modules/mod_foo/mod_foo.php]()
+
+```php {diff}
+```
+
+#### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
+
+[src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
+
+```php {diff}
+```
 
 ### Übersicht
 

@@ -19,7 +19,7 @@ Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container
 
 ## Voraussetzungen
 
-Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Um die Skripte automatisch auszuführen, solltest du unter Linux arbeiten. Wenn du diesem [Set](mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
+Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
 
 ## docker-lamp verwenden
 
@@ -136,7 +136,7 @@ Ich schaue mir das Ergebnis im Browser an. `j4dev/joomla/local` oder `j4dev/joom
 
 ![Joomla 4 Oberfläche vor dem Einrichten der Entwicklungsumgebung](/images/j4dev1.png)
 
-Soweit so gut. Die [Entwicklungsumgebung](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de) ist als nächstes einzurichten.
+Soweit so gut! Die [Entwicklungsumgebung](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de) ist als nächstes einzurichten.
 
 > Warum nutze ich in den nachfolgenden Befehlen die 1000 als user? In Ubuntu ist `1000` die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, hat man somit die ID 1000. Überprüfen kann man dies mit dem Befehl `id -u`.
 
@@ -158,6 +158,8 @@ Der nachfolgende Befehl führt composer install im Verzeichnis /srv/www/joomla/j
 ```
 docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install
 ```
+> Composer ist unter PHP 7.3, 7.4 und 8.0 verwendbar.
+
 
 Der nachfolgende Befehl führt `npm ci` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80` Containers als Benutzer 1000 aus. Wir möchten `npm` aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters `--rm`.
 
@@ -169,7 +171,13 @@ Ich überprüfe die Ausgabe im Browser. `j4dev/joomla/local` oder `j4dev/joomla/
 
 ![Joomla 4 Oberfläche nach dem Einrichten der Entwicklungsumgebung](/images/j4dev2.png)
 
-Soweit so gut! Joomla ist nun bereit für die Installation.
+Voila! Joomla ist bereit für die Installation.
+
+####### Besonderheiten bei der Installation von Joomla
+
+![Datenbankkonfiguration bei der Installation](/images/installmysql.png)
+
+![](/images/installdelfile.png)
 
 ###### Joomla 3
 
@@ -187,7 +195,7 @@ Ich seje mir das Ergebnis im Browser an `j3dev/joomla/local` oder `j3dev/joomla/
 
 ![Joomla 3 Oberfläche](/images/j3dev1.png)
 
-Soweit so gut! Joomla ist nun bereit für die Installation.
+Die Installationroutine von Joomla öffnet sich.
 
 ##### Stable Versionen
 
@@ -199,13 +207,146 @@ Im Falle einer stabilen Version besorge ich mir das ZIP File von [Github](https:
 mv joomla-cms/ j3
 ```
 
-#### Nach der Installation von Joomla einen Überblick verschafften
+Für die Installation ist alles bereit.
 
-Ich habe Joomla im Container `docker-lamp_php80` installiert. Eine Befehlszeile dieses Containers erreiche ich über `docker exec -ti docker-lamp_php80 sh`. Aus dem Container komme ich mit `exit` wieder heraus. Die Namen der Container erfahre ich mittels `docker ps`.
+#### Was bietet docker-lamp
 
-Alle PHP Versionen
+Ich habe Joomla im Container `docker-lamp_php80` installiert. Zur Verfügung steht es mir in allen unterstützten PHP Versionen.
 
-Konfiguration
+Eine Befehlszeile des Containers `docker-lamp_php80` öffne ich über `docker exec -ti docker-lamp_php80 sh`. Aus dem Container komme ich mit `exit` wieder heraus. 
+
+Die Namen der Container erfahre ich mittels `docker ps`. 
+
+##### Unterstützte PHP Versionen
+
+Die [Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/php) zeigt, welche PHP-Versionen unterstützt werden.
+
+Konkrte ist das
+- PHP 5.6.40 (https://joomla.local:8456/phpinfo/)
+- PHP 7.3.26 (https://joomla.local:8473/phpinfo/)
+- PHP 7.4.14 (https://joomla.local:8474/phpinfo/)
+- PHP 8.0.1 (https://joomla.local:8480/phpinfo/)
+
+###### PHPInfo()
+
+Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo) als Unterverzeichnis phpinfo jeder Joomla-Installation. So reicht die Eingabe von `https://joomla.local/phpinfo/` um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das 8074 standardmäßig mit 443 gemappt ist, in der docker-compose.yml, beziehungsweise der eigenen docker-compose-override.yml.
+
+```
+...
+  httpd:
+    image: degobbis/apache24-alpine:latest
+    container_name: ${COMPOSE_PROJECT_NAME}_httpd
+    hostname: httpd
+    links:
+      - bind
+      - php56
+      - php73
+      - php74
+      - php80
+      - mailhog
+    volumes:
+      - ./data/ca:/usr/local/apache2/ca:rw
+      - ./.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
+      - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
+      - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw
+      - ./data/phpinfo:/srv/phpinfo:rw
+      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
+      - /home/astrid/git/joomla-development:/home/astrid/git/joomla-development:rw      
+      - pma:/srv/pma
+      - phpsocket:/run/php
+    ports:
+      - "80:${MAP_POT_80:-8074}"
+      - "8000:8000"
+      - "8056:8056"
+      - "8073:8073"
+      - "8074:8074"
+      - "8080:8080"
+      - "443:${MAP_POT_443:-8474}"
+      - "8400:8400"
+      - "8456:8456"
+      - "8473:8473"
+      - "8474:8474"
+      - "8480:8480"
+    environment:
+      TZ: ${MY_TZ:-UTC}
+      LC_ALL: ${MY_LOCALES:-en_GB.UTF-8}
+      APP_USER_ID: ${APP_USER_ID:-1000}
+      APP_GROUP_ID: ${APP_GROUP_ID:-1000}
+    dns:
+      - 172.16.238.100
+    networks:
+      net:
+        ipv4_address: 172.16.238.10
+...
+```
+
+
+Eine spezielle PHP Version adressiert man über den Port. Beispielsweise https://joomla.local:8480/phpinfo/ für PHP 8.0.1 oder https://joomla.local:8456/phpinfo/ wenn man PHP 5.6.40 überprüfen möchte.
+
+![phpinfo() in PHP 5.6.40](/images/phpinfo56.png)
+
+![phpinfo() in PHP 8.0.1](/iphpinfo80.png)
+
+##### xdebug
+
+##### Versionen
+
+PHP 5.6.40 verwendet
+- xdebug 2.5.5 
+
+PHP 7.3.26 und PHP 7.4.14 verwenden
+- xdebug 2.9.8 
+
+PHP 8.0.1 verwendet
+- xdebug 3.1.0-dev 
+
+##### Parameter
+
+Die in xdebug eingestellten Parameter findet man in der (PHP Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/php).
+
+Für [xdebug 2](https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-2.x.ini) ist dies
+
+```
+[XDEBUG]
+;
+; options for xDebug 2.x
+;
+xdebug.default_enable = true
+xdebug.remote_enable = true
+xdebug.remote_port = 10000
+xdebug.remote_connect_back = false
+xdebug.max_nesting_level = 700
+;xdebug.remote_log = /srv/www/xdebug.log
+
+; xdebug.remote_host is set automaticaly by entrypoint.
+; If it not works, it can be overridden here with the
+; host network IP like this
+;xdebug.remote_host=192.168.0.100
+```
+
+Für [xdebug 3](https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-3.x.ini) ist dies
+
+
+```
+[XDEBUG]
+;
+; options for xDebug 2.x
+;
+xdebug.default_enable = true
+xdebug.remote_enable = true
+xdebug.remote_port = 10000
+xdebug.remote_connect_back = false
+xdebug.max_nesting_level = 700
+;xdebug.remote_log = /srv/www/xdebug.log
+
+; xdebug.remote_host is set automaticaly by entrypoint.
+; If it not works, it can be overridden here with the
+; host network IP like this
+;xdebug.remote_host=192.168.0.100
+```
+> Man beachte `xdebug.remote_port = 10000` beziehungsweise `xdebug.remote_port = 10000`, die in der Konfiguration seiner IDE benötigt.
+
+##### Joomla Konfiguration in docker-lamp
 
 ### phpMyAdmin und MailHog
 
@@ -275,6 +416,8 @@ Bei der späteren Installation von Joomla wird ein Datenbankserver abgefragt. Ve
 ...
 ```
 
+![Datenbankkonfiguration bei der Installation](/images/installmysql.png)
+
 #### MailHog
 
 [MailHog](https://github.com/mailhog/MailHog) ist ein E-Mail-Testwerkzeug für Entwickler.todo
@@ -302,4 +445,3 @@ Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in d
 ...
 ```
 
-## Mögliche Fehler

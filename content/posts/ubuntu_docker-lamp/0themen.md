@@ -24,3 +24,4 @@ Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation.
 6. [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden)
 7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
+9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)

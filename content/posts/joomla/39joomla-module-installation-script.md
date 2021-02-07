@@ -41,7 +41,31 @@ Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4
 
 Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
 
+## Neue Dateien
+
+#### [src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+
+[src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php)
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php
+```
+
 ## Geänderte Dateien
+
+#### [ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+
+[ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+
+```php {diff}
+```
+
+#### [ src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+
+[ src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
+
+```php {diff}
+```
 
 ### Übersicht
 
