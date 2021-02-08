@@ -3,8 +3,8 @@
 /static/90020e3cb43b0bdf6641a85cf3dd7fea/e94d6/ubuntu.png 1.5x" src="/static/90020e3cb43b0bdf6641a85cf3dd7fea/829e2/ubuntu.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>docker-lamp einrichten</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/ubuntu_docker-lamp/5ubuntu-docker-lamp-einrichten.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>06.02.2021</time><div class="cell tags"><a class="tag-Linux" href="/tags/linux">Linux</a><a class="tag-Ubuntu" href="/tags/ubuntu">Ubuntu</a><a class="tag-docker-lamp" href="/tags/docker-lamp">docker-lamp</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Zur Erinnerung: <em>Docker</em> erleichtert die Verwaltung von Software in Containern. <em>Docker Compose</em> ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.</p>
 <p>Hier geht es um <em>docker-lamp</em>. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung auf einem Webserver unterstützen. In diesem Teil richte ich die Umgebung ein.</p>
 <h2>Voraussetzungen</h2>
-<p>Neben <a href="/ubuntu-docker-einrichten-docker-lamp">Docker</a> ist <a href="/ubuntu-docker-compose-einrichten-docker-lamp">Docker Compose</a> notwendig. Wenn du diesem <a href="mein-ubuntu-rechner-mit-docker-lamp-themen/">Set</a> bisher gefolgt bist, passt alles.</p>
-<h3>Optional: Entfernen von Docker-Images, -Containern</h3>
+<p>Neben <a href="/ubuntu-docker-einrichten-docker-lamp">Docker</a> ist <a href="/ubuntu-docker-compose-einrichten-docker-lamp">Docker Compose</a> notwendig. Wenn du diesem <a href="/mein-ubuntu-rechner-mit-docker-lamp-themen/">Set</a> bisher gefolgt bist, passt alles.</p>
+<h3>Optional und auf eigene Gefahr: Entfernen von Docker-Images, -Containern</h3>
 <p>Bei der Arbeit mit Docker passiert es leicht, dass viele nicht verwendete Images, Container und Datenvolumen gesammelt werden, die Ausgabe verkomplizieren und unnötigen Festplattenspeicher verbrauchen.</p>
 <p>Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelemente auf. Ich nenne das <a href="https://de.wikipedia.org/wiki/Tabula_rasa">Tabula rasa</a>!</p>
 <h4>Images</h4>
@@ -36,17 +36,20 @@
 <p>Als nächstes wechsele ich in den Ordner <code class="language-text">docker-lamp</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="bash" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">cd</span><span class="mtk1"> docker-lamp</span></span></span></code></pre>
 <h3>Umgebungsvariablen</h3>
-<p>In <code class="language-text">docker-lamp</code> kopiere ich als erstes die versteckte Datei <code class="language-text">.env-example</code> nach <code class="language-text">.env</code>.</p>
+<p>Im <code class="language-text">docker-lamp</code>-Ordner kopiere ich die versteckte Datei <code class="language-text">.env-example</code> nach <code class="language-text">.env</code>.</p>
+<blockquote>
+<p>Im Verzeichnis <code class="language-text">docker-lamp</code> befindet sich die unsichtbare Datei <code class="language-text">.env-example</code>, welche nach <code class="language-text">.env</code> kopiert wird. Wofür ist die Datei <code class="language-text">.env</code> wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf <code class="language-text">.env</code> zu unterbinden und diese ist versteckt.</p>
+</blockquote>
 <pre class="grvsc-container solarized-light" data-language="bash" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">cp .env-example .env</span></span></span></code></pre>
-<p>Dann setze in der Datei den Parameter <code class="language-text">REMOTE_HOST_IP=</code> mit der IP des eigenen Rechners, zum Beispiel <code class="language-text">REMOTE_HOST_IP=192.168.178.138</code>.</p>
+<p>Dann belege ich in der Datei <code class="language-text">.env</code> den Parameter <code class="language-text">REMOTE_HOST_IP=</code> mit der IP des eigenen Rechners. In meinem Fall ist das <code class="language-text">REMOTE_HOST_IP=192.168.178.138</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="bash" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">nano .env</span></span></span></code></pre>
-<p>Das Ende der Datei sieht dann beispielsweise so aus, wie im folgenden Block.</p>
+<p>Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># To use PHP xDebug set your host IP here (192.168.0.100)</span></span>
 <span class="grvsc-line"><span class="grvsc-source">#</span></span>
 <span class="grvsc-line"><span class="grvsc-source">REMOTE_HOST_IP=192.168.209.138</span></span></code></pre>
-<p>Ich nutze /srv/www als Stammverzeichnis für den Webserver und ändere deshalb die Variable WWW_BASEDIR wie folgt ab.</p>
+<p>Ich nutze <code class="language-text">/srv/www</code> als Stammverzeichnis für den Webserver und ändere deshalb die Variable <code class="language-text">WWW_BASEDIR</code> ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter <a href="/ubuntu-docker-lamp-verwenden">docker-lamp verwenden</a> beschrieben.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># Set Your projekt folder for websites</span></span>
@@ -54,11 +57,8 @@
 <span class="grvsc-line"><span class="grvsc-source">WWW_BASEDIR=/srv/www</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<blockquote>
-<p>Im Verzeichnis <code class="language-text">docker-lamp</code> befindet sich die unsichtbare Datei <code class="language-text">.env-example</code>, welche nach <code class="language-text">.env</code> kopiert wird. Wofür ist die Datei <code class="language-text">.env</code> wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf <code class="language-text">.env</code> zu unterbinden und diese sind versteckt.</p>
-</blockquote>
 <h3>Die make Commandos</h3>
-<p><code class="language-text">docker-lamp</code> verwendet das Hilfsprogramm <code class="language-text">make</code>, welches mithilfe des nachfolgenden Befehls installiert wird.</p>
+<p><code class="language-text">docker-lamp</code> verwendet das <a href="https://de.wikipedia.org/w/index.php?title=Make&#x26;oldid=203684973">Hilfsprogramm <code class="language-text">make</code></a>. Auf meinem Rechner ist das nicht vorhanden. Mithilfe von <code class="language-text">sudo apt install make</code> installiere ich <code class="language-text">make</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo apt install make</span></span></code></pre>
 <p>Im <code class="language-text">docker-lamp</code>-Verzeichnis führe ich nach erfolgreicher Installation von <code class="language-text">make</code> den Befehl <code class="language-text">make</code> aus, der alle möglichen Kommandos anzeigt.</p>
 <pre class="grvsc-container solarized-light" data-language="bash" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">make</span></span></span>
@@ -98,32 +98,32 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">mailhog/mailhog              latest       4de68494cd0d   5 months ago   392MB</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">cytopia/bind                 0.15         ff37cf218d55   2 years ago    142MB</span></span></span></code></pre>
 <p><code class="language-text">docker ps -a</code> listet folgende Container auf.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ docker ps -a</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                     NAMES</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">0228f9effde2   degobbis/apache24-alpine:latest     </span><span class="mtk11">&quot;/httpd-php-entrypoi…&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   0.0.0.0:8000-</span><span class="mtk8">&gt;</span><span class="mtk1">8000/tcp, 0.0.0.0:8056-</span><span class="mtk8">&gt;</span><span class="mtk1">8056/tcp, 0.0.0.0:8073-8074-</span><span class="mtk8">&gt;</span><span class="mtk1">8073-8074/tcp, 0.0.0.0:8080-</span><span class="mtk8">&gt;</span><span class="mtk1">8080/tcp, 0.0.0.0:8400-</span><span class="mtk8">&gt;</span><span class="mtk1">8400/tcp, 0.0.0.0:8456-</span><span class="mtk8">&gt;</span><span class="mtk1">8456/tcp, 0.0.0.0:8473-8474-</span><span class="mtk8">&gt;</span><span class="mtk1">8473-8474/tcp, 80/tcp, 0.0.0.0:8480-</span><span class="mtk8">&gt;</span><span class="mtk1">8480/tcp, 0.0.0.0:80-</span><span class="mtk8">&gt;</span><span class="mtk1">8074/tcp, 0.0.0.0:443-</span><span class="mtk8">&gt;</span><span class="mtk1">8474/tcp   docker-lamp_httpd</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">9fd0d7d257df   degobbis/php74-fpm-alpine:latest    </span><span class="mtk11">&quot;/httpd-php-entrypoi…&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php74</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">b5435404bc73   phpmyadmin/phpmyadmin:fpm-alpine    </span><span class="mtk11">&quot;/docker-entrypoint.…&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_phpmyadmin</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">041bbf1a4ee4   degobbis/php73-fpm-alpine:latest    </span><span class="mtk11">&quot;/httpd-php-entrypoi…&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php73</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">ce746bda0ffc   degobbis/php80-fpm-alpine:latest    </span><span class="mtk11">&quot;/httpd-php-entrypoi…&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php80</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">226cd211294c   degobbis/php56-fpm-alpine:latest    </span><span class="mtk11">&quot;/httpd-php-entrypoi…&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php56</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">c473eb668908   degobbis/mariadb105-alpine:latest   </span><span class="mtk11">&quot;/docker-entrypoint …&quot;</span><span class="mtk1">   2 minutes ago   Up 2 minutes   0.0.0.0:3306-</span><span class="mtk8">&gt;</span><span class="mtk1">3306/tcp                                                                                                                                                                                                                                                    docker-lamp_mysql</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">9beb444df753   mailhog/mailhog:latest              </span><span class="mtk11">&quot;MailHog&quot;</span><span class="mtk1">                3 minutes ago   Up 3 minutes   0.0.0.0:1025-</span><span class="mtk8">&gt;</span><span class="mtk1">1025/tcp, 0.0.0.0:8025-</span><span class="mtk8">&gt;</span><span class="mtk1">8025/tcp                                                                                                                                                                                                                            docker-lamp_mailhog</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">96527284e9a0   cytopia/bind:0.15                   </span><span class="mtk11">&quot;/docker-entrypoint.…&quot;</span><span class="mtk1">   3 minutes ago   Up 3 minutes   0.0.0.0:53-</span><span class="mtk8">&gt;</span><span class="mtk1">53/tcp, 0.0.0.0:53-</span><span class="mtk8">&gt;</span><span class="mtk1">53/udp                                                                                                                                                                                                                                    docker-lamp_bind</span></span></span></code></pre>
-<p>Wenn du nicht sofort mit dem nächsten Teil weiter machst, stoppe den Server über <code class="language-text">make server-down</code>.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker ps -a</span></span>
+<span class="grvsc-line"><span class="grvsc-source">CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                     NAMES</span></span>
+<span class="grvsc-line"><span class="grvsc-source">0228f9effde2   degobbis/apache24-alpine:latest     &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   0.0.0.0:8000-&gt;8000/tcp, 0.0.0.0:8056-&gt;8056/tcp, 0.0.0.0:8073-8074-&gt;8073-8074/tcp, 0.0.0.0:8080-&gt;8080/tcp, 0.0.0.0:8400-&gt;8400/tcp, 0.0.0.0:8456-&gt;8456/tcp, 0.0.0.0:8473-8474-&gt;8473-8474/tcp, 80/tcp, 0.0.0.0:8480-&gt;8480/tcp, 0.0.0.0:80-&gt;8074/tcp, 0.0.0.0:443-&gt;8474/tcp   docker-lamp_httpd</span></span>
+<span class="grvsc-line"><span class="grvsc-source">9fd0d7d257df   degobbis/php74-fpm-alpine:latest    &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php74</span></span>
+<span class="grvsc-line"><span class="grvsc-source">b5435404bc73   phpmyadmin/phpmyadmin:fpm-alpine    &quot;/docker-entrypoint.…&quot;   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_phpmyadmin</span></span>
+<span class="grvsc-line"><span class="grvsc-source">041bbf1a4ee4   degobbis/php73-fpm-alpine:latest    &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php73</span></span>
+<span class="grvsc-line"><span class="grvsc-source">ce746bda0ffc   degobbis/php80-fpm-alpine:latest    &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php80</span></span>
+<span class="grvsc-line"><span class="grvsc-source">226cd211294c   degobbis/php56-fpm-alpine:latest    &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php56</span></span>
+<span class="grvsc-line"><span class="grvsc-source">c473eb668908   degobbis/mariadb105-alpine:latest   &quot;/docker-entrypoint …&quot;   2 minutes ago   Up 2 minutes   0.0.0.0:3306-&gt;3306/tcp                                                                                                                                                                                                                                                    docker-lamp_mysql</span></span>
+<span class="grvsc-line"><span class="grvsc-source">9beb444df753   mailhog/mailhog:latest              &quot;MailHog&quot;                3 minutes ago   Up 3 minutes   0.0.0.0:1025-&gt;1025/tcp, 0.0.0.0:8025-&gt;8025/tcp                                                                                                                                                                                                                            docker-lamp_mailhog</span></span>
+<span class="grvsc-line"><span class="grvsc-source">96527284e9a0   cytopia/bind:0.15                   &quot;/docker-entrypoint.…&quot;   3 minutes ago   Up 3 minutes   0.0.0.0:53-&gt;53/tcp, 0.0.0.0:53-&gt;53/udp                                                                                                                                                                                                                                    docker-lamp_bind</span></span></code></pre>
+<p>Mit dem Befehl <code class="language-text">make server-down</code> stoppe ich alle Container und sichere gleichzeitig die Datenbankdaten in das Verzeichnis <code class="language-text">/data/initDB</code>.</p>
 <h3>Eigene Projekte in den Container mappen</h3>
-<p>Um des Verzeichnis mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei <code class="language-text">docker-compose.yml</code> zu überschreiben. Dazu erstellen wir eine Kopie unter dem Namen <code class="language-text">docker-compose-override.yml</code>. Im Verzeichnis <code class="language-text">docker-lamp</code> geben wir folgenden Befehl ein.</p>
+<p>Um das Verzeichnis mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei <code class="language-text">docker-compose.yml</code> zu überschreiben. Dazu erstellt man eine Kopie von <code class="language-text">docker-compose.yml</code> unter dem Namen <code class="language-text">docker-compose-override.yml</code> im gleichen Ordner. Im Verzeichnis <code class="language-text">docker-lamp</code> gebe ich folgenden Befehl ein.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">cp docker-compose.yml docker-compose-override.yml</span></span></code></pre>
 <blockquote>
 <p>Wir nutzen die Datei <code class="language-text">docker-compose-override.yml</code> und ändern nicht direkt die Datei <code class="language-text">docker-compose-override.yml</code>, damit beim nächsten <code class="language-text">docker-lamp</code>-Update die <code class="language-text">docker-compose</code> Konfiguration nicht überschrieben wird.</p>
 </blockquote>
-<p>Nun öffnen wir die Datei <code class="language-text">docker-compose-override.yml</code> zum editieren.</p>
+<p>Nun öffnet ich die Datei <code class="language-text">docker-compose-override.yml</code> zum editieren.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano docker-compose.yml docker-compose-override.yml</span></span></code></pre>
-<p>Angenommen Projekte im Verzeichnis <code class="language-text">/home/deinBenutzer/git/joomla-development</code> sollen in jedem Containern der das Stammverzeichnis eines Webservers enthält, ebenfalls als <code class="language-text">/home/deinBenutzer/git/joomla-development</code> gemappt werden.</p>
-<p>Suchen wir als erstes nach dem folgenden Eintrag:</p>
+<p>Angenommen, alle Projekte im Verzeichnis <code class="language-text">/home/deinBenutzer/git/joomla-development</code> sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, dennn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter <code class="language-text">/home/deinBenutzer/git/joomla-development</code> zur Verfügung stehen.</p>
+<p>Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei <code class="language-text">docker-compose-override.yml</code> nach dem folgenden Eintrag.:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw</span></span></code></pre>
-<p>Jedesmal, wenn wir den obigen Eintrag finden, fügen wir die nachfolgende Zeile hinter diesem ein.</p>
+<p>Jedesmal, wenn ich den obigen Eintrag finde, füge ich die nachfolgende Zeile hinter diesem ein.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw</span></span></code></pre>
-<p>Für den httpd Container würde der Eintrag beispielsweise wie folgt aussehen.</p>
+<p>Für den <code class="language-text">httpd</code>-Container sieht der Eintrag wie folgt aus:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  httpd:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    image: degobbis/apache24-alpine:latest</span></span>
@@ -176,7 +176,10 @@
 <pre class="grvsc-container solarized-light" data-language="" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
 <h3>Zertifikat</h3>
 <h4>Minica</h4>
-<p>Wir benötigen ein selbsterstelltes Zertifikat auf unserem lokalen Webserver, um verschlüsselte Websites zu verwenden. <code class="language-text">docker-lamp</code> nutzt für diesen Zweck <a href="https://github.com/jsha/minica">Minica</a>. Dieses Tool erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.</p>
+<p>Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. <code class="language-text">docker-lamp</code> nutzt für diesen Zweck <a href="https://github.com/jsha/minica">Minica</a>. </p>
+<blockquote>
+<p>Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.</p>
+</blockquote>
 <h5>Angabe im <code class="language-text">Makefile</code></h5>
 <p>Standardmäßig werden die im Makefile in der Variablen <code class="language-text">MINICA_DEFAULT_DOMAINS</code> festgelegten Domains zertifiziert.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
@@ -189,20 +192,22 @@
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h5>Zusätzliche Domain hinzufügen</h5>
-<p>todo
-Eine eigene Domains fügt man im <code class="language-text">docker-lamp</code> verzeichnis mittels nachfolgender Befehle hinzu.</p>
+<p>Eine eigene Domains fügt man im <code class="language-text">docker-lamp</code> verzeichnis mittels nachfolgender Befehle hinzu. </p>
+<blockquote>
+<p>Ein konkretes <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> habe ich später beschrieben.</p>
+</blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="24"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">docker-compose down</span></span>
 <span class="grvsc-line"><span class="grvsc-source">nano .env</span></span></code></pre>
-<p>Hier dann folgende Einträge erweitert:</p>
+<p>Hier dann folgenden Einträge erweitert:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="25"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1,xxx.local=127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=xxx.local,*.xxx.local</span></span></code></pre>
 <p>Dann den Ordner <code class="language-text">/data/ca/localdomains</code> löschen.
-Einen entsprechenden Ordner in <code class="language-text">/data/www/xxx</code> erstellen.</p>
+Einen entsprechenden Ordner <code class="language-text">/data/www/xxx</code> erstellen.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="26"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
-<h4>Ansicht im Browser vor dem Importieren des Zertifikates</h4>
-<p>Öffne als nächstes einen Webbrowser und öffne die URL <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code>. Du siehst einen Zertifikatsfehler. Den Fehler beheben wir als nächstes.</p>
+<h4>Vor dem Importieren des Zertifikates</h4>
+<p>Ruft man die URL <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> im Browser auf, erscheint ein Sicherheitshinweis. Der Brwoser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -220,8 +225,8 @@ Einen entsprechenden Ordner in <code class="language-text">/data/www/xxx</code> 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Zertifikatsfehler"
-        title="Zertifikatsfehler"
+        alt="Sicherheitshinweis"
+        title="Sicherheitshinweis"
         src="/static/dbb854adabaabf882770158c7017795f/f058b/dockerlamp_zert.png"
         srcset="/static/dbb854adabaabf882770158c7017795f/c26ae/dockerlamp_zert.png 158w,
 /static/dbb854adabaabf882770158c7017795f/6bdcf/dockerlamp_zert.png 315w,
@@ -234,11 +239,16 @@ Einen entsprechenden Ordner in <code class="language-text">/data/www/xxx</code> 
   </a>
     </span></p>
 <blockquote>
-<p>Hinter <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.</p>
+<p>Hinter <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt, die auf dieselben Daten zeigen? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.</p>
 </blockquote>
 <h4>Zertifikat importieren</h4>
-<p>In Mozilla Firefox importierst du das Zertifikat wie folgt. Öffne die
-Einstellungen (Preferences). Klicke dann in der linken Seiteleiste auf Datenschutz &#x26; Sicherheit (Privacy and Security). Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates). Im Tabulator Zertifizierungsstellen (Authorities) importierst du die Datei <code class="language-text">/docker-lamp/data/ca/minica-root-ca-key.pem</code>. Achte darauf, dass du <code class="language-text">Webseite vertrauen</code> aktivierst.</p>
+<p>In Mozilla Firefox importiert man das Zertifikat wie folgt: </p>
+<ol>
+<li>Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz &#x26; Sicherheit (Privacy and Security). </li>
+<li>Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates). </li>
+<li>Wechsele in den Tabulator Zertifizierungsstellen (Authorities).</li>
+<li>Importiere die Datei <code class="language-text">/docker-lamp/data/ca/minica-root-ca-key.pem</code>. Achte darauf, dass du <code class="language-text">Webseite vertrauen</code> aktivierst.</li>
+</ol>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -272,7 +282,7 @@ Einstellungen (Preferences). Klicke dann in der linken Seiteleiste auf Datenschu
   </a>
     </span></p>
 <blockquote>
-<p>Das Zertifikat ist für die <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> erstellt. Unter <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> gibt es weiterhin den Fehler.</p>
+<p>Das Zertifikat wird von <code class="language-text">docker-lamp</code> standardmäßig für die <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> erstellt. Unter <code class="language-text">https://test/</code> oder <code class="language-text">https://local/</code> gibt es weiterhin den Fehler. Ein konkretes <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> beschreibt die Vorgehensweise für neue Domains.</p>
 </blockquote>
 <h2>Mögliche Fehler</h2>
 <p>Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von <code class="language-text">make server-up</code> zu einem Fehler</p>

@@ -19,9 +19,9 @@ Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container
 
 ## Voraussetzungen
 
-Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
+Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](/mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
 
-### Optional: Entfernen von Docker-Images, -Containern
+### Optional und auf eigene Gefahr: Entfernen von Docker-Images, -Containern
 
 Bei der Arbeit mit Docker passiert es leicht, dass viele nicht verwendete Images, Container und Datenvolumen gesammelt werden, die Ausgabe verkomplizieren und unnötigen Festplattenspeicher verbrauchen.
 
@@ -93,19 +93,21 @@ cd docker-lamp
 
 ### Umgebungsvariablen
 
-In `docker-lamp` kopiere ich als erstes die versteckte Datei `.env-example` nach `.env`.
+Im `docker-lamp`-Ordner kopiere ich die versteckte Datei `.env-example` nach `.env`.
+
+> Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden und diese ist versteckt.
 
 ```bash
 cp .env-example .env
 ```
 
-Dann setze in der Datei den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners, zum Beispiel `REMOTE_HOST_IP=192.168.178.138`.
+Dann belege ich in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `REMOTE_HOST_IP=192.168.178.138`.
 
 ```bash
 nano .env
 ```
 
-Das Ende der Datei sieht dann beispielsweise so aus, wie im folgenden Block.
+Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
 
 ```
 ...
@@ -115,7 +117,7 @@ Das Ende der Datei sieht dann beispielsweise so aus, wie im folgenden Block.
 REMOTE_HOST_IP=192.168.209.138
 ```
 
-Ich nutze /srv/www als Stammverzeichnis für den Webserver und ändere deshalb die Variable WWW_BASEDIR wie folgt ab.
+Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb die Variable `WWW_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben.
 
 ```
 ...
@@ -127,11 +129,9 @@ WWW_BASEDIR=/srv/www
 ...
 ```
 
-> Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden und diese sind versteckt.
-
 ### Die make Commandos
 
-`docker-lamp` verwendet das Hilfsprogramm `make`, welches mithilfe des nachfolgenden Befehls installiert wird.
+`docker-lamp` verwendet das [Hilfsprogramm `make`](https://de.wikipedia.org/w/index.php?title=Make&oldid=203684973). Auf meinem Rechner ist das nicht vorhanden. Mithilfe von `sudo apt install make` installiere ich `make`.
 
 ```
 sudo apt install make
@@ -188,7 +188,7 @@ cytopia/bind                 0.15         ff37cf218d55   2 years ago    142MB
 
 `docker ps -a` listet folgende Container auf.
 
-```bash
+```
 $ docker ps -a
 CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                     NAMES
 0228f9effde2   degobbis/apache24-alpine:latest     "/httpd-php-entrypoi…"   2 minutes ago   Up 2 minutes   0.0.0.0:8000->8000/tcp, 0.0.0.0:8056->8056/tcp, 0.0.0.0:8073-8074->8073-8074/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8400->8400/tcp, 0.0.0.0:8456->8456/tcp, 0.0.0.0:8473-8474->8473-8474/tcp, 80/tcp, 0.0.0.0:8480->8480/tcp, 0.0.0.0:80->8074/tcp, 0.0.0.0:443->8474/tcp   docker-lamp_httpd
@@ -202,11 +202,11 @@ c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 
 96527284e9a0   cytopia/bind:0.15                   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp                                                                                                                                                                                                                                    docker-lamp_bind
 ```
 
-Wenn du nicht sofort mit dem nächsten Teil weiter machst, stoppe den Server über `make server-down`.
+Mit dem Befehl `make server-down` stoppe ich alle Container und sichere gleichzeitig die Datenbankdaten in das Verzeichnis `/data/initDB`.
 
 ### Eigene Projekte in den Container mappen
 
-Um des Verzeichnis mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei `docker-compose.yml` zu überschreiben. Dazu erstellen wir eine Kopie unter dem Namen `docker-compose-override.yml`. Im Verzeichnis `docker-lamp` geben wir folgenden Befehl ein.
+Um das Verzeichnis mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei `docker-compose.yml` zu überschreiben. Dazu erstellt man eine Kopie von `docker-compose.yml` unter dem Namen `docker-compose-override.yml` im gleichen Ordner. Im Verzeichnis `docker-lamp` gebe ich folgenden Befehl ein.
 
 ```
 cp docker-compose.yml docker-compose-override.yml
@@ -214,27 +214,27 @@ cp docker-compose.yml docker-compose-override.yml
 
 > Wir nutzen die Datei `docker-compose-override.yml` und ändern nicht direkt die Datei `docker-compose-override.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
 
-Nun öffnen wir die Datei `docker-compose-override.yml` zum editieren.
+Nun öffnet ich die Datei `docker-compose-override.yml` zum editieren.
 
 ```
 nano docker-compose.yml docker-compose-override.yml
 ```
 
-Angenommen Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in jedem Containern der das Stammverzeichnis eines Webservers enthält, ebenfalls als `/home/deinBenutzer/git/joomla-development` gemappt werden.
+Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, dennn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter `/home/deinBenutzer/git/joomla-development` zur Verfügung stehen.
 
-Suchen wir als erstes nach dem folgenden Eintrag:
+Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose-override.yml` nach dem folgenden Eintrag.:
 
 ```
       - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
 ```
 
-Jedesmal, wenn wir den obigen Eintrag finden, fügen wir die nachfolgende Zeile hinter diesem ein.
+Jedesmal, wenn ich den obigen Eintrag finde, füge ich die nachfolgende Zeile hinter diesem ein.
 
 ```
       - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
 ```
 
-Für den httpd Container würde der Eintrag beispielsweise wie folgt aussehen.
+Für den `httpd`-Container sieht der Eintrag wie folgt aus:
 
 ```
 ...
@@ -298,7 +298,9 @@ make server-up
 
 #### Minica
 
-Wir benötigen ein selbsterstelltes Zertifikat auf unserem lokalen Webserver, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica). Dieses Tool erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.
+Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica). 
+
+> Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.
 
 ##### Angabe im `Makefile`
 
@@ -323,15 +325,16 @@ SSL_LOCALDOMAINS=
 
 ##### Zusätzliche Domain hinzufügen
 
-todo
-Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu.
+Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu. 
+
+> Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) habe ich später beschrieben.
 
 ```
 docker-compose down
 nano .env
 ```
 
-Hier dann folgende Einträge erweitert:
+Hier dann folgenden Einträge erweitert:
 
 ```
 ...
@@ -341,28 +344,31 @@ SSL_LOCALDOMAINS=xxx.local,*.xxx.local
 ```
 
 Dann den Ordner `/data/ca/localdomains` löschen.
-Einen entsprechenden Ordner in `/data/www/xxx` erstellen.
+Einen entsprechenden Ordner `/data/www/xxx` erstellen.
 
 ```
 make server-up
 ```
 
-#### Ansicht im Browser vor dem Importieren des Zertifikates
+#### Vor dem Importieren des Zertifikates
 
-Öffne als nächstes einen Webbrowser und öffne die URL `https://joomla.test/` oder `https://joomla.local/`. Du siehst einen Zertifikatsfehler. Den Fehler beheben wir als nächstes.
+Ruft man die URL `https://joomla.test/` oder `https://joomla.local/` im Browser auf, erscheint ein Sicherheitshinweis. Der Brwoser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.
 
-![Zertifikatsfehler](/images/dockerlamp_zert.png)
+![Sicherheitshinweis](/images/dockerlamp_zert.png)
 
-> Hinter `https://joomla.test/` oder `https://joomla.local/` befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
+> Hinter `https://joomla.test/` oder `https://joomla.local/` befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt, die auf dieselben Daten zeigen? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
 
 #### Zertifikat importieren
 
-In Mozilla Firefox importierst du das Zertifikat wie folgt. Öffne die
-Einstellungen (Preferences). Klicke dann in der linken Seiteleiste auf Datenschutz & Sicherheit (Privacy and Security). Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates). Im Tabulator Zertifizierungsstellen (Authorities) importierst du die Datei `/docker-lamp/data/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
+In Mozilla Firefox importiert man das Zertifikat wie folgt: 
+1. Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz & Sicherheit (Privacy and Security). 
+2. Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates). 
+3. Wechsele in den Tabulator Zertifizierungsstellen (Authorities).
+4. Importiere die Datei `/docker-lamp/data/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
 
 ![Zertifikat importieren](/images/dockerlamp_zertbrowser.png)
 
-> Das Zertifikat ist für die `https://joomla.test/` oder `https://joomla.local/` erstellt. Unter `https://joomla.test/` oder `https://joomla.local/` gibt es weiterhin den Fehler.
+> Das Zertifikat wird von `docker-lamp` standardmäßig für die `https://joomla.test/` oder `https://joomla.local/` erstellt. Unter `https://test/` oder `https://local/` gibt es weiterhin den Fehler. Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) beschreibt die Vorgehensweise für neue Domains.
 
 ## Mögliche Fehler
 
