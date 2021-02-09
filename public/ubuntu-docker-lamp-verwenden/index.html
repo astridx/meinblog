@@ -25,7 +25,7 @@
 <p>Eine einfachere Alternative ist es, das Verzeichnis <code class="language-text">/www</code> welches unter <code class="language-text">/docker-lamp/data/www</code> zu finden ist, nach <code class="language-text">/srv</code> zu kopieren. Dann verfügt man über die von <em>docker-lamp</em> als Standard vorgesehen Verzeichnisse und kann diesen Abschnitt überspringen.</p>
 </blockquote>
 <p>Als erstes lege ich das Verzeichnis <code class="language-text">/srv/www/joomla</code> an. <code class="language-text">/srv/www</code> soll mein Webserver Stammverzeichnis sein. In den Unterordner <code class="language-text">joomla</code> kommen zur besseren Übersicht alle Joomla Projekte. Logisch, richtig?</p>
-<p>In den meisten Server Setups ist es sinnvoll, dass derjenige, der die Dateien ändert, entweder Eigentümer ist oder zu einer Gruppe gehört, die Schreibrechte hat. So vermeidet man Konflikte mit Benutzerrechten, manchmal auch <a href="https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem"><code class="language-text">www-run</code>-Problem</a> genannt. </p>
+<p>In den meisten Server Setups ist es sinnvoll, dass derjenige, der die Dateien ändert, entweder Eigentümer ist oder zu einer Gruppe gehört, die Schreibrechte hat. So vermeidet man Konflikte mit Benutzerrechten, manchmal auch <a href="https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem"><code class="language-text">www-run</code>-Problem</a> genannt.</p>
 <p>Die nachfolgende Befehlskette stellt sicher, dass Ordner und Dateien die richtigen Rechte besitzen.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo mkdir /srv/www</span></span>
 <span class="grvsc-line"><span class="grvsc-source">sudo mkdir /srv/www/joomla</span></span>
@@ -265,9 +265,9 @@
 <h4>Was bietet docker-lamp</h4>
 <p>Ich habe Joomla im Container <code class="language-text">docker-lamp_php80</code> installiert. Zur Verfügung steht es mir in allen unterstützten PHP-Versionen.</p>
 <h5>Ein kleiner Rundgang zum Orientieren</h5>
-<p>Eine Befehlszeile des Containers <code class="language-text">docker-lamp_php80</code> öffne ich über <code class="language-text">docker exec -ti docker-lamp_php80 sh</code>. </p>
+<p>Eine Befehlszeile des Containers <code class="language-text">docker-lamp_php80</code> öffne ich über <code class="language-text">docker exec -ti docker-lamp_php80 sh</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker exec -ti docker-lamp_php80 sh</span></span>
-<span class="grvsc-line"><span class="grvsc-source">php80:/srv/www# </span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-source">php80:/srv/www#</span></span></code></pre>
 <p><code class="language-text">cat /etc/issue</code> im Container eingegebene zeigt mir das Betriebssystem und die Version.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">php80:/srv/www# cat /etc/issue</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Welcome to Alpine Linux 3.13</span></span>
@@ -277,12 +277,12 @@
 <span class="grvsc-line"><span class="grvsc-source">Configuration File (php.ini) Path =&gt; /usr/local/etc/php</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Loaded Configuration File =&gt; /usr/local/etc/php/php.ini</span></span></code></pre>
 <blockquote>
-<p>Im Container ist als Editor <a href="https://de.wikipedia.org/wiki/Vi"><em>vi</em></a> verfügbar. Mein Spickzettel mit den wichtigsten Befehlen zum <em>vi</em>: <code class="language-text">:w</code> = Speichern der Datei. <code class="language-text">:q</code> =	Verlassen des vi (nur nach Speichern). <code class="language-text">:wq</code> = Speichern und Verlassen. <code class="language-text">:q!</code> = Verlassen ohne zu speichern.</p>
+<p>Im Container ist als Editor <a href="https://de.wikipedia.org/wiki/Vi"><em>vi</em></a> verfügbar. Mein Spickzettel mit den wichtigsten Befehlen zum <em>vi</em>: <code class="language-text">:w</code> = Speichern der Datei. <code class="language-text">:q</code> = Verlassen des vi (nur nach Speichern). <code class="language-text">:wq</code> = Speichern und Verlassen. <code class="language-text">:q!</code> = Verlassen ohne zu speichern.</p>
 </blockquote>
-<p>Aus dem Container komme ich mit <code class="language-text">exit</code> wieder heraus. </p>
+<p>Aus dem Container komme ich mit <code class="language-text">exit</code> wieder heraus.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">php80:/srv/www# exit</span></span>
-<span class="grvsc-line"><span class="grvsc-source">$ </span></span></code></pre>
-<p>Die Namen der Container erfahre ich mittels <code class="language-text">docker ps</code>. </p>
+<span class="grvsc-line"><span class="grvsc-source">$</span></span></code></pre>
+<p>Die Namen der Container erfahre ich mittels <code class="language-text">docker ps</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker ps -a</span></span>
 <span class="grvsc-line"><span class="grvsc-source">CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                     NAMES</span></span>
 <span class="grvsc-line"><span class="grvsc-source">0228f9effde2   degobbis/apache24-alpine:latest     &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   0.0.0.0:8000-&gt;8000/tcp, 0.0.0.0:8056-&gt;8056/tcp, 0.0.0.0:8073-8074-&gt;8073-8074/tcp, 0.0.0.0:8080-&gt;8080/tcp, 0.0.0.0:8400-&gt;8400/tcp, 0.0.0.0:8456-&gt;8456/tcp, 0.0.0.0:8473-8474-&gt;8473-8474/tcp, 80/tcp, 0.0.0.0:8480-&gt;8480/tcp, 0.0.0.0:80-&gt;8074/tcp, 0.0.0.0:443-&gt;8474/tcp   docker-lamp_httpd</span></span>
@@ -304,7 +304,7 @@
 <li>PHP 8.0.1 (<a href="https://joomla.local:8480/phpinfo/">https://joomla.local:8480/phpinfo/</a>)</li>
 </ul>
 <h6>PHPInfo()</h6>
-<p>Ein praktisches Feature ist das Einbinden einer <a href="https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo">phpinfo()</a> als Unterverzeichnis <code class="language-text">phpinfo</code> jeder Joomla-Installation. So reicht die Eingabe von <code class="language-text">https://joomla.local/phpinfo/</code> um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port <code class="language-text">8074</code> standardmäßig mit <code class="language-text">443</code> gemappt ist, in der <code class="language-text">docker-compose.yml</code>, beziehungsweise der eigenen <code class="language-text">docker-compose-override.yml</code>.</p>
+<p>Ein praktisches Feature ist das Einbinden einer <a href="https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo">phpinfo()</a> als Unterverzeichnis <code class="language-text">phpinfo</code> jeder Joomla-Installation. So reicht die Eingabe von <code class="language-text">https://joomla.local/phpinfo/</code> um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port <code class="language-text">8074</code> standardmäßig mit <code class="language-text">443</code> gemappt ist, in der <code class="language-text">docker-compose.yml</code>, beziehungsweise der eigenen <code class="language-text">docker-compose.override.yml</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  httpd:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    image: degobbis/apache24-alpine:latest</span></span>
@@ -324,7 +324,7 @@
 <span class="grvsc-line"><span class="grvsc-source">      - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - ./data/phpinfo:/srv/phpinfo:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - /home/meinBenutzer/git/joomla-development:/home/meinBenutzer/git/joomla-development:rw      </span></span>
+<span class="grvsc-line"><span class="grvsc-source">      - /home/meinBenutzer/git/joomla-development:/home/meinBenutzer/git/joomla-development:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - pma:/srv/pma</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - phpsocket:/run/php</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    ports:</span></span>
@@ -382,20 +382,49 @@
       />
   </a>
     </span></p>
-<p><img src="/iphpinfo80.png" alt="phpinfo() in PHP 8.0.1"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/22cf440b3133e0a1e99e7b007b82ca94/6c745/phpinfo_80.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 76.58227848101265%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAADBElEQVQ4y21Sa08TQRTd36xf/GZiNFE/GUAB4xcTgUSiCYqlyrvQhS6l2+1u99VlW+hrS0uLVSj0wfHMFIgxbnJy7tw7c+beOav4VReHgQbN3EfztIXLyx4GgwH6/T76godD9EfDMQ/v1qNxTez5B0rY8vD44wM8evIQE69eoVgMcP/9vgDO2kDnfIzWGXDaBJotYHSD/32Kqhs4tIqwwwYa0Q2q1T6iaIRK7RpheITjoo9GrYyodjJG9Rj1SgmN0zo6nTba7TPyGCJWonoXtUqXm39TrEv8lBwU68h6eViBQ9jI+ZZk/zjk5R48ThJFLdTrTYkoasq1srhoYHo6hdnZfbx+nWCcxMzMHtcpvHurY3IiiRfPY3j2dEni5Ys4piZVzM5k8OaNJjE9rWFqag8T3KssL7t4/z6LhQUbi4s+vn6t4tu3BlHHly9prpPY2DCxvm4gFlOZ28ZKPIXNTesWJkFjDyvQ9RKU1VUfy8slpNMjJm8kRJxOD6Gqhzg4UKVRYehLLpVCyUdHvsyFHD8ISuj1BmNTVlZcfP7sY2vrHPv7A+ztXVPomnyFnZ00eQeu68Jx7Hu4rgPPEzmHsQ3bPsL5+SV/tysomlbG9vYJxU6RTFYla1qbaBEOOzVhmgFyuQK5IONs1uV4+du8D4t/Sbl8RnPaUDY3C4jHQ4rW+UYOVleLfJMa362CRMLnJR47LrDTAmNfYmvLZD0r86rqy9rurseJHCiJREADXPz4EfAtLaytCcEyD5zQCFsasrZmsJYk6/Lg7q4QFTWL5zI0aoeNZGReicU8fPhg4NMnj8UmRToU/EV0eaPJJ8gQOjtL8wlyHNWhcZZci/xd7eBA1GwxcommeOwypGCNXUTccMGNPR7MwzAyfPQ8fN+TRnje2IhsNsOazpqFQuGu5kL5/t3H/LxBUZctXyCVGjstXFZVg7cKQVs6/TdSqRRr+m3Nk46LmL+Nibk5jSMbWFoSplTYYZfiHQrqsgvDyLGjLB3N0VlTshAUOcMwJOfzeXZawB+QHA8ndtAptQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="phpinfo() in PHP 8.0.1"
+        title="phpinfo() in PHP 8.0.1"
+        src="/static/22cf440b3133e0a1e99e7b007b82ca94/f058b/phpinfo_80.png"
+        srcset="/static/22cf440b3133e0a1e99e7b007b82ca94/c26ae/phpinfo_80.png 158w,
+/static/22cf440b3133e0a1e99e7b007b82ca94/6bdcf/phpinfo_80.png 315w,
+/static/22cf440b3133e0a1e99e7b007b82ca94/f058b/phpinfo_80.png 630w,
+/static/22cf440b3133e0a1e99e7b007b82ca94/6c745/phpinfo_80.png 893w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h5>xdebug</h5>
 <h5>Versionen</h5>
 <p>PHP 5.6.40 verwendet</p>
 <ul>
-<li>xdebug 2.5.5 </li>
+<li>xdebug 2.5.5</li>
 </ul>
 <p>PHP 7.3.26 und PHP 7.4.14 verwenden</p>
 <ul>
-<li>xdebug 2.9.8 </li>
+<li>xdebug 2.9.8</li>
 </ul>
 <p>PHP 8.0.1 verwendet</p>
 <ul>
-<li>xdebug 3.1.0-dev </li>
+<li>xdebug 3.1.0-dev</li>
 </ul>
 <h5>Parameter</h5>
 <p>Die in <em>xdebug</em> eingestellten Parameter findet man in der <a href="https://github.com/degobbis/docker-lamp/tree/main/.config/php">PHP Konfiguration</a>.</p>

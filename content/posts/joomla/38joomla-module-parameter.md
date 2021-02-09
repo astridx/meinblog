@@ -25,7 +25,6 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 #### Module
 
-
 ## Teste dein Joomla-Module
 
 1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
@@ -41,6 +40,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 ```php {diff}
+
 ```
 
 #### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
@@ -48,6 +48,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 [src/modules/mod_foo/mod_foo.php]()
 
 ```php {diff}
+
 ```
 
 #### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
@@ -55,6 +56,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
 
 ```php {diff}
+
 ```
 
 ### Übersicht

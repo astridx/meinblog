@@ -206,23 +206,29 @@ Mit dem Befehl `make server-down` stoppe ich alle Container und sichere gleichze
 
 ### Eigene Projekte in den Container mappen
 
-Um das Verzeichnis mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei `docker-compose.yml` zu überschreiben. Dazu erstellt man eine Kopie von `docker-compose.yml` unter dem Namen `docker-compose-override.yml` im gleichen Ordner. Im Verzeichnis `docker-lamp` gebe ich folgenden Befehl ein.
+#### Das Verzeichnis ist flexibel
+
+Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter `/srv/www` eingebunden, falls es nicht in der `.env` neu belegt wurde. In dem Fall ist das in der Variablen  `WWW_BASEDIR`  gesetzte Verzeichnis das, welches in den Container verlinkt wird.
+
+#### Mehrere Verzeichnisse im Container - docker-compose.override.yml
+
+Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei `docker-compose.yml` zu überschreiben. Dazu erstellt man eine Kopie von `docker-compose.yml` unter dem Namen `docker-compose.override.yml` im gleichen Ordner. Im Verzeichnis `docker-lamp` gebe ich folgenden Befehl ein.
 
 ```
-cp docker-compose.yml docker-compose-override.yml
+cp docker-compose.yml docker-compose.override.yml
 ```
 
-> Wir nutzen die Datei `docker-compose-override.yml` und ändern nicht direkt die Datei `docker-compose-override.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
+> Wir nutzen die Datei `docker-compose.override.yml` und ändern nicht direkt die Datei `docker-compose.override.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
 
-Nun öffnet ich die Datei `docker-compose-override.yml` zum editieren.
+Nun öffnet ich die Datei `docker-compose.override.yml` zum editieren.
 
 ```
-nano docker-compose.yml docker-compose-override.yml
+nano docker-compose.yml docker-compose.override.yml
 ```
 
 Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, dennn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter `/home/deinBenutzer/git/joomla-development` zur Verfügung stehen.
 
-Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose-override.yml` nach dem folgenden Eintrag.:
+Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose.override.yml` nach dem folgenden Eintrag.:
 
 ```
       - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
@@ -288,17 +294,25 @@ Für den `httpd`-Container sieht der Eintrag wie folgt aus:
 Insgesamt wird der Eintrag 5 Mal eingefügt. Die Container
 `httpd`, `php56`, `phpo73`, `php74` und `php80` sind betroffen.
 
+> Weitere Informationen zur Verwendung von Volumes mit `compose` gibt es in der [docker-Dokumentation](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose) oder in der [compose-Referenz](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference).
+
 Jetzt den Server neu starten, damit die Änderungen übernommen werden.
 
 ```
 make server-up
 ```
 
+Das in meinem Beispiel neu verlinkte Verzeichnis wird im Container unter `/home/deinBenutzer/git/joomla-development` verlinkt.
+
+```
+php74:/home/deinBenutzer/git/joomla-development#
+```
+
 ### Zertifikat
 
 #### Minica
 
-Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica). 
+Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica).
 
 > Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.
 
@@ -325,7 +339,7 @@ SSL_LOCALDOMAINS=
 
 ##### Zusätzliche Domain hinzufügen
 
-Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu. 
+Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu.
 
 > Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) habe ich später beschrieben.
 
@@ -360,9 +374,10 @@ Ruft man die URL `https://joomla.test/` oder `https://joomla.local/` im Browser 
 
 #### Zertifikat importieren
 
-In Mozilla Firefox importiert man das Zertifikat wie folgt: 
-1. Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz & Sicherheit (Privacy and Security). 
-2. Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates). 
+In Mozilla Firefox importiert man das Zertifikat wie folgt:
+
+1. Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz & Sicherheit (Privacy and Security).
+2. Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates).
 3. Wechsele in den Tabulator Zertifizierungsstellen (Authorities).
 4. Importiere die Datei `/docker-lamp/data/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
 
@@ -518,15 +533,13 @@ managed=false
 
 [device]
 wifi.scan-rand-mac-address=no
-``
+```
 
 Am Ende den Dienst wieder starten.
 
 ```
-
 sudo systemctl start NetworkManager.service
 
 ```
 
 Voila! Das war es.
-```

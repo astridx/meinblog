@@ -21,25 +21,20 @@ Hier geht es um _docker-lamp_ und konkrete darum, wie spezielle Domains erzeugt 
 
 Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](/mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
 
+## Eigene Projekte
 
-## Eigene Projekte 
-
-Ich speichere meine Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development`. Das Verzeichnis steht im Container zur Verfügung, weil ich es im Abschnitt [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten) mithilfe der `docker-compose-override.yml` so eingestellt habe. 
+Ich speichere meine Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development`. Das Verzeichnis steht im Container zur Verfügung, weil ich es im Abschnitt [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten) mithilfe der `docker-compose.override.yml` so eingestellt habe.
 
 ### Eigene Projekte einbinden
 
 ##### Ein Beispielprojekt
 
-Damit gleiche Voraussetzungen gegeben sind, sollte das Beispielprojekt `https://github.com/astridx/boilerplate.git` in des Projektverzeichnis geklont werden.
+Wer mein Beispiel nachvollziehen möchte, sollte das Beispielprojekt `https://github.com/astridx/boilerplate.git` in des Projektverzeichnis klonen.
 
 ```
 $ git clone https://github.com/astridx/boilerplate.git
 Klone nach 'boilerplate' ...
-remote: Enumerating objects: 31, done.
-remote: Counting objects: 100% (31/31), done.
-remote: Compressing objects: 100% (22/22), done.
-remote: Total 18865 (delta 5), reused 20 (delta 3), pack-reused 18834
-Empfange Objekte: 100% (18865/18865), 4.64 MiB | 675.00 KiB/s, fertig.
+...
 Löse Unterschiede auf: 100% (6886/6886), fertig.
 ```
 
@@ -51,20 +46,59 @@ $ cd boilerplate/
 
 ##### Projekt mit _jorobo_
 
-Meine Projekte verwendet [jorobo](https://github.com/joomla-projects/jorobo).
+Meine Projekte verwendet [jorobo](https://github.com/joomla-projects/jorobo). So kann ich Funktionen nutzen, die auf eine Joomla Erweiterung zugeschnitten sind.
 
-> Wie man ein Projekt mit _jorobo_ aufsetzt, habe ich in einer [Präsentation](https://astridx.github.io/9997_jorobo/presentation/index.html#/) beschrieben. 
+> Wie man ein Projekt mit _jorobo_ aufsetzt, habe ich in einer [Präsentation](https://astridx.github.io/9997_jorobo/presentation/index.html#/) beschrieben.
 
 ###### _jorobo_ Funktionen
 
-* `vendor/bin/robo build` - Baut aus der Erweiterung ein installierbares Joomla Paket oder eine Zip-Datei inklusive Ersetzungen
-* `vendor/bin/robo map` - Verlinkt (Symlink) die Erweiterung in eine laufende Joomla Installation
-* `vendor/bin/robo headers` - Aktualisiert die Copyright-Header im Quellverzeichnis dem in der `jorobo.ini` konfigurierten.
-* `vendor/bin/robo bump` - Tauscht die Zeichenkette `__DEPLOY_VERSION__` in jeder Datei im Quellverzeichnis mit der in der `jorobo.ini` eingestellten Versionsnummer aus.
+- `vendor/bin/robo build` - Baut aus der Erweiterung ein installierbares Joomla Paket oder eine Zip-Datei inklusive Ersetzungen
+- `vendor/bin/robo map` - Verlinkt (Symlink) die Erweiterung in eine laufende Joomla Installation
+- `vendor/bin/robo headers` - Aktualisiert die Copyright-Header im Quellverzeichnis dem in der `jorobo.ini` konfigurierten.
+- `vendor/bin/robo bump` - Tauscht die Zeichenkette `__DEPLOY_VERSION__` in jeder Datei im Quellverzeichnis mit der in der `jorobo.ini` eingestellten Versionsnummer aus.
 
-###### Composer 
+Um all diese Funktionen nutzen zu können, ist es erforderlich mit Composer alle Abhängigkeiten zu installieren.
+
+###### Mit Composer alle Abhängikeiten installieren
+
+Composer steht in den Containern ab Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/srv/git/boilerplate` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
+
+```
+$ docker exec -it --user 1000 -w /srv/git/boilerplate docker-lamp_php73 composer install
+```
+
+###### Projekte symlinken
+
+Nachdem alle Abhängigkeiten über Composer installiert wurden, ist es möglich `vendor/bin/robo map` zu verwenden. dieser Befehl verlinkt meine Joomla Erweiterung automatisch in eine Joomla installation.
+
+Dazu wechsele ich nun wieder in mein Projektverzeichnis.
+
+```
+$ docker exec -it --user 1000 -w /srv/git/boilerplate docker-lamp_php73 ./vendor/bin/robo map /srv/www/joomla/j4dev
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/plugins/webservices/foos...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/plugins/webservices/foos","/srv/www/joomla/j4dev/plugins/webservices/foos"]
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/modules/mod_foo...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/modules/mod_foo","/srv/www/joomla/j4dev/modules/mod_foo"]
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/media/com_foos...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/media/com_foos","/srv/www/joomla/j4dev/media/com_foos"]
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/de-DE/pkg_foos.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.ini"]
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/de-DE/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.sys.ini"]
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/en-GB/pkg_foos.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.ini"]
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/en-GB/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.sys.ini"]
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/administrator/components/com_foos...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/administrator/components/com_foos","/srv/www/joomla/j4dev/administrator/components/com_foos"]
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/templates/facile...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/templates/facile","/srv/www/joomla/j4dev/templates/facile"]
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/components/com_foos...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/components/com_foos","/srv/www/joomla/j4dev/components/com_foos"]
+ [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/api/components/com_foos...
+ [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/api/components/com_foos","/srv/www/joomla/j4dev/api/components/com_foos"]
 
 
-##### Projekte symlinken
+```
 
-##### JRobo
+###### Projekte in Joomla entdecken (discovern)
+
+Im Joomla Backend sind die Erweiterungen nun zum Entdecken bereit. 
+
+![Projekte in Joomla discovern](/images/discover.png)

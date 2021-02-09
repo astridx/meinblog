@@ -25,7 +25,7 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 #### Template
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. 
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest.
 
 ##### [src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php)
 

@@ -58,6 +58,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 [ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 ```php {diff}
+
 ```
 
 #### [ src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
@@ -65,6 +66,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 [ src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
+
 ```
 
 ### Übersicht

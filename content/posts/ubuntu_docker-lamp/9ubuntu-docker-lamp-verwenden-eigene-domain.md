@@ -21,13 +21,12 @@ Hier geht es um _docker-lamp_ und konkrete darum, wie spezielle Domains erzeugt 
 
 Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
 
-
 ## Eigene Domain
 
 Falls der Server aktiv ist, stoppe ihn über `make server-down`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
 
 ```bash
-/docker-lamp$ make server-down 
+/docker-lamp$ make server-down
 ./.env included
 
 Datenbank-Sicherung gestartet.
@@ -64,8 +63,6 @@ docker-lamp_pma
 
 ### Eigene Domain erzeugen
 
-
-
 ##### .env
 
 Über `sudo nano .env` öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze ich `tutorial.local=127.0.0.1,tutorial.test=127.0.0.1` bei `TLD_SUFFIX` und `utorial.local,*.tutorial.local,tutorial.test,*.tutorial.test` bei `SSL_LOCALDOMAINS`.
@@ -81,12 +78,12 @@ SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test
 
 ##### Webserver
 
-Mit `mkdir /srv/www/tutorial` erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird. 
+Mit `mkdir /srv/www/tutorial` erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird.
 
 > Mein Webserver Stammverzeichnis ist `/srv/www/`
 
 ```
-mkdir /srv/www/tutorial 
+mkdir /srv/www/tutorial
 ```
 
 ![Webserver Stammverzeichnis](/images/neuedomainwebserver.png)
@@ -99,7 +96,7 @@ Damit das Zertifikat neu angelegt wird lösche ich den Ordner `/data/ca/localdom
 $ sudo rm -R ./data/ca/localdomains/
 ```
 
-##### Test 
+##### Test
 
 Im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
 
@@ -124,5 +121,4 @@ Creating docker-lamp_httpd      ... done
 
 ![Ansicht der neuen Domain im Browser](/images/neuedomain.png)
 
-
-`https://tutorial.local/` zeigt mir den Inhalt des Verzeichnisses `` an. `` und `` sind zwei Joomla Installationen, die über `https://tutorial.local/t1/installation/index.php` und `https://tutorial.local/t2/installation/index.php` erreiche.
+`https://tutorial.local/` zeigt mir den Inhalt des Verzeichnisses `an.` und `` sind zwei Joomla Installationen, die über `https://tutorial.local/t1/installation/index.php` und `https://tutorial.local/t2/installation/index.php` erreiche.

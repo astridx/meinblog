@@ -55,7 +55,7 @@ WWW_BASEDIR=/srv/www
 
 Als erstes lege ich das Verzeichnis `/srv/www/joomla` an. `/srv/www` soll mein Webserver Stammverzeichnis sein. In den Unterordner `joomla` kommen zur besseren Übersicht alle Joomla Projekte. Logisch, richtig?
 
-In den meisten Server Setups ist es sinnvoll, dass derjenige, der die Dateien ändert, entweder Eigentümer ist oder zu einer Gruppe gehört, die Schreibrechte hat. So vermeidet man Konflikte mit Benutzerrechten, manchmal auch [`www-run`-Problem](https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem) genannt. 
+In den meisten Server Setups ist es sinnvoll, dass derjenige, der die Dateien ändert, entweder Eigentümer ist oder zu einer Gruppe gehört, die Schreibrechte hat. So vermeidet man Konflikte mit Benutzerrechten, manchmal auch [`www-run`-Problem](https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem) genannt.
 
 Die nachfolgende Befehlskette stellt sicher, dass Ordner und Dateien die richtigen Rechte besitzen.
 
@@ -217,11 +217,11 @@ Ich habe Joomla im Container `docker-lamp_php80` installiert. Zur Verfügung ste
 
 ##### Ein kleiner Rundgang zum Orientieren
 
-Eine Befehlszeile des Containers `docker-lamp_php80` öffne ich über `docker exec -ti docker-lamp_php80 sh`. 
+Eine Befehlszeile des Containers `docker-lamp_php80` öffne ich über `docker exec -ti docker-lamp_php80 sh`.
 
 ```
 $ docker exec -ti docker-lamp_php80 sh
-php80:/srv/www# 
+php80:/srv/www#
 ```
 
 `cat /etc/issue` im Container eingegebene zeigt mir das Betriebssystem und die Version.
@@ -240,16 +240,16 @@ Configuration File (php.ini) Path => /usr/local/etc/php
 Loaded Configuration File => /usr/local/etc/php/php.ini
 ```
 
-> Im Container ist als Editor [_vi_](https://de.wikipedia.org/wiki/Vi) verfügbar. Mein Spickzettel mit den wichtigsten Befehlen zum _vi_: `:w` = Speichern der Datei. `:q` =	Verlassen des vi (nur nach Speichern). `:wq` = Speichern und Verlassen. `:q!` = Verlassen ohne zu speichern.
+> Im Container ist als Editor [_vi_](https://de.wikipedia.org/wiki/Vi) verfügbar. Mein Spickzettel mit den wichtigsten Befehlen zum _vi_: `:w` = Speichern der Datei. `:q` = Verlassen des vi (nur nach Speichern). `:wq` = Speichern und Verlassen. `:q!` = Verlassen ohne zu speichern.
 
-Aus dem Container komme ich mit `exit` wieder heraus. 
+Aus dem Container komme ich mit `exit` wieder heraus.
 
 ```
 php80:/srv/www# exit
-$ 
+$
 ```
 
-Die Namen der Container erfahre ich mittels `docker ps`. 
+Die Namen der Container erfahre ich mittels `docker ps`.
 
 ```
 $ docker ps -a
@@ -270,6 +270,7 @@ c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 
 Die [Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/php) zeigt, welche PHP-Versionen unterstützt werden.
 
 Konkrte ist das
+
 - PHP 5.6.40 (https://joomla.local:8456/phpinfo/)
 - PHP 7.3.26 (https://joomla.local:8473/phpinfo/)
 - PHP 7.4.14 (https://joomla.local:8474/phpinfo/)
@@ -277,7 +278,7 @@ Konkrte ist das
 
 ###### PHPInfo()
 
-Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo) als Unterverzeichnis `phpinfo` jeder Joomla-Installation. So reicht die Eingabe von `https://joomla.local/phpinfo/` um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port `8074` standardmäßig mit `443` gemappt ist, in der `docker-compose.yml`, beziehungsweise der eigenen `docker-compose-override.yml`.
+Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo) als Unterverzeichnis `phpinfo` jeder Joomla-Installation. So reicht die Eingabe von `https://joomla.local/phpinfo/` um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port `8074` standardmäßig mit `443` gemappt ist, in der `docker-compose.yml`, beziehungsweise der eigenen `docker-compose.override.yml`.
 
 ```
 ...
@@ -299,7 +300,7 @@ Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/d
       - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw
       - ./data/phpinfo:/srv/phpinfo:rw
       - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
-      - /home/meinBenutzer/git/joomla-development:/home/meinBenutzer/git/joomla-development:rw      
+      - /home/meinBenutzer/git/joomla-development:/home/meinBenutzer/git/joomla-development:rw
       - pma:/srv/pma
       - phpsocket:/run/php
     ports:
@@ -328,25 +329,27 @@ Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/d
 ...
 ```
 
-
 Eine spezielle PHP Version adressiert man über den Port. Beispielsweise https://joomla.local:8480/phpinfo/ für PHP 8.0.1 oder https://joomla.local:8456/phpinfo/ wenn man PHP 5.6.40 überprüfen möchte.
 
 ![phpinfo() in PHP 5.6.40](/images/phpinfo56.png)
 
-![phpinfo() in PHP 8.0.1](/iphpinfo80.png)
+![phpinfo() in PHP 8.0.1](/images/phpinfo_80.png)
 
 ##### xdebug
 
 ##### Versionen
 
 PHP 5.6.40 verwendet
-- xdebug 2.5.5 
+
+- xdebug 2.5.5
 
 PHP 7.3.26 und PHP 7.4.14 verwenden
-- xdebug 2.9.8 
+
+- xdebug 2.9.8
 
 PHP 8.0.1 verwendet
-- xdebug 3.1.0-dev 
+
+- xdebug 3.1.0-dev
 
 ##### Parameter
 
@@ -374,7 +377,6 @@ xdebug.max_nesting_level = 700
 
 Für [xdebug 3](https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-3.x.ini) ist dies
 
-
 ```
 [XDEBUG]
 ;
@@ -392,6 +394,7 @@ xdebug.max_nesting_level = 700
 ; host network IP like this
 ;xdebug.remote_host=192.168.0.100
 ```
+
 > Man beachte `xdebug.remote_port = 10000` beziehungsweise `xdebug.remote_port = 10000`, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.
 
 ##### Joomla Konfiguration in docker-lamp
@@ -492,4 +495,3 @@ Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in d
         ipv4_address: 172.16.238.16
 ...
 ```
-
