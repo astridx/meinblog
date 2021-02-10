@@ -21,7 +21,26 @@ Hier geht es um _docker-lamp_ und konkrete darum, wie spezielle Domains erzeugt 
 
 Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
 
-## Eigene Domain
+## Top-Level-Domain (TDL)
+
+## Subdomain
+
+Bisher verfügen wir über die Domains `joomla.local` und `joomla.test`. Nun ergänzen wir `tutorial.local` und `tutorial.test`
+
+> docker-lampp bietet von Hause aus zusätzlich `wp.local` und `wp.test` sowie `wpms.local` und `wpms.test`
+
+```
+                            (root)
+                   /                     \
+                 /                         \
+               /                             \
+            test                              local
+         /         \                       /          \
+        /           \                     /            \
+    joomla        tutorial             joomla        tutorial
+    /  |   \       /  |   \           /   |  \       /  |   \
+j4dev j3  j3b4   t1   t2  t3        j4dev j3 j3b4   t1   t2  t3
+```
 
 Falls der Server aktiv ist, stoppe ihn über `make server-down`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
 
@@ -63,9 +82,9 @@ docker-lamp_pma
 
 ### Eigene Domain erzeugen
 
-##### .env
+#### .env
 
-Über `sudo nano .env` öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze ich `tutorial.local=127.0.0.1,tutorial.test=127.0.0.1` bei `TLD_SUFFIX` und `utorial.local,*.tutorial.local,tutorial.test,*.tutorial.test` bei `SSL_LOCALDOMAINS`.
+Über `nano .env` öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze ich `tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test` bei `SSL_LOCALDOMAINS`.
 
 ```
 ...
@@ -76,7 +95,7 @@ SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test
 ...
 ```
 
-##### Webserver
+#### Webserver
 
 Mit `mkdir /srv/www/tutorial` erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird.
 
@@ -96,7 +115,7 @@ Damit das Zertifikat neu angelegt wird lösche ich den Ordner `/data/ca/localdom
 $ sudo rm -R ./data/ca/localdomains/
 ```
 
-##### Test
+#### Test
 
 Im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
 

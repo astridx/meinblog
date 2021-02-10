@@ -4,9 +4,24 @@
 <p>Hier geht es um <em>docker-lamp</em> und konkrete darum, wie spezielle Domains erzeugt werden. <em>docker-lamp</em> ist eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung auf einem Webserver unterstützen. In diesem Teil erstellen wir eine separate Domain.</p>
 <h2>Voraussetzungen</h2>
 <p>Neben <a href="/ubuntu-docker-einrichten-docker-lamp">Docker</a> ist <a href="/ubuntu-docker-compose-einrichten-docker-lamp">Docker Compose</a> notwendig. Wenn du diesem <a href="mein-ubuntu-rechner-mit-docker-lamp-themen/">Set</a> bisher gefolgt bist, passt alles.</p>
-<h2>Eigene Domain</h2>
+<h2>Top-Level-Domain (TDL)</h2>
+<h2>Subdomain</h2>
+<p>Bisher verfügen wir über die Domains <code class="language-text">joomla.local</code> und <code class="language-text">joomla.test</code>. Nun ergänzen wir <code class="language-text">tutorial.local</code> und <code class="language-text">tutorial.test</code></p>
+<blockquote>
+<p>docker-lampp bietet von Hause aus zusätzlich <code class="language-text">wp.local</code> und <code class="language-text">wp.test</code> sowie <code class="language-text">wpms.local</code> und <code class="language-text">wpms.test</code></p>
+</blockquote>
+<pre class="grvsc-container solarized-light" data-language="" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">                            (root)</span></span>
+<span class="grvsc-line"><span class="grvsc-source">                   /                     \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">                 /                         \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">               /                             \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            test                              local </span></span>
+<span class="grvsc-line"><span class="grvsc-source">         /         \                       /          \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        /           \                     /            \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    joomla        tutorial             joomla        tutorial</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    /  |   \       /  |   \           /   |  \       /  |   \             </span></span>
+<span class="grvsc-line"><span class="grvsc-source">j4dev j3  j3b4   t1   t2  t3        j4dev j3 j3b4   t1   t2  t3</span></span></code></pre>
 <p>Falls der Server aktiv ist, stoppe ihn über <code class="language-text">make server-down</code>. Stelle sicher, dass du den Befehl im <code class="language-text">docker-lamp</code> Ordner aufrufst oder ihn global verfügbar gemacht hast.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ make server-down</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ make server-down</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">./.env included</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Datenbank-Sicherung gestartet.</span></span></span>
@@ -40,20 +55,20 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">local</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">docker-lamp_pma</span></span></span></code></pre>
 <h3>Eigene Domain erzeugen</h3>
-<h5>.env</h5>
-<p>Über <code class="language-text">sudo nano .env</code> öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze ich <code class="language-text">tutorial.local=127.0.0.1,tutorial.test=127.0.0.1</code> bei <code class="language-text">TLD_SUFFIX</code> und <code class="language-text">utorial.local,*.tutorial.local,tutorial.test,*.tutorial.test</code> bei <code class="language-text">SSL_LOCALDOMAINS</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<h4>.env</h4>
+<p>Über <code class="language-text">nano .env</code> öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze ich <code class="language-text">tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test</code> bei <code class="language-text">SSL_LOCALDOMAINS</code>.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1,tutorial.local=127.0.0.1,tutorial.test=127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<h5>Webserver</h5>
+<h4>Webserver</h4>
 <p>Mit <code class="language-text">mkdir /srv/www/tutorial</code> erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird.</p>
 <blockquote>
 <p>Mein Webserver Stammverzeichnis ist <code class="language-text">/srv/www/</code></p>
 </blockquote>
-<pre class="grvsc-container solarized-light" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">mkdir /srv/www/tutorial</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">mkdir /srv/www/tutorial</span></span></code></pre>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -86,10 +101,10 @@
     </span></p>
 <h5>Zertifikat</h5>
 <p>Damit das Zertifikat neu angelegt wird lösche ich den Ordner <code class="language-text">/data/ca/localdomains</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo rm -R ./data/ca/localdomains/</span></span></code></pre>
-<h5>Test</h5>
+<pre class="grvsc-container solarized-light" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo rm -R ./data/ca/localdomains/</span></span></code></pre>
+<h4>Test</h4>
 <p>Im <code class="language-text">docker-lamp</code>-Ordner rufe ich den Befehl <code class="language-text">make server-up</code> auf.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ make server-up</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ make server-up</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">./.env included</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Building with native build. Learn about native build </span><span class="mtk8">in</span><span class="mtk1"> Compose here: https://docs.docker.com/go/compose-native-build/</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Creating network </span><span class="mtk11">&quot;docker-lamp_net&quot;</span><span class="mtk1"> with driver </span><span class="mtk11">&quot;bridge&quot;</span></span></span>

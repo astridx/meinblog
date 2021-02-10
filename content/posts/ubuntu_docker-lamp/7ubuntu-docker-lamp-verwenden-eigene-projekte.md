@@ -99,6 +99,6 @@ $ docker exec -it --user 1000 -w /srv/git/boilerplate docker-lamp_php73 ./vendor
 
 ###### Projekte in Joomla entdecken (discovern)
 
-Im Joomla Backend sind die Erweiterungen nun zum Entdecken bereit. 
+Im Joomla Backend sind die Erweiterungen nun zum Entdecken bereit.
 
 ![Projekte in Joomla discovern](/images/discover.png)

@@ -93,6 +93,8 @@ cd docker-lamp
 
 ### Umgebungsvariablen
 
+#### .env-example in .env umbennen und editieren
+
 Im `docker-lamp`-Ordner kopiere ich die versteckte Datei `.env-example` nach `.env`.
 
 > Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden und diese ist versteckt.
@@ -101,13 +103,17 @@ Im `docker-lamp`-Ordner kopiere ich die versteckte Datei `.env-example` nach `.e
 cp .env-example .env
 ```
 
-Dann belege ich in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `REMOTE_HOST_IP=192.168.178.138`.
+Mittels `nano .env` öffne ich die Datei zum editieren.
 
 ```bash
 nano .env
 ```
 
-Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
+#### .env Datei abändern
+
+##### Eigene IP-Adresse
+
+Ich belege in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `REMOTE_HOST_IP=192.168.178.138`. Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
 
 ```
 ...
@@ -117,17 +123,39 @@ Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
 REMOTE_HOST_IP=192.168.209.138
 ```
 
-Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb die Variable `WWW_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben.
+##### APP_BASEDIR
+
+Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb die Variable `APP_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben.
 
 ```
 ...
 ...
 # Set Your projekt folder for websites
 #
-WWW_BASEDIR=/srv/www
+APP_BASEDIR=/srv/www
 ...
 ...
 ```
+
+##### Benutzer ID unter Ubuntu
+
+In der .env gibt es den folgenden Eintrag.
+
+```
+...
+...
+# Set your user and group ID from your Linux host,
+# it will be automatically assigned to the user and group 'virtual'
+# inside the containers used for Apache and php-fpm processes.
+#
+# You can safely ignore this on Windows and MacOS, but don't disable it!
+APP_USER_ID=1000
+APP_GROUP_ID=1000
+...
+...
+```
+
+Warum sind `APP_USER_ID` und `APP_GROUP_ID` mit 1000 voreingestellt? In Ubuntu ist `1000` die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, hat man somit die ID 1000. Überprüfen kann man dies mit dem Befehl `id -u`. Falls die des Benutzers, welcher `docker-lamp` ausführt, von 1000 abweicht, ist dieser Eintrag zu korrigieren.
 
 ### Die make Commandos
 
@@ -169,7 +197,7 @@ Recreating docker-lamp_phpmyadmin ... done
 Recreating docker-lamp_httpd      ... done
 ```
 
-Der Befehl arbeitet einige Minuten. Im Anschluss werden mir eine Reihe von Images angezeigt, wenn ich `docker images -a` eingebe.
+Der Befehl arbeitet mein ersten Aufruf einige Minuten, da sämtliche Images erst heruntergeladen werden müssen. Im Anschluss sind diese mit `docker images -a` angezeigbar.
 
 ```bash
 $ docker images -a
@@ -208,7 +236,7 @@ Mit dem Befehl `make server-down` stoppe ich alle Container und sichere gleichze
 
 #### Das Verzeichnis ist flexibel
 
-Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter `/srv/www` eingebunden, falls es nicht in der `.env` neu belegt wurde. In dem Fall ist das in der Variablen  `WWW_BASEDIR`  gesetzte Verzeichnis das, welches in den Container verlinkt wird.
+Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter `/srv/www` eingebunden, falls es nicht in der `.env` neu belegt wurde. In dem Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis das, welches in den Container verlinkt wird.
 
 #### Mehrere Verzeichnisse im Container - docker-compose.override.yml
 
@@ -231,7 +259,7 @@ Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-developm
 Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose.override.yml` nach dem folgenden Eintrag.:
 
 ```
-      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
+      - ${APP_BASEDIR:-./data/www}:/srv/www:rw
 ```
 
 Jedesmal, wenn ich den obigen Eintrag finde, füge ich die nachfolgende Zeile hinter diesem ein.
@@ -261,7 +289,7 @@ Für den `httpd`-Container sieht der Eintrag wie folgt aus:
       - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
       - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw
       - ./data/phpinfo:/srv/phpinfo:rw
-      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
+      - ${APP_BASEDIR:-./data/www}:/srv/www:rw
       - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
       - pma:/srv/pma
       - phpsocket:/run/php
@@ -328,7 +356,7 @@ MINICA_DEFAULT_DOMAINS:=localdomains,localhost,joomla.local,joomla.test,*.joomla
 
 ##### Angaben in der Datei `.env`
 
-Um zusätzliche Domains zu zertifizieren, git es die Variablen `.env` und `SSL_LOCALDOMAINS` in der `.env`.
+Um zusätzliche Domains zu zertifizieren, git es die Variablen `SSL_DOMAINS` und `SSL_LOCALDOMAINS` in der Datei `.env`.
 
 ```
 ...
@@ -352,13 +380,29 @@ Hier dann folgenden Einträge erweitert:
 
 ```
 ...
-TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1,xxx.local=127.0.0.1
+TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1
 ...
-SSL_LOCALDOMAINS=xxx.local,*.xxx.local
+...
+SSL_LOCALDOMAINS=beispielsubdomain1.local,*.beispielsubdomain2.local
+```
+
+> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. [Top-Level-Domain](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458) steht. `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden dorch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter `SSL_LOCALDOMAINS` einzutragen.
+> Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=beispielsubdomain1.mytdl,*.beispielsubdomain2.mytdl` spielen zusammen.
+
+```
+             (root)                 0. Ebene, Null-Label
+             /   \
+            /     \
+         test     local             1. Ebene, Top-Level-Domains (TLD)
+         /           \
+        /             \
+    joomla           joomla         2. Ebene, Second-Level-Domains
+    /  |   \         /   |  \
+j4dev j3  j3b4     j4dev j3 j3b4    3. Ebene, Third-Level-Domains
 ```
 
 Dann den Ordner `/data/ca/localdomains` löschen.
-Einen entsprechenden Ordner `/data/www/xxx` erstellen.
+Einen entsprechenden Ordner `/data/www/subdomain2ebene` erstellen.
 
 ```
 make server-up
@@ -379,7 +423,7 @@ In Mozilla Firefox importiert man das Zertifikat wie folgt:
 1. Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz & Sicherheit (Privacy and Security).
 2. Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates).
 3. Wechsele in den Tabulator Zertifizierungsstellen (Authorities).
-4. Importiere die Datei `/docker-lamp/data/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
+4. Importiere die Datei `APP_BASEDIR/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
 
 ![Zertifikat importieren](/images/dockerlamp_zertbrowser.png)
 
@@ -399,7 +443,7 @@ Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimm
 ...
 ```
 
-#### Abhilfe schafft schafft die folgende Vorgehensweise
+#### Abhilfe schafft die folgende Vorgehensweise
 
 Als erstes ins Unterverzeichnis data wechseln.
 
@@ -450,7 +494,7 @@ ERROR: Encountered errors while bringing up the project.
 make: *** [Makefile:51: server-up] Fehler 1
 ```
 
-#### Abhilfe schafft schafft die folgende Vorgehensweise
+#### Abhilfe schafft die folgende Vorgehensweise
 
 1. `sudo systemctl disable systemd-resolved.service`
 

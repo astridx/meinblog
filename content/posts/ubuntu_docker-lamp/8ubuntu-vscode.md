@@ -41,7 +41,6 @@ sudo apt install ./<file>.deb
 
 ##### Voraussetzungen im Browser Mozilla Firefox
 
-
 Ich füge zu Firefox hinzu.
 
 ![Xdebug Helper for Firefox](/images/xdebug1.png)
@@ -51,7 +50,6 @@ Ich füge zu Firefox hinzu.
 ![Xdebug Helper for Firefox](/images/xdebug5.png)
 
 ![Xdebug Helper for Firefox](/images/xdebug6.png)
-
 
 ##### PHP Debug von Felix Becker installieren und konfigurieren
 
@@ -104,12 +102,7 @@ Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `1000
 
 ###### Listen EACCES: permission denied` on any port
 
-
 ![PHP Debug von Felix Becker in Visual Studio Code debuggen - Visual Code Fehler](/images/xdebugfehler.png)
-
-
-
-
 
 #### phpcs
 
@@ -122,9 +115,6 @@ Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `1000
 #### PHPUnit
 
 [emallin.phpunit](https://marketplace.visualstudio.com/items?itemName=emallin.phpunit). Führen Sie PHPUnit-Tests von VSCode aus.
-
-
-
 
 #### php cs-fixer
 

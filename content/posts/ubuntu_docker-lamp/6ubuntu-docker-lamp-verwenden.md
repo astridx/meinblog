@@ -39,14 +39,14 @@ Wer das Verzeichnis `/www`, welches unter `/docker-lamp/data/www` vorhanden ist,
 
 Ich beschreibe meine Vorgehensweise als Beispiel, bei der ich `/srv/www` als Stammverzeichnis im Webserver nutze.
 
-In diesem Fall ist die Variable `WWW_BASEDIR` in der Datei `.env` wie folgt abzuändern, falls beim [Einrichten](/ubuntu-docker-lamp-einrichten) noch nicht geschehen.
+In diesem Fall ist die Variable `APP_BASEDIR` in der Datei `.env` wie folgt abzuändern, falls beim [Einrichten](/ubuntu-docker-lamp-einrichten) noch nicht geschehen.
 
 ```
 ...
 ...
 # Set Your projekt folder for websites
 #
-WWW_BASEDIR=/srv/www
+APP_BASEDIR=/srv/www
 ...
 ...
 ```
@@ -134,7 +134,9 @@ Damit ich auf den ersten Blick erkenne, um welches Joomla es sich handelt, gebe 
 mv joomla-cms/ j4dev
 ```
 
-Ich schaue mir das Ergebnis im Browser an. `https://j4dev/joomla/local` oder `https://j4dev/joomla/test` sind die passenden URLs.
+> Ich nutze `j4dev` für die Development Version von Joomla 4. `j3`, beziehungsweise `j4` für die letzte stabile Version des jeweiligen Major Release. `j4b6` für die 6. Beta Version von Joomla 4. Anlalog nenne ich die Datenbanken. So ist für mich alles übersichtlich.
+
+Ich schaue mir das Ergebnis im Browser an. `https://j4dev.joomla.local` oder `https://j4dev.joomla.test` sind die passenden URLs.
 
 ![Joomla 4 Oberfläche vor dem Einrichten der Entwicklungsumgebung](/images/j4dev1.png)
 
@@ -157,6 +159,8 @@ OK: 79 MiB in 71 packages
 
 Der nachfolgende Befehl führt `composer install` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80`-Containers als Benutzer `1000` aus.
 
+> Eine eventuelle lokale Installation von _Composer_ ist verwendbar. Dazu auf dem Rechner in das `j4dev` Verzeichnis wechseln und dort den Befehl [`composer install`](https://getcomposer.org/doc/03-cli.md#install-i) aufrufen.
+
 ```
 docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install
 ```
@@ -165,11 +169,13 @@ docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer 
 
 Der nachfolgende Befehl führt `npm ci` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80` Containers als Benutzer `1000` aus. Wir möchten `npm` aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters `--rm`.
 
+> Eventuelle lokale Installationen von _Node.js_ beziehungsweise _npm_ sind verwendbar. Dazu auf dem Rechner in das `j4dev` Verzeichnis wechseln und dort den Befehl [`npm ci`](https://docs.npmjs.com/cli/v6/commands/npm-ci) aufrufen.
+
 ```
 docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci
 ```
 
-Ich überprüfe die Ausgabe erneut im Browser. `https://j4dev/joomla/local` oder `https://j4dev/joomla/test` sind die passenden URLs.
+Ich überprüfe die Ausgabe erneut im Browser. `https://j4dev/joomla.local` oder `https://j4dev.joomla.test` sind die passenden URLs.
 
 ![Joomla 4 Oberfläche nach dem Einrichten der Entwicklungsumgebung](/images/j4dev2.png)
 
@@ -193,7 +199,7 @@ git clone --depth 1 https://github.com/joomla/joomla-cms.git -b staging
 mv joomla-cms/ j3dev
 ```
 
-Ich seje mir das Ergebnis im Browser an `https://j3dev/joomla/local` oder `https://j3dev/joomla/test` sind die passenden URLs für das Verzeichnis.
+Ich seje mir das Ergebnis im Browser an `https://j3dev.joomla.local` oder `https://j3dev.joomla.test` sind die passenden URLs für das Verzeichnis.
 
 ![Joomla 3 Oberfläche](/images/j3dev1.png)
 
@@ -271,14 +277,16 @@ Die [Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/ph
 
 Konkrte ist das
 
-- PHP 5.6.40 (https://joomla.local:8456/phpinfo/)
-- PHP 7.3.26 (https://joomla.local:8473/phpinfo/)
-- PHP 7.4.14 (https://joomla.local:8474/phpinfo/)
-- PHP 8.0.1 (https://joomla.local:8480/phpinfo/)
+- PHP 5.6 (https://joomla.local:8456/phpinfo/)
+- PHP 7.3 (https://joomla.local:8473/phpinfo/)
+- PHP 7.4 (https://joomla.local:8474/phpinfo/)
+- PHP 8.0 (https://joomla.local:8480/phpinfo/)
 
-###### PHPInfo()
+> Bei den PHP-Versionen stehen hier keine Minor-Versionen. Diese werden zeitnah aktualisiert und ändern sich somit permanent.
 
-Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo) als Unterverzeichnis `phpinfo` jeder Joomla-Installation. So reicht die Eingabe von `https://joomla.local/phpinfo/` um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port `8074` standardmäßig mit `443` gemappt ist, in der `docker-compose.yml`, beziehungsweise der eigenen `docker-compose.override.yml`.
+##### Port-Verlinkungen und PHP-Versionen
+
+Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port `8074` standardmäßig mit `443` gemappt ist, in der `docker-compose.yml`, beziehungsweise der eigenen `docker-compose.override.yml`.
 
 ```
 ...
@@ -299,7 +307,7 @@ Ein praktisches Feature ist das Einbinden einer [phpinfo()](https://github.com/d
       - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
       - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw
       - ./data/phpinfo:/srv/phpinfo:rw
-      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw
+      - ${APP_BASEDIR:-./data/www}:/srv/www:rw
       - /home/meinBenutzer/git/joomla-development:/home/meinBenutzer/git/joomla-development:rw
       - pma:/srv/pma
       - phpsocket:/run/php
@@ -335,19 +343,39 @@ Eine spezielle PHP Version adressiert man über den Port. Beispielsweise https:/
 
 ![phpinfo() in PHP 8.0.1](/images/phpinfo_80.png)
 
+###### PHPInfo()
+
+Ein praktisches Feature ist, dass `phpinfo()` für jede PHP-Version und jede Domain oder Subdomain vom System bereitgestellt wird. Dazu reicht es, die Domain mit dem Unterverzeichnis `/phpinfo` aufzurufen.
+
+Der Aufruf
+
+```
+https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&view=sysinfo
+```
+
+zeigt die Systeminformationen der Joomla Installation. Man sieht, dass PHP 8.0 ausgeführt wird.
+
+Der Aufruf
+
+```
+https://j4dev.joomla.local:8456/administrator/index.php?option=com_admin&view=sysinfo
+```
+
+zeigt die Systeminformationen der Joomla Installation. Mit der PHP-Version 5.6 kann Joomla 4 nicht ausgeführt werden. Deshalb wird man mit "Sorry, your PHP version is not supported" begrüßt.
+
 ##### xdebug
 
 ##### Versionen
 
-PHP 5.6.40 verwendet
+PHP 5.6 verwendet
 
 - xdebug 2.5.5
 
-PHP 7.3.26 und PHP 7.4.14 verwenden
+PHP 7.3 und PHP 7.4 verwenden
 
 - xdebug 2.9.8
 
-PHP 8.0.1 verwendet
+PHP 8.0 verwendet
 
 - xdebug 3.1.0-dev
 

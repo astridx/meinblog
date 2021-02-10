@@ -13,12 +13,12 @@
 <p>Wer das Verzeichnis <code class="language-text">/www</code>, welches unter <code class="language-text">/docker-lamp/data/www</code> vorhanden ist, als Stammverzeichnis des Webservers nutzt, kann diesen Abschnitt überspringen und dafür im weiteren meine Beschreibung anpassen. Diese beziehen sich auf <code class="language-text">/srv/www</code>.</p>
 <h4>Stammverzeichnis des Webservers unter /srv/www einrichten</h4>
 <p>Ich beschreibe meine Vorgehensweise als Beispiel, bei der ich <code class="language-text">/srv/www</code> als Stammverzeichnis im Webserver nutze.</p>
-<p>In diesem Fall ist die Variable <code class="language-text">WWW_BASEDIR</code> in der Datei <code class="language-text">.env</code> wie folgt abzuändern, falls beim <a href="/ubuntu-docker-lamp-einrichten">Einrichten</a> noch nicht geschehen.</p>
+<p>In diesem Fall ist die Variable <code class="language-text">APP_BASEDIR</code> in der Datei <code class="language-text">.env</code> wie folgt abzuändern, falls beim <a href="/ubuntu-docker-lamp-einrichten">Einrichten</a> noch nicht geschehen.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># Set Your projekt folder for websites</span></span>
 <span class="grvsc-line"><span class="grvsc-source">#</span></span>
-<span class="grvsc-line"><span class="grvsc-source">WWW_BASEDIR=/srv/www</span></span>
+<span class="grvsc-line"><span class="grvsc-source">APP_BASEDIR=/srv/www</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <blockquote>
@@ -74,7 +74,10 @@
 <span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x 21 deinBenutzer deinBenutzer 4096 Feb  6 13:19 joomla-cms/</span></span></code></pre>
 <p>Damit ich auf den ersten Blick erkenne, um welches Joomla es sich handelt, gebe ich ihm einen sprechenderen Namen.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">mv joomla-cms/ j4dev</span></span></code></pre>
-<p>Ich schaue mir das Ergebnis im Browser an. <code class="language-text">https://j4dev/joomla/local</code> oder <code class="language-text">https://j4dev/joomla/test</code> sind die passenden URLs.</p>
+<blockquote>
+<p>Ich nutze <code class="language-text">j4dev</code> für die Development Version von Joomla 4. <code class="language-text">j3</code>, beziehungsweise <code class="language-text">j4</code> für die letzte stabile Version des jeweiligen Major Release. <code class="language-text">j4b6</code> für die 6. Beta Version von Joomla 4. Anlalog nenne ich die Datenbanken. So ist für mich alles übersichtlich.</p>
+</blockquote>
+<p>Ich schaue mir das Ergebnis im Browser an. <code class="language-text">https://j4dev.joomla.local</code> oder <code class="language-text">https://j4dev.joomla.test</code> sind die passenden URLs.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -119,13 +122,19 @@
 <span class="grvsc-line"><span class="grvsc-source">Executing busybox-1.32.1-r2.trigger</span></span>
 <span class="grvsc-line"><span class="grvsc-source">OK: 79 MiB in 71 packages</span></span></code></pre>
 <p>Der nachfolgende Befehl führt <code class="language-text">composer install</code> im Verzeichnis <code class="language-text">/srv/www/joomla/j4dev</code> des <code class="language-text">docker-lamp_php80</code>-Containers als Benutzer <code class="language-text">1000</code> aus.</p>
+<blockquote>
+<p>Eine eventuelle lokale Installation von <em>Composer</em> ist verwendbar. Dazu auf dem Rechner in das <code class="language-text">j4dev</code> Verzeichnis wechseln und dort den Befehl <a href="https://getcomposer.org/doc/03-cli.md#install-i"><code class="language-text">composer install</code></a> aufrufen. </p>
+</blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install</span></span></code></pre>
 <blockquote>
 <p>Composer ist in den Containern mit PHP 7.3, 7.4 und 8.0 verwendbar.</p>
 </blockquote>
 <p>Der nachfolgende Befehl führt <code class="language-text">npm ci</code> im Verzeichnis <code class="language-text">/srv/www/joomla/j4dev</code> des <code class="language-text">docker-lamp_php80</code> Containers als Benutzer <code class="language-text">1000</code> aus. Wir möchten <code class="language-text">npm</code> aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters <code class="language-text">--rm</code>.</p>
+<blockquote>
+<p>Eventuelle lokale Installationen von <em>Node.js</em> beziehungsweise <em>npm</em> sind verwendbar. Dazu auf dem Rechner in das <code class="language-text">j4dev</code> Verzeichnis wechseln und dort den Befehl <a href="https://docs.npmjs.com/cli/v6/commands/npm-ci"><code class="language-text">npm ci</code></a> aufrufen. </p>
+</blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci</span></span></code></pre>
-<p>Ich überprüfe die Ausgabe erneut im Browser. <code class="language-text">https://j4dev/joomla/local</code> oder <code class="language-text">https://j4dev/joomla/test</code> sind die passenden URLs.</p>
+<p>Ich überprüfe die Ausgabe erneut im Browser. <code class="language-text">https://j4dev/joomla.local</code> oder <code class="language-text">https://j4dev.joomla.test</code> sind die passenden URLs.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -225,7 +234,7 @@
 <span class="grvsc-line"><span class="grvsc-source">git clone --depth 1 https://github.com/joomla/joomla-cms.git -b staging</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">mv joomla-cms/ j3dev</span></span></code></pre>
-<p>Ich seje mir das Ergebnis im Browser an <code class="language-text">https://j3dev/joomla/local</code> oder <code class="language-text">https://j3dev/joomla/test</code> sind die passenden URLs für das Verzeichnis.</p>
+<p>Ich seje mir das Ergebnis im Browser an <code class="language-text">https://j3dev.joomla.local</code> oder <code class="language-text">https://j3dev.joomla.test</code> sind die passenden URLs für das Verzeichnis.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -298,13 +307,16 @@
 <p>Die <a href="https://github.com/degobbis/docker-lamp/tree/main/.config/php">Konfiguration</a> zeigt, welche PHP-Versionen unterstützt werden.</p>
 <p>Konkrte ist das</p>
 <ul>
-<li>PHP 5.6.40 (<a href="https://joomla.local:8456/phpinfo/">https://joomla.local:8456/phpinfo/</a>)</li>
-<li>PHP 7.3.26 (<a href="https://joomla.local:8473/phpinfo/">https://joomla.local:8473/phpinfo/</a>)</li>
-<li>PHP 7.4.14 (<a href="https://joomla.local:8474/phpinfo/">https://joomla.local:8474/phpinfo/</a>)</li>
-<li>PHP 8.0.1 (<a href="https://joomla.local:8480/phpinfo/">https://joomla.local:8480/phpinfo/</a>)</li>
+<li>PHP 5.6 (<a href="https://joomla.local:8456/phpinfo/">https://joomla.local:8456/phpinfo/</a>)</li>
+<li>PHP 7.3 (<a href="https://joomla.local:8473/phpinfo/">https://joomla.local:8473/phpinfo/</a>)</li>
+<li>PHP 7.4 (<a href="https://joomla.local:8474/phpinfo/">https://joomla.local:8474/phpinfo/</a>)</li>
+<li>PHP 8.0 (<a href="https://joomla.local:8480/phpinfo/">https://joomla.local:8480/phpinfo/</a>)</li>
 </ul>
-<h6>PHPInfo()</h6>
-<p>Ein praktisches Feature ist das Einbinden einer <a href="https://github.com/degobbis/docker-lamp/tree/main/data/phpinfo">phpinfo()</a> als Unterverzeichnis <code class="language-text">phpinfo</code> jeder Joomla-Installation. So reicht die Eingabe von <code class="language-text">https://joomla.local/phpinfo/</code> um sich über die PHP Umgebung zu informieren. Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port <code class="language-text">8074</code> standardmäßig mit <code class="language-text">443</code> gemappt ist, in der <code class="language-text">docker-compose.yml</code>, beziehungsweise der eigenen <code class="language-text">docker-compose.override.yml</code>.</p>
+<blockquote>
+<p>Bei den PHP-Versionen stehen hier keine Minor-Versionen. Diese werden zeitnah aktualisiert und ändern sich somit permanent.</p>
+</blockquote>
+<h5>Port-Verlinkungen und PHP-Versionen</h5>
+<p>Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port <code class="language-text">8074</code> standardmäßig mit <code class="language-text">443</code> gemappt ist, in der <code class="language-text">docker-compose.yml</code>, beziehungsweise der eigenen <code class="language-text">docker-compose.override.yml</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  httpd:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    image: degobbis/apache24-alpine:latest</span></span>
@@ -323,7 +335,7 @@
 <span class="grvsc-line"><span class="grvsc-source">      - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - ./data/phpinfo:/srv/phpinfo:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - ${WWW_BASEDIR:-./data/www}:/srv/www:rw</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      - ${APP_BASEDIR:-./data/www}:/srv/www:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - /home/meinBenutzer/git/joomla-development:/home/meinBenutzer/git/joomla-development:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - pma:/srv/pma</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - phpsocket:/run/php</span></span>
@@ -412,24 +424,32 @@
       />
   </a>
     </span></p>
+<h6>PHPInfo()</h6>
+<p>Ein praktisches Feature ist, dass <code class="language-text">phpinfo()</code> für jede PHP-Version und jede Domain oder Subdomain vom System bereitgestellt wird. Dazu reicht es, die Domain mit dem Unterverzeichnis <code class="language-text">/phpinfo</code> aufzurufen.</p>
+<p>Der Aufruf </p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&amp;view=sysinfo</span></span></code></pre>
+<p>zeigt die Systeminformationen der Joomla Installation. Man sieht, dass PHP 8.0 ausgeführt wird.</p>
+<p>Der Aufruf </p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">https://j4dev.joomla.local:8456/administrator/index.php?option=com_admin&amp;view=sysinfo</span></span></code></pre>
+<p>zeigt die Systeminformationen der Joomla Installation. Mit der PHP-Version 5.6 kann Joomla 4 nicht ausgeführt werden. Deshalb wird man mit "Sorry, your PHP version is not supported" begrüßt.</p>
 <h5>xdebug</h5>
 <h5>Versionen</h5>
-<p>PHP 5.6.40 verwendet</p>
+<p>PHP 5.6 verwendet</p>
 <ul>
 <li>xdebug 2.5.5</li>
 </ul>
-<p>PHP 7.3.26 und PHP 7.4.14 verwenden</p>
+<p>PHP 7.3 und PHP 7.4 verwenden</p>
 <ul>
 <li>xdebug 2.9.8</li>
 </ul>
-<p>PHP 8.0.1 verwendet</p>
+<p>PHP 8.0 verwendet</p>
 <ul>
 <li>xdebug 3.1.0-dev</li>
 </ul>
 <h5>Parameter</h5>
 <p>Die in <em>xdebug</em> eingestellten Parameter findet man in der <a href="https://github.com/degobbis/docker-lamp/tree/main/.config/php">PHP Konfiguration</a>.</p>
 <p>Für <a href="https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-2.x.ini">xdebug 2</a> ist dies</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[XDEBUG]</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[XDEBUG]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; options for xDebug 2.x</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
@@ -445,7 +465,7 @@
 <span class="grvsc-line"><span class="grvsc-source">; host network IP like this</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;xdebug.remote_host=192.168.0.100</span></span></code></pre>
 <p>Für <a href="https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-3.x.ini">xdebug 3</a> ist dies</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[XDEBUG]</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[XDEBUG]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; options for xDebug 2.x</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
@@ -469,7 +489,7 @@
 <p><a href="https://www.phpmyadmin.net/">phpMyAdmin</a> ist ein freies Tool, das für die Verwaltung von MySQL über das Web gedacht ist.
 Die phpMyAdmin-Oberfläche erreicht man über <a href="http://localhost:8000">http://localhost:8000</a>.</p>
 <p>Das Passwort für den Benutzer <code class="language-text">root</code> setzt man in der Datei <code class="language-text">.env</code>. Standardmäßig ist es <code class="language-text">root</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="23"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># Set MySQL root password</span></span>
 <span class="grvsc-line"><span class="grvsc-source">#</span></span>
 <span class="grvsc-line"><span class="grvsc-source">MYSQL_ROOT_PASSWD=root</span></span>
@@ -505,7 +525,7 @@ Die phpMyAdmin-Oberfläche erreicht man über <a href="http://localhost:8000">ht
   </a>
     </span></p>
 <p>Bei der Installation von Joomla wird ein Datenbankserver abgefragt. Verwendet man <em>docker-lamp</em> ist der Name des Datenbank Containers anzugeben. Dieser ist schlicht und einfach <code class="language-text">mysql</code>. Diese Information findet man in der Datei <code class="language-text">docker-compose.yml</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="24"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  mysql:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    image: degobbis/mariadb105-alpine:latest</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    container_name: ${COMPOSE_PROJECT_NAME}_mysql</span></span>
@@ -613,7 +633,7 @@ Die phpMyAdmin-Oberfläche erreicht man über <a href="http://localhost:8000">ht
   </a>
     </span></p>
 <p>Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in der Datei <code class="language-text">docker-compose.yml</code> werfen.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="23"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="25"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  mailhog:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    image: mailhog/mailhog:latest</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    container_name: ${COMPOSE_PROJECT_NAME}_mailhog</span></span>
