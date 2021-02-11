@@ -123,7 +123,7 @@
 <span class="grvsc-line"><span class="grvsc-source">OK: 79 MiB in 71 packages</span></span></code></pre>
 <p>Der nachfolgende Befehl führt <code class="language-text">composer install</code> im Verzeichnis <code class="language-text">/srv/www/joomla/j4dev</code> des <code class="language-text">docker-lamp_php80</code>-Containers als Benutzer <code class="language-text">1000</code> aus.</p>
 <blockquote>
-<p>Eine eventuelle lokale Installation von <em>Composer</em> ist verwendbar. Dazu auf dem Rechner in das <code class="language-text">j4dev</code> Verzeichnis wechseln und dort den Befehl <a href="https://getcomposer.org/doc/03-cli.md#install-i"><code class="language-text">composer install</code></a> aufrufen. </p>
+<p>Eine eventuelle lokale Installation von <em>Composer</em> ist verwendbar. Dazu auf dem Rechner in das <code class="language-text">j4dev</code> Verzeichnis wechseln und dort den Befehl <a href="https://getcomposer.org/doc/03-cli.md#install-i"><code class="language-text">composer install</code></a> aufrufen.</p>
 </blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install</span></span></code></pre>
 <blockquote>
@@ -131,7 +131,7 @@
 </blockquote>
 <p>Der nachfolgende Befehl führt <code class="language-text">npm ci</code> im Verzeichnis <code class="language-text">/srv/www/joomla/j4dev</code> des <code class="language-text">docker-lamp_php80</code> Containers als Benutzer <code class="language-text">1000</code> aus. Wir möchten <code class="language-text">npm</code> aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters <code class="language-text">--rm</code>.</p>
 <blockquote>
-<p>Eventuelle lokale Installationen von <em>Node.js</em> beziehungsweise <em>npm</em> sind verwendbar. Dazu auf dem Rechner in das <code class="language-text">j4dev</code> Verzeichnis wechseln und dort den Befehl <a href="https://docs.npmjs.com/cli/v6/commands/npm-ci"><code class="language-text">npm ci</code></a> aufrufen. </p>
+<p>Eventuelle lokale Installationen von <em>Node.js</em> beziehungsweise <em>npm</em> sind verwendbar. Dazu auf dem Rechner in das <code class="language-text">j4dev</code> Verzeichnis wechseln und dort den Befehl <a href="https://docs.npmjs.com/cli/v6/commands/npm-ci"><code class="language-text">npm ci</code></a> aufrufen.</p>
 </blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci</span></span></code></pre>
 <p>Ich überprüfe die Ausgabe erneut im Browser. <code class="language-text">https://j4dev/joomla.local</code> oder <code class="language-text">https://j4dev.joomla.test</code> sind die passenden URLs.</p>
@@ -426,15 +426,15 @@
     </span></p>
 <h6>PHPInfo()</h6>
 <p>Ein praktisches Feature ist, dass <code class="language-text">phpinfo()</code> für jede PHP-Version und jede Domain oder Subdomain vom System bereitgestellt wird. Dazu reicht es, die Domain mit dem Unterverzeichnis <code class="language-text">/phpinfo</code> aufzurufen.</p>
-<p>Der Aufruf </p>
+<p>Der Aufruf</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&amp;view=sysinfo</span></span></code></pre>
 <p>zeigt die Systeminformationen der Joomla Installation. Man sieht, dass PHP 8.0 ausgeführt wird.</p>
-<p>Der Aufruf </p>
+<p>Der Aufruf</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">https://j4dev.joomla.local:8456/administrator/index.php?option=com_admin&amp;view=sysinfo</span></span></code></pre>
 <p>zeigt die Systeminformationen der Joomla Installation. Mit der PHP-Version 5.6 kann Joomla 4 nicht ausgeführt werden. Deshalb wird man mit "Sorry, your PHP version is not supported" begrüßt.</p>
 <h5>xdebug</h5>
 <h5>Versionen</h5>
-<p>PHP 5.6 verwendet</p>
+<p>PHP 5.6 verwendet im Februar 2021</p>
 <ul>
 <li>xdebug 2.5.5</li>
 </ul>
@@ -448,7 +448,7 @@
 </ul>
 <h5>Parameter</h5>
 <p>Die in <em>xdebug</em> eingestellten Parameter findet man in der <a href="https://github.com/degobbis/docker-lamp/tree/main/.config/php">PHP Konfiguration</a>.</p>
-<p>Für <a href="https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-2.x.ini">xdebug 2</a> ist dies</p>
+<p>Für xdebug 2 ist dies</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[XDEBUG]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; options for xDebug 2.x</span></span>
@@ -464,24 +464,24 @@
 <span class="grvsc-line"><span class="grvsc-source">; If it not works, it can be overridden here with the</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; host network IP like this</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;xdebug.remote_host=192.168.0.100</span></span></code></pre>
-<p>Für <a href="https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-3.x.ini">xdebug 3</a> ist dies</p>
+<p>Für xdebug 3 ist dies</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[XDEBUG]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
-<span class="grvsc-line"><span class="grvsc-source">; options for xDebug 2.x</span></span>
+<span class="grvsc-line"><span class="grvsc-source">; options for xDebug 3.x</span></span>
 <span class="grvsc-line"><span class="grvsc-source">;</span></span>
-<span class="grvsc-line"><span class="grvsc-source">xdebug.default_enable = true</span></span>
-<span class="grvsc-line"><span class="grvsc-source">xdebug.remote_enable = true</span></span>
-<span class="grvsc-line"><span class="grvsc-source">xdebug.remote_port = 10000</span></span>
-<span class="grvsc-line"><span class="grvsc-source">xdebug.remote_connect_back = false</span></span>
+<span class="grvsc-line"><span class="grvsc-source">xdebug.mode = debug</span></span>
+<span class="grvsc-line"><span class="grvsc-source">xdebug.start_with_request = trigger</span></span>
+<span class="grvsc-line"><span class="grvsc-source">xdebug.discover_client_host = false</span></span>
+<span class="grvsc-line"><span class="grvsc-source">xdebug.client_port = 10000</span></span>
 <span class="grvsc-line"><span class="grvsc-source">xdebug.max_nesting_level = 700</span></span>
-<span class="grvsc-line"><span class="grvsc-source">;xdebug.remote_log = /srv/www/xdebug.log</span></span>
+<span class="grvsc-line"><span class="grvsc-source">;xdebug.log = /srv/www/xdebug.log</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source">; xdebug.remote_host is set automaticaly by entrypoint.</span></span>
+<span class="grvsc-line"><span class="grvsc-source">; xdebug.client_host is set automaticaly by entrypoint.</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; If it not works, it can be overridden here with the</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; host network IP like this</span></span>
-<span class="grvsc-line"><span class="grvsc-source">;xdebug.remote_host=192.168.0.100</span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-source">;xdebug.client_host=192.168.0.100</span></span></code></pre>
 <blockquote>
-<p>Man beachte <code class="language-text">xdebug.remote_port = 10000</code> beziehungsweise <code class="language-text">xdebug.remote_port = 10000</code>, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.</p>
+<p>Man beachte <code class="language-text">xdebug.remote_port = 10000</code> beziehungsweise <code class="language-text">xdebug.client_port = 10000</code>, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.</p>
 </blockquote>
 <h5>Joomla Konfiguration in docker-lamp</h5>
 <h3>phpMyAdmin und MailHog</h3>

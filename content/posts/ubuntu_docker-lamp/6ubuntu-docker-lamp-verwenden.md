@@ -367,7 +367,7 @@ zeigt die Systeminformationen der Joomla Installation. Mit der PHP-Version 5.6 k
 
 ##### Versionen
 
-PHP 5.6 verwendet
+PHP 5.6 verwendet im Februar 2021
 
 - xdebug 2.5.5
 
@@ -383,7 +383,7 @@ PHP 8.0 verwendet
 
 Die in _xdebug_ eingestellten Parameter findet man in der [PHP Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/php).
 
-Für [xdebug 2](https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-2.x.ini) ist dies
+Für xdebug 2 ist dies
 
 ```
 [XDEBUG]
@@ -403,27 +403,27 @@ xdebug.max_nesting_level = 700
 ;xdebug.remote_host=192.168.0.100
 ```
 
-Für [xdebug 3](https://github.com/degobbis/docker-lamp/blob/main/.config/php/php-xdebug-3.x.ini) ist dies
+Für xdebug 3 ist dies
 
 ```
 [XDEBUG]
 ;
-; options for xDebug 2.x
+; options for xDebug 3.x
 ;
-xdebug.default_enable = true
-xdebug.remote_enable = true
-xdebug.remote_port = 10000
-xdebug.remote_connect_back = false
+xdebug.mode = debug
+xdebug.start_with_request = trigger
+xdebug.discover_client_host = false
+xdebug.client_port = 10000
 xdebug.max_nesting_level = 700
-;xdebug.remote_log = /srv/www/xdebug.log
+;xdebug.log = /srv/www/xdebug.log
 
-; xdebug.remote_host is set automaticaly by entrypoint.
+; xdebug.client_host is set automaticaly by entrypoint.
 ; If it not works, it can be overridden here with the
 ; host network IP like this
-;xdebug.remote_host=192.168.0.100
+;xdebug.client_host=192.168.0.100
 ```
 
-> Man beachte `xdebug.remote_port = 10000` beziehungsweise `xdebug.remote_port = 10000`, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.
+> Man beachte `xdebug.remote_port = 10000` beziehungsweise `xdebug.client_port = 10000`, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.
 
 ##### Joomla Konfiguration in docker-lamp
 

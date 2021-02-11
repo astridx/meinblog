@@ -130,7 +130,7 @@
 <p>Mit dem Befehl <code class="language-text">make server-down</code> stoppe ich alle Container und sichere gleichzeitig die Datenbankdaten in das Verzeichnis <code class="language-text">/data/initDB</code>.</p>
 <h3>Eigene Projekte in den Container mappen</h3>
 <h4>Das Verzeichnis ist flexibel</h4>
-<p>Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis <code class="language-text">/data/www</code> im <code class="language-text">docker-lamp</code>-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter <code class="language-text">/srv/www</code> eingebunden, falls es nicht in der <code class="language-text">.env</code> neu belegt wurde. In dem Fall ist das in der Variablen  <code class="language-text">APP_BASEDIR</code>  gesetzte Verzeichnis das, welches in den Container verlinkt wird.</p>
+<p>Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis <code class="language-text">/data/www</code> im <code class="language-text">docker-lamp</code>-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter <code class="language-text">/srv/www</code> eingebunden, falls es nicht in der <code class="language-text">.env</code> neu belegt wurde. In dem Fall ist das in der Variablen <code class="language-text">APP_BASEDIR</code> gesetzte Verzeichnis das, welches in den Container verlinkt wird.</p>
 <h4>Mehrere Verzeichnisse im Container - docker-compose.override.yml</h4>
 <p>Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei <code class="language-text">docker-compose.yml</code> zu überschreiben. Dazu erstellt man eine Kopie von <code class="language-text">docker-compose.yml</code> unter dem Namen <code class="language-text">docker-compose.override.yml</code> im gleichen Ordner. Im Verzeichnis <code class="language-text">docker-lamp</code> gebe ich folgenden Befehl ein.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">cp docker-compose.yml docker-compose.override.yml</span></span></code></pre>
@@ -232,7 +232,7 @@
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=beispielsubdomain1.local,*.beispielsubdomain2.local</span></span></code></pre>
 <blockquote>
 <p>Als <code class="language-text">TLD_SUFFIX</code> trägt man lediglich das Wort ein, welches ganz am Ende der <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a> steht. <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">Top-Level-Domain</a> steht. <code class="language-text">local</code> reicht aus. <code class="language-text">joomla.local</code> ist nicht notwendig. Alle <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">Domains und Subdomains</a> mit der Top-Level-Domain <code class="language-text">.local</code> werden dorch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter <code class="language-text">SSL_LOCALDOMAINS</code> einzutragen.
-Benötigst du eine weitere Top-Level-Domain inklusive Subdomains,  beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=beispielsubdomain1.mytdl,*.beispielsubdomain2.mytdl</code> spielen zusammen.</p>
+Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=beispielsubdomain1.mytdl,*.beispielsubdomain2.mytdl</code> spielen zusammen.</p>
 </blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="28"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
 <span class="grvsc-line"><span class="grvsc-source">             /   \</span></span>
@@ -241,7 +241,7 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains,  beispielsweis
 <span class="grvsc-line"><span class="grvsc-source">         /           \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">        /             \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    joomla           joomla         2. Ebene, Second-Level-Domains</span></span>
-<span class="grvsc-line"><span class="grvsc-source">    /  |   \         /   |  \                 </span></span>
+<span class="grvsc-line"><span class="grvsc-source">    /  |   \         /   |  \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">j4dev j3  j3b4     j4dev j3 j3b4    3. Ebene, Third-Level-Domains</span></span></code></pre>
 <p>Dann den Ordner <code class="language-text">/data/ca/localdomains</code> löschen.
 Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2ebene</code> erstellen.</p>
@@ -287,7 +287,7 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 <li>Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz &#x26; Sicherheit (Privacy and Security).</li>
 <li>Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates).</li>
 <li>Wechsele in den Tabulator Zertifizierungsstellen (Authorities).</li>
-<li>Importiere die Datei <code class="language-text">APP_BASEDIR/ca/minica-root-ca-key.pem</code>. Achte darauf, dass du <code class="language-text">Webseite vertrauen</code> aktivierst. </li>
+<li>Importiere die Datei <code class="language-text">APP_BASEDIR/ca/minica-root-ca-key.pem</code>. Achte darauf, dass du <code class="language-text">Webseite vertrauen</code> aktivierst.</li>
 </ol>
 <p><span
       class="gatsby-resp-image-wrapper"

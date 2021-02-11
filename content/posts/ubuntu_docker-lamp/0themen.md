@@ -12,7 +12,7 @@ tags:
   - Ubuntu
 ---
 
-## Ubuntu 20.04
+## Einrichten eines Ubuntu 20.04 Desktop mit Docker und docker-lamp für die Entwicklung mit Joomla
 
 Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation.
 
