@@ -71,9 +71,6 @@ Um einen Docker-Container mit diesem DNS-Server auszuführen, hängt man das Fla
 
 ```
 $ docker run --dns 127.0.0.1 busybox nslookup google.com
-WARNING: Localhost DNS setting (--dns=127.0.0.1) may fail in containers.
-nslookup: write to '127.0.0.1': Connection refused
-;; connection timed out; no servers could be reached
 ```
 
 Und nun ist die Abfrage erfolgreich!

@@ -25,7 +25,7 @@ Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubun
 
 Wenn der Server zwischenzeitlich heruntergefahren wurde, starte ihn über `make server-up` im Verzeichnis `docker-lamp`.
 
-Im Webbrowser sollte nun URL `https://joomla.test/` oder `https://joomla.local/` das folgende Bild zeigen.
+Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.local/` das folgende Bild zeigen.
 
 ![Webserver Oberfläche](/images/joomlalocal.png)
 
@@ -39,19 +39,21 @@ Wer das Verzeichnis `/www`, welches unter `/docker-lamp/data/www` vorhanden ist,
 
 Ich beschreibe meine Vorgehensweise als Beispiel, bei der ich `/srv/www` als Stammverzeichnis im Webserver nutze.
 
-In diesem Fall ist die Variable `APP_BASEDIR` in der Datei `.env` wie folgt abzuändern, falls beim [Einrichten](/ubuntu-docker-lamp-einrichten) noch nicht geschehen.
+In diesem Fall ist die Variable `APP_BASEDIR` in der Datei `.env` wie folgt abzuändern.
 
 ```
 ...
 ...
 # Set Your projekt folder for websites
 #
-APP_BASEDIR=/srv/www
+APP_BASEDIR=/srv
 ...
 ...
 ```
 
-> Eine einfachere Alternative ist es, das Verzeichnis `/www` welches unter `/docker-lamp/data/www` zu finden ist, nach `/srv` zu kopieren. Dann verfügt man über die von _docker-lamp_ als Standard vorgesehen Verzeichnisse und kann diesen Abschnitt überspringen.
+> Das Verzeichnis `data` unter `docker-lamp` ist die Basis für den Projektordner für Websites und Konfigurationen. Um dies auszulagern, verwendet man idealerweise diesen Ordner als Grundgerüst.
+
+> Eine einfachere Alternative ist es, das Verzeichnis `/www` welches unter `/docker-lamp/data/www` zu finden ist, nach `/srv` zu kopieren. Dann verfügt man über die von _docker-lamp_ als Standard vorgesehen Verzeichnisse. Nur noch die Berechtigungen sind zu beachten.
 
 Als erstes lege ich das Verzeichnis `/srv/www/joomla` an. `/srv/www` soll mein Webserver Stammverzeichnis sein. In den Unterordner `joomla` kommen zur besseren Übersicht alle Joomla Projekte. Logisch, richtig?
 
@@ -98,6 +100,26 @@ drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  6 19:50 joomla/
 ```
 
 > Wer für Wordpress entwickeln möchte, legt analog zum `joomla` Ordner die von docker-lamp vorgesehen Verzeichnisse `wp` und `wp-multisite` an.
+
+##### Grundgerüst fertigstellen
+
+```
+$ sudo cp -r apache24/ /srv/apache24/
+$ sudo cp -r initDB/ /srv/initDB/
+$ sudo cp -r ca/ /srv/ca/
+$ sudo cp -r php/ /srv/php/
+$ sudo cp -r phpinfo/ /srv/phpinfo/
+```
+
+Auch hier sicherstellen, dass alle Verzeichnis dem Benutzer gehören, der docker-lamp ausführt.
+
+##### Abschlusstest
+
+Den Server über `make server-down` und `make server-up` neu starte - im Verzeichnis `docker-lamp` ausgeführt.
+
+Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.local/` das folgende Bild zeigen.
+
+![Webserver Oberfläche](/images/joomlalocal.png)
 
 #### Joomla installieren
 
@@ -425,7 +447,32 @@ xdebug.max_nesting_level = 700
 
 > Man beachte `xdebug.remote_port = 10000` beziehungsweise `xdebug.client_port = 10000`, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.
 
-##### Joomla Konfiguration in docker-lamp
+##### Mögliche Fehler
+
+###### Cloning failed using an ssh key for authentication, enter your GitHub credentials to access private repos
+
+Der nachfolgende Fehler deutet darauf hin, dass Git im Container nicht installiert ist.
+
+```
+Installing joomla-projects/joomla-browser (v4.0.0.x-dev 679c0ce): Cloning 679c0cef9c
+Cloning failed using an ssh key for authentication, enter your GitHub credentials to access private repos
+Head to https://github.com/settings/tokens/new?scopes=repo&description=Composer+on+php74+2021-02-13+1333
+to retrieve a token. It will be stored in "/home/virtual/.composer/auth.json" for future use by Composer.
+Token (hidden):
+```
+
+Die Installation von Git im Container erfolgt für den Container `docker-lamp_php80` via:
+
+```
+$ docker exec -it docker-lamp_php80 apk add git
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+(1/3) Installing expat (2.2.10-r1)
+(2/3) Installing pcre2 (10.36-r0)
+(3/3) Installing git (2.30.0-r0)
+Executing busybox-1.32.1-r2.trigger
+OK: 79 MiB in 71 packages
+```
 
 ### phpMyAdmin und MailHog
 

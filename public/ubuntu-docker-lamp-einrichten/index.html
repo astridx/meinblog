@@ -52,18 +52,41 @@
 <span class="grvsc-line"><span class="grvsc-source"># To use PHP xDebug set your host IP here (192.168.0.100)</span></span>
 <span class="grvsc-line"><span class="grvsc-source">#</span></span>
 <span class="grvsc-line"><span class="grvsc-source">REMOTE_HOST_IP=192.168.209.138</span></span></code></pre>
-<h5>APP_BASEDIR</h5>
-<p>Ich nutze <code class="language-text">/srv/www</code> als Stammverzeichnis für den Webserver und ändere deshalb die Variable <code class="language-text">APP_BASEDIR</code> ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter <a href="/ubuntu-docker-lamp-verwenden">docker-lamp verwenden</a> beschrieben.</p>
+<blockquote>
+<p>Die eigenen IP kann man unter anderem mit dem Befehl <code class="language-text">ip address</code> in Erfahrung bringen.</p>
+</blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">$ ip address</span></span>
+<span class="grvsc-line"><span class="grvsc-source">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    inet 127.0.0.1/8 scope host lo</span></span>
+<span class="grvsc-line"><span class="grvsc-source">       valid_lft forever preferred_lft forever</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    inet6 ::1/128 scope host</span></span>
+<span class="grvsc-line"><span class="grvsc-source">       valid_lft forever preferred_lft forever</span></span>
+<span class="grvsc-line"><span class="grvsc-source">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    link/ether 00:0c:29:8a:bf:d9 brd ff:ff:ff:ff:ff:ff</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    altname enp2s1</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    inet 192.168.209.138/24 brd 192.168.209.255 scope global dynamic noprefixroute ens33</span></span>
+<span class="grvsc-line"><span class="grvsc-source">       valid_lft 1248sec preferred_lft 1248sec</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    inet6 fe80::c526:e1ca:5b3e:7b1/64 scope link noprefixroute</span></span>
+<span class="grvsc-line"><span class="grvsc-source">       valid_lft forever preferred_lft forever</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
-<span class="grvsc-line"><span class="grvsc-source"># Set Your projekt folder for websites</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
+<h5>APP_BASEDIR</h5>
+<p>Ich nutze <code class="language-text">/srv/www</code> als Stammverzeichnis für den Webserver und ändere deshalb SPÄTER die Variable <code class="language-text">APP_BASEDIR</code> ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter <a href="/ubuntu-docker-lamp-verwenden">docker-lamp verwenden</a> beschrieben. Zum Einrichten belasse ich <code class="language-text">APP_BASEDIR=./data</code>.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<span class="grvsc-line"><span class="grvsc-source"># Set your project folder for websites and configurations.</span></span>
+<span class="grvsc-line"><span class="grvsc-source"># If you want to outsource this, use the ./data folder as the base skeleton.</span></span>
 <span class="grvsc-line"><span class="grvsc-source">#</span></span>
-<span class="grvsc-line"><span class="grvsc-source">APP_BASEDIR=/srv/www</span></span>
+<span class="grvsc-line"><span class="grvsc-source">APP_BASEDIR=./data</span></span>
+<span class="grvsc-line"><span class="grvsc-source"># APP_BASEDIR=/srv/www</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h5>Benutzer ID unter Ubuntu</h5>
-<p>In der .env gibt es den folgenden Eintrag.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<p>In der <code class="language-text">.env</code> gibt es den folgenden Eintrag.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># Set your user and group ID from your Linux host,</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># it will be automatically assigned to the user and group &#39;virtual&#39;</span></span>
@@ -74,12 +97,15 @@
 <span class="grvsc-line"><span class="grvsc-source">APP_GROUP_ID=1000</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<p>Warum sind <code class="language-text">APP_USER_ID</code> und <code class="language-text">APP_GROUP_ID</code> mit 1000 voreingestellt? In Ubuntu ist <code class="language-text">1000</code> die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, hat man somit die ID 1000. Überprüfen kann man dies mit dem Befehl <code class="language-text">id -u</code>. Falls die des Benutzers, welcher <code class="language-text">docker-lamp</code> ausführt, von 1000 abweicht, ist dieser Eintrag zu korrigieren.</p>
+<p>Warum sind <code class="language-text">APP_USER_ID</code> und <code class="language-text">APP_GROUP_ID</code> mit 1000 voreingestellt? In Ubuntu ist <code class="language-text">1000</code> die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, ist die eigene ID 1000. Überprüfen kann man dies mit dem Befehl <code class="language-text">id -u</code>.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ id -u</span></span>
+<span class="grvsc-line"><span class="grvsc-source">1000</span></span></code></pre>
+<p>Falls die ID des Benutzers welcher <code class="language-text">docker-lamp</code> ausführt, von 1000 abweicht, ist dieser Eintrag zu korrigieren.</p>
 <h3>Die make Commandos</h3>
 <p><code class="language-text">docker-lamp</code> verwendet das <a href="https://de.wikipedia.org/w/index.php?title=Make&#x26;oldid=203684973">Hilfsprogramm <code class="language-text">make</code></a>. Auf meinem Rechner ist das nicht vorhanden. Mithilfe von <code class="language-text">sudo apt install make</code> installiere ich <code class="language-text">make</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo apt install make</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo apt install make</span></span></code></pre>
 <p>Im <code class="language-text">docker-lamp</code>-Verzeichnis führe ich nach erfolgreicher Installation von <code class="language-text">make</code> den Befehl <code class="language-text">make</code> aus, der alle möglichen Kommandos anzeigt.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">make</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">make</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Usage:</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  make </span><span class="mtk8">&lt;</span><span class="mtk1">target</span><span class="mtk8">&gt;</span></span></span>
@@ -89,7 +115,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  update-images                Update all images from docker-compose.yml to the latest build.</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  delete-obsolete-images       Delete all obsolete images.</span></span></span></code></pre>
 <p>Noch immer im <code class="language-text">docker-lamp</code>-Ordner rufe ich den Befehl <code class="language-text">make server-up</code> auf.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ make server-up</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ make server-up</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">./.env included</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">2021/02/04 20:13:24 open localdomains/key.pem: file exists</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Building with native build. Learn about native build </span><span class="mtk8">in</span><span class="mtk1"> Compose here: https://docs.docker.com/go/compose-native-build/</span></span></span>
@@ -102,8 +128,8 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Recreating docker-lamp_php73      ... </span><span class="mtk8">done</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Recreating docker-lamp_phpmyadmin ... </span><span class="mtk8">done</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Recreating docker-lamp_httpd      ... </span><span class="mtk8">done</span></span></span></code></pre>
-<p>Der Befehl arbeitet mein ersten Aufruf einige Minuten, da sämtliche Images erst heruntergeladen werden müssen. Im Anschluss sind diese mit <code class="language-text">docker images -a</code> angezeigbar.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ docker images -a</span></span></span>
+<p>Der Befehl arbeitet beim ersten Aufruf einige Minuten, da sämtliche Images heruntergeladen werden. Im Anschluss sind diese mit <code class="language-text">docker images -a</code> angezeigbar.</p>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ docker images -a</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">REPOSITORY                   TAG          IMAGE ID       CREATED        SIZE</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">phpmyadmin/phpmyadmin        fpm-alpine   9e4f315e888d   2 days ago     142MB</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">degobbis/php74-fpm-alpine    latest       d026bc35510a   9 days ago     181MB</span></span></span>
@@ -116,7 +142,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">mailhog/mailhog              latest       4de68494cd0d   5 months ago   392MB</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">cytopia/bind                 0.15         ff37cf218d55   2 years ago    142MB</span></span></span></code></pre>
 <p><code class="language-text">docker ps -a</code> listet folgende Container auf.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker ps -a</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker ps -a</span></span>
 <span class="grvsc-line"><span class="grvsc-source">CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                     NAMES</span></span>
 <span class="grvsc-line"><span class="grvsc-source">0228f9effde2   degobbis/apache24-alpine:latest     &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   0.0.0.0:8000-&gt;8000/tcp, 0.0.0.0:8056-&gt;8056/tcp, 0.0.0.0:8073-8074-&gt;8073-8074/tcp, 0.0.0.0:8080-&gt;8080/tcp, 0.0.0.0:8400-&gt;8400/tcp, 0.0.0.0:8456-&gt;8456/tcp, 0.0.0.0:8473-8474-&gt;8473-8474/tcp, 80/tcp, 0.0.0.0:8480-&gt;8480/tcp, 0.0.0.0:80-&gt;8074/tcp, 0.0.0.0:443-&gt;8474/tcp   docker-lamp_httpd</span></span>
 <span class="grvsc-line"><span class="grvsc-source">9fd0d7d257df   degobbis/php74-fpm-alpine:latest    &quot;/httpd-php-entrypoi…&quot;   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php74</span></span>
@@ -130,22 +156,25 @@
 <p>Mit dem Befehl <code class="language-text">make server-down</code> stoppe ich alle Container und sichere gleichzeitig die Datenbankdaten in das Verzeichnis <code class="language-text">/data/initDB</code>.</p>
 <h3>Eigene Projekte in den Container mappen</h3>
 <h4>Das Verzeichnis ist flexibel</h4>
-<p>Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis <code class="language-text">/data/www</code> im <code class="language-text">docker-lamp</code>-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter <code class="language-text">/srv/www</code> eingebunden, falls es nicht in der <code class="language-text">.env</code> neu belegt wurde. In dem Fall ist das in der Variablen <code class="language-text">APP_BASEDIR</code> gesetzte Verzeichnis das, welches in den Container verlinkt wird.</p>
+<p>Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis <code class="language-text">/data/www</code> im <code class="language-text">docker-lamp</code>-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. <code class="language-text">/data/www</code> wird automatisch im Containeren unter <code class="language-text">/srv/www</code> eingebunden - falls es nicht in der <code class="language-text">.env</code> neu belegt wurde. Im letzteren Fall ist das in der Variablen <code class="language-text">APP_BASEDIR</code> gesetzte Verzeichnis das, welches in den Container verlinkt wird.</p>
 <h4>Mehrere Verzeichnisse im Container - docker-compose.override.yml</h4>
 <p>Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei <code class="language-text">docker-compose.yml</code> zu überschreiben. Dazu erstellt man eine Kopie von <code class="language-text">docker-compose.yml</code> unter dem Namen <code class="language-text">docker-compose.override.yml</code> im gleichen Ordner. Im Verzeichnis <code class="language-text">docker-lamp</code> gebe ich folgenden Befehl ein.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">cp docker-compose.yml docker-compose.override.yml</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">cp docker-compose.yml docker-compose.override.yml</span></span></code></pre>
 <blockquote>
 <p>Wir nutzen die Datei <code class="language-text">docker-compose.override.yml</code> und ändern nicht direkt die Datei <code class="language-text">docker-compose.override.yml</code>, damit beim nächsten <code class="language-text">docker-lamp</code>-Update die <code class="language-text">docker-compose</code> Konfiguration nicht überschrieben wird.</p>
 </blockquote>
 <p>Nun öffnet ich die Datei <code class="language-text">docker-compose.override.yml</code> zum editieren.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano docker-compose.yml docker-compose.override.yml</span></span></code></pre>
-<p>Angenommen, alle Projekte im Verzeichnis <code class="language-text">/home/deinBenutzer/git/joomla-development</code> sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, dennn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter <code class="language-text">/home/deinBenutzer/git/joomla-development</code> zur Verfügung stehen.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano docker-compose.yml docker-compose.override.yml</span></span></code></pre>
+<p>Angenommen, alle Projekte im Verzeichnis <code class="language-text">/home/deinBenutzer/git/joomla-development</code> sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, denn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter <code class="language-text">/home/deinBenutzer/git/joomla-development</code> zur Verfügung stehen.</p>
 <p>Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei <code class="language-text">docker-compose.override.yml</code> nach dem folgenden Eintrag.:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">      - ${APP_BASEDIR:-./data/www}:/srv/www:rw</span></span></code></pre>
-<p>Jedesmal, wenn ich den obigen Eintrag finde, füge ich die nachfolgende Zeile hinter diesem ein.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="20"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">      - ${APP_BASEDIR:-./data/www}:/srv/www:rw</span></span></code></pre>
+<p>Insgesamt wird der Eintrag sechs Mal gefunden. Die Container
+<code class="language-text">httpd</code>, <code class="language-text">php56</code>, <code class="language-text">phpo73</code>, <code class="language-text">php74</code>, <code class="language-text">php80</code>und <code class="language-text">mysql</code> sind betroffen.</p>
+<p>Bei den ersten fünf Treffern, füge ich die nachfolgende Zeile hinter diesem ein. Also bei <code class="language-text">httpd</code>, <code class="language-text">php56</code>, <code class="language-text">phpo73</code>, <code class="language-text">php74</code> und <code class="language-text">php80</code>. Der Container <code class="language-text">mysql</code> benötigt keine Verbindung zum Projektordner.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw</span></span></code></pre>
 <p>Für den <code class="language-text">httpd</code>-Container sieht der Eintrag wie folgt aus:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="23"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  httpd:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    image: degobbis/apache24-alpine:latest</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    container_name: ${COMPOSE_PROJECT_NAME}_httpd</span></span>
@@ -158,14 +187,11 @@
 <span class="grvsc-line"><span class="grvsc-source">      - php80</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - mailhog</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    volumes:</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - ./data/ca:/usr/local/apache2/ca:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - ./.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - ./data/phpinfo:/srv/phpinfo:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - ${APP_BASEDIR:-./data/www}:/srv/www:rw</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      - ${APP_BASEDIR:-./data}:/srv/:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">      - pma:/srv/pma</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      - pma:/var/www/pma</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - phpsocket:/run/php</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    ports:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      - &quot;80:${MAP_POT_80:-8074}&quot;</span></span>
@@ -190,17 +216,64 @@
 <span class="grvsc-line"><span class="grvsc-source">    networks:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      net:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">        ipv4_address: 172.16.238.10</span></span>
+<span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<p>Insgesamt wird der Eintrag 5 Mal eingefügt. Die Container
-<code class="language-text">httpd</code>, <code class="language-text">php56</code>, <code class="language-text">phpo73</code>, <code class="language-text">php74</code> und <code class="language-text">php80</code> sind betroffen.</p>
 <blockquote>
 <p>Weitere Informationen zur Verwendung von Volumes mit <code class="language-text">compose</code> gibt es in der <a href="https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose">docker-Dokumentation</a> oder in der <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference">compose-Referenz</a>.</p>
 </blockquote>
 <p>Jetzt den Server neu starten, damit die Änderungen übernommen werden.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="24"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
 <p>Das in meinem Beispiel neu verlinkte Verzeichnis wird im Container unter <code class="language-text">/home/deinBenutzer/git/joomla-development</code> verlinkt.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="23"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">php74:/home/deinBenutzer/git/joomla-development#</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="25"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker exec -ti docker-lamp_php74 sh</span></span>
+<span class="grvsc-line"><span class="grvsc-source">php74:/srv/www# cd /home/meinBenutzer/git/joomla-development/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">php74:/home/meinBenutzer/git/joomla-development# ll</span></span>
+<span class="grvsc-line"><span class="grvsc-source">total 20</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    6 virtual  virtual       4096 Feb  9 21:07 AG</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    8 virtual  virtual       4096 Feb 12 16:04 boilerplate</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    6 virtual  virtual       4096 Feb 11 22:17 pkg_agosms</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    9 virtual  virtual</span></span></code></pre>
+<blockquote>
+<p>Über den Befehl <code class="language-text">docker exec -ti docker-lamp_php74 sh</code> öffnet man eine Befehlzeile im container <code class="language-text">docker-lamp_php74</code>. Über <code class="language-text">exit</code> kommt man wieder aus ihm heraus.</p>
+</blockquote>
 <h3>Zertifikat</h3>
+<p>Falls die Konfiguration der Zertifikate geändert wird ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl<code class="language-text">make server-down</code> aufrufen.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="26"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ make server-down</span></span>
+<span class="grvsc-line"><span class="grvsc-source">/home/meinBenutzer/docker-lamp/.env included</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Datenbank-Sicherung gestartet.</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">j3 wird gesichert...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">joomla_db wird gesichert...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">joomla_j4b7 wird gesichert...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">joomla_j4dev wird gesichert...</span></span>
+<span class="grvsc-line"><span class="grvsc-source">tutorial_t1 wird gesichert...</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Datenbank-Sicherung abgeschlossen.</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_php56      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_php74      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_phpmyadmin ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_php73      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_php80      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_mysql      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_mailhog    ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Stopping docker-lamp_bind       ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_httpd      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_php56      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_php74      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_phpmyadmin ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_php73      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_php80      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_mysql      ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_mailhog    ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing docker-lamp_bind       ... done</span></span>
+<span class="grvsc-line"><span class="grvsc-source">Removing network docker-lamp_net</span></span>
+<span class="grvsc-line"><span class="grvsc-source">local</span></span>
+<span class="grvsc-line"><span class="grvsc-source">docker-lamp_db-data-dir</span></span>
+<span class="grvsc-line"><span class="grvsc-source">local</span></span>
+<span class="grvsc-line"><span class="grvsc-source">docker-lamp_phpsocket</span></span>
+<span class="grvsc-line"><span class="grvsc-source">local</span></span>
+<span class="grvsc-line"><span class="grvsc-source">docker-lamp_pma</span></span></code></pre>
 <h4>Minica</h4>
 <p>Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. <code class="language-text">docker-lamp</code> nutzt für diesen Zweck <a href="https://github.com/jsha/minica">Minica</a>.</p>
 <blockquote>
@@ -208,12 +281,12 @@
 </blockquote>
 <h5>Angabe im <code class="language-text">Makefile</code></h5>
 <p>Standardmäßig werden die im Makefile in der Variablen <code class="language-text">MINICA_DEFAULT_DOMAINS</code> festgelegten Domains zertifiziert.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="24"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="27"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">MINICA_DEFAULT_DOMAINS:=localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h5>Angaben in der Datei <code class="language-text">.env</code></h5>
 <p>Um zusätzliche Domains zu zertifizieren, git es die Variablen <code class="language-text">SSL_DOMAINS</code> und <code class="language-text">SSL_LOCALDOMAINS</code> in der Datei <code class="language-text">.env</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="25"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="28"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_DOMAINS=</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
@@ -222,30 +295,39 @@
 <blockquote>
 <p>Ein konkretes <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> habe ich später beschrieben.</p>
 </blockquote>
-<pre class="grvsc-container solarized-light" data-language="" data-index="26"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">docker-compose down</span></span>
-<span class="grvsc-line"><span class="grvsc-source">nano .env</span></span></code></pre>
-<p>Hier dann folgenden Einträge erweitert:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="27"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="29"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano .env</span></span></code></pre>
+<p>Hier dann je nach Wunsch folgenden Einträge erweitert:</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="30"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
-<span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=beispielsubdomain1.local,*.beispielsubdomain2.local</span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span></code></pre>
 <blockquote>
-<p>Als <code class="language-text">TLD_SUFFIX</code> trägt man lediglich das Wort ein, welches ganz am Ende der <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a> steht. <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">Top-Level-Domain</a> steht. <code class="language-text">local</code> reicht aus. <code class="language-text">joomla.local</code> ist nicht notwendig. Alle <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">Domains und Subdomains</a> mit der Top-Level-Domain <code class="language-text">.local</code> werden dorch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter <code class="language-text">SSL_LOCALDOMAINS</code> einzutragen.
-Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=beispielsubdomain1.mytdl,*.beispielsubdomain2.mytdl</code> spielen zusammen.</p>
+<p>Als <code class="language-text">TLD_SUFFIX</code> trägt man lediglich das Wort ein, welches ganz am Ende der <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a> steht. <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">Top-Level-Domain</a> steht. <code class="language-text">local</code> reicht aus. <code class="language-text">joomla.local</code> ist nicht notwendig. Alle <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">Domains und Subdomains</a> mit der Top-Level-Domain <code class="language-text">.local</code> werden durch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter <code class="language-text">SSL_LOCALDOMAINS</code> einzutragen.
+Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl</code> spielen zusammen.</p>
 </blockquote>
-<pre class="grvsc-container solarized-light" data-language="" data-index="28"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="31"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
+<span class="grvsc-line"><span class="grvsc-source">               |</span></span>
+<span class="grvsc-line"><span class="grvsc-source">               |</span></span>
+<span class="grvsc-line"><span class="grvsc-source">              mytdl                 1. Ebene, Top-Level-Domains (TLD)</span></span>
+<span class="grvsc-line"><span class="grvsc-source">         /           \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        /             \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  subdomain1       subdomain2       2. Ebene, Second-Level-Domains</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    /  |   \         /   |  \</span></span>
+<span class="grvsc-line"><span class="grvsc-source">s11    s12  s13   s21    s22  s23   3. Ebene, Third-Level-Domains</span></span></code></pre>
+<p>Dann die Ordner für die Ebenen erstellen. Für die zweite Ebene wäre das <code class="language-text">/data/www/subdomain1</code> und <code class="language-text">/data/www/subdomain2</code> erstellen. <code class="language-text">/data/www/joomla</code> sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: <code class="language-text">/data/www/subdomain1/s11</code>, <code class="language-text">/data/www/subdomain1/s12</code>, <code class="language-text">/data/www/subdomain1/s13</code>, <code class="language-text">/data/www/subdomain2/s21</code>, <code class="language-text">/data/www/subdomain2/s22</code>, <code class="language-text">/data/www/subdomain2/s23</code>.</p>
+<p>Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. Für Wordpress Entwickler gibt es neben <code class="language-text">joomla</code> weiter Domains auf der 3. Ebenen.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="32"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
 <span class="grvsc-line"><span class="grvsc-source">             /   \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">            /     \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">         test     local             1. Ebene, Top-Level-Domains (TLD)</span></span>
 <span class="grvsc-line"><span class="grvsc-source">         /           \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">        /             \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    joomla           joomla         2. Ebene, Second-Level-Domains</span></span>
-<span class="grvsc-line"><span class="grvsc-source">    /  |   \         /   |  \</span></span>
-<span class="grvsc-line"><span class="grvsc-source">j4dev j3  j3b4     j4dev j3 j3b4    3. Ebene, Third-Level-Domains</span></span></code></pre>
-<p>Dann den Ordner <code class="language-text">/data/ca/localdomains</code> löschen.
-Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2ebene</code> erstellen.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="29"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">                                    3. Ebene, Third-Level-Domains</span></span></code></pre>
+<p>Am Ende den Ordner <code class="language-text">/localdomains</code> löschen und den Server starten.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="33"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
 <h4>Vor dem Importieren des Zertifikates</h4>
 <p>Ruft man die URL <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> im Browser auf, erscheint ein Sicherheitshinweis. Der Brwoser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.</p>
 <p><span
@@ -328,16 +410,16 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 <p>Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von <code class="language-text">make server-up</code> zu einem Fehler</p>
 <h3>permission denied (but minica-root-ca.pem exists)</h3>
 <p>Falls die Ausgabe von <code class="language-text">make server-up</code> mit dem nachfolgenden Text startet, stimmen Berechtigungen nicht.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="30"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">./.env included</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="34"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">./.env included</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">2021/02/04 19:57:06 open minica-root-ca-key.pem: permission denied (but minica-root-ca.pem exists)</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
 <h4>Abhilfe schafft die folgende Vorgehensweise</h4>
 <p>Als erstes ins Unterverzeichnis data wechseln.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="31"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ </span><span class="mtk7">cd</span><span class="mtk1"> data</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="35"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ </span><span class="mtk7">cd</span><span class="mtk1"> data</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp/data$</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
 <p>In diesem Verzeichnis alle Rechte prüfen. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="32"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp/data$ ll</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="36"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp/data$ ll</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">insgesamt 28</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">drwxrwxr-x 7 deinBenutzer deinBenutzer 4096 Feb  4 17:33 ./</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 20:41 ../</span></span></span>
@@ -348,12 +430,12 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:16 phpinfo/</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 17:16 www/</span></span></span></code></pre>
 <p>Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal deinBenutzer, zuweisen.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="33"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">sudo chown -R deinBenutzer:deinBenutzer </span><span class="mtk7">.</span></span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="37"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">sudo chown -R deinBenutzer:deinBenutzer </span><span class="mtk7">.</span></span></span></code></pre>
 <p>Am Ende wieder zurück in das <code class="language-text">docker-lamp</code>-Verzeichnis wechseln und den Befehl <code class="language-text">make server-up</code> wiederholen.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="34"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp/data$ </span><span class="mtk7">cd</span><span class="mtk1"> ..</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="38"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp/data$ </span><span class="mtk7">cd</span><span class="mtk1"> ..</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/docker-lamp$ make server-up</span></span></span></code></pre>
 <h3>ERROR: for docker-lamp_bind Cannot start service bind</h3>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="35"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="39"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Creating docker-lamp_bind ... error</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">ERROR: </span><span class="mtk8">for</span><span class="mtk1"> </span><span class="mtk7">docker-lamp_bind  Cannot start service bind: driver failed programming external connectivity on endpoint docker-lamp_bind (f4e68e24013e93124e6f55ebe821a87c5ca58cf7dca8c6388181fac9956ed26e): Error starting dockeruserland proxy: listen tcp4 0.0.0.0:53: bind: address already</span><span class="mtk1"> </span><span class="mtk8">in</span><span class="mtk1"> use</span></span></span>
@@ -365,13 +447,13 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 <ol>
 <li><code class="language-text">sudo systemctl disable systemd-resolved.service</code></li>
 </ol>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="36"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ sudo systemctl disable systemd-resolved.service</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="40"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ sudo systemctl disable systemd-resolved.service</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Removed /etc/systemd/system/dbus-org.freedesktop.resolve1.service.</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">Removed /etc/systemd/system/multi-user.target.wants/systemd-resolved.service.</span></span></span></code></pre>
 <ol start="2">
 <li><code class="language-text">sudo systemctl stop systemd-resolved.service</code></li>
 </ol>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="37"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ sudo systemctl stop systemd-resolved.service</span></span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="41"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ sudo systemctl stop systemd-resolved.service</span></span></span></code></pre>
 <blockquote>
 <p>Was ist der Unterschied zwischen <code class="language-text">systemctl stop</code> und <code class="language-text">systemctl disable</code> beziehungsweise <code class="language-text">systemctl start</code> und <code class="language-text">systemctl enable</code>? <code class="language-text">systemctl start</code> und <code class="language-text">systemctl enable</code> machen verschiedene Dinge. Mit <code class="language-text">enable</code> wird der angegebene Dienst an relevanten Stellen eingehängt, sodass er beim Booten automatisch gestartet wird. <code class="language-text">start</code> startet das Gerät sofort. Deaktivieren und Stoppen sind das Gegenteil davon. <a href="http://manpages.ubuntu.com/manpages/hirsute/en/man1/systemctl.1.html">Manpage</a></p>
 </blockquote>
@@ -380,13 +462,13 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 </ol>
 <p>Warum ist die Datei zu löschen?</p>
 <p>Die Datei <code class="language-text">/etc/resolv.conf</code> ist ein Symlink.</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="38"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ ll /etc/</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="42"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ ll /etc/</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">insgesamt 1128</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">lrwxrwxrwx   1 root root      39 Feb  4 00:00 resolv.conf -</span><span class="mtk8">&gt;</span><span class="mtk1"> ../run/systemd/resolve/stub-resolv.conf</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
 <p>Sie hat folgenden Inhalt:</p>
-<pre class="grvsc-container solarized-light" data-language="bash" data-index="39"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ cat /etc/resolv.conf</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="bash" data-index="43"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">$ cat /etc/resolv.conf</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">nameserver 127.0.0.53</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">options edns0</span></span></span>
@@ -396,7 +478,7 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 <li><code class="language-text">sudo nano /etc/resolv.conf</code></li>
 </ol>
 <p>Als letztes erstellen wir die Datei mit <code class="language-text">sudo nano /etc/resolv.conf</code> neu. Und tragen zwei passende nameserver ein, wobei <code class="language-text">nameserver 192.168.178.2</code> ein Beispiel für die Konfiguration einer Fritzbox ist, und an die eigenen Gegebenbheiten anzupassen ist.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="40"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.1</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="44"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">nameserver 192.168.178.2</span></span></code></pre>
 <p>Es ist wichtig, dass der Eintrag <code class="language-text">nameserver 127.0.0.1</code> an erster Stelle steht. Nach einem Neustart wird der <code class="language-text">docker</code>-Container verwendet. Wenn der nicht verfügbar ist, wird auf <code class="language-text">nameserver 192.168.178.2</code> verwiesen. So ist sichergestellt, dass eine Internetverbindung auch bei gestopptem Container verfügbar ist.</p>
 <ol start="5">
@@ -404,11 +486,11 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 </ol>
 <p>Als letztes bitte den NetworkManager auf <code class="language-text">dns=default</code> einstellen.</p>
 <p>Dazu wird erst der Dienst gestoppt</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="41"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl stop NetworkManager.service</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="45"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl stop NetworkManager.service</span></span></code></pre>
 <p>Danach die Datei zum editieren öffnen.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="42"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo gedit /etc/NetworkManager/NetworkManager.conf</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="46"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo gedit /etc/NetworkManager/NetworkManager.conf</span></span></code></pre>
 <p>Im Bereich <code class="language-text">[main]</code> die Zeile <code class="language-text">dns=default</code> einfügen.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="43"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[main]</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="47"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[main]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">dns=default</span></span>
 <span class="grvsc-line"><span class="grvsc-source">plugins=ifupdown,keyfile</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -418,7 +500,7 @@ Einen entsprechenden Ordner <code class="language-text">/data/www/subdomain2eben
 <span class="grvsc-line"><span class="grvsc-source">[device]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">wifi.scan-rand-mac-address=no</span></span></code></pre>
 <p>Am Ende den Dienst wieder starten.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="44"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl start NetworkManager.service</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="48"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl start NetworkManager.service</span></span></code></pre>
 <p>Voila! Das war es.</p>
 <style class="grvsc-styles">
   .grvsc-container {

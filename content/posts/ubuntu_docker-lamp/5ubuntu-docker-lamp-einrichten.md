@@ -123,23 +123,48 @@ Ich belege in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des ei
 REMOTE_HOST_IP=192.168.209.138
 ```
 
+> Die eigenen IP kann man unter anderem mit dem Befehl `ip address` in Erfahrung bringen.
+
+```
+...
+$ ip address
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:0c:29:8a:bf:d9 brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+    inet 192.168.209.138/24 brd 192.168.209.255 scope global dynamic noprefixroute ens33
+       valid_lft 1248sec preferred_lft 1248sec
+    inet6 fe80::c526:e1ca:5b3e:7b1/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+...
+...
+...
+```
+
 ##### APP_BASEDIR
 
-Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb die Variable `APP_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben.
+Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb SPÄTER die Variable `APP_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben. Zum Einrichten belasse ich `APP_BASEDIR=./data`.
 
 ```
 ...
 ...
-# Set Your projekt folder for websites
+# Set your project folder for websites and configurations.
+# If you want to outsource this, use the ./data folder as the base skeleton.
 #
-APP_BASEDIR=/srv/www
+APP_BASEDIR=./data
+# APP_BASEDIR=/srv/www
 ...
 ...
 ```
 
 ##### Benutzer ID unter Ubuntu
 
-In der .env gibt es den folgenden Eintrag.
+In der `.env` gibt es den folgenden Eintrag.
 
 ```
 ...
@@ -155,7 +180,14 @@ APP_GROUP_ID=1000
 ...
 ```
 
-Warum sind `APP_USER_ID` und `APP_GROUP_ID` mit 1000 voreingestellt? In Ubuntu ist `1000` die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, hat man somit die ID 1000. Überprüfen kann man dies mit dem Befehl `id -u`. Falls die des Benutzers, welcher `docker-lamp` ausführt, von 1000 abweicht, ist dieser Eintrag zu korrigieren.
+Warum sind `APP_USER_ID` und `APP_GROUP_ID` mit 1000 voreingestellt? In Ubuntu ist `1000` die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, ist die eigene ID 1000. Überprüfen kann man dies mit dem Befehl `id -u`.
+
+```
+$ id -u
+1000
+```
+
+Falls die ID des Benutzers welcher `docker-lamp` ausführt, von 1000 abweicht, ist dieser Eintrag zu korrigieren.
 
 ### Die make Commandos
 
@@ -197,7 +229,7 @@ Recreating docker-lamp_phpmyadmin ... done
 Recreating docker-lamp_httpd      ... done
 ```
 
-Der Befehl arbeitet mein ersten Aufruf einige Minuten, da sämtliche Images erst heruntergeladen werden müssen. Im Anschluss sind diese mit `docker images -a` angezeigbar.
+Der Befehl arbeitet beim ersten Aufruf einige Minuten, da sämtliche Images heruntergeladen werden. Im Anschluss sind diese mit `docker images -a` angezeigbar.
 
 ```bash
 $ docker images -a
@@ -236,7 +268,7 @@ Mit dem Befehl `make server-down` stoppe ich alle Container und sichere gleichze
 
 #### Das Verzeichnis ist flexibel
 
-Wenn man die Projekte erst neu anlegt oder der Speicherort änderbar ist, ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Das wird automatisch in den Containeren unter `/srv/www` eingebunden, falls es nicht in der `.env` neu belegt wurde. In dem Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis das, welches in den Container verlinkt wird.
+Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `/data/www` wird automatisch im Containeren unter `/srv/www` eingebunden - falls es nicht in der `.env` neu belegt wurde. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis das, welches in den Container verlinkt wird.
 
 #### Mehrere Verzeichnisse im Container - docker-compose.override.yml
 
@@ -254,7 +286,7 @@ Nun öffnet ich die Datei `docker-compose.override.yml` zum editieren.
 nano docker-compose.yml docker-compose.override.yml
 ```
 
-Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, dennn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter `/home/deinBenutzer/git/joomla-development` zur Verfügung stehen.
+Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, denn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter `/home/deinBenutzer/git/joomla-development` zur Verfügung stehen.
 
 Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose.override.yml` nach dem folgenden Eintrag.:
 
@@ -262,7 +294,10 @@ Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ic
       - ${APP_BASEDIR:-./data/www}:/srv/www:rw
 ```
 
-Jedesmal, wenn ich den obigen Eintrag finde, füge ich die nachfolgende Zeile hinter diesem ein.
+Insgesamt wird der Eintrag sechs Mal gefunden. Die Container
+`httpd`, `php56`, `phpo73`, `php74`, `php80`und `mysql` sind betroffen.
+
+Bei den ersten fünf Treffern, füge ich die nachfolgende Zeile hinter diesem ein. Also bei `httpd`, `php56`, `phpo73`, `php74` und `php80`. Der Container `mysql` benötigt keine Verbindung zum Projektordner.
 
 ```
       - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
@@ -271,6 +306,7 @@ Jedesmal, wenn ich den obigen Eintrag finde, füge ich die nachfolgende Zeile hi
 Für den `httpd`-Container sieht der Eintrag wie folgt aus:
 
 ```
+...
 ...
   httpd:
     image: degobbis/apache24-alpine:latest
@@ -284,14 +320,11 @@ Für den `httpd`-Container sieht der Eintrag wie folgt aus:
       - php80
       - mailhog
     volumes:
-      - ./data/ca:/usr/local/apache2/ca:rw
       - ./.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
       - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
-      - ./data/apache24/my-domains.conf:/usr/local/apache2/vhosts/20-extra-domains.conf:rw
-      - ./data/phpinfo:/srv/phpinfo:rw
-      - ${APP_BASEDIR:-./data/www}:/srv/www:rw
+      - ${APP_BASEDIR:-./data}:/srv/:rw
       - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
-      - pma:/srv/pma
+      - pma:/var/www/pma
       - phpsocket:/run/php
     ports:
       - "80:${MAP_POT_80:-8074}"
@@ -317,10 +350,8 @@ Für den `httpd`-Container sieht der Eintrag wie folgt aus:
       net:
         ipv4_address: 172.16.238.10
 ...
+...
 ```
-
-Insgesamt wird der Eintrag 5 Mal eingefügt. Die Container
-`httpd`, `php56`, `phpo73`, `php74` und `php80` sind betroffen.
 
 > Weitere Informationen zur Verwendung von Volumes mit `compose` gibt es in der [docker-Dokumentation](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose) oder in der [compose-Referenz](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference).
 
@@ -333,10 +364,62 @@ make server-up
 Das in meinem Beispiel neu verlinkte Verzeichnis wird im Container unter `/home/deinBenutzer/git/joomla-development` verlinkt.
 
 ```
-php74:/home/deinBenutzer/git/joomla-development#
+$ docker exec -ti docker-lamp_php74 sh
+php74:/srv/www# cd /home/meinBenutzer/git/joomla-development/
+php74:/home/meinBenutzer/git/joomla-development# ll
+total 20
+drwxrwxr-x    6 virtual  virtual       4096 Feb  9 21:07 AG
+drwxrwxr-x    8 virtual  virtual       4096 Feb 12 16:04 boilerplate
+drwxrwxr-x    6 virtual  virtual       4096 Feb 11 22:17 pkg_agosms
+drwxrwxr-x    9 virtual  virtual
 ```
 
+> Über den Befehl `docker exec -ti docker-lamp_php74 sh` öffnet man eine Befehlzeile im container `docker-lamp_php74`. Über `exit` kommt man wieder aus ihm heraus.
+
 ### Zertifikat
+
+Falls die Konfiguration der Zertifikate geändert wird ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl`make server-down` aufrufen.
+
+```
+$ make server-down
+/home/meinBenutzer/docker-lamp/.env included
+
+Datenbank-Sicherung gestartet.
+
+j3 wird gesichert...
+joomla_db wird gesichert...
+joomla_j4b7 wird gesichert...
+joomla_j4dev wird gesichert...
+tutorial_t1 wird gesichert...
+
+Datenbank-Sicherung abgeschlossen.
+
+Stopping docker-lamp_php56      ... done
+Stopping docker-lamp_php74      ... done
+Stopping docker-lamp_phpmyadmin ... done
+Stopping docker-lamp_php73      ... done
+Stopping docker-lamp_php80      ... done
+Stopping docker-lamp_mysql      ... done
+Stopping docker-lamp_mailhog    ... done
+Stopping docker-lamp_bind       ... done
+Removing docker-lamp_httpd      ... done
+Removing docker-lamp_php56      ... done
+Removing docker-lamp_php74      ... done
+Removing docker-lamp_phpmyadmin ... done
+Removing docker-lamp_php73      ... done
+Removing docker-lamp_php80      ... done
+Removing docker-lamp_mysql      ... done
+Removing docker-lamp_mailhog    ... done
+Removing docker-lamp_bind       ... done
+Removing network docker-lamp_net
+local
+docker-lamp_db-data-dir
+local
+docker-lamp_phpsocket
+local
+docker-lamp_pma
+
+```
 
 #### Minica
 
@@ -372,22 +455,37 @@ Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender
 > Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) habe ich später beschrieben.
 
 ```
-docker-compose down
 nano .env
 ```
 
-Hier dann folgenden Einträge erweitert:
+Hier dann je nach Wunsch folgenden Einträge erweitert:
 
 ```
 ...
 TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1
 ...
 ...
-SSL_LOCALDOMAINS=beispielsubdomain1.local,*.beispielsubdomain2.local
+SSL_LOCALDOMAINS=
 ```
 
-> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. [Top-Level-Domain](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458) steht. `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden dorch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter `SSL_LOCALDOMAINS` einzutragen.
-> Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=beispielsubdomain1.mytdl,*.beispielsubdomain2.mytdl` spielen zusammen.
+> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. [Top-Level-Domain](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458) steht. `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden durch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter `SSL_LOCALDOMAINS` einzutragen.
+> Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` spielen zusammen.
+
+```
+             (root)                 0. Ebene, Null-Label
+               |
+               |
+              mytdl                 1. Ebene, Top-Level-Domains (TLD)
+         /           \
+        /             \
+  subdomain1       subdomain2       2. Ebene, Second-Level-Domains
+    /  |   \         /   |  \
+s11    s12  s13   s21    s22  s23   3. Ebene, Third-Level-Domains
+```
+
+Dann die Ordner für die Ebenen erstellen. Für die zweite Ebene wäre das `/data/www/subdomain1` und `/data/www/subdomain2` erstellen. `/data/www/joomla` sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
+
+Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. Für Wordpress Entwickler gibt es neben `joomla` weiter Domains auf der 3. Ebenen.
 
 ```
              (root)                 0. Ebene, Null-Label
@@ -397,12 +495,11 @@ SSL_LOCALDOMAINS=beispielsubdomain1.local,*.beispielsubdomain2.local
          /           \
         /             \
     joomla           joomla         2. Ebene, Second-Level-Domains
-    /  |   \         /   |  \
-j4dev j3  j3b4     j4dev j3 j3b4    3. Ebene, Third-Level-Domains
+
+                                    3. Ebene, Third-Level-Domains
 ```
 
-Dann den Ordner `/data/ca/localdomains` löschen.
-Einen entsprechenden Ordner `/data/www/subdomain2ebene` erstellen.
+Am Ende den Ordner `/localdomains` löschen und den Server starten.
 
 ```
 make server-up

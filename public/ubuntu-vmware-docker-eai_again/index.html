@@ -36,10 +36,7 @@ Glücklicherweise ist es einfach, Docker's DNS zu testen.</p>
 <span class="grvsc-line"><span class="grvsc-source">IP4.DNS[1]:                             127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">IP4.DNS[2]:                             192.168.209.2</span></span></code></pre>
 <p>Um einen Docker-Container mit diesem DNS-Server auszuführen, hängt man das Flag <code class="language-text">--dns</code> an den Befehl <code class="language-text">run</code> an.</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker run --dns 127.0.0.1 busybox nslookup google.com</span></span>
-<span class="grvsc-line"><span class="grvsc-source">WARNING: Localhost DNS setting (--dns=127.0.0.1) may fail in containers.</span></span>
-<span class="grvsc-line"><span class="grvsc-source">nslookup: write to &#39;127.0.0.1&#39;: Connection refused</span></span>
-<span class="grvsc-line"><span class="grvsc-source">;; connection timed out; no servers could be reached</span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker run --dns 127.0.0.1 busybox nslookup google.com</span></span></code></pre>
 <p>Und nun ist die Abfrage erfolgreich!</p>
 <h3>Der dauerhafte systemweite Fix</h3>
 <p>Die obige Lösung ist kurzfristig gut. Besser ist, dass dies standardmäßig funktioniert.
