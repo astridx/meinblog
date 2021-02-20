@@ -52,7 +52,7 @@ Meine Projekte verwendet [jorobo](https://github.com/joomla-projects/jorobo). So
 
 ###### _jorobo_ Funktionen
 
-- `vendor/bin/robo build` - Baut aus der Erweiterung ein installierbares Joomla Paket oder eine Zip-Datei inklusive Ersetzungen wie das aktuelle Datum oder die Versionsnummer. 
+- `vendor/bin/robo build` - Baut aus der Erweiterung ein installierbares Joomla Paket oder eine Zip-Datei inklusive Ersetzungen wie das aktuelle Datum oder die Versionsnummer.
 - `vendor/bin/robo map` - Verlinkt (Symlink) die Erweiterung in eine laufende Joomla Installation
 - `vendor/bin/robo headers` - Aktualisiert die Copyright-Header aller Dateien des Quellverzeichnises. Dabei wird ein Header eingesetzt, welcher in der `jorobo.ini` konfigurierbar ist.
 - `vendor/bin/robo bump` - Tauscht die Zeichenkette `__DEPLOY_VERSION__` in jeder Datei im Quellverzeichnis mit der in der `jorobo.ini` eingestellten Versionsnummer aus.
@@ -61,7 +61,7 @@ Um all diese Funktionen nutzen zu können, ist es erforderlich mit Composer PHP-
 
 ###### Mit Composer PHP-Abhängikeiten installieren
 
-Composer steht in den Containern ab PHP-Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/home/astrid/git/joomla-development/boilerplate ` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
+Composer steht in den Containern ab PHP-Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/home/astrid/git/joomla-development/boilerplate` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
 
 ```
 $ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate docker-lamp_php80 composer install
@@ -70,7 +70,6 @@ $ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate
 
 > Um in einem Container Composer aufzurufen, muss Git installiert sein: `docker exec -it docker-lamp_php80 apk add git`.  
 > `OCI runtime exec failed: exec failed: container_linux.go:370: starting container process caused: chdir to cwd ("/srv/git/boilerplate") set in config.json failed: no such file or directory: unknown` weißt darauf hin, dass man sich im Pfad vertippt hat.
-
 
 ###### Projekte symlinken
 

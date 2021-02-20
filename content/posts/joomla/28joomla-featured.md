@@ -31,8 +31,11 @@ Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenank, d
 
 ```sql {numberLines: -2}
 -- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql
-ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if contact is featured.';
+
+ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if foo is featured.';
+
 ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);
+
 ```
 
 #### [src/components/com_foos/src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641)
@@ -466,8 +469,18 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.php
+
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
+
 ?>
 <div class="com-foos-featured blog-featured">
 <?php if ($this->params->get('show_page_headings') != 0 ) : ?>
@@ -490,6 +503,7 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 	</div>
 <?php endif; ?>
 </div>
+
 ```
 
 #### [src/components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)

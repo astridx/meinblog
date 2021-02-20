@@ -33,43 +33,63 @@ In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dat
 
 #### Module
 
-##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
-Dies ist die Datei, die den Text in britischem Englisch für die allgemeine Übersetzung bereitstellt.
+Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit bereit.
 
 ```xml
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
+
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
-##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
-Dies ist die Datei, die den Text in britischem Englisch für Menü und Installationsroutine bereitstellt.
+Diese Datei stellt die Texte für Menü und Installationsroutine bereit.
 
 ```xml
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
+
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
+
 ```
 
-##### [src/modules/mod\_foo/mod\_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
+##### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
 
-Diese Datei ist der Haupteinstiegspunkt für das Modul. Sie führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und enthält das Template, in der die Modulausgabe angezeigt wird.
+`mod_foo.php` ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.
 
 ```php
+// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.php
+
+<?php
+/**
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  mod_foo
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
 
 require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
+
 ```
 
-> In Joomla 3x haben wir eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get (‚moduleclass_sfx‘));` verwendet. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
+> In Joomla 3x war eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get (‚moduleclass_sfx‘));` notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
 
-##### [src/modules/mod\_foo/mod\_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
+##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
 
-`mod_foo.xml` definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von der vorher erstellten Erweiterungen.
+`mod_foo.xml` definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von den vorher erstellten Erweiterungen.
 
 ```xml
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.xml -->
+
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
 	<name>MOD_FOO</name>
@@ -89,19 +109,32 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 		<filename>mod_foo.xml</filename>
 	</files>
 </extension>
+
 ```
 
-##### [src/modules/mod\_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
+##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
 
-Dies ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird.
+`default.php` ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird.
 
 ```php
+// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/tmpl/default.php
+
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  mod_foo
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 \defined('_JEXEC') or die;
 
 echo '[PROJECT_NAME]';
+
 ```
 
-> Beachte: In der Templatedatei ist es möglich, eine, in der Datei mod_foo.php definierte Variable zu verwenden.
+> Beachte: In der Templatedatei ist es möglich, alle in `mod_foo.php` definierten Variablen zu verwenden.
 
 ### Geänderte Dateien
 
@@ -109,11 +142,27 @@ Es gibt keine geänderten Dateien.
 
 ## Teste dein Joomla-Module
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+1. Installiere dein Modul in Joomla! Version 4, um es zu testen. Am Anfang ist es das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
 
 Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
 
-Installiere (Menü `System | Install | Discover`) dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu dem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
+
+3. Teste als Nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü `Content | Site Modules` und klicke im sich öffnenden Fenster in der Werkzeugleiste `New`.
+
+![Joomla Modul testen](/images/j4x36x1.png)
+
+4. Trage einen Titel im entsprechenden Feld ein und wähle eine Position. Stelle im Tabulator `Menu Assignment` sicher, dass das Modul auf allen Seiten angezeigt wird. Klicke am Ende in der Werkzeugleiste die Schaltfläche `Save`.
+
+![Joomla Modul erstellen](/images/j4x36x3.png)
+
+5. Und das ist es. Wechsel in die Frontendansicht deines Modules und überzeuge dich davon, dass alles richtig angezeigt wird.
+
+![Joomla Modul im Frontend](/images/j4x36x4.png)
+
+> Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen. ![Joomla Modul im Frontend](/images/j4x36x5.png)
+
+Wir haben eine solide Grundlage für die weiteren Schritte.
 
 ## Geänderte Dateien
 

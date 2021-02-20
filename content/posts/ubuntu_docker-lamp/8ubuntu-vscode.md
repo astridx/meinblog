@@ -120,7 +120,7 @@ Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `1000
 
 #### php cs-fixer
 
-##### 
+#####
 
 ##### Visual Studio Code Erweiterung
 
