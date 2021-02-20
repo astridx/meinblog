@@ -187,7 +187,7 @@ index b989f83f..ab768e01 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -33,3 +33,5 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
-
+ 
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
@@ -208,13 +208,13 @@ index e92cd58a..2f8497dc 100644
  use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * Foos Table class.
 @@ -36,6 +38,27 @@ public function __construct(DatabaseDriver $db)
  		parent::__construct('#__foos_details', 'id', $db);
  	}
-
+ 
 +	/**
 +	 * Stores a foo.
 +	 *
@@ -244,11 +244,11 @@ index c0bc3df6..a0ef47fa 100644
 --- a/src/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/components/com_foos/src/View/Foo/HtmlView.php
 @@ -13,6 +13,7 @@
-
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * HTML Foos View class for the Foo component
 @@ -21,6 +22,22 @@
@@ -277,7 +277,7 @@ index c0bc3df6..a0ef47fa 100644
 @@ -40,6 +57,23 @@ public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
-
+ 
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -296,16 +296,16 @@ index c0bc3df6..a0ef47fa 100644
 +		$item->params = $temp;
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
+ 
  		// Store the events for later
 diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
 index c5fac408..f4e516eb 100644
 --- a/src/components/com_foos/tmpl/foo/default.php
 +++ b/src/components/com_foos/tmpl/foo/default.php
 @@ -10,12 +10,14 @@
-
+ 
  use Joomla\CMS\Language\Text;
-
+ 
 -if ($this->get('State')->get('params')->get('show_foo_name_label'))
 -{
 -	echo Text::_('COM_FOOS_NAME');
@@ -315,12 +315,12 @@ index c5fac408..f4e516eb 100644
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
-
+ 
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
-
- echo $this->item->event->afterDisplayTitle;
+ 
+ echo $this->item->event->afterDisplayTitle; 
  echo $this->item->event->beforeDisplayContent;
 diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
 index d4437d9b..efbe6517 100644
@@ -412,7 +412,7 @@ index b989f83f..ab768e01 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -33,3 +33,5 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
-
+ 
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
@@ -433,13 +433,13 @@ index e92cd58a..2f8497dc 100644
  use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * Foos Table class.
 @@ -36,6 +38,27 @@ public function __construct(DatabaseDriver $db)
  		parent::__construct('#__foos_details', 'id', $db);
  	}
-
+ 
 +	/**
 +	 * Stores a foo.
 +	 *
@@ -469,11 +469,11 @@ index c0bc3df6..a0ef47fa 100644
 --- a/src/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/components/com_foos/src/View/Foo/HtmlView.php
 @@ -13,6 +13,7 @@
-
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * HTML Foos View class for the Foo component
 @@ -21,6 +22,22 @@
@@ -502,7 +502,7 @@ index c0bc3df6..a0ef47fa 100644
 @@ -40,6 +57,23 @@ public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
-
+ 
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -521,16 +521,16 @@ index c0bc3df6..a0ef47fa 100644
 +		$item->params = $temp;
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
+ 
  		// Store the events for later
 diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
 index c5fac408..f4e516eb 100644
 --- a/src/components/com_foos/tmpl/foo/default.php
 +++ b/src/components/com_foos/tmpl/foo/default.php
 @@ -10,12 +10,14 @@
-
+ 
  use Joomla\CMS\Language\Text;
-
+ 
 -if ($this->get('State')->get('params')->get('show_foo_name_label'))
 -{
 -	echo Text::_('COM_FOOS_NAME');
@@ -540,12 +540,12 @@ index c5fac408..f4e516eb 100644
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
-
+ 
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
-
- echo $this->item->event->afterDisplayTitle;
+ 
+ echo $this->item->event->afterDisplayTitle; 
  echo $this->item->event->beforeDisplayContent;
 diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
 index d4437d9b..efbe6517 100644
@@ -633,7 +633,7 @@ index b989f83f..ab768e01 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -33,3 +33,5 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
-
+ 
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
@@ -654,13 +654,13 @@ index e92cd58a..2f8497dc 100644
  use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * Foos Table class.
 @@ -36,6 +38,27 @@ public function __construct(DatabaseDriver $db)
  		parent::__construct('#__foos_details', 'id', $db);
  	}
-
+ 
 +	/**
 +	 * Stores a foo.
 +	 *
@@ -690,11 +690,11 @@ index c0bc3df6..a0ef47fa 100644
 --- a/src/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/components/com_foos/src/View/Foo/HtmlView.php
 @@ -13,6 +13,7 @@
-
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * HTML Foos View class for the Foo component
 @@ -21,6 +22,22 @@
@@ -723,7 +723,7 @@ index c0bc3df6..a0ef47fa 100644
 @@ -40,6 +57,23 @@ public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
-
+ 
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -742,16 +742,16 @@ index c0bc3df6..a0ef47fa 100644
 +		$item->params = $temp;
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
+ 
  		// Store the events for later
 diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
 index c5fac408..f4e516eb 100644
 --- a/src/components/com_foos/tmpl/foo/default.php
 +++ b/src/components/com_foos/tmpl/foo/default.php
 @@ -10,12 +10,14 @@
-
+ 
  use Joomla\CMS\Language\Text;
-
+ 
 -if ($this->get('State')->get('params')->get('show_foo_name_label'))
 -{
 -	echo Text::_('COM_FOOS_NAME');
@@ -761,12 +761,12 @@ index c5fac408..f4e516eb 100644
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
-
+ 
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
-
- echo $this->item->event->afterDisplayTitle;
+ 
+ echo $this->item->event->afterDisplayTitle; 
  echo $this->item->event->beforeDisplayContent;
 diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
 index d4437d9b..efbe6517 100644
@@ -903,7 +903,7 @@ index b989f83f..ab768e01 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -33,3 +33,5 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
-
+ 
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
@@ -924,13 +924,13 @@ index e92cd58a..2f8497dc 100644
  use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * Foos Table class.
 @@ -36,6 +38,27 @@ public function __construct(DatabaseDriver $db)
  		parent::__construct('#__foos_details', 'id', $db);
  	}
-
+ 
 +	/**
 +	 * Stores a foo.
 +	 *
@@ -960,11 +960,11 @@ index c0bc3df6..a0ef47fa 100644
 --- a/src/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/components/com_foos/src/View/Foo/HtmlView.php
 @@ -13,6 +13,7 @@
-
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * HTML Foos View class for the Foo component
 @@ -21,6 +22,22 @@
@@ -993,7 +993,7 @@ index c0bc3df6..a0ef47fa 100644
 @@ -40,6 +57,23 @@ public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
-
+ 
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -1012,16 +1012,16 @@ index c0bc3df6..a0ef47fa 100644
 +		$item->params = $temp;
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
+ 
  		// Store the events for later
 diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
 index c5fac408..f4e516eb 100644
 --- a/src/components/com_foos/tmpl/foo/default.php
 +++ b/src/components/com_foos/tmpl/foo/default.php
 @@ -10,12 +10,14 @@
-
+ 
  use Joomla\CMS\Language\Text;
-
+ 
 -if ($this->get('State')->get('params')->get('show_foo_name_label'))
 -{
 -	echo Text::_('COM_FOOS_NAME');
@@ -1031,12 +1031,12 @@ index c5fac408..f4e516eb 100644
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
-
+ 
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
-
- echo $this->item->event->afterDisplayTitle;
+ 
+ echo $this->item->event->afterDisplayTitle; 
  echo $this->item->event->beforeDisplayContent;
 diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
 index d4437d9b..efbe6517 100644

@@ -335,10 +335,10 @@ index 3e3ba4e4..b67c35d4 100644
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
 @@ -49,6 +50,7 @@ function (Container $container)
  				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
-
+ 
  				$component->setRegistry($container->get(Registry::class));
 +				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
-
+ 
  				return $component;
  			}
 diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql

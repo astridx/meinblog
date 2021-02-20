@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+Über Parameter ist das Modul für Endbenutzer flexibel anpassbar.
 
 ## Für Ungeduldige
 
@@ -19,45 +19,113 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
+In diesem Abschnitt fügen wir Parameter zum Modul hinzu.
+
+### Neue Dateien
+
+In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 
 ### Geänderte Dateien
 
 #### Module
 
-## Teste dein Joomla-Module
-
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
-
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
-
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
-
-## Geänderte Dateien
-
-#### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
 
 [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
+Die Beschriftung des Parameters soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei. 
+
+> Beachte `COM_MODULES_FOOPARAMS_FIELDSET_LABEL="Foo Parameter"`
+
 ```php {diff}
+MOD_FOO="[PROJECT_NAME]"
+MOD_FOO_XML_DESCRIPTION="Foo Module"
++MOD_FOO_FIELD_URL_LABEL="URL"
++COM_MODULES_FOOPARAMS_FIELDSET_LABEL="Foo Parameter"
 
 ```
 
-#### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+
+In der Einstiegsdatei des Moduls prüfen wir, auf welchen Wert der Parameter gestzt ist und laden ihn in eine Variable.
 
 [src/modules/mod_foo/mod_foo.php]()
 
 ```php {diff}
+$test  = FooHelper::getText();
+ 
++$url = $params->get('domain');
++
+ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
+```
+
+##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+
+Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich die Standardparameter. Die Logik für diese wird von Joomla für alle Module übernommen.
+
+[src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+
+```php {diff}
+ 	<files>
+ 		<filename module="mod_foo">mod_foo.php</filename>
+ 		<folder>tmpl</folder>
+-		<folder>Helper</folder>		
++		<folder>Helper</folder>
+ 		<folder>language</folder>
+ 		<filename>mod_foo.xml</filename>
+ 	</files>
++	<config>
++		<fields name="params">
++			<fieldset name="fooparams">
++				<field
++					name="domain"
++					type="url"
++					label="MOD_FOO_FIELD_URL_LABEL"
++					filter="url"
++				/>
++			</fieldset>
++		</fields>
++	</config>
+ </extension>
 
 ```
 
-#### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
+> Verwende `<fieldset name="basic">`. um die Parameter im ersten Tabulator anzuzeigen.
+
+Neben den Parametern die ein Entwickler in sein Modul einfügt, gib es Standardparameter, die Joomla selbst handhabt. ![Joomla Modul testen](/images/j4x38x1.png)
+
+
+##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
+
+In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespeichert ist.
 
 [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
 
 ```php {diff}
+ \defined('_JEXEC') or die;
+ 
+-echo '[PROJECT_NAME]' . $test;
++echo '[PROJECT_NAME]' . $test . '<br />' . $url;
 
 ```
+
+## Teste dein Joomla-Module
+
+1. Installiere das Modul in Joomla! Version 4, um es zu testen:
+
+Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
+
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+
+2. Überprüfe das Vorhandensein des Parameters im Backend.
+
+![Joomla Modul testen](/images/j4x38x4.png)
+
+3. Überzeuge dich davon, dass der Wert des Parameters bei der Anzeige im Frontend berücksichtigt wird.
+
+![Joomla Modul testen](/images/j4x38x2.png)
+
+## Geänderte Dateien
 
 ### Übersicht
 
@@ -67,89 +135,47 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 // https://github.com/astridx/boilerplate/compare/t32...t33.diff
 
 diff --git a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
-index e20c4602..e3dc5fc4 100644
+index e20c4602..0c788634 100644
 --- a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
 +++ b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
-@@ -1,2 +1,3 @@
+@@ -1,2 +1,4 @@
  MOD_FOO="[PROJECT_NAME]"
  MOD_FOO_XML_DESCRIPTION="Foo Module"
 +MOD_FOO_FIELD_URL_LABEL="URL"
++COM_MODULES_FOOPARAMS_FIELDSET_LABEL="Foo Parameter"
 diff --git a/src/modules/mod_foo/mod_foo.php b/src/modules/mod_foo/mod_foo.php
 index 153977ef..4763eb19 100644
 --- a/src/modules/mod_foo/mod_foo.php
 +++ b/src/modules/mod_foo/mod_foo.php
 @@ -15,4 +15,6 @@
-
+ 
  $test  = FooHelper::getText();
-
+ 
 +$url = $params->get('domain');
 +
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 diff --git a/src/modules/mod_foo/mod_foo.xml b/src/modules/mod_foo/mod_foo.xml
-index afd93ad1..826039ad 100644
+index afd93ad1..54cc46c3 100644
 --- a/src/modules/mod_foo/mod_foo.xml
 +++ b/src/modules/mod_foo/mod_foo.xml
-@@ -13,8 +13,63 @@
+@@ -13,8 +13,20 @@
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
--		<folder>Helper</folder>
+-		<folder>Helper</folder>		
 +		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
  	</files>
 +	<config>
 +		<fields name="params">
-+			<fieldset name="basic">
++			<fieldset name="fooparams">
 +				<field
 +					name="domain"
 +					type="url"
 +					label="MOD_FOO_FIELD_URL_LABEL"
 +					filter="url"
 +				/>
-+			</fieldset>
-+			<fieldset name="advanced">
-+				<field
-+					name="layout"
-+					type="modulelayout"
-+					label="JFIELD_ALT_LAYOUT_LABEL"
-+					class="custom-select"
-+				/>
-+
-+				<field
-+					name="moduleclass_sfx"
-+					type="textarea"
-+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
-+					rows="3"
-+				/>
-+
-+				<field
-+					name="cache"
-+					type="list"
-+					label="COM_MODULES_FIELD_CACHING_LABEL"
-+					default="1"
-+					filter="integer"
-+					validate="options"
-+				>
-+					<option value="1">JGLOBAL_USE_GLOBAL</option>
-+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
-+				</field>
-+
-+				<field
-+					name="cache_time"
-+					type="number"
-+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
-+					default="900"
-+					filter="integer"
-+				/>
-+
-+				<field
-+					name="cachemode"
-+					type="hidden"
-+					default="static"
-+				>
-+					<option value="static"></option>
-+				</field>
 +			</fieldset>
 +		</fields>
 +	</config>
@@ -159,9 +185,9 @@ index 70d865c4..2fc95b64 100644
 --- a/src/modules/mod_foo/tmpl/default.php
 +++ b/src/modules/mod_foo/tmpl/default.php
 @@ -9,4 +9,4 @@
-
+ 
  \defined('_JEXEC') or die;
-
+ 
 -echo '[PROJECT_NAME]' . $test;
 +echo '[PROJECT_NAME]' . $test . '<br />' . $url;
 

@@ -1246,7 +1246,7 @@ index 29030084..48811dd9 100644
  <?xml version="1.0" encoding="utf-8"?>
  <form>
 -	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
-+	<fieldset
++	<fieldset 
 +		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 +		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 +	>
@@ -1256,7 +1256,7 @@ index 29030084..48811dd9 100644
 @@ -28,6 +31,14 @@
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
-
+ 
 +		<field
 +			name="language"
 +			type="contentlanguage"
@@ -1278,7 +1278,7 @@ index 47fb5974..4c8d7c8f 100644
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
 +use FooNamespace\Component\Foos\Administrator\Helper\AssociationsHelper;
 +use Joomla\CMS\Association\AssociationExtensionInterface;
-
+ 
  /**
   * The foos service provider.
 @@ -40,6 +42,8 @@
@@ -1295,7 +1295,7 @@ index 47fb5974..4c8d7c8f 100644
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
  				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
 +				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
-
+ 
  				return $component;
  			}
 diff --git a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
@@ -1304,7 +1304,7 @@ index 87a3a0a0..5517b4c3 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -27,3 +27,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `publish_up` datetime AFTER `alias`;
  ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
-
+ 
  ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
@@ -1324,9 +1324,9 @@ index 831a13f6..0aca19d5 100644
 --- a/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 +++ b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 @@ -11,6 +11,8 @@
-
+ 
  defined('JPATH_PLATFORM') or die;
-
+ 
 +use Joomla\CMS\Association\AssociationServiceInterface;
 +use Joomla\CMS\Association\AssociationServiceTrait;
  use Joomla\CMS\Categories\CategoryServiceInterface;
@@ -1343,7 +1343,7 @@ index 831a13f6..0aca19d5 100644
  	use CategoryServiceTrait;
 +	use AssociationServiceTrait;
  	use HTMLRegistryAwareTrait;
-
+ 
  	/**
 diff --git a/src/administrator/components/com_foos/src/Field/Modal/FooField.php b/src/administrator/components/com_foos/src/Field/Modal/FooField.php
 index e8704d68..1387c0be 100644
@@ -1356,7 +1356,7 @@ index e8704d68..1387c0be 100644
 -		$linkFoo  = 'index.php?option=com_foos&amp;view=foo&amp;layout=modal&amp;tmpl=component&amp;'
 -			. Session::getFormToken() . '=1';
  		$modalTitle   = Text::_('COM_FOOS_CHANGE_FOO');
-
+ 
 +		if (isset($this->element['language']))
 +		{
 +			$linkFoos .= '&amp;forcedLanguage=' . $this->element['language'];
@@ -1364,7 +1364,7 @@ index e8704d68..1387c0be 100644
 +		}
 +
  		$urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
-
+ 
  		if ($value)
 diff --git a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php b/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
 new file mode 100644
@@ -1615,18 +1615,18 @@ index 32a964a0..70fdd2e0 100644
 +++ b/src/administrator/components/com_foos/src/Model/FooModel.php
 @@ -12,7 +12,9 @@
  \defined('_JEXEC') or die;
-
+ 
  use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
  use Joomla\CMS\MVC\Model\AdminModel;
 +use Joomla\CMS\Language\LanguageHelper;
-
+ 
  /**
   * Item Model for a Foo.
 @@ -29,6 +31,14 @@ class FooModel extends AdminModel
  	 */
  	public $typeAlias = 'com_foos.foo';
-
+ 
 +	/**
 +	 * The context used for the associations table
 +	 *
@@ -1641,7 +1641,7 @@ index 32a964a0..70fdd2e0 100644
 @@ -70,6 +80,86 @@ protected function loadFormData()
  		return $data;
  	}
-
+ 
 +	/**
 +	 * Method to get a single record.
 +	 *
@@ -1731,15 +1731,15 @@ index 20e61378..a168ab54 100644
 +++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
 @@ -12,6 +12,8 @@
  \defined('_JEXEC') or die;
-
+ 
  use Joomla\CMS\MVC\Model\ListModel;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * Methods supporting a list of foo records.
 @@ -48,7 +50,13 @@ protected function getListQuery()
-
+ 
  		// Select the required fields from the table.
  		$query->select(
 -			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'))
@@ -1751,12 +1751,12 @@ index 20e61378..a168ab54 100644
 +				)
 +			)
  		);
-
+ 
  		$query->from($db->quoteName('#__foos_details', 'a'));
 @@ -67,6 +75,76 @@ protected function getListQuery()
  				$db->quoteName('#__categories', 'c') . ' ON ' . $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid')
  			);
-
+ 
 +		// Join over the language
 +		$query->select($db->quoteName('l.title', 'language_title'))
 +			->select($db->quoteName('l.image', 'language_image'))
@@ -1835,9 +1835,9 @@ index 10c48b42..b3ca4cb1 100644
 --- a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 +++ b/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 @@ -11,6 +11,12 @@
-
+ 
  defined('JPATH_BASE') or die;
-
+ 
 +use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Language\Text;
@@ -1925,7 +1925,7 @@ index 094a0a9f..206f748c 100644
 @@ -49,6 +49,17 @@ public function display($tpl = null)
  		$this->form  = $this->get('Form');
  		$this->item = $this->get('Item');
-
+ 
 +		// If we are forcing a language in modal (used for associations).
 +		if ($this->getLayout() === 'modal' && $forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'cmd'))
 +		{
@@ -1938,7 +1938,7 @@ index 094a0a9f..206f748c 100644
 +		}
 +
  		$this->addToolbar();
-
+ 
  		return parent::display($tpl);
 diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 index b80449d8..af7c2fa6 100644
@@ -1949,13 +1949,13 @@ index b80449d8..af7c2fa6 100644
  use Joomla\CMS\Toolbar\ToolbarHelper;
  use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * View class for a list of foos.
 @@ -53,7 +54,22 @@ public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');
-
+ 
 -		$this->addToolbar();
 +		// We don't need toolbar in the modal window.
 +		if ($this->getLayout() !== 'modal')
@@ -1973,7 +1973,7 @@ index b80449d8..af7c2fa6 100644
 +				$languageXml = new \SimpleXMLElement('<field name="language" type="hidden" default="' . $forcedLanguage . '" />');
 +			}
 +		}
-
+ 
  		parent::display($tpl);
  	}
 diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
@@ -1981,7 +1981,7 @@ index c195acf8..e1dddc2e 100644
 --- a/src/administrator/components/com_foos/tmpl/foo/edit.php
 +++ b/src/administrator/components/com_foos/tmpl/foo/edit.php
 @@ -11,6 +11,7 @@
-
+ 
  use Joomla\CMS\Factory;
  use Joomla\CMS\HTML\HTMLHelper;
 +use Joomla\CMS\Language\Associations;
@@ -1991,12 +1991,12 @@ index c195acf8..e1dddc2e 100644
 @@ -18,6 +19,9 @@
  $app = Factory::getApplication();
  $input = $app->input;
-
+ 
 +$assoc = Associations::isEnabled();
 +
 +$this->ignore_fieldsets = array('item_associations');
  $this->useCoreUI = true;
-
+ 
  $wa = $this->document->getWebAssetManager();
 @@ -45,12 +49,19 @@
  						<?php echo $this->getForm()->renderField('publish_up'); ?>
@@ -2008,15 +2008,15 @@ index c195acf8..e1dddc2e 100644
  			</div>
  		</div>
  		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-
+ 		
 +		<?php if ($assoc) : ?>
 +			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 +			<?php echo $this->loadTemplate('associations'); ?>
 +			<?php echo HTMLHelper::_('uitab.endTab'); ?>
 +		<?php endif; ?>
-+
++		
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
-
+ 
  		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 diff --git a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php b/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
 new file mode 100644
@@ -2083,8 +2083,8 @@ index b72ffc89..5014bb2d 100644
 +								<?php if ($assoc) : ?>
 +								<td class="d-none d-md-table-cell">
 +									<?php if ($item->association) : ?>
-+										<?php
-+										echo HTMLHelper::_('foosadministrator.association', $item->id);
++										<?php 
++										echo HTMLHelper::_('foosadministrator.association', $item->id); 
 +										?>
 +									<?php endif; ?>
 +								</td>

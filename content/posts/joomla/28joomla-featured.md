@@ -1085,7 +1085,7 @@ index 1b8a4c73..37a9c36b 100644
 @@ -39,6 +39,17 @@
  			<option value="*">JALL</option>
  		</field>
-
+ 
 +		<field
 +			name="featured"
 +			type="radio"
@@ -1105,9 +1105,9 @@ index 862fa7c9..291b695a 100644
 --- a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -42,3 +42,6 @@ ALTER TABLE `#__foos_details` ADD COLUMN `checked_out_time` datetime AFTER `alia
-
+ 
  ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
-
+ 
 +ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if foo is featured.';
 +
 +ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);
@@ -1125,9 +1125,9 @@ index 1aab8084..8711eadc 100644
 --- a/src/administrator/components/com_foos/src/Controller/FoosController.php
 +++ b/src/administrator/components/com_foos/src/Controller/FoosController.php
 @@ -11,6 +11,8 @@
-
+ 
  \defined('_JEXEC') or die;
-
+ 
 +use Joomla\CMS\Language\Text;
 +use Joomla\Utilities\ArrayHelper;
  use Joomla\CMS\Application\CMSApplication;
@@ -1197,7 +1197,7 @@ index 1aab8084..8711eadc 100644
 +
 +		$this->setRedirect('index.php?option=com_foos&view=foos', $message);
  	}
-
+ 
  	/**
 diff --git a/src/administrator/components/com_foos/src/Model/FooModel.php b/src/administrator/components/com_foos/src/Model/FooModel.php
 index 80ff2907..8a27f382 100644
@@ -1209,13 +1209,13 @@ index 80ff2907..8a27f382 100644
  use Joomla\CMS\Language\LanguageHelper;
 +use Joomla\Database\ParameterType;
 +use Joomla\Utilities\ArrayHelper;
-
+ 
  /**
   * Item Model for a Foo.
 @@ -132,6 +134,59 @@ public function getItem($pk = null)
  		return $item;
  	}
-
+ 
 +	/**
 +	 * Method to toggle the featured setting of foos.
 +	 *
@@ -1285,7 +1285,7 @@ index 1e8d6c88..c5f62f0c 100644
  				'publish_up', 'a.publish_up',
  				'publish_down', 'a.publish_down',
 @@ -59,6 +60,7 @@ public function __construct($config = array())
-
+ 
  		parent::__construct($config);
  	}
 +
@@ -1303,7 +1303,7 @@ index 1e8d6c88..c5f62f0c 100644
 @@ -195,6 +198,14 @@ protected function getListQuery()
  			}
  		}
-
+ 
 +		// Filter by featured.
 +		$featured = (string) $this->getState('filter.featured');
 +
@@ -1324,13 +1324,13 @@ index b3ca4cb1..cb8a39a4 100644
  use Joomla\CMS\Layout\LayoutHelper;
  use Joomla\CMS\Router\Route;
 +use Joomla\Utilities\ArrayHelper;
-
+ 
  /**
   * Foo HTML class.
 @@ -88,6 +89,42 @@ public function association($fooid)
  			$html = LayoutHelper::render('joomla.content.associations', $items);
  		}
-
+ 
 +		return $html;
 +	}
 +	/**
@@ -1389,7 +1389,7 @@ index 622ff2db..170a4115 100644
 +				->listCheck(true);
 +
  			$childBar->archive('foos.archive')->listCheck(true);
-
+ 
  			if ($user->authorise('core.admin'))
 diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
 index e1dddc2e..5aae7519 100644
@@ -1421,8 +1421,8 @@ index 3aa053c4..0b25a3b3 100644
  									</div>
  								</th>
  								<td class="text-center">
--									<?php
--									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', $canChange, 'cb', $item->publish_up, $item->publish_down);
+-									<?php 
+-									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', $canChange, 'cb', $item->publish_up, $item->publish_down); 
 -									?>
 +									<?php echo HTMLHelper::_('foosadministrator.featured', $item->featured, $i, $canChange); ?>
  								</td>
@@ -1430,10 +1430,10 @@ index 3aa053c4..0b25a3b3 100644
  									<?php echo $item->access_level; ?>
  								</td>
 +								<td class="text-center">
-+									<?php
-+									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', $canChange, 'cb', $item->publish_up, $item->publish_down);
++									<?php 
++									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', $canChange, 'cb', $item->publish_up, $item->publish_down); 
 +									?>
-
+ 
 +								</td>
  								<?php if ($assoc) : ?>
  								<td class="d-none d-md-table-cell">

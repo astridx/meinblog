@@ -890,14 +890,14 @@ index d317d93c..5ddf2d7b 100644
 --- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 @@ -11,7 +11,10 @@
-
+ 
  \defined('_JEXEC') or die;
-
+ 
 +use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Toolbar\Toolbar;
 +use Joomla\CMS\Toolbar\ToolbarHelper;
-
+ 
  /**
   * View class for a list of foos.
 @@ -39,6 +42,27 @@ class HtmlView extends BaseHtmlView

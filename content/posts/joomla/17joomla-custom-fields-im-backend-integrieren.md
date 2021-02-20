@@ -429,9 +429,9 @@ index 4748083d..b80449d8 100644
 --- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 @@ -11,11 +11,13 @@
-
+ 
  \defined('_JEXEC') or die;
-
+ 
 +use Joomla\CMS\HTML\HTMLHelper;
  use Joomla\CMS\Helper\ContentHelper;
  use Joomla\CMS\Language\Text;
@@ -439,13 +439,13 @@ index 4748083d..b80449d8 100644
  use Joomla\CMS\Toolbar\Toolbar;
  use Joomla\CMS\Toolbar\ToolbarHelper;
 +use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
-
+ 
  /**
   * View class for a list of foos.
 @@ -31,6 +33,13 @@ class HtmlView extends BaseHtmlView
  	 */
  	protected $items;
-
+ 
 +	/**
 +	 * The sidebar markup
 +	 *
@@ -464,7 +464,7 @@ index 4748083d..b80449d8 100644
 +		$this->sidebar = \JHtmlSidebar::render();
 +
  		$canDo = ContentHelper::getActions('com_foos');
-
+ 
  		// Get the toolbar object instance
 @@ -74,5 +86,7 @@ protected function addToolbar()
  		{
@@ -484,10 +484,10 @@ index f1f5d151..c195acf8 100644
  use Joomla\CMS\Router\Route;
 +use Joomla\CMS\Language\Text;
 +use Joomla\CMS\Layout\LayoutHelper;
-
+ 
  $app = Factory::getApplication();
  $input = $app->input;
-
+ 
 +$this->useCoreUI = true;
 +
  $wa = $this->document->getWebAssetManager();
@@ -495,7 +495,7 @@ index f1f5d151..c195acf8 100644
  	->useScript('form.validate')
 @@ -26,13 +30,31 @@
  ?>
-
+ 
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
 -	<?php echo $this->getForm()->renderField('name'); ?>
 -	<?php echo $this->getForm()->renderField('alias'); ?>
@@ -524,7 +524,7 @@ index f1f5d151..c195acf8 100644
 +			</div>
 +		</div>
 +		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-+
++		
 +		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 +
 +		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>

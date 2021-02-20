@@ -267,7 +267,7 @@ index 613db7b4..b84939cd 100644
 @@ -62,6 +62,16 @@
  			<option value="*">JALL</option>
  		</field>
-
+ 
 +		<field
 +			name="tag"
 +			type="tag"
@@ -279,7 +279,7 @@ index 613db7b4..b84939cd 100644
 +			onchange="this.form.submit();"
 +		/>
  	</fields>
-
+ 
  	<fields name="list">
 diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
 index 37a9c36b..e25cde6f 100644
@@ -307,14 +307,14 @@ index c5f6cf10..18b0741c 100644
 @@ -197,6 +197,8 @@ public function postflight($type, $parent)
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT');
-
+ 
 +		$this->saveContentTypes();
 +
  		return true;
  	}
-
+ 
 @@ -244,4 +246,69 @@ private function getAdminId()
-
+ 
  		return $id;
  	}
 +
@@ -392,7 +392,7 @@ index 8a27f382..679e94e5 100644
  use Joomla\Database\ParameterType;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\CMS\Helper\TagsHelper;
-
+ 
  /**
   * Item Model for a Foo.
 @@ -56,6 +57,7 @@ class FooModel extends AdminModel
@@ -402,11 +402,11 @@ index 8a27f382..679e94e5 100644
 +		'tag'           => 'batchTag',
  		'user_id'       => 'batchUser',
  	);
-
+ 
 @@ -131,6 +133,13 @@ public function getItem($pk = null)
  			}
  		}
-
+ 
 +		// Load item tags
 +		if (!empty($item->id))
 +		{
@@ -416,7 +416,7 @@ index 8a27f382..679e94e5 100644
 +
  		return $item;
  	}
-
+ 
 diff --git a/src/administrator/components/com_foos/src/Model/FoosModel.php b/src/administrator/components/com_foos/src/Model/FoosModel.php
 index c5f62f0c..0faa7542 100644
 --- a/src/administrator/components/com_foos/src/Model/FoosModel.php
@@ -427,12 +427,12 @@ index c5f62f0c..0faa7542 100644
  				'publish_down', 'a.publish_down',
 +				'tag',
  			);
-
+ 
  			$assoc = Associations::isEnabled();
 @@ -150,6 +151,51 @@ protected function getListQuery()
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
-
+ 
 +		// Filter by a single or group of tags.
 +		$tag = $this->getState('filter.tag');
 +
@@ -486,14 +486,14 @@ index 4d35af80..cf90c330 100644
 --- a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 @@ -61,6 +61,9 @@ public function display($tpl = null)
-
+ 
  			// Only allow to select categories with All language or with the forced language.
  			$this->form->setFieldAttribute('catid', 'language', '*,' . $forcedLanguage);
 +
 +			// Only allow to select tags with All language or with the forced language.
 +			$this->form->setFieldAttribute('tags', 'language', '*,' . $forcedLanguage);
  		}
-
+ 
  		$this->addToolbar();
 
 ```

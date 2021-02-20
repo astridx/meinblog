@@ -124,10 +124,10 @@ index c345c5e6..c0bc3df6 100644
 +++ b/src/components/com_foos/src/View/Foo/HtmlView.php
 @@ -12,6 +12,7 @@
  \defined('_JEXEC') or die;
-
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * HTML Foos View class for the Foo component
 @@ -37,7 +38,20 @@ class HtmlView extends BaseHtmlView
@@ -149,7 +149,7 @@ index c345c5e6..c0bc3df6 100644
 +
 +		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', array('com_foos.foo', &$item, &$item->params));
 +		$item->event->afterDisplayContent = trim(implode("\n", $results));
-
+ 
  		return parent::display($tpl);
  	}
 diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
@@ -158,10 +158,10 @@ index 87f2a1a2..c5fac408 100644
 +++ b/src/components/com_foos/tmpl/foo/default.php
 @@ -16,3 +16,7 @@
  }
-
+ 
  echo $this->item->name;
 +
-+echo $this->item->event->afterDisplayTitle;
++echo $this->item->event->afterDisplayTitle; 
 +echo $this->item->event->beforeDisplayContent;
 +echo $this->item->event->afterDisplayContent;
 

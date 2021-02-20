@@ -109,7 +109,7 @@ if ($this->item->params->get('show_name')) {
 
 echo "<hr>Hier kannst du eine Fußzeile anzeigen.<hr>";
 
-echo $this->item->event->afterDisplayTitle;
+echo $this->item->event->afterDisplayTitle; 
 echo $this->item->event->beforeDisplayContent;
 echo $this->item->event->afterDisplayContent;
 
@@ -251,11 +251,11 @@ index 87caca68..5e9a0b78 100644
 --- a/src/components/com_foos/src/Model/FooModel.php
 +++ b/src/components/com_foos/src/Model/FooModel.php
 @@ -14,6 +14,7 @@
-
+ 
  use Joomla\CMS\Factory;
  use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 +use Joomla\CMS\Language\Text;
-
+ 
  /**
   * Foo model for the Joomla Foos component.
 diff --git a/src/components/com_foos/src/View/Foo/HtmlView.php b/src/components/com_foos/src/View/Foo/HtmlView.php
@@ -265,7 +265,7 @@ index a0ef47fa..f4c801e0 100644
 @@ -74,6 +74,23 @@ public function display($tpl = null)
  		$temp->merge($itemparams);
  		$item->params = $temp;
-
+ 
 +		$active = Factory::getApplication()->getMenu()->getActive();
 +
 +		// Override the layout only if this is not the active menu item
@@ -284,7 +284,7 @@ index a0ef47fa..f4c801e0 100644
 +		}
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
+ 
  		// Store the events for later
 diff --git a/src/components/com_foos/tmpl/foo/withhead.php b/src/components/com_foos/tmpl/foo/withhead.php
 new file mode 100644
@@ -308,7 +308,7 @@ index 00000000..c8baf688
 +	}
 +}
 +
-+echo $this->item->event->afterDisplayTitle;
++echo $this->item->event->afterDisplayTitle; 
 +echo $this->item->event->beforeDisplayContent;
 +echo $this->item->event->afterDisplayContent;
 diff --git a/src/components/com_foos/tmpl/foo/withhead.xml b/src/components/com_foos/tmpl/foo/withhead.xml
@@ -366,7 +366,7 @@ index 00000000..de144ee1
 +
 +echo "<hr>Hier kannst du eine Fußzeile anzeigen.<hr>";
 +
-+echo $this->item->event->afterDisplayTitle;
++echo $this->item->event->afterDisplayTitle; 
 +echo $this->item->event->beforeDisplayContent;
 +echo $this->item->event->afterDisplayContent;
 

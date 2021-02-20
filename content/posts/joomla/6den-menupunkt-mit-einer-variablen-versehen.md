@@ -129,12 +129,12 @@ index 70dd4d2b..654cb0d9 100644
 --- a/src/components/com_foos/src/Model/FooModel.php
 +++ b/src/components/com_foos/src/Model/FooModel.php
 @@ -12,6 +12,7 @@
-
+ 
  \defined('_JEXEC') or die;
-
+ 
 +use Joomla\CMS\Factory;
  use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-
+ 
  /**
 @@ -33,10 +34,8 @@ class FooModel extends BaseDatabaseModel
  	 */
@@ -146,7 +146,7 @@ index 70dd4d2b..654cb0d9 100644
 -		}
 +		$app = Factory::getApplication();
 +		$this->message = $app->input->get('show_text', "Hi");
-
+ 
  		return $this->message;
  	}
 diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
@@ -164,7 +164,7 @@ index cda926c9..03e19bbe 100644
 +				name="show_text"
 +				type="text"
 +				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
-+				default="Hi"
++				default="Hi" 
 +			/>
 +		</fieldset>
 +	</fields>

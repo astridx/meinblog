@@ -722,7 +722,7 @@ index 5517b4c3..b989f83f 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -31,3 +31,5 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
  ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
-
+ 
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -742,7 +742,7 @@ index a168ab54..d2cab389 100644
  use Joomla\CMS\Language\Associations;
  use Joomla\CMS\Factory;
 +use Joomla\Utilities\ArrayHelper;
-
+ 
  /**
   * Methods supporting a list of foo records.
 @@ -33,6 +34,29 @@ class FoosModel extends ListModel
@@ -787,7 +787,7 @@ index a168ab54..d2cab389 100644
 @@ -106,6 +130,65 @@ protected function getListQuery()
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
-
+ 
 +		// Filter by access level.
 +		if ($access = $this->getState('filter.access'))
 +		{
@@ -849,15 +849,15 @@ index a168ab54..d2cab389 100644
 +
  		return $query;
  	}
-
+ 
 diff --git a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 index 206f748c..aadba595 100644
 --- a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 @@ -11,6 +11,9 @@
-
+ 
  \defined('_JEXEC') or die;
-
+ 
 +use Joomla\CMS\Component\ComponentHelper;
 +use Joomla\CMS\Helper\ContentHelper;
 +use Joomla\CMS\Language\Associations;
@@ -873,13 +873,13 @@ index af7c2fa6..f966bd96 100644
  use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
  use Joomla\CMS\Factory;
 +use Joomla\CMS\MVC\View\GenericDataException;
-
+ 
  /**
   * View class for a list of foos.
 @@ -34,6 +35,27 @@ class HtmlView extends BaseHtmlView
  	 */
  	protected $items;
-
+ 
 +	/**
 +	 * The model state
 +	 *
@@ -907,7 +907,7 @@ index af7c2fa6..f966bd96 100644
 @@ -54,6 +76,24 @@ public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');
-
+ 
 +		$this->filterForm = $this->get('FilterForm');
 +		$this->activeFilters = $this->get('ActiveFilters');
 +		$this->state = $this->get('State');
@@ -942,7 +942,7 @@ index af7c2fa6..f966bd96 100644
 +				$this->filterForm->setFieldAttribute('category_id', 'language', '*,' . $forcedLanguage, 'filter');
  			}
  		}
-
+ 
 @@ -83,9 +130,6 @@ public function display($tpl = null): void
  	 */
  	protected function addToolbar()
@@ -951,7 +951,7 @@ index af7c2fa6..f966bd96 100644
 -		$this->sidebar = \JHtmlSidebar::render();
 -
  		$canDo = ContentHelper::getActions('com_foos');
-
+ 
  		// Get the toolbar object instance
 diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
 index 5014bb2d..bfbedd84 100644
@@ -962,13 +962,13 @@ index 5014bb2d..bfbedd84 100644
  use Joomla\CMS\Language\Associations;
  use Joomla\CMS\Layout\LayoutHelper;
 +use Joomla\CMS\Session\Session;
-
+ 
 +$canChange = true;
  $assoc = Associations::isEnabled();
 +$listOrder = $this->escape($this->state->get('list.ordering'));
 +$listDirn  = $this->escape($this->state->get('list.direction'));
 +$saveOrder = $listOrder == 'a.ordering';
-
+ 
 +if ($saveOrder && !empty($this->items))
 +{
 +	$saveOrderingUrl = 'index.php?option=com_foos&task=foos.saveOrderAjax&tmpl=component&' . Session::getFormToken() . '=1';
@@ -1059,16 +1059,16 @@ index 5014bb2d..bfbedd84 100644
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
  								</td>
 @@ -84,11 +117,11 @@
-
+ 
  									<div class="small">
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
 - 									</div>
 +									</div>
  								</th>
  								<td class="text-center">
- 									<?php
--									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', true, 'cb', $item->publish_up, $item->publish_down);
-+									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', $canChange, 'cb', $item->publish_up, $item->publish_down);
+ 									<?php 
+-									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', true, 'cb', $item->publish_up, $item->publish_down); 
++									echo HTMLHelper::_('jgrid.published', $item->published, $i, 'foos.', $canChange, 'cb', $item->publish_up, $item->publish_down); 
  									?>
  								</td>
  								<td class="small d-none d-md-table-cell">

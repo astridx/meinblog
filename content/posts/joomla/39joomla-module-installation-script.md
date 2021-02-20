@@ -25,30 +25,18 @@ In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu be
 
 #### Module
 
-##### []()
+##### [src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
 
-> Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten ...
+Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso angewendet wird, wie bei einer Komponente.
 
-```php
+> Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten.
 
-```
-
-## Teste dein Joomla-Module
-
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
-
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
-
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
-
-## Neue Dateien
-
-#### [src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+Es geht darum, die Vorgehensweise zu verdeutliche. deshalb übernimmt diese Skriptdatei nur das Setzen von Mindestvoraussetzungen und die Ausgabe von Texten. Deiner Phantasie sind keine Grenzen gesetzt, um diese Datei zu erweitern.
 
 [src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php)
 
-```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php
+```php
+//https://raw.githubusercontent.com/astridx/boilerplate/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php
 
 <?php
 /**
@@ -172,24 +160,53 @@ class mod_fooInstallerScript
 }
 
 ```
+### Geänderte Dateien
 
-## Geänderte Dateien
+#### Module
 
-#### [ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+##### [ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+
+Die Sprachstrings für die Anzeige der Sprachstrings in der aktiven Sprache, fügen wir in die `en-GB.mod_foo.sys.ini` ein. Jawohl, dieses Mal die Sprachdatei mit der Endung `*.sys.ini`, weil die Texte bei der Installation verwendet werden.
 
 [ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
-```php {diff}
-
+```ini {diff}
+MOD_FOO="[PROJECT_NAME]"
+MOD_FOO_XML_DESCRIPTION="Foo Module"
++ MOD_FOO_INSTALLERSCRIPT_PREFLIGHT="<p>Anything here happens before the + installation/update/uninstallation of the module</p>"
++ MOD_FOO_INSTALLERSCRIPT_UPDATE="<p>The module has been updated</p>"
++ MOD_FOO_INSTALLERSCRIPT_UNINSTALL="<p>The module has been uninstalled</p>"
++ MOD_FOO_INSTALLERSCRIPT_INSTALL="<p>The module has been installed</p>"
++ MOD_FOO_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installation/update/uninstallation of the module</p>"
 ```
 
-#### [ src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
-[ src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
+Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses aufzurufen hat. 
 
-```php {diff}
+[src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
+```xml {diff}
+<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>__BUMP_VERSION__</version>
+	<description>MOD_FOO_XML_DESCRIPTION</description>
++ 	<scriptfile>script.php</scriptfile>
+	<namespace>FooNamespace\Module\Foo</namespace>
+	<files>
+<filename module="mod_foo">mod_foo.php</filename
 ```
+
+## Teste dein Joomla-Module
+
+1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+
+Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
+
+Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! führt bei der Installation die Skriptdatei für dich aus. Überzeuge dich davon, indem du die Ausgabe der Sprachstrings überprüfst. 
+
+![Joomla Modul testen - Das Installationsskript](/images/j4x39x1.png)
+
+![Joomla Modul testen - Das Installationsskript](/images/j4x39x2.png)
 
 ### Übersicht
 

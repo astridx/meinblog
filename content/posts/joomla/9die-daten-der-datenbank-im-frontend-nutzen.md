@@ -937,7 +937,7 @@ index 654cb0d9..7efa1d2e 100644
  	 */
 -	protected $message;
 +	protected $_item = null;
-
+ 
  	/**
 -	 * Get the message
 +	 * Gets a foo
@@ -988,7 +988,7 @@ index 654cb0d9..7efa1d2e 100644
 +				$this->_item[$pk] = false;
 +			}
 +		}
-
+ 
 -		return $this->message;
 +		return $this->_item[$pk];
  	}
@@ -1018,7 +1018,7 @@ index fe10f2aa..c345c5e6 100644
  	{
 -		$this->msg = $this->get('Msg');
 +		$this->item = $this->get('Item');
-
+ 
  		return parent::display($tpl);
  	}
 diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
@@ -1028,9 +1028,9 @@ index e98d8dc3..d1feb12c 100644
 @@ -9,4 +9,5 @@
  \defined('_JEXEC') or die;
  ?>
-
+ 
 -Hello Foos: <?php echo $this->msg;
-+<?php
++<?php 
 +echo $this->item->name;
 diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
 index 03e19bbe..d4437d9b 100644
@@ -1048,7 +1048,7 @@ index 03e19bbe..d4437d9b 100644
 -				name="show_text"
 -				type="text"
 -				label="COM_FOOS_FIELD_TEXT_SHOW_LABEL"
--				default="Hi"
+-				default="Hi" 
 +				name="id"
 +				type="modal_foo"
 +				label="COM_FOOS_SELECT_FOO_LABEL"
