@@ -29,7 +29,7 @@ Ich speichere meine Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-devel
 
 ##### Ein Beispielprojekt
 
-Wer mein Beispiel nachvollziehen möchte, sollte das Beispielprojekt `https://github.com/astridx/boilerplate.git` in des Projektverzeichnis klonen.
+Wer mein Beispiel nachvollziehen möchte, sollte das Beispielprojekt `https://github.com/astridx/boilerplate.git` in sein Projektverzeichnis klonen.
 
 ```
 $ git clone https://github.com/astridx/boilerplate.git
@@ -38,13 +38,13 @@ Klone nach 'boilerplate' ...
 Löse Unterschiede auf: 100% (6886/6886), fertig.
 ```
 
-Anschließend ins Beispielprojekt wechseln.
+Anschließend ins Verzeichnis des Beispielprojekts wechseln.
 
 ```
 $ cd boilerplate/
 ```
 
-##### Projekt mit _jorobo_
+##### Optional: Ein Projekt mit _jorobo_
 
 Meine Projekte verwendet [jorobo](https://github.com/joomla-projects/jorobo). So kann ich Funktionen nutzen, die auf eine Joomla Erweiterung zugeschnitten sind.
 
@@ -52,20 +52,25 @@ Meine Projekte verwendet [jorobo](https://github.com/joomla-projects/jorobo). So
 
 ###### _jorobo_ Funktionen
 
-- `vendor/bin/robo build` - Baut aus der Erweiterung ein installierbares Joomla Paket oder eine Zip-Datei inklusive Ersetzungen
+- `vendor/bin/robo build` - Baut aus der Erweiterung ein installierbares Joomla Paket oder eine Zip-Datei inklusive Ersetzungen wie das aktuelle Datum oder die Versionsnummer. 
 - `vendor/bin/robo map` - Verlinkt (Symlink) die Erweiterung in eine laufende Joomla Installation
-- `vendor/bin/robo headers` - Aktualisiert die Copyright-Header im Quellverzeichnis dem in der `jorobo.ini` konfigurierten.
+- `vendor/bin/robo headers` - Aktualisiert die Copyright-Header aller Dateien des Quellverzeichnises. Dabei wird ein Header eingesetzt, welcher in der `jorobo.ini` konfigurierbar ist.
 - `vendor/bin/robo bump` - Tauscht die Zeichenkette `__DEPLOY_VERSION__` in jeder Datei im Quellverzeichnis mit der in der `jorobo.ini` eingestellten Versionsnummer aus.
 
-Um all diese Funktionen nutzen zu können, ist es erforderlich mit Composer alle Abhängigkeiten zu installieren.
+Um all diese Funktionen nutzen zu können, ist es erforderlich mit Composer PHP-Abhängigkeiten zu installieren.
 
-###### Mit Composer alle Abhängikeiten installieren
+###### Mit Composer PHP-Abhängikeiten installieren
 
-Composer steht in den Containern ab Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/srv/git/boilerplate` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
+Composer steht in den Containern ab PHP-Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/home/astrid/git/joomla-development/boilerplate ` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
 
 ```
-$ docker exec -it --user 1000 -w /srv/git/boilerplate docker-lamp_php73 composer install
+$ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate docker-lamp_php80 composer install
+
 ```
+
+> Um in einem Container Composer aufzurufen, muss Git installiert sein: `docker exec -it docker-lamp_php80 apk add git`.  
+> `OCI runtime exec failed: exec failed: container_linux.go:370: starting container process caused: chdir to cwd ("/srv/git/boilerplate") set in config.json failed: no such file or directory: unknown` weißt darauf hin, dass man sich im Pfad vertippt hat.
+
 
 ###### Projekte symlinken
 
@@ -74,26 +79,18 @@ Nachdem alle Abhängigkeiten über Composer installiert wurden, ist es möglich 
 Dazu wechsele ich nun wieder in mein Projektverzeichnis.
 
 ```
-$ docker exec -it --user 1000 -w /srv/git/boilerplate docker-lamp_php73 ./vendor/bin/robo map /srv/www/joomla/j4dev
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/plugins/webservices/foos...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/plugins/webservices/foos","/srv/www/joomla/j4dev/plugins/webservices/foos"]
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/modules/mod_foo...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/modules/mod_foo","/srv/www/joomla/j4dev/modules/mod_foo"]
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/media/com_foos...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/media/com_foos","/srv/www/joomla/j4dev/media/com_foos"]
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/de-DE/pkg_foos.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.ini"]
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/de-DE/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.sys.ini"]
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/en-GB/pkg_foos.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.ini"]
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/language/en-GB/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.sys.ini"]
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/administrator/components/com_foos...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/administrator/components/com_foos","/srv/www/joomla/j4dev/administrator/components/com_foos"]
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/templates/facile...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/templates/facile","/srv/www/joomla/j4dev/templates/facile"]
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/components/com_foos...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/components/com_foos","/srv/www/joomla/j4dev/components/com_foos"]
- [Filesystem\DeleteDir] Deleted /srv/www/joomla/j4dev/api/components/com_foos...
- [Filesystem\FilesystemStack] symlink ["/srv/git/boilerplate/src/api/components/com_foos","/srv/www/joomla/j4dev/api/components/com_foos"]
-
+$ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate docker-lamp_php73 ./vendor/bin/robo map /srv/www/joomla/j4dev
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/plugins/webservices/foos","/srv/www/joomla/j4dev/plugins/webservices/foos"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/modules/mod_foo","/srv/www/joomla/j4dev/modules/mod_foo"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/media/com_foos","/srv/www/joomla/j4dev/media/com_foos"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/de-DE/pkg_foos.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.ini"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/de-DE/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.sys.ini"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/en-GB/pkg_foos.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.ini"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/en-GB/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.sys.ini"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/administrator/components/com_foos","/srv/www/joomla/j4dev/administrator/components/com_foos"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/templates/facile","/srv/www/joomla/j4dev/templates/facile"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/components/com_foos","/srv/www/joomla/j4dev/components/com_foos"]
+ [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/api/components/com_foos","/srv/www/joomla/j4dev/api/components/com_foos"]
 
 ```
 

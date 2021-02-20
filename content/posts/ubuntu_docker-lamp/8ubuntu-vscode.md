@@ -27,11 +27,13 @@ Installiert habe ich [Visual Studio Code](https://code.visualstudio.com/).
 
 1. Ich habe die Installationsdatei von der [Homepage](https://code.visualstudio.com/docs/setup/linux) kopiert.
 
-2.
+2. Dann habe ich diese via `sudo apt install ./<file>.deb` installiert.
 
-```bash
+```
 sudo apt install ./<file>.deb
 ```
+
+> Wer eine grafische Benutzeroberfläche bevorzugt, öffnet Ubuntu Software, sucht nach "Visual Studio Code" und installiert die Anwendung per klick auf die angebotenecd Schalftläche.
 
 ### Extensions
 
@@ -117,6 +119,10 @@ Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `1000
 [emallin.phpunit](https://marketplace.visualstudio.com/items?itemName=emallin.phpunit). Führen Sie PHPUnit-Tests von VSCode aus.
 
 #### php cs-fixer
+
+##### 
+
+##### Visual Studio Code Erweiterung
 
 [junstyle.php-cs-fixer](https://marketplace.visualstudio.com/items?itemName=junstyle.php-cs-fixer): Für den Fall, dass Sie sich für den [PSR-2: Coding Style Guide](https://www.php-fig.org/psr/psr-2/)) entscheiden. PHP CS Fixer Erweiterung für VS Code, php formatter, php code beautify tool, format html.
 

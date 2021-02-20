@@ -11,7 +11,7 @@ tags:
   - Joomla
 ---
 
-Wir erstellen ein Modul. Das ist ein Add-On zur Site, das die Funktionalität erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.
+Wir erstellen ein Modul. Das ist ein Add-On zur Site, das die Funktionalität erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.
 
 In Joomla gibt es eine Vielzahl von Modulen, an denen ich mich orientiere. Beispielsweise:
 
@@ -19,7 +19,7 @@ In Joomla gibt es eine Vielzahl von Modulen, an denen ich mich orientiere. Beisp
 - Login Formular (mod_login)
 - und viele mehr.
 
-Dieser Abschnitt erklärt, wie du ein simples Modul erstellst. Darauf bauen wir dann nach und nach auf.
+Dieser Abschnitt erklärt, wie du das Grundgerüst für ein simples Modul erstellst. Dieses gibt im ersten Schritt lediglich einen Text aus. Darauf bauen wir im weiteren Verlauf auf.
 
 ## Für Ungeduldige
 
@@ -27,13 +27,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dateien, die im Standardmuster der Modulentwicklung verwendet werden. Diese erstellen wir in diesem Abschnitt
+In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dateien, die im Standardmuster der Modulentwicklung verwendet werden. Diese erstellen wir in diesem Teil.
 
 ### Neue Dateien
 
 #### Module
 
-##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 Dies ist die Datei, die den Text in britischem Englisch für die allgemeine Übersetzung bereitstellt.
 
@@ -42,7 +42,7 @@ MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
-##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 Dies ist die Datei, die den Text in britischem Englisch für Menü und Installationsroutine bereitstellt.
 
@@ -51,7 +51,7 @@ MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
-##### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
+##### [src/modules/mod\_foo/mod\_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
 
 Diese Datei ist der Haupteinstiegspunkt für das Modul. Sie führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und enthält das Template, in der die Modulausgabe angezeigt wird.
 
@@ -65,7 +65,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 > In Joomla 3x haben wir eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get (‚moduleclass_sfx‘));` verwendet. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
 
-##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
+##### [src/modules/mod\_foo/mod\_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
 
 `mod_foo.xml` definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von der vorher erstellten Erweiterungen.
 
@@ -91,7 +91,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 </extension>
 ```
 
-##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
+##### [src/modules/mod\_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
 
 Dies ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird.
 
