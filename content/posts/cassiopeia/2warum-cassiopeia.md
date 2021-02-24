@@ -12,14 +12,13 @@ tags:
   - Cassiopeia
 ---
 
-
 ## Soll ich Cassiopeia oder ein 3rd Party Joomla Template verwenden?
 
 Das Cassiopeia Template ist die Frontend-Vorlage, die in einer Joomla 4-Installation enthalten ist. Cassiopeia ist ein unkompliziertes Template, dabei es ist responsive für die korrekte Darstellung auf einer Vielzahl von Geräten und barrierefrei.
 
 Wir haben die Wahl, diese mitgelieferten Template für das Frontend zu verwenden oder ein Template eines Drittanbieters zu installieren. Dies ist eine Entscheidung, die wir bereits bei der Entwicklung einer Website treffen sollten. Verschiedene Joomla Templates stellen Inhalt auf sehr unterschiedliche Weise dar.
 
-Cassiopeia ist ein guter Ausgangspunkt, wenn wir nur ein paar Änderungen am Aussehen und an der Funktionalität der Website vornehmen möchten. 
+Cassiopeia ist ein guter Ausgangspunkt, wenn wir nur ein paar Änderungen am Aussehen und an der Funktionalität der Website vornehmen möchten.
 
 ### Cassiopeia als Basis für ein eigenes Joomla Template
 
@@ -68,9 +67,9 @@ Drittanbietertemplates können einfach oder ziemlich kompliziert sein. Sie könn
 
 Informiere dich, bevor Sie Templates von Drittanbietern installieren.
 
-- Wähle ausschließlich Templates aus zuverlässigen Quellen. 
+- Wähle ausschließlich Templates aus zuverlässigen Quellen.
 - Vergewissere dich, dass das Template mit der neuesten Version von Joomla funktioniert.
-- Schaue dir die  Bewertungen für das Template an.
+- Schaue dir die Bewertungen für das Template an.
 - Mache eine Suche im [Joomla-Forum](https://forum.joomla.de/), um zu sehen, ob es viele Beiträge mit Problemen im Zusammenhang mit dem Tamplate gibt.
 - Gibt es Support für das Template?
 - Gibt es ein Forum, um zu recherchieren oder Fragen zu stellen?

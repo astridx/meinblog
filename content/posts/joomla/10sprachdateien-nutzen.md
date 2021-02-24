@@ -424,8 +424,8 @@ index d1feb12c..e5205d7e 100644
   */
  \defined('_JEXEC') or die;
 -?>
- 
--<?php 
+
+-<?php
 -echo $this->item->name;
 +use Joomla\CMS\Language\Text;
 +

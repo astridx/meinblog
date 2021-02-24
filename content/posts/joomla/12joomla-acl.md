@@ -416,7 +416,7 @@ index 4767b474..0038575c 100644
 --- a/src/administrator/components/com_foos/src/Model/FoosModel.php
 +++ b/src/administrator/components/com_foos/src/Model/FoosModel.php
 @@ -48,9 +48,17 @@ protected function getListQuery()
- 
+
  		// Select the required fields from the table.
  		$query->select(
 -			$db->quoteName(array('id', 'name', 'alias'))
@@ -432,7 +432,7 @@ index 4767b474..0038575c 100644
 +				'LEFT',
 +				$db->quoteName('#__viewlevels', 'ag') . ' ON ' . $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access')
 +			);
- 
+
  		return $query;
  	}
 diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
@@ -440,9 +440,9 @@ index 29a8871f..4748083d 100644
 --- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 @@ -11,6 +11,7 @@
- 
+
  \defined('_JEXEC') or die;
- 
+
 +use Joomla\CMS\Helper\ContentHelper;
  use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -455,15 +455,15 @@ index 29a8871f..4748083d 100644
 +
  		// Get the toolbar object instance
  		$toolbar = Toolbar::getInstance('toolbar');
- 
+
  		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
- 
+
 -		$toolbar->addNew('foo.add');
 +		if ($canDo->get('core.create'))
 +		{
 +			$toolbar->addNew('foo.add');
 +		}
- 
+
 -		$toolbar->preferences('com_foos');
 +		if ($canDo->get('core.options'))
 +		{
@@ -500,7 +500,7 @@ index f2c891bd..e597fc4c 100644
  								</th>
 @@ -47,6 +50,9 @@
  										<?php echo $editIcon; ?><?php echo $this->escape($item->name); ?></a>
- 
+
  								</th>
 +								<td class="small d-none d-md-table-cell">
 +									<?php echo $item->access_level; ?>

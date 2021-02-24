@@ -193,7 +193,7 @@ index f451d9e2..1b8a4c73 100644
 @@ -91,6 +91,18 @@
  			size="1"
  		/>
- 
+
 +		<field
 +			name="checked_out"
 +			type="hidden"
@@ -215,7 +215,7 @@ index ab768e01..862fa7c9 100644
 +++ b/src/administrator/components/com_foos/sql/install.mysql.utf8.sql
 @@ -35,3 +35,10 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
- 
+
  ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN `checked_out` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
@@ -267,7 +267,7 @@ index d2cab389..1e8d6c88 100644
 @@ -124,6 +134,13 @@ protected function getListQuery()
  			$query->select('(' . $subQuery . ') AS ' . $db->quoteName('association'));
  		}
- 
+
 +		// Join over the users for the checked out user.
 +		$query->select($db->quoteName('uc.name', 'editor'))
 +			->join(

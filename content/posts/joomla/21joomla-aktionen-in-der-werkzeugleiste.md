@@ -218,14 +218,14 @@ index aadba595..6593ecd1 100644
 @@ -79,11 +79,70 @@ protected function addToolbar()
  	{
  		Factory::getApplication()->input->set('hidemainmenu', true);
- 
+
 +		$user = Factory::getUser();
 +		$userId = $user->id;
 +
  		$isNew = ($this->item->id == 0);
- 
+
  		ToolbarHelper::title($isNew ? Text::_('COM_FOOS_MANAGER_FOO_NEW') : Text::_('COM_FOOS_MANAGER_FOO_EDIT'), 'address foo');
- 
+
 -		ToolbarHelper::apply('foo.apply');
 -		ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
 +		// Since we don't track these assets at the item level, use the category id.
@@ -302,18 +302,18 @@ index f966bd96..b8e1ab33 100644
 +
 +		$canDo = ContentHelper::getActions('com_foos', 'category', $this->state->get('filter.category_id'));
 +		$user  = Factory::getUser();
- 
+
  		// Get the toolbar object instance
  		$toolbar = Toolbar::getInstance('toolbar');
- 
+
  		ToolbarHelper::title(Text::_('COM_FOOS_MANAGER_FOOS'), 'address foo');
- 
+
 -		if ($canDo->get('core.create'))
 +		if ($canDo->get('core.create') || count($user->getAuthorisedCategories('com_foos', 'core.create')) > 0)
  		{
  			$toolbar->addNew('foo.add');
  		}
- 
+
 -		if ($canDo->get('core.options'))
 +		if ($canDo->get('core.edit.state'))
 +		{

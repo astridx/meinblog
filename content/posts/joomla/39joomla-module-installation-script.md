@@ -160,6 +160,7 @@ class mod_fooInstallerScript
 }
 
 ```
+
 ### Geänderte Dateien
 
 #### Module
@@ -182,7 +183,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
-Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses aufzurufen hat. 
+Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses aufzurufen hat.
 
 [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
@@ -202,7 +203,7 @@ Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Ins
 
 Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
 
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! führt bei der Installation die Skriptdatei für dich aus. Überzeuge dich davon, indem du die Ausgabe der Sprachstrings überprüfst. 
+Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! führt bei der Installation die Skriptdatei für dich aus. Überzeuge dich davon, indem du die Ausgabe der Sprachstrings überprüfst.
 
 ![Joomla Modul testen - Das Installationsskript](/images/j4x39x1.png)
 

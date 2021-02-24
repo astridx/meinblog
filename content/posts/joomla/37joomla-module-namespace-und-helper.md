@@ -23,7 +23,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### Module
 
-Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code übersichtlich zu strukturieren. Dies geschieht mittels Helper-Dateien. Diese legen wir im Verzeichnis `Helper` an. 
+Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code übersichtlich zu strukturieren. Dies geschieht mittels Helper-Dateien. Diese legen wir im Verzeichnis `Helper` an.
 
 > Ich habe die Datei allgemein `FooHelper` benannt. Gute Stil ist es, ihr einen sprechenden Namen zu geben. Jede Hilfsdatei hat eine spezielle Aufgabe und nach ihr sollte sie benannt werden. Die Datei, die die neuesten Artikel lädt, heißt beispielsweise `ArticlesLatestHelper`. So erkennt man auf den ersten Blick, was in der Datei steckt.
 
@@ -78,18 +78,18 @@ Um die Inhalte von `FooHelper` im Einstiegspunkt `mod_foo.php` zu nutzen, import
 
 ```php {diff}
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\Helper\ModuleHelper;
 +use FooNamespace\Module\Foo\Site\Helper\FooHelper;
 +
 +$test  = FooHelper::getText();
- 
+
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
 ##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
 
-Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation in Joomla registriert. Außerdem ergänzen wir das neue Verzeichnis, damti dieses bei einer Installation an die richtige Stelle kopiert wird. 
+Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation in Joomla registriert. Außerdem ergänzen wir das neue Verzeichnis, damti dieses bei einer Installation an die richtige Stelle kopiert wird.
 
 ```xml {diff}
  	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
@@ -100,7 +100,7 @@ Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation i
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
-+		<folder>Helper</folder>		
++		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
  	</files>
@@ -113,7 +113,7 @@ Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen 
 
 ```php {diff}
 \defined('_JEXEC') or die;
- 
+
 -echo '[PROJECT_NAME]';
 +echo '[PROJECT_NAME]' . $test;
 ```
@@ -182,12 +182,12 @@ index 918a2313..153977ef 100644
 +++ b/src/modules/mod_foo/mod_foo.php
 @@ -11,5 +11,8 @@
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\Helper\ModuleHelper;
 +use FooNamespace\Module\Foo\Site\Helper\FooHelper;
 +
 +$test  = FooHelper::getText();
- 
+
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 diff --git a/src/modules/mod_foo/mod_foo.xml b/src/modules/mod_foo/mod_foo.xml
 index 482aa45e..afd93ad1 100644
@@ -202,7 +202,7 @@ index 482aa45e..afd93ad1 100644
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
-+		<folder>Helper</folder>		
++		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
  	</files>
@@ -211,9 +211,9 @@ index c2256e7e..70d865c4 100644
 --- a/src/modules/mod_foo/tmpl/default.php
 +++ b/src/modules/mod_foo/tmpl/default.php
 @@ -9,4 +9,4 @@
- 
+
  \defined('_JEXEC') or die;
- 
+
 -echo '[PROJECT_NAME]';
 +echo '[PROJECT_NAME]' . $test;
 

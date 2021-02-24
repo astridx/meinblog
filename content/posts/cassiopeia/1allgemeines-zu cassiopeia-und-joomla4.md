@@ -12,7 +12,6 @@ tags:
   - Cassiopeia
 ---
 
-
 Joomla ist ein kostenloses Content Management System, kurz CMS, zur Erstellung von Websites. Joomla 3 bezieht sich auf eine beliebige Version der Joomla-Software, Version .x.x.
 
 Eine Joomla-Website setzt voraus, dass wir einen Hosting-Server für die Installation haben. Der Hosting-Server muss die [Mindestanforderungen](https://downloads.joomla.org/de/technical-requirements-de) für eine Joomla-Installation erfüllen, was unterstützte MySQL-Datenbanken, PHP-Version und unterstützte Webserver angeht. Der Hosting-Account muss Zugriff auf eine Datenbank haben, um die Informationen über die Website zu speichern, sowie Zugriff auf das Dateisystem, um die Joomla-Installationsdateien hochzuladen und zu entpacken.
@@ -33,7 +32,7 @@ Ein CMS ist eine Benutzeroberfläche zur Erstellung von Websites. Ein CMS stellt
 
 Das CMS erleichtert den Zugriff auf die Datenbank mit einer benutzerfreundlichen Oberfläche. Wir können Inhalte erstellen und das Erscheinungsbild der Website manipulieren, ohne PHP oder MySQL zu kennen. Wenn wir das Aussehen der Website im Frontend verändern wollen, was das Layout, die Farben und die Schriftarten angeht, sollten wir wissen, wie man HTML, XML und CSS benutzt. Es ist auch sehr praktisch, mit Diagnosetools wie den Entwicklerwerzeugen eines Brwosers vertraut zu sein.
 
-Joomla  ist ein CMS, das HTML, XML, PHP und MySQL zur Erstellung von Webseiten verwendet. 
+Joomla ist ein CMS, das HTML, XML, PHP und MySQL zur Erstellung von Webseiten verwendet.
 
 ## Was ist ein Joomla Template?
 
@@ -59,7 +58,7 @@ Wir finden Joomla Templates von Drittanbietern an [verschiedenen Stellen](https:
 
 Wer mit seiner Joomla-Website komplett sein eigenes Ding umsetzten möchte, baut idiealerweise auf Cassiopeia auf. Kenntnisse in HTML und CSS sind hilfreich, um das Cassiopeia-Template zu modifizieren. Ein Verständnis von PHP und JavaScript ist ebenfalls ein Vorteil.
 
-Das Cassiopeia Template hat Einstellungen und Optionen, auf die wir über den Template Manager im Template Manager von Joomla zugreifen können. Diese Einstellungen ermöglichen das Ändern von 
+Das Cassiopeia Template hat Einstellungen und Optionen, auf die wir über den Template Manager im Template Manager von Joomla zugreifen können. Diese Einstellungen ermöglichen das Ändern von
 
 - Logo
 - Titel
@@ -78,7 +77,7 @@ Abgesehen von diesen Einstellungen ist für alle Änderungen das Bearbeiten der 
 
 Cassiopeia verwendet Bootstrap 5 für das Gerüst der Site. Dieses bestimmen die Breite der Spalten und ermöglichen eine responsive Website.
 
-Cassiopeia hat ein einziges CSS-Stylesheet, `template.min.css`. Dies ist die [minifizierte Version](https://wiki.selfhtml.org/index.php?title=Minify&oldid=73854) der Datei `template.css`. 
+Cassiopeia hat ein einziges CSS-Stylesheet, `template.min.css`. Dies ist die [minifizierte Version](https://wiki.selfhtml.org/index.php?title=Minify&oldid=73854) der Datei `template.css`.
 
 > Das Minifizieren von CSS- und JavaScript-Dateien ist eine von vielen Stellschrauben, um die Ladegeschwindigkeit deiner Webseite zu optimieren und Inhalte zu verschleiern.
 
@@ -87,7 +86,8 @@ Das gesamte Standard-Styling ist in dieser Datei enthalten, einschließlich der 
 ## SCSS Sass
 
 ## Was ist Bootstrap?
---------------------
+
+---
 
 Bootstrap 5 ist ein Frontend-Webentwicklungswerkzeug, das aus CSS gemischt mit etwas JavaScript besteht und dabei hilft, Websites in Bezug auf verschiedene Bildschirmgrößen reaktionsfähiger zu machen. Außerdem kommen `@media`-Queries und Utility-Klassen zum Einsatz. Es wurde von zwei Webentwicklern bei Twitter entwickelt, um das Webdesign zu erleichtern, so dass weniger Styling für responsives Webdesign erforderlich ist.
 
@@ -97,7 +97,7 @@ Cassiopeia ist so konzipiert, dass es Bootstrap 5 verwendet. Es braucht ein biss
 
 ## Wie setzt Cassiopeia Bootstrap 5 ein?
 
-Cassiopeia verwendet das Bootstrap 5-Grid-System und ermöglicht es Ihnen, auszuwählen, ob Sie ein statisches oder flüssiges Layout wünschen. Beide sind responsive, d.h. sie ändern die Größe und Position des Rastersystems abhängig von der Bildschirmgröße des Geräts.  
+Cassiopeia verwendet das Bootstrap 5-Grid-System und ermöglicht es Ihnen, auszuwählen, ob Sie ein statisches oder flüssiges Layout wünschen. Beide sind responsive, d.h. sie ändern die Größe und Position des Rastersystems abhängig von der Bildschirmgröße des Geräts.
 
 ### Responsive: Statisches Layout
 
@@ -109,7 +109,6 @@ Das Fluid-System verwendet Prozentwerte statt Pixel für die Spaltenbreiten. Die
 
 ### CSS Grid
 
-
 ## Beachtenswertes
 
 Mit den Standard-Media-Queries von Bootstrap wird die Responsivität einer Bootstrap-Site durch Verkleinern der Breite des Browser-Fensters sowie auf Tablets und Telefonen erkannt. Das liegt daran, dass die Media Queries `min-width` und `max-width` anstelle von `min-device-width` und `max-device-width` verwenden. `device-width` bezieht sich auf die Auflösung des Displays, beispielsweise 1024 bei einer Displaygröße von 1024x768, während `width` sich auf die Breite des Browsers selbst bezieht, die sich von der Auflösung unterscheidet, wenn der Browser nicht maximiert ist.
@@ -117,4 +116,3 @@ Mit den Standard-Media-Queries von Bootstrap wird die Responsivität einer Boots
 Das Bootstrap-Styling ist dazu gedacht, die Menge an CSS zu reduzieren, die für eine korrekt responsive Website erforderlich ist. Das gesamte Styling für Cassiopeia ist in einer Datei namens `template.css` enthalten. Wir können unsere eigenen überschreibenden Stile für jeden der Standardstile für Cassiopeia erstellen, aber wir sollten darauf achten, dass wir das responsive Layout im Ganzen betrachten.
 
 ## Overridemanager
-

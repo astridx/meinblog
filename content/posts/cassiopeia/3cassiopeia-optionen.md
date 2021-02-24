@@ -16,7 +16,7 @@ Cassiopeia bietet Optionen, die über Styles im Template Manager angepasst werde
 
 Hier sehe ich mir zunächst die Optionen an, für die keine Änderungen im Programmcode notwendig sind und gehen dann auf kleiner Anpassungen in Form von Überschreibungen ein.
 
-Die Bilder sind mithilfe der Beispieldateien erstellt worden. Um gleiche Voraussetzungen zu haben, wäre es gut, wenn du diese ebenfalls in einer Testumgebung installierst. Klick dazu im Dashboard die mit `Installieren` beschriebene Schaltfläche neben Blog-Beispieldateien. 
+Die Bilder sind mithilfe der Beispieldateien erstellt worden. Um gleiche Voraussetzungen zu haben, wäre es gut, wenn du diese ebenfalls in einer Testumgebung installierst. Klick dazu im Dashboard die mit `Installieren` beschriebene Schaltfläche neben Blog-Beispieldateien.
 
 ![Blog-Beispieldateien installieren](/images/c11.png)
 
@@ -24,14 +24,13 @@ Das Front-End sollte nun so wie in der nachfolgenden Abbildung aussehen.
 
 ![Cassiopeia im Frontend](/images/c12.png)
 
-
-### Optionen im einzelnen 
+### Optionen im einzelnen
 
 Um zu diesen Optionen im Joomla Backend zu gelangen, öffne `System | Site Templates Style`.
 
 ![Templates_Edit_Style_admin_Administration](/images/c2.png)
 
-Klicke dann Cassiopeia in der Spalte Style. 
+Klicke dann Cassiopeia in der Spalte Style.
 
 ![Templates_Edit_Style_admin_Administration](/images/c3.png)
 
@@ -55,7 +54,7 @@ Diese Registerkarte zeigt verschiedene Parameter, über die das Template beeinfl
 
 Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen oder wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, oben links auf der Webseite, platziert.
 
-Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild ODER den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite. 
+Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild ODER den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
 
 ###### Titel
 
@@ -103,14 +102,14 @@ Der Titel wird nicht angezeigt, weil eine Bilddatei als Logo ausgewählt ist. Da
 
 ![Templates_Edit_Style_admin_Administration](/images/c10.png)
 
-
 ##### Fonts Scheme / Schrift Schema
 
 ![Templates_Edit_Style_admin_Administration](/images/ce2.png)
 
-Die Frage, welche Schriften eine Site einsetzt, hat zwei Facetten: 
+Die Frage, welche Schriften eine Site einsetzt, hat zwei Facetten:
+
 - Welche Schriftart ist gut lesbar und sieht gut aus?
-- Welche Schriftarten sind technisch möglich. Technisch möglich sind lediglich die Schriftarten, die auf einem Computer installiert sind oder die online zur Verfügung stehen - die Webfonts. Auf meinem Rechner ist die Schriftart Verdana installiert. Die kann ich einer CSS-Datei als Schriftart angeben. Diese wird auf meinem Rechner verwendet - und bei allen Besuchern, die diese Schrift installiert haben. Bei allen anderen erscheint eine andere Schrift. Das ist die Standardschrift des Browsers, falls ich keine alternative Schriftart angegeben habe. 
+- Welche Schriftarten sind technisch möglich. Technisch möglich sind lediglich die Schriftarten, die auf einem Computer installiert sind oder die online zur Verfügung stehen - die Webfonts. Auf meinem Rechner ist die Schriftart Verdana installiert. Die kann ich einer CSS-Datei als Schriftart angeben. Diese wird auf meinem Rechner verwendet - und bei allen Besuchern, die diese Schrift installiert haben. Bei allen anderen erscheint eine andere Schrift. Das ist die Standardschrift des Browsers, falls ich keine alternative Schriftart angegeben habe.
 
 Wenn ich möchte, dass die Standardschriftart des Browsers des Websitebesuchers für meine Website verwendet wird, dann wähle ich bei Schrift-Schema `Keine`. Ist mir die Darstellung wichtig, dann habe ich zwei Möglichkeiten. Ich nutze die Schriftart Roboto, die von Cassiopeia mitgeliefert wird und deshalb über meine Website online verfügbar ist, oder ich lade die Schrift von einer anderen Website. Vorteile und Nachteile sehen wir uns in den nachfolgenden Abschnitten im einzelnen an.
 
@@ -120,11 +119,11 @@ Wenn ich möchte, dass die Standardschriftart des Browsers des Websitebesuchers 
 
 ###### Keine
 
-Keine speziellen Anforderungen an die Schriftart zu stellen, ist am unkompliziertesten. 
+Keine speziellen Anforderungen an die Schriftart zu stellen, ist am unkompliziertesten.
 
 Nachteilig ist, dass das Aussehen der Website nicht vorhersehbar ist.
 
-Die nachfolgende Abbildung zeigt, dass als Schrift eine serifenlose ausgewählt wird. 
+Die nachfolgende Abbildung zeigt, dass als Schrift eine serifenlose ausgewählt wird.
 
 ![Templates_Edit_Style_admin_Administration](/images/c15.png)
 
@@ -143,11 +142,11 @@ body {
 ...
 ```
 
-Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das  `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen vorher, sind in meinem Fall nicht verfügbar.
+Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen vorher, sind in meinem Fall nicht verfügbar.
 
 ###### Schriften aus einem lokalen Verzeichnis
 
-Wer eine Schriftart über die eigenen Website zur Verfügung stellt, hat Sicherheit in Bezug auf das Aussehen der Website. Nebenbei macht man sich datenschutzrechtlich von keinem anderen Anbieter abhängig. 
+Wer eine Schriftart über die eigenen Website zur Verfügung stellt, hat Sicherheit in Bezug auf das Aussehen der Website. Nebenbei macht man sich datenschutzrechtlich von keinem anderen Anbieter abhängig.
 
 Im Vergleich zum Laden einer Webfont ist die Ladezeit als Nachteil zu nennen, da Webfonts in der Regel von vielen Websites verwendet werden und deshalb für eine Webiste nicht speziell zu laden sind.
 
@@ -156,7 +155,6 @@ Im nachfolgenden sieht man eine mit der Option `Schriften aus Verzeichnis` gelad
 ![Templates_Edit_Style_admin_Administration](/images/c14.png)
 
 > Genau liegt Roboto im Verzeichnis `/media/vendor/roboto-fontface`. Das ist hier aber nebensächlich. Webmaster sollten dieses Verzeichnis nicht verwenden, da dieses bei einer Aktualisierung der Joomla Kerndateien veränderbar ist.
-
 
 Wer eine eigene Schrift hosten möchte, kann dies tun. Ich möchte beispielsweise für alle meine Überschriften die Schriftart `Aclonica` verwenden.
 
@@ -213,16 +211,15 @@ h6,
 
 ###### Schriften aus dem Web
 
-Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften nicht ganz uneigennützig. Er sammelt dabei die Daten der Nutzer, die die Schrift aufrufen. 
+Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften nicht ganz uneigennützig. Er sammelt dabei die Daten der Nutzer, die die Schrift aufrufen.
 
 Schriften werden auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
 
-Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird. 
+Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird.
 
 ![Templates_Edit_Style_admin_Administration](/images/c16.png)
 
 ![Templates_Edit_Style_admin_Administration](/images/c17.png)
-
 
 Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. Ich zeige dies wieder an dem Beispiel, bei dem ich für alle meine Überschriften die Schriftart `Aclonica` einsetze.
 
@@ -259,10 +256,10 @@ h6,
 
 5. Nun überprüfe ich im Frontend, ob alles geklappt hat. Ja, alle Überschriften werden in der gewünschten Schriftart angezeigt.
 
-
 ##### Colour Theme / Template Farbe
 
 Die Template Farbe oder das Farbschema ist nichts anderes als eine (S)CSS-Datei, die CSS-Variablen für das Template festlegt. Cassiopeia enthält zwei Farbschemen:
+
 - Standard: ein Schema, für das die Farben optimiert wurden, damit alles barrierefrei ist.
 - Alternative: ein Beispiel für eine benutzerdefinierte Implementierung.
 
@@ -282,17 +279,17 @@ Die nachfolgende Ansicht ist nicht schön. Es geht nur ums Prinzip:
 
 ![Cassiopeia Frontend Farbscheme](/images/c22.png)
 
-- cassiopeia-color-primary` legt die Hauptfarbe des Templates fest. 
-- cassiopeia-color-link` gibt die Farbe an, in der Links dargestellt werden.
--cassiopeia-color-hover` bestimmt die Farbe, mit der Links beim Überrollen mit der Maus reagieren.
+- cassiopeia-color-primary` legt die Hauptfarbe des Templates fest.
+- cassiopeia-color-link`gibt die Farbe an, in der Links dargestellt werden. -cassiopeia-color-hover` bestimmt die Farbe, mit der Links beim Überrollen mit der Maus reagieren.
 
 ##### Layout
+
 
 ![Templates_Edit_Style_admin_Administration](/images/ce4.png)
 
 Cassiopeia passt sich an Bildschirmgrößen an, egal ob wir uns für ein statisches oder ein fluides Layout entscheiden. Es sind nur unterschiedliche Ansätze.
 
-Container sind das grundlegendste Layout-Element in Bootstrap und werden benötigt, wenn unser Standard-Grid-System verwendet wird. Container werden verwendet, um den Inhalt in ihnen zu enthalten, aufzufüllen und unter Umständen zu zentrieren. Während Container verschachtelt werden *können*, benötigen die meisten Layouts keine verschachtelten Container.
+Container sind das grundlegendste Layout-Element in Bootstrap und werden benötigt, wenn unser Standard-Grid-System verwendet wird. Container werden verwendet, um den Inhalt in ihnen zu enthalten, aufzufüllen und unter Umständen zu zentrieren. Während Container verschachtelt werden _können_, benötigen die meisten Layouts keine verschachtelten Container.
 
 Bootstrap wird mit drei verschiedenen Containern ausgeliefert. Dabei sind die ersten beiden für uns relevant.
 
@@ -303,14 +300,14 @@ Bootstrap wird mit drei verschiedenen Containern ausgeliefert. Dabei sind die er
 Die folgende [Tabelle](https://getbootstrap.com/docs/5.0/layout/containers/) zeigt, wie die `max-width` jedes Containers mit der ursprünglichen `.container` und `.container-fluid` an jedem Haltepunkt zusammen arbeitet.
 
 | Extra klein <576px | Small\≥576px | Medium\≥768px | Large\≥992px | X-Large\≥1200px | XX-Large\≥1400px |
-| --- | --- | --- | --- | --- | --- | --- |
-| `.container` | 100% | 540px | 720px | 960px | 1140px | 1320px |
-| `.container-sm` | 100% | 540px | 720px | 960px | 1140px | 1320px |
-| `.container-md` | 100% | 100% | 720px | 960px | 1140px | 1320px |
-| `.container-lg` | 100% | 100% | 100% | 960px | 1140px | 1320px |
-| `.container-xl` | 100% | 100% | 100% | 100% | 1140px | 1320px |
-| `.container-xxl` | 100% | 100% | 100% | 100% | 100% | 1320px |
-| `.container-fluid` | 100% | 100% | 100% | 100% | 100% | 100% |
+| ------------------ | ------------ | ------------- | ------------ | --------------- | ---------------- |
+| `.container`       | 100%         | 540px         | 720px        | 960px           | 1140px           | 1320px |
+| `.container-sm`    | 100%         | 540px         | 720px        | 960px           | 1140px           | 1320px |
+| `.container-md`    | 100%         | 100%          | 720px        | 960px           | 1140px           | 1320px |
+| `.container-lg`    | 100%         | 100%          | 100%         | 960px           | 1140px           | 1320px |
+| `.container-xl`    | 100%         | 100%          | 100%         | 100%            | 1140px           | 1320px |
+| `.container-xxl`   | 100%         | 100%          | 100%         | 100%            | 100%             | 1320px |
+| `.container-fluid` | 100%         | 100%          | 100%         | 100%            | 100%             | 100% |
 
 Sehen wir uns das nun im Einzelnen an.
 
@@ -322,7 +319,7 @@ Ausführlicher gehe ich im [Exkurs: CSS Grid und Bootstrap-5-in-joomla](/css-gri
 
 ###### Statisch - `.container`
 
-Bei statisch bleiben der Inhaltsbereich und die Seitenspalten in der Mitte großer Monitore auf einer festen Breite. Wenn der Bildschirm schmaler wird, werden die Spalten und der Inhaltsbereich immer schmaler. Bei geringen Bildschirmbreiten stapeln sich schließlich die Elemente übereinander. 
+Bei statisch bleiben der Inhaltsbereich und die Seitenspalten in der Mitte großer Monitore auf einer festen Breite. Wenn der Bildschirm schmaler wird, werden die Spalten und der Inhaltsbereich immer schmaler. Bei geringen Bildschirmbreiten stapeln sich schließlich die Elemente übereinander.
 
 ##### Sticky Header
 
@@ -368,4 +365,3 @@ Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich 
 ![Templates_Edit_Style_admin_Administration](/images/c5.png)
 
 Wenn wir für verschiedene Seiten unterschiedliche Templaten verwenden möchten, können wir hier die Seiten auswählen. Natürlich müssen die Seiten bereits in den Menüs vorhanden sein, bevor wir etwas auswählen. Wenn deine Seiten Teil eines Kategorie-Blogs oder einer Kategorie-Liste und kein separater Menüpunkt sind, werden die einzelnen Unterseiten in dieser Liste nicht angezeigt.
-

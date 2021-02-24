@@ -221,7 +221,7 @@ index 4e74d518..c5f6cf10 100644
  use Joomla\CMS\Log\Log;
  use Joomla\CMS\Table\Table;
 +use Joomla\CMS\Installer\InstallerScript;
- 
+
  /**
   * Script file of Foo Component
   *
@@ -235,21 +235,21 @@ index 4e74d518..c5f6cf10 100644
 @@ -95,6 +96,8 @@ public function install($parent): bool
  			return false;
  		}
- 
+
 +		$this->addDashboardMenu('foos', 'foos');
 +
  		return true;
  	}
- 
+
 @@ -128,6 +131,8 @@ public function update($parent): bool
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
- 
+
 +		$this->addDashboardMenu('foo', 'foo');
 +
  		return true;
  	}
- 
+
 
 ```
 

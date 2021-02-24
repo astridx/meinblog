@@ -33,7 +33,7 @@ In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 
 [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
-Die Beschriftung des Parameters soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei. 
+Die Beschriftung des Parameters soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei.
 
 > Beachte `COM_MODULES_FOOPARAMS_FIELDSET_LABEL="Foo Parameter"`
 
@@ -53,7 +53,7 @@ In der Einstiegsdatei des Moduls prüfen wir, auf welchen Wert der Parameter ges
 
 ```php {diff}
 $test  = FooHelper::getText();
- 
+
 +$url = $params->get('domain');
 +
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
@@ -69,7 +69,7 @@ Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
--		<folder>Helper</folder>		
+-		<folder>Helper</folder>
 +		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
@@ -94,7 +94,6 @@ Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich
 
 Neben den Parametern die ein Entwickler in sein Modul einfügt, gib es Standardparameter, die Joomla selbst handhabt. ![Joomla Modul testen](/images/j4x38x1.png)
 
-
 ##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
 
 In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespeichert ist.
@@ -103,7 +102,7 @@ In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespei
 
 ```php {diff}
  \defined('_JEXEC') or die;
- 
+
 -echo '[PROJECT_NAME]' . $test;
 +echo '[PROJECT_NAME]' . $test . '<br />' . $url;
 
@@ -148,9 +147,9 @@ index 153977ef..4763eb19 100644
 --- a/src/modules/mod_foo/mod_foo.php
 +++ b/src/modules/mod_foo/mod_foo.php
 @@ -15,4 +15,6 @@
- 
+
  $test  = FooHelper::getText();
- 
+
 +$url = $params->get('domain');
 +
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
@@ -162,7 +161,7 @@ index afd93ad1..54cc46c3 100644
  	<files>
  		<filename module="mod_foo">mod_foo.php</filename>
  		<folder>tmpl</folder>
--		<folder>Helper</folder>		
+-		<folder>Helper</folder>
 +		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
@@ -185,9 +184,9 @@ index 70d865c4..2fc95b64 100644
 --- a/src/modules/mod_foo/tmpl/default.php
 +++ b/src/modules/mod_foo/tmpl/default.php
 @@ -9,4 +9,4 @@
- 
+
  \defined('_JEXEC') or die;
- 
+
 -echo '[PROJECT_NAME]' . $test;
 +echo '[PROJECT_NAME]' . $test . '<br />' . $url;
 

@@ -12,8 +12,8 @@ tags:
   - Joomla
 ---
 
-Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates. 
-Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird. 
+Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates.
+Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
 
 ## Für Ungeduldige
 
@@ -21,13 +21,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht eher darum, hinter die Funktionen zu blicken und diese zu verstehen, als etwas "Schönes" zu erschaffen. 
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht eher darum, hinter die Funktionen zu blicken und diese zu verstehen, als etwas "Schönes" zu erschaffen.
 
 ### Neue Dateien
 
 #### Template
 
-Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf. 
+Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf.
 
 ##### [src/templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
@@ -177,7 +177,7 @@ Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite w
 
 Den Befehl `jdoc:include` finden wir noch öfter in der `index.php`. Beispielsweise sehen wir `<jdoc:include type="message" />`, damit funktionieren die Systemmeldungen. Wann immer Joomla dem Websitebetrachter etwas mitteilt, wird diese Zeile es auf Ihrem Bildschirm anzeigen. Wenn man beispielsweise eine E-Mail über ein Kontaktformular senden, wir man die Nachricht "Ihre Nachricht wurde erfolgreich gesendet" sehen.
 
-Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element sollte nur einmal im `<body>`-Element erscheinen, um den Hauptinhalt der Seite in Bezug auf die aktuell angezeigte Seite darzustellen. 
+Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element sollte nur einmal im `<body>`-Element erscheinen, um den Hauptinhalt der Seite in Bezug auf die aktuell angezeigte Seite darzustellen.
 
 Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`.
 
@@ -233,10 +233,9 @@ Offline
 
 ```
 
-
 ##### [src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
 
-Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden. 
+Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden.
 
 Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:include` in der `index.php` eingebunden zu werden. Optional können wir Parameter anlegen, um das Template im Backend anpassbar zu machen. Vielleicht wollen Sie Ihr Template in verschiedenen Farben erstrahlen lassen? Nachfolgend habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns eine minimale Version der `templateDetails.xml` an:
 
@@ -316,20 +315,22 @@ Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:
 </extension>
 
 ```
-Was sehen Sie hier? Die erste Zeile erzeugt einen XML-Abschnitt, der Version und Zeichensatz (utf-8) bestimmt. 
 
-Kommen wir zu dem Teil der `templateDetails.xml`, der Informationen für die Installation enthält. Der Typ wird `template` genannt. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine bestehende Version zu installieren. 
+Was sehen Sie hier? Die erste Zeile erzeugt einen XML-Abschnitt, der Version und Zeichensatz (utf-8) bestimmt.
+
+Kommen wir zu dem Teil der `templateDetails.xml`, der Informationen für die Installation enthält. Der Typ wird `template` genannt. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine bestehende Version zu installieren.
 
 > Was zu `method="upgrade"` wichtig ist: Dabei werden neuere Versionen der Dateien installiert. Alte Dateien, die nicht mehr benötigt werden, bleiben jedoch erhalten, werden also nicht gelöscht. Dies muss in einem Installationsskript vom Entwickler selbst übernommen werden.
 
-Als nächstes kommen die allgemeinen Informationen des Templates wie 
-- Template-Name, 
-- Erstellungsdatum, 
-- Autor, Copyright, 
-- E-Mail-Adresse, Website, 
-- Version und 
-- Beschreibung) 
-Diese werden später im Template-Manager im Joomla Backend angezeigt. 
+Als nächstes kommen die allgemeinen Informationen des Templates wie
+
+- Template-Name,
+- Erstellungsdatum,
+- Autor, Copyright,
+- E-Mail-Adresse, Website,
+- Version und
+- Beschreibung)
+  Diese werden später im Template-Manager im Joomla Backend angezeigt.
 
 Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner `<folder>` und Dateien `<filename>` werden eingebettet. Das Modul `<positions>` kommt im Anschluss. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden - ist über den Modulmanager im Joomla Backend auswählbar.
 
