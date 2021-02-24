@@ -8,10 +8,12 @@ categories:
   - Code
 tags:
   - CMS
+  - Template
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates. 
+Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird. 
 
 ## Für Ungeduldige
 
@@ -19,190 +21,176 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht eher darum, hinter die Funktionen zu blicken und diese zu verstehen, als etwas "Schönes" zu erschaffen. 
 
 ### Neue Dateien
 
 #### Template
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest.
+Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf. 
 
-##### [src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php)
+##### [src/templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-[src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php)
+[src/templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/index.php
+// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php
+
+Component
+
+```
+
+##### [src/templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
+
+[src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php)
+
+```php {numberLines: -2}
+// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php
+
+Error
+
+```
+
+##### [src/templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+
+Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
+
+[src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
+
+```php {numberLines: -2}
+// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php
 
 <?php
 /**
  * @package     Facile
  *
- * @copyright   Copyright (C) 2020 Facile. All rights reserved.
+ * @copyright   Copyright (C) 2021 Facile. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
 $app = Factory::getApplication();
 $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-$pageclass = $app->getMenu()->getActive()->getParams()->get('pageclass_sfx');
 
-// Logo file or site title param
 if ($this->params->get('logoFile'))
 {
 	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
-} else
+}
+elseif ($this->params->get('siteTitle'))
 {
 	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
-
-$hasSidebar = '';
-
-if ($this->countModules('sidebar-left'))
+else
 {
-	$hasSidebar .= ' has-sidebar-left';
+	$logo = '';
 }
-
-if ($this->countModules('sidebar-right'))
-{
-	$hasSidebar .= ' has-sidebar-right';
-}
-
-$this->setMetaData('viewport', 'width=device-width, initial-scale=1');
-
-$menu = $this->getBuffer('modules', 'menu', $attribs = ['style' => 'none']);
-$search = $this->getBuffer('modules', 'search', $attribs = ['style' => 'none']);
-$banner = $this->getBuffer('modules', 'banner', $attribs = ['style' => 'default']);
-$topA = $this->getBuffer('modules', 'top-a', $attribs = ['style' => 'default']);
-$topB = $this->getBuffer('modules', 'top-b', $attribs = ['style' => 'default']);
-$sidebarLeft = $this->getBuffer('modules', 'sidebar-left', $attribs = ['style' => 'default']);
-$mainTop = $this->getBuffer('modules', 'main-top', $attribs = ['style' => 'default']);
-$message = $this->getBuffer('message');
-$breadcrumbs = $this->getBuffer('modules', 'breadcrumbs', $attribs = ['style' => 'none']);
-$component = $this->getBuffer('component');
-$mainBottom = $this->getBuffer('modules', 'main-bottom', $attribs = ['style' => 'default']);
-$sidebarRight = $this->getBuffer('modules', 'sidebar-right', $attribs = ['style' => 'default']);
-$bottomA = $this->getBuffer('modules', 'bottom-a', $attribs = ['style' => 'default']);
-$bottomB = $this->getBuffer('modules', 'bottom-b', $attribs = ['style' => 'default']);
-$footer = $this->getBuffer('modules', 'footer', $attribs = ['style' => 'none']);
-$debug = $this->getBuffer('modules', 'debug', $attribs = ['style' => 'none']);
-$metas = $this->getBuffer('metas');
-$styles = $this->getBuffer('styles');
-$scripts = $this->getBuffer('scripts');
 ?>
 
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
-	<head>
-<?php echo $metas; ?>
-		<style><?php echo $css; ?></style>
-	</head>
-	<body class="site-grid site <?php echo $pageclass . $hasSidebar; ?>">
-		<header class="grid-child container-header full-width header <?php echo $this->countModules('banner') ? 'has-banner' : ''; ?>">
-			<nav class="navbar">
-				<div class="navbar-brand">
-					<a href="<?php echo $this->baseurl; ?>/">
-<?php echo $logo; ?>
-						<span class="sr-only"><?php echo Text::_('TPL_FACILE_LOGO_LABEL'); ?></span>
-					</a>
-<?php if ($this->params->get('siteDescription')) : ?>
-						<div><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
-					<?php endif; ?>
-				</div>
+<head>
+	<jdoc:include type="metas" />
+</head>
 
-<?php if ($this->countModules('menu') || $this->countModules('search')) : ?>
-					<div class="navbar-menu">
-					<?php echo $menu; ?>
-						<?php if ($this->countModules('search')) : ?>
-							<div>
-							<?php echo $search; ?>
-							</div>
-							<?php endif; ?>
-					</div>
-					<span id="navbar-menu-toggle" class="navbar-menu-toggle"><span></span></span>
-<?php endif; ?>
-			</nav>
-		</header>
-
-<?php if ($this->countModules('banner')) : ?>
-			<div class="grid-child full-width container-banner">
-			<?php echo $banner; ?>
+<body>
+	<header >
+		<div>
+			<div>
+				<a href="<?php echo $this->baseurl; ?>/">
+					<?php echo $logo; ?>
+				</a>
+				<?php if ($this->params->get('siteDescription')) : ?>
+					<div><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
+				<?php endif; ?>
 			</div>
-			<?php endif; ?>
-
-		<?php if ($this->countModules('top-a')) : ?>
-			<div class="grid-child container-top-a">
-			<?php echo $topA; ?>
-			</div>
-			<?php endif; ?>
-
-		<?php if ($this->countModules('top-b')) : ?>
-			<div class="grid-child container-top-b">
-			<?php echo $topB; ?>
-			</div>
-			<?php endif; ?>
-
-		<?php if ($this->countModules('sidebar-left')) : ?>
-			<div class="grid-child container-sidebar-left">
-			<?php echo $sidebarLeft; ?>
-			</div>
-			<?php endif; ?>
-
-		<div class="grid-child container-component">
-<?php echo $mainTop; ?>
-			<?php echo $message; ?>
-			<?php echo $breadcrumbs; ?>
-			<?php echo $component; ?>
-			<?php echo $mainBottom; ?>
 		</div>
-
-<?php if ($this->countModules('sidebar-right')) : ?>
-			<div class="grid-child container-sidebar-right">
-			<?php echo $sidebarRight; ?>
-			</div>
-			<?php endif; ?>
-
-		<?php if ($this->countModules('bottom-a')) : ?>
-			<div class="grid-child container-bottom-a">
-			<?php echo $bottomA; ?>
-			</div>
-			<?php endif; ?>
-
-		<?php if ($this->countModules('bottom-b')) : ?>
-			<div class="grid-child container-bottom-b">
-			<?php echo $bottomB; ?>
-			</div>
-			<?php endif; ?>
-
-		<?php if ($this->countModules('footer')) : ?>
-			<footer class="grid-child container-footer full-width footer">
-				<div class="container">
-	<?php echo $footer; ?>
+		<div>
+			<nav>
+				<div>
+					<jdoc:include type="modules" name="menu" />
 				</div>
-			</footer>
-<?php endif; ?>
+			</nav>
+			<div>
+				<jdoc:include type="modules" name="search" />
+			</div>
+		</div>
+	</header>
 
-		<?php echo $debug; ?>
+	<div>
+		<jdoc:include type="modules" name="banner" />
+	</div>
 
-		<?php echo $scripts; ?>
-	</body>
+	<div>
+		<jdoc:include type="modules" name="top-a" />
+	</div>
+
+	<div>
+		<jdoc:include type="modules" name="top-b" />
+	</div>
+
+	<div>
+		<jdoc:include type="modules" name="sidebar-left" />
+	</div>
+
+	<div>
+		<jdoc:include type="modules" name="breadcrumbs" />
+		<jdoc:include type="modules" name="main-top" />
+		<jdoc:include type="message" />
+		<main>
+		<jdoc:include type="component" />
+		</main>
+		<jdoc:include type="modules" name="main-bottom" />
+	</div>
+
+	<div>
+		<jdoc:include type="modules" name="sidebar-right" />
+	</div>
+
+	<div>
+		<jdoc:include type="modules" name="bottom-a" />
+	</div>
+
+	<div>
+		<jdoc:include type="modules" name="bottom-b" />
+	</div>
+
+	<footer>
+		<jdoc:include type="modules" name="footer" />
+	</footer>
+
+	<jdoc:include type="modules" name="debug" />
+
+</body>
 </html>
 
 ```
 
+Die erste Zeile ist in PHP geschrieben. Das Gute an PHP und HTML ist, dass es zusammen geschrieben werden kann. Wir können PHP-Anweisungen in eine HMTL-Datei einfügen, und umgekehrt. `<?php` öffnet eine PHP-Anweisung - egal wo - und `?>` schließt sie wieder. In der ersten Zeile verbieten wir den direkten Zugriff auf diese Datei. Dies geschieht über die Joomla API mit dem Befehl `_JEXEC`. Diese Anweisung prüft, ob die Datei aus einer Joomla-Sitzung heraus aufgerufen wird, und sie schützt di Seite, indem sie es einem Hacker schwerer macht.
+
+Später deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.org/QA/2002/04/valid-dtd-list.html). Dies stellt sicher, dass das Dokument von verschiedenen Browsern auf die gleiche Weise geparst wird. Die einfachste und zuverlässigste Doctype-Deklaration, die verwendet werden kann, ist die in HTML5 definierte. Diese verwenden wir.
+
+Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`. Innerhalb des Header-Bereichs, während wir die Header-Informationen mit `<jdoc: include type="head" />` aus der Joomla API laden. Dieser `jdoc:include`-Befehl fügt die normalen Header-Informationen ein, die eine Website benötigt.
+
+Den Befehl `jdoc:include` finden wir noch öfter in der `index.php`. Beispielsweise sehen wir `<jdoc:include type="message" />`, damit funktionieren die Systemmeldungen. Wann immer Joomla dem Websitebetrachter etwas mitteilt, wird diese Zeile es auf Ihrem Bildschirm anzeigen. Wenn man beispielsweise eine E-Mail über ein Kontaktformular senden, wir man die Nachricht "Ihre Nachricht wurde erfolgreich gesendet" sehen.
+
+Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element sollte nur einmal im `<body>`-Element erscheinen, um den Hauptinhalt der Seite in Bezug auf die aktuell angezeigte Seite darzustellen. 
+
+Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`.
+
+So, genug erklärt. So sieht die Website minimal aus.
+
 ##### [src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-754d06b92d8b132af8eb955c0e6d9cd66a493f7b0055c4820f5b3f474a02da83)
 
-[src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini)
+[src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
+// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
 
-TPL_FACILE_XML_DESCRIPTION="Facile is a blazingly fast Joomla 4 template, using the HiQ CSS framework."
+TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 ; Parameters
 TPL_FACILE_LOGO_LABEL="Logo"
 
@@ -210,10 +198,10 @@ TPL_FACILE_LOGO_LABEL="Logo"
 
 ##### [src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-f430f52316f61d2dd90ac59a813bcd36cf84549945e7eb5055302d54858a169f)
 
-[src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini)
+[src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
+// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
 
 FACILE="Facile - Site template"
 TPL_FACILE_POSITION_MENU="Menu"
@@ -230,16 +218,32 @@ TPL_FACILE_POSITION_BOTTOM-A="Bottom-a"
 TPL_FACILE_POSITION_BOTTOM-B="Bottom-b"
 TPL_FACILE_POSITION_FOOTER="Footer"
 TPL_FACILE_POSITION_DEBUG="Debug"
-TPL_FACILE_XML_DESCRIPTION="Facile is a blazingly fast Joomla 4 template."
+TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### [src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
+##### [src/templates/facile/offline.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6883c0bebfdde2e2fa5faf0c765520ece0850108806a0ea508cb132c08b9d322)
 
-[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/templateDetails.xml)
+[src/templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/68fc165e168a88fffc86a46ad4c34328919a17d2/src/templates/facile/templateDetails.xml
+// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php
+
+Offline
+
+```
+
+
+##### [src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
+
+Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden. 
+
+Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:include` in der `index.php` eingebunden zu werden. Optional können wir Parameter anlegen, um das Template im Backend anpassbar zu machen. Vielleicht wollen Sie Ihr Template in verschiedenen Farben erstrahlen lassen? Nachfolgend habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns eine minimale Version der `templateDetails.xml` an:
+
+[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/templateDetails.xml)
+
+```xml {numberLines: -2}
+<!-- https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/templateDetails.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">
@@ -312,8 +316,24 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a blazingly fast Joomla 4 template."
 </extension>
 
 ```
+Was sehen Sie hier? Die erste Zeile erzeugt einen XML-Abschnitt, der Version und Zeichensatz (utf-8) bestimmt. 
 
-##### src/templates/facile/template_preview.png and src/templates/facile/template_thumbnail.png
+Kommen wir zu dem Teil der `templateDetails.xml`, der Informationen für die Installation enthält. Der Typ wird `template` genannt. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine bestehende Version zu installieren. 
+
+> Was zu `method="upgrade"` wichtig ist: Dabei werden neuere Versionen der Dateien installiert. Alte Dateien, die nicht mehr benötigt werden, bleiben jedoch erhalten, werden also nicht gelöscht. Dies muss in einem Installationsskript vom Entwickler selbst übernommen werden.
+
+Als nächstes kommen die allgemeinen Informationen des Templates wie 
+- Template-Name, 
+- Erstellungsdatum, 
+- Autor, Copyright, 
+- E-Mail-Adresse, Website, 
+- Version und 
+- Beschreibung) 
+Diese werden später im Template-Manager im Joomla Backend angezeigt. 
+
+Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner `<folder>` und Dateien `<filename>` werden eingebettet. Das Modul `<positions>` kommt im Anschluss. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden - ist über den Modulmanager im Joomla Backend auswählbar.
+
+##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
 
 ### Geänderte Dateien
 
@@ -344,182 +364,144 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 ```php {diff}
 // https://github.com/astridx/boilerplate/compare/t34...t35.diff
 
+diff --git a/src/templates/facile/component.php b/src/templates/facile/component.php
+new file mode 100644
+index 00000000..9649ed14
+--- /dev/null
++++ b/src/templates/facile/component.php
+@@ -0,0 +1 @@
++Component
+diff --git a/src/templates/facile/error.php b/src/templates/facile/error.php
+new file mode 100644
+index 00000000..59fd4d68
+--- /dev/null
++++ b/src/templates/facile/error.php
+@@ -0,0 +1 @@
++Error
 diff --git a/src/templates/facile/index.php b/src/templates/facile/index.php
 new file mode 100644
-index 00000000..3eeb110f
+index 00000000..19319ddc
 --- /dev/null
 +++ b/src/templates/facile/index.php
-@@ -0,0 +1,158 @@
+@@ -0,0 +1,106 @@
 +<?php
 +/**
 + * @package     Facile
 + *
-+ * @copyright   Copyright (C) 2020 Facile. All rights reserved.
++ * @copyright   Copyright (C) 2021 Facile. All rights reserved.
 + * @license     GNU General Public License version 2 or later; see LICENSE.txt
 + */
 +
 +\defined('_JEXEC') or die;
 +
 +use Joomla\CMS\Factory;
-+use Joomla\CMS\Language\Text;
 +use Joomla\CMS\Uri\Uri;
 +
 +$app = Factory::getApplication();
 +$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-+$pageclass = $app->getMenu()->getActive()->getParams()->get('pageclass_sfx');
 +
-+// Logo file or site title param
 +if ($this->params->get('logoFile'))
 +{
 +	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
-+} else
++}
++elseif ($this->params->get('siteTitle'))
 +{
 +	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 +}
-+
-+$hasSidebar = '';
-+
-+if ($this->countModules('sidebar-left'))
++else
 +{
-+	$hasSidebar .= ' has-sidebar-left';
++	$logo = '';
 +}
-+
-+if ($this->countModules('sidebar-right'))
-+{
-+	$hasSidebar .= ' has-sidebar-right';
-+}
-+
-+$this->setMetaData('viewport', 'width=device-width, initial-scale=1');
-+
-+$menu = $this->getBuffer('modules', 'menu', $attribs = ['style' => 'none']);
-+$search = $this->getBuffer('modules', 'search', $attribs = ['style' => 'none']);
-+$banner = $this->getBuffer('modules', 'banner', $attribs = ['style' => 'default']);
-+$topA = $this->getBuffer('modules', 'top-a', $attribs = ['style' => 'default']);
-+$topB = $this->getBuffer('modules', 'top-b', $attribs = ['style' => 'default']);
-+$sidebarLeft = $this->getBuffer('modules', 'sidebar-left', $attribs = ['style' => 'default']);
-+$mainTop = $this->getBuffer('modules', 'main-top', $attribs = ['style' => 'default']);
-+$message = $this->getBuffer('message');
-+$breadcrumbs = $this->getBuffer('modules', 'breadcrumbs', $attribs = ['style' => 'none']);
-+$component = $this->getBuffer('component');
-+$mainBottom = $this->getBuffer('modules', 'main-bottom', $attribs = ['style' => 'default']);
-+$sidebarRight = $this->getBuffer('modules', 'sidebar-right', $attribs = ['style' => 'default']);
-+$bottomA = $this->getBuffer('modules', 'bottom-a', $attribs = ['style' => 'default']);
-+$bottomB = $this->getBuffer('modules', 'bottom-b', $attribs = ['style' => 'default']);
-+$footer = $this->getBuffer('modules', 'footer', $attribs = ['style' => 'none']);
-+$debug = $this->getBuffer('modules', 'debug', $attribs = ['style' => 'none']);
-+$metas = $this->getBuffer('metas');
-+$styles = $this->getBuffer('styles');
-+$scripts = $this->getBuffer('scripts');
 +?>
 +
 +<!DOCTYPE html>
 +<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
-+	<head>
-+<?php echo $metas; ?>
-+		<style><?php echo $css; ?></style>
-+	</head>
-+	<body class="site-grid site <?php echo $pageclass . $hasSidebar; ?>">
-+		<header class="grid-child container-header full-width header <?php echo $this->countModules('banner') ? 'has-banner' : ''; ?>">
-+			<nav class="navbar">
-+				<div class="navbar-brand">
-+					<a href="<?php echo $this->baseurl; ?>/">
-+<?php echo $logo; ?>
-+						<span class="sr-only"><?php echo Text::_('TPL_FACILE_LOGO_LABEL'); ?></span>
-+					</a>
-+<?php if ($this->params->get('siteDescription')) : ?>
-+						<div><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
-+					<?php endif; ?>
-+				</div>
++<head>
++	<jdoc:include type="metas" />
++</head>
 +
-+<?php if ($this->countModules('menu') || $this->countModules('search')) : ?>
-+					<div class="navbar-menu">
-+					<?php echo $menu; ?>
-+						<?php if ($this->countModules('search')) : ?>
-+							<div>
-+							<?php echo $search; ?>
-+							</div>
-+							<?php endif; ?>
-+					</div>
-+					<span id="navbar-menu-toggle" class="navbar-menu-toggle"><span></span></span>
-+<?php endif; ?>
-+			</nav>
-+		</header>
-+
-+<?php if ($this->countModules('banner')) : ?>
-+			<div class="grid-child full-width container-banner">
-+			<?php echo $banner; ?>
++<body>
++	<header >
++		<div>
++			<div>
++				<a href="<?php echo $this->baseurl; ?>/">
++					<?php echo $logo; ?>
++				</a>
++				<?php if ($this->params->get('siteDescription')) : ?>
++					<div><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
++				<?php endif; ?>
 +			</div>
-+			<?php endif; ?>
-+
-+		<?php if ($this->countModules('top-a')) : ?>
-+			<div class="grid-child container-top-a">
-+			<?php echo $topA; ?>
-+			</div>
-+			<?php endif; ?>
-+
-+		<?php if ($this->countModules('top-b')) : ?>
-+			<div class="grid-child container-top-b">
-+			<?php echo $topB; ?>
-+			</div>
-+			<?php endif; ?>
-+
-+		<?php if ($this->countModules('sidebar-left')) : ?>
-+			<div class="grid-child container-sidebar-left">
-+			<?php echo $sidebarLeft; ?>
-+			</div>
-+			<?php endif; ?>
-+
-+		<div class="grid-child container-component">
-+<?php echo $mainTop; ?>
-+			<?php echo $message; ?>
-+			<?php echo $breadcrumbs; ?>
-+			<?php echo $component; ?>
-+			<?php echo $mainBottom; ?>
 +		</div>
-+
-+<?php if ($this->countModules('sidebar-right')) : ?>
-+			<div class="grid-child container-sidebar-right">
-+			<?php echo $sidebarRight; ?>
-+			</div>
-+			<?php endif; ?>
-+
-+		<?php if ($this->countModules('bottom-a')) : ?>
-+			<div class="grid-child container-bottom-a">
-+			<?php echo $bottomA; ?>
-+			</div>
-+			<?php endif; ?>
-+
-+		<?php if ($this->countModules('bottom-b')) : ?>
-+			<div class="grid-child container-bottom-b">
-+			<?php echo $bottomB; ?>
-+			</div>
-+			<?php endif; ?>
-+
-+		<?php if ($this->countModules('footer')) : ?>
-+			<footer class="grid-child container-footer full-width footer">
-+				<div class="container">
-+	<?php echo $footer; ?>
++		<div>
++			<nav>
++				<div>
++					<jdoc:include type="modules" name="menu" />
 +				</div>
-+			</footer>
-+<?php endif; ?>
++			</nav>
++			<div>
++				<jdoc:include type="modules" name="search" />
++			</div>
++		</div>
++	</header>
 +
-+		<?php echo $debug; ?>
++	<div>
++		<jdoc:include type="modules" name="banner" />
++	</div>
 +
-+		<?php echo $scripts; ?>
-+	</body>
++	<div>
++		<jdoc:include type="modules" name="top-a" />
++	</div>
++
++	<div>
++		<jdoc:include type="modules" name="top-b" />
++	</div>
++
++	<div>
++		<jdoc:include type="modules" name="sidebar-left" />
++	</div>
++
++	<div>
++		<jdoc:include type="modules" name="breadcrumbs" />
++		<jdoc:include type="modules" name="main-top" />
++		<jdoc:include type="message" />
++		<main>
++		<jdoc:include type="component" />
++		</main>
++		<jdoc:include type="modules" name="main-bottom" />
++	</div>
++
++	<div>
++		<jdoc:include type="modules" name="sidebar-right" />
++	</div>
++
++	<div>
++		<jdoc:include type="modules" name="bottom-a" />
++	</div>
++
++	<div>
++		<jdoc:include type="modules" name="bottom-b" />
++	</div>
++
++	<footer>
++		<jdoc:include type="modules" name="footer" />
++	</footer>
++
++	<jdoc:include type="modules" name="debug" />
++
++</body>
 +</html>
 diff --git a/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini b/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
 new file mode 100644
-index 00000000..20016071
+index 00000000..60f44526
 --- /dev/null
 +++ b/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
 @@ -0,0 +1,3 @@
-+TPL_FACILE_XML_DESCRIPTION="Facile is a blazingly fast Joomla 4 template, using the HiQ CSS framework."
++TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 +; Parameters
 +TPL_FACILE_LOGO_LABEL="Logo"
 diff --git a/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini b/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
 new file mode 100644
-index 00000000..5dd5c3a0
+index 00000000..a90b76e7
 --- /dev/null
 +++ b/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
 @@ -0,0 +1,16 @@
@@ -538,7 +520,14 @@ index 00000000..5dd5c3a0
 +TPL_FACILE_POSITION_BOTTOM-B="Bottom-b"
 +TPL_FACILE_POSITION_FOOTER="Footer"
 +TPL_FACILE_POSITION_DEBUG="Debug"
-+TPL_FACILE_XML_DESCRIPTION="Facile is a blazingly fast Joomla 4 template."
++TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
+diff --git a/src/templates/facile/offline.php b/src/templates/facile/offline.php
+new file mode 100644
+index 00000000..89bdc60e
+--- /dev/null
++++ b/src/templates/facile/offline.php
+@@ -0,0 +1 @@
++Offline
 diff --git a/src/templates/facile/templateDetails.xml b/src/templates/facile/templateDetails.xml
 new file mode 100644
 index 00000000..206b7c6c
@@ -616,11 +605,11 @@ index 00000000..206b7c6c
 +</extension>
 diff --git a/src/templates/facile/template_preview.png b/src/templates/facile/template_preview.png
 new file mode 100644
-index 00000000..0d17c73d
+index 00000000..03036c57
 Binary files /dev/null and b/src/templates/facile/template_preview.png differ
 diff --git a/src/templates/facile/template_thumbnail.png b/src/templates/facile/template_thumbnail.png
 new file mode 100644
-index 00000000..c356778b
+index 00000000..dcb2ec2c
 Binary files /dev/null and b/src/templates/facile/template_thumbnail.png differ
 
 ```
