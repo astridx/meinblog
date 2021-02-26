@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Webservices - Unte
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-webservices
+langKey: de
 categories:
   - Code
 tags:
@@ -251,7 +252,7 @@ Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
 Nutzt du [Curl](https://curl.haxx.se/)? Die folgende Abfrage listet dir alle Elemente auf:
 
-```bash
+```
 curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foos' \
 --header 'Accept: application/vnd.api+json' \
 --header 'Authorization: Basic YWRtaW46YWRtaW4='

@@ -4,6 +4,7 @@ title: 'Unterschiedliche Karten mit Mapbox GL ermöglichen'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-style-switcher
+langKey: de
 categories:
   - MapboxGL
 tags:

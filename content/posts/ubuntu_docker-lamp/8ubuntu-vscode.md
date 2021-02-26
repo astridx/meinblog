@@ -4,6 +4,7 @@ title: 'Visual Studio Code für Joomla einrichten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-vscode-docker-lamp
+langKey: de
 categories:
   - Betriebssystem
 tags:

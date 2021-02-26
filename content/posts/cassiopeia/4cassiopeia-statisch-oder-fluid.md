@@ -1,9 +1,10 @@
 ---
 date: 2021-03-06
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Optionen in Cassiopeia'
+title: 'Statisch oder fluid'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-statisch-oder-fluid
+langKey: de
 categories:
   - Code
 tags:

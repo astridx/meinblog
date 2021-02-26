@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Ein Menüpunkt'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: ein-menuepunkt
+langKey: de
 categories:
   - Code
 tags:

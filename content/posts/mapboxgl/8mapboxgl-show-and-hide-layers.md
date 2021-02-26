@@ -4,6 +4,7 @@ title: 'Mapbox GL - Ebenen ein- und ausblenden'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-show-and-hide-layers
+langKey: de
 categories:
   - MapboxGL
 tags:

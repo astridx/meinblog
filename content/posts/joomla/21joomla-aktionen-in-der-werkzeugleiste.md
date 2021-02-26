@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Aktionen in der We
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-aktionen-in-der-werkzeugleiste
+langKey: de
 categories:
   - Code
 tags:

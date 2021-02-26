@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Kategorien im Back
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-kategorien-im-backend-einrichten
+langKey: de
 categories:
   - Code
 tags:

@@ -4,6 +4,7 @@ title: 'Einrichten eines Ubuntu 20.04 Desktop für die Entwicklung mit Docker un
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: mein-ubuntu-rechner-mit-dpdocker-themen
+langKey: de
 categories:
   - Betriebssystem
   - Tutorial

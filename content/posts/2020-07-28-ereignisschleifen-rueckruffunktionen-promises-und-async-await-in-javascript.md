@@ -4,6 +4,7 @@ title: 'Grundlegendes zu Ereignisschleifen (Event Loop), Rückruffunktionen (Cal
 template: post
 thumbnail: '../thumbnails/js.png'
 slug: ereignisschleifen-rueckruffunktionen-promises-und-async-await-in-javascript
+langKey: de
 categories:
   - Code
   - Popular

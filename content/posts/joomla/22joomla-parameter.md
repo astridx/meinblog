@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-parameter
+langKey: de
 categories:
   - Code
 tags:

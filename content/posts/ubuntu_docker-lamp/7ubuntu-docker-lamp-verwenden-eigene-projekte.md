@@ -4,6 +4,7 @@ title: 'docker-lamp mit eigenen _jorobo_ Projekt'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-verwenden-eigene-projekte
+langKey: de
 categories:
   - Betriebssystem
 tags:

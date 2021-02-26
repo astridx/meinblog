@@ -4,6 +4,7 @@ title: 'Kommentare im Gatsby-Blog mit Github Utterances'
 template: post
 thumbnail: '../thumbnails/gatsby.png'
 slug: kommentare-im-gatsby-blog-mit-utterance
+langKey: de
 categories:
   - Code
   - Popular

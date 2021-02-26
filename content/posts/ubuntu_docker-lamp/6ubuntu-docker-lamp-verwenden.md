@@ -4,6 +4,7 @@ title: 'docker-lamp einrichten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-verwenden
+langKey: de
 categories:
   - Betriebssystem
 tags:

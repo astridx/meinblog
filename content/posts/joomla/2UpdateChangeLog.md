@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Joomla Update und 
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-update-und-change-logeinrichten
+langKey: de
 categories:
   - Code
 tags:

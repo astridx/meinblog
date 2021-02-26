@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Backendformular au
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-backendformular
+langKey: de
 categories:
   - Code
 tags:

@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Featured oder Haup
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-featured
+langKey: de
 categories:
   - Code
 tags:

@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Stapelverarbeitung
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-batch
+langKey: de
 categories:
   - Code
 tags:

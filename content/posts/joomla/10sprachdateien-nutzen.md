@@ -4,6 +4,7 @@ title: 'Sprachdateien nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: sprachdateien-nutzen
+langKey: de
 categories:
   - Code
 tags:

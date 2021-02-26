@@ -4,6 +4,7 @@ title: 'Mapbox GL - Maßstab'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-scale-control
+langKey: de
 categories:
   - MapboxGL
 tags:

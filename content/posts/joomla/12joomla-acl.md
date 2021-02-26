@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - ACL'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-acl
+langKey: de
 categories:
   - Code
 tags:

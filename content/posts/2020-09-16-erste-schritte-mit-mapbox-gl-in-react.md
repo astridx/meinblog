@@ -4,6 +4,7 @@ title: 'Erste Schritte mit Mapbox GL in React'
 template: post
 thumbnail: '../thumbnails/react.png'
 slug: erste-schritte-mit-mapbox-gl-in-react
+langKey: de
 categories:
   - Code
   - Popular
@@ -45,7 +46,7 @@ Wir erstellen eine interaktive Karte, die einige Daten basierend auf dem Mittelp
 
 Erstellen wir zunächst eine neue React-App und installieren Sie `mapbox-gl` als Abhängigkeit:
 
-```bash
+```
 npx create-react-app react-mapbox-example
 cd react-mapbox-example
 yarn add mapbox-gl
@@ -53,7 +54,7 @@ yarn add mapbox-gl
 
 Erstelle als Nächstes ein kostenloses Mapbox-Konto und erhalte ein API-Zugriffstoken [hier](https://account.mapbox.com/). Lege im Stammverzeichnis deines Projekts eine `.env.local`-Datei an und füge das Token hinzu:
 
-```bash
+```
 /* .env.local */
 REACT_APP_MAPBOX_ACCESS_TOKEN=DEIN_TOKEN
 ```

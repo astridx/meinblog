@@ -4,6 +4,7 @@ title: 'Netzwerk-DNS-Konfiguration von Docker und EAI_AGAIN'
 template: post
 thumbnail: '../thumbnails/ubuntu.png'
 slug: ubuntu-vmware-docker-eai_again
+langKey: de
 categories:
   - Tipp
 tags:

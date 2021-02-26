@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Frontend Editing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-frontend-editing
+langKey: de
 categories:
   - Code
 tags:

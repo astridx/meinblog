@@ -4,6 +4,7 @@ title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Opt
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: css-grid-and-bootstrap-5-in-joomla
+langKey: de
 categories:
   - Code
 tags:

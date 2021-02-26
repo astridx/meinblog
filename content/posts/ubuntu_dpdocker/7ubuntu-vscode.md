@@ -4,6 +4,7 @@ title: 'Ubuntu 20.02, Docker, DPDocker und Joomla  Vorwort'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-vscode
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -17,6 +18,6 @@ Installiert habe ich [Visual Studio Code](https://code.visualstudio.com/).
 
 2.
 
-```bash
+```
 sudo apt install ./<file>.deb
 ```

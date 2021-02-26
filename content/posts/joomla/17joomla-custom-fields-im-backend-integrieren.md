@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Custom Fields im B
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-custom-fields-im-backend-integrieren
+langKey: de
 categories:
   - Code
 tags:

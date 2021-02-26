@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Eine Joomla-Datenb
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: eine-joomla-datenbank-fuer-deine-erweiterung
+langKey: de
 categories:
   - Code
 tags:

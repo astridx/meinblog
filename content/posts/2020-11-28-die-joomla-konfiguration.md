@@ -4,6 +4,7 @@ title: 'Die Joomla Konfiguration configuration.php'
 template: post
 thumbnail: '../thumbnails/joomla.png'
 slug: die-joomla-konfiguration
+langKey: de
 categories:
   - Code
 tags:

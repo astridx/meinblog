@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Pagination'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-pagination
+langKey: de
 categories:
   - Code
 tags:

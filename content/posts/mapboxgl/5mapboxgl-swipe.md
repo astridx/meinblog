@@ -4,6 +4,7 @@ title: 'Karten mit Mapbox GL vergleichen - Das Plugin Swipe'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-swipe
+langKey: de
 categories:
   - MapboxGL
 tags:

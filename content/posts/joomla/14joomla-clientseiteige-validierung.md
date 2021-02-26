@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Clientseitige Vali
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-clientseiteige-validierung
+langKey: de
 categories:
   - Code
 tags:

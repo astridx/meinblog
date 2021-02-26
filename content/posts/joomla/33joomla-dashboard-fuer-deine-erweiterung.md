@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Zugriff auf das Da
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-dashboard-fuer-deine-erweiterung
+langKey: de
 categories:
   - Code
 tags:

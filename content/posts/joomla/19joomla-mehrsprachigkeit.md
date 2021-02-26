@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Mehrsprachigkeit'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-mehrsprachigkeit
+langKey: de
 categories:
   - Code
 tags:

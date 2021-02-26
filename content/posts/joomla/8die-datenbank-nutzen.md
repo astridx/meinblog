@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die Datenbank nutz
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-datenbank-nutzen
+langKey: de
 categories:
   - Code
 tags:

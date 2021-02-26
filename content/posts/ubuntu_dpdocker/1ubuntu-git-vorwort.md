@@ -4,6 +4,7 @@ title: 'Ubuntu 20.02, Docker, DPDocker und Joomla  Vorwort'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-vorwort
+langKey: de
 categories:
   - Betriebssystem
 tags:

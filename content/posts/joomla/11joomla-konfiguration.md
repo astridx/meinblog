@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Konfiguration'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-konfiguration
+langKey: de
 categories:
   - Code
 tags:

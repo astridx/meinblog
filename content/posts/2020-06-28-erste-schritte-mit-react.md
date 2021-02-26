@@ -4,6 +4,7 @@ title: 'Erste Schritte mit React'
 template: post
 thumbnail: '../thumbnails/react.png'
 slug: erste-schritte-mit-react
+langKey: de
 categories:
   - Code
   - Popular
@@ -192,13 +193,13 @@ Konzentrieren dich so voll und ganz auf das Lernen von React.
 
 Rufe zum Einrichten der _Create React App_ den folgenden Code über deine Befehlszeile auf. Wähle für den Aufruf das Verzeichnis, in dem du das Projekt anlegst. Stelle sicher, dass du [Node.js](https://nodejs.org/de/) installiest hast.
 
-```bash
+```
 npx create-react-app react-tutorial
 ```
 
 Wechsele nach Abschluss der Installation in das neu erstellte Verzeichnis und starte das Projekt.
 
-```bash
+```
 cd react-tutorial
 npm start
 ```
@@ -1106,7 +1107,7 @@ Alles, was wir bisher getan haben, war in einer Entwicklungsumgebung. Wir haben 
 
 Wenn du nur den gesamten React-Code kompilieren und irgendwo ablegen möchten, reicht der folgende Aufruf:
 
-```bash
+```
 npm run build
 ```
 
@@ -1134,19 +1135,19 @@ Füge diese beiden Zeilen zur Eigenschaft `scripts` hinzufügen.
 
 In deinem Projekt füge `gh-pages` zu den `devDependencies` hinzu.
 
-```bash
+```
 npm install --save-dev gh-pages
 ```
 
 Wir erstellen den `build`, der alle kompilierten statischen Dateien enthält.
 
-```bash
+```
 npm run build
 ```
 
 Schließlich werden wir auf `gh-pages` bereitstellen.
 
-```bash
+```
 npm run deploy
 ```
 

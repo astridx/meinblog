@@ -4,6 +4,7 @@ title: 'docker-lamp einrichten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-einrichten
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -33,7 +34,7 @@ Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelem
 
 Ich überprüfe die Images in meinem System mit `docker images`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
 
-```bash
+```
 docker images -a
 ```
 
@@ -41,7 +42,7 @@ docker images -a
 
 Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an den Befehle Docker `rmi` zu übergeben:
 
-```bash
+```
 docker rmi $(docker images -a -q)
 ```
 
@@ -51,7 +52,7 @@ docker rmi $(docker images -a -q)
 
 Ich überprüfe die Container in meinem System mit `docker ps`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
 
-```bash
+```
 docker ps -a
 ```
 
@@ -59,7 +60,7 @@ docker ps -a
 
 Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an die Befehle `docker stop` und `docker rm` zu übergeben:
 
-```bash
+```
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
@@ -72,7 +73,7 @@ docker rm $(docker ps -a -q)
 
 Ich verfüge über eine frische Dockerinstallation. Auf meinem Rechner ist kein Image und somit kein Container. Die folgenden Befehle zeigen beide eine leere Tabelle:
 
-```bash
+```
 docker images -a
 docker ps -a
 ```
@@ -81,13 +82,13 @@ docker ps -a
 
 Nun klone ich das `docker-lamp` Github Repository in ein Verzeichnis nach Wahl.
 
-```bash
+```
 git clone https://github.com/degobbis/docker-lamp.git
 ```
 
 Als nächstes wechsele ich in den Ordner `docker-lamp`.
 
-```bash
+```
 cd docker-lamp
 ```
 
@@ -99,13 +100,13 @@ Im `docker-lamp`-Ordner kopiere ich die versteckte Datei `.env-example` nach `.e
 
 > Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden und diese ist versteckt.
 
-```bash
+```
 cp .env-example .env
 ```
 
 Mittels `nano .env` öffne ich die Datei zum editieren.
 
-```bash
+```
 nano .env
 ```
 
@@ -199,7 +200,7 @@ sudo apt install make
 
 Im `docker-lamp`-Verzeichnis führe ich nach erfolgreicher Installation von `make` den Befehl `make` aus, der alle möglichen Kommandos anzeigt.
 
-```bash
+```
 make
 
 Usage:
@@ -213,7 +214,7 @@ Usage:
 
 Noch immer im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
 
-```bash
+```
 $ make server-up
 ./.env included
 2021/02/04 20:13:24 open localdomains/key.pem: file exists
@@ -231,7 +232,7 @@ Recreating docker-lamp_httpd      ... done
 
 Der Befehl arbeitet beim ersten Aufruf einige Minuten, da sämtliche Images heruntergeladen werden. Im Anschluss sind diese mit `docker images -a` angezeigbar.
 
-```bash
+```
 $ docker images -a
 REPOSITORY                   TAG          IMAGE ID       CREATED        SIZE
 phpmyadmin/phpmyadmin        fpm-alpine   9e4f315e888d   2 days ago     142MB
@@ -534,7 +535,7 @@ Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von `make server-u
 
 Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimmen Berechtigungen nicht.
 
-```bash
+```
 ./.env included
 2021/02/04 19:57:06 open minica-root-ca-key.pem: permission denied (but minica-root-ca.pem exists)
 ...
@@ -544,7 +545,7 @@ Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimm
 
 Als erstes ins Unterverzeichnis data wechseln.
 
-```bash
+```
 /docker-lamp$ cd data
 /docker-lamp/data$
 ...
@@ -552,7 +553,7 @@ Als erstes ins Unterverzeichnis data wechseln.
 
 In diesem Verzeichnis alle Rechte prüfen. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören
 
-```bash
+```
 /docker-lamp/data$ ll
 insgesamt 28
 drwxrwxr-x 7 deinBenutzer deinBenutzer 4096 Feb  4 17:33 ./
@@ -567,20 +568,20 @@ drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 17:16 www/
 
 Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal deinBenutzer, zuweisen.
 
-```bash
+```
 sudo chown -R deinBenutzer:deinBenutzer .
 ```
 
 Am Ende wieder zurück in das `docker-lamp`-Verzeichnis wechseln und den Befehl `make server-up` wiederholen.
 
-```bash
+```
 /docker-lamp/data$ cd ..
 /docker-lamp$ make server-up
 ```
 
 ### ERROR: for docker-lamp_bind Cannot start service bind
 
-```bash
+```
 ...
 Creating docker-lamp_bind ... error
 
@@ -595,7 +596,7 @@ make: *** [Makefile:51: server-up] Fehler 1
 
 1. `sudo systemctl disable systemd-resolved.service`
 
-```bash
+```
 $ sudo systemctl disable systemd-resolved.service
 Removed /etc/systemd/system/dbus-org.freedesktop.resolve1.service.
 Removed /etc/systemd/system/multi-user.target.wants/systemd-resolved.service.
@@ -603,7 +604,7 @@ Removed /etc/systemd/system/multi-user.target.wants/systemd-resolved.service.
 
 2. `sudo systemctl stop systemd-resolved.service`
 
-```bash
+```
 $ sudo systemctl stop systemd-resolved.service
 ```
 
@@ -615,7 +616,7 @@ Warum ist die Datei zu löschen?
 
 Die Datei `/etc/resolv.conf` ist ein Symlink.
 
-```bash
+```
 $ ll /etc/
 insgesamt 1128
 ...
@@ -625,7 +626,7 @@ lrwxrwxrwx   1 root root      39 Feb  4 00:00 resolv.conf -> ../run/systemd/reso
 
 Sie hat folgenden Inhalt:
 
-```bash
+```
 $ cat /etc/resolv.conf
 ...
 nameserver 127.0.0.53

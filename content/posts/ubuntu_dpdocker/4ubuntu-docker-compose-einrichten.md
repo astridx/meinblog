@@ -4,6 +4,7 @@ title: 'Docker Compose unter Ubuntu 20.04 einrichten'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-docker-compose-einrichten
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -23,7 +24,7 @@ Nach der Installation des Desktop Images von [Ubuntu 20.04 LTS (Focal Fossa)](ht
 
 Mit dem folgenden Befehl lädst du die Version `1.28.2` herunter und speicherst die ausführbare Datei unter `/usr/local/bin/docker-compose`. So ist diese global als `docker-compose` erreichbar. Die neueste **Docker Compose** Version findest du auf der [Seite](https://github.com/docker/compose/releases):
 
-```bash
+```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
@@ -31,13 +32,13 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-
 
 Setze die notwendigen Berechtigungen:
 
-```bash
+```
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 Überprüfe die Version und somit auch die Installation:
 
-```bash
+```
 docker-compose --version
 
 docker-compose version 1.28.2, build 67630359
@@ -57,7 +58,7 @@ cd ~/compose-test
 
 Ich lege ein Verzeichnis an, in dem ich die HTML-Datei ablegen. Die Datei `~/compose-test/app/index.html` enthält einen einfachen Text:
 
-```bash
+```
 mkdir app
 nano app/index.html
 ```
@@ -97,7 +98,7 @@ Im nächsten Schritt stellen wir diese Umgebung mithilfe von Docker Compose bere
 
 Die Datei `docker-compose.yml` enthälte alle Informationen. Der folgende Befehl (im Verzeichnis composer-test aufgerufen) lädt alle notwendigen Images herunter, erstellt einen Container für den `web`-Dienst und führt die Umgebung im Hintergrundmodus aus:
 
-```bash
+```
 docker-compose up -d
 ```
 

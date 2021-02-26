@@ -4,6 +4,7 @@ title: 'docker-lamp mit eigener Domain'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-verwenden-eigene-domain
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -44,7 +45,7 @@ j4dev j3  j3b4   t1   t2  t3        j4dev j3 j3b4   t1   t2  t3
 
 Falls der Server aktiv ist, stoppe ihn über `make server-down`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
 
-```bash
+```
 /docker-lamp$ make server-down
 ./.env included
 
@@ -119,7 +120,7 @@ $ sudo rm -R ./data/ca/localdomains/
 
 Im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
 
-```bash
+```
 /docker-lamp$ make server-up
 ./.env included
 Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/

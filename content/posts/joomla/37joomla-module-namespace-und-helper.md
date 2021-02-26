@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Namespace
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-namespace-und-helper
+langKey: de
 categories:
   - Code
 tags:

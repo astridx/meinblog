@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Vorwort'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-tutorial-vorwort
+langKey: de
 categories:
   - Code
 tags:

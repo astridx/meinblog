@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Den Menüpunkt mit
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: den-menupunkt-mit-einer-variablen-versehen
+langKey: de
 categories:
   - Code
 tags:

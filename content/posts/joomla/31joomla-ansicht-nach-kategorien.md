@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Ansicht nach Kateg
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-ansicht-nach-kategorien
+langKey: de
 categories:
   - Code
 tags:

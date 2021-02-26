@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Das M im MVC: Mode
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: das-m-im-mvc-model
+langKey: de
 categories:
   - Code
 tags:

@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Einen Service hinz
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-einen-service-hinzufuegen-routing
+langKey: de
 categories:
   - Code
 tags:

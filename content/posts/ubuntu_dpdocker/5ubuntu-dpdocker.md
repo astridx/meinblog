@@ -4,6 +4,7 @@ title: 'DPDocker einrichten'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-dpdocker
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -33,7 +34,7 @@ Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelem
 
 Ich überprüfe die Images in meinem System mit `docker images`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
 
-```bash
+```
 docker images -a
 ```
 
@@ -41,7 +42,7 @@ docker images -a
 
 Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an den Befehle Docker `rmi` zu übergeben:
 
-```bash
+```
 docker rmi $(docker images -a -q)
 ```
 
@@ -51,7 +52,7 @@ docker rmi $(docker images -a -q)
 
 Ich überprüfe die Container in meinem System mit `docker ps`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
 
-```bash
+```
 docker ps -a
 ```
 
@@ -59,7 +60,7 @@ docker ps -a
 
 Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an die Befehle `docker stop` und `docker rm` zu übergeben:
 
-```bash
+```
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 ```
@@ -70,20 +71,20 @@ docker rm $(docker ps -a -q)
 
 Ich verfüge über eine frische Dockerinstallation. Auf meinem Rechner ist kein Image und somit kein Container. Die folgenden Befehle zeigen beide eine leere Tabelle:
 
-```bash
+```
 docker images -a
 docker ps -a
 ```
 
 Nun clone ich das DPDocker Github Repository.
 
-```bash
+```
 git clone https://github.com/Digital-Peak/DPDocker.git
 ```
 
 Als nächstes wechsele ich in den Ordner DPDocker und führe den Befehl aus, der alle notwendigen Images herunterlädt.
 
-```bash
+```
 cd DPDocker
 
 bash images/build.sh

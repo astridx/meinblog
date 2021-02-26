@@ -4,6 +4,7 @@ title: 'Ein Tutorial zur Verwendung des Cassiopeia Templates für Joomla 4 - fü
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-vorwort
+langKey: de
 categories:
   - Code
 tags:

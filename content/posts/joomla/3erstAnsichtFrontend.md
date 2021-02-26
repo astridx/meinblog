@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die erste Ansicht 
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-erste-ansicht-im-frontend
+langKey: de
 categories:
   - Code
 tags:

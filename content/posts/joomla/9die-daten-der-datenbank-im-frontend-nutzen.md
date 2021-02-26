@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die Daten der Date
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-daten-der-datenbank-im-frontend-nutzen
+langKey: de
 categories:
   - Code
 tags:

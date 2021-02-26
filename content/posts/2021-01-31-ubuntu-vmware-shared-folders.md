@@ -4,6 +4,7 @@ title: 'Windows Host Shared Folder in Ubuntu 20.04'
 template: post
 thumbnail: '../thumbnails/ubuntu.png'
 slug: ubuntu-vmware-shared-folders
+langKey: de
 categories:
   - Tipp
 tags:
@@ -18,18 +19,18 @@ Ich verwende VMWare Workstation unter Windows 10 Pro , um eine VM für Ubuntu 20
 
 Bearbeiten der Datei `/etc/fstab` folgende Zeile hinzufügen:
 
-```bash
+```
 vmhgfs-fuse    /mnt/hgfs    fuse    defaults,allow_other    0    0
 ```
 
 Falls der Zielordner nicht vorhanden ist:
 
-```bash
+```
 sudo mkdir /mnt/hgfs
 ```
 
 Dann wieder einsteigen:
 
-````bash
+````
 sudo mount -a```
 ````

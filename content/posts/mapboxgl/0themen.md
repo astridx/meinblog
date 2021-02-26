@@ -4,6 +4,7 @@ title: 'Mapbox GL JS'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapbpxgl-js-themen
+langKey: de
 categories:
   - MapboxGL
   - Tutorial

@@ -4,6 +4,7 @@ title: 'Projektablauf'
 template: post
 thumbnail: '../thumbnails/webdesign.png'
 slug: projektablauf
+langKey: de
 categories:
   - Webdesign
 tags:

@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Filtern, Sortieren
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-filtern-sortieren-suchen
+langKey: de
 categories:
   - Code
 tags:

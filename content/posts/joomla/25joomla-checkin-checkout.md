@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Checkin und Checko
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-checkin-checkout
+langKey: de
 categories:
   - Code
 tags:

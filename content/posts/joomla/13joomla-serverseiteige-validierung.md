@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Serverseiteige Val
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-serverseiteige-validierung
+langKey: de
 categories:
   - Code
 tags:

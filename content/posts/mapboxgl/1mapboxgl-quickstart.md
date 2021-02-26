@@ -4,6 +4,7 @@ title: 'Mapbox GL Quickstart'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-quickstart
+langKey: de
 categories:
   - MapboxGL
 tags:

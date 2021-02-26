@@ -4,6 +4,7 @@ title: 'Ihre Website – so sicher wie möglich!'
 template: post
 thumbnail: '../thumbnails/webdesign.png'
 slug: ihre-website-so sicher-wie-moeglich
+langKey: de
 categories:
   - Webdesign
 tags:

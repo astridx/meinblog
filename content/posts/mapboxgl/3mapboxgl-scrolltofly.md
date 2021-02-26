@@ -4,6 +4,7 @@ title: 'Eine Stadtführung mit Mapbox GL'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-scrolltofly
+langKey: de
 categories:
   - MapboxGL
 tags:

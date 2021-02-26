@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Der Weg zu Joomla 
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: der-weg-zu-joomlae4-erweiterungen
+langKey: de
 categories:
   - Code
   - Tutorial

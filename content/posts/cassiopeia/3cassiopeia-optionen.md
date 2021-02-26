@@ -4,6 +4,7 @@ title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Opt
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-optionen
+langKey: de
 categories:
   - Code
 tags:
@@ -283,7 +284,6 @@ Die nachfolgende Ansicht ist nicht schön. Es geht nur ums Prinzip:
 - cassiopeia-color-link`gibt die Farbe an, in der Links dargestellt werden. -cassiopeia-color-hover` bestimmt die Farbe, mit der Links beim Überrollen mit der Maus reagieren.
 
 ##### Layout
-
 
 ![Templates_Edit_Style_admin_Administration](/images/ce4.png)
 

@@ -4,6 +4,7 @@ title: 'Erstellen Sie Ihr erstes Leaflet-Control-Plugin - Ein Tutorial f√ºr Anf√
 template: post
 thumbnail: '../thumbnails/leaflet.png'
 slug: leaflet-control-plugin-first-steps
+langKey: de
 categories:
   - Leaflet
 tags:

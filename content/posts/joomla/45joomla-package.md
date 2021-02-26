@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Paket - Alle Erwei
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-paket-alles-zusammen
+langKey: de
 categories:
   - Code
 tags:

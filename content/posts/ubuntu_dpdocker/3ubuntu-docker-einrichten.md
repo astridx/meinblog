@@ -4,6 +4,7 @@ title: 'Docker unter Ubuntu 20.04 einrichten'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: ubuntu-docker-einrichten
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -24,46 +25,46 @@ Um sicherzustellen, dass ich die neueste Version erhalte, installieren ich Docke
 
 Ich aktualisiere zunächst die Paketliste:
 
-```bash
+```
 sudo apt update
 ```
 
 Dann installiere ich notwendige Pakete:
 
-```bash
+```
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 ```
 
 Danach füge ich den GPG-Schlüssel für das offizielle Docker-Repository hinzu:
 
-```bash
+```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
 ```
 
 Daraufhin ergänze ich das Docker-Repository in den APT Quelle:
 
-```bash
+```
 sudo add-apt-repository „deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable“
 ```
 
 Anschließend aktualisiere ich die Paketdatenbank mit den Docker-Paketen aus dem neu hinzugefügten Repo:
 
-```bash
+```
 sudo apt update
 
 ```
 
 Ich stelle sicher, dass ich vom Docker-Repo anstelle des Standard-Ubuntu-Repos installieren:
 
-```bash
+```
 apt-cache policy docker-ce
 
 ```
 
 Die Ausgabe ist beispielsweise wie folgt:
 
-```bash
+```
 Docker-ce:
   Installiert: (keine)
   Kandidat: 5:20.10.3~3-0~ubuntu-focal
@@ -74,19 +75,19 @@ Docker-ce:
 
 Beachte: `docker-ce` ist nicht installiert. Ich installiere `docker-ce`:
 
-```bash
+```
 sudo apt install docker-ce
 ```
 
 Docker ist jetzt installiert und der Dämon gestartet. Dies prüfe ich:
 
-```bash
+```
 sudo systemctl status docker
 ```
 
 Der Dienst ist aktiv:
 
-```bash
+```
 docker.service - Docker Application Container Engine
      Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
      Active: active (running) since Tue 2020-08-30 17:00:41 UTC; 17s ago
@@ -106,26 +107,26 @@ Wenn ein normaler Benutzer versucht, den Befehl `docker` auszuführen, ohne ihm 
 
 Der beste Workaround ist, alle Benutzer die `docker` nutzten, zur Gruppe **Docker** zu hinzuzufügen.
 
-```bash
+```
 sudo usermod -aG docker ${USER}
 
 ```
 
 Um die neue Gruppenmitgliedschaft anzuwenden, melde dich vom Rechner ab und wieder an oder rufe folgenden Befehl auf:
 
-```bash
+```
 su - ${USER}
 ```
 
 Bestätige, dass dein Benutzer zur Gruppe **Docker** hinzugefügt wurde.
 
-```bash
+```
 id -nG
 ```
 
 Alle Gruppen werden angezeigt, in denen du dich befindest:
 
-```bash
+```
 astrid adm cdrom sudo dip plugdev lpadmin lxd sambashare docker
 ```
 
@@ -137,20 +138,20 @@ Sehen wir uns den Befehl `docker` genauer an.
 
 Die Syntax eines `docker`-Befehls:
 
-```bash
+```
 docker [option] [command] [arguments]
 ```
 
 Lass dir alle verfügbaren Unterbefehle anzeigen:
 
-```bash
+```
 docker
 
 ```
 
 Beispielausgabe:
 
-```bash
+```
   attach      Attach local standard input, output, and error streams to a running container
   build       Build an image from a Dockerfile
   commit      Create a new image from a container's changes
@@ -196,13 +197,13 @@ Beispielausgabe:
 
 Sieh dir einzelne Optionen detaillierter an:
 
-```bash
+```
 docker docker-unterbefehl --help
 ```
 
 Lass dir System-Informationen zu Docker anzeigen:
 
-```bash
+```
 docker info
 ```
 
@@ -212,13 +213,13 @@ Schauen wir uns `docker`-Images genauer an.
 
 `docker`-Container werden aus `docker`-Images erstellt. Standardmäßig ruft Docker diese Bilder von [Docker Hub](https://hub.docker.com) ab. Lade über Docker Hub ein Image herunter und führe es gleichzeitig aus:
 
-```bash
+```
 docker run hello-world
 ```
 
 Die Ausgabe zeigt an, dass Docker ordnungsgemäß funktioniert:
 
-```bash
+```
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 0e03bdcc26d7: Pull complete
@@ -233,21 +234,21 @@ This message shows that your installation appears to be working correctly.
 
 Suche nach Images, zum Beispiel dem Ubuntu-Image:
 
-```bash
+```
 docker search ubuntu
 
 ```
 
 Rufe den folgenden Befehl auf, um das offizielle Ubuntu-Image auf deinen Computer herunterzuladen:
 
-```bash
+```
 docker pull ubuntu
 
 ```
 
 Du siehst folgendes:
 
-```bash
+```
 Using default tag: latest
 latest: Pulling from library/ubuntu
 d51af753c3d3: Pull complete
@@ -263,13 +264,13 @@ Nachdem ein Images heruntergeladen wurde, führst du es mit `run` aus.
 
 So zeigst du heruntergeladene Images Bilder an:
 
-```bash
+```
 docker images
 ```
 
 Die Ausgabe sieht wie folgt aus:
 
-```bash
+```
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ubuntu              latest              4e622ef86b13        10 days ago         73.9MB
 hello-world         latest              bf756fb1ae65        8 months ago        13.3kB
@@ -284,13 +285,13 @@ Lasse uns als Beispiel einen `docker`-Container mit dem neuesten `docker`-Image 
 
 > Die Kombination von **-i** und **-t** ermöglicht dir den interaktiven Shell-Zugriff auf den Container:
 
-```bash
+```
 docker run -it ubuntu /bin/bash
 ```
 
 Die Eingabeaufforderung ändert sich. Du befindest dich jetzt im Container:
 
-```bash
+```
 root@3fee0f2f636:/#
 ```
 
@@ -298,21 +299,21 @@ In diesem Beispiel ist die Container ID `3fee0f2f636`. Mithilfe von ihr identifi
 
 Rufe einen beliebigen Befehl im Container auf. Aktualisiere beispielsweise die Paketdatenbank im Container. `sudo` ist nicht notwendig, da du im Container als **Root**-Benutzer arbeitest:
 
-```bash
+```
 apt update
 
 ```
 
 Oder installiere Node.js:
 
-```bash
+```
 apt install nodejs
 
 ```
 
 Überprüfe, ob die Installation:
 
-```bash
+```
 node -v
 
 ```
@@ -327,13 +328,13 @@ Schauen wir uns als nächstes die Verwaltung der `docker`-Container an.
 
 Sieh dir die **aktiven** Container an:
 
-```bash
+```
 docker ps
 ```
 
 Du siehst beispielsweise dies:
 
-```bash
+```
 CONTAINER ID        IMAGE               COMMAND             CREATED
 ...
 ```
@@ -342,14 +343,14 @@ Bisher haben wir zwei Container gestartet. Einen aus dem `hello-world`-Image und
 
 Rufe `docker ps` mit der Option `-a` auf, um alle Container anzuzeigen -- aktiv und inaktiv:
 
-```bash
+```
 docker ps -a
 
 ```
 
 Du siehst beispielsweise dies:
 
-```bash
+```
 3fee0f2f636         ubuntu              "/bin/bash"         5 minutes ago       Exited (0) 8 seconds ago                       Quirky_driscoll
 ef3d221a5f6c        hello-world         "/hello"            12 minutes ago      Exited (0) 6 minutes ago                       elegant_wilson
 
@@ -357,14 +358,14 @@ ef3d221a5f6c        hello-world         "/hello"            12 minutes ago      
 
 Um den zuletzt erstellten Container anzuzeigen, nutze `-l`:
 
-```bash
+```
 docker ps -l
 
 ```
 
 Um einen gestoppten Container zu starten, verwende `docker start`, gefolgt von der Container-ID oder dem Namen des Containers. :
 
-```bash
+```
 docker start 3fee0f2f636
 ```
 
@@ -378,7 +379,7 @@ Wenn du ein Docker-Image aufrufst, ist es möglich, Dateien zu erstellen, zu än
 
 Nach der Installation von Node.js im Ubuntu-Container unterscheidet dieser sich vom ursprünglichen Image. Übernimm die Änderungen mit dem folgenden Befehl in eine neue Docker-Image-Instanz.
 
-```bash
+```
 docker commit -m "Meine Änderung" -a "Autor Name" container_id repository/new_image_name
 ```
 
@@ -386,7 +387,7 @@ docker commit -m "Meine Änderung" -a "Autor Name" container_id repository/new_i
 
 Der Benutzer `astrid` speichert die Änderungen im Container mit der ID `00000000` wie folgt:
 
-```bash
+```
 docker commit -m "added Node.js" -a "astrid" 00000000 astrid/ubuntu-und-node-js
 ```
 
@@ -398,7 +399,7 @@ Teilen wir das Image als nächstes mit anderen.
 
 Senden wir ein Docker-Image an Docker Hub. Melden dich zuerst bei [Docker Hub](https://hub.docker.com/) an, um dein Image zu übertragen.
 
-```bash
+```
 docker login -u dein-docker-username
 
 ```
@@ -408,20 +409,20 @@ docker login -u dein-docker-username
 
 Lade dein eigenes Image hoch:
 
-```bash
+```
 docker push docker-registry-username/docker-image-name
 ```
 
 Um `ubuntu-und-node-js` in das Repository **astrid** zu laden verwende ich:
 
-```bash
+```
 docker push astrid/ubuntu-und-node-js
 
 ```
 
 In der Kommandozeile kannst du den Fortschritt verfolgen:
 
-```bash
+```
 The push refers to a repository [docker.io/astrid/ubuntu-und-node-js]
 edfrbfbf4187: Pushed
 ...

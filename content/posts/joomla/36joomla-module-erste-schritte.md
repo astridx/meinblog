@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Erste Sch
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-erste-schritte
+langKey: de
 categories:
   - Code
 tags:

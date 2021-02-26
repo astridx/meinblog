@@ -4,6 +4,7 @@ title: 'Mapbox GL - Höhenangaben per Tilequery abfrage'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-axios-tilequery-elevation
+langKey: de
 categories:
   - MapboxGL
 tags:

@@ -4,6 +4,7 @@ title: 'Eine eigene Joomla-Erweiterung mit DPDocker'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: joomla-erweiterung-mit-dpdocker
+langKey: de
 categories:
   - Betriebssystem
 tags:
@@ -106,12 +107,12 @@ Damit ist sichergestellt, dass Composer erfolgreich auf dem System installiert u
 
 ### PHP unter Ubuntu 20.04 intallieren inklusive notwendiger Erweiterungen
 
-```bash
+```
 sudo apt update
 sudo apt install php php-cli php-fpm php-json php-pdo php-mysql php-zip php-gd  php-mbstring php-curl php-xml php-pear php-bcmath
 ```
 
-```bash
+```
 php -- version
 ```
 
@@ -121,7 +122,7 @@ php -- version
 
 Als nächstes clone ich eines meiner Repositorys, in welchem sich eine Joomla Erweiterung befindet. Ich achte darauf, dass das Repo in einem Verzeichnis **neben** DPDocker abgelegt wird. Das ist wichtig!
 
-```bash
+```
 git clone  https://github.com/astridx/boilerplate.git
 ```
 
@@ -129,7 +130,7 @@ git clone  https://github.com/astridx/boilerplate.git
 
 Dann wechsele ich in den Ordner `boilerplate` und führe den Befehl aus, der alle notwendigen Abhängigkeiten herunterlädt.
 
-```bash
+```
 cd boilerplate
 
 composer install
@@ -141,13 +142,13 @@ Jetzt sind alle Abhängikeiten im Verzeichnis `vendor` abgelegt.
 
 Ich verwende `vendor/bin/robo build`. Im Ergebnis sehe ich das Unterverzeichnis `dist`, in dem sich die gepackte Installationsdatei befinden.
 
-```bash
+```
 vendor/bin/robo build
 ```
 
 Der Befehl `vendor/bin/robo list` zeigt mir alle möglichen Skripte an.
 
-```bash
+```
 vendor/bin/robo list
 
 ...
@@ -172,7 +173,7 @@ Leider ist es nicht problemlos möglich, in einen Container zu symlinken. Außer
 
 Jetzt wechsele ich wieder ein Verzeichnis zurück - in das Verzeichnis, in dem `boilerplate` und `DPDocker` nebeneinader abgelegt sind. Hier rufe ich [./DPDocker/webserer/run.sh mysql rebuild](https://github.com/Digital-Peak/DPDocker/tree/master/webserver#execute) auf:
 
-```bash
+```
 ./DPDocker/webserer/run.sh
 ```
 
@@ -186,18 +187,18 @@ Mein Rechner arbeitet einige Minuten. In der Zeit erstellt er alle notwendigen D
 
 Unter Umständen hilft es schon, alle Container zu entfernen.
 
-```bash
+```
 docker rm $(docker ps -a - q)
 ```
 
 Falls das Problem weiterhin auftritt, lasse ich mir alle Dienste anzeigen, die den Port verwenden.
 
-```bash
+```
 sudo lsof -i -P -n | grep <port number>
 ```
 
 Unter Ubuntu 20.04 stoppe ich diese Dienst mit
 
-```bash
+```
 sudo kill <process id>
 ```

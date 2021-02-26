@@ -4,6 +4,7 @@ title: 'Mapbox GL Routing mit dem Plugin Directions'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapboxgl-directions
+langKey: de
 categories:
   - MapboxGL
 tags:

@@ -4,6 +4,7 @@ title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Veröffentlichen u
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-veröeffentlichen-und-erstecken
+langKey: de
 categories:
   - Code
 tags:

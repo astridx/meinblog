@@ -4,6 +4,7 @@ title: 'Warum habe ich mich für Open-Source wie Joomla, Leaflet, Gatsby oder Op
 template: post
 thumbnail: '../thumbnails/webdesign.png'
 slug: open-source
+langKey: de
 categories:
   - Webdesign
 tags:

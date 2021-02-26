@@ -4,6 +4,7 @@ title: 'Ubuntu 20.04, Docker, docker-lamp und Joomla Vorwort'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-vorwort-docker-lamp
+langKey: de
 categories:
   - Betriebssystem
 tags:

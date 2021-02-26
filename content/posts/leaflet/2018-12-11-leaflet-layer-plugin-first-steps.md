@@ -4,6 +4,7 @@ title: 'Erstellen Sie Ihr erstes Leaflet-Layer-Plugin - Ein Tutorial für Anfän
 template: post
 thumbnail: '../thumbnails/leaflet.png'
 slug: leaflet-layer-plugin-first-steps
+langKey: de
 categories:
   - Leaflet
 tags:
