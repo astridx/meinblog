@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import LanguageSelector from './LanguageSelector'
 
 export default function Nav() {
   return (
@@ -52,6 +53,7 @@ export default function Nav() {
             ? '☀️'
             : '🌙'}
         </button>
+        <LanguageSelector />
       </div>
     </nav>
   )
