@@ -163,31 +163,31 @@ web_1  | 172.19.0.1 - - [30/Aug/2020:20:58:13 +0000] "GET / HTTP/1.1" 200 353 "-
 
 In den Pausemodus schalte ich mit:
 
-```dash
+```
 docker-compose pause
 ```
 
 Die Pause beende ich mit:
 
-```dash
+```
 docker-compose unpause
 ```
 
 Der Befehl `stop` beendet die Ausführung des Containers:
 
-```dash
+```
 docker-compose stop
 ```
 
 Verknüpften Container, Netzwerke und Volums werden mit `down` entfernt:
 
-```dash
+```
 docker-compose down
 ```
 
 Das Image entferne ich mit:
 
-```dash
+```
 docker image rm nginx:alpine
 ```
 

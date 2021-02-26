@@ -61,7 +61,7 @@ In diesem Code definierst du drei Funktionen, die Zahlen mit `console.log()` dru
 
 Die Ausgabe basiert auf der Reihenfolge, in der die Funktionen aufgerufen wurden:
 
-```text
+```
 1
 2
 3
@@ -94,7 +94,7 @@ drei();
 
 Bei einem auf 0 gesetzten `setTimeout()` erwartet man, dass der Aufruf dieser drei Funktionen weiterhin die Zahlen aufeinanderfolgend ausgibt. Dies ist aber nicht so:
 
-```text
+```
 1
 3
 2
@@ -157,7 +157,7 @@ funktionHoehererOrndung(eineFunktion)
 
 In diesem Code definieren wir zwei Funktionen. `eineFunktion` und `funktionHoehererOrndung`, die `callback` als Argument verwendet. Am Ende übergeben wir `eineFunktion` als Rückruf an `funktionHoehererOrndung`. Abstrahiert sieht der Einsatz einer Rückruffunktion simpel aus. Rufe den Code auf und die siehts Folgendes:
 
-```text
+```
 Eine Funktion
 ```
 
@@ -211,7 +211,7 @@ zwei(drei);
 
 Dieser Code bewirkt die Ausgabe, wobei 2 und 3 erst nach 9 Sekunden abgedruckt werden:
 
-```text
+```
 1
 2
 3
@@ -244,7 +244,7 @@ pyramideDesUntergangs();
 
 In diesem Code ist jedes neue `setTimeout` in einer Funktion höherer Ordnung verschachtelt, wodurch eine Pyramidenform mit immer tieferen Rückrufen entsteht. Dieses Beispiel bewirkt folgende Ausgabe:
 
-```text
+```
 1
 2
 3
@@ -303,7 +303,7 @@ promise.then((response) => {
 
 Unser Promise hat den Wert `Aufgelöst!`. Dieser wird in der Konsole abgedruckt.
 
-```text
+```
 Aufgelöst!
 ```
 
@@ -341,7 +341,7 @@ promise
 
 Die erfüllte Antwort sieht wie folgt aus:
 
-```text
+```
 Verkettung aufgelöst!
 ```
 
@@ -415,7 +415,7 @@ console.log(eins());
 
 Obwohl diese Funktion bisher nichts Asynchrones verarbeitet, verhält sie sich anders als eine herkömmliche. Wenn wir sie aufrufen, werden wir feststellen, dass sie ein Promise zurückgibt. Die Ausgabe ist:
 
-```text
+```
 Promise { <state>: "fulfilled", <value>: undefined }
 ```
 
@@ -433,7 +433,7 @@ eins().then((response) => console.log(response));
 
 Die Ausgabe ist:
 
-```text
+```
 1
 ```
 
@@ -464,7 +464,7 @@ f1();
 
 Die Ausgabe ist:
 
-```text
+```
 1
 nach x
 ```
@@ -492,7 +492,7 @@ f1();
 
 Jetzt wurde Auflösen des Promise nicht abgewartet. Die Ausgabe ist:
 
-```text
+```
 Promise { <state>: "pending" }
 nach x
 ```

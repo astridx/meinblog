@@ -142,6 +142,37 @@ module.exports = {
     `gatsby-plugin-offline`,
 
     // ===================================================================================
+    // language https://github.com/angeloocana/gatsby-plugin-i18n
+    // ===================================================================================
+    {
+      resolve: `gatsby-plugin-i18n`,
+      options: {
+        langKeyDefault: 'de',
+        langKeyForNull: 'de',
+        prefixDefault: false,
+        useLangKeyLayout: false,
+        //pagesPaths: [`${__dirname}/content/posts/`, `${__dirname}/src/pages`],
+        /*markdownRemark: {
+          postPage: 'src/templates/post.js',
+          query: `
+            {
+              allMarkdownRemark {
+                edges {
+                  node {
+                    fields {
+                      slug,
+                      langKey
+                    }
+                  }
+                }
+              }
+            }
+          `
+        }*/
+      },
+    },
+
+    // ===================================================================================
     // Search
     // ===================================================================================
 

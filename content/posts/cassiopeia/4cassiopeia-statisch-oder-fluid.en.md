@@ -3,7 +3,7 @@ date: 2021-03-06
 title: 'Static Option'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: cassiopeia-statisch-oder-fluid
+slug: en/cassiopeia-statisch-oder-fluid
 langKey: en
 categories:
   - Code
