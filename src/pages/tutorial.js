@@ -18,7 +18,10 @@ export default function BlogIndex({ data }) {
 
   return (
     <Layout>
-      <Helmet title={`Tutorials | ${config.siteTitle}`} />
+      <Helmet>
+        <html lang="de" />
+        <title>Tutorials | {config.siteTitle}</title>
+      </Helmet>
       <SEO />
       <section>
         <h1>Sets</h1>

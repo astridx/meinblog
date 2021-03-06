@@ -28,23 +28,20 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578) - Blaupause für die Installation
 
-Dies ist eine XML-Datei (Manifest), die Joomla! mitteilt, wie unsere Komponente installiert wird.
-
-Genau wie Module und Plugins verfügen Komponenten über eine XML-Installationsdatei, die Joomla alles über die zu installierende Erweiterung erzählt. Diese Datei wird als XML-Manifest bezeichnet.
-Die Installations-XML-Datei enthält Details wie
+`foos.xml` teilt Joomla mit, wie unsere Komponente installiert wird. Genau wie Module und Plugins verfügen Komponenten über eine XML-Installationsdatei, die Joomla über die zu installierende Erweiterung informiert. Diese Datei wird als Manifest bezeichnet und enthält Details wie
 
 - die Versionsnummer,
 - alle von der Komponente verwendeten Dateien und Ordner,
-- Details zur Datenbankinstallationsdatei,
+- Details zur Datenbank,
 - und Komponentenparameter.
 
 Erstelle eine neue Datei und nennen Sie sie `foos.xml`. Dies ist der Name der Erweiterung ohne das Präfix `com_`. Wir werden dann jede Zeile durchgehen und uns ansehen, was sie bewirkt.
 
-Die erste Zeile ist nicht spezifisch für Joomla!. Es sagt uns, dass dies eine XML-Datei ist `<?xml version="1.0" encoding="utf-8" ?>`.
+Die erste Zeile ist nicht spezifisch für Joomla. Es sagt uns, dass dies eine XML-Datei ist `<?xml version="1.0" encoding="utf-8" ?>`.
 
-Dann teilen wir Joomla! mit, dass dies eine Komponente ist. Und wir wünschen uns, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen `<extension type="component" method="upgrade">`.
+Dann teilen wir Joomla mit, dass dies eine Komponente ist. Und wir wünschen, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen `<extension type="component" method="upgrade">`.
 
-> Manchmal findest du einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du [hier](https://github.com/joomla/joomla-cms/pull/25820).
+> Manchmal findest du im `<extension>`-Tag des Manifestes einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du [hier](https://github.com/joomla/joomla-cms/pull/25820).
 
 Dann definieren wir den Namen der Komponente. In diesem Fall `COM_FOOS`. Mehr [Informationen](https://github.com/joomla/joomla-cms/issues/26221) zum Namen.
 
@@ -59,11 +56,11 @@ Die nächsten Zeilen sind selbsterklärend. Ergänze deine Daten.
 	<license>GNU General Public License version 2 or later;</license>
 ```
 
-Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.0.0` geben: `<version>1.0.0</version>`. Wenn wir einen kleinen Fehler beheben, wäre die nächste Nummer `1.0.1`. Wenn wir eine neue Funktion einführen, wählen wir `1.1.0`. Wenn wir größere Änderungen vorgenommen haben, die Auswirkungen auf frühere Versionen haben, heißt die nächste Version `2.0.0`. Es ist wichtig, dass du die dreiteilige Versionsnummerierung verwendest, da dies das spätere Erstellen von Updates mithilfe der semantischen Versionierung erleichtert.
+Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.0.0` geben: `<version>1.0.0</version>`. Wenn wir einen kleinen Fehler beheben, wäre die nächste Nummer `1.0.1`. Wenn wir eine neue Funktion einführen, wählen wir `1.1.0`. Wenn wir größere Änderungen vorgenommen haben, die Implementierungen in früheren Versionen ändern, heißt die nächste Version `2.0.0`. Es ist wichtig, dass du die dreiteilige Versionsnummerierung verwendest, da dies das spätere Erstellen von Updates mithilfe der semantischen Versionierung erleichtert.
 
-Joomla folgt strikt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering). Ich empfehle dir, dies ebenfalls.
+Joomla folgt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering). Ich empfehle dir dies ebenfalls.
 
-Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Daher ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten [Kapitel](#sprachdateiennutzen) einführen.
+Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Im Moment hat dies noch keine Auswirkungen. Später ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten [Kapitel](#sprachdateiennutzen) einführen.
 Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du das Menü `System` klickst und `Manage | Extensions` öffnest.
 
 Als Nächstes setzen wir das Namespace `tag`: `<namespace>FooNamespace\Component\Foos</namespace>`. Im [Vorwort](joomla-tutorial-vorwort) habe ich erklärt, warum wir Namespaces verwenden.
@@ -78,7 +75,7 @@ Wie benennst du deinen Namespace?
 
 Mit der `script`-datei rufst du Code auf, wenn deine Komponente installiert, deinstalliert oder aktualisiert wird: `<scriptfile>script.php</scriptfile>`.
 
-Wie Joomla! selbst haben Komponenten ein Frontend und einen Administrationsbereich. Der Ordner `administrator/components/com_foos` enthält alle vom Backend verwendeten Dateien. Einzelne fügst du mit dem Tag `filename` hinzu. Für ein vollständiges Verzeichnis verwendest du besser das Tag `folder`. Die Dateien für den Administrationsbereich deiner Komponente sind alle innerhalb des Tags `administration`. Hier ist ebenfalls ein `menu`-Tag. Dies ist der Menüpunkt, der in der Seitenleiste im Backend angezeigt wird. Wir verwenden den Sprachstring `COM_FOOS`, den wir später mit Text aus einer Sprachdatei ersetzen werden.
+Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereich. Der Ordner `administrator/components/com_foos` enthält alle vom Backend verwendeten Dateien. Einzelne fügst du mit dem Tag `filename` hinzu. Für ein vollständiges Verzeichnis verwendest du besser das Tag `folder`. Die Dateien für den Administrationsbereich deiner Komponente sind alle innerhalb des Tags `administration`. Hier ist ebenfalls ein `menu`-Tag. Dies ist der Menüpunkt, der in der Seitenleiste im Backend angezeigt wird. Wir verwenden den Sprachstring `COM_FOOS`, den wir später mit Text aus einer Sprachdatei ersetzen werden.
 
 ```xml
 	<administration>
@@ -403,7 +400,7 @@ return new class implements ServiceProviderInterface
 
 #### [src/administrator/components/com_foos/src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19) Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
 
-Dies ist der Einstiegspunkt für den Model-View-Controller-Teil in den Administrationsbereich der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla! erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
+Dies ist der Einstiegspunkt für den Model-View-Controller-Teil in den Administrationsbereich der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
 
 Die Hauptaufgabe dieses Controllers ist es, die Anzeige vorzubereiten. Daher heißt der Standardcontroller DisplayController. Er ruft die Methode `display()` der Elternklasse `BaseController` im Namespace `Joomla\CMS\MVC\Controller` - genau ist dies die Datei `/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php` - auf. Im Model-View-Controller-Modell werden Controller oft zum Einrichten der Startumgebung genutzt.
 
@@ -421,7 +418,7 @@ Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _Do
  */
 ```
 
-Wie du DocBlocks für Joomla erstellst, erklärten die Joomla! [Codierungsstandards](https://developer.joomla.org/coding-standards/docblocks.html) und der [Pull Request](https://github.com/joomla/joomla-cms/pull/31504)
+Wie du DocBlocks für Joomla erstellst, erklärten die Joomla [Codierungsstandards](https://developer.joomla.org/coding-standards/docblocks.html) und der [Pull Request](https://github.com/joomla/joomla-cms/pull/31504)
 
 > Vor jeder Klasse und Funktion wird ein DocBlock angezeigt. Der gesamte Code enthält diese DocBlock-Kommentare, die es automatisierten Tools erleichtern, die Dokumentation von APIs zu generieren. Dies hilft einigen IDEs, die Code-Vervollständigung bereitzustellen. Und manchmal ist der Kommentar für Programmierer hilfreich. Ich drucke die Dokumentarblöcke hier nicht weiter ab. In den Code-Beispielen auf Github sind sie vorhanden.
 
@@ -494,7 +491,7 @@ class DisplayController extends BaseController
 
 #### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
 
-`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla! die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217].
+`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217].
 
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 
@@ -594,7 +591,7 @@ Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein stati
 
 Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.
 
-In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleiste definiert. Das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten. Im Moment rufen wir nur die Funktion der Eltern-Klasse auf, um das Standardtemplate anzuzeigen: `parent::display($tpl);`. Warum selbst Hand anlegen, wenn es Funktionen in Joomla! gibt.
+In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleiste definiert. Das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten. Im Moment rufen wir nur die Funktion der Eltern-Klasse auf, um das Standardtemplate anzuzeigen: `parent::display($tpl);`. Warum selbst Hand anlegen, wenn es Funktionen in Joomla gibt.
 
 [administrator/components/com_foos/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/View/Foos/HtmlView.php)
 
@@ -681,14 +678,14 @@ Alles ist neu. Es gibt noch keine geänderten Dateien.
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 2. Öffne das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deiner eben kopierten Komponente. Wähle diese aus und klicke auf die Schaltfläche `Install`.
 
-![Ansicht, die es erlaubt, Erweiterungen zu finden, die nicht über die normale Joomla!-Installation installiert wurden.](/images/j4x1x1.png)
+![Ansicht, die es erlaubt, Erweiterungen zu finden, die nicht über die normale Joomla-Installation installiert wurden.](/images/j4x1x1.png)
 
 3. Wenn alles funktioniert, siehst du nach der Installation diese Anzeigen vor dir.
 
@@ -707,472 +704,8 @@ Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die wei
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t0...t1.diff
-
-diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-new file mode 100644
-index 00000000..b41bb7c4
---- /dev/null
-+++ b/src/administrator/components/com_foos/foos.xml
-@@ -0,0 +1,33 @@
-+<?xml version="1.0" encoding="utf-8" ?>
-+<extension type="component" method="upgrade">
-+	<name>COM_FOOS</name>
-+	<creationDate>[DATE]</creationDate>
-+	<author>[AUTHOR]</author>
-+	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
-+	<authorUrl>[AUTHOR_URL]</authorUrl>
-+	<copyright>[COPYRIGHT]</copyright>
-+	<license>GNU General Public License version 2 or later;</license>
-+	<version>1.0.0</version>
-+	<description>COM_FOOS_XML_DESCRIPTION</description>
-+	<namespace path="src">FooNamespace\Component\Foos</namespace>
-+	<scriptfile>script.php</scriptfile>
-+	<!-- Back-end files -->
-+	<administration>
-+		<!-- Menu entries -->
-+		<menu view="foos">COM_FOOS</menu>
-+		<submenu>
-+			<menu link="option=com_foos">COM_FOOS</menu>
-+		</submenu>
-+		<files folder="administrator/components/com_foos">
-+			<filename>foos.xml</filename>
-+			<folder>services</folder>
-+			<folder>src</folder>
-+			<folder>tmpl</folder>
-+		</files>
-+	</administration>
-+	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-+	<updateservers>
-+		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
-+	</updateservers>
-+	<dlid prefix="dlid=" suffix="" />
-+</extension>
-diff --git a/src/administrator/components/com_foos/script.php b/src/administrator/components/com_foos/script.php
-new file mode 100644
-index 00000000..2136559d
---- /dev/null
-+++ b/src/administrator/components/com_foos/script.php
-@@ -0,0 +1,149 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+\defined('_JEXEC') or die;
-+use Joomla\CMS\Installer\InstallerAdapter;
-+use Joomla\CMS\Language\Text;
-+use Joomla\CMS\Log\Log;
-+
-+/**
-+ * Script file of Foo Component
-+ *
-+ * @since  1.0.0
-+ */
-+class Com_FoosInstallerScript
-+{
-+	/**
-+	 * Minimum Joomla version to check
-+	 *
-+	 * @var    string
-+	 * @since  1.0.0
-+	 */
-+	private $minimumJoomlaVersion = '4.0';
-+
-+	/**
-+	 * Minimum PHP version to check
-+	 *
-+	 * @var    string
-+	 * @since  1.0.0
-+	 */
-+	private $minimumPHPVersion = JOOMLA_MINIMUM_PHP;
-+
-+	/**
-+	 * Method to install the extension
-+	 *
-+	 * @param   InstallerAdapter  $parent  The class calling this method
-+	 *
-+	 * @return  boolean  True on success
-+	 *
-+	 * @since  1.0.0
-+	 */
-+	public function install($parent): bool
-+	{
-+		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
-+
-+		return true;
-+	}
-+
-+	/**
-+	 * Method to uninstall the extension
-+	 *
-+	 * @param   InstallerAdapter  $parent  The class calling this method
-+	 *
-+	 * @return  boolean  True on success
-+	 *
-+	 * @since  1.0.0
-+	 */
-+	public function uninstall($parent): bool
-+	{
-+		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UNINSTALL');
-+
-+		return true;
-+	}
-+
-+	/**
-+	 * Method to update the extension
-+	 *
-+	 * @param   InstallerAdapter  $parent  The class calling this method
-+	 *
-+	 * @return  boolean  True on success
-+	 *
-+	 * @since  1.0.0
-+	 *
-+	 */
-+	public function update($parent): bool
-+	{
-+		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
-+
-+		return true;
-+	}
-+
-+	/**
-+	 * Function called before extension installation/update/removal procedure commences
-+	 *
-+	 * @param   string            $type    The type of change (install, update or discover_install, not uninstall)
-+	 * @param   InstallerAdapter  $parent  The class calling this method
-+	 *
-+	 * @return  boolean  True on success
-+	 *
-+	 * @since  1.0.0
-+	 *
-+	 * @throws Exception
-+	 */
-+	public function preflight($type, $parent): bool
-+	{
-+		if ($type !== 'uninstall')
-+		{
-+			// Check for the minimum PHP version before continuing
-+			if (!empty($this->minimumPHPVersion) && version_compare(PHP_VERSION, $this->minimumPHPVersion, '<'))
-+			{
-+				Log::add(
-+					Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPHPVersion),
-+					Log::WARNING,
-+					'jerror'
-+				);
-+
-+				return false;
-+			}
-+
-+			// Check for the minimum Joomla version before continuing
-+			if (!empty($this->minimumJoomlaVersion) && version_compare(JVERSION, $this->minimumJoomlaVersion, '<'))
-+			{
-+				Log::add(
-+					Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomlaVersion),
-+					Log::WARNING,
-+					'jerror'
-+				);
-+
-+				return false;
-+			}
-+		}
-+
-+		echo Text::_('COM_FOOS_INSTALLERSCRIPT_PREFLIGHT');
-+
-+		return true;
-+	}
-+
-+	/**
-+	 * Function called after extension installation/update/removal procedure commences
-+	 *
-+	 * @param   string            $type    The type of change (install, update or discover_install, not uninstall)
-+	 * @param   InstallerAdapter  $parent  The class calling this method
-+	 *
-+	 * @return  boolean  True on success
-+	 *
-+	 * @since  1.0.0
-+	 *
-+	 */
-+	public function postflight($type, $parent)
-+	{
-+		echo Text::_('COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT');
-+
-+		return true;
-+	}
-+}
-diff --git a/src/administrator/components/com_foos/services/provider.php b/src/administrator/components/com_foos/services/provider.php
-new file mode 100644
-index 00000000..b1467814
---- /dev/null
-+++ b/src/administrator/components/com_foos/services/provider.php
-@@ -0,0 +1,57 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
-+use Joomla\CMS\Extension\ComponentInterface;
-+use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
-+use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
-+use Joomla\CMS\Extension\Service\Provider\MVCFactory;
-+use Joomla\CMS\HTML\Registry;
-+use Joomla\DI\Container;
-+use Joomla\DI\ServiceProviderInterface;
-+use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
-+
-+/**
-+ * The foos service provider.
-+ * https://github.com/joomla/joomla-cms/pull/20217
-+ *
-+ * @since  1.0.0
-+ */
-+return new class implements ServiceProviderInterface
-+{
-+	/**
-+	 * Registers the service provider with a DI container.
-+	 *
-+	 * @param   Container  $container  The DI container.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   1.0.0
-+	 */
-+	public function register(Container $container)
-+	{
-+		$container->registerServiceProvider(new CategoryFactory('\\FooNamespace\\Component\\Foos'));
-+		$container->registerServiceProvider(new MVCFactory('\\FooNamespace\\Component\\Foos'));
-+		$container->registerServiceProvider(new ComponentDispatcherFactory('\\FooNamespace\\Component\\Foos'));
-+
-+		$container->set(
-+			ComponentInterface::class,
-+			function (Container $container)
-+			{
-+				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
-+
-+				$component->setRegistry($container->get(Registry::class));
-+
-+				return $component;
-+			}
-+		);
-+	}
-+};
-diff --git a/src/administrator/components/com_foos/src/Controller/DisplayController.php b/src/administrator/components/com_foos/src/Controller/DisplayController.php
-new file mode 100644
-index 00000000..048864f7
---- /dev/null
-+++ b/src/administrator/components/com_foos/src/Controller/DisplayController.php
-@@ -0,0 +1,47 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Administrator\Controller;
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\MVC\Controller\BaseController;
-+
-+/**
-+ * Foos master display controller.
-+ *
-+ * @since  1.0.0
-+ */
-+class DisplayController extends BaseController
-+{
-+	/**
-+	 * The default view.
-+	 *
-+	 * @var    string
-+	 * @since  1.0.0
-+	 */
-+	protected $default_view = 'foos';
-+
-+	/**
-+	 * Method to display a view.
-+	 *
-+	 * @param   boolean  $cachable   If true, the view output will be cached
-+	 * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link \JFilterInput::clean()}.
-+	 *
-+	 * @return  BaseController|bool  This object to support chaining.
-+	 *
-+	 * @since   1.0.0
-+	 *
-+	 * @throws  \Exception
-+	 */
-+	public function display($cachable = false, $urlparams = array())
-+	{
-+		return parent::display();
-+	}
-+}
-diff --git a/src/administrator/components/com_foos/src/Extension/FoosComponent.php b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
-new file mode 100644
-index 00000000..aaad21ec
---- /dev/null
-+++ b/src/administrator/components/com_foos/src/Extension/FoosComponent.php
-@@ -0,0 +1,49 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Administrator\Extension;
-+
-+defined('JPATH_PLATFORM') or die;
-+
-+use Joomla\CMS\Categories\CategoryServiceInterface;
-+use Joomla\CMS\Categories\CategoryServiceTrait;
-+use Joomla\CMS\Extension\BootableExtensionInterface;
-+use Joomla\CMS\Extension\MVCComponent;
-+use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
-+use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
-+use Psr\Container\ContainerInterface;
-+
-+/**
-+ * Component class for com_foos
-+ *
-+ * @since  1.0.0
-+ */
-+class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface
-+{
-+	use CategoryServiceTrait;
-+	use HTMLRegistryAwareTrait;
-+
-+	/**
-+	 * Booting the extension. This is the function to set up the environment of the extension like
-+	 * registering new class loaders, etc.
-+	 *
-+	 * If required, some initial set up can be done from services of the container, eg.
-+	 * registering HTML services.
-+	 *
-+	 * @param   ContainerInterface  $container  The container
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   1.0.0
-+	 */
-+	public function boot(ContainerInterface $container)
-+	{
-+		$this->getRegistry()->register('foosadministrator', new AdministratorService);
-+	}
-+}
-diff --git a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php b/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
-new file mode 100644
-index 00000000..b598e7fe
---- /dev/null
-+++ b/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
-@@ -0,0 +1,21 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Administrator\Service\HTML;
-+
-+defined('JPATH_BASE') or die;
-+
-+/**
-+ * Foo HTML class.
-+ *
-+ * @since  1.0.0
-+ */
-+class AdministratorService
-+{
-+}
-diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-new file mode 100644
-index 00000000..e7bb0120
---- /dev/null
-+++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-@@ -0,0 +1,36 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Administrator\View\Foos;
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
-+
-+/**
-+ * View class for a list of foos.
-+ *
-+ * @since  1.0.0
-+ */
-+class HtmlView extends BaseHtmlView
-+{
-+	/**
-+	 * Method to display the view.
-+	 *
-+	 * @param   string  $tpl  A template file to load. [optional]
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   1.0.0
-+	 */
-+	public function display($tpl = null): void
-+	{
-+		parent::display($tpl);
-+	}
-+}
-diff --git a/src/administrator/components/com_foos/tmpl/foos/default.php b/src/administrator/components/com_foos/tmpl/foos/default.php
-new file mode 100644
-index 00000000..4796008d
---- /dev/null
-+++ b/src/administrator/components/com_foos/tmpl/foos/default.php
-@@ -0,0 +1,11 @@
-+<?php
-+/**
-+ * @package     Joomla.Administrator
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+\defined('_JEXEC') or die;
-+?>
-+Hello Foos
-diff --git a/src/api/com_foos/index.html b/src/api/com_foos/index.html
-new file mode 100644
-index 00000000..2efb97f3
---- /dev/null
-+++ b/src/api/com_foos/index.html
-@@ -0,0 +1 @@
-+<!DOCTYPE html><title></title>
-diff --git a/src/components/com_foos/index.html b/src/components/com_foos/index.html
-new file mode 100644
-index 00000000..2efb97f3
---- /dev/null
-+++ b/src/components/com_foos/index.html
-@@ -0,0 +1 @@
-+<!DOCTYPE html><title></title>
+// github.com/astridx/boilerplate/compare/t0...t1.diff
 
 ```
+
+## Links

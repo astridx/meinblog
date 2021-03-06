@@ -36,7 +36,7 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
 
 Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
 
@@ -53,7 +53,7 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t35...t36.diff
+// github.com/astridx/boilerplate/compare/t35...t36.diff
 
 
 ```

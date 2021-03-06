@@ -12,7 +12,7 @@ tags:
   - Joomla
 ---
 
-Wenn du neu bei Joomla! bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
+Wenn du neu bei Joomla bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
 
 Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
 
@@ -20,16 +20,16 @@ Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du unter [GitHub](
 
 ## Für wen ist dieses Tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla! funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen.
+Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen.
 
 > Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen.
-> Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla! 3 Komponente, wenn diese Ihre Komponente für Joomla! 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
+> Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla 3 Komponente, wenn diese Ihre Komponente für Joomla 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
 
 ## Die Struktur dieses Tutorials
 
 Jedes Kapitel baut auf den vorherigen Builds auf. Wenn du dich jedoch für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an.
 
-Es gibt viele Beispiele für Komponenten im Standard Joomla!. Beispielsweise
+Es gibt viele Beispiele für Komponenten im Standard Joomla. Beispielsweise
 
 - com_content
 - com_banner
@@ -38,11 +38,11 @@ Es gibt viele Beispiele für Komponenten im Standard Joomla!. Beispielsweise
 
 In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist komplex und das Finden und Trennen bestimmter Elemente der Implementierung, wie z. B. Seitennummerierung, benutzerdefinierte Felder ..., ist mühsam und umständlich.
 
-> Mit diesem Tutorial erstellst du eine Komponente für Joomla! 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla! bietet eine ganze Reihe von Standardfunktionen.
+> Mit diesem Tutorial erstellst du eine Komponente für Joomla 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla bietet eine ganze Reihe von Standardfunktionen.
 
-Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
+Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
 
-## Theoretische Grundlagen zu Joomla!
+## Theoretische Grundlagen zu Joomla
 
 ### Joomlaǃ 4 bietet fünf Arten von Erweiterungenː
 
@@ -53,11 +53,11 @@ Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/
 - [Plugins](https://docs.joomla.org/Special:MyLanguage/Plugin/de):
   Ein Plugin bearbeitet die Ausgabe, die vom System generiert wurde. Es wird normalerweise nicht als separater Teil der Site aufgerufen. Es nimmt Daten aus anderen Quellen und bearbeitet diese vor dem Anzeigen. Ein Plugin funktioniert normalerweise hinter den Kulissen.
 - [Sprachen](https://docs.joomla.org/Language/de):
-  Die grundlegendsten Erweiterungen sind Sprachen. Im Wesentlichen bestehen die Sprachpaketdateien aus Schlüssel/Wert-Paaren, die die Übersetzung statischer Textzeichenfolgen im Joomla! Quellcode ermöglichen.
+  Die grundlegendsten Erweiterungen sind Sprachen. Im Wesentlichen bestehen die Sprachpaketdateien aus Schlüssel/Wert-Paaren, die die Übersetzung statischer Textzeichenfolgen im Joomla Quellcode ermöglichen.
 - [Templates](https://docs.joomla.org/Special:MyLanguage/Templates/de):
-  Ein Template ist das Design deiner Joomla! Website.
+  Ein Template ist das Design deiner Joomla Website.
 
-### Joomla! 4 besteht aus fünf verschiedenen Anwendungen:
+### Joomla 4 besteht aus fünf verschiedenen Anwendungen:
 
 - Installation (wird für die Installation von Joomla verwendet und muss nach der Installation gelöscht werden);
 - Administrator (Backend - zum Verwalten von Inhalten);
@@ -92,7 +92,7 @@ Warum Namespaces verwenden?
 
 ## Großschreibung von Ordnernamen
 
-Du wirst vielleicht bemerken, dass einige der Joomla! 4.x Ordner- und Dateinamen mit Großbuchstaben und andere mit Kleinbuchstaben beginen. Auf den ersten Blick scheint dies chaotisch. Auf den zweiten Blick macht dies Sinn.
+Du wirst vielleicht bemerken, dass einige der Joomla 4.x Ordner- und Dateinamen mit Großbuchstaben und andere mit Kleinbuchstaben beginen. Auf den ersten Blick scheint dies chaotisch. Auf den zweiten Blick macht dies Sinn.
 
 Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in Kleinbuchstaben enthalten XML-Dateien, Templatedateien, usw. . Es gibt einige Ordner mit Kleinbuchstaben die PHP-Dateien enthalten (aufgrund von Rückwärtskompatibilität) wie die Helfer-Dateien.
 

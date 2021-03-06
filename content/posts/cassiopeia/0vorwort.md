@@ -13,7 +13,7 @@ tags:
   - Cassiopeia
 ---
 
-Wenn du neu bei Joomla 4 bist, lese bitte [Erste Schritte mit Joomla 4](https://docs.joomla.org/J4.x:Getting_Started_with_Joomla!/de).
+Wenn du neu bei Joomla 4 bist, lese bitte [Erste Schritte mit Joomla 4](https://docs.joomla.org/J4.x:Getting_Started_with_Joomla/de).
 
 Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen eines Templates für Joomla 3 findest du unter [Erste Schritte mit Templates](https://docs.joomla.org/J3.x:Getting_Started_with_Templates/de).
 
@@ -21,7 +21,7 @@ Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du auf [GitHub](ht
 
 ## Für wen ist dieses Tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, zu zeigen, wie Cassiopeia und Joomla! funktionieren - und es dabei selbst besser zu verstehen.
+Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, zu zeigen, wie Cassiopeia und Joomla funktionieren - und es dabei selbst besser zu verstehen.
 
 > Daher ist dieses Tutorial in erster Linie für Webmaster gedacht, die eine neue Website mit Joomla 4 erstellen, Cassiopeia anpassen möchten und Joomla bisher nicht kennen.
 
@@ -41,11 +41,11 @@ Das Front-End sollte nun so wie in der nachfolgenden Abbildung aussehen.
 
 Wenn du dich für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an.
 
-> Mit diesem Tutorial passt du eine Joomla! 4 Website mit Cassiopeia und Blog Beispieldaten an deine Bedürfnisse an. Du erfindest das Rad nicht neu. Joomla! und Cassiopeia bieten eine ganze Reihe.
+> Mit diesem Tutorial passt du eine Joomla 4 Website mit Cassiopeia und Blog Beispieldaten an deine Bedürfnisse an. Du erfindest das Rad nicht neu. Joomla und Cassiopeia bieten eine ganze Reihe.
 
-Wenn du sofort loslegen möchtest, blättere zu [Warum Cassiopeia](/warum-cassiopeia). Nachfolgend findest du einige Dinge zu Joomla! 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
+Wenn du sofort loslegen möchtest, blättere zu [Warum Cassiopeia](/warum-cassiopeia). Nachfolgend findest du einige Dinge zu Joomla 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
 
-## Theoretische Grundlagen zu Joomla!
+## Theoretische Grundlagen zu Joomla
 
 ### Joomlaǃ 4 bietet fünf Arten von Erweiterungenː
 
@@ -56,11 +56,11 @@ Wenn du sofort loslegen möchtest, blättere zu [Warum Cassiopeia](/warum-cassio
 - [Plugins](https://docs.joomla.org/Special:MyLanguage/Plugin/de):
   Ein Plugin bearbeitet die Ausgabe, die vom System generiert wurde. Es wird normalerweise nicht als separater Teil der Site aufgerufen. Es nimmt Daten aus anderen Quellen und bearbeitet diese vor dem Anzeigen. Ein Plugin funktioniert normalerweise hinter den Kulissen.
 - [Sprachen](https://docs.joomla.org/Language/de):
-  Die grundlegendsten Erweiterungen sind Sprachen. Im Wesentlichen bestehen die Sprachpaketdateien aus Schlüssel/Wert-Paaren, die die Übersetzung statischer Textzeichenfolgen im Joomla! Quellcode ermöglichen.
+  Die grundlegendsten Erweiterungen sind Sprachen. Im Wesentlichen bestehen die Sprachpaketdateien aus Schlüssel/Wert-Paaren, die die Übersetzung statischer Textzeichenfolgen im Joomla Quellcode ermöglichen.
 - [Templates](https://docs.joomla.org/Special:MyLanguage/Templates/de):
-  Ein Template ist das Design deiner Joomla! Website.
+  Ein Template ist das Design deiner Joomla Website.
 
-### Joomla! 4 besteht aus fünf verschiedenen Anwendungen:
+### Joomla 4 besteht aus fünf verschiedenen Anwendungen:
 
 - Installation (wird für die Installation von Joomla verwendet und muss nach der Installation gelöscht werden);
 - Administrator (Backend - zum Verwalten von Inhalten);

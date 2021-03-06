@@ -1,0 +1,68 @@
+---
+date: 2020-11-29
+title: 'Joomla 4.x Tutorial - Extension Development - The Way to Joomla 4 Extensions'
+template: post
+thumbnail: '../../thumbnails/joomla.png'
+slug: en/der-weg-zu-joomlae4-erweiterungen
+langKey: de
+categories:
+  - Code
+  - TutorialEn
+tags:
+  - CMS
+  - Joomla
+---
+
+## Component
+
+1. [Preface](/en/joomla-tutorial-vorwort)
+1. [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend)
+1. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
+1. [Die erste Ansicht im Frontend](/die-erste-ansicht-im-frontend)
+1. [Ein Menüpunkt](/ein-menuepunkt)
+1. [Das M im MVC: Model](/das-m-im-mvc-model)
+1. [Den Menüpunkt mit einer Variablen versehen](/den-menupunkt-mit-einer-variablen-versehen)
+1. [Eine Joomla-Datenbank für deine Erweiterung](/eine-joomla-datenbank-fuer-deine-erweiterung)
+1. [Die Datenbank nutzen](/die-datenbank-nutzen)
+1. [Die Daten der Datenbank im Frontend nutzen](/die-daten-der-datenbank-im-frontend-nutzen)
+1. [Sprachdateien nutzen](/sprachdateien-nutzen)
+1. [Konfiguration](/joomla-konfiguration)
+1. [ACL](/joomla-acl)
+
+1. [Serverseiteige Validierung](/joomla-serverseiteige-validierung)
+1. [Clientseitige Validierung](/joomla-clientseiteige-validierung)
+1. [Kategorien im Backend einrichten](/joomla-kategorien-im-backend-einrichten)
+1. [Veröffentlichen und Verstecken](/joomla-veröeffentlichen-und-erstecken)
+1. [Custom Fields im Backend integrieren](/joomla-custom-fields-im-backend-integrieren)
+1. [Custom Fields im Frontend](/joomla-custom-fields-im-frontend-integrieren)
+1. [Mehrsprachigkeit](/joomla-mehrsprachigkeit)
+1. [Filtern, Sortieren, Suchen](/joomla-filtern-sortieren-suchen)
+1. [Aktionen in der Werkzeugleiste](/joomla-aktionen-in-der-werkzeugleiste)
+1. [Parameter](/joomla-parameter)
+1. [Pagination](/joomla-pagination)
+1. [Layout](/joomla-layout)
+1. [Checkin und Checkout](/joomla-checkin-checkout)
+1. [Stapelverarbeitung/Batch](/joomla-batch)
+1. [Hilfe](/joomla-hilfe)
+1. [Featured](/joomla-featured)
+1. [Backendformular](/joomla-backendformular)
+1. [Frontend Editing](/joomla-frontend-editing)
+1. [Ansicht nach Kategorien](/joomla-ansicht-nach-kategorien)
+1. [Einen Service hinzufügen - Routing](/joomla-einen-service-hinzufuegen-routing)
+1. [Zugriff auf das Dashboard](/joomla-dashboard-fuer-deine-erweiterung)
+1. [Tags](/joomla-tags)
+
+## Plugin und Komponente
+
+1. [Webservices inklusive Plugin - Unterstützen der Joomla-API](/joomla-webservices)
+
+## Module
+
+1. [Module - Erste Schritte](/joomla-module-erste-schritte/)
+1. [Module - Namespace und Helper](/joomla-module-namespace-und-helper)
+1. [Module - Parameter](/joomla-module-parameter)
+1. [Module - Installationsskript](/joomla-module-installation-script)
+
+## Template
+
+1. [Template - Erste Schritte](/joomla-template-erste-schritte)

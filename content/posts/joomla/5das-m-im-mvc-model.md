@@ -118,10 +118,10 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -136,81 +136,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t3...t4.diff
-
-diff --git a/src/components/com_foos/src/Model/FooModel.php b/src/components/com_foos/src/Model/FooModel.php
-new file mode 100644
-index 00000000..70dd4d2b
---- /dev/null
-+++ b/src/components/com_foos/src/Model/FooModel.php
-@@ -0,0 +1,43 @@
-+<?php
-+
-+/**
-+ * @package     Joomla.Site
-+ * @subpackage  com_foos
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Site\Model;
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
-+
-+/**
-+ * Foo model for the Joomla Foos component.
-+ *
-+ * @since  __BUMP_VERSION__
-+ */
-+class FooModel extends BaseDatabaseModel
-+{
-+	/**
-+	 * @var string message
-+	 */
-+	protected $message;
-+
-+	/**
-+	 * Get the message
-+	 *
-+	 * @return  string  The message to be displayed to the user
-+	 */
-+	public function getMsg()
-+	{
-+		if (!isset($this->message))
-+		{
-+			$this->message = 'Hello Foo!';
-+		}
-+
-+		return $this->message;
-+	}
-+}
-diff --git a/src/components/com_foos/src/View/Foo/HtmlView.php b/src/components/com_foos/src/View/Foo/HtmlView.php
-index fabeaa3a..fe10f2aa 100644
---- a/src/components/com_foos/src/View/Foo/HtmlView.php
-+++ b/src/components/com_foos/src/View/Foo/HtmlView.php
-@@ -29,6 +29,8 @@ class HtmlView extends BaseHtmlView
- 	 */
- 	public function display($tpl = null)
- 	{
-+		$this->msg = $this->get('Msg');
-+
- 		return parent::display($tpl);
- 	}
- }
-diff --git a/src/components/com_foos/tmpl/foo/default.php b/src/components/com_foos/tmpl/foo/default.php
-index 661ed99b..e98d8dc3 100644
---- a/src/components/com_foos/tmpl/foo/default.php
-+++ b/src/components/com_foos/tmpl/foo/default.php
-@@ -8,4 +8,5 @@
-  */
- \defined('_JEXEC') or die;
- ?>
--Hello Foos
-+
-+Hello Foos: <?php echo $this->msg;
+github.com/astridx/boilerplate/compare/t3...t4.diff
 
 ```
 

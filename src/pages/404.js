@@ -12,7 +12,10 @@ export default function FourOhFour() {
       <Helmet title={`Nichts gefunden | ${config.siteTitle}`} />
       <SEO />
       <h1>Nichts gefunden</h1>
-      <p>Dies war wahrscheinlich ein Fehler oder die Seite existiert noch nicht in dieser Sprache.</p>
+      <p>
+        Dies war wahrscheinlich ein Fehler oder die Seite existiert noch nicht
+        in dieser Sprache.
+      </p>
     </Layout>
   )
 }

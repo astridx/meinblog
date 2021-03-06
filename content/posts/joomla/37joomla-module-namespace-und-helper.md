@@ -121,11 +121,11 @@ Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen 
 
 ## Teste dein Joomla-Module
 
-1. Installiere das Modul in Joomla! Version 4, um es zu testen:
+1. Installiere das Modul in Joomla Version 4, um es zu testen:
 
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
 
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla! aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
+Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
 
 2. Überprüfe, ob der über die Funktion `FooHelper::getText()` errechnete Text im Frontend angezeigt wird.
 
@@ -136,87 +136,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t31...t32.diff
-
-diff --git a/src/modules/mod_foo/Helper/FooHelper.php b/src/modules/mod_foo/Helper/FooHelper.php
-new file mode 100644
-index 00000000..847d403b
---- /dev/null
-+++ b/src/modules/mod_foo/Helper/FooHelper.php
-@@ -0,0 +1,33 @@
-+<?php
-+/**
-+ * @package     Joomla.Site
-+ * @subpackage  mod_foo
-+ *
-+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Module\Foo\Site\Helper;
-+
-+\defined('_JEXEC') or die;
-+
-+/**
-+ * Helper for mod_foo
-+ *
-+ * @since  __BUMP_VERSION__
-+ */
-+class FooHelper
-+{
-+	/**
-+	 * Retrieve foo test
-+	 *
-+	 * @param   Registry        $params  The module parameters
-+	 * @param   CMSApplication  $app     The application
-+	 *
-+	 * @return  array
-+	 */
-+	public static function getText()
-+	{
-+		return 'FooHelpertest';
-+	}
-+}
-diff --git a/src/modules/mod_foo/mod_foo.php b/src/modules/mod_foo/mod_foo.php
-index 918a2313..153977ef 100644
---- a/src/modules/mod_foo/mod_foo.php
-+++ b/src/modules/mod_foo/mod_foo.php
-@@ -11,5 +11,8 @@
- \defined('_JEXEC') or die;
-
- use Joomla\CMS\Helper\ModuleHelper;
-+use FooNamespace\Module\Foo\Site\Helper\FooHelper;
-+
-+$test  = FooHelper::getText();
-
- require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
-diff --git a/src/modules/mod_foo/mod_foo.xml b/src/modules/mod_foo/mod_foo.xml
-index 482aa45e..afd93ad1 100644
---- a/src/modules/mod_foo/mod_foo.xml
-+++ b/src/modules/mod_foo/mod_foo.xml
-@@ -9,10 +9,11 @@
- 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
- 	<version>__BUMP_VERSION__</version>
- 	<description>MOD_FOO_XML_DESCRIPTION</description>
--
-+	<namespace>FooNamespace\Module\Foo</namespace>
- 	<files>
- 		<filename module="mod_foo">mod_foo.php</filename>
- 		<folder>tmpl</folder>
-+		<folder>Helper</folder>
- 		<folder>language</folder>
- 		<filename>mod_foo.xml</filename>
- 	</files>
-diff --git a/src/modules/mod_foo/tmpl/default.php b/src/modules/mod_foo/tmpl/default.php
-index c2256e7e..70d865c4 100644
---- a/src/modules/mod_foo/tmpl/default.php
-+++ b/src/modules/mod_foo/tmpl/default.php
-@@ -9,4 +9,4 @@
-
- \defined('_JEXEC') or die;
-
--echo '[PROJECT_NAME]';
-+echo '[PROJECT_NAME]' . $test;
+// github.com/astridx/boilerplate/compare/t31...t32.diff
 
 ```
 

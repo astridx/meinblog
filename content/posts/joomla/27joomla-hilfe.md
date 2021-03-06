@@ -14,7 +14,7 @@ tags:
 
 Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung.
 
-![Joomla! Hilfelink](/images/j4x27x1.png)
+![Joomla Hilfelink](/images/j4x27x1.png)
 
 ## Für Ungeduldige
 
@@ -58,17 +58,17 @@ Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeige
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Hilfelink und vergewissere dich davon, dass du zu der von dir eingegebenen Hilfeseite weitergeleitet wirst.
 
-![Joomla! Hilfelink](/images/j4x27x1.png)
+![Joomla Hilfelink](/images/j4x27x1.png)
 
 ## Geänderte Dateien
 
@@ -77,7 +77,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t22...t23.diff
+// github.com/astridx/boilerplate/compare/t22...t23
 
 
 ```

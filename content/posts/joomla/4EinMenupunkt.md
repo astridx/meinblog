@@ -57,10 +57,10 @@ Der Text im `message`-Tag wird als Beschreibung angezeigt.
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -87,22 +87,7 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t2...t3.diff
-
-diff --git a/src/components/com_foos/tmpl/foo/default.xml b/src/components/com_foos/tmpl/foo/default.xml
-new file mode 100644
-index 00000000..cda926c9
---- /dev/null
-+++ b/src/components/com_foos/tmpl/foo/default.xml
-@@ -0,0 +1,8 @@
-+<?xml version="1.0" encoding="utf-8"?>
-+<metadata>
-+	<layout title="COM_FOOS_FOO_VIEW_DEFAULT_TITLE">
-+		<message>
-+			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
-+		</message>
-+	</layout>
-+</metadata>
+// github.com/astridx/boilerplate/compare/t2...t3.diff
 
 ```
 

@@ -59,8 +59,8 @@ Wir werden die Datei Zeile für Zeile durchgehen.
 
 **Anmerkung:**
 
-- **\$debug**: Dadurch wird das Debugging-System von Joomla! aktiviert. Bei der Einstellung "Ja" bietet dieses Tool Diagnoseinformationen, Sprachübersetzungen und SQL-Fehler. Wenn solche Probleme oder Fehler auftreten, werden sie am unteren Ende jeder Seite sowohl im Front-End als auch im Back-End angezeigt.
-- **\$debug_lang**: Dadurch werden die Debugging-Indikatoren (_..._) oder (?...?) für Joomla! Sprachdateien. Die Debug-Sprache funktioniert ohne das aktivierte Debug-System-Tool. Es werden jedoch keine zusätzlichen detaillierten Referenzen bereitgestellt, die bei der Korrektur von Fehlern hilfreich wären.
+- **\$debug**: Dadurch wird das Debugging-System von Joomla aktiviert. Bei der Einstellung "Ja" bietet dieses Tool Diagnoseinformationen, Sprachübersetzungen und SQL-Fehler. Wenn solche Probleme oder Fehler auftreten, werden sie am unteren Ende jeder Seite sowohl im Front-End als auch im Back-End angezeigt.
+- **\$debug_lang**: Dadurch werden die Debugging-Indikatoren (_..._) oder (?...?) für Joomla Sprachdateien. Die Debug-Sprache funktioniert ohne das aktivierte Debug-System-Tool. Es werden jedoch keine zusätzlichen detaillierten Referenzen bereitgestellt, die bei der Korrektur von Fehlern hilfreich wären.
 
 ## Datenbank Einstellungen
 
@@ -199,7 +199,7 @@ Wir benötigen diese Informationen, wenn wir die Site installieren. Das Vergesse
 
 ### Anmerkung
 
-- **\$sef**: Hiermit werden suchmaschinenfreundliche URLs gesteuert. Bei der Einstellung "Ja" werden URLs neu geschrieben, um für Suchmaschinenspinnen benutzerfreundlicher zu sein. Aus der URL: www.example.com/index.php?option=com_content&view=etc ... wird beispielsweise www.example.com/alias. Die meisten Elemente in Joomla! haben ein Alias-Feld, in das ein suchmaschinenfreundlicher Wert eingefügt werden kann. Die Standardeinstellung ist Nein.
+- **\$sef**: Hiermit werden suchmaschinenfreundliche URLs gesteuert. Bei der Einstellung "Ja" werden URLs neu geschrieben, um für Suchmaschinenspinnen benutzerfreundlicher zu sein. Aus der URL: www.example.com/index.php?option=com_content&view=etc ... wird beispielsweise www.example.com/alias. Die meisten Elemente in Joomla haben ein Alias-Feld, in das ein suchmaschinenfreundlicher Wert eingefügt werden kann. Die Standardeinstellung ist Nein.
 - **\$sef_rewrite**: Bei Einstellung auf Ja, verwendet Joomla die mod_rewrite Einstellungen von Apache beim Erstellen suchmaschinenfreundlicher URLs. Bitte beachte: Es wird empfohlen, keine .htaccess-Datei zu ändern, ohne zu verstehen, wie sie funktioniert. Standardmäßig ist diese Einstellung auf Nein eingestellt.
 - **\$sef_suffix**: Bei Einstellung auf Ja, fügt Joomla am Ende der URLs .html hinzu. Die Standardeinstellung ist Nein.
 - **\$unicodeslugs**: Wählen wir zwischen Transliteration und Unicode-Aliasen. Die Transliteration ist die Standardeinstellung. Dies ist eine erweiterte Einstellung, und wir müssen diese wahrscheinlich nur ändern, wenn wir ein SEO-Experte sind :).

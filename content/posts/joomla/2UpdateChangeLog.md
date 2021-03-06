@@ -16,7 +16,7 @@ Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User
 
 In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. **Überspringe dann einfach diese Einheit.**
 
-Update Server klingt kompliziert, im Grunde ist es nur eine URL zu einer XML-Datei, die in der XML-Installationsdatei angegeben ist. Diese XML enthält eine Reihe von Details, einschließlich der neuen Version und der Download-URL. Wenn Joomla! eine Aktualisierung findet, wird dies im Administrationsbereich angezeigt.
+Update Server klingt kompliziert, im Grunde ist es nur eine URL zu einer XML-Datei, die in der XML-Installationsdatei angegeben ist. Diese XML enthält eine Reihe von Details, einschließlich der neuen Version und der Download-URL. Wenn Joomla eine Aktualisierung findet, wird dies im Administrationsbereich angezeigt.
 
 ![Joomla Update Server](/images/j4x2x3.png)
 
@@ -26,7 +26,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website im Internet gespeichert werden. Die Adressen oder URLs unter diesen diesen abgelegt sind, hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingefügt.
+Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gespeichert werden. Die Adressen oder URLs unter diesen diesen abgelegt sind, hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingefügt.
 
 ![Übersicht über die Dateien im zweiten Kapitel](/images/j4xzwei.png)
 
@@ -42,7 +42,7 @@ Erstelle die Datei [foo_update.xml](https://github.com/astridx/boilerplate/blob/
 
 Das Tag `updates` umgibt alle Update-Elemente. Erstelle jedes Mal einen weiteren Update-Abschnitt, wenn du eine neue Version veröffentlichst.
 
-> Wenn deine Erweiterung andere Joomla! Versionen unterstütz, erstelle für jede Version eine separate `<update>`-Definitionen.
+> Wenn deine Erweiterung andere Joomla Versionen unterstütz, erstelle für jede Version eine separate `<update>`-Definitionen.
 
 Der Wert von `name` wird in der Ansicht "Extension Manager Update" angezeigt. Wenn du denselben Namen wie die Erweiterung verwendest, vermeidst u Verwirrung:
 
@@ -65,9 +65,9 @@ Und das Attribut `format` definiert den Pakettyp wie `zip` or `tar`.
 
 The Tags `maintainer` und `maintainerurl` sind selbsterklärend.
 
-Das Tag `targetplatform` beschreibt die Joomla! Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte immer auf "joomla" gesetzt werden: `<targetplatform name="joomla" version="4.*"/>`.
+Das Tag `targetplatform` beschreibt die Joomla Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte immer auf "joomla" gesetzt werden: `<targetplatform name="joomla" version="4.*"/>`.
 
-> Wenn du dein Update für eine bestimmte Joomla! Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
+> Wenn du dein Update für eine bestimmte Joomla Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
 
 Manchmal möchtest du, dass dein Update für eine Mindest-PHP-Version verfügbar ist. Ereldig dies mit dem Tag `php_minimum`.
 
@@ -76,7 +76,7 @@ Schließe am Ende alle Tags `</update></updates>`
 > Für Plugins füge ein Tag mit dem Namen `folder` und ein Tag mit dem Namen `client` hinzu. Diese Tags werden nur für Plugins benötigt.
 
 Das Tag `folder` beschreibt den Typ des Plugins. Abhängig von Ihrem Plugin-Typ kann dies `system`, `content`, `search` usw. sein.
-Der Wert des `client` -Tags beschreibt die client_id in der Tabelle #\_\_extension, die Joomla! Wenn dies ein Site- (0) oder ein Administrator- (1) Erweiterungstyp ist. Plugins sind immer 0, Komponenten sind immer 1; Module können jedoch variieren, je nachdem, ob es sich um ein Front-End- oder ein Back-End-Modul handelt.
+Der Wert des `client` -Tags beschreibt die client_id in der Tabelle #\_\_extension, die Joomla Wenn dies ein Site- (0) oder ein Administrator- (1) Erweiterungstyp ist. Plugins sind immer 0, Komponenten sind immer 1; Module können jedoch variieren, je nachdem, ob es sich um ein Front-End- oder ein Back-End-Modul handelt.
 
 Nachfolgend siehst du die vollständige Datei.
 
@@ -178,20 +178,20 @@ Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 
-2. Als Nächstes erstellst du eine weitere Version. Ändere dazu die Versionsnummer im Manifest oder bearbeite den nächsten Teil. Vorher ist nicht möglich, den Update Server zu testen. Es gibt bisher keine Aktualisierung. Ich schreibe dir hier aber schon einmal, was genau nach dem Erstellen der nächsten Version passiert.
+2. Als Nächstes erstellst du eine weitere Version der Beispiel-Erweiterung. Ändere dazu die Versionsnummer im Manifest. Vorher ist es nicht möglich, den Update Server zu testen. Denn, es gibt bisher keine Aktualisierung. Ich erwähne dies hier trotzdem, was genau nach dem Erstellen der nächsten Versionen passiert.
 
-3. Wenn alles funktioniert siehst du nach der Installation diese Anzeigen vor dir.
+3. Wenn alles funktioniert siehst du nach der Installation diese Anzeigen vor dir, wenn du links das Menü `System` anklickst und dann rechts `Extension` im Bereich `Updates` auswählst. Das Bild hzeigt den Stand, nachdem die Version 23.0.0 veröffentlicht wurde.
 
 ![Joomla Update Server](/images/j4x2x1.png)
 
-4. Öffne System Update Extension. Hier wird dir die Aktualisierung für deine Komponente angeboten. Falls dies nicht der Fall ist, klicke auf die Schaltfläche `Find Updates`.
+4. Öffne also `System | Update | Extension`. Hier wird dir die Aktualisierung für deine Komponente angeboten. Falls dies nicht der Fall ist, klicke auf die Schaltfläche `Find Updates`.
 
 5. Beim ersten Öffnen siehst du den Hinweis `The Download Key` is missing, weil du das Element `dlid` im Manifest eingetragen hast.
 
@@ -199,7 +199,13 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 
 ![Joomla Update Sites](/images/j4x2x2.png)
 
-5. Wenn du zurück zu System Update Extension navigierst, ist es dir möglich, eine Aktualisierung anzustoßen und dir das Changelog anzusehen.
+![Joomla Update Sites](/images/j4x2x2_2.png)
+
+5. Wenn du zurück zu System Update Extension navigierst, ist es dir möglich, eine Aktualisierung anzustoßen oder dir das Changelog anzusehen.
+
+> Die Aktualisierung war vorher nicht möglich, weil der `Download Key` nicht konfiguriert war.
+
+> Klicke die Schaltfläche `Find Updates` in der Werkzeugleiste, falls das Update nicht mehr angezeigt wird.
 
 ![Joomla Update Server](/images/j4x2x3.png)
 
@@ -210,87 +216,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t1...t1b.diff
-
-diff --git a/changelog.xml b/changelog.xml
-new file mode 100644
-index 00000000..a3bf6ce0
---- /dev/null
-+++ b/changelog.xml
-@@ -0,0 +1,36 @@
-+<changelogs>
-+	<changelog>
-+		<element>com_foos</element>
-+		<type>component</type>
-+		<version>1.0.0</version>
-+		<note>
-+			<item>Initial Version</item>
-+		</note>
-+	</changelog>
-+	<changelog>
-+		<element>com_foos</element>
-+		<type>component</type>
-+		<version>1.0.1</version>
-+		<security>
-+			<item><![CDATA[<p>No security issues.</p>]]></item>
-+		</security>
-+		<fix>
-+			<item>No fix</item>
-+		</fix>
-+		<language>
-+			<item>English</item>
-+		</language>
-+		<addition>
-+			<item>Change log and Update Server added.</item>
-+		</addition>
-+		<change>
-+			<item>No change</item>
-+		</change>
-+		<remove>
-+			<item>No remove</item>
-+		</remove>
-+		<note>
-+			<item>Change log and Update Server added.</item>
-+		</note>
-+	</changelog>
-+</changelogs>
-diff --git a/foo_update.xml b/foo_update.xml
-new file mode 100644
-index 00000000..c710894d
---- /dev/null
-+++ b/foo_update.xml
-@@ -0,0 +1,18 @@
-+<updates>
-+    <update>
-+        <name>com_foos</name>
-+        <description>This is com_foo</description>
-+        <element>com_foos</element>
-+        <type>component</type>
-+        <version>1.0.1</version>
-+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-+		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
-+        <downloads>
-+            <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
-+        </downloads>
-+        <maintainer>Foo Creator</maintainer>
-+        <maintainerurl>http://www.example.com</maintainerurl>
-+        <targetplatform name="joomla" version="4.*"/>
-+		<php_minimum>7.1</php_minimum>
-+    </update>
-+</updates>
-diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-index b41bb7c4..fab65ebc 100644
---- a/src/administrator/components/com_foos/foos.xml
-+++ b/src/administrator/components/com_foos/foos.xml
-@@ -7,7 +7,7 @@
- 	<authorUrl>[AUTHOR_URL]</authorUrl>
- 	<copyright>[COPYRIGHT]</copyright>
- 	<license>GNU General Public License version 2 or later;</license>
--	<version>1.0.0</version>
-+	<version>1.0.1</version>
- 	<description>COM_FOOS_XML_DESCRIPTION</description>
- 	<namespace path="src">FooNamespace\Component\Foos</namespace>
- 	<scriptfile>script.php</scriptfile>
+// github.com/astridx/boilerplate/compare/t1...t1b.diff
 
 ```
 

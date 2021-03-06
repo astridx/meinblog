@@ -51,7 +51,7 @@ Es gibt viele andere Templates von Drittanbietern, die für Joomla verfügbar si
 
 ## Erwähnenswertes zu Cassiopeia?
 
-Cassiopeia ist die Standardvorlage, die wir unmittelbar nach der Erstinstallation von Joomla sehen. Das Cassiopeia-Template wird von der Joomla!-Community entwickelt.
+Cassiopeia ist die Standardvorlage, die wir unmittelbar nach der Erstinstallation von Joomla sehen. Das Cassiopeia-Template wird von der Joomla-Community entwickelt.
 
 Cassiopeia ist ein einfaches Template, mit einem Minimum an Styling, das als Grundlage für eine individuelle Website dient. Einige Anpassungen am Layout und Aussehen sind unkompliziert, während andere Änderungen gute Kenntnisse von HTML und CSS erfordern.
 

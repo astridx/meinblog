@@ -15,14 +15,14 @@ tags:
 
 Static Option
 
-Die Einstellungen für die Protostar-Vorlage lassen zwei Optionen für das Layout der Seite zu, Statisch oder Fluid.
+Die Einstellungen für die Cassiopeia-Vorlage lassen zwei Optionen für das Layout der Seite zu, Statisch oder Fluid.
 
 Diese Einstellungen wirken sich hauptsächlich auf die Darstellung auf breiten Bildschirmen wie Computermonitoren und vielen Laptops aus. Dies sind die Standardeinstellungen, die durch das Erstellen von überschreibenden Stilen in einem benutzerdefinierten Stylesheet manipuliert werden können. Auf schmalen Bildschirmen gibt es im Wesentlichen keinen Unterschied zwischen den beiden Einstellungen.
 
-Die Einstellungen finden Sie unter Erweiterungen -> Vorlagen. Öffnen Sie die Vorlage protostar in der Spalte Style.
+Die Einstellungen finden Sie unter Erweiterungen -> Vorlagen. Öffnen Sie die Vorlage Cassiopeia in der Spalte Style.
 
-Statische Einstellung für Protostar
-Die Static-Einstellung für Protostar platziert den Hauptinhalt Ihrer Webseiten in <div class="container">. Das Stylesheet von template.css wird Stile für diese Klasse, .container, vorgeben. Mit der Einstellung "Static" können Sie die Breite des Inhalts und der Seitenspalten für größere Bildschirme festlegen.
+Statische Einstellung für Cassiopeia
+Die Static-Einstellung für Cassiopeia platziert den Hauptinhalt Ihrer Webseiten in <div class="container">. Das Stylesheet von template.css wird Stile für diese Klasse, .container, vorgeben. Mit der Einstellung "Static" können Sie die Breite des Inhalts und der Seitenspalten für größere Bildschirme festlegen.
 
 static widescreen
 
@@ -40,8 +40,8 @@ Bildschirme mit weniger als 768px
 
 Bei sehr schmalen Bildschirmen füllt der Container den Bildschirm aus. Es gibt keinen Platz um den Container herum. Die Spalten haben alle eine Breite von 100 % des Bildschirms und werden übereinander gestapelt.
 
-Fluid-Einstellung für Protostar
-Die Fluid-Einstellung für Protostar platziert den Hauptinhalt Ihrer Webseiten in <div class="container-fluid">. Das Stylesheet der template.css wird die Klasse .container-fluid mit den entsprechenden Styles ansprechen. Mit der Einstellung Fluid müssen Sie Ihre Inhalte und Module so gestalten, dass sie bei jeder Breite gut dargestellt werden.
+Fluid-Einstellung für Cassiopeia
+Die Fluid-Einstellung für Cassiopeia platziert den Hauptinhalt Ihrer Webseiten in <div class="container-fluid">. Das Stylesheet der template.css wird die Klasse .container-fluid mit den entsprechenden Styles ansprechen. Mit der Einstellung Fluid müssen Sie Ihre Inhalte und Module so gestalten, dass sie bei jeder Breite gut dargestellt werden.
 
 Fluid-Bildschirm
 

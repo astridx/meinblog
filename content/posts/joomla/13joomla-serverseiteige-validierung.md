@@ -13,11 +13,11 @@ tags:
 ---
 
 Deine Komponente ist benutzerfreundlich. User Experience (UX) oder Nutzererfahrung ist in aller Munde. Wenn ein Benutzer fehlerhafte Daten eingibt, ist es dir wichtig, dass dieser hierzu eine Erklärung erhält.
-Dazu fügen wir die Validierung hinzu. Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla! ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicher, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprachen sind problemloser auszutricksen. Eindringlinge umgehen sie und senden so bösartige Eingaben an den Server.
+Dazu fügen wir die Validierung hinzu. Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicher, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprachen sind problemloser auszutricksen. Eindringlinge umgehen sie und senden so bösartige Eingaben an den Server.
 
 > Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlenn sie gleichzeitig nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer. Die Clientseitige benutzerfreundlicher!
 
-Dieser Teil behandelt die die serverseitige Validierung in Joomla! 4.
+Dieser Teil behandelt die die serverseitige Validierung in Joomla 4.
 
 ## Für Ungeduldige
 
@@ -82,11 +82,11 @@ Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Ad
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -98,7 +98,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 5. Versuche am Ende, deine Eingabe zu speichern. Dies ist nicht möglich. Du siehst einen Warnhinweis.
 
-![Joomla! Validierung](/images/j4x13x1.png)
+![Joomla Validierung](/images/j4x13x1.png)
 
 Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du im Formular sehr viele Änderungen durchgeführt hast. In dieser kleinen Erweiterung fällt dies nicht ins Gewicht. Bei große Formularen kann der Hinweis am Ende frustrieren. Ein Benutzer wünscht sich, diesen unmittelbar nach der fehlerhaften Eingabe zu sehen. So ist möglich, sofort zu regieren und unnötige Arbeit zu vermeiden. Hier kommti die clienteseiteige Validierung ins Spiel. Diese sehen wir uns im nächsten Teil an.
 
@@ -109,71 +109,7 @@ Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du 
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t10...t11a.diff
-
-diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
-index 15615cf6..b3f1ceff 100644
---- a/src/administrator/components/com_foos/forms/foo.xml
-+++ b/src/administrator/components/com_foos/forms/foo.xml
-@@ -1,6 +1,6 @@
- <?xml version="1.0" encoding="utf-8"?>
- <form>
--	<fieldset>
-+	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
- 		<field
- 			name="id"
- 			type="number"
-@@ -13,6 +13,7 @@
- 		<field
- 			name="name"
- 			type="text"
-+			validate="Letter"
- 			label="COM_FOOS_FIELD_NAME_LABEL"
- 			size="40"
- 			required="true"
-diff --git a/src/administrator/components/com_foos/src/Rule/LetterRule.php b/src/administrator/components/com_foos/src/Rule/LetterRule.php
-new file mode 100644
-index 00000000..c1a46ee5
---- /dev/null
-+++ b/src/administrator/components/com_foos/src/Rule/LetterRule.php
-@@ -0,0 +1,37 @@
-+<?php
-+/**
-+ * Joomla! Content Management System
-+ *
-+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
-+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
-+ */
-+
-+namespace FooNamespace\Component\Foos\Administrator\Rule;
-+
-+\defined('_JEXEC') or die;
-+
-+use Joomla\CMS\Form\FormRule;
-+
-+/**
-+ * Form Rule class for the Joomla Platform.
-+ *
-+ * @since  __DEPLOY_VERSION__
-+ */
-+class LetterRule extends FormRule
-+{
-+	/**
-+	 * The regular expression to use in testing a form field value.
-+	 *
-+	 * @var    string
-+	 * @since  __DEPLOY_VERSION__
-+	 */
-+	protected $regex = '^([a-z]+)$';
-+
-+	/**
-+	 * The regular expression modifiers to use when testing a form field value.
-+	 *
-+	 * @var    string
-+	 * @since  __DEPLOY_VERSION__
-+	 */
-+	protected $modifiers = 'i';
-+}
+// github.com/astridx/boilerplate/compare/t10...t11a.diff
 
 ```
 

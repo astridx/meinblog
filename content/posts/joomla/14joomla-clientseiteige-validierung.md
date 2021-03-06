@@ -22,7 +22,7 @@ Meistens hängt die clientseitige Validierung davon ab, dass im Browser JavaScri
 
 > Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen, sie nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer - die clientseitige benutzerfreundlicher!
 
-Dieser Teil behandelt die die clientseitige Validierung in Joomla! 4.
+Dieser Teil behandelt die die clientseitige Validierung in Joomla 4.
 
 ## Für Ungeduldige
 
@@ -147,11 +147,11 @@ Last but not least registrieren wir die neue Datei unter dem Namen `com_foos.adm
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla! Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla! 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -161,7 +161,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 4. Überzeuge dich davon, dass dir zu diesem Zeitpunkt **eine** Warnung angezeigt wird.
 
-![Joomla! Validierung](/images/j4x14x1.png)
+![Joomla Validierung](/images/j4x14x1.png)
 
 ## Geänderte Dateien
 
@@ -170,93 +170,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t11a...t11b.diff
-
-diff --git a/src/administrator/components/com_foos/foos.xml b/src/administrator/components/com_foos/foos.xml
-index da9849dc..a18f1c25 100644
---- a/src/administrator/components/com_foos/foos.xml
-+++ b/src/administrator/components/com_foos/foos.xml
-@@ -33,6 +33,7 @@
- 		<folder>tmpl</folder>
- 	</files>
-     <media folder="media/com_foos" destination="com_foos">
-+		<filename>joomla.asset.json</filename>
- 		<folder>js</folder>
-     </media>
- 	<!-- Back-end files -->
-diff --git a/src/administrator/components/com_foos/forms/foo.xml b/src/administrator/components/com_foos/forms/foo.xml
-index b3f1ceff..ca0f0090 100644
---- a/src/administrator/components/com_foos/forms/foo.xml
-+++ b/src/administrator/components/com_foos/forms/foo.xml
-@@ -14,6 +14,7 @@
- 			name="name"
- 			type="text"
- 			validate="Letter"
-+			class="validate-letter"
- 			label="COM_FOOS_FIELD_NAME_LABEL"
- 			size="40"
- 			required="true"
-diff --git a/src/administrator/components/com_foos/tmpl/foo/edit.php b/src/administrator/components/com_foos/tmpl/foo/edit.php
-index 1531aec6..70e17c50 100644
---- a/src/administrator/components/com_foos/tmpl/foo/edit.php
-+++ b/src/administrator/components/com_foos/tmpl/foo/edit.php
-@@ -18,7 +18,8 @@
-
- $wa = $this->document->getWebAssetManager();
- $wa->useScript('keepalive')
--	->useScript('form.validate');
-+	->useScript('form.validate')
-+	->useScript('com_foos.admin-foos-letter');
-
- $layout  = 'edit';
- $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
-diff --git a/src/media/com_foos/joomla.asset.json b/src/media/com_foos/joomla.asset.json
-index 21642a25..86b65d9d 100644
---- a/src/media/com_foos/joomla.asset.json
-+++ b/src/media/com_foos/joomla.asset.json
-@@ -5,6 +5,17 @@
-   "description": "Joomla CMS",
-   "license": "GPL-2.0-or-later",
-   "assets": [
-+    {
-+      "name": "com_foos.admin-foos-letter",
-+      "type": "script",
-+      "uri": "com_foos/admin-foos-letter.js",
-+      "dependencies": [
-+        "core"
-+      ],
-+      "attributes": {
-+        "defer": true
-+      }
-+    },
-     {
-       "name": "com_foos.admin-foos-modal",
-       "type": "script",
-diff --git a/src/media/com_foos/js/admin-foos-letter.js b/src/media/com_foos/js/admin-foos-letter.js
-new file mode 100644
-index 00000000..7091b51d
---- /dev/null
-+++ b/src/media/com_foos/js/admin-foos-letter.js
-@@ -0,0 +1,19 @@
-+document.addEventListener('DOMContentLoaded', function(){
-+	"use strict";
-+	setTimeout(function() {
-+		if (document.formvalidator) {
-+			document.formvalidator.setHandler('letter', function (value) {
-+
-+				var returnedValue = false;
-+
-+				var regex = /^([a-z]+)$/i;
-+
-+				if (regex.test(value))
-+					returnedValue = true;
-+
-+				return returnedValue;
-+			});
-+			//console.log(document.formvalidator);
-+		}
-+	}, (1000));
-+});
+// github.com/astridx/boilerplate/compare/t11a...t11b.diff
 
 ```
 

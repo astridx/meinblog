@@ -40,7 +40,7 @@ export default function Sidebar({ post }) {
           <div>
             Ob Du oder Sie - das ist im Deutschen oft gar nicht so leicht zu
             entscheiden. Manche Leser sieze ich, andere duze ich. Deshalb gibt
-            es im Weblog ein bunter Durcheinander und jeder sucht sich das aus,
+            es im Weblog ein buntes Durcheinander und jeder sucht sich das aus,
             was für Ihn passt.
           </div>
         </section>

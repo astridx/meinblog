@@ -1,0 +1,34 @@
+---
+date: 2021-03-07
+title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Optionen in Cassiopeia'
+template: post
+thumbnail: '../../thumbnails/cassiopeia.png'
+slug: css-grid-and-bootstrap-5-in-joomla
+langKey: de
+categories:
+  - Code
+tags:
+  - Tmplate
+  - Joomla
+  - Cassiopeia
+---
+
+
+Ich hab paar Fragen zu Cassiopeia: 
+- Wo kann ich den Titel Cassiopeia ausblenden? Ich kann den zwar ändern aber irgendwie nicht weglassen scheint mir. 
+- Wo sind die Farbeinstellungen zu finden? 
+- Wie kann ich das padding im Header-Banner beeinflussen
+
+Farbeinstellungen gibt es als extra CSS Datei. Du kannst im Backend zwischen Standard und Alternative wechseln  
+die Definition der Farben ist eine Mischung aus sass und css Variablen
+Das Padding für das Banner ist in der Datei scss/blocks/_banner.scss definiert. Das kannst du in einer user.css Datei überschreiben
+
+Das Logo kannst du nicht ganz weg machen, außer du änderst die index.php
+Eigenes Logo oder Title oder Cassiopeia Logo
+das ist die Logik drin
+
+---
+Es werden noch viele SCSS und css dateien geladen
+
+---
+https://magazine.joomla.org/all-issues/january-2021/joomla-4-cassiopeia-template

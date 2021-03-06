@@ -111,9 +111,9 @@ In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespei
 
 ## Teste dein Joomla-Module
 
-1. Installiere das Modul in Joomla! Version 4, um es zu testen:
+1. Installiere das Modul in Joomla Version 4, um es zu testen:
 
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla! 4 Installation.
+Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -132,64 +132,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ### Alle Änderungen
 
 ```php {diff}
-// https://github.com/astridx/boilerplate/compare/t32...t33.diff
-
-diff --git a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
-index e20c4602..0c788634 100644
---- a/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
-+++ b/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini
-@@ -1,2 +1,4 @@
- MOD_FOO="[PROJECT_NAME]"
- MOD_FOO_XML_DESCRIPTION="Foo Module"
-+MOD_FOO_FIELD_URL_LABEL="URL"
-+COM_MODULES_FOOPARAMS_FIELDSET_LABEL="Foo Parameter"
-diff --git a/src/modules/mod_foo/mod_foo.php b/src/modules/mod_foo/mod_foo.php
-index 153977ef..4763eb19 100644
---- a/src/modules/mod_foo/mod_foo.php
-+++ b/src/modules/mod_foo/mod_foo.php
-@@ -15,4 +15,6 @@
-
- $test  = FooHelper::getText();
-
-+$url = $params->get('domain');
-+
- require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
-diff --git a/src/modules/mod_foo/mod_foo.xml b/src/modules/mod_foo/mod_foo.xml
-index afd93ad1..54cc46c3 100644
---- a/src/modules/mod_foo/mod_foo.xml
-+++ b/src/modules/mod_foo/mod_foo.xml
-@@ -13,8 +13,20 @@
- 	<files>
- 		<filename module="mod_foo">mod_foo.php</filename>
- 		<folder>tmpl</folder>
--		<folder>Helper</folder>
-+		<folder>Helper</folder>
- 		<folder>language</folder>
- 		<filename>mod_foo.xml</filename>
- 	</files>
-+	<config>
-+		<fields name="params">
-+			<fieldset name="fooparams">
-+				<field
-+					name="domain"
-+					type="url"
-+					label="MOD_FOO_FIELD_URL_LABEL"
-+					filter="url"
-+				/>
-+			</fieldset>
-+		</fields>
-+	</config>
- </extension>
-diff --git a/src/modules/mod_foo/tmpl/default.php b/src/modules/mod_foo/tmpl/default.php
-index 70d865c4..2fc95b64 100644
---- a/src/modules/mod_foo/tmpl/default.php
-+++ b/src/modules/mod_foo/tmpl/default.php
-@@ -9,4 +9,4 @@
-
- \defined('_JEXEC') or die;
-
--echo '[PROJECT_NAME]' . $test;
-+echo '[PROJECT_NAME]' . $test . '<br />' . $url;
+// github.com/astridx/boilerplate/compare/t32...t33.diff
 
 ```
 
