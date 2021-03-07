@@ -1,6 +1,6 @@
 ---
 date: 2020-12-10
-title: 'Sprachdateien nutzen'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Sprachdateien nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: sprachdateien-nutzen

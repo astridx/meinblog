@@ -7,6 +7,7 @@ slug: en/die-erste-ansicht-im-backend
 langKey: en
 categories:
   - Code
+  - JoomlaEn
 tags:
   - CMS
   - Joomla
@@ -67,7 +68,7 @@ Als Nächstes setzen wir das Namespace `tag`: `<namespace>FooNamespace\Component
 
 Wie benennst du deinen Namespace?
 
-- Das erste Element des Namespaces ist dein "Firmenname". Für dieses Tutorial habe ich `Joomla` verwendet. Er wird genutzt, um den Code von dem Code in anderen Erweiterungen zu unterscheiden. So ist es möglich, identische Klassennamen ohne Konflikte zu verwenden. Der Namespace wird ebenso zum Registrieren eines Dienstanbieters verwendet.
+- Das erste Element des Namespaces ist dein "Firmenname". Für dieses Tutorial habe ich `FooNamespace` verwendet. Er wird genutzt, um den Code von dem Code in anderen Erweiterungen zu unterscheiden. So ist es möglich, identische Klassennamen ohne Konflikte zu verwenden.
 
 - Das zweite Element ist die Art der Erweiterung: Component, Module, Plugin or Template.
 

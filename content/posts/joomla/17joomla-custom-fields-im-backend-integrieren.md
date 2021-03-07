@@ -1,6 +1,6 @@
 ---
 date: 2020-12-17
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Custom Fields im Backend integrieren'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Custom Fields (Benutzerdefinierte Felder) im Backend integrieren'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-custom-fields-im-backend-integrieren

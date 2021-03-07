@@ -12,10 +12,11 @@ tags:
   - Joomla
 ---
 
-Deine Komponente ist benutzerfreundlich. User Experience (UX) oder Nutzererfahrung ist in aller Munde. Wenn ein Benutzer fehlerhafte Daten eingibt, ist es dir wichtig, dass dieser hierzu eine Erklärung erhält.
-Dazu fügen wir die Validierung hinzu. Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicher, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprachen sind problemloser auszutricksen. Eindringlinge umgehen sie und senden so bösartige Eingaben an den Server.
+Deine Komponente ist benutzerfreundlich. User Experience (UX) oder Nutzererfahrung ist in aller Munde. Wenn ein Benutzer fehlerhafte Daten eingibt, ist es dir wichtig, dass dieser hierzu eine Erklärung erhält. Hhierfür nutzen wir die Validierung.
 
-> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlenn sie gleichzeitig nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer. Die Clientseitige benutzerfreundlicher!
+Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicher, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprachen sind problemloser auszutricksen. Eindringlinge umgehen sie und senden so bösartige Eingaben an den Server.
+
+> Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen sie gleichzeitig nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer. Die clientseitige benutzerfreundlicher!
 
 Dieser Teil behandelt die die serverseitige Validierung in Joomla 4.
 
@@ -31,7 +32,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Hierzu erstellen wir die Datei `LetterRule.php`.
 
-> Hier im Beispiel nutze ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck).
+> Hier im Beispiel nutze ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) in der Klasse `LetterRule.php`. Natürlich ist möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.
 
 [src/administrator/components/com_foos/src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 

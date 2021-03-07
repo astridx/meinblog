@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { useLocation } from '@reach/router'
 
 import Layout from '../components/Layout'
 import SidebarUnten from '../components/SidebarUnten'
 import SidebarOben from '../components/SidebarOben'
 import SidebarUeberTitel from '../components/SidebarUeberTitel'
-import Suggested from '../components/Suggested'
 import SEO from '../components/SEO'
 import Comment from '../components/Comment'
 
@@ -14,7 +14,7 @@ import config from '../utils/config'
 
 export default function PostTemplate({ data, pageContext }) {
   const post = data.markdownRemark
-  const { previous, next } = pageContext
+  const location = useLocation()
 
   const commentBox = React.createRef()
 
@@ -29,7 +29,6 @@ export default function PostTemplate({ data, pageContext }) {
     commentScript.setAttribute('repo', 'astridx/meinblog')
     commentScript.setAttribute('issue-term', 'pathname')
     commentScript.setAttribute('id', 'utterances')
-    //commentScript.setAttribute('theme', theme)
     commentScript.setAttribute('crossorigin', 'anonymous')
     if (commentBox && commentBox.current) {
       commentBox.current.appendChild(commentScript)
@@ -49,6 +48,20 @@ export default function PostTemplate({ data, pageContext }) {
   }
 
   const gitMarkdownUrl = getGitMarkdownUrl()
+  let a
+  if (!location.pathname.includes('/en')) {
+    a = (
+      <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
+        Ändere diesen Beitrag
+      </a>
+    )
+  } else {
+    a = (
+      <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
+        Modify this post
+      </a>
+    )
+  }
 
   return (
     <Layout>
@@ -57,25 +70,21 @@ export default function PostTemplate({ data, pageContext }) {
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
       <header className="article-header medium">
         <h1>{post.frontmatter.title}</h1>
-        <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
-          Ändere diesen Beitrag
-        </a>
+        {a}
       </header>
       <SidebarOben post={post} />
       <section className="post">
         <article>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
-        <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
-          Ändere diesen Beitrag
-        </a>
+
+        {a}
       </section>
       <div id="utterances">
         <h2>Comments</h2>
         <Comment commentBox={commentBox} />
       </div>
 
-      <Suggested previous={previous} next={next} />
       <SidebarUnten post={post} />
     </Layout>
   )

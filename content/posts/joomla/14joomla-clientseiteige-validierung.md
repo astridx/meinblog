@@ -14,7 +14,7 @@ tags:
 
 Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche `Speichern` an den Server gesendet wurde.
 
-In der clientseitigen Validierung bieten wir eine bessere Benutzererfahrung, indem wir schnell auf Browserebene reagieren. Hier werden alle Eingaben im Browser des Benutzers selbst validiert. Für die clientseitige Validierung ist keine Rückfrage beim Server erforderlich, so das dieser und das Netzwerk entlastet werden. Diese Art der Überprüfung arbeitet auf der Browserseite mithilfe von Skriptsprachen wie JavaScript oder mit HTML5-Attributen.
+In der clientseitigen Validierung bieten wir eine bessere Benutzererfahrung, indem wir schnell auf Browserebene reagieren. Hier werden alle Eingaben im Browser des Benutzers sofort validiert. Für die clientseitige Validierung ist keine Rückfrage beim Server erforderlich, so das dieser und das Netzwerk entlastet werden. Diese Art der Überprüfung arbeitet auf der Browserseite mithilfe von Skriptsprachen wie JavaScript oder mit HTML5-Attributen.
 
 Wenn der Benutzer beispielsweise ein ungültiges E-Mail-Format eingibt, geben wir unmittelbar nach dem Wechsel zum nächsten Feld eine Fehlermeldung aus. So ist zeitnah eine Korrektur möglich.
 
@@ -102,7 +102,7 @@ Der Eintrag `->useScript('com_foos.admin-foos-letter');` fügt die JavaScript-Da
 
 #### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Wir ergänzen `class="validate-letter"`, so weiß Joomla, welche CSS-Klasse geprüft wird.
+Wir ergänzen `class="validate-letter"`, damit Joomla weiß, welche CSS-Klasse zu prüfen ist.
 
 [https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
 

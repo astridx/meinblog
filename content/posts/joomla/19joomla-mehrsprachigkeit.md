@@ -1,6 +1,6 @@
 ---
 date: 2020-12-19
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Mehrsprachigkeit'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Mehrsprachigkeit - Multilinguale Sprachverknüpfungen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-mehrsprachigkeit

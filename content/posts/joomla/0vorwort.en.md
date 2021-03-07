@@ -4,9 +4,10 @@ title: 'Joomla 4.x Tutorial - Extension Development - Preface'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-tutorial-vorwort
-langKey: de
+langKey: en
 categories:
   - Code
+  - JoomlaEn
 tags:
   - CMS
   - Joomla

@@ -12,7 +12,7 @@ tags:
   - Joomla
 ---
 
-In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst, so dass du die Adresse nicht wissen brauchst und später Umwandlungen in suchmaschinenfreundliche URLs automatisch geschen.
+In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
 
@@ -49,6 +49,8 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 </metadata>
 
 ```
+
+> [CDATA](https://de.wikipedia.org/w/index.php?title=CDATA&oldid=189251190) (engl. Character Data) ist ein Schlüsselwort in XML. Mit CDATA werden Zeichendaten gekennzeichnet, deren Inhalt vom Parser nicht analysiert wird. Der CDATA-Abschnitt kann auch Markup-Zeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert.
 
 Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
 Der Text im `message`-Tag wird als Beschreibung angezeigt.

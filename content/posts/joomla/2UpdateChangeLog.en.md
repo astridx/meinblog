@@ -4,9 +4,10 @@ title: 'Joomla 4.x Tutorial - Extension Development - Joomla Update and Change L
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-update-und-change-logeinrichten
-langKey: de
+langKey: en
 categories:
   - Code
+  - JoomlaEn
 tags:
   - CMS
   - Joomla

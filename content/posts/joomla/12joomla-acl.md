@@ -1,6 +1,6 @@
 ---
 date: 2020-12-12
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - ACL'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Access Control List (ACL)'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-acl
