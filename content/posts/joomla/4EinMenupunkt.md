@@ -66,7 +66,7 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`.
+2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleiste auf `Menü` und dann auf `All Menu Items`.
 
 Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
 

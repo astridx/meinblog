@@ -18,7 +18,6 @@ export default function Nav() {
         <div>
           <Link to="/blog">Blog</Link>
           <Link to="/tutorial">Sets</Link>
-        </div>
         <button id="dark-mode-button" style={{ 'margin-left': '20px' }}>
           <LanguageSelector />
         </button>
@@ -57,6 +56,7 @@ export default function Nav() {
             ? '☀️'
             : '🌙'}
         </button>
+        </div>
       </div>
     </nav>
   )

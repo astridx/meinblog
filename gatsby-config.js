@@ -142,6 +142,18 @@ module.exports = {
     `gatsby-plugin-offline`,
 
     // ===================================================================================
+    // ebook https://www.gatsbyjs.com/plugins/gatsby-plugin-ebook/
+    // ===================================================================================
+    /*'gatsby-plugin-ebook',
+    {
+      resolve: 'gatsby-plugin-ebook',
+      options: {
+        filename: 'JoomlaEn.epub',
+      }
+    },*/
+
+
+    // ===================================================================================
     // language https://github.com/angeloocana/gatsby-plugin-i18n
     // ===================================================================================
     {
@@ -151,24 +163,6 @@ module.exports = {
         langKeyForNull: 'de',
         prefixDefault: false,
         useLangKeyLayout: false,
-        //pagesPaths: [`${__dirname}/content/posts/`, `${__dirname}/src/pages`],
-        /*markdownRemark: {
-          postPage: 'src/templates/post.js',
-          query: `
-            {
-              allMarkdownRemark {
-                edges {
-                  node {
-                    fields {
-                      slug,
-                      langKey
-                    }
-                  }
-                }
-              }
-            }
-          `
-        }*/
       },
     },
 

@@ -1051,7 +1051,7 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
-2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
+2. The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click `Update Structure`.
 
 ![Joomla Published](/images/j4x16x1.png)
 
