@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 In this article you will learn how to create a menu item for the frontend view of your component. This way, you don't need to know the exact URL. Later, a conversion to search engine friendly URLs is possible automatically.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)

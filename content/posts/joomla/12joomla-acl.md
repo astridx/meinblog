@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Ziel ist es, dass nicht jeder das Recht hat, alle Inhalte zu bearbeiten. Dazu bietet Joomla eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.
 
 ## Für Ungeduldige

@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Komponente ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Das Template sorgt für ein einheitliches Aussehen. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.
 
 ## Für Ungeduldige

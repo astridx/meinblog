@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Im vorhergehenden Teil hatten wir eine Datenbank für deine Joomla-Komponenten eingerichtet. In diesem Teil lernst du, wie du mithilfe eines Formulars im Administrationsbereich die Daten änderst oder ergänzt.
 
 Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du in der Listenansicht auf den Titel klickst.

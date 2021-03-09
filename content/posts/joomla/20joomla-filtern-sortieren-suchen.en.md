@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Filtering, sorting and searching - now we organize the Joomla 4 component ! Joomla offers view filters and search tools with which you can limit the number of visible items. If the status filter is set accordingly, only items whose status is published will be displayed. Beside the status filter the search tools offer the search by title or content and the possibility to sort the table, i.e. to change the order.
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)

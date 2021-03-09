@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen "stapelverarbeitend" hinzuzufügen.
 
 ## Für Ungeduldige

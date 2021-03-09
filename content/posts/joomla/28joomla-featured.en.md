@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles Attribut: `featured` oder `Haupteintrag`. Dieser Teil der Artikelserie fügt `featured` zu unserer Komponente hinzu.
 
 > In Joomla werden mit `featured` markierte Elemente angezeigt, wenn der Startseiten-Menü-Eintrag mit dem `featured`-Layout verlinkt ist. Auf diese Weise ist es möglich, ein Element nur durch Änderung der Eigenschaft `featured` auf der Startseite ein- oder auszublenden. Dabei gibt es keine Auswirkungen auf andere Anzeigeeigenschaften - beispielsweise die Zugehörigkeit zu einem Kategorie-Blog. Im deutschen wird `featured` mit `Haupteintrag` bezeichnet.

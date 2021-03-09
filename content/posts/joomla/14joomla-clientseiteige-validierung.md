@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche `Speichern` an den Server gesendet wurde.
 
 In der clientseitigen Validierung bieten wir eine bessere Benutzererfahrung, indem wir schnell auf Browserebene reagieren. Hier werden alle Eingaben im Browser des Benutzers sofort validiert. Für die clientseitige Validierung ist keine Rückfrage beim Server erforderlich, so das dieser und das Netzwerk entlastet werden. Diese Art der Überprüfung arbeitet auf der Browserseite mithilfe von Skriptsprachen wie JavaScript oder mit HTML5-Attributen.

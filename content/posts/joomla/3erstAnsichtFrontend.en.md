@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. But this will change soon. First we build the rough structure.
 
 Below you can see the first simple view.

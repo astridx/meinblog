@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Texte, die im Frontend angezeigt werden, nicht direkt in den Programmcode eingegeben. Du hattest alles so vorbereitet, dass du spezielle Dateien nutzt, die austauschbar sind. Bisher hast du deshalb lange kryptische Texte gesehen. In diesem Teil übersetzten wir die unschönen Sprachstrings.
 
 > Selbst wenn deine Zielgruppe die englisch Sprache spricht und du ausschließlich diese Sprache unterstützt ist es wichtig, eine Sprachdatei für den gesamten Text zu verwenden, welchen du im Front-End oder im Back-End der Komponente anzeigst. So ist es Nutzern möglich, Texte zu überschreiben, ohne den Quellcode zu bearbeiten.

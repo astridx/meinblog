@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Über Parameter ist das Modul für Endbenutzer flexibel anpassbar.
 
 ## Für Ungeduldige

@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.
 
 Parameters exist for

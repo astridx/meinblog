@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Erstellen ein Installationspaket.
 
 ## Für Ungeduldige

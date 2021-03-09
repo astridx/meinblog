@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Nachdem du ein funktionierendes Backend für deine Komponente hast, implementierst du das Frontend. Aktuell ist es mit der Erweiterung möglich, einen statischen Text anzuzeigen. Wir haben bisher keine dynamischen Daten. Aber das wird sich bald ändern. Zunächst bauen wir die grobe Struktur auf.
 
 Nachfolgend siehst du die erste simple Ansicht.

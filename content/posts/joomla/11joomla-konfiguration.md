@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst.
 
 ![Joomla Konfiguration](/images/j4x11x2.png)

@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie.
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)

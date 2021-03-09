@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Your component is user-friendly. User experience (UX) or user experience is on everyone's lips. If a user enters incorrect data, it's important to you that they get an explanation. This is where we use validation.
 
 In server-side validation, the input submitted by the user is sent to the server and validated using the scripting language. In the case of Joomla, this is PHP. After the validation process on the server side, the feedback is sent back to the client from a new dynamically generated web page. It is safe to validate user input from the server. Malicious attackers have no easy game this way. Client-side scripting languages are easier to trick. Intruders bypass them to send malicious input to the server.

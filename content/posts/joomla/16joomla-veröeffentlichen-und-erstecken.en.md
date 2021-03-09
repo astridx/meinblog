@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente haben einen Status, der veränderbar ist. Dieser Abschnitt zeigt dir, wie du Items versteckst, veröffentlichst, terminierst, archivierst und löschst.
 
 ## Für Ungeduldige

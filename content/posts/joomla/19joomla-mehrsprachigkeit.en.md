@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.
 
 > Abgrenzung Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.

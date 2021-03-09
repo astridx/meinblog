@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User immer die neueste Version verwenden? Woher wissen sie von einem Update? Jetzt, wo das Grundgerüst der Erweiterung fertig ist, ist es wichtig, dass deine Anwender von Weiterentwicklungen erfahren.
 
 In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. **Überspringe dann einfach diese Einheit.**

@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates.
 Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
 

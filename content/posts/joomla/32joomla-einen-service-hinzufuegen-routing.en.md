@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Suchmaschinenfreundliche URLs funktionieren nicht. Anhand eines Services reparieren wir diesen Missstand.
 
 ## Für Ungeduldige

@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 You will continue to develop your component. How do you make sure that users always use the latest version? How do they know about an update? Now that the basic framework of the extension is ready, it's important that your users know about enhancements.
 
 In this chapter I will explain how to create and run an update server for your component. If you want to continue working on the features first, I fully understand. **Then just skip this unit.**

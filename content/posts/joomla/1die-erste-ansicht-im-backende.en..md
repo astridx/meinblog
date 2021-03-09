@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 We'll start with the basics. For this we create the _View_ in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.
 
 ![The First View in the Joomla Backend](/images/j4x1x3.png)
@@ -97,7 +98,7 @@ Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereic
 	</administration>
 ```
 
-Kommen wir zum _dlid_-tag `<dlid prefix=“dlid=“ suffix=““ />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf [Github](https://github.com/joomla/joomla-cms/pull/25553).
+Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf [Github](https://github.com/joomla/joomla-cms/pull/25553).
 
 Wir schließen zuletzt das `</extension>`-Tag.
 

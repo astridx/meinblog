@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Deine Komponente ist benutzerfreundlich. User Experience (UX) oder Nutzererfahrung ist in aller Munde. Wenn ein Benutzer fehlerhafte Daten eingibt, ist es dir wichtig, dass dieser hierzu eine Erklärung erhält. Hhierfür nutzen wir die Validierung.
 
 Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe an den Server gesendet und mithilfe der Skriptsprache validiert. Im Falle von Joomla ist das PHP. Nach dem Validierungsprozess auf der Serverseite wird das Feedback von einer neuen dynamisch generierten Webseite an den Client zurückgesendet. Es ist sicher, Benutzereingaben vom Server zu überprüfen. Böswillige Angreifer haben so kein leichtes Spiel. Clientseitige Skriptsprachen sind problemloser auszutricksen. Eindringlinge umgehen sie und senden so bösartige Eingaben an den Server.

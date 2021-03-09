@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)

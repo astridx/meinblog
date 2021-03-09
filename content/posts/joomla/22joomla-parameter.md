@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Gibt es Einstellungen, die für alle Items deiner Komponente gelten und die ein Anwender an seine Erfordernisse anpasst? Zeigst du beispielsweise digitale Karten an und willst es dem Benutzer ermölgichen, das Einblenden der Lizenz selbst zu bestimmen? In Joomla gibt für diesen Zweck Parameter.
 
 Parameter gibt es für

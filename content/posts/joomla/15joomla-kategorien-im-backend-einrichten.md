@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses nützliche Feature ebenfalls. Der aktuelle Teil des Tutorials zeigt dir, wie du Kategorien idealerweise in eine Joomla Komponente integrierst. Erfinde das Rad nicht selbst neu. Nutze das, was Joomla dir bietet.
 
 ## Für Ungeduldige

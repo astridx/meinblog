@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. In diesem Teil erstellen wir ein solches für unsere Beispielkomponente.
 
 ![Dashboard in Joomla Erweiterung](/images/j4x33x1.png)

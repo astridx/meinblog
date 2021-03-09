@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist nicht sinnvoll. Es schadet der Übersicht und der Performance. Deshalb teilen wir die Items auf Unterseiten auf und fügen eine Paginierung zum Navigieren im unteren Bereich hinzu.
 
 ![Joomla Pagination](/images/j4x23x1.png)

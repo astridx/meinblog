@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung.
 
 ![Joomla Hilfelink](/images/j4x27x1.png)

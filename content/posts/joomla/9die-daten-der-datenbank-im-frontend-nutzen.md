@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Wir haben mittlerweile eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Content zu einem Element per Menüpunkt ausgibst. Hierzu erstellen wir ein eigenes Feld.
 
 ![Joomla Componente Menüpunkt für das Frontend](/images/j4x9x1.png)

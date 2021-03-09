@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Komponente! Joomla bietet Ansichtsfilter und Suchwerkzeuge, mit denen du die Anzahl der sichtbaren Items einschränkst. Wenn der Statusfilter entsprechend gesetzt ist, werden nur Elemente angezeigt, deren Status veröffentlicht ist. Neben dem Statusfilter bieten die Suchwerkzeuge die Suche nach Titel oder Inhalt und die Möglichkeit die Tabelle zu sortieren, sprich, die Reihenfolge zu ändern.
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)

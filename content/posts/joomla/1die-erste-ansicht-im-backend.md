@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
@@ -96,7 +98,7 @@ Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereic
 	</administration>
 ```
 
-Kommen wir zum _dlid_-tag `<dlid prefix=“dlid=“ suffix=““ />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf [Github](https://github.com/joomla/joomla-cms/pull/25553).
+Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf [Github](https://github.com/joomla/joomla-cms/pull/25553).
 
 Wir schließen zuletzt das `</extension>`-Tag.
 

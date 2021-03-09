@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 In diesem Teil kommt keine neue Funktion hinzu. Wir verbessern den bisherigen Aufbau. Jede Web-Anwendung besteht aus Logik, Daten und der Darstellung.
 Problematisch wäre es die drei Elemente in einer Klasse zusammenzufassen, vor allem bei größeren Projekten. Joomla verwendet das [Model-View-Controller-Konzept (MVC)](https://de.wikipedia.org/wiki/Model_View_Controller) für die Unterteilung.
 

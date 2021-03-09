@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben zu erledigen. Damit die Menschen, die mit der Komponente arbeiten, immer den Überblick über die möglichen Arbeitsschritte haben, empfiehlt sich eine Werkzeugleiste. In diesem Teil der Tutorialserie ergänzen wir die Standardaktionen. Hierbei greifen wir auf eine Vielzahl vorgefertigter Methoden zu. Wieder ist es nicht nötig, das Rad selbst zu erfinden.
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
@@ -202,7 +203,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
 
-![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x.png)
+![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x2.png)
 
 ## Geänderte Dateien
 

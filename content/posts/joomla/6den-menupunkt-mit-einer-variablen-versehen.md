@@ -12,6 +12,8 @@ tags:
   - Joomla
 ---
 
+
+
 Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.
 
 ![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x1.png)

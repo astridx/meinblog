@@ -13,6 +13,7 @@ tags:
   - Joomla
 ---
 
+
 Our goal in this part: when we enter a number in the name field, an error message is displayed immediately after we leave the field. In server-side validation, the message was not issued until after the form was sent to the server via the `Save` button.
 
 In client-side validation, we provide a better user experience by responding quickly at the browser level. Here, all inputs in the user's browser are validated immediately. Client-side validation does not require a query to the server, thus reducing the load on the server and the network. This type of validation works on the browser side using scripting languages such as JavaScript or with HTML5 attributes.
