@@ -13,10 +13,9 @@ tags:
   - Joomla
 ---
 
-
 Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente haben einen Status, der veränderbar ist. Dieser Abschnitt zeigt dir, wie du Items versteckst, veröffentlichst, terminierst, archivierst und löschst.
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12...t13) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -24,11 +23,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-87ec143942c0f306b40e69e84076afef)
+#### [administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-87ec143942c0f306b40e69e84076afef)
 
 Im Falle eines Updates, wird die Datenbank mihilfe dieser Datei auf den neuesten Stand gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
 
-[src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```sql {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/c971c9161aef0ddd16642ca077fc3bd21c4e555c/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -42,11 +41,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
 ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
-#### [src/administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
+#### [administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
 
 Jetzt benötigen wir die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt.
 
-[src/administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
@@ -75,13 +74,13 @@ class FoosController extends AdminController
 }
 ```
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird und zwei, über die eine terminierte Veröffentlichung mithilfe eines Kalenders erreicht wird.
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
 
@@ -129,11 +128,11 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 
 ```
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
 
 Wir implementieren die notwendigen Informationen in der Datenbank für den Fall einer Neuinstallation.
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
@@ -154,11 +153,11 @@ Wir implementieren die notwendigen Informationen in der Datenbank für den Fall 
 
 ```
 
-#### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-38764f2b1343234561c0d02cd2991ea1)
 
 Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`.
 
-[src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  		return ($section === 'category' ? 'categories' : 'foos_details');
@@ -182,11 +181,11 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`.
 
 ```
 
-#### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Das Model erweitern wir, damit die Information über den Status geladen wird.
 
-[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 
@@ -200,11 +199,11 @@ Das Model erweitern wir, damit die Information über den Status geladen wird.
 
 ```
 
-#### [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
 
 In der Klasse, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
 
-[src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
 
@@ -257,11 +256,11 @@ In der Klasse, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. 
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Felder gerendert werden.
 
-[src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -277,7 +276,7 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Wir nehmen zum Schluß die Felder in der Übersicht auf.
 
@@ -350,11 +349,11 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Inst
 
 ![Joomla Validierung](/images/j4x16x3.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t12...t13.diff
 

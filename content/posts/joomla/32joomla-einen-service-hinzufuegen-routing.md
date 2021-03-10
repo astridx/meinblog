@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Suchmaschinenfreundliche URLs funktionieren nicht. Anhand eines Services reparieren wir diesen Missstand.
 
 ## Für Ungeduldige
@@ -24,11 +22,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
+#### [components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
 
 Der Service wandelt die URLs in suchmaschinenfreundliche Versionen.
 
-[src/components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
+[components/com_foos/src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
 ```php
 namespace FooNamespace\Component\Foos\Site\Service;
@@ -220,11 +218,11 @@ class Router extends RouterView
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 Im Service Provider registrieren wir den Service.
 
-[src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
 
 ```php
 \defined('_JEXEC') or die;
@@ -263,11 +261,11 @@ use Joomla\CMS\Extension\Service\Provider\RouterFactory;
 
 `$container->registerServiceProvider(new RouterFactory('\\Joomla\\Component\\Foos'));` und `$component->setRouterFactory($container->get(RouterFactoryInterface::class));` kommen hinzu.
 
-#### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien gefunden werden.
 
-[src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php
 <?php

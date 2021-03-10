@@ -13,7 +13,6 @@ tags:
   - Joomla
 ---
 
-
 In this article you will learn how to create a menu item for the frontend view of your component. This way, you don't need to know the exact URL. Later, a conversion to search engine friendly URLs is possible automatically.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
@@ -28,13 +27,13 @@ In the current section a file is added and none is changed.
 
 ![Übersicht über die Dateien im vierten Kapitel](/images/j4xvier.png)
 
-### Neue Dateien
+### New files
 
-Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Aber im Moment halten wir es unkompliziert. Wir fügen einige Sprachstrings für Text hinzu. Später werden wir sehen, wie wir diese übersetzen.
+The menu item in the frontend works differently than the one in the administration area. We create a separate XML file. Later we will use parameters. But for now we keep it straightforward. We add some language strings for text. Later on, we will see how to translate them.
 
-#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu:
+Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the following code:
 
 [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -54,41 +53,42 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 
 > The [term CDATA](https://en.wikipedia.org/w/index.php?title=CDATA&oldid=1010130060), meaning character data, is used for distinct, but related, purposes in the markup language XML. The term indicates that a certain portion of the document is general character data, rather than non-character data or character data with a more specific, limited structure. The CDATA section may contain markup characters (`<`, `>` and `&`). These are not interpreted further by the parser.
 
-Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
-Der Text im `message`-Tag wird als Beschreibung angezeigt.
+The `title` attribute in the `layout` tag here is used when we create a new menu item for this component in the administration area.
+The text in the `message` tag is displayed as a description.
 
-> Der Sprachstring bleibt nicht so. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
+> The language string does not stay as it is. It will be translated into different languages. We will work on this later. Here we prepare everything.
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
+Copy the files in the `components` folder to the `components` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the ones from the previous part.
 
-2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`.
+2. open the menu manager to create a menu item. To do this, click on 'Menu' in the left sidebar and then on 'All Menu Items'.
 
-Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
+![Joomla Create a Menu Item](/images/j4x4x1.png)
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x1.png)
+Then click on the `New` button and fill in all the necessary fields.
 
-3. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche.
+![Joomla Create a menu item](/images/j4x4x2.png)
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
+3. find the appropriate `Menu Item Type` with the `Select` button.
 
-4. Speichere den Menüpunkt.
+![Joomla Create a Menu Item](/images/j4x4x3.png)
 
-5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist und funktioniert.
+4. save the menu item.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x3.png)
+5. switch to the frontend and make sure that the menu item is created correctly and works.
 
-## Geänderte Dateien
+![Joomla Create a menu item](/images/j4x4x4.png)
 
-### Übersicht
+## Changed files
 
-### Alle Änderungen
+### Overview
+
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t2...t3.diff
 

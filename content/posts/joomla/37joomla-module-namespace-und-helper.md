@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Wir ergänzen Namespace und Helper.
 
 ## Für Ungeduldige
@@ -32,7 +30,7 @@ Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code über
 
 Um unkompliziert auf die Datei zuzuigreifen, ergänzen wir den Namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
 
-##### [src/modules/mod_foo/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+##### [modules/mod_foo/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
 
 ```php
 // https://raw.githubusercontent.com/astridx/boilerplate/415dd9b0521abb3e2626309d595c80d2cafb8f30/src/modules/mod_foo/Helper/FooHelper.php
@@ -77,7 +75,7 @@ class FooHelper
 
 Um die Inhalte von `FooHelper` im Einstiegspunkt `mod_foo.php` zu nutzen, importieren wir diese mittels `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Anschließden rufen wir die Funktion `FooHelper::getText()` auf und speichern das Ergebnis in der Variablen `$test`.
 
-##### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -90,7 +88,7 @@ Um die Inhalte von `FooHelper` im Einstiegspunkt `mod_foo.php` zu nutzen, import
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
 
 Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation in Joomla registriert. Außerdem ergänzen wir das neue Verzeichnis, damti dieses bei einer Installation an die richtige Stelle kopiert wird.
 
@@ -110,7 +108,7 @@ Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation i
 
 ```
 
-##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/tmpl/default.php)
+##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/tmpl/default.php)
 
 Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen des Variablenwertes ist gekapselt. So bleibt das Layout übersichtlich.
 

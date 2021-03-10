@@ -13,7 +13,6 @@ tags:
   - Joomla
 ---
 
-
 Our goal in this part: when we enter a number in the name field, an error message is displayed immediately after we leave the field. In server-side validation, the message was not issued until after the form was sent to the server via the `Save` button.
 
 In client-side validation, we provide a better user experience by responding quickly at the browser level. Here, all inputs in the user's browser are validated immediately. Client-side validation does not require a query to the server, thus reducing the load on the server and the network. This type of validation works on the browser side using scripting languages such as JavaScript or with HTML5 attributes.
@@ -36,11 +35,11 @@ Look at the changed program code in the [Diff View](https://github.com/astridx/b
 
 Client-side validation is done via a class using a JavaScript file.
 
-#### [src/media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
+#### [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
 
 Here, too, it is a matter of principle. The quality of the validation is secondary. Again, numbers are forbidden in the text field for the name.
 
-[src/media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
+[media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
 ```js  {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/b4078c00700f28ba31229246bd941b24fabf8dbb/src/media/com_foos/js/admin-foos-letter.js
@@ -66,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ### Modified files
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
 
 In the installation manifest we add `<filename>joomla.asset.json</filename>` so that Joomla knows that the file `joomla.asset.json` belongs to the extension and is copied to the `media/com_foos` directory.
 
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  		<folder>tmpl</folder>
@@ -83,11 +82,11 @@ In the installation manifest we add `<filename>joomla.asset.json</filename>` so 
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 The `->useScript('com_foos.admin-foos-letter');` entry adds the JavaScript file responsible for checking to the [Webasset Manager](https://docs.joomla.org/J4.x:Web_Assets/de).
 
-[src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -102,7 +101,7 @@ The `->useScript('com_foos.admin-foos-letter');` entry adds the JavaScript file 
 
 ```
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We add `class="validate-letter"`, so Joomla knows which CSS class should be checked.
 
@@ -119,11 +118,11 @@ We add `class="validate-letter"`, so Joomla knows which CSS class should be chec
 
 ```
 
-#### [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-a0586cff274e553e62750bbea954e91d)
+#### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-a0586cff274e553e62750bbea954e91d)
 
 Last but not least, we register the new file under the name `com_foos.admin-foos-letter` in the webasset manager.
 
-[src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/media/com_foos/joomla.asset.json)
+[media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/media/com_foos/joomla.asset.json)
 
 ```json {diff}
 
@@ -169,7 +168,7 @@ A new installation is not necessary. Continue using the files from the previous 
 
 ### Overview
 
-### All changes
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t11a...t11b.diff
 

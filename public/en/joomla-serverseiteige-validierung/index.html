@@ -4,16 +4,16 @@
 <p>Since both validation methods (server and client) have their own importance, it is recommended to use them simultaneously. Server-side validation is more secure. The client-side one is more user-friendly!</p>
 </blockquote>
 <p>This part covers the server-side validation in Joomla 4.</p>
-<h2>Für Ungeduldige</h2>
+<h2>For impatient people</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t10...t11a">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679">src/administrator/components/com_foos/src/Rule/LetterRule.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679">administrator/components/com_foos/src/Rule/LetterRule.php</a></h4>
 <p>Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Hierzu erstellen wir die Datei <code class="language-text">LetterRule.php</code>.</p>
 <blockquote>
 <p>Hier im Beispiel nutze ich lediglich den zu prüfenden <a href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck">regulären Ausdruck</a> in der Klasse <code class="language-text">LetterRule.php</code>. Natürlich ist möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php">src/administrator/components/com_foos/src/Rule/LetterRule.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php">administrator/components/com_foos/src/Rule/LetterRule.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk8">namespace</span><span class="mtk1"> </span><span class="mtk7">FooNamespace\Component\Foos\Administrator\Rule</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="3"></span><span class="grvsc-source"></span></span>
@@ -27,11 +27,11 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="11"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="12"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">modifiers</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk11">&#39;i&#39;</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="13"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
-<h3>Geänderte Dateien</h3>
+<h3>Modified files</h3>
 <p>Damit Joomla die Regel in der Datei <code class="language-text">LetterRule.php</code> auf das Textfeld zur Eingabe des Namens anwendet, ändern wir die Formulardatei.</p>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed">src/administrator/components/com_foos/forms/foo.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/forms/foo.xml</a></h4>
 <p>Geändert hat sich hier <code class="language-text">&lt;fieldset addruleprefix=&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;&gt;</code> und <code class="language-text">validate=&quot;Letter&quot;</code></p>
-<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml">src/administrator/components/com_foos/forms/foo.xml</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/forms/foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;?</span><span class="mtk4">xml</span><span class="mtk1"> </span><span class="mtk4">version</span><span class="mtk8">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk1"> </span><span class="mtk4">encoding</span><span class="mtk8">=</span><span class="mtk11">&quot;utf-8&quot;</span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;</span><span class="mtk4">fieldset</span><span class="mtk8">&gt;</span></span></span>
@@ -94,10 +94,10 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
   </a>
     </span></p>
 <p>Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du im Formular sehr viele Änderungen durchgeführt hast. In dieser kleinen Erweiterung fällt dies nicht ins Gewicht. Bei große Formularen kann der Hinweis am Ende frustrieren. Ein Benutzer wünscht sich, diesen unmittelbar nach der fehlerhaften Eingabe zu sehen. So ist möglich, sofort zu regieren und unnötige Arbeit zu vermeiden. Hier kommti die clienteseiteige Validierung ins Spiel. Diese sehen wir uns im nächsten Teil an.</p>
-<h2>Geänderte Dateien</h2>
-<h3>Übersicht</h3>
-<h3>Alle Änderungen</h3>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// github.com/astridx/boilerplate/compare/t10...t11a.diff</span></span></span></code></pre>
+<h2>Changed files</h2>
+<h3>Overview</h3>
+<h3>All changes at a glance</h3>
+<p>github.com/astridx/boilerplate/compare/t10...t11a.diff</p>
 <h2>Links</h2>
 <style class="grvsc-styles">
   .grvsc-container {
@@ -189,7 +189,6 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
   }
   
   .solarized-light { background-color: #FDF6E3; }
-  .solarized-light .mtki { font-style: italic; }
   .solarized-light .mtkb { font-weight: bold; }
   .solarized-light .mtk8 { color: #859900; }
   .solarized-light .mtk4 { color: #CB4B16; }
@@ -198,7 +197,6 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
   .solarized-light .mtk11 { color: #2AA198; }
   .solarized-light .mtk13 { color: #073642; }
   .solarized-light .mtk6 { color: #D33682; }
-  .solarized-light .mtk3 { color: #93A1A1; }
   .solarized-light .grvsc-line-highlighted::before {
     background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));

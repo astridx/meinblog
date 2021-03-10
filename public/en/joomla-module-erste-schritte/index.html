@@ -6,25 +6,25 @@
 <li>und viele mehr.</li>
 </ul>
 <p>Dieser Abschnitt erklärt, wie du das Grundgerüst für ein simples Modul erstellst. Dieses gibt im ersten Schritt lediglich einen Text aus. Darauf bauen wir im weiteren Verlauf auf.</p>
-<h2>Für Ungeduldige</h2>
+<h2>For impatient people</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t30...t31">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <p>In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dateien, die im Standardmuster der Modulentwicklung verwendet werden. Diese erstellen wir in diesem Teil.</p>
 <h3>Neue Dateien</h3>
 <h4>Module</h4>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini">src/modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.ini</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini">modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.ini</a></h5>
 <p>Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit bereit.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO=&quot;[PROJECT_NAME]&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO_XML_DESCRIPTION=&quot;Foo Module&quot;</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini">src/modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.sys.ini</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini">modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.sys.ini</a></h5>
 <p>Diese Datei stellt die Texte für Menü und Installationsroutine bereit.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO=&quot;[PROJECT_NAME]&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO_XML_DESCRIPTION=&quot;Foo Module&quot;</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php">src/modules/mod<em>foo/mod</em>foo.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php">modules/mod<em>foo/mod</em>foo.php</a></h5>
 <p><code class="language-text">mod_foo.php</code> ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.</p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -44,9 +44,9 @@
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">require</span><span class="mtk1"> </span><span class="mtk8">ModuleHelper::</span><span class="mtk7">getLayoutPath</span><span class="mtk1">(</span><span class="mtk11">&#39;mod_foo&#39;</span><span class="mtk1">, </span><span class="mtk8">$</span><span class="mtk7">params</span><span class="mtk8">-&gt;</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;layout&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;default&#39;</span><span class="mtk1">));</span></span></span></code></pre>
 <blockquote>
-<p>In Joomla 3x war eine Zeile wie <code class="language-text">$ moduleclass_sfx = htmlspecialchars ($ params-&gt; get (‚moduleclass_sfx‘));</code> notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe <a href="https://github.com/joomla/joomla-cms/pull/17447">PR 17447</a>.</p>
+<p>In Joomla 3x war eine Zeile wie <code class="language-text">$ moduleclass_sfx = htmlspecialchars ($ params-&gt; get (&#39;moduleclass_sfx&#39;));</code> notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe <a href="https://github.com/joomla/joomla-cms/pull/17447">PR 17447</a>.</p>
 </blockquote>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml">src/modules/mod<em>foo/mod</em>foo.xml</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml">modules/mod<em>foo/mod</em>foo.xml</a></h5>
 <p><code class="language-text">mod_foo.xml</code> definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von den vorher erstellten Erweiterungen.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.xml --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -69,7 +69,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">filename</span><span class="mtk1">&gt;mod_foo.xml&lt;/</span><span class="mtk7">filename</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">files</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">extension</span><span class="mtk1">&gt;</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php">src/modules/mod_foo/tmpl/default.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php">modules/mod_foo/tmpl/default.php</a></h5>
 <p><code class="language-text">default.php</code> ist das Template. Diese Datei nimmt die von <code class="language-text">mod_foo.php</code> gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird.</p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/tmpl/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -236,10 +236,10 @@
     </span></p>
 </blockquote>
 <p>Wir haben eine solide Grundlage für die weiteren Schritte.</p>
-<h2>Geänderte Dateien</h2>
-<h3>Übersicht</h3>
-<h3>Alle Änderungen</h3>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// github.com/astridx/boilerplate/compare/t30...t31.diff</span></span></span></code></pre>
+<h2>Changed files</h2>
+<h3>Overview</h3>
+<h3>All changes at a glance</h3>
+<p>github.com/astridx/boilerplate/compare/t30...t31.diff</p>
 <h2>Links</h2>
 <p><a href="https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de">Joomla Dokumentation</a></p>
 <style class="grvsc-styles">

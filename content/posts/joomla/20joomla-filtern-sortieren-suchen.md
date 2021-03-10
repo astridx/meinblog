@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Komponente! Joomla bietet Ansichtsfilter und Suchwerkzeuge, mit denen du die Anzahl der sichtbaren Items einschränkst. Wenn der Statusfilter entsprechend gesetzt ist, werden nur Elemente angezeigt, deren Status veröffentlicht ist. Neben dem Statusfilter bieten die Suchwerkzeuge die Suche nach Titel oder Inhalt und die Möglichkeit die Tabelle zu sortieren, sprich, die Reihenfolge zu ändern.
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
@@ -26,11 +24,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-680833320598887b6d6cc4feb95d4408)
+#### [administrator/components/com_foos/forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-680833320598887b6d6cc4feb95d4408)
 
 Als Erstes erstellen wir das Formular über das die Filter gesetzt werden.
 
-[src/administrator/components/com_foos/forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/filter_foos.xml)
+[administrator/components/com_foos/forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/forms/filter_foos.xml -->
@@ -142,11 +140,11 @@ Als Erstes erstellen wir das Formular über das die Filter gesetzt werden.
 
 > `featured` ist hier der Vollständigkeit halber als Filterfeld aufgenommen, obwohl wir das in der Erweiterung noch nicht unterstützen.
 
-#### [src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe)
+#### [administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe)
 
 Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spalte zur Speicherung der Reihenfolge hinzu.
 
-[src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```sql {numberLines: -2}
 -- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
@@ -157,11 +155,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergänzen wir mit einem Feld zur Festlegung der Reihenfolge.
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			label="JFIELD_ACCESS_LABEL"
@@ -179,11 +177,11 @@ Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird, ergä
 
 ```
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-896f245bc8e493f91277fd33913ef974)
 
 Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Reihenfolge hinzu.
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {diff}
 
@@ -195,13 +193,13 @@ Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.my
 
 ```
 
-#### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Im Model für die Liste gibt es eine Menge Änderungen. Im Konstruktor speichern wir zunächst die Filterfelder in die Konfiguration.
 
 In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie die Filter und Sortierung beachtet. So sind die Daten sofort in der Form, in der wir sie anzeigen.
 
-[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\Model\ListModel;
@@ -318,11 +316,11 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
 
 ```
 
-#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Die View lädt das Filterformular `src/administrator/components/com_foos/forms/foo.xml`, welches im oberen Bereich angezeigt wird. Nebenbei ergänzen wir hier die Prüfung, ob der aktive Benutzer Aktionen ausführen darf.
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -423,25 +421,25 @@ index af7c2fa6..f966bd96 100644
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Der nachfolgende Code zeigt alles Wesentliche für die Nutzung der `searchtools` in der Listenansicht des Backends.
 Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` mit `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>` ersetzt. So wird im Kopfbereich der Tabelle mit einem kleinen Pfeil markiert, wenn eine Sortierung nach der Spalte aktiv ist.
 
-[src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Multilanguage;
  use Joomla\CMS\Language\Associations;
  use Joomla\CMS\Layout\LayoutHelper;
 +use Joomla\CMS\Session\Session;
- 
+
 +$canChange = true;
  $assoc = Associations::isEnabled();
 +$listOrder = $this->escape($this->state->get('list.ordering'));
 +$listDirn  = $this->escape($this->state->get('list.direction'));
 +$saveOrder = $listOrder == 'a.ordering';
- 
+
 +if ($saveOrder && !empty($this->items)) {
 +	$saveOrderingUrl = 'index.php?option=com_foos&task=foos.saveOrderAjax&tmpl=component&' . Session::getFormToken() . '=1';
 +}
@@ -528,7 +526,7 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
  								</td>
 @@ -88,11 +117,11 @@
- 
+
  									<div class="small">
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
 -									 </div>
@@ -544,13 +542,13 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-aeba8d42de72372f42f890d454bf928e)
+#### [administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-aeba8d42de72372f42f890d454bf928e)
 
 Die Icons zeigen uns an, ob und in welche Richtung sortiert ist. Damit die Sortierung für jemanden klar ist, der diese nicht sieht, fügen wir ein `<caption>`-Element hinzu. Das wird nicht angezeigt, da die Pfeile sichtbar sind - es wird vorgelesen.
 
 > Die [Klasse `sr-only`](https://getbootstrap.com/docs/4.0/utilities/screenreaders/) verbirgt ein Element für alle Geräte außer Bildschirmleseprogrammen.
 
-[src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {diff}
  			<table class="table table-sm">

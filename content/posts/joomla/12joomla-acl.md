@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Ziel ist es, dass nicht jeder das Recht hat, alle Inhalte zu bearbeiten. Dazu bietet Joomla eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.
 
 ## Für Ungeduldige
@@ -24,11 +22,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
+#### [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
 Als Erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 
-[src/administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml -->
@@ -48,13 +46,13 @@ Als Erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 </access>
 ```
 
-#### [src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
+#### [administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
 
 Die Berechtigungen bestehen permanent und werden in der Datenbank gespeichert.
 
 Bei einem Update sind ausschließlich die Änderungen relevant. Diese tragen wir in diese Datei diese ein. Bei einer neuen Installation wird die Datenbank über die Hauptdatei `administrator/components/com_foos/sql/install.mysql.utf8.sql` gleich korrekt eingerichtet.
 
-[src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
@@ -66,7 +64,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-9be56d6cedb2c832265e47642f0afb25)
 
 Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration ein. Hierfür legen wir ein Feld an.
 
@@ -92,9 +90,9 @@ Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration 
  </config>
 ```
 
-[src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/config.xml)
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 ```xml {diff}
  			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
@@ -122,7 +120,7 @@ Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzuk
 
 [https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/foos.xml)
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Das Formular zum Erstellen eines neuen Foo-Items wird um die Möglichkeit erweitert, Berechtigungen für ein einzelnes Element zu setzten. Wir ergänzen das Feld `name="access"`.
 
@@ -141,9 +139,9 @@ Das Formular zum Erstellen eines neuen Foo-Items wird um die Möglichkeit erweit
  </form>
 ```
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/forms/foo.xml)
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
 
 Das SQL-Skript für die Installation wird ebenfalls um die notwendigen Felder erweitert.
 
@@ -157,9 +155,9 @@ Das SQL-Skript für die Installation wird ebenfalls um die notwendigen Felder er
 +ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-#### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage für dich komplex. Es ist jetzt erforderlich, Daten aus zwei Datenbanktabellen zu kombinieren. Die Tabelle, die die Berechtigungen von `com_user` verwaltet `#__viewlevels`, und die unsere Beispielkomponenete.
 
@@ -185,13 +183,13 @@ Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage für 
  	}
 ```
 
-[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 > Zur Erinnerung: Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de) nutzt, dann kümmert sich Joomla für dich um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
 
 (https://docs.joomla.org/Accessing_the_database_using_JDatabase/de)
 
-#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - `$canDo` kommt hinzu.
 
@@ -230,9 +228,9 @@ Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erl
  }
 ```
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
-#### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, damit das Feld im Formular aufgenommen wird, welches wir in er XML Datei schon konfiguriert haben. Nur so ist es möglich, die Berechtigungen pro Element zu verändern.
 
@@ -246,9 +244,9 @@ Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, d
  </form>
 ```
 
-[src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
-#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in der Übersicht auf.
 
@@ -274,7 +272,7 @@ Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in d
  								</td>
 ```
 
-[src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ## Teste deine Joomla-Komponente
 

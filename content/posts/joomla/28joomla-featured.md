@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles Attribut: `featured` oder `Haupteintrag`. Dieser Teil der Artikelserie fügt `featured` zu unserer Komponente hinzu.
 
 > In Joomla werden mit `featured` markierte Elemente angezeigt, wenn der Startseiten-Menü-Eintrag mit dem `featured`-Layout verlinkt ist. Auf diese Weise ist es möglich, ein Element nur durch Änderung der Eigenschaft `featured` auf der Startseite ein- oder auszublenden. Dabei gibt es keine Auswirkungen auf andere Anzeigeeigenschaften - beispielsweise die Zugehörigkeit zu einem Kategorie-Blog. Im deutschen wird `featured` mit `Haupteintrag` bezeichnet.
@@ -26,11 +24,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
+#### [administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
 
 Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
 
-[src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
 
 ```sql {numberLines: -2}
 -- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql
@@ -41,11 +39,11 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);
 
 ```
 
-#### [src/components/com_foos/src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641)
+#### [components/com_foos/src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641)
 
 Um die Daten, die `featured` sind zu verarbeiten, erstellen wir ein eigenes Model.
 
-[src/components/com_foos/src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/Model/FeaturedModel.php)
+[components/com_foos/src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/Model/FeaturedModel.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/src/Model/FeaturedModel.php
@@ -252,11 +250,11 @@ class FeaturedModel extends ListModel
 
 ```
 
-#### [src/components/com_foos/src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3b300f4a420f00b560f4d6563e755204)
+#### [components/com_foos/src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3b300f4a420f00b560f4d6563e755204)
 
 `featured` bekommt eine eigene Datei zur Verwaltung der Anzeige im Frontend.
 
-[src/components/com_foos/src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php)
+[components/com_foos/src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/src/View/Featured/HtmlView.php
@@ -464,11 +462,11 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [src/components/com_foos/tmpl/featured/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548)
+#### [components/com_foos/tmpl/featured/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548)
 
 Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in der Datei `default.php` implementieren.
 
-[src/components/com_foos/tmpl/featured/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php)
+[components/com_foos/tmpl/featured/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.php
@@ -509,11 +507,11 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 
 ```
 
-#### [src/components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
+#### [components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
 
 Die XML-Datei benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
 
-[src/components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml)
+[components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.xml -->
@@ -569,7 +567,7 @@ Die XML-Datei benötigen wir, damit im Frontend die Anzeige der `featured` Eleme
 
 ```
 
-#### [src/components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
+#### [components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
 
 In der Datei `default.php` nutzen wir die Anweisung `<?php echo $this->loadTemplate('items'); ?>`. So halten wir das Template übersichtlich. Alles was ein Element betrifft wird über das Untertemplate `default_items.php` in `default.php` eingefügt.
 
@@ -577,7 +575,7 @@ In der Datei `default.php` nutzen wir die Anweisung `<?php echo $this->loadTempl
 > Der Aufruf `<?php echo $this->loadTemplate('NAME'); ?>` lädt die Datei  
 > `default_NAME.php`.
 
-[src/components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
+[components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default_items.php
@@ -653,11 +651,11 @@ $params = \&$this->item->params;
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird um das Feld zur Festlegung der Eigenschaft `featured`.
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
 
 ```xml {diff}
  			<option value="*">JALL</option>
@@ -680,11 +678,11 @@ Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird um das
 
 ```
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
 
 Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft `featured` hinzu.
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
@@ -695,11 +693,11 @@ Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.my
 
 ```
 
-#### [src/administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
+#### [administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
 
 Wir implementieren die Funktion im `FoosController`, die Logik mit der wir die Eigenschaft `featured` setzen.
 
-[src/administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -778,11 +776,11 @@ Wir implementieren die Funktion im `FoosController`, die Logik mit der wir die E
 
 ```
 
-#### [src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### [administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 Im Model eines Elementes implementieren wir die Methode, mit der die Eigenschaft `featured` verändert wird.
 
-[src/administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Associations;
@@ -855,11 +853,11 @@ Im Model eines Elementes implementieren wir die Methode, mit der die Eigenschaft
  	 *
 ```
 
-#### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Datenbankabfrage.
 
-[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  				'published', 'a.published',
@@ -903,11 +901,11 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
 
 ```
 
-#### [src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+#### [administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
 Im `AdministratorService.php` machen wir es möglich, die Eigenschaft auch in der Übersichtsliste per Klick auf das Stern-Symbol zu verändern.
 
-[src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -963,11 +961,11 @@ Im `AdministratorService.php` machen wir es möglich, die Eigenschaft auch in de
 
 ```
 
-#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Wir ergänzen die Werkzeugleiste. `Featured` soll auch hier über eine Aktion bearbeitbar sein.
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  			$childBar = $dropdown->getChildToolbar();
@@ -988,7 +986,7 @@ Wir ergänzen die Werkzeugleiste. `Featured` soll auch hier über eine Aktion be
  			if ($user->authorise('core.admin'))
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 Im Formular zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
 
@@ -1004,11 +1002,11 @@ Im Formular zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, 
  			</div>
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In der Übersicht fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. `HTMLHelper` übernimmt die meister Arbeit für uns.
 
-[src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">

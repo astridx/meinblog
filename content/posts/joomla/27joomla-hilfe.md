@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung.
 
 ![Joomla Hilfelink](/images/j4x27x1.png)
@@ -32,11 +30,11 @@ In diesem Kapitel werden ausschließlich Dateien geändert.
 
 Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeigen, die ein Fragezeichen enthält und eine beliebige Internetadresse als Linkziel hat. Ich habe unoriginell `http://joomla.org` als Beispiel gewählt. Das Prinzip ist klar. Du hast die Möglichkeit für jede `View` eine Hilfedatei unter einem einheitlichen Ressourcenzeiger (URL) abzulegen und in der Ansicht der Komponente zu verlinken - genau da, wo in der Regel Fragen auftauchen.
 
-#### [src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-[src/administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/af04f8493aa045e8bcb2a49b8b1f8a60a927d78a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/af04f8493aa045e8bcb2a49b8b1f8a60a927d78a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 
@@ -46,9 +44,9 @@ Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeige
 
 ```
 
-#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/af04f8493aa045e8bcb2a49b8b1f8a60a927d78a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/af04f8493aa045e8bcb2a49b8b1f8a60a927d78a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 

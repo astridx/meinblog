@@ -13,12 +13,11 @@ tags:
   - Joomla
 ---
 
-
 Schnell gibt eine Menge Inhalte. Alle Elemente auf einer Seite anzuzeigen ist nicht sinnvoll. Es schadet der Übersicht und der Performance. Deshalb teilen wir die Items auf Unterseiten auf und fügen eine Paginierung zum Navigieren im unteren Bereich hinzu.
 
 ![Joomla Pagination](/images/j4x23x1.png)
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -28,14 +27,14 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Es kommt keine neue Datei hinzu.
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Wenn du keine speziellen Wünsche hast, greifst du wieder auf Joomla Funktionen zu. Um die Standard Paginierung angezeigt zu bekommen, reichen mehr oder weniger zwei Zeilen. In der View rufst du
 `$this->pagination = $this->get('Pagination');` auf, um die Variable `$this->pagination` zu setzen.
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected $items;
@@ -62,11 +61,11 @@ Wenn du keine speziellen Wünsche hast, greifst du wieder auf Joomla Funktionen 
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Im Template nutzen wir die Methode `getListFooter` der Variable `$this->pagination`. Das war alles!
 
-[src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/23dfac84a81f5e050ba474e80f04a8ddf19c4658/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  						</tbody>
@@ -96,15 +95,12 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Pagination](/images/j4x23x1.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t18...t19.diff
-
-```
+github.com/astridx/boilerplate/compare/t18...t19.diff
 
 ## Links

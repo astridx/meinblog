@@ -13,7 +13,6 @@ tags:
   - Joomla
 ---
 
-
 Gibt es Einstellungen, die für alle Items deiner Komponente gelten und die ein Anwender an seine Erfordernisse anpasst? Zeigst du beispielsweise digitale Karten an und willst es dem Benutzer ermölgichen, das Einblenden der Lizenz selbst zu bestimmen? In Joomla gibt für diesen Zweck Parameter.
 
 Parameter gibt es für
@@ -40,11 +39,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
+#### [administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
 
 Damit bei einer Aktualisierung der Komponente die Spalte in der Datenbank erstellt wird, in der die Parameter gespeichert werden, benötigen wir die folgende SQL-Datei.
 
-[src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```sql {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
@@ -54,11 +53,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
 In der Konfiguration wird der Parameter üblicherweise gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend werden wir die Möglichkeit schaffen, diesen für ein Element oder einen Menüpunkt zu überschreiben.
 
-[src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
 
 ```xml {diff}
  			<option value="0">JNO</option>
@@ -81,11 +80,11 @@ In der Konfiguration wird der Parameter üblicherweise gespeichert, um einen Sta
 
 ```
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params` hinzu. So ist `show_name` ebenfalls für ein einzelnes Element konfigurierbar.
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			content_type="com_foos.foo"
@@ -110,11 +109,11 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 
 > In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F) zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu `useglobal="true"` wie [com_contact](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
 Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die folgende SQL-Datei.
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
@@ -125,11 +124,11 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 
 ```
 
-#### [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
 In der Klasse, die die Tabelle verwaltete, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden.
 
-[src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
 use Joomla\CMS\Application\ApplicationHelper;
@@ -169,7 +168,7 @@ use Joomla\Database\DatabaseDriver;
 	 * Remains public to be able to check for duplicated alias before saving
 ```
 
-#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 Die View mischt die Daten zu den Parametern so zusammen, dass die Anzeige passt.
 
@@ -177,7 +176,7 @@ Die View mischt die Daten zu den Parametern so zusammen, dass die Anzeige passt.
 
 Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden. Dies habe ich hier so umgesetzt. `$state->get('params')` gibt den Wert an, der beim Menüpunkt gespeichert wurde. `$item->params` ist der Parameter, der beim Element gespeichert wurde. Der nachfolgende Code zeigt dir, wie du die beiden so mischst, dass der Wert beim Item Vorrang hat.
 
-[src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -237,11 +236,11 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 
 > Ein [Pull Request](https://github.com/joomla/joomla-cms/pull/32538/files) als Inspiration.
 
-#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
 
 Am Ende nutzen wir den Parameter für die Anzeige im Template. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll, dann wird der Name angezeigt. Das Label `$this->Params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
-[src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -264,7 +263,7 @@ Am Ende nutzen wir den Parameter für die Anzeige im Template. Wenn es den Param
  echo $this->item->event->beforeDisplayContent;
 ```
 
-#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 [https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -295,7 +294,8 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
 ```
 
 > Das Formularelement `Input` mit dem Typ `radio` hat in Joomla einen typischen Look. Es wird Switcher genannt und den Look erzeugst du über das Layout `joomla.form.field.radio.switcher`.
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x8.png)
+> ![Joomla Parameter in einem Menüpunkt](/images/j4x22x8.png)
+
 ```
 <field
 	name="show_name"
@@ -315,7 +315,7 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 

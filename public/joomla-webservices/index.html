@@ -5,7 +5,7 @@
 <p>In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.</p>
 <h3>Neue Dateien</h3>
 <h4>Komponente</h4>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40">src/api/components/com_foos/src/Controller/FooController.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40">api/components/com_foos/src/Controller/FooController.php</a></h5>
 <p>Erstelle den Controller <code class="language-text">FooController</code> der von <code class="language-text">ApiController</code> erbt. In der Klasse <code class="language-text">ApiController</code> ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe lediglich die folgenden Felder für deine Komponente:</p>
 <p><code class="language-text">protected $contentType = &#39;foos&#39;;</code> und <code class="language-text">protected $default_view = &#39;foos&#39;;</code>.</p>
 <ul>
@@ -46,7 +46,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk13 mtkb">parent</span><span class="mtk8">::</span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">recordKey</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187">src/api/components/com_foos/src/View/Foos/JsonapiView.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187">api/components/com_foos/src/View/Foos/JsonapiView.php</a></h5>
 <p>Erstelle die Schnittstelle <code class="language-text">JsonapiView</code> die von <code class="language-text">BaseApiView</code> erbt. Greife wieder auf fertigen Joomla Code zu. Überschreibe die folgenden Felder für deine Komponente:</p>
 <p><code class="language-text">protected $fieldsToRenderItem = [&#39;id&#39;, &#39;alias&#39;, &#39;name&#39;, &#39;catid&#39;];</code> und <code class="language-text">protected $fieldsToRenderList = [&#39;id&#39;, &#39;alias&#39;, &#39;name&#39;, &#39;catid&#39;];</code>.</p>
 <ul>
@@ -98,7 +98,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h4>Plugin</h4>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089">src/plugins/webservices/foos/foos.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089">plugins/webservices/foos/foos.php</a></h5>
 <p>In der Plugin-Datei erstellen wir die Klasse <code class="language-text">PlgWebservicesFoos</code> und registrieren in der <code class="language-text">onBeforeApiRoute</code>-Methode alle Routen, die wir für den Webservice benötigen.</p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
@@ -125,7 +125,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-9edff0e14d874c7924bbeaada9d5b3d9">src/plugins/webservices/foos/foos.xml</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-9edff0e14d874c7924bbeaada9d5b3d9">plugins/webservices/foos/foos.xml</a></h5>
 <p>Um das Plugin zu installieren, ist eine Installationsdatei notwendig. Die kennst du von der Komponente.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?</span><span class="mtk7">xml</span><span class="mtk3"> version</span><span class="mtk1">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk3"> encoding</span><span class="mtk1">=</span><span class="mtk11">&quot;utf-8&quot;</span><span class="mtk1">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">extension</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;plugin&quot;</span><span class="mtk1"> </span><span class="mtk3">group</span><span class="mtk1">=</span><span class="mtk11">&quot;webservices&quot;</span><span class="mtk1"> </span><span class="mtk3">method</span><span class="mtk1">=</span><span class="mtk11">&quot;upgrade&quot;</span><span class="mtk1">&gt;</span></span></span>
@@ -143,17 +143,17 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;language&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">files</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">extension</span><span class="mtk1">&gt;</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f">src/plugins/webservices/foos/language/en-GB/plg<em>webservices</em>foos.ini</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f">plugins/webservices/foos/language/en-GB/plg<em>webservices</em>foos.ini</a></h4>
 <p>Die Spachdateien füge ich der Vollständigkeit halber bei.</p>
 <pre class="grvsc-container solarized-light" data-language="ini" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS=&quot;Web Services - Foos&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS_XML_DESCRIPTION=&quot;Used to add foos routes to the API for your website.&quot;</span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837">src/plugins/webservices/foos/language/en-GB/plg<em>webservices</em>foos.sys.ini</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837">plugins/webservices/foos/language/en-GB/plg<em>webservices</em>foos.sys.ini</a></h4>
 <p>Auch diese Spachdatei füge ich der Vollständigkeit halber bei.</p>
 <pre class="grvsc-container solarized-light" data-language="ini" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS=&quot;Web Services - Foos&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS_XML_DESCRIPTION=&quot;Used to add foos routes to the API for your website.&quot;</span></span></code></pre>
 <h3>Geänderte Dateien</h3>
 <h3>Komponente</h3>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578">src/administrator/components/com_foos/foos.xml</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/foos.xml</a></h5>
 <p>In der Installationsdatei ist wichtig, den Ordner <code class="language-text">api</code> aufzunehmen. Sonst werden die Dateien im Unterordner <code class="language-text">api</code> bei einer Installation nicht in das richtige Verzeichnis kopiert.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">api</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">files</span><span class="mtk1"> </span><span class="mtk3">folder</span><span class="mtk1">=</span><span class="mtk11">&quot;api/components/com_foos&quot;</span><span class="mtk1">&gt;</span></span></span>
@@ -301,7 +301,7 @@ Lösche ein Foo Element: <code class="language-text">curl -X DELETE /api/index.p
 <h2>Geänderte Dateien</h2>
 <h3>Übersicht</h3>
 <h3>Alle Änderungen</h3>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// github.com/astridx/boilerplate/compare/t29...t30.diff</span></span></span></code></pre>
+<p>github.com/astridx/boilerplate/compare/t29...t30.diff</p>
 <h2>Links</h2>
 <p><a href="https://docs.joomla.org/J4.x:Joomla_Core_APIs/de">Joomla API-Spezifikation</a></p>
 <p><a href="https://docs.joomla.org/J4.x:Joomla_Core_APIs/de">Joomla Core-API</a></p>
@@ -396,7 +396,6 @@ Lösche ein Foo Element: <code class="language-text">curl -X DELETE /api/index.p
   }
   
   .solarized-light { background-color: #FDF6E3; }
-  .solarized-light .mtki { font-style: italic; }
   .solarized-light .mtkb { font-weight: bold; }
   .solarized-light .mtk8 { color: #859900; }
   .solarized-light .mtk4 { color: #CB4B16; }

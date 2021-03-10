@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Du wirst deine Komponente weiterentwickeln. Wie stellst du sicher, dass die User immer die neueste Version verwenden? Woher wissen sie von einem Update? Jetzt, wo das Grundgerüst der Erweiterung fertig ist, ist es wichtig, dass deine Anwender von Weiterentwicklungen erfahren.
 
 In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komponente erstellst und ausführst. Falls du erst weiter an den Funktionen arbeiten möchtest, verstehe ich dies voll und ganz. **Überspringe dann einfach diese Einheit.**
@@ -160,11 +158,11 @@ Informationen zum Changelog findest du unter in Github [Github](https://github.c
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im Weiteren nicht explizit.
 
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<authorUrl>[AUTHOR_URL]</authorUrl>

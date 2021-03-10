@@ -13,7 +13,6 @@ tags:
   - Joomla
 ---
 
-
 Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.
 
 Parameters exist for
@@ -40,11 +39,11 @@ Look at the changed program code in the [Diff View](https://github.com/astridx/b
 
 ### New files
 
-#### [src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
+#### [administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
 
 In order to create the column in the database where the parameters are stored when the component is updated, we need the following SQL file.
 
-[src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+[administrator/components/com_foos/sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```sql {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
@@ -54,11 +53,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 
 ### Modified files
 
-#### [src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
 In the configuration, the parameter is usually stored to set a default value. We will add a field `show_name` to the configuration. Then we will create the possibility to override it for an element or a menu item.
 
-[src/administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
 
 ```xml {diff}
  			<option value="0">JNO</option>
@@ -81,11 +80,11 @@ In the configuration, the parameter is usually stored to set a default value. We
 
 ```
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In the form we use to edit an element, we add the `params` field. So `show_name` is also configurable for a single element.
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			content_type="com_foos.foo"
@@ -110,11 +109,11 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 
 > In Joomla there is the possibility to set the parmeter to the value [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F). The benefit is that when you configure it, it shows what is set globally. Use `useglobal="true"` like [com_contact](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
 In order for a new installation to create the column where the parameters are stored, we add a line to the following SQL file.
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
@@ -125,11 +124,11 @@ In order for a new installation to create the column where the parameters are st
 
 ```
 
-#### [src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
 In the class that managed the table, we make sure that the parameters are stored in the correct form.
 
-[src/administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
 use Joomla\CMS\Application\ApplicationHelper;
@@ -169,7 +168,7 @@ use Joomla\Database\DatabaseDriver;
 	 * Remains public to be able to check for duplicated alias before saving
 ```
 
-#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 The view mixes the data to the parameters so that the display fits.
 
@@ -177,7 +176,7 @@ The view mixes the data to the parameters so that the display fits.
 
 Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you mix the two so that the value at the item takes precedence.
 
-[src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -237,11 +236,11 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 
 > Ein [Pull Request](https://github.com/joomla/joomla-cms/pull/32538/files) als Inspiration.
 
-#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
 
 At the end we use the parameter for display in the template. If there is the parameter and it is set to show the name, then the name will be shown. The label `$this->params->get('show_foo_name_label')` will also be displayed only then:
 
-[src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -264,7 +263,7 @@ At the end we use the parameter for display in the template. If there is the par
  echo $this->item->event->beforeDisplayContent;
 ```
 
-#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 [https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 
@@ -294,7 +293,8 @@ To make it possible to store the parameter at the menu item, we add a field in t
 ```
 
 > The form element `Input` with the type `radio` has a typical look in Joomla. It is called switcher and you create the look using the layout `joomla.form.field.radio.switcher`.
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x8.png)
+> ![Joomla Parameter in einem Menüpunkt](/images/j4x22x8.png)
+
 ```
 <field
 	name="show_name"
@@ -342,11 +342,11 @@ Copy the files in the `components` folder into the `components` folder of your J
 
 6. Set the `Show Name` parameter in different combinations and make sure that the display in the frontend is correct.
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t17...t18.diff
 

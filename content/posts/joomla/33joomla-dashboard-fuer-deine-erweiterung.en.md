@@ -13,12 +13,11 @@ tags:
   - Joomla
 ---
 
-
 Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. In diesem Teil erstellen wir ein solches für unsere Beispielkomponente.
 
 ![Dashboard in Joomla Erweiterung](/images/j4x33x1.png)
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t27...t28) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -26,9 +25,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
+#### [administrator/components/com_foos/presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
 
-[src/administrator/components/com_foos/presets/foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/presets/foos.xml)
+[administrator/components/com_foos/presets/foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/presets/foos.xml)
 
 ```xml
 <?xml version="1.0"?>
@@ -66,9 +65,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/foos.xml)
 
 ```xml
 ...
@@ -99,9 +98,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 ...
 ```
 
-#### [src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
-[src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/script.php)
 
 ```php
 ...
@@ -132,11 +131,11 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ![Joomla Dahboard](/images/j4x33x1.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t27...t28.diff
 

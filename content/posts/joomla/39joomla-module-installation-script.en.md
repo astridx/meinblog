@@ -13,10 +13,9 @@ tags:
   - Joomla
 ---
 
-
 Wir ergänzen Namespace und Helper.
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t33...t34) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -28,7 +27,7 @@ In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu be
 
 #### Module
 
-##### [src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+##### [modules/mod_foo/script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
 
 Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso angewendet wird, wie bei einer Komponente.
 
@@ -36,7 +35,7 @@ Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso
 
 Es geht darum, die Vorgehensweise zu verdeutliche. deshalb übernimmt diese Skriptdatei nur das Setzen von Mindestvoraussetzungen und die Ausgabe von Texten. Deiner Phantasie sind keine Grenzen gesetzt, um diese Datei zu erweitern.
 
-[src/modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php)
+[modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php)
 
 ```php
 //https://raw.githubusercontent.com/astridx/boilerplate/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php
@@ -164,7 +163,7 @@ class mod_fooInstallerScript
 
 ```
 
-### Geänderte Dateien
+### Modified files
 
 #### Module
 
@@ -184,11 +183,11 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 + MOD_FOO_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installation/update/uninstallation of the module</p>"
 ```
 
-##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
 Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses aufzurufen hat.
 
-[src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
 ```xml {diff}
 <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
@@ -212,11 +211,11 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 
 ![Joomla Modul testen - Das Installationsskript](/images/j4x39x2.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t33...t34.diff
 

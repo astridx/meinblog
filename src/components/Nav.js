@@ -18,44 +18,45 @@ export default function Nav() {
         <div>
           <Link to="/blog">Blog</Link>
           <Link to="/tutorial">Sets</Link>
-        <button id="dark-mode-button" style={{ 'margin-left': '20px' }}>
-          <LanguageSelector />
-        </button>
+          <button id="dark-mode-button" style={{ 'margin-left': '20px' }}>
+            <LanguageSelector />
+          </button>
 
-        <button
-          style={{ 'margin-left': '20px' }}
-          id="dark-mode-button"
-          onClick={(event) => {
-            const theme =
-              typeof window !== 'undefined' && localStorage.getItem('theme')
+          <button
+            style={{ 'margin-left': '20px' }}
+            id="dark-mode-button"
+            onClick={(event) => {
+              const theme =
+                typeof window !== 'undefined' && localStorage.getItem('theme')
 
-            if (theme === 'dark') {
-              typeof window !== 'undefined' && localStorage.removeItem('theme')
-              const link = document.querySelectorAll('#dark-mode')
+              if (theme === 'dark') {
+                typeof window !== 'undefined' &&
+                  localStorage.removeItem('theme')
+                const link = document.querySelectorAll('#dark-mode')
 
-              if (link) {
-                link.forEach((el) => el.remove())
-                event.target.textContent = '🌙'
+                if (link) {
+                  link.forEach((el) => el.remove())
+                  event.target.textContent = '🌙'
+                }
+              } else {
+                typeof window !== 'undefined' &&
+                  localStorage.setItem('theme', 'dark')
+                event.target.textContent = '☀️'
+                const head = document.getElementsByTagName('head')[0]
+                const link = document.createElement('link')
+                link.rel = 'stylesheet'
+                link.id = 'dark-mode'
+                link.href = '../dark.css'
+
+                head.appendChild(link)
               }
-            } else {
-              typeof window !== 'undefined' &&
-                localStorage.setItem('theme', 'dark')
-              event.target.textContent = '☀️'
-              const head = document.getElementsByTagName('head')[0]
-              const link = document.createElement('link')
-              link.rel = 'stylesheet'
-              link.id = 'dark-mode'
-              link.href = '../dark.css'
-
-              head.appendChild(link)
-            }
-          }}
-        >
-          {typeof window !== 'undefined' &&
-          localStorage.getItem('theme') === 'dark'
-            ? '☀️'
-            : '🌙'}
-        </button>
+            }}
+          >
+            {typeof window !== 'undefined' &&
+            localStorage.getItem('theme') === 'dark'
+              ? '☀️'
+              : '🌙'}
+          </button>
         </div>
       </div>
     </nav>

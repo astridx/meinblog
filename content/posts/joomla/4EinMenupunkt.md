@@ -12,9 +12,7 @@ tags:
   - Joomla
 ---
 
-
-
-In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.
+In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
 
@@ -32,7 +30,7 @@ Im aktuellen Abschnitte kommt eine Datei hinzu und es wird keine geändert.
 
 Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Aber im Moment halten wir es unkompliziert. Wir fügen einige Sprachstrings für Text hinzu. Später werden wir sehen, wie wir diese übersetzen.
 
-#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu:
 
@@ -54,37 +52,38 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 
 > [CDATA](https://de.wikipedia.org/w/index.php?title=CDATA&oldid=189251190) (engl. Character Data) ist ein Schlüsselwort in XML. Mit CDATA werden Zeichendaten gekennzeichnet, deren Inhalt vom Parser nicht analysiert wird. Der CDATA-Abschnitt kann auch Markup-Zeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert.
 
-Das `title`-Attribut hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
+Das `title`-Attribut im `layout`-Tag hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
 Der Text im `message`-Tag wird als Beschreibung angezeigt.
 
-> Der Sprachstring bleibt nicht so. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
+> Der Sprachstring bleibt nicht so wie er ist. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
 
 ## Teste deine Joomla-Komponente
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleiste auf `Menü` und dann auf `All Menu Items`.
-
-Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
+2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x1.png)
 
-3. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche.
+Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
+
+3. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche.
+
+![Joomla Einen Menüpunkt erstellen](/images/j4x4x3.png)
 
 4. Speichere den Menüpunkt.
 
 5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist und funktioniert.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x3.png)
+![Joomla Einen Menüpunkt erstellen](/images/j4x4x4.png)
 
-## Geänderte Dateien
+## Alle geänderte Dateien
 
 ### Übersicht
 

@@ -17,7 +17,7 @@ tags:
 Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates.
 Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -31,9 +31,9 @@ Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kanns
 
 Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf.
 
-##### [src/templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
+##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-[src/templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
+[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php
@@ -42,9 +42,9 @@ Component
 
 ```
 
-##### [src/templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
+##### [templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
 
-[src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php)
+[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php
@@ -53,11 +53,11 @@ Error
 
 ```
 
-##### [src/templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### [templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
 
-[src/templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
+[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php
@@ -185,9 +185,9 @@ Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`.
 
 So, genug erklärt. So sieht die Website minimal aus.
 
-##### [src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-754d06b92d8b132af8eb955c0e6d9cd66a493f7b0055c4820f5b3f474a02da83)
+##### [templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-754d06b92d8b132af8eb955c0e6d9cd66a493f7b0055c4820f5b3f474a02da83)
 
-[src/templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
@@ -198,9 +198,9 @@ TPL_FACILE_LOGO_LABEL="Logo"
 
 ```
 
-##### [src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-f430f52316f61d2dd90ac59a813bcd36cf84549945e7eb5055302d54858a169f)
+##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-f430f52316f61d2dd90ac59a813bcd36cf84549945e7eb5055302d54858a169f)
 
-[src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
@@ -224,9 +224,9 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### [src/templates/facile/offline.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6883c0bebfdde2e2fa5faf0c765520ece0850108806a0ea508cb132c08b9d322)
+##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6883c0bebfdde2e2fa5faf0c765520ece0850108806a0ea508cb132c08b9d322)
 
-[src/templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php)
+[templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php
@@ -235,7 +235,7 @@ Offline
 
 ```
 
-##### [src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
+##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
 
 Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden.
 
@@ -338,7 +338,7 @@ Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner
 
 ##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
 
-### Geänderte Dateien
+### Modified files
 
 In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 
@@ -358,11 +358,11 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 6. Rufe die URL `joomla-cms4/index.php?tp=1` auf.
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t34...t35.diff
 

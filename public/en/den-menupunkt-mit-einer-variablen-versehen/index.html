@@ -31,15 +31,15 @@
       />
   </a>
     </span></p>
-<h2>Für Ungeduldige</h2>
+<h2>For impatient people</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t4...t5">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
 <p>In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich.</p>
-<h3>Geänderte Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029">src/components/com_foos/src/Model/FooModel.php</a></h4>
+<h3>Modified files</h3>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/src/Model/FooModel.php</a></h4>
 <p>Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php">src/components/com_foos/src/Model/FooModel.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php">components/com_foos/src/Model/FooModel.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk8">!</span><span class="mtk9">isset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">message</span><span class="mtk1">))</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		{</span></span></span>
@@ -47,7 +47,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span></code></pre>
 <p>Füge die nachfolgenden Zeilen an der Stelle hinzu:</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php">src/components/com_foos/src/Model/FooModel.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php">components/com_foos/src/Model/FooModel.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">\</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\</span><span class="mtk8">Factory</span><span class="mtk1">;</span></span></span>
@@ -67,9 +67,9 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">message</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f">src/components/com_foos/tmpl/foo/default.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f">components/com_foos/tmpl/foo/default.xml</a></h4>
 <p>Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-Datei erweiterst:</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml">src/components/com_foos/tmpl/foo/default.xml</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml">components/com_foos/tmpl/foo/default.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk8">&lt;!</span><span class="mtk1">[</span><span class="mtk4">CDATA</span><span class="mtk1">[</span><span class="mtk4">COM_FOOS_FOO_VIEW_DEFAULT_DESC</span><span class="mtk1">]]</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">&lt;/</span><span class="mtk4">message</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;/</span><span class="mtk4">layout</span><span class="mtk8">&gt;</span></span></span>
@@ -164,10 +164,10 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
     </span></p>
 <p>Ich entschuldige mich für meine Einfallslosigkeit. Dir fallen sicher lustigere oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden aber klar, oder?</p>
 <p>So erstellst du mehrere Menüpunkte, die jeweils einen anderen Text enthalten. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.</p>
-<h2>Geänderte Dateien</h2>
-<h3>Übersicht</h3>
-<h3>Alle Änderungen</h3>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk4">github</span><span class="mtk8">.</span><span class="mtk4">com</span><span class="mtk8">/</span><span class="mtk4">astridx</span><span class="mtk8">/</span><span class="mtk4">boilerplate</span><span class="mtk8">/</span><span class="mtk4">compare</span><span class="mtk8">/</span><span class="mtk4">t4</span><span class="mtk8">...</span><span class="mtk4">t5</span><span class="mtk8">.</span><span class="mtk4">diff</span></span></span></code></pre>
+<h2>Changed files</h2>
+<h3>Overview</h3>
+<h3>All changes at a glance</h3>
+<p>github.com/astridx/boilerplate/compare/t4...t5.diff</p>
 <h2>Links</h2>
 <style class="grvsc-styles">
   .grvsc-container {

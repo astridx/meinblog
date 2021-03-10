@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente ermöglicht es anderen, zusätzliche Software für diese zu erstellen oder Daten in eigenen Programmen zu nutzen – zusammenzuarbeiten.
 
 ## Für Ungeduldige
@@ -28,7 +26,7 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 #### Komponente
 
-##### [src/api/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
+##### [api/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
 
 Erstelle den Controller `FooController` der von `ApiController` erbt. In der Klasse `ApiController` ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe lediglich die folgenden Felder für deine Komponente:
 
@@ -74,7 +72,7 @@ class FooController extends ApiController
 }
 ```
 
-##### [src/api/components/com_foos/src/View/Foos/JsonapiView.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187)
+##### [api/components/com_foos/src/View/Foos/JsonapiView.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187)
 
 Erstelle die Schnittstelle `JsonapiView` die von `BaseApiView` erbt. Greife wieder auf fertigen Joomla Code zu. Überschreibe die folgenden Felder für deine Komponente:
 
@@ -132,7 +130,7 @@ class JsonapiView extends BaseApiView
 
 #### Plugin
 
-##### [src/plugins/webservices/foos/foos.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089)
+##### [plugins/webservices/foos/foos.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089)
 
 In der Plugin-Datei erstellen wir die Klasse `PlgWebservicesFoos` und registrieren in der `onBeforeApiRoute`-Methode alle Routen, die wir für den Webservice benötigen.
 
@@ -165,7 +163,7 @@ class PlgWebservicesFoos extends CMSPlugin
 
 ```
 
-##### [src/plugins/webservices/foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-9edff0e14d874c7924bbeaada9d5b3d9)
+##### [plugins/webservices/foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-9edff0e14d874c7924bbeaada9d5b3d9)
 
 Um das Plugin zu installieren, ist eine Installationsdatei notwendig. Die kennst du von der Komponente.
 
@@ -188,7 +186,7 @@ Um das Plugin zu installieren, ist eine Installationsdatei notwendig. Die kennst
 </extension>
 ```
 
-#### [src/plugins/webservices/foos/language/en-GB/plg_webservices_foos.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f)
+#### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f)
 
 Die Spachdateien füge ich der Vollständigkeit halber bei.
 
@@ -197,7 +195,7 @@ PLG_WEBSERVICES_FOOS="Web Services - Foos"
 PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for your website."
 ```
 
-#### [src/plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837)
+#### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837)
 
 Auch diese Spachdatei füge ich der Vollständigkeit halber bei.
 
@@ -210,7 +208,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 ### Komponente
 
-##### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
+##### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werden die Dateien im Unterordner `api` bei einer Installation nicht in das richtige Verzeichnis kopiert.
 

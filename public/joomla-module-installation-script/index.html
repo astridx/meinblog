@@ -5,13 +5,13 @@
 <p>In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu bestimmten Ereignissen ausgeführt wird.</p>
 <h3>Neue Dateien</h3>
 <h4>Module</h4>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4">src/modules/mod_foo/script.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4">modules/mod_foo/script.php</a></h5>
 <p>Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso angewendet wird, wie bei einer Komponente.</p>
 <blockquote>
 <p>Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten.</p>
 </blockquote>
 <p>Es geht darum, die Vorgehensweise zu verdeutliche. deshalb übernimmt diese Skriptdatei nur das Setzen von Mindestvoraussetzungen und die Ausgabe von Texten. Deiner Phantasie sind keine Grenzen gesetzt, um diese Datei zu erweitern.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php">src/modules/mod_foo/script.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php">modules/mod_foo/script.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">//https://raw.githubusercontent.com/astridx/boilerplate/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
@@ -146,9 +146,9 @@
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source">MOD_FOO_INSTALLERSCRIPT_UNINSTALL=&quot;&lt;p&gt;The module has been uninstalled&lt;/p&gt;&quot;</span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source">MOD_FOO_INSTALLERSCRIPT_INSTALL=&quot;&lt;p&gt;The module has been installed&lt;/p&gt;&quot;</span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source">MOD_FOO_INSTALLERSCRIPT_POSTFLIGHT=&quot;&lt;p&gt;Anything here happens after the installation/update/uninstallation of the module&lt;/p&gt;&quot;</span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3">src/modules/mod<em>foo/mod</em>foo.xml</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3">modules/mod<em>foo/mod</em>foo.xml</a></h5>
 <p>Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses aufzurufen hat.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml">src/modules/mod<em>foo/mod</em>foo.xml</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml">modules/mod<em>foo/mod</em>foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">license</span><span class="mtk1">&gt;GNU General Public License version 2 or later; see LICENSE.txt&lt;/</span><span class="mtk7">license</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">version</span><span class="mtk1">&gt;__BUMP_VERSION__&lt;/</span><span class="mtk7">version</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">description</span><span class="mtk1">&gt;MOD_FOO_XML_DESCRIPTION&lt;/</span><span class="mtk7">description</span><span class="mtk1">&gt;</span></span></span>
@@ -229,7 +229,7 @@
 <h2>Geänderte Dateien</h2>
 <h3>Übersicht</h3>
 <h3>Alle Änderungen</h3>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// github.com/astridx/boilerplate/compare/t33...t34.diff</span></span></span></code></pre>
+<p>github.com/astridx/boilerplate/compare/t33...t34.diff</p>
 <h2>Links</h2>
 <p><a href="https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de">Joomla Dokumentation</a></p>
 <style class="grvsc-styles">

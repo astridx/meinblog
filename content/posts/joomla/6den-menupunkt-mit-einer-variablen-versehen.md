@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.
 
 ![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x1.png)
@@ -30,11 +28,11 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich.
 
 ### Geänderte Dateien
 
-#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
-[src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
 ```php
 ...
@@ -47,7 +45,7 @@ Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. L
 
 Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
-[src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -72,11 +70,11 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 ```
 
-#### [src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-Datei erweiterst:
 
-[src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
 
 ```php {diff}
  			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>

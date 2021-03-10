@@ -13,14 +13,13 @@ tags:
   - Joomla
 ---
 
-
 Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statischen Text. Du zeigst hier Daten an, die dynamisch sind. So arbeiten zumindest die meisten Erweiterungen. Deshalb legen wir in diesem Teil eine Datenbank für deine Komponente an.
 
 In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen diese im Administrationsbereich an. Es wird eine statische Liste ausgegeben. Änderbar sind die einzelnen Einträge über das Backend nicht. Daran arbeiten wir im nächsten Teil.
 
 ![Joomla Componente mit Datenbank](/images/j4x7x1.png)
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t5...t6) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -28,13 +27,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
 Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen später im Manifest ein. Gleichzeitig speichern wir mit `INSERT INTO ...` Beispielinhalte in der Datenbanktabelle.
 
 > Lies im [Vorwort](joomla-tutorial-vorwort), was das Präfix `#__` genau bedeutet, wenn du dies nicht weißt.
 
-[src/administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
@@ -52,11 +51,11 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 ('Elmar');
 ```
 
-#### [src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
+#### [administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
 
 Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir gleichzeitig eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet.
 
-[src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
+[administrator/components/com_foos/sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
@@ -66,13 +65,13 @@ DROP TABLE IF EXISTS `#__foos_details`;
 
 > Vielleicht denkst du weiter und fragst dich schon jetzt, wie du potenitelle zukünftige Datenbankänderungen handhabst. Was ist notwendig, um in einer späteren Version neben dem Namen auch den Vornamen zu speichern. SQL-Updates sind in Joomla namensbasiert. Für jede Version der Komponente muss eine Datei angelegt werden, deren Name aus der Versionsnummer und der Dateiendung `.sql` besteht. Praktisch wirst du dies im weiteren Verlauf dieser Tutorialreihe erleben.
 
-#### [src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an.
 
 > Falls bisher nicht geschehen, wird dir hier klar, warum die Trennung von Model und View sinnvoll ist. Sieh dir einmal die Methode `getListQuery()` in Joomla-Komponenten an, zum Beispiel in com_content. Das SQL-Statement ist meist umfangreich.
 
-[src/administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/src/Model/FoosModel.php
@@ -137,13 +136,13 @@ class FoosModel extends ListModel
 
 ```
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statements in den genannten Dateien zum passenden Zeitpunkt aufgerufen werden:
 
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  	<description>COM_FOOS_XML_DESCRIPTION</description>
@@ -198,11 +197,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
 ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
-#### [src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 Bisher war es nicht notwendig, jetzt ist es erforderlich, die `MVC factory` zu setzten. Andernfalls siehst du die nachfolgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.
 
-[src/administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
@@ -222,11 +221,11 @@ Bisher war es nicht notwendig, jetzt ist es erforderlich, die `MVC factory` zu s
  			}
 ```
 
-#### [src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 In der View holen wir am Ende die Elemente. Hierzu rufen wir die passende Methode im Model auf:
 
-[src/administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
   */
@@ -253,11 +252,11 @@ In der View holen wir am Ende die Elemente. Hierzu rufen wir die passende Method
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Last but not least zeigen wir alles mithilfe der Templatedatei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 
-[src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   */
@@ -286,11 +285,11 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ![Joomla Componente mit Datenbank](/images/j4x7x1.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t5...t6.diff
 

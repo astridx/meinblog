@@ -31,16 +31,16 @@
       />
   </a>
     </span></p>
-<h2>Für Ungeduldige</h2>
+<h2>For impatient people</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t14a...t14b">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
 <p>In diesem Kapitel kommen keine neuen Dateien hinzu</p>
-<h3>Geänderte Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82">src/components/com_foos/src/View/Foo/HtmlView.php </a></h4>
+<h3>Modified files</h3>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82">components/com_foos/src/View/Foo/HtmlView.php </a></h4>
 <p>Custom Fields geben im Frontend Ihre Daten mithilfe von Ereignisse aus. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von <code class="language-text">onContentAfterTitle</code>, <code class="language-text">onContentBeforeDisplay</code>, <code class="language-text">onContentAfterDisplay</code>. Dies erledigen wir in der <code class="language-text">View</code>.</p>
 <p>Konkret sorgen wir dafür, dass die Ereignisse <a href="https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle">onContentAfterTitle</a>, <a href="https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay">onContentBeforeDisplay</a> und <a href="https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay">onContentAfterDisplay</a> ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php">src/components/com_foos/src/View/Foo/HtmlView.php </a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php">components/com_foos/src/View/Foo/HtmlView.php </a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> \</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\MVC\View\</span><span class="mtk8">HtmlView</span><span class="mtk1"> </span><span class="mtk8">as</span><span class="mtk1"> BaseHtmlView;</span></span></span>
@@ -73,9 +73,9 @@
 <blockquote>
 <p>Über <code class="language-text">onContentAfterTitle</code>, <code class="language-text">onContentBeforeDisplay</code>, <code class="language-text">onContentAfterDisplay</code> werden, neben den benutzerdefinierten Felder andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.</p>
 </blockquote>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6">src/components/com_foos/tmpl/foo/default.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6">components/com_foos/tmpl/foo/default.php</a></h4>
 <p>Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei wir die Anweisung an der passenden Stelle eingefügt.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php">src/components/com_foos/tmpl/foo/default.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php">components/com_foos/tmpl/foo/default.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">item</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">;</span></span></span>
@@ -197,11 +197,10 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
       />
   </a>
     </span></p>
-<h3>Übersicht</h3>
-<h2>Geänderte Dateien</h2>
-<h3>Übersicht</h3>
-<h3>Alle Änderungen</h3>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// github.com/astridx/boilerplate/compare/t14a...t14b.diff</span></span></span></code></pre>
+<h2>Changed files</h2>
+<h3>Overview</h3>
+<h3>All changes at a glance</h3>
+<p>github.com/astridx/boilerplate/compare/t14a...t14b.diff</p>
 <h2>Links</h2>
 <style class="grvsc-styles">
   .grvsc-container {

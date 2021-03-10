@@ -13,12 +13,11 @@ tags:
   - Joomla
 ---
 
-
 Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So wie im nachfolgenden Bild sieht dein Backend aufgeräumt und `joomlamäßig` aus.
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24...t24b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -28,9 +27,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Nichts Neues.
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Hinzukommt eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 
@@ -106,11 +105,11 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t24...t24b.diff
 

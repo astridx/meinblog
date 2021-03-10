@@ -13,10 +13,9 @@ tags:
   - Joomla
 ---
 
-
 Über Parameter ist das Modul für Endbenutzer flexibel anpassbar.
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t32...t33) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -32,9 +31,9 @@ In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 
 #### Module
 
-##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
 
-[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+[modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 Die Beschriftung des Parameters soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei.
 
@@ -48,11 +47,11 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [src/modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### [modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
 
 In der Einstiegsdatei des Moduls prüfen wir, auf welchen Wert der Parameter gestzt ist und laden ihn in eine Variable.
 
-[src/modules/mod_foo/mod_foo.php]()
+[modules/mod_foo/mod_foo.php]()
 
 ```php {diff}
 $test  = FooHelper::getText();
@@ -62,11 +61,11 @@ $test  = FooHelper::getText();
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
 Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich die Standardparameter. Die Logik für diese wird von Joomla für alle Module übernommen.
 
-[src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
  	<files>
@@ -97,11 +96,11 @@ Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich
 
 Neben den Parametern die ein Entwickler in sein Modul einfügt, gib es Standardparameter, die Joomla selbst handhabt. ![Joomla Modul testen](/images/j4x38x1.png)
 
-##### [src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
+##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
 
 In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespeichert ist.
 
-[src/modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
+[modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -127,11 +126,11 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Modul testen](/images/j4x38x2.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t32...t33.diff
 

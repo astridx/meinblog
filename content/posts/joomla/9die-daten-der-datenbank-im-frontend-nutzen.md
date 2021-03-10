@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Wir haben mittlerweile eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Content zu einem Element per Menüpunkt ausgibst. Hierzu erstellen wir ein eigenes Feld.
 
 ![Joomla Componente Menüpunkt für das Frontend](/images/j4x9x1.png)
@@ -26,13 +24,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
+#### [administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
 
 Als Erstes erstellen wir das Feld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen.
 
 > Es ist möglich, das Feld so zu erweitern, dass ein Foo-Elemente über eine Schaltfläche angelegt wird. Dies habe ich hier der Übersicht halber außen vor gelassen. Beispielcode bietet die Komponente com_contact.
 
-[src/administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
+[administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php  {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/administrator/components/com_foos/src/Field/Modal/FooField.php
@@ -245,13 +243,13 @@ class FooField extends FormField
 
 ```
 
-#### [src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
+#### [administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
 Die Auswahl öffnen wir in einem Modal-Fenster. Der nachfolgende Code zeigt dir das Template für dieses.
 
 > Ein [Modal](<https://de.wikipedia.org/w/index.php?title=Dialog_(Benutzeroberfl%C3%A4che)&oldid=197073746>) ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
 
-[src/administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/administrator/components/com_foos/tmpl/foos/modal.php
@@ -335,11 +333,11 @@ $onclick   = $this->escape($function);
 
 ```
 
-#### [src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
+#### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
 
 Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Dieses mal fügen wir ein eigenes Webasset hinzu. Falls du dieses nicht korrekt einbindest, wird dir folgender Fehler angezeigt, wenn du für den Menüpunkt ein Foo-Element auswählst: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
 
-[src/media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
+[media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
 ```js {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/media/com_foos/joomla.asset.json */
@@ -364,11 +362,11 @@ Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/
 }
 ```
 
-#### [src/media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
+#### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 
 Wir schreiben den JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes ein Foo-Element auswählbar ist. Die Klasse `select-link` werden wir später im Feld der entsprechenden Schaltfläche geben.
 
-[src/media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
+[media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
 ```js  {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/media/com_foos/js/admin-foos-modal.js */
@@ -405,13 +403,13 @@ Wir schreiben den JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpun
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Wir haben eine JavaScript Datei neu erstellt. Diese legen wir im `media` Verzeichnis ab. Damit sie bei der Installation der Komponente kopiert wird, tragen wir das Verzeichnis im Installationsmanifest ein.
 
 > Lies im [Vorwort](joomla-tutorial-vorwort), warum du das `media` Verzeichnis idealerweise wählst.
 
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<folder>src</folder>
@@ -426,11 +424,11 @@ Wir haben eine JavaScript Datei neu erstellt. Diese legen wir im `media` Verzeic
 
 ```
 
-#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank angezeigt. Deshalb benennen wir die Methode `getMsg` in `getItem` um. Wir passen die Variablenbezeichnungen an und erstellen eine Datenbankabfrage.
 
-[src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  class FooModel extends BaseDatabaseModel
@@ -502,11 +500,11 @@ Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank
 
 > Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de) nutzt, dann kümmert sich Joomla für dich um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
 
-#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = $this->get('Item');` aus.
 
-[src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  class HtmlView extends BaseHtmlView
@@ -534,11 +532,11 @@ In der View tauschen wir `$this->msg = $this->get('Msg');` gegen `$this->item = 
 
 ```
 
-#### [src/components/com_foos/tmpl/foo/default.php](hhttps://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### [components/com_foos/tmpl/foo/default.php](hhttps://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
 Zur Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Element `item` und dessen Eigenschaft `name` zu. Auf diese Art können wir in Zukunft weitere Eigenschaften flexibel hinzufügen.
 
-[src/administrator/components/com_foos/foos.php](https://github.com/astridx/boilerplate/blob/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/components/com_foos/tmpl/foo/default.php)
+[administrator/components/com_foos/foos.php](https://github.com/astridx/boilerplate/blob/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -550,13 +548,13 @@ Zur Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Eleme
 
 ```
 
-#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
 
 Wir erstellen ein eigenes Feld, um beim Menüpunkt die Auswahl eines Foo-Elementes zu ermöglichen. Im Wesentlichen sind die die Einträge `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` und `type="modal_foo"` wichtige.
 
 Nachfolgend der gesamte Code der Datei.
 
-[src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {diff}
  	</layout>
@@ -616,7 +614,6 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 ### Übersicht
 
 ### Alle Änderungen
-
 
 github.com/astridx/boilerplate/compare/t6b...t7.diff
 

@@ -13,7 +13,6 @@ tags:
   - Joomla
 ---
 
-
 You will continue to develop your component. How do you make sure that users always use the latest version? How do they know about an update? Now that the basic framework of the extension is ready, it's important that your users know about enhancements.
 
 In this chapter I will explain how to create and run an update server for your component. If you want to continue working on the features first, I fully understand. **Then just skip this unit.**
@@ -22,7 +21,7 @@ Update Server sounds complicated, basically it's just a URL to an XML file speci
 
 ![Joomla Update Server](/images/j4x2x3.png)
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -158,13 +157,13 @@ Informationen zum Changelog findest du unter in Github [Github](https://github.c
 
 ```
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im Weiteren nicht explizit.
 
-[src/administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<authorUrl>[AUTHOR_URL]</authorUrl>
@@ -211,11 +210,11 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 
 ![Joomla Update Server](/images/j4x2x3.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t1...t1b.diff
 

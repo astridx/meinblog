@@ -13,12 +13,11 @@ tags:
   - Joomla
 ---
 
-
 Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie.
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -28,15 +27,15 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Kapitel kommen keine neuen Dateien hinzu
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
+#### [components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
 
 Custom Fields geben im Frontend Ihre Daten mithilfe von Ereignisse aus. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`. Dies erledigen wir in der `View`.
 
 Konkret sorgen wir dafür, dass die Ereignisse [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
-[src/components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -73,11 +72,11 @@ Konkret sorgen wir dafür, dass die Ereignisse [onContentAfterTitle](https://doc
 
 > Über `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` werden, neben den benutzerdefinierten Felder andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.
 
-#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
 Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei wir die Anweisung an der passenden Stelle eingefügt.
 
-[src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  }
@@ -114,13 +113,11 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x2.png)
 
-### Übersicht
+## Changed files
 
-## Geänderte Dateien
+### Overview
 
-### Übersicht
-
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t14a...t14b.diff
 

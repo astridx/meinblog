@@ -13,10 +13,9 @@ tags:
   - Joomla
 ---
 
-
 Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen finden Nutzer das benutzerfreundlicher. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freizugeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten.
 
-## Für Ungeduldige
+## For impatient people
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24b...t25) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -24,11 +23,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
+#### [administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
 
 Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf dies.
 
-[src/administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)
+[administrator/components/com_foos/src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/administrator/components/com_foos/src/Service/HTML/Icon.php
@@ -234,11 +233,11 @@ class Icon
 
 ```
 
-#### [src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
+#### [components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
 
 Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
-[src/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
+[components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
@@ -393,13 +392,13 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
 ```
 
-#### [src/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
+#### [components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
 
 `FormController` enhält die Logik für die Bearbeitung im Formular.
 
 > Beachte die Funktion `save`. Diese ist im `FormController` nicht üblich, weil Joomla alles für dich übernimmt. Da beim Erstellen eines Elementes die ID erst erstellt wird und deshalb nicht bekannt ist, leitet Joomla nach dem Erstellen zur Übersichtsseite weiter. Diese haben wir im Frontend noch nicht erstellt. Deshalb habe ich diese Funktion hier abgeändert.
 
-[src/components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
+[components/com_foos/src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Controller/FooController.php
@@ -633,11 +632,11 @@ class FooController extends FormController
 
 ```
 
-#### [src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
+#### [components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
 
 `FormModel` organisiert alle notwendigen Daten für die Bearbeitung im Formular.
 
-[src/components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
+[components/com_foos/src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Model/FormModel.php
@@ -869,11 +868,11 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 
 ```
 
-#### [src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
+#### [components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
 
 `HtmlView.php` holt alle notwendigen Daten und gibt diese an die Templatedatei `edit.php` weiter.
 
-[src/components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
+[components/com_foos/src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/View/Form/HtmlView.php
@@ -1057,11 +1056,11 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [src/components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
+#### [components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
 
 `edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
 
-[src/components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
+[components/com_foos/tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.php
@@ -1169,11 +1168,11 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 
 ```
 
-#### [src/components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
+#### [components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
 
 Diese Datei benötigen wir zum Anlegen des Menüpunktes.
 
-[src/components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
+[components/com_foos/tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.xml -->
@@ -1194,13 +1193,13 @@ Diese Datei benötigen wir zum Anlegen des Menüpunktes.
 </metadata>
 ```
 
-### Geänderte Dateien
+### Modified files
 
-#### [src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
 
 Hier registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
 
-[src/administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  defined('JPATH_PLATFORM') or die;
@@ -1228,11 +1227,11 @@ Hier registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla b
 
 ```
 
-#### [src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
 
 Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zum Öffnen des Formulares.
 
-[src/components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
   */
@@ -1300,11 +1299,11 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ![Joomla Frontend Bearbeitung](/images/j4x30x3.png)
 
-## Geänderte Dateien
+## Changed files
 
-### Übersicht
+### Overview
 
-### Alle Änderungen
+### All changes at a glance
 
 github.com/astridx/boilerplate/compare/t24b...t25.diff
 

@@ -12,8 +12,6 @@ tags:
   - Joomla
 ---
 
-
-
 Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Komponente ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Das Template sorgt für ein einheitliches Aussehen. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.
 
 ## Für Ungeduldige
@@ -24,9 +22,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
+#### [components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
 
-[src/components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
+[components/com_foos/tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
 
 ```php {numberLines: -2}
 <?php
@@ -52,9 +50,9 @@ echo $this->item->event->afterDisplayContent;
 
 ```
 
-#### [src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
+#### [components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
 
-[src/components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
+[components/com_foos/tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withhead.xml -->
@@ -87,9 +85,9 @@ echo $this->item->event->afterDisplayContent;
 
 ```
 
-#### [src/components/com_foos/tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-51b2e02f000a9a06e0fc5a6cfd9456c9)
+#### [components/com_foos/tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-51b2e02f000a9a06e0fc5a6cfd9456c9)
 
-[src/components/com_foos/tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
+[components/com_foos/tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withheadandfoot.php
@@ -120,11 +118,11 @@ echo $this->item->event->afterDisplayContent;
 
 ### Geänderte Dateien
 
-#### [src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
-[src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  				<option value="0">JHIDE</option>
@@ -146,11 +144,11 @@ Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
 ```
 
-#### [src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
+#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
 
 So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
 
-[src/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
+[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -162,11 +160,11 @@ So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `co
 
 ```
 
-#### [src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt - immer einheitlich angezeigt wird. Deshalb fragen wir den aktiven Menüpunkt ab. Das Element könnte über eine Kategorieansicht oder als einzelnes Element angezeigt werden.
 
-[src/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);
