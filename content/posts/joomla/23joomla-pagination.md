@@ -102,9 +102,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t18...t19.diff
-
-```
+github.com/astridx/boilerplate/compare/t18...t19.diff
 
 ## Links

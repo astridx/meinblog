@@ -312,10 +312,7 @@ Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https:
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t29...t30.diff
-
-```
+github.com/astridx/boilerplate/compare/t29...t30.diff
 
 ## Links
 

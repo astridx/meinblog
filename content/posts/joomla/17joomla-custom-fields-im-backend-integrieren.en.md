@@ -323,9 +323,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t13...t14a.diff
-
-```
+github.com/astridx/boilerplate/compare/t13...t14a.diff
 
 ## Links

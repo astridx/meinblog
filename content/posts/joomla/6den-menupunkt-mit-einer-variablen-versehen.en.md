@@ -124,9 +124,6 @@ So erstellst du mehrere Menüpunkte, die jeweils einen anderen Text enthalten. E
 
 ### Alle Änderungen
 
-```php {diff}
 github.com/astridx/boilerplate/compare/t4...t5.diff
-
-```
 
 ## Links

@@ -186,9 +186,6 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Inst
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t20...t21.diff
-
-```
+github.com/astridx/boilerplate/compare/t20...t21.diff
 
 ## Links

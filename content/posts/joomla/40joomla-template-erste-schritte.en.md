@@ -364,10 +364,7 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t34...t35.diff
-
-```
+github.com/astridx/boilerplate/compare/t34...t35.diff
 
 ## Links
 

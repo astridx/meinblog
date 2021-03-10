@@ -569,9 +569,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ### Alle Änderungen
 
-```php {diff}
 github.com/astridx/boilerplate/compare/t6...t6b.diff
-
-```
 
 ## Links

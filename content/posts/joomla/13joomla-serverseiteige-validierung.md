@@ -111,9 +111,6 @@ Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du 
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t10...t11a.diff
-
-```
+github.com/astridx/boilerplate/compare/t10...t11a.diff
 
 ## Links

@@ -435,25 +435,24 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  use Joomla\CMS\Language\Associations;
  use Joomla\CMS\Layout\LayoutHelper;
 +use Joomla\CMS\Session\Session;
-
+ 
 +$canChange = true;
  $assoc = Associations::isEnabled();
 +$listOrder = $this->escape($this->state->get('list.ordering'));
 +$listDirn  = $this->escape($this->state->get('list.direction'));
 +$saveOrder = $listOrder == 'a.ordering';
-
-+if ($saveOrder && !empty($this->items))
-+{
+ 
++if ($saveOrder && !empty($this->items)) {
 +	$saveOrderingUrl = 'index.php?option=com_foos&task=foos.saveOrderAjax&tmpl=component&' . Session::getFormToken() . '=1';
 +}
  ?>
  <form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
  	<div class="row">
-@@ -27,41 +36,45 @@
- 		<?php endif; ?>
- 		<div class="<?php if (!empty($this->sidebar)) {echo 'col-md-10'; } else { echo 'col-md-12'; } ?>">
+@@ -31,41 +39,45 @@
+ 						echo 'col-md-12';
+ 					} ?>">
  			<div id="j-main-container" class="j-main-container">
-+				<?php echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this)); ?>
++				<?php echo LayoutHelper::render('joomla.searchtools.default', ['view' => $this]); ?>
  				<?php if (empty($this->items)) : ?>
  					<div class="alert alert-warning">
  						<?php echo Text::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
@@ -504,19 +503,16 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  								</th>
  							</tr>
  						</thead>
-@@ -71,6 +84,26 @@
+@@ -75,6 +87,23 @@
  						foreach ($this->items as $i => $item) :
  							?>
  							<tr class="row<?php echo $i % 2; ?>">
 +								<td class="order text-center d-none d-md-table-cell">
 +									<?php
 +									$iconClass = '';
-+									if (!$canChange)
-+									{
++									if (!$canChange) {
 +										$iconClass = ' inactive';
-+									}
-+									elseif (!$saveOrder)
-+									{
++									} else if (!$saveOrder) {
 +										$iconClass = ' inactive tip-top hasTooltip" title="' . HTMLHelper::_('tooltipText', 'JORDERINGDISABLED');
 +									}
 +									?>
@@ -531,11 +527,11 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  								<td class="text-center">
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
  								</td>
-@@ -84,11 +117,11 @@
-
+@@ -88,11 +117,11 @@
+ 
  									<div class="small">
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
-- 									</div>
+-									 </div>
 +									</div>
  								</th>
  								<td class="text-center">
@@ -590,9 +586,6 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Inst
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t15a...t16.diff
-
-```
+github.com/astridx/boilerplate/compare/t15a...t16.diff
 
 ## Links

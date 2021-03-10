@@ -225,9 +225,6 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t19...t20.diff
-
-```
+github.com/astridx/boilerplate/compare/t19...t20.diff
 
 ## Links

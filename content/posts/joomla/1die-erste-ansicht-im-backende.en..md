@@ -705,9 +705,6 @@ Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die wei
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t0...t1.diff
-
-```
+github.com/astridx/boilerplate/compare/t0...t1.diff
 
 ## Links

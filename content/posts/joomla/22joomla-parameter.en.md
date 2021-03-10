@@ -348,9 +348,6 @@ Copy the files in the `components` folder into the `components` folder of your J
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t17...t18.diff
-
-```
+github.com/astridx/boilerplate/compare/t17...t18.diff
 
 ## Links

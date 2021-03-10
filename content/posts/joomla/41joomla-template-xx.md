@@ -54,11 +54,7 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t35...t36.diff
-
-
-```
+github.com/astridx/boilerplate/compare/t35...t36.diff
 
 ## Links
 

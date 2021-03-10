@@ -84,7 +84,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 ```
 
-> In Joomla 3x war eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get (‚moduleclass_sfx‘));` notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
+> In Joomla 3x war eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get ('moduleclass_sfx'));` notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
 
 ##### [src/modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
 
@@ -173,10 +173,7 @@ Wir haben eine solide Grundlage für die weiteren Schritte.
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t30...t31.diff
-
-```
+github.com/astridx/boilerplate/compare/t30...t31.diff
 
 ## Links
 

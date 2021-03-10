@@ -237,9 +237,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ### Alle Änderungen
 
-```php {diff}
 github.com/astridx/boilerplate/compare/t7...t8.diff
-
-```
 
 ## Links

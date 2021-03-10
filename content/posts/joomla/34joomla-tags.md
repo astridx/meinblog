@@ -260,9 +260,6 @@ https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t28...t29.diff
-
-```
+github.com/astridx/boilerplate/compare/t28...t29.diff
 
 ## Links

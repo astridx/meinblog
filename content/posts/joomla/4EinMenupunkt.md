@@ -90,9 +90,6 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t2...t3.diff
-
-```
+github.com/astridx/boilerplate/compare/t2...t3.diff
 
 ## Links

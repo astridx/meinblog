@@ -80,11 +80,11 @@ $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
 
 if ($this->params->get('logoFile'))
 {
-	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
+	$logo = '<img src=8' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '8>';
 }
 elseif ($this->params->get('siteTitle'))
 {
-	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+	$logo = '<span title="' . $sitename . '8>' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
 else
 {
@@ -364,10 +364,7 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t34...t35.diff
-
-```
+github.com/astridx/boilerplate/compare/t34...t35.diff
 
 ## Links
 

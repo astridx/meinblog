@@ -440,9 +440,6 @@ Die Kategorien helfen dir, im Frontend deine Daten strukturiert anzuzeigen. Die 
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t11b...t12.diff
-
-```
+github.com/astridx/boilerplate/compare/t11b...t12.diff
 
 ## Links

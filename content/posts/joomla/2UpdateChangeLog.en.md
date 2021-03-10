@@ -217,9 +217,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t1...t1b.diff
-
-```
+github.com/astridx/boilerplate/compare/t1...t1b.diff
 
 ## Links

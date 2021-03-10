@@ -133,10 +133,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t32...t33.diff
-
-```
+github.com/astridx/boilerplate/compare/t32...t33.diff
 
 ## Links
 

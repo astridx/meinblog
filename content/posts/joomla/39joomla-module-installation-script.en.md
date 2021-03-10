@@ -218,10 +218,7 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t33...t34.diff
-
-```
+github.com/astridx/boilerplate/compare/t33...t34.diff
 
 ## Links
 

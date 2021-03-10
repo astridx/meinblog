@@ -171,9 +171,6 @@ A new installation is not necessary. Continue using the files from the previous 
 
 ### All changes
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t11a...t11b.diff
-
-```
+github.com/astridx/boilerplate/compare/t11a...t11b.diff
 
 ## Links

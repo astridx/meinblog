@@ -349,9 +349,6 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t17...t18.diff
-
-```
+github.com/astridx/boilerplate/compare/t17...t18.diff
 
 ## Links

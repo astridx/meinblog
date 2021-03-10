@@ -1306,10 +1306,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ### Alle Änderungen
 
-```php {diff}
-// github.com/astridx/boilerplate/compare/t24b...t25.diff
-
-```
+github.com/astridx/boilerplate/compare/t24b...t25.diff
 
 ## Links
 
