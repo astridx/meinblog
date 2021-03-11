@@ -25,11 +25,11 @@ Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich progr
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
+## Step by step
 
-### Neue Dateien
+### New files
 
-#### [administrator/components/com_foos/src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
+#### [administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
 
 In einer Hilfsdatei erstellen wir eine Sidebar - ein eigenes Untermenü - für die benutzerdefinnierten Felder.
 

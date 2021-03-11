@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: den-menupunkt-mit-einer-variablen-versehen
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
@@ -28,7 +29,7 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich.
 
 ### Geänderte Dateien
 
-#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/src/Model/ FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
@@ -44,6 +45,15 @@ Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. L
 ```
 
 Füge die nachfolgenden Zeilen an der Stelle hinzu:
+
+```php
+...
+		$app = Factory::getApplication();
+		$this->message = $app->input->get('show_text', "Hi");
+...
+```
+
+Zusammen sieht das in der Diff-Ansicht wie folgt aus:
 
 [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
@@ -70,7 +80,9 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 ```
 
-#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim Menüpunkt zu konfigurieren. Dies implementieren wir in der Datei `default.xml`.
+
+#### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-Datei erweiterst:
 
@@ -99,22 +111,21 @@ Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Wechsele wieder in den Menü Manager und öffne den in Teil 4 erstellen Menüpunkt. Hier siehst du jetzt ein Textfeld, in das du einen beliebigen Text einfügst.
+2. Wechsele in den Menü Manager und öffne den erstellen Menüpunkt oder erstelle einen neuen. Hier siehst du jetzt ein Textfeld, in das du einen beliebigen Text einfügst.
 
 ![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x1.png)
 
-3. Welche jetzt in die Frontendansicht. Überzeuge dich davon, dass der von dir beim Menüpunkt eingegebene Text im Frontend an der richtigen Stelle ausgegeben wird.
+3. Wechsele jetzt in die Frontendansicht. Überzeuge dich davon, dass der von dir beim Menüpunkt eingegebene Text im Frontend in der richtigen Variante ausgegeben wird.
 
 ![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x2.png)
 
 Ich entschuldige mich für meine Einfallslosigkeit. Dir fallen sicher lustigere oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden aber klar, oder?
 
-So erstellst du mehrere Menüpunkte, die jeweils einen anderen Text enthalten. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
+Erstelle mehrere Menüpunkte, die jeweils einen anderen Text enthalten. Gibt nicht lediglich den Text im Frontend aus, gestalte die Ausgabe mithilfe von [bedingten Anweisungen](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else). Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
 
 ## Geänderte Dateien
 

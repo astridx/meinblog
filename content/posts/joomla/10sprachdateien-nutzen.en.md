@@ -21,13 +21,13 @@ Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Text
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t7...t8) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
+## Step by step
 
 Die Ansicht der Website und der Administrationsbereich haben jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine gibt, gibt es im Backend zwei. Kurz erklärt: Die Datei mit der Endung `sys.ini` wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die `ini` ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt eingetragen werden.
 
 > Das Hinzufügen der englischen Sprachdateien ist zwingend erforderlich. Alle anderen Sprache sind optional. Der Grund hierfür ist, dass bei einem Fehler in eine Datei standarmäßig auf die englische Version zurückgegriffen wird.
 
-### Neue Dateien
+### New files
 
 Erstelle die folgenden sechs Dateien, um neben der englischen die deutsche Sprache zu unterstützen.
 
@@ -35,7 +35,7 @@ Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge, beispielsweis
 
 Die rechte Seite der Sprachzeichenfolge ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, reicht es, wenn der Übersetzer nur diese rechte Seite des Sprachstrings in seiner neuen Sprachdatei ändert.
 
-#### [administrator/components/com_foos/language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
+#### [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
 Wir ergänzen die deutsche Sprachversion für den Administrationsbereich mit den Dateien `administrator/components/com_foos/language/de-DE/com_foos.ini` und `administrator/components/com_foos/language/de-DE/com_foos.sys.ini`.
 

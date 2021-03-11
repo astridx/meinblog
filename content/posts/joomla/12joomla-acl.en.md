@@ -19,11 +19,11 @@ Ziel ist es, dass nicht jeder das Recht hat, alle Inhalte zu bearbeiten. Dazu bi
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t9...t10) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
+## Step by step
 
-### Neue Dateien
+### New files
 
-#### [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
+#### [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
 Als Erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 

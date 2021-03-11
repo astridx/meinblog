@@ -21,11 +21,11 @@ Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftret
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
+## Step by step
 
-### Neue Dateien
+### New files
 
-#### [administrator/components/com_foos/sql/updates/mysql/21.0.0.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-5646e047332531426be00a18128422a6)
+#### [administrator/components/com_foos/ sql/updates/mysql/21.0.0.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-5646e047332531426be00a18128422a6)
 
 Wie alle Eigenschaften eines Foo-Elementes, wird der Zustand in der Datenbank gespeichert. Wir legen zwei Spalten an. Nachfolgend siehst du das Skript, welches bei einer Aktualisierung aufgerufen wird.
 

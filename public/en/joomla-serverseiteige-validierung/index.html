@@ -6,14 +6,14 @@
 <p>This part covers the server-side validation in Joomla 4.</p>
 <h2>For impatient people</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t10...t11a">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
-<h2>Schritt für Schritt</h2>
-<h3>Neue Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679">administrator/components/com_foos/src/Rule/LetterRule.php</a></h4>
+<h2>Step by step</h2>
+<h3>New files</h3>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679">administrator/components/com_foos/ src/Rule/LetterRule.php</a></h4>
 <p>Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Hierzu erstellen wir die Datei <code class="language-text">LetterRule.php</code>.</p>
 <blockquote>
 <p>Hier im Beispiel nutze ich lediglich den zu prüfenden <a href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck">regulären Ausdruck</a> in der Klasse <code class="language-text">LetterRule.php</code>. Natürlich ist möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php">administrator/components/com_foos/src/Rule/LetterRule.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php">administrator/components/com_foos/ src/Rule/LetterRule.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk8">namespace</span><span class="mtk1"> </span><span class="mtk7">FooNamespace\Component\Foos\Administrator\Rule</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="3"></span><span class="grvsc-source"></span></span>

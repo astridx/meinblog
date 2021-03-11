@@ -24,14 +24,14 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
+#### [administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
 
 Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
 
-[administrator/components/com_foos/sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql)
 
 ```sql {numberLines: -2}
--- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql
+<-- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if foo is featured.';
 

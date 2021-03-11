@@ -27,11 +27,11 @@ Dieser Abschnitt erklärt, wie du das Grundgerüst für ein simples Modul erstel
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t30...t31) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
+## Step by step
 
 In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dateien, die im Standardmuster der Modulentwicklung verwendet werden. Diese erstellen wir in diesem Teil.
 
-### Neue Dateien
+### New files
 
 #### Module
 

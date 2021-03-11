@@ -13,27 +13,27 @@ tags:
   - Joomla
 ---
 
-Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.
+Sometimes you need to customize the frontend output for a menu item. For this you need a variable. In this part of the tutorial we will add a text variable to the menu item and use it for the display in the frontend.
 
 ![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x1.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t4...t5) and incorporate these changes into your development version.
 
-## Schritt für Schritt
+## Step by step
 
-### Neue Dateien
+### New files
 
-In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich.
+No new file is added in this chapter. We only change.
 
 ### Modified files
 
-#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
 
-Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
+In the model, change the method in which text is calculated for output. Delete the following entry:
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
 ```php
 ...
@@ -44,9 +44,18 @@ Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. L
 ...
 ```
 
-Füge die nachfolgenden Zeilen an der Stelle hinzu:
+Add the following lines in its place:
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+```php
+...
+		$app = Factory::getApplication();
+		$this->message = $app->input->get('show_text', "Hi");
+...
+```
+
+Combined, this looks like the following in the Diff view:
+
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -71,11 +80,13 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 ```
 
-#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+So far, so good. We are still missing the possibility to configure the value for `show_text` at the menu item. We implement this next in the file `default.xml`.
 
-Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-Datei erweiterst:
+#### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
+You store a value using the menu item in the input element by expanding the XML file:
+
+[components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
 
 ```php {diff}
  			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
@@ -96,26 +107,25 @@ Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
+Copy the files in the `components` folder to the `components` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the ones from the previous part.
 
-2. Wechsele wieder in den Menü Manager und öffne den in Teil 4 erstellen Menüpunkt. Hier siehst du jetzt ein Textfeld, in das du einen beliebigen Text einfügst.
+2. switch to the Menu Manager and open the created menu item or create a new one. Here you will now see a text field where you can insert any text.
 
-![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x1.png)
+![Joomla Request Variable at Joomla Menu Item](/images/j4x6x1.png)
 
-3. Welche jetzt in die Frontendansicht. Überzeuge dich davon, dass der von dir beim Menüpunkt eingegebene Text im Frontend an der richtigen Stelle ausgegeben wird.
+3. now switch to the frontend view. Make sure that the text you entered for the menu item is displayed in the correct variant in the frontend.
 
-![Joomla Request Variable beim Joomla Menü Item](/images/j4x6x2.png)
+![Joomla Request Variable at Joomla Menu Item](/images/j4x6x2.png)
 
-Ich entschuldige mich für meine Einfallslosigkeit. Dir fallen sicher lustigere oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden aber klar, oder?
+I apologize for my lack of imagination. I'm sure you can think of funnier or more useful examples. But the sense and function of the variables will be clear, right?
 
-So erstellst du mehrere Menüpunkte, die jeweils einen anderen Text enthalten. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
+Create multiple menu items, each containing different text. Don't just output the text on the frontend, style the output using [conditional statements](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/if...else). A popular use case is to influence the design of the output using variables. For example, you use the variable to query whether the content is to be output in a list or in a table.
 
 ## Changed files
 

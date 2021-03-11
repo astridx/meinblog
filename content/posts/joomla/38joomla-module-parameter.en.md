@@ -19,9 +19,9 @@ tags:
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t32...t33) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
+## Step by step
 
-In diesem Abschnitt fügen wir Parameter zum Modul hinzu.
+### New files
 
 ### Neue Dateien
 

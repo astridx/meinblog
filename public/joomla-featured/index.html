@@ -6,10 +6,10 @@
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t23...t24">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c">administrator/components/com_foos/sql/updates/mysql/24.0.0.sql</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c">administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql</a></h4>
 <p>Du kennst das schon. Wir speichern die Eigenschaft <code class="language-text">featured</code> in der Datenank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei <code class="language-text">24.0.0.sql</code>.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql">administrator/components/com_foos/sql/updates/mysql/24.0.0.sql</a></p>
-<pre class="grvsc-container solarized-light" data-language="sql" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">-- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/%20sql/updates/mysql/24.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql</a></p>
+<pre class="grvsc-container solarized-light" data-language="sql" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk8">&lt;</span><span class="mtk3 mtki">-- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk8">ALTER</span><span class="mtk1"> </span><span class="mtk8">TABLE</span><span class="mtk1"> </span><span class="mtk11">`#__foos_details`</span><span class="mtk1"> ADD COLUMN  </span><span class="mtk11">`featured`</span><span class="mtk1"> </span><span class="mtk8">tinyint</span><span class="mtk1">(</span><span class="mtk6">3</span><span class="mtk1">) unsigned </span><span class="mtk8">NOT</span><span class="mtk1"> </span><span class="mtk8">NULL</span><span class="mtk1"> DEFAULT </span><span class="mtk6">0</span><span class="mtk1"> COMMENT </span><span class="mtk11">&#39;Set if foo is featured.&#39;</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
@@ -1201,8 +1201,8 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
   .solarized-light { background-color: #FDF6E3; }
   .solarized-light .mtkb { font-weight: bold; }
   .solarized-light .mtki { font-style: italic; }
-  .solarized-light .mtk3 { color: #93A1A1; }
   .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk3 { color: #93A1A1; }
   .solarized-light .mtk1 { color: #657B83; }
   .solarized-light .mtk11 { color: #2AA198; }
   .solarized-light .mtk6 { color: #D33682; }
