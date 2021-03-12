@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-kategorien-im-backend-einrichten
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
@@ -13,6 +14,8 @@ tags:
 ---
 
 Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses nützliche Feature ebenfalls. Der aktuelle Teil des Tutorials zeigt dir, wie du Kategorien idealerweise in eine Joomla Komponente integrierst. Erfinde das Rad nicht selbst neu. Nutze das, was Joomla dir bietet.
+
+![Joomla Kategorie Menüpunkt](/images/j4x15x1.png)
 
 ## Für Ungeduldige
 
@@ -390,11 +393,11 @@ Das Formular zum Editieren eines Elements erhält die Anweisung, das Kategorie-F
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersichtstabelle fügen wir eine Spalte für die Anzeige der Kategorie hinzu.
+In der Übersichtstabelle der Ansicht im Backend fügen wir eine Spalte für die Anzeige der Kategorie hinzu.
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 
@@ -410,17 +413,17 @@ In der Übersichtstabelle fügen wir eine Spalte für die Anzeige der Kategorie 
 
 ```
 
+> Die Kategorien helfen dir, im Frontend deine Daten strukturiert anzuzeigen. Die Frontend-Ansichten erstellen wir im weiteren Verlauf dieser Artikelserie.
+
 ## Teste deine Joomla-Komponente
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Datenbank für dich.
 
-2. Öffne die Ansicht deiner Komponenten im Administrationsbereich.
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich.
 
 3. In der Seitenleiste siehst du einen neuen Menüpunkt. Dieser bietet dir alles, was du zum Anlegen und Bearbeiten der Kategorien deiner Komponente benötigst.
 
@@ -430,7 +433,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 ![Joomla Kategorie zuordnen](/images/j4x15x2.png)
 
-Die Kategorien helfen dir, im Frontend deine Daten strukturiert anzuzeigen. Die Ansichten erstellen wir im weiteren Verlauf dieser Artikelserie.
+5. Stelle sicher, dass die Foo-spezifischen Kategorien nicht in anderen Komponenten erscheinen, zum Beispiel in `com_contact`.
 
 ## Geänderte Dateien
 

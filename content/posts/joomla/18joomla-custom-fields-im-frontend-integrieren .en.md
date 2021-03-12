@@ -13,27 +13,31 @@ tags:
   - Joomla
 ---
 
-Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie.
+Very few use custom fields in the administration area alone. As a rule, output is required in the frontend. We will address this question in the current part of the article series. How and where are user-defined fields in Joomla output in the frontend?
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14a...t14b) and incorporate these changes into your development version.
 
 ## Step by step
 
 ### New files
 
-In diesem Kapitel kommen keine neuen Dateien hinzu
+No new files are added in this chapter.
 
 ### Modified files
 
 #### [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
 
-Custom Fields geben im Frontend Ihre Daten mithilfe von Ereignisse aus. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`. Dies erledigen wir in der `View`.
+Custom Fields display data in the frontend using events. The custom fields are displayed in three different places on the website. By default, the data is displayed before the content. This setting can be changed. Therefore we save the results of `onContentAfterTitle`, `onContentBeforeDisplay` and `onContentAfterDisplay`. We do this in the `View`.
 
-Konkret sorgen wir dafür, dass die Ereignisse [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
+Specifically, we make sure that the events 
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), 
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) and 
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) 
+are triggered and the result is stored in a variable.
 
 [components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -70,13 +74,13 @@ Konkret sorgen wir dafür, dass die Ereignisse [onContentAfterTitle](https://doc
 
 ```
 
-> Über `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` werden, neben den benutzerdefinierten Felder andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.
+> Via `onContentAfterTitle`, `onContentBeforeDisplay`,  `onContentAfterDisplay`  in addition to the user-defined fields, other elements are output that are assigned to the respective event.
 
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
-Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei wir die Anweisung an der passenden Stelle eingefügt.
+In the template we output the user-defined fields. In our case, this is not extensive, so we write all the stored texts one after the other. In a more complex file we insert the statement in the appropriate place.
 
-[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  }
@@ -91,27 +95,27 @@ Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist di
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.  
+Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the files from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Menüpunkt `Fields` in diesem neuen Menü.
+2. open the view of your component in the administration area. Click on the menu item 'Fields' in this new menu.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x1.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x1.png)
 
-3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text`, falls du dies nicht im vorherigen Kapitel erledigt hast.
+3. after that create a custom field of type 'text', if you didn't do it in the previous chapter.
 
-4. Edieren ein veröffentlichtes Foo-Item. Stelle sicher, dass du das Custom Field mit einem Wert versiehst.
+4. edit a published foo item. Make sure you add a value to the custom field.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x18x1.png)
 
-5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst neben den vorher vorhanden Werten jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
+5. at the end open the detail view of the just edited Foo item. You will see next to the previously existing values now additionally the text you entered in the custom field.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x2.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x18x2.png)
 
 ## Changed files
 

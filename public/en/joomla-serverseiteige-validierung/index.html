@@ -5,13 +5,13 @@
 </blockquote>
 <p>This part covers the server-side validation in Joomla 4.</p>
 <h2>For impatient people</h2>
-<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t10...t11a">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+<p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t10...t11a">Diff View</a> and incorporate these changes into your development version.</p>
 <h2>Step by step</h2>
 <h3>New files</h3>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679">administrator/components/com_foos/ src/Rule/LetterRule.php</a></h4>
-<p>Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Hierzu erstellen wir die Datei <code class="language-text">LetterRule.php</code>.</p>
+<p>The main goal here is not to learn meaningful validation. Rather, I'm showing you how to integrate your rules into Joomla. That's why you see here only a rudimentary example: In the name it is forbidden to insert a number from now on. In concrete terms, this means: <em>Astrid</em> is allowed. <em>Astrid9</em> is not allowed. For this we create the file <code class="language-text">LetterRule.php</code>.</p>
 <blockquote>
-<p>Hier im Beispiel nutze ich lediglich den zu prüfenden <a href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck">regulären Ausdruck</a> in der Klasse <code class="language-text">LetterRule.php</code>. Natürlich ist möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.</p>
+<p>Here in the example I only use the <a href="https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck">regular expression</a> to be checked in the class <code class="language-text">LetterRule.php</code>. Of course it is possible to integrate complex checks using functions.</p>
 </blockquote>
 <p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php">administrator/components/com_foos/ src/Rule/LetterRule.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
@@ -28,10 +28,10 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="12"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">modifiers</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk11">&#39;i&#39;</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="13"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h3>Modified files</h3>
-<p>Damit Joomla die Regel in der Datei <code class="language-text">LetterRule.php</code> auf das Textfeld zur Eingabe des Namens anwendet, ändern wir die Formulardatei.</p>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/forms/foo.xml</a></h4>
-<p>Geändert hat sich hier <code class="language-text">&lt;fieldset addruleprefix=&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;&gt;</code> und <code class="language-text">validate=&quot;Letter&quot;</code></p>
-<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/forms/foo.xml</a></p>
+<p>To make Joomla apply the rule in the <code class="language-text">LetterRule.php</code> file to the text field for entering the name, we modify the form file.</p>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
+<p>What has changed is <code class="language-text">&lt;fieldset addruleprefix=&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;&gt;</code> and <code class="language-text">validate=&quot;Letter&quot;</code></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;?</span><span class="mtk4">xml</span><span class="mtk1"> </span><span class="mtk4">version</span><span class="mtk8">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk1"> </span><span class="mtk4">encoding</span><span class="mtk8">=</span><span class="mtk11">&quot;utf-8&quot;</span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;</span><span class="mtk4">fieldset</span><span class="mtk8">&gt;</span></span></span>
@@ -47,19 +47,17 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk4">label</span><span class="mtk8">=</span><span class="mtk11">&quot;COM_FOOS_FIELD_NAME_LABEL&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk4">size</span><span class="mtk8">=</span><span class="mtk11">&quot;40&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk4">required</span><span class="mtk8">=</span><span class="mtk11">&quot;true&quot;</span></span></span></code></pre>
-<h2>Teste deine Joomla-Komponente</h2>
+<h2>Test your Joomla component</h2>
 <ol>
-<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen:</li>
+<li>install your component in Joomla version 4 to test it:</li>
 </ol>
-<p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <code class="language-text">media</code> Ordner deiner Joomla 4 Installation.</p>
-<p>Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</p>
+<p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.  </p>
+<p>A new installation is not necessary. Continue using the ones from the previous part.</p>
 <ol start="2">
-<li>Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle ein neues Item oder editiere ein vorhandenes. Gib im Textfeld für den Titel dabei eine Zahl ein.</li>
-<li>Editiere danach ein anderes Feld, setze zum Beispiel den Zugriff auf <code class="language-text">Registered</code>.</li>
-<li>Überzeuge dich davon, dass dir zu diesem Zeitpunkt <strong>keine</strong> Warnung angezeigt wird.</li>
-<li>Versuche am Ende, deine Eingabe zu speichern. Dies ist nicht möglich. Du siehst einen Warnhinweis.</li>
+<li>Open the view of your component in the administration area and create a new item or edit an existing one. Enter a number in the text field for the name. </li>
+<li>Then edit another field, for example set the access to <code class="language-text">Registered</code>.</li>
+<li>make sure that you don't get any warning at this time.</li>
+<li>try to save your input at the end. This is not possible. You will see a warning.</li>
 </ol>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -78,8 +76,8 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Validierung"
-        title="Joomla Validierung"
+        alt="Joomla Validation"
+        title="Joomla Validation"
         src="/static/84e86a4ba9f2d5c52f04737d2375e07e/f058b/j4x13x1.png"
         srcset="/static/84e86a4ba9f2d5c52f04737d2375e07e/c26ae/j4x13x1.png 158w,
 /static/84e86a4ba9f2d5c52f04737d2375e07e/6bdcf/j4x13x1.png 315w,
@@ -93,7 +91,9 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
       />
   </a>
     </span></p>
-<p>Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du im Formular sehr viele Änderungen durchgeführt hast. In dieser kleinen Erweiterung fällt dies nicht ins Gewicht. Bei große Formularen kann der Hinweis am Ende frustrieren. Ein Benutzer wünscht sich, diesen unmittelbar nach der fehlerhaften Eingabe zu sehen. So ist möglich, sofort zu regieren und unnötige Arbeit zu vermeiden. Hier kommti die clienteseiteige Validierung ins Spiel. Diese sehen wir uns im nächsten Teil an.</p>
+<blockquote>
+<p>Did you notice it? You may see the warning only after you have made a lot of changes in the form. In this small extension it does not matter. In large forms, the hint at the end can be frustrating. A user may want to see it immediately after the incorrect input. So it is possible to act immediately and avoid unnecessary work. This is where client-side validation comes into play. We will look at this in the next part.</p>
+</blockquote>
 <h2>Changed files</h2>
 <h3>Overview</h3>
 <h3>All changes at a glance</h3>

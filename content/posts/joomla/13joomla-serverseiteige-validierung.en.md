@@ -23,7 +23,7 @@ This part covers the server-side validation in Joomla 4.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t10...t11a) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t10...t11a) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -31,9 +31,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679)
 
-Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Hierzu erstellen wir die Datei `LetterRule.php`.
+The main goal here is not to learn meaningful validation. Rather, I'm showing you how to integrate your rules into Joomla. That's why you see here only a rudimentary example: In the name it is forbidden to insert a number from now on. In concrete terms, this means: _Astrid_ is allowed. _Astrid9_ is not allowed. For this we create the file `LetterRule.php`.
 
-> Hier im Beispiel nutze ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) in der Klasse `LetterRule.php`. Natürlich ist möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.
+> Here in the example I only use the [regular expression](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) to be checked in the class `LetterRule.php`. Of course it is possible to integrate complex checks using functions.
 
 [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
@@ -55,13 +55,13 @@ class LetterRule extends FormRule
 
 ### Modified files
 
-Damit Joomla die Regel in der Datei `LetterRule.php` auf das Textfeld zur Eingabe des Namens anwendet, ändern wir die Formulardatei.
+To make Joomla apply the rule in the `LetterRule.php` file to the text field for entering the name, we modify the form file.
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` und `validate="Letter"`
+What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  <?xml version="1.0" encoding="utf-8"?>
@@ -82,27 +82,25 @@ Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Ad
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the ones from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle ein neues Item oder editiere ein vorhandenes. Gib im Textfeld für den Titel dabei eine Zahl ein.
+2. Open the view of your component in the administration area and create a new item or edit an existing one. Enter a number in the text field for the name. 
 
-3. Editiere danach ein anderes Feld, setze zum Beispiel den Zugriff auf `Registered`.
+3. Then edit another field, for example set the access to `Registered`.
 
-4. Überzeuge dich davon, dass dir zu diesem Zeitpunkt **keine** Warnung angezeigt wird.
+4. make sure that you don't get any warning at this time.
 
-5. Versuche am Ende, deine Eingabe zu speichern. Dies ist nicht möglich. Du siehst einen Warnhinweis.
+5. try to save your input at the end. This is not possible. You will see a warning.
 
-![Joomla Validierung](/images/j4x13x1.png)
+![Joomla Validation](/images/j4x13x1.png)
 
-Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du im Formular sehr viele Änderungen durchgeführt hast. In dieser kleinen Erweiterung fällt dies nicht ins Gewicht. Bei große Formularen kann der Hinweis am Ende frustrieren. Ein Benutzer wünscht sich, diesen unmittelbar nach der fehlerhaften Eingabe zu sehen. So ist möglich, sofort zu regieren und unnötige Arbeit zu vermeiden. Hier kommti die clienteseiteige Validierung ins Spiel. Diese sehen wir uns im nächsten Teil an.
+> Did you notice it? You may see the warning only after you have made a lot of changes in the form. In this small extension it does not matter. In large forms, the hint at the end can be frustrating. A user may want to see it immediately after the incorrect input. So it is possible to act immediately and avoid unnecessary work. This is where client-side validation comes into play. We will look at this in the next part.
 
 ## Changed files
 

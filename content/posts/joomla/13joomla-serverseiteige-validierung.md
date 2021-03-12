@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-serverseiteige-validierung
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
@@ -28,13 +29,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [administrator/components/com_foos/src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679)
+#### [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679)
 
-Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Hierzu erstellen wir die Datei `LetterRule.php`.
+Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vielmehr, wie du deine Regeln in Joomla integrierst. Deshalb siehst du hier nur ein rudimentäres Beispiel: Im Namen ist es ab jetzt verboten, eine Zahl einzufügen. Konkret bedeutet dies: _Astrid_ ist erlaubt. _Astrid9_ ist nicht erlaubt. Hierzu erstellen wir die Datei `LetterRule.php`.
 
-> Hier im Beispiel nutze ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) in der Klasse `LetterRule.php`. Natürlich ist möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.
+> Hier im Beispiel nutze ich lediglich den zu prüfenden [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck) in der Klasse `LetterRule.php`. Natürlich ist es möglich, komplexe Prüfungen mithilfe von Funktionen zu integrieren.
 
-[administrator/components/com_foos/src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
+[administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
 ```php  {numberLines}
 <?php
@@ -54,13 +55,13 @@ class LetterRule extends FormRule
 
 ### Geänderte Dateien
 
-Damit Joomla die Regel in der Datei `LetterRule.php` auf das Textfeld zur Eingabe des Namens anwendet, ändern wir die Formulardatei.
+Damit Joomla die Regel in der Datei `LetterRule.php` auf das Textfeld zur Eingabe des Namens anwendet, passen wir die Formulardatei an.
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` und `validate="Letter"`
+Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` und `validate="Letter"`
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  <?xml version="1.0" encoding="utf-8"?>
@@ -86,8 +87,6 @@ Geändert hat sich hier `<fieldset addruleprefix="FooNamespace\Component\Foos\Ad
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 

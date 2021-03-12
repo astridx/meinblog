@@ -37,7 +37,9 @@ Client-side validation is done via a class using a JavaScript file.
 
 #### [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
 
-Here, too, it is a matter of principle. The quality of the validation is secondary. Again, numbers are forbidden in the text field for the name.
+Again, it is about the principle, just like in the previous chapter. The quality of the validation is secondary and I choose a simple example. Numbers are forbidden in the text field for the name. _Astrid_ is allowed. _Astrid9_ is not allowed.
+
+> In the example I use a [regular expression](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck). `regex.test(value)` returns `true` if `regex = /^([a-z]+)$/i` and `value` does not contain a number. For more information on the test method, see [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test).
 
 [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
@@ -82,11 +84,11 @@ In the installation manifest we add `<filename>joomla.asset.json</filename>` so 
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 The `->useScript('com_foos.admin-foos-letter');` entry adds the JavaScript file responsible for checking to the [Webasset Manager](https://docs.joomla.org/J4.x:Web_Assets/de).
 
-[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -101,11 +103,11 @@ The `->useScript('com_foos.admin-foos-letter');` entry adds the JavaScript file 
 
 ```
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We add `class="validate-letter"`, so Joomla knows which CSS class should be checked.
 
-[https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			name="name"
@@ -150,8 +152,7 @@ Last but not least, we register the new file under the name `com_foos.admin-foos
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.  
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation.
 
 A new installation is not necessary. Continue using the files from the previous part. 2.

@@ -6,13 +6,14 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-custom-fields-im-frontend-integrieren
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
   - Joomla
 ---
 
-Die wenigsten benutzerdefinierten Felder leben alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie.
+Die wenigsten nutzen benutzerdefinierten Felder alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie. Wie und wo werden benutzerdefinierten Felder in Joomla im Frontend ausgegeben?
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
 
@@ -24,17 +25,21 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-In diesem Kapitel kommen keine neuen Dateien hinzu
+In diesem Kapitel kommen keine neuen Dateien hinzu.
 
 ### Geänderte Dateien
 
-#### [components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
+#### [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
 
-Custom Fields geben im Frontend Ihre Daten mithilfe von Ereignisse aus. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`. Dies erledigen wir in der `View`.
+Custom Fields zeigen im Frontend Daten mithilfe von Ereignisse an. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay` und `onContentAfterDisplay`. Dies erledigen wir in der `View`.
 
-Konkret sorgen wir dafür, dass die Ereignisse [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
+Konkret sorgen wir dafür, dass die Ereignisse 
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), 
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und 
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) 
+ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
-[components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

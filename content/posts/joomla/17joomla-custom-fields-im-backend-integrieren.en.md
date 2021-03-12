@@ -13,17 +13,17 @@ tags:
   - Joomla
 ---
 
-Custom Fields in Joomla sind seit Version 3.7 in aller Munde. Sie bieten unabhängig von Drittanbietern viele zusätzliche Möglichkeiten. Deshalb unterstützt unsere Komponente die benutzerdefinierten Felder.
+Custom fields in Joomla have been the talk of the town since Joomla version 3.7. They offer a lot of additional possibilities independently from third party providers. That's why our component supports custom fields.
 
-Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
+This part shows you how to program the support in the administration area. In the next chapter we will integrate Custom Fields in the frontend.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x1.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x1.png)
 
-> Ich lege hier für die benutzerdefinierten Felder ein eigenes Untermenü an. Die Joomla eigenen Komponenten erstellen einen Menüpunkt im Administrationsmenü. Wenn dir diese Art lieber ist, gucke in einer der Core-Komponenten ab.
+> I create a separate submenu here for the custom fields. The Joomla custom components create a menu item in the administration menu. If you prefer this way, look in one of the core components.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t13...t14a) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -31,9 +31,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
 
-In einer Hilfsdatei erstellen wir eine Sidebar - ein eigenes Untermenü - für die benutzerdefinnierten Felder.
+In a help file we create a sidebar - a separate submenu - for the custom fields.
 
-[administrator/components/com_foos/src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
+[administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
 
 ```php {numberLines: -3}
 // https://raw.githubusercontent.com/astridx/boilerplate/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/src/Helper/FooHelper.php
@@ -93,11 +93,11 @@ class FooHelper extends ContentHelper
 
 ### Modified files
 
-#### [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e5dfd09c647ca1e552c9016cf918acf3)
+#### [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-Auch die benutzerdefinierten Felder werden mit Berechtiungen versehen. So ist es möglich das Ändern oder ansehen eines Feldes nur bestimmten Benutzern zu erlauben. Hierfür ergänzen wir alles Notwendige in der Datei `access.xml`.
+The user-defined fields are also assigned permissions. So it is possible that changing or viewing a field is allowed only for certain users. For this we add everything necessary in the `access.xml` file.
 
-[administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/access.xml)
 
 ```xml {diff}
  		<action name="core.edit.state" title="JACTION_EDITSTATE" />
@@ -121,13 +121,13 @@ Auch die benutzerdefinierten Felder werden mit Berechtiungen versehen. So ist es
 
 ```
 
-#### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
 
-Über die Konfiguration `config.xml` wird mithilfe eines Paramters festgelegt, ob die Erweiterung benutzerdefinierte Felder verwendet.
+The configuration `config.xml` uses a paramer to specify whether the extension uses custom fields.
 
-> Fragst du dich, ob warum es diesen Parameter gibt? Er ist [nicht zwingend](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
+> Do you wonder why this parameter exists? It is [not mandatory](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
 
-[administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/config.xml)
 
 ```php {diff}
  			<option value="0">JNO</option>
@@ -150,11 +150,11 @@ Auch die benutzerdefinierten Felder werden mit Berechtiungen versehen. So ist es
 
 ```
 
-#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor.
+In the `View` we prepare everything necessary for displaying the submenu.
 
-[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 
@@ -205,13 +205,13 @@ In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php). `$this->useCoreUI = true;` sorgt dafür, dass der [Helper](https://github.com/joomla/joomla-cms/blob/c6332d48dab0fce0d4903f206dc979e2c2c59a12/layouts/joomla/edit/params.php#L20) flexibel die richtige Tab-Impementierung liefert.
+To make editing the custom fields work the same way as in Joomla's own extensions, we use [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php). `$this->useCoreUI = true;` ensures that the [Helper](https://github.com/joomla/joomla-cms/blob/c6332d48dab0fce0d4903f206dc979e2c2c59a12/layouts/joomla/edit/params.php#L20) flexibly provides the correct tab implementation.
 
-> Einen Vergleich zwischen bisher meist genutzten `bootstrap.tab` und `uitab` bietet [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805).
+> A comparison between previously most used `bootstrap.tab` and `uitab` is provided by [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805).
 
-[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -270,13 +270,13 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersicht der Komponente im Administrationsbereich schaffen wir Platz für die `Sidebar`. Um genau zu sein: Wir fügen diese mit der CSS-Klasse `col-md-2` ein, wenn sie notwendig ist, Wir verkleinern dann den Hauptbereich, indem wir die Klasse `col-md-10` setzen. Ohne `Sidebar` nutzt der Hauptbereich die Klasse `col-md-10` und somit den vollen Bereich.
+In the overview of the component in the administration area we create space for the `sidebar`. To be precise: We insert it with the CSS class `col-md-2` if it is necessary. We then reduce the size of the main area by setting the class `col-md-10`. Without `sidebar` the main area uses the class `col-md-12` and thus the full area.
 
-> Dir sagen die Klassen `col-md-2`, `col-md-10` und `col-md-12` nichts? Dies sind Boostrap Klassen. Joomla 4 nutzt standardmäßig das Framework [Boostrap 4](https://getbootstrap.com/docs/4.0/layout/grid/).
+> The classes `col-md-2`, `col-md-10` and `col-md-12` don't mean anything to you? These are Boostrap classes. Joomla 4 uses the framework [Boostrap 5](https://getbootstrap.com/docs/5.0/layout/grid/) by default.
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php  {diff}
 
@@ -296,25 +296,27 @@ In der Übersicht der Komponente im Administrationsbereich schaffen wir Platz f�
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the files from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Du siehst eine weitere Seitenleiste. Klicke auf den Menüpunkt `Fields` in diesem neuen Menü.
+2. open the view of your component in the administration area. You will see another sidebar. Click on the menu item 'Fields' in this new menu.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x1.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x1.png)
 
-3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text`.
+3. after that create a custom field of type 'text'.
 
-4. Überzeuge dich davon, dass du dieses Feld beim Edieren eines Foo-Items ebenfalls editieren zum Bearbeiten angeboten bekommst.
+4. make sure that when you edit a foo item, this field is also offered for editing.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x2.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x2.png)
+
+5. make sure that the custom fields can be turned on and off in the global configuration.
+
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x3.png)
 
 ## Changed files
 

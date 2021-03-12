@@ -13,36 +13,41 @@ tags:
   - Joomla
 ---
 
-Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Texte, die im Frontend angezeigt werden, nicht direkt in den Programmcode eingegeben. Du hattest alles so vorbereitet, dass du spezielle Dateien nutzt, die austauschbar sind. Bisher hast du deshalb lange kryptische Texte gesehen. In diesem Teil übersetzten wir die unschönen Sprachstrings.
+Your goal was to make your extension multilingual! That's why you didn't enter the texts directly into the program code. Specifically, I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are uncomplicated exchangeable. So far you have seen cryptic texts because of that. In this part we translate the unattractive language strings.
 
-> Selbst wenn deine Zielgruppe die englisch Sprache spricht und du ausschließlich diese Sprache unterstützt ist es wichtig, eine Sprachdatei für den gesamten Text zu verwenden, welchen du im Front-End oder im Back-End der Komponente anzeigst. So ist es Nutzern möglich, Texte zu überschreiben, ohne den Quellcode zu bearbeiten.
+![Joomla language files are used](/images/j4x10x1.png)
+
+> Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header 
+![Joomla language overrides](/images/j4x10x2.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t7...t8) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t7...t8) and incorporate these changes into your development version.
 
 ## Step by step
 
-Die Ansicht der Website und der Administrationsbereich haben jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine gibt, gibt es im Backend zwei. Kurz erklärt: Die Datei mit der Endung `sys.ini` wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die `ini` ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt eingetragen werden.
+The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - `*.sys.ini` and `*.ini`. Briefly explained: The file with the extension `sys.ini` is used to translate the XML installation file as well as the menu elements. The `ini` is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6) which has a section on [the file `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini).
 
-> Das Hinzufügen der englischen Sprachdateien ist zwingend erforderlich. Alle anderen Sprache sind optional. Der Grund hierfür ist, dass bei einem Fehler in eine Datei standarmäßig auf die englische Version zurückgegriffen wird.
+> The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English.
 
 ### New files
 
-Erstelle die folgenden sechs Dateien, um neben der englischen die deutsche Sprache zu unterstützen.
+Create the following six files to support the German language in addition to English.
 
-Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge, beispielsweise `COM_FOOS_CONFIGURATION="Foo Optionen"`, ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Erweiterungsnamen, in unserem Fall mit `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig.
+The left side of the equal sign in the language string, for example `COM_FOOS_CONFIGURATION"` in `COM_FOOS_CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.
 
-Die rechte Seite der Sprachzeichenfolge ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, reicht es, wenn der Übersetzer nur diese rechte Seite des Sprachstrings in seiner neuen Sprachdatei ändert.
+The right side of the language string, for example `Foo Options"` in `COM_FOOS_CONFIGURATION="Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
 #### [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
-Wir ergänzen die deutsche Sprachversion für den Administrationsbereich mit den Dateien `administrator/components/com_foos/language/de-DE/com_foos.ini` und `administrator/components/com_foos/language/de-DE/com_foos.sys.ini`.
+We add the German language version for the administration area with the files 'administrator/components/com_foos/ language/en-DE/com_foos.ini' and 'administrator/components/com_foos/ language/en-DE/com_foos.sys.ini'.
 
-[administrator/components/com_foos/language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
+> Don't be confused if you see a lot of texts. These are not all used at the moment. I'm already inserting the text for the future chapters here.
 
-```ini {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.ini
+[administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
+
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Optionen"
@@ -63,16 +68,22 @@ COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
 
 ```
 
+##### Naming conventions
+
+Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639) and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166): The first two lower case letters name the language. For German this is `de` and `en` for English. 
+
+After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A frolder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
+
 #### [administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
 [administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
-Wie du siehst, benötigst du zwei Sprachdateien: Eine mit der Endung `.ini` und eine die mit `sys.ini` endet. Welche Datei wird für was verwendet? Die [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) wird in erster Linie bei der Installation und für die Anzeige der Menüpunkte verwendet und die `sys.ini` für alles andere. Der Grund für die Zweiteilung ist die Performance. Bei der Installation oder der Einrichtung der Navigation im Backend ist es so nicht notwendig, alle Sprachstrings zu laden.
+As mentioned before, you need two language files: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `sys.ini` for everything else. 
 
-> In kleinen Erweiterungen ist dieser Vorteil der zwei Sprachdateien meiner Meinung nach nicht groß. Deshalb befülle ich beide Dateien teilweise mit den gleichen Sprachzeichenfolgen. So bin ich auf der sicheren Seite.
+> The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.
 
-```ini {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_XML_DESCRIPTION="Foo Komponente"
@@ -91,65 +102,65 @@ COM_FOOS_CHANGE_FOO="Ändern Sie ein foo"
 COM_FOOS_SELECT_A_FOO="Wählen Sie ein foo aus"
 ```
 
-#### [administrator/components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
+#### [administrator/components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
 
-Ich hatte es schon geschrieben: Die englischen Versionen der Spachdateien sind zwingend.
+I had already written it: The English versions of the language files are mandatory.
 
-[administrator/components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
+[administrator/components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
 
-```ini {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.ini
-
-COM_FOOS="[PROJECT_NAME]"
-COM_FOOS_CONFIGURATION="Foo Options"
-...
-```
-
-#### [administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
-
-[administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
-
-```ini {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
 ...
 ```
 
-#### [components/com_foos/language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e)
+#### [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
-Im Frontend gibt es lediglich die `.ini` - also keine `sys.ini`. Die Datei `components/com_foos/language/de-DE/com_foos.ini` implementiert die deutsche Sprache.
+[administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
-[components/com_foos/language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/de-DE/com_foos.ini)
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini -->
 
-```ini {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/de-DE/com_foos.ini
+COM_FOOS="[PROJECT_NAME]"
+COM_FOOS_CONFIGURATION="Foo Options"
+...
+```
+
+#### [components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e)
+
+In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/language/en-DE/com_foos.ini` implements the German language.
+
+[components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/de-DE/com_foos.ini)
+
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/de-DE/com_foos.ini -->
 
 `COM_FOOS_NAME="Name: "
 ```
 
-#### [components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
+#### [components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
 
-Die zwingend notwendige englische Version ergänzen wir in der Datei `components/com_foos/language/en-GB/com_foos.ini`.
+We add the mandatory English version in the file `components/com_foos/ language/en-GB/com_foos.ini`.
 
 [components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/en-GB/com_foos.ini)
 
-```ini {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/en-GB/com_foos.ini
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS_NAME="Name: "
 ```
 
-> In den nächsten Kapiteln kommen weitere Sprachstrings hinzu. Die erwähne ich dort nicht separat. Die meisten habe ich in dieser Lektion schon in den Beispieldateien integriert. So vermeide ich, dass die Dateien in der Diff-Ansicht erscheinen und die unnötig aufbläht.
+> In the next chapters more language strings will be added. I will not mention them separately there. I have already integrated most of them into the sample files in this lesson. This way I avoid that the files appear in the diff view and blow it up unnecessarily. Specifically, I mean the diff view of the program code of the various chapters on Github, which I refer to here.
 
 ### Modified files
 
-#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-Damit die Sprachdateien bei einer Installation kopiert werden, fügen wir den Eintrag `<folder>language</folder>` für das Frontend und das Backend hinzu.
+So that the language files are copied during an installation, we add the `<folder>language</folder>` entry for the frontend and the backend.
 
-[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
 
@@ -170,11 +181,11 @@ Damit die Sprachdateien bei einer Installation kopiert werden, fügen wir den Ei
  			<folder>src</folder>
 ```
 
-> Wo werden die Sprachdateien idealerweise gespeichert?  
-> Die Joomla eigenen Komponenten speichern die Dateien für den Administrationsbereich im Ordner `/administrator/language/en-GB/` und die für die Site im Ordner `/language/en-GB/`. Dies ist der erste Ort, in dem Joomla nach den Sprachdateien sucht. Aus diesem Grund war es üblich, dass Erweiterungsentwickler hier ihre Dateien ablegten. Manchmal ist es unkomplizierter, sie im eigenen Komponentenordner abzulegen. In unserem Beispiel ist dies der Ordner `administrator/components/com_foos/language/en-GB/` und `components/com_foos/language/en-GB/` für das Frontend. Das ist der Ort, an dem Joomla nach der Sprachdatei sucht, wenn es im Verzeichnis `/administrator/language/en-GB /` beziehungsweise `/ language/en-GB/` nichts P
-> assendes findet.
+##### Where are the language files ideally stored?
 
-Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst du das language Tag zur Installationsdatei wie folgt hinzu
+Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/language/en-GB/` and `components/com_foos/language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the directory `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
+
+To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact` where you need to adjust the value of the `folder` parameter to your structure:
 
 ```xml
 ...
@@ -196,11 +207,11 @@ Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst
 ...
 ```
 
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Bisher haben wir den Namen ohne Label im Frontend ausgegeben `echo $this->item->name;`. Jetzt ergänzen wir ein Label. Bei dem beachten wir die unterschiedlichen Sprachen. Der nachfolgende Code bewirkt, dass anstelle von `Text::_('COM_FOOS_NAME')` im Frontend der String ausgegeben wir, der in der entsprechenden Sprachdatei eingetragen ist. Gib es eine spanische Sprachdatei mit dem Eintrag `COM_FOOS_FIELD_NAME_LABEL="Nombre"` und ist im Frondend die spanische Sprache aktiv, dann wird `Nombre` ausgegeben. Ist die deutsche Sprache eingestellt und gibt es die deutsche Sprachdatei mit dem Eintrag `COM_FOOS_FIELD_NAME_LABEL="Name"` steht an der Stelle `Name`.
+So far we have output the name without a label in the frontend `echo $this->item->name;`. Now we add a label. For this we consider the different languages. The following code causes that instead of `Text::_('COM_FOOS_NAME')` in the frontend the string is output, which is entered in the corresponding language file. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is output. If the German language is active and there is the German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed.
 
-[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -214,21 +225,25 @@ Bisher haben wir den Namen ohne Label im Frontend ausgegeben `echo $this->item->
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.  
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the files from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich und Frontend und überzeuge dich davon, dass die Texte lesbar und nicht mehr kryptisch sind.
+> If you do a new installation, you will notice that the hints in the installation script are now translated.
+![Joomla language files are used](/images/j4x10x3.png)
 
-![Joomla Sprachdateien werden genutzt](/images/j4x10x1.png)
+2. open the view of your component in the administration area and frontend and make sure that the texts are readable and not cryptic anymore.
 
-3. Probe die Neuerung aus. Erstelle Sprachdateien für unterschiedliche Sprachen und verändere die Standardsprache in Joomla. Überzeuge dich davon, dass Joomla korrekt übersetzt.
+![Joomla language files are used](/images/j4x10x1.png)
+
+3. sample the innovation. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.
+
+
 
 ## Changed files
 

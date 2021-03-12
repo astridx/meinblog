@@ -6,13 +6,14 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-konfiguration
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
   - Joomla
 ---
 
-Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst.
+Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst. Wir erstellen die globale Konfiguration für unsere Komponente!
 
 ![Joomla Konfiguration](/images/j4x11x2.png)
 
@@ -24,7 +25,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
 
-Wir ergänzen die Konfigurationsdatei.
+Wir ergänzen die Datei `config.xml`, die die Parameter der Konfiguration implementiert.
 
 [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml)
 
@@ -85,13 +86,16 @@ Wir ergänzen die Konfigurationsdatei.
 
 ```
 
-#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist und für den gesamten Code zugänglich ist. Wir ergänzen hier für den Site-Bereich den neuen Parameter.
 
-`populateState()` wird automatisch aufgerufen, wenn wir `getState()` zum ersten Mal verwenden. Wenn wir etwas Besonderes in der Methode benötigen, überschreiben wir sie im eigenen Modell - so wie in unserem Beispiel.
+`populateState()` wird automatisch aufgerufen, wenn wir `getState()` zum ersten Mal verwenden. Wenn wir etwas Besonderes in der Methode benötigen, überschreiben wir sie im eigenen Modell - so wie im folgenden Code-Beispiel.
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/src/Model/FooModel.php)
+> Vielleicht fragst du dich, welche `populateState()`-Methode aufgerufen wird, wenn in der eigenen Erweiterung nichts implementiert ist. Ganz einfach: `FooModel` (`components/com_foos/src/Model/FooModel.php`) erweitert `BaseDatabaseModel` (`libraries/src/MVC/Model/BaseDatabaseModel.php`), diese wiederum erweitert `BaseModel` (`libraries/src/MVC/Model/BaseModel.php`). Letztere implementiert `StateBehaviorTrait` (`libraries/src/MVC/Model/StateBehaviorTrait.php`) in welchem du die Methode `protected function populateState() {}` findest. Die ist zwar leer und bewirkt so nichts. Aber: Sie ist aufrufbar ist.
+
+
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  		return $this->_item[$pk];
@@ -117,11 +121,11 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist 
 
 ```
 
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Zum Schluss ersetzen `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit dem Text, der den Status prüft.
+Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit dem laut Status korrekten Text.
 
-[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -142,7 +146,6 @@ Zum Schluss ersetzen `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit de
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 

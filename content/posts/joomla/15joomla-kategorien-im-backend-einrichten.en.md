@@ -13,11 +13,13 @@ tags:
   - Joomla
 ---
 
-Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses nützliche Feature ebenfalls. Der aktuelle Teil des Tutorials zeigt dir, wie du Kategorien idealerweise in eine Joomla Komponente integrierst. Erfinde das Rad nicht selbst neu. Nutze das, was Joomla dir bietet.
+Almost every website divides its content into categories. Joomla offers this useful feature as well. The current part of the tutorial shows you how to ideally integrate categories into a Joomla component. Don't reinvent the wheel yourself. Use what Joomla offers you.
+
+![Joomla Category Menu Item](/images/j4x15x1.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11b...t12) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t11b...t12) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -25,9 +27,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8)
 
-Wir speichern die Daten in der Datenbank, die zur Einordnung eines Elementes in eine Kategorie notwendig sind. Im Falle einer Aktualisierung ist es deshalb wichtig, die Datenbank um eine Spalte zu erweitern.
+We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database.
 
-[administrator/components/com_foos/sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
 ```sql {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/734d9acdc946880086984444ffad4b557bc2c39e/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
@@ -38,11 +40,11 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 
 ```
 
-### Geänderte Dateien
+### Modified files
 
-#### [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3)
+#### [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-Die Einträge in der `access.xml` sind notwendig, um Berechtigungen für die Kategorie zu setzen. Der nachfolgende Code bewirkt die Anzeige eines Tabulators zur Festlegung der Benutzerrechte pro Kategorie im Administrationsbereich.
+The entries in the `access.xml` are necessary to set permissions for the category. The following code causes the display of a tab for setting user permissions per category in the administration area.
 
 [https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml)
 
@@ -64,11 +66,11 @@ Die Einträge in der `access.xml` sind notwendig, um Berechtigungen für die Kat
 
 ```
 
-#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-Der Eintrag `<menu link="option=com_categories&amp;extension=com_foos"` bewirkt, dass im Menu des Administrationsbereichs ein Menüpunkt zur Bearbeitung der Kategorie hinzugefügt wird.
+The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a menu item to be added in the administration area menu for editing the category.
 
-[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
 
@@ -83,11 +85,11 @@ Der Eintrag `<menu link="option=com_categories&amp;extension=com_foos"` bewirkt,
 
 ```
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Das Formular, mit dem ein Foo-Item angelegt wird, ergänzen wir um ein Auswahlfeld mit passenden Kategorien. Wir nutzen hierzu das Joomla eigenes Feld `categoryedit`. Beachte die Zeile `extension="com_foos"`. Diese bewirkt, dass ausschließlich Kategorien angezeigt werden, die zu deiner Komponente gehören.
+We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This causes that only categories are displayed, which belong to your component.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  			hint="JFIELD_ALIAS_PLACEHOLDER"
@@ -109,13 +111,13 @@ Das Formular, mit dem ein Foo-Item angelegt wird, ergänzen wir um ein Auswahlfe
 
 ```
 
-#### [administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
-Damit zu Beginn schon eine Kategorie vorhanden ist, ergänzen wir das Skript, welches bei der Installation aufgerufen wird. Über die Methode `install` legen wir mithilfe der Datenbank bei einer Neuinstallation eine Kategorie mit dem Titel `Uncategorised` für die Komponente an.
+To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the `install` method, we create a category with the title `Uncategorised` for the component using the database during a new installation.
 
-Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir die ID des Administrator in der Methode `getAdminId()` ab.
+To be able to specify a user as the creator of the category, we request the ID of the administrator in the `getAdminId()` method.
 
-[https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
 
@@ -236,11 +238,11 @@ Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir
 
 ```
 
-#### [administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface`. Es ist nicht notwendig, `CategoryFactoryInterface` selbst zu erstellen. Wir nutzen die Joomla eigene Funktionen.
+In the service provider we register the interface `CategoryFactoryInterface`. It is not necessary to create `CategoryFactoryInterface` by yourself. We use the Joomla own functions.
 
-[administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
 
@@ -261,11 +263,11 @@ Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface
 
 ```
 
-#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-896f245bc8e493f91277fd33913ef974)
 
-Damit bei einer Neuinstallation die Tabellenspalte angelegt wird, in der die Kategorie eines Foo-Elements gespeichert wird, fügen wir in der SQL-Datei die bei der Installation aufgerufen wird, den erforderlichen SQL-Befehl hinzu.
+In order to create the table column in which the category of a Foo element is stored during a new installation, we add the necessary SQL command in the SQL file that is called during the installation.
 
-[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```php {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
@@ -276,11 +278,11 @@ Damit bei einer Neuinstallation die Tabellenspalte angelegt wird, in der die Kat
 
 ```
 
-#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die Joomla eigenen Funktionen zu verwenden.
+Additionally, implementations are required in the component class to use Joomla's own functions.
 
-[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
@@ -342,11 +344,11 @@ Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die
 
 ```
 
-#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla-Kategorien speichert. So werden im Administrationsbereich bei Auswahl einer Kategorie nur die zu dieser gehörenden Elemente angezeigt.
+In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.
 
-[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 
@@ -374,11 +376,11 @@ Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla-Ka
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Das Formular zum Editieren eines Elements erhält die Anweisung, das Kategorie-Feld mithilfe der Angaben in der XML-Datei anzuzeigen.
+The form for editing an element is told to display the category field using the information in the XML file.
 
-[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  	<?php echo $this->getForm()->renderField('name'); ?>
@@ -391,11 +393,11 @@ Das Formular zum Editieren eines Elements erhält die Anweisung, das Kategorie-F
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersichtstabelle fügen wir eine Spalte für die Anzeige der Kategorie hinzu.
+In the overview table of the view in the backend, we add a column for displaying the category.
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 
@@ -410,28 +412,27 @@ In der Übersichtstabelle fügen wir eine Spalte für die Anzeige der Kategorie 
 		<?php echo $item->access_level; ?>
 
 ```
+> The categories help you to display your data in a structured way in the frontend. We will create the frontend views in the further course of this article series.
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.  
 
-Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Datenbank für dich.
+Install your components as described in part one, after copying all files. Joomla will update the database for you during the installation.
 
-2. Öffne die Ansicht deiner Komponenten im Administrationsbereich.
+2. Open the view of your component in the administration area.
 
-3. In der Seitenleiste siehst du einen neuen Menüpunkt. Dieser bietet dir alles, was du zum Anlegen und Bearbeiten der Kategorien deiner Komponente benötigst.
+3. in the sidebar you will see a new menu item. This offers you everything you need to create and edit the categories of your component.
 
-![Joomla Kategorie Menüpunkt](/images/j4x15x1.png)
+![Joomla Category Menu Item](/images/j4x15x1.png)
 
-4. Öffne als Nächstes ein Element. Überzeuge dich davon, dass es möglich ist, diesem eine Kategorie zuzuordnen.
+4. next open an element. Make sure that it is possible to assign a category to it.
 
-![Joomla Kategorie zuordnen](/images/j4x15x2.png)
+![Joomla Assign Category](/images/j4x15x2.png)
 
-Die Kategorien helfen dir, im Frontend deine Daten strukturiert anzuzeigen. Die Ansichten erstellen wir im weiteren Verlauf dieser Artikelserie.
+5. make sure that the foo specific categories do not appear in other components, for example in `com_contact`.
 
 ## Changed files
 

@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-clientseiteige-validierung
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
@@ -36,7 +37,9 @@ Die clientseitige Validierung erfolgt über eine Klasse mithilfe einer JavaScrip
 
 #### [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
 
-Auch hier geht es um das Prinzip. Die Qualtiät der Validierung ist Nebensache. Wieder sind Zahlen im Textfeld für den Namen verboten.
+Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualtiät der Validierung ist Nebensache und ich wähle ein simples Beispiel. Zahlen sind im Textfeld für den Namen verboten. _Astrid_ ist erlaubt. _Astrid9_ ist nicht erlaubt.
+
+> Im Beispiel nutze ich einen [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck). `regex.test(value)` gibt `true` zurück, wenn `regex = /^([a-z]+)$/i` ist und `value` keine Zahl enthält. Weitere Informationen zur Test-Methode findest du bei [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test).
 
 [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
@@ -150,7 +153,6 @@ Last but not least registrieren wir die neue Datei unter dem Namen `com_foos.adm
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.

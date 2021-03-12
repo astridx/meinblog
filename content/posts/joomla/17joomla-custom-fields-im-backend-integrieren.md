@@ -6,13 +6,14 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-custom-fields-im-backend-integrieren
 langKey: de
 categories:
+  - JoomlaDe
   - Code
 tags:
   - CMS
   - Joomla
 ---
 
-Custom Fields in Joomla sind seit Version 3.7 in aller Munde. Sie bieten unabhängig von Drittanbietern viele zusätzliche Möglichkeiten. Deshalb unterstützt unsere Komponente die benutzerdefinierten Felder.
+Custom Fields (Benutzerdefinierte Felder) in Joomla sind seit Joomla Version 3.7 in aller Munde. Sie bieten unabhängig von Drittanbietern viele zusätzliche Möglichkeiten. Deshalb unterstützt unsere Komponente die benutzerdefinierten Felder.
 
 Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
 
@@ -28,11 +29,11 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### Neue Dateien
 
-#### [administrator/components/com_foos/src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
+#### [administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
 
-In einer Hilfsdatei erstellen wir eine Sidebar - ein eigenes Untermenü - für die benutzerdefinnierten Felder.
+In einer Hilfsdatei erstellen wir eine Sidebar - ein eigenes Untermenü - für die benutzerdefinierten Felder.
 
-[administrator/components/com_foos/src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
+[administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
 
 ```php {numberLines: -3}
 // https://raw.githubusercontent.com/astridx/boilerplate/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/src/Helper/FooHelper.php
@@ -94,7 +95,7 @@ class FooHelper extends ContentHelper
 
 #### [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-Auch die benutzerdefinierten Felder werden mit Berechtiungen versehen. So ist es möglich das Ändern oder ansehen eines Feldes nur bestimmten Benutzern zu erlauben. Hierfür ergänzen wir alles Notwendige in der Datei `access.xml`.
+Auch die benutzerdefinierten Felder werden mit Berechtigungen versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist. Hierfür ergänzen wir alles Notwendige in der Datei `access.xml`.
 
 [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/access.xml)
 
@@ -269,13 +270,13 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersicht der Komponente im Administrationsbereich schaffen wir Platz für die `Sidebar`. Um genau zu sein: Wir fügen diese mit der CSS-Klasse `col-md-2` ein, wenn sie notwendig ist, Wir verkleinern dann den Hauptbereich, indem wir die Klasse `col-md-10` setzen. Ohne `Sidebar` nutzt der Hauptbereich die Klasse `col-md-10` und somit den vollen Bereich.
+In der Übersicht der Komponente im Administrationsbereich schaffen wir Platz für die `Sidebar`. Um genau zu sein: Wir fügen diese mit der CSS-Klasse `col-md-2` ein, wenn sie notwendig ist. Wir verkleinern dann den Hauptbereich, indem wir die Klasse `col-md-10` setzen. Ohne `Sidebar` nutzt der Hauptbereich die Klasse `col-md-12` und somit den vollen Bereich.
 
-> Dir sagen die Klassen `col-md-2`, `col-md-10` und `col-md-12` nichts? Dies sind Boostrap Klassen. Joomla 4 nutzt standardmäßig das Framework [Boostrap 4](https://getbootstrap.com/docs/4.0/layout/grid/).
+> Dir sagen die Klassen `col-md-2`, `col-md-10` und `col-md-12` nichts? Dies sind Boostrap Klassen. Joomla 4 nutzt standardmäßig das Framework [Boostrap 5](https://getbootstrap.com/docs/5.0/layout/grid/).
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php  {diff}
 
@@ -300,8 +301,6 @@ In der Übersicht der Komponente im Administrationsbereich schaffen wir Platz f�
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -314,6 +313,11 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 4. Überzeuge dich davon, dass du dieses Feld beim Edieren eines Foo-Items ebenfalls editieren zum Bearbeiten angeboten bekommst.
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x2.png)
+
+5. Stelle sicher, dass die benutzerdefinierten Felder in der globalen Konfiguration ein- und ausschaltbar sind.
+
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x3.png)
+
 
 ## Geänderte Dateien
 

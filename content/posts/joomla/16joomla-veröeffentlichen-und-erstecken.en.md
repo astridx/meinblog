@@ -13,11 +13,19 @@ tags:
   - Joomla
 ---
 
-Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente haben einen Status, der veränderbar ist. Dieser Abschnitt zeigt dir, wie du Items versteckst, veröffentlichst, terminierst, archivierst und löschst.
+If you worked with Joomla, you know it from other components: Items have a status that can be changed. This section shows you how to 
+- unpublish, 
+- publish, 
+- schedule, 
+- archive and 
+- trash 
+items.
+
+![Joomla Published](/images/j4x16x3.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12...t13) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -25,7 +33,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-87ec143942c0f306b40e69e84076afef)
 
-Im Falle eines Updates, wird die Datenbank mihilfe dieser Datei auf den neuesten Stand gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
+In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
 [administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
@@ -41,11 +49,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
 ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 ```
 
-#### [administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
+#### [administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
 
-Jetzt benötigen wir die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt.
+Now we need the `AdminController` class. Therefore we create the class `FoosController` which inherits from `AdminController`.
 
-[administrator/components/com_foos/src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
@@ -78,7 +86,7 @@ class FoosController extends AdminController
 
 #### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird und zwei, über die eine terminierte Veröffentlichung mithilfe eines Kalenders erreicht wird.
+Three fields are added to the form. One, in which the status is set and two, through which a scheduled publication is achieved with the help of a calendar.
 
 [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -128,11 +136,11 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 
 ```
 
-#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
 
-Wir implementieren die notwendigen Informationen in der Datenbank für den Fall einer Neuinstallation.
+We implement the necessary information in the database in case of a new installation.
 
-[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```sql {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
@@ -153,11 +161,11 @@ Wir implementieren die notwendigen Informationen in der Datenbank für den Fall 
 
 ```
 
-#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`.
+The component class gets the new function `getStateColumnForSection`.
 
-[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  		return ($section === 'category' ? 'categories' : 'foos_details');
@@ -181,11 +189,11 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`.
 
 ```
 
-#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Das Model erweitern wir, damit die Information über den Status geladen wird.
+We extend the model so that the information about the status is loaded.
 
-[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 
@@ -201,7 +209,7 @@ Das Model erweitern wir, damit die Information über den Status geladen wird.
 
 #### [administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
 
-In der Klasse, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
+In the class that manages the database table, we add checks. This way we make sure that no impossible data is stored.
 
 [administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
 
@@ -256,11 +264,11 @@ In der Klasse, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. 
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Felder gerendert werden.
+In the form for editing an element, we make sure that the new fields are rendered.
 
-[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -276,13 +284,13 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Wir nehmen zum Schluß die Felder in der Übersicht auf.
+Finally, we include the fields in the overview.
 
-> Wunderst du dich über die Verteilung der Tags `<td>` und `th`. Das erscheint auf den ersten Blick ein Fehler. Es ist aber korrekt. Weitere Informationen findest du in diesem [Github-Issue](https://github.com/joomla/joomla-cms/pull/24546).
+> Are you wondering about the the tags `<td>` and `<th>`. This seems to be a mistake at first sight. But it is correct. You can find more information in this [Github-Issue](https://github.com/joomla/joomla-cms/pull/24546).
 
-[https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  					<table class="table" id="fooList">
@@ -325,29 +333,27 @@ Wir nehmen zum Schluß die Felder in der Übersicht auf.
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.  
 
-2. Die Datenbank ist wieder geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Deinstallieren und Neuinstallieren ist aufwendig. Deshalb verrate ich dir eine einfachere Methode.
+2. the database has been changed again, so it is necessary to update it. Uninstalling and reinstalling is time-consuming. That's why I'll tell you an easier method.
 
-3. Öffne den Bereich `System | Information | Database`.
+3. open the section 'System | Information | Database'.
 
 ![Joomla Published](/images/j4x16x1.png)
 
-4. Wähle deine Komponente aus und klicke auf `Update Structure`. Das war es! Damit hast du die Datenbank auf den neuesten Stand gebracht.
+4. select your component and click on 'Update Structure'. That was it! Now you have updated the database.
 
-5. Öffne die Ansicht deiner Komponente im Administrationsbereich und überzeuge dich davon, dass du hier eine Spalte die mit Status überschrieben ist, siehst. Klicke auf das Symbol in dieser und wechsele so den Zustand von `veröffentlicht` in `versteckt` und umgekehrt.
+5. open the view of your component in the administration area and make sure that you see a column here that is overwritten with status. Click on an icon in it and change the status of the corresponding element from 'published' to 'hidden' and vice versa.
 
 ![Joomla Published](/images/j4x16x2.png)
 
-6. Öffne ein Element und sieh, dass der Status in dieser Ansicht ebenfalls editierbar ist. Außerdem ist es möglich, ein Datum anzugeben, zu das Item veröffentlich und/oder versteckt wird.
+6. open an element and check that the status is also editable in this view. It is also possible to specify a date, so that items are hidden or published according to the date.
 
-![Joomla Validierung](/images/j4x16x3.png)
+![Joomla Validation](/images/j4x16x3.png)
 
 ## Changed files
 
