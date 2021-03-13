@@ -15,7 +15,7 @@ tags:
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t25...t26) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t25...t26) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -523,9 +523,9 @@ class CategoryModel extends ListModel
 
 ```
 
-#### [components/com_foos/src/Service/Category.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-931af94e5b12bab015c84906dc961848)
+#### [components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-931af94e5b12bab015c84906dc961848)
 
-[components/com_foos/src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/Category.php)
+[components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/Category.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/src/Service/Category.php
@@ -571,9 +571,9 @@ class Category extends Categories
 
 ```
 
-#### [components/com_foos/src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d5d0bc03614ed16454bf9941dc8ebd7a)
+#### [components/com_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d5d0bc03614ed16454bf9941dc8ebd7a)
 
-[components/com_foos/src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/View/Category/HtmlView.php)
+[components/com_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/View/Category/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/src/View/Category/HtmlView.php
@@ -878,7 +878,7 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
-Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
+Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
 
 2. Erstelle einen Menüpunkt, der die Elemente einer Kategorie unserer Erweiterung anzeigt.
 

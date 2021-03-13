@@ -258,7 +258,7 @@ In der View holen wir am Ende die Elemente. Hierzu rufen wir die Methode `$this-
 
 Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   */
@@ -280,7 +280,7 @@ Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
-Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla legt bei der Installation die Datenbank an.
+Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla legt bei der Installation die Datenbank an.
 
 2. Teste als Nächstes, ob du die Ansicht deiner Komponente im Administrationsbereich fehlerfrei ist. Siehst du drei Einträge? Diese hatten wir beim Einrichten der Datenbank als Beispieldaten in der SQL-Datei eingetragen.
 

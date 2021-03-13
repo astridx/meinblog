@@ -13,37 +13,37 @@ tags:
   - Joomla
 ---
 
-Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben zu erledigen. Damit die Menschen, die mit der Komponente arbeiten, immer den Überblick über die möglichen Arbeitsschritte haben, empfiehlt sich eine Werkzeugleiste. In diesem Teil der Tutorialserie ergänzen wir die Standardaktionen. Hierbei greifen wir auf eine Vielzahl vorgefertigter Methoden zu. Wieder ist es nicht nötig, das Rad selbst zu erfinden.
+You don't develop the extension as an end in itself. It helps with the completion of tasks. In order for the people working with the component to always have an overview of the possible work steps, it makes sense to have a toolbar. In this part of the tutorial we will extend the already existing toolbar with the standard actions. Here we will access a variety of ready-made methods. Again, for the standard, it is not necessary to invent the wheel yourself. Later on, for special tasks, it makes sense to use the standard as an example.
 
-![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
+![Joomla actions in the toolbar](/images/j4x21x1.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t16...t17) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t16...t17) and incorporate these changes into your development version.
 
 ## Step by step
 
-Ich zeige dir hier, wie du die Standardfunktionen in die Werkzeugleiste integrierst. Jede Komponente hat eigene Funktionen. Genau wie die in Joomla üblichen fügst du die speziellen über Schaltflächen in der Werkzeugleiste hinzu. Gucke hier bei den Standardfunktionen ab.
+I'll show you here how to integrate the standard functions into the toolbar. Each component has its own functions. Just like the standard ones in Joomla, you add the special ones via buttons in the toolbar. Look here at the standard functions.
 
 ### New files
 
-Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
+We only change files in this chapter, no new ones are added.
 
-### Geänderte Dateien
+### Modified files
 
 #### [administrator/components/ com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editieren eines Elementes nutzt. Die Klasse [ToolbarHelper](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Toolbar/ToolbarHelper.php) bietet eine Menge hilfreicher Funktionen. Beispielweise
+The following code shows you which functions you use when creating or editing an element. The [ToolbarHelper](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Toolbar/ToolbarHelper.php) class provides a lot of helpful functions. For example
 
-- [`ToolbarHelper::title`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L26) um einen Titel passend zu positionieren,
-- [`ToolbarHelper::apply`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L474) um Schaltfäche mit der Standardfunktion zum Speichern hinzuzufügen
-- und [`ToolbarHelper::saveGroup`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L653) um ein Dropdown mit den üblichen Speicherbefehlen zu integrieren.
+- [`ToolbarHelper::title`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L26) to position a title appropriately,
+- [`ToolbarHelper::apply`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L474) to add buttons with the default save function
+- and [`ToolbarHelper::saveGroup`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L653) to add a dropdown with the standard save commands.
 
-> Sieh dir an, wie du [`ToolbarHelper::custom`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L88) für eigene Tasks verwendest.
+> See how to use [`ToolbarHelper::custom`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L88) for custom tasks.
 
-Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur angezeigt, wenn der Betrachter berechtigt ist, sie zu nutzen. Die Funktion [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) sammelt die in der Datei `access.xml` implementierten Rechte, welche dem gerade angemeldeten Benutzer erlaubt sind. Ist dies der Fall, dann ist `$canDo->get('...')` gleich `true`. Ein konkretes Beispiel: `$canDo->get('core.create')` ist `true`, wenn der Benutzer Inhalte erstellen darf.
+We add permission checking here. A button is displayed only if the user is authorized to use it. The [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) function collects the permissions implemented in the `access.xml` file, which are allowed to the currently logged in user. If this is the case, then `$canDo->get('...')` equals `true`. A concrete example: `$canDo->get('core.create')` is `true` if the user is allowed to create content.
 
-[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	{
@@ -121,11 +121,11 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 
 ```
 
-#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Hier siehst du beispielhaft, wie die Werkzeugleiste der Listenansicht ergänzt – die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist ebenfalls hinzugekommen.
+Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 
-[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected function addToolbar()
@@ -188,21 +188,19 @@ Hier siehst du beispielhaft, wie die Werkzeugleiste der Listenansicht ergänzt �
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the ones from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. In der Werkzeugleiste siehst du eine Auswahlliste zum Anstoßen von verschiedenen Aktionen.
+Open the view of your component in the administration area. In the toolbar you will see a dropdown list to trigger different actions.
 
-![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
+![Joomla Actions in the Toolbar](/images/j4x21x1.png)
 
-![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x2.png)
+![Joomla actions in the toolbar](/images/j4x21x2.png)
 
 ## Changed files
 

@@ -33,11 +33,12 @@ In diesem Kapitel kommen keine neuen Dateien hinzu.
 
 Custom Fields zeigen im Frontend Daten mithilfe von Ereignisse an. Die benutzerdefinierten Felder werden an drei unterschiedlichen Stellen auf der Website angezeigt. Standardmäßig werden die Daten vor dem Content ausgegeben. Diese Einstellung ist änderbar. Deshalb speichern wir die Ergebnisse von `onContentAfterTitle`, `onContentBeforeDisplay` und `onContentAfterDisplay`. Dies erledigen wir in der `View`.
 
-Konkret sorgen wir dafür, dass die Ereignisse 
-- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), 
-- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und 
-- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) 
-ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
+Konkret sorgen wir dafür, dass die Ereignisse
+
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle),
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) und
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)
+  ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
 [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -97,9 +98,7 @@ Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist di
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
@@ -107,13 +106,13 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x1.png)
 
-3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text`, falls du dies nicht im vorherigen Kapitel erledigt hast.
+3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text` oder stelle sicher, dass das im vorherigen Kapitel erstellte benutzerdefinierte Feld veröffentlicht ist.
 
 4. Edieren ein veröffentlichtes Foo-Item. Stelle sicher, dass du das Custom Field mit einem Wert versiehst.
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
 
-5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst neben den vorher vorhanden Werten jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
+5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x2.png)
 

@@ -1,6 +1,6 @@
 ---
 date: 2021-01-07
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Modules - Parameter'
+title: 'Joomla 4.x Tutorial - Extension Development - Modules - Namespace and Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-parameter
@@ -23,11 +23,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ### New files
 
-### Neue Dateien
+In this section we add parameters to the module.
 
-In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
+### New files
 
-### Geänderte Dateien
+In this part, only files have been changed. There are no new files.
+
+### Changed files
 
 #### Module
 

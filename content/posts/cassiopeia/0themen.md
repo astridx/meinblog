@@ -17,7 +17,7 @@ tags:
 1. [Cassiopeia](/allgemeines-zu cassiopeia-und-joomla4)
 1. [Warum Cassiopeia anstelle eines Drittanbietertemplates?](/warum-cassiopeia)
 1. [Optionen in Cassiopeia](/cassiopeia-optionen)
-1. [Exkurs: CSS Grid und Bootstrap-5-in-joomla](/css-grid-and-bootstrap-5-in-joomla)
 1. [Exkurs: Statisch oder fluid](/cassiopeia-statisch-oder-fluid)
-
-1. [Vorwort](/warum-cassiopeia)
+1. [Exkurs: CSS Grid und Bootstrap-5-in-joomla](/css-grid-and-bootstrap-5-in-joomla)
+1. [Grundgerüst](/cassiopeia-framework)
+1. [Modulpositionen](/cassiopeia-module-positionen)

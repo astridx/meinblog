@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-erste-schritte
 langKey: de
 categories:
+  - JoomladE
   - Code
 tags:
   - CMS

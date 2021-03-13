@@ -300,7 +300,7 @@ In the overview of the component in the administration area we create space for 
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
 A new installation is not necessary. Continue using the files from the previous part.
 

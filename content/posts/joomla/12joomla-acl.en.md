@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component. 
+Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component.
 
 ## For impatient people
 
@@ -47,11 +47,11 @@ First, we set all possible permissions in an XML file.
 </access>
 ```
 
-#### [administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
+#### [administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
 
 Joomla stores the permissions in the database. During a Joomla update only database changes are relevant. We enter these in the file `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql`, here this is specifically `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. This file is only called during an update. In case of a new installation the database will be set up correctly via the main file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
-[administrator/components/com_foos/sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
@@ -119,11 +119,11 @@ To make sure that everything runs smoothly during the installation, we add the n
  			<folder>forms</folder>
 ```
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We extend the form for creating a new Foo item with the possibility to set permissions for a single item. We add the field `name="access"`.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			size="45"
@@ -144,7 +144,7 @@ We extend the form for creating a new Foo item with the possibility to set permi
 
 The SQL script for a new installation of the component with this state of implementation is also extended with the necessary fields.
 
-[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ('Nina'),
@@ -156,11 +156,11 @@ The SQL script for a new installation of the component with this state of implem
 +ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
-#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 If you are not familiar with SQL so far, the database query will appear complex to you now. It is now necessary to combine data from two database tables. The table that manages the permissions of `com_user` `#__viewlevels`, and the one of our example component. Don't let this scare you. Joomla supports you in creating the queries.
 
-[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 
@@ -277,9 +277,9 @@ Last but not least, we include a column in the overview for the authorization di
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
 
-Install your components as described in part one, after copying all files. Joomla will update the database for you during the installation.
+Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
 
 2. create a new item in your component. Make sure that you are offered a checkbox for saving a permission. The value you enter here will be saved with the item and can be queried when it is displayed in a list.
 

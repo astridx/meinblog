@@ -86,11 +86,11 @@ What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Admini
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
 A new installation is not necessary. Continue using the ones from the previous part.
 
-2. Open the view of your component in the administration area and create a new item or edit an existing one. Enter a number in the text field for the name. 
+2. Open the view of your component in the administration area and create a new item or edit an existing one. Enter a number in the text field for the name.
 
 3. Then edit another field, for example set the access to `Registered`.
 

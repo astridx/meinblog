@@ -6,13 +6,14 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-aktionen-in-der-werkzeugleiste
 langKey: de
 categories:
+  - JoomladE
   - Code
 tags:
   - CMS
   - Joomla
 ---
 
-Du entwickelst die Erweiterung nicht zum Selbstzweck. Sie hilft dabei, Aufgaben zu erledigen. Damit die Menschen, die mit der Komponente arbeiten, immer den Überblick über die möglichen Arbeitsschritte haben, empfiehlt sich eine Werkzeugleiste. In diesem Teil der Tutorialserie ergänzen wir die Standardaktionen. Hierbei greifen wir auf eine Vielzahl vorgefertigter Methoden zu. Wieder ist es nicht nötig, das Rad selbst zu erfinden.
+Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigung von Aufgaben. Damit die Menschen, die mit der Komponente arbeiten, immer einen Überblick über die möglichen Arbeitsschritte haben, ist es sinnvoll, eine Symbolleiste zu haben. In diesem Teil des Tutorials werden wir die bereits vorhandene Symbolleiste um die Standardaktionen erweitern. Hierbei greifen wir auf eine Vielzahl von vorgefertigten Methoden zu. Auch hier gilt: Beim Standard ist es nicht notwendig, das Rad selbst zu erfinden. Bei zukünftigen speziellen Aufgaben ist es sinnvoll, den Standard als Beispiel zu verwenden.
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
 
@@ -30,7 +31,7 @@ Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.
 
 ### Geänderte Dateien
 
-#### [administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
 Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editieren eines Elementes nutzt. Die Klasse [ToolbarHelper](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Toolbar/ToolbarHelper.php) bietet eine Menge hilfreicher Funktionen. Beispielweise
 
@@ -42,7 +43,7 @@ Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editie
 
 Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur angezeigt, wenn der Betrachter berechtigt ist, sie zu nutzen. Die Funktion [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) sammelt die in der Datei `access.xml` implementierten Rechte, welche dem gerade angemeldeten Benutzer erlaubt sind. Ist dies der Fall, dann ist `$canDo->get('...')` gleich `true`. Ein konkretes Beispiel: `$canDo->get('core.create')` ist `true`, wenn der Benutzer Inhalte erstellen darf.
 
-[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	{
@@ -120,11 +121,11 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 
 ```
 
-#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Hier siehst du beispielhaft, wie die Werkzeugleiste der Listenansicht ergänzt – die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist ebenfalls hinzugekommen.
+Hier siehst du beispielhaft die Werkzeugleiste der Listenansicht – die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist hier ebenfalls hinzugekommen.
 
-[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected function addToolbar()
@@ -191,9 +192,7 @@ Hier siehst du beispielhaft, wie die Werkzeugleiste der Listenansicht ergänzt �
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 

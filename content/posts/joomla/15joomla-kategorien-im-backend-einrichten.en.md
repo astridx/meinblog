@@ -412,15 +412,16 @@ In the overview table of the view in the backend, we add a column for displaying
 		<?php echo $item->access_level; ?>
 
 ```
+
 > The categories help you to display your data in a structured way in the frontend. We will create the frontend views in the further course of this article series.
 
 ## Test your Joomla component
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
 
-Install your components as described in part one, after copying all files. Joomla will update the database for you during the installation.
+Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
 
 2. Open the view of your component in the administration area.
 

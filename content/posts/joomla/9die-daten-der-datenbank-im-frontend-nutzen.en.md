@@ -392,7 +392,7 @@ We have created a new JavaScript file. We place it in the `media\js` directory. 
 
 > Read in the preface why you choose the `media` directory ideally for assets like JavaScript files or stylesheets.
 
-[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<folder>src</folder>

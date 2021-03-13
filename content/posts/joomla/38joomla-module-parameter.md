@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-parameter
 langKey: de
 categories:
+  - JoomladE
   - Code
 tags:
   - CMS
@@ -28,7 +29,7 @@ In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 
 ### Geänderte Dateien
 
-#### Module
+#### Modul
 
 ##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
 
@@ -46,11 +47,11 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
 
 In der Einstiegsdatei des Moduls prüfen wir, auf welchen Wert der Parameter gestzt ist und laden ihn in eine Variable.
 
-[modules/mod_foo/mod_foo.php]()
+[modules/mod_foo/ mod_foo.php]()
 
 ```php {diff}
 $test  = FooHelper::getText();
@@ -60,11 +61,11 @@ $test  = FooHelper::getText();
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
 Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich die Standardparameter. Die Logik für diese wird von Joomla für alle Module übernommen.
 
-[modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
  	<files>

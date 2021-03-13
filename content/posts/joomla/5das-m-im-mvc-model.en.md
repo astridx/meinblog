@@ -33,11 +33,11 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ### New files
 
-#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 With the model it is also so that you do not reinvent the wheel. You extend the Joomla class `BaseDatabaseModel`. Then implement only what you specifically use. In our case it is the output `$this->message = 'Hello Foo!';` for which we create the method `getMsg()`.
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/ae88836668a85602657d7fa96df890bd4c5465d7/src/components/com_foos/src/Model/FooModel.php
@@ -90,11 +90,11 @@ class FooModel extends BaseDatabaseModel
 
 ### Modified files
 
-#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 We get the data of the model in the view with `$this->msg = $this->get('Msg');`. This seems awkward here. In complex applications this method has proven itself. The data calculation is done in the model. The design of the view using the calculated data is done by the view.
 
-[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	public function display($tpl = null)

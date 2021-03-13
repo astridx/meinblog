@@ -29,11 +29,11 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich.
 
 ### Geänderte Dateien
 
-#### [components/com_foos/src/Model/ FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### [components/com_foos/ src/Model/ FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 Im Model änderst du die Methode, in der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
 ```php
 ...
@@ -55,7 +55,7 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 Zusammen sieht das in der Diff-Ansicht wie folgt aus:
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;

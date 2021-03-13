@@ -1,6 +1,6 @@
 ---
 date: 2021-01-06
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Namespace and Helper'
+title: 'Joomla 4.x Tutorial - Extension Development - Modules - Namespace and Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-namespace-und-helper
@@ -13,25 +13,25 @@ tags:
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+We add namespace and helper.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t31...t32) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t31...t32) and incorporate these changes into your development version.
 
 ## Step by step
 
 ### New files
 
-#### Module
+#### Modules
 
-Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code übersichtlich zu strukturieren. Dies geschieht mittels Helper-Dateien. Diese legen wir im Verzeichnis `Helper` an.
+The logic in the module may be complex. Therefore it is good to structure the code clearly. This is done by jnnhelper files. We create these in the directory `Helper`.
 
-> Ich habe die Datei allgemein `FooHelper` benannt. Gute Stil ist es, ihr einen sprechenden Namen zu geben. Jede Hilfsdatei hat eine spezielle Aufgabe und nach ihr sollte sie benannt werden. Die Datei, die die neuesten Artikel lädt, heißt beispielsweise `ArticlesLatestHelper`. So erkennt man auf den ersten Blick, was in der Datei steckt.
+> I named the file `FooHelper` in general. Good style is to give it a speaking name. Each helper file has a specific task and it should be named after it. For example, the file that loads the latest articles is called `ArticlesLatestHelper`. This way you can see at first sight what is in the file.
 
-Um unkompliziert auf die Datei zuzuigreifen, ergänzen wir den Namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
+To access the file easily, we add the namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
 
-##### [modules/mod_foo/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+##### [modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
 
 ```php
 // https://raw.githubusercontent.com/astridx/boilerplate/415dd9b0521abb3e2626309d595c80d2cafb8f30/src/modules/mod_foo/Helper/FooHelper.php
@@ -74,9 +74,9 @@ class FooHelper
 
 ### Modified files
 
-Um die Inhalte von `FooHelper` im Einstiegspunkt `mod_foo.php` zu nutzen, importieren wir diese mittels `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Anschließden rufen wir die Funktion `FooHelper::getText()` auf und speichern das Ergebnis in der Variablen `$test`.
+To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
 
-##### [modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -89,9 +89,9 @@ Um die Inhalte von `FooHelper` im Einstiegspunkt `mod_foo.php` zu nutzen, import
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
 
-Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation in Joomla registriert. Außerdem ergänzen wir das neue Verzeichnis, damti dieses bei einer Installation an die richtige Stelle kopiert wird.
+We enter the namespace in the manifest. This way it will be registered in Joomla during the installation. We also add the new directory so that it is copied to the right place during installation.
 
 ```xml {diff}
  	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
@@ -111,7 +111,7 @@ Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation i
 
 ##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/tmpl/default.php)
 
-Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen des Variablenwertes ist gekapselt. So bleibt das Layout übersichtlich.
+In the layout, we finally access the variable. The logic for calculating the variable value is encapsulated. This keeps the layout clear.
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -120,15 +120,15 @@ Im Layout greifen wir abschließen auf die Variable zu. Die Logik zum Errechnen 
 +echo '[PROJECT_NAME]' . $test;
 ```
 
-## Teste dein Joomla-Module
+## Test your Joomla module
 
-1. Installiere das Modul in Joomla Version 4, um es zu testen:
+1. install the module in Joomla version 4 to test it:
 
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
+Copy the files in the `modules` folder into the `modules` folder of your Joomla 4 installation.
 
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine Datei und Namespaces hinzugekommen sind, ist dies erforderlich.
+Install your module as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since a file and namespaces have been added, this is necessary.
 
-2. Überprüfe, ob der über die Funktion `FooHelper::getText()` errechnete Text im Frontend angezeigt wird.
+2. Check whether the text calculated via the function `FooHelper::getText()` is displayed in the frontend.
 
 ## Changed files
 

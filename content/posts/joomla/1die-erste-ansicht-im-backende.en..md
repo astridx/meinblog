@@ -27,7 +27,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ### New files
 
-#### [administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578) - Blueprint for the installation
+#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578) - Blueprint for the installation
 
 `foos.xml` teilt Joomla mit, wie unsere Komponente installiert wird. Genau wie Module und Plugins verfügen Komponenten über eine XML-Installationsdatei, die Joomla über die zu installierende Erweiterung informiert. Diese Datei wird als Manifest bezeichnet und enthält Details wie
 
@@ -103,7 +103,7 @@ Wir schließen zuletzt das `</extension>`-Tag.
 
 Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine Komponente zu erstellen. Hier aber erst einmal der vollständige Code:
 
-[administrator/components/com_foos/foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/foos.xml -->
@@ -144,7 +144,7 @@ Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine K
 
 ```
 
-#### [administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40) - Code während der Installation aufrufen
+#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40) - Code während der Installation aufrufen
 
 Mit der Installationsskriptdatei rufst du Code auf
 
@@ -156,7 +156,7 @@ Mit der Installationsskriptdatei rufst du Code auf
 
 Erstelle die Datei `script.php` mit folgendem Inhalt:
 
-[administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/script.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/script.php
@@ -323,7 +323,7 @@ Die `preflight`-Funktion wird aufgerufen, bevor die Komponente installiert wird.
 
 Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert wurde. Mit dieser Funktion werden Standardwerte für Komponentenparameter festlegen.
 
-#### [administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f) - Funktionen / Dienste implementieren
+#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f) - Funktionen / Dienste implementieren
 
 `provider.php` wird zum Implementieren der Komponentendienste verwendet. Über eine Schnittstelle definiert die Komponentenklasse, welche Dienste sie bereitstellt. Hierzu wird ein Abhängigkeitsinjektionscontainer oder DI-Container verwendet. Zum Registrieren sind `ComponentDispatcherFactory` und `MVCFactory` für jede Komponente obligatorisch. Die Registrierung von `CategoryFactory` ist optional, wir benötigen die `CategoryFactory`, wenn wir [Kategorien integrieren](#kategorienimbackend). Mithilfe von provider.php ist es möglich, später neue Dienste ohne Unterbrechung der Abwärtskompatibilität (BC) einführen.
 
@@ -334,7 +334,7 @@ Wenn du mit dem Konzept von DI Container nicht vertraut bist, findest du hier Er
 
 Weitere Informationen zu Implementierung findest du auf Github(https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217];
 
-[administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/services/provider.php
@@ -399,7 +399,7 @@ return new class implements ServiceProviderInterface
 
 ```
 
-#### [administrator/components/com_foos/src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19) Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
+#### [administrator/components/com_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19) Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
 
 Dies ist der Einstiegspunkt für den Model-View-Controller-Teil in den Administrationsbereich der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
 
@@ -490,7 +490,7 @@ class DisplayController extends BaseController
 
 ```
 
-#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
+#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
 
 `FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217].
 
@@ -551,11 +551,11 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 ```
 
-#### [administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e) - Funktionen / Dienste hinzufügen
+#### [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e) - Funktionen / Dienste hinzufügen
 
 Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Administratordateien benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
 
-[administrator/components/com_foos/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
@@ -584,7 +584,7 @@ class AdministratorService
 
 ```
 
-#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250) - Die Ansicht - administrator/components/com_foos/View/Foos/HtmlView.php
+#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250) - Die Ansicht - administrator/components/com_foos/View/Foos/HtmlView.php
 
 Hier sind Objekte (Symbolleiste, Titel) definiert, und das Modell (Daten) wird aufgerufen.
 
@@ -638,11 +638,11 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757) - Das layout/Template zum Rendern der Ansicht
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757) - Das layout/Template zum Rendern der Ansicht
 
 In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/tmpl/foos/default.php

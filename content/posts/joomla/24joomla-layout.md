@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-layout
 langKey: de
 categories:
+  - JoomladE
   - Code
 tags:
   - CMS
@@ -118,11 +119,11 @@ echo $this->item->event->afterDisplayContent;
 
 ### Geänderte Dateien
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  				<option value="0">JHIDE</option>
@@ -144,11 +145,11 @@ Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
 ```
 
-#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
+#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
 
-So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
+So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -160,11 +161,11 @@ So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `co
 
 ```
 
-#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt - immer einheitlich angezeigt wird. Deshalb fragen wir den aktiven Menüpunkt ab. Das Element könnte über eine Kategorieansicht oder als einzelnes Element angezeigt werden.
+Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt - immer einheitlich angezeigt wird. Deshalb fragen wir den aktiven Menüpunkt ab. Werden beispielsweise Elemente über eine Kategorie-Ansicht angezeigt, dass ist ein einheitliches Layout möglich. Wird der Content als einzelnes Element angezeigt kann auf ein anderes Layout zurückgegriffen werden.
 
-[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);
@@ -198,10 +199,9 @@ Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise 
 1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut. In einem frisch installierten System ist die Erklärung der Layouts unkomplizierter.
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
-Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
 
 2. Stelle bei einem Item ein spezielles Layout ein. Ich habe `withhead` bei dem Item mit der ID 2 gesetzt.
 
@@ -211,7 +211,7 @@ Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Date
 
 4. Dieses Layout ist ebenfalls per Menüpunkt ansteuerbar.
 
-![Joomla Pagination](/images/j4x24x2.png)
+![Joomla Layouts](/images/j4x24x2.png)
 
 > Ein Item ohne XML-Datei ist nicht im Administrationsbereich auswählbar. Trotzdem sind solche Layouts sinnvoll! Im Programmcode ist es an jeder Stelle möglich, dieses zuzuweisen: `$this->setLayout('withheadandfoot');`
 

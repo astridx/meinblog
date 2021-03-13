@@ -102,11 +102,11 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="14"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC=&quot;Diese Einstellungen gelten für alle foo.&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="15"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY=&quot;Foo&quot;</span></span></span></code></pre>
 <h5>Naming conventions</h5>
-<p>Each language file is marked with an abbreviation, which is defined in <a href="https://en.wikipedia.org/wiki/ISO_639">ISO-639</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166">ISO-3166</a>: The first two lower case letters name the language. For German this is <code class="language-text">de</code> and <code class="language-text">en</code> for English. </p>
+<p>Each language file is marked with an abbreviation, which is defined in <a href="https://en.wikipedia.org/wiki/ISO_639">ISO-639</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166">ISO-3166</a>: The first two lower case letters name the language. For German this is <code class="language-text">de</code> and <code class="language-text">en</code> for English.</p>
 <p>After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from <code class="language-text">DE</code> by <code class="language-text">CH</code> or Austrian by <code class="language-text">AT</code>. A frolder named <code class="language-text">de-CH</code> contains the translation for Switzerland and <code class="language-text">de-AT</code> the Austrian variant.</p>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987">administrator/components/com<em>foos/language/de-DE/com</em>foos.sys.ini</a></h4>
 <p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini">administrator/components/com<em>foos/language/de-DE/com</em>foos.sys.ini</a></p>
-<p>As mentioned before, you need two language files: one ending with <code class="language-text">.ini</code> and one ending with <code class="language-text">sys.ini</code>. The <a href="https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini"><code class="language-text">sys.ini</code></a> is primarily used during installation and for displaying the menu items and the <code class="language-text">sys.ini</code> for everything else. </p>
+<p>As mentioned before, you need two language files: one ending with <code class="language-text">.ini</code> and one ending with <code class="language-text">sys.ini</code>. The <a href="https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini"><code class="language-text">sys.ini</code></a> is primarily used during installation and for displaying the menu items and the <code class="language-text">sys.ini</code> for everything else.</p>
 <blockquote>
 <p>The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.</p>
 </blockquote>
@@ -212,7 +212,7 @@
 <li>install your component in Joomla version 4 to test it:</li>
 </ol>
 <p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.<br>
-Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.  </p>
+Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</p>
 <p>A new installation is not necessary. Continue using the files from the previous part.</p>
 <blockquote>
 <p>If you do a new installation, you will notice that the hints in the installation script are now translated.

@@ -3,9 +3,9 @@
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t26...t27">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601">components/com_foos/src/Service/Router.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601">components/com_foos/ src/Service/Router.php</a></h4>
 <p>Der Service wandelt die URLs in suchmaschinenfreundliche Versionen.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php">components/com_foos/src/Service/Router.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php">components/com_foos/ src/Service/Router.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">namespace</span><span class="mtk1"> </span><span class="mtk7">FooNamespace\Component\Foos\Site\Service</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">\</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
@@ -192,9 +192,9 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h3>Geänderte Dateien</h3>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f">administrator/components/com_foos/services/provider.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f">administrator/components/com_foos/ services/provider.php</a></h4>
 <p>Im Service Provider registrieren wir den Service.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php">administrator/components/com_foos/services/provider.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php">administrator/components/com_foos/ services/provider.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">\</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\Component\Router\</span><span class="mtk8">RouterFactoryInterface</span><span class="mtk1">;</span></span></span>
@@ -228,9 +228,9 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span></code></pre>
 <p><code class="language-text">$container-&gt;registerServiceProvider(new RouterFactory(&#39;\\Joomla\\Component\\Foos&#39;));</code> und <code class="language-text">$component-&gt;setRouterFactory($container-&gt;get(RouterFactoryInterface::class));</code> kommen hinzu.</p>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1">administrator/components/com_foos/src/Extension/FoosComponent.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1">administrator/components/com_foos/ src/Extension/FoosComponent.php</a></h4>
 <p>Wir implementieren <code class="language-text">RouterServiceInterface</code> und nutzen <code class="language-text">RouterServiceTrait</code>, so dass diese Dateien gefunden werden.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php">administrator/components/com_foos/src/Extension/FoosComponent.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php">administrator/components/com_foos/ src/Extension/FoosComponent.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">namespace</span><span class="mtk1"> </span><span class="mtk7">FooNamespace\Component\Foos\Administrator\Extension</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -258,7 +258,7 @@
 <p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
 Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.<br>
 Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <code class="language-text">media</code> Ordner deiner Joomla 4 Installation.</p>
-<p>Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.</p>
+<p>Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.</p>
 <ol start="2">
 <li>Aktiviere die Einstellung suchmaschinenfreundliche URLs in der globalen Konfiguration.</li>
 <li>Überprüfe die URLs im Frontend. Anstelle von <code class="language-text">/index.php/component/foos?view=foo&amp;id=1:test&amp;catid=4</code> sollte beispielsweise <code class="language-text">http://localhost/joomla-cms4/index.php/list-foos-in-a-category/1-test</code> erscheinen - jenachdem wie du deine Menüpunkte genannt hast.</li>

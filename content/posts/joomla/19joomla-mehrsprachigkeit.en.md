@@ -13,25 +13,25 @@ tags:
   - Joomla
 ---
 
-Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.
+With Joomla it is possible to set up a multilingual website without installing third party extensions. In this tutorial, I'll show you how to program your component to support language linking.
 
-> Abgrenzung Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.
+> Differentiation multilingualism and language links: Multilingual content, menu items and language switches are set up with a standard Joomla installation without any additional extensions. Until version 3.7, Joomla required switching between views to translate content. Since 3.7 there is an improvement in usability, the so-called Multilingual Associations. With this extension, multilingual content can be created and linked in a user-friendly way. Thereby one remains in one view. The language links show incidentally which multilingual content is missing.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x5.png)
+![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x5.png)
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)
+![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x6.png)
 
-Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle Bereiche der Mehrsprachigkeit und der Sprachverknüpfungen in Joomla ab.
+The chapter is one of the most extensive in this series. For that it covers all areas of multilingualism and language links in Joomla.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14b...t15a) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14b...t15a) and incorporate these changes into your development version.
 
 ## Step by step
 
 ### New files
 
-Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung ist das Skript `15.0.0.sql` dasjenige, welches für Version 15.0.0. ausgeführt wird.
+So that the language is saved to the element, we add a column to the database table. When updating, the script `15.0.0.sql` is the one that is executed for version 15.0.0.
 
 #### [administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-fa2e66efed41380705fb9f91c257ea9c)
 
@@ -44,13 +44,13 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*
 ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 ```
 
-#### [administrator/components/com_foos/src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-89e05e395916539c641802f3bb6165c5)
+#### [administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-89e05e395916539c641802f3bb6165c5)
 
-Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Sprachverknüpfungen `com_associations`. `AssociationsHelper.php` gibt es im Frontend und im Backend - letztere sehen wir uns als erstes an, die Fontend-Version kommt später in diesem Kapitel hinzu.
+The helper file `AssociationsHelper.php` is the interface to the language associations component `com_associations`. `AssociationsHelper.php` exists in the frontend and the backend - we'll look at the latter first, the frontend version comes later in this chapter.
 
-In dieser Helper-Datei stellen wir die Angaben bereit, die für unsere Komponente spezifisch sind, so dass die Joomla eigenen Routinen sich in unserer Komponente zurecht finden.
+In this helper file we provide the details that are specific to our component, so that Joomla's own routines can find their way around our component.
 
-[administrator/components/com_foos/src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
+[administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
@@ -295,13 +295,13 @@ class AssociationsHelper extends AssociationExtensionHelper
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-00a681faa92b56a5268be6268afbe52f)
+#### [administrator/components/com_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-00a681faa92b56a5268be6268afbe52f)
 
-Wir haben keine speziellen Wünsche und nutzen deshalb das Standardtemplate zum Editieren der Sprachverknüpfungen. Du findest das im Verzeichnis `/layouts/joomla/edit/associations.php`. Wie du es lädst zeigt dir der nachfolgende Beispielcode.
+We don't have any special requests, so we use the default template to edit the language associations. You can find it in the directory `/layouts/joomla/ edit/associations.php`. How to load it is shown in the following example code.
 
-> Falls du spezielle Wünsche hast, kopiere `/layouts/joomla/edit/associations.php` in deine Komponente und ändere sie wunschgemäß ab. Wie und wo du sie speicherst oder aufrufst, wird später Kapitel zu Layouts behandelt.
+> If you have special wishes, copy `/layouts/joomla/ edit/associations.php` into your component and change it as you wish. How and where you save or call them will be discussed later in the chapter on layouts.
 
-[administrator/components/com_foos/tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/administrator/components/com_foos/tmpl/foo/edit_associations.php)
+[administrator/components/com_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/administrator/components/com_foos/tmpl/foo/edit_associations.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
@@ -323,13 +323,13 @@ echo LayoutHelper::render('joomla.edit.associations', $this);
 
 ```
 
-#### [components/com_foos/src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-2c4c9f6ac9ee1dafc30e300dc667f323)
+#### [components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-2c4c9f6ac9ee1dafc30e300dc667f323)
 
-Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Sprachverknüpfungen `com_associations`. In ihr konfigurieren wir die Angaben, die für unsere Komponente spezifisch sind. Ist dies erledigt, übernehmen die Joomla eigenen Routinen und wir erfinden das Rad nicht neu.
+The `AssociationsHelper.php` helper file is the interface to the `com_associations` language associations component. In it we configure the information that is specific to our component. Once this is done, Joomla's own routines take over and we don't reinvent the wheel.
 
-> Achtung: Ich hatte es schon geschrieben: Die Klasse `AssociationsHelper.php` gibt es im Frontend und im Backend: `src/components/com_foos/src/Helper/AssociationHelper.php` und `src/` `administrator` `/components/com_foos/src/Helper/AssociationHelper.php`. Die Datei für das Backend hatten wir vorher schon angesehen.
+> Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/ src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/ src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before.
 
-[components/com_foos/src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/components/com_foos/src/Helper/AssociationHelper.php)
+[components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/components/com_foos/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/AssociationHelper.php
@@ -404,11 +404,11 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 
 ```
 
-#### [components/com_foos/src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-61bf17fac4ad652aec8237decb7db764349e1595597457840faddf6c3b93786b)
+#### [components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-61bf17fac4ad652aec8237decb7db764349e1595597457840faddf6c3b93786b)
 
-Wir erzeugen die Klasse `RouteHelper`, damit die Links korrekt zusammengesetzt werden, die wir in diesem Kapitel erstellen. Im Link ist eine weitere Information als Parameter enthalten: die Sprache.
+We create the class `RouteHelper` to correctly compose the links we create in this chapter. Within the link there is one more piece of information as a parameter: the language.
 
-[components/com_foos/src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/RouteHelper.php)
+[components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/RouteHelper.php
@@ -541,13 +541,13 @@ abstract class RouteHelper
 
 ### Modified files
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Damit Joomla dieses Feld findet, gibt man den Pfad in der Form `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` als Parameter im `<fieldset>` an.
+We create a field through which an author selects the language link. In order for Joomla to find this field, we specify the path in the form `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
 
-Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zugeordnet wird.
+We also add a field where an element (item) is assigned to a language.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  <?xml version="1.0" encoding="utf-8"?>
@@ -578,11 +578,11 @@ Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zug
 
 ```
 
-#### [administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-Im Provider registrieren wir unseren `AssociationsHelper` als Service der [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php) implementiert. So stellen wir sicher, dass alle notwendigen Funktionen vorhanden sind.
+In the provider we register our `AssociationsHelper` as a service that implements [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php). This way we make sure that all necessary functions are available.
 
-[administrator/components/com_foos/services/provider.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use Joomla\DI\Container;
@@ -614,11 +614,11 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der [Assoc
 
 ```
 
-#### [administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-896f245bc8e493f91277fd33913ef974)
 
-[administrator/components/com_foos/sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ /install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Datenbanktabelle hinzu. Bei Neuinstallationen ist das Skript `install.mysql.utf8.sql` dasjenige, welches aufgerufen wird.
+In order for the language to be saved to the element, we add a column in the database table. For new installations, the script `install.mysql.utf8.sql` is the one that is called.
 
 ```php {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
@@ -631,13 +631,13 @@ Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Da
 
 ```
 
-#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-38764f2b1343234561c0d02cd2991ea1)
 
-In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationServiceTrait`, so das alles Notwendige in unserer Erweiterung implementiert ist.
+In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTrait` so that everything necessary is implemented in our extension.
 
-> [Traits](https://www.php.net/manual/de/language.oop5.traits.php) sind ein Mechanismus zur Wiederverwendung von Code, der in Programmiersprachen mit einfacher Vererbung wie PHP verwendet wird.
+> [Traits](https://www.php.net/manual/de/language.oop5.traits.php) are a code reuse mechanism used in programming languages with simple inheritance like PHP.
 
-[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
 
@@ -664,11 +664,11 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
 
 ```
 
-#### [administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-aa20a48089379605365184314b6cc950)
+#### [administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-aa20a48089379605365184314b6cc950)
 
-Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-Element mithilfe eines Popups auszuwählen. Jetzt verwenden wir es wieder, um eine Sprachverknüpfung zu selektieren. Damit nur die passenden Sprachen angezeigt werden, erweitern wir die URL um die Sprachinformation.
+We previously used the modal to select a Foo item using a popup when creating a menu item. Now we use it again to select a language link. To make sure that only the matching languages are displayed, we extend the URL with the language information.
 
-[administrator/components/com_foos/src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
+[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {diff}
  		// Setup variables for display.
@@ -688,11 +688,11 @@ Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-El
 
 ```
 
-#### [administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Das Model mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
+We adjust the model, with which data of an item is calculated, with concern to the language. Here `getItem` and `preprocessForm` play the essential role.
 
-[administrator/components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -809,13 +809,13 @@ Das Model mit dem Daten eines Elementes berechnet werden, passen wir bezüglich 
 
 ```
 
-#### [administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-> Achtung: `FooModel.php` ist das Model welches die Daten für ein Element berechnet. `FoosModel.php` - beachte das `s` - ist das Model der Listenansicht - es behandelt Daten für eine Gruppe von Elementen.
+> Note: `FooModel.php` is the model which calculates the data for an element. `FoosModel.php` - note the `s` - is the list view model - it handles data for a group of elements.
 
-Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig, den Status über `populateState` zu aktualisieren. Anderfalls ist nicht jederzeit die passende Sprache aktiv. Der Status beinhaltet die Information, welche Sprache aktiv ist.
+In the list view model, besides adding the language information, it is important to update the state via `populateState`. Otherwise the appropriate language will not be active at all times. The state contains the information which language is active.
 
-[administrator/components/com_foos/src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -921,11 +921,11 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 
 ```
 
-#### [administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+#### [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
-Wir implementieren den Service `association` in `AdministratorService.php`. Über die ID gibt die Funktion das HTML-Markup zum Bearbeiten der Sprachverknüpfungen zurück.
+We implement the `association` service in `AdministratorService.php`. Via the ID the function returns the HTML markup for editing the language links.
 
-[administrator/components/com_foos/src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
 defined('JPATH_BASE') or die;
@@ -997,7 +997,7 @@ defined('JPATH_BASE') or die;
 +					$url = Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id);
 +					$tooltip = '<strong>' . htmlspecialchars($item->language_title, ENT_QUOTES, 'UTF-8') . '</strong><br>'
 +						. htmlspecialchars($item->title, ENT_QUOTES, 'UTF-8') . '<br>' . Text::sprintf('JCATEGORY_SPRINTF', $item->category_title);
-+					$classes = 'badge badge-secondary';
++					$classes = 'badge bg-secondary';
 +
 +					$item->link = '<a href="' . $url . '" title="' . $item->language_title . '" class="' . $classes . '">' . $text . '</a>'
 +						. '<div role="tooltip" id="tip' . (int) $item->id . '">' . $tooltip . '</div>';
@@ -1013,11 +1013,11 @@ defined('JPATH_BASE') or die;
 
 ```
 
-#### [administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-[administrator/components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+If only one language is possible or changing it is not desired, we set the value of the language selection field and protected it from write access. Also, only categories of this language are selectable.
 
-Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht ist, setzen wir den Wert des Sprachauswahlfeldes und schützte es vor Schreibzugriff. Außerdem sind nur Kategorien dieser Sprache auswählbar.
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$this->form  = $this->get('Form');
@@ -1040,11 +1040,11 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 
 ```
 
-#### [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Die View der Liste soll die Sidebar und die Tollbar enthalten, wenn es sich nicht um eine Modalansicht oder ein Popup handelt. Falls die Ansicht modal ist, verwirren Toolbar und Sidebar. In dem Fall filtern wir die Items automatisch nach der gerade aktiven Sprache.
+The view of the list should contain the sidebar and the toolbar if it is not a modal view or a popup. If the view is modal, the toolbar and sidebar will confuse. In that case we filter the items automatically according to the currently active language.
 
-[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\Toolbar\Toolbar;
@@ -1083,11 +1083,11 @@ Die View der Liste soll die Sidebar und die Tollbar enthalten, wenn es sich nich
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festelegen der Sprache ein.
+In the form for editing an element we add a form field for setting the language.
 
-[administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -1130,11 +1130,11 @@ Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festel
 
 ```
 
-#### [administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalten, um die Sprachinformationen anzuzeigen. Diese Spalten zeigen wir lediglich an, wenn es erforderlich ist. Dies ist der Fall, wenn Sprachverknüpfungen und Mehrsprachigkeit aktiviert sind. Um dies herauszufinden nutzen wir die Joomla eigene Funktionen `Associations::isEnabled()` und `Multilanguage::isEnabled()`.
+In the components overview in the administration area, we add columns to display the language information. We display these columns only when it is required. This is the case when language associations and multilingualism are enabled. To find this out we use Joomla's own functions `Associations::isEnabled()` and `Multilanguage::isEnabled()`.
 
-[administrator/components/com_foos/tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
@@ -1195,41 +1195,42 @@ In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalte
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-2. The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click `Update Structure`.
+2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part 16. Select your component and click on `Update Structure`.
 
 ![Joomla Published](/images/j4x16x1.png)
 
-3. Installiere über `System | Install | Languages` mindestens eine weitere Sprache.
+3. install at least one more language via `System | Install | Languages`. I chose the german and the persian language.
 
-4. Stelle über `System | Manage | Plugins` sicher, dass das Plugin `Sample Data - Multilingual` veröffentlicht ist.
+> [Persian](https://en.wikipedia.org/wiki/Persian_language 'Persian Language') is one of the most widely used RTL writing systems of modern times and can therefore be used to test the RTL integration in Joomla. In a **right-to-left, top-to-bottom** [script](https://en.wikipedia.org/wiki/Writing_system 'writing system') (often abbreviated as **right-to-left** or abbreviated as **RTL**), one writes from right to left on a page, with new lines written from top to bottom. This is in contrast to the left-to-right writing system (https://en.wikipedia.org/wiki/Writing_system "Writing system"), where writing starts from the left and continues to the right.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x1.png)
+![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x1.png)
 
-5. Wechsele zurück zum `Home Dashboard` und installiere die Beispieldateien `Multilinguale Sample Data`.
+4. make sure via `System | Manage | Plugins` that the plugin `System - Language Filter` is published.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x3.png)
+![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x2.png)
 
-6. Öffne die Ansicht eines Items deiner Komponente im Administrationsbereich und überzeuge dich davon, dass der Status `Language` änderbar ist. Ändere diesen von `All` in eine beliebige Sprache.
+5. open the view of an item of your component in the administration area and make sure that the status 'Language' is changeable. Change it from `All` to any language.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x2.png)
+![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x3.png)
 
-7. Spiele mit den Sprachverknüpfungen und überzeuge dich davon, dass alles korrekt verknüpft wird.
+7. play with the language associations and make sure that everything is associated correctly.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x4.png)
+![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x4.png)
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x5.png)
+![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x5.png)
 
-8. Erweitere die Tests auf die Komponente `Multilingual Associations`. Diese unterstützt deine Erweiterung ebenfalls.
+8. extend the tests to the component 'Multilingual Associations'. This supports your extension as well.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)
+![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x7.png)
+
+![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x6.png)
 
 ## Changed files
 

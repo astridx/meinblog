@@ -13,13 +13,14 @@ tags:
   - Joomla
 ---
 
-If you worked with Joomla, you know it from other components: Items have a status that can be changed. This section shows you how to 
-- unpublish, 
-- publish, 
-- schedule, 
-- archive and 
-- trash 
-items.
+If you worked with Joomla, you know it from other components: Items have a status that can be changed. This section shows you how to
+
+- unpublish,
+- publish,
+- schedule,
+- archive and
+- trash
+  items.
 
 ![Joomla Published](/images/j4x16x3.png)
 
@@ -35,7 +36,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
-[administrator/components/com_foos/sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```sql {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/c971c9161aef0ddd16642ca077fc3bd21c4e555c/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -84,11 +85,11 @@ class FoosController extends AdminController
 
 ### Modified files
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t12...t13#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Three fields are added to the form. One, in which the status is set and two, through which a scheduled publication is achieved with the help of a calendar.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
 
@@ -207,11 +208,11 @@ We extend the model so that the information about the status is loaded.
 
 ```
 
-#### [administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
 
 In the class that manages the database table, we add checks. This way we make sure that no impossible data is stored.
 
-[administrator/components/com_foos/src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
 
@@ -337,7 +338,7 @@ Finally, we include the fields in the overview.
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
 
 2. the database has been changed again, so it is necessary to update it. Uninstalling and reinstalling is time-consuming. That's why I'll tell you an easier method.
 

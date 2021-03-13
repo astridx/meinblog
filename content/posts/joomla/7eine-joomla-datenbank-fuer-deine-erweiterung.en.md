@@ -280,7 +280,7 @@ Last but not least, we display everything using the template file. Instead of th
 
 Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
 
-Install your components as described in part one, after copying all files. Joomla creates the database during the installation.
+Install your component as described in part one, after copying all files. Joomla creates the database during the installation.
 
 Next, test if the view of your component in the administration area is correct. Do you see three entries? We had entered these as sample data in the SQL file when setting up the database.
 

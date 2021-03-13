@@ -13,11 +13,11 @@ tags:
   - Joomla
 ---
 
-Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Komponente ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Das Template sorgt für ein einheitliches Aussehen. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.
+Sometimes it is necessary to design the display differently in the frontend. This is basically the responsibility of the template. A component is responsible for the output of content, no more and no less. The template ensures a uniform appearance. Nevertheless, there are use cases for different layouts. How you incorporate them for a view is the topic of the following article.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20) an und übernimm diese Änderungen in deine Entwicklungsversion.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t19...t20) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -119,11 +119,11 @@ echo $this->item->event->afterDisplayContent;
 
 ### Modified files
 
-#### [administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
+In the form of the element we add a field to select the layout.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  				<option value="0">JHIDE</option>
@@ -145,11 +145,11 @@ Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
 ```
 
-#### [components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
+#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
 
-So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
+This is what happens during development. Basically we would not have to change the file `components/com_foos/src/Model/FooModel.php`. In this chapter I noticed that a `use` entry is missing. Therefore a change is made after all.
 
-[components/com_foos/src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
+[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -161,11 +161,11 @@ So etwas passiert beim Entwicklen. Im Grunde genommen müssten wir die Datei `co
 
 ```
 
-#### [components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt - immer einheitlich angezeigt wird. Deshalb fragen wir den aktiven Menüpunkt ab. Das Element könnte über eine Kategorieansicht oder als einzelnes Element angezeigt werden.
+In the case of a menu item, I find it important that it - or the content - is always displayed consistently. Therefore we query the active menu item. For example, if elements are displayed via a category view, then a uniform layout is possible. If the content is displayed as a single element, a different layout can be used.
 
-[components/com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);
@@ -194,29 +194,28 @@ Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise 
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut. In einem frisch installierten System ist die Erklärung der Layouts unkomplizierter.
+1. perform a new installation. To do this, uninstall your previous installation and copy all files again. In a freshly installed system the explanation of the layouts is more uncomplicated.
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-Installiere deine Komponenten wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+Install your component as described in part one, after copying all the files.
 
-2. Stelle bei einem Item ein spezielles Layout ein. Ich habe `withhead` bei dem Item mit der ID 2 gesetzt.
+2. set a special layout for an item. I set `withhead` at the item with ID 2.
 
 ![Joomla Layouts](/images/j4x24x1.png)
 
-3. Sie dir die Ausgabe im Frontend an. Gibt dazu die URL `JOOMLA4/?option=com_foos&id=2&view=foo` in der Adresszeile des Browsers ein. Du siehst das ausgewählte Layout. Überzeuge dich davon, dass die Eingabe von `JOOMLA4/?option=com_foos&id=1&view=foo` das Standardlayout aufruft - sofern kein spezielles eingestellt ist.
+3. look at the output in the frontend. Enter the URL `JOOMLA4/?option=com_foos&id=2&view=foo` in the address bar of your browser. You will see the selected layout. Make sure that typing `JOOMLA4/?option=com_foos&id=1&view=foo` calls the default layout - if no special one is set.
 
-4. Dieses Layout ist ebenfalls per Menüpunkt ansteuerbar.
+4. this layout is also controllable by menu item.
 
-![Joomla Pagination](/images/j4x24x2.png)
+![Joomla Layouts](/images/j4x24x2.png)
 
-> Ein Item ohne XML-Datei ist nicht im Administrationsbereich auswählbar. Trotzdem sind solche Layouts sinnvoll! Im Programmcode ist es an jeder Stelle möglich, dieses zuzuweisen: `$this->setLayout('withheadandfoot');`
+> An item without XML file is not selectable in the administration area. Nevertheless such layouts are useful! In the program code it is possible to assign it at any place: `$this->setLayout('withheadandfoot');`
 
-> Da bei der Ansteuerung über einen Menüpunkt die Ansicht einheitlich erwartet wird, wird das im Menüitem eingestellte Layout bevorzugt.
+> Since the view is expected to be uniform when controlling via a menu item, the layout set in the menu item is preferred.
 
 ## Changed files
 

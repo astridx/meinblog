@@ -33,13 +33,14 @@ No new files are added in this chapter.
 
 Custom Fields display data in the frontend using events. The custom fields are displayed in three different places on the website. By default, the data is displayed before the content. This setting can be changed. Therefore we save the results of `onContentAfterTitle`, `onContentBeforeDisplay` and `onContentAfterDisplay`. We do this in the `View`.
 
-Specifically, we make sure that the events 
-- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle), 
-- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) and 
-- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay) 
-are triggered and the result is stored in a variable.
+Specifically, we make sure that the events
 
-[components/com_foos/src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle),
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) and
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)
+  are triggered and the result is stored in a variable.
+
+[components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -74,7 +75,7 @@ are triggered and the result is stored in a variable.
 
 ```
 
-> Via `onContentAfterTitle`, `onContentBeforeDisplay`,  `onContentAfterDisplay`  in addition to the user-defined fields, other elements are output that are assigned to the respective event.
+> Via `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` in addition to the user-defined fields, other elements are output that are assigned to the respective event.
 
 #### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
@@ -97,9 +98,7 @@ In the template we output the user-defined fields. In our case, this is not exte
 
 1. install your component in Joomla version 4 to test it:
 
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.  
-Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation.
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
 A new installation is not necessary. Continue using the files from the previous part.
 

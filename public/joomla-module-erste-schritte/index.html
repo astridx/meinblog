@@ -13,7 +13,7 @@
 <h3>Neue Dateien</h3>
 <h4>Module</h4>
 <h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini">modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.ini</a></h5>
-<p>Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit bereit.</p>
+<p>Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO=&quot;[PROJECT_NAME]&quot;</span></span></span>
@@ -24,7 +24,7 @@
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO=&quot;[PROJECT_NAME]&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">MOD_FOO_XML_DESCRIPTION=&quot;Foo Module&quot;</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php">modules/mod<em>foo/mod</em>foo.php</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php">modules/mod<em>foo/ mod</em>foo.php</a></h5>
 <p><code class="language-text">mod_foo.php</code> ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.</p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -46,7 +46,7 @@
 <blockquote>
 <p>In Joomla 3x war eine Zeile wie <code class="language-text">$ moduleclass_sfx = htmlspecialchars ($ params-&gt; get (&#39;moduleclass_sfx&#39;));</code> notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe <a href="https://github.com/joomla/joomla-cms/pull/17447">PR 17447</a>.</p>
 </blockquote>
-<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml">modules/mod<em>foo/mod</em>foo.xml</a></h5>
+<h5><a href="https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml">modules/mod<em>foo/ mod</em>foo.xml</a></h5>
 <p><code class="language-text">mod_foo.xml</code> definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von den vorher erstellten Erweiterungen.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.xml --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -96,8 +96,8 @@
 </ol>
 <p>Kopiere die Dateien im <code class="language-text">modules</code> Ordner in den <code class="language-text">modules</code> Ordner deiner Joomla 4 Installation.</p>
 <ol start="2">
-<li>Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü <code class="language-text">System | Install | Discover</code>. Hier siehst du einen Eintrag zu dem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche <code class="language-text">Install</code>.</li>
-<li>Teste als Nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü <code class="language-text">Content | Site Modules</code> und klicke im sich öffnenden Fenster in der Werkzeugleiste <code class="language-text">New</code>.</li>
+<li>Installiere dein Modul wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü <code class="language-text">System | Install | Discover</code>. Hier siehst du einen Eintrag zu dem eben kopierten Modul. Wähle diesen aus und klicke auf die Schaltfläche <code class="language-text">Install</code>.</li>
+<li>Teste als Nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü <code class="language-text">Content | Site Modules</code> und klicke in der Werkzeugleiste <code class="language-text">New</code>.</li>
 </ol>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -105,26 +105,58 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/42ea2a55ae5b027c83a829d533eb1a59/f2b95/j4x36x1.png"
+    href="/static/c3d7b8bf52b41db8087618587a00ce9c/191e2/j4x36x1.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAACDklEQVQoz3VSu47UMBRNhfgBPmFBCBoeAgoENBS8BN2WLAXSrnj8Ag0tiG9AokTzEUh0bIdAgmrZmc1OHrZjO05sJ4drJ8NORsLS0fXjnnMfvsmZazs4dX4bpy9s4+rDF7jy6CUu3n2OrVtPce7OM5zdwNbtnfh++f4ebj7YxY0nr3Hp3i6uP35Fdg/J20/7ePNxH+8+f0ealcgPDnGUZshZhUrVA2QNQahrg8YQmga6blBpg4xJZAWPKJhAgtXqPZHJuVIQ84z2FlXdEclB1h7KeBwsa/yaa4LEUa7ozQ5+wZJfQMKEQt/3UHULJhsIEuFVCzkKScrCNBbWecy+HuL97Cc+zH7gy7ff4MQN/FKECgxYZZBIKsmToCeCtRSFyipImFPkECigC+i6WIjgDForNORrWofWddDG0tnT2SMxrQUpoeMcjh6N1WAUpJRt6EMUxCgcVrrMkZeMAviI4OOIj76LVST54hhyvqCyWtRtB0lNLynDUlq0tqPIIyi6dT2WhUDBVcwmZBhsyHCw1MM/85QcqviLJfWOKw+hHAT1kMkAO4HQHcFP7rg68UvC94cVRHNhBiFy4P9g1/YDkUeRlXWTc2Kdi4LhcwrRTMiDmN0QXRcb7SrTIOj98Huh5wPBb4j+H6ElJ8F8bEWitYZSNMyiwuKYx1liNFesWsFM79btuM9KGvQlwzwt8BdRiHI1BBlLWwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABhElEQVQoz3WSy0oDMRSG5xHc+yAuXbjythFECkLRhSiiD6AiIvoU7nwJ3bhxq/gGUrV4aTt2LkkmmSQzvyeZ1mlrDXycOX+Sc8sEs/OHmJnbxcLmCRr7F1jZOsFS88jbaSwTi81jrG6fYm3nDI2DS2zQvfW9c09w89DGzeMHXr9iiDBEP2LIlIHSFiofRxK5LjBcRQmvJVwh5RJMKATDTSekwiBiGjF3dgDXg28FSYneewLXdy+4un3G/VMLcZqhn2SIUoU+EaQ8gzaFP5xmOQXIfVZrSxhbjGGtRdiP8dZlaH2m6EWcKjfgdM9ZIQ0CbQxQlj5Abigbk36jWuUI1GJRoNPtkWtRr9InctYlDTqvbbAogVCWWlb4prITal3mBc3SjuESdcIELNPgsqrI3ePkC+ksVRjHKbiQ+I4lzc76+VUzHM5Oj5EIO0Wv/aCkdqXKEUbCVxZz/Ru0YsL3j6Yn9FrzAR0sq171bzCCTfqVrc7XlTrd/zbTA/5TBRvRB0FG+QEVi+MWK/JIngAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Modul testen"
         title="Joomla Modul testen"
-        src="/static/42ea2a55ae5b027c83a829d533eb1a59/f058b/j4x36x1.png"
-        srcset="/static/42ea2a55ae5b027c83a829d533eb1a59/c26ae/j4x36x1.png 158w,
-/static/42ea2a55ae5b027c83a829d533eb1a59/6bdcf/j4x36x1.png 315w,
-/static/42ea2a55ae5b027c83a829d533eb1a59/f058b/j4x36x1.png 630w,
-/static/42ea2a55ae5b027c83a829d533eb1a59/40601/j4x36x1.png 945w,
-/static/42ea2a55ae5b027c83a829d533eb1a59/78612/j4x36x1.png 1260w,
-/static/42ea2a55ae5b027c83a829d533eb1a59/f2b95/j4x36x1.png 1515w"
+        src="/static/c3d7b8bf52b41db8087618587a00ce9c/f058b/j4x36x1.png"
+        srcset="/static/c3d7b8bf52b41db8087618587a00ce9c/c26ae/j4x36x1.png 158w,
+/static/c3d7b8bf52b41db8087618587a00ce9c/6bdcf/j4x36x1.png 315w,
+/static/c3d7b8bf52b41db8087618587a00ce9c/f058b/j4x36x1.png 630w,
+/static/c3d7b8bf52b41db8087618587a00ce9c/40601/j4x36x1.png 945w,
+/static/c3d7b8bf52b41db8087618587a00ce9c/78612/j4x36x1.png 1260w,
+/static/c3d7b8bf52b41db8087618587a00ce9c/191e2/j4x36x1.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9482dbbdb14794110ac4d96d6eae9b9e/191e2/j4x36x1b.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAB+UlEQVQoz5WS608aURDF+f8/tU1spaGmadPU1KS+V7RqxRhfRVErsLAsi8DCYknrAgr7ur8OLK1tv3WSkzn3ntnknrOTeLas82S5hNW6AxT/XyFEftylEvGlot5xKdR7FOsu5aaL3hTe+OMsvPAP1xsueavLWcmZoGK7JIajAM/z2Ty1SG2UebtTZfHghtR6gZRWZH7P4sOeyezKNW+2TT4e1HilFSZ8rC1kqiRX88yly+zk2iSUUkQCbzSSVwuI5MEhweh+AlRA6HvCB6IFE8176Mea2PRHDwwHd4TePWEYxpajSKGi6HcqSkV/x6Qes42ikH6/x33PJZTuh4HcBXGaoSIRTYczVw5Pl3SSmsF7sfJyw+DFusHclsm73SozqyVmp1pSK5NMm7yWGOa1PM9XiswsFtBOGrHlcTVvXa6MFpXmd2ptCdtsU7RusYQb9S7XlTam/WOyDdeVFsZ4Ts5GTufyokxJr2NX7KnlcY6BB36fyOvHWYVDwcN0LTyJt4fyB9P1UHHWYx6MHqMZ9B8tnxtdFvYtlg5v2M61WD+1WROksy22zmz5uxbLRw12LtpsyJ125rApFjOHplhtsiZa9kv11x6CLnv16dzh82WH42JXMu3Ix86kH8l596IjcET7xp7MbOcc9r92yF7Z7J/UyBzXyOsOPwH4oN0xfXzuEQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla Modul testen"
+        title="Joomla Modul testen"
+        src="/static/9482dbbdb14794110ac4d96d6eae9b9e/f058b/j4x36x1b.png"
+        srcset="/static/9482dbbdb14794110ac4d96d6eae9b9e/c26ae/j4x36x1b.png 158w,
+/static/9482dbbdb14794110ac4d96d6eae9b9e/6bdcf/j4x36x1b.png 315w,
+/static/9482dbbdb14794110ac4d96d6eae9b9e/f058b/j4x36x1b.png 630w,
+/static/9482dbbdb14794110ac4d96d6eae9b9e/40601/j4x36x1b.png 945w,
+/static/9482dbbdb14794110ac4d96d6eae9b9e/78612/j4x36x1b.png 1260w,
+/static/9482dbbdb14794110ac4d96d6eae9b9e/191e2/j4x36x1b.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -140,26 +172,26 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/97049aef6e2d298659b29f125cd1e279/f2b95/j4x36x3.png"
+    href="/static/5c312f9bedc7d240379c87367b682d47/191e2/j4x36x2.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABlUlEQVQoz52Sy47UMBBF8zWsQGiYBUvYwAiQ+AZYDC/xkbCGHVIvWM5M053ESfyOX8ml7O6MggSooaQju8pVV1W2q4cvP+Ls+Xs8IM6evcOdR68OPH79e+js3tM3uH/xFucXl1RDtS8+4Jy4++QSVTMI7FmPfd2hGyRaNqDnClJbCGUhM/q4rv18fowrM6LtOLpeoFINw1i3MNbB+gjrAswK7TykDVA2/YK0cbVfiKhqJsEGQ90ZMGHRcotOjuDaFQY9opcegwrojwwrFn/JqQQVddxAND11F6mrRGtCiBN8OBJXa0zwNIkrsSUvlXiur7bbLTjnNLLFyeYD2O4KV+zHbWieD8JVjJGcGdM0Ie9jSoX0B3JOmma4tkVfN9B2hCXmBDhPgqRdxLLoqZQmSVgoARccjR2wudlAGpMFs+TpdisYAnZdS/c2Fv/z5gs9kDp0+C/dLYJ5fDs6eqBAEhO+fpflpSv8p2VBTR+6CJJ9+lZThyRojIbWGlJKcKEQaBTv/V/JOflXSKUPe7q76x3DvunwEyPBfxiIhnWpAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABLElEQVQoz52R207DMAyG+3wMCQ0Yt4DE+REAocFeECZuEVyAxA49JGmbc3+cdEA5TGJY+uTYtX87aTI4G2Hr5AbbxNruOXp7F+jtX5LvQPF6h1DTPxqifzjE5vE1dkhjcDrCxsEVEpblYLMUZa1QVRLKOOhvqN/QX33oDyR8zlCWGqIy4LWNXgQfMZFcGGS8Q4iF/ZHLKZfMucIsFWB5CVa1QpKm1moJ4RsNqYWks6ec/SD0JtPpFJxzNI0H0LQ0y2mCJ8tenlCwDK21fUqToPc+Fjnn/oyn+rqkG6VpPDvvYEy7bRL1F1NXMak1vVtBP03F5e+fx5jz/FNwFYJpY8C4gLE2xnePE0zyavUN32uDUC0VrHUxvn0o8JrJ/wtqbSClWmztkTIJXmm8AWzq7drBpyoIAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Modul erstellen"
         title="Joomla Modul erstellen"
-        src="/static/97049aef6e2d298659b29f125cd1e279/f058b/j4x36x3.png"
-        srcset="/static/97049aef6e2d298659b29f125cd1e279/c26ae/j4x36x3.png 158w,
-/static/97049aef6e2d298659b29f125cd1e279/6bdcf/j4x36x3.png 315w,
-/static/97049aef6e2d298659b29f125cd1e279/f058b/j4x36x3.png 630w,
-/static/97049aef6e2d298659b29f125cd1e279/40601/j4x36x3.png 945w,
-/static/97049aef6e2d298659b29f125cd1e279/78612/j4x36x3.png 1260w,
-/static/97049aef6e2d298659b29f125cd1e279/f2b95/j4x36x3.png 1515w"
+        src="/static/5c312f9bedc7d240379c87367b682d47/f058b/j4x36x2.png"
+        srcset="/static/5c312f9bedc7d240379c87367b682d47/c26ae/j4x36x2.png 158w,
+/static/5c312f9bedc7d240379c87367b682d47/6bdcf/j4x36x2.png 315w,
+/static/5c312f9bedc7d240379c87367b682d47/f058b/j4x36x2.png 630w,
+/static/5c312f9bedc7d240379c87367b682d47/40601/j4x36x2.png 945w,
+/static/5c312f9bedc7d240379c87367b682d47/78612/j4x36x2.png 1260w,
+/static/5c312f9bedc7d240379c87367b682d47/191e2/j4x36x2.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -175,26 +207,26 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/41a2f810d3600069a909a3015e121281/f2b95/j4x36x4.png"
+    href="/static/9c223f292d224a99b7cb8603f1efb566/191e2/j4x36x3.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABZElEQVQoz52Sy0rDQBiF8yY+QREpImq1pQbbhYK4VOjaC4oi3hcKvod7H8FV9z5CF96QNrcm6SSpySST42TalCgiiQcOk8zl4/wzvzRVbqFU3cXa1g3Wt2+x2brDysYFSgs7mF7cw0xlH+WlA8wuH2KueoT52jEq9RNU5VPU5DPU5XPIq5doNK7QbF5D6lsEmm7h5e0DPUVH3xwIa7op5n/a6A/Q7erodF6hKAZ0w4ZpEti2KyyBKwwpDMNAXoUshusNf12TGF9MFcfxn2bc4KDPnsKrUeC6HiiliCI22SPlAWWdyHddqKoGh49RFIExNgkk5apxDEqBIYck6cIwhGUT8V8MOIamwCSVw4HJ6PvB6CoKAzP3nIhFVKRMoPF/gelBRTPx2H4S3ZEk/AYs8iBpRzy/q7h/aMMZRmIuu6dwyVk5HkW27UQfevzpXW7iOLAGBEEQ5LLv+6JkSkffhBA4nPEFcWKHYxVi1AsAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABMElEQVQoz52QS0vDQBSF57cJbtwoaquxPmiqIG5c6EIKgs+CiFTE3+TGpUjpSitoW5umaUzTJpnJcTJmkmnxEbxwYO7h5JszIVMLB5jOlaHvVrG9d4Od/Vss6RXM5A8xqx1hTjvG/MoJFgtnyK2eY3mtgnx01k5RWL/ARvESRf0KpVIVW5vXIJQx+EGA58YLzJ4Fz/N/1nCIgFKYlo1W+x2u6wqfUpaIQEyID8cB4/BfxxsBgwH6XRMdw+DriEPoWISEYYhIAhsCcv9ePMQo7L6Nt2bU0BNANUO+QKkh92QUT/q2baDdqnNgk8uJIwrwz0lgcUv0uGpgQY0DrX8A44byH9/dP3I9iHPkpZcpT84ClLnGaxf1pw58mjaTGZIFpl6q5mW7MWDWhpPQyW/k/gkKhPL3zrIzCAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Modul im Frontend"
         title="Joomla Modul im Frontend"
-        src="/static/41a2f810d3600069a909a3015e121281/f058b/j4x36x4.png"
-        srcset="/static/41a2f810d3600069a909a3015e121281/c26ae/j4x36x4.png 158w,
-/static/41a2f810d3600069a909a3015e121281/6bdcf/j4x36x4.png 315w,
-/static/41a2f810d3600069a909a3015e121281/f058b/j4x36x4.png 630w,
-/static/41a2f810d3600069a909a3015e121281/40601/j4x36x4.png 945w,
-/static/41a2f810d3600069a909a3015e121281/78612/j4x36x4.png 1260w,
-/static/41a2f810d3600069a909a3015e121281/f2b95/j4x36x4.png 1515w"
+        src="/static/9c223f292d224a99b7cb8603f1efb566/f058b/j4x36x3.png"
+        srcset="/static/9c223f292d224a99b7cb8603f1efb566/c26ae/j4x36x3.png 158w,
+/static/9c223f292d224a99b7cb8603f1efb566/6bdcf/j4x36x3.png 315w,
+/static/9c223f292d224a99b7cb8603f1efb566/f058b/j4x36x3.png 630w,
+/static/9c223f292d224a99b7cb8603f1efb566/40601/j4x36x3.png 945w,
+/static/9c223f292d224a99b7cb8603f1efb566/78612/j4x36x3.png 1260w,
+/static/9c223f292d224a99b7cb8603f1efb566/191e2/j4x36x3.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -208,26 +240,26 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/28309429cc092cda93889c53ee61afee/f2b95/j4x36x5.png"
+    href="/static/a6400c3a0fff46ba090f19200adc96b8/191e2/j4x36x4.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3ElEQVQoz5VTWW4UMRTsy0B+EItyAPIDEeIS5CNs58wNEAhFyQBCkMn0Yrf3pbuLsmcSEhRF4o1qyv0Wu/xsN09fvcczYu/gCA+ev8HDgoOCo2vs3RiX+OOXb/Hk8B32D49Z+wH7rz9WPHpxjKYdJC67AZftgF4otJ2AGA2UcRi1g9KFbWVl/A2fg9zFNP2bXqIbRjTDqKGsh4sJNqTK7h8WLBSjrRNanxDiBE+EHa7GLmQ0615hIwx65W+hG3e8G7eDJpgnqcpEikgV446lCURE0+sMYSeMjiBLkyt6lSoLnWB8UbFQ7cxdTBXGZaKooo/xeULNa4ZNC68UvDXwwTMwYVlmLPMWMzMLpmnLJcY/5MzFjECaIj8XnJyeUIBG8/3TZ9iLC/j1Gj5laKUhhgFWGyQWeR8Q2ccQAlJKdeIriHGkco88ZfzsflFpQLP69gPVjKmUWeSYOAuBu6yoKea4m4t2w/xcfUV4TDOa07MVXNcDXYflduU28Q4UE0bi97C+XqT8YmIPz798RXe+AqSsEy73TPR3wtJDHg6vW/me2WsfynXitUEM1BpBL/7HSg+NsXDO1d4mqouZW7Z0GFtegobkgZRg5AL3oeRYW16MqYdl2H8pR76yAX8AoxN8N61lbJoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABdklEQVQoz4WS20rDQBCG83pSwQPoZbVYkXrvRVVE6TP2roioULFJ22yy5938ziRNW7HFgY+Z3f13dmaSZHA1RL97h053iIOLe3QuH9DpPZLfcNhr6LSQ5uT6GcfE6c0Lzm9HOBuMcNR/QiJKiVyUUNpCSg1jPawLG3yAMg56vR9/n6/2pLIolUEiTYDUHiXR+jWqIVsqfGcC2aKEkHzR/aGghEI6JGluMC88FoXDXDhkwiLNbR0vSxLrQGK/QTZe1D6sYgdrQWeBWqZ2ZZpBUevcng+xoY4DAhFjrAmrdRUrGg1VpAr46ME2/hwjFTmS6fQLtihgnIMin81m0FrD0ZqxdJET8wMcW9rz3td+kS/JW4QYqLM5VUszfHv/QEWHtRmDSOIK/5u1NLdCgsVV1dzgj5NMJq8wVBnbdiIW7aN+m6pV2qy13IW2NEOeTbUjSbvGjkfYuG0pZT0ezmGdp9/LI1kLm6Bhj20ndDxHarv9aIHgCn8A2y/s1w3U/6YAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Modul im Frontend"
         title="Joomla Modul im Frontend"
-        src="/static/28309429cc092cda93889c53ee61afee/f058b/j4x36x5.png"
-        srcset="/static/28309429cc092cda93889c53ee61afee/c26ae/j4x36x5.png 158w,
-/static/28309429cc092cda93889c53ee61afee/6bdcf/j4x36x5.png 315w,
-/static/28309429cc092cda93889c53ee61afee/f058b/j4x36x5.png 630w,
-/static/28309429cc092cda93889c53ee61afee/40601/j4x36x5.png 945w,
-/static/28309429cc092cda93889c53ee61afee/78612/j4x36x5.png 1260w,
-/static/28309429cc092cda93889c53ee61afee/f2b95/j4x36x5.png 1515w"
+        src="/static/a6400c3a0fff46ba090f19200adc96b8/f058b/j4x36x4.png"
+        srcset="/static/a6400c3a0fff46ba090f19200adc96b8/c26ae/j4x36x4.png 158w,
+/static/a6400c3a0fff46ba090f19200adc96b8/6bdcf/j4x36x4.png 315w,
+/static/a6400c3a0fff46ba090f19200adc96b8/f058b/j4x36x4.png 630w,
+/static/a6400c3a0fff46ba090f19200adc96b8/40601/j4x36x4.png 945w,
+/static/a6400c3a0fff46ba090f19200adc96b8/78612/j4x36x4.png 1260w,
+/static/a6400c3a0fff46ba090f19200adc96b8/191e2/j4x36x4.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"

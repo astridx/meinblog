@@ -6,6 +6,7 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-erste-schritte
 langKey: de
 categories:
+  - JoomladE
   - Code
 tags:
   - CMS
@@ -36,7 +37,7 @@ In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dat
 
 ##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
-Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit bereit.
+Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit.
 
 ```xml
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
@@ -57,7 +58,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
 
 `mod_foo.php` ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.
 
@@ -84,7 +85,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 > In Joomla 3x war eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get ('moduleclass_sfx'));` notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
 
-##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
 
 `mod_foo.xml` definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von den vorher erstellten Erweiterungen.
 
@@ -147,21 +148,23 @@ Es gibt keine geänderten Dateien.
 
 Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
 
-2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu dem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
+2. Installiere dein Modul wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu dem eben kopierten Modul. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
 
-3. Teste als Nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü `Content | Site Modules` und klicke im sich öffnenden Fenster in der Werkzeugleiste `New`.
+3. Teste als Nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü `Content | Site Modules` und klicke in der Werkzeugleiste `New`.
 
 ![Joomla Modul testen](/images/j4x36x1.png)
 
+![Joomla Modul testen](/images/j4x36x1b.png)
+
 4. Trage einen Titel im entsprechenden Feld ein und wähle eine Position. Stelle im Tabulator `Menu Assignment` sicher, dass das Modul auf allen Seiten angezeigt wird. Klicke am Ende in der Werkzeugleiste die Schaltfläche `Save`.
 
-![Joomla Modul erstellen](/images/j4x36x3.png)
+![Joomla Modul erstellen](/images/j4x36x2.png)
 
 5. Und das ist es. Wechsel in die Frontendansicht deines Modules und überzeuge dich davon, dass alles richtig angezeigt wird.
 
-![Joomla Modul im Frontend](/images/j4x36x4.png)
+![Joomla Modul im Frontend](/images/j4x36x3.png)
 
-> Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen. ![Joomla Modul im Frontend](/images/j4x36x5.png)
+> Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen. ![Joomla Modul im Frontend](/images/j4x36x4.png)
 
 Wir haben eine solide Grundlage für die weiteren Schritte.
 

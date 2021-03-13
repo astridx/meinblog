@@ -25,7 +25,7 @@ Das Front-End sollte nun so wie in der nachfolgenden Abbildung aussehen.
 
 ![Cassiopeia im Frontend](/images/c12.png)
 
-### Optionen im einzelnen
+## Optionen im einzelnen
 
 Um zu diesen Optionen im Joomla Backend zu gelangen, öffne `System | Site Templates Style`.
 
@@ -35,33 +35,33 @@ Klicke dann Cassiopeia in der Spalte Style.
 
 ![Templates_Edit_Style_admin_Administration](/images/c3.png)
 
-#### Registerkarte Details
+### Registerkarte Details
 
 ![Templates_Edit_Style_admin_Administration](/images/c6.png)
 
 Diese Registerkarte enthält Informationen über das Template und erlaubt keine Änderungen.
 
-#### Registerkarte Erweitert
+### Registerkarte Erweitert
 
 ![Templates_Edit_Style_admin_Administration](/images/c4.png)
 
 Diese Registerkarte zeigt verschiedene Parameter, über die das Template beeinflussbar ist.
 
-##### Logo, Titel und Beschreibung
+#### Logo, Titel und Beschreibung
 
 ![Templates_Edit_Style_admin_Administration](/images/ce1.png)
 
-###### Logo
+##### Logo
 
 Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen oder wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, oben links auf der Webseite, platziert.
 
 Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild ODER den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
 
-###### Titel
+##### Titel
 
 Wenn wir keine Logodatei als Bild ausgewählt haben, zeigt das Template den hier dargestellten Titel an. Falls auch dieser fehlt, greift es auf die SVG-Datei `logo.svg` im Verzeichnis `/templates/cassiopeia/images` zurück. Diese SVG-Datei enthält den Text Cassiopeia. Egal, ob Titel oder SVG-Datei eingefügt werde, beides wird automatisch zu einem Link zur Startseite.
 
-###### Code in der Datei index.php
+##### Code in der Datei index.php
 
 ```php
 ...
@@ -83,11 +83,11 @@ else
 ...
 ```
 
-##### Tagline / Stichwort - Die Beschreibung der Website
+#### Tagline / Stichwort - Die Beschreibung der Website
 
 Standardmäßig platziert Cassiopeia die Beschreibung unter dem Titel, beziehungsweise dem Logo. Wir können dies nutzen, um einen Seitentitel anzuzeigen, wenn wir möchten, dass sowohl das Logo als auch der Titel der Seite oben auf der Webseite erscheinen.
 
-###### Beispiel 1
+##### Beispiel 1
 
 Der Titel wird angezeigt. In einer kleineren Schriftgröße wir das Stichwort unter diesem eingeblendet.
 
@@ -95,7 +95,7 @@ Der Titel wird angezeigt. In einer kleineren Schriftgröße wir das Stichwort un
 
 ![Templates_Edit_Style_admin_Administration](/images/c8.png)
 
-###### Beispiel 2
+##### Beispiel 2
 
 Der Titel wird nicht angezeigt, weil eine Bilddatei als Logo ausgewählt ist. Das Stichwort, wird unter der Bilddatei platziert.
 
@@ -103,7 +103,7 @@ Der Titel wird nicht angezeigt, weil eine Bilddatei als Logo ausgewählt ist. Da
 
 ![Templates_Edit_Style_admin_Administration](/images/c10.png)
 
-##### Fonts Scheme / Schrift Schema
+#### Fonts Scheme / Schrift Schema
 
 ![Templates_Edit_Style_admin_Administration](/images/ce2.png)
 
@@ -118,7 +118,7 @@ Wenn ich möchte, dass die Standardschriftart des Browsers des Websitebesuchers 
 
 ![Templates_Edit_Style_admin_Administration](/images/c13.png)
 
-###### Keine
+##### Keine
 
 Keine speziellen Anforderungen an die Schriftart zu stellen, ist am unkompliziertesten.
 
@@ -145,7 +145,7 @@ body {
 
 Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen vorher, sind in meinem Fall nicht verfügbar.
 
-###### Schriften aus einem lokalen Verzeichnis
+##### Schriften aus einem lokalen Verzeichnis
 
 Wer eine Schriftart über die eigenen Website zur Verfügung stellt, hat Sicherheit in Bezug auf das Aussehen der Website. Nebenbei macht man sich datenschutzrechtlich von keinem anderen Anbieter abhängig.
 
@@ -210,7 +210,7 @@ h6,
 
 > Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `/templates/cassiopeia/css/user.css` die Adressierung passt. Verwende dabei relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Im Befindet befindet sich die `user.css` im Ordner `/templates/cassiopeia/css/` und die Schriftarten in `/templates/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `/templates/cassiopeia/css/` und die Schriftarten in `/templates/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt.
 
-###### Schriften aus dem Web
+##### Schriften aus dem Web
 
 Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften nicht ganz uneigennützig. Er sammelt dabei die Daten der Nutzer, die die Schrift aufrufen.
 
@@ -257,7 +257,7 @@ h6,
 
 5. Nun überprüfe ich im Frontend, ob alles geklappt hat. Ja, alle Überschriften werden in der gewünschten Schriftart angezeigt.
 
-##### Colour Theme / Template Farbe
+#### Colour Theme / Template Farbe
 
 Die Template Farbe oder das Farbschema ist nichts anderes als eine (S)CSS-Datei, die CSS-Variablen für das Template festlegt. Cassiopeia enthält zwei Farbschemen:
 
@@ -283,7 +283,7 @@ Die nachfolgende Ansicht ist nicht schön. Es geht nur ums Prinzip:
 - cassiopeia-color-primary` legt die Hauptfarbe des Templates fest.
 - cassiopeia-color-link`gibt die Farbe an, in der Links dargestellt werden. -cassiopeia-color-hover` bestimmt die Farbe, mit der Links beim Überrollen mit der Maus reagieren.
 
-##### Layout
+#### Layout
 
 ![Templates_Edit_Style_admin_Administration](/images/ce4.png)
 
@@ -299,29 +299,29 @@ Bootstrap wird mit drei verschiedenen Containern ausgeliefert. Dabei sind die er
 
 Die folgende [Tabelle](https://getbootstrap.com/docs/5.0/layout/containers/) zeigt, wie die `max-width` jedes Containers mit der ursprünglichen `.container` und `.container-fluid` an jedem Haltepunkt zusammen arbeitet.
 
-| Extra klein <576px | Small\≥576px | Medium\≥768px | Large\≥992px | X-Large\≥1200px | XX-Large\≥1400px |
-| ------------------ | ------------ | ------------- | ------------ | --------------- | ---------------- |
-| `.container`       | 100%         | 540px         | 720px        | 960px           | 1140px           | 1320px |
-| `.container-sm`    | 100%         | 540px         | 720px        | 960px           | 1140px           | 1320px |
-| `.container-md`    | 100%         | 100%          | 720px        | 960px           | 1140px           | 1320px |
-| `.container-lg`    | 100%         | 100%          | 100%         | 960px           | 1140px           | 1320px |
-| `.container-xl`    | 100%         | 100%          | 100%         | 100%            | 1140px           | 1320px |
-| `.container-xxl`   | 100%         | 100%          | 100%         | 100%            | 100%             | 1320px |
-| `.container-fluid` | 100%         | 100%          | 100%         | 100%            | 100%             | 100% |
+|                    | Extra klein <576px | Small\≥576px | Medium\≥768px | Large\≥992px | X-Large\≥1200px | XX-Large\≥1400px |
+| ------------------ | ------------------ | ------------ | ------------- | ------------ | --------------- | ---------------- |
+| `.container`       | 100%               | 540px        | 720px         | 960px        | 1140px          | 1320px           |
+| `.container-sm`    | 100%               | 540px        | 720px         | 960px        | 1140px          | 1320px           |
+| `.container-md`    | 100%               | 100%         | 720px         | 960px        | 1140px          | 1320px           |
+| `.container-lg`    | 100%               | 100%         | 100%          | 960px        | 1140px          | 1320px           |
+| `.container-xl`    | 100%               | 100%         | 100%          | 100%         | 1140px          | 1320px           |
+| `.container-xxl`   | 100%               | 100%         | 100%          | 100%         | 100%            | 1320px           |
+| `.container-fluid` | 100%               | 100%         | 100%          | 100%         | 100%            | 100%             |
 
-Sehen wir uns das nun im Einzelnen an.
+Sehen wir uns das nun hier und im [Exkurs: Statisch oder fluid](/cassiopeia-statisch-oder-fluid) im Einzelnen an. Relevant in diesem Zusammenhang ist ebenfalls der [Exkurs: CSS Grid und Bootstrap-5-in-joomla](/css-grid-and-bootstrap-5-in-joomla).
 
-###### Fluid - `.container-fluid`
+##### Fluid - `.container-fluid`
 
 Fluid ist gut für Seiten, bei denen der Inhalt die volle Breite eines großen Bildschirms einnimmt. Mit Fluid verkleinert sich unsere Seite kontinuierlich, wenn sich das Browserfenster verkleinert. Die Breite der Seitenspalten und der Inhaltsbereich sind alle ein Prozentsatz der Bildschirmbreite und verkleinern sich, wenn das Sichtfenster kleiner wird. Dies funktioniert möglicherweise nicht für alle Inhalte oder für alle Module an der Seite gut.
 
 Ausführlicher gehe ich im [Exkurs: CSS Grid und Bootstrap-5-in-joomla](/css-grid-and-bootstrap-5-in-joomla) darauf ein.
 
-###### Statisch - `.container`
+##### Statisch - `.container`
 
 Bei statisch bleiben der Inhaltsbereich und die Seitenspalten in der Mitte großer Monitore auf einer festen Breite. Wenn der Bildschirm schmaler wird, werden die Spalten und der Inhaltsbereich immer schmaler. Bei geringen Bildschirmbreiten stapeln sich schließlich die Elemente übereinander.
 
-##### Sticky Header
+#### Sticky Header
 
 ![Templates_Edit_Style_admin_Administration](/images/ce5.png)
 
@@ -352,7 +352,7 @@ Der im nächsten Bild mit dem Pfeil gezeigte Abschnitt bleibt immer im Anezigebe
 
 ![Cassiopeia Frontend Sticky Header](/images/c24.png)
 
-##### Back-to-top-Link / „Zurück nach oben“ Link
+#### Back-to-top-Link / „Zurück nach oben“ Link
 
 ![Templates_Edit_Style_admin_Administration](/images/ce6.png)
 
@@ -360,7 +360,7 @@ Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich 
 
 ![Cassiopeia Frontend Back-to-top-Link](/images/c23.png)
 
-### Registerkarte Menüs zuordnen
+## Registerkarte Menüs zuordnen
 
 ![Templates_Edit_Style_admin_Administration](/images/c5.png)
 
