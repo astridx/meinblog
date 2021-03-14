@@ -13,13 +13,13 @@ tags:
   - Joomla
 ---
 
-Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftreten, wenn zwei Benutzer denselben Datensatz gleichzeitig editieren. Das Auschecken sperrt ein Item, wenn ein Anwender es zur Bearbeitung öffnet. Beim Speichern und Schließen wird es dann wieder freigegeben. Eine sinnvolle Funktion, die wir in diesem Teil der Artikelserie unsere Beispielerweiterung integrieren.
+The checkout function avoids unexpected results that occur when two users edit the same item at the same time. Checking out locks an item when a user opens it for editing. It is then unlocked again when saved or closed. This is a useful function that we are integrating into our sample extension in this part of the article series.
 
-> Manchmal kommt es vor, dass ein Element als ausgecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war oder man hat im Menü des Browsers die Zurück-Schaltfläche geklickt.
+> Sometimes it happens that an item is marked as checked out, although no one has opened it for editing at the same time. This usually happens when a previous opening was not finished correctly. For example, the web browser was closed even though the item was open for editing, or the back button in the browser menu was clicked instead of closing the item properly.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t20...t21) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -27,7 +27,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ sql/updates/mysql/21.0.0.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-5646e047332531426be00a18128422a6)
 
-Wie alle Eigenschaften eines Foo-Elementes, wird der Zustand in der Datenbank gespeichert. Wir legen zwei Spalten an. Nachfolgend siehst du das Skript, welches bei einer Aktualisierung aufgerufen wird.
+Like all properties of a Foo element, the checkout state is stored in the database. We create two columns. Below you can see the script that is called during a Joomla update.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -39,11 +39,11 @@ ALTER TABLE `#__foos_details` ADD COLUMN `checked_out_time` datetime AFTER `alia
 ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 ```
 
-### Geänderte Dateien
+### Modified files
 
 #### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t20...t21#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut hidden, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund.
+In the form we add the fields for saving the state. We hide them with the attribute `hidden`, as they are not changed by the user here. Joomla sets the values automatically in the background.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -71,7 +71,7 @@ Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir ver
 
 #### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-896f245bc8e493f91277fd33913ef974)
 
-Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten Datei eingetragen haben, ergänzen wir im Skript, welches bei einer neuen Installation aufgerufen wird.
+We add the database changes that we entered above for the update in the separate SQL file to the SQL script that is called during a new installation.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -90,9 +90,9 @@ Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten 
 
 #### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen werden.
+In the model, we adjust everything so that the two new columns are loaded correctly.
 
-> Beachte die Änderung `array(...)` in `explode(', ',$this->getState(...)...)`. Wir nutzen nun die PHP-Funktion [`explode`](https://www.php.net/manual/de/function.explode.php) zusammen mit `getState` um das Array für die Datenbankabfrage zu erstellen. Dies ist sicherer und fehlertoleranter.
+> Note the change `array(...)` to `explode(', ',$this->getState(...)...)`. We now use the PHP function [`explode`](https://www.php.net/manual/de/function.explode.php) together with `getState` to create the array for the database query. This is safer and more error-tolerant.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -140,9 +140,9 @@ Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen w
 
 #### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
+In the list view we do not insert a separate column. A symbol is displayed by the name if the element is locked. To display this, I choose the function that Joomla uses in its own extensions: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. At the same time, this takes over the check whether the contribution is released or not.
 
-In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht.
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
@@ -157,27 +157,25 @@ In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Sy
 
 ```
 
-> Ich habe es hier unkompliziert gehalten. Ich prüfe nicht, ob jemand berechtigt ist, einen ausgecheckten Beitrag wieder freizugeben. Die Komponenten in Joomla gestalten dies restriktiver. In `com_contact` sieht die betreffende Zeile beispielsweise so aus: `<?php echo HTMLHelper::*('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'contacts.', $canCheckin); ?>`. Wenn du ebenfalls nicht jedem das Freigeben erlaubst und dies implementieren möchtest, sieh dir die Implementierung in `com_contact` an - sprich: den Code, der`$canCheckin` berechnet.
+> I have kept it uncomplicated here. I do not check whether someone is authorised to release a checked-out post again. The components in Joomla make this more restrictive. In `com_contact`, for example, the relevant line looks like this: `<?php echo HTMLHelper::*('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'contacts.', $canCheckin); ?>`. If you also don't allow everyone to unlock and want to implement this, look at the implementation in `com_contact` - there you find the code that computes`$canCheckin`.
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-2. The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click `Update Structure`.
+2. The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click 'Update Structure'.
 
 ![Joomla Published](/images/j4x16x1.png)
 
-3. Öffne ein Item in der Bearbeitungsansicht.
+3. Open an item in the edit view.
 
-4. Wechsele in einen anderen Browser und versuche, das Item erneut zu bearbeiten.
+4. Switch to another browser window and try to edit the item again.
 
-5. Vergewissere dich, dass du ein Symbol siehst, dass dich darauf hinweist, dass dieses Item gesperrt ist und dass ein berechtigter Benutzer die Sperrung aufheben kann.
+5. Make sure you see an icon that tells you that the item is locked and that an authorised user can unlock it.
 
-![Joomla Sperren/Freigeben](/images/j4x25x1.png)
+![Joomla checkin/checkout](/images/j4x25x1.png)
 
 ## Changed files
 

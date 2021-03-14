@@ -73,7 +73,7 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="18"></span><span class="grvsc-source"><span class="mtk8">&lt;/</span><span class="mtk4">button</span><span class="mtk8">&gt;</span></span></span></code></pre>
 <h3>Geänderte Dateien</h3>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t21...t22#diff-181b1576846350fbb4a7a1a73291de4b">administrator/components/com_foos/ src/Controller/FooController.php</a></h4>
-<p>Im Controller implementieren wir die Methode <code class="language-text">batch</code>. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit <code class="language-text">return parent::batch($model);</code> die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereis von Joomla erfunden.</p>
+<p>Im Controller implementieren wir die Methode <code class="language-text">batch</code>. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit <code class="language-text">return parent::batch($model);</code> die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereits von Joomla erfunden.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Controller/FooController.php">administrator/components/com_foos/ src/Controller/FooController.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">\</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
@@ -134,7 +134,7 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 	 * Method to get the row form.</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 	 *</span></span></span></code></pre>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t21...t22#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></h4>
-<p>Damit die Stapelverarbeitung nutzbar ist, fügen wir einen Eintrag in der Werkzeugleiste ein.</p>
+<p>Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Eintrag in der Werkzeugleiste ein.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			{</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">$</span><span class="mtk7">childBar</span><span class="mtk8">-&gt;</span><span class="mtk7">trash</span><span class="mtk1">(</span><span class="mtk11">&#39;foos.trash&#39;</span><span class="mtk1">)</span><span class="mtk8">-&gt;</span><span class="mtk7">listCheck</span><span class="mtk1">(</span><span class="mtk5">true</span><span class="mtk1">);</span></span></span>
@@ -190,9 +190,7 @@
 <ol>
 <li>Installiere deine Komponente in Joomla Version 4, um sie zu testen:</li>
 </ol>
-<p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <code class="language-text">media</code> Ordner deiner Joomla 4 Installation.</p>
+<p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.</p>
 <p>Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</p>
 <ol start="2">
 <li>Öffne die Ansicht deiner Komponente im Administrationsbereich. In der Werkzeugleiste siehst du eine Auswahlliste zum Anstoßen von verschiedenen Aktionen. Klicke den Eintrag <code class="language-text">Batch</code>.</li>
@@ -203,26 +201,26 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/cd8d288758ab58ad14e027c5c836eaf4/53ac9/j4x26x1.png"
+    href="/static/fa91518fbe54cbca96fe2d6efcf58261/191e2/j4x26x1.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABqklEQVQoz4WSv0scQRTH96+xT5lSSGWKQAqNMRD0lPMInBJNQMhZpEt1VQik0SbFpbITREhiIVgEUeySSxPOgzt1d+fnzsztfn0zd6dH5MzAlzfz5s1nvm+Y6MFUBROTC3j4pIJS9R2mS6/x6GkJj2creLa0jpnFtSA/f1F+EzRHel5+i+XVTZRXapincwvVGl6+2kD0oXGC919O8fVHEzrLcHj0E/VP29j7fkhrCyE1tM7AhEary/C3w9CNOeUV5RSE0kiYROcyQcoEIgyGsxZSk6jQGIOCcqm0SLiGsT00zzk+7/5BfecXDk5a4EIiTiW4zAiokQqK3CLyLgzBrmiTEaDTjamAwyoqbrchVQahTbisl+d0TRFUFH3lOWkQmXSInOuhoELfkjTA8dlvfNxq4NvuPlSni8w6Okig4hYyTgHoJ34YmyMRDlfMoH3BoZSidlRo98YJXTwOduNwCMzoYExv4KFce0fkOk1hnQvuhm32R/GPcNfhKNDLO2b00CpzBM1h/ieqT+8DxtyFgv7chnU/jlci7Hig34yF/za361HFfJAbwgbxGsTD4Qj5ZcaWAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABiklEQVQoz32RzS4EQRDH+xHcXT2DIzcXHxcRnCwSgnBwtSRCvIG7R3CyB29gI25EVoRgd+3HzOz09OxMd8/8VbfZNdZGJb9UVafrX13VbHRyDyPjm5haOcLM6gHGJgqYWNjH3PohpgsHdFbsM10oYnatiPmNIyxtH2Nx5xTLu2fWL2ydWFip/Iar8gdqjsBD5QXnF5eovFSRAuhGGlH8TTdWUEqjE8S4fXJw89jCa82hOxIdHvZhsJbA5wJhGFKsEZPAZ8unYrosJDzyohtD6wRtP8L1XR2lchX3z3Wq6VpR0zAIJVit4cDtcLRcgWrDRfP9HXHbQaPpQiqFJE2hkwQpecN/pnUKVm86CERoX9PuRGi1feqoKBY0ouoL5TENDEmukUHRBMzsxZhvR9PwBO1LJnB9YXc2THAYQCbo+YHtxoWCy5Xdl0+xgYcGnflenM9/3zE1TGavML/nBcri9jw3yByD+V+YnZ1EPR71BX+QQ3L5c55N5PEMilnvh4KwN/Jg8UDO84LyD1+iDuL9nWGWGQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Stapelverarbeitung"
         title="Joomla Stapelverarbeitung"
-        src="/static/cd8d288758ab58ad14e027c5c836eaf4/f058b/j4x26x1.png"
-        srcset="/static/cd8d288758ab58ad14e027c5c836eaf4/c26ae/j4x26x1.png 158w,
-/static/cd8d288758ab58ad14e027c5c836eaf4/6bdcf/j4x26x1.png 315w,
-/static/cd8d288758ab58ad14e027c5c836eaf4/f058b/j4x26x1.png 630w,
-/static/cd8d288758ab58ad14e027c5c836eaf4/40601/j4x26x1.png 945w,
-/static/cd8d288758ab58ad14e027c5c836eaf4/78612/j4x26x1.png 1260w,
-/static/cd8d288758ab58ad14e027c5c836eaf4/53ac9/j4x26x1.png 1287w"
+        src="/static/fa91518fbe54cbca96fe2d6efcf58261/f058b/j4x26x1.png"
+        srcset="/static/fa91518fbe54cbca96fe2d6efcf58261/c26ae/j4x26x1.png 158w,
+/static/fa91518fbe54cbca96fe2d6efcf58261/6bdcf/j4x26x1.png 315w,
+/static/fa91518fbe54cbca96fe2d6efcf58261/f058b/j4x26x1.png 630w,
+/static/fa91518fbe54cbca96fe2d6efcf58261/40601/j4x26x1.png 945w,
+/static/fa91518fbe54cbca96fe2d6efcf58261/78612/j4x26x1.png 1260w,
+/static/fa91518fbe54cbca96fe2d6efcf58261/191e2/j4x26x1.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -238,26 +236,26 @@ Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <c
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/91f698976e1d68bde725249d75e37f1d/53ac9/j4x26x2.png"
+    href="/static/50cc2261f3d9823e7282eae6010b83ad/191e2/j4x26x2.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAAB30lEQVQoz42RTWsTQRjH9zN4EnrxIp5arKRUqFQKfgIpXrzoSS/Spm1mX2d2pXiI4EFE8JDEjTHS3URtKYhfRIP2Zj300MY2stkmm92/z0xsNbEHB/488zwz83teRjt/MYdzF6YxcSmHK1evo/jkKeobTbyqB6i9CdF4t4Xw7SaC5qbaB8332P7wEbdu38Xk5VnMzC1gauYapmfnMZWbg3Zj8R4Wbt7H4p0HsGwbu7vfkaYZBoMUf69kMBjxgyDE0nIetsOhGyYKTIdhWtDWH7p4tO7BcRw43MWnzy20DzvYbx+i/eMI+6T4uEc6RjeOEUVdBay9riugZQsCWtBNm+RAs20CURamm+rwy9cdxP0EUTdWgM7PaKS6NBtWHoYhGGPwPA9CCHAuhkDOuQrIck3Hw06rheTgAP0kodZTZFJZpqSAlGQc6LoEFBLIoUmY57pqFobF8Y1miF4P2VEH46tPc4329kB9Y6PRACsU/q1QOu5voMzw7PkLlP0a/EoZ5VIJvu8rVatVVCoVlCj2kmzxcRGc5i7fSglxBpBRIL+qY3mFUTsG8itrWCvIva5+kenGqSxLfqKg+QtlhwWNAw2H2hanMm0x4g/FlZXdyPsnkrAzK5QXTw7/6H9jDn4BUk4ym9z9sMgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABrklEQVQoz6WQy0rDUBCGs3PlE7gQ3AguFLxUBFEs+BSuRUQEe0lykpwktUbBeqngotq1LlSwBe8+kSLaaqttGuPvnFhbLQUXHviYMxPmO5OROrtD6OgaQk//BHqHJjE+No3Tg2Pkj3PIH53iMneO6/wlxQtc5S9we3aD3OEJwqNhDA9OYCAURt8IMTwVIM3MRjAzG0UkzqAwhi3HgVfzUH338fNU3pv3atWDvMSwEJFhcA6m6Q0kJ5nAcsKCRolK7Kyu4aVQxP3DI4rFZ2p2USE8z0OtVoP/8YHnpwLm52XMLUZhGAbBCROaziHF4gpUpkFWdURlDallB6VSGaW3StDc7rivr0g7SdgJG7bdxDQtEsoKmcW4HDHVQCqxApeEPk3kuy58MVWdSrmMN6Jwd4d1EhimCduyYNUJhKYo0kdG4yok5cxAZnMLu6lN7G1vI5tOY5/IpneCPCPY2ECS+iwxWV1m23Wh+F2TCkKoakJqIqbohBYQV7/Rf8F0sbMvWAPaIRcvkVDIVJKJyCj+hcro8RZETfpaphAZDWEz8h95a423rTV2KEZX/ikTfAKVFBoATYC/EwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Stapelverarbeitung"
         title="Joomla Stapelverarbeitung"
-        src="/static/91f698976e1d68bde725249d75e37f1d/f058b/j4x26x2.png"
-        srcset="/static/91f698976e1d68bde725249d75e37f1d/c26ae/j4x26x2.png 158w,
-/static/91f698976e1d68bde725249d75e37f1d/6bdcf/j4x26x2.png 315w,
-/static/91f698976e1d68bde725249d75e37f1d/f058b/j4x26x2.png 630w,
-/static/91f698976e1d68bde725249d75e37f1d/40601/j4x26x2.png 945w,
-/static/91f698976e1d68bde725249d75e37f1d/78612/j4x26x2.png 1260w,
-/static/91f698976e1d68bde725249d75e37f1d/53ac9/j4x26x2.png 1287w"
+        src="/static/50cc2261f3d9823e7282eae6010b83ad/f058b/j4x26x2.png"
+        srcset="/static/50cc2261f3d9823e7282eae6010b83ad/c26ae/j4x26x2.png 158w,
+/static/50cc2261f3d9823e7282eae6010b83ad/6bdcf/j4x26x2.png 315w,
+/static/50cc2261f3d9823e7282eae6010b83ad/f058b/j4x26x2.png 630w,
+/static/50cc2261f3d9823e7282eae6010b83ad/40601/j4x26x2.png 945w,
+/static/50cc2261f3d9823e7282eae6010b83ad/78612/j4x26x2.png 1260w,
+/static/50cc2261f3d9823e7282eae6010b83ad/191e2/j4x26x2.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"

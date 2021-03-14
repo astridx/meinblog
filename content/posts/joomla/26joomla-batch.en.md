@@ -13,11 +13,11 @@ tags:
   - Joomla
 ---
 
-Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen "stapelverarbeitend" hinzuzufügen.
+Joomla offers a number of functions that enable administrators to process several items at once. We now add this batch processing to the component. Based on this, it is possible for you to add your own "batch processing" functions.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t21...t22) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -25,7 +25,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-a9b2d92dcca8384605c7c4c4e7111093)
 
-Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird.
+The following file creates the middle part of the form that is displayed to trigger batch processing.
 
 [administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
@@ -76,7 +76,7 @@ $noUser    = true;
 
 #### [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-d653f1f236af4637ec0c4a7ff789bde1)
 
-Die nachfolgende Datei erstellt den Footer des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird.
+The following file creates the footer of the form that is displayed to trigger batch processing.
 
 [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
@@ -105,11 +105,11 @@ use Joomla\CMS\Language\Text;
 
 ```
 
-### Geänderte Dateien
+### Modified files
 
 #### [administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-181b1576846350fbb4a7a1a73291de4b)
 
-Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit `return parent::batch($model);` die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereis von Joomla erfunden.
+In the controller we implement the method `batch`. If we look at it closely, we add nothing more than the specifics: The name of the model used for data processing and the address to forward to after processing. At the end we call the implementation of Joomla with `return parent::batch($model);`. Done! For the standard functions, the wheel has already been invented by Joomla.
 
 [administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Controller/FooController.php)
 
@@ -152,7 +152,7 @@ Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betracht
 
 #### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Im Model geben wir an, ob das Kopieren und Verschieben unterstützt wird. Im Falle von `false` wird der Befehl von der Stapelverarbeitung nicht bereitgestellt. Außerdem geben wir die Eigenschaften an, die mithilfe der Batch-Funktion bearbeitbar bin.
+In the model we specify whether copying and moving is supported. In case of `false` the command is not provided by the batch processing. We also specify the properties that are editable using the batch function.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Model/FooModel.php)
 
@@ -185,7 +185,7 @@ protected $associationsContext = 'com_foos.item';
 
 #### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Damit die Stapelverarbeitung nutzbar ist, fügen wir einen Eintrag in der Werkzeugleiste ein.
+To make the batch processing usable via a button, we add an entry to the toolbar.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -227,7 +227,7 @@ Damit die Stapelverarbeitung nutzbar ist, fügen wir einen Eintrag in der Werkze
 
 #### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Das Template, mit dem das Formular zum Anstoßen der Stapelverarbeitung angelegt wird, erstellen wir unter Zuhilfenahme von `HTMLHelper`.
+We create the template that is used to create the form to trigger batch processing with the help of `HTMLHelper`.
 
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default.php)
 
@@ -249,23 +249,21 @@ Das Template, mit dem das Formular zum Anstoßen der Stapelverarbeitung angelegt
 	<input type="hidden" name="boxchecked" value="0">
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the files from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. In der Werkzeugleiste siehst du eine Auswahlliste zum Anstoßen von verschiedenen Aktionen. Klicke den Eintrag `Batch`.
+2. Open the view of your component in the administration area. In the toolbar you will see a selection list for triggering various actions. Click the entry 'Batch'.
 
-![Joomla Stapelverarbeitung](/images/j4x26x1.png)
+![Joomla Batch Processing](/images/j4x26x1.png)
 
-3. Teste die Stapelverarbeitung.
+3. test the batch processing.
 
-![Joomla Stapelverarbeitung](/images/j4x26x2.png)
+![Joomla Batch Processing](/images/j4x26x2.png)
 
 ## Changed files
 

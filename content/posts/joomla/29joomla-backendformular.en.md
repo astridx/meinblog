@@ -13,25 +13,25 @@ tags:
   - Joomla
 ---
 
-Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So wie im nachfolgenden Bild sieht dein Backend aufgeräumt und `joomlamäßig` aus.
+The administration area has filled up. I have inserted the individual parameters without structure so far. It is user-friendly if the views in an application are uniform. That way, everyone can quickly find their way around. It is not necessary to familiarise oneself with every new extension. In this part of the tutorial we will tidy up the view in the administration area. Our aim is to adapt the display to the standard views in the content management system. As in the following picture, your backend looks tidy and 'Joomla-like'.
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24...t24b) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t24...t24b) and incorporate these changes into your development version.
 
 ## Step by step
 
 ### New files
 
-Nichts Neues.
+Nothing new
 
 ### Modified files
 
 #### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Hinzukommt eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
+We replace the previously rudimentary form fields. The result is a view that resembles the normal Joomla extensions.
 
 ```php {diff}
  $layout  = 'edit';
@@ -95,9 +95,7 @@ Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Hinzukommt eine
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 

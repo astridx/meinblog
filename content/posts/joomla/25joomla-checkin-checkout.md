@@ -13,9 +13,9 @@ tags:
   - Joomla
 ---
 
-Durch die Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftreten, wenn zwei Benutzer denselben Datensatz gleichzeitig editieren. Das Auschecken sperrt ein Item, wenn ein Anwender es zur Bearbeitung öffnet. Beim Speichern und Schließen wird es dann wieder freigegeben. Eine sinnvolle Funktion, die wir in diesem Teil der Artikelserie unsere Beispielerweiterung integrieren.
+Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftreten, wenn zwei Benutzer denselben Datensatz gleichzeitig editieren. Das Auschecken sperrt ein Item, wenn ein Anwender es zur Bearbeitung öffnet. Beim Speichern und Schließen wird es dann wieder freigegeben. Eine sinnvolle Funktion, die wir in diesem Teil der Artikelserie unsere Beispielerweiterung integrieren.
 
-> Manchmal kommt es vor, dass ein Element als ausgecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war oder man hat im Menü des Browsers die Zurück-Schaltfläche geklickt.
+> Manchmal kommt es vor, dass ein Element als aus gecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war oder man hat im Menü des Browsers die Zurück-Schaltfläche geklickt anstelle den Beitrag ordnungsgemäß zu schließen.
 
 ## Für Ungeduldige
 
@@ -27,7 +27,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ sql/updates/mysql/21.0.0.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-5646e047332531426be00a18128422a6)
 
-Wie alle Eigenschaften eines Foo-Elementes, wird der Zustand in der Datenbank gespeichert. Wir legen zwei Spalten an. Nachfolgend siehst du das Skript, welches bei einer Aktualisierung aufgerufen wird.
+Wie alle Eigenschaften eines Foo-Elementes, wird der Checkout-Zustand in der Datenbank gespeichert. Wir legen zwei Spalten an. Nachfolgend siehst du das Skript, welches bei einer Joomla-Aktualisierung aufgerufen wird.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -43,7 +43,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 
 #### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t20...t21#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut hidden, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund.
+Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir verstecken sie mit dem Attribut `hidden`, da sie hier nicht vom Benutzer geändert werden. Joomla setzt die Werte automatisch im Hintergrund.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -71,7 +71,7 @@ Im Formular fügen wir die Felder für das Speichern des Zustands hinzu. Wir ver
 
 #### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t20...t21#diff-896f245bc8e493f91277fd33913ef974)
 
-Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten Datei eingetragen haben, ergänzen wir im Skript, welches bei einer neuen Installation aufgerufen wird.
+Die Datenbankänderungen, die wir oben für die Aktualisierung in der separaten SQL-Datei eingetragen haben, ergänzen wir im SQL-Skript, welches bei einer neuen Installation aufgerufen wird.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -140,9 +140,9 @@ Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen w
 
 #### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t20...t21#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
+In die Listenansicht fügen wir keine separate Spalte ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht.
 
-In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Symbol angezeigt, wenn das Element gesperrt ist. Für die Anzeige von diesem wähle ich die Funktion, die Joomla in eigenen Erweiterungen einsetzt: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. Die übernimmt gleichzeitig die Prüfung, ob der Beitrag freigegeben ist oder nicht.
+[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
@@ -157,15 +157,13 @@ In die Listenansicht fügen wir keine separate Zeile ein. Beim Namen wird ein Sy
 
 ```
 
-> Ich habe es hier unkompliziert gehalten. Ich prüfe nicht, ob jemand berechtigt ist, einen ausgecheckten Beitrag wieder freizugeben. Die Komponenten in Joomla gestalten dies restriktiver. In `com_contact` sieht die betreffende Zeile beispielsweise so aus: `<?php echo HTMLHelper::*('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'contacts.', $canCheckin); ?>`. Wenn du ebenfalls nicht jedem das Freigeben erlaubst und dies implementieren möchtest, sieh dir die Implementierung in `com_contact` an - sprich: den Code, der`$canCheckin` berechnet.
+> Ich habe es hier unkompliziert gehalten. Ich prüfe nicht, ob jemand berechtigt ist, einen ausgecheckten Beitrag wieder freizugeben. Die Komponenten in Joomla gestalten dies restriktiver. In `com_contact` sieht die betreffende Zeile beispielsweise so aus: `<?php echo HTMLHelper::*('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'contacts.', $canCheckin); ?>`. Wenn du ebenfalls nicht jedem das Freigeben erlaubst und dies implementieren möchtest, sieh dir die Implementierung in `com_contact` an. Hier findest du den Code, der`$canCheckin` berechnet.
 
 ## Teste deine Joomla-Komponente
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
 2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
@@ -173,7 +171,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Inst
 
 3. Öffne ein Item in der Bearbeitungsansicht.
 
-4. Wechsele in einen anderen Browser und versuche, das Item erneut zu bearbeiten.
+4. Wechsele in ein anderes Browser-Fenster und versuche, das Item erneut zu bearbeiten.
 
 5. Vergewissere dich, dass du ein Symbol siehst, dass dich darauf hinweist, dass dieses Item gesperrt ist und dass ein berechtigter Benutzer die Sperrung aufheben kann.
 

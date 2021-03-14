@@ -236,11 +236,11 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 
 > Ein [Pull Request](https://github.com/joomla/joomla-cms/pull/32538/files) als Inspiration.
 
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
 
 Am Ende nutzen wir den Parameter für die Anzeige im Template. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll, dann wird der Name angezeigt. Das Label `$this->Params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
-[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -263,7 +263,7 @@ Am Ende nutzen wir den Parameter für die Anzeige im Template. Wenn es den Param
  echo $this->item->event->beforeDisplayContent;
 ```
 
-#### [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 [https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 

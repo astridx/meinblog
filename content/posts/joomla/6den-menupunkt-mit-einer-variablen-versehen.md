@@ -86,7 +86,7 @@ Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim M
 
 Du speicherst einen Wert über den Menüpunkt im Inputelement, indem du die XML-Datei erweiterst:
 
-[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
 
 ```php {diff}
  			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>

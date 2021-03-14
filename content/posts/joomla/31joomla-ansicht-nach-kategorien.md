@@ -691,9 +691,9 @@ class HtmlView extends CategoryView
 
 ```
 
-#### [components/com_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
+#### [components/com_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
 
-[components/com_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
+[components/com_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/tmpl/category/default.php
@@ -723,9 +723,9 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 > Wir nutzen hier `joomla.content.category_default`. Diese Layoutdatei findest du [hier](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/content/category_default.php).
 
-#### [components/com_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
+#### [components/com_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
 
-[components/com_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
+[components/com_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/tmpl/category/default.xml -->
@@ -793,9 +793,9 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 > Falls dein Element nicht angezeigt wird, liegt es unter Umständen daran, dass du beim Element den Parameter `show_name` auf no gesetzt hast.
 
-#### [components/com_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
+#### [components/com_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
 
-[components/com_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
+[components/com_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/tmpl/category/default_items.php

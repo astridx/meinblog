@@ -15,7 +15,7 @@ tags:
 
 Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles Attribut: `featured` oder `Haupteintrag`. Dieser Teil der Artikelserie fügt `featured` zu unserer Komponente hinzu.
 
-> In Joomla werden mit `featured` markierte Elemente angezeigt, wenn der Startseiten-Menü-Eintrag mit dem `featured`-Layout verlinkt ist. Auf diese Weise ist es möglich, ein Element nur durch Änderung der Eigenschaft `featured` auf der Startseite ein- oder auszublenden. Dabei gibt es keine Auswirkungen auf andere Anzeigeeigenschaften - beispielsweise die Zugehörigkeit zu einem Kategorie-Blog. Im deutschen wird `featured` mit `Haupteintrag` bezeichnet.
+> In Joomla werden mit `featured` markierte Elemente angezeigt, wenn der Startseiten-Menü-Eintrag mit dem `featured`-Layout verlinkt ist. Auf diese Weise ist es möglich, ein Element nur durch Änderung der Eigenschaft `featured` auf einer Seite ein- oder auszublenden - beispielsweise der Startseite. Dabei gibt es keine Auswirkungen auf andere Anzeigeeigenschaften - beispielsweise die Zugehörigkeit zu einem Kategorie-Blog. Im deutschen wird `featured` mit `Haupteintrag` bezeichnet.
 
 ## Für Ungeduldige
 
@@ -27,7 +27,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
 
-Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
+Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenbank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei `24.0.0.sql`.
 
 [administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql)
 
@@ -463,11 +463,11 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [components/com_foos/tmpl/featured/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548)
+#### [components/com_foos/ tmpl/featured/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548)
 
 Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in der Datei `default.php` implementieren.
 
-[components/com_foos/tmpl/featured/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php)
+[components/com_foos/ tmpl/featured/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.php
@@ -508,11 +508,11 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 
 ```
 
-#### [components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
+#### [components/com_foos/ tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
 
-Die XML-Datei benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
+Die Datei `components/com_foos/ tmpl/featured/default.xml` benötigen wir, damit im Frontend die Anzeige der `featured` Elemente über einen Menüpunkt möglich ist.
 
-[components/com_foos/tmpl/featured/default.xml](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml)
+[components/com_foos/ tmpl/featured/default.xml](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.xml -->
@@ -568,15 +568,18 @@ Die XML-Datei benötigen wir, damit im Frontend die Anzeige der `featured` Eleme
 
 ```
 
-#### [components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
+#### [components/com_foos/ tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
 
 In der Datei `default.php` nutzen wir die Anweisung `<?php echo $this->loadTemplate('items'); ?>`. So halten wir das Template übersichtlich. Alles was ein Element betrifft wird über das Untertemplate `default_items.php` in `default.php` eingefügt.
 
-> Wichtig bei der Verwendugn von Subtemplates oder Untertemplates ist, dass das dieses im gleichen Verzeichnis wie das eigentliche Template liegt und, dass der Name übereinstimmt:  
+> Wichtig bei der Verwendung von Subtemplates oder Untertemplates ist, dass das dieses im gleichen Verzeichnis wie das eigentliche Template liegt und, dass der Name übereinstimmt:  
 > Der Aufruf `<?php echo $this->loadTemplate('NAME'); ?>` lädt die Datei  
-> `default_NAME.php`.
+> `default_NAME.php`
+> wenn er in der Datei
+> `default.php`
+> ausgeführt wird.
 
-[components/com_foos/tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
+[components/com_foos/ tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default_items.php
@@ -654,7 +657,7 @@ $params = \&$this->item->params;
 
 #### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird um das Feld zur Festlegung der Eigenschaft `featured`.
+Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um das Feld zur Festlegung der Eigenschaft `featured`.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
 
@@ -681,7 +684,7 @@ Das Formular, mit dem ein Element angelegt beziehungsweise geändert wird um das
 
 #### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
 
-Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft `featured` hinzu.
+Im Falle einer neuen Installation, wird über das Skript in der Datei `install.mysql.utf8.sql` die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft `featured` hinzu.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -696,7 +699,7 @@ Im Falle einer neuen Installtion, wird über das Skript in der Datei `install.my
 
 #### [administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
 
-Wir implementieren die Funktion im `FoosController`, die Logik mit der wir die Eigenschaft `featured` setzen.
+Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in der Funktion `featured()` im `FoosController`.
 
 [administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
@@ -779,7 +782,7 @@ Wir implementieren die Funktion im `FoosController`, die Logik mit der wir die E
 
 #### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Im Model eines Elementes implementieren wir die Methode, mit der die Eigenschaft `featured` verändert wird.
+Im Model eines Elementes implementieren wir die Methode, mit der die Belegung der Eigenschaft (Daten) `featured` gespeichert und verändert wird.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FooModel.php)
 
@@ -904,7 +907,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
 
 #### [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
-Im `AdministratorService.php` machen wir es möglich, die Eigenschaft auch in der Übersichtsliste per Klick auf das Stern-Symbol zu verändern.
+Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenschaft auch in der Übersichtsliste zu verändern. Ein Klick auf das Stern-Symbol schaltet den Wert um.
 
 [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
@@ -964,7 +967,7 @@ Im `AdministratorService.php` machen wir es möglich, die Eigenschaft auch in de
 
 #### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Wir ergänzen die Werkzeugleiste. `Featured` soll auch hier über eine Aktion bearbeitbar sein.
+Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion bearbeitbar sein.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -989,7 +992,7 @@ Wir ergänzen die Werkzeugleiste. `Featured` soll auch hier über eine Aktion be
 
 #### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Im Formular zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
+Im Formular `administrator/components/com_foos/ tmpl/foo/edit.php` zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
 
 [https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
@@ -1005,7 +1008,7 @@ Im Formular zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, 
 
 #### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-In der Übersicht fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. `HTMLHelper` übernimmt die meister Arbeit für uns.
+In der Übersicht aller Elemente im Backend in der Datei `administrator/components/com_foos/ tmpl/foos/default.php` fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. Die Datei `HTMLHelper` übernimmt die meister Arbeit für uns.
 
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foos/default.php)
 
@@ -1048,8 +1051,7 @@ In der Übersicht fügen wir eine Spalte ein, in der der Zustand mit einem ausge
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
@@ -1057,7 +1059,7 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Inst
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Die Liste enthält eine Spalte die mit `featured` überschrieben ist.
 
-![Joomla Featured](/images/j4x28x2.png)
+![Joomla Featured](/images/j4x28x1.png)
 
 3. Öffne ein Item in der Bearbeitungsansicht und überzeuge dich davon, dass du hier das Attribut `featured` zum Bearbeiten angeboten bekommst.
 
@@ -1067,9 +1069,11 @@ Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Inst
 
 ![Joomla Featured](/images/j4x28x3.png)
 
-5. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist und bei denen die zugehörige Kategorie ebenfalls veröffentlicht ist.
+5. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist, die veröffentlicht sind und bei denen die zugehörige Kategorie ebenfalls veröffentlicht ist.
 
-![Joomla Featured](/images/j4x28x4.png)
+![Joomla Featured; Elemente im Backend](/images/j4x28x4.png)
+
+![Joomla Featured; Elemente im Frontend](/images/j4x28x4.png)
 
 ## Geänderte Dateien
 

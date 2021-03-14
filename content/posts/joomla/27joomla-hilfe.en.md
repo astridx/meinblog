@@ -13,29 +13,25 @@ tags:
   - Joomla
 ---
 
-Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung.
+Self-explanatory software is ideal. But which programme is? For this reason, help is always a useful addition. Depending on the system, help pages cannot be found immediately or are even hidden. Joomla offers a uniform procedure for this.
 
-![Joomla Hilfelink](/images/j4x27x1.png)
+![Joomla Help link in the list view](/images/j4x27x1.png)
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t22...t23) and incorporate these changes into your development version.
 
 ## Step by step
 
 ### New files
 
-In diesem Kapitel werden ausschließlich Dateien geändert.
+In this chapter, only files are changed.
 
-### Geänderte Dateien
+### Modified files
 
-Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeigen, die ein Fragezeichen enthält und eine beliebige Internetadresse als Linkziel hat. Ich habe unoriginell `http://joomla.org` als Beispiel gewählt. Das Prinzip ist klar. Du hast die Möglichkeit für jede `View` eine Hilfedatei unter einem einheitlichen Ressourcenzeiger (URL) abzulegen und in der Ansicht der Komponente zu verlinken - genau da, wo in der Regel Fragen auftauchen.
+Two lines per view are sufficient to display a button at the top right that contains a question mark as an icon and has an Internet address specified in the code as the link target. I have chosen `http://joomla.org` as an example. The principle is clear. You have the possibility to create a separate help file for each `View` and to link it in the view of the component - exactly where questions usually arise.
 
 #### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
-
-[administrator/components/com_foos/ src/ View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/af04f8493aa045e8bcb2a49b8b1f8a60a927d78a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
-
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 
@@ -57,19 +53,17 @@ Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeige
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the files from the previous part.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Hilfelink und vergewissere dich davon, dass du zu der von dir eingegebenen Hilfeseite weitergeleitet wirst.
+2. Open the view of your component in the administration area. Click on the help link and make sure that you are redirected to the help page you entered.
 
-![Joomla Hilfelink](/images/j4x27x1.png)
+![Joomla Help Link in the item view](/images/j4x27x2.png)
 
 ## Changed files
 

@@ -109,11 +109,11 @@ We get the data of the model in the view with `$this->msg = $this->get('Msg');`.
 
 > You may be confused by the call `$this->get('Msg');` as I was when I first started using Joomla. The method in the model is called `getMsg()`, but we call it here via `get('Msg')`. This doesn't fit. If you have dealt with object oriented programming before, you are tempted to call it via `getMsg()`. If you are using Joomla, you will have an easier time using things the way they are prepared for you. You call [Getter](https://en.wikipedia.org/wiki/Mutator_method) in the model via the method `get()` with the appropriate parameter.
 
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
+#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
 
 Über das Template geben wir die Daten aus. Hier wird später alles richtig in HTML-Tags verpackt.
 
-[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

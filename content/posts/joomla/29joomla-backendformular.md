@@ -31,7 +31,7 @@ Nichts Neues.
 
 #### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Hinzukommt eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
+Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 
 ```php {diff}
  $layout  = 'edit';
@@ -95,9 +95,7 @@ Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Hinzukommt eine
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
