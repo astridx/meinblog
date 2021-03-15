@@ -34,15 +34,11 @@ Nothing new
 We replace the previously rudimentary form fields. The result is a view that resembles the normal Joomla extensions.
 
 ```php {diff}
- $layout  = 'edit';
- $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
- ?>
--
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
 +
 +	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
  	<div>
- 		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
+ 		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'details']); ?>
 
 @@ -42,15 +43,14 @@
  			<div class="col-md-9">
@@ -91,17 +87,67 @@ We replace the previously rudimentary form fields. The result is a view that res
 
 ```
 
-## Teste deine Joomla-Komponente
+The main change is that we now use Joomla's own layout `joomla.edit.publishingdata`. This is in the directory `/layouts/joomla/edit/publishingdata.php` and you can check the content in the following code example. Besides the uniform view, another advantage is that the layout file is maintained by Joomla and you are therefore less likely to experience unpleasant surprises when updating.
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+```php
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  Layout
+ *
+ * @copyright   (C) 2013 Open Source Matters, Inc. <https://www.joomla.org>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
+defined('_JEXEC') or die;
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+$form = $displayData->getForm();
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Editiere ein Item und vergewissere dich davon, dass die Darstellung so ist, wie du es in Joomla erwartest.
+$fields = $displayData->get('fields') ?: array(
+	'publish_up',
+	'publish_down',
+	'featured_up',
+	'featured_down',
+	array('created', 'created_time'),
+	array('created_by', 'created_user_id'),
+	'created_by_alias',
+	array('modified', 'modified_time'),
+	array('modified_by', 'modified_user_id'),
+	'version',
+	'hits',
+	'id'
+);
 
-![Joomla Ansicht im Backend](/images/j4x29x1.png)
+$hiddenFields = $displayData->get('hidden_fields') ?: array();
+
+foreach ($fields as $field)
+{
+	foreach ((array) $field as $f)
+	{
+		if ($form->getField($f))
+		{
+			if (in_array($f, $hiddenFields))
+			{
+				$form->setFieldAttribute($f, 'type', 'hidden');
+			}
+
+			echo $form->renderField($f);
+			break;
+		}
+	}
+}
+
+```
+
+## Test your Joomla component
+
+1. install your component in Joomla version 4 to test it:
+
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
+
+A new installation is not necessary. Continue using the files from the previous part.
+
+2. Open the view of your component in the administration area. Edit an item and make sure that the display is as you expect it to be in Joomla. You can see an example in the picture at the beginning of this chapter.
 
 ## Changed files
 

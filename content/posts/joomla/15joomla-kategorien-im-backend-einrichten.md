@@ -15,7 +15,7 @@ tags:
 
 Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses nützliche Feature ebenfalls. Der aktuelle Teil des Tutorials zeigt dir, wie du Kategorien idealerweise in eine Joomla Komponente integrierst. Erfinde das Rad nicht selbst neu. Nutze das, was Joomla dir bietet.
 
-![Joomla Kategorie Menüpunkt](/images/j4x15x1.png)
+> [Kategorien](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') sind eine Möglichkeit, Inhalte in Joomla! zu organisieren. Eine Kategorie enthält Beiträge und andere Kategorien. Ein Beitrag kann nur in einer Kategorie sein. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie der Kategorie.
 
 ## Für Ungeduldige
 

@@ -13,6 +13,16 @@ tags:
   - Joomla
 ---
 
+Why use categories? One reason for categories is that there are many posts on a site. They can be grouped and managed more easily. Example: In post management, posts can be filtered by category. If there are 200 posts in the site, it is easy to find a post if you know its category.
+
+For the frontend, there are built-in menu item types in Joomla! that use categories: Category Blog, Category List. The menu entry types (also called "layouts") simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable.
+
+Example: Imagine a blog layout of the category Events that displays the latest posts first. If a new post is added to this category, it will automatically appear first in the Events blog. All you have to do is add the post to the category.
+
+> The category structure, for example `Events |Online Events | Sport | Yoga`, is completely independent of the menu structure of the site. The site can have one or six menu levels and yoga can be classified as the main menu item.
+
+> Reminder: [Categories](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') are a way of organising content in Joomla! A category contains posts and other categories. A post can only be in one category. If a category is contained in another, it is a subcategory of the category.
+
 ## For impatient people
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t25...t26) and incorporate these changes into your development version.
@@ -691,9 +701,9 @@ class HtmlView extends CategoryView
 
 ```
 
-#### [components/com_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
+#### [components/com_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
 
-[components/com_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
+[components/com_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/tmpl/category/default.php
@@ -721,11 +731,11 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-> Wir nutzen hier `joomla.content.category_default`. Diese Layoutdatei findest du [hier](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/content/category_default.php).
+> We use `joomla.content.category_default` here. You can find this layout file in the folder `layouts/joomla/content/category_default.php`.
 
-#### [components/com_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
+#### [components/com_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
 
-[components/com_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
+[components/com_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/tmpl/category/default.xml -->
@@ -789,13 +799,13 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-> Die Kategorie-Ansichten in Joomla verfügen in der Regel über eine Menge weiterer Parameter. Beispielsweise habe ich die Unterkategorien und Filter ignoriert. So bleibt das Beispiel übersichtlich. Schau das, was dir wichtig ist, in den Core-Erweiterungen nach.
+> The category views in Joomla usually have a lot of other parameters. For example, I have ignored the subcategories and filters. This keeps the example clear. Look up in the core extensions what is important to you .
 
-> Falls dein Element nicht angezeigt wird, liegt es unter Umständen daran, dass du beim Element den Parameter `show_name` auf no gesetzt hast.
+> If your element is not displayed, it may be because you have set the parameter `show_name` to no for the element.
 
-#### [components/com_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
+#### [components/com_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
 
-[components/com_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
+[components/com_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/f87143764f3af8a584b23c3ed2c6b30a85d593f4/src/components/com_foos/tmpl/category/default_items.php
@@ -864,25 +874,27 @@ HTMLHelper::_('behavior.core');
 
 ```
 
-> Die Ansicht ist nicht gestylt. Cassiopeia, das neue Frontend-Template von Joomla ist zum Zeitpunkt des Schreibens nicht fertig. Deshalb ist nicht klar, ob ein Framework für die Anzeige im Frontend nutzen wird. Da dies ohnehin Geschmacksache ist, überlasse ich das Stylen dir.
+> The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion anyway that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012) keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template or whether only in this way a user-friendly offer is possible.
 
 ### Geänderte Dateien
 
-In diesem Kapitel fügen wir nur neue Dateien hinzu.
+In this chapter we only add new files.
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
+Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since new files have been added, this is necessary. 2.
 
-2. Erstelle einen Menüpunkt, der die Elemente einer Kategorie unserer Erweiterung anzeigt.
+Create a menu item that displays the elements of a category of our extension.
 
-3. Wechsele ins Frontend und überzeuge dich davon, dass die Elemente korrekt angezeigt werden.
+![Categories in Joomla - Create Menu Item](/images/j4x31x1.png)
+
+3. switch to the frontend and make sure that the elements are displayed correctly.
+
+![Categories in Joomla - View in Frontend ](/images/j4x31x2.png)
 
 ## Changed files
 

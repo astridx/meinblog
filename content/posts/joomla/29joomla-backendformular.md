@@ -34,15 +34,11 @@ Nichts Neues.
 Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 
 ```php {diff}
- $layout  = 'edit';
- $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
- ?>
--
- <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
+  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
 +
 +	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
  	<div>
- 		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
+ 		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'details']); ?>
 
 @@ -42,15 +43,14 @@
  			<div class="col-md-9">
@@ -88,6 +84,57 @@ Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht ein
  		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
  	</div>
  	<input type="hidden" name="task" value="">
+```
+
+Die wesentliche Änderung ist, dass wir nun das Joomla-eigene Layout `joomla.edit.publishingdata` nutzen. Das ist im Verzeichnis `/layouts/joomla/edit/publishingdata.php` und den Inhalt findest du im nachfolgenden Codebeispiel. Neben der einheitlichen Ansicht ist ein weiterer Vorteil, dass die Layout-Datei von Joomla gepflegt wird und man deshalb weniger häufig bösen Überraschungen bei Aktualisierungen erlebt.
+
+```php
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  Layout
+ *
+ * @copyright   (C) 2013 Open Source Matters, Inc. <https://www.joomla.org>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+defined('_JEXEC') or die;
+
+$form = $displayData->getForm();
+
+$fields = $displayData->get('fields') ?: array(
+	'publish_up',
+	'publish_down',
+	'featured_up',
+	'featured_down',
+	array('created', 'created_time'),
+	array('created_by', 'created_user_id'),
+	'created_by_alias',
+	array('modified', 'modified_time'),
+	array('modified_by', 'modified_user_id'),
+	'version',
+	'hits',
+	'id'
+);
+
+$hiddenFields = $displayData->get('hidden_fields') ?: array();
+
+foreach ($fields as $field)
+{
+	foreach ((array) $field as $f)
+	{
+		if ($form->getField($f))
+		{
+			if (in_array($f, $hiddenFields))
+			{
+				$form->setFieldAttribute($f, 'type', 'hidden');
+			}
+
+			echo $form->renderField($f);
+			break;
+		}
+	}
+}
 
 ```
 
@@ -99,9 +146,7 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Editiere ein Item und vergewissere dich davon, dass die Darstellung so ist, wie du es in Joomla erwartest.
-
-![Joomla Ansicht im Backend](/images/j4x29x1.png)
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Editiere ein Item und vergewissere dich davon, dass die Darstellung so ist, wie du es in Joomla erwartest. Eine Beispieldarstellung siehst du im Bild zu Beginn dieses Kapitels.
 
 ## Geänderte Dateien
 

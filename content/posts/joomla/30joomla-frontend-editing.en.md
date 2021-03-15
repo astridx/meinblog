@@ -13,11 +13,11 @@ tags:
   - Joomla
 ---
 
-Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu ermöglichen. Zum einen finden Nutzer das benutzerfreundlicher. Oder, einem Administrator ist es wichtig, den Zugriff auf den Administrationsbereich nicht freizugeben. Deshalb statten wir unsere Komponente im nächsten Schritt mit der Möglichkeit aus, Items im Frontend zu bearbeiten.
+There are several reasons for allowing a user to edit in the frontend. One is that users find it more user-friendly. Or, it is important for an administrator not to release access to the administration area. Therefore, in the next step, we equip our component with the possibility to edit items in the frontend.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t24b...t25) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t24b...t25) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -25,7 +25,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [administrator/components/com_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
 
-Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf dies.
+The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
 [administrator/components/com_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)
 
@@ -233,11 +233,11 @@ class Icon
 
 ```
 
-#### [components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
+#### [components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
 
-Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
+We adapt the XML file that Joomla uses to build the form.
 
-[components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
+[components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
@@ -394,9 +394,9 @@ Die XML Datei, die Joomla verwendet umd das Formular aufzubauen.
 
 #### [components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
 
-`FormController` enhält die Logik für die Bearbeitung im Formular.
+The file `components/com_foos/ src/Controller/FooController.php` contains the logic for processing in the form.
 
-> Beachte die Funktion `save`. Diese ist im `FormController` nicht üblich, weil Joomla alles für dich übernimmt. Da beim Erstellen eines Elementes die ID erst erstellt wird und deshalb nicht bekannt ist, leitet Joomla nach dem Erstellen zur Übersichtsseite weiter. Diese haben wir im Frontend noch nicht erstellt. Deshalb habe ich diese Funktion hier abgeändert.
+> Note the function `save`. This is not usual in the `FormController`, because Joomla takes care of everything for you. Since the ID is first created when an element is created and is therefore not known, Joomla forwards to the overview page after creation. We have not yet created this in the frontend. That is why I have changed this function here.
 
 [components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
 
@@ -634,7 +634,7 @@ class FooController extends FormController
 
 #### [components/com_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
 
-`FormModel` organisiert alle notwendigen Daten für die Bearbeitung im Formular.
+The file `components/com_foos/ src/Model/FormModel.php` organises all the necessary data for processing in the form.
 
 [components/com_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
@@ -870,7 +870,7 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 
 #### [components/com_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
 
-`HtmlView.php` holt alle notwendigen Daten und gibt diese an die Templatedatei `edit.php` weiter.
+The file `components/com_foos/ src/View/Form/HtmlView.php` fetches all the necessary data and passes it on to the template file `edit.php`.
 
 [components/com_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
@@ -1058,7 +1058,7 @@ class HtmlView extends BaseHtmlView
 
 #### [components/com_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
 
-`edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
+As a template, `components/com_foos/ tmpl/form/edit.php` ensures that the form is already displayed in the frontend.
 
 [components/com_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
 
@@ -1170,7 +1170,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 
 #### [components/com_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
 
-Diese Datei benötigen wir zum Anlegen des Menüpunktes.
+Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to create the menu item.
 
 [components/com_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
 
@@ -1197,7 +1197,7 @@ Diese Datei benötigen wir zum Anlegen des Menüpunktes.
 
 #### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Hier registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
+In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
@@ -1229,7 +1229,7 @@ Hier registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla b
 
 #### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zum Öffnen des Formulares.
+We extend the template for the view: If you are allowed to edit the element `if ($canEdit)`, then you see the icon to open the form.
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
 
@@ -1277,27 +1277,26 @@ Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zu
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
+Install your component as described in part one, after you have copied all the files. Joomla will update the namespaces for you during the installation. Since a new file has been added, this is necessary.
 
-2. Erstelle einen Menüpunkt
+2. Create a menu item to change a Foo element and one that displays a Foo element.
 
-![Joomla Frontend Bearbeitung](/images/j4x30x1.png)
+![Joomla Frontend Editing Menu Item to Create a Foo Element](/images/j4x30x1.png)
 
-3. Öffne den Menüpunkt im Frontend
+3. Open the menu item to create a Foo element in the frontend. Make sure you have the necessary rights. If you have left the default rights, you must log in with a user who is at least an author. Make sure that you can create an element.
 
-![Joomla Frontend Bearbeitung](/images/j4x30x2.png)
+![Joomla Frontend Editing - Creating a Foo Element](/images/j4x30x2.png)
 
-4. Stelle sicher, dass du das Icon zum Editieren bei der Detailanszeige eines Elements siehst.
+4. Make sure that you see the edit icon in the detail view of an element and that an element is editable.
 
-![Joomla Frontend Bearbeitung](/images/j4x30x3.png)
+![Joomla Frontend Editing - Editing a Foo Element](/images/j4x30x3.png)
 
 ## Changed files
 

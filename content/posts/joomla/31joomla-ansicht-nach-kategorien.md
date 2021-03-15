@@ -13,6 +13,16 @@ tags:
   - Joomla
 ---
 
+Warum Kategorien verwenden? Ein Grund für Kategorien ist, dass es viele Beiträge auf einer Site gibt. Sie können einfacher gruppiert und verwaltet werden. Beispiel: In der Beitragsverwaltung können die Beiträge nach Kategorien gefiltert werden. Wenn es 200 Beiträge auf der Site gibt, ist es einfach, einen Beitrag zu finden, wenn man seine Kategorie kennt.
+
+Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien verwenden: Kategorie Blog und Kategorie Liste. Die Menüeintragstypen oder Layouts vereinfachen die Anzeige der Beiträge in einer Kategorie. Wenn ein neuer Beitrag der Kategorie zugewiesen wird, erscheint er automatisch auf der Seite. Diese Anzeige ist konfigurierbar.
+
+Beispiel: Stelle dir ein Blog-Layout der Kategorie Ereignisse vor, das die neuesten Beiträge zuerst anzeigt. Wenn ein neuer Beitrag zu dieser Kategorie hinzugefügt wird, erscheint er automatisch ganz oben im Blog Events. Alles, was du tun musst ist, den Beitrag zur Kategorie hinzuzufügen.
+
+> Die Kategorie-Struktur, beispielsweise `Events | Onlineveranstaltungen | Sport | Yoga`, ist völlig unabhängig von der Menüstruktur der Site. Die Site kann eine oder sechs Menüebenen haben und Yoga kann als Hauptmenüpunkt eingeordnet werden.
+
+> Zur Erinnerung: [Kategorien](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') sind eine Möglichkeit, Inhalte in Joomla! zu organisieren. Eine Kategorie enthält Beiträge und andere Kategorien. Ein Beitrag kann nur in einer Kategorie sein. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie der Kategorie.
+
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t25...t26) an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -721,7 +731,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-> Wir nutzen hier `joomla.content.category_default`. Diese Layoutdatei findest du [hier](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/content/category_default.php).
+> Wir nutzen hier `joomla.content.category_default`. Diese Layoutdatei findest du unter `layouts/joomla/content/category_default.php`.
 
 #### [components/com_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
 
@@ -864,7 +874,7 @@ HTMLHelper::_('behavior.core');
 
 ```
 
-> Die Ansicht ist nicht gestylt. Cassiopeia, das neue Frontend-Template von Joomla ist zum Zeitpunkt des Schreibens nicht fertig. Deshalb ist nicht klar, ob ein Framework für die Anzeige im Frontend nutzen wird. Da dies ohnehin Geschmacksache ist, überlasse ich das Stylen dir.
+> Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach des Templates - ist, überlasse ich das Stylen dir. Ich bin sowieso der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012). Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist.
 
 ### Geänderte Dateien
 
@@ -874,15 +884,19 @@ In diesem Kapitel fügen wir nur neue Dateien hinzu.
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
+Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da neue Dateien hinzugekommen sind, ist dies erforderlich.
 
 2. Erstelle einen Menüpunkt, der die Elemente einer Kategorie unserer Erweiterung anzeigt.
 
+![Kategorien in Joomla - Menüpunkt erstellen](/images/j4x31x1.png)
+
 3. Wechsele ins Frontend und überzeuge dich davon, dass die Elemente korrekt angezeigt werden.
+
+![Kategorien in Joomla - Ansicht im Frontend ](/images/j4x31x2.png)
+
+>
 
 ## Geänderte Dateien
 
