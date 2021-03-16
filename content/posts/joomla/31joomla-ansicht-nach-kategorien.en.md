@@ -874,7 +874,7 @@ HTMLHelper::_('behavior.core');
 
 ```
 
-> The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion anyway that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012) keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template or whether only in this way a user-friendly offer is possible.
+> The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012) keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template - or whether only in this way a user-friendly offer is possible - where the number of intro articles can be determined in the backend via a user interface.
 
 ### Geänderte Dateien
 

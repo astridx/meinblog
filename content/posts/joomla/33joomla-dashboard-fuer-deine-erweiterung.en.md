@@ -13,9 +13,7 @@ tags:
   - Joomla
 ---
 
-Joomla Core extensions have a dashboard that displays related functions. In this part we will create one for our sample component.
-
-![Dashboard in Joomla extension](/images/j4x33x1.png)
+Extensive Joomla Core extensions have a dashboard in which related functions are displayed. This is user-friendly because it provides an overview. This way, a user can orientate himself in the extension without many clicks. In this part, we create such a dashboard for our sample component.
 
 ## For impatient people
 
@@ -27,9 +25,13 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 #### [administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
 
-[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/presets/foos.xml)
+In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 
-```xml
+[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/7d68b12d50e602b39b39f2459dccfa8d507b31e9/src/administrator/components/com_foos/presets/foos.xml)
+
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/7d68b12d50e602b39b39f2459dccfa8d507b31e9/src/administrator/components/com_foos/presets/foos.xml -->
+
 <?xml version="1.0"?>
 <menu
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -63,73 +65,102 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 </menu>
 ```
 
-### Geänderte Dateien
+### Modified files
 
 #### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
+We modify the XML manifest so that the sidebar in the Joomla administration template knows how to link to the dashboard.
+
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/foos.xml)
 
-```xml
-...
-<administration>
-  <menu img="class:comment">
-    COM_FOOS
-    <params>
-      <dashboard>foos</dashboard>
-    </params>
-  </menu>
-  <submenu>
-    <menu link="option=com_foos">
-      COM_FOOS
-      <params>
-        <menu-quicktask-title>COM_FOOS</menu-quicktask-title>
-        <menu-quicktask>index.php?option=com_foos&amp;view=foo&amp;layout=edit</menu-quicktask>
-      </params>
-    </menu>
-    <menu link="option=com_categories&amp;extension=com_foos"
-      view="categories" img="class:foos-cat" alt="Foos/Categories">
-      JCATEGORY
-      <params>
-        <menu-quicktask-title>JCATEGORY</menu-quicktask-title>
-        <menu-quicktask>index.php?option=com_categories&amp;view=category&amp;layout=edit&amp;extension=com_foos</menu-quicktask>
-      </params>
-    </menu>
-  </submenu>
-...
+```xml {diff}
+     </media>
+ 	<!-- Back-end files -->
+ 	<administration>
+-		<!-- Menu entries -->
+-		<menu view="foos">COM_FOOS</menu>
++		<menu img="class:comment">
++			COM_FOOS
++			<params>
++				<dashboard>foos</dashboard>
++			</params>
++		</menu>
+ 		<submenu>
+-			<menu link="option=com_foos">COM_FOOS</menu>
++			<menu link="option=com_foos">
++				COM_FOOS
++				<params>
++					<menu-quicktask-title>COM_FOOS</menu-quicktask-title>
++					<menu-quicktask>index.php?option=com_foos&amp;view=foo&amp;layout=edit</menu-quicktask>
++				</params>
++			</menu>
+ 			<menu link="option=com_categories&amp;extension=com_foos"
+-				view="categories" img="class:foos-cat" alt="Foos/Categories">JCATEGORY</menu>
++				view="categories" img="class:foos-cat" alt="Foos/Categories">
++				JCATEGORY
++				<params>
++					<menu-quicktask-title>JCATEGORY</menu-quicktask-title>
++					<menu-quicktask>index.php?option=com_categories&amp;view=category&amp;layout=edit&amp;extension=com_foos</menu-quicktask>
++				</params>
++			</menu>
+ 		</submenu>
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>access.xml</filename>
+
 ```
 
 #### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
+In the installation script we add the call. With this, we call a Joomla-specific function that makes our dashboard known in the CMS.
+
 [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/script.php)
 
-```php
-...
-class Com_FoosInstallerScript extends InstallerScript
-...
-...
-public function install($parent): bool
-{
-...
-  $this->addDashboardMenu('foos', 'foos');
+```php {diff}
+ use Joomla\CMS\Language\Text;
+ use Joomla\CMS\Log\Log;
+ use Joomla\CMS\Table\Table;
++use Joomla\CMS\Installer\InstallerScript;
 
-  return true;
-}
-...
+ /**
+  * Script file of Foo Component
+  *
+  * @since  __BUMP_VERSION__
+  */
+-class Com_FoosInstallerScript
++class Com_FoosInstallerScript extends InstallerScript
+ {
+ 	/**
+ 	 * Minimum Joomla version to check
+@@ -92,6 +93,8 @@ public function install($parent): bool
+ 			return false;
+ 		}
+
++		$this->addDashboardMenu('foos', 'foos');
++
+ 		return true;
+ 	}
+
+@@ -125,6 +128,8 @@ public function update($parent): bool
+ 	{
+ 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
+
++		$this->addDashboardMenu('foo', 'foo');
++
+ 		return true;
+ 	}
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
+Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since a new file has been added, this is necessary. 2.
 
-2. Nutze im Backend das Dashboard.
+2. use the dashboard in the backend.
 
-![Joomla Dahboard](/images/j4x33x1.png)
+![The Joomla Dashboard in a separate component](/images/j4x33x1.png)
 
 ## Changed files
 

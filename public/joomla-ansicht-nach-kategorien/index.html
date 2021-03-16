@@ -822,7 +822,7 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="59"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;/</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="60"></span><span class="grvsc-source"><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span></code></pre>
 <blockquote>
-<p>Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach des Templates - ist, überlasse ich das Stylen dir. Ich bin sowieso der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im <a href="https://github.com/joomla/joomla-cms/issues/32012">Issue 32012</a>. Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist.</p>
+<p>Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach Aufgabe des Templates - ist, überlasse ich das Stylen dir. Ich bin der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im <a href="https://github.com/joomla/joomla-cms/issues/32012">Issue 32012</a>. Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist - bei dem die Anzahl an Intro Artikeln im Backend über eine Benutzeroberfläche bestimmbar ist.</p>
 </blockquote>
 <h3>Geänderte Dateien</h3>
 <p>In diesem Kapitel fügen wir nur neue Dateien hinzu.</p>
@@ -835,11 +835,73 @@
 <ol start="2">
 <li>Erstelle einen Menüpunkt, der die Elemente einer Kategorie unserer Erweiterung anzeigt.</li>
 </ol>
-<p><img src="/images/j4x31x1.png" alt="Kategorien in Joomla - Menüpunkt erstellen"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4548cb75498cf3463c703ce97bfa0aa9/191e2/j4x31x1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABVklEQVQoz6WRu04CQRSG9220MtHKShtfxUoxJrLsjcHdtbOyNFZWJgY1XmJYC19AEkQuxoUGSwmwC8Je2F1+Zxbth3gy/0xz5jv/OUdYWd/C2fkFLm8eUby3cHVX4tI1zS3elvBgPeP45BTLaxtYWt2EcKjrcL99eFMgYdcsPVyKMY8Pu4WcJEPV8hB04whfvQHcvouJO4Tn+wjDKZf8IEiBlcorxJwMRSUQNGKg13cw8kJEcYwkSbgVx3OP1eobshQoM6BhGOgPHAzHPsYTD1HED42iKAU2Gg0oigotT4G6bsBxaLvBFCMKDcIwrbyIw3a7TdtV6QwJW4qBbreLgM5j9pvEqz+HdssGIQXqsMBaNuHQZfwnOp1P7B3sQlIUCKZp4qVcxnuziVqthnq9vpDYnyfLwnYmg6xEgQVCoGkaVDYDTrF8WZaRFcX0JSSPnX0FoqThB4b3sBEjkQiOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Kategorien in Joomla - Menüpunkt erstellen"
+        title="Kategorien in Joomla - Menüpunkt erstellen"
+        src="/static/4548cb75498cf3463c703ce97bfa0aa9/f058b/j4x31x1.png"
+        srcset="/static/4548cb75498cf3463c703ce97bfa0aa9/c26ae/j4x31x1.png 158w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/6bdcf/j4x31x1.png 315w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/f058b/j4x31x1.png 630w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/40601/j4x31x1.png 945w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/78612/j4x31x1.png 1260w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/191e2/j4x31x1.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <ol start="3">
 <li>Wechsele ins Frontend und überzeuge dich davon, dass die Elemente korrekt angezeigt werden.</li>
 </ol>
-<p><img src="/images/j4x31x2.png" alt="Kategorien in Joomla - Ansicht im Frontend "></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1f4e7bb5e032fa9669eccb94148f7371/191e2/j4x31x2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABOUlEQVQoz5WRS0vDQBSF57cJbtwoWltbK6WNLkRwp4ggqFRKER8L/UW60KV0oyDapq0otKSRJG0ymRxv0oxOQ9B64CTzuPebMwybWdrDbGYfle1zbO5cYWv3GjmthrnsAebzh1jIH2GxcIzMahXLxROsrNWQo3+2UEWxVEepfIpy5QyadoGN9Usw3xfgvg+93cHLq45mU4dl2fA8D67rkj3FLjjn6PUNvLV0OLYdrYcMaYZQVGj0TIwIwslBEOA3DYccjulACCBZysLmgCCC6FLRWoqFGNcMBh/odhuwrTbd5hNCqWHhEUEKSM7VQ+hLzRGS/ATBHymtGaeMgeNxDMLPRlJqwpu7Bm7vH6JxuKYGYJhSavLOu4HnVh8en7zJN/CvR0g2Scl0E8BpYGnQZJ+c/ythEpj2iF/KkfL+Be4n0gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Kategorien in Joomla - Ansicht im Frontend "
+        title="Kategorien in Joomla - Ansicht im Frontend "
+        src="/static/1f4e7bb5e032fa9669eccb94148f7371/f058b/j4x31x2.png"
+        srcset="/static/1f4e7bb5e032fa9669eccb94148f7371/c26ae/j4x31x2.png 158w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/6bdcf/j4x31x2.png 315w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/f058b/j4x31x2.png 630w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/40601/j4x31x2.png 945w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/78612/j4x31x2.png 1260w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/191e2/j4x31x2.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <blockquote>
 </blockquote>
 <h2>Geänderte Dateien</h2>

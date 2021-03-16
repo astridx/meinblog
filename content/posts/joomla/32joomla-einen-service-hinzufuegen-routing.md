@@ -13,7 +13,15 @@ tags:
   - Joomla
 ---
 
-Suchmaschinenfreundliche URLs funktionieren nicht. Anhand eines Services reparieren wir diesen Missstand.
+Suchmaschinenfreundliche URLs funktionieren bisher nicht. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.
+
+> _Suchmaschinenfreundliche (SEF)_, [menschlich lesbare](https://en.wikipedia.org/wiki/Clean_URL 'wikipedia:Saubere URL') sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias) für jedes Segment der URL definieren.
+
+> Intern wird der lokale Teil einer SEF-URL (der Teil nach dem Domainnamen) als _Route_ bezeichnet. Das Erstellen und Verarbeiten von SEF-URLs wird daher als _Routing_ bezeichnet, und der entsprechende Code wird _Router_ genannt.
+
+> Ein Beispiel für das Routing ist die URL zum Artikel "Willkommen bei Joomla" in den Beispieldaten. Ohne eingeschaltete SEF-URLs ist die URL `/index.php?option=com_content&view=article&id=1:welcome-to-joomla&catid=1:latest-news&Itemid=50`. Mit eingeschalteten SEF-URLs und ausgeschaltetem mod_rewrite ist es `/index.php/the-news/1-latest-news/1-welcome-to-joomla`. Mit eingeschalteten SEF-URLs und mod_rewrite ist es `/the-news/1-latest-news/1-welcome-to-joomla`.
+
+> Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search Engine Friendly URLs_ in der _Globalen Konfiguration_ eingeschaltet wird. Diese Option ist standardmäßig aktiviert. Weitere Informationen findest du unter [Aktivieren von suchmaschinenfreundlichen (SEF) URLs in der Dokumentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
 
 ## Für Ungeduldige
 
@@ -25,7 +33,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 #### [components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
 
-Der Service wandelt die URLs in suchmaschinenfreundliche Versionen.
+Der Service `components/com_foos/ src/Service/Router.php` erledigt die eigentliche Arbeit und wandelt die URLs in suchmaschinenfreundliche Versionen.
 
 [components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
@@ -260,11 +268,11 @@ use Joomla\CMS\Extension\Service\Provider\RouterFactory;
 };
 ```
 
-`$container->registerServiceProvider(new RouterFactory('\\Joomla\\Component\\Foos'));` und `$component->setRouterFactory($container->get(RouterFactoryInterface::class));` kommen hinzu.
+`$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'));` und `$component->setRouterFactory ($container->get(RouterFactoryInterface::class));` kommen hinzu.
 
 #### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien gefunden werden.
+Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
@@ -296,14 +304,21 @@ implements BootableExtensionInterface, CategoryServiceInterface, AssociationServ
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
 
 2. Aktiviere die Einstellung suchmaschinenfreundliche URLs in der globalen Konfiguration.
 
-3. Überprüfe die URLs im Frontend. Anstelle von `/index.php/component/foos?view=foo&id=1:test&catid=4` sollte beispielsweise `http://localhost/joomla-cms4/index.php/list-foos-in-a-category/1-test` erscheinen - jenachdem wie du deine Menüpunkte genannt hast.
+![Suchmaschinenfreundliche URLs in der globalen Konfiguration von Joomla](/images/j4x32x1.png)
+
+5. Erstelle einen Menüpunkt für ein Foo-Element
+
+![Suchmaschinenfreundliche URLs in Joomla - Menüpunkt erstellen](/images/j4x32x2.png)
+
+4. Überprüfe die URLs mit der der Menüpunkt im Frontend aufgerufen wird. Anstelle von `http://localhost/ single-foo-astrid?view=foo&id=2` sollte `http://localhost/ single-foo-astrid` erscheinen - jenachdem wie du deine Menüpunkte genannt hast. Im Falle von Kategorien ist die Verbesserung noch augenscheinlicher.
+
+> Beachte: Die URL `http://localhost/ single-foo-astrid?view=foo&id=2` ist technisch gesehen weiterhin vorhanden und aufrufbar.
 
 ## Geänderte Dateien
 

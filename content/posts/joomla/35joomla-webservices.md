@@ -36,7 +36,8 @@ Erstelle den Controller `FooController` der von `ApiController` erbt. In der Kla
 - `$contentType` - wird standardmäßig für `$modelName` verwendet.
 - `$default_view` - ist Standard für `$viewName`.
 
-```php
+```php {numberLines: -2}
+//
 <?php
 namespace FooNamespace\Component\Foos\Api\Controller;
 
@@ -189,7 +190,7 @@ Um das Plugin zu installieren, ist eine Installationsdatei notwendig. Die kennst
 
 #### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f)
 
-Die Spachdateien füge ich der Vollständigkeit halber bei.
+Die Sprach-Dateien füge ich der Vollständigkeit halber bei.
 
 ```ini
 PLG_WEBSERVICES_FOOS="Web Services - Foos"
@@ -198,7 +199,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 #### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837)
 
-Auch diese Spachdatei füge ich der Vollständigkeit halber bei.
+Auch diese Sprach-Datei füge ich der Vollständigkeit halber bei.
 
 ```ini
 PLG_WEBSERVICES_FOOS="Web Services - Foos"
@@ -213,12 +214,18 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werden die Dateien im Unterordner `api` bei einer Installation nicht in das richtige Verzeichnis kopiert.
 
-```xml
-<api>
-		<files folder="api/components/com_foos">
-			<folder>src</folder>
-		</files>
-</api>
+```xml {diff}
+ 			<folder>tmpl</folder>
+ 		</files>
+ 	</administration>
++	<api>
++		<files folder="api/components/com_foos">
++			<folder>src</folder>
++		</files>
++	</api>
+ 	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+ 	<updateservers>
+ 		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
 ```
 
 ## Teste deine Joomla-Komponente
@@ -226,8 +233,6 @@ In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werde
 1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla 4 Installation.
 Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla 4 Installation.
 
@@ -247,7 +252,7 @@ Eine Liste von Foos: `curl -X GET /api/index.php/v1/foos`
 Ein einzelnes Foo-Element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
 Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere dies gegebenenfalls.
+> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere diese Angaben gegebenenfalls.
 
 > Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
 

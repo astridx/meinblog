@@ -25,18 +25,20 @@ In this section we edit the components and add a plugin.
 
 ### New files
 
-#### Komponente
+#### Componente
 
 ##### [api/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
 
-Erstelle den Controller `FooController` der von `ApiController` erbt. In der Klasse `ApiController` ist alles Notwendige implementiert. Wenn du keine abweichenden Anforderungen hast, dann ist das Rad erfunden. Überschreibe lediglich die folgenden Felder für deine Komponente:
+Create the controller `FooController` which inherits from `ApiController`. Everything necessary is implemented in the class `ApiController`. If you have no other requirements, then it is made up. Just overwrite the following fields for your component:
 
-`protected $contentType = 'foos';` und `protected $default_view = 'foos';`.
+`protected $contentType = 'foos';` and `protected $default_view = 'foos';`.
 
-- `$contentType` - wird standardmäßig für `$modelName` verwendet.
-- `$default_view` - ist Standard für `$viewName`.
+- `$contentType` - is default for `$modelName`.
+- `$default_view` - is default for `$viewName`.
 
-```php
+```php {numberLines: -2}
+//
+
 <?php
 namespace FooNamespace\Component\Foos\Api\Controller;
 
@@ -75,14 +77,16 @@ class FooController extends ApiController
 
 ##### [api/components/com_foos/src/View/Foos/JsonapiView.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187)
 
-Erstelle die Schnittstelle `JsonapiView` die von `BaseApiView` erbt. Greife wieder auf fertigen Joomla Code zu. Überschreibe die folgenden Felder für deine Komponente:
+Create the interface `JsonapiView` that inherits from `BaseApiView`. Use again ready-made Joomla code. Overwrite the following fields for your component:
 
-`protected $fieldsToRenderItem = ['id', 'alias', 'name', 'catid'];` und `protected $fieldsToRenderList = ['id', 'alias', 'name', 'catid'];`.
+`protected $fieldsToRenderItem = ['id', 'alias', 'name', 'catid'];` and `protected $fieldsToRenderList = ['id', 'alias', 'name', 'catid'];`.
 
-- `$fieldsToRenderItem` - Array mit Informationen zum Anzeigen eines einzelnen Objekts.
-- `$fieldsToRenderList` - Array mit Inhalten zum Auflisten von Objekten.
+- `$fieldsToRenderItem` - array of information to display a single item.
+- `$fieldsToRenderList` - Array with contents for listing objects.
 
-```php
+```php {numberLines: -2}
+//
+
 <?php
 namespace FooNamespace\Component\Foos\Api\View\Foos;
 
@@ -133,9 +137,9 @@ class JsonapiView extends BaseApiView
 
 ##### [plugins/webservices/foos/foos.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089)
 
-In der Plugin-Datei erstellen wir die Klasse `PlgWebservicesFoos` und registrieren in der `onBeforeApiRoute`-Methode alle Routen, die wir für den Webservice benötigen.
+In the plugin file we create the class `PlgWebservicesFoos` and register in the `onBeforeApiRoute` method all the routes we need for the web service.
 
-```php
+```php {numberLines: -2}
 <?php
 defined('_JEXEC') or die;
 
@@ -166,9 +170,9 @@ class PlgWebservicesFoos extends CMSPlugin
 
 ##### [plugins/webservices/foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-9edff0e14d874c7924bbeaada9d5b3d9)
 
-Um das Plugin zu installieren, ist eine Installationsdatei notwendig. Die kennst du von der Komponente.
+To install the plug-in, an installation file is necessary. You know this from the component.
 
-```xml
+```xml {numberLines: -2}
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="webservices" method="upgrade">
 	<name>plg_webservices_foos</name>
@@ -189,18 +193,22 @@ Um das Plugin zu installieren, ist eine Installationsdatei notwendig. Die kennst
 
 #### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f)
 
-Die Spachdateien füge ich der Vollständigkeit halber bei.
+I am attaching the language files for the sake of completeness.
 
-```ini
+```ini {numberLines: -2}
+<!-- -->
+
 PLG_WEBSERVICES_FOOS="Web Services - Foos"
 PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for your website."
 ```
 
 #### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837)
 
-Auch diese Spachdatei füge ich der Vollständigkeit halber bei.
+I am also attaching this language file for the sake of completeness.
 
-```ini
+```xml {numberLines: -2}
+<!-- -->
+
 PLG_WEBSERVICES_FOOS="Web Services - Foos"
 PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for your website."
 ```
@@ -213,45 +221,49 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werden die Dateien im Unterordner `api` bei einer Installation nicht in das richtige Verzeichnis kopiert.
 
-```xml
-<api>
-		<files folder="api/components/com_foos">
-			<folder>src</folder>
-		</files>
-</api>
+```xml {diff}
+ 			<folder>tmpl</folder>
+ 		</files>
+ 	</administration>
++	<api>
++		<files folder="api/components/com_foos">
++			<folder>src</folder>
++		</files>
++	</api>
+ 	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+ 	<updateservers>
+ 		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+1. perform a new installation. To do this, uninstall your previous installation and copy all files again.
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
-Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla 4 Installation.
-Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `api` folder into the `api` folder of your Joomla 4 installation.
+Copy the files in the `plugin` folder into the `plugin` folder of your Joomla 4 installation.
 
-Installiere deine Komponente **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+Install your component **and the plugin** as described in part one, after copying all files. 2.
 
-2. Aktiviere das Plugin
+2. activate the plugin
 
-![Joomla Plugin aktivieren](/images/j4x35x1.png)
+![Activate Joomla Plugin](/images/j4x35x1.png)
 
-3. Aktive das Plugin _Basic Auth_
+3. activate the Plugin _Basic Auth_
 
-![Joomla Plugin Basic Auth aktivieren](/images/j4x35x2.png)
+![Activate Joomla Plugin Basic Auth](/images/j4x35x2.png)
 
-4. Die Schnittstelle bietet dir nun folgende Abfragemöglichkeiten:
+4. the interface now offers you the following query options:
 
-Eine Liste von Foos: `curl -X GET /api/index.php/v1/foos`  
-Ein einzelnes Foo-Element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
-Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
+A list of Foos: `curl -X GET /api/index.php/v1/foos`  
+A single Foo element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
+Delete a Foo element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere dies gegebenenfalls.
+> For the examples, I assume that your installation is located at `http://localhost/joomla-cms4` and that your user and password are `admin`. Change this if necessary.
 
-> Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
+> For [Curl](https://curl.haxx.se/) you need to change the password to [Base64](https://de.wikipedia.org/wiki/Base64). A website that does this for you is [base64encode.org](https://www.base64encode.org/).
 
-Nutzt du [Curl](https://curl.haxx.se/)? Die folgende Abfrage listet dir alle Elemente auf:
+Do you use [Curl](https://curl.haxx.se/)? The following query will list all the elements:
 
 ```
 curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foos' \
@@ -259,7 +271,7 @@ curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foo
 --header 'Authorization: Basic YWRtaW46YWRtaW4='
 ```
 
-Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
+The output format is JSON and looks like this, for example:
 
 ```json
 {

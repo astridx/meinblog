@@ -12,40 +12,41 @@
 <li><code class="language-text">$contentType</code> - wird standardmäßig für <code class="language-text">$modelName</code> verwendet.</li>
 <li><code class="language-text">$default_view</code> - ist Standard für <code class="language-text">$viewName</code>.</li>
 </ul>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">namespace</span><span class="mtk1"> </span><span class="mtk7">FooNamespace\Component\Foos\Api\Controller</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\MVC\Controller\</span><span class="mtk8">ApiController</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">use</span><span class="mtk1"> Joomla\Component\Fields\Administrator\Helper\</span><span class="mtk8">FieldsHelper</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">FooController</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> ApiController</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">contentType</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk11">&#39;foos&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">default_view</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk11">&#39;foos&#39;</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">recordKey</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk5">null</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	{</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (</span><span class="mtk13 mtkb">array</span><span class="mtk1">) </span><span class="mtk7">json_decode</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">input</span><span class="mtk8">-&gt;</span><span class="mtk7">json</span><span class="mtk8">-&gt;</span><span class="mtk7">getRaw</span><span class="mtk1">(), </span><span class="mtk5">true</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">foreach</span><span class="mtk1"> (</span><span class="mtk8">FieldsHelper::</span><span class="mtk7">getFields</span><span class="mtk1">(</span><span class="mtk11">&#39;com_foos.foo&#39;</span><span class="mtk1">) </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk1">)</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		{</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">			</span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk9">isset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">]))</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">			{</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk8">!</span><span class="mtk9">isset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk11">&#39;com_fields&#39;</span><span class="mtk1">]) </span><span class="mtk8">&amp;&amp;</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk11">&#39;com_fields&#39;</span><span class="mtk1">] </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk11">&#39;com_fields&#39;</span><span class="mtk1">][</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">] </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">];</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk9">unset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">]);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">			}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">input</span><span class="mtk8">-&gt;</span><span class="mtk7">set</span><span class="mtk1">(</span><span class="mtk11">&#39;data&#39;</span><span class="mtk1">, </span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk13 mtkb">parent</span><span class="mtk8">::</span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">recordKey</span><span class="mtk1">);</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">//</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk8">namespace</span><span class="mtk1"> </span><span class="mtk7">FooNamespace\Component\Foos\Api\Controller</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="3"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="4"></span><span class="grvsc-source"><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\MVC\Controller\</span><span class="mtk8">ApiController</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="5"></span><span class="grvsc-source"><span class="mtk8">use</span><span class="mtk1"> Joomla\Component\Fields\Administrator\Helper\</span><span class="mtk8">FieldsHelper</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="6"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="7"></span><span class="grvsc-source"><span class="mtk13 mtkb">class</span><span class="mtk1"> </span><span class="mtk7">FooController</span><span class="mtk1"> </span><span class="mtk13 mtkb">extends</span><span class="mtk1"> ApiController</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="8"></span><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="9"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">contentType</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk11">&#39;foos&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="10"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="11"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">default_view</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk11">&#39;foos&#39;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="12"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="13"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk13 mtkb">protected</span><span class="mtk1"> </span><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">recordKey</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk5">null</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="14"></span><span class="grvsc-source"><span class="mtk1">	{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="15"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> (</span><span class="mtk13 mtkb">array</span><span class="mtk1">) </span><span class="mtk7">json_decode</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">input</span><span class="mtk8">-&gt;</span><span class="mtk7">json</span><span class="mtk8">-&gt;</span><span class="mtk7">getRaw</span><span class="mtk1">(), </span><span class="mtk5">true</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="16"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="17"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">foreach</span><span class="mtk1"> (</span><span class="mtk8">FieldsHelper::</span><span class="mtk7">getFields</span><span class="mtk1">(</span><span class="mtk11">&#39;com_foos.foo&#39;</span><span class="mtk1">) </span><span class="mtk8">as</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="18"></span><span class="grvsc-source"><span class="mtk1">		{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="19"></span><span class="grvsc-source"><span class="mtk1">			</span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk9">isset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">]))</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="20"></span><span class="grvsc-source"><span class="mtk1">			{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="21"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk8">!</span><span class="mtk9">isset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk11">&#39;com_fields&#39;</span><span class="mtk1">]) </span><span class="mtk8">&amp;&amp;</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk11">&#39;com_fields&#39;</span><span class="mtk1">] </span><span class="mtk8">=</span><span class="mtk1"> [];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="22"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="23"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk11">&#39;com_fields&#39;</span><span class="mtk1">][</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">] </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="24"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk9">unset</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">[</span><span class="mtk8">$</span><span class="mtk7">field</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="25"></span><span class="grvsc-source"><span class="mtk1">			}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="26"></span><span class="grvsc-source"><span class="mtk1">		}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="27"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="28"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">input</span><span class="mtk8">-&gt;</span><span class="mtk7">set</span><span class="mtk1">(</span><span class="mtk11">&#39;data&#39;</span><span class="mtk1">, </span><span class="mtk8">$</span><span class="mtk7">data</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="29"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="30"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk13 mtkb">parent</span><span class="mtk8">::</span><span class="mtk7">save</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">recordKey</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="31"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="32"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187">api/components/com_foos/src/View/Foos/JsonapiView.php</a></h5>
 <p>Erstelle die Schnittstelle <code class="language-text">JsonapiView</code> die von <code class="language-text">BaseApiView</code> erbt. Greife wieder auf fertigen Joomla Code zu. Überschreibe die folgenden Felder für deine Komponente:</p>
 <p><code class="language-text">protected $fieldsToRenderItem = [&#39;id&#39;, &#39;alias&#39;, &#39;name&#39;, &#39;catid&#39;];</code> und <code class="language-text">protected $fieldsToRenderList = [&#39;id&#39;, &#39;alias&#39;, &#39;name&#39;, &#39;catid&#39;];</code>.</p>
@@ -144,29 +145,33 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">files</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">extension</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f">plugins/webservices/foos/language/en-GB/plg<em>webservices</em>foos.ini</a></h4>
-<p>Die Spachdateien füge ich der Vollständigkeit halber bei.</p>
+<p>Die Sprach-Dateien füge ich der Vollständigkeit halber bei.</p>
 <pre class="grvsc-container solarized-light" data-language="ini" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS=&quot;Web Services - Foos&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS_XML_DESCRIPTION=&quot;Used to add foos routes to the API for your website.&quot;</span></span></code></pre>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837">plugins/webservices/foos/language/en-GB/plg<em>webservices</em>foos.sys.ini</a></h4>
-<p>Auch diese Spachdatei füge ich der Vollständigkeit halber bei.</p>
+<p>Auch diese Sprach-Datei füge ich der Vollständigkeit halber bei.</p>
 <pre class="grvsc-container solarized-light" data-language="ini" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS=&quot;Web Services - Foos&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">PLG_WEBSERVICES_FOOS_XML_DESCRIPTION=&quot;Used to add foos routes to the API for your website.&quot;</span></span></code></pre>
 <h3>Geänderte Dateien</h3>
 <h3>Komponente</h3>
 <h5><a href="https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h5>
 <p>In der Installationsdatei ist wichtig, den Ordner <code class="language-text">api</code> aufzunehmen. Sonst werden die Dateien im Unterordner <code class="language-text">api</code> bei einer Installation nicht in das richtige Verzeichnis kopiert.</p>
-<pre class="grvsc-container solarized-light" data-language="xml" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">api</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">files</span><span class="mtk1"> </span><span class="mtk3">folder</span><span class="mtk1">=</span><span class="mtk11">&quot;api/components/com_foos&quot;</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;src&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">files</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">api</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;tmpl&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		&lt;/</span><span class="mtk7">files</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;/</span><span class="mtk7">administration</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">api</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">files</span><span class="mtk1"> </span><span class="mtk3">folder</span><span class="mtk1">=</span><span class="mtk11">&quot;api/components/com_foos&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;src&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">files</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">api</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		&lt;</span><span class="mtk7">server</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;extension&quot;</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;Foo Updates&quot;</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml&lt;/</span><span class="mtk7">server</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
 <li>Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.</li>
 </ol>
 <p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">media</code> Ordner in den <code class="language-text">media</code> Ordner deiner Joomla 4 Installation.
 Kopiere die Dateien im <code class="language-text">api</code> Ordner in den <code class="language-text">api</code> Ordner deiner Joomla 4 Installation.
 Kopiere die Dateien im <code class="language-text">plugin</code> Ordner in den <code class="language-text">plugin</code> Ordner deiner Joomla 4 Installation.</p>
 <p>Installiere deine Komponente <strong>und das Plugin</strong> wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.</p>
@@ -179,26 +184,26 @@ Kopiere die Dateien im <code class="language-text">plugin</code> Ordner in den <
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/1a97047c305e0a24dee2f51b4e15d2d4/53ac9/j4x35x1.png"
+    href="/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/191e2/j4x35x1.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACGklEQVQoz2WQTWtTQRSG79Kt1G4UunEjihgFpQhuVER3orVCFy0oiD/AhTtxke9W8Q/oSrdia1r0Jygo2pJFTGOTYD6bm/sxc+/cmZv7emaSUKoDL2dmzplnznmtE/PLOHpuEUdO3cZM6h5OX3+A45fu49j5u5i9oLWAWdrr80zqDuYuL5n8xasrOHPtIc7eeISTV1aQuvkYc/NLsJYzn7HwrIRbT9dRfPsF7aaNvdoAtWrfxGqli2Z9iF6Ho9fm6HcCEsduvYOdyh6+7fzCj3LVqExny/YCcCGhV73XwstPr1DcWkPuYwH5UhFZijmKBbqbqri1it/9JpIE9FZByBGCKIaMAYsHoYEpOm3XKlgtrSH9IYv0eoaURWYji/xmjuA5FEzMI013241d+BwYeAK2JyeKYHl+gNGIfggFuvuugSPBoUUp6H81QEbjO58rDP0ILpNwKDq+NLK4rqYVxzElQ/PjPtlgewzMZ+i7HC/el/H83U88ef0dbza+otZoYegyeCwgiMCQ6h39xhWwlIrJi3FLkvaRGoFRIWv8gd1zjDfarBFpWqdimoi8m0r7GIoIHqeRzYSTwkgqGj+BFzpwPY6uG5mOx/kDoJ6GMYYoioxdOiqlaEIDTA4BYwJK5lFSoG2H6NgBeo4wXSWTLhUBBXUUCoGAzJVSHgCTJPmvQ8YdOORndyjQGgTjsf/pUAMFATV0DJQG+Bf43rwUgtzYPAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABeklEQVQoz42QzUrDQBSF8wjufRCX7tRiF26KuGhRQVQU9/6gouKziCt3Cq5cWfAHFKS6sUhBtK1Jk8lMMjNJjjdpalKMYODj5p4Zzj13jNHxDYyMLWOiuofKygEmq5uYqm2hREzP7wxRXujXUm0b5cVdzCztY279GLNrR6isHiYY5zctXN5/4vq5ga7VheNy2IyBcQ6lNaRWKRq+UtCBBhClAFJpOFzAFQK268JA+j00G3j/MulAwfXpElWbyx8c7iWGHxbHWb2Fk6smTi/q6DkOmPAogA/TIUOpAmo8CKEhZAiTSfRcRenCX4RhCE7DHl9N3L60cff0Bi4kuKfgkc49DSOKIsQIGcDumLS2QMeWEH4ATw4IkxprvgoRBCG0DkCFBlAg2qZfdbYycylZ26F30AkWUyn5f0UbEM4AOXQWQwmRJIzdLTLqFaIKeoKlOsu0JGFmqP4wUwV9Xs8GJG+IgSH7w4wVJVPp/WzdxHAoIftHMpbTU5M83/pb4WCWawA5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Plugin aktivieren"
         title="Joomla Plugin aktivieren"
-        src="/static/1a97047c305e0a24dee2f51b4e15d2d4/f058b/j4x35x1.png"
-        srcset="/static/1a97047c305e0a24dee2f51b4e15d2d4/c26ae/j4x35x1.png 158w,
-/static/1a97047c305e0a24dee2f51b4e15d2d4/6bdcf/j4x35x1.png 315w,
-/static/1a97047c305e0a24dee2f51b4e15d2d4/f058b/j4x35x1.png 630w,
-/static/1a97047c305e0a24dee2f51b4e15d2d4/40601/j4x35x1.png 945w,
-/static/1a97047c305e0a24dee2f51b4e15d2d4/78612/j4x35x1.png 1260w,
-/static/1a97047c305e0a24dee2f51b4e15d2d4/53ac9/j4x35x1.png 1287w"
+        src="/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/f058b/j4x35x1.png"
+        srcset="/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/c26ae/j4x35x1.png 158w,
+/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/6bdcf/j4x35x1.png 315w,
+/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/f058b/j4x35x1.png 630w,
+/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/40601/j4x35x1.png 945w,
+/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/78612/j4x35x1.png 1260w,
+/static/a8f8b7a5b4436eb3753e2e7e6bbaefbf/191e2/j4x35x1.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -214,26 +219,26 @@ Kopiere die Dateien im <code class="language-text">plugin</code> Ordner in den <
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/791987a412ad0df87cf03e965e29d5b2/53ac9/j4x35x2.png"
+    href="/static/2e7fb7d15b84407f1c77d49e62638890/191e2/j4x35x2.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.734177215189874%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACEklEQVQoz1VSy4oTQRTtrQvBlboRUXCh+ABFEUVcDIguZdSFw6gI4h+IKzeCuPQPRFy4FdSFX+BGx2eSTs8jOkkmM0mm0696d+V4b2fCzBQcquvWueeee6uDgxfmsPfkLPYcv4l9p2/h2NUHOHxpDvvP3saBc3d2gWNHLs/j0MW7OD9zHydmHuLUtUc4euUezlx/XMWD+RefMfvsE248/YCXb7+gufgPP+sthEttRMtdNJc7uxCtdCdoraGx1MGP2gp+N1oVGpQbjDIJaRxKD6RCotVrYbXfxkjEiLcw2oEqVjA2Mcw30U8HtA+xkWxAaINASAVemg7t9T6+LX7H12gBYbeJejtEvROiRnttNcQfAscaFAu7UcWZIKJ4A704QZDlEt57SKXRGyQoNJALCyE1SrKdFAav3kd4/q6GJ69/4c3HBbTXBkhzgbyQyIRBViiCRpyxQxLiVZYlCqGhrEcqLVISGuUGhXIkaivyINVIckKaQSi+19CmrLgF5TAvcK7EeDyuRC05Kg1dZjEyKrQeKwxJxFF8ypmMR8NaR2KWZu+rnc8sHDBhSja2hKcCsvOXKir0E1256ieKHsxWPB6PIkFDhbkrPjtHj1o6at+y4HiHoIOnT6kFtaorQXY4osrscsrN84JmLMHdsaC1dluQCbsckqK0EoraYFcZzcZQIov5LS7/EdpwkW2H3pfIpcN/WnPLYR5F69sAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABeklEQVQoz42Qyy4EQRSG+xHsPYilWCFYIS5hgoVrsB4mQgjPMytsLCUik1nYiIQQzEhmWl+qu7rr0v2rqpmeG0InX86lq/76z7H6B3fQN7COofl9TK0dYngxj5FcHqO5PYwvF7oYWypgYqWAydUDzG4eYWH3DHPbp5jZOsH0xrHBOr99w0Wpiqd3Fz6h8HwK1wtNjJhsETMBISS8gKH86ODmvobbuyfQiMEPInNXY8F8EoQyeFTADgQcmkCloEzFWDbhkDKBQxguSxUUr19QvCrD8QL4YYyAciXMYDEuQHTDdhF7NuyPOqoPr7CfK5CMNd5DakjTtF0njX+J6nGlkSQJtJalD6W68EOEkbYeoV4jIB5VByW4csVFA9HM42wVyjVXa9BCOtJYZCOnIGosR4+r+FS4oYSrYwveU2e9Zp9ouHYIMwpRS3PIPy521A7JomjlxmFL8Fexn8Q7H2nXZofocvjDZdJbt51lTo1D0uuQ/D1mJtbYG//GF1Nq4rb9/xNrAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla Plugin Basic Auth aktivieren"
         title="Joomla Plugin Basic Auth aktivieren"
-        src="/static/791987a412ad0df87cf03e965e29d5b2/f058b/j4x35x2.png"
-        srcset="/static/791987a412ad0df87cf03e965e29d5b2/c26ae/j4x35x2.png 158w,
-/static/791987a412ad0df87cf03e965e29d5b2/6bdcf/j4x35x2.png 315w,
-/static/791987a412ad0df87cf03e965e29d5b2/f058b/j4x35x2.png 630w,
-/static/791987a412ad0df87cf03e965e29d5b2/40601/j4x35x2.png 945w,
-/static/791987a412ad0df87cf03e965e29d5b2/78612/j4x35x2.png 1260w,
-/static/791987a412ad0df87cf03e965e29d5b2/53ac9/j4x35x2.png 1287w"
+        src="/static/2e7fb7d15b84407f1c77d49e62638890/f058b/j4x35x2.png"
+        srcset="/static/2e7fb7d15b84407f1c77d49e62638890/c26ae/j4x35x2.png 158w,
+/static/2e7fb7d15b84407f1c77d49e62638890/6bdcf/j4x35x2.png 315w,
+/static/2e7fb7d15b84407f1c77d49e62638890/f058b/j4x35x2.png 630w,
+/static/2e7fb7d15b84407f1c77d49e62638890/40601/j4x35x2.png 945w,
+/static/2e7fb7d15b84407f1c77d49e62638890/78612/j4x35x2.png 1260w,
+/static/2e7fb7d15b84407f1c77d49e62638890/191e2/j4x35x2.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -247,7 +252,7 @@ Kopiere die Dateien im <code class="language-text">plugin</code> Ordner in den <
 Ein einzelnes Foo-Element: <code class="language-text">curl -X GET /api/index.php/v1/foos/{foo_id}</code><br>
 Lösche ein Foo Element: <code class="language-text">curl -X DELETE /api/index.php/v1/foos/{foo_id}</code></p>
 <blockquote>
-<p>Bei den Beispielen gehe ich davon aus, dass deine Installation unter <code class="language-text">http://localhost/joomla-cms4</code> befindet und dein Benutzer sowie dein Passwort <code class="language-text">admin</code> lauten. Ändere dies gegebenenfalls.</p>
+<p>Bei den Beispielen gehe ich davon aus, dass deine Installation unter <code class="language-text">http://localhost/joomla-cms4</code> befindet und dein Benutzer sowie dein Passwort <code class="language-text">admin</code> lauten. Ändere diese Angaben gegebenenfalls.</p>
 </blockquote>
 <blockquote>
 <p>Für <a href="https://curl.haxx.se/">Curl</a> ist es erforderlich, dass du das Passwort in <a href="https://de.wikipedia.org/wiki/Base64">Base64</a> umwandelst. Eine Website, die dir dies abnimmt, ist <a href="https://www.base64encode.org/">base64encode.org</a>.</p>
@@ -397,6 +402,8 @@ Lösche ein Foo Element: <code class="language-text">curl -X DELETE /api/index.p
   
   .solarized-light { background-color: #FDF6E3; }
   .solarized-light .mtkb { font-weight: bold; }
+  .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtk3 { color: #93A1A1; }
   .solarized-light .mtk8 { color: #859900; }
   .solarized-light .mtk4 { color: #CB4B16; }
   .solarized-light .mtk1 { color: #657B83; }
@@ -405,7 +412,6 @@ Lösche ein Foo Element: <code class="language-text">curl -X DELETE /api/index.p
   .solarized-light .mtk13 { color: #073642; }
   .solarized-light .mtk5 { color: #B58900; }
   .solarized-light .mtk9 { color: #D30102; }
-  .solarized-light .mtk3 { color: #93A1A1; }
   .solarized-light .mtk6 { color: #D33682; }
   .solarized-light .grvsc-line-highlighted::before {
     background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));

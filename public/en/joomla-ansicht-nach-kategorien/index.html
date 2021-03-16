@@ -822,7 +822,7 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="59"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;/</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="60"></span><span class="grvsc-source"><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span></code></pre>
 <blockquote>
-<p>The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion anyway that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in <a href="https://github.com/joomla/joomla-cms/issues/32012">Issue 32012</a> keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template or whether only in this way a user-friendly offer is possible.</p>
+<p>The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in <a href="https://github.com/joomla/joomla-cms/issues/32012">Issue 32012</a> keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template - or whether only in this way a user-friendly offer is possible - where the number of intro articles can be determined in the backend via a user interface.</p>
 </blockquote>
 <h3>Geänderte Dateien</h3>
 <p>In this chapter we only add new files.</p>
@@ -833,11 +833,73 @@
 <p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.</p>
 <p>Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since new files have been added, this is necessary. 2.</p>
 <p>Create a menu item that displays the elements of a category of our extension.</p>
-<p><img src="/images/j4x31x1.png" alt="Categories in Joomla - Create Menu Item"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4548cb75498cf3463c703ce97bfa0aa9/191e2/j4x31x1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABVklEQVQoz6WRu04CQRSG9220MtHKShtfxUoxJrLsjcHdtbOyNFZWJgY1XmJYC19AEkQuxoUGSwmwC8Je2F1+Zxbth3gy/0xz5jv/OUdYWd/C2fkFLm8eUby3cHVX4tI1zS3elvBgPeP45BTLaxtYWt2EcKjrcL99eFMgYdcsPVyKMY8Pu4WcJEPV8hB04whfvQHcvouJO4Tn+wjDKZf8IEiBlcorxJwMRSUQNGKg13cw8kJEcYwkSbgVx3OP1eobshQoM6BhGOgPHAzHPsYTD1HED42iKAU2Gg0oigotT4G6bsBxaLvBFCMKDcIwrbyIw3a7TdtV6QwJW4qBbreLgM5j9pvEqz+HdssGIQXqsMBaNuHQZfwnOp1P7B3sQlIUCKZp4qVcxnuziVqthnq9vpDYnyfLwnYmg6xEgQVCoGkaVDYDTrF8WZaRFcX0JSSPnX0FoqThB4b3sBEjkQiOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Categories in Joomla - Create Menu Item"
+        title="Categories in Joomla - Create Menu Item"
+        src="/static/4548cb75498cf3463c703ce97bfa0aa9/f058b/j4x31x1.png"
+        srcset="/static/4548cb75498cf3463c703ce97bfa0aa9/c26ae/j4x31x1.png 158w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/6bdcf/j4x31x1.png 315w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/f058b/j4x31x1.png 630w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/40601/j4x31x1.png 945w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/78612/j4x31x1.png 1260w,
+/static/4548cb75498cf3463c703ce97bfa0aa9/191e2/j4x31x1.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <ol start="3">
 <li>switch to the frontend and make sure that the elements are displayed correctly.</li>
 </ol>
-<p><img src="/images/j4x31x2.png" alt="Categories in Joomla - View in Frontend "></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1f4e7bb5e032fa9669eccb94148f7371/191e2/j4x31x2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABOUlEQVQoz5WRS0vDQBSF57cJbtwoWltbK6WNLkRwp4ggqFRKER8L/UW60KV0oyDapq0otKSRJG0ymRxv0oxOQ9B64CTzuPebMwybWdrDbGYfle1zbO5cYWv3GjmthrnsAebzh1jIH2GxcIzMahXLxROsrNWQo3+2UEWxVEepfIpy5QyadoGN9Usw3xfgvg+93cHLq45mU4dl2fA8D67rkj3FLjjn6PUNvLV0OLYdrYcMaYZQVGj0TIwIwslBEOA3DYccjulACCBZysLmgCCC6FLRWoqFGNcMBh/odhuwrTbd5hNCqWHhEUEKSM7VQ+hLzRGS/ATBHymtGaeMgeNxDMLPRlJqwpu7Bm7vH6JxuKYGYJhSavLOu4HnVh8en7zJN/CvR0g2Scl0E8BpYGnQZJ+c/ythEpj2iF/KkfL+Be4n0gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Categories in Joomla - View in Frontend "
+        title="Categories in Joomla - View in Frontend "
+        src="/static/1f4e7bb5e032fa9669eccb94148f7371/f058b/j4x31x2.png"
+        srcset="/static/1f4e7bb5e032fa9669eccb94148f7371/c26ae/j4x31x2.png 158w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/6bdcf/j4x31x2.png 315w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/f058b/j4x31x2.png 630w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/40601/j4x31x2.png 945w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/78612/j4x31x2.png 1260w,
+/static/1f4e7bb5e032fa9669eccb94148f7371/191e2/j4x31x2.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h2>Changed files</h2>
 <h3>Overview</h3>
 <h3>All changes at a glance</h3>

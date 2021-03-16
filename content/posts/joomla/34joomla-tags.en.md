@@ -13,7 +13,9 @@ tags:
   - Joomla
 ---
 
-Tags
+Tags or Keywords are a flexible solution to organise content in Joomla! A keyword can be assigned to many different elements of different content types. Each element can have unlimited tags.
+
+Das Tagging-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es leicht in andere Erweiterungen integriert werden kann, die Standard-Joomla-Design-Muster verwenden. Die Verwendung von Tags in einer Drittanbieter-Erweiterung ist ziemlich einfach. Für die Verwendung in einer eigenen Erweiterung sind die hier erläuterten Änderungen erforderlich.
 
 ## For impatient people
 
@@ -23,235 +25,299 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ### New files
 
-Keinen neuen Dateien
+No new files.
 
 ### Modified files
 
 #### [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
 
+The form through which the search tools are managed receives an entry for the keywords.
+
 [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/filter_foos.xml)
 
-```xml
-...
-<field
-			name="tag"
-			type="tag"
-			label="JTAG"
-			multiple="true"
-			mode="nested"
-			custom="false"
-			hint="JOPTION_SELECT_TAG"
-			onchange="this.form.submit();"
-		/>
-...
+```xml {diff}
+ 			<option value="*">JALL</option>
+ 		</field>
+
++		<field
++			name="tag"
++			type="tag"
++			label="JTAG"
++			multiple="true"
++			mode="nested"
++			custom="false"
++			hint="JOPTION_SELECT_TAG"
++			onchange="this.form.submit();"
++		/>
+ 	</fields>
+
+ 	<fields name="list">
+
 ```
 
 #### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
 
+In the XML form, we add the form field that contains the information about the tag. Since we use Joomla Standard, we can use many ready-made functions out-of-the-box.
+
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/foo.xml)
 
-```xml
-...
-<field
-			name="tags"
-			type="tag"
-			label="JTAG"
-			class="advancedSelect"
-			multiple="true"
-		/>
-...
+```xml {diff}
+ 			label="JFIELD_ORDERING_LABEL"
+ 			content_type="com_foos.foo"
+ 		/>
++
++		<field
++			name="tags"
++			type="tag"
++			label="JTAG"
++			class="advancedSelect"
++			multiple="true"
++		/>
+ 	</fieldset>
+ 	<fields name="params" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+ 		<fieldset name="display" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+
 ```
 
 #### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
+In the installation script, we make sure that our extension is recognised as a separate content type in Joomla.
+
 [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/script.php)
 
-```php
-...
-	private function saveContentTypes()
-	{
-		$table = Table::getInstance('Contenttype', 'JTable');
+```php {diff}
+ 	{
+ 		echo Text::_('COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT');
 
-		$table->load(array('type_alias' => 'com_foos.foo'));
++		$this->saveContentTypes();
++
+ 		return true;
+ 	}
 
-		$tablestring = '{
-			"special": {
-			  "dbtable": "#__foos",
-			  "key": "id",
-			  "type": "FooTable",
-			  "prefix": "Joomla\\\\Component\\\\Foos\\\\Administrator\\\\Table\\\\",
-			  "config": "array()"
-			},
-			"common": {
-			  "dbtable": "#__ucm_content",
-			  "key": "ucm_id",
-			  "type": "Corecontent",
-			  "prefix": "JTable",
-			  "config": "array()"
-			}
-		  }';
+@@ -237,4 +239,69 @@ private function getAdminId()
 
-		$fieldmapping = '{
-			"common": {
-			  "core_content_item_id": "id",
-			  "core_title": "name",
-			  "core_state": "published",
-			  "core_alias": "alias",
-			  "core_publish_up": "publish_up",
-			  "core_publish_down": "publish_down",
-			  "core_access": "access",
-			  "core_params": "params",
-			  "core_featured": "featured",
-			  "core_language": "language",
-			  "core_ordering": "ordering",
-			  "core_catid": "catid",
-			  "asset_id": "null"
-			},
-			"special": {
-			}
-		  }';
+ 		return $id;
+ 	}
++
++	/**
++	 * Adding content_type for tags.
++	 *
++	 * @return  integer|boolean  One Administrator ID.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	private function saveContentTypes()
++	{
++		$table = Table::getInstance('Contenttype', 'JTable');
++
++		$table->load(['type_alias' => 'com_foos.foo']);
++
++		$tablestring = '{
++			"special": {
++			  "dbtable": "#__foos",
++			  "key": "id",
++			  "type": "FooTable",
++			  "prefix": "Joomla\\\\Component\\\\Foos\\\\Administrator\\\\Table\\\\",
++			  "config": "array()"
++			},
++			"common": {
++			  "dbtable": "#__ucm_content",
++			  "key": "ucm_id",
++			  "type": "Corecontent",
++			  "prefix": "JTable",
++			  "config": "array()"
++			}
++		  }';
++
++		$fieldmapping = '{
++			"common": {
++			  "core_content_item_id": "id",
++			  "core_title": "name",
++			  "core_state": "published",
++			  "core_alias": "alias",
++			  "core_publish_up": "publish_up",
++			  "core_publish_down": "publish_down",
++			  "core_access": "access",
++			  "core_params": "params",
++			  "core_featured": "featured",
++			  "core_language": "language",
++			  "core_ordering": "ordering",
++			  "core_catid": "catid",
++			  "asset_id": "null"
++			},
++			"special": {
++			}
++		  }';
++
++		$contenttype = [];
++		$contenttype['type_id'] = ($table->type_id) ? $table->type_id : 0;
++		$contenttype['type_title'] = 'Foos';
++		$contenttype['type_alias'] = 'com_foos.foo';
++		$contenttype['table'] = $tablestring;
++		$contenttype['rules'] = '';
++		$contenttype['router'] = 'RouteHelper::getFooRoute';
++		$contenttype['field_mappings'] = $fieldmapping;
++		$contenttype['content_history_options'] = '';
++
++		$table->save($contenttype);
++
++		return;
++	}
+ }
 
-		$contenttype = array();
-		$contenttype['type_id'] = ($table->type_id) ? $table->type_id : 0;
-		$contenttype['type_title'] = 'Foos';
-		$contenttype['type_alias'] = 'com_foos.foo';
-		$contenttype['table'] = $tablestring;
-		$contenttype['rules'] = '';
-		$contenttype['router'] = 'RouteHelper::getFooRoute';
-		$contenttype['field_mappings'] = $fieldmapping;
-		$contenttype['content_history_options'] = '';
-
-		$table->save($contenttype);
-
-		return;
-	}
-...
 ```
 
 #### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Im Model des Elements fügen wir die Tags in die Stapelverarbeitung Batch ein und sorgen dafür, dass die zugehörigen Schlagworte geladen werden.
+In the model of the element, we insert the tags into the batch processing batch and ensure that the associated tags are loaded.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
-```php
-...
-protected $batch_commands = array(
-		'assetgroup_id' => 'batchAccess',
-		'language_id'   => 'batchLanguage',
-		'tag'           => 'batchTag',
-		'user_id'       => 'batchUser',
-  );
-...
-...
-if (!empty($item->id))
-{
-  $item->tags = new TagsHelper;
-  $item->tags->getTagIds($item->id, 'com_foos.foo');
-}
-...
+```php {diff}
+use Joomla\CMS\Language\LanguageHelper;
+ use Joomla\Database\ParameterType;
+ use Joomla\Utilities\ArrayHelper;
++use Joomla\CMS\Helper\TagsHelper;
+
+ /**
+  * Item Model for a Foo.
+@@ -56,6 +57,7 @@ class FooModel extends AdminModel
+ 	protected $batch_commands = [
+ 		'assetgroup_id' => 'batchAccess',
+ 		'language_id'   => 'batchLanguage',
++		'tag'           => 'batchTag',
+ 		'user_id'       => 'batchUser',
+ 	];
+
+@@ -127,6 +129,12 @@ public function getItem($pk = null)
+ 			}
+ 		}
+
++		// Load item tags
++		if (!empty($item->id)) {
++			$item->tags = new TagsHelper;
++			$item->tags->getTagIds($item->id, 'com_foos.foo');
++		}
++
+ 		return $item;
+ 	}
+
 ```
 
 #### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Das Model der Übersichtsliste ändern wir bezüglich der Filter und der Datenbankabfrage.
+We change the model of the overview list of our extension in the backend regarding the filters and the database query.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
-```php
-...
-public function __construct($config = array()) {
-  if (empty($config['filter_fields']))
-  {
-    $config['filter_fields'] = array(
-      'id', 'a.id',
-      'name', 'a.name',
-      'catid', 'a.catid', 'category_id', 'category_title',
-      'published', 'a.published',
-      'access', 'a.access', 'access_level',
-      'ordering', 'a.ordering',
-      'featured', 'a.featured',
-      'language', 'a.language', 'language_title',
-      'publish_up', 'a.publish_up',
-      'publish_down', 'a.publish_down',
-      'tag',
-    );
-  ...
-...
-...
-protected function getListQuery() {
-  $tag = $this->getState('filter.tag');
+```php {diff}
+ 				'publish_down', 'a.publish_down',
+ 			];
 
-  if (\is_array($tag) && \count($tag) === 1)
-  {
-    $tag = $tag[0];
-  }
+-			$assoc = Associations::isEnabled();
+-
+ 			if ($assoc) {
+ 				$config['filter_fields'][] = 'association';
+ 			}
+@@ -146,6 +144,47 @@ protected function getListQuery()
+ 			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
+ 		}
 
-  if ($tag && \is_array($tag))
-  {
-    $tag = ArrayHelper::toInteger($tag);
++		// Filter by a single or group of tags.
++		$tag = $this->getState('filter.tag');
++
++		// Run simplified query when filtering by one tag.
++		if (\is_array($tag) && \count($tag) === 1) {
++			$tag = $tag[0];
++		}
++
++		if ($tag && \is_array($tag)) {
++			$tag = ArrayHelper::toInteger($tag);
++
++			$subQuery = $db->getQuery(true)
++				->select('DISTINCT ' . $db->quoteName('content_item_id'))
++				->from($db->quoteName('#__contentitem_tag_map'))
++				->where(
++					[
++						$db->quoteName('tag_id') . ' IN (' . implode(',', $query->bindArray($tag)) . ')',
++						$db->quoteName('type_alias') . ' = ' . $db->quote('com_foos.foo'),
++					]
++				);
++
++			$query->join(
++				'INNER',
++				'(' . $subQuery . ') AS ' . $db->quoteName('tagmap'),
++				$db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
++			);
++		} else if ($tag = (int) $tag) {
++			$query->join(
++				'INNER',
++				$db->quoteName('#__contentitem_tag_map', 'tagmap'),
++				$db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
++			)
++				->where(
++					[
++						$db->quoteName('tagmap.tag_id') . ' = :tag',
++						$db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_foos.foo'),
++					]
++				)
++				->bind(':tag', $tag, ParameterType::INTEGER);
++		}
++
+ 		// Filter by access level.
+ 		if ($access = $this->getState('filter.access')) {
+ 			$query->where($db->quoteName('a.access') . ' = ' . (int) $access);
 
-    $subQuery = $db->getQuery(true)
-      ->select('DISTINCT ' . $db->quoteName('content_item_id'))
-      ->from($db->quoteName('#__contentitem_tag_map'))
-      ->where(
-        [
-          $db->quoteName('tag_id') . ' IN (' . implode(',', $query->bindArray($tag)) . ')',
-          $db->quoteName('type_alias') . ' = ' . $db->quote('com_foos.foo'),
-        ]
-      );
-
-    $query->join(
-      'INNER',
-      '(' . $subQuery . ') AS ' . $db->quoteName('tagmap'),
-      $db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
-    );
-  }
-  elseif ($tag = (int) $tag)
-  {
-    $query->join(
-      'INNER',
-      $db->quoteName('#__contentitem_tag_map', 'tagmap'),
-      $db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
-    )
-      ->where(
-        [
-          $db->quoteName('tagmap.tag_id') . ' = :tag',
-          $db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_foos.foo'),
-        ]
-      )
-      ->bind(':tag', $tag, ParameterType::INTEGER);
-  }
-...
 ```
 
 #### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-In der Datenorganisation der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
+In the data organisation of the view, we ensure that the keywords matching the language are loaded.
 
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
-```php
-...
-$this->form->setFieldAttribute('tags', 'language', '*,' . $forcedLanguage);
-...
+```php {diff}
+
+ 			// Only allow to select categories with All language or with the forced language.
+ 			$this->form->setFieldAttribute('catid', 'language', '*,' . $forcedLanguage);
++
++			// Only allow to select tags with All language or with the forced language.
++			$this->form->setFieldAttribute('tags', 'language', '*,' . $forcedLanguage);
+ 		}
+
+ 		$this->addToolbar();
+
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-2. Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Da wir im Installationsskript Dinge geändert haben, ist dies erforderlich.
+2. install your component as described in part one, after copying all files. As we have changed things in the installation script, this is necessary.
 
-3. Erstelle mithilfe der Schlagwort Komponente ein Tag.
+3. create a tag using the keyword component.
 
-4. Wähle das Tag bei einem Foo-Element aus.
+![Create a tag in Joomla 4](/images/j4x34x1.png)
 
-https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension
+4. set the just created keyword at a Foo element.
+
+![A keyword in a custom Joomla 4 extension](/images/j4x34x2.png)
+
+5. convince yourself that filtering by keywords works.
+
+A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.png)
+
+6. create a menu item that shows all elements that are assigned to a certain keyword and see the display in the frontend.
+
+> In the frontend view you only see published elements.
+
+![A keyword in a custom Joomla 4 extension via menu item](/images/j4x34x4.png)
+
+![A keyword in a custom Joomla 4 extension in a frontend view](/images/j4x34x5.png)
+
+> I leave it up to you to decide how and where you display the keywords in frontend views of your own extension.
 
 ## Changed files
 
@@ -262,3 +328,5 @@ https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension
 github.com/astridx/boilerplate/compare/t28...t29.diff
 
 ## Links
+
+https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension

@@ -874,7 +874,7 @@ HTMLHelper::_('behavior.core');
 
 ```
 
-> Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach des Templates - ist, überlasse ich das Stylen dir. Ich bin sowieso der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012). Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist.
+> Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach Aufgabe des Templates - ist, überlasse ich das Stylen dir. Ich bin der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012). Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist - bei dem die Anzahl an Intro Artikeln im Backend über eine Benutzeroberfläche bestimmbar ist.
 
 ### Geänderte Dateien
 
