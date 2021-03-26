@@ -112,7 +112,58 @@ Ich hatte es schon geschrieben: Die englischen Versionen der Spachdateien sind z
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
-...
+COM_FOOS_FOOS="Foos"
+COM_FOOS_CATEGORIES="Categories"
+
+COM_FOOS_MANAGER_FOO_NEW="New"
+COM_FOOS_MANAGER_FOO_EDIT="Edit"
+COM_FOOS_MANAGER_FOOS="Foo Manager"
+
+COM_FOOS_TABLE_TABLEHEAD_NAME="Name"
+COM_FOOS_TABLE_TABLEHEAD_ID="ID"
+COM_FOOS_ERROR_FOO_NOT_FOUND="Foo not found"
+
+COM_FOOS_FIELD_NAME_LABEL="Name"
+
+COM_FOOS_FIELD_FOO_SHOW_CATEGORY_LABEL="Show name label"
+COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC="These settings apply for all foo."
+COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
+
+COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Finish Publishing"
+COM_FOOS_FIELD_PUBLISH_UP_LABEL="Start Publishing"
+COM_FOOS_N_ITEMS_PUBLISHED="%d foos published."
+COM_FOOS_N_ITEMS_PUBLISHED_1="%d foo published."
+COM_FOOS_N_ITEMS_UNPUBLISHED="%d foos unpublished."
+COM_FOOS_N_ITEMS_UNPUBLISHED_1="%d foo unpublished."
+COM_FOOS_N_ITEMS_CHECKED_IN_1="%d foo checked in."
+COM_FOOS_N_ITEMS_CHECKED_IN_MORE="%d foos checked in."
+COM_FOOS_N_ITEMS_FEATURED="%d foos featured."
+COM_FOOS_N_ITEMS_FEATURED_1="Foo featured."
+COM_FOOS_N_ITEMS_UNFEATURED="%d foos unfeatured."
+COM_FOOS_N_ITEMS_UNFEATURED_1="Foo unfeatured."
+
+COM_FOOS_EDIT_FOO="Edit Foo"
+COM_FOOS_NEW_FOO="New Foo"
+
+COM_FOOS_HEADING_ASSOCIATION="Association"
+COM_FOOS_CHANGE_FOO="Change a foo"
+COM_FOOS_SELECT_A_FOO="Select a foo"
+
+COM_FOOS_TABLE_CAPTION="Foo Table Caption"
+
+COM_FOOS_N_ITEMS_ARCHIVED="%d foos archived."
+COM_FOOS_N_ITEMS_ARCHIVED_1="%d foo archived."
+COM_FOOS_N_ITEMS_DELETED="%d foos deleted."
+COM_FOOS_N_ITEMS_DELETED_1="%d foo deleted."
+COM_FOOS_N_ITEMS_TRASHED="%d foos trashed."
+COM_FOOS_N_ITEMS_TRASHED_1="%d foo trashed."
+COM_FOO_MANAGER_FOOS="Foos"
+
+COM_FOOS_FIELD_PARAMS_NAME_LABEL="Show Name"
+
+COM_FOOS_FILTER_SEARCH_DESC="Search in foo name."
+COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
+
 ```
 
 #### [administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
@@ -135,7 +186,9 @@ Im Frontend gibt es lediglich die `.ini` - also keine `sys.ini`. Die Datei `comp
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/de-DE/com_foos.ini -->
-`COM_FOOS_NAME="Name: "
+
+COM_FOOS_NAME="Name: "
+
 ```
 
 #### [components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
@@ -148,6 +201,17 @@ Die zwingend notwendige englische Version ergänzen wir in der Datei `components
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS_NAME="Name: "
+COM_FOOS_FOO_NAME_LABEL="Name"
+COM_FOOS_FIELD_NAME_LABEL="Name"
+COM_FOOS_NEW_FOO="New"
+COM_FOOS_EDIT_FOO="Edit"
+JGLOBAL_FIELDSET_DISPLAY_OPTIONS="Display"
+JGLOBAL_FIELDSET_PUBLISHING="Publishing"
+COM_FOOS_FIELD_PARAMS_NAME_LABEL="Label"
+JFIELD_ALT_LAYOUT_LABEL="Layout"
+COM_FOOS_FIELD_PUBLISH_UP_LABEL="Publishing start"
+COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Publishing end"
+
 ```
 
 > In den nächsten Kapiteln kommen weitere Sprachstrings hinzu. Die erwähne ich dort nicht separat. Die meisten habe ich in dieser Lektion schon in den Beispieldateien integriert. So vermeide ich, dass die Dateien in der Diff-Ansicht erscheinen und die unnötig aufbläht. Konkret meine ich die Diff-Ansicht des Programmcodes der verschiedenen Kapitel auf Github, auf die ich hier verweise.

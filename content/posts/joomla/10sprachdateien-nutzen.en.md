@@ -113,7 +113,58 @@ I had already written it: The English versions of the language files are mandato
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
-...
+COM_FOOS_FOOS="Foos"
+COM_FOOS_CATEGORIES="Categories"
+
+COM_FOOS_MANAGER_FOO_NEW="New"
+COM_FOOS_MANAGER_FOO_EDIT="Edit"
+COM_FOOS_MANAGER_FOOS="Foo Manager"
+
+COM_FOOS_TABLE_TABLEHEAD_NAME="Name"
+COM_FOOS_TABLE_TABLEHEAD_ID="ID"
+COM_FOOS_ERROR_FOO_NOT_FOUND="Foo not found"
+
+COM_FOOS_FIELD_NAME_LABEL="Name"
+
+COM_FOOS_FIELD_FOO_SHOW_CATEGORY_LABEL="Show name label"
+COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC="These settings apply for all foo."
+COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
+
+COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Finish Publishing"
+COM_FOOS_FIELD_PUBLISH_UP_LABEL="Start Publishing"
+COM_FOOS_N_ITEMS_PUBLISHED="%d foos published."
+COM_FOOS_N_ITEMS_PUBLISHED_1="%d foo published."
+COM_FOOS_N_ITEMS_UNPUBLISHED="%d foos unpublished."
+COM_FOOS_N_ITEMS_UNPUBLISHED_1="%d foo unpublished."
+COM_FOOS_N_ITEMS_CHECKED_IN_1="%d foo checked in."
+COM_FOOS_N_ITEMS_CHECKED_IN_MORE="%d foos checked in."
+COM_FOOS_N_ITEMS_FEATURED="%d foos featured."
+COM_FOOS_N_ITEMS_FEATURED_1="Foo featured."
+COM_FOOS_N_ITEMS_UNFEATURED="%d foos unfeatured."
+COM_FOOS_N_ITEMS_UNFEATURED_1="Foo unfeatured."
+
+COM_FOOS_EDIT_FOO="Edit Foo"
+COM_FOOS_NEW_FOO="New Foo"
+
+COM_FOOS_HEADING_ASSOCIATION="Association"
+COM_FOOS_CHANGE_FOO="Change a foo"
+COM_FOOS_SELECT_A_FOO="Select a foo"
+
+COM_FOOS_TABLE_CAPTION="Foo Table Caption"
+
+COM_FOOS_N_ITEMS_ARCHIVED="%d foos archived."
+COM_FOOS_N_ITEMS_ARCHIVED_1="%d foo archived."
+COM_FOOS_N_ITEMS_DELETED="%d foos deleted."
+COM_FOOS_N_ITEMS_DELETED_1="%d foo deleted."
+COM_FOOS_N_ITEMS_TRASHED="%d foos trashed."
+COM_FOOS_N_ITEMS_TRASHED_1="%d foo trashed."
+COM_FOO_MANAGER_FOOS="Foos"
+
+COM_FOOS_FIELD_PARAMS_NAME_LABEL="Show Name"
+
+COM_FOOS_FILTER_SEARCH_DESC="Search in foo name."
+COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
+
 ```
 
 #### [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
@@ -124,8 +175,32 @@ COM_FOOS_CONFIGURATION="Foo Options"
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
-COM_FOOS_CONFIGURATION="Foo Options"
-...
+COM_FOOS_XML_DESCRIPTION="Foo Component"
+
+COM_FOOS_INSTALLERSCRIPT_PREFLIGHT="<p>Anything here happens before the installation/update/uninstallation of the component</p>"
+COM_FOOS_INSTALLERSCRIPT_UPDATE="<p>The component has been updated</p>"
+COM_FOOS_INSTALLERSCRIPT_UNINSTALL="<p>The component has been uninstalled</p>"
+COM_FOOS_INSTALLERSCRIPT_INSTALL="<p>The component has been installed</p>"
+COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installation/update/uninstallation of the component</p>"
+
+COM_FOOS_FOO_VIEW_DEFAULT_TITLE="Single Foo"
+COM_FOOS_FOO_VIEW_DEFAULT_DESC="This links to the information for one foo."
+COM_FOOS_SELECT_FOO_LABEL="Select a foo"
+
+COM_FOOS_CHANGE_FOO="Change a foo"
+COM_FOOS_SELECT_A_FOO="Select a foo"
+
+COM_FOOS_FOO_VIEW_WITHHEAD_TITLE="Single Foo with a headertext"
+COM_FOOS_FOO_VIEW_WITHHEAD_DESC="This links to the information for one foo with a headertext."
+
+COM_FOOS_FEATURED_VIEW_DEFAULT_TITLE="Featured Foos"
+COM_FOOS_FEATURED_VIEW_DEFAULT_DESC="This view lists the featured foos."
+
+COM_FOOS_FORM_VIEW_DEFAULT_DESC="Create a new foo."
+COM_FOOS_FORM_VIEW_DEFAULT_TITLE="Create Foo"
+
+COM_FOOS_CATEGORY_VIEW_DEFAULT_TITLE="Category"
+
 ```
 
 #### [components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e)
@@ -137,7 +212,8 @@ In the frontend there is only the `.ini` - so no `sys.ini`. The file `components
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/de-DE/com_foos.ini -->
 
-`COM_FOOS_NAME="Name: "
+COM_FOOS_NAME="Name: "
+
 ```
 
 #### [components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
@@ -150,6 +226,17 @@ We add the mandatory English version in the file `components/com_foos/ language/
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS_NAME="Name: "
+COM_FOOS_FOO_NAME_LABEL="Name"
+COM_FOOS_FIELD_NAME_LABEL="Name"
+COM_FOOS_NEW_FOO="New"
+COM_FOOS_EDIT_FOO="Edit"
+JGLOBAL_FIELDSET_DISPLAY_OPTIONS="Display"
+JGLOBAL_FIELDSET_PUBLISHING="Publishing"
+COM_FOOS_FIELD_PARAMS_NAME_LABEL="Label"
+JFIELD_ALT_LAYOUT_LABEL="Layout"
+COM_FOOS_FIELD_PUBLISH_UP_LABEL="Publishing start"
+COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Publishing end"
+
 ```
 
 > In the next chapters more language strings will be added. I will not mention them separately there. I have already integrated most of them into the sample files in this lesson. This way I avoid that the files appear in the diff view and blow it up unnecessarily. Specifically, I mean the diff view of the program code of the various chapters on Github, which I refer to here.

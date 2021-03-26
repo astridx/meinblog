@@ -63,6 +63,7 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 		/>
 	</menuitem>
 </menu>
+
 ```
 
 ### Modified files

@@ -46,23 +46,26 @@ Again, it is about the principle, just like in the previous chapter. The quality
 ```js  {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/b4078c00700f28ba31229246bd941b24fabf8dbb/src/media/com_foos/js/admin-foos-letter.js
 
-document.addEventListener('DOMContentLoaded', function () {
-  'use strict'
-  setTimeout(function () {
-    if (document.formvalidator) {
-      document.formvalidator.setHandler('letter', function (value) {
-        var returnedValue = false
+document.addEventListener('DOMContentLoaded', function(){
+	"use strict";
+	setTimeout(function() {
+		if (document.formvalidator) {
+			document.formvalidator.setHandler('letter', function (value) {
 
-        var regex = /^([a-z]+)$/i
+				var returnedValue = false;
 
-        if (regex.test(value)) returnedValue = true
+				var regex = /^([a-z]+)$/i;
 
-        return returnedValue
-      })
-      //console.log(document.formvalidator);
-    }
-  }, 1000)
-})
+				if (regex.test(value))
+					returnedValue = true;
+
+				return returnedValue;
+			});
+			//console.log(document.formvalidator);
+		}
+	}, (1000));
+});
+
 ```
 
 ### Modified files

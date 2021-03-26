@@ -484,7 +484,7 @@ The display in the frontend is done as before via a template, which we implement
 \defined('_JEXEC') or die;
 
 ?>
-<div class=com-foos-featured blog-featured">
+<div class="com-foos-featured blog-featured">
 <?php if ($this->params->get('show_page_headings') != 0 ) : ?>
 	<h1>
 		<?php echo $this->escape($this->params->get('page_heading')); ?>
@@ -494,7 +494,7 @@ The display in the frontend is done as before via a template, which we implement
 <?php echo $this->loadTemplate('items'); ?>
 
 <?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->pagesTotal > 1)) : ?>
-	<div class=com-foos-featured__pagination w-100">
+	<div class="com-foos-featured__pagination w-100">
 		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 			<p class="counter float-right pt-3 pr-2">
 				<?php echo $this->pagination->getPagesCounter(); ?>
@@ -605,10 +605,10 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
 
 // Create a shortcut for params.
-$params = \&$this->item->params;
+$params = &$this->item->params;
 ?>
 
-<div class=com-foos-featured__items">
+<div class="com-foos-featured__items">
 	<?php if (empty($this->items)) : ?>
 		<p class="com-foos-featured__message"> <?php echo Text::_('COM_FOO_NO_FOOS'); ?>	 </p>
 	<?php else : ?>

@@ -63,6 +63,7 @@ In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fes
 		/>
 	</menuitem>
 </menu>
+
 ```
 
 ### Geänderte Dateien
