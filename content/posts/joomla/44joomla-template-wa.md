@@ -22,19 +22,8 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
-todo zum testen
-```js
-    <script>
-    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-        console.log('Dark mode is supported');
-    }
-    if (matchMedia('(prefers-color-scheme: dark)').matches) {
-        console.log('Dark mode');
-    } else {
-        console.log('Light  mode');
-    }
-    </script>
-```
+> Ich hatte bereits geschrieben, dass du Web Assets ebenfalls über die Datei `joomla.asset.json` integrieren kannst.  
+
 
 ### Neue Dateien
 

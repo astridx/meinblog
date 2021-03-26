@@ -24,7 +24,22 @@ In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
 
 ### Neue Dateien
 
-#### Module
+todo zum testen
+```js
+    <script>
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+        console.log('Dark mode is supported');
+    }
+    if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        console.log('Dark mode');
+    } else {
+        console.log('Light  mode');
+    }
+    </script>
+```
+
+
+#### Template
 
 ##### []()
 

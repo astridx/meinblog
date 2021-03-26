@@ -54,7 +54,7 @@ Die `component.php` ermöglicht es, eine abgespeckte Version der Site zu erzeuge
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php
+// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/component.php
 
 Component
 
@@ -74,10 +74,10 @@ Meiner Meinung nach eine gute Fehlerseite beinhaltet:
 
 Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/index.php` erstellt. Sie beinhaltet nichts weiter als das Wort Error. So kannst du deiner Phantasie freien Lauf lassen.
 
-[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php)
+[templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php
+// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/error.php
 
 Error
 
@@ -87,10 +87,10 @@ Error
 
 Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
 
-[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
+[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php
+// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/index.php.php
 
 <?php
 /**
@@ -101,102 +101,18 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
  */
 
 \defined('_JEXEC') or die;
-
-use Joomla\CMS\Factory;
-use Joomla\CMS\Uri\Uri;
-
-$app = Factory::getApplication();
-$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-
-if ($this->params->get('logoFile'))
-{
-	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
-}
-elseif ($this->params->get('siteTitle'))
-{
-	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
-}
-else
-{
-	$logo = '';
-}
 ?>
 
 <!DOCTYPE html>
-<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
-<head>
-	<jdoc:include type="metas" />
-</head>
-
-<body>
-	<header >
-		<div>
-			<div>
-				<a href="<?php echo $this->baseurl; ?>/">
-					<?php echo $logo; ?>
-				</a>
-				<?php if ($this->params->get('siteDescription')) : ?>
-					<div><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
-				<?php endif; ?>
-			</div>
-		</div>
-		<div>
-			<nav>
-				<div>
-					<jdoc:include type="modules" name="menu" />
-				</div>
-			</nav>
-			<div>
-				<jdoc:include type="modules" name="search" />
-			</div>
-		</div>
-	</header>
-
-	<div>
-		<jdoc:include type="modules" name="banner" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="top-a" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="top-b" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="sidebar-left" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="breadcrumbs" />
-		<jdoc:include type="modules" name="main-top" />
-		<jdoc:include type="message" />
-		<main>
-		<jdoc:include type="component" />
-		</main>
-		<jdoc:include type="modules" name="main-bottom" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="sidebar-right" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="bottom-a" />
-	</div>
-
-	<div>
-		<jdoc:include type="modules" name="bottom-b" />
-	</div>
-
-	<footer>
-		<jdoc:include type="modules" name="footer" />
-	</footer>
-
-	<jdoc:include type="modules" name="debug" />
-
-</body>
+<html lang="de">
+  <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Titel</title>
+  </head>
+  <body>
+	Hallo Joomla!
+  </body>
 </html>
 
 ```
@@ -215,46 +131,30 @@ Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`.
 
 So, genug erklärt. So sieht die Website minimal aus.
 
-##### [templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-754d06b92d8b132af8eb955c0e6d9cd66a493f7b0055c4820f5b3f474a02da83)
+##### [templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
-[templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.ini
+// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/language/en-GB/tpl_facile.ini
 
 TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
-; Parameters
-TPL_FACILE_LOGO_LABEL="Logo"
+
 
 ```
 
-##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t34...t35#diff-f430f52316f61d2dd90ac59a813bcd36cf84549945e7eb5055302d54858a169f)
+##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
-[templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini)
+[templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
+// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/language/en-GB/tpl_facile.sys.ini
 
 FACILE="Facile - Site template"
-TPL_FACILE_POSITION_MENU="Menu"
-TPL_FACILE_POSITION_SEARCH="Search"
-TPL_FACILE_POSITION_BANNER="Banner"
-TPL_FACILE_POSITION_TOP-A="Top-a"
-TPL_FACILE_POSITION_TOP-B="Top-b"
-TPL_FACILE_POSITION_MAIN-TOP="Main-top"
-TPL_FACILE_POSITION_BREADCRUMBS="Breadcrumbs"
-TPL_FACILE_POSITION_MAIN-BOTTOM="Main-bottom"
-TPL_FACILE_POSITION_SIDEBAR-LEFT="Sidebar-left"
-TPL_FACILE_POSITION_SIDEBAR-RIGHT="Sidebar-right"
-TPL_FACILE_POSITION_BOTTOM-A="Bottom-a"
-TPL_FACILE_POSITION_BOTTOM-B="Bottom-b"
-TPL_FACILE_POSITION_FOOTER="Footer"
-TPL_FACILE_POSITION_DEBUG="Debug"
-TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6883c0bebfdde2e2fa5faf0c765520ece0850108806a0ea508cb132c08b9d322)
+##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
 
 ![Joomla Template erstellen - Offline Seite Backend](/images/j4x40x5.png)
@@ -262,25 +162,69 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
 
-[templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php)
+[templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php
+// https://github.com/astridx/boilerplate/raw/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/offline.php
 
-Offline
+<?php
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\AuthenticationHelper;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+use Joomla\CMS\Uri\Uri;
+
+$twofactormethods = AuthenticationHelper::getTwoFactorMethods();
+?>
+
+<!DOCTYPE html>
+<html lang="<?php echo $this->language; ?>">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<jdoc:include type="head" />
+</head>
+<body>
+	<jdoc:include type="message" />
+	<form action="<?php echo Route::_('index.php', true); ?>" method="post" id="form-login">
+		<fieldset>
+			<label for="username"><?php echo Text::_('JGLOBAL_USERNAME'); ?></label>
+			<input name="username" id="username" type="text">
+
+			<label for="password"><?php echo Text::_('JGLOBAL_PASSWORD'); ?></label>
+			<input name="password" id="password" type="password">
+
+			<?php if (count($twofactormethods) > 1) : ?>
+			<label for="secretkey"><?php echo Text::_('JGLOBAL_SECRETKEY'); ?></label>
+			<input name="secretkey" autocomplete="one-time-code" id="secretkey" type="text">
+			<?php endif; ?>
+
+			<input type="submit" name="Submit" value="<?php echo Text::_('JLOGIN'); ?>">
+
+			<input type="hidden" name="option" value="com_users">
+			<input type="hidden" name="task" value="user.login">
+			<input type="hidden" name="return" value="<?php echo base64_encode(Uri::base()); ?>">
+			<?php echo HTMLHelper::_('form.token'); ?>
+		</fieldset>
+	</form>
+</body>
+</html>
 
 ```
 
-##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t34...t35#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
+##### [templates/facile/templateDetails.xml](hhttps://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
 
 Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden.
 
 Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:include` in der `index.php` eingebunden zu werden. Optional können wir Parameter anlegen, um das Template im Backend anpassbar zu machen. Vielleicht wollen Sie Ihr Template in verschiedenen Farben erstrahlen lassen? Nachfolgend habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns eine minimale Version der `templateDetails.xml` an:
 
-[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/templateDetails.xml)
+[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
-<!-- https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/templateDetails.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">
@@ -304,52 +248,6 @@ Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:
 		<filename>template_thumbnail.png</filename>
 		<folder>language</folder>
 	</files>
-
-	<positions>
-		<position>menu</position>
-		<position>search</position>
-		<position>banner</position>
-		<position>top-a</position>
-		<position>top-b</position>
-		<position>main-top</position>
-		<position>main-bottom</position>
-		<position>breadcrumbs</position>
-		<position>sidebar-left</position>
-		<position>sidebar-right</position>
-		<position>bottom-a</position>
-		<position>bottom-b</position>
-		<position>footer</position>
-		<position>debug</position>
-	</positions>
-
-	<config>
-		<fields name="params">
-			<fieldset name="advanced">
-				<field
-					name="logoFile"
-					type="media"
-					default=""
-					label="TPL_FACILE_LOGO_LABEL"
-				/>
-
-				<field
-					name="siteTitle"
-					type="text"
-					default=""
-					label="JGLOBAL_TITLE"
-					filter="string"
-				/>
-
-				<field
-					name="siteDescription"
-					type="text"
-					default=""
-					label="JGLOBAL_DESCRIPTION"
-					filter="string"
-				/>
-			</fieldset>
-		</fields>
-	</config>
 </extension>
 
 ```
@@ -373,6 +271,10 @@ Als nächstes kommen die allgemeinen Informationen des Templates wie
 Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner `<folder>` und Dateien `<filename>` werden eingebettet. Das Modul `<positions>` kommt im Anschluss. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden - ist über den Modulmanager im Joomla Backend auswählbar.
 
 ##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
+
+Die beiden neuen PNG-Dateien sind die Bilder, die im Template Manager angezeigt werden.
+
+![Joomla Template erstellen - Images](/images/j4x40x7.png)
 
 ### Geänderte Dateien
 
