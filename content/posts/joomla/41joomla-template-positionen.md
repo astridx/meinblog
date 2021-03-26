@@ -1,12 +1,12 @@
 ---
 date: 2021-01-09
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Erste Schritte'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Modul Positionen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: en/joomla-template-erste-schritte
-langKey: en
+slug: joomla-template-positionen
+langKey: de
 categories:
-  - JoomlaEn
+  - JoomladE
   - Code
 tags:
   - CMS
@@ -14,44 +14,22 @@ tags:
   - Joomla
 ---
 
-Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates.
+
 Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
 
-## For impatient people
+## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Step by step
+## Schritt für Schritt
 
 Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht eher darum, hinter die Funktionen zu blicken und diese zu verstehen, als etwas "Schönes" zu erschaffen.
 
-### New files
+### Neue Dateien
 
 #### Template
 
 Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf.
-
-##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
-
-[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
-
-```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php
-
-Component
-
-```
-
-##### [templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
-
-[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php)
-
-```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php
-
-Error
-
-```
 
 ##### [templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -59,9 +37,7 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 
 [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
 
-```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php
-
+```php {diff}
 <?php
 /**
  * @package     Facile
@@ -80,11 +56,11 @@ $sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
 
 if ($this->params->get('logoFile'))
 {
-	$logo = '<img src="' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '">';
+	$logo = '<img src=8' . Uri::root() . htmlspecialchars($this->params->get('logoFile'), ENT_QUOTES) . '" alt="' . $sitename . '8>';
 }
 elseif ($this->params->get('siteTitle'))
 {
-	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+	$logo = '<span title="' . $sitename . '8>' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
 }
 else
 {
@@ -338,7 +314,7 @@ Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner
 
 ##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
 
-### Modified files
+### Geänderte Dateien
 
 In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 
@@ -349,20 +325,31 @@ In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
 
 2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deinem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
+![Joomla Template erstellen - Die Installation](/images/j4x40x2.png)
 
-3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Ö
+3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
+![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
 
-4. Template Style Facile als aktiv.
+5. Installiere die Beispieldaten.
 
-5. Installiere die Beispieldaten für die Tests
+6. Rufe die URL `joomla-cms4/index.php?tp=1` auf. Öffne die Frontend-Ansicht. 
+![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x2.png)
 
-6. Rufe die URL `joomla-cms4/index.php?tp=1` auf.
 
-## Changed files
+![Joomla Template erstellen - Modul Positionen](/images/j4x41x1.png)
 
-### Overview
+![Joomla Template erstellen - Beispieldateien installieren](/images/j4x41x2.png)
 
-### All changes at a glance
+![Joomla Template erstellen - Ansicht Facil ungestyled](/images/j4x41x3.png)
+
+![Joomla Template erstellen - Ansicht in Cassiopeia](/images/j4x41x4.png)
+
+
+## Geänderte Dateien
+
+### Übersicht
+
+### Alle Änderungen
 
 github.com/astridx/boilerplate/compare/t34...t35.diff
 

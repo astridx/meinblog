@@ -1,9 +1,9 @@
 ---
-date: 2021-01-11
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Erste Schritte'
+date: 2021-01-13
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Parameter und Variablen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: joomla-template-erste-schritte-3
+slug: joomla-template-variablen
 langKey: de
 categories:
   - Code
@@ -16,7 +16,7 @@ Wir ergänzen Namespace und Helper.
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t37...t38) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -45,6 +45,16 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 3. Installiere die Beispieldaten für die Tests
 
 4. Rufe die URL `joomla-cms4/index.php?tp=1` auf.
+
+
+
+![Joomla Template erstellen - Banner über Parameter im Frontend](/images/j4x43x1.png)
+
+![Joomla Template erstellen - Banner über Parameter im Backend](/images/j4x43x2.png)
+
+![Joomla Template erstellen - Social Media Backend](/images/j4x43x3.png)
+
+![Joomla Template erstellen - Social Media Frontend](/images/j4x43x4.png)
 
 ## Geänderte Dateien
 

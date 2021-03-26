@@ -13,11 +13,11 @@ tags:
   - Joomla
 ---
 
-Über Parameter ist das Modul für Endbenutzer flexibel anpassbar.
+Via [Parameter](https://en.wikipedia.org/wiki/Parameter_(computer_programming)), the Joomla module can be flexibly adapted for end users. Parameters are variables through which Joomla is set to process certain values. In other words, parameters are influencing factors set externally to the programme. They are used to tell Joomla externally which data should be processed and how.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t32...t33) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t32...t33) and incorporate these changes into your development version.
 
 ## Step by step
 
@@ -33,13 +33,13 @@ In this part, only files have been changed. There are no new files.
 
 #### Module
 
-##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+##### [modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
 
-[modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+The labelling of the parameter should adapt to the active language. For this reason we use the language file.
 
-Die Beschriftung des Parameters soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei.
+> Are you wondering about the prefix `COM_` in `COM_MODULES_FOOPARAMS_FIELDSET_LABEL`? The language string is automatically created by Joomla because a fieldset called `fooparams` is added.
 
-> Beachte `COM_MODULES_FOOPARAMS_FIELDSET_LABEL="Foo Parameter"`
+[modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 ```php {diff}
 MOD_FOO="[PROJECT_NAME]"
@@ -49,11 +49,11 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod_foo/mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
 
-In der Einstiegsdatei des Moduls prüfen wir, auf welchen Wert der Parameter gestzt ist und laden ihn in eine Variable.
+In the module's initial file `modules/mod_foo/ mod_foo.php`, we check which value the parameter is set to and store it in a variable. This way, uncomplicated access is possible later.
 
-[modules/mod_foo/mod_foo.php]()
+[modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/183694b03393699bf3af10f5dd0207188a97cb31/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
 $test  = FooHelper::getText();
@@ -63,18 +63,13 @@ $test  = FooHelper::getText();
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
-Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich die Standardparameter. Die Logik für diese wird von Joomla für alle Module übernommen.
+In the manifest we add the new parameter so that it is editable in the Joomla backend.
 
-[modules/mod_foo/mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
- 	<files>
- 		<filename module="mod_foo">mod_foo.php</filename>
- 		<folder>tmpl</folder>
--		<folder>Helper</folder>
-+		<folder>Helper</folder>
  		<folder>language</folder>
  		<filename>mod_foo.xml</filename>
  	</files>
@@ -94,13 +89,16 @@ Im Manifest fügen wir neben dem aktuellen noch weitere Paramter hinzu, nämlich
 
 ```
 
-> Verwende `<fieldset name="basic">`. um die Parameter im ersten Tabulator anzuzeigen.
+> Use `<fieldset name="basic">` to display the parameters in the first tab that opens immediately.
 
-Neben den Parametern die ein Entwickler in sein Modul einfügt, gib es Standardparameter, die Joomla selbst handhabt. ![Joomla Modul testen](/images/j4x38x1.png)
+> In addition to the parameters that a developer inserts into his module, there are standard parameters that Joomla handles itself. For example `/administrator/components/com_modules/forms/advanced.xml`.
+![Joomla Module Parameters](/images/j4x38x1.png)
 
 ##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
 
-In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespeichert ist.
+In the module's own template file, we can now access the value of the parameter. In the following example, we output the value as text. Usually a parameter is used in a more complex way, for example within control structures such as if-statements or loops.
+
+> An example of the more complex use of a parameter is a digital map where parameters are used to enable controls such as `locate me` or a choice of map type.
 
 [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
 
@@ -112,21 +110,21 @@ In der Templatedatei fügen wie die Variable ein, in der der Paramterwert gespei
 
 ```
 
-## Teste dein Joomla-Module
+## Test your Joomla module
 
-1. Installiere das Modul in Joomla Version 4, um es zu testen:
+1. install the module in Joomla version 4 to test it:
 
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
+Copy the files in the `modules` folder into the `modules` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+A new installation is not necessary. Continue using the files from the previous part.
 
-2. Überprüfe das Vorhandensein des Parameters im Backend.
+2. Check the presence of the parameter in the backend.
 
-![Joomla Modul testen](/images/j4x38x4.png)
+![Test Joomla Module](/images/j4x38x3.png)
 
-3. Überzeuge dich davon, dass der Wert des Parameters bei der Anzeige im Frontend berücksichtigt wird.
+3. make sure that the value of the parameter is taken into account in the frontend display.
 
-![Joomla Modul testen](/images/j4x38x2.png)
+![Test Joomla Module](/images/j4x38x2.png)
 
 ## Changed files
 

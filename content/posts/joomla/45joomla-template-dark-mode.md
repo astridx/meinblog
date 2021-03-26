@@ -1,19 +1,18 @@
 ---
-date: 2021-01-14
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Paket - Alle Erweiterungen in einer Installationsdatei'
+date: 2021-01-11
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Dark Mode'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: en/joomla-paket-alles-zusammen
-langKey: en
+slug: joomla-template-dark-mode
+langKey: de
 categories:
-  - JoomlaEn
   - Code
 tags:
   - CMS
   - Joomla
 ---
 
-Erstellen ein Installationspaket.
+Wir ergänzen Namespace und Helper.
 
 ## Für Ungeduldige
 
@@ -47,12 +46,18 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 
 4. Rufe die URL `joomla-cms4/index.php?tp=1` auf.
 
+
+![Joomla Template erstellen - Dark Mode](/images/j4x45x1.png)
+
 ## Geänderte Dateien
 
 ### Übersicht
 
 ### Alle Änderungen
 
-github.com/astridx/boilerplate/compare/t39...t40.diff
+github.com/astridx/boilerplate/compare/t36...t37.diff
 
 ## Links
+
+[prefers-color-scheme](https://web.dev/prefers-color-scheme/)
+[<dark-mode-toggle>-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)

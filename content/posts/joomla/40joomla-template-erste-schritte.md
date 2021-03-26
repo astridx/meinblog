@@ -1,6 +1,6 @@
 ---
 date: 2021-01-09
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - First Steps'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Erste Schritte'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-erste-schritte
@@ -14,7 +14,19 @@ tags:
   - Joomla
 ---
 
-Ein Template ist verantwortlich für das Design der Website. Es gibt zwei Arten von Templates in Joomla: Front-End-Templates und Back-End-Templates.
+Warum ein eigenes Joomla Template erstellen? Es gibt ein paar gute Gründe, warum wir dies in Angriff nehmen sollten! 
+- Die Erstellung eines eigenen Joomla Templates hat zur Folge, dass wir die vollständige Kontrolle über jedes kleinste Detail des Erscheinungsbildes der Website haben. Wir erstellen nur Code, den wir mögen. Es ist viel einfacher, ein eigenes Template zu ändern, als ein komplexes Joomla Template, bei dem oft die unterschiedlichen Elemente voneinander anhängen.
+- Die Erstellung eines eigenen Templates bewirkt, dass wir die Website nicht Funktionen überfrachten, die wir gar nicht nutzen. 
+- Wenn wir uns ein individuelles Joomla-Template wünschen, das nicht von Tausenden anderer Websites verwendet wird, ist die Erstellung einer einen Vorlage eine Möglichkeit.
+- Wenn du bisher noch nie ein Joomla Template erstellt hast, wirst du beim Entwickeln sehr viel über Joomla lernen. Du wirst am Ende sehr viel über das Zusammenspiel der unterschiedlichen Elemente wissen und dich sicherer fühlen.
+
+> Es geht hier nicht um das Erlernen von HTML und CSS. Deshalb werde ich in diesem Artikel ein fertiges [HTML5-Template](https://html5up.net/txt) zu Hilfe nehmen. Folge meinem Beispiel und du wirst am Ende in der Lage sein, ein vollständiges Joomla Template selbst zu erstellen. HTML und CSS entwickelst du selbst oder nimmst wie ich hier, eine Vorlage. 
+
+Ein Template ist verantwortlich für das Design der Website. 
+Es gibt zwei Arten von Templates in Joomla: 
+- Front-End-Templates und 
+- Back-End-Templates.
+
 Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
 
 ## Für Ungeduldige
@@ -23,7 +35,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht eher darum, hinter die Funktionen zu blicken und diese zu verstehen, als etwas "Schönes" zu erschaffen.
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
 
 ### Neue Dateien
 
@@ -32,6 +44,12 @@ Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kanns
 Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf.
 
 ##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
+
+Die `component.php` ermöglicht es, eine abgespeckte Version der Site zu erzeugen. Das bedeutet, dass nur die Ansicht der Komponente angezeigt wird. Diese kann sehr gut für einen Ausdruck verwendet werden. Die Komponente ist für die Darstellung der Artikel zuständig. Das gesamte Layout, also zum Beispiel die Module und die Navigation bleibt dabei außen vor. Dies kann recht praktisch sein; der Fokus liegt auf dem Inhalt.
+
+> Diese Ansicht wird im Browser über den Link `/index.php?tmpl=component` angezeigt.
+
+
 
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
@@ -43,6 +61,18 @@ Component
 ```
 
 ##### [templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
+
+Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist nicht individuell. Viel besser ist es, eine eigene Fehlerseite zu erstellen. 
+
+Meiner Meinung nach eine gute Fehlerseite beinhaltet: 
+- Minimalistisches Design: Drücke dich mit einfachen Texten und klaren Bildern aus. Schreibe nur das Nötigste. Weniger ist mehr! 
+- Verlinke auf die Startseite: Beschreibe klar und deutlich, wie die Homepage erreichbar ist und setze einen Link auf diese. Ein zusätzlicher Link, zum Beispiel im Logo, ist hilfreich. Er sollte aber nicht der einzige Punkt sein, um wieder auf die Homepage zu gelangen. 
+- Eine Suche: Biete dem Besucher ein Suchfeld an. Er wird wissen, was er sehen will. Ein Suchfeld wird geschätzt und gibt dem Besucher eine Möglichkeit, dieses zu finden. Nebenbei bleibt er so auf deiner Website. 
+- Keine Fachbegriffe: "404 Error" ist für viele Menschen völlig bedeutungslos.
+
+> Die Fehlerseite sollte die Besucher nicht zurechtweisen. Schließlich ist es nicht ihre Schuld, wenn eine Seite nicht existiert oder ein interner Serverfehler auftritt. 
+
+Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/index.php` erstellt. Sie beinhaltet nichts weiter als das Wort Error. So kannst du deiner Phantasie freien Lauf lassen.
 
 [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/error.php)
 
@@ -226,6 +256,12 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6883c0bebfdde2e2fa5faf0c765520ece0850108806a0ea508cb132c08b9d322)
 
+
+![Joomla Template erstellen - Offline Seite Backend](/images/j4x40x5.png)
+
+![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
+
+
 [templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
@@ -349,14 +385,26 @@ In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
 
 2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deinem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
+![Joomla Template erstellen - Die Installation](/images/j4x40x2.png)
 
-3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Ö
+3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
+![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
 
-4. Template Style Facile als aktiv.
+5. Installiere die Beispieldaten.
 
-5. Installiere die Beispieldaten für die Tests
+6. Rufe die URL `joomla-cms4/index.php?tp=1` auf. Öffne die Frontend-Ansicht. 
+![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x2.png)
 
-6. Rufe die URL `joomla-cms4/index.php?tp=1` auf.
+
+5. Einfache Error seite
+![Joomla Template erstellen - Error Seite](/images/j4x40x4.png)
+
+
+
+
+
+
+
 
 ## Geänderte Dateien
 
@@ -370,3 +418,4 @@ github.com/astridx/boilerplate/compare/t34...t35.diff
 
 [Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)
+[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)

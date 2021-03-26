@@ -1,9 +1,9 @@
 ---
-date: 2021-01-13
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Erste Schritte'
+date: 2021-01-11
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Web Asset Manager'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: joomla-template-erste-schritte-5
+slug: joomla-template-wa
 langKey: de
 categories:
   - Code
@@ -21,6 +21,20 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 ## Schritt für Schritt
 
 In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
+
+todo zum testen
+```js
+    <script>
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+        console.log('Dark mode is supported');
+    }
+    if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        console.log('Dark mode');
+    } else {
+        console.log('Light  mode');
+    }
+    </script>
+```
 
 ### Neue Dateien
 
@@ -52,9 +66,27 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 
 ### Alle Änderungen
 
-github.com/astridx/boilerplate/compare/t38...t39.diff
+github.com/astridx/boilerplate/compare/t36...t37.diff
 
 ## Links
 
 [Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)
+
+auch mein scss plugin
+
+https://docs.joomla.org/J4.x:Web_Assets/de
+
+
+
+    {
+      "name": "searchtools",
+      "type": "style",
+      "uri": "system/searchtools/searchtools.min.css"
+    }
+    falls fontentend editing
+
+
+$wa  = $this->getWebAssetManager();
+$wa->registerAndUseStyle('main', $templatePath . '/assets/css/main.css');
+reicht wenn keine json datei

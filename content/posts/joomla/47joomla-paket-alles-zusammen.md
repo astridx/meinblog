@@ -1,9 +1,9 @@
 ---
-date: 2021-01-12
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Erste Schritte'
+date: 2021-01-14
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Paket - Alle Erweiterungen in einer Installationsdatei'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: joomla-template-erste-schritte-4
+slug: joomla-paket-alles-zusammen
 langKey: de
 categories:
   - Code
@@ -12,11 +12,11 @@ tags:
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+Erstellen ein Installationspaket.
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t37...t38) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t41...t42) an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -52,9 +52,6 @@ Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien 
 
 ### Alle Änderungen
 
-github.com/astridx/boilerplate/compare/t37...t38.diff
+github.com/astridx/boilerplate/compare/t39...t40.diff
 
 ## Links
-
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)
