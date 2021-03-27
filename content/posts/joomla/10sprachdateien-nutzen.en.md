@@ -258,7 +258,7 @@ So that the language files are copied during an installation, we add the `<folde
  		<folder>src</folder>
  		<folder>tmpl</folder>
  	</files>
-@@ -39,6 +40,7 @@
+
  		<files folder="administrator/components/com_foos">
  			<filename>foos.xml</filename>
  			<folder>forms</folder>

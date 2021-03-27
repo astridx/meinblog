@@ -121,7 +121,7 @@ Im Model passen wir alles so an, dass die beiden neuen Spalten korrekt geladen w
  				)
  			)
  		);
-@@ -124,6 +134,13 @@ protected function getListQuery()
+
  			$query->select('(' . $subQuery . ') AS ' . $db->quoteName('association'));
  		}
 

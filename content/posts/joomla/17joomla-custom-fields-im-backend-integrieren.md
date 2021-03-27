@@ -170,7 +170,7 @@ In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor
 
  /**
   * View class for a list of foos.
-@@ -31,6 +33,13 @@ class HtmlView extends BaseHtmlView
+
  	 */
  	protected $items;
 
@@ -184,7 +184,7 @@ In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor
  	/**
  	 * Method to display the view.
  	 *
-@@ -58,6 +67,9 @@ public function display($tpl = null): void
+
  	 */
  	protected function addToolbar()
  	{
@@ -194,7 +194,7 @@ In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor
  		$canDo = ContentHelper::getActions('com_foos');
 
  		// Get the toolbar object instance
-@@ -74,5 +86,7 @@ protected function addToolbar()
+
  		{
  			$toolbar->preferences('com_foos');
  		}
@@ -228,7 +228,7 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
  $wa = $this->document->getWebAssetManager();
  $wa->useScript('keepalive')
  	->useScript('form.validate')
-@@ -26,13 +30,31 @@
+
  ?>
 
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">

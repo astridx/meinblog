@@ -1,34 +1,21 @@
 ---
-date: 2021-01-11
+date: 2021-01-15
 title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Favicon'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-favicon
 langKey: de
 categories:
+  - JoomladE
   - Code
 tags:
   - CMS
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das verwendet wird, um eine Website auf wiedererkennbare Weise zu kennzeichnen. Es erscheint auf unterschiedlichen Geräten beim Speichern einer Website als Favorit.
 
-facicon https://realfavicongenerator.net/
-
-
-Download your package:
-Extract this package in the root of your web site. If your site is http://www.example.com, you should be able to access a file named http://www.example.com/favicon.ico.
-Insert the following code in the <head> section of your pages:
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-
-
+> Die Größe und der Typ des Favicon wird auf unterschiedlichen Geräten anders erwartet. Ich nutze die Website [realfavicongenerator.net](https://realfavicongenerator.net/), um die optimale Form meines Bildes für die jeweiligen Geräte zu erstellen.
 
 ## Für Ungeduldige
 
@@ -36,31 +23,54 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu.
+In diesem Abschnitt schaffen wir einen Wiedererkennungswert. Im ersten Schritt wählen wir ein Image. Für das Beispiel habe ich eine gelbe PNG-Datei gewählt. Im nächsten Schritt wandeln wir dieses mithilfe der Website [realfavicongenerator.net](https://realfavicongenerator.net/) in unterschiedliche Formate.
 
 ### Neue Dateien
 
-#### Module
+Der Favicon-Generator erstellt 9 Datei, die wir in unser Template-Verzeichnis kopieren. Ich habe alle im Verzeichnis `templates/facile/ favicon_package` abgelegt. Es handelt sich dabei genau um die Files
 
-##### []()
+1.  android-chrome-192x192.png
+2.  android-chrome-512x512.png
+3.  apple-touch-icon.png
+4.  browserconfig.xml
+5.  favicon-16x16.png
+6.  favicon-32x32.png
+7.  favicon.ico
+8.  mstile-150x150.png
+9.  site.webmanifest
 
-```php
+### Geänderte Dateien
 
+Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile/ index.php` erforderlich. Die Variable `$templatePath` hilft mir beim Erstellen des Pfades.
+
+##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
+
+```php {diff}
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <jdoc:include type="styles" />
+     <jdoc:include type="scripts" />
++
++    <link rel="apple-touch-icon" sizes="180x180"
++        href="<?php echo $templatePath . '/favicon_package'; ?>/apple-touch-icon.png">
++    <link rel="icon" type="image/png" sizes="32x32"
++        href="<?php echo $templatePath . '/favicon_package'; ?>/favicon-32x32.png">
++    <link rel="icon" type="image/png" sizes="16x16"
++        href="<?php echo $templatePath . '/favicon_package'; ?>/favicon-16x16.png">
++    <link rel="manifest" href="<?php echo $templatePath . '/favicon_package'; ?>/site.webmanifest">
++    <meta name="msapplication-TileColor" content="#da532c">
++    <meta name="theme-color" content="#ffffff">
++
+     <script type="module" src="https://unpkg.com/dark-mode-toggle"></script>
+ </head>
 ```
 
 ## Teste dein Joomla-Template
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+1. Installiere dein Template in Joomla Version 4, um es zu testen:
 
 Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
 
-Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
-
-2. Template Style Facile als aktiv.
-
-3. Installiere die Beispieldaten für die Tests
-
-4. Rufe die URL `joomla-cms4/index.php?tp=1` auf.
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Vergewissere dich, dass die Favicons auf den jeweiligen Geräten korrekt angezeigt werden. Nachfolgend siehst du eine Darstellung im Browser Firefox.
 
 ![Joomla Template erstellen - Favicon](/images/j4x46x1.png)
 
@@ -75,3 +85,5 @@ github.com/astridx/boilerplate/compare/t36...t37.diff
 ## Links
 
 [Favicon Generator](https://realfavicongenerator.net/)
+
+todo cassiopeia facicon überschreiben?

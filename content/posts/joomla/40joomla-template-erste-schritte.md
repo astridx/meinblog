@@ -6,25 +6,26 @@ thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-erste-schritte
 langKey: de
 categories:
-  - JoomladE
+  - JoomlaDe
   - Code
 tags:
   - CMS
-  - Template
   - Joomla
 ---
 
-Warum ein eigenes Joomla Template erstellen? Es gibt ein paar gute Gründe, warum wir dies in Angriff nehmen sollten! 
+Warum ein eigenes Joomla Template erstellen? Es gibt ein paar gute Gründe, warum wir dies in Angriff nehmen sollten!
+
 - Die Erstellung eines eigenen Joomla Templates hat zur Folge, dass wir die vollständige Kontrolle über jedes kleinste Detail des Erscheinungsbildes der Website haben. Wir erstellen nur Code, den wir mögen. Es ist viel einfacher, ein eigenes Template zu ändern, als ein komplexes Joomla Template, bei dem oft die unterschiedlichen Elemente voneinander anhängen.
-- Die Erstellung eines eigenen Templates bewirkt, dass wir die Website nicht Funktionen überfrachten, die wir gar nicht nutzen. 
+- Die Erstellung eines eigenen Templates bewirkt, dass wir die Website nicht Funktionen überfrachten, die wir gar nicht nutzen.
 - Wenn wir uns ein individuelles Joomla-Template wünschen, das nicht von Tausenden anderer Websites verwendet wird, ist die Erstellung einer einen Vorlage eine Möglichkeit.
 - Wenn du bisher noch nie ein Joomla Template erstellt hast, wirst du beim Entwickeln sehr viel über Joomla lernen. Du wirst am Ende sehr viel über das Zusammenspiel der unterschiedlichen Elemente wissen und dich sicherer fühlen.
 
-> Es geht hier nicht um das Erlernen von HTML und CSS. Deshalb werde ich in diesem Artikel ein fertiges [HTML5-Template](https://html5up.net/txt) zu Hilfe nehmen. Folge meinem Beispiel und du wirst am Ende in der Lage sein, ein vollständiges Joomla Template selbst zu erstellen. HTML und CSS entwickelst du selbst oder nimmst wie ich hier, eine Vorlage. 
+> Es geht hier nicht um das Erlernen von HTML und CSS. Deshalb werde ich in diesem Artikel ein fertiges [HTML5-Template](https://html5up.net/txt) zu Hilfe nehmen. Folge meinem Beispiel und du wirst am Ende in der Lage sein, ein vollständiges Joomla Template selbst zu erstellen. HTML und CSS entwickelst du selbst oder nimmst wie ich hier, eine Vorlage.
 
-Ein Template ist verantwortlich für das Design der Website. 
-Es gibt zwei Arten von Templates in Joomla: 
-- Front-End-Templates und 
+Ein Template ist verantwortlich für das Design der Website.
+Es gibt zwei Arten von Templates in Joomla:
+
+- Front-End-Templates und
 - Back-End-Templates.
 
 Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
@@ -49,8 +50,6 @@ Die `component.php` ermöglicht es, eine abgespeckte Version der Site zu erzeuge
 
 > Diese Ansicht wird im Browser über den Link `/index.php?tmpl=component` angezeigt.
 
-
-
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
@@ -62,15 +61,16 @@ Component
 
 ##### [templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
 
-Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist nicht individuell. Viel besser ist es, eine eigene Fehlerseite zu erstellen. 
+Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist nicht individuell. Viel besser ist es, eine eigene Fehlerseite zu erstellen.
 
-Meiner Meinung nach eine gute Fehlerseite beinhaltet: 
-- Minimalistisches Design: Drücke dich mit einfachen Texten und klaren Bildern aus. Schreibe nur das Nötigste. Weniger ist mehr! 
-- Verlinke auf die Startseite: Beschreibe klar und deutlich, wie die Homepage erreichbar ist und setze einen Link auf diese. Ein zusätzlicher Link, zum Beispiel im Logo, ist hilfreich. Er sollte aber nicht der einzige Punkt sein, um wieder auf die Homepage zu gelangen. 
-- Eine Suche: Biete dem Besucher ein Suchfeld an. Er wird wissen, was er sehen will. Ein Suchfeld wird geschätzt und gibt dem Besucher eine Möglichkeit, dieses zu finden. Nebenbei bleibt er so auf deiner Website. 
+Meiner Meinung nach eine gute Fehlerseite beinhaltet:
+
+- Minimalistisches Design: Drücke dich mit einfachen Texten und klaren Bildern aus. Schreibe nur das Nötigste. Weniger ist mehr!
+- Verlinke auf die Startseite: Beschreibe klar und deutlich, wie die Homepage erreichbar ist und setze einen Link auf diese. Ein zusätzlicher Link, zum Beispiel im Logo, ist hilfreich. Er sollte aber nicht der einzige Punkt sein, um wieder auf die Homepage zu gelangen.
+- Eine Suche: Biete dem Besucher ein Suchfeld an. Er wird wissen, was er sehen will. Ein Suchfeld wird geschätzt und gibt dem Besucher eine Möglichkeit, dieses zu finden. Nebenbei bleibt er so auf deiner Website.
 - Keine Fachbegriffe: "404 Error" ist für viele Menschen völlig bedeutungslos.
 
-> Die Fehlerseite sollte die Besucher nicht zurechtweisen. Schließlich ist es nicht ihre Schuld, wenn eine Seite nicht existiert oder ein interner Serverfehler auftritt. 
+> Die Fehlerseite sollte die Besucher nicht zurechtweisen. Schließlich ist es nicht ihre Schuld, wenn eine Seite nicht existiert oder ein interner Serverfehler auftritt.
 
 Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/index.php` erstellt. Sie beinhaltet nichts weiter als das Wort Error. So kannst du deiner Phantasie freien Lauf lassen.
 
@@ -83,11 +83,11 @@ Error
 
 ```
 
-##### [templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
 
-[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
+[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/index.php.php
@@ -121,19 +121,15 @@ Die erste Zeile ist in PHP geschrieben. Das Gute an PHP und HTML ist, dass es zu
 
 Später deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.org/QA/2002/04/valid-dtd-list.html). Dies stellt sicher, dass das Dokument von verschiedenen Browsern auf die gleiche Weise geparst wird. Die einfachste und zuverlässigste Doctype-Deklaration, die verwendet werden kann, ist die in HTML5 definierte. Diese verwenden wir.
 
-Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`. Innerhalb des Header-Bereichs, während wir die Header-Informationen mit `<jdoc: include type="head" />` aus der Joomla API laden. Dieser `jdoc:include`-Befehl fügt die normalen Header-Informationen ein, die eine Website benötigt.
+Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`.
 
-Den Befehl `jdoc:include` finden wir noch öfter in der `index.php`. Beispielsweise sehen wir `<jdoc:include type="message" />`, damit funktionieren die Systemmeldungen. Wann immer Joomla dem Websitebetrachter etwas mitteilt, wird diese Zeile es auf Ihrem Bildschirm anzeigen. Wenn man beispielsweise eine E-Mail über ein Kontaktformular senden, wir man die Nachricht "Ihre Nachricht wurde erfolgreich gesendet" sehen.
+So, genug erklärt. So sieht die Website minimal aus. Sie lädt noch keine Inhalte aus Joomla! Mir ging es hier in erste Linie darum zu zeigen, dass die `index.php` des aktiven Templates für alles verantwortlich ist. In unserem Fall ist dies die Datei `templates/facile/index.php`.
 
-Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element sollte nur einmal im `<body>`-Element erscheinen, um den Hauptinhalt der Seite in Bezug auf die aktuell angezeigte Seite darzustellen.
+##### [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
-Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`.
+Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt dafür, dass im Backend bei der Verwaltung der Erweiterungen der Name zur Sprache passend angezeigt wird.
 
-So, genug erklärt. So sieht die Website minimal aus.
-
-##### [templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
-
-[templates/facile/language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/language/en-GB/tpl_facile.ini
@@ -143,9 +139,11 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+##### [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
-[templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` übersetzt nach der Installation in die korrekte Sprache.
+
+[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/language/en-GB/tpl_facile.sys.ini
@@ -156,13 +154,17 @@ FACILE="Facile - Site template"
 
 ##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
+Die Datei `offline.php` wird aufgerufen, wenn im Backend der Wartungsmodus aktviert ist. Du aktivierst diesen in der globalen Konfiguration.
 
 ![Joomla Template erstellen - Offline Seite Backend](/images/j4x40x5.png)
 
+> Um die Website technisch auf dem neuesten Stand zu halten oder um neue Funktionen zu integrien, wird sie von Zeit zu Zeit überarbeitet. Meist handelt es sich dabei um Updates. Während der Aktualisierung kann es zu Anzeigeproblemen kommen. Damit Besucher nicht durch eine Fehlermeldung irritiert werden, gibt es bei Joomla den Wartungsmodus. Ist dieser aktiv wird einem Besuchern eine spezielle Wartungsmodus-Seite angezeigt, die `offline.php`.
+
+Der nachfolgende minimalischte Code sorgt dafür, dass ein Anmeldeformular angezeigt wird. Du könntest anstelle davon lediglich einen kurzen Text anzeigen. Das Formular ermöglicht es, dass ein Administrator die Website online testen.
+
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
-
-[templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
+[templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/offline.php
@@ -252,7 +254,7 @@ Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:
 
 ```
 
-Was sehen Sie hier? Die erste Zeile erzeugt einen XML-Abschnitt, der Version und Zeichensatz (utf-8) bestimmt.
+Was sehen wir hier? Die erste Zeile erzeugt einen XML-Abschnitt, der Version und Zeichensatz (utf-8) bestimmt.
 
 Kommen wir zu dem Teil der `templateDetails.xml`, der Informationen für die Installation enthält. Der Typ wird `template` genannt. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine bestehende Version zu installieren.
 
@@ -287,26 +289,20 @@ In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
 
 2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deinem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
+
 ![Joomla Template erstellen - Die Installation](/images/j4x40x2.png)
 
 3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
+
 ![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
 
-5. Installiere die Beispieldaten.
+5. Rufe die URL `/index.php?tp=1` auf. Öffne die Frontend-Ansicht.
 
-6. Rufe die URL `joomla-cms4/index.php?tp=1` auf. Öffne die Frontend-Ansicht. 
-![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x2.png)
+![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x1.png)
 
+6. Test die einfache Error-Seite. Gibt dazu eine URL im Adressfeld des Browsers ein, die nicht exisitert.
 
-5. Einfache Error seite
 ![Joomla Template erstellen - Error Seite](/images/j4x40x4.png)
-
-
-
-
-
-
-
 
 ## Geänderte Dateien
 
@@ -319,5 +315,7 @@ github.com/astridx/boilerplate/compare/t34...t35.diff
 ## Links
 
 [Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
+
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)
+
 [HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)

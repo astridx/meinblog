@@ -443,7 +443,7 @@ Damit bei einer neuen Installation das Verzeichnis `forms` an Joomla übergeben 
 
  /**
   * View class for a list of foos.
-@@ -39,6 +42,27 @@ class HtmlView extends BaseHtmlView
+
  	public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');

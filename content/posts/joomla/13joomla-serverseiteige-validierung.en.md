@@ -71,7 +71,7 @@ What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Admini
  		<field
  			name="id"
  			type="number"
-@@ -13,6 +13,7 @@
+
  		<field
  			name="name"
  			type="text"

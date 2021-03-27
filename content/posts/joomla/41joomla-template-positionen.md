@@ -1,5 +1,5 @@
 ---
-date: 2021-01-09
+date: 2021-01-10
 title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Modul Positionen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -10,12 +10,10 @@ categories:
   - Code
 tags:
   - CMS
-  - Template
   - Joomla
 ---
 
-
-Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
+Unser Template soll die Inhalte von Joomla an verschiedenen Positionen anzeigen. Wie Modul Positionen im Template integriert werden, ist Thema dieses Kapitels.
 
 ## Für Ungeduldige
 
@@ -23,21 +21,19 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht eher darum, hinter die Funktionen zu blicken und diese zu verstehen, als etwas "Schönes" zu erschaffen.
+We will proceed step by step. In this part we add the module positions so that Joomla displays content dynamically. We will take care of the design in the next part.
 
 ### Neue Dateien
 
-In diesem Abschnitt wurden lediglich Änderungen.
+In diesem Abschnitt wurde lediglich geändert.
 
 ### Geänderte Dateien
 
 #### Template
 
-Bisher haben wir eine stasche Website. In diesem Teil fügen wir mithilfe von Modulpositionen dynamsich Inhalte hinzu.
+##### [templates/facile/ component.php](https://github.com/astridx/boilerplate/blob/161043cf57d9bd06df1d23803db2cd1ed7aacbca/src/templates/facile/component.php)
 
-##### [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/161043cf57d9bd06df1d23803db2cd1ed7aacbca/src/templates/facile/component.php)
-
-Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
+Die Datei `component.php` zeigt lediglich den Content vom Type `component` an. Also den Hauptinhalt. Die Navigation und die Inhalte in Seitenleisten werden ausgelassen. Sinnvoll ist diese Anzeige besonders für Ausdrucke auf Papier. Ein minimaler Aufbau sieht wie folgt aus.
 
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/161043cf57d9bd06df1d23803db2cd1ed7aacbca/src/templates/facile/component.php)
 
@@ -57,10 +53,11 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 +
 ```
 
+> [`<jdoc:include type="head" />`](https://docs.joomla.org/Jdoc_statements#jdoc:include) lädt Inhalte, die Erweiterungen benötigen und über spezielle Befehle einbinden. Das sind überwiegend Skripte und Styles.
 
 ##### [templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
-Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
+Ich hatte es bereits geschrieben: Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Im vorhergehenden Kapitel hatten wir die Joomla-eigenen Inhalte nicht integriert. Dies hole ich hier nach. Ein minimaler Aufbau, der Joomla Inhalte lädt, sieht wie folgt aus.
 
 [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
 
@@ -133,23 +130,21 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
  </html>
 ```
 
-Die erste Zeile ist in PHP geschrieben. Das Gute an PHP und HTML ist, dass es zusammen geschrieben werden kann. Wir können PHP-Anweisungen in eine HMTL-Datei einfügen, und umgekehrt. `<?php` öffnet eine PHP-Anweisung - egal wo - und `?>` schließt sie wieder. In der ersten Zeile verbieten wir den direkten Zugriff auf diese Datei. Dies geschieht über die Joomla API mit dem Befehl `_JEXEC`. Diese Anweisung prüft, ob die Datei aus einer Joomla-Sitzung heraus aufgerufen wird, und sie schützt di Seite, indem sie es einem Hacker schwerer macht.
+> Innerhalb des Header-Bereichs laden Joomla Templates normalerweise Header-Informationen mit `<jdoc: include type="head" />` aus der Joomla API. Wir nutzen dies weiter oben in der Datei `component.php`. So ist man auf der sicheren Seite. Dieser `jdoc:include`-Befehl fügt die normalen Header-Informationen ein, die eine Website benötigt. Ich nutze diesen Befehl hier nicht, weil ich in der Hauptansicht selbst auswählen möchte, was ich benötige.
 
-Später deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.org/QA/2002/04/valid-dtd-list.html). Dies stellt sicher, dass das Dokument von verschiedenen Browsern auf die gleiche Weise geparst wird. Die einfachste und zuverlässigste Doctype-Deklaration, die verwendet werden kann, ist die in HTML5 definierte. Diese verwenden wir.
-
-Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`. Innerhalb des Header-Bereichs, während wir die Header-Informationen mit `<jdoc: include type="head" />` aus der Joomla API laden. Dieser `jdoc:include`-Befehl fügt die normalen Header-Informationen ein, die eine Website benötigt.
-
-Den Befehl `jdoc:include` finden wir noch öfter in der `index.php`. Beispielsweise sehen wir `<jdoc:include type="message" />`, damit funktionieren die Systemmeldungen. Wann immer Joomla dem Websitebetrachter etwas mitteilt, wird diese Zeile es auf Ihrem Bildschirm anzeigen. Wenn man beispielsweise eine E-Mail über ein Kontaktformular senden, wir man die Nachricht "Ihre Nachricht wurde erfolgreich gesendet" sehen.
+Den Befehl `jdoc:include` finden wir noch öfter in der `index.php`. Beispielsweise sehen wir `<jdoc:include type="message" />`, damit funktionieren die Systemmeldungen. Wann immer Joomla dem Websitebetrachter etwas mitteilt, wird diese Zeile es auf dem Bildschirm anzeigen. Wenn man beispielsweise eine E-Mail über ein Kontaktformular sendet, wird man die Nachricht "Ihre Nachricht wurde erfolgreich gesendet" sehen.
 
 Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element sollte nur einmal im `<body>`-Element erscheinen, um den Hauptinhalt der Seite in Bezug auf die aktuell angezeigte Seite darzustellen.
 
-Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`.
+Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`. Wie der Name schon sagt, werden hierüber Module eingebunden.
 
-So, genug erklärt. So sieht die Website minimal aus.
+So, genug erklärt. Alle Inhalte sind eingebunden. Sie werden allerdings nicht schön dargestellt. Erschrecke nicht, wenn du später diese Version im Browser öffnest. Du siehst alle Inhalt in ungestylter Form.
 
 ##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t35...t36#diff-764a4776e5fab4421733468c2fc87d67e612f3d84297fb83ed0495d4c04b27d2)
 
-Über die Sprachdateien ist es möglich, die Positionen genau zu beschreiben. Beachte die Zeile `TPL_FACILE_POSITION_TOP-A="Area under banner"`.
+Über die Sprachdateien ist es möglich, die Positionen genau zu beschreiben. Beachte die Zeile `TPL_FACILE_POSITION_TOP-A="Area under banner"`. `TOP-A"` sagt einem Benutzer nicht viel. Mit `Area under banner` kann er etwas anfangen.
+
+![Joomla Template erstellen - Modul Positionen besonders benennen](/images/j4x41x1.png)
 
 [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t35...t36#diff-764a4776e5fab4421733468c2fc87d67e612f3d84297fb83ed0495d4c04b27d2)
 
@@ -175,7 +170,7 @@ So, genug erklärt. So sieht die Website minimal aus.
 
 ##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t35...t36#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
 
-Die der Datei `templateDetails.xml`werden die Modulpositionen angelegt, um über den Befehl `jdoc:include` in der `index.php` eingebunden zu werden. 
+Die der Datei `templateDetails.xml`werden die Modulpositionen angelegt, um beim Anlegen eines Modules als Position auswählbar zu sein. So ist ein Modul über den Befehl `jdoc:include` in der `index.php` einbindbar.
 
 [ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/8238130b429378f62cf6652b2f77255a62a7380d/src/templates/facile/templateDetails.xml)
 
@@ -213,30 +208,28 @@ In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 
 ## Teste dein Joomla-Template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
+1. Installiere dein Template in Joomla Version 4, um es zu testen:
 
 Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
 
-2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deinem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
-![Joomla Template erstellen - Die Installation](/images/j4x40x2.png)
+Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
-![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
-
-5. Installiere die Beispieldaten.
-
-6. Rufe die URL `joomla-cms4/index.php?tp=1` auf. Öffne die Frontend-Ansicht. 
-![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x2.png)
-
-
-![Joomla Template erstellen - Modul Positionen besonders benennen](/images/j4x41x1.png)
+3. Installiere die Beispieldaten, so dass du über die gleichen Voraussetzungen verfügst, wie ich.
 
 ![Joomla Template erstellen - Beispieldateien installieren](/images/j4x41x2.png)
 
-![Joomla Template erstellen - Ansicht Facil ungestyled](/images/j4x41x3.png)
+4. Teste nun, ob die Beispieldateien korrekt angezeigt werde. Aktiviere dazu den Template Style Cassiopei und rufe die URL `joomla-cms4/index.php` auf. Wie du einen Template Style änderst, hatte ich im vorherigen Kapitel mit einem Bild gezeigt. Deine Ansicht sollte wie im folgenden Bild sein.
 
 ![Joomla Template erstellen - Ansicht in Cassiopeia](/images/j4x41x4.png)
 
+5. Teste als Nächstes, ob unser Template Facile fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile und rufe wieder die URL `joomla-cms4/index.php` auf. Deine Ansicht sollte wie im folgenden Bild sein.
+
+![Joomla Template erstellen - Ansicht Facil ungestyled](/images/j4x41x3.png)
+
+> Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeige in der globalen Konfiguration im Backend und rufe dann die URL `joomla-cms4/index.php?tp=1` auf. Das Anhängsel `?tp=1` ist entscheidend.
+> ![Joomla Template erstellen - Modul Positionen anzeigen - Backend](/images/j4x41x5.png) > ![Joomla Template erstellen - Modul Positionen anzeigen - Frontend](/images/j4x41x6.png)
+
+Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Tempalte als nächstes mit CSS und JavaScipt auf und passen die die Standard Ansichten von Joomla an.
 
 ## Geänderte Dateien
 

@@ -65,3 +65,13 @@ tags:
 ## Template
 
 1. [Template - First Steps](/en/joomla-template-erste-schritte)
+1. [Template - Module Positions](/en/joomla-template-positionen)
+1. [Template - Overrides - Alternative Overrides and Modules Chrome](/en/joomla-template-css-overrides-und-chrome)
+1. [Template - Parameters and Variables](/en/joomla-template-variablen)
+1. [Template - Web Asset Manager](/en/joomla-template-wa)
+1. [Template - Dark Mode](/en/joomla-template-dark-mode)
+1. [Template - Favicon](/en/joomla-template-favicon)
+
+## Paket
+
+1. [Paket - Packing several extensions together](/en/joomla-paket-alles-zusammen)

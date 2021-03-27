@@ -132,7 +132,7 @@ Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-
  {
  	/**
  	 * Minimum Joomla version to check
-@@ -92,6 +93,8 @@ public function install($parent): bool
+
  			return false;
  		}
 
@@ -141,7 +141,7 @@ Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-
  		return true;
  	}
 
-@@ -125,6 +128,8 @@ public function update($parent): bool
+
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
 

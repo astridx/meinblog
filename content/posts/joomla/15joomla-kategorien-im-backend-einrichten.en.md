@@ -134,7 +134,7 @@ To be able to specify a user as the creator of the category, we request the ID o
 
  /**
   * Script file of Foo Component
-@@ -47,6 +51,50 @@ public function install($parent): bool
+
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
 
@@ -185,7 +185,7 @@ To be able to specify a user as the creator of the category, we request the ID o
  		return true;
  	}
 
-@@ -146,4 +194,49 @@ public function postflight($type, $parent)
+
 
  		return true;
  	}
@@ -252,7 +252,7 @@ In the service provider we register the interface `CategoryFactoryInterface`. It
  use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
  use Joomla\CMS\Extension\ComponentInterface;
  use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
-@@ -51,6 +52,7 @@ function (Container $container)
+
 
  				$component->setRegistry($container->get(Registry::class));
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
@@ -292,7 +292,7 @@ Additionally, implementations are required in the component class to use Joomla'
 
  /**
   * Component class for com_foos
-@@ -46,4 +47,48 @@ public function boot(ContainerInterface $container)
+
  	{
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);
  	}
@@ -359,7 +359,7 @@ In the model we add to the database query the table where Joomla stores categori
  		);
 
  		$query->from($db->quoteName('#__foos_details', 'a'));
-@@ -60,6 +60,13 @@ protected function getListQuery()
+
  				$db->quoteName('#__viewlevels', 'ag') . ' ON ' . $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access')
  			);
 

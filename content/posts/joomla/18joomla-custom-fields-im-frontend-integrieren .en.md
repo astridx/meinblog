@@ -50,7 +50,7 @@ Specifically, we make sure that the events
 
  /**
   * HTML Foos View class for the Foo component
-@@ -37,7 +38,20 @@ class HtmlView extends BaseHtmlView
+
  	 */
  	public function display($tpl = null)
  	{

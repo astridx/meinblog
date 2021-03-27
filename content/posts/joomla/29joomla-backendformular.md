@@ -40,7 +40,7 @@ Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht ein
  	<div>
  		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'details']); ?>
 
-@@ -42,15 +43,14 @@
+
  			<div class="col-md-9">
  				<div class="row">
  					<div class="col-md-6">
@@ -64,7 +64,7 @@ Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht ein
  					</div>
  				</div>
  			</div>
-@@ -65,6 +65,19 @@
+
 
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 

@@ -122,7 +122,7 @@ In the controller we implement the method `batch`. If we look at it closely, we 
 
  /**
   * Controller for a single foo
-@@ -20,4 +21,24 @@
+
   */
  class FooController extends FormController
  {

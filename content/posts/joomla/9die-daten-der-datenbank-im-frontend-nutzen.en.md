@@ -503,7 +503,7 @@ In the view we consequently replace `$this->msg = $this->get('Msg');` with `$thi
  	/**
  	 * Execute and display a template script.
  	 *
-@@ -29,7 +37,7 @@ class HtmlView extends BaseHtmlView
+
  	 */
  	public function display($tpl = null)
  	{

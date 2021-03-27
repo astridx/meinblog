@@ -64,7 +64,7 @@ Zusammen sieht das in der Diff-Ansicht wie folgt aus:
  use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 
  /**
-@@ -33,10 +34,8 @@ class FooModel extends BaseDatabaseModel
+
  	 */
  	public function getMsg()
  	{

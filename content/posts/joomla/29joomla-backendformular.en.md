@@ -40,7 +40,7 @@ We replace the previously rudimentary form fields. The result is a view that res
  	<div>
  		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'details']); ?>
 
-@@ -42,15 +43,14 @@
+
  			<div class="col-md-9">
  				<div class="row">
  					<div class="col-md-6">
@@ -64,7 +64,7 @@ We replace the previously rudimentary form fields. The result is a view that res
  					</div>
  				</div>
  			</div>
-@@ -65,6 +65,19 @@
+
 
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 

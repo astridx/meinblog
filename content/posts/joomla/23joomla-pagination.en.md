@@ -49,7 +49,7 @@ We do not have any special requests. To display the default pagination, more or 
  	/**
  	 * The model state
  	 *
-@@ -75,7 +82,7 @@ class HtmlView extends BaseHtmlView
+
  	public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');

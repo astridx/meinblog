@@ -75,4 +75,3 @@ tags:
 ## Paket
 
 1. [Paket - Mehrere Erweiterungen zusammen packen](/joomla-paket-alles-zusammen)
-

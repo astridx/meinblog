@@ -244,7 +244,7 @@ Wir passen die XML Datei an, die Joomla verwendet, um das Formular aufzubauen.
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset 
+	<fieldset
 		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 	>
@@ -1124,7 +1124,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 			</div>
 		</div>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-		
+
 		<?php if ( !$isModal && $assoc) : ?>
 			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 			<?php echo $this->loadTemplate('associations'); ?>
@@ -1132,7 +1132,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 		<?php elseif ($isModal && $assoc) : ?>
 			<div class="hidden"><?php echo $this->loadTemplate('associations'); ?></div>
 		<?php endif; ?>
-		
+
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
@@ -1208,7 +1208,7 @@ In der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php
  use Joomla\CMS\Association\AssociationServiceInterface;
  use Joomla\CMS\Association\AssociationServiceTrait;
  use Joomla\CMS\Categories\CategoryServiceInterface;
-@@ -19,6 +20,7 @@
+
  use Joomla\CMS\Extension\MVCComponent;
  use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
  use FooNamespace\Component\Foos\Administrator\Service\HTML\AdministratorService;
@@ -1216,7 +1216,7 @@ In der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php
  use Psr\Container\ContainerInterface;
  use Joomla\CMS\Helper\ContentHelper;
 
-@@ -50,6 +52,7 @@ class FoosComponent extends MVCComponent
+
  	public function boot(ContainerInterface $container)
  	{
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);

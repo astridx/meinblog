@@ -49,7 +49,7 @@ Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, rei
  	/**
  	 * The model state
  	 *
-@@ -75,7 +82,7 @@ class HtmlView extends BaseHtmlView
+
  	public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');

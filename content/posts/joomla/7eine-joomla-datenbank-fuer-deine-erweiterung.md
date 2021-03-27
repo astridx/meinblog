@@ -163,7 +163,7 @@ Der nachfolgende Eintrag im Installationsmanifest bewirkt, dass die SQL-Statemen
  	<!-- Frond-end files -->
  	<files folder="components/com_foos">
  		<folder>src</folder>
-@@ -26,6 +36,7 @@
+
  		<files folder="administrator/components/com_foos">
  			<filename>foos.xml</filename>
  			<folder>services</folder>
@@ -213,7 +213,7 @@ Bisher war es nicht notwendig die `MVC factory` zu setzten, jetzt ist es erforde
  use Joomla\DI\Container;
  use Joomla\DI\ServiceProviderInterface;
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
-@@ -49,6 +50,7 @@ function (Container $container)
+
  				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
 
  				$component->setRegistry($container->get(Registry::class));
@@ -243,7 +243,7 @@ In der View holen wir am Ende die Elemente. Hierzu rufen wir die Methode `$this-
  	/**
  	 * Method to display the view.
  	 *
-@@ -31,6 +38,7 @@ class HtmlView extends BaseHtmlView
+
  	 */
  	public function display($tpl = null): void
  	{

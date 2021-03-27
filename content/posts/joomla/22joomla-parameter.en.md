@@ -139,7 +139,7 @@ use Joomla\Database\DatabaseDriver;
 
 /**
  * Foos Table class.
-@@ -36,6 +38,26 @@ public function __construct(DatabaseDriver $db)
+
 		parent::__construct('#__foos_details', 'id', $db);
 	}
 
@@ -185,7 +185,7 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 
  /**
   * HTML Foos View class for the Foo component
-@@ -21,6 +22,22 @@
+
   */
  class HtmlView extends BaseHtmlView
  {
@@ -208,7 +208,7 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
  	/**
  	 * The item object details
  	 *
-@@ -40,6 +57,23 @@ public function display($tpl = null)
+
  	{
  		$item = $this->item = $this->get('Item');
 

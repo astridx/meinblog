@@ -309,7 +309,7 @@ Finally, we include the fields in the overview.
  								<th scope="col" style="width:10%" class="d-none d-md-table-cell">
  									<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>
  								</th>
-@@ -41,6 +47,9 @@
+
  						foreach ($this->items as $i => $item) :
  							?>
  							<tr class="row<?php echo $i % 2; ?>">
@@ -319,7 +319,7 @@ Finally, we include the fields in the overview.
  								<th scope="row" class="has-context">
  									<div>
  										<?php echo $this->escape($item->name); ?>
-@@ -53,6 +62,11 @@
+
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
   									</div>
  								</th>

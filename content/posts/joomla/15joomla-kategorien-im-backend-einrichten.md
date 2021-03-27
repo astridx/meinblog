@@ -134,7 +134,7 @@ Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir
 
  /**
   * Script file of Foo Component
-@@ -47,6 +51,50 @@ public function install($parent): bool
+
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_INSTALL');
 
@@ -185,7 +185,7 @@ Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir
  		return true;
  	}
 
-@@ -146,4 +194,49 @@ public function postflight($type, $parent)
+
 
  		return true;
  	}
@@ -252,7 +252,7 @@ Im Service Provider registrieren wir die Schnittstelle `CategoryFactoryInterface
  use Joomla\CMS\Dispatcher\ComponentDispatcherFactoryInterface;
  use Joomla\CMS\Extension\ComponentInterface;
  use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
-@@ -51,6 +52,7 @@ function (Container $container)
+
 
  				$component->setRegistry($container->get(Registry::class));
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
@@ -292,7 +292,7 @@ Zusätzlich sind in der Komponentenklasse Implementierungen erforderlich, um die
 
  /**
   * Component class for com_foos
-@@ -46,4 +47,48 @@ public function boot(ContainerInterface $container)
+
  	{
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);
  	}
@@ -359,7 +359,7 @@ Im Model fügen wir bei der Datenbankabfrage die Tabelle hinzu, in der Joomla-Ka
  		);
 
  		$query->from($db->quoteName('#__foos_details', 'a'));
-@@ -60,6 +60,13 @@ protected function getListQuery()
+
  				$db->quoteName('#__viewlevels', 'ag') . ' ON ' . $db->quoteName('ag.id') . ' = ' . $db->quoteName('a.access')
  			);
 

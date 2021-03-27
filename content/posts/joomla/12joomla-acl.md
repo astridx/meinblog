@@ -109,7 +109,7 @@ Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzuk
  	<!-- Frond-end files -->
  	<files folder="components/com_foos">
  		<folder>language</folder>
-@@ -38,6 +43,7 @@
+
  			<menu link="option=com_foos">COM_FOOS</menu>
  		</submenu>
  		<files folder="administrator/components/com_foos">
@@ -200,7 +200,7 @@ Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erl
  use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Toolbar\Toolbar;
-@@ -57,14 +58,21 @@ public function display($tpl = null): void
+
  	 */
  	protected function addToolbar()
  	{
@@ -259,7 +259,7 @@ Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in d
  								<th scope="col">
  									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_ID'); ?>
  								</th>
-@@ -47,6 +50,9 @@
+
  										<?php echo $editIcon; ?><?php echo $this->escape($item->name); ?></a>
 
  								</th>

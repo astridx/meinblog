@@ -175,6 +175,41 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="31"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk13 mtkb">parent</span><span class="mtk8">::</span><span class="mtk7">display</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">tpl</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="32"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="33"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<blockquote>
+<p>Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und auf dem Bildschirm zu protokollieren. Im Falle des Bildschirm findest du diese innerhalb der Joomla-Debug-Konsole am unteren Rand der Webseite, wenn das Debugging aktiv ist. Diese Funktion ist beim Entwickeln unter Umständen hilfreich, deshalb erwähne ich sie hier. Der Eintrag <code class="language-text">Log::add(&#39;Log me.&#39;, Log::DEBUG);</code> bewirkt eine Zeile in der Logdatei. Wichtig ist, dass im Kopf der Datei mit <code class="language-text">use Joomla\CMS\Log\Log;</code> die notwendigen Funktionen geladen werden. Das nachfolgende Bild zeigt, wo die Protokollierung im Joomla Backend eingestellt wird.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b7de287a7ab71936bf25c0f1ddf7bda2/260cd/j4x3x2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABlUlEQVQoz3WSuUoEQRCG91FMfBXBd3ADRRADj0AFMdcV7xcSAwMDEQXBTASvXXVnd46+e/q3qsYDdW34qZ6arq//qpnW2MQqxifXMLu2h7n1fUyv7KC9tIX2cgdTSx2J7cVNynW+ck1+GzOru1hYP8D8xhHVHgqjdXk7wPXdAM/9Et030lOGl0xB2wgXAUtRDUoYn0Sxxg/52EQXaqoJaIGWNQZnN12cXjzg5Pwex1fP6L3lUNqh0haOqgzRlQsw1svzKAkwRibTIWvxvSKKsoJ1HsYQMHrkwwym36ecQ6rrkWKoOKxTQqkMvA+grYDyogGyy1zn6GU9pBDlbBohLvwG1gSsFM3LiT8GF6Wi9hy0Nogxyj6SC+6orv8q/nBIQKUbh9Lwx0uGhBDE6WP3FY7a9d6PBDqqbYApCaCstBR/XtAMOsBTm+ywog601uJYUTQ0c4Y75+UiPvPlkEdQKQJSkvfcFr/k52auSYrYCT5nhoTfK8SElqHb+Iu+ZgXy0mBYaBHv+ZeplJWodBP/0zAnRj/HO3ZZ7XIauVC9AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Einstellungen zur Protokollierung im Joomal Backend"
+        title="Einstellungen zur Protokollierung im Joomal Backend"
+        src="/static/b7de287a7ab71936bf25c0f1ddf7bda2/f058b/j4x3x2.png"
+        srcset="/static/b7de287a7ab71936bf25c0f1ddf7bda2/c26ae/j4x3x2.png 158w,
+/static/b7de287a7ab71936bf25c0f1ddf7bda2/6bdcf/j4x3x2.png 315w,
+/static/b7de287a7ab71936bf25c0f1ddf7bda2/f058b/j4x3x2.png 630w,
+/static/b7de287a7ab71936bf25c0f1ddf7bda2/40601/j4x3x2.png 945w,
+/static/b7de287a7ab71936bf25c0f1ddf7bda2/78612/j4x3x2.png 1260w,
+/static/b7de287a7ab71936bf25c0f1ddf7bda2/260cd/j4x3x2.png 1845w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+</blockquote>
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a> - Template</h4>
 <p>In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur <em>ersten Ansicht im Backend</em> geschrieben habe, trifft hier analog zu.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>

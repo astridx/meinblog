@@ -163,7 +163,7 @@ The following entry in the installation manifest causes the SQL statements in th
  	<!-- Frond-end files -->
  	<files folder="components/com_foos">
  		<folder>src</folder>
-@@ -26,6 +36,7 @@
+
  		<files folder="administrator/components/com_foos">
  			<filename>foos.xml</filename>
  			<folder>services</folder>
@@ -213,7 +213,7 @@ Previously it was not necessary to set the `MVC factory`, now it is required. Ot
  use Joomla\DI\Container;
  use Joomla\DI\ServiceProviderInterface;
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
-@@ -49,6 +50,7 @@ function (Container $container)
+
  				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
 
  				$component->setRegistry($container->get(Registry::class));
@@ -243,7 +243,7 @@ In the view we get the items at the end. For this we call the method `$this->get
  	/**
  	 * Method to display the view.
  	 *
-@@ -31,6 +38,7 @@ class HtmlView extends BaseHtmlView
+
  	 */
  	public function display($tpl = null): void
  	{

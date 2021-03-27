@@ -711,7 +711,7 @@ Wir implementieren die Logik mit der wir die Eigenschaft `featured` setzen in de
  use Joomla\CMS\Application\CMSApplication;
  use Joomla\CMS\MVC\Controller\AdminController;
  use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
-@@ -38,6 +40,65 @@ class FoosController extends AdminController
+
  	public function __construct($config = array(), MVCFactoryInterface $factory = null, $app = null, $input = null)
  	{
  		parent::__construct($config, $factory, $app, $input);
@@ -795,7 +795,7 @@ Im Model eines Elementes implementieren wir die Methode, mit der die Belegung de
 
  /**
   * Item Model for a Foo.
-@@ -132,6 +134,59 @@ public function getItem($pk = null)
+
  		return $item;
  	}
 
@@ -871,7 +871,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
  				'language', 'a.language', 'language_title',
  				'publish_up', 'a.publish_up',
  				'publish_down', 'a.publish_down',
-@@ -59,6 +60,7 @@ public function __construct($config = array())
+
 
  		parent::__construct($config);
  	}
@@ -879,7 +879,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
  	/**
  	 * Build an SQL query to load the list data.
  	 *
-@@ -85,6 +87,7 @@ protected function getListQuery()
+
  						', a.checked_out_time' .
  						', a.language' .
  						', a.ordering' .
@@ -887,7 +887,7 @@ Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Dat
  						', a.state' .
  						', a.published' .
  						', a.publish_up, a.publish_down'
-@@ -195,6 +198,14 @@ protected function getListQuery()
+
  			}
  		}
 
@@ -919,7 +919,7 @@ Im `AdministratorService.php` machen wir es möglich, die Belegung der Eigenscha
 
  /**
   * Foo HTML class.
-@@ -88,6 +89,42 @@ public function association($fooid)
+
  			$html = LayoutHelper::render('joomla.content.associations', $items);
  		}
 
@@ -1022,7 +1022,7 @@ In der Übersicht aller Elemente im Backend in der Datei `administrator/componen
  								<th scope="col" style="width:10%" class="d-none d-md-table-cell">
  									<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>
  								</th>
-@@ -123,14 +126,17 @@
+
  									</div>
  								</th>
  								<td class="text-center">

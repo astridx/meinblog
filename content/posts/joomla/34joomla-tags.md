@@ -94,7 +94,7 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
  		return true;
  	}
 
-@@ -237,4 +239,69 @@ private function getAdminId()
+
 
  		return $id;
  	}
@@ -181,7 +181,7 @@ use Joomla\CMS\Language\LanguageHelper;
 
  /**
   * Item Model for a Foo.
-@@ -56,6 +57,7 @@ class FooModel extends AdminModel
+
  	protected $batch_commands = [
  		'assetgroup_id' => 'batchAccess',
  		'language_id'   => 'batchLanguage',
@@ -189,7 +189,7 @@ use Joomla\CMS\Language\LanguageHelper;
  		'user_id'       => 'batchUser',
  	];
 
-@@ -127,6 +129,12 @@ public function getItem($pk = null)
+
  			}
  		}
 
@@ -219,7 +219,7 @@ Das Model der Übersichtsliste unserer Erweiterung im Backend ändern wir bezüg
  			if ($assoc) {
  				$config['filter_fields'][] = 'association';
  			}
-@@ -146,6 +144,47 @@ protected function getListQuery()
+
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
 

@@ -233,7 +233,7 @@ Damit die Sprachdateien bei einer Installation kopiert werden, fügen wir den Ei
  		<folder>src</folder>
  		<folder>tmpl</folder>
  	</files>
-@@ -39,6 +40,7 @@
+
  		<files folder="administrator/components/com_foos">
  			<filename>foos.xml</filename>
  			<folder>forms</folder>

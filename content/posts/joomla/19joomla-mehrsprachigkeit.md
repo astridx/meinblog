@@ -559,7 +559,7 @@ Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zug
  		<field
  			name="id"
  			type="number"
-@@ -28,6 +31,14 @@
+
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
 
@@ -592,7 +592,7 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der [Assoc
 
  /**
   * The foos service provider.
-@@ -40,9 +42,11 @@
+
  	 */
  	public function register(Container $container)
  	{
@@ -602,7 +602,7 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der [Assoc
 
  		$container->set(
  			ComponentInterface::class,
-@@ -53,6 +57,7 @@ function (Container $container)
+
  				$component->setRegistry($container->get(Registry::class));
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
  				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
@@ -647,7 +647,7 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
  use Joomla\CMS\Categories\CategoryServiceInterface;
  use Joomla\CMS\Categories\CategoryServiceTrait;
  use Joomla\CMS\Extension\BootableExtensionInterface;
-@@ -25,9 +27,11 @@
+
   *
   * @since  __BUMP_VERSION__
   */
@@ -703,7 +703,7 @@ Das Model, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich
 
  /**
   * Item Model for a Foo.
-@@ -29,6 +31,14 @@ class FooModel extends AdminModel
+
  	 */
  	public $typeAlias = 'com_foos.foo';
 
@@ -718,7 +718,7 @@ Das Model, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich
  	/**
  	 * Method to get the row form.
  	 *
-@@ -70,6 +80,86 @@ protected function loadFormData()
+
  		return $data;
  	}
 
@@ -825,7 +825,7 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 
  /**
   * Methods supporting a list of foo records.
-@@ -48,7 +50,13 @@ protected function getListQuery()
+
 
  		// Select the required fields from the table.
  		$query->select(
@@ -840,7 +840,7 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
  		);
 
  		$query->from($db->quoteName('#__foos_details', 'a'));
-@@ -67,6 +75,76 @@ protected function getListQuery()
+
  				$db->quoteName('#__categories', 'c') . ' ON ' . $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid')
  			);
 
@@ -938,7 +938,7 @@ defined('JPATH_BASE') or die;
  /**
   * Foo HTML class.
   *
-@@ -18,4 +24,70 @@
+
   */
  class AdministratorService
  {
@@ -1053,7 +1053,7 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
 
  /**
   * View class for a list of foos.
-@@ -53,7 +54,22 @@ public function display($tpl = null): void
+
  	{
  		$this->items = $this->get('Items');
 
@@ -1096,7 +1096,7 @@ Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festle
  use Joomla\CMS\Router\Route;
  use Joomla\CMS\Language\Text;
  use Joomla\CMS\Layout\LayoutHelper;
-@@ -18,6 +19,9 @@
+
  $app = Factory::getApplication();
  $input = $app->input;
 
@@ -1106,7 +1106,7 @@ Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festle
  $this->useCoreUI = true;
 
  $wa = $this->document->getWebAssetManager();
-@@ -45,12 +49,19 @@
+
  						<?php echo $this->getForm()->renderField('publish_up'); ?>
  						<?php echo $this->getForm()->renderField('publish_down'); ?>
  						<?php echo $this->getForm()->renderField('catid'); ?>
@@ -1148,7 +1148,7 @@ In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalte
  ?>
  <form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
  	<div class="row">
-@@ -41,6 +47,19 @@
+
  								<th scope="col" style="width:10%" class="d-none d-md-table-cell">
  									<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>
  								</th>
@@ -1168,7 +1168,7 @@ In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalte
  								<th scope="col">
  									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_ID'); ?>
  								</th>
-@@ -75,6 +94,22 @@
+
  								<td class="small d-none d-md-table-cell">
  									<?php echo $item->access_level; ?>
  								</td>

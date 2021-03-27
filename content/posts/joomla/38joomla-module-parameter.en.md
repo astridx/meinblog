@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Via [Parameter](https://en.wikipedia.org/wiki/Parameter_(computer_programming)), the Joomla module can be flexibly adapted for end users. Parameters are variables through which Joomla is set to process certain values. In other words, parameters are influencing factors set externally to the programme. They are used to tell Joomla externally which data should be processed and how.
+Via [Parameter](<https://en.wikipedia.org/wiki/Parameter_(computer_programming)>), the Joomla module can be flexibly adapted for end users. Parameters are variables through which Joomla is set to process certain values. In other words, parameters are influencing factors set externally to the programme. They are used to tell Joomla externally which data should be processed and how.
 
 ## For impatient people
 
@@ -92,7 +92,7 @@ In the manifest we add the new parameter so that it is editable in the Joomla ba
 > Use `<fieldset name="basic">` to display the parameters in the first tab that opens immediately.
 
 > In addition to the parameters that a developer inserts into his module, there are standard parameters that Joomla handles itself. For example `/administrator/components/com_modules/forms/advanced.xml`.
-![Joomla Module Parameters](/images/j4x38x1.png)
+> ![Joomla Module Parameters](/images/j4x38x1.png)
 
 ##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
 

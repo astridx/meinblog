@@ -155,6 +155,9 @@ class HtmlView extends BaseHtmlView
 
 ```
 
+> Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und auf dem Bildschirm zu protokollieren. Im Falle des Bildschirm findest du diese innerhalb der Joomla-Debug-Konsole am unteren Rand der Webseite, wenn das Debugging aktiv ist. Diese Funktion ist beim Entwickeln unter Umständen hilfreich, deshalb erwähne ich sie hier. Der Eintrag `Log::add('Log me.', Log::DEBUG);` bewirkt eine Zeile in der Logdatei. Wichtig ist, dass im Kopf der Datei mit `use Joomla\CMS\Log\Log;` die notwendigen Funktionen geladen werden. Das nachfolgende Bild zeigt, wo die Protokollierung im Joomla Backend eingestellt wird.
+> ![Einstellungen zur Protokollierung im Joomal Backend](/images/j4x3x2.png)
+
 #### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f) - Template
 
 In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.

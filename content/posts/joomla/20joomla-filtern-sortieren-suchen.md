@@ -210,7 +210,7 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
 
  /**
   * Methods supporting a list of foo records.
-@@ -33,6 +34,29 @@ class FoosModel extends ListModel
+
  	 */
  	public function __construct($config = array())
  	{
@@ -240,7 +240,7 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
  		parent::__construct($config);
  	}
  	/**
-@@ -54,7 +78,7 @@ protected function getListQuery()
+
  				array(
  					'a.id', 'a.name', 'a.alias', 'a.access',
  					'a.catid', 'a.published', 'a.publish_up', 'a.publish_down',
@@ -249,7 +249,7 @@ In der Methode `getListQuery()` passen wir die Datenbankabfrage so an, dass sie 
  				)
  			)
  		);
-@@ -106,6 +130,65 @@ protected function getListQuery()
+
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
 
@@ -336,7 +336,7 @@ diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/
 index af7c2fa6..f966bd96 100644
 --- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 +++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-@@ -19,6 +19,7 @@
+
  use Joomla\CMS\Toolbar\ToolbarHelper;
  use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
  use Joomla\CMS\Factory;
@@ -344,7 +344,7 @@ index af7c2fa6..f966bd96 100644
 
  /**
   * View class for a list of foos.
-@@ -34,6 +35,27 @@ class HtmlView extends BaseHtmlView
+
  	 */
  	protected $items;
 
@@ -372,7 +372,7 @@ index af7c2fa6..f966bd96 100644
  	/**
  	 * The sidebar markup
  	 *
-@@ -54,6 +76,24 @@ public function display($tpl = null): void
+
  	{
  		$this->items = $this->get('Items');
 
@@ -397,7 +397,7 @@ index af7c2fa6..f966bd96 100644
  		// We don't need toolbar in the modal window.
  		if ($this->getLayout() !== 'modal')
  		{
-@@ -68,6 +108,13 @@ public function display($tpl = null): void
+
  			{
  				// If the language is forced we can't allow to select the language, so transform the language selector filter into a hidden field.
  				$languageXml = new \SimpleXMLElement('<field name="language" type="hidden" default="' . $forcedLanguage . '" />');
@@ -411,7 +411,7 @@ index af7c2fa6..f966bd96 100644
  			}
  		}
 
-@@ -83,9 +130,6 @@ public function display($tpl = null): void
+
  	 */
  	protected function addToolbar()
  	{
@@ -447,7 +447,7 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  ?>
  <form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
  	<div class="row">
-@@ -31,41 +39,45 @@
+
  						echo 'col-md-12';
  					} ?>">
  			<div id="j-main-container" class="j-main-container">
@@ -502,7 +502,7 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  								</th>
  							</tr>
  						</thead>
-@@ -75,6 +87,23 @@
+
  						foreach ($this->items as $i => $item) :
  							?>
  							<tr class="row<?php echo $i % 2; ?>">
@@ -526,7 +526,7 @@ Im Falle der Überschrift habe ich `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?
  								<td class="text-center">
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
  								</td>
-@@ -88,11 +117,11 @@
+
 
  									<div class="small">
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
