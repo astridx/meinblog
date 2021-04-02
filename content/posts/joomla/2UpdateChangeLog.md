@@ -201,7 +201,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 
 ![Joomla Update Sites](/images/j4x2x2_2.png)
 
-5. Wenn du zurück zu System Update Extension navigierst, ist es dir möglich, eine Aktualisierung anzustoßen oder dir das Changelog anzusehen.
+5. Wenn du zurück zu `System | Update | Extension` navigierst, ist es dir möglich, eine Aktualisierung anzustoßen oder dir das Changelog anzusehen.
 
 > Die Aktualisierung war vorher nicht möglich, weil der `Download Key` nicht konfiguriert war.
 

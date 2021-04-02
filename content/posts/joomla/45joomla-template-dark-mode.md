@@ -100,4 +100,4 @@ github.com/astridx/boilerplate/compare/t36...t37.diff
 ## Links
 
 [prefers-color-scheme](https://web.dev/prefers-color-scheme/)
-[<dark-mode-toggle>-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)
+[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)
