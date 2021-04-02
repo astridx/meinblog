@@ -63,10 +63,9 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 `mod_foo.php` ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.php
+// https://raw.githubusercontent.com/astridx/boilerplate/tutorial/src/modules/mod_foo/mod_foo.php
 
 <?php
-/**
 /**
  * @package     Joomla.Administrator
  * @subpackage  mod_foo
@@ -78,6 +77,11 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
+use FooNamespace\Module\Foo\Site\Helper\FooHelper;
+
+$test  = FooHelper::getText();
+
+$url = $params->get('domain');
 
 require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 
