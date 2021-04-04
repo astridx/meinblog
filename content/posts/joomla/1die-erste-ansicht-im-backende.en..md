@@ -329,10 +329,10 @@ Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert wu
 
 Wenn du mit dem Konzept von DI Container nicht vertraut bist, findest du hier Erklärung und einige Beispiele:
 
-- [joomla-framework/di](https://github.com/joomla-framework/di)^[https://github.com/joomla-framework/di].
-- [docs/why-dependency-injection.md](https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md)^[https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md].
+- [joomla-framework/di](https://github.com/joomla-framework/di)[^https://github.com/joomla-framework/di].
+- [docs/why-dependency-injection.md](https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md)[^https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md].
 
-Weitere Informationen zu Implementierung findest du auf Github(https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217];
+Weitere Informationen zu Implementierung findest du auf Github(https://github.com/joomla/joomla-cms/pull/20217)[^https://github.com/joomla/joomla-cms/pull/20217];
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 
@@ -433,7 +433,7 @@ Anschließend erstellen wir die Klasse für den Controller. Ich hatte schon gesc
 
 Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich verwendest, bemerkst du gegebenenfalls die Ansichts- und Layoutvariablen. Beispiel: `index.php?option=com_foos&view=foos&layout=default` weist uns an, die foos-Ansicht mit dem Standardlayout zu laden, sodass `components/` + `com_foos/tmpl/foos/` + `default.php` aufgerufen wird, wenn du dich im Front-End und `administrator/components/` + `com_foos/tmpl/foos/` + default.php`, wenn du dich im Backend befindest.
 
-> Die Sichtbarkeit wird in PHP mit `public`, `private` oder `protected` definiert. Wann du was einsetzt erklärt das [PHP-Handbuch](https://www.php.net/manual/de/language.oop5.visibility.php)^[https://www.php.net/manual/de/language.oop5.visibility.php].
+> Die Sichtbarkeit wird in PHP mit `public`, `private` oder `protected` definiert. Wann du was einsetzt erklärt das [PHP-Handbuch](https://www.php.net/manual/de/language.oop5.visibility.php)[^https://www.php.net/manual/de/language.oop5.visibility.php].
 
 Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deiner implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
 
@@ -492,7 +492,7 @@ class DisplayController extends BaseController
 
 #### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
 
-`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)^[https://github.com/joomla/joomla-cms/pull/20217].
+`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)[^https://github.com/joomla/joomla-cms/pull/20217].
 
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 

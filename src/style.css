@@ -16,6 +16,10 @@
   --font-weight-biggest: 350;
 }
 
+sup {
+  display:none;
+}
+
 pre {
   font-size: 0.7rem;
 }
