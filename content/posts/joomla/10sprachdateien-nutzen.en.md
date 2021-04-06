@@ -18,7 +18,6 @@ Your goal was to make your extension multilingual! That's why you didn't enter t
 ![Joomla language files are used](/images/j4x10x1.png)
 
 > Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header
-> ![Joomla language overrides](/images/j4x10x2.png)
 
 ## For impatient people
 
@@ -36,7 +35,7 @@ Create the following six files to support the German language in addition to Eng
 
 The left side of the equal sign in the language string, for example `COM_FOOS_CONFIGURATION"` in `COM_FOOS_CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.
 
-The right side of the language string, for example `Foo Options"` in `COM_FOOS_CONFIGURATION="Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
+The right side of the language string, for example `Foo Options"` in `COM_FOOS_CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
 #### [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
@@ -74,13 +73,13 @@ Each language file is marked with an abbreviation, which is defined in [ISO-639]
 
 After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A frolder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
-#### [administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
-
-[administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
+#### [administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
 As mentioned before, you need two language files: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `sys.ini` for everything else.
 
 > The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.
+
+[administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->

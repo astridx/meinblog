@@ -46,7 +46,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 
 The entries in the `access.xml` are necessary to set permissions for the category. The following code causes the display of a tab for setting user permissions per category in the administration area.
 
-[https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml)
 
 ```xml {diff}
 

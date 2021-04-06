@@ -311,11 +311,13 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 ### Geänderte Dateien
 
+##### [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php)
+
 Die nachfolgende `index.php` ist an die neu hinzugefügten CSS-Styles angepasst und gibt nun im Frontend ein schönes Design aus.
 
 Die Zeile `<jdoc:include type="modules" name="top-a" style="hr" />` sorgt dafür, dass an dieser Position das Modul Chrome `hr` für die Anzeige des Moduls hinzugezogen wird.
 
-##### [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php)
+[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php)
 
 ```php {diff}
  <!DOCTYPE html>
@@ -502,7 +504,8 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ![Joomla Template erstellen - Alternatives Override - Bottom](/images/j4x42x5.png)
 
 3. Öffne das Modul `mod_articles_news` mit dem Namen `Latest Posts`, welches im Kopfbereich angezeigt wird. Bei den Erklärungen zur `index.php` hast du gesehen, dass ein Modul Chrome über den Parameter `style="hr"` in `<jdoc:include type="modules" name="top-a" style="hr" />` aktiviert wird. Du kannst dies aber auch im Backend einstellen. Das nächste Bild zeigt dir wie das geht.
-   ![Joomla Template erstellen - Module Chrome](/images/j4x42x3.png)
+
+![Joomla Template erstellen - Module Chrome](/images/j4x42x3.png)
 
 ## Geänderte Dateien
 

@@ -91,8 +91,9 @@ In the manifest we add the new parameter so that it is editable in the Joomla ba
 
 > Use `<fieldset name="basic">` to display the parameters in the first tab that opens immediately.
 
-> In addition to the parameters that a developer inserts into his module, there are standard parameters that Joomla handles itself. For example `/administrator/components/com_modules/forms/advanced.xml`.
-> ![Joomla Module Parameters](/images/j4x38x1.png)
+In addition to the parameters that a developer inserts into his module, there are standard parameters that Joomla handles itself. For example `/administrator/components/com_modules/forms/advanced.xml`.
+
+![Joomla Module Parameters](/images/j4x38x1.png)
 
 ##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
 

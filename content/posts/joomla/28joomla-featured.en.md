@@ -994,7 +994,7 @@ We add to the toolbar. `featured` should also be editable here via an action.
 
 In the form for creating or editing an element, we insert the command that creates a field using the XML file.
 
-[https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  						<?php echo $this->getForm()->renderField('publish_down'); ?>

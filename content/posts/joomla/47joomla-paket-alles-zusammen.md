@@ -29,6 +29,8 @@ In diesem Abschnitt erstellen wir ein Installationspaket.
 
 ##### [/administrator/manifests/ packages/foos/script.php](https://github.com/astridx/boilerplate/blob/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
 
+[/administrator/manifests/ packages/foos/script.php](https://github.com/astridx/boilerplate/blob/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
+
 ```php
 // https://github.com/astridx/boilerplate/raw/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php
 
@@ -66,6 +68,8 @@ class Pkg_FoosInstallerScript
 ```
 
 ##### [administrator/manifests/ packages/pkg_foos.xml](https://github.com/astridx/boilerplate/blob/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/pkg_foos.xml)
+
+[administrator/manifests/ packages/pkg_foos.xml](https://github.com/astridx/boilerplate/blob/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/pkg_foos.xml)
 
 ```XML
 <!-- https://github.com/astridx/boilerplate/raw/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/pkg_foos.xml -->

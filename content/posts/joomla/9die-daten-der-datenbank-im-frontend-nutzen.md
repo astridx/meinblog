@@ -515,7 +515,7 @@ In der View tauschen wir folgerichtig `$this->msg = $this->get('Msg');` gegen `$
 
 ```
 
-#### [components/com_foos/ tmpl/foo/default.php](hhttps://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
 Die Anzeige des Namens passen wir im Template an. Hier greifen wir auf das Element `item` und dessen Eigenschaft `name` zu. Auf diese Art können wir in Zukunft weitere Eigenschaften flexibel und unkompliziert ergänzen.
 

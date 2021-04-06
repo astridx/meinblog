@@ -228,10 +228,13 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Template erstellen - Ansicht Facil ungestyled](/images/j4x41x3.png)
 
-> Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeige in der globalen Konfiguration im Backend und rufe dann die URL `joomla-cms4/index.php?tp=1` auf. Das Anhängsel `?tp=1` ist entscheidend.
-> ![Joomla Template erstellen - Modul Positionen anzeigen - Backend](/images/j4x41x5.png) > ![Joomla Template erstellen - Modul Positionen anzeigen - Frontend](/images/j4x41x6.png)
+Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeige in der globalen Konfiguration im Backend und rufe dann die URL `joomla-cms4/index.php?tp=1` auf. Das Anhängsel `?tp=1` ist entscheidend.
 
-Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Tempalte als nächstes mit CSS und JavaScipt auf und passen die die Standard Ansichten von Joomla an.
+![Joomla Template erstellen - Modul Positionen anzeigen - Backend](/images/j4x41x5.png) 
+
+![Joomla Template erstellen - Modul Positionen anzeigen - Frontend](/images/j4x41x6.png)
+
+Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Tempalte als nächstes mit CSS und JavaScipt auf und passen die Standard Ansichten von Joomla an.
 
 ## Geänderte Dateien
 

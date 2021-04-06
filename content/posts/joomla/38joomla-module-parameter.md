@@ -89,8 +89,9 @@ Im Manifest fügen wir den neuen Paramter hinzu, so dass dieser im Joomla Backen
 
 > Verwende `<fieldset name="basic">`. um die Parameter im ersten sich unmittelbar öffnenden Tabulator anzuzeigen.
 
-> Neben den Parametern, die ein Entwickler in sein Modul einfügt, gib es Standardparameter, die Joomla selbst handhabt. Zum Beispiel `/administrator/components/com_modules/forms/advanced.xml`.
-> ![Joomla Modul Parameter](/images/j4x38x1.png)
+Neben den Parametern, die ein Entwickler in sein Modul einfügt, gib es Standardparameter, die Joomla selbst handhabt. Zum Beispiel `/administrator/components/com_modules/forms/advanced.xml`.
+
+![Joomla Modul Parameter](/images/j4x38x1.png)
 
 ##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
 

@@ -994,7 +994,7 @@ Wir ergänzen die Werkzeugleiste. `featured` soll auch hier über eine Aktion be
 
 Im Formular `administrator/components/com_foos/ tmpl/foo/edit.php` zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.
 
-[https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  						<?php echo $this->getForm()->renderField('publish_down'); ?>

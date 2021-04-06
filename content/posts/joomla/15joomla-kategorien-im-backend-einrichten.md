@@ -46,7 +46,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 
 Die Einträge in der `access.xml` sind notwendig, um Berechtigungen für die Kategorie zu setzen. Der nachfolgende Code bewirkt die Anzeige eines Tabulators zur Festlegung der Benutzerrechte pro Kategorie im Administrationsbereich.
 
-[https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml)
 
 ```xml {diff}
 
@@ -117,7 +117,7 @@ Damit zu Beginn schon eine Kategorie vorhanden ist, ergänzen wir das Skript, we
 
 Um bei der Kategorie einen Benutzer als Ersteller angeben zu können, fragen wir die ID des Administrator in der Methode `getAdminId()` ab.
 
-[https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/script.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
 

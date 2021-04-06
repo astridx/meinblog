@@ -25,7 +25,7 @@ In diesem Abschnitt sehen wir uns Parameter an und werden feststellen, dass es G
 
 ### Neue Dateien
 
-In diesem Kapitel wird lediglich das Bild `templates/facile/images/banner.jpg` hinzugefügt, welches im Banner via CSS angezeigt wird. Dieses habe ich den Demo Images von [html5up.net](https://html5up.net/txt) entnommen und es ist von [unsplash.com](unsplash.com).
+In diesem Kapitel wird lediglich das Bild `templates/facile/images/banner.jpg` hinzugefügt, welches im Banner via CSS angezeigt wird. Dieses habe ich den Demo Images von [html5up.net](https://html5up.net/txt) entnommen und es ist von [unsplash.com](https://unsplash.com/).
 
 #### Template
 

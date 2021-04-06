@@ -168,8 +168,9 @@ Next, test if your module works properly. Open the menu 'Content | Site Modules'
 
 ![Joomla module in frontend](/images/j4x36x3.png)
 
-> Alternatively it is possible to insert the module into a post.
-> ![Joomla module in frontend](/images/j4x36x4.png)
+Alternatively it is possible to insert the module into a post.
+
+![Joomla module in frontend](/images/j4x36x4.png)
 
 We have a solid foundation for the next steps.
 

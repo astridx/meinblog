@@ -168,7 +168,9 @@ Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 
 
 ![Joomla Modul im Frontend](/images/j4x36x3.png)
 
-> Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen. ![Joomla Modul im Frontend](/images/j4x36x4.png)
+Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen. 
+
+![Joomla Modul im Frontend](/images/j4x36x4.png)
 
 Wir haben eine solide Grundlage für die weiteren Schritte.
 

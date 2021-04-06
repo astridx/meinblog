@@ -217,7 +217,7 @@ $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 
 ```
 
-##### [templates/facile/templateDetails.xml](hhttps://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
+##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
 
 Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden.
 

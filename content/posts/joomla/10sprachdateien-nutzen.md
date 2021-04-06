@@ -17,7 +17,6 @@ Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Text
 ![Joomla Sprachdateien werden genutzt](/images/j4x10x1.png)
 
 > Selbst wenn deine Zielgruppe die englisch Sprache spricht und du ausschließlich diese Sprache unterstützt ist es wichtig, eine Sprachdatei für Texte zu verwenden, welche du im Front-End oder im Back-End der Komponente anzeigst. So ist es Nutzern möglich, Texte zu überschreiben, ohne den Quellcode zu bearbeiten. Unter Umständen schreibt ein Benutzer lieber _Vorname_ anstelle von _Name_ in die Spaltenüberschrift
-> ![Joomla Sprachoverrides](/images/j4x10x2.png)
 
 ## Für Ungeduldige
 
@@ -35,7 +34,7 @@ Erstelle die folgenden sechs Dateien, um neben der englischen die deutsche Sprac
 
 Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge, beispielsweise `COM_FOOS_CONFIGURATION` in `COM_FOOS_CONFIGURATION="Foo Optionen"`, ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Erweiterungsnamen, in unserem Fall ist das `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu. Hier beschreibst du kurz, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig.
 
-Die rechte Seite der Sprachzeichenfolge, beispielsweise `Foo Optionen` in `COM_FOOS_CONFIGURATION="Foo Optionen"`, ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, ändert der Übersetzer nur diese rechte Seite des Sprachstrings in seiner Sprachdatei. Die rechte Seite wird in Anführungszeichen eingefasst.
+Die rechte Seite der Sprachzeichenfolge, beispielsweise `Foo Optionen` in `COM_FOOS_CONFIGURATION = "Foo Optionen"`, ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, ändert der Übersetzer nur diese rechte Seite des Sprachstrings in seiner Sprachdatei. Die rechte Seite wird in Anführungszeichen eingefasst.
 
 #### [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
@@ -73,13 +72,13 @@ Jede Sprachdatei ist mit einem Kürzel gekennzeichnet, welches in der [ISO-639]
 
 Nach dem Bindestrich weisen die zwei Großbuchstaben auf das Land. So können die Besonderheiten im Schweizerdeutsch zum Beispiel über `CH` oder Österreichisch über `AT` vom `DE` abgegrenzt werden. Ein Verzeichnis mit dem Namen `de-CH` enthält die Übersetzung für die Schweiz und `de-AT` die österreichische Variante.
 
-#### [administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
-
-[administrator/components/com_foos/language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
+#### [administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
 Wie bereits erwähnt, benötigst du zwei Sprachdateien: Eine mit der Endung `.ini` und eine, die mit `sys.ini` endet. Die [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) wird in erster Linie bei der Installation und für die Anzeige der Menüpunkte verwendet und die `sys.ini` für alles andere.
 
 > Der Grund für die Zweiteilung ist die Performance. Bei der Installation oder der Einrichtung der Navigation im Backend ist es so nicht notwendig, alle Sprachstrings zu laden. In kleinen Erweiterungen ist dieser Vorteil der zwei Sprachdateien meiner Meinung nach nicht groß. Deshalb befülle ich beide Dateien teilweise mit den gleichen Sprachzeichenfolgen. So bin ich auf der sicheren Seite. Das ist nicht professionell, hat sich für mich aber als tauglich in der Praxis erwiesen.
+
+[administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->

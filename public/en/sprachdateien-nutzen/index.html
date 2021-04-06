@@ -32,39 +32,7 @@
   </a>
     </span></p>
 <blockquote>
-<p>Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts without editing the source code. Under some circumstances a user prefers to write <em>first name</em> instead of <em>name</em> in the column header
-<span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/64e42efd6277356800d4f0bace158019/191e2/j4x10x2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABvElEQVQoz21RzWrWUBDNK7j2QVyJO6ubgiB2o3VRkFLB/WcXIrbPpO9QXLsVWkO+/Ofe3Jv7lxxnJulXBBMOkzuZOXPO3Ozxs0949OQcT092OPl4hVcfvuLF6eUBR+92eP5292/u9DNevr/E8dkXvLm4Frw+/0a4Qvb95hY/fub49btG1WrYKSCECE+IMaFsR9T9iHmekRKBIv8raoXROizLIjmOxgzIsD1lqzCMjhqXtZEwU1HRaDS9QUxJiHjY5DzKbsKeEGKk2iT1ozXIVDeg/VPgNm+EMFKB90EKvbWo6gHaBmDZhpAaVp6XlDdOBjiq52GsOBvbDqPSYndPapJYS4isdJrQFC3ydpIGJlsJI6rOUi6R1TXH0VD9wbIyHnljJR6K6K2GCZ12YvmBMGHfGiI1pMqTUi8u2GHGyyQGtGrCXTVSdGQhCth60RjURMok666S2OSLGrQRR7x33jf3iEIm7bRH1XuxXjaKLsmiUYHIHDWTSuVJgUev17gny0ywbCua5ySXJQoZygRSF4jEicqGCPjcabYS0TN0lDN/VzLEyYp4wP2wg8LRUvF9438RVugtbnke8ICIv1kN5PEbaEjBAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla language overrides"
-        title="Joomla language overrides"
-        src="/static/64e42efd6277356800d4f0bace158019/f058b/j4x10x2.png"
-        srcset="/static/64e42efd6277356800d4f0bace158019/c26ae/j4x10x2.png 158w,
-/static/64e42efd6277356800d4f0bace158019/6bdcf/j4x10x2.png 315w,
-/static/64e42efd6277356800d4f0bace158019/f058b/j4x10x2.png 630w,
-/static/64e42efd6277356800d4f0bace158019/40601/j4x10x2.png 945w,
-/static/64e42efd6277356800d4f0bace158019/78612/j4x10x2.png 1260w,
-/static/64e42efd6277356800d4f0bace158019/191e2/j4x10x2.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
+<p>Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts without editing the source code. Under some circumstances a user prefers to write <em>first name</em> instead of <em>name</em> in the column header</p>
 </blockquote>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t7...t8">Diff View</a> and incorporate these changes into your development version.</p>
@@ -76,7 +44,7 @@
 <h3>New files</h3>
 <p>Create the following six files to support the German language in addition to English.</p>
 <p>The left side of the equal sign in the language string, for example <code class="language-text">COM_FOOS_CONFIGURATION&quot;</code> in <code class="language-text">COM_FOOS_CONFIGURATION=&quot;Foo Options&quot;</code>, is always in upper case. Normally the extension name is at the beginning, in our case it is <code class="language-text">COM_FOOS</code>. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.</p>
-<p>The right side of the language string, for example <code class="language-text">Foo Options&quot;</code> in <code class="language-text">COM_FOOS_CONFIGURATION=&quot;Foo Options&quot;</code>, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.</p>
+<p>The right side of the language string, for example <code class="language-text">Foo Options&quot;</code> in <code class="language-text">COM_FOOS_CONFIGURATION = &quot;Foo Options&quot;</code>, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.</p>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde">administrator/components/com<em>foos/ language/de-DE/com</em>foos.ini</a></h4>
 <p>We add the German language version for the administration area with the files 'administrator/components/com<em>foos/ language/en-DE/com</em>foos.ini' and 'administrator/components/com<em>foos/ language/en-DE/com</em>foos.sys.ini'.</p>
 <blockquote>
@@ -104,12 +72,12 @@
 <h5>Naming conventions</h5>
 <p>Each language file is marked with an abbreviation, which is defined in <a href="https://en.wikipedia.org/wiki/ISO_639">ISO-639</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166">ISO-3166</a>: The first two lower case letters name the language. For German this is <code class="language-text">de</code> and <code class="language-text">en</code> for English.</p>
 <p>After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from <code class="language-text">DE</code> by <code class="language-text">CH</code> or Austrian by <code class="language-text">AT</code>. A frolder named <code class="language-text">de-CH</code> contains the translation for Switzerland and <code class="language-text">de-AT</code> the Austrian variant.</p>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987">administrator/components/com<em>foos/language/de-DE/com</em>foos.sys.ini</a></h4>
-<p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini">administrator/components/com<em>foos/language/de-DE/com</em>foos.sys.ini</a></p>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987">administrator/components/com<em>foos/ language/de-DE/com</em>foos.sys.ini</a></h4>
 <p>As mentioned before, you need two language files: one ending with <code class="language-text">.ini</code> and one ending with <code class="language-text">sys.ini</code>. The <a href="https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini"><code class="language-text">sys.ini</code></a> is primarily used during installation and for displaying the menu items and the <code class="language-text">sys.ini</code> for everything else.</p>
 <blockquote>
 <p>The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.</p>
 </blockquote>
+<p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini">administrator/components/com<em>foos/ language/de-DE/com</em>foos.sys.ini</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS=&quot;[PROJECT_NAME]&quot;</span></span></span>

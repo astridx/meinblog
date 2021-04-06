@@ -265,7 +265,7 @@ At the end we use the parameter for display in the template. If there is the par
 
 #### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-[https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 
 To make it possible to store the parameter at the menu item, we add a field in the XML file. It is important that it is placed under `fields` and is called `params` - at least for using the Joomla standard functions.!
 

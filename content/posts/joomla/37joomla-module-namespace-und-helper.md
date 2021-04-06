@@ -27,11 +27,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code übersichtlich zu strukturieren. Dies geschieht mittels Helper-Dateien. Diese legen wir im Verzeichnis `Helper` an.
 
+##### [modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+
 > Ich habe die Datei allgemein `FooHelper` benannt. Gute Stil ist es, ihr einen sprechenden Namen zu geben. Jede Hilfsdatei hat eine spezielle Aufgabe und nach ihr sollte sie benannt werden. Die Datei, die die neuesten Artikel lädt, heißt beispielsweise `ArticlesLatestHelper`. So erkennt man auf den ersten Blick, was in der Datei steckt.
 
 Um unkompliziert auf die Datei zuzugreifen, ergänzen wir den Namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
 
-##### [modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+[modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
 
 ```php
 // https://raw.githubusercontent.com/astridx/boilerplate/415dd9b0521abb3e2626309d595c80d2cafb8f30/src/modules/mod_foo/Helper/FooHelper.php
@@ -74,9 +76,11 @@ class FooHelper
 
 ### Geänderte Dateien
 
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+
 Um die Inhalte von `FooHelper` im Einstiegspunkt `mod_foo.php` zu nutzen, importieren wir diese mittels `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Anschließden rufen wir die Funktion `FooHelper::getText()` auf und speichern das Ergebnis in der Variablen `$test`.
 
-##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+[modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

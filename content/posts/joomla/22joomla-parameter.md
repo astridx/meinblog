@@ -265,7 +265,7 @@ Am Ende nutzen wir den Parameter für die Anzeige im Template. Wenn es den Param
 
 #### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
-[https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 
 Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ein Feld in der XML-Datei hinzu. Wichtig ist, dass es unter `fields` angeordnet wird und `params` heißt - zumindest zum Verwenden der Joomla Standardfunktionen!
 

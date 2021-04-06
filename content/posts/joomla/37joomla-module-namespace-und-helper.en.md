@@ -27,11 +27,13 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 The logic in the module may be complex. Therefore it is good to structure the code clearly. This is done by jnnhelper files. We create these in the directory `Helper`.
 
+##### [modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+
 > I named the file `FooHelper` in general. Good style is to give it a speaking name. Each helper file has a specific task and it should be named after it. For example, the file that loads the latest articles is called `ArticlesLatestHelper`. This way you can see at first sight what is in the file.
 
 To access the file easily, we add the namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
 
-##### [modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+[modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
 
 ```php
 // https://raw.githubusercontent.com/astridx/boilerplate/415dd9b0521abb3e2626309d595c80d2cafb8f30/src/modules/mod_foo/Helper/FooHelper.php

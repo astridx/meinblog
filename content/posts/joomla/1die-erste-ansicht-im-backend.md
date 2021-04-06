@@ -60,10 +60,10 @@ Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.
 
 Joomla folgt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering). Ich empfehle dir dies ebenfalls.
 
-Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Im Moment hat dies noch keine Auswirkungen. Später ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten [Kapitel](#sprachdateiennutzen) einführen.
+Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Im Moment hat dies noch keine Auswirkungen. Später ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten Kapitel einführen.
 Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du das Menü `System` klickst und `Manage | Extensions` öffnest.
 
-Als Nächstes setzen wir das Namespace `tag`: `<namespace>FooNamespace\Component\Foos</namespace>`. Im [Vorwort](joomla-tutorial-vorwort) habe ich erklärt, warum wir Namespaces verwenden.
+Als Nächstes setzen wir das Namespace `tag`: `<namespace>FooNamespace\Component\Foos</namespace>`. Im Vorwort habe ich erklärt, warum wir Namespaces verwenden.
 
 Wie benennst du deinen Namespace?
 
@@ -662,7 +662,7 @@ Hello Foos
 
 #### [components/com_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15) ... damit das Installationspaket vollständig ist
 
-Ich habe im [Vorwort](joomla-tutorial-vorwort) geschrieben, dass die Datei `index.html` nicht benötigt wird. Das ist korrekt so! Hier habe ich diese nur hinzugefügt, weil ich ein Installationspaket zusammenstelle, aber Joomla meldet einen Fehler während der Installation, wenn kein Ordner für das Frontend vorhanden ist oder wenn ein leeres Verzeichnis im Installationspaket übergeben wird. Und im Moment haben wir keinen Inhalt für das Frontend. Das Einfügen der Datei ist an dieser Stelle nur eine Hilfe, um Fehlermeldungen während der Installation zu vermeiden.
+Ich habe im Vorwort geschrieben, dass die Datei `index.html` nicht benötigt wird. Das ist korrekt so! Hier habe ich diese nur hinzugefügt, weil ich ein Installationspaket zusammenstelle, aber Joomla meldet einen Fehler während der Installation, wenn kein Ordner für das Frontend vorhanden ist oder wenn ein leeres Verzeichnis im Installationspaket übergeben wird. Und im Moment haben wir keinen Inhalt für das Frontend. Das Einfügen der Datei ist an dieser Stelle nur eine Hilfe, um Fehlermeldungen während der Installation zu vermeiden.
 
 [components/com_foos/index.html](https://github.com/astridx/boilerplate/blob/t1/src/components/com_foos/index.html)
 
