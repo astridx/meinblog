@@ -896,8 +896,6 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 ![Kategorien in Joomla - Ansicht im Frontend ](/images/j4x31x2.png)
 
->
-
 ## Geänderte Dateien
 
 ### Übersicht
