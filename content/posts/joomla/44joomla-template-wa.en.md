@@ -35,14 +35,11 @@ In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript u
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
-```{diff}
-diff --git a/src/templates/facile/index.php b/src/templates/facile/index.php
-index 52198753..32173fd9 100644
---- a/src/templates/facile/index.php
-+++ b/src/templates/facile/index.php
-@@ -7,17 +7,29 @@
-  */
+Die Änderungen in der Datei `templates/facile/ index.php`.
 
+[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+
+```{diff}
  \defined('_JEXEC') or die;
 +
 +use Joomla\CMS\HTML\HTMLHelper;

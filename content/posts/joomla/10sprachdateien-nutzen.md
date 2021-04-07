@@ -165,9 +165,11 @@ COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
 
 ```
 
-#### [administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
+#### [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
-[administrator/components/com_foos/language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
+Auch die Datei ist `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` zwingend.
+
+[administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
 # https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini
@@ -295,8 +297,9 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-> Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hinweise im Installationsskript nun übersetzt werden.
-> ![Joomla Sprachdateien werden genutzt](/images/j4x10x3.png)
+Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hinweise im Installationsskript nun übersetzt werden.
+
+![Joomla Sprachdateien werden genutzt](/images/j4x10x3.png)
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich und Frontend und überzeuge dich davon, dass die Texte lesbar und nicht mehr kryptisch sind.
 

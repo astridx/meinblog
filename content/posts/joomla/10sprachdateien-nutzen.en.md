@@ -168,6 +168,8 @@ COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
 
 #### [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
+Also the file is `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` mandatory.
+
 [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
@@ -320,8 +322,9 @@ Copy the files in the `components` folder into the `components` folder of your J
 
 A new installation is not necessary. Continue using the files from the previous part.
 
-> If you do a new installation, you will notice that the hints in the installation script are now translated.
-> ![Joomla language files are used](/images/j4x10x3.png)
+If you do a new installation, you will notice that the hints in the installation script are now translated.
+
+![Joomla language files are used](/images/j4x10x3.png)
 
 2. open the view of your component in the administration area and frontend and make sure that the texts are readable and not cryptic anymore.
 
