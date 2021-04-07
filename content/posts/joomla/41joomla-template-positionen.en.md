@@ -230,7 +230,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeige in der globalen Konfiguration im Backend und rufe dann die URL `joomla-cms4/index.php?tp=1` auf. Das Anhängsel `?tp=1` ist entscheidend.
 
-![Joomla Template erstellen - Modul Positionen anzeigen - Backend](/images/j4x41x5.png) 
+![Joomla Template erstellen - Modul Positionen anzeigen - Backend](/images/j4x41x5.png)
 
 ![Joomla Template erstellen - Modul Positionen anzeigen - Frontend](/images/j4x41x6.png)
 

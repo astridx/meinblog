@@ -4,7 +4,7 @@ title: 'docker-lamp einrichten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-einrichten
-langKey: de
+langKey: en
 categories:
   - Betriebssystem
 tags:
@@ -16,7 +16,9 @@ tags:
 
 Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
 
-Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung auf einem Webserver unterstützen. In diesem Teil richte ich die Umgebung ein.
+Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung in einer [LAMP Umgebung](https://de.wikipedia.org/w/index.php?title=LAMP_(Softwarepaket)&oldid=199333875) unterstützen. In diesem Teil richte ich die Umgebung ein.
+
+> Eine LAMP-Umgebung besteht aus den vier Komponenten Linux (Betriebssystem), Apache (Webserver), MySQL (Datenbanksystem) und PHP (serverseitiger Skript-Interpreter).
 
 ## Voraussetzungen
 
@@ -26,31 +28,13 @@ Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubun
 
 Bei der Arbeit mit Docker passiert es leicht, dass viele nicht verwendete Images, Container und Datenvolumen gesammelt werden, die Ausgabe verkomplizieren und unnötigen Festplattenspeicher verbrauchen.
 
-Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelemente auf. Ich nenne das [Tabula rasa](https://de.wikipedia.org/wiki/Tabula_rasa)!
-
-#### Images
-
-##### Auflisten
-
-Ich überprüfe die Images in meinem System mit `docker images`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
-
-```
-docker images -a
-```
-
-##### Entfernen
-
-Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an den Befehle Docker `rmi` zu übergeben:
-
-```
-docker rmi $(docker images -a -q)
-```
+Aus diesem Grund räume ich meine bisher zu Übungszwecken erstellten Docker-Elemente auf. Ich nenne das [Tabula rasa](https://de.wikipedia.org/wiki/Tabula_rasa)!
 
 #### Container
 
 ##### Auflisten
 
-Ich überprüfe die Container in meinem System mit `docker ps`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
+Ich überprüfe die Container in meinem System mit `docker ps`. Durch Hinzufügen des Parameters `-a` werden alle angezeigt.
 
 ```
 docker ps -a
@@ -67,7 +51,25 @@ docker rm $(docker ps -a -q)
 
 > digitalocean.com behandelt in einem [Artikel](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de) alle gängigen Befehle, die zum Entfernen von Images, Containern und Volumen bei Docker verwendet werden.
 
-## Installieren von docker-lamp
+#### Images
+
+##### Auflisten
+
+Ich liste die Images in meinem System mit `docker images` auf. Durch Hinzufügen des Parameters `-a` werden alle angezeigt, auch die inaktiven.
+
+```
+docker images -a
+```
+
+##### Entfernen
+
+Wenn ich sicher bin, ergänze ich den Parameter `-q`, um die IDs an den Befehle Docker `rmi` zu übergeben:
+
+```
+docker rmi $(docker images -a -q)
+```
+
+## Einrichten von [docker-lamp](https://github.com/degobbis/docker-lamp/)
 
 ### Eine frische Umgebung
 
@@ -114,7 +116,7 @@ nano .env
 
 ##### Eigene IP-Adresse
 
-Ich belege in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `REMOTE_HOST_IP=192.168.178.138`. Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
+Ich belege in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `192.168.178.138`. Der gesamte Eintrag lautet: `REMOTE_HOST_IP=192.168.178.138`. Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
 
 ```
 ...
@@ -149,7 +151,7 @@ $ ip address
 
 ##### APP_BASEDIR
 
-Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb SPÄTER die Variable `APP_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben. Zum Einrichten belasse ich `APP_BASEDIR=./data`.
+Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb später die Variable `APP_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben. Zum Einrichten belasse ich `APP_BASEDIR=./data`.
 
 ```
 ...
@@ -230,7 +232,7 @@ Recreating docker-lamp_phpmyadmin ... done
 Recreating docker-lamp_httpd      ... done
 ```
 
-Der Befehl arbeitet beim ersten Aufruf einige Minuten, da sämtliche Images heruntergeladen werden. Im Anschluss sind diese mit `docker images -a` angezeigbar.
+Der Befehl arbeitet beim ersten Aufruf einige Minuten, da sämtliche Images heruntergeladen werden. Im Anschluss sind diese mit `docker images -a` auflistbar.
 
 ```
 $ docker images -a
@@ -263,13 +265,13 @@ c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 
 96527284e9a0   cytopia/bind:0.15                   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp                                                                                                                                                                                                                                    docker-lamp_bind
 ```
 
-Mit dem Befehl `make server-down` stoppe ich alle Container und sichere gleichzeitig die Datenbankdaten in das Verzeichnis `/data/initDB`.
+Mit dem Befehl `make server-down` stoppe ich alle Container. Vorher werden die Daten in der Datenbank in das Verzeichnis `/data/initDB` gesichert. Beim nächsten Aufruf von `make server-up` werden die Datenbank-Dumps in den neu angelegten Datenbank-Container eingelesen.
 
 ### Eigene Projekte in den Container mappen
 
 #### Das Verzeichnis ist flexibel
 
-Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `/data/www` wird automatisch im Containeren unter `/srv/www` eingebunden - falls es nicht in der `.env` neu belegt wurde. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis das, welches in den Container verlinkt wird.
+Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `/data/www` wird automatisch im Container unter `/srv/www` eingebunden - falls es nicht in der `.env` neu belegt wurde. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis das, welches in den Container verlinkt wird.
 
 #### Mehrere Verzeichnisse im Container - docker-compose.override.yml
 
@@ -279,7 +281,7 @@ Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügun
 cp docker-compose.yml docker-compose.override.yml
 ```
 
-> Wir nutzen die Datei `docker-compose.override.yml` und ändern nicht direkt die Datei `docker-compose.override.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
+> Wir nutzen die Datei `docker-compose.override.yml` und ändern nicht direkt die Datei `docker-compose.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
 
 Nun öffnet ich die Datei `docker-compose.override.yml` zum editieren.
 
@@ -289,16 +291,16 @@ nano docker-compose.yml docker-compose.override.yml
 
 Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, denn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter `/home/deinBenutzer/git/joomla-development` zur Verfügung stehen.
 
-Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose.override.yml` nach dem folgenden Eintrag.:
+Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose.override.yml` nach dem folgenden Eintrag.
 
 ```
-      - ${APP_BASEDIR:-./data/www}:/srv/www:rw
+      - ${APP_BASEDIR:-./data}:/srv:rw
 ```
 
-Insgesamt wird der Eintrag sechs Mal gefunden. Die Container
-`httpd`, `php56`, `phpo73`, `php74`, `php80`und `mysql` sind betroffen.
+Insgesamt wird der Eintrag fünf Mal gefunden. Die Container
+`httpd`, `php56`, `phpo73`, `php74` und `php80` sind betroffen.
 
-Bei den ersten fünf Treffern, füge ich die nachfolgende Zeile hinter diesem ein. Also bei `httpd`, `php56`, `phpo73`, `php74` und `php80`. Der Container `mysql` benötigt keine Verbindung zum Projektordner.
+Bei allen Treffern füge ich die nachfolgende Zeile hinter der gefundenen Zeile `${APP_BASEDIR:-./data}:/srv:rw` ein.
 
 ```
       - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
@@ -356,13 +358,13 @@ Für den `httpd`-Container sieht der Eintrag wie folgt aus:
 
 > Weitere Informationen zur Verwendung von Volumes mit `compose` gibt es in der [docker-Dokumentation](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose) oder in der [compose-Referenz](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference).
 
-Jetzt den Server neu starten, damit die Änderungen übernommen werden.
+Jetzt starte ich den Server mit `make server-up` neu, damit die letzten Änderungen übernommen werden.
 
 ```
 make server-up
 ```
 
-Das in meinem Beispiel neu verlinkte Verzeichnis wird im Container unter `/home/deinBenutzer/git/joomla-development` verlinkt.
+Das in meinem Beispiel neu verlinkte Verzeichnis wird im Container unter `/home/deinBenutzer/git/joomla-development` verlinkt. Ich wechsele mit `docker exec -ti docker-lamp_php74 sh` in den Container und überzeuge mich davon:
 
 ```
 $ docker exec -ti docker-lamp_php74 sh
@@ -375,11 +377,11 @@ drwxrwxr-x    6 virtual  virtual       4096 Feb 11 22:17 pkg_agosms
 drwxrwxr-x    9 virtual  virtual
 ```
 
-> Über den Befehl `docker exec -ti docker-lamp_php74 sh` öffnet man eine Befehlzeile im container `docker-lamp_php74`. Über `exit` kommt man wieder aus ihm heraus.
+> Über den Befehl `docker exec -ti docker-lamp_php74 sh` öffnet man eine Befehlszeile im container `docker-lamp_php74`. Über `exit` kommt man wieder aus ihm heraus.
 
 ### Zertifikat
 
-Falls die Konfiguration der Zertifikate geändert wird ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl`make server-down` aufrufen.
+Falls die Konfiguration der Zertifikate geändert wird ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl `make server-down` aufrufen.
 
 ```
 $ make server-down
@@ -426,7 +428,7 @@ docker-lamp_pma
 
 Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica).
 
-> Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertfikate basieren.
+> Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertifikate basieren.
 
 ##### Angabe im `Makefile`
 

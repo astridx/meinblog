@@ -1,6 +1,6 @@
 ---
 date: 2021-02-08
-title: 'docker-lamp mit eigenen _jorobo_ Projekt'
+title: 'docker-lamp mit eigenen _jorobo_ Projekten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-verwenden-eigene-projekte
