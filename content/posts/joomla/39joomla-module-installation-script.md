@@ -171,7 +171,7 @@ class mod_fooInstallerScript
 
 Die Sprachstrings für die Anzeige der Sprachstrings in der aktiven Sprache, fügen wir in die `en-GB.mod_foo.sys.ini` ein. Jawohl, dieses Mal die Sprachdatei mit der Endung `*.sys.ini`, weil die Texte bei der Installation verwendet werden.
 
-[ src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 ```ini {diff}
 MOD_FOO="[PROJECT_NAME]"
