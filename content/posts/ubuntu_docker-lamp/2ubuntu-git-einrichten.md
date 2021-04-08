@@ -13,7 +13,7 @@ tags:
   - Git
 ---
 
-Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.
+Ich verwalte meine Softwareprojekte mit [Github](https://github.com/astridx). So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.
 
 ## Voraussetzungen
 
@@ -117,3 +117,17 @@ Die Ausgabe sollte wie folgt sein.
 > Drücke `STRG` und `X`, dann `Y` und anschließend die `Eingabetaste`, um den Texteditor Nano zu verlassen.
 
 Es gibt viele weitere [Optionen](https://docs.github.com/de). Die hier beschriebenen sind meiner Meinung nach die wichtigsten.
+
+## Gesamtes Set
+
+1. [Vorwort](/ubuntu-vorwort-docker-lamp)
+
+-> 2. [Git](/ubuntu-git-einrichten-docker-lamp)
+
+3. [Docker](/ubuntu-docker-einrichten-docker-lamp)
+4. [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp)
+5. [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten)
+6. [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden)
+7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
+8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
+9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)

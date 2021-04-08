@@ -430,7 +430,7 @@ Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, 
 
 > Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertifikate basieren.
 
-##### Angabe im `Makefile`
+##### Angaben im `Makefile`
 
 Standardmäßig werden die im Makefile in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegten Domains zertifiziert.
 
@@ -453,7 +453,7 @@ SSL_LOCALDOMAINS=
 
 ##### Zusätzliche Domain hinzufügen
 
-Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu.
+Eine eigene Domains fügt man im `docker-lamp`-Verzeichnis mittels nachfolgender Befehle hinzu. Ich belasse hier die Standardeinstellungen. Die Erklärungen finde ich an dieser Stelle trotzdem wichtig, weil man die Standardeinstellungen schon nutzt und sich so besser in docker-lamp orientiert.
 
 > Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) habe ich später beschrieben.
 
@@ -461,7 +461,7 @@ Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender
 nano .env
 ```
 
-Hier dann je nach Wunsch folgenden Einträge erweitert:
+Hier dann je nach Wunsch folgenden Einträge erweitern:
 
 ```
 ...
@@ -471,8 +471,10 @@ TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1
 SSL_LOCALDOMAINS=
 ```
 
-> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. [Top-Level-Domain](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458) steht. `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden durch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter `SSL_LOCALDOMAINS` einzutragen.
-> Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` spielen zusammen.
+> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. Das ist die [Top-Level-Domain TLD](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458). Diese hatten wir in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegt. Eine `TLD` ist `joomla`. Als `TLD_SUFFIX` reicht `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden durch den vorherigen Eintrag abgefangen. 
+
+
+> Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` spielen zusammen. Aber dazu später mehr im konkreten [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain).
 
 ```
              (root)                 0. Ebene, Null-Label
@@ -486,9 +488,11 @@ SSL_LOCALDOMAINS=
 s11    s12  s13   s21    s22  s23   3. Ebene, Third-Level-Domains
 ```
 
-Dann die Ordner für die Ebenen erstellen. Für die zweite Ebene wäre das `/data/www/subdomain1` und `/data/www/subdomain2` erstellen. `/data/www/joomla` sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
+Dann die Verzeichnisse für die Ebenen erstellen. Für die zweite Ebene wäre das `/data/www/subdomain1` und `/data/www/subdomain2` erstellen. `/data/www/joomla` sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
 
-Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. Für Wordpress Entwickler gibt es neben `joomla` weiter Domains auf der 3. Ebenen.
+Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. 
+
+> Für Wordpress Entwickler gibt es neben `joomla` weiter Domains auf der 3. Ebenen.
 
 ```
              (root)                 0. Ebene, Null-Label
@@ -502,7 +506,7 @@ Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Str
                                     3. Ebene, Third-Level-Domains
 ```
 
-Am Ende den Ordner `/localdomains` löschen und den Server starten.
+Falls du etwas an der Konfiguration geändet hast, lösche den Ordner `APP_BASEDIR/ca/localdomains`. Um weiter an `docker-lampp` zu arbeiten starten wir den Server wieder mittels `make server-up`.
 
 ```
 make server-up
@@ -510,11 +514,11 @@ make server-up
 
 #### Vor dem Importieren des Zertifikates
 
-Ruft man die URL `https://joomla.test/` oder `https://joomla.local/` im Browser auf, erscheint ein Sicherheitshinweis. Der Brwoser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.
+Ruft man die URL `https://joomla.test/` oder `https://joomla.local/` im Browser auf, erscheint ein Sicherheitshinweis. Der Browser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.
 
 ![Sicherheitshinweis](/images/dockerlamp_zert.png)
 
-> Hinter `https://joomla.test/` oder `https://joomla.local/` befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt, die auf dieselben Daten zeigen? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
+> `https://joomla.test/` und `https://joomla.local/` adressieren die gleichen Dateien. Warum wurden zwei Domains zur Verfügung gestellt, die das gleiche Ziel verlinken? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
 
 #### Zertifikat importieren
 
@@ -527,7 +531,7 @@ In Mozilla Firefox importiert man das Zertifikat wie folgt:
 
 ![Zertifikat importieren](/images/dockerlamp_zertbrowser.png)
 
-> Das Zertifikat wird von `docker-lamp` standardmäßig für die `https://joomla.test/` oder `https://joomla.local/` erstellt. Unter `https://test/` oder `https://local/` gibt es weiterhin den Fehler. Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) beschreibt die Vorgehensweise für neue Domains.
+> Das Zertifikat wird von `docker-lamp` standardmäßig für die `https://joomla.test/` oder `https://joomla.local/` erstellt. Unter `https://test/` oder `https://local/` gibt es weiterhin den Fehler. Ein konkretes [Beispiel](/en/ubuntu-docker-lamp-verwenden-eigene-domain) beschreibt die Vorgehensweise zum Zertifizieren von neuen Domains.
 
 ## Mögliche Fehler
 
@@ -553,7 +557,7 @@ Als erstes ins Unterverzeichnis data wechseln.
 ...
 ```
 
-In diesem Verzeichnis alle Rechte prüfen. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören
+Prüfe als nächstes in diesem Verzeichnis alle Rechte. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören.
 
 ```
 /docker-lamp/data$ ll
@@ -626,7 +630,7 @@ lrwxrwxrwx   1 root root      39 Feb  4 00:00 resolv.conf -> ../run/systemd/reso
 ...
 ```
 
-Sie hat folgenden Inhalt:
+Die verlinkte Datei hat folgenden Inhalt:
 
 ```
 $ cat /etc/resolv.conf
@@ -640,7 +644,7 @@ Mit dem Löschen der Datei wird gleichzeitig der Symlink gelöscht. Würden wir 
 
 4. `sudo nano /etc/resolv.conf`
 
-Als letztes erstellen wir die Datei mit `sudo nano /etc/resolv.conf` neu. Und tragen zwei passende nameserver ein, wobei `nameserver 192.168.178.2` ein Beispiel für die Konfiguration einer Fritzbox ist, und an die eigenen Gegebenbheiten anzupassen ist.
+Als letztes erstellen wir die Datei mit `sudo nano /etc/resolv.conf` neu. Dann tragen wir zwei passende `nameserver` ein, wobei `nameserver 192.168.178.2` ein Beispiel für die Konfiguration einer Fritzbox ist, und passen alles an die eigenen Gegebenheiten an.
 
 ```
 nameserver 127.0.0.1
@@ -651,21 +655,21 @@ Es ist wichtig, dass der Eintrag `nameserver 127.0.0.1` an erster Stelle steht. 
 
 5. `dns=default` im NetworkManager
 
-Als letztes bitte den NetworkManager auf `dns=default` einstellen.
+Als letztes stellen wir den NetworkManager auf `dns=default` ein.
 
-Dazu wird erst der Dienst gestoppt
+Dazu wird erst der Dienst gestoppt:
 
 ```
 sudo systemctl stop NetworkManager.service
 ```
 
-Danach die Datei zum editieren öffnen.
+Danach öffnen wir die Datei zum editieren:
 
 ```
 sudo gedit /etc/NetworkManager/NetworkManager.conf
 ```
 
-Im Bereich `[main]` die Zeile `dns=default` einfügen.
+Dann fügen wir im Bereich `[main]` die Zeile `dns=default` ein:
 
 ```
 [main]
@@ -679,7 +683,7 @@ managed=false
 wifi.scan-rand-mac-address=no
 ```
 
-Am Ende den Dienst wieder starten.
+Am Ende starten wir den Dienst wieder:
 
 ```
 sudo systemctl start NetworkManager.service
@@ -687,3 +691,17 @@ sudo systemctl start NetworkManager.service
 ```
 
 Voila! Das war es.
+
+## Gesamtes Set
+
+1. [Vorwort](/ubuntu-vorwort-docker-lamp)
+2. [Git](/ubuntu-git-einrichten-docker-lamp)
+3. [Docker](/ubuntu-docker-einrichten-docker-lamp)
+4. [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp)
+
+-> 5. [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten)
+
+6. [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden)
+7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
+8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
+9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)

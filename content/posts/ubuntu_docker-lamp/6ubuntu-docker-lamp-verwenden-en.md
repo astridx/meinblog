@@ -16,31 +16,31 @@ tags:
 
 _Docker_ simplifies the administration of software in containers. _Docker Compose_ is a tool that simplifies working with multiple containers.
 
-This is about _docker-lamp_. A software that provides pre-built images, containers and scripts to help with development on a web server. In the last part we set up the environment. Now I install Joomla in different versions. In the next part, I add one of my projects.
+This is about _docker-lamp_. A software that provides pre-built images, containers and scripts to help with development on a web server. In the last part we set up the environment. Now I install Joomla in different versions. In the next part, I will add one of my projects.
 
 ## Requirements
 
-Besides [Docker](/en/ubuntu-docker-set-up-docker-lamp), [Docker Compose](/en/ubuntu-docker-compose-set-up-docker-lamp) is necessary. If you have followed this [set](/en/my-ubuntu-computer-with-docker-lamp-themes/) so far, everything is fine.
+Besides [Docker](/en/ubuntu-docker-einrichten-docker-lamp), [Docker Compose](/en/ubuntu-docker-compose-einrichten-docker-lamp) is necessary. If you have followed this [set](/en/mein-ubuntu-rechner-mit-docker-lamp-themen/) so far, everything is fine.
 
 ## use docker-lamp
 
-Wenn der Server zwischenzeitlich heruntergefahren wurde, starte ihn über `make server-up` im Verzeichnis `docker-lamp`.
+If the server has been shut down in the meantime, start it via `make server-up` in the directory `docker-lamp`.
 
-Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.local/` das folgende Bild zeigen.
+In the web browser, the URL `https://joomla.test/` or `https://joomla.local/` should now show something like the following picture. In the following image you see the view after the two directories `j4dev` and `j3dev` have been created in the directory `joomla`.
 
-![Webserver Oberfläche](/images/joomlalocal.png)
+![Web server interface](/images/joomlalocal1.png)
 
-### Webserverumgebung einrichten
+### Set up web server environment
 
-#### Den Standard verwenden
+#### Using the default
 
-Wer das Verzeichnis `/www`, welches unter `/docker-lamp/data/www` vorhanden ist, als Stammverzeichnis des Webservers nutzt, kann diesen Abschnitt überspringen und dafür im weiteren meine Beschreibung anpassen. Diese beziehen sich auf `/srv/www`.
+If you use the `/www` directory, which exists under `/docker-lamp/data/www`, as the root directory of the web server, you can skip this section and modify my description for it. These refer to `/srv/www`.
 
-#### Stammverzeichnis des Webservers unter /srv/www einrichten
+#### Setting up the root directory of the web server under /srv/www
 
-Ich beschreibe meine Vorgehensweise als Beispiel, bei der ich `/srv/www` als Stammverzeichnis im Webserver nutze.
+I describe my procedure as an example using `/srv/www` as the root directory in the web server.
 
-In diesem Fall ist die Variable `APP_BASEDIR` in der Datei `.env` wie folgt abzuändern.
+In this case, the variable `APP_BASEDIR` in the file `.env` must be changed as follows.
 
 ```
 ...
@@ -52,26 +52,40 @@ APP_BASEDIR=/srv
 ...
 ```
 
-> Das Verzeichnis `data` unter `docker-lamp` ist die Basis für den Projektordner für Websites und Konfigurationen. Um dies auszulagern, verwendet man idealerweise diesen Ordner als Grundgerüst.
+> The `data` directory under `docker-lamp` is the basis for the project folder for websites and configurations. To outsource this, one can use this folder as skeleton.
 
-> Eine einfachere Alternative ist es, das Verzeichnis `/www` welches unter `/docker-lamp/data/www` zu finden ist, nach `/srv` zu kopieren. Dann verfügt man über die von _docker-lamp_ als Standard vorgesehen Verzeichnisse. Nur noch die Berechtigungen sind zu beachten.
+> An easier alternative is to copy the directory `/www` which can be found under `/docker-lamp/data/www` to `/srv`. Then you have the directories provided by _docker-lamp_ as standard. Only the permissions have to be taken into account.
 
-Als erstes lege ich das Verzeichnis `/srv/www/joomla` an. `/srv/www` soll mein Webserver Stammverzeichnis sein. In den Unterordner `joomla` kommen zur besseren Übersicht alle Joomla Projekte. Logisch, richtig?
+First I create the directory `/srv/www/joomla`. `/srv/www` should be my webserver root directory. The subfolder `joomla` will contain all Joomla projects for a better overview. Logical, right?
 
-In den meisten Server Setups ist es sinnvoll, dass derjenige, der die Dateien ändert, entweder Eigentümer ist oder zu einer Gruppe gehört, die Schreibrechte hat. So vermeidet man Konflikte mit Benutzerrechten, manchmal auch [`www-run`-Problem](https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem) genannt.
+In most server setups it makes sense that the person who changes the files is either the owner or belongs to a group that has write permissions. This way you avoid conflicts with user rights, sometimes called [`www-run`-problem](https://www.joomla.ch/joomla-entdecken/anleitungen/99-joomla-und-das-wwwrun-problem).
 
-Die nachfolgende Befehlskette stellt sicher, dass Ordner und Dateien die richtigen Rechte besitzen.
+The following chain of commands ensures that folders and files have the correct rights.
 
-```
-sudo mkdir /srv/www
-sudo mkdir /srv/www/joomla
-sudo chown -R deinBenutzer:deinBenutzer /srv/www/
+First, we stop the server.
 
 ```
+make server-down
+```
 
-##### Am Ende sollte dies für die Entwicklung mit Joomla vorhanden sein
+We copy the entire contents of the `docker-lamp/data` directory to `/srv`.
 
-1. In der Root sollte das Verzeichnis `srv` dem Benutzer `root` gehören.
+```
+sudo cp -r data/* /srv/
+sudo rm -r data/
+```
+
+`chown` stands for `change owner` and changes the owner of `/srv/www/`.
+
+```
+sudo chown -R youruser:youruser /srv/www/
+```
+
+> As a reminder, `whoami` shows you your user. `groups` shows you which groups you are in.
+
+##### In the end, this should be there for Joomla development
+
+1. In the root, the directory `srv` should belong to the user `root`.
 
 ```
 $ ll
@@ -80,59 +94,58 @@ drwxr-xr-x   4 root root       4096 Feb  3 17:42 srv/
 ...
 ```
 
-2. Das Verzeichnis `/srv` enthält folgende Struktur.
+2. The directory `/srv` contains the following structure:
 
 ```
-srv$ ll
-insgesamt 16
-drwxr-xr-x  4 root   root   4096 Feb  6 17:42 ./
-drwxr-xr-x 21 root   root   4096 Feb  5 22:29 ../
-drwxr-xr-x  5 deinBenutzer deinBenutzer 4096 Feb  6 17:52 www/
-```
-
-3. Das Verzeichnis `/srv/www` sieht wie folgt aus:
-
-```
-:/srv/www$ ll
-insgesamt 20
-drwxr-xr-x 5 deinBenutzer deinBenutzer 4096 Feb  6 17:52 ./
-drwxr-xr-x 4 root   root   4096 Feb  6 17:42 ../
-drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  6 19:50 joomla/
-```
-
-> Wer für Wordpress entwickeln möchte, legt analog zum `joomla` Ordner die von docker-lamp vorgesehen Verzeichnisse `wp` und `wp-multisite` an.
-
-##### Grundgerüst fertigstellen
+/srv$ ll
+insgesamt 36
+drwxr-xr-x  8 root   root   4096 Apr  8 18:59 ./
+drwxr-xr-x 21 root   root   4096 Feb  6 12:28 ../
+drwxr-xr-x  2 root   root   4096 Apr  8 18:57 apache24/
+drwxr-xr-x  3 root   root   4096 Apr  8 18:57 ca/
+drwxr-xr-x  2 root   root   4096 Apr  8 18:57 initDB/
+drwxr-xr-x  6 root   root   4096 Apr  8 18:57 php/
+drwxr-xr-x  2 root   root   4096 Apr  8 18:57 phpinfo/
+-rw-r--r--  1 root   root    144 Apr  8 18:57 README.md
+drwxr-xr-x  5 youruser youruser 4096 Apr  8 18:57 www/
 
 ```
-$ sudo cp -r apache24/ /srv/apache24/
-$ sudo cp -r initDB/ /srv/initDB/
-$ sudo cp -r ca/ /srv/ca/
-$ sudo cp -r php/ /srv/php/
-$ sudo cp -r phpinfo/ /srv/phpinfo/
+
+3. The directory `/srv/www` looks like this:
+
+```
+/srv/www$ ll
+insgesamt 24
+drwxr-xr-x 5 youruser youruser 4096 Apr  8 18:57 ./
+drwxr-xr-x 8 root   root   4096 Apr  8 18:59 ../
+drwxr-xr-x 2 youruser youruser 4096 Apr  8 18:57 joomla/
+-rw-r--r-- 1 youruser youruser   35 Apr  8 18:57 README.md
+drwxr-xr-x 2 youruser youruser 4096 Apr  8 18:57 wp/
+drwxr-xr-x 2 youruser youruser 4096 Apr  8 18:57 wp-multisite/
+
 ```
 
-Auch hier sicherstellen, dass alle Verzeichnis dem Benutzer gehören, der docker-lamp ausführt.
+> If you want to develop for Wordpress, create the directories `wp` and `wp-multisite` intended by _docker-lamp_ similar to the `joomla` folder.
 
-##### Abschlusstest
+##### Final test
 
-Den Server über `make server-down` und `make server-up` neu starte - im Verzeichnis `docker-lamp` ausgeführt.
+To test: run the command `make server-up` in the directory `docker-lamp` to restart the server.
 
-Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.local/` das folgende Bild zeigen.
+In the web browser the URL `https://joomla.test/` or `https://joomla.local/` should now show the following image - I have already created the two directories `j4dev` and `j3dev` in the directory `joomla`.
 
-![Webserver Oberfläche](/images/joomlalocal.png)
+![webserver interface](/images/joomlalocal1.png)
 
-#### Joomla installieren
+#### Installing Joomla
 
-Jenachdem, ob du mit der Entwicklerversion von Joomla arbeitest oder eine stabile Variante nutzt, unterscheidet sich die Installation.
+The installation process differs depending on whether you are working with the development version of Joomla or a stable version.
 
-##### Entwicklerversion
+##### Developer version
 
 ###### Joomla 4
 
-Die Developement Versionen klonen wir von Github in den Unterordner `joomla` des Webserver-Stammverzeichnises, genau in `/srv/www/joomla`.
+We clone the development versions from Github into the subfolder `joomla` of the web server root directory, exactly into the directory `/srv/www/joomla`.
 
-Ich wechsele in `/srv/www/joomla` und setze den folgenden Aufruf ab.
+To do this, I switch to the folder `/srv/www/joomla` and run the following command.
 
 ```
 cd /srv/www/joomla
@@ -141,33 +154,33 @@ git clone --depth 1 https://github.com/joomla/joomla-cms.git -b 4.0-dev
 
 ```
 
-Als Ergebnis sehe ich
+As a result I see:
 
 ```
 /srv/www/joomla$ ll
 insgesamt 12
-drwxr-xr-x  3 deinBenutzer deinBenutzer 4096 Feb  6 13:18 ./
-drwxr-xr-x  3 deinBenutzer deinBenutzer 4096 Feb  6 13:08 ../
-drwxrwxr-x 21 deinBenutzer deinBenutzer 4096 Feb  6 13:19 joomla-cms/
+drwxr-xr-x  3 youruser youruser 4096 Feb  6 13:18 ./
+drwxr-xr-x  3 youruser youruser 4096 Feb  6 13:08 ../
+drwxrwxr-x 21 youruser youruser 4096 Feb  6 13:19 joomla-cms/
 ```
 
-Damit ich auf den ersten Blick erkenne, um welches Joomla es sich handelt, gebe ich ihm einen sprechenderen Namen.
+In order to recognise at first glance which Joomla it is, I give the directory a more descriptive name.
 
 ```
 mv joomla-cms/ j4dev
 ```
 
-> Ich nutze `j4dev` für die Development Version von Joomla 4. `j3`, beziehungsweise `j4` für die letzte stabile Version des jeweiligen Major Release. `j4b6` für die 6. Beta Version von Joomla 4. Anlalog nenne ich die Datenbanken. So ist für mich alles übersichtlich.
+> I use `j4dev` for the development version of Joomla 4. `j3`, or `j4` for the last stable version of the major release. `j4b6` for the 6th beta version of Joomla 4. I name the databases in the same way. This way everything is clear for me.
 
-Ich schaue mir das Ergebnis im Browser an. `https://j4dev.joomla.local` oder `https://j4dev.joomla.test` sind die passenden URLs.
+I look at the result in the browser. `https://j4dev.joomla.local` or `https://j4dev.joomla.test` are the right URLs.
 
 ![Joomla 4 Oberfläche vor dem Einrichten der Entwicklungsumgebung](/images/j4dev1.png)
 
-Soweit so gut! Die [Entwicklungsumgebung](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de) ist als nächstes einzurichten.
+So far so good! The [development environment](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de) is to be set up next.
 
-> Warum nutze ich in den nachfolgenden Befehlen die 1000 anstelle von `user` oder `group`? In Ubuntu ist `1000` die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, hat man somit die ID 1000. Überprüfen kann man dies mit dem Befehl `id -u`.
+> Why do I use the 1000 instead of `user` or `group` in the following commands? In Ubuntu, `1000` is the first ID created in the case of users and groups during installation. If you have installed the system yourself, you will have the ID 1000. You can check this with the command `id -u`.
 
-Wir benötigen Git um Composer fehlerfrei ausführen zu können und installierne die Versionsverwaltung mit dem folgenden Befehl im Container `docker-lamp_php80`.
+We need Git to run Composer without errors and install the version management with the following command in the container `docker-lamp_php80`.
 
 ```
 $ docker exec -it docker-lamp_php80 apk add git
@@ -180,39 +193,39 @@ Executing busybox-1.32.1-r2.trigger
 OK: 79 MiB in 71 packages
 ```
 
-Der nachfolgende Befehl führt `composer install` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80`-Containers als Benutzer `1000` aus.
+The following command runs `composer install` in the `/srv/www/joomla/j4dev` directory of the `docker-lamp_php80` container as user `1000`.
 
-> Eine eventuelle lokale Installation von _Composer_ ist verwendbar. Dazu auf dem Rechner in das `j4dev` Verzeichnis wechseln und dort den Befehl [`composer install`](https://getcomposer.org/doc/03-cli.md#install-i) aufrufen.
+> A local installation of _Composer_ can be used. To do this, switch to the `j4dev` directory on the computer and call the command [`composer install`](https://getcomposer.org/doc/03-cli.md#install-i) there.
 
 ```
 docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install
 ```
 
-> Composer ist in den Containern mit PHP 7.3, 7.4 und 8.0 verwendbar.
+> Composer can be used in the containers with PHP 7.3 (docker-lamp_php73), 7.4 (docker-lamp_php74) and 8.0 (docker-lamp_php80).
 
-Der nachfolgende Befehl führt `npm ci` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80` Containers als Benutzer `1000` aus. Wir möchten `npm` aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters `--rm`.
+The following command runs `npm ci` in the `/srv/www/joomla/j4dev` directory of the `docker-lamp_php80` container as user `1000`. However, we do not want `npm` to be permanently in the container. Therefore we delete it. This is what the parameter `--rm` does.
 
-> Eventuelle lokale Installationen von _Node.js_ beziehungsweise _npm_ sind verwendbar. Dazu auf dem Rechner in das `j4dev` Verzeichnis wechseln und dort den Befehl [`npm ci`](https://docs.npmjs.com/cli/v6/commands/npm-ci) aufrufen.
+> Any local installations of _Node.js_ or _npm_ can be used. To do this, switch to the `j4dev` directory on the computer and call up the command [`npm ci`](https://docs.npmjs.com/cli/v6/commands/npm-ci) there.
 
 ```
 docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci
 ```
 
-Ich überprüfe die Ausgabe erneut im Browser. `https://j4dev/joomla.local` oder `https://j4dev.joomla.test` sind die passenden URLs.
+I check the output again in the browser. `https://j4dev/joomla.local` or `https://j4dev.joomla.test` are the appropriate URLs.
 
-![Joomla 4 Oberfläche nach dem Einrichten der Entwicklungsumgebung](/images/j4dev2.png)
+![Joomla 4 interface after setting up the development environment](/images/j4dev2.png)
 
-Voilá! Joomla ist bereit für die Installation.
+Voilá! Joomla is ready for installation.
 
-###### Besonderheiten bei der Installation von Joomla
+###### Special features during the installation of Joomla
 
-![Datenbankkonfiguration bei der Installation](/images/installmysql.png)
+![Database configuration during installation](/images/installmysql.png)
 
-![Meldung bei der Installation](/images/installdelfile.png)
+![Message during installation](/images/installdelfile.png)
 
 ###### Joomla 3
 
-Analog zur Installation der Joomla 4 Entwicklerversion wende ich die nachfolgenden Befehle an.
+Similar to the installation of the Joomla 4 developer version, I use the following commands.
 
 ```
 cd /srv/www/joomla
@@ -222,38 +235,38 @@ git clone --depth 1 https://github.com/joomla/joomla-cms.git -b staging
 mv joomla-cms/ j3dev
 ```
 
-Ich seje mir das Ergebnis im Browser an `https://j3dev.joomla.local` oder `https://j3dev.joomla.test` sind die passenden URLs für das Verzeichnis.
+I look at the result in the browser `https://j3dev.joomla.local` or `https://j3dev.joomla.test` are the appropriate URLs for the directory.
 
-![Joomla 3 Oberfläche](/images/j3dev1.png)
+![Joomla 3 interface](/images/j3dev1.png)
 
-Die Installationroutine von Joomla öffnet sich.
+The installation routine of Joomla opens.
 
-##### Stable Versionen
+##### Stable versions
 
-Im Falle einer stabilen Version besorge ich mir das ZIP File von [Github](https://github.com/joomla/joomla-cms/releases) und entpacke es im Ordner `/srv/www/joomla`.
+In case of a stable version, I get the ZIP file from [Github](https://github.com/joomla/joomla-cms/releases) and unpack it in the folder `/srv/www/joomla`.
 
-Wenn das Paket entpackt ist, benenne ich es um. Der Name `j3` bedeute bei mir, dass dies die letzte stabile Version der 3er-Reihe ist. `joomla-cms` würde mir nichts über die Version sagen.
+When the package is unpacked, I rename it. For me, the name `j3` means that this is the last stable version of the 3 series. `joomla-cms` would tell me nothing about the version.
 
 ```
 mv joomla-cms/ j3
 ```
 
-Für die Installation ist alles bereit.
+Everything is ready for installation.
 
-#### Was bietet docker-lamp
+#### What does docker-lamp offer
 
-Ich habe Joomla im Container `docker-lamp_php80` installiert. Zur Verfügung steht es mir in allen unterstützten PHP-Versionen.
+I have installed Joomla in the container `docker-lamp_php80`. It is available to me in all supported PHP versions.
 
-##### Ein kleiner Rundgang zum Orientieren
+##### A short overview for orientation
 
-Eine Befehlszeile des Containers `docker-lamp_php80` öffne ich über `docker exec -ti docker-lamp_php80 sh`.
+I open a command line of the container `docker-lamp_php80` via `docker exec -ti docker-lamp_php80 sh`.
 
 ```
 $ docker exec -ti docker-lamp_php80 sh
 php80:/srv/www#
 ```
 
-`cat /etc/issue` im Container eingegebene zeigt mir das Betriebssystem und die Version.
+`cat /etc/issue` called in the container shows me the operating system and version.
 
 ```
 php80:/srv/www# cat /etc/issue
@@ -261,7 +274,7 @@ Welcome to Alpine Linux 3.13
 Kernel \r on an \m (\l)
 ```
 
-Mittels `php -i | grep php.ini` finde ich heraus, welche `php.ini` geladen wird.
+Using `php -i | grep php.ini` I find out which `php.ini` is loaded.
 
 ```
 php80:/srv/www# php -i | grep php.ini
@@ -269,16 +282,16 @@ Configuration File (php.ini) Path => /usr/local/etc/php
 Loaded Configuration File => /usr/local/etc/php/php.ini
 ```
 
-> Im Container ist als Editor [_vi_](https://de.wikipedia.org/wiki/Vi) verfügbar. Mein Spickzettel mit den wichtigsten Befehlen zum _vi_: `:w` = Speichern der Datei. `:q` = Verlassen des vi (nur nach Speichern). `:wq` = Speichern und Verlassen. `:q!` = Verlassen ohne zu speichern.
+> The editor [_vi_](https://de.wikipedia.org/wiki/Vi) is available in the container. My cheat sheet with the most important commands for _vi_: `:w` = Save the file. `:q` = Exit the vi (only after saving). `:wq` = Save and exit. `:q!` = Exit without saving.
 
-Aus dem Container komme ich mit `exit` wieder heraus.
+I can exit the container again via `exit`.
 
 ```
 php80:/srv/www# exit
 $
 ```
 
-Die Namen der Container erfahre ich mittels `docker ps`.
+I find out the names of the containers using `docker ps`.
 
 ```
 $ docker ps -a
@@ -294,22 +307,22 @@ c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 
 96527284e9a0   cytopia/bind:0.15                   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp                                                                                                                                                                                                                                    docker-lamp_bind
 ```
 
-##### Unterstützte PHP Versionen
+##### Supported PHP Versions
 
-Die [Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/php) zeigt, welche PHP-Versionen unterstützt werden.
+The [Configuration](https://github.com/degobbis/docker-lamp/tree/main/.config/php) shows which PHP versions are supported.
 
-Konkrte ist das
+That is concretely
 
 - PHP 5.6 (https://joomla.local:8456/phpinfo/)
 - PHP 7.3 (https://joomla.local:8473/phpinfo/)
 - PHP 7.4 (https://joomla.local:8474/phpinfo/)
 - PHP 8.0 (https://joomla.local:8480/phpinfo/)
 
-> Bei den PHP-Versionen stehen hier keine Minor-Versionen. Diese werden zeitnah aktualisiert und ändern sich somit permanent.
+> The PHP versions in the list do not include minor versions. These are updated promptly and therefore change permanently.
 
-##### Port-Verlinkungen und PHP-Versionen
+##### Port links and PHP versions
 
-Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port `8074` standardmäßig mit `443` gemappt ist, in der `docker-compose.yml`, beziehungsweise der eigenen `docker-compose.override.yml`.
+The default PHP version is 7.4.x. This can be seen from the fact that port `8074` is mapped to `443` by default in `docker-compose.yml`, or the custom `docker-compose.override.yml`.
 
 ```
 ...
@@ -360,7 +373,7 @@ Standard ist PHP Version 7.4.14. Dies erkennt man daran, das der Port `8074` sta
 ...
 ```
 
-Eine spezielle PHP Version adressiert man über den Port. Beispielsweise https://joomla.local:8480/phpinfo/ für PHP 8.0.1 oder https://joomla.local:8456/phpinfo/ wenn man PHP 5.6.40 überprüfen möchte.
+A specific PHP version is addressed via the port. For example https://joomla.local:8480/phpinfo/ for PHP 8.0.x or https://joomla.local:8456/phpinfo/ if you want to check PHP 5.6.x.
 
 ![phpinfo() in PHP 5.6.40](/images/phpinfo56.png)
 
@@ -368,45 +381,45 @@ Eine spezielle PHP Version adressiert man über den Port. Beispielsweise https:/
 
 ###### PHPInfo()
 
-Ein praktisches Feature ist, dass `phpinfo()` für jede PHP-Version und jede Domain oder Subdomain vom System bereitgestellt wird. Dazu reicht es, die Domain mit dem Unterverzeichnis `/phpinfo` aufzurufen.
+A practical feature is that `phpinfo()` is provided by the system for each PHP version and each domain or subdomain. All that is needed is to call the domain with the subdirectory `/phpinfo`.
 
-Der Aufruf
+The request 
 
 ```
 https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&view=sysinfo
 ```
 
-zeigt die Systeminformationen der Joomla Installation. Man sieht, dass PHP 8.0 ausgeführt wird.
+shows the system information of the Joomla installation. You can see that PHP 8.0 is running.
 
-Der Aufruf
+The request 
 
 ```
 https://j4dev.joomla.local:8456/administrator/index.php?option=com_admin&view=sysinfo
 ```
 
-zeigt die Systeminformationen der Joomla Installation. Mit der PHP-Version 5.6 kann Joomla 4 nicht ausgeführt werden. Deshalb wird man mit "Sorry, your PHP version is not supported" begrüßt.
+shows the system information of the Joomla installation. Joomla 4 cannot be run with PHP version 5.6. Therefore, you are greeted with "Sorry, your PHP version is not supported". Joomla 4 does not support PHP 5.6.x.
 
 ##### xdebug
 
-##### Versionen
+##### Versions
 
-PHP 5.6 verwendet im Februar 2021
+PHP 5.6 used in February 2021
 
 - xdebug 2.5.5
 
-PHP 7.3 und PHP 7.4 verwenden
+PHP 7.3 and PHP 7.4 used
 
 - xdebug 2.9.8
 
-PHP 8.0 verwendet
+PHP 8.0 used
 
 - xdebug 3.1.0-dev
 
-##### Parameter
+##### Parameters
 
-Die in _xdebug_ eingestellten Parameter findet man in der [PHP Konfiguration](https://github.com/degobbis/docker-lamp/tree/main/.config/php).
+The parameters set in _xdebug_ can be found in the [PHP configuration](https://github.com/degobbis/docker-lamp/tree/main/.config/php).
 
-Für xdebug 2 ist dies
+For xdebug 2 this is
 
 ```
 [XDEBUG]
@@ -426,7 +439,7 @@ xdebug.max_nesting_level = 700
 ;xdebug.remote_host=192.168.0.100
 ```
 
-Für xdebug 3 ist dies
+For xdebug 3 this is
 
 ```
 [XDEBUG]
@@ -446,13 +459,13 @@ xdebug.max_nesting_level = 700
 ;xdebug.client_host=192.168.0.100
 ```
 
-> Man beachte `xdebug.remote_port = 10000` beziehungsweise `xdebug.client_port = 10000`, die in der Konfiguration der IDE oder des Browser Plugins benötigt werden.
+> Note `xdebug.remote_port = 10000` and `xdebug.client_port = 10000` respectively, which are required in the configuration of the IDE or the browser plugin.
 
-##### Mögliche Fehler
+##### Possible errors
 
 ###### Cloning failed using an ssh key for authentication, enter your GitHub credentials to access private repos
 
-Der nachfolgende Fehler deutet darauf hin, dass Git im Container nicht installiert ist.
+The following error indicates that Git is not installed in the container.
 
 ```
 Installing joomla-projects/joomla-browser (v4.0.0.x-dev 679c0ce): Cloning 679c0cef9c
@@ -462,7 +475,7 @@ to retrieve a token. It will be stored in "/home/virtual/.composer/auth.json" fo
 Token (hidden):
 ```
 
-Die Installation von Git im Container erfolgt für den Container `docker-lamp_php80` via:
+The installation of Git in the container is done for the container `docker-lamp_php80` via:
 
 ```
 $ docker exec -it docker-lamp_php80 apk add git
@@ -475,14 +488,14 @@ Executing busybox-1.32.1-r2.trigger
 OK: 79 MiB in 71 packages
 ```
 
-### phpMyAdmin und MailHog
+### phpMyAdmin and MailHog
 
 #### phpMyAdmin
 
-[phpMyAdmin](https://www.phpmyadmin.net/) ist ein freies Tool, das für die Verwaltung von MySQL über das Web gedacht ist.
-Die phpMyAdmin-Oberfläche erreicht man über http://localhost:8000.
+[phpMyAdmin](https://www.phpmyadmin.net/) is a free tool designed for managing MySQL over the web.
+The phpMyAdmin interface can be reached via `http://localhost:8000`.
 
-Das Passwort für den Benutzer `root` setzt man in der Datei `.env`. Standardmäßig ist es `root`.
+The password for the user `root` is set in the file `.env`. By default it is `root`.
 
 ```
 ...
@@ -492,9 +505,9 @@ MYSQL_ROOT_PASSWD=root
 ...
 ```
 
-![phpMyAdmin Oberfläche](/images/phpmyadmin.png)
+![phpMyAdmin interface](/images/phpmyadmin.png)
 
-Bei der Installation von Joomla wird ein Datenbankserver abgefragt. Verwendet man _docker-lamp_ ist der Name des Datenbank Containers anzugeben. Dieser ist schlicht und einfach `mysql`. Diese Information findet man in der Datei `docker-compose.yml`.
+When installing Joomla, a database server is requested. If you use _docker-lamp_ you have to enter the name of the database container. This is simply `mysql`. This information can be found in the file `docker-compose.yml`.
 
 ```
 ...
@@ -543,17 +556,17 @@ Bei der Installation von Joomla wird ein Datenbankserver abgefragt. Verwendet ma
 ...
 ```
 
-![Datenbankkonfiguration bei der Installation](/images/installmysql.png)
+![Database configuration during installation](/images/installmysql.png)
 
 #### MailHog
 
-[MailHog](https://github.com/mailhog/MailHog) ist ein E-Mail-Testwerkzeug für Entwickler.
+[MailHog](https://github.com/mailhog/MailHog) is an email testing tool for developers.
 
-Mit `docker-lamp` sind E-Mails über die Mailhog-Oberfläche einsehbar, wenn diese per PHP-Mail gesendet wurden. Die Mailhog-Oberfläche erreicht man über http://localhost:8025.
+With `docker-lamp` emails can be viewed via the Mailhog interface if they were sent via PHP mail. The Mailhog interface can be reached via `http://localhost:8025`.
 
-![MailHog Oberfläche](/images/mailhog.png)
+![MailHog interface](/images/mailhog.png)
 
-Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in der Datei `docker-compose.yml` werfen.
+If you want to see how the container is build, you can take a look at the file `docker-compose.yml`.
 
 ```
 ...
@@ -571,3 +584,18 @@ Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in d
         ipv4_address: 172.16.238.16
 ...
 ```
+
+## Complete Set
+
+1. [Preface](/en/ubuntu-vorwort-docker-lamp)
+2. [Git](/en/ubuntu-git-einrichten-docker-lamp)
+3. [Docker](/en/ubuntu-docker-einrichten-docker-lamp)
+4. [Docker Compose](/en/ubuntu-docker-compose-einrichten-docker-lamp)
+5. [Set up docker-lamp](/en/ubuntu-docker-lamp-einrichten)
+
+-> 6. [Use docker-lamp](/en/ubuntu-docker-lamp-verwenden)
+
+7. [docker-lamp with own projects](/en/ubuntu-docker-lamp-verwenden-eigene-projekte)
+8. [Visual Studio Code](/en/ubuntu-vscode-docker-lamp)
+9. [docker-lamp with own Domain](/en/ubuntu-docker-lamp-verwenden-eigene-domain)
+

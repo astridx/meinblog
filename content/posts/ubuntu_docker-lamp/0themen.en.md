@@ -13,7 +13,7 @@ tags:
   - Ubuntu
 ---
 
-## Setting up an Ubuntu 20.04 desktop with Docker and docker-lamp for development with Joomla
+## docker-lamp
 
 I have installed Ubuntu 20.04 and document my installation of docker-lamp here.
 

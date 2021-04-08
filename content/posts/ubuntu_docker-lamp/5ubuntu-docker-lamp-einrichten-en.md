@@ -429,11 +429,11 @@ docker-lamp_pma
 
 I need a certificate on my containerised web servers to use encrypted websites. For this purpose, `docker-lamp` uses [Minica](https://github.com/jsha/minica).
 
-> Minica creates a root certificate the first time it is called, on which all certificates created on it are based.
+> Minica creates a root certificate the first time it is called, on which all further created certificates are based.
 
-##### Angabe im `Makefile`
+##### Specifications in the `Makefile
 
-Standardmäßig werden die im Makefile in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegten Domains zertifiziert.
+By default, the domains specified in the variable `MINICA_DEFAULT_DOMAINS` in the Makefile are certified.
 
 ```
 ...
@@ -441,9 +441,9 @@ MINICA_DEFAULT_DOMAINS:=localdomains,localhost,joomla.local,joomla.test,*.joomla
 ...
 ```
 
-##### Angaben in der Datei `.env`
+##### Specifications in the `.env` file
 
-Um zusätzliche Domains zu zertifizieren, git es die Variablen `SSL_DOMAINS` und `SSL_LOCALDOMAINS` in der Datei `.env`.
+To certify additional domains, there are variables `SSL_DOMAINS` and `SSL_LOCALDOMAINS` in the `.env` file.
 
 ```
 ...
@@ -452,17 +452,17 @@ SSL_LOCALDOMAINS=
 ...
 ```
 
-##### Zusätzliche Domain hinzufügen
+##### Adding an additional domain
 
-Eine eigene Domains fügt man im `docker-lamp` verzeichnis mittels nachfolgender Befehle hinzu.
+You can add your own domains in the `docker-lamp` directory using the following commands. I leave the default settings here. However, I think the explanations are important at this point, because you already use the default settings and thus find your way around docker-lamp better.
 
-> Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) habe ich später beschrieben.
+> I will describe a concrete [example](/en/ubuntu-docker-lamp-verwenden-eigene-domain) later.
 
 ```
 nano .env
 ```
 
-Hier dann je nach Wunsch folgenden Einträge erweitert:
+Then expand the following entries here as desired:
 
 ```
 ...
@@ -472,71 +472,75 @@ TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1
 SSL_LOCALDOMAINS=
 ```
 
-> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. [Top-Level-Domain](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458) steht. `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden durch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter `SSL_LOCALDOMAINS` einzutragen.
-> Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` spielen zusammen.
+> As `TLD_SUFFIX` you only enter the word that is at the very end of the [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904). This is the [top-level domain TLD](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458). We had defined this in the variable `MINICA_DEFAULT_DOMAINS`. One `TLD` is `joomla`. As `TLD_SUFFIX` `local` is sufficient. `joomla.local` is not necessary. All [domains and subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) with the top-level domain `.local` are caught by the previous entry. 
+
+
+> Do you need another top-level domain including subdomains, for example `mytdl` with `jedemengesubdomains.mytld`? Now `TLD_SUFFIX` comes into play. That is: `TLD_SUFFIX=mytdl` and `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` play together. But more on this later in the concrete [example](/ubuntu-docker-lamp-use-own-domain).
 
 ```
-             (root)                 0. Ebene, Null-Label
+             (root)                 0. level, Null-Label
                |
                |
-              mytdl                 1. Ebene, Top-Level-Domains (TLD)
+              mytdl                 1. level, Top-Level-Domains (TLD)
          /           \
         /             \
-  subdomain1       subdomain2       2. Ebene, Second-Level-Domains
+  subdomain1       subdomain2       2. level, Second-Level-Domains
     /  |   \         /   |  \
-s11    s12  s13   s21    s22  s23   3. Ebene, Third-Level-Domains
+s11    s12  s13   s21    s22  s23   3. level, Third-Level-Domains
 ```
 
-Dann die Ordner für die Ebenen erstellen. Für die zweite Ebene wäre das `/data/www/subdomain1` und `/data/www/subdomain2` erstellen. `/data/www/joomla` sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
+Then create the directories for the levels. For the second level this would be `/data/www/subdomain1` and `/data/www/subdomain2`. `/data/www/joomla` should already exist. The third level is continued in the same way: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
 
-Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. Für Wordpress Entwickler gibt es neben `joomla` weiter Domains auf der 3. Ebenen.
+The following structure is already pre-configured for development with Joomla. 
+
+> For Wordpress developers, there are further domains on the 3rd level in addition to `joomla`.
 
 ```
-             (root)                 0. Ebene, Null-Label
+             (root)                 0. level, Null-Label
              /   \
             /     \
-         test     local             1. Ebene, Top-Level-Domains (TLD)
+         test     local             1. level, Top-Level-Domains (TLD)
          /           \
         /             \
-    joomla           joomla         2. Ebene, Second-Level-Domains
+    joomla           joomla         2. level, Second-Level-Domains
 
-                                    3. Ebene, Third-Level-Domains
+                                    3. level, Third-Level-Domains
 ```
 
-Am Ende den Ordner `/localdomains` löschen und den Server starten.
+If you have changed anything in the configuration, delete the folder `APP_BASEDIR/ca/localdomains`. To continue working on `docker-lampp` we start the server again with `make server-up`.
 
 ```
 make server-up
 ```
 
-#### Vor dem Importieren des Zertifikates
+#### Before importing the certificate
 
-Ruft man die URL `https://joomla.test/` oder `https://joomla.local/` im Browser auf, erscheint ein Sicherheitshinweis. Der Brwoser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.
+If you call up the URL `https://joomla.test/` or `https://joomla.local/` in the browser, a security notice appears. The browser does not know the certificate yet. Therefore, I import it in the next step.
 
-![Sicherheitshinweis](/images/dockerlamp_zert.png)
+![security notice](/images/dockerlamp_zert.png)
 
-> Hinter `https://joomla.test/` oder `https://joomla.local/` befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt, die auf dieselben Daten zeigen? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
+> `https://joomla.test/` and `https://joomla.local/` address the same files. Why were two domains provided that link to the same destination? Quite simple. So you can debug and browse at the same time.
 
-#### Zertifikat importieren
+#### Import certificate
 
-In Mozilla Firefox importiert man das Zertifikat wie folgt:
+In Mozilla Firefox, import the certificate as follows.
 
-1. Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz & Sicherheit (Privacy and Security).
-2. Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates).
-3. Wechsele in den Tabulator Zertifizierungsstellen (Authorities).
-4. Importiere die Datei `APP_BASEDIR/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
+1. Open the Preferences and click in the left sidebar on Privacy and Security.
+2. In the right-hand area you will now find the Security section further down. Click the View Certificates button here. 
+3. Switch to the tab Authorities. 
+4. Import the file `APP_BASEDIR/ca/minica-root-ca-key.pem`. Make sure that you activate `Trust website`.
 
-![Zertifikat importieren](/images/dockerlamp_zertbrowser.png)
+![import certificate](/images/dockerlamp_zertbrowser.png)
 
-> Das Zertifikat wird von `docker-lamp` standardmäßig für die `https://joomla.test/` oder `https://joomla.local/` erstellt. Unter `https://test/` oder `https://local/` gibt es weiterhin den Fehler. Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) beschreibt die Vorgehensweise für neue Domains.
+> The certificate is created by `docker-lamp` by default for `https://joomla.test/` or `https://joomla.local/`. Under `https://test/` or `https://local/` there is still the error. A concrete [example](/en/ubuntu-docker-lamp-use-own-domain) describes the procedure for certifying new domains.
 
-## Mögliche Fehler
+## Possible errors
 
-Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von `make server-up` zu einem Fehler
+Depending on the configuration, an error may occur under Ubuntu 20.04 when calling `make server-up`.
 
 ### permission denied (but minica-root-ca.pem exists)
 
-Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimmen Berechtigungen nicht.
+If the output of `make server-up` starts with the following text, permissions are not correct.
 
 ```
 ./.env included
@@ -544,9 +548,9 @@ Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimm
 ...
 ```
 
-#### Abhilfe schafft die folgende Vorgehensweise
+#### The following action will help.
 
-Als erstes ins Unterverzeichnis data wechseln.
+First, navigate to the data subdirectory.
 
 ```
 /docker-lamp$ cd data
@@ -554,7 +558,7 @@ Als erstes ins Unterverzeichnis data wechseln.
 ...
 ```
 
-In diesem Verzeichnis alle Rechte prüfen. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören
+Check all rights in this directory. All contents should belong to the current user and his or her group.
 
 ```
 /docker-lamp/data$ ll
@@ -569,13 +573,13 @@ drwxrwxr-x 2 youruser youruser 4096 Feb  4 17:16 phpinfo/
 drwxrwxr-x 5 youruser youruser 4096 Feb  4 17:16 www/
 ```
 
-Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal youruser, zuweisen.
+Use the following command to assign all contents to the current user, in this case both times the user `youruser`.
 
 ```
 sudo chown -R youruser:youruser .
 ```
 
-Am Ende wieder zurück in das `docker-lamp`-Verzeichnis wechseln und den Befehl `make server-up` wiederholen.
+At the end, navigate back to the `docker-lamp` directory and redo the `make server-up` command.
 
 ```
 /docker-lamp/data$ cd ..
@@ -611,13 +615,13 @@ Removed /etc/systemd/system/multi-user.target.wants/systemd-resolved.service.
 $ sudo systemctl stop systemd-resolved.service
 ```
 
-> Was ist der Unterschied zwischen `systemctl stop` und `systemctl disable` beziehungsweise `systemctl start` und `systemctl enable`? `systemctl start` und `systemctl enable` machen verschiedene Dinge. Mit `enable` wird der angegebene Dienst an relevanten Stellen eingehängt, sodass er beim Booten automatisch gestartet wird. `start` startet das Gerät sofort. Deaktivieren und Stoppen sind das Gegenteil davon. [Manpage](http://manpages.ubuntu.com/manpages/hirsute/en/man1/systemctl.1.html)
+> What is the difference between `systemctl stop` and `systemctl disable` or `systemctl start` and `systemctl enable`? `systemctl start` and `systemctl enable` do different things. `enable` hooks the specified service into relevant places so that it is automatically started at boot time. `start` starts the device immediately. Disable and stop are the opposite of this. [Manpage](http://manpages.ubuntu.com/manpages/hirsute/en/man1/systemctl.1.html)
 
 3. `sudo rm /etc/resolv.conf`
 
-Warum ist die Datei zu löschen?
+Why is the file to be deleted?
 
-Die Datei `/etc/resolv.conf` ist ein Symlink.
+The file `/etc/resolv.conf` is a symlink.
 
 ```
 $ ll /etc/
@@ -627,7 +631,7 @@ lrwxrwxrwx   1 root root      39 Feb  4 00:00 resolv.conf -> ../run/systemd/reso
 ...
 ```
 
-Sie hat folgenden Inhalt:
+The linked file has the following content:
 
 ```
 $ cat /etc/resolv.conf
@@ -637,36 +641,36 @@ options edns0
 search localdomain
 ```
 
-Mit dem Löschen der Datei wird gleichzeitig der Symlink gelöscht. Würden wir die Datei nicht löschen, würde der Inhalt bei jedem Neustart wiederhergestellt. Der Eintrag `nameserver 127.0.0.53` ist aber die Ursache für den Fehler, den wir lösen möchten.
+Deleting the file deletes the symlink at the same time. If we did not delete the file, the content would be restored at every restart. However, the entry `nameserver 127.0.0.53` is the cause of the error we want to solve.
 
 4. `sudo nano /etc/resolv.conf`
 
-Als letztes erstellen wir die Datei mit `sudo nano /etc/resolv.conf` neu. Und tragen zwei passende nameserver ein, wobei `nameserver 192.168.178.2` ein Beispiel für die Konfiguration einer Fritzbox ist, und an die eigenen Gegebenbheiten anzupassen ist.
+Finally, we recreate the file with `sudo nano /etc/resolv.conf`. Then we enter two suitable `nameservers`, where `nameserver 192.168.178.2` is an example for the configuration of a Fritzbox, and change everything to suit our own circumstances.
 
 ```
 nameserver 127.0.0.1
 nameserver 192.168.178.2
 ```
 
-Es ist wichtig, dass der Eintrag `nameserver 127.0.0.1` an erster Stelle steht. Nach einem Neustart wird der `docker`-Container verwendet. Wenn der nicht verfügbar ist, wird auf `nameserver 192.168.178.2` verwiesen. So ist sichergestellt, dass eine Internetverbindung auch bei gestopptem Container verfügbar ist.
+It is important that the entry `nameserver 127.0.0.1` is in first place. After a restart, the `docker` container is used. If this is not available, reference is made to `nameserver 192.168.178.2`. This ensures that an internet connection is available even if the container is stopped.
 
 5. `dns=default` im NetworkManager
 
-Als letztes bitte den NetworkManager auf `dns=default` einstellen.
+The last thing we do is set the NetworkManager to `dns=default`.
 
-Dazu wird erst der Dienst gestoppt
+To do this, first stop the service:
 
 ```
 sudo systemctl stop NetworkManager.service
 ```
 
-Danach die Datei zum editieren öffnen.
+Then we open the file for editing:
 
 ```
 sudo gedit /etc/NetworkManager/NetworkManager.conf
 ```
 
-Im Bereich `[main]` die Zeile `dns=default` einfügen.
+Then we add the line `dns=default` in the area `[main]`:
 
 ```
 [main]
@@ -680,11 +684,25 @@ managed=false
 wifi.scan-rand-mac-address=no
 ```
 
-Am Ende den Dienst wieder starten.
+At the end we start the service again:
 
 ```
 sudo systemctl start NetworkManager.service
 
 ```
 
-Voila! Das war es.
+Voila! That was it.
+
+## Complete Set
+
+1. [Preface](/en/ubuntu-vorwort-docker-lamp)
+2. [Git](/en/ubuntu-git-einrichten-docker-lamp)
+3. [Docker](/en/ubuntu-docker-einrichten-docker-lamp)
+4. [Docker Compose](/en/ubuntu-docker-compose-einrichten-docker-lamp)
+
+-> 5. [Set up docker-lamp](/en/ubuntu-docker-lamp-einrichten)
+
+6. [Use docker-lamp](/en/ubuntu-docker-lamp-verwenden)
+7. [docker-lamp with own projects](/en/ubuntu-docker-lamp-verwenden-eigene-projekte)
+8. [Visual Studio Code](/en/ubuntu-vscode-docker-lamp)
+9. [docker-lamp with own Domain](/en/ubuntu-docker-lamp-verwenden-eigene-domain)

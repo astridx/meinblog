@@ -282,7 +282,7 @@
 <blockquote>
 <p>Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertifikate basieren.</p>
 </blockquote>
-<h5>Angabe im <code class="language-text">Makefile</code></h5>
+<h5>Angaben im <code class="language-text">Makefile</code></h5>
 <p>Standardmäßig werden die im Makefile in der Variablen <code class="language-text">MINICA_DEFAULT_DOMAINS</code> festgelegten Domains zertifiziert.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="27"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">MINICA_DEFAULT_DOMAINS:=localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test</span></span>
@@ -294,20 +294,22 @@
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h5>Zusätzliche Domain hinzufügen</h5>
-<p>Eine eigene Domains fügt man im <code class="language-text">docker-lamp</code> verzeichnis mittels nachfolgender Befehle hinzu.</p>
+<p>Eine eigene Domains fügt man im <code class="language-text">docker-lamp</code>-Verzeichnis mittels nachfolgender Befehle hinzu. Ich belasse hier die Standardeinstellungen. Die Erklärungen finde ich an dieser Stelle trotzdem wichtig, weil man die Standardeinstellungen schon nutzt und sich so besser in docker-lamp orientiert.</p>
 <blockquote>
 <p>Ein konkretes <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> habe ich später beschrieben.</p>
 </blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="29"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano .env</span></span></code></pre>
-<p>Hier dann je nach Wunsch folgenden Einträge erweitert:</p>
+<p>Hier dann je nach Wunsch folgenden Einträge erweitern:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="30"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span></code></pre>
 <blockquote>
-<p>Als <code class="language-text">TLD_SUFFIX</code> trägt man lediglich das Wort ein, welches ganz am Ende der <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a> steht. <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">Top-Level-Domain</a> steht. <code class="language-text">local</code> reicht aus. <code class="language-text">joomla.local</code> ist nicht notwendig. Alle <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">Domains und Subdomains</a> mit der Top-Level-Domain <code class="language-text">.local</code> werden durch den vorherigen Eintrag abgefangen. Es ist ausreichend, diese unter <code class="language-text">SSL_LOCALDOMAINS</code> einzutragen.
-Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl</code> spielen zusammen.</p>
+<p>Als <code class="language-text">TLD_SUFFIX</code> trägt man lediglich das Wort ein, welches ganz am Ende der <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a> steht. Das ist die <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">Top-Level-Domain TLD</a>. Diese hatten wir in der Variablen <code class="language-text">MINICA_DEFAULT_DOMAINS</code> festgelegt. Eine <code class="language-text">TLD</code> ist <code class="language-text">joomla</code>. Als <code class="language-text">TLD_SUFFIX</code> reicht <code class="language-text">local</code> reicht aus. <code class="language-text">joomla.local</code> ist nicht notwendig. Alle <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">Domains und Subdomains</a> mit der Top-Level-Domain <code class="language-text">.local</code> werden durch den vorherigen Eintrag abgefangen. </p>
+</blockquote>
+<blockquote>
+<p>Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl</code> spielen zusammen. Aber dazu später mehr im konkreten <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a>.</p>
 </blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="31"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
 <span class="grvsc-line"><span class="grvsc-source">               |</span></span>
@@ -318,8 +320,11 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
 <span class="grvsc-line"><span class="grvsc-source">  subdomain1       subdomain2       2. Ebene, Second-Level-Domains</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    /  |   \         /   |  \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">s11    s12  s13   s21    s22  s23   3. Ebene, Third-Level-Domains</span></span></code></pre>
-<p>Dann die Ordner für die Ebenen erstellen. Für die zweite Ebene wäre das <code class="language-text">/data/www/subdomain1</code> und <code class="language-text">/data/www/subdomain2</code> erstellen. <code class="language-text">/data/www/joomla</code> sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: <code class="language-text">/data/www/subdomain1/s11</code>, <code class="language-text">/data/www/subdomain1/s12</code>, <code class="language-text">/data/www/subdomain1/s13</code>, <code class="language-text">/data/www/subdomain2/s21</code>, <code class="language-text">/data/www/subdomain2/s22</code>, <code class="language-text">/data/www/subdomain2/s23</code>.</p>
-<p>Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. Für Wordpress Entwickler gibt es neben <code class="language-text">joomla</code> weiter Domains auf der 3. Ebenen.</p>
+<p>Dann die Verzeichnisse für die Ebenen erstellen. Für die zweite Ebene wäre das <code class="language-text">/data/www/subdomain1</code> und <code class="language-text">/data/www/subdomain2</code> erstellen. <code class="language-text">/data/www/joomla</code> sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: <code class="language-text">/data/www/subdomain1/s11</code>, <code class="language-text">/data/www/subdomain1/s12</code>, <code class="language-text">/data/www/subdomain1/s13</code>, <code class="language-text">/data/www/subdomain2/s21</code>, <code class="language-text">/data/www/subdomain2/s22</code>, <code class="language-text">/data/www/subdomain2/s23</code>.</p>
+<p>Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. </p>
+<blockquote>
+<p>Für Wordpress Entwickler gibt es neben <code class="language-text">joomla</code> weiter Domains auf der 3. Ebenen.</p>
+</blockquote>
 <pre class="grvsc-container solarized-light" data-language="" data-index="32"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
 <span class="grvsc-line"><span class="grvsc-source">             /   \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">            /     \</span></span>
@@ -329,10 +334,10 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
 <span class="grvsc-line"><span class="grvsc-source">    joomla           joomla         2. Ebene, Second-Level-Domains</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">                                    3. Ebene, Third-Level-Domains</span></span></code></pre>
-<p>Am Ende den Ordner <code class="language-text">/localdomains</code> löschen und den Server starten.</p>
+<p>Falls du etwas an der Konfiguration geändet hast, lösche den Ordner <code class="language-text">APP_BASEDIR/ca/localdomains</code>. Um weiter an <code class="language-text">docker-lampp</code> zu arbeiten starten wir den Server wieder mittels <code class="language-text">make server-up</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="33"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">make server-up</span></span></code></pre>
 <h4>Vor dem Importieren des Zertifikates</h4>
-<p>Ruft man die URL <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> im Browser auf, erscheint ein Sicherheitshinweis. Der Brwoser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.</p>
+<p>Ruft man die URL <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> im Browser auf, erscheint ein Sicherheitshinweis. Der Browser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -364,7 +369,7 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
   </a>
     </span></p>
 <blockquote>
-<p>Hinter <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> befindet sich das gleiche Ziel. Warum wurden zwei Domains zur Verfügung gestellt, die auf dieselben Daten zeigen? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.</p>
+<p><code class="language-text">https://joomla.test/</code> und <code class="language-text">https://joomla.local/</code> adressieren die gleichen Dateien. Warum wurden zwei Domains zur Verfügung gestellt, die das gleiche Ziel verlinken? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.</p>
 </blockquote>
 <h4>Zertifikat importieren</h4>
 <p>In Mozilla Firefox importiert man das Zertifikat wie folgt:</p>
@@ -407,7 +412,7 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
   </a>
     </span></p>
 <blockquote>
-<p>Das Zertifikat wird von <code class="language-text">docker-lamp</code> standardmäßig für die <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> erstellt. Unter <code class="language-text">https://test/</code> oder <code class="language-text">https://local/</code> gibt es weiterhin den Fehler. Ein konkretes <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> beschreibt die Vorgehensweise für neue Domains.</p>
+<p>Das Zertifikat wird von <code class="language-text">docker-lamp</code> standardmäßig für die <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> erstellt. Unter <code class="language-text">https://test/</code> oder <code class="language-text">https://local/</code> gibt es weiterhin den Fehler. Ein konkretes <a href="/en/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> beschreibt die Vorgehensweise zum Zertifizieren von neuen Domains.</p>
 </blockquote>
 <h2>Mögliche Fehler</h2>
 <p>Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von <code class="language-text">make server-up</code> zu einem Fehler</p>
@@ -421,7 +426,7 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
 <pre class="grvsc-container solarized-light" data-language="" data-index="35"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">/docker-lamp$ cd data</span></span>
 <span class="grvsc-line"><span class="grvsc-source">/docker-lamp/data$</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<p>In diesem Verzeichnis alle Rechte prüfen. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören</p>
+<p>Prüfe als nächstes in diesem Verzeichnis alle Rechte. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="36"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">/docker-lamp/data$ ll</span></span>
 <span class="grvsc-line"><span class="grvsc-source">insgesamt 28</span></span>
 <span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x 7 deinBenutzer deinBenutzer 4096 Feb  4 17:33 ./</span></span>
@@ -470,7 +475,7 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">lrwxrwxrwx   1 root root      39 Feb  4 00:00 resolv.conf -&gt; ../run/systemd/resolve/stub-resolv.conf</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
-<p>Sie hat folgenden Inhalt:</p>
+<p>Die verlinkte Datei hat folgenden Inhalt:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="43"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ cat /etc/resolv.conf</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.53</span></span>
@@ -480,19 +485,19 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
 <ol start="4">
 <li><code class="language-text">sudo nano /etc/resolv.conf</code></li>
 </ol>
-<p>Als letztes erstellen wir die Datei mit <code class="language-text">sudo nano /etc/resolv.conf</code> neu. Und tragen zwei passende nameserver ein, wobei <code class="language-text">nameserver 192.168.178.2</code> ein Beispiel für die Konfiguration einer Fritzbox ist, und an die eigenen Gegebenbheiten anzupassen ist.</p>
+<p>Als letztes erstellen wir die Datei mit <code class="language-text">sudo nano /etc/resolv.conf</code> neu. Dann tragen wir zwei passende <code class="language-text">nameserver</code> ein, wobei <code class="language-text">nameserver 192.168.178.2</code> ein Beispiel für die Konfiguration einer Fritzbox ist, und passen alles an die eigenen Gegebenheiten an.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="44"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">nameserver 192.168.178.2</span></span></code></pre>
 <p>Es ist wichtig, dass der Eintrag <code class="language-text">nameserver 127.0.0.1</code> an erster Stelle steht. Nach einem Neustart wird der <code class="language-text">docker</code>-Container verwendet. Wenn der nicht verfügbar ist, wird auf <code class="language-text">nameserver 192.168.178.2</code> verwiesen. So ist sichergestellt, dass eine Internetverbindung auch bei gestopptem Container verfügbar ist.</p>
 <ol start="5">
 <li><code class="language-text">dns=default</code> im NetworkManager</li>
 </ol>
-<p>Als letztes bitte den NetworkManager auf <code class="language-text">dns=default</code> einstellen.</p>
-<p>Dazu wird erst der Dienst gestoppt</p>
+<p>Als letztes stellen wir den NetworkManager auf <code class="language-text">dns=default</code> ein.</p>
+<p>Dazu wird erst der Dienst gestoppt:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="45"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl stop NetworkManager.service</span></span></code></pre>
-<p>Danach die Datei zum editieren öffnen.</p>
+<p>Danach öffnen wir die Datei zum editieren:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="46"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo gedit /etc/NetworkManager/NetworkManager.conf</span></span></code></pre>
-<p>Im Bereich <code class="language-text">[main]</code> die Zeile <code class="language-text">dns=default</code> einfügen.</p>
+<p>Dann fügen wir im Bereich <code class="language-text">[main]</code> die Zeile <code class="language-text">dns=default</code> ein:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="47"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[main]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">dns=default</span></span>
 <span class="grvsc-line"><span class="grvsc-source">plugins=ifupdown,keyfile</span></span>
@@ -502,9 +507,23 @@ Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">[device]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">wifi.scan-rand-mac-address=no</span></span></code></pre>
-<p>Am Ende den Dienst wieder starten.</p>
+<p>Am Ende starten wir den Dienst wieder:</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="48"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl start NetworkManager.service</span></span></code></pre>
 <p>Voila! Das war es.</p>
+<h2>Gesamtes Set</h2>
+<ol>
+<li><a href="/ubuntu-vorwort-docker-lamp">Vorwort</a></li>
+<li><a href="/ubuntu-git-einrichten-docker-lamp">Git</a></li>
+<li><a href="/ubuntu-docker-einrichten-docker-lamp">Docker</a></li>
+<li><a href="/ubuntu-docker-compose-einrichten-docker-lamp">Docker Compose</a></li>
+</ol>
+<p>-> 5. <a href="/ubuntu-docker-lamp-einrichten">docker-lamp einrichten</a></p>
+<ol start="6">
+<li><a href="/ubuntu-docker-lamp-verwenden">docker-lamp verwenden</a></li>
+<li><a href="/ubuntu-docker-lamp-verwenden-eigene-projekte">docker-lamp mit eigenen Projekten</a></li>
+<li><a href="/ubuntu-vscode-docker-lamp">Visual Studio Code</a></li>
+<li><a href="/ubuntu-docker-lamp-verwenden-eigene-domain">docker-lamp mit eigenen Domain</a></li>
+</ol>
 <style class="grvsc-styles">
   .grvsc-container {
     overflow: auto;

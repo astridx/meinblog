@@ -3,7 +3,7 @@ date: 2018-12-15
 title: 'GeoJSON'
 template: post
 thumbnail: '../thumbnails/leaflet.png'
-slug: geojson-und-leaflet
+slug: geojson-leaflet
 langKey: de
 categories:
   - Leaflet
