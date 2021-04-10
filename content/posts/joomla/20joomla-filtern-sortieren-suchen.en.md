@@ -29,10 +29,10 @@ Look at the changed program code in the [Diff view](https://github.com/astridx/b
 
 First, we create the form through which the filters will be set.
 
-[administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/filter_foos.xml)
+[administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/forms/filter_foos.xml -->
+<!-- hhttps://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -145,10 +145,10 @@ First, we create the form through which the filters will be set.
 
 In case of an update of your component, the file `16.0.0.sql` adds a column to store the sequence.
 
-[administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```sql {numberLines: -2}
--- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
+-- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 

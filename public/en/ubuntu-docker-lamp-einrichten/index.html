@@ -306,7 +306,7 @@
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span></code></pre>
 <blockquote>
-<p>As <code class="language-text">TLD_SUFFIX</code> you only enter the word that is at the very end of the <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a>. This is the <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">top-level domain TLD</a>. We had defined this in the variable <code class="language-text">MINICA_DEFAULT_DOMAINS</code>. One <code class="language-text">TLD</code> is <code class="language-text">joomla</code>. As <code class="language-text">TLD_SUFFIX</code> <code class="language-text">local</code> is sufficient. <code class="language-text">joomla.local</code> is not necessary. All <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">domains and subdomains</a> with the top-level domain <code class="language-text">.local</code> are caught by the previous entry. </p>
+<p>As <code class="language-text">TLD_SUFFIX</code> you only enter the word that is at the very end of the <a href="https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&#x26;oldid=207716904">URL</a>. This is the <a href="https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&#x26;oldid=208512458">top-level domain TLD</a>. We had defined this in the variable <code class="language-text">MINICA_DEFAULT_DOMAINS</code>. One <code class="language-text">TLD</code> is <code class="language-text">joomla</code>. As <code class="language-text">TLD_SUFFIX</code> <code class="language-text">local</code> is sufficient. <code class="language-text">joomla.local</code> is not necessary. All <a href="https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&#x26;oldid=207898687">domains and subdomains</a> with the top-level domain <code class="language-text">.local</code> are caught by the previous entry.</p>
 </blockquote>
 <blockquote>
 <p>Do you need another top-level domain including subdomains, for example <code class="language-text">mytdl</code> with <code class="language-text">jedemengesubdomains.mytld</code>? Now <code class="language-text">TLD_SUFFIX</code> comes into play. That is: <code class="language-text">TLD_SUFFIX=mytdl</code> and <code class="language-text">SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl</code> play together. But more on this later in the concrete <a href="/ubuntu-docker-lamp-use-own-domain">example</a>.</p>
@@ -321,7 +321,7 @@
 <span class="grvsc-line"><span class="grvsc-source">    /  |   \         /   |  \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">s11    s12  s13   s21    s22  s23   3. level, Third-Level-Domains</span></span></code></pre>
 <p>Then create the directories for the levels. For the second level this would be <code class="language-text">/data/www/subdomain1</code> and <code class="language-text">/data/www/subdomain2</code>. <code class="language-text">/data/www/joomla</code> should already exist. The third level is continued in the same way: <code class="language-text">/data/www/subdomain1/s11</code>, <code class="language-text">/data/www/subdomain1/s12</code>, <code class="language-text">/data/www/subdomain1/s13</code>, <code class="language-text">/data/www/subdomain2/s21</code>, <code class="language-text">/data/www/subdomain2/s22</code>, <code class="language-text">/data/www/subdomain2/s23</code>.</p>
-<p>The following structure is already pre-configured for development with Joomla. </p>
+<p>The following structure is already pre-configured for development with Joomla.</p>
 <blockquote>
 <p>For Wordpress developers, there are further domains on the 3rd level in addition to <code class="language-text">joomla</code>.</p>
 </blockquote>
@@ -375,8 +375,8 @@
 <p>In Mozilla Firefox, import the certificate as follows.</p>
 <ol>
 <li>Open the Preferences and click in the left sidebar on Privacy and Security.</li>
-<li>In the right-hand area you will now find the Security section further down. Click the View Certificates button here. </li>
-<li>Switch to the tab Authorities. </li>
+<li>In the right-hand area you will now find the Security section further down. Click the View Certificates button here.</li>
+<li>Switch to the tab Authorities.</li>
 <li>Import the file <code class="language-text">APP_BASEDIR/ca/minica-root-ca-key.pem</code>. Make sure that you activate <code class="language-text">Trust website</code>.</li>
 </ol>
 <p><span

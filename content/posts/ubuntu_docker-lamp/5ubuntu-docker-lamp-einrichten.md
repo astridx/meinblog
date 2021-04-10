@@ -16,7 +16,7 @@ tags:
 
 Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
 
-Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung in einer [LAMP Umgebung](https://de.wikipedia.org/w/index.php?title=LAMP_(Softwarepaket)&oldid=199333875) unterstützen. In diesem Teil richte ich die Umgebung ein.
+Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung in einer [LAMP Umgebung](<https://de.wikipedia.org/w/index.php?title=LAMP_(Softwarepaket)&oldid=199333875>) unterstützen. In diesem Teil richte ich die Umgebung ein.
 
 > Eine LAMP-Umgebung besteht aus den vier Komponenten Linux (Betriebssystem), Apache (Webserver), MySQL (Datenbanksystem) und PHP (serverseitiger Skript-Interpreter).
 
@@ -471,8 +471,7 @@ TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1
 SSL_LOCALDOMAINS=
 ```
 
-> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. Das ist die [Top-Level-Domain TLD](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458). Diese hatten wir in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegt. Eine `TLD` ist `joomla`. Als `TLD_SUFFIX` reicht `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden durch den vorherigen Eintrag abgefangen. 
-
+> Als `TLD_SUFFIX` trägt man lediglich das Wort ein, welches ganz am Ende der [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904) steht. Das ist die [Top-Level-Domain TLD](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458). Diese hatten wir in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegt. Eine `TLD` ist `joomla`. Als `TLD_SUFFIX` reicht `local` reicht aus. `joomla.local` ist nicht notwendig. Alle [Domains und Subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) mit der Top-Level-Domain `.local` werden durch den vorherigen Eintrag abgefangen.
 
 > Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise `mytdl` mit `jedemengesubdomains.mytld`? Nun kommt `TLD_SUFFIX` ins Spiel. Das heißt: `TLD_SUFFIX=mytdl` und `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` spielen zusammen. Aber dazu später mehr im konkreten [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain).
 
@@ -490,7 +489,7 @@ s11    s12  s13   s21    s22  s23   3. Ebene, Third-Level-Domains
 
 Dann die Verzeichnisse für die Ebenen erstellen. Für die zweite Ebene wäre das `/data/www/subdomain1` und `/data/www/subdomain2` erstellen. `/data/www/joomla` sollte bereits vorhanden sein. Die dritte Ebenen führt man analog fort: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
 
-Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur. 
+Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Struktur.
 
 > Für Wordpress Entwickler gibt es neben `joomla` weiter Domains auf der 3. Ebenen.
 

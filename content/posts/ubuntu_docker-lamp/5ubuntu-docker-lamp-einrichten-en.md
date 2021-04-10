@@ -16,7 +16,7 @@ tags:
 
 As a reminder, _Docker_ simplifies the management of software in containers. _Docker Compose_ is a tool that simplifies working with multiple containers.
 
-This is about _docker-lamp_. A software that provides pre-built images, containers and scripts to help you develop in a [LAMP environment](https://en.wikipedia.org/w/index.php?title=LAMP_(software_bundle)&oldid=1015344121). In this part, I set up the environment.
+This is about _docker-lamp_. A software that provides pre-built images, containers and scripts to help you develop in a [LAMP environment](<https://en.wikipedia.org/w/index.php?title=LAMP_(software_bundle)&oldid=1015344121>). In this part, I set up the environment.
 
 > A LAMP environment consists of the four components Linux (operating system), Apache (web server), MySQL (database system) and PHP (server-side script interpreter).
 
@@ -50,7 +50,6 @@ docker rm $(docker ps -a -q)
 ```
 
 > digitalocean.com covers all the common commands used to remove images, containers and volumes in Docker in an [article](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de).
-
 
 #### Images
 
@@ -195,7 +194,7 @@ If the ID of the user running `docker-lamp` is different from `1000`, this entry
 
 ### The make commandos
 
-`docker-lamp` uses the [utility `make`](https://en.wikipedia.org/w/index.php?title=Make_(software)&oldid=1016450338). This is not available on my computer. With the help of `sudo apt install make` I install `make`.
+`docker-lamp` uses the [utility `make`](<https://en.wikipedia.org/w/index.php?title=Make_(software)&oldid=1016450338>). This is not available on my computer. With the help of `sudo apt install make` I install `make`.
 
 ```
 sudo apt install make
@@ -472,8 +471,7 @@ TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1
 SSL_LOCALDOMAINS=
 ```
 
-> As `TLD_SUFFIX` you only enter the word that is at the very end of the [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904). This is the [top-level domain TLD](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458). We had defined this in the variable `MINICA_DEFAULT_DOMAINS`. One `TLD` is `joomla`. As `TLD_SUFFIX` `local` is sufficient. `joomla.local` is not necessary. All [domains and subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) with the top-level domain `.local` are caught by the previous entry. 
-
+> As `TLD_SUFFIX` you only enter the word that is at the very end of the [URL](https://de.wikipedia.org/w/index.php?title=Uniform_Resource_Locator&oldid=207716904). This is the [top-level domain TLD](https://de.wikipedia.org/w/index.php?title=Top-Level-Domain&oldid=208512458). We had defined this in the variable `MINICA_DEFAULT_DOMAINS`. One `TLD` is `joomla`. As `TLD_SUFFIX` `local` is sufficient. `joomla.local` is not necessary. All [domains and subdomains](<https://de.wikipedia.org/w/index.php?title=Domain_(Internet)&oldid=207898687>) with the top-level domain `.local` are caught by the previous entry.
 
 > Do you need another top-level domain including subdomains, for example `mytdl` with `jedemengesubdomains.mytld`? Now `TLD_SUFFIX` comes into play. That is: `TLD_SUFFIX=mytdl` and `SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl` play together. But more on this later in the concrete [example](/ubuntu-docker-lamp-use-own-domain).
 
@@ -491,7 +489,7 @@ s11    s12  s13   s21    s22  s23   3. level, Third-Level-Domains
 
 Then create the directories for the levels. For the second level this would be `/data/www/subdomain1` and `/data/www/subdomain2`. `/data/www/joomla` should already exist. The third level is continued in the same way: `/data/www/subdomain1/s11`, `/data/www/subdomain1/s12`, `/data/www/subdomain1/s13`, `/data/www/subdomain2/s21`, `/data/www/subdomain2/s22`, `/data/www/subdomain2/s23`.
 
-The following structure is already pre-configured for development with Joomla. 
+The following structure is already pre-configured for development with Joomla.
 
 > For Wordpress developers, there are further domains on the 3rd level in addition to `joomla`.
 
@@ -526,8 +524,8 @@ If you call up the URL `https://joomla.test/` or `https://joomla.local/` in the 
 In Mozilla Firefox, import the certificate as follows.
 
 1. Open the Preferences and click in the left sidebar on Privacy and Security.
-2. In the right-hand area you will now find the Security section further down. Click the View Certificates button here. 
-3. Switch to the tab Authorities. 
+2. In the right-hand area you will now find the Security section further down. Click the View Certificates button here.
+3. Switch to the tab Authorities.
 4. Import the file `APP_BASEDIR/ca/minica-root-ca-key.pem`. Make sure that you activate `Trust website`.
 
 ![import certificate](/images/dockerlamp_zertbrowser.png)

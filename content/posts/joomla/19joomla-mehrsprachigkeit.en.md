@@ -53,7 +53,7 @@ In this helper file we provide the details that are specific to our component, s
 [administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
+// https://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationsHelper.php
 
 <?php
 /**
@@ -301,10 +301,10 @@ We don't have any special requests, so we use the default template to edit the l
 
 > If you have special wishes, copy `/layouts/joomla/ edit/associations.php` into your component and change it as you wish. How and where you save or call them will be discussed later in the chapter on layouts.
 
-[administrator/components/com_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/administrator/components/com_foos/tmpl/foo/edit_associations.php)
+[administrator/components/com_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/blob/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
 
 <?php
 /**
@@ -329,10 +329,10 @@ The `AssociationsHelper.php` helper file is the interface to the `com_associatio
 
 > Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/ src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/ src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before.
 
-[components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/components/com_foos/src/Helper/AssociationHelper.php)
+[components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/AssociationHelper.php
+// hhttps://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationHelper.php
 
 <?php
 /**
@@ -408,10 +408,10 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 
 We create the class `RouteHelper` to correctly compose the links we create in this chapter. Within the link there is one more piece of information as a parameter: the language.
 
-[components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/RouteHelper.php)
+[components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/components/com_foos/src/Helper/RouteHelper.php
+// https://github.com/astridx/boilerplate/blob/t15a/src/Helper/RouteHelper.php
 
 <?php
 /**

@@ -383,7 +383,7 @@ A specific PHP version is addressed via the port. For example https://joomla.loc
 
 A practical feature is that `phpinfo()` is provided by the system for each PHP version and each domain or subdomain. All that is needed is to call the domain with the subdirectory `/phpinfo`.
 
-The request 
+The request
 
 ```
 https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&view=sysinfo
@@ -391,7 +391,7 @@ https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&view=sy
 
 shows the system information of the Joomla installation. You can see that PHP 8.0 is running.
 
-The request 
+The request
 
 ```
 https://j4dev.joomla.local:8456/administrator/index.php?option=com_admin&view=sysinfo
@@ -598,4 +598,3 @@ If you want to see how the container is build, you can take a look at the file `
 7. [docker-lamp with own projects](/en/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/en/ubuntu-vscode-docker-lamp)
 9. [docker-lamp with own Domain](/en/ubuntu-docker-lamp-verwenden-eigene-domain)
-

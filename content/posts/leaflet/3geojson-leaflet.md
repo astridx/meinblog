@@ -1166,8 +1166,7 @@ antwortet die Funktion mit der Farbe Violett.
 > Wenn Sie einen Stil auf alle Objekte
 > anwenden möchten, dann ist es nicht notwendig eine Funktion zu
 > erstellen. Die Zeile  
-> `var geoJsonLayer =`
-> `L.geoJson(geojsonFeatureCollection,{color: "purple"}).addTo(mymap);`  
+> `var geoJsonLayer =` > `L.geoJson(geojsonFeatureCollection,{color: "purple"}).addTo(mymap);`  
 > reicht völlig aus.
 
 Auf der Karte sehen Sie nun die Objekte in der für sie bestimmten Farbe.

@@ -67,6 +67,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 <?php
 /**
+/**
  * @package     Joomla.Administrator
  * @subpackage  mod_foo
  *

@@ -71,6 +71,7 @@ tags:
 1. [Template - Web Asset Manager](/joomla-template-wa)
 1. [Template - Dark Mode](/joomla-template-dark-mode)
 1. [Template - Favicon](/joomla-template-favicon)
+1. [Template - Ladezeit testen](/joomla-template-lighthouse)
 
 ## Paket
 

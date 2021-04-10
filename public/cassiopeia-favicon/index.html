@@ -1,0 +1,578 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.7a2f03e2ef76436c80a2.css" id="gatsby-global-css">:root{--font-color:#495057;--link-color:#16868f;--heading-color:#183446;--dark-font-color:#212529;--light-font-color:#868e96;--light-background:#fafafa;--light-blockqoute:#fafafa;--dark-blockqoute:#16868f;--border:#d6d9de;--font-weight-normal:200;--font-weight-bigger1:250;--font-weight-bigger2:300;--font-weight-biggest:350}sup{display:none}pre{font-size:.7rem}@media screen and (min-width:800px){pre{font-size:.8rem}}@media screen and (min-width:1000px){pre{font-size:1rem}}*,:after,:before{box-sizing:border-box}html{font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI,Roboto,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;color:var(--font-color);font-weight:var(--font-weight-normal);font-size:.9rem;line-height:1.5}body{margin:0;padding:0 1.5rem}@media screen and (min-width:800px){body{padding:0 2rem}}article{min-width:0}section{margin:2rem 0}section>h2{margin-top:4rem}@media screen and (min-width:800px){section{margin:3rem 0}}.container{max-width:1100px;margin-left:auto;margin-right:auto}img{display:inline-block;max-width:100%;height:auto}blockquote,dl,ol,p,table,ul{font-size:1.05rem;margin:0 0 1.5rem}ul{padding:0 1rem}@media screen and (min-width:800px){ul{padding:0 2rem}}ul li p{margin:0}ul li ul{padding-left:1rem;margin:0}ul li ul li{margin:.25rem 0}ol li ol{margin-bottom:0}.task-list-item [type=checkbox]{margin-right:.5rem}blockquote{margin:1.5rem 0;padding:1rem;background:var(--light-blockqoute);border-top:1px solid var(--dark-blockqoute);border-right:5px solid var(--dark-blockqoute)}blockquote p{margin:0}blockquote a{padding:1px 4px}blockquote a,blockquote a:hover{border-bottom:2px solid var(--dark-blockqoute);color:var(--heading-color)}blockquote a:hover{border-radius:.3rem;background:var(--dark-blockqoute)}h1,h2,h3,h4,h5{margin:0 0 1.5rem;font-weight:var(--font-weight-biggest);line-height:1.2;color:var(--heading-color);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}h1:not(:first-child),h2:not(:first-child),h3:not(:first-child),h4:not(:first-child){margin-top:3rem}h1{font-size:2.5rem;line-height:1.1}h2{font-size:1.75rem}h2 code{font-size:1.75rem!important}h3{font-size:1.5rem;color:var(--font-color);font-weight:var(--font-weight-bigger2)}h3 code{font-size:1.5rem!important}h4{font-size:1.4rem;color:var(--font-color);font-weight:var(--font-weight-bigger1)}h4,h5{margin-bottom:1rem}h5{font-size:1.2rem}@media screen and (min-width:800px){h1{font-size:3rem}h2{font-size:2rem}h2 code{font-size:2rem!important}h3{font-size:1.6rem;color:var(--font-color);font-weight:var(--font-weight-bigger2)}h3 code{font-size:1.6rem!important}}aside{min-width:300px}aside p,aside ul{font-size:.95rem}aside ul{padding-left:1rem}aside h3{font-size:1.4rem}aside a.link:hover{border-bottom:0;background:var(--light-background)}.aside-content{border-top:2px solid var(--light-background)}@media screen and (min-width:1100px){.aside-content{border-top:0;border-left:2px solid var(--light-background);padding-left:2rem}.aside-content section{margin-top:.25rem}}a.link{display:grid;grid-template-columns:45px auto;align-items:center;color:var(--heading-color);border-bottom:none;padding:.75rem;border-radius:.3rem}a.link:hover{border-bottom:none;background:var(--light-background)}a.link img{display:inline-block;height:auto;margin-right:1rem;height:22px;width:auto}.lead{margin:4rem 0}.lead h1{color:var(--dark-font-color);font-weight:var(--font-weight-biggest);font-size:2.5rem;margin-bottom:2rem}.lead p{font-size:1.1rem}@media screen and (min-width:800px){.lead h1{font-size:3rem}.lead p{font-size:1.2rem}}p.subtitle{color:var(--light-font-color);font-size:1.2rem}@media screen and (min-width:800px){p.subtitle{font-size:1.4rem}}a{color:var(--link-color);text-decoration:none;font-weight:var(--font-weight-bigger2)}a:hover{border-bottom:2px solid var(--link-color);color:var(--heading-color)}a.gatsby-resp-image-link:hover{border-bottom:none}a code{border-bottom:2px solid var(--link-color)}a code:hover{background:var(--link-color)!important;color:#fff!important}main{margin-top:7rem}.navbar{width:100%;padding:1rem 2rem;position:fixed;top:0;left:0;background:#fff;box-shadow:0 3px 13px rgba(100,110,140,.1),0 2px 4px rgba(100,110,140,.15);z-index:2}.navbar .flex{justify-content:space-between}.footer a,.navbar a{border-radius:.3rem;padding:.5rem;margin:0 .25rem;color:var(--light-font-color);border-bottom:none;font-weight:var(--font-weight-normal)}.footer a:hover,.navbar a:hover{background:var(--light-background);color:var(--font-color)}.navbar a:first-of-type{margin-left:-1rem}.navbar a:last-of-type{margin-right:-1rem}.navbar a.brand{font-size:1.1rem;font-weight:var(--font-weight-bigger2);color:var(--font-color);white-space:nowrap}@media screen and (min-width:800px){main{margin-top:0}.navbar{margin:2rem 0 5rem;padding:1.5rem 0;position:static;background:#fff;box-shadow:none}.navbar .flex{justify-content:flex-start}.footer a,.navbar a{padding:1rem 1.5rem;font-size:1.1rem}.navbar a.brand{font-size:1.3rem;margin-right:3rem}.navbar a:first-of-type{margin-left:-1.5rem}}.footer{margin:3rem auto}.footer>.flex{flex-direction:column}.footer-links,.footer>.flex{align-items:center;justify-content:center}.footer-links{display:flex;flex-wrap:wrap}.flex nav{padding:1rem 0}.footer a.img{display:flex;align-items:center;padding:0;margin:0 .75rem;background:none}.footer img{height:30px;width:30px}@media screen and (min-width:800px){.footer{margin:5rem auto}.footer>.flex{align-items:flex-start;margin-left:-1.5rem;margin-right:-1.5rem}.footer a.img{padding:0 .5rem;margin:0 1rem}}.emoji{margin:0 .4rem 0 .1rem}table{border-collapse:collapse;border-spacing:0;width:100%;max-width:100%;overflow-x:auto;display:block}th{border-bottom:2px solid var(--light-background)}tfoot th{border-top:2px solid var(--light-background)}td{border-bottom:2px solid var(--light-background)}td,th{text-align:left;padding:.75rem!important;-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto;word-break:break-word}tbody tr:nth-child(2n){background-color:var(--light-background)}.flex{display:flex;align-items:center}.grid{display:grid;align-items:stretch}.grid.projects{grid-template-columns:40px auto}.row .cell.description{grid-column:1/span 2;margin-bottom:2rem;line-height:1.3;font-size:1.1rem}@media screen and (min-width:800px){.grid{margin-left:-1rem;margin-right:-1rem}.grid.projects{grid-template-columns:50px 1fr 4fr}.row .cell.description{grid-column:auto;margin-bottom:0}.grid.posts{grid-template-columns:200px 4fr}.grid.lists{grid-template-columns:2fr 4fr}.grid.posts.with-tags{grid-template-columns:200px 4fr 2fr}}.row{display:contents}.lists .row,.posts .row{display:block;margin-bottom:2rem;border-bottom:none}.row .cell{display:flex;align-items:center;font-weight:var(--font-weight-biggest);color:var(--dark-font-color);font-size:1.2rem;line-height:1.2;padding:.5rem 0}.row .cell time{font-size:.8rem}@media screen and (min-width:800px){.row .cell{font-size:1.1rem}.row .cell time{font-size:.9rem}.row .cell.simple{padding:.5rem 0}.lists .row,.posts .row{display:contents}.row:hover>*{background:var(--light-background)}.row .cell.simple:first-child,.row .cell:first-child{padding-left:1rem;border-top-left-radius:.3rem;border-bottom-left-radius:.3rem}.row .cell.simple:last-child,.row .cell:last-child{padding-right:1rem;padding-left:1rem;border-top-right-radius:.3rem;border-bottom-right-radius:.3rem}}.row .cell.light{font-weight:var(--font-weight-normal);color:var(--light-font-color)}.grid.guide{grid-gap:1.5rem;grid-auto-rows:1fr;margin-top:3rem;margin-left:0;margin-right:0}.grid.guide a{transition:all .2s ease;display:flex;align-items:center;padding:1.5rem;border-radius:.3rem;box-shadow:0 3px 13px rgba(100,110,140,.1),0 2px 4px rgba(100,110,140,.15);border-bottom:none}.grid.guide .gatsby-image-wrapper{margin-right:1.5rem}.grid.guide a:hover{transform:translate3D(0,-1px,0);box-shadow:0 8px 22px rgba(100,110,140,.2),0 5px 18px rgba(100,110,140,.25)}.grid.guide h2{margin:0;font-size:1rem;flex:1 1}@media screen and (min-width:600px){.grid.guide{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.guide a{flex-direction:column;justify-content:center}.grid.guide h2{text-align:center;margin:1rem 0 0;flex:none}.grid.guide .gatsby-image-wrapper{margin-right:0}}@media screen and (min-width:800px){.grid.guide{grid-template-columns:repeat(3,minmax(0,1fr))}}@media screen and (min-width:1000px){.grid.guide{grid-template-columns:repeat(4,minmax(0,1fr))}}@media screen and (min-width:1200px){.grid.guide{grid-template-columns:repeat(5,minmax(0,1fr))}}html body div#___gatsby div#gatsby-focus-wrapper main.container section.grid.post article div p span.gatsby-resp-image-wrapper a.gatsby-resp-image-link img.gatsby-resp-image-image{border:1px solid #ddd;border-radius:4px;padding:5px}.grid.post{grid-gap:3rem;margin-left:0;margin-right:0}.article-header h1{font-size:2rem;margin-bottom:1rem;margin-top:.5rem}@media screen and (min-width:1100px){.grid.post{grid-template-columns:3fr 1fr}.article-header h1{font-size:2.75rem;margin-bottom:3rem}}[type=search]{display:block;padding:.8rem 1rem;border:2px solid var(--border);width:100%;max-width:400px;border-radius:.3rem;font-size:1rem}:-moz-placeholder,:-ms-input-placeholder,::-moz-placeholder,::-webkit-input-placeholder,::placeholder{color:var(--light-font-color)}.suggested{flex-direction:column;align-items:stretch;margin-left:-1rem;margin-right:-1rem}.suggested a{text-align:center;margin:1rem;border-bottom:none;transition:all .2s ease;padding:1.5rem;border-radius:.3rem;box-shadow:0 3px 13px rgba(100,110,140,.1),0 2px 4px rgba(100,110,140,.15);color:var(--font-color)}.suggested a:hover{transform:translate3D(0,-1px,0);box-shadow:0 8px 22px rgba(100,110,140,.2),0 5px 18px rgba(100,110,140,.25)}@media screen and (min-width:800px){.suggested{flex-direction:row}.suggested a{flex-grow:0;flex-shrink:0;flex-basis:calc(50% - 2rem)}}.small{max-width:600px}.medium{max-width:750px}.meta,time{color:var(--light-font-color);font-size:.9rem;white-space:nowrap;font-weight:var(--font-weight-normal)}.count{font-weight:var(--font-weight-biggest);color:var(--link-color)}.tags{display:flex!important;align-items:center;overflow:hidden}.tags>a{display:block;font-weight:var(--font-weight-bigger1);background:#f1f3f5;color:#343a40;margin:.2rem;padding:.4rem .5rem;font-size:.8rem;border-radius:.3rem;border-bottom:0;white-space:nowrap}.tags>a:first-child{margin-left:0}.tags>a:last-child{margin-right:0}.tags>a:hover{background:#868e96;color:#fff}mark{background:#ffec99}a.tag-javascript,a.tag-sql{background:#fff3bf;color:#000}a.tag-javascript:hover,a.tag-sql:hover{background:#ffd43b;color:#000}a.tag-git,a.tag-html,a.tag-linux,a.tag-snippets{background:#fff4e6;color:#e8590c}a.tag-git:hover,a.tag-html:hover,a.tag-linux:hover,a.tag-snippets:hover{background:#fd7e14;color:#fff}a.tag-new-year,a.tag-vue{color:#087f5b;background:#e6fcf5}a.tag-new-year:hover,a.tag-vue:hover{background:#0ca678;color:#fff}a.tag-fundamentals,a.tag-game,a.tag-testing{background:#d3f9d8;color:#111}a.tag-fundamentals:hover,a.tag-game:hover,a.tag-testing:hover{background:#37b24d;color:#fff}a.tag-automation,a.tag-node,a.tag-security{background:#fff5f5;color:#e03131}a.tag-automation:hover,a.tag-node:hover,a.tag-security:hover{background:#f03e3e;color:#fff}a.tag-jQuery,a.tag-notes,a.tag-projects,a.tag-reference,a.tag-wordpress{background:#e3fafc;color:#0c8599}a.tag-jQuery:hover,a.tag-notes:hover,a.tag-projects:hover,a.tag-reference:hover,a.tag-wordpress:hover{background:#1098ad;color:#fff}a.tag-architecture,a.tag-css,a.tag-dom{background:#e7f5ff;color:#1971c2}a.tag-architecture:hover,a.tag-css:hover,a.tag-dom:hover{background:#1c7ed6;color:#fff}a.tag-gatsby,a.tag-life,a.tag-php,a.tag-redux{background:#f3f0ff;color:#6741d9}a.tag-gatsby:hover,a.tag-life:hover,a.tag-php:hover,a.tag-redux:hover{background:#7950f2;color:#fff}a.tag-api,a.tag-react{background:#edf2ff;color:#3b5bdb}a.tag-api:hover,a.tag-react:hover{background:#4263eb;color:#fff}a.tag-database,a.tag-design{background:#fff0f6;color:#c2255c}a.tag-database:hover,a.tag-design:hover{background:#e64980;color:#fff}a.tag-notes{background:#f8f0fc;color:#9c36b5}a.tag-notes:hover{background:#ae3ec9;color:#fff}:root{--code-font-family:Menlo,"Roboto Mono",Courier New,monospace;--code-font-color:#b3b9c5;--code-background-color:#353535;--string:#92d192;--variable:#f2777a;--property:#abb2bf;--number:#fca369;--operator:#ac8d58;--punctuation:#d5d8df;--comment:#848991;--function:#62cfcf;--keyword:#ffeead;--attribute:#ffd479;--class:#e1a6f2;--tag:#6ab0f3;--error:#f2777a;--light-background:#f1f3f5}pre[class*=language-]{box-shadow:0 8px 16px rgba(0,0,0,.55)}code[class*=language-],pre[class*=language-]{-webkit-font-smoothing:subpixel-antialiased;color:var(--code-font-color);font-family:var(--code-font-family);font-size:.8rem;text-align:left;white-space:pre-wrap;word-spacing:normal;word-break:normal;word-wrap:normal;font-weight:400;line-height:1.7;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1.5rem 2rem;margin:.5rem -1.5rem 2rem;overflow:auto}@media screen and (min-width:800px){code[class*=language-],pre[class*=language-]{font-size:.9rem}pre[class*=language-]{padding:1.5rem;margin-left:auto;margin-right:auto;border-radius:.3rem}}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--code-background-color)}:not(pre)>code[class*=language-]{padding:.1rem .3rem;border-radius:.3rem}code.language-text,pre.language-text{background:var(--light-background)!important;color:#333!important;box-shadow:none}code.language-shell:before{content:"$ ";color:var(--comment)}pre.language-terminal{position:relative;background:#fff;color:#595c62;box-shadow:0 8px 16px rgba(100,120,130,.35);padding-top:3rem;margin:2rem 0;border-radius:.3rem}code.language-terminal{color:#595c62}pre.language-terminal:before{content:"\2022   \2022   \2022";position:absolute;top:0;left:0;background:#e0e3e7;color:var(--code-font-color);width:100%;font-size:2.5rem;margin:0;line-height:0;padding:18px 0 16px;text-indent:6px;letter-spacing:-18px}.gatsby-highlight-code-line{background-color:#191919;display:block;margin-right:-1rem;margin-left:-1rem;padding-right:1rem;padding-left:.75rem;border-left:.25rem solid #748ffc}.token.cdata,.token.comment,.token.doctype,.token.important,.token.prolog{color:var(--comment)}.token.punctuation{color:var(--punctuation)}.token.namespace{opacity:.7}.token.property{color:var(--property)}.token.constant,.token.deleted,.token.symbol,.token.tag{color:var(--tag)}.token.number{color:var(--number)}.token.builtin,.token.char,.token.inserted,.token.url{color:var(--code-font-color)}.token.attr-name,.token.selector{color:var(--attribute)}.token.attr-value,.token.string{color:var(--string)}.token.operator{color:var(--operator)}.token.atrule,.token.keyword{color:var(--keyword)}.token.function{color:var(--function)}.language-css,.token.boolean,.token.class-name{color:var(--class)!important}.token.regex{color:var(--keyword)}.token.variable{color:var(--variable)}.token.bold{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.filename{font-size:.9rem;margin-bottom:-.8rem;padding:.5rem 1rem .75rem;line-height:1.8;background-color:#000;color:#fff;z-index:1;margin-left:-1.5rem;margin-right:-1.5rem}@media screen and (min-width:800px){.filename{border-top-left-radius:.3rem;border-top-right-radius:.3rem;margin-left:auto;margin-right:auto}}code::selection,pre::selection{text-shadow:none;color:inherit;background:hsla(0,0%,58.8%,.3)!important}code[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;color:inherit;background:hsla(0,0%,58.8%,.3)!important}</style><meta name="generator" content="Gatsby 2.32.8"/><title data-react-helmet="true">Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon | Astrid Günther</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAKJQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////oK8DKAAAADR0Uk5TAAcFUJJIFGOlRfPFUiXbeXXt8n4Kas1bA4/5gyyAnlf89WcCcN4oMfuyHN3TbhLuwXIiARdSFQIAAAABYktHRDXettlrAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAaUlEQVQY02NgoANgROUyMbMwsLIhCbBzcDJwcfMwwfi8fPw8DAKCQsIiUAFREzFxBglJEylpqFEyshxyDAzyCiaKSjBNyhIMDComJiaqagiD1cVMTDQ0tRAC2iYaOrp6SFbrGxgaGSPxAeofB3Dy5mHsAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE4LTEyLTMxVDEzOjI3OjUyKzAwOjAwahG+IAAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxOC0xMi0zMVQxMzoyNzo1MiswMDowMBtMBpwAAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYuNy44LTkgMjAxNC0wNS0xMiBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmfchu0AAAAAGHRFWHRUaHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGHRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdodAAxOTIPAHKFAAAAF3RFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADE5MtOsIQgAAAAZdEVYdFRodW1iOjpNaW1ldHlwZQBpbWFnZS9wbmc/slZOAAAAF3RFWHRUaHVtYjo6TVRpbWUAMTU0NjI2Mjg3MhvFQhUAAAAPdEVYdFRodW1iOjpTaXplADBCQpSiPuwAAABWdEVYdFRodW1iOjpVUkkAZmlsZTovLy9tbnRsb2cvZmF2aWNvbnMvMjAxOC0xMi0zMS9hNTIxNmRhZDQ0YjlhNzJmNjM1OWZjMjEwMjJlYzQwMS5pY28ucG5nxAVqqwAAAABJRU5ErkJggg=="/><meta data-react-helmet="true" name="description" content="Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen…"/><meta data-react-helmet="true" name="image" content="https://blog.astrid-guenther.de//static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png"/><meta data-react-helmet="true" property="og:url" content="https://blog.astrid-guenther.de//cassiopeia-favicon/"/><meta data-react-helmet="true" property="og:type" content="article"/><meta data-react-helmet="true" property="og:title" content="Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon"/><meta data-react-helmet="true" property="og:description" content="Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen…"/><meta data-react-helmet="true" property="og:image" content="https://blog.astrid-guenther.de//static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="astridguenther"/><meta data-react-helmet="true" name="twitter:title" content="Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon"/><meta data-react-helmet="true" name="twitter:description" content="Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen…"/><meta data-react-helmet="true" name="twitter:image" content="https://blog.astrid-guenther.de//static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png"/><script data-react-helmet="true" type="application/ld+json">[{"@context":"http://schema.org","@type":"WebSite","url":"https://blog.astrid-guenther.de/","name":"Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon","alternateName":"Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.astrid-guenther.de//cassiopeia-favicon/","name":"Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon","image":"https://blog.astrid-guenther.de//static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png"}}]},{"@context":"http://schema.org","@type":"BlogPosting","url":"https://blog.astrid-guenther.de/","name":"Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon","alternateName":"Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon","headline":"Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon","image":{"@type":"ImageObject","url":"https://blog.astrid-guenther.de//static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png"},"description":"Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen…"}]</script><link rel="icon" href="/favicon-32x32.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#16868F"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=3ab21ccc9ee6bc1e6ee3329051bee6cc"/><link rel="alternate" type="application/rss+xml" title="Astrid Günther | RSS Feed" href="/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-7876961e34901be93c28.js"/><link as="script" rel="preload" href="/framework-c8d3a5345e3f321d7da5.js"/><link as="script" rel="preload" href="/app-674f29094b36642c536c.js"/><link as="script" rel="preload" href="/styles-e9d24b1846c7d6eb9685.js"/><link as="script" rel="preload" href="/05f1d64e2e1399e8ce81fd5e37a2b8dc2f9ac157-86a3721b0529b0981782.js"/><link as="script" rel="preload" href="/cd89b575fbc7744d97a7acf3b55b56387c8b3feb-ecedd2c80549e60c9d95.js"/><link as="script" rel="preload" href="/component---src-templates-post-js-3da1f6365d3628a70fc7.js"/><link as="fetch" rel="preload" href="/page-data/cassiopeia-favicon/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/en/cassiopeia-favicon/">english</a></button><button style="margin-left:20px" id="dark-mode-button">🌙</button></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACD0lEQVQ4y52Uv+u5URTHH78p+VUSyuAPQCajiWKVUjaTsFgMFpNCyB+hZDIYKBuDhbApshgUs9+cT+fUfXo++Tz4fm+9u7fbva/nvM85z+Wu1yugLpcL6Xw+A458Pg8cx4HBYIDJZEJ7x+MR2MCz7K5QnBB4Op3o8Gg0IphEIqE5m83S/u12g9lsBtPpFJ7PJx/ERyCLTq1W0+z3+wmAA9c+n4/WeF4UiGKW4vE4gVA2mw2GwyFvtVAoQLfbfQ9kuXs8HrBarcDlcvFAj8cDvV4PdrsdRRkKhWC5XBIQ7/yZQ6HdRqNBhRDmEBUIBGCxWEAul+NhojnETWa3Xq+DUqkEqVRKIDYrFArwer3QarX4iotWWQis1WqgUql4EEqn04HZbAa9Xg+Hw4FSwyL8CKxWq2QVgQwaDAZhPp/DYDAQzd1boN1uJ5hMJiNgJBLhq4y5Zne+AlYqFXC73WSPWbZardDpdMgqs/t1hOVymSBGo5FvbKZYLEbn8I/5OkIGRDmdTgiHw7SWy+U0t9vtf6tyqVTigRaLBRwOxy9gs9n8PyD2oslkemnw8Xj8qzhfAzE67EdhDvED6/X6beu8AIvFItmLRqMEwdbB4mDEmNP9fv+20i9AfE2EUTFpNBrQarWw3W7pkfgIZC91v9+HRCIBmUwG0uk0KZVKQTKZpPVms/lsWfjIfhr3+120B1E/PYLTJjZf1yMAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png 1x,
+/static/47f2a4ac5233c450f7d02d28772526d9/e94d6/cassiopeia.png 1.5x,
+/static/47f2a4ac5233c450f7d02d28772526d9/af1a8/cassiopeia.png 2x" /><img loading="lazy" width="80" height="80" srcset="/static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png 1x,
+/static/47f2a4ac5233c450f7d02d28772526d9/e94d6/cassiopeia.png 1.5x,
+/static/47f2a4ac5233c450f7d02d28772526d9/af1a8/cassiopeia.png 2x" src="/static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/cassiopeia/8cassiopeia-favicon.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>10.03.2021</time><div class="cell tags"><a class="tag-Template" href="/tags/template">Template</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a><a class="tag-Cassiopeia" href="/tags/cassiopeia">Cassiopeia</a></div></section></div></aside><section class="post"><article><div><p>Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie sind historisch gewachsen. Heute bieten sie verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.</p>
+<p>Eine neue Funktion ist die Möglichkeit, den Dateityp SVG als Favicon zu verwenden. Das ist etwas, das <a href="https://caniuse.com/#feat=link-icon-svg">die meisten modernen Browser unterstützen</a>, und weitere Unterstützung ist in Vorbereitung. Um diese neue Funktion zu nutzen benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser das Bild anzeigen, benötigst du zusätzlich eine ICO-Datei. </p>
+<blockquote>
+<p>Du kennst dich mit SVG und ICO nicht aus und würdest lieber eine das PNG-Format verwenden? Dann findest du unter <a href="https://blog.astrid-guenther.de/joomla-template-favicon">Favicon im Joomla-Template</a> eine Lösung die besser zu dir passt.</p>
+</blockquote>
+<blockquote>
+<p>Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.</p>
+</blockquote>
+<h2>Favicon in Cassiopeia</h2>
+<h3>Implementierung</h3>
+<p>Hier ist der Code den Cassiopeia zum Hinzufügen von Favicons nutzt:</p>
+<pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;joomla-favicon.svg&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;type&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;image/svg+xml&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;favicon.ico&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;alternate icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;type&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;image/vnd.microsoft.icon&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;joomla-favicon-pinned.svg&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;mask-icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;color&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;#000&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span></code></pre>
+<p>Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode ist das Dokument, welches an den Browser übergeben wird.</p>
+<pre class="grvsc-container solarized-light" data-language="html" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">link</span><span class="mtk1"> </span><span class="mtk3">href</span><span class="mtk1">=</span><span class="mtk11">&quot;/j4dev/media/system/images/joomla-favicon.svg&quot;</span><span class="mtk1"> </span><span class="mtk3">rel</span><span class="mtk1">=</span><span class="mtk11">&quot;icon&quot;</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;image/svg+xml&quot;</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">link</span><span class="mtk1"> </span><span class="mtk3">href</span><span class="mtk1">=</span><span class="mtk11">&quot;/j4dev/media/system/images/favicon.ico&quot;</span><span class="mtk1"> </span><span class="mtk3">rel</span><span class="mtk1">=</span><span class="mtk11">&quot;alternate icon&quot;</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;image/vnd.microsoft.icon&quot;</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">link</span><span class="mtk1"> </span><span class="mtk3">href</span><span class="mtk1">=</span><span class="mtk11">&quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&quot;</span><span class="mtk1"> </span><span class="mtk3">rel</span><span class="mtk1">=</span><span class="mtk11">&quot;mask-icon&quot;</span><span class="mtk1"> </span><span class="mtk3">color</span><span class="mtk1">=</span><span class="mtk11">&quot;#000&quot;</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<blockquote>
+<p>Der <a href="https://github.com/joomla/joomla-cms/pull/31436">Pull Request</a> mit diese Funktion integriert wurde, orientierte sich an ein <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/">CSS-Tricks</a> Tutorial.</p>
+</blockquote>
+<h3>Erklärung zur Implementierung</h3>
+<p>Wenn ein Browser ein SVG-Favicon nicht unterstützt, ignoriert er die erste Zeile <code class="language-text">&lt;link href=&quot;/j4dev/media/system/images/joomla-favicon.svg&quot; rel=&quot;icon&quot; type=&quot;image/svg+xml&quot;&gt;</code> und fährt mit der zweiten fort. Dadurch wird sichergestellt, dass alle Browser, die Favicons unterstützen, ein Bild anzeigen können. </p>
+<p>Beachte den alternativen Attributwert für unsere <code class="language-text">rel</code>-Deklaration <code class="language-text">rel=&quot;alternate icon&quot;</code>. Damit wird dem Browser mitgeteilt, dass das Favicon mit dem Dateiformat <code class="language-text">.ico</code> lediglich als alternative Darstellung verwenden soll.</p>
+<p>Nach den Favicons folgt die Codezeile <code class="language-text">&lt;link href=&quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&quot; rel=&quot;mask-icon&quot; color=&quot;#000&quot;&gt;</code>, die ein weiteres SVG-Bild lädt. Dieses heißt <code class="language-text">joomla-favicon-pinned.svg</code>. Damit wird die "Pinned Tab"-Funktionalität von Safari unterstützt, die es gab, bevor andere Browser SVG-Favicons unterstützten.</p>
+<h2>Ein modernes Favicon mit SVG und ICO als Fallback</h2>
+<h3>Warum ein SVG Favicon?</h3>
+<p>Du fragst dich, welchen Grund es gibt zu SVG zu wechseln? Das <code class="language-text">.ico</code>-Dateiformat gibt es schon ewig und kann Bilder bis zu einer Größe von 256×256 Pixeln unterstützen. Hier sind drei Gründe.</p>
+<ul>
+<li>Das <code class="language-text">.ico</code>-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängikeit verwenden.</li>
+<li>Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus. </li>
+<li>SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung. </li>
+</ul>
+<h3>Erstelle dein Favicon mit Ubuntu 20.04</h3>
+<p>Zunächst sehen wir uns an, wie man ein Favicon unter Ubuntu erstellt. Ich veranschauliche es mit Hilfe der Pakete <a href="https://inkscape.org/de/">Inkscape</a> und <a href="https://imagemagick.org/index.php">Imagemagick</a>. Zuerst besprechen wir den Installationsprozess für beide Pakete. Um mit dem Installationsprozess fortzufahren, solltest du Zugriff auf Superuser-Rechte haben.</p>
+<h4>Installiere Inkscape und Imagemagick unter Ubuntu</h4>
+<p>Führe folgendes Kommando im Terminal aus.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo apt install inkscape imagemagick</span></span></code></pre>
+<p>Der obige Befehl installiert die Pakete -- Inkscape und Imagemagick. Mit dem Inkscape-Paket erstellen wir eine skalierbare Vektorgrafik und konvertieren anschließend die Datei mit der Erweiterung .svg in .ico mit dem Befehl <code class="language-text">convert</code> von Imagemagick.</p>
+<h4>Erstellen einer skalierbaren Vektorgrafik mit Inkscape</h4>
+<p>Mit Inkscape können wir praktisch alles entwerfen. Wir erstellen ein Text-Favicon. Öffne Inkscape und du siehst zunächst eine leere Seite umringt von Symbolleisten. Klinke auf der linken Seite auf das Symbol mit dem <code class="language-text">A</code>.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d99a7b25ac89b771fe2774d64a65e89e/c4842/cassiopeia_inkscape1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABSklEQVQoz4VR2XLCMAz0//9Y38o5XM3hJM5hggoBEnIIq7ZDWkppuzM7Ukb2rrxhnPPW9znyIEDX9TAIQgzDCDkPMIoEChGj5/u4Xm/Q0fNMSkzTrGeWDX2XyS3FnL8zIRKsypLO55KOxxOVVUXV5WLrRde6rqluGjqeTnQoCmqa1n4bfvZ1oxCR8l1eMCm3SD3UM16vV2WgW92j+u2cEdAbH1ia9oKqB91Ti1ne5nbbxzPWyxorLSgLttvl3wSHy0O9F2z084bZgEGw6zqKk6RgwnlDaltSvea9KxnXe4FB8NmGrRbUP9EKdtaIfpwyoRlnE7ilfvItL/WYn0magkgcWF7s6S985anoP8Rpdmaj8SSPuAvj5RQWLxPgo1fYzOawmI5BrCYQuRvwnDdIojmIcAm+54AXzCCWKwgjD5xwDa5cmLp3ucs/APQMtNokZqU8AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/d99a7b25ac89b771fe2774d64a65e89e/f058b/cassiopeia_inkscape1.png"
+        srcset="/static/d99a7b25ac89b771fe2774d64a65e89e/c26ae/cassiopeia_inkscape1.png 158w,
+/static/d99a7b25ac89b771fe2774d64a65e89e/6bdcf/cassiopeia_inkscape1.png 315w,
+/static/d99a7b25ac89b771fe2774d64a65e89e/f058b/cassiopeia_inkscape1.png 630w,
+/static/d99a7b25ac89b771fe2774d64a65e89e/40601/cassiopeia_inkscape1.png 945w,
+/static/d99a7b25ac89b771fe2774d64a65e89e/78612/cassiopeia_inkscape1.png 1260w,
+/static/d99a7b25ac89b771fe2774d64a65e89e/c4842/cassiopeia_inkscape1.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Das <code class="language-text">A</code> dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/51e63844f54f053b1bfb2f4dc893b0db/c4842/cassiopeia_inkscape2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABSklEQVQoz4VQ/U+DMBDt//9PqT+ZGKPbnE4ECrRQvnJuzRgfo/Rsx1jmsulLXu7aPh7vjnDO94xxFTH2i2EYKXvvU6pc11OUBorxWIk0VUKkKjG0fSKEMh69OSMP6DcpS1Bd1+GurrGumwNtP55rlFJitdth07ZYNy02R9ZNg23bHeq2qrTt86KQJM8LhSP0NWpb9QjV9/qWzhpkebYhaTYaHr/Bcw4mueXorE2iFi81lvZ5GAbM0kySssjHhEdDm0lPkc2oalth349Z7WqOBidMhr0RJSKRhHN2NeH5DiZMhtcS7o0h57EkEQv7ye9Cpc0c9s9aKXWgGfnW/oxSY8TjDQG5xr9w2ueg8T8kaVaRu/uHcvb8BG9f7/D+OIfw9QWcxRJWixnEn3NgngPUc0HwJcRsBQF1ITC9yB1gnILHHPDzD1vXfuiHP23RtEPOq+BSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape"
+        title="Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape"
+        src="/static/51e63844f54f053b1bfb2f4dc893b0db/f058b/cassiopeia_inkscape2.png"
+        srcset="/static/51e63844f54f053b1bfb2f4dc893b0db/c26ae/cassiopeia_inkscape2.png 158w,
+/static/51e63844f54f053b1bfb2f4dc893b0db/6bdcf/cassiopeia_inkscape2.png 315w,
+/static/51e63844f54f053b1bfb2f4dc893b0db/f058b/cassiopeia_inkscape2.png 630w,
+/static/51e63844f54f053b1bfb2f4dc893b0db/40601/cassiopeia_inkscape2.png 945w,
+/static/51e63844f54f053b1bfb2f4dc893b0db/78612/cassiopeia_inkscape2.png 1260w,
+/static/51e63844f54f053b1bfb2f4dc893b0db/c4842/cassiopeia_inkscape2.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Schreibe irgendetwas und markieren den Text. Direkt unter der Menüleiste ist die Schriftart und die Größe des Textes änderbar. Wähle eine Schrift nach deinem Geschmack.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9916201d9c42c9055c3e72bd18b6aff0/c4842/cassiopeia_inkscape3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABXUlEQVQoz31Qa2/CMAzM//9T2z5NmjSJiQGi0EeSNn1QA4WWFurGSyjd2ICddLITny+OmZTyJIRELgRyznsGAfqGMgzP0Vks0fN9FDJEFceoVIyRoc0jpdB4tOZM0vfWbLUCPB6PVB1qqsuSDnlOFayp2u2oNve7/Z7KqqK6aehQN1RfeKhraprjOe7LUts8zbKCpWmG1EPfUBuY2CdaY9vqu7qelKTJlsVJb9i3nFt7mrvOvN4VBV3qZqKGfmkutOWu6yiJk4LlWYr04zjMMwipXOW0ge05HwyvMRi2bUuRigompbg74SDGq7Pd9aMJT8ZQyrBgXATt4HepflPrzr5sv6MR0Sy+ebQ/o9DEZbhlUGzoPxgl2f3Y+Oe3N4jipGRPzy+r0fsbjJ0JTF5HID5GsJzOYD4ZQ7z4BBW4wAMPUjUDFToguA88nEKUzkFID5ZiDm42BVc6Gzdwgy+yZLQr1XI2swAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/9916201d9c42c9055c3e72bd18b6aff0/f058b/cassiopeia_inkscape3.png"
+        srcset="/static/9916201d9c42c9055c3e72bd18b6aff0/c26ae/cassiopeia_inkscape3.png 158w,
+/static/9916201d9c42c9055c3e72bd18b6aff0/6bdcf/cassiopeia_inkscape3.png 315w,
+/static/9916201d9c42c9055c3e72bd18b6aff0/f058b/cassiopeia_inkscape3.png 630w,
+/static/9916201d9c42c9055c3e72bd18b6aff0/40601/cassiopeia_inkscape3.png 945w,
+/static/9916201d9c42c9055c3e72bd18b6aff0/78612/cassiopeia_inkscape3.png 1260w,
+/static/9916201d9c42c9055c3e72bd18b6aff0/c4842/cassiopeia_inkscape3.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Danach drücke F1, um das Textobjekt auszuwählen und zu transformieren.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6633ccb807a1addf3300639f0205325e/c4842/cassiopeia_inkscape3a.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABh0lEQVQoz4VS7VKDMBDM+z+NPoDjC/hHnWorLSR8FsSCUsgHR84LtLZMq97Mzt4Nl82xF8Y5NzwIQHAO3noDXAgIwwiCgI8cxwn4fgCet4bV6g2ybHvCdpYPxJpFYQxd84X7psG6/sS27bDtOtwfWEqFSmuqW9xV1U+tFEGbiQnaGGyaL2B5UQBOYWcAOOXW2ovvl8CqrnuWZZOgnQJ/AIB2GBD6HgeqB8o1TeZ41jdhFKyrGlj5fkXwbGQoSxykHOuj4KH/nMez5UcJLEnjmeCx6Zi35FslxChu/hEsyD4WxdFVwSOPv3iY2JDxfwlmeQ4sLbLrHh7QOw9JxEEpNRM8WeRULSb0fFhKb+nMsovoaTlO1JieGPCXGM/u3FI+9i24O5WWVrdqXEBPXjkM2uWKxDRtWxIop1obiabvaEmSppYozd4a0NNSlje3sL2/w4VY2+XDAsXTI3qLF3x5fsZw9YSR/4b+Zo2xeMUkWqHgG/T5EtPCw/w9xjiNMNr5NswDDJMQvgEXKVOZPtVUnQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/6633ccb807a1addf3300639f0205325e/f058b/cassiopeia_inkscape3a.png"
+        srcset="/static/6633ccb807a1addf3300639f0205325e/c26ae/cassiopeia_inkscape3a.png 158w,
+/static/6633ccb807a1addf3300639f0205325e/6bdcf/cassiopeia_inkscape3a.png 315w,
+/static/6633ccb807a1addf3300639f0205325e/f058b/cassiopeia_inkscape3a.png 630w,
+/static/6633ccb807a1addf3300639f0205325e/40601/cassiopeia_inkscape3a.png 945w,
+/static/6633ccb807a1addf3300639f0205325e/78612/cassiopeia_inkscape3a.png 1260w,
+/static/6633ccb807a1addf3300639f0205325e/c4842/cassiopeia_inkscape3a.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Des Weiteren werden wir das Textobjekt einfärben. Diese kann über die Leise im unteren Bereich erfolgen.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/79e04732411c02181c1aeae65c4fafbf/c4842/cassiopeia_inkscape4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABZElEQVQoz3WQa1fCMAyG+/9/kn71ePwmqMDhMra2W3eBIINdCksX220oKuScd02W9EkTJqU8CyGRc4FcDLK+HwQowxB9P8DlcoVr30chQ1RxjErFGFk5P1IKLaOxMUl/vWPZBlCfTlRWFVV1TVVVU1FWVFrVtabD4dD7Wtu87v45uVqtT915LIrW+WmW5SxNU6Te2ltqnQbDpmnv1TlAkiZ7FidZBxzuUCcX286mLMmczzTk7Ys0fddcyaWNMZTESc62m99AugBtAbnxkoiKXdpBTwPw2i7ApmkoUlHOpBQ/wKHgcsl9TWt6uAPaXd974dkCpQxzxnnQdBxjWnK63p+NbWc3TouIdvH63v5sRUtchnu2Peb9249HumV9H9Odf6b9Z1GcFGz88LiJnp9gNHmF6csbiPEIVtMZzCfvEC8/QAUe8GANqZqBChcguA88nEKUzkHINazEHLxsCp5cfHqBF3wB/Ti0MQBpO4sAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/79e04732411c02181c1aeae65c4fafbf/f058b/cassiopeia_inkscape4.png"
+        srcset="/static/79e04732411c02181c1aeae65c4fafbf/c26ae/cassiopeia_inkscape4.png 158w,
+/static/79e04732411c02181c1aeae65c4fafbf/6bdcf/cassiopeia_inkscape4.png 315w,
+/static/79e04732411c02181c1aeae65c4fafbf/f058b/cassiopeia_inkscape4.png 630w,
+/static/79e04732411c02181c1aeae65c4fafbf/40601/cassiopeia_inkscape4.png 945w,
+/static/79e04732411c02181c1aeae65c4fafbf/78612/cassiopeia_inkscape4.png 1260w,
+/static/79e04732411c02181c1aeae65c4fafbf/c4842/cassiopeia_inkscape4.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Das Textobjekt sollte in einen Pfad umgewandelt werden, dies könnte über das Tastenkürzel Objekt in Pfad umwandeln Strg+Shft+C und Seitengröße auf Auswahlgröße Strg+Shft+R geschehen, um die Seite auf die Auswahl zu verkleinern.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ecd6aa8495f571dc4e5de746719d708b/c4842/cassiopeia_inkscape5.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABhklEQVQoz42S63KbMBCFef+H64+6NbWxMReBbHAMbkzQZdHpSlDX7iSZ7MzhrGD1zWpFlOW5yZId5XlO+yyjfLulgvNDUVApBOXsaXqgbZJQHP+iWh5JHlmPPucTu45KUdPQtrhVNa6XDm8dy6+9X69QSkNrg9swoOv6sFZaL25m9zXG4PX1N0VN0xJ8DIPjL44zh2lyT2vnZv9c6PreRlI2Achv5l38fKwiIuZPQZo78x5qnhWAfddTdG4X4BxY8oD3PjEQNB/iL/Be88/D3vPLmaKqFu8Dlw4npeD6/kvApmmIL6X8GOg7XAA+DA/+M6A8nSiqG/kE/F/W2vsMFXf7CLwrjN+hqo8eeKKlAYd3wvL8PNQYy074IMLei7+Ul0tHE1koo5weuAM1gnhW1s9Lj+wKlo9Klt9bxWCvEca+8UxH7nrEaG7OkJ4vZc1/vxQl1rvYbb6tUay+Y/dzjfjHCuVmBZEmOOz3EEWMqtygyFOk2QayTdCcK1RSQFxSVzYZirqgP0hcVBuKPFDQAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/ecd6aa8495f571dc4e5de746719d708b/f058b/cassiopeia_inkscape5.png"
+        srcset="/static/ecd6aa8495f571dc4e5de746719d708b/c26ae/cassiopeia_inkscape5.png 158w,
+/static/ecd6aa8495f571dc4e5de746719d708b/6bdcf/cassiopeia_inkscape5.png 315w,
+/static/ecd6aa8495f571dc4e5de746719d708b/f058b/cassiopeia_inkscape5.png 630w,
+/static/ecd6aa8495f571dc4e5de746719d708b/40601/cassiopeia_inkscape5.png 945w,
+/static/ecd6aa8495f571dc4e5de746719d708b/78612/cassiopeia_inkscape5.png 1260w,
+/static/ecd6aa8495f571dc4e5de746719d708b/c4842/cassiopeia_inkscape5.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Und, speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b0d12927f88a5dacc6a5116f6faaece0/1ac29/cassiopeia_inkscape6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.15189873417721%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAACbElEQVQ4y32T627aQBCFef93aSo1rfqjVaoogbgXNxEEMATiGNtgDPh+3fXu6ayBFJSqIx3P2mt9c2YvHdO2taXnwR2Oanti8IUx4LY55wvX5SPD4OPJpNVwPObGdMqN2YxbiwV3HIfbJJUd1638tQdn8Pu24z8+6oW3Rjo3RfrrDumXd4gffkB9Y+s1aiqmpMap4yB7NsHTDDXnYHWNumYoylKAIi1KrbPr3emZaSKYTJpg/iKjpS8TeyUjcyGjF1uGhxyT7KEh5zddmYeJjJiQUclkVpQyjpOGoAjDSOssFo6eJykgpFiOH7H+eY3mZQw2G6CePpyJP/WRjnQEg++wtSvYva8IvJUy16gH51zrzOfP+m63Q8G4SKw5NlcXiHufEXy7QHr9HlXvI8ru5avS7iekt5fIbj6guL5A6FhAVbdApoDmyNDD7Q41YyIvGVZBjKji4Ph3bLMS27zChvKuqBHGCflr/gKfn570nQLWtcizHCvXwWrpIo1jSNFANkdRCXrf0OZ4qxVlD1vfp3ULX1tugcN+X99ut6qI4LxpiwkhIKVsHal8lAo1d5T6N6LCZ8D+/b3uUyVBm8L3zl/jCMEJ/DQEvb8BzqZTPY6ivUPV2omjN1LQE7By+QbIGNcPk23L/408By32WQenwPbYJGmmq3plVYuKTn27NgeJM0k0jKGxLDRZhka2gBZI8y2Qbo3WsQxLX7oeLNsRtuPC32zg+xt4ax8xHfi8KJHlBZkrkNA4pGsY0U7TDQF1R2Kq1WbfQKF1gk2oF0WFIIpERGdKAU51hCmAynlZ7XWYC4IQSZo2qjsyoP0BqhglmHa0bhEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/b0d12927f88a5dacc6a5116f6faaece0/f058b/cassiopeia_inkscape6.png"
+        srcset="/static/b0d12927f88a5dacc6a5116f6faaece0/c26ae/cassiopeia_inkscape6.png 158w,
+/static/b0d12927f88a5dacc6a5116f6faaece0/6bdcf/cassiopeia_inkscape6.png 315w,
+/static/b0d12927f88a5dacc6a5116f6faaece0/f058b/cassiopeia_inkscape6.png 630w,
+/static/b0d12927f88a5dacc6a5116f6faaece0/40601/cassiopeia_inkscape6.png 945w,
+/static/b0d12927f88a5dacc6a5116f6faaece0/1ac29/cassiopeia_inkscape6.png 1022w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Im Browser siehst du das Favicon nun im Tabulator.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/37ff5c778d63e1b61373f0174a0ae921/c4842/cassiopeia_inkscape7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABhUlEQVQoz5WSTUsCURSG53fUQkdEUVOEFuWmP1BIFCWaJSkEtYgIWrSIIvtY9LEJ+jNtgzZta9EiQcrBRR862sydOXPf7kyOCgmOB957Zs499x3OM1eaTqSMRCJFofgUhSNJik5MOtknRx35Az3JgVhXoXCSgsE4jY0HyeePkCzHLNkXZtJMepfm0jsobZSxuXeD7f1bFLYuMZs5QDp7iPncERZyx1hcKWMpf4LM6imya+fICS3nysjmz1BYv0CxdI1S8YokwyRiZEF5rfAPpc5/NCakc22gmJMZM/jnV4NXq2/8u9F06oyZME0yJQAEcCj1utjQ4DV0ZkBttcEMBsuy+F+VkyReqNPjFDnnQ2VHu93Ge62GpqpCVVucGYa9R5K9dIy42+zFUJCCQOM8a7rOSWD7ZzhszP4P2sGYDsEUwsydbnRDq9NWqSp4eHwSP4IJnmywoRd+Lv+XioK7+2e0NOrn3zN0i16ifxhx7brTOYbi7pANVCwCLGFUiVvinLWz7fULgI8OrTa07XkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        title="Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape"
+        src="/static/37ff5c778d63e1b61373f0174a0ae921/f058b/cassiopeia_inkscape7.png"
+        srcset="/static/37ff5c778d63e1b61373f0174a0ae921/c26ae/cassiopeia_inkscape7.png 158w,
+/static/37ff5c778d63e1b61373f0174a0ae921/6bdcf/cassiopeia_inkscape7.png 315w,
+/static/37ff5c778d63e1b61373f0174a0ae921/f058b/cassiopeia_inkscape7.png 630w,
+/static/37ff5c778d63e1b61373f0174a0ae921/40601/cassiopeia_inkscape7.png 945w,
+/static/37ff5c778d63e1b61373f0174a0ae921/78612/cassiopeia_inkscape7.png 1260w,
+/static/37ff5c778d63e1b61373f0174a0ae921/c4842/cassiopeia_inkscape7.png 1634w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>Der Vollständigkeit halber füge ich den Quellcode der SVG-Datei nachfolgend ein.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?</span><span class="mtk7">xml</span><span class="mtk3"> version</span><span class="mtk1">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk3"> encoding</span><span class="mtk1">=</span><span class="mtk11">&quot;UTF-8&quot;</span><span class="mtk3"> standalone</span><span class="mtk1">=</span><span class="mtk11">&quot;no&quot;</span><span class="mtk1">?&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:dc</span><span class="mtk1">=</span><span class="mtk11">&quot;http://purl.org/dc/elements/1.1/&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:cc</span><span class="mtk1">=</span><span class="mtk11">&quot;http://creativecommons.org/ns#&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:rdf</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:svg</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;svg8&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">version</span><span class="mtk1">=</span><span class="mtk11">&quot;1.1&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 30.691282 18.930109&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">height</span><span class="mtk1">=</span><span class="mtk11">&quot;18.930109mm&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">width</span><span class="mtk1">=</span><span class="mtk11">&quot;30.691282mm&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">defs</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">     </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;defs2&quot;</span><span class="mtk1"> /&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">metadata</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">     </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;metadata5&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    &lt;</span><span class="mtk7">rdf:RDF</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      &lt;</span><span class="mtk7">cc:Work</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">rdf:about</span><span class="mtk1">=</span><span class="mtk11">&quot;&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        &lt;</span><span class="mtk7">dc:format</span><span class="mtk1">&gt;image/svg+xml&lt;/</span><span class="mtk7">dc:format</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        &lt;</span><span class="mtk7">dc:type</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">           </span><span class="mtk3">rdf:resource</span><span class="mtk1">=</span><span class="mtk11">&quot;http://purl.org/dc/dcmitype/StillImage&quot;</span><span class="mtk1"> /&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        &lt;</span><span class="mtk7">dc:title</span><span class="mtk1">&gt;&lt;/</span><span class="mtk7">dc:title</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      &lt;/</span><span class="mtk7">cc:Work</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    &lt;/</span><span class="mtk7">rdf:RDF</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;/</span><span class="mtk7">metadata</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">g</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">     </span><span class="mtk3">transform</span><span class="mtk1">=</span><span class="mtk11">&quot;translate(-53.841845,-125.31983)&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">     </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;layer1&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    &lt;</span><span class="mtk7">g</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">       </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;flowRoot3713&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">       </span><span class="mtk3">style</span><span class="mtk1">=</span><span class="mtk11">&quot;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#ff0000&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">       </span><span class="mtk3">transform</span><span class="mtk1">=</span><span class="mtk11">&quot;scale(0.26458333)&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">       </span><span class="mtk3">aria-label</span><span class="mtk1">=</span><span class="mtk11">&quot;My&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      &lt;</span><span class="mtk7">path</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;path4803&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">style</span><span class="mtk1">=</span><span class="mtk11">&quot;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.66666412px;font-family:sans-serif;-inkscape-font-specification:&#39;sans-serif Bold&#39;;fill:#ff0000;stroke:#ff0000&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">d</span><span class="mtk1">=</span><span class="mtk11">&quot;m 203.99674,474.14974 h 17.86459 l 12.39583,29.13021 12.46875,-29.13021 h 17.82812 v 54.43229 H 251.2832 v -39.8125 l -12.54166,29.34896 h -8.89584 l -12.54166,-29.34896 v 39.8125 h -13.3073 z&quot;</span><span class="mtk1"> /&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      &lt;</span><span class="mtk7">path</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;path4805&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">style</span><span class="mtk1">=</span><span class="mtk11">&quot;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.66666412px;font-family:sans-serif;-inkscape-font-specification:&#39;sans-serif Bold&#39;;fill:#ff0000;stroke:#ff0000&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">         </span><span class="mtk3">d</span><span class="mtk1">=</span><span class="mtk11">&quot;m 272.35611,487.7487 h 13.05209 l 10.97396,27.70833 9.33333,-27.70833 h 13.05208 l -17.17187,44.69791 q -2.58854,6.81771 -6.05209,9.51563 -3.42708,2.73437 -9.07812,2.73437 h -7.54688 v -8.56771 h 4.08334 q 3.31771,0 4.8125,-1.05729 1.53125,-1.05729 2.36979,-3.79166 l 0.36458,-1.13021 z&quot;</span><span class="mtk1"> /&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    &lt;/</span><span class="mtk7">g</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;/</span><span class="mtk7">g</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">svg</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<h5>CSS in der SVG-Dateien</h5>
+<p>Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels <code class="language-text">style=&quot;...&quot;</code> möglich, sonder ebenfalls via Tag.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?</span><span class="mtk7">xml</span><span class="mtk3"> version</span><span class="mtk1">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk3"> encoding</span><span class="mtk1">=</span><span class="mtk11">&quot;UTF-8&quot;</span><span class="mtk3"> standalone</span><span class="mtk1">=</span><span class="mtk11">&quot;no&quot;</span><span class="mtk1">?&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:dc</span><span class="mtk1">=</span><span class="mtk11">&quot;http://purl.org/dc/elements/1.1/&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:cc</span><span class="mtk1">=</span><span class="mtk11">&quot;http://creativecommons.org/ns#&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:rdf</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns:svg</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;svg8&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">version</span><span class="mtk1">=</span><span class="mtk11">&quot;1.1&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 30.691282 18.930109&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">height</span><span class="mtk1">=</span><span class="mtk11">&quot;18.930109mm&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   </span><span class="mtk3">width</span><span class="mtk1">=</span><span class="mtk11">&quot;30.691282mm&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">style</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    #flowRoot3713 {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">       font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#ff0000;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    #path4803, #path4805{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">       font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.66666412px;font-family:sans-serif;-inkscape-font-specification:&#39;sans-serif Bold&#39;;fill:#ff0000;stroke:#ff0000;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;/</span><span class="mtk7">style</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">defs</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">     </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;defs2&quot;</span><span class="mtk1"> /&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">metadata</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<h5>Ein Emoji als Favicon</h5>
+<p><a href="https://de.wikipedia.org/w/index.php?title=Emoji&#x26;oldid=210760547">Emojis</a> sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen. </p>
+<p>Ein <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#emoji">Emoji als Favicon</a>
+ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu erstellen, das auch bei kleinen Größen funktioniert.</p>
+<p>Wenn du ein Emojis in HTML anzeigen möchtest, kannst du den dezimalen oder hexadezimalen Referenz-Code verwenden. Oder du kopierst das Bild, wenn du es auf einer anderen Website siehst.</p>
+<p>Nachfolgend siehst du einen Beispielcode und das Ergebnis im Browser.</p>
+<p>Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span><span class="mtk1"> </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span><span class="mtk1"> </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 100 100&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">text</span><span class="mtk1"> </span><span class="mtk3">y</span><span class="mtk1">=</span><span class="mtk11">&quot;.9em&quot;</span><span class="mtk1"> </span><span class="mtk3">font-size</span><span class="mtk1">=</span><span class="mtk11">&quot;90&quot;</span><span class="mtk1">&gt;🌴&lt;/</span><span class="mtk7">text</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">svg</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<p>oder</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span><span class="mtk1"> </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span><span class="mtk1"> </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 100 100&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">text</span><span class="mtk1"> </span><span class="mtk3">y</span><span class="mtk1">=</span><span class="mtk11">&quot;.9em&quot;</span><span class="mtk1"> </span><span class="mtk3">font-size</span><span class="mtk1">=</span><span class="mtk11">&quot;90&quot;</span><span class="mtk1">&gt;</span><span class="mtk4">&amp;#127796;</span><span class="mtk1">&lt;/</span><span class="mtk7">text</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">svg</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<p>oder</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span><span class="mtk1"> </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span><span class="mtk1"> </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 100 100&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">text</span><span class="mtk1"> </span><span class="mtk3">y</span><span class="mtk1">=</span><span class="mtk11">&quot;.9em&quot;</span><span class="mtk1"> </span><span class="mtk3">font-size</span><span class="mtk1">=</span><span class="mtk11">&quot;90&quot;</span><span class="mtk1">&gt;</span><span class="mtk4">&amp;#x1F334;</span><span class="mtk1">&lt;/</span><span class="mtk7">text</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">svg</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c690f5e32fb8d4b16a11e453ce97cefc/30c92/cassiopeia_inkscape8.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.16455696202532%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABXklEQVQoz63Oy0oCARQG4KFdizCKbuqMk4VBEdhFDNPGS06hgU1mml0eok1Fux4gIjNtFAQXbc2Mgl6hpCeIaONGqJY1k/M3M6SI0UY78HHgX/znEKydweTMLKamrbBYbTCZRkCRehVtoFQURYLU66DXaWt0fyC84zY4bSxGJxiMmR0wWzzw+iJweoNwsSEs+KOYXwyD8XCwOwNwuKqWMVeHcXMqoq3fB4d1G4x/B0tbh2ACu2BDB3Bze/Bw+9DQQbRrA+ggV6ChVtFpCKGLXkM3HUbPYAS9xnX0GaMYGNqAdngTxFEyh2M+h3g6h0SmoOKzN0hlb5G5uEOMz+Pk/FKWR0x2yiuuEFekCjiTJRTpayRlBGpTUUkVAa0M8fEpoFh8xP1DEU/PL5AkQBBFiOKXSlCJP/s3sQEhyQ3lchmlUgmvb+/qFSVr+sPGoFqm7GYQjUF92b982Or8e+E3nlnF3rbp2I0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Cassiopeia Favicon erstellen - Emoji als Favicon"
+        title="Cassiopeia Favicon erstellen - Emoji als Favicon"
+        src="/static/c690f5e32fb8d4b16a11e453ce97cefc/f058b/cassiopeia_inkscape8.png"
+        srcset="/static/c690f5e32fb8d4b16a11e453ce97cefc/c26ae/cassiopeia_inkscape8.png 158w,
+/static/c690f5e32fb8d4b16a11e453ce97cefc/6bdcf/cassiopeia_inkscape8.png 315w,
+/static/c690f5e32fb8d4b16a11e453ce97cefc/f058b/cassiopeia_inkscape8.png 630w,
+/static/c690f5e32fb8d4b16a11e453ce97cefc/30c92/cassiopeia_inkscape8.png 874w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<blockquote>
+<p>Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die <a href="https://www.getemojis.net/html/#Emoji-Liste">Emoji-Liste mit HTML-Codes</a> eine mögliche Anlaufstelle.</p>
+</blockquote>
+<h5>Favicon und Dark Mode</h5>
+<p>Mit dem <a href="https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme">Dark Mode</a> können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support">Dark Mode</a> ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage <code class="language-text">prefers-color-scheme</code> verwenden. </p>
+<p>Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span><span class="mtk1"> </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span><span class="mtk1"> </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 100 100&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   &lt;</span><span class="mtk7">style</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    #sun {display:block} #moon {display:none}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    @media (prefers-color-scheme: dark) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    #sun {display:none} #moon {display:block}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   &lt;/</span><span class="mtk7">style</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   &lt;</span><span class="mtk7">text</span><span class="mtk1"> </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;sun&quot;</span><span class="mtk1"> </span><span class="mtk3">y</span><span class="mtk1">=</span><span class="mtk11">&quot;.9em&quot;</span><span class="mtk1"> </span><span class="mtk3">font-size</span><span class="mtk1">=</span><span class="mtk11">&quot;90&quot;</span><span class="mtk1">&gt;🌤&lt;/</span><span class="mtk7">text</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   &lt;</span><span class="mtk7">text</span><span class="mtk1"> </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;moon&quot;</span><span class="mtk1"> </span><span class="mtk3">y</span><span class="mtk1">=</span><span class="mtk11">&quot;.9em&quot;</span><span class="mtk1"> </span><span class="mtk3">font-size</span><span class="mtk1">=</span><span class="mtk11">&quot;90&quot;</span><span class="mtk1">&gt;🌜&lt;/</span><span class="mtk7">text</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">svg</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<h4>Konvertieren von .svg in .ico</h4>
+<p>Um die Datei input.svg in die Datei favicon.ico zu konvertieren, müssen wir folgendes im Terminal ausführen.</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">convert -background transparent -define icon:auto-resize=16 joomla-favicon.svg favicon.ico</span></span></code></pre>
+<p>Wir haben den Hintergrund transparent und als Symbolgröße 16 Pixel gewählt. Das <code class="language-text">ICO</code>-Dateiformat unterstützt Bilder mit einer Größe von bis zu 256×256 Pixeln.</p>
+<p>Du weißt nun, wie du mit Ubuntu unter Verwendung der Pakete Inkscape und Imagemagick eine skalierbare Vektorgrafik (SVG)erstellst und in das <code class="language-text">ICO</code>-Format als <code class="language-text">favicon.ico</code> konvertiert.</p>
+<h4>Das Favicon im Template einbinden</h4>
+<p>Um dein selbst erstelltes Favicon anstelle des Joomla-Logos im Template Cassiopeia einzusetzen, reicht es aus, die Dateien </p>
+<ul>
+<li><code class="language-text">joomla-favicon.svg</code></li>
+<li><code class="language-text">favicon.ico</code></li>
+<li><code class="language-text">joomla-favicon-pinned.svg</code></li>
+</ul>
+<p>im Verzeichnis <code class="language-text">JOOMLA/templates/cassiopeia/images</code> abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.</p>
+<blockquote>
+<p>Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses <code class="language-text">JOOMLA/media/system</code> überschreiben. </p>
+</blockquote>
+<p>Magst du die Dateinamen umbenennen? Du würdest gerne anstelle von <code class="language-text">joomla-favicon.svg</code> einfach <code class="language-text">favicon.svg</code> und anstelle von <code class="language-text">joomla-favicon-pinned.svg</code> <code class="language-text">favicon-pinned.svg</code> als Dateinamen verwenden? Dann ist es erforderlich, dass du die Aufrufe in der Datei <code class="language-text">index.php</code> des Tempaltes anpasst. Passe die Dateinamen an. Ersetze die nachfolgenden Zeilen</p>
+<pre class="grvsc-container solarized-light" data-language="php" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;joomla-favicon.svg&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;type&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;image/svg+xml&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;favicon.ico&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;alternate icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;type&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;image/vnd.microsoft.icon&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;joomla-favicon-pinned.svg&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;mask-icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;color&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;#000&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span></code></pre>
+<p>mit</p>
+<pre class="grvsc-container solarized-light" data-language="php" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;favicon.svg&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;type&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;image/svg+xml&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;favicon.ico&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;alternate icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;type&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;image/vnd.microsoft.icon&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">addHeadLink</span><span class="mtk1">(</span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;image&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;favicon-pinned.svg&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;&#39;</span><span class="mtk1">, [], </span><span class="mtk5">true</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">), </span><span class="mtk11">&#39;mask-icon&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;rel&#39;</span><span class="mtk1">, [</span><span class="mtk11">&#39;color&#39;</span><span class="mtk1"> </span><span class="mtk8">=&gt;</span><span class="mtk1"> </span><span class="mtk11">&#39;#000&#39;</span><span class="mtk1">]);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span></code></pre>
+<style class="grvsc-styles">
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line > * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: ' ';
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting > .grvsc-code > .grvsc-line::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .solarized-light { background-color: #FDF6E3; }
+  .solarized-light .mtk8 { color: #859900; }
+  .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk11 { color: #2AA198; }
+  .solarized-light .mtk5 { color: #B58900; }
+  .solarized-light .mtk6 { color: #D33682; }
+  .solarized-light .mtk3 { color: #93A1A1; }
+  .solarized-light .mtk4 { color: #CB4B16; }
+  .solarized-light .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));
+  }
+</style></div></article><a href="https://github.com/astridx/meinblog/blob/master/content/posts/cassiopeia/8cassiopeia-favicon.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></section><div id="utterances"><h2>Comments</h2><div class="comments"></div></div><aside><div class="aside-content"><section><h3>Fehler gefunden?</h3><div>Bitte lasse mich wissen, wenn etwas falsch oder unklar ist. Öffne gerne ein<!-- --> <a href="https://github.com/astridx/meinblog/issues/">Github-Issue</a>.</div><h3>Du oder Sie?</h3><div>Ob Du oder Sie - das ist im Deutschen oft gar nicht so leicht zu entscheiden. Manche Leser sieze ich, andere duze ich. Deshalb gibt es im Weblog ein buntes Durcheinander und jeder sucht sich das aus, was für Ihn passt.</div></section></div></aside></main><footer class="footer container"><section class="flex"><nav class="footer-links"><a href="/blog">Blog</a><a href="https://astrid-guenther.de/impressum">Impressum</a><a href="https://astrid-guenther.de/datenschutzerklaerung">Datenschutz</a></nav><nav class="flex"><a href="https://www.gatsbyjs.org/" title="Built with Gatsby" target="_blank" rel="noopener noreferrer" class="img"><img src="/static/gatsby-b7637c262ad964cf2f70abbbfc9e1f93.png" class="footer-img" alt="Gatsby"/></a><a href="https://github.com/astridx" title="Open-source on GitHub" target="_blank" rel="noopener noreferrer" class="img"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTE3OEEyRTk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTE3OEEyRjk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1MTc4QTJDOTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1MTc4QTJEOTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FYrpWAAABrNJREFUeNrkW2lsVFUUvjMWirYUkS5BXApUa2vd6gL+wAWjoP5RiW2EUBajAiqSuPADQ0w1UUQTrcFAUUSJEKriEuMWFKuJIElFSS24YNpQK6WoBbuAktbva880M8O8vnfevJm+CSf5cme599xzvnfffffce17AJFjycnLzUVwDXAgUAucBY4BMIEOqdQIdwJ/Az4J64OvWtoONibQvkACHgyiuBe4CbgLOjVNlE/AZsAmoBSE9viQAjueieBCYC5yVoAvWDKwHqkBEmy8IgON09lHgXmCESY4cBaqBlSCieUgIgOPDUCwBngBOM0MjXdL/CyDiv6QRAOcvR7EBKDL+kD3AbJBQl1AC4DjrLwaeBYYbf8m/ciu+BCJ6PScAzp+K4nXgTuNveQuYAxK6PSMAzo9C8TFwtUkN2Q7cDBIOx02AOP8FUGpSSzgf3GBHQsDGec7unwOTTWrKDiGhS02ATHjvALeb1JZ3gRlWE+MpVq0yMzIekRk/1YWP6o7Ors5vHI8AXH1Odl8BaTbKrwd4j10MTAduS8JqkKvA94BPgN0A56htNm2OMyDDKNhuSwCcT5dIrMBG6S4oLI1qezqKBcBjwGiPHW8HVgCr0W97VL/fobjMpv2vQAnaHgv/MdYVXurAeSNPhggRw56BQatRVgL3A0H5+xDwI8Dw9g/5Hlq+clmdDYwF8iV0zpb/GP2tApZHOx4m2xwQUCC+VVqOABg+AUUDkO6AgHkwaL2DJXORxPVNylUnw+gpXObaLXFRlxHoaw7U8uoXQ99vViNgqUPnKQfsKojhdW7GuxDW5JUtIuni432hH4JhLJ7Dq6qwcZiPZnpNXDJPfI0kQEJbjVM5PiIgW3nhlkQQILH9LGWnV/iIAK0ts8TngREwDchVKrnKRwRobckVnwcIKFcq4ONrkY8IWBT2SHUq5eEE3Khs/CRm6Z1+8V5sqVQ26/M5gHuhSJ79TqUFmIhOj/ppwQ8/Rshqb5yiWXFQFhsaWeU352UU0KaXlc2mBI1+Y3OzjyO/Gm2kSAIKFQ2awfQ+v3oP23gL/K5oUhh0GPiEZG8KxP97FHULgsqwtTUFCDioqHsGCRipaHA8BQjQrAcyg4roj5KVAgSMUtRNDyqVj0wBAlQ2koBuRf3xKUBAvqJuN1eCrYpAiHNAltNjpyFYDfL47oix38wdmDA5AvYr+kjzWRgcLVcqnKfsJwGNyk5u9TEBtyjrNwaVgRClTPKA/Db8aVOZslkDG2nD2vEuOkqGlLmYpHcGJLlJu8LjtvJFgx06Jvnq8xC33gUBeUE4waWjduua5wdVPrr6VS6cr6PvoXv5Ixed3g3mH/fB1V9OW1w07fM5IEouUEZR4bIWWJzsTRJ55r8I3ONSRRFs3hsIU8hkgkkulf0CPAx8qElQcuk4beYp9Epgoks138LOvqSPgfyAzIwMZlnFSobgIegc4H3gH6AkxmKDub9Mjb0DeoYDrZ1dne0eO14AvfPx8RXgAYaycahbBvt+GLgFpIM0md3PjqrMTMxpYKxB6p1v+s/n7bbSuMCqldmZyc+fRh9ND+IsAxrmG3C3qtj0J1uP84hLrnwnwJbjEQRIxzw0XB2jER93C9Bog9TjsRgzLpzuJr0BzHV6e8gwf9XoziqdCv1YE/oSTQBHwfem/3w+5syPxuukLtfdO0zk+WIs+YuPKLQ7ohzyWTIix3joPPMTLg1d/Yg5gIL7ogf32U/4WGGhYDr+34J6bUALPpPA62w6XYMOP9BaCv3HoD/PeJubODN6U/eEq4cKTIurttpBAZ4L+87TmKdtOt0ah8FbPXS+WnyLEKskqUy5FaweM5dA2e6w+pNkZuajhfMD3/zYBfDKb3Y6+cWwgytOL7bh98nQ73BEgHReIvd4Roy/a6Cs3CRYJOnq7zjV8HWcybC33mpLLKZIA84FPRYhcSokUNL2Civnjd0MjoZbUCy0+PtNkDDD5wQsFB8sxWm2+GJZd8eSt4HnZXnZ66Nb4CHYYxuxat4XmI1inbHeczskq77DMrK4z8AgK3+Q/L5EEMBn/PzQos0zAsQgvg5XY3TpNKOTSAD3NsrQX63TBqq9PVHM9NgvfXi/06ZSjfNqAoQEHj9Pled+pw8cpw2co6aKbSoJxDlJnYniKdP/sqSVrrEw7IBL/TnG+rSXEy7fYVoG/S1uffDkzVEYypB1qewJRCdb5rp9yxN6mQDZFmOS2wisCIXo8Yin7w7LiKiQEcFYfhOMnBmnzo1CLIO09Qyt47niJxDQ29trTmY56Qn4X4ABAFR7IoDmVT5NAAAAAElFTkSuQmCC" class="footer-img" alt="GitHub"/></a></nav></section></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/cassiopeia-favicon/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-34ee454f7a57a81b4b12.js"],"app":["/app-674f29094b36642c536c.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-241020a1cf7d0f317bbe.js"],"component---src-pages-404-en-js":["/component---src-pages-404-en-js-049e100e2a9173e93733.js"],"component---src-pages-404-js":["/component---src-pages-404-js-1b0d053c2033924b8a5b.js"],"component---src-pages-blog-en-js":["/component---src-pages-blog-en-js-3b014364b7dcb7c28070.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-7510b7a06db454d8143a.js"],"component---src-pages-index-en-js":["/component---src-pages-index-en-js-21569d79e8b800bf18ec.js"],"component---src-pages-index-js":["/component---src-pages-index-js-52853c28e37dec706192.js"],"component---src-pages-tutorial-en-js":["/component---src-pages-tutorial-en-js-b8b5125976f1c9359108.js"],"component---src-pages-tutorial-js":["/component---src-pages-tutorial-js-0dd9fcac9baba63cb54e.js"],"component---src-templates-post-js":["/component---src-templates-post-js-3da1f6365d3628a70fc7.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-696f41ec7d1b7870cc7c.js"]};/*]]>*/</script><script src="/polyfill-34ee454f7a57a81b4b12.js" nomodule=""></script><script src="/component---src-templates-post-js-3da1f6365d3628a70fc7.js" async=""></script><script src="/cd89b575fbc7744d97a7acf3b55b56387c8b3feb-ecedd2c80549e60c9d95.js" async=""></script><script src="/05f1d64e2e1399e8ce81fd5e37a2b8dc2f9ac157-86a3721b0529b0981782.js" async=""></script><script src="/styles-e9d24b1846c7d6eb9685.js" async=""></script><script src="/app-674f29094b36642c536c.js" async=""></script><script src="/framework-c8d3a5345e3f321d7da5.js" async=""></script><script src="/webpack-runtime-7876961e34901be93c28.js" async=""></script></body></html>
