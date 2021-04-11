@@ -36,7 +36,7 @@ In a help file we create a sidebar - a separate submenu - for the custom fields.
 [administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
 
 ```php {numberLines: -3}
-// https://raw.githubusercontent.com/astridx/boilerplate/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/src/Helper/FooHelper.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t14a/src/administrator/components/com_foos/src/Helper/FooHelper.php
 
 <?php
 /**
@@ -73,8 +73,7 @@ class FooHelper extends ContentHelper
 	 */
 	public static function addSubmenu($vName)
 	{
-		if (ComponentHelper::isEnabled('com_fields') && ComponentHelper::getParams('com_foos')->get('custom_fields_enable', '1'))
-		{
+		if (ComponentHelper::isEnabled('com_fields') && ComponentHelper::getParams('com_foos')->get('custom_fields_enable', '1')) {
 			\JHtmlSidebar::addEntry(
 				Text::_('JGLOBAL_FIELDS'),
 				'index.php?option=com_fields&context=com_foos.foo',

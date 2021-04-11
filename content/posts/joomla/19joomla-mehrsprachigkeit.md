@@ -36,11 +36,13 @@ Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Daten
 
 [administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
-```sql {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql -->
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
+
 ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
+
 ```
 
 #### [administrator/components/ com_foos/src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-89e05e395916539c641802f3bb6165c5)
@@ -52,7 +54,7 @@ In dieser Helper-Datei stellen wir die Angaben bereit, die für unsere Komponent
 [administrator/components/ com_foos/src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
 
 <?php
 /**
@@ -95,7 +97,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	protected $itemTypes = array('foo', 'category');
+	protected $itemTypes = ['foo', 'category'];
 
 	/**
 	 * Has the extension association support
@@ -138,8 +140,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 		$context    = $this->extension . '.item';
 		$catidField = 'catid';
 
-		if ($typeName === 'category')
-		{
+		if ($typeName === 'category') {
 			$context    = 'com_categories.item';
 			$catidField = '';
 		}
@@ -170,15 +171,13 @@ class AssociationsHelper extends AssociationExtensionHelper
 	 */
 	public function getItem($typeName, $id)
 	{
-		if (empty($id))
-		{
+		if (empty($id)) {
 			return null;
 		}
 
 		$table = null;
 
-		switch ($typeName)
-		{
+		switch ($typeName) {
 			case 'foo':
 				$table = Table::getInstance('FooTable', 'FooNamespace\\Component\\Foos\\Administrator\\Table\\');
 				break;
@@ -188,8 +187,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 				break;
 		}
 
-		if (empty($table))
-		{
+		if (empty($table)) {
 			return null;
 		}
 
@@ -210,15 +208,13 @@ class AssociationsHelper extends AssociationExtensionHelper
 	public function getType($typeName = '')
 	{
 		$fields  = $this->getFieldsTemplate();
-		$tables  = array();
-		$joins   = array();
+		$tables  = [];
+		$joins   = [];
 		$support = $this->getSupportTemplate();
 		$title   = '';
 
-		if (in_array($typeName, $this->itemTypes))
-		{
-			switch ($typeName)
-			{
+		if (in_array($typeName, $this->itemTypes)) {
+			switch ($typeName) {
 				case 'foo':
 					$fields['title'] = 'a.name';
 					$fields['state'] = 'a.published';
@@ -228,9 +224,9 @@ class AssociationsHelper extends AssociationExtensionHelper
 					$support['category'] = true;
 					$support['save2copy'] = true;
 
-					$tables = array(
+					$tables = [
 						'a' => '#__foos_details'
-					);
+					];
 
 					$title = 'foo';
 					break;
@@ -247,22 +243,22 @@ class AssociationsHelper extends AssociationExtensionHelper
 					$support['checkout'] = false;
 					$support['level'] = false;
 
-					$tables = array(
+					$tables = [
 						'a' => '#__categories'
-					);
+					];
 
 					$title = 'category';
 					break;
 			}
 		}
 
-		return array(
+		return [
 			'fields'  => $fields,
 			'support' => $support,
 			'tables'  => $tables,
 			'joins'   => $joins,
 			'title'   => $title
-		);
+		];
 	}
 
 	/**
@@ -274,7 +270,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 	 */
 	protected function getFieldsTemplate()
 	{
-		return array(
+		return [
 			'id'                  => 'a.id',
 			'title'               => 'a.title',
 			'alias'               => 'a.alias',
@@ -288,7 +284,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 			'created_user_id'     => '',
 			'checked_out'         => '',
 			'checked_out_time'    => ''
-		);
+		];
 	}
 }
 
@@ -331,7 +327,7 @@ Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Spr
 [components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationHelper.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
 
 <?php
 /**
@@ -374,16 +370,13 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 		$view = $view ?? $jinput->get('view');
 		$id = empty($id) ? $jinput->getInt('id') : $id;
 
-		if ($view === 'foos')
-		{
-			if ($id)
-			{
+		if ($view === 'foos') {
+			if ($id) {
 				$associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $id);
 
-				$return = array();
+				$return = [];
 
-				foreach ($associations as $tag => $item)
-				{
+				foreach ($associations as $tag => $item) {
 					$return[$tag] = RouteHelper::getFoosRoute($item->id, (int) $item->catid, $item->language);
 				}
 
@@ -391,13 +384,11 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 			}
 		}
 
-		if ($view === 'category' || $view === 'categories')
-		{
+		if ($view === 'category' || $view === 'categories') {
 			return self::getCategoryAssociations($id, 'com_foos');
 		}
 
-		return array();
-
+		return [];
 	}
 }
 
@@ -410,7 +401,7 @@ Wir erzeugen die Klasse `RouteHelper`, damit die Links korrekt zusammengesetzt w
 [components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
-// hhttps://github.com/astridx/boilerplate/blob/t15a/src/Helper/RouteHelper.php
+// https://raw.githubusercontent.com/astridx/boilerplate//t15a/src/components/com_foos/src/Helper/RouteHelper.php
 
 <?php
 /**
@@ -454,13 +445,11 @@ abstract class RouteHelper
 		// Create the link
 		$link = 'index.php?option=com_foos&view=foos&id=' . $id;
 
-		if ($catid > 1)
-		{
+		if ($catid > 1) {
 			$link .= '&catid=' . $catid;
 		}
 
-		if ($language && $language !== '*' && Multilanguage::isEnabled())
-		{
+		if ($language && $language !== '*' && Multilanguage::isEnabled()) {
 			$link .= '&lang=' . $language;
 		}
 
@@ -483,13 +472,11 @@ abstract class RouteHelper
 		// Create the link
 		$link = 'index.php?option=com_foos&view=foo&id=' . $id;
 
-		if ($catid > 1)
-		{
+		if ($catid > 1) {
 			$link .= '&catid=' . $catid;
 		}
 
-		if ($language && $language !== '*' && Multilanguage::isEnabled())
-		{
+		if ($language && $language !== '*' && Multilanguage::isEnabled()) {
 			$link .= '&lang=' . $language;
 		}
 
@@ -508,26 +495,19 @@ abstract class RouteHelper
 	 */
 	public static function getCategoryRoute($catid, $language = 0)
 	{
-		if ($catid instanceof CategoryNode)
-		{
+		if ($catid instanceof CategoryNode) {
 			$id = $catid->id;
-		}
-		else
-		{
+		} else {
 			$id = (int) $catid;
 		}
 
-		if ($id < 1)
-		{
+		if ($id < 1) {
 			$link = '';
-		}
-		else
-		{
+		} else {
 			// Create the link
 			$link = 'index.php?option=com_foos&view=category&id=' . $id;
 
-			if ($language && $language !== '*' && Multilanguage::isEnabled())
-			{
+			if ($language && $language !== '*' && Multilanguage::isEnabled()) {
 				$link .= '&lang=' . $language;
 			}
 		}

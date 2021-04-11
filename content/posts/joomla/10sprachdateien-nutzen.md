@@ -45,7 +45,7 @@ Wir ergänzen die deutsche Sprachversion für den Administrationsbereich mit den
 [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.ini -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Optionen"
@@ -81,7 +81,7 @@ Wie bereits erwähnt, benötigst du zwei Sprachdateien: Eine mit der Endung `.in
 [administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_XML_DESCRIPTION="Foo Komponente"
@@ -107,7 +107,7 @@ Ich hatte es schon geschrieben: Die englischen Versionen der Spachdateien sind z
 [administrator/components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
@@ -172,7 +172,7 @@ Auch die Datei ist `administrator/components/com_foos/ language/en-GB/com_foos.s
 [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
-# https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini
+# https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
@@ -186,7 +186,7 @@ Im Frontend gibt es lediglich die `.ini` - also keine `sys.ini`. Die Datei `comp
 [components/com_foos/language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/de-DE/com_foos.ini -->
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/de-DE/com_foos.ini -->
 
 COM_FOOS_NAME="Name: "
 
@@ -199,7 +199,7 @@ Die zwingend notwendige englische Version ergänzen wir in der Datei `components
 [components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/ea84a82ae28fcc0f55d3f653fe819200a0d7d84b/src/components/com_foos/language/en-GB/com_foos.ini -->
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS_NAME="Name: "
 COM_FOOS_FOO_NAME_LABEL="Name"

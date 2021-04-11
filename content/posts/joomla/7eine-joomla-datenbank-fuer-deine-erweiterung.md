@@ -37,8 +37,8 @@ Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
 
 CREATE TABLE IF NOT EXISTS `#__foos_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -60,7 +60,7 @@ Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erst
 [administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
 
 DROP TABLE IF EXISTS `#__foos_details`;
 ```
@@ -76,7 +76,7 @@ Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/def59ca5735b6f55423e7003ae8bb6be82f75dea/src/administrator/components/com_foos/src/Model/FoosModel.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/src/Model/FoosModel.php
 
 <?php
 /**
@@ -109,7 +109,7 @@ class FoosModel extends ListModel
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	public function __construct($config = array())
+	public function __construct($config = [])
 	{
 		parent::__construct($config);
 	}
@@ -128,7 +128,7 @@ class FoosModel extends ListModel
 
 		// Select the required fields from the table.
 		$query->select(
-			$db->quoteName(array('id', 'name', 'alias'))
+			$db->quoteName(['id', 'name', 'alias'])
 		);
 		$query->from($db->quoteName('#__foos_details'));
 
@@ -194,7 +194,7 @@ Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen auf
 
 Nachfolgend siehst du den Inhalt der Aktualisierungsdatei `src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql` als Beispiel. Diese Datei wird später in diesem Beispiel hinzugefügt.
 
-```sql
+```xml
 ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
 ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```

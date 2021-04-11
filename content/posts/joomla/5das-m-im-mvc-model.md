@@ -39,7 +39,7 @@ Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiter
 [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/ae88836668a85602657d7fa96df890bd4c5465d7/src/components/com_foos/src/Model/FooModel.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t4/src/components/com_foos/src/Model/FooModel.php
 
 <?php
 
@@ -76,8 +76,7 @@ class FooModel extends BaseDatabaseModel
 	 */
 	public function getMsg()
 	{
-		if (!isset($this->message))
-		{
+		if (!isset($this->message)) {
 			$this->message = 'Hello Foo!';
 		}
 

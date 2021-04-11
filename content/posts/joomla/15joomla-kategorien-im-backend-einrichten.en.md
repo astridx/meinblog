@@ -31,8 +31,8 @@ We store the data in the database that is necessary to classify an element into 
 
 [administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
-```sql {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/734d9acdc946880086984444ffad4b557bc2c39e/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 

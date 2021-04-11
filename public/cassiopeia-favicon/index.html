@@ -3,7 +3,7 @@
 /static/47f2a4ac5233c450f7d02d28772526d9/af1a8/cassiopeia.png 2x" /><img loading="lazy" width="80" height="80" srcset="/static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png 1x,
 /static/47f2a4ac5233c450f7d02d28772526d9/e94d6/cassiopeia.png 1.5x,
 /static/47f2a4ac5233c450f7d02d28772526d9/af1a8/cassiopeia.png 2x" src="/static/47f2a4ac5233c450f7d02d28772526d9/829e2/cassiopeia.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/cassiopeia/8cassiopeia-favicon.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>10.03.2021</time><div class="cell tags"><a class="tag-Template" href="/tags/template">Template</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a><a class="tag-Cassiopeia" href="/tags/cassiopeia">Cassiopeia</a></div></section></div></aside><section class="post"><article><div><p>Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie sind historisch gewachsen. Heute bieten sie verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.</p>
-<p>Eine neue Funktion ist die Möglichkeit, den Dateityp SVG als Favicon zu verwenden. Das ist etwas, das <a href="https://caniuse.com/#feat=link-icon-svg">die meisten modernen Browser unterstützen</a>, und weitere Unterstützung ist in Vorbereitung. Um diese neue Funktion zu nutzen benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser das Bild anzeigen, benötigst du zusätzlich eine ICO-Datei. </p>
+<p>Eine neue Funktion ist die Möglichkeit, den Dateityp SVG als Favicon zu verwenden. Das ist etwas, das <a href="https://caniuse.com/#feat=link-icon-svg">die meisten modernen Browser unterstützen</a>, und weitere Unterstützung ist in Vorbereitung. Um diese neue Funktion zu nutzen benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser das Bild anzeigen, benötigst du zusätzlich eine ICO-Datei.</p>
 <blockquote>
 <p>Du kennst dich mit SVG und ICO nicht aus und würdest lieber eine das PNG-Format verwenden? Dann findest du unter <a href="https://blog.astrid-guenther.de/joomla-template-favicon">Favicon im Joomla-Template</a> eine Lösung die besser zu dir passt.</p>
 </blockquote>
@@ -28,7 +28,7 @@
 <p>Der <a href="https://github.com/joomla/joomla-cms/pull/31436">Pull Request</a> mit diese Funktion integriert wurde, orientierte sich an ein <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/">CSS-Tricks</a> Tutorial.</p>
 </blockquote>
 <h3>Erklärung zur Implementierung</h3>
-<p>Wenn ein Browser ein SVG-Favicon nicht unterstützt, ignoriert er die erste Zeile <code class="language-text">&lt;link href=&quot;/j4dev/media/system/images/joomla-favicon.svg&quot; rel=&quot;icon&quot; type=&quot;image/svg+xml&quot;&gt;</code> und fährt mit der zweiten fort. Dadurch wird sichergestellt, dass alle Browser, die Favicons unterstützen, ein Bild anzeigen können. </p>
+<p>Wenn ein Browser ein SVG-Favicon nicht unterstützt, ignoriert er die erste Zeile <code class="language-text">&lt;link href=&quot;/j4dev/media/system/images/joomla-favicon.svg&quot; rel=&quot;icon&quot; type=&quot;image/svg+xml&quot;&gt;</code> und fährt mit der zweiten fort. Dadurch wird sichergestellt, dass alle Browser, die Favicons unterstützen, ein Bild anzeigen können.</p>
 <p>Beachte den alternativen Attributwert für unsere <code class="language-text">rel</code>-Deklaration <code class="language-text">rel=&quot;alternate icon&quot;</code>. Damit wird dem Browser mitgeteilt, dass das Favicon mit dem Dateiformat <code class="language-text">.ico</code> lediglich als alternative Darstellung verwenden soll.</p>
 <p>Nach den Favicons folgt die Codezeile <code class="language-text">&lt;link href=&quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&quot; rel=&quot;mask-icon&quot; color=&quot;#000&quot;&gt;</code>, die ein weiteres SVG-Bild lädt. Dieses heißt <code class="language-text">joomla-favicon-pinned.svg</code>. Damit wird die "Pinned Tab"-Funktionalität von Safari unterstützt, die es gab, bevor andere Browser SVG-Favicons unterstützten.</p>
 <h2>Ein modernes Favicon mit SVG und ICO als Fallback</h2>
@@ -36,8 +36,8 @@
 <p>Du fragst dich, welchen Grund es gibt zu SVG zu wechseln? Das <code class="language-text">.ico</code>-Dateiformat gibt es schon ewig und kann Bilder bis zu einer Größe von 256×256 Pixeln unterstützen. Hier sind drei Gründe.</p>
 <ul>
 <li>Das <code class="language-text">.ico</code>-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängikeit verwenden.</li>
-<li>Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus. </li>
-<li>SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung. </li>
+<li>Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus.</li>
+<li>SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.</li>
 </ul>
 <h3>Erstelle dein Favicon mit Ubuntu 20.04</h3>
 <p>Zunächst sehen wir uns an, wie man ein Favicon unter Ubuntu erstellt. Ich veranschauliche es mit Hilfe der Pakete <a href="https://inkscape.org/de/">Inkscape</a> und <a href="https://imagemagick.org/index.php">Imagemagick</a>. Zuerst besprechen wir den Installationsprozess für beide Pakete. Um mit dem Installationsprozess fortzufahren, solltest du Zugriff auf Superuser-Rechte haben.</p>
@@ -382,7 +382,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  &lt;</span><span class="mtk7">metadata</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
 <h5>Ein Emoji als Favicon</h5>
-<p><a href="https://de.wikipedia.org/w/index.php?title=Emoji&#x26;oldid=210760547">Emojis</a> sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen. </p>
+<p><a href="https://de.wikipedia.org/w/index.php?title=Emoji&#x26;oldid=210760547">Emojis</a> sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen.</p>
 <p>Ein <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#emoji">Emoji als Favicon</a>
 ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu erstellen, das auch bei kleinen Größen funktioniert.</p>
 <p>Wenn du ein Emojis in HTML anzeigen möchtest, kannst du den dezimalen oder hexadezimalen Referenz-Code verwenden. Oder du kopierst das Bild, wenn du es auf einer anderen Website siehst.</p>
@@ -433,7 +433,7 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 <p>Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die <a href="https://www.getemojis.net/html/#Emoji-Liste">Emoji-Liste mit HTML-Codes</a> eine mögliche Anlaufstelle.</p>
 </blockquote>
 <h5>Favicon und Dark Mode</h5>
-<p>Mit dem <a href="https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme">Dark Mode</a> können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support">Dark Mode</a> ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage <code class="language-text">prefers-color-scheme</code> verwenden. </p>
+<p>Mit dem <a href="https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme">Dark Mode</a> können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im <a href="https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support">Dark Mode</a> ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage <code class="language-text">prefers-color-scheme</code> verwenden.</p>
 <p>Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">svg</span><span class="mtk1"> </span><span class="mtk3">xmlns</span><span class="mtk1">=</span><span class="mtk11">&quot;http://www.w3.org/2000/svg&quot;</span><span class="mtk1"> </span><span class="mtk3">viewBox</span><span class="mtk1">=</span><span class="mtk11">&quot;0 0 100 100&quot;</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">   &lt;</span><span class="mtk7">style</span><span class="mtk1">&gt;</span></span></span>
@@ -451,7 +451,7 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 <p>Wir haben den Hintergrund transparent und als Symbolgröße 16 Pixel gewählt. Das <code class="language-text">ICO</code>-Dateiformat unterstützt Bilder mit einer Größe von bis zu 256×256 Pixeln.</p>
 <p>Du weißt nun, wie du mit Ubuntu unter Verwendung der Pakete Inkscape und Imagemagick eine skalierbare Vektorgrafik (SVG)erstellst und in das <code class="language-text">ICO</code>-Format als <code class="language-text">favicon.ico</code> konvertiert.</p>
 <h4>Das Favicon im Template einbinden</h4>
-<p>Um dein selbst erstelltes Favicon anstelle des Joomla-Logos im Template Cassiopeia einzusetzen, reicht es aus, die Dateien </p>
+<p>Um dein selbst erstelltes Favicon anstelle des Joomla-Logos im Template Cassiopeia einzusetzen, reicht es aus, die Dateien</p>
 <ul>
 <li><code class="language-text">joomla-favicon.svg</code></li>
 <li><code class="language-text">favicon.ico</code></li>
@@ -459,7 +459,7 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 </ul>
 <p>im Verzeichnis <code class="language-text">JOOMLA/templates/cassiopeia/images</code> abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.</p>
 <blockquote>
-<p>Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses <code class="language-text">JOOMLA/media/system</code> überschreiben. </p>
+<p>Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses <code class="language-text">JOOMLA/media/system</code> überschreiben.</p>
 </blockquote>
 <p>Magst du die Dateinamen umbenennen? Du würdest gerne anstelle von <code class="language-text">joomla-favicon.svg</code> einfach <code class="language-text">favicon.svg</code> und anstelle von <code class="language-text">joomla-favicon-pinned.svg</code> <code class="language-text">favicon-pinned.svg</code> als Dateinamen verwenden? Dann ist es erforderlich, dass du die Aufrufe in der Datei <code class="language-text">index.php</code> des Tempaltes anpasst. Passe die Dateinamen an. Ersetze die nachfolgenden Zeilen</p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>

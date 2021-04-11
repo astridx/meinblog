@@ -53,7 +53,7 @@ Die `component.php` ermöglicht es, eine abgespeckte Version der Site zu erzeuge
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/component.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/component.php
 
 Component
 
@@ -77,7 +77,7 @@ Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `tem
 [templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/error.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/error.php
 
 Error
 
@@ -90,7 +90,7 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/index.php.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/index.php
 
 <?php
 /**
@@ -132,7 +132,7 @@ Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt da
 [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/language/en-GB/tpl_facile.ini
+// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/language/en-GB/tpl_facile.ini
 
 TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
@@ -146,7 +146,7 @@ Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` übe
 [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/language/en-GB/tpl_facile.sys.ini
+// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
 
 FACILE="Facile - Site template"
 
@@ -167,7 +167,7 @@ Der nachfolgende minimalischte Code sorgt dafür, dass ein Anmeldeformular angez
 [templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/offline.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/offline.php
 
 <?php
 
@@ -226,7 +226,7 @@ Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:
 [ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/templateDetails.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">

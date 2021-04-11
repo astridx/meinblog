@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-The template is ready. Now you want to make sure that it does not contain any errors. Then take a look at [Lighthouse](https://developers.google.com/web/tools/lighthouse). This is a browser plug-in and an audit tool developed in Google Chrome with which the loading time of a website can be examined and optimised. In addition to the structure of HTML, CSS and JavaScript files, it also takes into account the integration of images and the cache settings of the website. 
+The template is ready. Now you want to make sure that it does not contain any errors. Then take a look at [Lighthouse](https://developers.google.com/web/tools/lighthouse). This is a browser plug-in and an audit tool developed in Google Chrome with which the loading time of a website can be examined and optimised. In addition to the structure of HTML, CSS and JavaScript files, it also takes into account the integration of images and the cache settings of the website.
 
 ## Google Lighthouse
 
@@ -28,6 +28,7 @@ The Lighthouse analyses includes
 ![Create Joomla Template - Page Speed Analysis with Lighthouse](/images/j4x47x1.png)
 
 For each area, the support is calculated as a percentage.
+
 - 0 - 49 (red) = poor
 - 50 to 89 (yellow) = medium
 - 90 to 100 (green) = good

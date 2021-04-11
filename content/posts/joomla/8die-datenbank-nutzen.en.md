@@ -36,7 +36,7 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/forms/foo.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/forms/foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -76,7 +76,7 @@ We create here more or less an empty class. Although it contains nothing, we nee
 [administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Controller/FooController.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/Controller/FooController.php
 
 <?php
 /**
@@ -111,7 +111,7 @@ Now we create the model to fetch the data for an element. This we call `FooModel
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Model/FooModel.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/Model/FooModel.php
 
 <?php
 /**
@@ -211,7 +211,7 @@ We implement the access to the database table. It is important to set `$this->ty
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/Table/FooTable.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/Table/FooTable.php
 
 <?php
 /**
@@ -282,7 +282,7 @@ class FooTable extends Table
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 <?php
 /**
@@ -373,7 +373,7 @@ In the file `edit.php` is the view implemented, which is called for editing. It 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/f07628a3f9bb942853f9912f8fb2ef19694f40bd/src/administrator/components/com_foos/tmpl/foo/edit.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php
 
 <?php
 /**

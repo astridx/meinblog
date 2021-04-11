@@ -37,20 +37,47 @@ The main goal here is not to learn meaningful validation. Rather, I'm showing yo
 
 [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
-```php  {numberLines}
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php
+
 <?php
+/**
+ * Joomla! Content Management System
+ *
+ * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Rule;
 
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Form\FormRule;
 
+/**
+ * Form Rule class for the Joomla Platform.
+ *
+ * @since  __DEPLOY_VERSION__
+ */
 class LetterRule extends FormRule
 {
+	/**
+	 * The regular expression to use in testing a form field value.
+	 *
+	 * @var    string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $regex = '^([a-z]+)$';
 
+	/**
+	 * The regular expression modifiers to use when testing a form field value.
+	 *
+	 * @var    string
+	 * @since  __DEPLOY_VERSION__
+	 */
 	protected $modifiers = 'i';
 }
+
 ```
 
 ### Modified files

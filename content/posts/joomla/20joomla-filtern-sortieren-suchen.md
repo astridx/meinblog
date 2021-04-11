@@ -32,7 +32,7 @@ Als Erstes erstellen wir das Formular über das die Filter gesetzt werden.
 [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://github.com/astridx/boilerplate/raw/6421c0e3b89801fc351a829560696d319b268562/src/administrator/components/com_foos/forms/filter_foos.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -71,13 +71,14 @@ Als Erstes erstellen wir das Formular über das die Filter gesetzt werden.
 		<field
 			name="category_id"
 			type="category"
-			label="JOPTION_SELECT_CATEGORY"
+			label="JCATEGORY"
+			multiple="true"
 			extension="com_foos"
-			published="0,1,2"
+			layout="joomla.form.field.list-fancy-select"
+			hint="JOPTION_SELECT_CATEGORY"
 			onchange="this.form.submit();"
-			>
-			<option value="">JOPTION_SELECT_CATEGORY</option>
-		</field>
+			published="0,1,2"
+		/>
 
 		<field
 			name="access"
@@ -148,7 +149,7 @@ Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spal
 
 [administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
-```sql {numberLines: -2}
+```xml {numberLines: -2}
 -- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -185,7 +186,7 @@ Im Falle einer neuen Installation, wird über das Skript in der Datei `install.m
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {diff}
+```xml {diff}
 
  ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
 

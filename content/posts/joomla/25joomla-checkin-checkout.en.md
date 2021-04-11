@@ -31,12 +31,15 @@ Like all properties of a Foo element, the checkout state is stored in the databa
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/22ad20c84235564c78a59ebe5ca346017870cb43/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN `checked_out` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
+
 ALTER TABLE `#__foos_details` ADD COLUMN `checked_out_time` datetime AFTER `alias`;
+
 ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
+
 ```
 
 ### Modified files
@@ -75,7 +78,7 @@ We add the database changes that we entered above for the update in the separate
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {diff}
+```xml {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 
  ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;

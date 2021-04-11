@@ -45,7 +45,7 @@ Damit bei einer Aktualisierung der Komponente die Spalte in der Datenbank erstel
 
 [administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
-```sql {numberLines: -2}
+```xml {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
@@ -115,7 +115,7 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {diff}
+```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;

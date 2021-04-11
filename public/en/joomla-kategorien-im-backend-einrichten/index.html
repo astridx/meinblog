@@ -9,11 +9,11 @@
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8">administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql</a></h4>
 <p>We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql</a></p>
-<pre class="grvsc-container solarized-light" data-language="sql" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk8">&lt;</span><span class="mtk1">!</span><span class="mtk3 mtki">-- https://raw.githubusercontent.com/astridx/boilerplate/734d9acdc946880086984444ffad4b557bc2c39e/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql --&gt;</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk8">ALTER</span><span class="mtk1"> </span><span class="mtk8">TABLE</span><span class="mtk1"> </span><span class="mtk11">`#__foos_details`</span><span class="mtk1"> ADD COLUMN  </span><span class="mtk11">`catid`</span><span class="mtk1"> </span><span class="mtk8">int</span><span class="mtk1">(</span><span class="mtk6">11</span><span class="mtk1">) </span><span class="mtk8">NOT</span><span class="mtk1"> </span><span class="mtk8">NULL</span><span class="mtk1"> DEFAULT </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk8">AFTER</span><span class="mtk1"> </span><span class="mtk11">`alias`</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
-<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk8">ALTER</span><span class="mtk1"> </span><span class="mtk8">TABLE</span><span class="mtk1"> </span><span class="mtk11">`#__foos_details`</span><span class="mtk1"> ADD </span><span class="mtk8">KEY</span><span class="mtk1"> </span><span class="mtk11">`idx_catid`</span><span class="mtk1"> (</span><span class="mtk11">`catid`</span><span class="mtk1">);</span></span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);</span></span></span></code></pre>
 <h3>Modified files</h3>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3">administrator/components/com_foos/ access.xml</a></h4>
 <p>The entries in the <code class="language-text">access.xml</code> are necessary to set permissions for the category. The following code causes the display of a tab for setting user permissions per category in the administration area.</p>
@@ -489,14 +489,14 @@
   .solarized-light { background-color: #FDF6E3; }
   .solarized-light .mtkb { font-weight: bold; }
   .solarized-light .mtki { font-style: italic; }
-  .solarized-light .mtk8 { color: #859900; }
-  .solarized-light .mtk1 { color: #657B83; }
   .solarized-light .mtk3 { color: #93A1A1; }
-  .solarized-light .mtk11 { color: #2AA198; }
-  .solarized-light .mtk6 { color: #D33682; }
+  .solarized-light .mtk1 { color: #657B83; }
   .solarized-light .mtk7 { color: #268BD2; }
+  .solarized-light .mtk11 { color: #2AA198; }
   .solarized-light .mtk4 { color: #CB4B16; }
+  .solarized-light .mtk8 { color: #859900; }
   .solarized-light .mtk13 { color: #073642; }
+  .solarized-light .mtk6 { color: #D33682; }
   .solarized-light .mtk5 { color: #B58900; }
   .solarized-light .mtk9 { color: #D30102; }
   .solarized-light .grvsc-line-highlighted::before {

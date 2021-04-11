@@ -83,7 +83,7 @@ Nachfolgend siehst du die vollständige Datei.
 [foo_update.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml
+// https://raw.githubusercontent.com/astridx/boilerplate/t1b/foo_update.xml
 
 <updates>
     <update>
@@ -92,7 +92,7 @@ Nachfolgend siehst du die vollständige Datei.
         <element>com_foos</element>
         <type>component</type>
         <version>1.0.1</version>
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>      
+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
 		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
@@ -115,7 +115,7 @@ Informationen zum Changelog findest du unter in Github [Github](https://github.c
 [changelog.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml
+// https://raw.githubusercontent.com/astridx/boilerplate/t1b/changelog.xml
 
 <changelogs>
 	<changelog>

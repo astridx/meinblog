@@ -34,7 +34,7 @@ Als Erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Fo
 [administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/3bfbb76025d6b8d548e4411275ec2f6fad507628/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php  {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/3bfbb76025d6b8d548e4411275ec2f6fad507628/src/administrator/components/com_foos/src/Field/Modal/FooField.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
 
 <?php
 /**
@@ -235,7 +235,7 @@ Die Auswahl öffnen wir in einem Modal-Fenster. Der nachfolgende Code zeigt dir 
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/administrator/components/com_foos/tmpl/foos/modal.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
 
 <?php
 /**
@@ -282,12 +282,12 @@ $onclick   = $this->escape($function);
 				</thead>
 				<tbody>
 				<?php
-				$iconStates = array(
+				$iconStates = [
 					-2 => 'icon-trash',
 					0  => 'icon-unpublish',
 					1  => 'icon-publish',
 					2  => 'icon-archive',
-				);
+				];
 				?>
 				<?php foreach ($this->items as $i => $item) : ?>
 					<?php $lang = ''; ?>
@@ -323,7 +323,7 @@ Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
 ```js {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/media/com_foos/joomla.asset.json */
+/* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/joomla.asset.json */
 
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
@@ -352,7 +352,7 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
 ```js  {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/media/com_foos/js/admin-foos-modal.js */
+/* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/js/admin-foos-modal.js */
 
 ;(function () {
   'use strict'

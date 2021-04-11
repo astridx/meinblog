@@ -41,7 +41,7 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 [components/com_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/Controller/DisplayController.php
 
 <?php
 /**
@@ -52,7 +52,7 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Joomla\Component\Foos\Site\Controller;
+namespace FooNamespace\Component\Foos\Site\Controller;
 
 \defined('_JEXEC') or die;
 
@@ -78,7 +78,7 @@ class DisplayController extends BaseController
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	public function __construct($config = array(), MVCFactoryInterface $factory = null, $app = null, $input = null)
+	public function __construct($config = [], MVCFactoryInterface $factory = null, $app = null, $input = null)
 	{
 		parent::__construct($config, $factory, $app, $input);
 	}
@@ -93,7 +93,7 @@ class DisplayController extends BaseController
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	public function display($cachable = false, $urlparams = array())
+	public function display($cachable = false, $urlparams = [])
 	{
 		parent::display($cachable);
 
@@ -116,7 +116,7 @@ Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, triff
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/8580f231d09836d20e0f1be2046d513b09c4be12/src/components/com_foos/src/View/Foo/HtmlView.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/View/Foo/HtmlView.php
 
 <?php
 /**
@@ -165,7 +165,7 @@ In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur _er
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/8580f231d09836d20e0f1be2046d513b09c4be12/src/components/com_foos/tmpl/foo/default.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/tmpl/foo/default.php
 
 <?php
 /**

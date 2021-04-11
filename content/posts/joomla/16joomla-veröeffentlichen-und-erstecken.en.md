@@ -38,8 +38,8 @@ In case of an update, the database is updated to the latest version for version 
 
 [administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
-```sql {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/c971c9161aef0ddd16642ca077fc3bd21c4e555c/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
+```xml {numberLines: -2}
+<!--  https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `published` tinyint(1) NOT NULL DEFAULT 0 AFTER `alias`;
 
@@ -58,7 +58,7 @@ Now we need the `AdminController` class. Therefore we create the class `FoosCont
 
 ```php {numberLines: -2}
 <?php
-// https://raw.githubusercontent.com/astridx/boilerplate/c971c9161aef0ddd16642ca077fc3bd21c4e555c/src/administrator/components/com_foos/src/Controller/FoosController.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
 
 namespace FooNamespace\Component\Foos\Administrator\Controller;
 
@@ -143,7 +143,7 @@ We implement the necessary information in the database in case of a new installa
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {diff}
+```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
  ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;

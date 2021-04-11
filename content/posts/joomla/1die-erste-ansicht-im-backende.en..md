@@ -106,7 +106,7 @@ Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine K
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/foos.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/foos.xml -->
 
 <?xml version="1.0" encoding="utf-8" ?>
 <extension type="component" method="upgrade">
@@ -159,7 +159,7 @@ Erstelle die Datei `script.php` mit folgendem Inhalt:
 [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/script.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/script.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/script.php
 
 <?php
 /**
@@ -260,11 +260,9 @@ class Com_FoosInstallerScript
 	 */
 	public function preflight($type, $parent): bool
 	{
-		if ($type !== 'uninstall')
-		{
+		if ($type !== 'uninstall') {
 			// Check for the minimum PHP version before continuing
-			if (!empty($this->minimumPHPVersion) && version_compare(PHP_VERSION, $this->minimumPHPVersion, '<'))
-			{
+			if (!empty($this->minimumPHPVersion) && version_compare(PHP_VERSION, $this->minimumPHPVersion, '<')) {
 				Log::add(
 					Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPHPVersion),
 					Log::WARNING,
@@ -275,8 +273,7 @@ class Com_FoosInstallerScript
 			}
 
 			// Check for the minimum Joomla version before continuing
-			if (!empty($this->minimumJoomlaVersion) && version_compare(JVERSION, $this->minimumJoomlaVersion, '<'))
-			{
+			if (!empty($this->minimumJoomlaVersion) && version_compare(JVERSION, $this->minimumJoomlaVersion, '<')) {
 				Log::add(
 					Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomlaVersion),
 					Log::WARNING,
@@ -337,7 +334,7 @@ Weitere Informationen zu Implementierung findest du auf Github(https://github.co
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/services/provider.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/services/provider.php
 
 <?php
 /**
@@ -385,8 +382,7 @@ return new class implements ServiceProviderInterface
 
 		$container->set(
 			ComponentInterface::class,
-			function (Container $container)
-			{
+			function (Container $container) {
 				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
 
 				$component->setRegistry($container->get(Registry::class));
@@ -438,7 +434,7 @@ Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich 
 Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deiner implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
 
 ```php  {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Controller/DisplayController.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Controller/DisplayController.php
 
 <?php
 /**
@@ -482,7 +478,7 @@ class DisplayController extends BaseController
 	 *
 	 * @throws  \Exception
 	 */
-	public function display($cachable = false, $urlparams = array())
+	public function display($cachable = false, $urlparams = [])
 	{
 		return parent::display();
 	}
@@ -497,7 +493,7 @@ class DisplayController extends BaseController
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 
 ```php  {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Extension/FoosComponent.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 
 <?php
 /**
@@ -558,7 +554,7 @@ Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Admi
 [administrator/components/com_foos/ service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 <?php
 /**
@@ -597,7 +593,7 @@ In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleist
 [administrator/components/com_foos/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/View/Foos/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 <?php
 /**
@@ -645,7 +641,7 @@ In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausga
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/administrator/components/com_foos/tmpl/foos/default.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/tmpl/foos/default.php
 
 <?php
 /**
@@ -668,7 +664,7 @@ Ich habe im Vorwort geschrieben, dass die Datei `index.html` nicht benötigt wir
 [components/com_foos/index.html](https://github.com/astridx/boilerplate/blob/t1/src/components/com_foos/index.html)
 
 ```html {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/54d970c93d75807f3d1e4b73e8ba5b40b02cd3af/src/api/com_foos/index.html -- >
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t1/src/components/com_foos/index.html -- >
 
 <!DOCTYPE html><title></title>
 ```

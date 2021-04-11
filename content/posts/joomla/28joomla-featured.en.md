@@ -31,8 +31,8 @@ You already know this. We store the property `featured` in the database, so we e
 
 [administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql)
 
-```sql {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if foo is featured.';
 
@@ -47,7 +47,7 @@ To process the data that is `featured`, we create our own model.
 [components/com_foos/ src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/Model/FeaturedModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/src/Model/FeaturedModel.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/src/Model/FeaturedModel.php
 
 <?php
 /**
@@ -83,15 +83,14 @@ class FeaturedModel extends ListModel
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	public function __construct($config = array())
+	public function __construct($config = [])
 	{
-		if (empty($config['filter_fields']))
-		{
-			$config['filter_fields'] = array(
+		if (empty($config['filter_fields'])) {
+			$config['filter_fields'] = [
 				'id', 'a.id',
 				'name', 'a.name',
 				'ordering', 'a.ordering',
-			);
+			];
 		}
 
 		parent::__construct($config);
@@ -108,12 +107,10 @@ class FeaturedModel extends ListModel
 		$items = parent::getItems();
 
 		// Convert the params field into an object, saving original in _params
-		for ($i = 0, $n = count($items); $i < $n; $i++)
-		{
+		for ($i = 0, $n = count($items); $i < $n; $i++) {
 			$item = &$items[$i];
 
-			if (!isset($this->_params))
-			{
+			if (!isset($this->_params)) {
 				$item->params = new Registry($item->params);
 			}
 		}
@@ -146,8 +143,7 @@ class FeaturedModel extends ListModel
 			->whereIn($db->quoteName('c.access'), $groups);
 
 		// Filter by category.
-		if ($categoryId = $this->getState('category.id'))
-		{
+		if ($categoryId = $this->getState('category.id')) {
 			$query->where($db->quoteName('a.catid') . ' = :catid');
 			$query->bind(':catid', $categoryId, ParameterType::INTEGER);
 		}
@@ -158,8 +154,7 @@ class FeaturedModel extends ListModel
 		// Filter by state
 		$state = $this->getState('filter.published');
 
-		if (is_numeric($state))
-		{
+		if (is_numeric($state)) {
 			$query->where($db->quoteName('a.published') . ' = :published');
 			$query->bind(':published', $state, ParameterType::INTEGER);
 
@@ -167,18 +162,15 @@ class FeaturedModel extends ListModel
 			$nowDate = Factory::getDate()->toSql();
 
 			$query->where('(' . $db->quoteName('a.publish_up') .
-				' IS NULL OR ' . $db->quoteName('a.publish_up') . ' <= :publish_up)'
-			)
+				' IS NULL OR ' . $db->quoteName('a.publish_up') . ' <= :publish_up)')
 				->where('(' . $db->quoteName('a.publish_down') .
-					' IS NULL OR ' . $db->quoteName('a.publish_down') . ' >= :publish_down)'
-				)
+					' IS NULL OR ' . $db->quoteName('a.publish_down') . ' >= :publish_down)')
 				->bind(':publish_up', $nowDate)
 				->bind(':publish_down', $nowDate);
 		}
 
 		// Filter by language
-		if ($this->getState('filter.language'))
-		{
+		if ($this->getState('filter.language')) {
 			$language = [Factory::getLanguage()->getTag(), '*'];
 			$query->whereIn($db->quoteName('a.language'), $language, ParameterType::STRING);
 		}
@@ -215,8 +207,7 @@ class FeaturedModel extends ListModel
 
 		$orderCol = $app->input->get('filter_order', 'ordering');
 
-		if (!in_array($orderCol, $this->filter_fields))
-		{
+		if (!in_array($orderCol, $this->filter_fields)) {
 			$orderCol = 'ordering';
 		}
 
@@ -224,8 +215,7 @@ class FeaturedModel extends ListModel
 
 		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
 
-		if (!in_array(strtoupper($listOrder), array('ASC', 'DESC', '')))
-		{
+		if (!in_array(strtoupper($listOrder), ['ASC', 'DESC', ''])) {
 			$listOrder = 'ASC';
 		}
 
@@ -233,8 +223,7 @@ class FeaturedModel extends ListModel
 
 		$user = Factory::getUser();
 
-		if ((!$user->authorise('core.edit.state', 'com_foos')) && (!$user->authorise('core.edit', 'com_foos')))
-		{
+		if ((!$user->authorise('core.edit.state', 'com_foos')) && (!$user->authorise('core.edit', 'com_foos'))) {
 			// Limit to published for people who can't edit or edit.state.
 			$this->setState('filter.published', 1);
 
@@ -258,7 +247,7 @@ class FeaturedModel extends ListModel
 [components/com_foos/ src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/src/View/Featured/HtmlView.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/src/View/Featured/HtmlView.php
 
 <?php
 /**
@@ -353,31 +342,25 @@ class HtmlView extends BaseHtmlView
 		$pagination->hideEmptyLimitstart = true;
 
 		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
+		if (count($errors = $this->get('Errors'))) {
 			throw new GenericDataException(implode("\n", $errors), 500);
 		}
 
 		// Prepare the data.
 		// Compute the foos slug.
-		for ($i = 0, $n = count($items); $i < $n; $i++)
-		{
+		for ($i = 0, $n = count($items); $i < $n; $i++) {
 			$item       = &$items[$i];
 			$item->slug = $item->alias ? ($item->id . ':' . $item->alias) : $item->id;
 			$temp       = $item->params;
 			$item->params = clone $params;
 			$item->params->merge($temp);
 
-			if ($item->params->get('show_email', 0) == 1)
-			{
+			if ($item->params->get('show_email', 0) == 1) {
 				$item->email_to = trim($item->email_to);
 
-				if (!empty($item->email_to) && MailHelper::isEmailAddress($item->email_to))
-				{
+				if (!empty($item->email_to) && MailHelper::isEmailAddress($item->email_to)) {
 					$item->email_to = HTMLHelper::_('email.cloak', $item->email_to);
-				}
-				else
-				{
+				} else {
 					$item->email_to = '';
 				}
 			}
@@ -418,44 +401,33 @@ class HtmlView extends BaseHtmlView
 		// we need to get it from the menu item itself
 		$menu = $menus->getActive();
 
-		if ($menu)
-		{
+		if ($menu) {
 			$this->params->def('page_heading', $this->params->get('page_title', $menu->title));
-		}
-		else
-		{
+		} else {
 			$this->params->def('page_heading', Text::_('COM_FOOS_DEFAULT_PAGE_TITLE'));
 		}
 
 		$title = $this->params->get('page_title', '');
 
-		if (empty($title))
-		{
+		if (empty($title)) {
 			$title = $app->get('sitename');
-		}
-		elseif ($app->get('sitename_pagetitles', 0) == 1)
-		{
+		} else if ($app->get('sitename_pagetitles', 0) == 1) {
 			$title = Text::sprintf('JPAGETITLE', $app->get('sitename'), $title);
-		}
-		elseif ($app->get('sitename_pagetitles', 0) == 2)
-		{
+		} else if ($app->get('sitename_pagetitles', 0) == 2) {
 			$title = Text::sprintf('JPAGETITLE', $title, $app->get('sitename'));
 		}
 
 		$this->document->setTitle($title);
 
-		if ($this->params->get('menu-meta_description'))
-		{
+		if ($this->params->get('menu-meta_description')) {
 			$this->document->setDescription($this->params->get('menu-meta_description'));
 		}
 
-		if ($this->params->get('menu-meta_keywords'))
-		{
+		if ($this->params->get('menu-meta_keywords')) {
 			$this->document->setMetaData('keywords', $this->params->get('menu-meta_keywords'));
 		}
 
-		if ($this->params->get('robots'))
-		{
+		if ($this->params->get('robots')) {
 			$this->document->setMetaData('robots', $this->params->get('robots'));
 		}
 	}
@@ -470,7 +442,7 @@ The display in the frontend is done as before via a template, which we implement
 [components/com_foos/ tmpl/featured/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/featured/default.php
 
 <?php
 /**
@@ -485,7 +457,7 @@ The display in the frontend is done as before via a template, which we implement
 
 ?>
 <div class="com-foos-featured blog-featured">
-<?php if ($this->params->get('show_page_headings') != 0 ) : ?>
+<?php if ($this->params->get('show_page_headings') != 0) : ?>
 	<h1>
 		<?php echo $this->escape($this->params->get('page_heading')); ?>
 	</h1>
@@ -515,7 +487,7 @@ We need the file `components/com_foos/ tmpl/featured/default.xml` to enable the 
 [components/com_foos/ tmpl/featured/default.xml](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml)
 
 ```xml {numberLines: -2}
-<!-- https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/featured/default.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -582,7 +554,7 @@ In the file `default.php` we use the statement `<?php echo $this->loadTemplate('
 [components/com_foos/ tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/e7752faf6891c1d12919e460a94e54f0d65e6327/src/components/com_foos/tmpl/featured/default_items.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/featured/default_items.php
 
 <?php
 /**
@@ -604,15 +576,12 @@ HTMLHelper::_('behavior.core');
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
 
-// Create a shortcut for params.
-$params = &$this->item->params;
 ?>
 
 <div class="com-foos-featured__items">
 	<?php if (empty($this->items)) : ?>
 		<p class="com-foos-featured__message"> <?php echo Text::_('COM_FOO_NO_FOOS'); ?>	 </p>
 	<?php else : ?>
-
 	<form action="<?php echo htmlspecialchars(Uri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
 		<table class="com-foos-featured__table table">
 			<?php if ($this->params->get('show_headings')) : ?>
@@ -688,7 +657,7 @@ In the case of a new installation, the script in the file `install.mysql.utf8.sq
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
-```sql {diff}
+```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 
 +ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if foo is featured.';

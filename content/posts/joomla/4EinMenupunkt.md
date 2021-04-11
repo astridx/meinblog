@@ -7,6 +7,7 @@ slug: ein-menuepunkt
 langKey: de
 categories:
   - Code
+  - JoomlaDe
 tags:
   - CMS
   - Joomla
@@ -37,7 +38,7 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/ce0e5277606e146de4044e6fa0c54af836bd7dd9/src/components/com_foos/tmpl/foo/default.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t3/src/components/com_foos/tmpl/foo/default.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
