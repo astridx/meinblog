@@ -306,13 +306,3 @@ Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hin
 ![Joomla Sprachdateien werden genutzt](/images/j4x10x1.png)
 
 3. try out the new feature. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t7...t8.diff
-
-## Links

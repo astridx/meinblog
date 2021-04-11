@@ -288,15 +288,6 @@ Next, test if the view of your component in the administration area is correct. 
 
 3. make sure that the elements are stored in the database.
 
-> I use locally [phpMyAdmin](https://www.phpmyadmin.net/) for database administration.
-> ![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)
+I use locally [phpMyAdmin](https://www.phpmyadmin.net/) for database administration.
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t5...t6.diff
-
-## Links
+![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)

@@ -223,13 +223,3 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 2. Öffne dann in einem Browser die Adresse `JOOMLA4/index.php?option=com_foos&view=foo`. Du siehst die eben erstelle Frontend-Ansicht.
 
 ![Joomla Ansicht im Frontend](/images/j4x3x1.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t1c...t2.diff
-
-## Links

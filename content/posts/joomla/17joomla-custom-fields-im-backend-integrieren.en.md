@@ -316,13 +316,3 @@ A new installation is not necessary. Continue using the files from the previous 
 5. make sure that the custom fields can be turned on and off in the global configuration.
 
 ![Integrate Joomla Custom Fields into a custom component](/images/j4x17x3.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t13...t14a.diff
-
-## Links

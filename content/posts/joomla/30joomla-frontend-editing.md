@@ -1298,14 +1298,6 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 ![Joomla Frontend Bearbeitung - Bearbeiten eines Foo-Elementes](/images/j4x30x3.png)
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t24b...t25.diff
-
 ## Links
 
-https://github.com/joomla/joomla-cms/pull/24311/files
+[Frontend-Edit für com_contact](https://github.com/joomla/joomla-cms/pull/24311)[^https://github.com/joomla/joomla-cms/pull/24311]

@@ -163,14 +163,6 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 ![Das Joomla Dahboard in einer eigenen Komponente](/images/j4x33x1.png)
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t27...t28.diff
-
 ## Links
 
-https://github.com/joomla/joomla-cms/pull/28027
+[Komponenten von Drittanbietern das Erstellen eines Dashboards gestatten](https://github.com/joomla/joomla-cms/pull/28027)[^https://github.com/joomla/joomla-cms/pull/28027]

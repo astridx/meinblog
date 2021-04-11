@@ -66,13 +66,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Hilfelink und vergewissere dich davon, dass du zu der von dir eingegebenen Hilfeseite weitergeleitet wirst.
 
 ![Joomla Hilfelink in der Detailansicht](/images/j4x27x2.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t22...t23
-
-## Links

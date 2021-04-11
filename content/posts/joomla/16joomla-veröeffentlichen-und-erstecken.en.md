@@ -355,13 +355,3 @@ Copy the files in the `administrator` folder to the `administrator` folder of yo
 6. open an element and check that the status is also editable in this view. It is also possible to specify a date, so that items are hidden or published according to the date.
 
 ![Joomla Validation](/images/j4x16x3.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t12...t13.diff
-
-## Links

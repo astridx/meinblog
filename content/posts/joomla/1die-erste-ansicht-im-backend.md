@@ -22,7 +22,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-![Übersicht über die Dateien im ersten Kapitel](/images/j4xeins.png)
+![Übersicht über die Dateien im ersten Kapitel](/images/tree1.png)
 
 ### Neue Dateien
 
@@ -692,15 +692,3 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
 Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die weiteren Schritte.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t0...t1.diff
-
-![Übersicht über die Dateien im ersten Kapitel](/images/tree1.png)
-
-## Links

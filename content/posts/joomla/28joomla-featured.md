@@ -1043,13 +1043,3 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Joomla Featured; Elemente im Backend](/images/j4x28x4.png)
 
 ![Joomla Featured; Elemente im Frontend](/images/j4x28x4.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t23...t24.diff
-
-## Links

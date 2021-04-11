@@ -578,13 +578,3 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 3. Öffne die Ansicht deiner Komponente im Administrationsbereich und filter, sortiere und suche nach Items in deiner Komponente.
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t15a...t16.diff
-
-## Links

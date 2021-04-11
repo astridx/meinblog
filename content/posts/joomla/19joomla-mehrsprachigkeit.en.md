@@ -1211,13 +1211,3 @@ Copy the files in the `components` folder into the `components` folder of your J
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x7.png)
 
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x6.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t14b...t15a.diff
-
-## Links

@@ -288,16 +288,6 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 3. Vergewissere dich, dass die Elemente in der Datenbank gespeichert sind.
 
-> Ich nutze lokal [phpMyAdmin](https://www.phpmyadmin.net/) für die Administration der Datenbank.
+Ich nutze lokal [phpMyAdmin](https://www.phpmyadmin.net/) für die Administration der Datenbank.
 
-> ![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t5...t6.diff
-
-## Links
+![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)

@@ -164,13 +164,3 @@ A new installation is not necessary. Continue using the files from the previous 
 4. Make sure that at this point **a** warning is displayed.
 
 ![Joomla Validation](/images/j4x14x1.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t11a...t11b.diff
-
-## Links

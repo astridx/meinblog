@@ -179,13 +179,3 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 5. Vergewissere dich, dass du ein Symbol siehst, dass dich darauf hinweist, dass dieses Item gesperrt ist und dass ein berechtigter Benutzer die Sperrung aufheben kann.
 
 ![Joomla Sperren/Freigeben](/images/j4x25x1.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t20...t21.diff
-
-## Links

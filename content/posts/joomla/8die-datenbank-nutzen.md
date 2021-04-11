@@ -565,13 +565,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 4. Ändere vorhandene Einträge via Klick auf den Namen.
 
 ![Joomla Componente im Backend bearbeiten](/images/j4x8x3.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t6...t6b.diff
-
-## Links

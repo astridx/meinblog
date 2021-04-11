@@ -134,14 +134,6 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 
 2. Überprüfe, ob der über die Funktion `FooHelper::getText()` errechnete Text im Frontend angezeigt wird.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t31...t32.diff
-
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de]

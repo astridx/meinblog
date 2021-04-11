@@ -201,13 +201,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x2.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t16...t17.diff
-
-## Links

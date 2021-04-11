@@ -507,15 +507,10 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Template erstellen - Module Chrome](/images/j4x42x3.png)
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t35...t36.diff
-
 ## Links
 
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)
+[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/C-Lodder/lightning]
+
+[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
+
+[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]

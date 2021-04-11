@@ -83,13 +83,3 @@ Then click on the `New` button and fill in all the necessary fields.
 5. switch to the frontend and make sure that the menu item is created correctly and works.
 
 ![Joomla Create a menu item](/images/j4x4x4.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t2...t3.diff
-
-## Links

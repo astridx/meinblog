@@ -354,13 +354,3 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 6. Öffne ein Element und überprüfe, dass der Status in dieser Ansicht ebenfalls editierbar ist. Außerdem ist es möglich, ein Datum anzugeben, so das Items dem Datum entsprechend versteckt oder veröffentlicht werden.
 
 ![Joomla Validierung](/images/j4x16x3.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t12...t13.diff
-
-## Links

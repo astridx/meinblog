@@ -895,13 +895,3 @@ Create a menu item that displays the elements of a category of our extension.
 3. switch to the frontend and make sure that the elements are displayed correctly.
 
 ![Categories in Joomla - View in Frontend ](/images/j4x31x2.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t25...t26.diff
-
-## Links

@@ -148,13 +148,3 @@ Copy the files in the `administrator` folder into the `administrator` folder of 
 A new installation is not necessary. Continue using the files from the previous part.
 
 2. Open the view of your component in the administration area. Edit an item and make sure that the display is as you expect it to be in Joomla. You can see an example in the picture at the beginning of this chapter.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t24...t24b.diff
-
-## Links

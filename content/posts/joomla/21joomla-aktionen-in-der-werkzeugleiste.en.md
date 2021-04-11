@@ -201,13 +201,3 @@ Open the view of your component in the administration area. In the toolbar you w
 ![Joomla Actions in the Toolbar](/images/j4x21x1.png)
 
 ![Joomla actions in the toolbar](/images/j4x21x2.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t16...t17.diff
-
-## Links

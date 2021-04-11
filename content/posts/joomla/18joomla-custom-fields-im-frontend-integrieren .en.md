@@ -115,13 +115,3 @@ A new installation is not necessary. Continue using the files from the previous 
 5. at the end open the detail view of the just edited Foo item. You will see next to the previously existing values now additionally the text you entered in the custom field.
 
 ![Integrate Joomla Custom Fields into a custom component](/images/j4x18x2.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t14a...t14b.diff
-
-## Links

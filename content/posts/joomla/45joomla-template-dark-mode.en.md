@@ -89,15 +89,8 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Template erstellen - Dark Mode](/images/j4x45x1.png)
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t36...t37.diff
-
 ## Links
 
-[prefers-color-scheme](https://web.dev/prefers-color-scheme/)
-[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)
+[prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^https://web.dev/prefers-color-scheme]
+
+[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/GoogleChromeLabs/dark-mode-toggle]

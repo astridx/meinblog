@@ -693,13 +693,3 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
 Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die weiteren Schritte.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t0...t1.diff
-
-## Links

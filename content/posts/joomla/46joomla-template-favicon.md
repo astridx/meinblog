@@ -78,14 +78,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Template erstellen - Favicon](/images/j4x46x1.png)
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t36...t37.diff
-
 ## Links
 
-[Favicon Generator](https://realfavicongenerator.net/)
+[Favicon Generator](https://realfavicongenerator.net/)[^https://realfavicongenerator.net]

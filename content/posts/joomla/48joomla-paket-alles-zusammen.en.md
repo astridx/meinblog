@@ -87,13 +87,3 @@ class Pkg_FoosInstallerScript
 4. Installiere das in Punkt 3 erstellt ZIP in Joomla.
 
 5. Stelle sicher, dass alle Erweiterungen installiert wurden.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t39...t40.diff
-
-## Links

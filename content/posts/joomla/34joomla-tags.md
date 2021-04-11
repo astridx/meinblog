@@ -319,14 +319,6 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 > Ich überlasse dir die Entscheidung, wie und wo du die Schlagworte in Frontendansichten deiner eigenen Erweiterung anzeigst.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t28...t29.diff
-
 ## Links
 
-https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension
+[Verwendung von Tags in einer Erweiterung](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension]

@@ -126,13 +126,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 Ich entschuldige mich für meine Einfallslosigkeit. Dir fallen sicher lustigere oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden aber klar, oder?
 
 Erstelle mehrere Menüpunkte, die jeweils einen anderen Text enthalten. Gibt nicht lediglich den Text im Frontend aus, gestalte die Ausgabe mithilfe von [bedingten Anweisungen](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else). Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t4...t5.diff
-
-## Links

@@ -434,13 +434,3 @@ Install your component as described in part one, after copying all files. Joomla
 ![Joomla Assign Category](/images/j4x15x2.png)
 
 5. make sure that the foo specific categories do not appear in other components, for example in `com_contact`.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t11b...t12.diff
-
-## Links

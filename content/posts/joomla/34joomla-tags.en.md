@@ -319,14 +319,6 @@ A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.pn
 
 > I leave it up to you to decide how and where you display the keywords in frontend views of your own extension.
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t28...t29.diff
-
 ## Links
 
-https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension
+[Using Tags in a Extension](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension]

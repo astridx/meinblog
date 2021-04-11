@@ -61,3 +61,7 @@ Die Ergebnisse der Lighthouse-Analyse variieren zu unterschiedlichen Zeitpunkten
 - das verwendete Geräten
 - Browser-Erweiterungen
 - Antiviren-Software
+
+## Links
+
+[Lighthouse](https://developers.google.com/web/tools/lighthouse)[^https://developers.google.com/web/tools/lighthouse]

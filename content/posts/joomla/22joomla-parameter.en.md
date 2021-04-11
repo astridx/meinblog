@@ -341,13 +341,3 @@ Copy the files in the `components` folder into the `components` folder of your J
 ![Joomla Parameter in einem Menüpunkt](/images/j4x22x7.png)
 
 6. Set the `Show Name` parameter in different combinations and make sure that the display in the frontend is correct.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t17...t18.diff
-
-## Links

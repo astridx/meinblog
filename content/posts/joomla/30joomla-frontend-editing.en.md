@@ -1298,14 +1298,6 @@ Install your component as described in part one, after you have copied all the f
 
 ![Joomla Frontend Editing - Editing a Foo Element](/images/j4x30x3.png)
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t24b...t25.diff
-
 ## Links
 
-https://github.com/joomla/joomla-cms/pull/24311/files
+[Adding frontend edit for com_contact](https://github.com/joomla/joomla-cms/pull/24311)[^https://github.com/joomla/joomla-cms/pull/24311]

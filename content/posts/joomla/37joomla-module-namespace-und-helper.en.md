@@ -132,14 +132,6 @@ Install your module as described in part one, after copying all files. Joomla wi
 
 2. Check whether the text calculated via the function `FooHelper::getText()` is displayed in the frontend.
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t31...t32.diff
-
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module]

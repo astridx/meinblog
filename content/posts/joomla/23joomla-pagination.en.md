@@ -91,13 +91,3 @@ Copy the files in the `administrator` folder to the `administrator` folder of yo
 A new installation is not necessary. Continue using the ones from the previous part.
 
 2. open the view of your component in the administration area and create so many items that they are no longer displayed on one page. In the lower part you will see a navigation to browse through the contents.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t18...t19.diff
-
-## Links

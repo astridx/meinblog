@@ -320,14 +320,6 @@ Install your component as described in part one, after you have copied all the f
 
 > Note: The URL `http://localhost/ single-foo-astrid?view=foo&id=2` is technically still present and accessible.
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t26...t27.diff
-
 ## Links
 
-https://github.com/joomla/joomla-cms/pull/27693/files
+[Routing in com_contact](https://github.com/joomla/joomla-cms/pull/27693)[^https://github.com/joomla/joomla-cms/pull/27693]

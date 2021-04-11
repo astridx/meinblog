@@ -134,13 +134,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 2. Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden.
 
 ![Joomla Model im Frontend](/images/j4x5x1.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t3...t4.diff
-
-## Links

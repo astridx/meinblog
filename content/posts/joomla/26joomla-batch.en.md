@@ -264,13 +264,3 @@ A new installation is not necessary. Continue using the files from the previous 
 3. test the batch processing.
 
 ![Joomla Batch Processing](/images/j4x26x2.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t21...t22.diff
-
-## Links

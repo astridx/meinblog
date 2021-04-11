@@ -159,13 +159,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 4. Öffne als Letztes, die Ansicht im Frontend. Verhält die Anzeige des Labels sich so, wie du das im Administrationsbereich eingestellt hast?
 
 ![Joomla Konfiguration](/images/j4x11x3.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t8...t9.diff
-
-## Links

@@ -147,13 +147,3 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Editiere ein Item und vergewissere dich davon, dass die Darstellung so ist, wie du es in Joomla erwartest. Eine Beispieldarstellung siehst du im Bild zu Beginn dieses Kapitels.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t24...t24b.diff
-
-## Links

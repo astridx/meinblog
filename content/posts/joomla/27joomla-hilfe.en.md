@@ -64,13 +64,3 @@ A new installation is not necessary. Continue using the files from the previous 
 2. Open the view of your component in the administration area. Click on the help link and make sure that you are redirected to the help page you entered.
 
 ![Joomla Help Link in the item view](/images/j4x27x2.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t22...t23
-
-## Links

@@ -236,15 +236,10 @@ Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeig
 
 Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Tempalte als nächstes mit CSS und JavaScipt auf und passen die Standard Ansichten von Joomla an.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t34...t35.diff
-
 ## Links
 
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)
+[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/C-Lodder/lightning]
+
+[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
+
+[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]

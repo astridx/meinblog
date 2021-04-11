@@ -126,13 +126,3 @@ A new installation is not necessary. Continue using the ones from the previous p
 I apologize for my lack of imagination. I'm sure you can think of funnier or more useful examples. But the sense and function of the variables will be clear, right?
 
 Create multiple menu items, each containing different text. Don't just output the text on the frontend, style the output using [conditional statements](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/if...else). A popular use case is to influence the design of the output using variables. For example, you use the variable to query whether the content is to be output in a list or in a table.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t4...t5.diff
-
-## Links

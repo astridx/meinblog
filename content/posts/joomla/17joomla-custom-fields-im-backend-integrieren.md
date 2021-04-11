@@ -316,13 +316,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 5. Stelle sicher, dass die benutzerdefinierten Felder in der globalen Konfiguration ein- und ausschaltbar sind.
 
 ![Integrate Joomla Custom Fields into a custom component](/images/j4x17x3.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t13...t14a.diff
-
-## Links

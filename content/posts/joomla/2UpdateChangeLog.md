@@ -208,13 +208,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
 > Klicke die Schaltfläche `Find Updates` in der Werkzeugleiste, falls das Update nicht mehr angezeigt wird.
 
 ![Joomla Update Server](/images/j4x2x3.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t1...t1b.diff
-
-## Links

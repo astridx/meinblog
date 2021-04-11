@@ -331,13 +331,3 @@ If you do a new installation, you will notice that the hints in the installation
 ![Joomla language files are used](/images/j4x10x1.png)
 
 3. sample the innovation. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t7...t8.diff
-
-## Links

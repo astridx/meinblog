@@ -294,13 +294,3 @@ Install your component as described in part one, after copying all files. Joomla
 ![Joomla Configuration](/images/j4x12x3.png)
 
 Play around with the settings. Allow once only the Super Admin to create new elements in your extension. Then log in as administrator and see that the 'New' button has disappeared.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t9...t10.diff
-
-## Links

@@ -320,14 +320,6 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 > Beachte: Die URL `http://localhost/ single-foo-astrid?view=foo&id=2` ist technisch gesehen weiterhin vorhanden und aufrufbar.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t26...t27.diff
-
 ## Links
 
-https://github.com/joomla/joomla-cms/pull/27693/files
+[Routing in com_contact](https://github.com/joomla/joomla-cms/pull/27693)[^https://github.com/joomla/joomla-cms/pull/27693]

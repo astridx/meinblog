@@ -342,13 +342,3 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Joomla Parameter in einem Menüpunkt](/images/j4x22x7.png)
 
 6. Setzte den Parameter `Show Name` in unterschiedlichen Kombinationen und vergewissere dich, dass die Anzeige im Frontend korrekt ist.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t17...t18.diff
-
-## Links

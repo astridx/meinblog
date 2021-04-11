@@ -127,14 +127,6 @@ A new installation is not necessary. Continue using the files from the previous 
 
 ![Test Joomla Module](/images/j4x38x2.png)
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t32...t33.diff
-
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module]

@@ -317,18 +317,10 @@ Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https:
 
 > Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/) in Firefox.
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t29...t30.diff
-
 ## Links
 
-[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)
+[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs)[^https://docs.joomla.org/J4.x:Joomla_Core_APIs]
 
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)
+[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/J4.x:Joomla_Core_APIs]
 
-[Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)
+[Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]

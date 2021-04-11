@@ -101,14 +101,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 2. Es ist keine neue Funktion hinzukommen. Stelle sicher, dass das Drop Down Menü funktioniert und die Anzeige unverändert ist. Wenn das so ist, dann werden alle Dateien richtig geladen.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t36...t37.diff
-
 ## Links
 
-[Web Assets](https://docs.joomla.org/J4.x:Web_Assets/de)
+[Web Assets](https://docs.joomla.org/J4.x:Web_Assets/de)[^https://docs.joomla.org/J4.x:Web_Assets/de]
+

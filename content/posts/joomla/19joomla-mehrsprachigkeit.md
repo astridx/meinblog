@@ -1210,13 +1210,3 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x7.png)
 
 ![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t14b...t15a.diff
-
-## Links

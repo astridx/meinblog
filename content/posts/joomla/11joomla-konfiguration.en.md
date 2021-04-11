@@ -159,13 +159,3 @@ A new installation is not necessary. Continue using the files from the previous 
 4. open as last, the view in the frontend. Does the display of the label behave as you have set it in the administration area?
 
 ![Joomla Configuration](/images/j4x11x3.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t8...t9.diff
-
-## Links

@@ -565,13 +565,3 @@ A new installation is not necessary. Continue using the files from the previous 
 4. change existing items via click on the name.
 
 ![Edit Joomla component in the backend](/images/j4x8x3.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t6...t6b.diff
-
-## Links

@@ -306,22 +306,15 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 }
 ```
 
-Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json) unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
+Nutzt du [Postman](https://www.postman.com/)[^https://www.postman.com]? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
 
-> Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/) in Firefox.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t29...t30.diff
+> Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^https://addons.mozilla.org/en-US/firefox/addon/restclient] in Firefox.
 
 ## Links
 
-[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)
+[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/J4.x:Joomla_Core_APIs/de]
 
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)
+[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/J4.x:Joomla_Core_APIs/de]
 
-[Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)
+[Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]
+

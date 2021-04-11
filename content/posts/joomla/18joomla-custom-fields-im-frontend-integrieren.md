@@ -115,15 +115,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
 
 ![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x2.png)
-
-### Übersicht
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t14a...t14b.diff
-
-## Links

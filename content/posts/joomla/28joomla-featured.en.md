@@ -1043,13 +1043,3 @@ Open an item in the edit view and make sure that you are offered the attribute `
 ![Joomla Featured elements in the backend](/images/j4x28x4a.png)
 
 ![Joomla Featured elements in the frontend](/images/j4x28x4.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t23...t24.diff
-
-## Links

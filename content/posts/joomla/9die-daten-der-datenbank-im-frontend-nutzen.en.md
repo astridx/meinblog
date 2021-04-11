@@ -589,13 +589,3 @@ Then click on the `New` button and fill in all the necessary fields. You can fin
 5. switch to the frontend and make sure that the menu item is created correctly. You will see the title of the element you selected in the administration area.
 
 ![Joomla Create a menu item](/images/j4x9x3.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t6b...t7.diff
-
-## Links

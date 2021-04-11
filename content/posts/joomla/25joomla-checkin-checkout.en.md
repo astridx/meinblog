@@ -179,13 +179,3 @@ Copy the files in the `administrator` folder into the `administrator` folder of 
 5. Make sure you see an icon that tells you that the item is locked and that an authorised user can unlock it.
 
 ![Joomla checkin/checkout](/images/j4x25x1.png)
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t20...t21.diff
-
-## Links

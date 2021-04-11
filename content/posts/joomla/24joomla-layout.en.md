@@ -216,13 +216,3 @@ Install your component as described in part one, after copying all the files.
 > An item without XML file is not selectable in the administration area. Nevertheless such layouts are useful! In the program code it is possible to assign it at any place: `$this->setLayout('withheadandfoot');`
 
 > Since the view is expected to be uniform when controlling via a menu item, the layout set in the menu item is preferred.
-
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t19...t20.diff
-
-## Links

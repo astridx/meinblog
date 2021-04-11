@@ -83,13 +83,3 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist und funktioniert.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x4x4.png)
-
-## Alle geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t2...t3.diff
-
-## Links

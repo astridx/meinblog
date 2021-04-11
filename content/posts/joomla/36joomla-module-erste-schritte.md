@@ -175,14 +175,6 @@ Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen.
 
 Wir haben eine solide Grundlage für die weiteren Schritte.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t30...t31.diff
-
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de]

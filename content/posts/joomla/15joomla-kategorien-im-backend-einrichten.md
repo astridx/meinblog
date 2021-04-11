@@ -434,13 +434,3 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 ![Joomla Kategorie zuordnen](/images/j4x15x2.png)
 
 5. Stelle sicher, dass die Foo-spezifischen Kategorien nicht in anderen Komponenten erscheinen, zum Beispiel in `com_contact`.
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t11b...t12.diff
-
-## Links

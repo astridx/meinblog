@@ -211,14 +211,6 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 
 ![Joomla Modul testen - Das Installationsskript](/images/j4x39x2.png)
 
-## Changed files
-
-### Overview
-
-### All changes at a glance
-
-github.com/astridx/boilerplate/compare/t33...t34.diff
-
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module]

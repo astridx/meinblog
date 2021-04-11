@@ -61,3 +61,7 @@ The results of the Lighthouse analysis vary at different times and under differe
 - the device used
 - browser extensions
 - antivirus software
+
+## Links
+
+[Lighthouse](https://developers.google.com/web/tools/lighthouse)[^https://developers.google.com/web/tools/lighthouse]

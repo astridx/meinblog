@@ -295,12 +295,3 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 Spiele mit den Einstellungen herum. Erlaube einmal nur dem Super Admin, neue Elemente in deiner Erweiterung zu erstellen. Melde dich dann als Administrator an und sieh, dass die Schaltfläche `New` verschwunden ist.
 
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t9...t10.diff
-
-## Links

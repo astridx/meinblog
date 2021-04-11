@@ -264,13 +264,3 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 3. Teste die Stapelverarbeitung.
 
 ![Joomla Stapelverarbeitung](/images/j4x26x2.png)
-
-## Geänderte Dateien
-
-### Übersicht
-
-### Alle Änderungen
-
-github.com/astridx/boilerplate/compare/t21...t22.diff
-
-## Links
