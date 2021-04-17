@@ -294,4 +294,3 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 ![Joomla Konfiguration](/images/j4x12x3.png)
 
 Spiele mit den Einstellungen herum. Erlaube einmal nur dem Super Admin, neue Elemente in deiner Erweiterung zu erstellen. Melde dich dann als Administrator an und sieh, dass die Schaltfläche `New` verschwunden ist.
-

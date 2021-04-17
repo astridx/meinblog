@@ -20,7 +20,7 @@ Kapitel Ihre digitale Karte mit Geodaten füllen.
 ## In diesem Kapitel werden wir ...
 
 Bisher haben wir ausschließlich Layer zur Karte hinzugefügt.
-Wie das [Beispiel mit den Warnhinweisen vom Deutschen Wetterdienst](#Kartemitwarnhinweisendesdwd)
+Wie das _Beispiel mit den Warnhinweisen vom Deutschen Wetterdienst_
 im vorherigen Kapitel zeigt,
 können diese Layer dynamisch mit Daten bestückt werden.
 In diesem Kapitel zeige ich Ihnen nun, wie Sie selbst Layer
@@ -59,8 +59,6 @@ einfachsten – den Punkten und Markern.
 
 ### Punkte und Marker
 
-[](#){#DieKarteMitDatenBestueckenPunkteundMarker}
-
 Ich gehen noch einmal von unserer Basiskarte aus.
 Zur besseren Übersicht habe ich Ihnen das HTML-Grundgerüst dazu nachfolgend
 noch einmal abgedruckt.
@@ -87,9 +85,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);
 In der nächsten Abbildung sehen Sie die Karte, die angezeigt werden sollte,
 wenn Sie die vorhergehende HTML-Datei in einem Browser öffnen.
 
-![Eine einfache Leaflet Karte.](/images/993.png)
-
-_Abbildung: Eine einfache Leaflet Karte - 700 Pixel hoch und Zoomstufe 7._
+![Eine einfache Leaflet Karte - 700 Pixel hoch und Zoomstufe 7.](/images/993.png)
 
 Diese Karte ist bisher nicht sehr spannend.
 Landkarten, die Straßen und Orte anzeigen, findet man wie Sand am Meer.
@@ -239,14 +235,12 @@ können Sie in der [Leaflet Dokumentation](https://leafletjs.com/reference.html#
 Im nächsten Bild sehen Sie den Marker in die Karte integriert.
 Als Bild wurde ein Standardbild verwendet, da wir die Option `icon` nicht gesetzt haben.
 Wie Sie ein benutzerdefiniertes Icon verwenden können, sehen wir uns
-in Kapitel [Custom Markers](#inCustomMarkers) genauer an.
+in Kapitel _Custom Markers_ genauer an.
 In der Karte des vorhergehenden Beispiels können Sie den Marker
 im Browser mit der Maus bewegen, da die Option `draggable` auf `true` gesetzt wurde.
 Probieren Sie es aus!
 
-![Ein Marker auf einer Leaflet Karte.](/images/992.png)
-
-_Abbildung: Ein Marker auf einer Leaflet Karte der mit der Maus verschoben werden kann._
+![Ein Marker auf einer Leaflet Karte der mit der Maus verschoben werden kann.](/images/992.png)
 
 > Sie müssen für
 > einen Marker keine Variable instanziieren. Sie können den Marker
@@ -262,10 +256,7 @@ draggable:true
 ).addTo(mymap);
 ```
 
-Beachten Sie dabei aber das Folgende: Falls Sie den Marker später einmal
-modifizieren möchten, benötigen Sie einen Namen. Andernfalls können
-Sie den Marker nicht identifizieren und somit auch nicht zum Ändern
-auswählen.
+Beachten Sie dabei aber das Folgende: Falls Sie den Marker später einmal modifizieren möchten, benötigen Sie einen Namen. Andernfalls können Sie den Marker nicht identifizieren und somit auch nicht zum Ändern auswählen.
 
 ### Objekte, die aus mehr als einem Punkte bestehen
 
@@ -278,9 +269,7 @@ Die Klasse `Polyline` erweitert die abstrakte Klasse
 Diese Klasse ermöglicht es Ihnen eine einfache Linie oder mehrere
 aneinandergereihte Liniensegmente zu erstellen.
 
-Im nachfolgenden Programmcodebeispiel habe ich den Text,
-der für die Erstellung des `Polyline` Objektes verantwortlich ist, mit einem Stern
-markiert.
+Im nachfolgenden Programmcodebeispiel sehen Sie den Text, der für die Erstellung des `Polyline` Objektes verantwortlich ist.
 
 ```
  <!DOCTYPE HTML>
@@ -320,11 +309,7 @@ In der nächsten Abbildung sehen Sie genau diese Linie.
 
 ![Ein Polyine-Objekt auf einer Leaflet Karte.](/images/991.png)
 
-_Abbildung: Ein Polyline-Objekt auf einer Leaflet Karte._
-
 #### Polygone
-
-[](#){#DieKarteMitDatenBestueckenPolygone}
 
 Ein Polygone ist eine geschlossene Linie – also eine Linie die
 einen _Innenbereich_ von einem _Außenbereich_ abtrennt.
@@ -382,8 +367,6 @@ finden Sie in der
 ```
 
 ![Ein Polygone-Objekt auf einer Leaflet Karte.](/images/990.png)
-
-_Abbildung: Ein `Polygone`-Objekt auf einer Leaflet Karte._
 
 ### Rechtecke und Kreise
 
@@ -453,8 +436,6 @@ Und wie das Rechteck des Beispiels aussieht, zeigt Ihnen die nachfolgende Abbild
 
 ![Ein `Rectangle`-Objekt auf einer Leaflet Karte.](/images/989rechteck.png)
 
-_Abbildung: Ein `Rectangle`-Objekt auf einer Leaflet Karte._
-
 In diesem Zusammenhang ist vielleicht ganz interessant wie Leaflet das
 Koordinatensystem der Erde verarbeitet. Dieses Koordinatensystem ist ja kein
 gewöhnliches Koordinatensystem, sondern ein sphärisches.
@@ -469,8 +450,7 @@ der Kugel die beiden Punkte verbinden.
 Die nachfolgenden Abbildungen zeigen Ihnen, dass Leaflet dieses Problem vereinfacht.
 Es behandelt das sphärische Koordinatensystem als normales Koordinatensystem.
 Es schneidet den Pazifik einfach in der Mitte durch.
-Dies hatten wir uns im Exkurs
-[Das Koordinagensystem der Erde](#DasKoordinatensystemderErde) schon einmal angesehen.
+Dies hatten wir uns im Exkurs _Das Koordinagensystem der Erde_ schon einmal angesehen.
 Um von der Koordinate `[50, -180]` zur Koordinate `[51, 180]` zu gelangen,
 muss man mit Leaflet einmal um die ganze Erde laufen.
 Dabei liegen die beiden Punkte ganz dicht beieinander.
@@ -480,32 +460,21 @@ Und das, obwohl die Ecken hier ganz nah beieinander liegen.
 
 ![Um von der Koordinate `[50, -180]` zur Koordinate `[51, 180]` zu gelangen, muss man mit Leaflet einmal um die ganze Erde laufen. In der Mitte des Pazifik ist die Welt getrennt. Hier gibt es keine Verbindung.](/images/929a.png)
 
-_Abbildung: Um von der Koordinate `[50, -180]` zur Koordinate `[51, 180]` zu gelangen, muss man mit Leaflet einmal um die ganze Erde laufen. In der Mitte des Pazifik ist die Welt getrennt. Hier gibt es keine Verbindung._
-
 ---
 
 ![Von der Koordinate `[50, -1]` zur Koordinate `[51, 1]` nimmt auch Leaflet die kürzeste Verbindung.](/images/929b.png)
-
-_Abbildung: Von der Koordinate `[50, -1]` zur Koordinate `[51, 1]` nimmt auch Leaflet die kürzeste Verbindung._
 
 ---
 
 ![Um von der Koordinate `[90, 7]` zur Koordinate `[-90, 6]` zu gelangen, muss man mit Leaflet einmal um die ganze Erde laufen. In der Mitte des Pazifik ist die Welt getrennt. Hier gibt es keine Verbindung.](/images/929c.png)
 
-_Abbildung: Um von der Koordinate `[90, 7]` zur Koordinate `[-90, 6]` zu gelangen, muss man mit Leaflet einmal um die ganze Erde laufen. In der Mitte des Pazifik ist die Welt getrennt. Hier gibt es keine Verbindung._
-
 ---
 
 ![Von der Koordinate `[1, 7]` zur Koordinate `[-1, 6]` nimmt auch Leaflet die kürzeste Verbindung.](/images/929d.png)
 
-_Abbildung: Von der Koordinate `[1, 7]` zur Koordinate `[-1, 6]` nimmt auch Leaflet die kürzeste Verbindung._
-
 #### Kreise
 
-Anhand des nachfolgenden Programmcode können Sie erkennen,
-wie ein Kreis – also ein Objekt vom
-[Typ `Circle`](https://leafletjs.com/reference.html#circle)[^11] –
-in eine Leaflet Karte eingefügt wird.
+Anhand des nachfolgenden Programmcode können Sie erkennen, wie ein Kreis – also ein Objekt vom [Typ `Circle`](https://leafletjs.com/reference.html#circle)[^11] – in eine Leaflet Karte eingefügt wird.
 
 ```
  <!DOCTYPE HTML>
@@ -544,8 +513,6 @@ dass man irgendwann nur noch den Rand sieht und es wichtig sein könnte,
 dessen Größe immer relativ zur Zoom-Stufe zu setzen.
 
 ![Ein `Circle`-Objekt auf einer Leaflet Karte.](/images/988_kreis.png)
-
-_Abbildung: Ein `Circle`-Objekt auf einer Leaflet Karte._
 
 ## Mehrere Poly-Objekte auf einer Ebene
 
@@ -656,8 +623,6 @@ anzuzeigen.
 
 ![Zwei Polyline-Objekte auf einer Ebene.](/images/987.png)
 
-_Abbildung: Zwei Polyline-Objekte auf einer Ebene._
-
 ### Mehrere Polygon-Objekte auf einer Ebene
 
 In diesem Kapitel zeige ich Ihnen ein Beispiel,
@@ -718,23 +683,13 @@ sicherlich gut vorstellen.
 In der nächsten Abbildung sehen sie keine Ländergrenzen.
 Der Einfachheit halber habe ich mich auf zwei Dreiecke beschränkt.
 
-![Zwei Polygone-Objekte auf einer Ebene.](/images/986.png)
-
-_Abbildung: Zwei Polygone-Objekte auf einer Ebene mit dem selben Pop-up._
+![Zwei Polygone-Objekte auf einer Ebene mit dem selben Pop-up.](/images/986.png)
 
 #### Mehrere sich überschneidende Polygon Objekte auf einer Ebene
 
-Die Besonderheit bei einem Polygon ist, dass es einen Außen- und einen
-Innenbereich gibt. Das lesen Sie hier im Buch des Öfteren.
-Wenn Sie mehrere Polygone auf einem Layer zusammen erstellen,
-dann beeinflussen diese sich gegenseitig, wenn Flächen übereinander liegen.
-In der nachfolgenden Tabelle habe ich verschiedene Konstellationen mit Bild
-und Text aufgenommen. Anhand von Beispielen ist das Zusammenspiel
-der verschiedenen Bereiche meiner Meinung nach am leichtesten nachzuvollziehen.
+Die Besonderheit bei einem Polygon ist, dass es einen Außen- und einen Innenbereich gibt. Das lesen Sie hier im Buch des Öfteren. Wenn Sie mehrere Polygone auf einem Layer zusammen erstellen, dann beeinflussen diese sich gegenseitig, wenn Flächen übereinander liegen. In der nachfolgenden Tabelle habe ich verschiedene Konstellationen mit Bild und Text aufgenommen. Anhand von Beispielen ist das Zusammenspiel der verschiedenen Bereiche meiner Meinung nach am leichtesten nachzuvollziehen.
 
-![x](/images/928a.png)
-
-_Abbildung:_
+![Ein einfaches Polygone.](/images/928a.png)
 
 Beginnen wir mit einem einfachen Polygone:
 
@@ -746,14 +701,9 @@ L.polygon([
 
 ---
 
-![x](/images/928b.png)
+![Das zweite Polygon wird aus dem ersten Polygone ausgeschnitten.](/images/928b.png)
 
-_Abbildung:_
-
-Wenn Sie innerhalb dieses Polygons ein weiteres Polygon zeichnen,
-dann wird der Innenbereich des ersten Polygon um die Fläche des zweiten
-Polygon verringert. Das zweite Polygon wird praktisch aus dem ersten
-Polygone ausgeschnitten.
+Wenn Sie innerhalb dieses Polygons ein weiteres Polygon zeichnen, dann wird der Innenbereich des ersten Polygon um die Fläche des zweiten Polygon verringert. Das zweite Polygon wird praktisch aus dem ersten Polygone ausgeschnitten.
 
 ```
  L.polygon([
@@ -764,12 +714,9 @@ Polygone ausgeschnitten.
 
 ---
 
-![x](/images/928c.png)
+![Die dritte Fläche wieder als Innenbereich gezeichnet.](/images/928c.png)
 
-_Abbildung:_
-
-In dieses zweite Polygon können Sie nun wiederum ein Polygon zeichnen.
-Nun wird diese Fläche wieder voll als Innenbereich gezeichnet.
+In dieses zweite Polygon können Sie nun wiederum ein Polygon zeichnen. Nun wird diese Fläche wieder voll als Innenbereich gezeichnet.
 
 ```
  L.polygon([
@@ -781,13 +728,9 @@ Nun wird diese Fläche wieder voll als Innenbereich gezeichnet.
 
 ---
 
-![x](/images/928d.png)
+![Der abgedeckte Innenbereich wird zum Außenbereich.](/images/928d.png)
 
-_Abbildung:_
-
-Zeichnen Sie nun ein weiteres Polygon, dass Innenbereich und
-Außenbereich gleichzeitig abdeckt, dann wird der abgedeckte
-Innenbereich zum Außenbereich - und umgekehrt.
+Zeichnen Sie nun ein weiteres Polygon, dass Innenbereich und Außenbereich gleichzeitig abdeckt, dann wird der abgedeckte Innenbereich zum Außenbereich - und umgekehrt.
 
 ```
  L.polygon([
@@ -800,14 +743,9 @@ Innenbereich zum Außenbereich - und umgekehrt.
 
 ## Daten mit Layern gruppieren
 
-Im vorherigen Kapitel haben Sie gesehen, dass Sie mehrere Polygone Objekte
-oder mehrere Polyline Objekte zusammen auf einem Layer positionieren können.
-Es wird sicher einmal vorkommen, dass Sie Elemente unterschiedlicher
-Typen auf einem Layer zusammen gruppieren möchten.
+Im vorherigen Kapitel haben Sie gesehen, dass Sie mehrere Polygone Objekte oder mehrere Polyline Objekte zusammen auf einem Layer positionieren können. Es wird sicher einmal vorkommen, dass Sie Elemente unterschiedlicher Typen auf einem Layer zusammen gruppieren möchten.
 
 ### Layer-Gruppen
-
-[](#){#DieKarteMitDatenBestueckenLayergruppen}
 
 Die Leaflet [Klasse `LayerGroup`](https://leafletjs.com/reference.html#layergroup)[^15]
 wird verwendet, um mehrere Layer oder Ebenen zu gruppieren.
@@ -945,7 +883,7 @@ Verarbeiten von Ereignissen und das Hinzufügen von Stylen.
 <!--index_979.html-->
 ```
 
-Analog zum Beispiel im Kapitel [Layergruppen](#DieKarteMitDatenBestueckenLayergruppen)
+Analog zum Beispiel im Kapitel _Layergruppen_
 sehen Sie im
 vorhergehenden Programmcodeausschnitt, wie zwei Elemente erstellt
 und einem Objekt vom Typ `FeatureGroup` zugeordnet werden.
@@ -989,23 +927,10 @@ myfeatureGroup.removeLayer(polyline);
 
 ## Popups
 
-In diesem Kapitel geht es um Leaflet-Objekte vom
-Typ [`Popup`](https://leafletjs.com/reference.html#popup)[^18].
-Mithilfe dieses Objekts können Sie
-[Pop-up Fenster] an bestimmten Stellen auf Ihrem Karten Objekt öffnen.
-Wenn Sie die
-[Methode `openPopup()`](http://leafletjs.com/reference.html#map-openpopup)[^19]
-einsetzten, um das Pop-up Fenster zu öffnen,
-stellt Leaflet sicher, dass nur ein Pop-up zur gleichen Zeit geöffnet ist.
-Ich empfehle Ihnen diese Methode einzusetzen, weil ich der Meinung bin,
-das das gleichzeitige Öffnen von mehreren Pop-up Fenstern nicht benutzerfreundlich ist.
-Nichtsdestotrotz kann es aber sein, dass Sie gerne mehrere Pop-up Fenster
-gleichzeitig anzeigen möchten. In diesem Fall müssen Sie das Pop-up Fenster
-mit der [Methode `addLayer()`](http://leafletjs.com/reference.html#map-addlayer)[^20]
-auf einem eigenen Layer einbinden.
+In diesem Kapitel geht es um Leaflet-Objekte vom Typ [`Popup`](https://leafletjs.com/reference.html#popup)[^18]. Mithilfe dieses Objekts können Sie
+[Pop-up Fenster] an bestimmten Stellen auf Ihrem Karten Objekt öffnen. Wenn Sie die [Methode `openPopup()`](http://leafletjs.com/reference. html#map-openpopup)[^19] einsetzten, um das Pop-up Fenster zu öffnen, stellt Leaflet sicher, dass nur ein Pop-up zur gleichen Zeit geöffnet ist. Ich empfehle Ihnen diese Methode einzusetzen, weil ich der Meinung bin, dass das gleichzeitige Öffnen von mehreren Pop-up Fenstern nicht benutzerfreundlich ist. Nichtsdestotrotz kann es aber sein, dass Sie gerne mehrere Pop-up Fenster gleichzeitig anzeigen möchten. In diesem Fall müssen Sie das Pop-up Fenster mit der [Methode `addLayer()`](http://leafletjs.com/reference.html#map-addlayer)[^20] auf einem eigenen Layer einbinden.
 
-So nun aber genug der Theorie. Sehen Sie sich das alles anhand des
-nachfolgenden Programmcodes – am besten auf praktische Weise – an.
+So nun aber genug der Theorie. Sehen Sie sich das alles anhand des nachfolgenden Programmcodes – am besten auf praktische Weise – an.
 
 ```
  <!DOCTYPE HTML>
@@ -1066,13 +991,7 @@ im Browser aussieht, sehen Sie in der nachfolgenden Abbildung.
 
 ![Pop-ups auf einer Leaflet Karte.](/images/985.png)
 
-_Abbildung: Pop-ups auf einer Leaflet Karte._
-
-> Ich hatte Ihnen zu Beginn dieses Kapitels schon erklärt, dass Leaflet standardmäßig
-> nur ein Pop-up Fenster gleichzeitig offen anzeigt. Dies ist so, wenn Sie das
-> Pop-up Fenster mithilfe der
-> Methode `openOn()`
-> zur Karte hinzufügen:  
+> Ich hatte Ihnen zu Beginn dieses Kapitels schon erklärt, dass Leaflet standardmäßig nur ein Pop-up Fenster gleichzeitig offen anzeigt. Dies ist so, wenn Sie das Pop-up Fenster mithilfe der Methode `openOn()` zur Karte hinzufügen:
 > `var popup1 = L.popup({`**`keepInView`**`:true})`  
 > `.setLatLng([49.27264, 6.26469])`  
 > `.setContent('<p>Hallo Welt<br />Ich bin ein Popup.</p>')`  
@@ -1261,46 +1180,27 @@ Damit Sie sich auch Bild davon machen könne,
 wenn Sie das Beispiel gerade nicht praktisch nachvollziehen können,
 habe ich Ihnen Bilder eingefügt.
 
-![](/images/984.png)
-
-_Abbildung: Wenn Sie eine Website besuchen, die standortbezogenes Surfen unterstützt prüft der Browser, ob Sie Ihren Aufenthaltsort bekannt geben möchten._
+![Wenn Sie eine Website besuchen, die standortbezogenes Surfen unterstützt prüft der Browser, ob Sie Ihren Aufenthaltsort bekannt geben möchten.](/images/984.png)
 
 ---
 
-![](/images/984a.png)
-
-_Abbildung: Möchten Sie Ihren Standort nicht mit anderen teilen, dann sehen Sie eine Fehlermeldung beim Öffnen der Karte. Diese Fehlermeldung erklärt Ihnen, warum Sie nicht geortet werden können._
+![Möchten Sie Ihren Standort nicht mit anderen teilen, dann sehen Sie eine Fehlermeldung beim Öffnen der Karte. Diese Fehlermeldung erklärt Ihnen, warum Sie nicht geortet werden können.](/images/984a.png)
 
 ---
 
-![x](/images/984b.png)
-
-_Abbildung: Wenn Sie Ihren Standort freigegeben haben, dann sehen beim Aufruf der Karte des letzten Beispiels einen Kreis, der Ihren ungefähren Standort wiedergibt und ein Pop-up Fenster, dass Ihnen erklärt wo Sie sich gerade befinden._
+![Wenn Sie Ihren Standort freigegeben haben, dann sehen beim Aufruf der Karte des letzten Beispiels einen Kreis, der Ihren ungefähren Standort wiedergibt und ein Pop-up Fenster, dass Ihnen erklärt wo Sie sich gerade befinden.](/images/984b.png)
 
 ---
 
-Leaflet bietet Ihnen noch weitere
-[Geolokalisierungsmethoden](https://leafletjs.com/reference.html#map-geolocation-methods)[^27]
-und
-[Geolokalisierungsereignisse](http://leafletjs.com/reference.html#locationevent)[^28] an.
+Leaflet bietet Ihnen noch weitere [Geolokalisierungsmethoden](https://leafletjs.com/reference.html#map-geolocation-methods)[^27]
+und [Geolokalisierungsereignisse](http://leafletjs.com/reference.html#locationevent)[^28] an.
 
 ## Ereignisse in Leaflet
 
-Bisher haben wir ausschließlich mit statischen Daten gearbeitet.
-In der Welt passiert aber fortwährend ganz schön viel und Sie möchten sicherlich mit
-Ihrer Karte auf das ein oder andere Ereignis reagieren.
-Vielleicht möchten Sie je nach Standort einen Pop-up Text ändern.
-Oder Sie möchten auf ein anderes Ereignis reagieren.
-Vielleicht wissen Sie auch noch gar nicht so genau auf welche Ereignisse Sie reagieren können.
-Dann sehen Sie sich zur Inspiration doch einfach einmal an,
-was Leaflet Ihnen bietet.
-Insgesamt bietet Leaflet Ihnen 34 verschiedene Ereignisse,
-die sie nutzen können. Alle Ereignisse sind in
-der [Dokumentation](http://leafletjs.com/reference.html#events)[^29] gut erklärt.
+Bisher haben wir ausschließlich mit statischen Daten gearbeitet. In der Welt passiert aber fortwährend ganz schön viel und Sie möchten sicherlich mit
+Ihrer Karte auf das ein oder andere Ereignis reagieren. Vielleicht möchten Sie je nach Standort einen Pop-up Text ändern. Oder Sie möchten auf ein anderes Ereignis reagieren. Vielleicht wissen Sie auch noch gar nicht so genau auf welche Ereignisse Sie reagieren können. Dann sehen Sie sich zur Inspiration doch einfach einmal an, was Leaflet Ihnen bietet. Insgesamt bietet Leaflet Ihnen 34 verschiedene Ereignisse, die sie nutzen können. Alle Ereignisse sind in der [Dokumentation](http://leafletjs.com/reference.html#events)[^29] gut erklärt.
 
-Exemplarisch sehen wir uns mit dem folgenden Programmcode – wieder anhand
-eines ganz einfache Beispiels – die Vorgehensweise genauer an.
-Konkret reagieren wir auf einen Mausklick.
+Exemplarisch sehen wir uns mit dem folgenden Programmcode – wieder anhand eines ganz einfache Beispiels – die Vorgehensweise genauer an. Konkret reagieren wir auf einen Mausklick.
 
 ```
  <!DOCTYPE HTML>
@@ -1350,9 +1250,7 @@ weil die Funktion keinen Namen hat.
 Wenn Sie die Karte des vorhergehenden Beispiels im Browser aufrufen und anklicken,
 sehen Sie die in der nachfolgenden Abbildung dargestellte Meldung.
 
-![x](/images/983.png)
-
-_Abbildung: Eine Leaflet Karte, die ein Pop-up Fenster anzeigt, wenn sie mit der Maus angeklickt wird._
+![Eine Leaflet Karte, die ein Pop-up Fenster anzeigt, wenn sie mit der Maus angeklickt wird.](/images/983.png)
 
 ### Eine benutzerdefinierte Funktionen
 
@@ -1408,9 +1306,7 @@ Optionen zur Karte hinzufügen.
 > kann dieses Pop-up Fenster tatsächlich nicht
 > mehr geschlossen werden.
 
-![x](/images/982.png)
-
-_Abbildung: Eine Leaflet Karte, die zwei Marker anzeigt, die über eine benutzerdefinierte Funktion hinzugefügt wurden._
+![Eine Leaflet Karte, die zwei Marker anzeigt, die über eine benutzerdefinierte Funktion hinzugefügt wurden.](/images/982.png)
 
 ### Ein interaktives Beispiel
 

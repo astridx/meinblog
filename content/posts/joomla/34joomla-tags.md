@@ -321,4 +321,4 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 ## Links
 
-[Verwendung von Tags in einer Erweiterung](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension]
+[Verwendung von Tags in einer Erweiterung](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/j3.x:using_tags_in_an_extension]

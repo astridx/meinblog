@@ -29,6 +29,80 @@ The frontend view and the administration area each use their own language files.
 
 > The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English.
 
+### Side Note: Special features
+
+> Would you like to see exactly how the ini file is parsed? At [php.net](https://www.php.net/manual/en/function.parse-ini-file.php) you will find the description of the function that does this work.
+
+#### Commenting out
+
+You can mark a line as a comment using a semicolon `;`.
+
+```
+; Joomla! Project
+; (C) 2005 Open Source Matters, Inc. <https://www.joomla.org>
+; License GNU General Public License version 2 or later; see LICENSE.txt
+Note : All ini files need to be saved as UTF-8
+....
+```
+
+#### Escaping
+
+There are characters that have a special meaning - for example, the prefix characters. This meaning can be removed with a backslash ``.
+
+```
+...
+COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
+
+...
+
+```
+
+#### Variables
+
+Sometimes the output of the language string depends on a variable. The function `Text::sprintf` ensures that you do not have to compose the text in a complicated way in the programme code. Instead of the variable in the language file, enter a character with the prefix `%`. For example, you can use `%s`.
+
+```
+...
+COM_CONTACT_CHECKED_OUT_BY="Checked out by %s"
+...
+```
+
+In the PHP code, the call then looks like this.
+
+```
+...
+Text::sprintf('COM_CONTACT_CHECKED_OUT_BY', $checkoutUser->name)
+...
+```
+
+The value of `$checkoutUser->name` is inserted instead of the first variable in the language string. Here in the example instead of `%s`.
+
+> Unfortunately, you cannot determine which variable `$checkoutUser->name` belongs to which language string `%s`. The values are assigned in order.
+
+#### singular/singular
+
+There is singular or singular and plural or plural and the Joomla language strings support this.
+
+Let us take the call
+
+```
+...
+$message = Text::plural('COM_FOOS_N_ITEMS_FEATURED', count($ids));
+...
+```
+
+as an example.
+
+Depending on whether `count($ids)` has the value `1` or `2` the language string `COM_FOOS_N_ITEMS_FEATURED_1` or `COM_FOOS_N_ITEMS_FEATURED_2` is used. If `count($ids)` has neither `1` nor `2`, `COM_FOOS_N_ITEMS_FEATURED` is used as the fallback position.
+
+```
+...
+COM_FOOS_N_ITEMS_FEATURED="%d foos featured."
+COM_FOOS_N_ITEMS_FEATURED_1="Foo featured."
+COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
+...
+```
+
 ### New files
 
 Create the following six files to support the German language in addition to English.

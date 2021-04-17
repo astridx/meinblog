@@ -16,6 +16,11 @@ export default function FourOhFour() {
         This was probably an error or the page does not yet exist in this
         language.
       </p>
+      <h1>Nichts gefunden</h1>
+      <p>
+        Dies war wahrscheinlich ein Fehler oder die Seite existiert noch nicht
+        in dieser Sprache.
+      </p>
     </Layout>
   )
 }

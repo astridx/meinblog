@@ -59,8 +59,6 @@ digitale Landkarte in das Fenster bekommen. Vier Kapitel hört sich aufwendig
 an. Das ist es aber nicht. Fangen Sie an und Sie werden sehen, dass Sie schon
 in wenigen Minuten die Karte präsentieren können.
 
-[](#){#IntegrierenSiedienotwendigenJavaScriptundCascadingStyleSheet}
-
 ### Integrieren Sie die notwendigen JavaScript und Cascading Style Sheet Dateien
 
 Sie haben zwei Möglichkeiten die notwendigen Dateien in Ihr HTML-Dokument zu integrieren.
@@ -75,12 +73,7 @@ Sie haben zwei Möglichkeiten die notwendigen Dateien in Ihr HTML-Dokument zu in
 
 #### Leaflet über ein Content Delivery Network einbinden
 
-Sie können Leaflet mithilfe eines CDN nutzen. So müssen Sie die Dateien
-nicht selbst herunterladen. Es ist lediglich eine Verlinkung nötig.
-Mit der richtigen Verlinkung wird Leaflet automatisch über das CDN heruntergeladen,
-wenn ein Website Besucher Ihre Website aufruft. Im nachfolgenden Programmcodebeispiel
-sehen Sie den Text für die Verlinkung zur Leaflet-Version 1.2.0. Den
-relevanten Teil habe ich mit Sternen markiert.
+Sie können Leaflet mithilfe eines CDN nutzen. So müssen Sie die Dateien nicht selbst herunterladen. Es ist lediglich eine Verlinkung nötig. Mit der richtigen Verlinkung wird Leaflet automatisch über das CDN heruntergeladen, wenn ein Website Besucher Ihre Website aufruft. Im nachfolgenden Programmcodebeispiel sehen Sie den Text für die Verlinkung zur Leaflet-Version 1.2.0.
 
 ```
  <!DOCTYPE HTML>
@@ -103,7 +96,7 @@ relevanten Teil habe ich mit Sternen markiert.
 
 Auch wenn die Dateien der Leaflet Bibliothek nun automatisch über das CDN heruntergeladen werden:
 Ein Aufruf Ihrer Datei in Ihrem Browser öffnet immer noch ein leeres Browser-Fenster.
-Erst im letzten Schritt, im Kapitel _[Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu](#FuegenSieEineSchichtMitKachelnHinzu),_ wird die Karte sichtbar.
+Erst im letzten Schritt, im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_, wird die Karte sichtbar.
 
 > Fast alle modernen Browser unterstützen [Subresource Integrity (SRI)](https://en.wikipedia.org/w/index.php?title=Subresource_Integrity&oldid=839480720)[^2]
 > und auch
@@ -121,8 +114,6 @@ Erst im letzten Schritt, im Kapitel _[Fügen Sie eine Schicht mit Kacheln – ei
 
 #### Eine lokale Leaflet-Kopie einbinden
 
-[](#){#EineKarteMitLeafletErstellenEinelokaleLeafletKopieeinbinden}
-
 Eine zweite – vielleicht etwas kompliziertere – Möglichkeit ist, die
 Leaflet-Dateien selbst herunterzuladen. Die aktuellen Versionen finden Sie unter
 der Adresse http://leafletjs.com/download.html . Diese müssen Sie anschließend auf
@@ -134,33 +125,10 @@ _Nachteilig_ ist dabei allerdings, dass Sie sich selbst um alles kümmern müsse
 Sie müssen selbst die Dateien kopieren und sicherstellen, dass Sie die passende
 Version von Leaflet nutzen. Aktualisierungen müssen Sie selbst vornehmen.
 
-Im nachfolgenden Codebeispiel sehen Sie – die relevanten Stellen mit einem Stern
-markiert – das Einbinden von
-Leaflet unter der Annahme, dass Sie die heruntergeladenen Dateien - relativ
-zu Ihrem HTML-Dokument ein Verzeichnis höher - im Unterverzeichnis `/leaflet` auf
-Ihrem Webserver abgelegt haben.
+Im nachfolgenden Codebeispiel sehen Sie das Einbinden von Leaflet unter der Annahme, dass Sie die heruntergeladenen Dateien - relativ zu Ihrem HTML-Dokument ein Verzeichnis höher - im Unterverzeichnis `/leaflet` auf Ihrem Webserver abgelegt haben.
 
-> Wenn Sie mit
-> [relativen Pfadangaben](https://de.wikipedia.org/w/index.php?title=Pfadname&oldid=182767239)[^3]
-> arbeiten,
-> setzen Sie die Links innerhalb eines
-> Projektes mit Hilfe von Punkten. Der große Vorteil von relativen
-> Pfadangaben ist, dass Sie ein Projekt jederzeit in ein anderes
-> Verzeichnis kopieren können ohne Pfadangaben korrigieren zu müssen.
-> Bei einer relativen Pfadangabe bedeuten die Punkte folgendes:  
-> Ein Punkt gefolgt von einem Schrägstrich (`./datei.html`) zeigt auf
-> eine Datei, die sich im gleichen Verzeichnis befindet.  
-> Zwei Punkte gefolgt von einem Schrägstrich (`../datei.html`)
-> zeigen auf eine Datei, die sich ein Verzeichnis höher
-> befindet.  
-> Zweimal zwei Punkte gefolgt von einem Schrägstrich
-> hintereinander (`../../datei.html`)
-> zeigen auf eine Datei, die sich zwei Verzeichnisse höher befindet.  
-> Wenn Ihnen meine Erklärung
-> nicht hilfreich erscheint sehen sich doch einfach alles im nächsten Beispiel an.
-> Manchmal sagt ein Beispiel mehr als viele Worte.
-> Nach meiner Erfahrung wird bei der praktischen Anwendung
-> Vieles oft sehr schnell klarer.
+> Wenn Sie mit [relativen Pfadangaben](https://de.wikipedia.org/w/index.php?title=Pfadname&oldid=182767239)[^3] arbeiten, setzen Sie die Links innerhalb eines Projektes mit Hilfe von Punkten. Der große Vorteil von relativen Pfadangaben ist, dass Sie ein Projekt jederzeit in ein anderes
+> Verzeichnis kopieren können ohne Pfadangaben korrigieren zu müssen. Bei einer relativen Pfadangabe bedeuten die Punkte folgendes: Ein Punkt gefolgt von einem Schrägstrich (`./datei.html`) zeigt auf eine Datei, die sich im gleichen Verzeichnis befindet. Zwei Punkte gefolgt von einem Schrägstrich (`../datei.html`) zeigen auf eine Datei, die sich ein Verzeichnis höher befindet. Zweimal zwei Punkte gefolgt von einem Schrägstrich hintereinander (`../../datei.html`) zeigen auf eine Datei, die sich zwei Verzeichnisse höher befindet. Wenn Ihnen meine Erklärung nicht hilfreich erscheint sehen sich doch einfach alles im nächsten Beispiel an. Manchmal sagt ein Beispiel mehr als viele Worte. Nach meiner Erfahrung wird bei der praktischen Anwendung Vieles oft sehr schnell klarer.
 
 ```
  <!DOCTYPE HTML>
@@ -179,7 +147,7 @@ Ihrem Webserver abgelegt haben.
 
 Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser
 immer noch ein leeres Browser-Fenster. Erst im letzten Schritt -
-im Kapitel _[Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu](#FuegenSieEineSchichtMitKachelnHinzu)_ wird die Karte sichtbar.
+im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_ wird die Karte sichtbar.
 
 > Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe
 > eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe,
@@ -207,13 +175,12 @@ in der Anwendung von JavaScript sind und dieses Kapitel Sie eher verwirrt,
 dann dürfen sie es überspringen. Das Beachten der Performance können
 Sie auch erst angehen,
 wenn Sie die ersten Karten selbst erstellt haben. Lesen Sie in diesem Falle einfach
-im Kapitel [Erstellen Sie ein Element in dem Ihre Karte angezeigt werden soll](#EineKarteMitLeafletErstellenErstellenSieeinElementindemIhreKarteangezeigtwerdensoll)
+im Kapitel _Erstellen Sie ein Element in dem Ihre Karte angezeigt werden soll_
 weiter.
 
 ##### Was passiert genau, wenn eine Website geladen wird die im Kopfbereich ein Skript einbindet?
 
-Sehen wir uns zunächst einmal an, was genau passiert, wenn ein Browser eine
-Website mit einem `<script>`-Tag lädt.
+Sehen wir uns zunächst einmal an, was genau passiert, wenn ein Browser eine Website mit einem `<script>`-Tag lädt.
 
 1. Als erstes lädt der Browser den Text der HTML-Seite.
 2. Als nächstes beginnt er, den HTML-Code zu analysieren, also zu parsen.
@@ -302,8 +269,6 @@ selbst setzen wollte.
 
 ### Erstellen Sie ein Element in dem Ihre Karte angezeigt werden soll
 
-[](#){#EineKarteMitLeafletErstellenErstellenSieeinElementindemIhreKarteangezeigtwerdensoll}
-
 Das Einfügen eines HTML-Elements in unser Grundgerüst dürfte für Sie kein Problem
 darstellen. Der Vollständigkeit halber habe ich diesen Schritt hier trotzdem eingefügt.
 
@@ -312,17 +277,10 @@ HTML-Dokument, an der Sie Ihre Karte anzeigen möchten.
 Stellen Sie dabei sicher, dass das `<div>`-Element, also der Kartencontainer,
 eine definierte Höhe hat.
 
-> Der einfachste Weg einem HTML-Element eine feste Höhe zuzuordnen, ist das `style`-Attribut
-> – also direkt im HTML-Element selbst. Weil hier im Buch _Leaflet_ das
-> Hauptthema ist, verwende ich für das Einbinden von Stylesheets in
-> den Beispielen diese einfache Methode. Durch das direkte Festlegen von
-> Formaten gehen allerdings im praktischen Einsatz viele Vorteile
-> verloren. Alternative Varianten zum Einbinden von Stylesheets finden
-> Sie unter anderem unter der Adresse
-> [https://wiki.selfhtml.org/wiki/CSS/alternative_Stylesheets](https://wiki.selfhtml.org/index.php?title=CSS/alternative_Stylesheets&oldid=61905)[^7].
+> Der einfachste Weg einem HTML-Element eine feste Höhe zuzuordnen, ist das `style`-Attribut – also direkt im HTML-Element selbst. Weil hier im Buch _Leaflet_ das Hauptthema ist, verwende ich für das Einbinden von Stylesheets in den Beispielen diese einfache Methode. Durch das direkte Festlegen von
+> Formaten gehen allerdings im praktischen Einsatz viele Vorteile verloren. Alternative Varianten zum Einbinden von Stylesheets finden Sie unter anderem unter der Adresse [https://wiki.selfhtml.org/wiki/CSS/alternative_Stylesheets](https://wiki.selfhtml.org/index.php?title=CSS/alternative_Stylesheets&oldid=61905)[^7].
 
-Im nachfolgenden Programmcodeausschnitt sehen Sie die relevante Zeile mit einem Stern
-markiert.
+Im nachfolgenden Programmcodeausschnitt sehen Sie die relevante Zeile `<div style="height: 180px;" id="mapid"></div>`.
 
 ```
  <!DOCTYPE HTML>
@@ -340,16 +298,11 @@ markiert.
 <!--index_997.html-->
 ```
 
-So, nun ist das HTML-Dokument bereit ein Leaflet Kartenobjekt zu initialisieren
-und interessante Dinge mit ihm anzustellen.
+So, nun ist das HTML-Dokument bereit ein Leaflet Kartenobjekt zu initialisieren und interessante Dinge mit ihm anzustellen.
 
 ### Erstellen Sie das Karten-Objekt
 
-Nun wird es spannend. Wir erstellen das Skript das die Karte anzeigen wird.
-Dabei beginnen wir mit dem Erstellen des Karten-Objektes.
-Im nachfolgenden Programmcodeausschnitt sehen Sie
-die erste Zeile des Skripts. Ich habe die betreffende Stelle
-mit einem Stern markiert.
+Nun wird es spannend. Wir erstellen das Skript das die Karte anzeigen wird. Dabei beginnen wir mit dem Erstellen des Karten-Objektes. Im nachfolgenden Programmcodeausschnitt sehen Sie die erste Zeile des Skripts.
 
 ```
  <!DOCTYPE HTML>
@@ -369,11 +322,7 @@ mit einem Stern markiert.
 <!--index_996.html-->
 ```
 
-Was haben wir genau gemacht? Wir haben mit dem Befehl `var mymap = L.map('mapid')`
-ein neues Objekt – oder eine neue Instanz – der Klasse `map` erstellt und
-dieser den Namen `mymap` gegeben.
-
-[](#){#Fabrikmethode1}
+Was haben wir genau gemacht? Wir haben mit dem Befehl `var mymap = L.map('mapid')` ein neues Objekt – oder eine neue Instanz – der Klasse `map` erstellt und dieser den Namen `mymap` gegeben.
 
 > Sie frage sich nun vielleicht, wie wir
 > eine neue Instanz ohne die Verwendung des Schlüsselwortes `new`
@@ -388,7 +337,7 @@ dieser den Namen `mymap` gegeben.
 > eines Konstruktors erzeugt wird.  
 > Wollen Sie sich dies selbst ansehen? Die [Funktion `L.map()`](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/map/Map.js#L1708)[^9] der Klasse `L.Map`
 > finden Sie auf Github ganz am Ende in der Datei `map.js`. Ein weiteres Beispiel
-> finden Sie zu Beginn des Kapitels [Custom Markers](#Fabrikmethode2).
+> finden Sie zu Beginn des Kapitels _Custom Markers_.
 
 Das Festlegen des Kartenmittelpunktes mithilfe der Koordinaten `[50.27264, 7.26469]`
 und der Methode `setView()` und die Angabe der Zoomstufe 13 ist optional.
@@ -400,7 +349,7 @@ zum Zoomen klicken.
 
 > Sagen Ihnen die _Koordinaten_ in der Form [50.27264, 7.26469] nichts und möchten
 > Sie gerne mehr zum Thema geografische Koordinaten erfahren? Dann lesen den Exkurs
-> im Kapitel [Exkurs: Geographische Koordinaten](#ExkursGeografischeKoordinaten).
+> im Kapitel _Exkurs: Geographische Koordinaten_.
 
 Sie verfügen nun über ein Leaflet Karten-Objekt,
 mit dem Sie eine Karte anzeigen können.
@@ -409,8 +358,6 @@ welches _Kartenbild_ - also welche Grafiken - es anzeigen soll.
 Dies tun Sie, indem Sie eine Schicht mit Kacheln, also einen _Tile-Layer_,
 zum Karten-Objekt hinzufügen.
 Wie Sie dies genau tun, zeige ich Ihnen im nächsten Kapitel.
-
-[](#){#FuegenSieEineSchichtMitKachelnHinzu}
 
 ### Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu
 
@@ -428,13 +375,7 @@ dass diese Kacheln normalerweise als 256 Pixel x 256 Pixel
 Images angeboten werden und warum die URL zum Aufruf der Kacheln
 die etwas kryptisch wirkenden Zeichen `/{z}/{x}/{y}.png` enthält.
 
-Ich verwende hier das Angebot von http://www.openstreetmap.org zur
-Darstellung der Karte.
-Den Programmcode zum Einbinden der Imagedateien vom OpenStreetMap
-Tile-Server habe ich für Sie im nachfolgenden Programmcodebeispiel mit einem Stern
-markiert. Die rechtlichen Voraussetzungen zur Verwendung der Kacheln des
-Openstreetmap-Servers finden Sie unter der Adresse
-https://operations.osmfoundation.org/policies/tiles.
+Ich verwende hier das Angebot von http://www.openstreetmap.org zur Darstellung der Karte. Den Programmcode zum Einbinden der Imagedateien vom OpenStreetMap Tile-Server habe ich im nachfolgenden Programmcodebeispiel eingefügt. Es ist die Zeile `L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);`. Die rechtlichen Voraussetzungen zur Verwendung der Kacheln des Openstreetmap-Servers finden Sie unter der Adresse `https://operations.osmfoundation.org/policies/tiles`.
 
 ```
  <!DOCTYPE HTML>
@@ -491,22 +432,14 @@ In der nachfolgenden Abbildung sehen Sie diese Karte – so sollte diese bei Ihn
 
 ![Ein Screenshot der eine Landkarte mit Leaflet anzeigt.](/images/997.png)
 
-_Abbildung: Ein Screenshot der eine Landkarte mit Leaflet anzeigt._
+Bevor wir die Karte nun weiter bearbeiten, sehen wir uns ein bisschen Theorie an. Falls Sie keine Theorie mögen, können sie sofort praktisch im Kapitel _Die Karte mit Daten bestücken_ weitermachen.
 
-Bevor wir die Karte nun weiter bearbeiten, sehen wir uns ein bisschen Theorie an.
-Falls Sie keine Theorie mögen, können sie sofort praktisch
-im Kapitel [Die Karte mit Daten bestücken](#DieKarteMitDatenBestuecken)
-weitermachen.
-
-[](#){#ExkursGeografischeKoordinaten}
 ##Exkurs: Geographische Koordinaten
 
 Mithilfe von Längen und Breitengraden
 können Sie die genaue Position eines jedes Punktes auf der Erdoberfläche angeben.
 
 ### Das Koordinatensystem der Erde
-
-[](#){#DasKoordinatensystemderErde}
 
 Das Grad-Netz der Erde ist ein gedachtes Koordinatensystem auf der Erdoberfläche mit sich rechtwinklig schneidenden Längen- und Breitenkreisen. Zum Aufbau dieses Koordinatensystems wird unser Erdball zunächst in 180 Breitenkreise und 360 Längenkreise eingeteilt.
 
@@ -521,8 +454,6 @@ Position auf der Erdoberfläche bestimmen kann.
 
 ![Das Gradnetz der Erde - By CIA, Niteowlneils (Public domain), via Wikimedia Commons](/images/964er.png)
 
-_Abbildung: Das Gradnetz der Erde - By CIA, Niteowlneils (Public domain), via Wikimedia Commons_
-
 Um die Genauigkeit zu erhöhen, wird jeder Breiten- und Längengrad weiter unterteilt.
 
 #### Breitengrade
@@ -532,8 +463,6 @@ verlaufen von Osten nach Westen. Vielleicht wissen Sie noch aus dem Erdkundeunte
 
 ![Breitengrade (Latitude) - By Pearson Scott Foresman (Public domain), via Wikimedia Commons](/images/964br.png)
 
-_Abbildung: Breitengrade (Latitude) - By Pearson Scott Foresman (Public domain), via Wikimedia Commons_
-
 #### Längengrade
 
 Die [Längengrade](https://de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge&oldid=182518754)[^14]
@@ -541,14 +470,11 @@ auf der Erde verlaufen von Norden nach Süden. Sie umspannen die Erde praktisch.
 
 ![Längengrade (Longitude) - By Pearson Scott Foresman (Public domain), via Wikimedia Commons](/images/964la.png)
 
-_Abbildung: Längengrade (Longitude) - By Pearson Scott Foresman (Public domain), via Wikimedia Commons_
-
 ### Schreibweisen von geografischen Koordinaten
 
 Bei der Angabe von geographischen Koordinaten wird heute normalerweise eine von zwei
 Schreibweisen verwendet: Entweder das [Sexagesimalsystem](https://de.wikipedia.org/w/index.php?title=Sexagesimalsystem&oldid=184103468)[^15],
-welches von Wikipedia
-verwendet wird, oder die Dezimalschreibweise, die von Computerprogrammen bevorzugt wird.
+welches von Wikipedia verwendet wird, oder die Dezimalschreibweise, die von Computerprogrammen bevorzugt wird.
 Im Laufe unserer Geschichte haben sich allerdings eine Menge mehr unterschiedlicher
 Systeme entwickelt.
 
@@ -626,8 +552,6 @@ unterscheiden. Im nächsten Bild sehen Sie oben eine Vektorgrafik
 und unten eine Rastergrafik.
 
 ![Vektorgrafik und Rastergrafik](/images/930.png)
-
-_Abbildung: Vektorgrafik und Rastergrafik_
 
 #### Vektoren
 
@@ -710,18 +634,9 @@ _'Kacheln'_, genannt. Jedes Quadrat ist exakt 256 Pixel x 256 Pixel groß.
 | 18         | 68 Milliarden  | 306 Meter               | 0,6 Meter            |
 | 19         | 275 Milliarden | 76 Meter                | 0,3 Meter            |
 
-Die vollständige Tabelle können Sie unter der Adresse
-[http://wiki.openstreetmap.org/wiki/Zoom_levels](https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels&oldid=1620415)[^26]
-mit weiteren Angaben im Internet abrufen.
+Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetmap.org/wiki/Zoom_levels](https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels&oldid=1620415)[^26] mit weiteren Angaben im Internet abrufen.
 
-> Vielleicht probieren Sie nun das Zoomen im vorangegangene Beispiel
-> aus und wundern sich, dass Sie die Karte nur bis zur Zoom-Stufe 18
-> vergrößern können. Das liegt daran, dass bei dieser OpenStreeMap Karte
-> standardmäßig die Option `maxZoom` mit 18 gesetzt ist.
-> Sie können diese Option jedoch überschreiben.
-> Wie das geht sehen Sie im nachfolgenden Programmcodebeispiel mit einem Stern markiert.
-> Weitere Informationen finden Sie im Kapitel zur Karte von
-> [Stamen](#idmaxZoom).
+> Vielleicht probieren Sie nun das Zoomen im vorangegangene Beispiel aus und wundern sich, dass Sie die Karte nur bis zur Zoom-Stufe 18 vergrößern können. Das liegt daran, dass bei dieser OpenStreeMap Karte standardmäßig die Option `maxZoom` mit 18 gesetzt ist. Sie können diese Option jedoch überschreiben. Wie das geht sehen Sie im nachfolgenden Programmcodebeispiel. Weitere Informationen finden Sie im Kapitel zur Karte von _Stamen_.
 
 ```
  <!DOCTYPE HTML>
@@ -747,16 +662,9 @@ mit weiteren Angaben im Internet abrufen.
 <!--index_995a.html-->
 ```
 
-> Vielleicht sind Sie es gewohnt, bei der
-> Darstellung von Landkarten in den Zahlen eines Maßstabs zu denken?
-> Bei digitalen Karten gibt es keinen Maßstab im Sinne einer
-> Papierkarte, weil die Druckauflösung nicht bekannt ist und ein
-> Maßstab hiervon abhängt. Ein Maßstab kann immer nur relativ zur
-> Auflösung angegeben werden.
+> Vielleicht sind Sie es gewohnt, bei der Darstellung von Landkarten in den Zahlen eines Maßstabs zu denken? Bei digitalen Karten gibt es keinen Maßstab im Sinne einer Papierkarte, weil die Druckauflösung nicht bekannt ist und ein Maßstab hiervon abhängt. Ein Maßstab kann immer nur relativ zur Auflösung angegeben werden.
 
 ### Wie weiß Leaflet welche der vielen Kacheln angezeigt werden sollen?
-
-[](#){#EineKarteMitLeafletErstellenWieweissLeafletWelcheKartenangezeigtwerdensollen}
 
 Nun haben wir jede Menge Kacheln und möchten mit diesen eine digitale Karte auf
 unserer Website anzeigen. Woher weiß Leaflet, welche Kacheln, also welche Bilddatei, es vom verlinkten Server
@@ -778,34 +686,22 @@ das befolgt werden kann, um sicherzustellen, dass die richtigen Kacheln vom Serv
 geladen werden und vom Browser des Clients an der richtigen Stelle angezeigt werden.
 
 Im Kapitel
-[Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu](#FuegenSieEineSchichtMitKachelnHinzu)
-hatten wir die URL für den Tile Server mit
-`http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png` angegeben.
+_Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_ hatten wir die URL für den Tile Server mit `http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png` angegeben.
 
-Der Teil `{z}/{x}/{y}` des Pfades zur PNG-Datei enthält Variablen aus
-denen der Namen der Bilddatei berechnet werden kann.
+Der Teil `{z}/{x}/{y}` des Pfades zur PNG-Datei enthält Variablen aus denen der Namen der Bilddatei berechnet werden kann.
 
 - `{z}` bezeichnet die zu ladende Zoom-Stufe.
 - `{x}` bezeichnet die Position auf der x-Achse der Kachel.
 - `{y}` bezeichnet die Position auf der y-Achse.
 - `{s}` steht für eine optionale Subdomain.
 
-Zum Beispiel wird das Bild für die niedrigste Zoom-Stufe –
-also das Bild welches den größten Bereich pro Pixel anzeigt –
-unter dem Dateinamen `0/0/0.png` abgespeichert.
+Zum Beispiel wird das Bild für die niedrigste Zoom-Stufe – also das Bild welches den größten Bereich pro Pixel anzeigt – unter dem Dateinamen `0/0/0.png` abgespeichert.
 
 ![Das Bild für die niedrigste Zoom-Stufe `0/0/0.png`.](/images/998.png)
 
-_Abbildung: Das Bild für die niedrigste Zoom-Stufe `0/0/0.png`._
+Die vollständige URL dieses Kachelbildes auf dem Openstreetmap Server ist `http://a.tile.openstreetmap.org/0/0/0.png`. Probieren Sie es, klicken Sie den Link an oder öffnen Sie selbst die Adresse http://a.tile.openstreetmap.org/0/0/0.png in Ihrem Internetbrowser.
 
-Die vollständige URL dieses Kachelbildes auf dem Openstreetmap
-Server ist `http://a.tile.openstreetmap.org/0/0/0.png`.
-Probieren Sie es, klicken Sie den Link an oder öffnen Sie selbst die Adresse
-http://a.tile.openstreetmap.org/0/0/0.png in Ihrem Internetbrowser.
-
-> Tiefer gehend können Sie das Thema auf
-> der Website von OpenStreetMap, genau unter der Adresse
-> [http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames](https://wiki.openstreetmap.org/w/index.php?title=Slippy_map_tilenames&oldid=1706759)[^27],
+> Tiefer gehend können Sie das Thema auf der Website von OpenStreetMap, genau unter der Adresse [http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames](https://wiki.openstreetmap.org/w/index.php?title=Slippy_map_tilenames&oldid=1706759)[^27],
 > nachlesen.
 
 Bei der Zoom-Stufe 1 sind die Kacheln,
@@ -813,30 +709,20 @@ wie in der nachfolgenden Grafik dargestellt, angeordnet.
 
 ![Ein Bild mit allen Kacheln für die zweitniedrigste Zoom-Stufe.](/images/998a.png)
 
-_Abbildung: Ein Bild mit allen Kacheln für die zweitniedrigste Zoom-Stufe._
-
 Unter der Adresse [http://a.tile.openstreetmap.org/1/0/0.png](http://a.tile.openstreetmap.org/1/0/0.png)
 finden sie die Grafik, die sich in der Abbildung links oben befindet.
 
 ## Schöne Kartenlayer
-
-[](#){#EineKarteMitLeafletErstellenSchoeneKartenlayer}
 
 Nachdem das Erstellen der ersten Karte so einfach vonstatten ging fragen Sie sich sicher,
 ob es genauso einfach ist eine alternative Darstellung – also
 Kacheln eines anderen Providers – zu verwenden.
 Die Antwort ist: Ja, meist ist es ist genauso einfach!
 
-Ich zeige Ihnen dies hier anhand von zwei weiteren Providern,
-nämlich [thunderforest.com](https://www.thunderforest.com)[^28] und
-[stamen.com](https://stamen.com)[^29]. Im Kapitel
-[ESRI - Environmental Systems Research Institute](#EnvironmentalSystemsResearchInstituteBasemaps) finden Sie
-weitere Beispiele.
+Ich zeige Ihnen dies hier anhand von zwei weiteren Providern, nämlich [thunderforest.com](https://www.thunderforest.com)[^28] und
+[stamen.com](https://stamen.com)[^29]. Im Kapitel _ESRI - Environmental Systems Research Institute_ finden Sie weitere Beispiele.
 
-> Mögen Sie die Karten von [GoogleMaps](https://www.google.com/maps)[^30] und möchten Sie gerne die Kacheln von
-> Google für Ihre digitale Karte nutzen? Wenn Sie dies zusammen mit
-> Leaflet tun möchten, können Sie dies mithifle des Plugins
-> [L.GridLayer.GoogleMutant](https://gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant)[^31].
+> Mögen Sie die Karten von [GoogleMaps](https://www.google.com/maps)[^30] und möchten Sie gerne die Kacheln von Google für Ihre digitale Karte nutzen? Wenn Sie dies zusammen mit Leaflet tun möchten, können Sie dies mithifle des Plugins [L.GridLayer.GoogleMutant](https://gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant)[^31].
 
 ### Thunderforest
 
@@ -861,51 +747,31 @@ abgelegt. Die Transportvariante finden Sie unter der Adresse
 
 Nachfolgende Übersicht zeigt Ihnen die verschiedenen Kartenstile von Thunderforest.
 
-![.](/images/997pioneer.png)
-
-_Abbildung: pioneer_
+![pioneer](/images/997pioneer.png)
 
 ---
 
-![.](/images/997cycle.png)
-
-_Abbildung: cycle_
+![cycle](/images/997cycle.png)
 
 ---
 
-![.](/images/997transport.png)
-
-_Abbildung: transport._
+![transport](/images/997transport.png)
 
 ---
 
-![.](/images/997outdoors.png)
-
-_Abbildung: outdoors._
+![outdoors](/images/997outdoors.png)
 
 ---
 
-![.](/images/997transportdark.png)
-
-_Abbildung: transport-dark._
+![transport-dark](/images/997transportdark.png)
 
 ---
 
-![.](/images/997mobileatlas.png)
-
-_Abbildung: mobile-atlas._
+![mobile-atlas](/images/997mobileatlas.png)
 
 ---
 
-![.](/images/997outdoors.png)
-
-_Abbildung: outdoors._
-
----
-
-![.](/images/997neigborhood.png)
-
-_Abbildung: neigborhood._
+![neigborhood](/images/997neigborhood.png)
 
 ---
 
@@ -936,25 +802,17 @@ Beispiel.
 
 ### Stamen
 
-Stamen legt den Schwerpunkt auf gutes Design.
-Informationen zu den Karten von Stamen finden Sie auf der
-Website [http://maps.stamen.com](http://maps.stamen.com).
-Die Übersicht zeigt Ihnen drei Kartenstile von Stamen.
+Stamen legt den Schwerpunkt auf gutes Design. Informationen zu den Karten von Stamen finden Sie auf der Website [http://maps.stamen.com](http://maps.stamen.com). Die Übersicht zeigt Ihnen drei Kartenstile von Stamen.
 
-![.](/images/996watercolor.png)
-_Abbildung: watercolor._
+![watercolor](/images/996watercolor.png)
 
 ---
 
-![.](/images/996toner.png)
-
-_Abbildung: toner._
+![toner](/images/996toner.png)
 
 ---
 
-![.](/images/996terrant.png)
-
-_Abbildung: terraint._
+![terraint](/images/996terrant.png)
 
 ---
 
@@ -985,13 +843,7 @@ können Sie im nachfolgenden Programmcodebeispiel ablesen.
 <!--index_993.html-->
 ```
 
-[](#){#idmaxZoom}
-
-> **Achtung:**  
-> Der `StamenTileLayer` unterstützt nicht alle Zoom-Stufen.
-> Wenn Sie den Typ `watercolor` verwenden, sehen Sie zum Beispiel mit
-> der Zoom-Stufe 19 eine leere graue Fläche. Um dies zu verhindern können Sie
-> die Optionen des `StamenTileLayer` überschreiben.
+> **Achtung:** Der `StamenTileLayer` unterstützt nicht alle Zoom-Stufen. Wenn Sie den Typ `watercolor` verwenden, sehen Sie zum Beispiel mit der Zoom-Stufe 19 eine leere graue Fläche. Um dies zu verhindern können Sie die Optionen des `StamenTileLayer` überschreiben.
 
 - Setzten Sie dafür nach der Instanziierung die Options `maxZoom` auf 19. So
   bleibt die Zoom-Stufe 19 als Ebene auf der Karte erhalten.
@@ -1011,12 +863,9 @@ layer.options.maxNativeZoom = 18;
 
 ESRI ist ein weiterer Anbieter von Basiskarten.
 Was ESRI genau ist und wie Sie die Karten dieses Institius einbinden können
-erkläre ich Ihnen im Kapitel zu [ESRI](#EnvironmentalSystemsResearchInstitute).
+erkläre ich Ihnen im Kapitel zu _ESRI_.
 
-> Haben Sie noch nicht den Kartenstil gefunden, den Sie suchen oder sind Sie einfach nur
-> neugierig, welche Karten sonst noch angeboten werden? Verweise auf
-> weitere Tile-Server-Provider finden Sie unter der Adresse:
-> [http://wiki.openstreetmap.org/wiki/Tiles](https://wiki.openstreetmap.org/w/index.php?title=Tiles&oldid=1550873)[^33].
+> Haben Sie noch nicht den Kartenstil gefunden, den Sie suchen oder sind Sie einfach nur neugierig, welche Karten sonst noch angeboten werden? Verweise auf weitere Tile-Server-Provider finden Sie unter der Adresse: [http://wiki.openstreetmap.org/wiki/Tiles](https://wiki.openstreetmap.org/w/index.php?title=Tiles&oldid=1550873)[^33].
 
 ## Images als Layer – Web-Map-Service
 
@@ -1097,11 +946,7 @@ allgemein finden Sie unter der Adresse
 im Internet. Ausführliche Informationen zu den möglichen Funktionen
 eines Geoservers finden Sie unter [http://docs.geoserver.org](http://docs.geoserver.org).
 
-Ich möchte Sie hier an dieser Stelle nicht mit trockenen Dokumentationen
-von Web Services langweilen.
-Viel lieber zeige ich Ihnen ein praktisches Beispiel.
-Im nachfolgenden Programmcodeausschnitt sehen Sie die wesentlichen
-Zeilen mit einem Stern markiert.
+Ich möchte Sie hier an dieser Stelle nicht mit trockenen Dokumentationen von Web Services langweilen. Viel lieber zeige ich Ihnen ein praktisches Beispiel. Im nachfolgenden Programmcodeausschnitt sehen Sie die wesentlichen Zeilen.
 
 ```
  <!DOCTYPE HTML>
@@ -1124,18 +969,21 @@ Zeilen mit einem Stern markiert.
 <!--index_992.html-->
 ```
 
-Wenn Sie dieses Beispiel mit dem Laden eines `L.tileLayer`
-ohne WMS vergleichen, ist eigentlich nur eine Zeile anders.
+Wenn Sie dieses Beispiel mit dem Laden eines `L.tileLayer` ohne WMS vergleichen, ist eigentlich nur eine Zeile anders.
 
 Anstelle der Zeile
 
-`**L.tileLayer**('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);`
+```
+L.tileLayer**('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);
+```
 
 haben wir
 
-`**L.tileLayer.wms**("https://maps.dwd.de/geoserver/dwd/wms", {`
-`layers:'dwd:bluemarble',`
-`}).addTo(mymap);`
+```
+L.tileLayer.wms**("https://maps.dwd.de/geoserver/dwd/wms", {
+layers:'dwd:bluemarble',
+}).addTo(mymap);
+```
 
 eingefügt.
 
@@ -1156,8 +1004,6 @@ können Sie ein Satellitenbild zu Ihrer Karte hinzufügen.
 Wie das genau aussieht, sehen Sie im nachfolgenden Bild.
 
 ![Ein Satellitenbild, das über einen WMS-Service geladen wurde.](/images/942.png)
-
-_Abbildung: Ein Satellitenbild, das über einen WMS-Service geladen wurde._
 
 ### L.tileLayer.wms über L.tileLayer.wms
 
@@ -1210,17 +1056,11 @@ unterstützt keine Transparenz.
 
 ![Mehrere Layer, die über einen WMS-Service geladen wurde.](/images/994.png)
 
-_Abbildung: Mehrere Layer, die über einen WMS-Service geladen wurde._
-
 ![Mehrere Layer, die über einen WMS-Service geladen wurde.](/images/994a.png)
-
-_Abbildung: Mehrere Layer, die über einen WMS-Service geladen wurde._
 
 ### L.tileLayer.wms und L.tileLayer zusammen auf einer Karte
 
-Das nachfolgende Beispiel zeigt Ihnen, wie Sie einen
-`L.tileLayer` mit einem `L.tileLayer.wms` kombinieren können.
-[](#){#Kartemitwarnhinweisendesdwd}
+Das nachfolgende Beispiel zeigt Ihnen, wie Sie einen `L.tileLayer` mit einem `L.tileLayer.wms` kombinieren können.
 
 ```
  <!DOCTYPE HTML>
@@ -1263,8 +1103,6 @@ Die nachfolgende Abbildung zeigt Ihnen die zwei
 `L.tileLayer.wms` Layer über dem `L.tileLayer` Layer.
 
 ![Zwei `L.tileLayer.wms` Layer über dem `L.tileLayer` Layer.](/images/994b.png)
-
-_Abbildung: Zwei `L.tileLayer.wms` Layer über dem `L.tileLayer` Layer._
 
 > **Achtung:**
 > Wenn auf Ihrer Karte

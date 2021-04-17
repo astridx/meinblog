@@ -73,19 +73,11 @@ die das Esri anbietet, auf Ihrer Website als Leaflet Karte anzeigen.
 
 ### Basemaps und optionale Layer von ESRI
 
-[](#){#EnvironmentalSystemsResearchInstituteBasemaps}
-Sie möchten Basemaps von ESRI verwenden.
-Wir haben im Kapitel [Schöne Kartenlayer](#EineKarteMitLeafletErstellenSchoeneKartenlayer) schon Karten von anderen Kartenanbietern
-eingebunden.
-Dieses Kapitel erweitert die Erklärungen im Kapitel
-[Schöne Kartenlayer](#EineKarteMitLeafletErstellenSchoeneKartenlayer) um
-ein weiteres Beispiel – nämlich die Karten des
-ESRI Instituts.
+Sie möchten Basemaps von ESRI verwenden. Wir haben im Kapitel _Schöne Kartenlayer_ schon Karten von anderen Kartenanbietern eingebunden. Dieses Kapitel erweitert die Erklärungen im Kapitel _Schöne Kartenlayer_ um ein weiteres Beispiel – nämlich die Karten des ESRI Instituts.
 
 #### Basemaps
 
-Basemaps von ESRI bieten eine weltweite Abdeckung bei einer Vielzahl von Zoom Stufen.
-Dabei können die folgenden Themenbereiche wählen.
+Basemaps von ESRI bieten eine weltweite Abdeckung bei einer Vielzahl von Zoom Stufen. Dabei können die folgenden Themenbereiche wählen.
 
 - Streets
 - Topographic
@@ -98,11 +90,7 @@ Dabei können die folgenden Themenbereiche wählen.
 - Terrain
 - USATopo (Diese Karte wird nur für die USA angeboten)
 
-Wenn Ihnen eine der Basiskarten grundsätzlich gut gefällt,
-diese Ihnen aber zu wenig Informationen bietet, können Sie weitere optionale
-Ebenen über diese Basisebene einblenden.
-ESRI bietet speziell für jede Basisebene eine optionale Ebene
-mit weiteren Informationen.
+Wenn Ihnen eine der Basiskarten grundsätzlich gut gefällt, diese Ihnen aber zu wenig Informationen bietet, können Sie weitere optionale Ebenen über diese Basisebene einblenden. ESRI bietet speziell für jede Basisebene eine optionale Ebene mit weiteren Informationen.
 
 #### Optionale Label Layer
 
@@ -124,14 +112,7 @@ Dokumentation des Leaflet Plugins nachlesen.
 Genau finden Sie diese Informationen unter der Adresse
 [https://esri.github.io/esri-leaflet](https://esri.github.io/esri-leaflet/api-reference/layers/basemap-layer.html)[^5].
 
-> Wenn Sie möchten, können Sie die Anzeige von
-> Basemaps bei höheren Auflösungen auf Retina-Geräten mit der Option
-> `detectRetina` optimal einstellen. Im nachfolgenden Programmcodeausschnitt wird die
-> Basemap auf einem Retina Display in Retina-Auflösungen ausgegeben.
-> Was ein Retina Display ist, habe ich Ihnen im Kapitel
-> [Custom Markers](#RetinaDisplay) in einem Hinweis erklärt.
-> Die [Option `detectRetina`](http://leafletjs.com/reference-1.2.0.html#tilelayer-detectretina)[^6]
-> ist eine Leaflet Funktion.
+> Wenn Sie möchten, können Sie die Anzeige von Basemaps bei höheren Auflösungen auf Retina-Geräten mit der Option `detectRetina` optimal einstellen. Im nachfolgenden Programmcodeausschnitt wird die Basemap auf einem Retina Display in Retina-Auflösungen ausgegeben. Was ein Retina Display ist, habe ich Ihnen im Kapitel _Custom Markers_ in einem Hinweis erklärt. Die [Option `detectRetina`](http://leafletjs.com/reference-1.2.0.html#tilelayer-detectretina)[^6] ist eine Leaflet Funktion.
 
 ```
 ...
@@ -141,13 +122,7 @@ detectRetina: true
 ...
 ```
 
-Wenn Sie die Option `detectRetina` mit `true` belegt haben und
-ein Website-Besucher Ihre Karte auf einem Geräte mit einem Retina-Display öffnet,
-wird Leaflet anstelle der Bilddateien zur aktuellen Zoom-Stufe
-die vierfache Anzahl der Bildkacheln der nächsthöheren Zoom-Stufe anfordern
-und anzeigen. Wie die Bilddateien für eine Zoom-Stufe berechnet werden,
-können Sie im Kapitel [Wie weiß Leaflet welche Kacheln angezeigt werden sollen](#EineKarteMitLeafletErstellenWieweissLeafletWelcheKartenangezeigtwerdensollen)
-nachlesen.
+Wenn Sie die Option `detectRetina` mit `true` belegt haben und ein Website-Besucher Ihre Karte auf einem Geräte mit einem Retina-Display öffnet, wird Leaflet anstelle der Bilddateien zur aktuellen Zoom-Stufe die vierfache Anzahl der Bildkacheln der nächsthöheren Zoom-Stufe anfordern und anzeigen. Wie die Bilddateien für eine Zoom-Stufe berechnet werden, können Sie im Kapitel _Wie weiß Leaflet welche Kacheln angezeigt werden sollen_ nachlesen.
 
 ### Ein erstes Beispiel
 
@@ -206,13 +181,9 @@ gray – einmal mit und einmal ohne optionale Ebene.
 
 ![Die Basiskarte Gray mit optionale Ebene](/images/943.png)
 
-_Abbildung: Die Basiskarte Gray mit optionale Ebene._
-
 ---
 
 ![Die Basiskarte Gray ohne optionale Ebene](/images/944.png)
-
-_Abbildung: Die Basiskarte Gray ohne optionale Ebene._
 
 ### Unterschiedliche Basemaps auswählen
 
@@ -281,8 +252,6 @@ die dieser am schönsten findet, für seine Ansicht zu aktivieren.
 
 ![Dieses Bild zeigt die ESRI Basiskarte Imagery.](/images/942.png)
 
-_Abbildung: Dieses Bild zeigt die ESRI Basiskarte Imagery._
-
 ## Shapefiles
 
 Das Dateiformat Shapefile wurde von der Firma ESRI für die Software ArcView entwickelt.
@@ -343,37 +312,17 @@ Anbietern von Shapefiles.
 > testen kann. Eine dieser Websites ist
 > [http://leaflet.calvinmetcalf.com](http://leaflet.calvinmetcalf.com)[^8].
 
-![Test eines Shapefiles mithilfe der Website [http://leaflet.calvinmetcalf.com](http://leaflet.calvinmetcalf.com).](/images/969.png)
-
-_Abbildung: Test eines Shapefiles mithilfe der Website [http://leaflet.calvinmetcalf.com](http://leaflet.calvinmetcalf.com). Das getestet Shapefile `vg2500_geo84.zip` finden Sie in den Beispieldateien _
+![Test eines Shapefiles mithilfe der Website [http://leaflet.calvinmetcalf.com](http://leaflet.calvinmetcalf.com). Das getestet Shapefile `vg2500_geo84.zip` finden Sie in den Beispieldateien.](/images/969.png)
 
 ### Wie binden Sie Shapefiles in Ihre Leaflet Karte ein?
 
 #### Deutsche Verwaltungsgrenzen als Shapefile in der Leaflet Karte
 
-Die Shape Datei, die ich im nächsten Beispiel verwende, habe ich von der
-Website [https://www.arcgis.com](https://www.arcgis.com/home/item.html?id=ae25571c60d94ce5b7fcbf74e27c00e0)[^9] kopiert.
-Die Firma ESRI bietet auf dieser Website mit ArcGIS ein Geoinformationssystem,
-dass die Verwendung, Erstellung und Freigabe von Geodaten einfach macht.
-Ich habe mir den oben verlinkten Datensatz mit den Verwaltungsgrenzen
-von Deutschland kopiert. Die Datei landet unter dem Namen `vg2500_geo84.zip`
-bei mir auf dem Computer.
+Die Shape Datei, die ich im nächsten Beispiel verwende, habe ich von der Website [https://www.arcgis.com](https://www.arcgis.com/home/item.html?id=ae25571c60d94ce5b7fcbf74e27c00e0)[^9] kopiert. Die Firma ESRI bietet auf dieser Website mit ArcGIS ein Geoinformationssystem, dass die Verwendung, Erstellung und Freigabe von Geodaten einfach macht. Ich habe mir den oben verlinkten Datensatz mit den Verwaltungsgrenzen von Deutschland kopiert. Die Datei landet unter dem Namen `vg2500_geo84.zip` bei mir auf dem Computer.
 
-![Download eines Shapefiles von der Adresse https://www.arcgis.com.](/images/970.png)
+![Download eines Shapefiles von der Adresse arcgis.com.](/images/970.png)
 
-_Abbildung: Download eines Shapefiles von der Adresse arcgis.com._
-
-Wie ich die Shape Datei mit Leaflet in eine Karte integriere,
-zeigt Ihnen das nachfolgende Beispiel.
-Natürlich gibt es dafür auch wieder ein Leaflet Plugin.
-Die Website zum Plugin `Leaflet.Shapefile` finden Sie auf Github unter
-der Adresse
-[https://github.com/calvinmetcalf/leaflet.shapefile](https://github.com/calvinmetcalf/leaflet.shapefile).
-Die Datei zum Plugin heißt `leaflet.shpfile.js`.
-Der gleiche Entwickler bietet auch ein Skript zum Analysieren
-der Shape Datei unter der Adresse
-[https://github.com/calvinmetcalf/shapefile-js](https://github.com/calvinmetcalf/shapefile-js) an.
-Diese Datei heißt `shp.js`. Diese beiden Dateien müssen Sie in Ihre HTML-Datei einbinden.
+Wie ich die Shape Datei mit Leaflet in eine Karte integriere, zeigt Ihnen das nachfolgende Beispiel. Natürlich gibt es dafür auch wieder ein Leaflet Plugin. Die Website zum Plugin `Leaflet.Shapefile` finden Sie auf Github unter der Adresse [https://github.com/calvinmetcalf/leaflet.shapefile](https://github.com/calvinmetcalf/leaflet.shapefile). Die Datei zum Plugin heißt `leaflet.shpfile.js`. Der gleiche Entwickler bietet auch ein Skript zum Analysieren der Shape Datei unter der Adresse [https://github.com/calvinmetcalf/shapefile-js](https://github.com/calvinmetcalf/shapefile-js) an. Diese Datei heißt `shp.js`. Diese beiden Dateien müssen Sie in Ihre HTML-Datei einbinden.
 
 ```
  <!DOCTYPE HTML>
@@ -399,29 +348,29 @@ Diese Datei heißt `shp.js`. Diese beiden Dateien müssen Sie in Ihre HTML-Datei
 <!--index_943.html-->
 ```
 
-Die vier mit dem Stern markierten Zeilen zeigen schon alles Notwendige.
-Und was haben wir genau gemacht? Im Kopfbereich unserer Beispiel HTML-Datei
-haben wir zwei Skripte eingebunden. Einmal das Skript `leaflet.shpfile.js`
-zum Leaflet Plugin und dann das Skript `shp.js` zum Analysieren der Shape Datei.
-Danach haben wir mit der Zeile `var shpfile = new L.Shapefile('vg2500_geo84.zip')`
-eine Ebene mit den Daten der Shape Datei erstellt.
-Zum Schluss haben wir diese Ebene zum Kartenobjekt hinzugefügt: `shpfile.addTo(mymap)`.
+Die Zeilen
 
-Als Ergebnis sehen Sie nun alle Verwaltungsgrenzen,
-also die reinen Geometrien.
-Eigenschaften, die in der Shape Datei enthalten sind,
-werden in diesem Beispiel noch nicht angezeigt.
-Das Anzeigen von Eigenschaften und das Zuordnen anderer Stile habe
-ich für das nächste Beispiel aufgehoben.
+```
+...
+<script src="shp.js"></script>
+<script src="leaflet.shpfile.js"></script>
+...
+var shpfile = new L.Shapefile('vg2500_geo84.zip');
+shpfile.addTo(mymap);
+...
+```
+
+zeigen schon alles Notwendige.
+
+Und was haben wir genau gemacht? Im Kopfbereich unserer Beispiel HTML-Datei haben wir zwei Skripte eingebunden. Einmal das Skript `leaflet.shpfile.js` zum Leaflet Plugin und dann das Skript `shp.js` zum Analysieren der Shape Datei. Danach haben wir mit der Zeile `var shpfile = new L.Shapefile('vg2500_geo84.zip')` eine Ebene mit den Daten der Shape Datei erstellt. Zum Schluss haben wir diese Ebene zum Kartenobjekt hinzugefügt: `shpfile.addTo(mymap)`.
+
+Als Ergebnis sehen Sie nun alle Verwaltungsgrenzen, also die reinen Geometrien. Eigenschaften, die in der Shape Datei enthalten sind, werden in diesem Beispiel noch nicht angezeigt. Das Anzeigen von Eigenschaften und das Zuordnen anderer Stile habe ich für das nächste Beispiel aufgehoben.
 
 ![Eine Karte auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird.](/images/967.png)
 
-_Abbildung: Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird._
-
 #### Deutsche Verwaltungsgrenzen mit Optionen
 
-Im nächsten Beispiel sehen Sie,
-wie Sie das Aussehen der Formen in der Shape Datei beeinflussen könne.
+Im nächsten Beispiel sehen Sie, wie Sie das Aussehen der Formen in der Shape Datei beeinflussen könne.
 
 ```
  <!DOCTYPE HTML>
@@ -462,16 +411,11 @@ bei einer Transparenz von 75 Prozent.
 
 Das rot gefärbte Deutschland können Sie sich in der nächsten Abbildung ansehen.
 
-![Eine Karte auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird.](/images/968.png)
-
-_Abbildung: Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird. In diesem Beispiel wurden die Farben geändert._
+![Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird. In diesem Beispiel wurden die Farben geändert.](/images/968.png)
 
 #### Ein Pop-up-Fenster
 
-Schön wäre es, wenn man für jede Verwaltungseinheit
-den Namen in einem Pop-up Fenster angezeigt bekommen würde –
-und zwar genau dann, wenn man die Fläche auf der Karte anklickt.
-Im nächsten Beispiel sehen Sie, wie Sie dies umsetzen können.
+Schön wäre es, wenn man für jede Verwaltungseinheit den Namen in einem Pop-up Fenster angezeigt bekommen würde – und zwar genau dann, wenn man die Fläche auf der Karte anklickt. Im nächsten Beispiel sehen Sie, wie Sie dies umsetzen können.
 
 ```
  <!DOCTYPE HTML>
@@ -513,9 +457,7 @@ Auf diese Art und Weise können Sie auch
 das Aussehen einer Form, abhängig vom Wert eines Attributes
 gestalten.
 
-![Eine Karte auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird.](/images/966.png)
-
-_Abbildung: Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird. In diesem Beispiel wird der Name der Verwaltungseinheit angezeigt, wenn man mit der Maus die entsprechende Form anklickt._
+![Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird. In diesem Beispiel wird der Name der Verwaltungseinheit angezeigt, wenn man mit der Maus die entsprechende Form anklickt.](/images/966.png)
 
 #### Ein Pop-up-Fenster mit allen Informationen des Features
 
@@ -575,9 +517,7 @@ Text zum Layer hinzu.
 Als Ergebnis sehen Sie alle möglichen Schlüssel-Wert-Paare
 in einem Pop-up Fenster über Ihrer Karte, sobald Sie eine Fläche anklicken.
 
-![Eine Karte auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird.](/images/965.png)
-
-_Abbildung: Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird. In diesem Beispiel werden alle Informationen zur Verwaltungseinheit angezeigt, wenn man mit der Maus die entsprechende Form anklickt._
+![Eine Karte, auf der ein Shapefile, dass die deutschen Verwaltungsgrenzen enthält, angezeigt wird. In diesem Beispiel werden alle Informationen zur Verwaltungseinheit angezeigt, wenn man mit der Maus die entsprechende Form anklickt.](/images/965.png)
 
 ## ESRI Services
 
@@ -706,9 +646,7 @@ ich Ihnen weiter oben schon genannt.
 Die nachfolgende Abbildung zeigt Ihnen alle
 – im Web Service Behindertenparkplätze des Geoportals Köln eingetragenen – Parkplätze.
 
-![Eine Karte, auf der die Behindertenparkplatze in der Stadt Köln mithilfe eines Webservices angezeigt werden.](/images/938.png)
-
-_Abbildung: Eine Karte auf der die Behindertenparkplatze in der Stadt Köln mithilfe eines Webservices angezeigt werden. Sie können Informationen zum Parkplatz in einem Pop-up einsehen._
+![Eine Karte auf der die Behindertenparkplatze in der Stadt Köln mithilfe eines Webservices angezeigt werden. Sie können Informationen zum Parkplatz in einem Pop-up einsehen.](/images/938.png)
 
 ### Geocoding
 
@@ -836,8 +774,6 @@ die sie aber als nützlich ansehen.
 
 ![Nach Eingabe einer Adresse den passenden Ort auf der Karte finden.](/images/937.png)
 
-_Abbildung: Nach Eingabe einer Adresse den passenden Ort auf der Karte finden._
-
 #### Mithilfe eines Parameters in der URL den passenden Ort finden
 
 Manchmal kommt es vor, dass Sie eine Karte schon an einer bestimmten Adresse zentriert öffnen möchten. Wie Sie so etwas umsetzten können, zeigt Ihnen das nächste Beispiel.
@@ -953,8 +889,6 @@ nachfolgenden Abbildung dargestellte Karte angezeigt.
 
 ![Mithilfe eines Parameters in der URL den passenden Ort finden.](/images/936.png)
 
-_Abbildung: Mithilfe eines Parameters in der URL den passenden Ort finden._
-
 #### Nach Klick auf die Karte die passende Adresse ausgeben
 
 Umgekehrtes Geocoding ist die Bezeichnung für die Umwandlung geografischer Koordinaten in,
@@ -1011,8 +945,6 @@ in einem Pop-up zum Marker angezeigt.
 Wie dieses Pop-up aussieht, können Sie sich in der nächsten Abbildung ansehen.
 
 ![Nach Klick auf die Karte die passende Adresse ausgeben.](/images/936.png)
-
-_Abbildung: Nach Klick auf die Karte die passende Adresse ausgeben._
 
 Die Dokumentation zum ESRI Reverse Geocoding finden Sie unter der Internetadresse
 [http://esri.github.io/](http://esri.github.io/esri-leaflet/api-reference/tasks/reverse-geocode.html][^23].
@@ -1121,9 +1053,7 @@ Das Ergebnis sehen Sie in der nächsten Abbildung.
 Wenn Sie in der Auswahlliste den Eintrag _Schiefer_ auswählen,
 werden nur die Regionen in denen Schiefer vorkommt, auf der Karte als Bereich angezeigt.
 
-![Karte zur Veranschaulichung der Bodengeologie mithilfe eines [Feature Layer Service](https://esri.github.io/esri-leaflet/api-reference/services/feature-layer-service.html).](/images/935a.png)
-
-_Abbildung: Karte zur Veranschaulichung der Bodengeologie mithilfe eines [Feature Layer Service](https://esri.github.io/esri-leaflet/api-reference/services/feature-layer-service.html)._
+![Karte zur Veranschaulichung der Bodengeologie mithilfe eines Feature Layer Service.](/images/935a.png)
 
 #### Abstand visualisieren
 
@@ -1189,17 +1119,11 @@ Das Ergebnis sehen Sie im nächsten Bild.
 Sobald Sie einen Punkt auf der Karte anklicken, werden alle Geologien im Abstand
 von 5000 Metern um die angeklickte Stelle rot hervorgehoben.
 
-![Karte zur Veranschaulichung der Bodengeologie mithilfe eines [Feature Layer Service](https://esri.github.io/esri-leaflet/api-reference/services/feature-layer-service.html).](/images/935b.png)
-
-_Abbildung: Karte zur Veranschaulichung der Bodengeologie mithilfe eines [Feature Layer Service](https://esri.github.io/esri-leaflet/api-reference/services/feature-layer-service.html). Außerdem werden per Klick die Bodengeologien die in einem bestimmten Abstand zur angeklickten Position liegen farblich hervorgehoben._
+![Karte zur Veranschaulichung der Bodengeologie mithilfe eines [Feature Layer Service](https://esri.github.io/esri-leaflet/api-reference/services/feature-layer-service.html). Außerdem werden per Klick die Bodengeologien die in einem bestimmten Abstand zur angeklickten Position liegen farblich hervorgehoben.](/images/935b.png)
 
 ## In diesem Kapitel haben wir …
 
-In diesem Teil haben wir uns als erstes die Karten,
-die ESRI anbietet, angesehen.
-Danach haben wir mit einem Shapefile gearbeitet und ESRI Webservices genutzt.
-Sie wissen nun was ein `L.esri.DynamicMapLayer,`
-was Geocoding und was ein `L.esri.FeatureLayer` ist.
+In diesem Teil haben wir uns als erstes die Karten, die ESRI anbietet, angesehen. Danach haben wir mit einem Shapefile gearbeitet und ESRI Webservices genutzt. Sie wissen nun was ein `L.esri.DynamicMapLayer,` was Geocoding und was ein `L.esri.FeatureLayer` ist.
 
 [^1]: https://de.wikipedia.org/w/index.php?title=Geoinformationssystem&oldid=183596912 (https://bit.ly/2EXsUOo)
 [^2]: https://de.wikipedia.org/w/index.php?title=Shapefile&oldid=183295349 (https://bit.ly/2rYJGnL)

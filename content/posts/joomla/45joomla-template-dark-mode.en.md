@@ -79,6 +79,70 @@ Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit 
              <jdoc:include type="modules" name="menu" />
 ```
 
+## Side Note: Dark Mode depending on the position of the sun
+
+An interesting idea is to switch the dark mode depending on the position of the sun at the viewer: As soon as the sun sets on the viewer's side, the dark mode should kick in. Not only time and date play a role, but also the geo position. I found a possible implementation on [Codepen](https://codepen.io/ljardin/pen/jOyzwbN).
+
+First of all, CSS variables are set.
+
+```css
+html {
+  --text-color: #2f2f2f;
+  --bg-color: #fff;
+}
+
+html[data-theme='dark'] {
+  --text-color: #fff;
+  --bg-color: #2f2f2f;
+}
+
+body {
+  colour: var(--text-color);
+  background: var(--bg-color);
+}
+```
+
+These CSS variables are used to switch JavaScript, which queries the time zone, on and off.
+
+```js
+// Get Current ClientTime
+let clientTimes = new Date()
+let currentTime = clientTimes.getHours() + clientTimes.getMinutes() / 100
+
+let options = {
+  enableHighAccuracy: true,
+  timeout: 3000,
+  maximumAge: 30000,
+}
+
+let success = (pos) => {
+  // Get Location
+  let lat = pos.coords.latitude
+  let long = pos.coords.longitude
+
+  // Get Sunset && Sunrise Time for Location based on SunsetCalc (https://github.com/mourner/suncalc)
+  let sunTimes = SunCalc.getTimes(new Date(), lat, long)
+  let sunsetTime =
+    sunTimes.sunset.getHours() + sunTimes.sunset.getMinutes() / 100
+  let sunriseTime =
+    sunTimes.sunrise.getHours() + sunTimes.sunrise.getMinutes() / 100
+
+  // Add Data-Attribut to HTMl if sunsetTime < curentTime
+  if (currentTime > sunsetTime || currentTime < sunriseTime) {
+    document.querySelector('html').dataset.theme = 'dark'
+  }
+}
+
+let error = (err) => {
+  if (currentTime > 20) {
+    // Set Fallback if GeoLocation is not supported
+    document.querySelector('html').dataset.theme = 'dark'
+  }
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options)
+```
+
 ## Teste dein Joomla-Template
 
 1. Installiere dein Template in Joomla Version 4, um es zu testen:
@@ -93,4 +157,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 [prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^https://web.dev/prefers-color-scheme]
 
-[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/GoogleChromeLabs/dark-mode-toggle]
+[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/googlechromelabs/dark-mode-toggle]

@@ -321,4 +321,4 @@ A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.pn
 
 ## Links
 
-[Using Tags in a Extension](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension]
+[Using Tags in a Extension](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/j3.x:using_tags_in_an_extension]

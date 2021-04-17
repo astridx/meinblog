@@ -1,15 +1,6 @@
 /* Global variables */
 
 :root {
-  --font-color: #495057;
-  --link-color: #16868f;
-  --heading-color: #183446;
-  --dark-font-color: #212529;
-  --light-font-color: #868e96;
-  --light-background: #fafafa;
-  --light-blockqoute: #fafafa;
-  --dark-blockqoute: #16868f;
-  --border: #d6d9de;
   --font-weight-normal: 200;
   --font-weight-bigger1: 250;
   --font-weight-bigger2: 300;
@@ -48,13 +39,41 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial,
     'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI', Roboto,
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  color: var(--font-color);
   font-weight: var(--font-weight-normal);
   font-size: .9rem;
   line-height: 1.5;
 }
 
 body {
+  --font-color: #495057;
+  --link-color: #02091C;
+  --heading-color: #183446;
+  --dark-font-color: #212529;
+  --light-font-color: #868e96;
+  --light-background: #ffffff;
+  --light-blockqoute: #f0f0f0;
+  --dark-blockqoute: #02091C;
+  --border: #d6d9de;
+  --link-color-white: #ffffff;
+  color: var(--font-color);
+  background-color: var(--light-background);
+  margin: 0;
+  padding: 0 1.5rem;
+}
+
+body.dark {
+  --font-color: #B6AFA8;
+  --link-color: #FDF6E3;
+  --heading-color: #E7CBB9;
+  --dark-font-color: #DEDAD6;
+  --light-font-color: #797169;
+  --light-background: #000000;
+  --light-blockqoute: #222222;
+  --dark-blockqoute: #FDF6E3;
+  --border: #292621;
+  --link-color-white: #222222;
+  color: var(--font-color);
+  background-color: var(--light-background);
   margin: 0;
   padding: 0 1.5rem;
 }
@@ -365,7 +384,7 @@ a code {
 
 a code:hover {
   background: var(--link-color) !important;
-  color: white !important;
+  color: var(--link-color-white) !important;
 }
 
 /* Navbar */
@@ -380,10 +399,11 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  background: white;
+  background: var(--link-color-white);
   box-shadow: 0 3px 13px rgba(100, 110, 140, 0.1),
     0 2px 4px rgba(100, 110, 140, 0.15);
   z-index: 2;
+  border-bottom: solid;
 }
 
 .navbar .flex {
@@ -429,7 +449,7 @@ main {
     margin: 2rem 0 5rem;
     padding: 1.5rem 0;
     position: static;
-    background: white;
+    background: var(--link-color-white);
     box-shadow: none;
   }
 
@@ -877,7 +897,7 @@ time,
 
 .tags > a:hover {
   background: #868e96;
-  color: white;
+  color: var(--link-color-white);
 }
 
 mark {
@@ -909,7 +929,7 @@ a.tag-git:hover,
 a.tag-snippets:hover,
 a.tag-html:hover {
   background: #fd7e14;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-vue,
@@ -921,7 +941,7 @@ a.tag-new-year {
 a.tag-vue:hover,
 a.tag-new-year:hover {
   background: #0ca678;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-fundamentals,
@@ -935,7 +955,7 @@ a.tag-fundamentals:hover,
 a.tag-game:hover,
 a.tag-testing:hover {
   background: #37b24d;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-node,
@@ -949,7 +969,7 @@ a.tag-node:hover,
 a.tag-security:hover,
 a.tag-automation:hover {
   background: #f03e3e;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-wordpress,
@@ -967,7 +987,7 @@ a.tag-reference:hover,
 a.tag-notes:hover,
 a.tag-jQuery:hover {
   background: #1098ad;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-css,
@@ -981,7 +1001,7 @@ a.tag-css:hover,
 a.tag-dom:hover,
 a.tag-architecture:hover {
   background: #1c7ed6;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-php,
@@ -997,7 +1017,7 @@ a.tag-redux:hover,
 a.tag-gatsby:hover,
 a.tag-life:hover {
   background: #7950f2;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-react,
@@ -1009,7 +1029,7 @@ a.tag-api {
 a.tag-react:hover,
 a.tag-api:hover {
   background: #4263eb;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-design,
@@ -1021,7 +1041,7 @@ a.tag-database {
 a.tag-design:hover,
 a.tag-database:hover {
   background: #e64980;
-  color: white;
+  color: var(--link-color-white);
 }
 
 a.tag-notes {
@@ -1031,5 +1051,5 @@ a.tag-notes {
 
 a.tag-notes:hover {
   background: #ae3ec9;
-  color: white;
+  color: var(--link-color-white);
 }

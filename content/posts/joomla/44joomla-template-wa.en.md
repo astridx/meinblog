@@ -102,4 +102,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ## Links
 
-[Web Assets](https://docs.joomla.org/J4.x:Web_Assets)[^https://docs.joomla.org/J4.x:Web_Assets]
+[Web Assets](https://docs.joomla.org/J4.x:Web_Assets)[^https://docs.joomla.org/j4.x:web_assets]

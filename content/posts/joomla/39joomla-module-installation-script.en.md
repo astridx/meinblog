@@ -213,4 +213,4 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module]
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/j4.x:creating_a_simple_module]

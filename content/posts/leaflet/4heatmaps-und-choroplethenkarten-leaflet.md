@@ -63,8 +63,6 @@ des untersuchten Objektes unterschiedlich ist.
 
 ![(By Drleft (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons)](/images/946.png)
 
-_Abbildung: (By Drleft (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons)._
-
 Meist werden bei geringer Intensität oder geringer Dichte kalte Farben verwendet.
 Bei einem hohen Aufkommen wird der Bereich mit warmen Farben eingefärbt.
 Dies erklärt auch den Namen Heatmap – der englische Begriff für Hitze ist _heat_.
@@ -152,9 +150,7 @@ Das Ergebnis sehen Sie im nachfolgenden Bild.
 Da wir noch nichts gestaltet haben, sehen Sie die Standardansicht.
 Diese ist noch sehr rudimentär. Das geht besser, Sie werden sehen.
 
-![Heatmap](/images/950.png)
-
-_Abbildung: Heatmap zur Anzeige der Dichte von Punkten._
+![Heatmap zur Anzeige der Dichte von Punkten.](/images/950.png)
 
 #### Stile und Optionen
 
@@ -198,30 +194,17 @@ erlaubt es Ihnen Parameter zu übergeben. Dabei haben Sie folgende Möglichkeite
 
 ##### Nachfolgend sehen Sie einen Vergleich einer Ansichten mit unterschiedlichen Werten für die Optionen blur, gradient und maxZoom
 
-![`blur` *= 1*](/images/980a.png)
+![`blur` _= 1* - Es werden soviele Punkte zusammengefasst, dass jeder Hitzepunkt der Heatmap sehr scharf dargestellt wird. Ein Zentrum ist nicht mehr auszumachen.](/images/980a.png)
 
-_Abbildung: `blur` _= 1* - Es werden soviele Punkte zusammengefasst, dass jeder Hitzepunkt der Heatmap sehr scharf dargestellt wird. Ein Zentrum ist nicht mehr auszumachen.*
+![`blur` _= 40* - Randbereiche und Zentrum sind erkennbar.](/images/980b.png)
 
-![`blur` *= 40*](/images/980b.png)
+![`maxZoom` _ = 6* - Bei dieser niedrigen Zoomstufe kann die Verteilung nicht visualisiert werden. Alles liegt so nah beieinander, dass nur ein Punkt zu sehen ist.](/images/980c.png)
 
-_Abbildung: `blur` _= 40* - Randbereiche und Zentrum sind erkennbar.*
+![`maxZoom` _ = 15* - Bei dieser Zoomstufe kann eine Verteilung dargestellt werden.](/images/980d.png)
 
-![`maxZoom` * = 6*](/images/980c.png)
+![Eine Heatmap mit benutzerdefinierten Farben: `gradien {0.1: '#edf8fb', 0.2: '#ccece6', 0.3: '#99d8c9',` `0.5: '#66c2a4', 0.7: '#2ca25f', 1: '#006d2c'}`.](/images/980e.png)
 
-_Abbildung: `maxZoom` _ = 6* - Bei dieser niedrigen Zoomstufe kann die Verteilung nicht visualisiert werden. Alles liegt so nah beieinander, dass nur ein Punkt zu sehen ist.*
-
-![`maxZoom` * = 15*](/images/980d.png)
-
-_Abbildung: `maxZoom` _ = 15* - Bei dieser Zoomstufe kann eine Verteilung dargestellt werden.*
-
-![`gradien {0.1: '#edf8fb', 0.2: '#ccece6', 0.3: '#99d8c9', 0.5: '#66c2a4', 0.7: '#2ca25f', 1: '#006d2c'}`](/images/980e.png)
-
-_Abbildung: Eine Heatmap mit benutzerdefinierten Farben: `gradien {0.1: '#edf8fb', 0.2: '#ccece6', 0.3: '#99d8c9',` `0.5: '#66c2a4', 0.7: '#2ca25f', 1: '#006d2c'}`._
-
-> Gefallen Ihnen die standardmäßig gesetzten kalten und warmen
-> Farben nicht? Möchten Sie lieber Ihre eigene Farbzusammenstellung
-> nutzen? Die Website [http://colorbrewer2.org](http://colorbrewer2.org)[^7]
-> hilft beim Auswählen von Farben.
+> Gefallen Ihnen die standardmäßig gesetzten kalten und warmen Farben nicht? Möchten Sie lieber Ihre eigene Farbzusammenstellung nutzen? Die Website [http://colorbrewer2.org](http://colorbrewer2.org)[^7] hilft beim Auswählen von Farben.
 
 #### Methoden
 
@@ -286,8 +269,6 @@ einen Punkt zum Heatmap Layer hinzufügen.
 In der nächsten Abbildung können Sie den neu hinzugefügten Punkt erkennen.
 
 ![Heatmap mit einem mithilfe der Methode `addLatLng` hinzugefügten Punkt.](/images/979.png)
-
-_Abbildung: Heatmap mit einem mithilfe der Methode `addLatLng` hinzugefügten Punkt._
 
 > Möchten Sie es Website Besuchern
 > ermöglichen selbst Punkte zur Heatmap auf ihrer Karte hinzuzufügen? Eine
@@ -394,8 +375,6 @@ Abbildung.
 
 ![Eine Karte mit Schaltfläche die die Methoden `add()`, `newPoint()`, `reset()` oder `setOptions()` per Klick ausführen.](/images/953.png)
 
-_Abbildung: Eine Karte mit Schaltfläche die die Methoden `add()`, `newPoint()`, `reset()` oder `setOptions()` der Klasse L.heatLayer per Klick ausführen._
-
 #### Marker
 
 Im nächsten Beispiel zeige ich Ihnen, wie Sie zu jedem Punkt in einer Heatmap
@@ -456,8 +435,6 @@ dazu genutzt, einen individuellen Marker zu kreieren.
 So wie in der nächsten Abbildung könnte die fertige Karte auch bei Ihnen aussehen.
 
 ![Eine Heatmap mit benutzerdefinierten Markern pro Hitzepunkt.](/images/980.png)
-
-_Abbildung: Eine Heatmap mit benutzerdefinierten Markern pro Hitzepunkt._
 
 ### Heatmaps mit Leaflet – Intensität
 
@@ -541,8 +518,6 @@ Wie das aussehen sollte, können Sie sich in der nächsten Abbildung ansehen.
 
 ![Eine Heatmap - erstellt mithilfe des Plugins [heatmap.js](https://github.com/pa7/heatmap.js) - die die Intensität darstellt.](/images/952.png)
 
-_Abbildung: Eine Heatmap - erstellt mithilfe des Plugins [heatmap.js](https://github.com/pa7/heatmap.js) - die die Intensität darstellt._
-
 #### Dokumentation und Methoden
 
 Das nachfolgende Beispiel demonstriert Ihnen, wie unterschiedlich Punkte
@@ -617,8 +592,6 @@ auf der Karte.
 
 ![Punkte mit unterschiedlicher Intensität auf einer Heatmap.](/images/949.png)
 
-_Abbildung: Punkte mit unterschiedlicher Intensität auf einer Heatmap._
-
 ### Interaktive Heatmaps
 
 Besonders spannend sind Karten, wenn wenn man sie bearbeiten und somit verändern kann.
@@ -685,8 +658,6 @@ Wenn Sie mit der Maus eine Stelle auf der Karte klicken,
 wird an dieser Koordinate ein Wärmepunkt hinzugefügt.
 
 ![Die Leaflet Karte dieses Beispiels, nachdem mit der Maus einmal auf sie geklickt wurde.](/images/951.png)
-
-_Abbildung: Die Leaflet Karte dieses Beispiels, nachdem mit der Maus einmal auf sie geklickt wurde._
 
 ### Animierte Heatmaps
 
@@ -785,11 +756,7 @@ In der Zwischenzeit wechselt die Ansicht zweimal.
 
 ![Eine Heatmap mit wechselnden Daten - hier sehen Sie die Daten der Variablen `point1`.](/images/950.png)
 
-_Abbildung: Eine Heatmap mit wechselnden Daten - hier sehen Sie die Daten der Variablen `point1`._
-
 ## Choroplethenkarte
-
-[](#){#inChoroplethenkarte}
 
 Im vorherigen Kapitel haben wir eine Heatmap zum visualisieren von Daten verwendet.
 Wir haben zunächst mithilfe des Plugin `leaflet.heat` Bereiche,
@@ -804,21 +771,8 @@ Sie tut dies aber auf eine andere Art und Weise als die Heatmap.
 
 ### Was genau unterscheidet eine Choroplethenkarte von einer Heatmap?
 
-Ich hatte Ihnen erklärt, das eine Heatmap ein Raster über die Karte legt.
-Je nachdem wie die zu visualisierenden Punkte in diesem Raster verteilt sind,
-werden Farben sichtbar.
-Eine Choroplethenkarte verwendet kein separates Raster.
-Sie verwendet ein Polygon. Ein Polygon kann zum Beispiel ein Land
-oder das Einzugsgebiet eines Unternehmens sein.
-Im Kapitel [Die Karte mit Daten bestücken](#DieKarteMitDatenBestuecken)
-hatte ich die Besonderheit eines Polygons beschrieben.
-Dieses Vieleck hat eine Grenzlinie die einen Innenbereich und einen
-Außenbereich voneinander abgrenzt.
-Eine populäre Choroplethenkarte, die Sie sicherlich schon einmal gesehen haben,
-ist die Darstellung der Bevölkerungsdichte eines Gebietes auf der Erde.
-Ich habe hier ein Beispiel erstellt, welches genau dies tut.
-Ich zeige Ihnen, wie Sie eine Karte, die die Verteilung der Bevölkerung in
-Rheinland-Pfalz grafisch darstellt, selbst erstellen können.
+Ich hatte Ihnen erklärt, das eine Heatmap ein Raster über die Karte legt. Je nachdem wie die zu visualisierenden Punkte in diesem Raster verteilt sind, werden Farben sichtbar. Eine Choroplethenkarte verwendet kein separates Raster. Sie verwendet ein Polygon. Ein Polygon kann zum Beispiel ein Land oder das Einzugsgebiet eines Unternehmens sein. Im Kapitel _Die Karte mit Daten bestücken_ hatte ich die Besonderheit eines Polygons beschrieben.
+Dieses Vieleck hat eine Grenzlinie die einen Innenbereich und einen Außenbereich voneinander abgrenzt. Eine populäre Choroplethenkarte, die Sie sicherlich schon einmal gesehen haben, ist die Darstellung der Bevölkerungsdichte eines Gebietes auf der Erde. Ich habe hier ein Beispiel erstellt, welches genau dies tut. Ich zeige Ihnen, wie Sie eine Karte, die die Verteilung der Bevölkerung in Rheinland-Pfalz grafisch darstellt, selbst erstellen können.
 
 ### Choroplethenkarten in Leaflet
 
@@ -828,8 +782,6 @@ Leaflet ist wie dafür gemacht, GeoJSON Daten als Choroplethenkarte anzuzeigen.
 Beginnen tun wir ganz vorne mit dem Klären der Frage: Wo bekommen Sie die Daten her?
 
 #### Open Data
-
-[](#){#ChoroplethenkarteOpenData}
 
 Wenn Sie nicht selbst über Daten verfügen, können sie auf jede Menge
 offener Data zugreifen.
@@ -1047,8 +999,6 @@ In Ihrem Browser sollte die Karte nun so wie in der nächsten Abbildung aussehen
 
 ![Choroplethenkarten - Verteilung der Bevölkerung in Rheinland-Pfalz.](/images/947.png)
 
-_Abbildung: Choroplethenkarten - Verteilung der Bevölkerung in Rheinland-Pfalz._
-
 In diesem Beispiel haben wir einen festen Wert ganz unabhängig von anderen Werten
 verwendet. Wir haben die Bevölkerungszahl unabhängig von der Flächengröße
 der Gemeinde als Wert für die Farbe verwendet.
@@ -1164,8 +1114,6 @@ waren diese Bereiche teilweise dunkel.
 Die Bevölkerungszahl ist aber in Relation zur Fläche dort gar nicht hoch.
 
 ![Choroplethenkarten - Dichte der Bevölkerung in Rheinland-Pfalz.](/images/948.png)
-
-_Abbildung: Choroplethenkarten - Dichte der Bevölkerung in Rheinland-Pfalz._
 
 ## In diesem Kapitel haben wir …
 

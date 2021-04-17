@@ -177,4 +177,4 @@ Wir haben eine solide Grundlage für die weiteren Schritte.
 
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de]
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/j4.x:creating_a_simple_module/de]

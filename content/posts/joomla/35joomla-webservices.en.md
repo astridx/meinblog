@@ -319,8 +319,8 @@ Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https:
 
 ## Links
 
-[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs)[^https://docs.joomla.org/J4.x:Joomla_Core_APIs]
+[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs)[^https://docs.joomla.org/j4.x:joomla_core_apis]
 
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/J4.x:Joomla_Core_APIs]
+[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/j4.x:joomla_core_apis]
 
 [Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]

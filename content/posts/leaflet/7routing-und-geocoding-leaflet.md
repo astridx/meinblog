@@ -206,11 +206,7 @@ Das geht sicher besser!
 
 ![Eine Karte auf der eine Route angezeigt wird.](/images/927.png)
 
-_Abbildung: Eine Karte auf der eine Route angezeigt wird._
-
 ## Options
-
-[](#){#leafletroutingmachineoptions}
 
 Der nächste Programmcode zeigt Ihnen am Beispiel von Mapbox,
 wie Sie die Sprache und das Routing Profil verändern können.
@@ -307,42 +303,21 @@ Wie dies geht zeigt Ihnen das nächste Beispiel.
 > [http://project-osrm.org](http://project-osrm.org) könnte dies wie folgt aussehen:
 > [https://router.project-osrm.org/route/v1/driving/7.262993,50.273543;7.276211,50.281168](https://router.project-osrm.org/route/v1/driving/7.262993,50.273543;7.276211,50.281168).
 
-![Direkter Aufruf OSRM-Server.](/images/926a.png)
+![Direkter erfolgreicher Aufruf OSRM-Server.](/images/926a.png)
 
-_Abbildung: Direkter erfolgreichewr Aufruf OSRM-Server._
+Falls Ihnen die Meldung _'Too Many Requests'_ angezeigt wird, müssen Sie nichts falsch gemacht haben. In dem Fall ist der Server gerade überlastet. Versuchen Sie es einfach später noch einmal.
 
-Falls Ihnen die Meldung _'Too Many Requests'_ angezeigt wird, müssen Sie nichts falsch gemacht haben.
-In dem Fall ist der Server gerade überlastet. Versuchen Sie es einfach später noch einmal.
+![Direkter fehlerhafter Aufruf OSRM-Server.](/images/926b.png)
 
-![Direkter Aufruf OSRM-Server.](/images/926b.png)
-
-_Abbildung: Direkter fehlerhafter Aufruf OSRM-Server._
-
-Im nächsten Bild sehen Sie, dass das Routing im Mapbox Beispiel
-nun eher zu einem Wanderer
-passt und die Texte sind auch in deutscher Sprache.
-Das ist schon einmal gut.
-Aber es geht ja meist noch besser.
+Im nächsten Bild sehen Sie, dass das Routing im Mapbox Beispiel nun eher zu einem Wanderer passt und die Texte sind auch in deutscher Sprache. Das ist schon einmal gut. Aber es geht ja meist noch besser.
 
 ![Eine Karte auf der eine Route für Wanderer in deutscher Sprache angezeigt wird.](/images/926.png)
 
-_Abbildung: Eine Karte auf der eine Route für Wanderer in deutscher Sprache angezeigt wird._
-
-Wahrscheinlich möchten Sie, dass die Adressen, zwischen denen geroutet wird,
-variabel auf der Karte verändert werden können.
-Genau das wollte ich als nächstes umsetzen
-und deshalb habe ich dies im nächsten Beispiel auch gemacht.
+Wahrscheinlich möchten Sie, dass die Adressen, zwischen denen geroutet wird, variabel auf der Karte verändert werden können. Genau das wollte ich als nächstes umsetzen und deshalb habe ich dies im nächsten Beispiel auch gemacht.
 
 ## Geocoding und Routing
 
-[](#){#inleafletroutingmachninegeocoding}
-
-Bisher wurde die Route ausschließlich anhand von Koordinaten berechnet.
-Menschen nutzen aber lieber Texte in Form von Adressen.
-Das Sie mithilfe von Geocoding Adressen in Koordinaten verwandelt können –
-beziehungsweise Koordinaten in Adressen verwandeln können –
-haben Sie im Kapitel [Geocoding ESRI](#ingeocoding) schon lesen können.
-Hier im Beispiel kombinieren wir nun Routing und Geocoding. Sehen Sie selbst:
+Bisher wurde die Route ausschließlich anhand von Koordinaten berechnet. Menschen nutzen aber lieber Texte in Form von Adressen. Das Sie mithilfe von Geocoding Adressen in Koordinaten verwandelt können – beziehungsweise Koordinaten in Adressen verwandeln können – haben Sie im Kapitel _Geocoding ESRI_ schon lesen können. Hier im Beispiel kombinieren wir nun Routing und Geocoding. Sehen Sie selbst:
 
 ```
  <!DOCTYPE HTML>
@@ -400,9 +375,7 @@ Und das war es schon!
 Als Ergebnis sehen Sie nun zwei Textfelder im oberen rechten Bereich auf Ihrer Karte.
 In diese können Sie Adressen eingeben und so Ihre Route benutzerfreundlich abändern.
 
-![Eine Karte auf der eine Route angezeigt wird.](/images/925.png)
-
-_Abbildung: Eine Karte auf der eine Route angezeigt wird. Sie können die Route ändern, indem Sie eine Adresse in einem der Textfelder rechts oben eingeben._
+![Eine Karte auf der eine Route angezeigt wird. Sie können die Route ändern, indem Sie eine Adresse in einem der Textfelder rechts oben eingeben.](/images/925.png)
 
 ## In diesem Kapitel haben wir ...
 

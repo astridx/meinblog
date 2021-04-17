@@ -25,8 +25,6 @@ Außerdem sehen wir uns Plugins an, die Sie bei dieser Arbeit unterstützen.
 
 ## Ein individueller Marker auf Ihrer Karte
 
-[](#){#inEinindividuellerMarkeraufIhrerKarte}
-
 Wenn Leaflet einen Marker auf einer Karte anzeigt, werden gleich zwei
 Bilddateien angezeigt.
 Zunächst wird das eigentliche Bild an die passende Stelle auf die Karte gelegt.
@@ -35,22 +33,10 @@ Mit einem passenden Schatten fallen die Marker eher ins Auge.
 Der Schatten verleiht einem Marker eine Tiefe.
 So hebt dieser sich besser von der Karte ab.
 
-Wenn Sie die Dateien zu Leaflet, wie im Kapitel
-[Eine lokale Leaflet-Kopie einbinden](#EineKarteMitLeafletErstellenEinelokaleLeafletKopieeinbinden)
-beschrieben,
-auf Ihren Rechner kopiert haben,
-sehen Sie unter den kopierten Daten einen Unterordner mit dem Namen `images`.
-In den Beispieldateien zu diesem Buch befindet sich ebenfalls eine Leaflet Kopie
-in der der Ordner `images` enthalten ist.
-Dieser Ordner `images` enthält die Imagedateien die angezeigt werden,
-wenn kein individuelles Image angegeben ist.
-Ich habe die Bilder hier nachfolgend abgedruckt.
-Wenn Sie dieses Buch bisher durchgearbeitet haben,
-kommen Ihnen die Bilder sicher teilweise bekannt vor.
+Wenn Sie die Dateien zu Leaflet, wie im Kapitel _Eine lokale Leaflet-Kopie einbinden_ beschrieben, auf Ihren Rechner kopiert haben,
+sehen Sie unter den kopierten Daten einen Unterordner mit dem Namen `images`. In den Beispieldateien zu diesem Buch befindet sich ebenfalls eine Leaflet Kopie in der der Ordner `images` enthalten ist. Dieser Ordner `images` enthält die Imagedateien die angezeigt werden, wenn kein individuelles Image angegeben ist. Ich habe die Bilder hier nachfolgend abgedruckt. Wenn Sie dieses Buch bisher durchgearbeitet haben, kommen Ihnen die Bilder sicher teilweise bekannt vor.
 
 ![(Bilder, die standardmäßig in Leaflet verwendet werden.)](/images/978.png)
-
-_Abbildung: Bilder, die standardmäßig in Leaflet verwendet werden._
 
 Oft ist es so, dass das Bekannte vertraut ist und man sich deshalb damit
 sicher und wohl fühlt. Manchmal möchte man aber aus der Reihen tanzen.
@@ -65,12 +51,7 @@ gehört nicht zum Thema dieses Buches.
 Hier möchte ich Ihnen nur ein paar Punkte aufzählen,
 die Sie beim Erstellen des Images für einen Leaflet Marker beachten sollten.
 
-Falls Sie keine Grafiken besitzen und auch nicht selbst Hand anlegen möchten,
-dann können Sie entweder die Übungen mit den Beispielbildern des  
-[Leaflet Tutorials](http://leafletjs.com/examples/custom-icons/)[^1] durcharbeiten –
-oder Sie blättern direkt weiter zum nächsten Kapitel.
-Das Kapitel [Ein Marker Plugin](#inEinMarkerPlugin) bietet Ihnen einen Kompromiss.
-Sie benötigen keine eigenen Grafiken, können einem Marker aber trotzdem ein
+Falls Sie keine Grafiken besitzen und auch nicht selbst Hand anlegen möchten, dann können Sie entweder die Übungen mit den Beispielbildern des [Leaflet Tutorials](http://leafletjs.com/examples/custom-icons/)[^1] durcharbeiten – oder Sie blättern direkt weiter zum nächsten Kapitel. Das Kapitel _Ein Marker Plugin_ bietet Ihnen einen Kompromiss. Sie benötigen keine eigenen Grafiken, können einem Marker aber trotzdem ein
 anderes Aussehen verleihen.
 
 > Sie möchten gerne selbst die Grafiken erstellen, wissen aber noch nicht genau
@@ -90,11 +71,7 @@ aus dem Leaflet Tutorial
 
 ![(Bilddateien aus dem Leaflet Tutorial [Markers with Custom Icons](http://leafletjs.com/examples/custom-icons/).)](/images/945.png)
 
-_Abbildung: Bilddateien aus dem Leaflet Tutorial [Markers with Custom Icons](http://leafletjs.com/examples/custom-icons/)._
-
-Im nachfolgenden Beispiel habe ich den Text,
-der für die Anzeige des benutzerdefinierten Markers verantwortlich ist,
-mit einem Stern markiert.
+Im nachfolgenden Beispiel sehen Sie den Text, der für die Anzeige des benutzerdefinierten Markers verantwortlich ist.
 
 ```
  <!DOCTYPE HTML>
@@ -180,15 +157,9 @@ müssen Sie bei der Option `popupAnchor` also ein Minuszeichen voran stellen!
 
 ![(Das Bild zu einem Marker auf einer Leaflet Karte positionieren.)](/images/928.png)
 
-_Abbildung: Das Bild zu einem Marker auf einer Leaflet Karte richtig positionieren._
-
-Im Kapitel [Die Karte mit Daten bestücken](#DieKarteMitDatenBestuecken) – genau
-im Unterkapitel [Punkte und Marker](#DieKarteMitDatenBestueckenPunkteundMarker)  
-– haben wir schon Marker mit Optionen angelegt.
-Im nächsten Codeschnipsel sehen Sie nun, dass Sie auch das Bild zum Marker –
-also das Icon – als Option angeben können.
-Im Programmcode geben Sie dazu einfach den Namen des eben erstellen
-`L.Icon` Objektes an.
+Im Kapitel _Die Karte mit Daten bestücken_ – genau im Unterkapitel _Punkte und Marker_ – haben wir schon Marker mit Optionen angelegt.
+Im nächsten Codeschnipsel sehen Sie nun, dass Sie auch das Bild zum Marker – also das Icon – als Option angeben können.
+Im Programmcode geben Sie dazu einfach den Namen des eben erstellen `L.Icon` Objektes an.
 
 ```
 L.marker(
@@ -203,8 +174,6 @@ sehen Sie eine Karte auf der das grüne Icon als Marker an der festgelegten Koor
 – passend positioniert – erscheint.
 
 ![(Eine Karte mit einem benutzerdefinierten Icon als Marker.)](/images/977.png)
-
-_Abbildung: Eine Karte mit einem benutzerdefinierten Icon als Marker._
 
 ### Eigenschaften eines individuellen Marker
 
@@ -256,31 +225,7 @@ Das haben Sie eben praktisch gesehen. Diese Klasse bietet Ihnen eine Menge Optio
   dem eigentlichen Marker Bild -
   den Namen einer CSS-Klasse definieren.
 
-[](#){#RetinaDisplay}
-
-> Besonderheiten beim [Retina Display](https://de.wikipedia.org/w/index.php?title=Retina-Display&oldid=183031043)[^5]  
-> Hochauflösende Displays haben eine höhere Pixeldichte als gewöhnliche Monitore.
-> Auf der gleichen Fläche werden etwa viermal so viele Pixel
-> dargestellt. Der Vorteil dieser Technologie liegt darin, dass die
-> Pixel nun so klein sind, dass das menschliche Auge sie nicht mehr
-> auflösen kann. Das Ergebnis sind sehr scharfe Grafiken und Texte.
-> Damit das Bild nun auf einem HiDPI (High Dots Per Inch) Bildschirm,
-> also einem Retina Display, scharf dargestellt wird, muss es mit
-> mindestens zweifacher Breite und Höhe zur Verfügung gestellt werden.
-> Denn: Eine Pixelgrafik, die bei gewöhnlicher Auflösung das ganze Display
-> ausfüllt, würde auf einem Retina Display der gleichen
-> Größe nur ein Viertel des Displays einnehmen. Ein Pixel der Grafik
-> entspricht auch auf dem Retina-Display einem Pixel.
-> Es werden aber auf der gleichen Fläche viermal so viele Pixel, nun allerdings nur mit
-> einem Viertel der Größe, abgebildet. Damit
-> die Pixelgrafiken nicht plötzlich alle zu klein dargestellt werden,
-> rechnen die Geräte die Grafiken um. Dadurch geht Qualität verloren.
-> Pixelgrafiken wirken auf dem
-> Retina-Display daher teilweise unscharf. Um dieses Problem zu umgehen,
-> prüft Leaflet die Auflösung des Anzeigegerätes. Anschließend
-> werden die Marker Bilder – sofern eine Grafik mit hohere Auflösung vorhanden ist –
-> in hoher Auflösung
-> angezeigt.
+> Besonderheiten beim [Retina Display](https://de.wikipedia.org/w/index.php?title=Retina-Display&oldid=183031043)[^5] Hochauflösende Displays haben eine höhere Pixeldichte als gewöhnliche Monitore. Auf der gleichen Fläche werden etwa viermal so viele Pixel dargestellt. Der Vorteil dieser Technologie liegt darin, dass die Pixel nun so klein sind, dass das menschliche Auge sie nicht mehr auflösen kann. Das Ergebnis sind sehr scharfe Grafiken und Texte. Damit das Bild nun auf einem HiDPI (High Dots Per Inch) Bildschirm, also einem Retina Display, scharf dargestellt wird, muss es mit mindestens zweifacher Breite und Höhe zur Verfügung gestellt werden. Denn: Eine Pixelgrafik, die bei gewöhnlicher Auflösung das ganze Display ausfüllt, würde auf einem Retina Display der gleichen Größe nur ein Viertel des Displays einnehmen. Ein Pixel der Grafik entspricht auch auf dem Retina-Display einem Pixel. Es werden aber auf der gleichen Fläche viermal so viele Pixel, nun allerdings nur mit einem Viertel der Größe, abgebildet. Damit die Pixelgrafiken nicht plötzlich alle zu klein dargestellt werden, rechnen die Geräte die Grafiken um. Dadurch geht Qualität verloren. Pixelgrafiken wirken auf dem Retina-Display daher teilweise unscharf. Um dieses Problem zu umgehen, prüft Leaflet die Auflösung des Anzeigegerätes. Anschließend werden die Marker Bilder – sofern eine Grafik mit hohere Auflösung vorhanden ist – in hoher Auflösung angezeigt.
 
 ### Die Klasse L.Icon erweitern
 
@@ -395,8 +340,6 @@ L.marker(
 .addTo(mymap).bindPopup("Ich bin ein oranger Marker.");
 ```
 
-[](#){#Fabrikmethode2}
-
 > Sie haben vielleicht bemerkt, dass wir das Schlüsselwort `new` für die Erstellung
 > von `LeafIcon` Instanzen verwendet haben. Warum haben wir vorher alle Leafelt Objekte
 > ohne das Schlüsselwort `new` erstellt? Die Antwort ist einfach:
@@ -409,16 +352,7 @@ L.marker(
 > `**L.icon** = function icon(options) {`  
 > `return new L.Icon(options);`  
 > `};`  
-> Die Funktion `L.icon` können Sie sich auf Github in der
-> Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^6]
-> ansehen.  
-> Leaflet setzt hier das Entwurfsmuster
-> [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode&oldid=183961607)[^7]
-> ein. Das Muster beschreibt, wie ein Objekt
-> durch Aufruf einer Methode, anstatt durch direkten Aufruf eines
-> Konstruktors, erzeugt wird. Dies hatte ich im Kapitel
-> [Wir beginnen mit einer einfachen Karte](#Fabrikmethode1)
-> schon einmal erwähnt.
+> Die Funktion `L.icon` können Sie sich auf Github in der Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^6] ansehen. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode&oldid=183961607)[^7] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode, anstatt durch direkten Aufruf eines Konstruktors, erzeugt wird. Dies hatte ich im Kapitel _Wir beginnen mit einer einfachen Karte_ schon einmal erwähnt.
 
 Im nachfolgenden Bild sehen Sie das Ergebnis.
 Jeder Marker wird nun mit einem individuellen Icon erstellt.
@@ -426,11 +360,7 @@ Die meisten Optionen sind gleich – allerdings hat jeder Marker seine eigene Fa
 
 ![(Drei Marker mit unterschiedlichen Icons, die mithilfe einer Elternklasse erstellt wurden.)](/images/976.png)
 
-_Abbildung: Drei Marker mit unterschiedlichen Icons, die mithilfe einer Elternklasse erstellt wurden._
-
 ## Ein Marker Plugin
-
-[](#){#inEinMarkerPlugin}
 
 Sie wissen nun, wie Sie einen Marker mit einem standardisierten Aussehen einfügen
 und können einen Marker mit einem eigenen Image belegen.
@@ -454,8 +384,6 @@ Das Plugin Leaflet.BeautifyIcon bietet auch die Möglichkeit, Schriftart und Gly
 also die grafische Darstellung von Schriftzeichen, anzupassen.
 
 ![Marker, die mithilfe des Plugins [Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker) erstellt wurden.](/images/974.png)
-
-_Abbildung: Marker, die mithilfe des Plugins [Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker) erstellt wurden._
 
 Damit Sie sich dieses besser vorstellen können, habe ich ein Beispiel erstellt.
 
@@ -546,8 +474,6 @@ wenn Sie die HTML Datei mit der Karte selbst im Browser öffnen.
 
 ![(Eine Leaflet Karte mit `Leaflet.BeautifyMarker`-Markern.)](/images/975.png)
 
-_Abbildung: Eine Leaflet Karte mit drei verschiedenen `Leaflet.BeautifyMarker`-Markern._
-
 > Ich hatte Ihnen ja schon geschrieben,
 > dass es jede Menge Plugins für Leaflet gibt und dies gilt für den
 > Bereich Marker besonders. Die meisten sind auf der Website von
@@ -555,8 +481,6 @@ _Abbildung: Eine Leaflet Karte mit drei verschiedenen `Leaflet.BeautifyMarker`-M
 > [https://leafletjs.com/plugins.html#markers--renderers](https://leafletjs.com/plugins.html#markers--renderers)[^11].
 
 ## Cluster
-
-[](#){#inCluster}
 
 Je nachdem welche Informationen Sie mit Ihrer Karte weitergeben möchten,
 kann es vorkommen, dass Sie sehr viele Marker benötigen.
@@ -639,8 +563,6 @@ So wie in der nachfolgenden Abbildung zu sehen ist, könnte Ihre Karte aussehen.
 
 ![Viele Marker auf einer Leaflet Karte, die in Cluster gruppiert sind.](/images/952.png)
 
-_Abbildung: Viele Marker auf einer Leaflet Karte, die in Cluster gruppiert sind.._
-
 ### Optionen, Methoden und Ereignisse
 
 Sie können einem Cluster jede Menge Optionen mitgeben und sehr viele
@@ -658,8 +580,6 @@ Alle Optionen, Methoden und Ereignisse finden Sie in der Dokumentation zum Plugi
 auf Github[^12].
 
 ## Marker animieren
-
-[](#){#inMarkeranimieren}
 
 ### Hüpfende Marker
 
@@ -848,8 +768,6 @@ Sehen Sie selbst, probieren Sie das nächste Beispiel aus!
 
 ## Leaflet Data Visualization Framework (DVF)
 
-[](#){#inLeafletDataVisualizationFramework}
-
 Möchten Sie gerne mit Ihrer Karte Daten visualisieren.
 Heatmaps und Choroplethenkarten sind aber nicht das Richtige für Sie?
 Sie können Daten mithilfe von Markern in überzeugende Karten verwandeln.
@@ -923,8 +841,6 @@ die Möglichkeiten diese Plugins zu sehen und ein Gefühl für die Anwendung zu 
 Die nächste Abbildung zeigt Ihnen die drei im vorherigen Beispiel erstellen Marker.
 
 ![Drei mithilfe des [Leaflet Data Visualization Framework (DVF)](https://github.com/humangeo/leaflet-dvf) erstellte Marker.](/images/972a.png)
-
-_Abbildung: Drei mithilfe des [Leaflet Data Visualization Framework (DVF)](https://github.com/humangeo/leaflet-dvf) erstellte Marker._
 
 ### Diagramme als Marker
 
@@ -1017,8 +933,6 @@ Leaflet Data Visualization Framework auf Ihrer Leaflet Karte einblenden können.
 Und das nachfolgende Bild zeigt Ihnen das Ergebnis.
 
 ![Mithilfe des [Leaflet Data Visualization Framework (DVF)](https://github.com/humangeo/leaflet-dvf) erstellte Marker, die Diagramme beinhalten.](/images/972.png)
-
-_Abbildung: Mithilfe des [Leaflet Data Visualization Framework (DVF)](https://github.com/humangeo/leaflet-dvf) erstellte Marker, die Diagramme beinhalten._
 
 ## In diesem Kapitel haben wir …
 

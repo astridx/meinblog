@@ -16,6 +16,7 @@ module.exports = {
     // Meta
     // ===================================================================================
     `gatsby-plugin-catch-links`,
+    'gatsby-plugin-dark-mode',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -188,6 +189,25 @@ module.exports = {
       },
     },
 
+    //
+    //
+    // htaccess https://github.com/AndreasFaust/gatsby-plugin-htaccess
+    //
+    //
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        https: true,
+        www: true,
+        redirect: [
+          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          {
+            from: 'blog.astrid-guenther.de/ubuntu-docker-einrichten',
+            to: 'blog.astrid-guenther.de/ubuntu-docker-einrichten-docker-lamp',
+          },
+        ],
+      },
+    },
     // ===================================================================================
     // Search
     // ===================================================================================

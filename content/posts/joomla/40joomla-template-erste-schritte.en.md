@@ -306,7 +306,7 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 ## Links
 
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/C-Lodder/lightning]
+[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/c-lodder/lightning]
 
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
 

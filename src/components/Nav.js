@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import LanguageSelector from './LanguageSelector'
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 export default function Nav() {
   return (
@@ -22,41 +23,18 @@ export default function Nav() {
             <LanguageSelector />
           </button>
 
-          <button
-            style={{ 'margin-left': '20px' }}
-            id="dark-mode-button"
-            onClick={(event) => {
-              const theme =
-                typeof window !== 'undefined' && localStorage.getItem('theme')
-
-              if (theme === 'dark') {
-                typeof window !== 'undefined' &&
-                  localStorage.removeItem('theme')
-                const link = document.querySelectorAll('#dark-mode')
-
-                if (link) {
-                  link.forEach((el) => el.remove())
-                  event.target.textContent = '🌙'
-                }
-              } else {
-                typeof window !== 'undefined' &&
-                  localStorage.setItem('theme', 'dark')
-                event.target.textContent = '☀️'
-                const head = document.getElementsByTagName('head')[0]
-                const link = document.createElement('link')
-                link.rel = 'stylesheet'
-                link.id = 'dark-mode'
-                link.href = '../dark.css'
-
-                head.appendChild(link)
-              }
-            }}
-          >
-            {typeof window !== 'undefined' &&
-            localStorage.getItem('theme') === 'dark'
-              ? '☀️'
-              : '🌙'}
-          </button>
+          <ThemeToggler>
+            {({ theme, toggleTheme }) => (
+              <label>
+                <input
+                  type="checkbox"
+                  onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+                  checked={theme === 'dark'}
+                />{' '}
+                Dark mode
+              </label>
+            )}
+          </ThemeToggler>
         </div>
       </div>
     </nav>

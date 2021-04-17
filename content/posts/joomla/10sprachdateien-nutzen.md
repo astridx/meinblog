@@ -28,6 +28,80 @@ Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweil
 
 > Das Hinzufügen der englischen Sprachdateien ist zwingend erforderlich. Alle anderen Sprachen sind optional. Der Grund hierfür ist, dass bei einer fehlenden Datei standardmäßig auf die englische Version zurückgegriffen wird. Wenn ein Franzose die Erweiterung - welches deutsche und englische Sprachdateien enthält - auf seinem Joomla mit der Standardsprache Französisch installiert, werden die Texte in englischer Sprache angezeigt.
 
+### Exkurs: Besonderheiten
+
+> Möchtest du dir ganz genau ansehen, wie die ini-Datei geparst wird? Unter [php.net](https://www.php.net/manual/de/function.parse-ini-file.php) findest du die Beschreibung der Funktion, die diese Arbeit übernimmt.
+
+#### Auskommentieren
+
+Du kannst mithilfe eines Semikolons `;` eine Zeile als Kommentar markieren.
+
+```
+; Joomla! Project
+; (C) 2005 Open Source Matters, Inc. <https://www.joomla.org>
+; License GNU General Public License version 2 or later; see LICENSE.txt
+; Note : All ini files need to be saved as UTF-8
+....
+```
+
+#### Escapen
+
+Es gibt Zeichen die eine besondere Bedeutung haben - beispielsweise die Anfürungszeichen. Diese Bedeutung ist mit einem Backslash `\` aufhebbar.
+
+```
+...
+COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
+
+...
+
+```
+
+#### Variablen
+
+Manchmal hängt die Ausgabe des Sprachstrings von einer Variablen ab. Die Funktion `Text::sprintf` sorgt dafür, dass du den Text nicht kompliziert im Programmcode zusammensetzten musst. Gibt anstelle der Variablen in der Sprachdatei ein Zeichen mit dem Prefix `%` ein. Beispielsweise kannst du `%s` verwenden.
+
+```
+...
+COM_CONTACT_CHECKED_OUT_BY="Checked out by %s"
+...
+```
+
+Im PHP-Code sieht der Aufruf dann wie folgt aus.
+
+```
+...
+Text::sprintf('COM_CONTACT_CHECKED_OUT_BY', $checkoutUser->name)
+...
+```
+
+Der Wert von `$checkoutUser->name` wird anstelle der ersten Variablen im Sprachstring eingefügt. Hier im Beispiel anstelle von `%s`.
+
+> Leider kannst du nicht festlegen, welche Variable `$checkoutUser->name` zu welchem Sprachstring `%s` gehört. Die Werte werden der Reihe nach zugeordnet.
+
+#### Einzahl/Mehrzahl
+
+Es gibt Einzahl oder Singular und Mehrzahl oder Plural und die Joomla Sprachstrings unterstützen dies.
+
+Nehmen wir den Aufruf
+
+```
+...
+$message = Text::plural('COM_FOOS_N_ITEMS_FEATURED', count($ids));
+...
+```
+
+als Beispiel.
+
+Jenachdem, ob `count($ids)` den Wert `1` oder `2` hat wird der Sprachstring `COM_FOOS_N_ITEMS_FEATURED_1` oder `COM_FOOS_N_ITEMS_FEATURED_2` verwendet. Hat `count($ids)` weder den Wert `1` noch `2`, wird `COM_FOOS_N_ITEMS_FEATURED` als Rückfallposition herangezogen.
+
+```
+...
+COM_FOOS_N_ITEMS_FEATURED="%d foos featured."
+COM_FOOS_N_ITEMS_FEATURED_1="Foo featured."
+COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
+...
+```
+
 ### Neue Dateien
 
 Erstelle die folgenden sechs Dateien, um neben der englischen die deutsche Sprache zu unterstützen.

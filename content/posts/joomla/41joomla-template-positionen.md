@@ -236,7 +236,7 @@ Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Tem
 
 ## Links
 
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/C-Lodder/lightning]
+[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/c-lodder/lightning]
 
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
 
