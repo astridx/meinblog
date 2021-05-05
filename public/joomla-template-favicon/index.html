@@ -38,12 +38,45 @@ void function() {
 <p>Die Größe und der Typ des Favicon wird auf unterschiedlichen Geräten anders erwartet. Ich nutze die Website <a href="https://realfavicongenerator.net/">realfavicongenerator.net</a>, um die optimale Form meines Bildes für die jeweiligen Geräte zu erstellen. Ich sehe dieses Werkzeug als erprobt und am einfachsten in der Handhabung an. Es gibt allerdings eine alternative neuere Vorgehensweise. Diese wird vom Joomla Standardtemplate Cassiopeia verwendet. Falls du lieber das moderne SVG-Format mit einer ICO-Datei als Rückfallebene verwendest, findest du unter <a href="https://blog.astrid-guenther.de/cassiopeia-favicon">Favicon im Joomla-Template</a> eine Lösung die besser zu dir passt.</p>
 </blockquote>
 <h2>Für Ungeduldige</h2>
-<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t40...t41">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t40...t41">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t40...t41"><a href="#fn-github.com/astridx/boilerplate/compare/t40...t41" class="footnote-ref">github.com/astridx/boilerplate/compare/t40...t41</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <p>In diesem Abschnitt schaffen wir einen Wiedererkennungswert. Im ersten Schritt wählen wir ein Image. Für das Beispiel habe ich eine gelbe PNG-Datei gewählt. Im nächsten Schritt wandeln wir diese mithilfe der Website <a href="https://realfavicongenerator.net/">realfavicongenerator.net</a> in unterschiedliche Formate.</p>
 <blockquote>
 <p>Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.</p>
 </blockquote>
+<p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/202f8809799ad55b88bf449183adfbd9/90804/tree41.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQ4y33U2Y4qMQwE0P7/74MRSAPDvu/LMKy5OpbcQjzcSFHSTlyuqhiq9Xpdut1u2W63xXi9XuV4PJbBYBBrxtwTu91uJcfpdCqTyaT8/f3F9/P5LNXlcimbzSZAr9drBO/3e8TG43HEAAISm81m5XA41MBAf35+Ih+BSsAF1SW4CMThcDgso9EokoAa+/0+1JzP54jJXSwWEfcdgA6xQd8eQxe+v7+jMrkK7Ha7Wm4WwHg+n9fxCoCLaAN/PB7B8Pf3N8AajUYU4ZNkhd0xgVLx9fVVptNpKAyGKU8lclJyv98vq9UqEpMRtsvlMlZFnSvabreL96gkksgLjLDloxg2mCdj6/tQhH+dTieAQzJAANAlAySHTExIsQfIY5OKZM1reexQMCSbAmST4oBnGHvlbB1TXPH8zp5VnKr6lTHhGUAHQABihDHm5OnTd8nye71e2ENFDfjJMAFNrExJ2UbZ2PYkwwgPUzLapirZFpIxx4pM5+kVFYYipgLx00uGXok8JkvO32YOe0B5ljEeN5vNWJEIwOwnHpHmYvbdew9+tozX9hj8hVNLBuKQnDz4BEng9wLvCvJOhR0ZwLKaWPbgJ9tP1p9FqnwdgK1Wq/4j4BcLWJFM/geU+38johtuFsEghgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
+        title="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
+        src="/static/202f8809799ad55b88bf449183adfbd9/f058b/tree41.png"
+        srcset="/static/202f8809799ad55b88bf449183adfbd9/c26ae/tree41.png 158w,
+/static/202f8809799ad55b88bf449183adfbd9/6bdcf/tree41.png 315w,
+/static/202f8809799ad55b88bf449183adfbd9/f058b/tree41.png 630w,
+/static/202f8809799ad55b88bf449183adfbd9/40601/tree41.png 945w,
+/static/202f8809799ad55b88bf449183adfbd9/78612/tree41.png 1260w,
+/static/202f8809799ad55b88bf449183adfbd9/90804/tree41.png 3733w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h3>Neue Dateien</h3>
 <p>Der Favicon-Generator erstellt 9 Datei, die wir in unser Template-Verzeichnis kopieren. Ich habe alle im Verzeichnis <code class="language-text">templates/facile/ favicon_package</code> abgelegt. Es handelt sich dabei genau um die Files</p>
 <ol>

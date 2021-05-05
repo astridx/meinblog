@@ -19,9 +19,13 @@ Filtering, sorting and searching - now we organize the Joomla 4 component ! Joom
 
 ## For impatient people
 
-Look at the changed program code in the [Diff view](https://github.com/astridx/boilerplate/compare/t15a...t16) and take over these changes into your development version.
+Look at the changed program code in the [Diff view](https://github.com/astridx/boilerplate/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] and take over these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree16.png)
 
 ### New files
 

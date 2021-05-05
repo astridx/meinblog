@@ -32,11 +32,15 @@ We create a front-end template. This controls the way the website is presented t
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
 Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree35.png)
 
 ### Neue Dateien
 

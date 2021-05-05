@@ -13,112 +13,113 @@ tags:
   - Joomla
 ---
 
-Wenn du neu bei Joomla bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
+If you are new to Joomla, please read [Absolute basics of how a component works](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
 
-Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
+This tutorial is intended for Joomla 4. For information on creating a component for Joomla 3, see [Developing a Model View Controller Component / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component).
 
-Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du unter [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
+You need Joomla 4.x for this tutorial. You can find Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) on the [Developer Website](https://developer.joomla.org/nightly-builds.html) or create a free website at [https://launch.joomla.org](https://launch.joomla.org).
 
-## Für wen ist dieses Tutorial?
+## Aim of this tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen.
+This tutorial does not create a practical example. I have intentionally kept everything general. My main goal is to show you how Joomla works - and to help you understand it better yourself. In the end, you replace the name 'foo' in all files with the name of your component and extend it with your special requirements. If you like, you can use the script [github.com/astridx/boilerplate/blob/t43/duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) for this.
 
-> Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen.
-> Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla 3 Komponente, wenn diese Ihre Komponente für Joomla 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
+> Therefore, this tutorial is primarily intended for programmers who want to create a new component and do not know Joomla yet. The tutorial is also a help for programmers of a Joomla 3 component, if they extend their component for Joomla 4. For example, if you want to work on the validation of your Joomla 3 component, you will find in chapter 11 what you need - no more and no less.
 
-## Die Struktur dieses Tutorials
+## The structure of this tutorial
 
-Jedes Kapitel baut auf den vorherigen Builds auf. Wenn du dich jedoch für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an.
+Each chapter builds on the previous builds. However, if you are interested in a specific topic, feel free to look at a separate chapter.
 
-Es gibt viele Beispiele für Komponenten im Standard Joomla. Beispielsweise
+There are many examples of components in the standard Joomla. For example
 
 - com_content
 - com_banner
 - com_tags oder
 - com_contact
 
-In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist komplex und das Finden und Trennen bestimmter Elemente der Implementierung, wie z. B. Seitennummerierung, benutzerdefinierte Felder ..., ist mühsam und umständlich.
+In each component you see certain implementations. Each component is complex and finding and separating certain elements of the implementation, such as frontenditing, validation, custom fields.... is tedious and cumbersome.
 
-> Mit diesem Tutorial erstellst du eine Komponente für Joomla 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla bietet eine ganze Reihe von Standardfunktionen.
+> With this tutorial you will create a component for Joomla 4, using the many built-in Joomla implementations. You are not reinventing the wheel. Joomla offers a whole range of standard functions.
 
-Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
+If you want to get started immediately, scroll to [The first view in the backend](/the-first-view-in-the-backend). Below you will find some things about Joomla 4 that you do not necessarily need for editing. However, some of them are _good to know_.
 
-## Theoretische Grundlagen zu Joomla
+## Basics
 
-### Joomlaǃ 4 bietet fünf Arten von Erweiterungenː
+### Joomla 4 offers five types of extensions
 
-- [Komponenten](https://docs.joomla.org/Special:MyLanguage/Component/de):
-  Eine Komponente ist der Hauptteil der Site. Eine Komponente übernimmt die Datenmanipulation sowie die Eingabe und Speicherung in die Datenbank. Eine Komponente auf den meisten Websites steht im Mittelpunkt der Seite.
-- [Module](https://docs.joomla.org/Special:MyLanguage/Module/de):
-  Ein Modul ist ein Add-On zur Site, das die Funktionalität erweitert. Es nimmt einen sekundären Teil der Webseite ein und wird nicht als primärer Fokus einer Seite betrachtet. Es wird an verschiedenen Positionen angezeigt und es ist auswählbar, auf welchen aktiven Menüelementen es ausgegeben wird. Module sind leichte und flexible Erweiterungen. Man verwendet sie für kleine Teile der Seite, die im Allgemeinen weniger komplex sind und über verschiedene Komponenten hinweg angezeigt werden.
-- [Plugins](https://docs.joomla.org/Special:MyLanguage/Plugin/de):
-  Ein Plugin bearbeitet die Ausgabe, die vom System generiert wurde. Es wird normalerweise nicht als separater Teil der Site aufgerufen. Es nimmt Daten aus anderen Quellen und bearbeitet diese vor dem Anzeigen. Ein Plugin funktioniert normalerweise hinter den Kulissen.
-- [Sprachen](https://docs.joomla.org/Language/de):
-  Die grundlegendsten Erweiterungen sind Sprachen. Im Wesentlichen bestehen die Sprachpaketdateien aus Schlüssel/Wert-Paaren, die die Übersetzung statischer Textzeichenfolgen im Joomla Quellcode ermöglichen.
-- [Templates](https://docs.joomla.org/Special:MyLanguage/Templates/de):
-  Ein Template ist das Design deiner Joomla Website.
+- [Components](https://docs.joomla.org/Special:MyLanguage/Component):
+  A component is the main part of the site. A component handles data manipulation and input and storage in the database. A component on most websites is the centre of the page.
+- [Modules](https://docs.joomla.org/Special:MyLanguage/Module):
+  A module is an add-on to the site that extends its functionality. It occupies a secondary part of the web page and is not considered the primary focus of a page. It is displayed in different positions and it is selectable on which active menu items it is output. Modules are lightweight and flexible extensions. They are used for small parts of the page that are generally less complex and are displayed across different components.
+- [Plugins](https://docs.joomla.org/Special:MyLanguage/Plugin):
+  A plugin handles output generated by the system. It is not usually called as a separate part of the site. It takes data from other sources and processes it before displaying it. A plugin usually works behind the scenes.
+- [Languages](https://docs.joomla.org/Language):
+  The most basic extensions are languages. Essentially, language package files consist of key/value pairs that allow the translation of static text strings in the Joomla source code.
+- [Templates](https://docs.joomla.org/Special:MyLanguage/Templates):
+  A template is the design of your Joomla website.
 
-### Joomla 4 besteht aus fünf verschiedenen Anwendungen:
+### Joomla 4 consists of five different applications
 
-- Installation (wird für die Installation von Joomla verwendet und muss nach der Installation gelöscht werden);
-- Administrator (Backend - zum Verwalten von Inhalten);
-- Öffentlich oder Website (Frontend - zur Anzeige von Inhalten);
-- CLI (wird für den Zugriff auf Joomla über die Befehlszeile und für Cron-Jobs verwendet);
-- API (Webdienste - zum Erstellen von APIs für maschinenzugängliche Inhalte);
+- Installation (used to install Joomla and must be deleted after installation);
+- Administrator (backend - to manage content);
+- Public or Website (frontend - used to display content);
+- CLI (used to access Joomla from the command line and for cron jobs);
+- API (Web Services - used to create APIs for machine-accessible content);
 
-# Nebensächlich aber _Gut zu wissen_
+# Basic knowledge
 
-## Die Datei autoload_psr4.php
+## The autoload_psr4.php file
 
-Während der Installation werden Einträge in der `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls auf du merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
+During the installation, entries are made in `/library/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem.
 
 ## Namespace
 
-Beachte das Namespace-Tag oben in jeder Datei
+Note the namespace tag at the top of each file
 
 `Namespace FooNamespace\Component\Foos\Administrator\View\Foos;`
 
-und als Tag in der Manifestdatei
+and as a tag in the manifest file
 
 `<Namespace>FooNamespace\Component\Foos</ Namespace>`.
 
-Warum Namespaces verwenden?
+Why use namespaces?
 
-- Klassen werden so in einer definierten Struktur organisiert und
-- automatisch über den `Classloader` geladen.
-- Beispiel "ContentModelArticles" wird zu "\Joomla\Component\Content\Administrator\Model\ArticlesModel"
-- `JLoader` kann die Namespaces automatisch verarbeiten
-- Wir können zwischen Front-End- und Back-End-Klassen unterscheiden
-- Dateien mit Namespaces findest du unter [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
+- Classes are organised in a defined structure and are automatically
+- automatically loaded via the `Classloader`.
+- Example `ContentModelArticles` becomes `Joomla\Component\Content\Administrator\Model\ArticlesModel`.
+- JLoader can handle the namespaces automatically.
+- We can distinguish between front-end and back-end classes
+- Files with namespaces can be found at [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
 
-## Großschreibung von Ordnernamen
+## Capitalisation of folder names
 
-Du wirst vielleicht bemerken, dass einige der Joomla 4.x Ordner- und Dateinamen mit Großbuchstaben und andere mit Kleinbuchstaben beginen. Auf den ersten Blick scheint dies chaotisch. Auf den zweiten Blick macht dies Sinn.
+You may notice that some of the Joomla 4.x folder and file names start with upper case letters and others with lower case letters. At first glance this seems chaotic. At second glance, it makes sense.
 
-Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in Kleinbuchstaben enthalten XML-Dateien, Templatedateien, usw. . Es gibt einige Ordner mit Kleinbuchstaben die PHP-Dateien enthalten (aufgrund von Rückwärtskompatibilität) wie die Helfer-Dateien.
+The folders in upper case contain PHP classes with namespace. Those in lower case contain XML files, template files, etc. . There are some lower case folders that contain PHP files (due to backwards compatibility) like the helper files.
 
-Weitere Informationen findest du unter: [https://github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990)
+For more information, see: [https://github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990)
 
-## Die Klassen erhalten aussagekräftigere Namen
+## The classes get more meaningful names
 
-Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise haben die Controller jetzt Controller als Suffix für ihren Klassennamen. So wird "FooNamespace\Component\Foos\Administrator\Controller\Foos" zu "FooNamespace\Component\Foos\Administrator\Controller\FoosController".
+The component MVC classes have more meaningful names in Joomla 4. For example, the controllers now have controller as a suffix for their class name. Thus, `FooNamespace\Component\Foos\Administrator\Controller\Foos` becomes `FooNamespace\Component\Foos\Administrator\Controller\FoosController`.
 
-Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen "DisplayController", um besser zu reflektieren, was die Klasse tut.
+Additionally, the default controller, which in Joomla 3 is just called Controller, gets the name `DisplayController` to better reflect what the class does.
 
-Siehe: https://github.com/joomla/joomla-cms/pull/17624
+See: https://github.com/joomla/joomla-cms/pull/17624
 
-## Benötigst du in jedem Ordner deiner Komponente eine leere Datei "index.html"?
+## Do you need an empty file index.html in each folder of your component?
 
-Die `index.html` ist nicht mehr erforderlich, da das Verzeichnislisten [in der Standardkonfiguration nicht zulässig](https://github.com/joomla/joomla-cms/pull/4171) ist.
-Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s) zu finden.
+The `index.html` is no longer needed, as that is directory listings [not allowed in the default configuration](https://github.com/joomla/joomla-cms/pull/4171).
+If you are further interested: Here is the discussion on the topic in a [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s).
 
-## Technische Anforderungen
+## Technical requirements
 
-Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unterstützt werden und was nicht weiter verfolgt wird? Dafür gibt es das [Statistik-Plugin](https://developer.joomla.org/about/stats.html). Dank der Benutzer, die diese Erweiterung aktivieren, fließen wichtige Informationen in die Entwicklung ein.
+Do you know how those responsible at Joomla decide which functions are supported and what is not pursued further? That's what the [statistics plugin](https://developer.joomla.org/about/stats.html) is for. Thanks to the users who activate this extension, important information flows into the development.
 
-## Alternative Syntax für Kontrollstrukturen
+## Alternative syntax for control structures
 
-PHP bietet eine [weitere Schreibweise](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für Kontrollstrukturen an. Diese ist vor allem praktisch, wenn man größere Blöcke HTML direkt ausgibt - ohne `echo` zu benutzen. Nutze diese in Template-Dateien. So bleiben die übersichtlich.
+PHP offers an [additional notation](https://www.php.net/manual/de/control-structures.alternative-syntax.php) for control structures. This is especially handy when outputting larger blocks of HTML directly - without using `echo`. Use them in template files. This way they remain clear.
+
+Use
 
 ```php
 <?php foreach ($this->items as $i => $item) : ?>
@@ -127,7 +128,7 @@ PHP bietet eine [weitere Schreibweise](https://www.php.net/manual/de/control-str
 <?php endforeach; ?>
 ```
 
-anstelle von
+instead of y
 
 ```php
 foreach ($this->items as $i => $item) {
@@ -136,12 +137,28 @@ foreach ($this->items as $i => $item) {
 }
 ```
 
-Auf diese Art und Weise ist eine einzelne Zeile ins ich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
+In this way, a single line is self-contained and HTML code is still clearly structured.
 
-## Datenbanktabellenpräfix
+## Database table prefix
 
-Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung so, dass das Präfix variable ist. Sie nutzen die Zeichenkette `#__`, um immer den korrekten String wiederzugeben. Dies wird zur Laufzeit von Joomla durch die passende Zeichenfolge ersetzt.
+Extension developers who use the database develop the extension so that the prefix is variable. They use the string '##__' to always reflect the correct string. This is replaced by the appropriate string at runtime by Joomla.
 
-## Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?
+## Where do I store JavaScript, CSS and image files that belong to my component?
 
-Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices) empfehlen dies ebenfalls.
+Store these data in the directory 'media' in the Joomla root directory. This way it is possible to overwrite them. This is particularly advantageous for CSS files. To make the design consistent. The [Best Practice Guidelines](https://docs.joomla.org/Development_Best_Practices) also recommend this.
+
+## Fontawesome Icons
+
+You want to use icons but don't want to add your own library.
+
+Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#l14] is sufficient.
+
+> Attention: In Joomla Core files, you cannot simply copy them, because Joomla puts an `icon-` in front of them. This is then converted [here](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) for Fontawesome. In this way, only the icons intended for mapping in this file will work.
+
+The HTML code
+
+```
+<i class="fas fa-align-left"></i>
+```
+
+displays the left-aligned character, for example.

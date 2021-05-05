@@ -19,13 +19,13 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...3] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-Im aktuellen Abschnitte kommt eine Datei hinzu und es wird keine geändert.
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
-![Übersicht über die Dateien im vierten Kapitel](/images/j4xvier.png)
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree3.png)
 
 ### Neue Dateien
 

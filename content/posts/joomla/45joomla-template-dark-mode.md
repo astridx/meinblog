@@ -17,7 +17,7 @@ Das Thema Dark Mode hat für viel Wirbel gesorgt. So hat zum Beispiel Apple den 
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t39...t40) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -39,6 +39,10 @@ Das nachfolgende Schnippet nutze ich, um mir im Vorfeld die Angaben in der Konso
 ```
 
 > Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken.
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree40.png)
 
 ### Neue Dateien
 

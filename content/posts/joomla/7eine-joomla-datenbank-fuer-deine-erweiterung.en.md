@@ -21,9 +21,13 @@ In the database, we store three records during setup and display them in the adm
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t5...t6) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] and incorporate these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree6.png)
 
 ### New files
 

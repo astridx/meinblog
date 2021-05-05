@@ -26,9 +26,13 @@ If you worked with Joomla, you know it from other components: Items have a statu
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and incorporate these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree13.png)
 
 ### New files
 

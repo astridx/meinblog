@@ -17,7 +17,7 @@ The topic of dark mode has caused a lot of excitement. Apple, for example, has i
 
 ## For the impatient
 
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t39...t40) and transfer these changes to your development version.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] and transfer these changes to your development version.
 
 ## Step by step
 
@@ -39,6 +39,10 @@ I use the following snippet to have the information displayed in the browser con
 ```
 
 > Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken.
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree40.png)
 
 ### Neue Dateien
 

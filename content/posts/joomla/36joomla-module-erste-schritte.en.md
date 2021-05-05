@@ -25,11 +25,15 @@ This section explains how you create the basic framework for a simple module. In
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t30...t31) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t30...t31)[^github.com/astridx/boilerplate/compare/t30...t31] and incorporate these changes into your development version.
 
 ## Step by step
 
 In this section we will add a module. There are some basic files that are used in the standard module development pattern. We create these in this part.
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree31.png)
 
 ### New files
 

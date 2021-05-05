@@ -23,13 +23,24 @@ Update Server sounds complicated, basically it's just a URL to an XML file speci
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Step by step
 
-Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website im Internet gespeichert werden. Die Adressen oder URLs unter diesen diesen abgelegt sind, hatten wir im vorherigen Kapitel in der Datei `src/administrator/components/com_foos/foos.xml` eingefügt.
+In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file `src/administrator/components/com_foos/foos.xml`.
 
-![Übersicht über die Dateien im zweiten Kapitel](/images/j4xzwei.png)
+```xml
+...
+	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+	<updateservers>
+		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+	</updateservers>
+...
+```
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree1b.png)
 
 ### Neue Dateien
 

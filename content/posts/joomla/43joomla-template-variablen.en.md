@@ -17,11 +17,15 @@ Parameters make the template flexibly configurable in the backend. Perhaps a col
 
 ## For the impatient
 
-Take a look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t37...t38) and incorporate these changes into your development version.
+Take a look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] and incorporate these changes into your development version.
 
 ## Step by step
 
-In this section we will look at parameters and see that there are circumstances where they work more intuitively than modules.
+In this section we will look at parameters and see that there are circumstances where they work more intuitively than module chromes.
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree38.png)
 
 ### New files
 

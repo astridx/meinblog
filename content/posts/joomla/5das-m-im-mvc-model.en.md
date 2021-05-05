@@ -27,9 +27,13 @@ In this tutorial part, we add a Model to the frontend. The Model object is respo
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t3...t4) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t3...t4)[^github.com/astridx/boilerplate/compare/t3...t4] and incorporate these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree4.png)
 
 ### New files
 

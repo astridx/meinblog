@@ -33,9 +33,13 @@ For the menu item we already had a parameter set and for the component as a whol
 
 ## For the impatient
 
-Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t17...t18) and take over these changes into your development version.
+Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t17...t18] and take over these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree18.png)
 
 ### New files
 

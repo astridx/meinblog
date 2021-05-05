@@ -21,9 +21,13 @@ At the end, the view of your component in the administration area contains a but
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6...t6b) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] and incorporate these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree6b.png)
 
 ### New files
 

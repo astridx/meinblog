@@ -35,7 +35,7 @@ void function() {
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/joomla-einen-service-hinzufuegen-routing/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACZ0lEQVQ4y2P4T2XAAGP8+/cPjAmx0cWQxTEMhNF//vwB479//2I1FJ88A7JzkW2CgV+/foE1gvDv37/hhsAAOh/Dhd9//PhfUVX7Pz0z5/+nT5+whlPfhEn/w6Ni/1+7fgNuKIYLQbaDwIqVq/+zcPL+FxCV/B8SHvW/q6fv/3Wgxnfv3v+fMGnK/8KSsv/S8sr/WTh4/0fFJoD1gLyPYeCfPxCnX7x0+b+uocl/JTWt/5Kyiv/FpOT+B4VG/Lexd/7PLyLxX0xaHiwHMnTy1Om4DUR25br1G/5z8Aj+37Jt+/8zZ8/+19IzAhu+fsOm/9dv3PwvJCb1v6q2HsO7GGEIsgkEjh47/p+dW+D/tBmz/nv7BYFdFBOf9F/f2Oz/8pWr/osDXTl7zjwUR2C4EBb1MImM7Nz/gsBwBBl45erV/x8/fvpvaevwX0JG8X96Vu7/j9AIQ0+TWBP2x48fgQbm/Te1sAEbumnzVnDYevsH/dfUNQC61Pz/gwcPUbyMNwwPHTn6n4md+//O3Xv+F5dW/Hd29wJ728Pb7//5CxfBkQOLEFA6xellWCJt7ej6zyMoCk4mO3bu+i+npPZfWV37//yFi/6vBUYYKAwjouPg6RQ5cSOlQ0iEgLwnICL5X11LD2woMwfPf9/AkP91jc3/eYF8UOyDDAepSUnPwpcOIQbu2bcfnCxAGto7u/8fO37i//fv38Eajp84+X/Dxs3/tfWNwQm7vLIat4HIAQsyFORSXPn8wsVL/5cuWwG2CGdpg00jrECAWQZyCSzisJVSeIsvUJiil38wPsxgbOUjA81KbGoBAOxFbQm0w5BOAAAAAElFTkSuQmCC" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Add a Service - Routing</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/32joomla-einen-service-hinzufuegen-routing.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>01.01.2021</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Search engine friendly URLs do not work yet. We use a service to repair this fault. At the same time, this is a good example to work out what is necessary to integrate a service in a Joomla extension.</p>
 <h2>For impatient people</h2>
-<p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t26...t27">Diff View</a> and incorporate these changes into your development version.</p>
+<p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t26...t27">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t26...t27"><a href="#fn-github.com/astridx/boilerplate/compare/t26...t27" class="footnote-ref">github.com/astridx/boilerplate/compare/t26...t27</a></sup> and incorporate these changes into your development version.</p>
 <blockquote>
 <p><em>Search Engine Friendly (SEF)</em>, <a href="https://en.wikipedia.org/wiki/Clean_URL" title="wikipedia:Clean URL">human readable</a> are URLs that make sense to both humans and search engines because they explain the path to the specific page. Joomla is able to create URLs in any format. This does not depend on URL rewriting performed by the web server, so it will work even if Joomla uses a server other than Apache with the mod_rewrite module. The SEF URLs follow a certain fixed pattern, but the user can define a short descriptive text <a href="https://docs.joomla.org/Alias">alias</a> for each segment of the URL.</p>
 </blockquote>
@@ -49,6 +49,39 @@ void function() {
 <p>Search Engine Friendly URLs can be enabled by turning on the <em>Search Engine Friendly URLs</em> option in the <em>Global configuration</em>. This option is activated by default. For more information, see <a href="https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs">Enabling Search Engine Friendly (SEF) URLs in the documentation</a>.</p>
 </blockquote>
 <h2>Step by step</h2>
+<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/202f8809799ad55b88bf449183adfbd9/90804/tree27.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQ4y33U2Y4qMQwE0P7/74MRSAPDvu/LMKy5OpbcQjzcSFHSTlyuqhiq9Xpdut1u2W63xXi9XuV4PJbBYBBrxtwTu91uJcfpdCqTyaT8/f3F9/P5LNXlcimbzSZAr9drBO/3e8TG43HEAAISm81m5XA41MBAf35+Ih+BSsAF1SW4CMThcDgso9EokoAa+/0+1JzP54jJXSwWEfcdgA6xQd8eQxe+v7+jMrkK7Ha7Wm4WwHg+n9fxCoCLaAN/PB7B8Pf3N8AajUYU4ZNkhd0xgVLx9fVVptNpKAyGKU8lclJyv98vq9UqEpMRtsvlMlZFnSvabreL96gkksgLjLDloxg2mCdj6/tQhH+dTieAQzJAANAlAySHTExIsQfIY5OKZM1reexQMCSbAmST4oBnGHvlbB1TXPH8zp5VnKr6lTHhGUAHQABihDHm5OnTd8nye71e2ENFDfjJMAFNrExJ2UbZ2PYkwwgPUzLapirZFpIxx4pM5+kVFYYipgLx00uGXok8JkvO32YOe0B5ljEeN5vNWJEIwOwnHpHmYvbdew9+tozX9hj8hVNLBuKQnDz4BEng9wLvCvJOhR0ZwLKaWPbgJ9tP1p9FqnwdgK1Wq/4j4BcLWJFM/geU+38johtuFsEghgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Overview of the files edited in this chapter"
+        title="Overview of the files edited in this chapter"
+        src="/static/202f8809799ad55b88bf449183adfbd9/f058b/tree27.png"
+        srcset="/static/202f8809799ad55b88bf449183adfbd9/c26ae/tree27.png 158w,
+/static/202f8809799ad55b88bf449183adfbd9/6bdcf/tree27.png 315w,
+/static/202f8809799ad55b88bf449183adfbd9/f058b/tree27.png 630w,
+/static/202f8809799ad55b88bf449183adfbd9/40601/tree27.png 945w,
+/static/202f8809799ad55b88bf449183adfbd9/78612/tree27.png 1260w,
+/static/202f8809799ad55b88bf449183adfbd9/90804/tree27.png 3733w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h3>New files</h3>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601">components/com_foos/ src/Service/Router.php</a></h4>
 <p>The service <code class="language-text">components/com_foos/ src/Service/Router.php</code> does the actual work and converts the URLs into search engine friendly versions.</p>

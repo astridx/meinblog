@@ -17,9 +17,13 @@ Sometimes it is necessary to design the display differently in the frontend. Thi
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t19...t20) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t19...t20)[^github.com/astridx/boilerplate/compare/t19...t20] and incorporate these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree20.png)
 
 ### New files
 

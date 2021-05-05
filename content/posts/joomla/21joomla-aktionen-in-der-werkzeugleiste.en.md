@@ -19,11 +19,15 @@ You don't develop the extension as an end in itself. It helps with the completio
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t16...t17) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t16...t17)[^github.com/astridx/boilerplate/compare/t16...t17] and incorporate these changes into your development version.
 
 ## Step by step
 
 I'll show you here how to integrate the standard functions into the toolbar. Each component has its own functions. Just like the standard ones in Joomla, you add the special ones via buttons in the toolbar. Look here at the standard functions.
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree17.png)
 
 ### New files
 

@@ -17,13 +17,17 @@ Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die 
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t38...t39) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
 In diesem Abschnitt kommt keine neue Funktion hinzu. Wir bauen lediglich um. Wir ändern die Art, wie wir die JavaScript und CSS-Dateien integrieren. Ab jetzt wird eine Joomla-eigene Funktion dafür verwendet, die viele Vorteile bietet.
 
 > Ich hatte im Zusammenhang mit der Nutzung der Datenbank im Frontend bei den Erklärungen zur Komponente bereits geschrieben, dass du Web Assets ebenfalls über die Datei `joomla.asset.json` integrieren kannst. Hier zeige ich dir, wie ohne `joomla.asset.json` den Web Asset Manager nutzt.
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree39.png)
 
 ### Neue Dateien
 

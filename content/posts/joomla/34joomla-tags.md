@@ -19,9 +19,13 @@ Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so 
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t28...t29) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t28...t29)[^github.com/astridx/boilerplate/compare/t28...t29] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree29.png)
 
 ### Neue Dateien
 

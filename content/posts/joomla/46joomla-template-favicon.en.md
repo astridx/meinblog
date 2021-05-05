@@ -19,11 +19,15 @@ A [favicon](https://de.wikipedia.org/wiki/Favicon is a small icon used to identi
 
 ## For the impatient
 
-Look at the changed programme code in the [diff view](https://github.com/astridx/boilerplate/compare/t40...t41) and transfer these changes into your development version.
+Look at the changed programme code in the [diff view](https://github.com/astridx/boilerplate/compare/t40...t41)[^github.com/astridx/boilerplate/compare/t40...t41] and transfer these changes into your development version.
 
 ## Step by step
 
 In this section we create a recognisable image. In the first step, we choose an image. For the example, I chose a yellow PNG file. In the next step, we convert it into different formats using the website [realfavicongenerator.net](https://realfavicongenerator.net/).
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree41.png)
 
 ### New files
 

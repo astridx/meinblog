@@ -38,9 +38,42 @@ void function() {
 <p>The size and type of the favicon is expected to be different on different devices. I use the website <a href="https://realfavicongenerator.net/">realfavicongenerator.net</a> to create the optimal format of my image for the individual devices. I consider this tool to be tried and tested and the easiest to use. However, there is an alternative newer approach that is used by the Joomla standard template Cassiopeia. If you prefer to use the modern SVG format with an ICO file as a fallback layer, you will find a solution that suits you better under <a href="https://blog.astrid-guenther.de/en/cassiopeia-favicon">Favicon in Joomla template</a>.</p>
 </blockquote>
 <h2>For the impatient</h2>
-<p>Look at the changed programme code in the <a href="https://github.com/astridx/boilerplate/compare/t40...t41">diff view</a> and transfer these changes into your development version.</p>
+<p>Look at the changed programme code in the <a href="https://github.com/astridx/boilerplate/compare/t40...t41">diff view</a><sup id="fnref-github.com/astridx/boilerplate/compare/t40...t41"><a href="#fn-github.com/astridx/boilerplate/compare/t40...t41" class="footnote-ref">github.com/astridx/boilerplate/compare/t40...t41</a></sup> and transfer these changes into your development version.</p>
 <h2>Step by step</h2>
 <p>In this section we create a recognisable image. In the first step, we choose an image. For the example, I chose a yellow PNG file. In the next step, we convert it into different formats using the website <a href="https://realfavicongenerator.net/">realfavicongenerator.net</a>.</p>
+<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/202f8809799ad55b88bf449183adfbd9/90804/tree41.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQ4y33U2Y4qMQwE0P7/74MRSAPDvu/LMKy5OpbcQjzcSFHSTlyuqhiq9Xpdut1u2W63xXi9XuV4PJbBYBBrxtwTu91uJcfpdCqTyaT8/f3F9/P5LNXlcimbzSZAr9drBO/3e8TG43HEAAISm81m5XA41MBAf35+Ih+BSsAF1SW4CMThcDgso9EokoAa+/0+1JzP54jJXSwWEfcdgA6xQd8eQxe+v7+jMrkK7Ha7Wm4WwHg+n9fxCoCLaAN/PB7B8Pf3N8AajUYU4ZNkhd0xgVLx9fVVptNpKAyGKU8lclJyv98vq9UqEpMRtsvlMlZFnSvabreL96gkksgLjLDloxg2mCdj6/tQhH+dTieAQzJAANAlAySHTExIsQfIY5OKZM1reexQMCSbAmST4oBnGHvlbB1TXPH8zp5VnKr6lTHhGUAHQABihDHm5OnTd8nye71e2ENFDfjJMAFNrExJ2UbZ2PYkwwgPUzLapirZFpIxx4pM5+kVFYYipgLx00uGXok8JkvO32YOe0B5ljEeN5vNWJEIwOwnHpHmYvbdew9+tozX9hj8hVNLBuKQnDz4BEng9wLvCvJOhR0ZwLKaWPbgJ9tP1p9FqnwdgK1Wq/4j4BcLWJFM/geU+38johtuFsEghgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Overview of the files edited in this chapter"
+        title="Overview of the files edited in this chapter"
+        src="/static/202f8809799ad55b88bf449183adfbd9/f058b/tree41.png"
+        srcset="/static/202f8809799ad55b88bf449183adfbd9/c26ae/tree41.png 158w,
+/static/202f8809799ad55b88bf449183adfbd9/6bdcf/tree41.png 315w,
+/static/202f8809799ad55b88bf449183adfbd9/f058b/tree41.png 630w,
+/static/202f8809799ad55b88bf449183adfbd9/40601/tree41.png 945w,
+/static/202f8809799ad55b88bf449183adfbd9/78612/tree41.png 1260w,
+/static/202f8809799ad55b88bf449183adfbd9/90804/tree41.png 3733w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h3>New files</h3>
 <p>The favicon generator creates 9 files which we copy into our template directory. I put all of them in the directory <code class="language-text">templates/facile/ favicon_package</code>. These are exactly the files</p>
 <ol>

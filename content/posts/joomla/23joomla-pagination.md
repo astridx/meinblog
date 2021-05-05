@@ -19,9 +19,13 @@ Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Se
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree19.png)
 
 ### Neue Dateien
 

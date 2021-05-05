@@ -17,9 +17,13 @@ Wir ergänzen Namespace und Helper.
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t31...t32) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree32.png)
 
 ### Neue Dateien
 

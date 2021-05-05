@@ -17,7 +17,7 @@ Search engine friendly URLs do not work yet. We use a service to repair this fau
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t26...t27) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t26...t27)[^github.com/astridx/boilerplate/compare/t26...t27] and incorporate these changes into your development version.
 
 > _Search Engine Friendly (SEF)_, [human readable](https://en.wikipedia.org/wiki/Clean_URL 'wikipedia:Clean URL') are URLs that make sense to both humans and search engines because they explain the path to the specific page. Joomla is able to create URLs in any format. This does not depend on URL rewriting performed by the web server, so it will work even if Joomla uses a server other than Apache with the mod_rewrite module. The SEF URLs follow a certain fixed pattern, but the user can define a short descriptive text [alias](https://docs.joomla.org/Alias) for each segment of the URL.
 
@@ -28,6 +28,10 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 > Search Engine Friendly URLs can be enabled by turning on the _Search Engine Friendly URLs_ option in the _Global configuration_. This option is activated by default. For more information, see [Enabling Search Engine Friendly (SEF) URLs in the documentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree27.png)
 
 ### New files
 

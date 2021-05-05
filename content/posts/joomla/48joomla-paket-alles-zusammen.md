@@ -17,11 +17,13 @@ Wir haben eine Menge unterschiedlicher Erweiterung erstellt. Es ist lästig, fü
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t41...t42) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-In diesem Abschnitt erstellen wir ein Installationspaket.
+In diesem Abschnitt erstellen wir ein Installationspaket. In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree42.png)
 
 ### Neue Dateien
 

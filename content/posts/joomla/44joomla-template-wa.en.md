@@ -17,9 +17,13 @@ There is a lot to consider when loading styles and stylesheets in the frontend. 
 
 ## For the impatient
 
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t38...t39) and transfer these changes into your development version.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] and transfer these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree39.png)
 
 In this section, we are not adding a new function. We are merely rebuilding. We change the way we integrate the JavaScript and CSS files. From now on, a Joomla-specific function will be used for this, which offers many advantages.
 

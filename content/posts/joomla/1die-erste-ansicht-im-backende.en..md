@@ -19,15 +19,17 @@ We'll start with the basics. For this we create the _View_ in the administration
 
 ## For impatient people
 
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t0...t1) and incorporate these changes into your development version.
+View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t0...t1)[^github.com/astridx/boilerplate/compare/t0...t1] and incorporate these changes into your development version.
 
 ## Step by step
 
-![Overview of the files in the first chapter](/images/j4xeins.png)
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree1.png)
 
 ### New files
 
-#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578) - Blueprint for the installation
+#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 `foos.xml` teilt Joomla mit, wie unsere Komponente installiert wird. Genau wie Module und Plugins verfügen Komponenten über eine XML-Installationsdatei, die Joomla über die zu installierende Erweiterung informiert. Diese Datei wird als Manifest bezeichnet und enthält Details wie
 
@@ -42,9 +44,9 @@ Die erste Zeile ist nicht spezifisch für Joomla. Es sagt uns, dass dies eine XM
 
 Dann teilen wir Joomla mit, dass dies eine Komponente ist. Und wir wünschen uns, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen `<extension type="component" method="upgrade">`.
 
-> Manchmal findest du im `<extension>`-Tag des Manifestes einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du [hier](https://github.com/joomla/joomla-cms/pull/25820).
+> Manchmal findest du im `<extension>`-Tag des Manifestes einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du unter [github.com/joomla/joomla-cms/pull/25820](https://github.com/joomla/joomla-cms/pull/25820).
 
-Dann definieren wir den Namen der Komponente. In diesem Fall `COM_FOOS`. Mehr [Informationen](https://github.com/joomla/joomla-cms/issues/26221) zum Namen.
+Dann definieren wir den Namen der Komponente. In diesem Fall `COM_FOOS`. Mehr Informationen zum Namen unter [github.com/joomla/joomla-cms/issues/26221](https://github.com/joomla/joomla-cms/issues/26221).
 
 Die nächsten Zeilen sind selbsterklärend. Ergänze deine Daten.
 
@@ -59,7 +61,7 @@ Die nächsten Zeilen sind selbsterklärend. Ergänze deine Daten.
 
 Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.0.0` geben: `<version>1.0.0</version>`. Wenn wir einen kleinen Fehler beheben, wäre die nächste Nummer `1.0.1`. Wenn wir eine neue Funktion einführen, wählen wir `1.1.0`. Wenn wir größere Änderungen vorgenommen haben, die Implementierungen in früheren Versionen ändern, heißt die nächste Version `2.0.0`. Es ist wichtig, dass du die dreiteilige Versionsnummerierung verwendest, da dies das spätere Erstellen von Updates mithilfe der semantischen Versionierung erleichtert.
 
-Joomla folgt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering). Ich empfehle dir, dies ebenfalls.
+Joomla folgt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering)[^developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering]. Ich empfehle dir, dies ebenfalls.
 
 Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Im Moment hat dies noch keine Auswirkungen. Später ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten Kapitel einführen.
 Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du das Menü `System` klickst und `Manage | Extensions` öffnest.
@@ -97,7 +99,7 @@ Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereic
 	</administration>
 ```
 
-Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf [Github](https://github.com/joomla/joomla-cms/pull/25553).
+Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf Github unter [github.com/joomla/joomla-cms/pull/25553](https://github.com/joomla/joomla-cms/pull/25553).
 
 Wir schließen zuletzt das `</extension>`-Tag.
 
@@ -326,10 +328,10 @@ Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert wu
 
 Wenn du mit dem Konzept von DI Container nicht vertraut bist, findest du hier Erklärung und einige Beispiele:
 
-- [joomla-framework/di](https://github.com/joomla-framework/di)[^https://github.com/joomla-framework/di].
-- [docs/why-dependency-injection.md](https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md)[^https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md].
+- [joomla-framework/di](https://github.com/joomla-framework/di)[^github.com/joomla-framework/di].
+- [docs/why-dependency-injection.md](https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md)[^github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md].
 
-Weitere Informationen zu Implementierung findest du auf Github(https://github.com/joomla/joomla-cms/pull/20217)[^https://github.com/joomla/joomla-cms/pull/20217];
+Weitere Informationen zur Implementierung findest du auf [Github](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217];
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 
@@ -415,11 +417,11 @@ Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _Do
  */
 ```
 
-Wie du DocBlocks für Joomla erstellst, erklärten die Joomla [Codierungsstandards](https://developer.joomla.org/coding-standards/docblocks.html) und der [Pull Request](https://github.com/joomla/joomla-cms/pull/31504)
+Wie du DocBlocks für Joomla erstellst, erklärten die Joomla Codierungsstandards unter [developer.joomla.org/coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) und der Pull Request [github.com/joomla/joomla-cms/pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
 
 > Vor jeder Klasse und Funktion wird ein DocBlock angezeigt. Der gesamte Code enthält diese DocBlock-Kommentare, die es automatisierten Tools erleichtern, die Dokumentation von APIs zu generieren. Dies hilft einigen IDEs, die Code-Vervollständigung bereitzustellen. Und manchmal ist der Kommentar für Programmierer hilfreich. Ich drucke die Dokumentarblöcke hier nicht weiter ab. In den Code-Beispielen auf Github sind sie vorhanden.
 
-Nach dem DocBlock fügst du den _Namespace_ ein: `namespace FooNamespace\Component\Foos\Administrator\Controller;`. Diesen deklarierst du mit dem entsprechenden Schlüsselwort. Namespaces wurde in Joomla 4 eingeführt. Wenn diesses Konzept dir neu ist, lese die [Übersicht über Namespace](https://www.php.net/manual/de/language.namespaces.php). Es zwingend, dass er vor allem anderen Code in der Datei steht. Ich werde dir später erklären, wie sich der Name des Namespaces zusammensetzt:
+Nach dem DocBlock fügst du den _Namespace_ ein: `namespace FooNamespace\Component\Foos\Administrator\Controller;`. Diesen deklarierst du mit dem entsprechenden Schlüsselwort. Namespaces wurde in Joomla 4 eingeführt. Wenn diesses Konzept dir neu ist, lese die Übersicht über Namespace bei [php.net/manual/de/language.namespaces.php](https://www.php.net/manual/de/language.namespaces.php). Es zwingend, dass er vor allem anderen Code in der Datei steht. Ich werde dir später erklären, wie sich der Name des Namespaces zusammensetzt.
 
 Nach dem Namespace fügen wir `\defined('_JEXEC') or die;` ein, sodass diese PHP-Datei nicht direkt aufrufbar ist.
 
@@ -429,7 +431,7 @@ Anschließend erstellen wir die Klasse für den Controller. Ich hatte schon gesc
 
 Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich verwendest, bemerkst du gegebenenfalls die Ansichts- und Layoutvariablen. Beispiel: `index.php?option=com_foos&view=foos&layout=default` weist uns an, die foos-Ansicht mit dem Standardlayout zu laden, sodass `components/` + `com_foos/tmpl/foos/` + `default.php` aufgerufen wird, wenn du dich im Front-End und `administrator/components/` + `com_foos/tmpl/foos/` + default.php`, wenn du dich im Backend befindest.
 
-> Die Sichtbarkeit wird in PHP mit `public`, `private` oder `protected` definiert. Wann du was einsetzt erklärt das [PHP-Handbuch](https://www.php.net/manual/de/language.oop5.visibility.php)[^https://www.php.net/manual/de/language.oop5.visibility.php].
+> Die Sichtbarkeit wird in PHP mit `public`, `private` oder `protected` definiert. Wann du was einsetzt erklärt das [PHP-Handbuch](https://www.php.net/manual/de/language.oop5.visibility.php)[^php.net/manual/de/language.oop5.visibility.php].
 
 Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deiner implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
 
@@ -488,7 +490,7 @@ class DisplayController extends BaseController
 
 #### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
 
-`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)[^https://github.com/joomla/joomla-cms/pull/20217].
+`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217].
 
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 

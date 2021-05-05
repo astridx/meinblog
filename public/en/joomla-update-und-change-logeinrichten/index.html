@@ -69,35 +69,42 @@ void function() {
   </a>
     </span></p>
 <h2>For impatient people</h2>
-<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t1...t1b">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t1...t1b">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t1...t1b"><a href="#fn-github.com/astridx/boilerplate/compare/t1...t1b" class="footnote-ref">github.com/astridx/boilerplate/compare/t1...t1b</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Step by step</h2>
-<p>Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website im Internet gespeichert werden. Die Adressen oder URLs unter diesen diesen abgelegt sind, hatten wir im vorherigen Kapitel in der Datei <code class="language-text">src/administrator/components/com_foos/foos.xml</code> eingefügt.</p>
+<p>In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file <code class="language-text">src/administrator/components/com_foos/foos.xml</code>.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">server</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;extension&quot;</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;Foo Updates&quot;</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml&lt;/</span><span class="mtk7">server</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/8b52eb53a2ca86485dfdbfae7195258b/6e425/j4xzwei.png"
+    href="/static/95971bf7cb61a2d46635cdcb548c7f04/b27b8/tree1b.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 55.06329113924051%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABH0lEQVQoz4VSyaqEQAz0/79L8eBBPIkHFxAV931f8qhAS+vM8AKhK21SXYlRtm0j4eu6Ps7rugiGU+D/TNn3nYuP46DzPAmxbDLpm1xgOVYAQGYYBmmaRqqqkmVZZJomua77tRCGx99krFCAKIrIcRxq25Y8z2NcluUjWTwOMtlEfCsEQCIctiwLDcPwUCKKuq4jXde5A3Rj2/Zdx4TvYYsYpPB5nh8YXlUVPwgHxrcPhd8c7ed5zj8NPwt3dV0zqdw6iJHDM3yrEwqRnCQJxXF8K8M6CXW4D4KA78Zx5BgCfhJO00S+71OWZfdMUQhlUB2GIRVFQX3fc67APwlRnKYpK8IJYhDhHg6S99w/Wv6WAHVYqaZpeATA8pq8l/wP4XFY7QoJ/lEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 81.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAAB7UlEQVQ4y3WU2a7CMAxE+f9/Q+IFoYJaltKNrVBKS1dzj5EjQLqWSuLEGY8nDpPT6SS+70uSJjIMg2DDOEhRFLJeryXPczF7Pp9yPp9lv99LXddufRxHOR6PEsexTOqqlqIsZOpNJc5jDej7Xtq2VdAgCORyuUjXdfo1TSNJkkgURQpqJNgry1Im/FR1JX7gSxRHeoAg2ACYpql++HywwWAEU0aAOVdV1RsQBxZkzbLMBdzvd2Wz3W51xIe9gTI3AoycU0AmgIVhqJrBhAD2WFssFqozjEmMVsR8GhKpho/HQ/jQ6nA4aDYrGUDKnc/nytzYXK9XXbPqAIMUsY4h6IByEBYGyDolow9gVq7tEc/Nw55ETkMAEHm322kCfDITTMkcNK3sZn9L5oIcIMbh1WrlLgVQLoJAsuOjMXrTv7fbTdsFIx7/3TZ/5eBYi+CTkREf1ujLGobmlMsec2t61zY4sFgul8qQYA6THf08z1NmtAnxjL/21YcGSIvAlJKtx2DBOnEkYR/fXs8nIGy/AHm7MEJLuxT0ms1m2timLfpRDcmMObHMvwAB46attwhEu81m48AYYUhy5rCklZr2/cYdIFkBYzRAe/T2KqwPKe1Xy67tNLkDpEy7OVqFQ9bE9hf1n7V9K1mRSRiF8gLM9Mtfiv3d3wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Übersicht über die Dateien im zweiten Kapitel"
-        title="Übersicht über die Dateien im zweiten Kapitel"
-        src="/static/8b52eb53a2ca86485dfdbfae7195258b/f058b/j4xzwei.png"
-        srcset="/static/8b52eb53a2ca86485dfdbfae7195258b/c26ae/j4xzwei.png 158w,
-/static/8b52eb53a2ca86485dfdbfae7195258b/6bdcf/j4xzwei.png 315w,
-/static/8b52eb53a2ca86485dfdbfae7195258b/f058b/j4xzwei.png 630w,
-/static/8b52eb53a2ca86485dfdbfae7195258b/40601/j4xzwei.png 945w,
-/static/8b52eb53a2ca86485dfdbfae7195258b/78612/j4xzwei.png 1260w,
-/static/8b52eb53a2ca86485dfdbfae7195258b/6e425/j4xzwei.png 3671w"
+        alt="Overview of the files edited in this chapter"
+        title="Overview of the files edited in this chapter"
+        src="/static/95971bf7cb61a2d46635cdcb548c7f04/f058b/tree1b.png"
+        srcset="/static/95971bf7cb61a2d46635cdcb548c7f04/c26ae/tree1b.png 158w,
+/static/95971bf7cb61a2d46635cdcb548c7f04/6bdcf/tree1b.png 315w,
+/static/95971bf7cb61a2d46635cdcb548c7f04/f058b/tree1b.png 630w,
+/static/95971bf7cb61a2d46635cdcb548c7f04/40601/tree1b.png 945w,
+/static/95971bf7cb61a2d46635cdcb548c7f04/78612/tree1b.png 1260w,
+/static/95971bf7cb61a2d46635cdcb548c7f04/b27b8/tree1b.png 3168w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -138,7 +145,7 @@ Und das Attribut <code class="language-text">format</code> definiert den Paketty
 Der Wert des <code class="language-text">client</code> -Tags beschreibt die client<em>id in der Tabelle #\</em>_extension, die Joomla Wenn dies ein Site- (0) oder ein Administrator- (1) Erweiterungstyp ist. Plugins sind immer 0, Komponenten sind immer 1; Module können jedoch variieren, je nachdem, ob es sich um ein Front-End- oder ein Back-End-Modul handelt.</p>
 <p>Nachfolgend siehst du die vollständige Datei.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml">foo_update.xml</a></p>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t1b/foo_update.xml</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t1b/foo_update.xml</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk8">&lt;</span><span class="mtk4">updates</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">&lt;</span><span class="mtk4">update</span><span class="mtk8">&gt;</span></span></span>
@@ -164,7 +171,7 @@ Der Wert des <code class="language-text">client</code> -Tags beschreibt die clie
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2">changelog.xml</a> (Changelog)</h4>
 <p>Informationen zum Changelog findest du unter in Github <a href="https://github.com/joomla/joomla-cms/pull/24026">Github</a> und der <a href="https://docs.joomla.org/Adding_changelog_to_your_manifest_file">Dokumentation</a>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml">changelog.xml</a></p>
-<pre class="grvsc-container solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t1b/changelog.xml</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t1b/changelog.xml</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk8">&lt;</span><span class="mtk4">changelogs</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;</span><span class="mtk4">changelog</span><span class="mtk8">&gt;</span></span></span>
@@ -206,7 +213,7 @@ Der Wert des <code class="language-text">client</code> -Tags beschreibt die clie
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
 <p>Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im Weiteren nicht explizit.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
-<pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">authorUrl</span><span class="mtk8">&gt;</span><span class="mtk1">[</span><span class="mtk4">AUTHOR_URL</span><span class="mtk1">]</span><span class="mtk8">&lt;/</span><span class="mtk4">authorUrl</span><span class="mtk8">&gt;</span></span></span>
+<pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">authorUrl</span><span class="mtk8">&gt;</span><span class="mtk1">[</span><span class="mtk4">AUTHOR_URL</span><span class="mtk1">]</span><span class="mtk8">&lt;/</span><span class="mtk4">authorUrl</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">copyright</span><span class="mtk8">&gt;</span><span class="mtk1">[</span><span class="mtk4">COPYRIGHT</span><span class="mtk1">]</span><span class="mtk8">&lt;/</span><span class="mtk4">copyright</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">license</span><span class="mtk8">&gt;</span><span class="mtk4">GNU</span><span class="mtk1"> </span><span class="mtk4">General</span><span class="mtk1"> </span><span class="mtk13 mtkb">Public</span><span class="mtk1"> </span><span class="mtk4">License</span><span class="mtk1"> </span><span class="mtk4">version</span><span class="mtk1"> </span><span class="mtk6">2</span><span class="mtk1"> </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk4">later</span><span class="mtk1">;</span><span class="mtk8">&lt;/</span><span class="mtk4">license</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;</span><span class="mtk4">version</span><span class="mtk8">&gt;</span><span class="mtk6">1.0.0</span><span class="mtk8">&lt;/</span><span class="mtk4">version</span><span class="mtk8">&gt;</span></span></span>
@@ -459,12 +466,13 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   .solarized-light { background-color: #FDF6E3; }
   .solarized-light .mtkb { font-weight: bold; }
   .solarized-light .mtki { font-style: italic; }
+  .solarized-light .mtk1 { color: #657B83; }
+  .solarized-light .mtk7 { color: #268BD2; }
   .solarized-light .mtk3 { color: #93A1A1; }
+  .solarized-light .mtk11 { color: #2AA198; }
   .solarized-light .mtk8 { color: #859900; }
   .solarized-light .mtk4 { color: #CB4B16; }
-  .solarized-light .mtk1 { color: #657B83; }
   .solarized-light .mtk6 { color: #D33682; }
-  .solarized-light .mtk11 { color: #2AA198; }
   .solarized-light .mtk5 { color: #B58900; }
   .solarized-light .mtk13 { color: #073642; }
   .solarized-light .grvsc-line-highlighted::before {

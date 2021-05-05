@@ -26,7 +26,7 @@ Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über den Ordner 
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -36,6 +36,10 @@ In diesem Abschnitt verändern wir die Frontend Ansicht von `com_content/feature
 > ![Joomla Template erstellen - Diff-View](/images/j4x42x4.png)
 
 > Tipp: Wenn man eine Ansicht nur geringfügig verändern möchte, bietet es sich an, diese als Vorlage zu nehmen. Dann ändert man die Vorlage wunschgemäß. Dazu geht man folgendermaßen vor. Man erstellt eine Kopie der vorhandenen Ansicht im `html`-Verzeichnis des Templates und bearbeitet diese. Die Kopie legt im Templateverzeichnis an, genau unter `templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php`. Falls man zum Beispiel die `Feature`-Ansicht in `com_content` ändern möchtest, dann kopiert man die Datei `components/com_content/views/feature/tmpl/default.php` nach `templates/TEMPLATE_NAME/html/com_content/feature/default.php`. Analog verhält es sich, falls du die Darstellung des `mod_article_latest`-Moduls ändern willst. Kopiere `modules/tmpl/mod_articles_news/default.php` nach `templates/TEMPLATE_NAME/html/mod_articles_news/default.php`. Joomla enthält das Frontend-Template namens Cassiopeia. Cassipeia verwendet Template-Overrides um das Dropdown Menu zu kreieren. An diesem kannst du dich orientieren. Öffne dazu das Verzeichnis `\template\cassiopeia`. Im Template-Ordner, ist ein Unterverzeichnis namens `html`.
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree37.png)
 
 ### Neue Dateien
 

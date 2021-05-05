@@ -74,7 +74,7 @@ Da JSON Daten strukturiert, können leicht Objekte aus diesen Daten definiert we
 JSON wird fortwährend weiterentwickelt. Im Dezember 1999 wurde die erste JSON Format-Spezifikation verabschiedet.
 Aktuell wird es durch zwei konkurrierende Standards spezifiziert,
 <a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a><sup id="fnref-https://tools.ietf.org/html/rfc8259"><a href="#fn-https://tools.ietf.org/html/rfc8259" class="footnote-ref">https://tools.ietf.org/html/rfc8259</a></sup> und <a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf">ECMA-404</a>[^.</p>
-<p>Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen  (ndhabung. Da JSON selb)].</p>
+<p>Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen (ndhabung. Da JSON selb)].</p>
 <p>Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen Handhabung. Da JSON selbst gültiges Javascript darstellt, kann es direkt ausgeführt und somit in ein Javascript-Objekt überführt werden. Auf die einzelnen Eigenschaften dieser Objekte kann dann über die Attribute zugegriffen werden. Im Kapitel <em>Heatmaps in Leaflet – Dichte</em> werden wir eine Datei, die GeoJSON Objekte enthält, als Skript einbinden. Allein durch das Einbinden der Datei können wir innerhalb anderer Skripte auf die GeoJSON Objekte der eingebundenen Datei zugreifen. Im Gegensatz dazu muss eine XML-Datei erst mit einem XML-Parser analysiert werden.</p>
 <p>Ein weiterer Vorteil von JSON: In JSON gibt es kein Ende-Tag.
 Hauptsächlich deshalb ist JSON kompakter. Dies hat nämlich zur Folge,
@@ -1101,16 +1101,16 @@ antwortet die Funktion mit der Farbe Violett.</p>
   </a>
     </span></p>
 <h5>Praxisbeispiel</h5>
-<p>In der Regel werden CSS-Stile verwendet, um in GeoJSON </p>
+<p>In der Regel werden CSS-Stile verwendet, um in GeoJSON</p>
 <ul>
-<li>Punkte, </li>
-<li>Linien und </li>
+<li>Punkte,</li>
+<li>Linien und</li>
 <li>Polygone
-mit </li>
+mit</li>
 <li>Farbe,</li>
-<li>Dicke, und </li>
+<li>Dicke, und</li>
 <li>Sichtbarkeit
-zu stylen. </li>
+zu stylen.</li>
 </ul>
 <p>Ein Beispiel zeigt der nachfolgende Ausschnitt aus einer GeoJSON-Datei.</p>
 <pre class="grvsc-container solarized-light" data-language="js" data-index="21"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
@@ -1129,7 +1129,7 @@ zu stylen. </li>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk11">&quot;type&quot;</span><span class="mtk1">: </span><span class="mtk11">&quot;Polygon&quot;</span><span class="mtk1">,</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk11">&quot;coordinates&quot;</span><span class="mtk1">: [</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span><span class="mtk1">          </span></span></span></code></pre>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span></code></pre>
 <p>Wir müssen für die Verwendung in Leaflet <code class="language-text">stroke</code>, <code class="language-text">stroke-width</code>, <code class="language-text">stroke-opacity</code>, <code class="language-text">fill</code> und <code class="language-text">fill-opacity</code> in die CSS-Eigenschaften <code class="language-text">color</code>, <code class="language-text">weight</code>, <code class="language-text">opacity</code>, <code class="language-text">fillColor</code> und <code class="language-text">fillOpacity</code> umwandeln. Eine mögliche Umsetzung zeigt der nachfolgende Codeausschnitt.</p>
 <pre class="grvsc-container solarized-light" data-language="js" data-index="22"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span>
@@ -1141,7 +1141,7 @@ zu stylen. </li>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    opacity: </span><span class="mtk7">getAreaStrokeOpacity</span><span class="mtk1">(</span><span class="mtk7">feature</span><span class="mtk1">),</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    fillOpacity: </span><span class="mtk7">getAreaFillOpacity</span><span class="mtk1">(</span><span class="mtk7">feature</span><span class="mtk1">)</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  }</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};	</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">};</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk13 mtkb">function</span><span class="mtk1"> </span><span class="mtk7">getAreaFill</span><span class="mtk1">(feature){</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk7">feature</span><span class="mtk1">.</span><span class="mtk7">properties</span><span class="mtk1">.</span><span class="mtk7">fill</span><span class="mtk1">) {</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk7">feature</span><span class="mtk1">.</span><span class="mtk7">properties</span><span class="mtk1">.</span><span class="mtk7">fill</span><span class="mtk1">;</span></span></span>

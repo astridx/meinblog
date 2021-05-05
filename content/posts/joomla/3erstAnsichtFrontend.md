@@ -20,13 +20,13 @@ Nachfolgend siehst du die erste simple Ansicht.
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1c...t2) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-Im aktuellen Abschnitte kommen drei Datei hinzu und zwei werden geändert.
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
-![Übersicht über die Dateien im dritten Kapitel](/images/j4xdrei.png)
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree2.png)
 
 ### Neue Dateien
 

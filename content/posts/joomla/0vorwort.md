@@ -14,16 +14,15 @@ tags:
 
 Wenn du neu bei Joomla bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
 
-Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component%7C).
+Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component).
 
 Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du unter [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
 
-## Für wen ist dieses Tutorial?
+## Ziel dieses Tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen "foo" in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen.
+Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen `foo` in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen. Wenn du magst, kannst du das Skript [github.com/astridx/boilerplate/blob/t43/duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) hierfür verwenden.
 
-> Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen.
-> Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla 3 Komponente, wenn diese Ihre Komponente für Joomla 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
+> Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen. Das Tutorial ist auch eine Hilfe für Programmierer einer Joomla 3 Komponente, wenn diese Ihre Komponente für Joomla 4 erweitern. Wenn du beispielsweise an der Validierung arbeiten deiner Joomla 3 Komponente arbeiten möchtest, findest du in Kapitel 11 das, was du benötigst - nicht mehr und nicht weniger.
 
 ## Die Struktur dieses Tutorials
 
@@ -40,11 +39,11 @@ In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist k
 
 > Mit diesem Tutorial erstellst du eine Komponente für Joomla 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla bietet eine ganze Reihe von Standardfunktionen.
 
-Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
+Wenn du sofort loslegen möchtest, blätter zu [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
 
-## Theoretische Grundlagen zu Joomla
+## Grundlagen
 
-### Joomlaǃ 4 bietet fünf Arten von Erweiterungenː
+### Joomla 4 bietet fünf Arten von Erweiterungen
 
 - [Komponenten](https://docs.joomla.org/Special:MyLanguage/Component/de):
   Eine Komponente ist der Hauptteil der Site. Eine Komponente übernimmt die Datenmanipulation sowie die Eingabe und Speicherung in die Datenbank. Eine Komponente auf den meisten Websites steht im Mittelpunkt der Seite.
@@ -57,7 +56,7 @@ Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/
 - [Templates](https://docs.joomla.org/Special:MyLanguage/Templates/de):
   Ein Template ist das Design deiner Joomla Website.
 
-### Joomla 4 besteht aus fünf verschiedenen Anwendungen:
+### Joomla 4 besteht aus fünf verschiedenen Anwendungen
 
 - Installation (wird für die Installation von Joomla verwendet und muss nach der Installation gelöscht werden);
 - Administrator (Backend - zum Verwalten von Inhalten);
@@ -65,7 +64,7 @@ Wenn du sofort loslegen möchtst, blätter zu ["Die erste Ansicht im Backend"](/
 - CLI (wird für den Zugriff auf Joomla über die Befehlszeile und für Cron-Jobs verwendet);
 - API (Webdienste - zum Erstellen von APIs für maschinenzugängliche Inhalte);
 
-# Nebensächlich aber _Gut zu wissen_
+# Basiswissen
 
 ## Die Datei autoload_psr4.php
 
@@ -85,7 +84,7 @@ Warum Namespaces verwenden?
 
 - Klassen werden so in einer definierten Struktur organisiert und
 - automatisch über den `Classloader` geladen.
-- Beispiel "ContentModelArticles" wird zu "\Joomla\Component\Content\Administrator\Model\ArticlesModel"
+- Beispiel `ContentModelArticles` wird zu `Joomla\Component\Content\Administrator\Model\ArticlesModel`
 - `JLoader` kann die Namespaces automatisch verarbeiten
 - Wir können zwischen Front-End- und Back-End-Klassen unterscheiden
 - Dateien mit Namespaces findest du unter [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
@@ -100,13 +99,13 @@ Weitere Informationen findest du unter: [https://github.com/joomla/joomla-cms/is
 
 ## Die Klassen erhalten aussagekräftigere Namen
 
-Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise haben die Controller jetzt Controller als Suffix für ihren Klassennamen. So wird "FooNamespace\Component\Foos\Administrator\Controller\Foos" zu "FooNamespace\Component\Foos\Administrator\Controller\FoosController".
+Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise haben die Controller jetzt Controller als Suffix für ihren Klassennamen. So wird `FooNamespace\Component\Foos\Administrator\Controller\Foos` zu `FooNamespace\Component\Foos\Administrator\Controller\FoosController`.
 
-Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen "DisplayController", um besser zu reflektieren, was die Klasse tut.
+Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen `DisplayController`, um besser zu reflektieren, was die Klasse tut.
 
 Siehe: https://github.com/joomla/joomla-cms/pull/17624
 
-## Benötigst du in jedem Ordner deiner Komponente eine leere Datei "index.html"?
+## Benötigst du in jedem Ordner deiner Komponente eine leere Datei index.html?
 
 Die `index.html` ist nicht mehr erforderlich, da das Verzeichnislisten [in der Standardkonfiguration nicht zulässig](https://github.com/joomla/joomla-cms/pull/4171) ist.
 Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s) zu finden.
@@ -135,7 +134,7 @@ foreach ($this->items as $i => $item) {
 }
 ```
 
-Auf diese Art und Weise ist eine einzelne Zeile ins ich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
+Auf diese Art und Weise ist eine einzelne Zeile in sich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
 
 ## Datenbanktabellenpräfix
 
@@ -144,3 +143,19 @@ Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung 
 ## Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?
 
 Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices) empfehlen dies ebenfalls.
+
+## Fontawesome Icons
+
+Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen.
+
+Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#l14] reicht aus.
+
+> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, weil Joomla ein `icon-` davor setzt. Das wird dann [hier](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) für Fontawesome umgewandelt. Auf diese Art funktionieren nur die Icons, die in dieser Datei für das Mappen vorgesehen sind.
+
+Der HTML-Code
+
+```
+<i class="fas fa-align-left"></i>
+```
+
+zeigt dann beispielsweise das Linkbündig-Zeichen an.

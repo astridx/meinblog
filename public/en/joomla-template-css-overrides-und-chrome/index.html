@@ -74,7 +74,7 @@ void function() {
   </a>
     </span></p>
 <h2>Für Ungeduldige</h2>
-<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t36...t37">Diff-Ansicht</a> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t36...t37">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t36...t37"><a href="#fn-github.com/astridx/boilerplate/compare/t36...t37" class="footnote-ref">github.com/astridx/boilerplate/compare/t36...t37</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
 <p>In diesem Abschnitt verändern wir die Frontend Ansicht von <code class="language-text">com_content/featured</code>, <code class="language-text">mod_articles_news</code> und <code class="language-text">mod_menu</code>. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist. Am Ende haben wir alle Varianten durchgespielt, so dass du das Template selbst nach deinen Wünschen fertigstellen kannst.</p>
 <blockquote>
@@ -115,6 +115,39 @@ void function() {
 <blockquote>
 <p>Tipp: Wenn man eine Ansicht nur geringfügig verändern möchte, bietet es sich an, diese als Vorlage zu nehmen. Dann ändert man die Vorlage wunschgemäß. Dazu geht man folgendermaßen vor. Man erstellt eine Kopie der vorhandenen Ansicht im <code class="language-text">html</code>-Verzeichnis des Templates und bearbeitet diese. Die Kopie legt im Templateverzeichnis an, genau unter <code class="language-text">templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php</code>. Falls man zum Beispiel die <code class="language-text">Feature</code>-Ansicht in <code class="language-text">com_content</code> ändern möchtest, dann kopiert man die Datei <code class="language-text">components/com_content/views/feature/tmpl/default.php</code> nach <code class="language-text">templates/TEMPLATE_NAME/html/com_content/feature/default.php</code>. Analog verhält es sich, falls du die Darstellung des <code class="language-text">mod_article_latest</code>-Moduls ändern willst. Kopiere <code class="language-text">modules/tmpl/mod_articles_news/default.php</code> nach <code class="language-text">templates/TEMPLATE_NAME/html/mod_articles_news/default.php</code>. Joomla enthält das Frontend-Template namens Cassiopeia. Cassipeia verwendet Template-Overrides um das Dropdown Menu zu kreieren. An diesem kannst du dich orientieren. Öffne dazu das Verzeichnis <code class="language-text">\template\cassiopeia</code>. Im Template-Ordner, ist ein Unterverzeichnis namens <code class="language-text">html</code>.</p>
 </blockquote>
+<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/202f8809799ad55b88bf449183adfbd9/90804/tree37.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQ4y33U2Y4qMQwE0P7/74MRSAPDvu/LMKy5OpbcQjzcSFHSTlyuqhiq9Xpdut1u2W63xXi9XuV4PJbBYBBrxtwTu91uJcfpdCqTyaT8/f3F9/P5LNXlcimbzSZAr9drBO/3e8TG43HEAAISm81m5XA41MBAf35+Ih+BSsAF1SW4CMThcDgso9EokoAa+/0+1JzP54jJXSwWEfcdgA6xQd8eQxe+v7+jMrkK7Ha7Wm4WwHg+n9fxCoCLaAN/PB7B8Pf3N8AajUYU4ZNkhd0xgVLx9fVVptNpKAyGKU8lclJyv98vq9UqEpMRtsvlMlZFnSvabreL96gkksgLjLDloxg2mCdj6/tQhH+dTieAQzJAANAlAySHTExIsQfIY5OKZM1reexQMCSbAmST4oBnGHvlbB1TXPH8zp5VnKr6lTHhGUAHQABihDHm5OnTd8nye71e2ENFDfjJMAFNrExJ2UbZ2PYkwwgPUzLapirZFpIxx4pM5+kVFYYipgLx00uGXok8JkvO32YOe0B5ljEeN5vNWJEIwOwnHpHmYvbdew9+tozX9hj8hVNLBuKQnDz4BEng9wLvCvJOhR0ZwLKaWPbgJ9tP1p9FqnwdgK1Wq/4j4BcLWJFM/geU+38johtuFsEghgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Overview of the files edited in this chapter"
+        title="Overview of the files edited in this chapter"
+        src="/static/202f8809799ad55b88bf449183adfbd9/f058b/tree37.png"
+        srcset="/static/202f8809799ad55b88bf449183adfbd9/c26ae/tree37.png 158w,
+/static/202f8809799ad55b88bf449183adfbd9/6bdcf/tree37.png 315w,
+/static/202f8809799ad55b88bf449183adfbd9/f058b/tree37.png 630w,
+/static/202f8809799ad55b88bf449183adfbd9/40601/tree37.png 945w,
+/static/202f8809799ad55b88bf449183adfbd9/78612/tree37.png 1260w,
+/static/202f8809799ad55b88bf449183adfbd9/90804/tree37.png 3733w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h3>Neue Dateien</h3>
 <h4>Assets-Verzeichnis</h4>
 <p>Das Design habe ich vom HTML5 UP-Template <a href="https://html5up.net/txt">TXT</a> übernommen. Hier geht es um Joomla. Erklärungen zu HTML, SCSS und CSS würden den Rahmen dieses Beitrags sprengen. Deshalb lasse ich diese außen vor und konzentriere mich auf Joomla.</p>

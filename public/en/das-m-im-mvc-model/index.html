@@ -43,8 +43,41 @@ void function() {
 <p>Joomla uses the <a href="https://en.wikipedia.org/wiki/Model_View_Controller">Model-View-Controller-Concept (MVC)</a> for the subdivision.</p>
 <p>In this tutorial part, we add a Model to the frontend. The Model object is responsible for the data and its processing.</p>
 <h2>For impatient people</h2>
-<p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t3...t4">Diff View</a> and incorporate these changes into your development version.</p>
+<p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t3...t4">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t3...t4"><a href="#fn-github.com/astridx/boilerplate/compare/t3...t4" class="footnote-ref">github.com/astridx/boilerplate/compare/t3...t4</a></sup> and incorporate these changes into your development version.</p>
 <h2>Step by step</h2>
+<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cdb66df094518ecb04f0c246afbd43db/4abbf/tree4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 74.0506329113924%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAAB3UlEQVQ4y2WT25KCQAxE+f9v82EfFZGriIigiCKKms2Z3VTBbqqmxEzS092T8Y7Ho4RhKFVVyefzEeL9fsv9fpftditlWYoF+fP5LIfDQZqmkWk8n0/J81y8vu/lcrmI7/tyOp3c5uv1cgvQIAikrmv3H8DH4yGQSNNUrterAyJPUO/dbjcZhkGyLHNs+KZgHEdXQDOMqCMHgDWjABIAzwA5lSYKYAMozeTJbdSSYr93zeTNGsDpRyW5GUOYFEXhvGTD2JBL4ljSJHH+wcYY/42u634AWVEUOcmcxBoVDMBSAVeLhQRfXw4ML6lfr9dOjXlOcKADhNFeJSXKAoYUItcYhpuNtFpMwHzqISRQZ+w9uyl+uRg2+aaRhW8xB2l+/L3pafCfhSonmWbYEDBjfDgNGQDe1PBMAXMdn14bzMO2bR1Lu6CZh1wKoAAhnVvjVPIMcKMHdQowKAB5erCCWhT9m0ObNy4GX2BAjtjtduKvVs4rG+Lpi0KJ/Z/NIUx4gpzMtw0wQJGOTa05LEAWB9rsTWMGCEPYAEaT+UpztFxKpcxt2PHP3j/A05ufMWRseKN4aZJpQvJWJ4AcvvL2mQjUUAsowUEzhrFKw0Pk2rDSDEvzij2mAYbsTQPgb3PTgJBKazY3AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Overview of the files edited in this chapter"
+        title="Overview of the files edited in this chapter"
+        src="/static/cdb66df094518ecb04f0c246afbd43db/f058b/tree4.png"
+        srcset="/static/cdb66df094518ecb04f0c246afbd43db/c26ae/tree4.png 158w,
+/static/cdb66df094518ecb04f0c246afbd43db/6bdcf/tree4.png 315w,
+/static/cdb66df094518ecb04f0c246afbd43db/f058b/tree4.png 630w,
+/static/cdb66df094518ecb04f0c246afbd43db/40601/tree4.png 945w,
+/static/cdb66df094518ecb04f0c246afbd43db/78612/tree4.png 1260w,
+/static/cdb66df094518ecb04f0c246afbd43db/4abbf/tree4.png 3088w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <h3>New files</h3>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/ src/Model/FooModel.php</a></h4>
 <p>With the model it is also so that you do not reinvent the wheel. You extend the Joomla class <code class="language-text">BaseDatabaseModel</code>. Then implement only what you specifically use. In our case it is the output <code class="language-text">$this-&gt;message = &#39;Hello Foo!&#39;;</code> for which we create the method <code class="language-text">getMsg()</code>.</p>

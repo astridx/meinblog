@@ -19,9 +19,13 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Kompon
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t15a...t16) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree16.png)
 
 ### Neue Dateien
 

@@ -17,11 +17,15 @@ Unser Template soll die Inhalte von Joomla an verschiedenen Positionen anzeigen.
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-We will proceed step by step. In this part we add the module positions so that Joomla displays content dynamically. We will take care of the design in the next part.
+Wir werden Schritt für Schritt vorgehen. In diesem Teil fügen wir die Modulpositionen hinzu, damit Joomla Inhalte dynamisch anzeigt. Um das Design werden wir uns im nächsten Teil kümmern.
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree36.png)
 
 ### Neue Dateien
 

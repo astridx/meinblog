@@ -19,13 +19,17 @@ Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das 
 
 ## Für Ungeduldige
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t40...t41) an und übernimm diese Änderungen in deine Entwicklungsversion.
+Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t40...t41)[^github.com/astridx/boilerplate/compare/t40...t41] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
 In diesem Abschnitt schaffen wir einen Wiedererkennungswert. Im ersten Schritt wählen wir ein Image. Für das Beispiel habe ich eine gelbe PNG-Datei gewählt. Im nächsten Schritt wandeln wir diese mithilfe der Website [realfavicongenerator.net](https://realfavicongenerator.net/) in unterschiedliche Formate.
 
 > Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.
+
+In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+
+![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree41.png)
 
 ### Neue Dateien
 

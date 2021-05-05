@@ -17,7 +17,7 @@ In the last chapter you learned about points, markers, lines and polygons. You c
 The next chapter is about the format [GeoJson](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442)[^https://de.wikipedia.org/w/index.php?title=geojson&oldid=183228442] and how to handle data well even in large quantities.
 
 GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://de.wikipedia.org/w/index.php?title=Simple_Feature_Access&oldid=171319596)[^https://de.wikipedia.org/w/index.php?title=simple_feature_access&oldid=171319596]. For the description of the geodata GeoJSON uses
-uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/w/index.php?title=JSON&oldid=1018029384)[^https://en.wikipedia.org/wiki/JSON].
+uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/w/index.php?title=JSON&oldid=1018029384)[^https://en.wikipedia.org/wiki/json].
 
 > The term _Simple Feature Access Specification_ hides a specification of the [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium&oldid=180537320)[^https://de.wikipedia.org/w/index.php?title=open_geospatial_consortium&oldid=180537320]. This specification contains a generally valid description for geodata and their geometries. The fact that the specification is universally valid means that this data can be exchanged easily. The OGC is a non-profit organisation that aims to develop universally valid standards for geodata.
 
@@ -27,7 +27,7 @@ First, we look at why GeoJSON was developed. Next, we compare the individual Geo
 
 ## The history of GeoJSON
 
-[GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) builds on [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070)[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070]. Before JSON was specified as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/w/index.php?title=XML&oldid=1016987270)[^https://en.wikipedia.org/w/index.php?title=XML&oldid=1016987270].
+[GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) builds on [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070)[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070]. Before JSON was specified as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/w/index.php?title=XML&oldid=1016987270)[^https://en.wikipedia.org/w/index.php?title=xml&oldid=1016987270].
 
 Whenever something new is created, there is a reason for it!
 
@@ -66,7 +66,7 @@ JSON wird fortwährend weiterentwickelt. Im Dezember 1999 wurde die erste JSON F
 Aktuell wird es durch zwei konkurrierende Standards spezifiziert,
 [RFC 8259](https://tools.ietf.org/html/rfc8259)[^https://tools.ietf.org/html/rfc8259] und [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)[^.
 
-Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen  (ndhabung. Da JSON selb)].
+Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen (ndhabung. Da JSON selb)].
 
 Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen Handhabung. Da JSON selbst gültiges Javascript darstellt, kann es direkt ausgeführt und somit in ein Javascript-Objekt überführt werden. Auf die einzelnen Eigenschaften dieser Objekte kann dann über die Attribute zugegriffen werden. Im Kapitel _Heatmaps in Leaflet – Dichte_ werden wir eine Datei, die GeoJSON Objekte enthält, als Skript einbinden. Allein durch das Einbinden der Datei können wir innerhalb anderer Skripte auf die GeoJSON Objekte der eingebundenen Datei zugreifen. Im Gegensatz dazu muss eine XML-Datei erst mit einem XML-Parser analysiert werden.
 
@@ -1052,15 +1052,16 @@ Auf der Karte sehen Sie nun die Objekte in der für sie bestimmten Farbe.
 
 ##### Praxisbeispiel
 
-In der Regel werden CSS-Stile verwendet, um in GeoJSON 
-- Punkte, 
-- Linien und 
-- Polygone 
-mit 
+In der Regel werden CSS-Stile verwendet, um in GeoJSON
+
+- Punkte,
+- Linien und
+- Polygone
+  mit
 - Farbe,
-- Dicke, und 
-- Sichtbarkeit 
-zu stylen. 
+- Dicke, und
+- Sichtbarkeit
+  zu stylen.
 
 Ein Beispiel zeigt der nachfolgende Ausschnitt aus einer GeoJSON-Datei.
 
@@ -1081,7 +1082,7 @@ Ein Beispiel zeigt der nachfolgende Ausschnitt aus einer GeoJSON-Datei.
         "type": "Polygon",
         "coordinates": [
 ...
-...          
+...
 ```
 
 Wir müssen für die Verwendung in Leaflet `stroke`, `stroke-width`, `stroke-opacity`, `fill` und `fill-opacity` in die CSS-Eigenschaften `color`, `weight`, `opacity`, `fillColor` und `fillOpacity` umwandeln. Eine mögliche Umsetzung zeigt der nachfolgende Codeausschnitt.
@@ -1097,7 +1098,7 @@ function areaStyle(feature){
     opacity: getAreaStrokeOpacity(feature),
     fillOpacity: getAreaFillOpacity(feature)
   }
-};	
+};
 function getAreaFill(feature){
   if (feature.properties.fill) {
     return feature.properties.fill;

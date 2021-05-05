@@ -19,9 +19,13 @@ The checkout function avoids unexpected results that occur when two users edit t
 
 ## For impatient people
 
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t20...t21) and incorporate these changes into your development version.
+Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] and incorporate these changes into your development version.
 
 ## Step by step
+
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+
+![Overview of the files edited in this chapter](/images/tree21.png)
 
 ### New files
 
