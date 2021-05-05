@@ -64,13 +64,13 @@ Wenn du sofort loslegen möchtest, blätter zu [Die erste Ansicht im Backend](/d
 - CLI (wird für den Zugriff auf Joomla über die Befehlszeile und für Cron-Jobs verwendet);
 - API (Webdienste - zum Erstellen von APIs für maschinenzugängliche Inhalte);
 
-# Basiswissen
+## Basiswissen
 
-## Die Datei autoload_psr4.php
+### Die Datei autoload_psr4.php
 
 Während der Installation werden Einträge in der `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls auf du merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
 
-## Namespace
+### Namespace
 
 Beachte das Namespace-Tag oben in jeder Datei
 
@@ -89,7 +89,7 @@ Warum Namespaces verwenden?
 - Wir können zwischen Front-End- und Back-End-Klassen unterscheiden
 - Dateien mit Namespaces findest du unter [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
 
-## Großschreibung von Ordnernamen
+### Großschreibung von Ordnernamen
 
 Du wirst vielleicht bemerken, dass einige der Joomla 4.x Ordner- und Dateinamen mit Großbuchstaben und andere mit Kleinbuchstaben beginen. Auf den ersten Blick scheint dies chaotisch. Auf den zweiten Blick macht dies Sinn.
 
@@ -97,7 +97,7 @@ Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in
 
 Weitere Informationen findest du unter: [https://github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990)
 
-## Die Klassen erhalten aussagekräftigere Namen
+### Die Klassen erhalten aussagekräftigere Namen
 
 Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise haben die Controller jetzt Controller als Suffix für ihren Klassennamen. So wird `FooNamespace\Component\Foos\Administrator\Controller\Foos` zu `FooNamespace\Component\Foos\Administrator\Controller\FoosController`.
 
@@ -105,16 +105,16 @@ Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller hei�
 
 Siehe: https://github.com/joomla/joomla-cms/pull/17624
 
-## Benötigst du in jedem Ordner deiner Komponente eine leere Datei index.html?
+### Benötigst du in jedem Ordner deiner Komponente eine leere Datei index.html?
 
 Die `index.html` ist nicht mehr erforderlich, da das Verzeichnislisten [in der Standardkonfiguration nicht zulässig](https://github.com/joomla/joomla-cms/pull/4171) ist.
 Wenn du weiter interessiert bist: Hier ist die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s) zu finden.
 
-## Technische Anforderungen
+### Technische Anforderungen
 
 Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unterstützt werden und was nicht weiter verfolgt wird? Dafür gibt es das [Statistik-Plugin](https://developer.joomla.org/about/stats.html). Dank der Benutzer, die diese Erweiterung aktivieren, fließen wichtige Informationen in die Entwicklung ein.
 
-## Alternative Syntax für Kontrollstrukturen
+### Alternative Syntax für Kontrollstrukturen
 
 PHP bietet eine [weitere Schreibweise](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für Kontrollstrukturen an. Diese ist vor allem praktisch, wenn man größere Blöcke HTML direkt ausgibt - ohne `echo` zu benutzen. Nutze diese in Template-Dateien. So bleiben die übersichtlich.
 
@@ -136,19 +136,19 @@ foreach ($this->items as $i => $item) {
 
 Auf diese Art und Weise ist eine einzelne Zeile in sich geschlossen und HTML-Code ist trotzdem übersichtlich strukturiert.
 
-## Datenbanktabellenpräfix
+### Datenbanktabellenpräfix
 
 Erweiterungsentwickler, die die Datenbank verwenden, entwickeln die Erweiterung so, dass das Präfix variable ist. Sie nutzen die Zeichenkette `#__`, um immer den korrekten String wiederzugeben. Dies wird zur Laufzeit von Joomla durch die passende Zeichenfolge ersetzt.
 
-## Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?
+### Wo lege ich JavaScript-, CSS- und Bilddateien ab, die zu meiner Komponente gehören?
 
 Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist insbesondere bei CSS-Dateien vorteilhaft. Um das Design einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices) empfehlen dies ebenfalls.
 
-## Fontawesome Icons
+### Fontawesome Icons
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen.
 
-Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#l14] reicht aus.
+Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/ templates/cassiopeia/joomla.asset.json#l14] reicht aus.
 
 > Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, weil Joomla ein `icon-` davor setzt. Das wird dann [hier](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) für Fontawesome umgewandelt. Auf diese Art funktionieren nur die Icons, die in dieser Datei für das Mappen vorgesehen sind.
 

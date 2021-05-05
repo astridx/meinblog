@@ -23,9 +23,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ## Step by step
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree1.png)
+![Overview of the files in the first chapter](/images/tree1.png)
 
 ### New files
 
@@ -42,7 +40,7 @@ Erstelle eine neue Datei und nennen Sie sie `foos.xml`. Dies ist der Name der Er
 
 Die erste Zeile ist nicht spezifisch für Joomla. Es sagt uns, dass dies eine XML-Datei ist `<?xml version="1.0" encoding="utf-8" ?>`.
 
-Dann teilen wir Joomla mit, dass dies eine Komponente ist. Und wir wünschen uns, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen `<extension type="component" method="upgrade">`.
+Dann teilen wir Joomla mit, dass dies eine Komponente ist. Und wir wünschen, dass die Upgrade-Installationsmethode verwendet wird. So ist es möglich, dieses Paket nicht nur für die Installation, sondern ebenfalls für ein Update zu nutzen `<extension type="component" method="upgrade">`.
 
 > Manchmal findest du im `<extension>`-Tag des Manifestes einen Parameter mit einer Versionsnummer. Diese wird nirgendwo verwendet, deshalb ist sie unnötig. Weitere Informationen dazu findest du unter [github.com/joomla/joomla-cms/pull/25820](https://github.com/joomla/joomla-cms/pull/25820).
 
@@ -61,24 +59,24 @@ Die nächsten Zeilen sind selbsterklärend. Ergänze deine Daten.
 
 Dies ist die erste Version der Komponente. Wir werden ihr die Versionsnummer `1.0.0` geben: `<version>1.0.0</version>`. Wenn wir einen kleinen Fehler beheben, wäre die nächste Nummer `1.0.1`. Wenn wir eine neue Funktion einführen, wählen wir `1.1.0`. Wenn wir größere Änderungen vorgenommen haben, die Implementierungen in früheren Versionen ändern, heißt die nächste Version `2.0.0`. Es ist wichtig, dass du die dreiteilige Versionsnummerierung verwendest, da dies das spätere Erstellen von Updates mithilfe der semantischen Versionierung erleichtert.
 
-Joomla folgt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering)[^developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering]. Ich empfehle dir, dies ebenfalls.
+Joomla folgt der [semantischen Versionierung](https://developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering)[^developer.joomla.org/news/586-joomla-development-strategy.html#version_numbering]. Ich empfehle dir dies ebenfalls.
 
-Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION</description>`. Im Moment hat dies noch keine Auswirkungen. Später ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten Kapitel einführen.
+Im Beschreibungsfeld verwenden wir einen Sprachstring `<description>COM_FOOS_XML_DESCRIPTION </description>`. Im Moment hat dies noch keine Auswirkungen. Später ändert sich dieser Text basierend auf den Sprachdateien, die wir in einem der nächsten Kapitel einführen.
 Die Beschreibung der Komponente wird bei der Installation angezeigt und, wenn du das Menü `System` klickst und `Manage | Extensions` öffnest.
 
-Als Nächstes setzen wir das Namespace `tag`: `<namespace>FooNamespace\Component\Foos</namespace>`. Im Vorwort habe ich erklärt, warum wir Namespaces verwenden.
+Als Nächstes setzen wir das HTML-Tag für den Namespace: `<namespace>FooNamespace\Component\Foos </namespace>`. Im Vorwort habe ich erklärt, warum wir Namespaces verwenden.
 
 Wie benennst du deinen Namespace?
 
-- Das erste Element des Namespaces ist dein "Firmenname". Für dieses Tutorial habe ich `FooNamespace` verwendet. Er wird genutzt, um den Code von dem Code in anderen Erweiterungen zu unterscheiden. So ist es möglich, identische Klassennamen ohne Konflikte zu verwenden.
+- Das erste Element des Namespaces ist dein _Firmenname_. Für dieses Tutorial habe ich `FooNamespace` verwendet. Er wird genutzt, um den Code von dem Code in anderen Erweiterungen zu unterscheiden. So ist es möglich, identische Klassennamen ohne Konflikte zu verwenden. Der Namespace wird ebenso zum Registrieren eines Service Providers verwendet, einer PHP-Klasse die Dienste anbietet.
 
-- Das zweite Element ist die Art der Erweiterung: Component, Module, Plugin or Template.
+- Das zweite Element ist die Art der Erweiterung: Komponente, Modul, Plugin oder Template.
 
-- Das dritte Element ist der Name der Erweiterung ohne vorherige com*, mod* oder tpl\_, in unserem Fall `Foos`.
+- Das dritte Element ist der Name der Erweiterung ohne vorheriges `com_`, `mod_`, `plg_` oder `tpl_`, in unserem Fall `Foos`.
 
-Mit der `script`-datei rufst du Code auf, wenn deine Komponente installiert, deinstalliert oder aktualisiert wird: `<scriptfile>script.php</scriptfile>`.
+Mit der `script`-Datei rufst du Code auf, wenn deine Komponente installiert, deinstalliert oder aktualisiert wird: `<scriptfile>script.php </scriptfile>`.
 
-Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereich. Der Ordner `administrator/components/com_foos` enthält alle vom Backend verwendeten Dateien. Einzelne fügst du mit dem Tag `filename` hinzu. Für ein vollständiges Verzeichnis verwendest du besser das Tag `folder`. Die Dateien für den Administrationsbereich deiner Komponente sind alle innerhalb des Tags `administration`. Hier ist ebenfalls ein `menu`-Tag. Dies ist der Menüpunkt, der in der Seitenleiste im Backend angezeigt wird. Wir verwenden den Sprachstring `COM_FOOS`, den wir später mit Text aus einer Sprachdatei ersetzen werden.
+Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereich. Der Ordner `administrator/components/ com_foos` enthält alle vom Backend verwendeten Dateien. Einzelne fügst du mit dem Tag `filename` hinzu. Für ein vollständiges Verzeichnis verwendest du besser das Tag `folder`. Die Dateien für den Administrationsbereich deiner Komponente sind alle innerhalb des Tags `administration`. Hier ist ebenfalls ein `menu`-Tag. Dies ist der Menüpunkt, der in der Seitenleiste im Backend angezeigt wird. Wir verwenden den Sprachstring `COM_FOOS`, den wir später mit Text aus einer Sprachdatei ersetzen werden.
 
 ```xml
 	<administration>
@@ -99,7 +97,7 @@ Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereic
 	</administration>
 ```
 
-Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst dieses, wenn du den "Download Key Manager" verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf Github unter [github.com/joomla/joomla-cms/pull/25553](https://github.com/joomla/joomla-cms/pull/25553).
+Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst dieses, wenn du den _Download Key Manager_ verwendest. Im Allgemeinen ist dies nur bei kommerziellen Erweiterungen der Fall. Mehr Informationen findest du auf Github unter [github.com/joomla/joomla-cms/pull/25553](https://github.com/joomla/joomla-cms/pull/25553).
 
 Wir schließen zuletzt das `</extension>`-Tag.
 
@@ -146,7 +144,7 @@ Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine K
 
 ```
 
-#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40) - Code während der Installation aufrufen
+#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 Mit der Installationsskriptdatei rufst du Code auf
 
@@ -322,9 +320,9 @@ Die `preflight`-Funktion wird aufgerufen, bevor die Komponente installiert wird.
 
 Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert wurde. Mit dieser Funktion werden Standardwerte für Komponentenparameter festlegen.
 
-#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f) - Funktionen / Dienste implementieren
+#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)  
 
-`provider.php` wird zum Implementieren der Komponentendienste verwendet. Über eine Schnittstelle definiert die Komponentenklasse, welche Dienste sie bereitstellt. Hierzu wird ein Abhängigkeitsinjektionscontainer oder DI-Container verwendet. Zum Registrieren sind `ComponentDispatcherFactory` und `MVCFactory` für jede Komponente obligatorisch. Die Registrierung von `CategoryFactory` ist optional, wir benötigen die `CategoryFactory`, wenn wir [Kategorien integrieren](#kategorienimbackend). Mithilfe von provider.php ist es möglich, später neue Dienste ohne Unterbrechung der Abwärtskompatibilität (BC) einführen.
+`provider.php` wird zum Implementieren der Komponentendienste verwendet. Über eine Schnittstelle definiert die Komponentenklasse, welche Dienste sie bereitstellt. Hierzu wird ein Abhängigkeitsinjektionscontainer oder DI-Container verwendet. Zum Registrieren sind `ComponentDispatcherFactory` und `MVCFactory` für jede Komponente obligatorisch. Die Registrierung von `CategoryFactory` ist optional, wir benötigen die `CategoryFactory`, wenn wir später Kategorien integrieren. Mithilfe von `provider.php` ist es möglich, neue Dienste ohne Unterbrechung der Abwärtskompatibilität (Backwards compatibility BC) einführen.
 
 Wenn du mit dem Konzept von DI Container nicht vertraut bist, findest du hier Erklärung und einige Beispiele:
 
@@ -397,27 +395,17 @@ return new class implements ServiceProviderInterface
 
 ```
 
-#### [administrator/components/com_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19) Einstiegspunkt in den Administrationsbereich - administrator/components/com_foos/Controller/DisplayController.php - {#einsdisplaycontroller}
+#### [administrator/components/com_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19)  
 
 Dies ist der Einstiegspunkt für den Model-View-Controller-Teil in den Administrationsbereich der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
 
 Die Hauptaufgabe dieses Controllers ist es, die Anzeige vorzubereiten. Daher heißt der Standardcontroller DisplayController. Er ruft die Methode `display()` der Elternklasse `BaseController` im Namespace `Joomla\CMS\MVC\Controller` - genau ist dies die Datei `/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php` - auf. Im Model-View-Controller-Modell werden Controller oft zum Einrichten der Startumgebung genutzt.
 
-Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den den _DocBlock_ an. Hier ist ein Beispiel für einen typischen Dokumentarblock.
+Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den _DocBlock_ an. Hier ist ein Beispiel für einen typischen Dokumentarblock.
 
-[administrator/components/com_foos/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Controller/DisplayController.php)
+![Ein Beispiel für einen typischen Dokumentarblock in Joomla](/images/docblock.png)
 
-```php
-/**
- * @package     Joomla.Administrator
- * @subpackage  com_foos
- *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-```
-
-Wie du DocBlocks für Joomla erstellst, erklärten die Joomla Codierungsstandards unter [developer.joomla.org/coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) und der Pull Request [github.com/joomla/joomla-cms/pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
+Wie du DocBlocks für Joomla erstellst, erklärten die Joomla Codierungsstandards unter [developer.joomla.org/ coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) und der Pull Request [github.com/joomla/joomla-cms/ pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
 
 > Vor jeder Klasse und Funktion wird ein DocBlock angezeigt. Der gesamte Code enthält diese DocBlock-Kommentare, die es automatisierten Tools erleichtern, die Dokumentation von APIs zu generieren. Dies hilft einigen IDEs, die Code-Vervollständigung bereitzustellen. Und manchmal ist der Kommentar für Programmierer hilfreich. Ich drucke die Dokumentarblöcke hier nicht weiter ab. In den Code-Beispielen auf Github sind sie vorhanden.
 
@@ -429,11 +417,11 @@ Als Nächstes importieren wir mit dem Schlüsselwort `use` den Namespace der ver
 
 Anschließend erstellen wir die Klasse für den Controller. Ich hatte schon geschrieben, dass du diese am besten DisplayController nennst und die Klasse BaseController erweiterst. Definiere dann die Variable `$default_view` in der du die Standardansicht mit `foos`. Du wählst `foos` als Ansicht, weil der Name der Komponente `foos` ist und aus dem Grund auch das Verzeichnis `/administrator/components/com_foos/src/View/ F o o s` angelegt haben. Wenn nichts definiert ist, wird standardmäßig die Foos-Ansicht mit dem Standardlayout verwendet. Das setzten dieser Variable erforderlich. Aber ich denke, es ist immer besser, dies einzufügen.
 
-Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich verwendest, bemerkst du gegebenenfalls die Ansichts- und Layoutvariablen. Beispiel: `index.php?option=com_foos&view=foos&layout=default` weist uns an, die foos-Ansicht mit dem Standardlayout zu laden, sodass `components/` + `com_foos/tmpl/foos/` + `default.php` aufgerufen wird, wenn du dich im Front-End und `administrator/components/` + `com_foos/tmpl/foos/` + default.php`, wenn du dich im Backend befindest.
+Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich verwendest, bemerkst du gegebenenfalls die Ansichts- und Layoutvariablen. Beispiel: `index.php?option=com_foos&view=foos&layout=default` weist uns an, die `foos`-Ansicht mit dem Standardlayout zu laden, sodass `components/` + `com_foos/tmpl/foos/` + `default.php` aufgerufen wird, wenn du dich im Front-End und `administrator/components/` + `com_foos/tmpl/foos/` + `default.php`, wenn du dich im Backend befindest.
 
 > Die Sichtbarkeit wird in PHP mit `public`, `private` oder `protected` definiert. Wann du was einsetzt erklärt das [PHP-Handbuch](https://www.php.net/manual/de/language.oop5.visibility.php)[^php.net/manual/de/language.oop5.visibility.php].
 
-Legen alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deiner implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
+Lege alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deinem Code implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
 
 ```php  {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Controller/DisplayController.php
@@ -488,9 +476,9 @@ class DisplayController extends BaseController
 
 ```
 
-#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1) - Die Datei zum Booten der Erweiterung
+#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1)  
 
-`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du in diesem [Pull Request](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217].
+`FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du im Pull Request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217).
 
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 
@@ -549,9 +537,9 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 ```
 
-#### [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e) - Funktionen / Dienste hinzufügen
+#### [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)  
 
-Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Administratordateien benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
+Funktionen / Dienste hinzufügen: Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Administratordateien benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
 
 [administrator/components/com_foos/ service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
 
@@ -582,13 +570,9 @@ class AdministratorService
 
 ```
 
-#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250) - Die Ansicht - administrator/components/com_foos/View/Foos/HtmlView.php
+#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250)  
 
-Hier sind Objekte (Symbolleiste, Titel) definiert, und das Modell (Daten) wird aufgerufen.
-
-Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!
-
-Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.
+In der Ansicht `administrator/components/com_foos/ View/Foos/HtmlView.php` sind Objekte (Symbolleiste, Titel) definiert, und das Modell (Daten) wird aufgerufen. Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern! Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.
 
 In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleiste definiert. Das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten. Im Moment rufen wir nur die Funktion der Eltern-Klasse auf, um das Standardtemplate anzuzeigen: `parent::display($tpl);`. Warum selbst Hand anlegen, wenn es Funktionen in Joomla gibt.
 
@@ -636,9 +620,9 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757) - Das layout/Template zum Rendern der Ansicht
+#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757)  
 
-In dieser Datei ist der Text, den wir anzeigen. Der ganze Aufwand für die Ausgabe des Textes "Hello Foos".
+Die Datei `default.php` ist das Layout/Template zum Rendern der Ansicht. In ihr ist der Text, den wir anzeigen. Im Moment betreiben wir ganze Aufwand für die Ausgabe des Textes "Hello Foos".
 
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
@@ -659,7 +643,7 @@ Hello Foos
 
 ```
 
-#### [components/com_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15) ... damit das Installationspaket vollständig ist
+#### [components/com_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15)  
 
 Ich habe im Vorwort geschrieben, dass die Datei `index.html` nicht benötigt wird. Das ist korrekt so! Hier habe ich diese nur hinzugefügt, weil ich ein Installationspaket zusammenstelle, aber Joomla meldet einen Fehler während der Installation, wenn kein Ordner für das Frontend vorhanden ist oder wenn ein leeres Verzeichnis im Installationspaket übergeben wird. Und im Moment haben wir keinen Inhalt für das Frontend. Das Einfügen der Datei ist an dieser Stelle nur eine Hilfe, um Fehlermeldungen während der Installation zu vermeiden.
 
@@ -671,7 +655,7 @@ Ich habe im Vorwort geschrieben, dass die Datei `index.html` nicht benötigt wir
 <!DOCTYPE html><title></title>
 ```
 
-### Modified files
+### Geänderte Dateien
 
 Alles ist neu. Es gibt noch keine geänderten Dateien.
 

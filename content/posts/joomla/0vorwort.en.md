@@ -65,13 +65,13 @@ If you want to get started immediately, scroll to [The first view in the backend
 - CLI (used to access Joomla from the command line and for cron jobs);
 - API (Web Services - used to create APIs for machine-accessible content);
 
-# Basic knowledge
+## Basic knowledge
 
-## The autoload_psr4.php file
+### The autoload_psr4.php file
 
 During the installation, entries are made in `/library/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem.
 
-## Namespace
+### Namespace
 
 Note the namespace tag at the top of each file
 
@@ -90,7 +90,7 @@ Why use namespaces?
 - We can distinguish between front-end and back-end classes
 - Files with namespaces can be found at [`/src`](https://github.com/joomla/joomla-cms/pull/27687)
 
-## Capitalisation of folder names
+### Capitalisation of folder names
 
 You may notice that some of the Joomla 4.x folder and file names start with upper case letters and others with lower case letters. At first glance this seems chaotic. At second glance, it makes sense.
 
@@ -98,7 +98,7 @@ The folders in upper case contain PHP classes with namespace. Those in lower cas
 
 For more information, see: [https://github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990)
 
-## The classes get more meaningful names
+### The classes get more meaningful names
 
 The component MVC classes have more meaningful names in Joomla 4. For example, the controllers now have controller as a suffix for their class name. Thus, `FooNamespace\Component\Foos\Administrator\Controller\Foos` becomes `FooNamespace\Component\Foos\Administrator\Controller\FoosController`.
 
@@ -106,16 +106,16 @@ Additionally, the default controller, which in Joomla 3 is just called Controlle
 
 See: https://github.com/joomla/joomla-cms/pull/17624
 
-## Do you need an empty file index.html in each folder of your component?
+### Do you need an empty file index.html in each folder of your component?
 
 The `index.html` is no longer needed, as that is directory listings [not allowed in the default configuration](https://github.com/joomla/joomla-cms/pull/4171).
 If you are further interested: Here is the discussion on the topic in a [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s).
 
-## Technical requirements
+### Technical requirements
 
 Do you know how those responsible at Joomla decide which functions are supported and what is not pursued further? That's what the [statistics plugin](https://developer.joomla.org/about/stats.html) is for. Thanks to the users who activate this extension, important information flows into the development.
 
-## Alternative syntax for control structures
+### Alternative syntax for control structures
 
 PHP offers an [additional notation](https://www.php.net/manual/de/control-structures.alternative-syntax.php) for control structures. This is especially handy when outputting larger blocks of HTML directly - without using `echo`. Use them in template files. This way they remain clear.
 
@@ -139,19 +139,19 @@ foreach ($this->items as $i => $item) {
 
 In this way, a single line is self-contained and HTML code is still clearly structured.
 
-## Database table prefix
+### Database table prefix
 
 Extension developers who use the database develop the extension so that the prefix is variable. They use the string '##__' to always reflect the correct string. This is replaced by the appropriate string at runtime by Joomla.
 
-## Where do I store JavaScript, CSS and image files that belong to my component?
+### Where do I store JavaScript, CSS and image files that belong to my component?
 
 Store these data in the directory 'media' in the Joomla root directory. This way it is possible to overwrite them. This is particularly advantageous for CSS files. To make the design consistent. The [Best Practice Guidelines](https://docs.joomla.org/Development_Best_Practices) also recommend this.
 
-## Fontawesome Icons
+### Fontawesome Icons
 
 You want to use icons but don't want to add your own library.
 
-Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#l14] is sufficient.
+Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/ templates/cassiopeia/joomla.asset.json#l14] is sufficient.
 
 > Attention: In Joomla Core files, you cannot simply copy them, because Joomla puts an `icon-` in front of them. This is then converted [here](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) for Fontawesome. In this way, only the icons intended for mapping in this file will work.
 
