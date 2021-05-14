@@ -2,7 +2,7 @@
 date: 2021-05-04
 title: 'HTTP-Header und Content Security Policy in Joomla 4'
 template: post
-thumbnail: '../thumbnails/joomla.png'
+thumbnail: '/thumbnails/joomla.png'
 slug: http-header-und-content-security-policy-joomla4
 langKey: de
 categories:
@@ -22,11 +22,11 @@ Die Aufgabe eines Browsers erscheint auf den ersten Blick simpel: er zeigt Text 
 
 HTTP Header werden oft mit dem `<head>`-Bereich eines HTML-Dokuments verwechselt. HTTP-Header wird man neben den HTML-Header nicht finden! Die stecken im HTTP-Protokoll. Dieses bildet die Basis des World-Wide-Webs. HTTP ist die Sprache, mit der Browser und Webserver kommunizieren. Zusammen mit den sichtbaren Inhalten werden Informationen zu den Daten übermittelt. Diese sind im Kopf-Bereich der Antwort – im Head der Response. Deshalb der Name Header. Um diese anzusehen öffnet man den Netzwerk-Tab der Browser-Entwicklertools.
 
-![HTTP Header im Firefox sichtbar gemacht](../images/header0e.png)
+![HTTP Header im Firefox sichtbar gemacht](/images/header0e.png)
 
 Mit dem Tool [Security Headers von Scott Helme](Security Headers von Scott Helme) ist es möglich, die HTTP-Header und deren Konfiguration zu überprüfen. Der Service liest dazu alle gesetzten Werte aus, bewertet sie und bildet daraus ein Rating. Ein Report sieht beispielsweise so aus:
 
-![Security Headers von Scott Helme](../images/header1.png)
+![Security Headers von Scott Helme](/images/header1.png)
 
 # Was bietet Joomla 4
 
@@ -34,7 +34,7 @@ Joomla 4 unterstützt Benutzer mit dem Plugin [System - HTTP Headers](https://do
 
 > Ursprünglich sollte es zusätzlich eine Komponente geben. Über diese wären Content-Security-Policy-Reports verwaltbar gewesen. Mit dem PR [github.com/joomla/joomla-cms/pull/33550](https://github.com/joomla/joomla-cms/pull/33550) wurde diese entfert. Im Kapitel Content-Security-Policy beschreibe ich eine Möglichkeit, die Reports per E-Mail zu erhalten.
 
-![Joomla 4 Plugin System - HTTP Headers](../images/header0p.png)
+![Joomla 4 Plugin System - HTTP Headers](/images/header0p.png)
 
 Ich beschreibe die wichtigsten HTTP Header und die Konfiguration in Joomla 4.
 
@@ -56,11 +56,11 @@ Der Header bietet drei mögliche Richtlinien: `DENY`, `SAMEORIGIN`, und `ALLOW-F
 
 In Joomla 4 ist der Header auf unterschiedliche Arten setzbar. Zum einen gibt es eine eigene Option `X-Frame-Options`. Wenn die aktiviert ist, setzt das Plugin den Header mit der Richtlinie `SAMEORIGIN`.
 
-![X-Frame-Option in der Joomla 4 Content Security Policy](../images/header2.png)
+![X-Frame-Option in der Joomla 4 Content Security Policy](/images/header2.png)
 
 Wird `ALLOW-FROM` oder `DENY` benötigt, ist dies im Plugin konfigurierbar:
 
-![X-Frame-Option in der Joomla 4 Content Security Policy](../images/header3.png)
+![X-Frame-Option in der Joomla 4 Content Security Policy](/images/header3.png)
 
 Zusätzlich ist das [Setzten](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#frame_options) des Headers per `.htaccess`-Datei möglich:
 
@@ -72,7 +72,7 @@ Zusätzlich ist das [Setzten](https://developer.mozilla.org/en-US/docs/Learn/Ser
 
 Achtung: Wenn du die Option im oberen Bereich aktiviert hast, wird immer `SAMEORIGIN` gesetzt. Wenn du die `ALLOW-FROM` oder `DENY` im unteren Bereich manuell konfigurierst, dann ist erforderlich, die Option im oberen Bereich zu deaktivieren.
 
-![X-Frame-Option in der Joomla 4 Content Security Policy](../images/header5.png)
+![X-Frame-Option in der Joomla 4 Content Security Policy](/images/header5.png)
 
 ### Referrer-Policy
 
@@ -82,7 +82,7 @@ Achtung: Wenn du die Option im oberen Bereich aktiviert hast, wird immer `SAMEOR
 
 Im Joomla Plugin sind alle möglichen Optionen in einem Dropdown ausgewählbar. Die Standardeinstellung im Plugin sieht die Option `no-referrer-when-downgrade` vor.
 
-![Referrer-Policy in der Joomla 4 Content Security Policy](../images/header4.png)
+![Referrer-Policy in der Joomla 4 Content Security Policy](/images/header4.png)
 
 Mittels `.htaccess` kann der Header ebenfalls [gesetzt werden](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#referrer_policy):
 
@@ -112,7 +112,7 @@ Der [Strict-Transport-Security (HSTS)](https://developer.mozilla.org/en-US/docs/
 
 Im Plugin ist beispielsweise der Wert `max-age=31536000; includeSubDomains` konfigurierbar. Das folgende bild zeigt die Konfiguration über die Option _Force HTTP Headers_.
 
-![Strict-Transport-Security in der Joomla 4 Content Security Policy](../images/header6.png)
+![Strict-Transport-Security in der Joomla 4 Content Security Policy](/images/header6.png)
 
 `max-age` weißt den Browser an, die Domain zu speichern. Der Wert `31536000` steht in Sekunden und entspricht einem Jahr. Mit der Option `includeSubDomains` weitet der Browser die Funktion auf alle Subdomains aus.
 
@@ -146,7 +146,7 @@ Der Aufbau ist simpel:
 
 Über das Joomla Plugin ist der Header wie folgt konfigurierbar:
 
-![Strict-Transport-Security in der Joomla 4 Content Security Policy](../images/header7.png)
+![Strict-Transport-Security in der Joomla 4 Content Security Policy](/images/header7.png)
 
 Mittels `.htaccess` sieht der Eintrag für ein Verbot von microphone und geolocation wie folgt aus:
 

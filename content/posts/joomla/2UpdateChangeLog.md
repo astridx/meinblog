@@ -45,9 +45,9 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 ### Neue Dateien
 
-Die Änderungen, die das Changelog und den Joomla Update Server betreffen, erwähne ich nur in diesem Kapitel. In jedem weiteren ist erforderlich, dass du die Nummern selbst anpasst, wenn dir dies wichtig ist. Das ist kein Hexenwerk. Wenn ich dies immer wieder neu beschrieb, langweilte dich das nicht nur - es blähte diesen Text unnötig auf.
+> Die Änderungen, die das Changelog und den Joomla Update Server betreffen, erwähne ich nur in diesem Kapitel. In jedem weiteren ist erforderlich, dass du die Nummern selbst anpasst, wenn dir dies wichtig ist. Das ist kein Hexenwerk. Wenn ich dies immer wieder neu beschrieb, langweilte dich das nicht nur - es blähte diesen Text unnötig auf.
 
-#### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b) (Update Server)
+#### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b)  
 
 Du hast der Komponente in der Datei [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) mitgeteilt, wo sie sich über Updates informiert.
 

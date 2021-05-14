@@ -34,7 +34,7 @@ Glücklicherweise ist es einfach, Docker's DNS zu testen.
 
 > Voraussetzung zum Testen der Konfiguration sind `net-tools`. Unter Ubuntu 20.04 isntalliere ich diese per `sudo apt install net-tools`
 
-Überprüfen Sie zunächst die grundlegende Internetverbindung beispielweise mit `ping google.com`.
+Überprüfe zunächst die grundlegende Internetverbindung beispielweise mit `ping google.com`.
 
 ```
 $ ping google.com
@@ -56,7 +56,7 @@ $ docker run busybox nslookup google.com
 
 Wenn es wie oben gezeigt fehlschlägt, gibt es ein Problem bei der DNS-Auflösung.
 
-> Warum? Wenn Docker keinen lokal in der Datei /etc/resolv.conf definierten DNS-Server finden kann, verwenden Container standardmäßig den [öffentlichen DNS-Server von Google](https://developers.google.com/speed/public-dns/), 8.8.8.8, zur DNS-Auflösung.
+> Warum? Wenn Docker über die Datei  `/etc/resolv.conf` keinen lokal definierten DNS-Server finden kann, verwenden Container standardmäßig den [öffentlichen DNS-Server von Google](https://developers.google.com/speed/public-dns/), 8.8.8.8, zur DNS-Auflösung.
 
 ### Die schnelle Lösung: Überschreiben des DNS von Docker
 
@@ -74,7 +74,7 @@ Um einen Docker-Container mit diesem DNS-Server auszuführen, hängt man das Fla
 $ docker run --dns 127.0.0.1 busybox nslookup google.com
 ```
 
-Und nun ist die Abfrage erfolgreich!
+Die Abfrage ist jetzt erfolgreich, richtig?
 
 ### Der dauerhafte systemweite Fix
 
@@ -108,4 +108,4 @@ Name:	google.com
 Address: 142.250.186.78
 ```
 
-Uns was noch mehr zählt. Mein Ausgangsproblem ist ebenfalls gelöst.
+Uns was noch mehr zählt: Mein Ausgangsproblem ist ebenfalls gelöst.

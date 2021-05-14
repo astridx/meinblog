@@ -49,7 +49,7 @@ Glücklicherweise ist es einfach, Docker's DNS zu testen.</p>
 <blockquote>
 <p>Voraussetzung zum Testen der Konfiguration sind <code class="language-text">net-tools</code>. Unter Ubuntu 20.04 isntalliere ich diese per <code class="language-text">sudo apt install net-tools</code></p>
 </blockquote>
-<p>Überprüfen Sie zunächst die grundlegende Internetverbindung beispielweise mit <code class="language-text">ping google.com</code>.</p>
+<p>Überprüfe zunächst die grundlegende Internetverbindung beispielweise mit <code class="language-text">ping google.com</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ping google.com</span></span>
 <span class="grvsc-line"><span class="grvsc-source">PING google.com (142.250.186.142) 56(84) Bytes Daten.</span></span>
 <span class="grvsc-line"><span class="grvsc-source">64 Bytes von fra24s07-in-f14.1e100.net (142.250.186.142): icmp_seq=1 ttl=128 Zeit=24.8 ms</span></span>
@@ -63,7 +63,7 @@ Glücklicherweise ist es einfach, Docker's DNS zu testen.</p>
 <span class="grvsc-line"><span class="grvsc-source">;; connection timed out; no servers could be reached</span></span></code></pre>
 <p>Wenn es wie oben gezeigt fehlschlägt, gibt es ein Problem bei der DNS-Auflösung.</p>
 <blockquote>
-<p>Warum? Wenn Docker keinen lokal in der Datei /etc/resolv.conf definierten DNS-Server finden kann, verwenden Container standardmäßig den <a href="https://developers.google.com/speed/public-dns/">öffentlichen DNS-Server von Google</a>, 8.8.8.8, zur DNS-Auflösung.</p>
+<p>Warum? Wenn Docker über die Datei  <code class="language-text">/etc/resolv.conf</code> keinen lokal definierten DNS-Server finden kann, verwenden Container standardmäßig den <a href="https://developers.google.com/speed/public-dns/">öffentlichen DNS-Server von Google</a>, 8.8.8.8, zur DNS-Auflösung.</p>
 </blockquote>
 <h3>Die schnelle Lösung: Überschreiben des DNS von Docker</h3>
 <p>Für die Lösung findet man zunächst die DNS-Server des Netzwerks in Ubuntu über <code class="language-text">nmcli dev show | grep &#39;IP4.DNS&#39;</code> heraus.</p>
@@ -72,7 +72,7 @@ Glücklicherweise ist es einfach, Docker's DNS zu testen.</p>
 <span class="grvsc-line"><span class="grvsc-source">IP4.DNS[2]:                             192.168.209.2</span></span></code></pre>
 <p>Um einen Docker-Container mit diesem DNS-Server auszuführen, hängt man das Flag <code class="language-text">--dns</code> an den Befehl <code class="language-text">run</code> an.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker run --dns 127.0.0.1 busybox nslookup google.com</span></span></code></pre>
-<p>Und nun ist die Abfrage erfolgreich!</p>
+<p>Die Abfrage ist jetzt erfolgreich, richtig?</p>
 <h3>Der dauerhafte systemweite Fix</h3>
 <p>Die obige Lösung ist kurzfristig gut. Besser ist, dass dies standardmäßig funktioniert.
 Um dies zu erreichen, ändere ich die DNS-Einstellungen des Docker-Daemons indem ich eine <a href="https://docs.docker.com/engine/reference/commandline/dockerd/#/daemon-configuration-file">Daemon-Konfigurationsdatei</a> unter /etc/docker/daemon.json erstelle.</p>
@@ -91,7 +91,7 @@ Um dies zu erreichen, ändere ich die DNS-Einstellungen des Docker-Daemons indem
 <span class="grvsc-line"><span class="grvsc-source">Non-authoritative answer:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Name:	google.com</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Address: 142.250.186.78</span></span></code></pre>
-<p>Uns was noch mehr zählt. Mein Ausgangsproblem ist ebenfalls gelöst.</p>
+<p>Uns was noch mehr zählt: Mein Ausgangsproblem ist ebenfalls gelöst.</p>
 <style class="grvsc-styles">
   .grvsc-container {
     overflow: auto;
