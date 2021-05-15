@@ -15,37 +15,37 @@ tags:
 
 Various authors publish articles on a website. You want blog posts to include information about the author. The name of the author is available. We add a _picture_, a _URL_ and an _"About me"_ text. 
 
-The next picture shows what the information about the author looks like in the end. Instead of a portrait you see a star formation.
+The next picture shows what the information about the author looks like in the end. Instead of a portrait, I have chosen the image of a star formation for the example.
 
 ![Joomla 4 and Cassiopeia - Author Information in the Frontend](/images/aut10.png)
 
 ## Author information in Cassiopeia using an override and custom fields
 
-### Creating user-defined fields
+### Creating custom fields
 
 Open the _User Manager_ via the left-hand side menu and click _Fields_. On the right, the toolbar now offers you a button for creating custom fields.
 
-Joomla 4 and Cassiopeia - Overview of user-defined fields](/images/aut0.png)
+Joomla 4 and Cassiopeia - Overview of custom fields](/images/aut0.png)
 
-Create a custom field for the author's image.
+Create a custom field for the author's image. It is important that you choose the type `media`.
 
 ![Joomla 4 and Cassiopeia - A custom field for the author's image](/images/aut1.png)
 
-For the description we also use a custom field.
+For the description we also use a custom field. Select the type `textarea`.
 
 ![Joomla 4 and Cassiopeia - A custom field for the author's description](/images/aut2.png)
 
-A user-defined field of type URL stores the author's homepage.
+A custom field of type `url` stores the author's homepage.
 
 ![Joomla 4 and Cassiopeia - A custom field for the URL of the author's homepage](/images/aut3.png)
 
-### Add information to the fields for the user
+### Fill the custom fields at the user with content
 
-Now open the entry of an author in the user manager.
+Now open an author item in the user manager.
 
 ![Joomla 4 and Cassiopeia - User Manager - Fill Custom Fields - Open User](/images/aut4a.png)
 
-Then we fill the user defined fields with content.
+Then we fill the custom fields with content.
 
 ![Joomla 4 and Cassiopeia - User Manager - Fill Custom Fields - Tab](/images/aut4b.png)
 
@@ -53,7 +53,7 @@ Then we fill the user defined fields with content.
 
 If the user now creates a contribution, it is automatically saved as the author. The entry can be changed later.
 
-![Joomla 4 and Cassiopeia - Content Manager - Create Contribution ](/images/aut10.png)
+![Joomla 4 and Cassiopeia - Content Manager - Create Contribution ](/images/aut9a.png)
 
 ### Template Override
 
@@ -73,14 +73,19 @@ In the tabulator _Editor_ it is possible to change the override.
 
 ![Joomla 4 and Cassiopeia - Create Tempalte Override - ](/images/aut5c.png)
 
-Copy the following code into the file. 
+Copy the following code into the file `/templates/cassiopeia/html/com_content/article/default.php`. 
 
-```php
+> Do you want to create posts under which the author information does not appear? In my installation there is an administrator who creates these posts. For him, I do not fill in the custom fields. Therefore, the line `<?php if (json_decode($fields[1]->value) != null && $description != null && $url != null) : ?>` is enough so that no author information is displayed. 
+
+```php {numberLines: 1}
 ...
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 ...
-...
-...
+```
+
+und 
+
+```php {numberLines: 136}
 ...
 	<?php $author = Joomla\CMS\Factory::getUser($this->item->created_by); ?>
 	<?php $userfields = FieldsHelper::getFields('com_users.user', $author); ?>
@@ -117,9 +122,15 @@ use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 ...
 ```
 
+The view of the differences supports you. Here you can view the differences to the view in the Joomla Core at any time.
+
+![Joomla 4 and Cassiopeia - Create Tempalte Override - ](/images/aut5d.png)
+
+### Complete file
+
 The complete file should end up looking like the code block below.
 
-```php
+```php {numberLines}
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
@@ -290,11 +301,9 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
 </div>
 ```
 
-The view of the differences supports you. Here you can view the differences to the view in the Joomla Core at any time.
-
-![Joomla 4 and Cassiopeia - Create Tempalte Override - ](/images/aut5d.png)
-
 ### Possible errors
+
+#### Check the data in the fields
 
 Doesn't it work the way you want it to? Then first look at the data in the fields. Use the line `<?php print_r($fields); ?>`. I was initially overwhelmed by the output. However, only a few fields are important. I have separated them in the following code block.
 

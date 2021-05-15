@@ -15,7 +15,7 @@ tags:
 
 Auf einer Website veröffentlichen verschiedene Autoren Artikel. Du wünschst dir, dass bei Blog-Beiträgen eine Information zum Urheber ausgegeben wird. Der Name des Autors ist verfügbar. Wir ergänzen ein _Bild_, eine _URL_ und einen _"Über mich"_-Text. 
 
-Wie die Information zum Autor am Ende aussieht, zeigt das nächste Bild. Statt eines Porträts erscheint das Bild einer Sternformation.
+Wie die Information zum Autor am Ende aussieht, zeigt das nächste Bild. Statt eines Porträts habe ich für das Beispiel das Bild einer Sternformation gewählt.
 
 ![Joomla 4 und Cassiopeia - Autorinformation im Frontend](/images/aut10.png)
 
@@ -27,33 +27,35 @@ Wie die Information zum Autor am Ende aussieht, zeigt das nächste Bild. Statt e
 
 ![Joomla 4 und Cassiopeia - Übersicht benutzerdefinierte Felder](/images/aut0.png)
 
-Lege ein benutzerdefiniertes Feld für das Bild des Autors an.
+Lege ein benutzerdefiniertes Feld für das Bild des Autors an. Wichtig ist, dass du den Typ `media` wählst.
 
 ![Joomla 4 und Cassiopeia - Ein benutzerdefiniertes Feld für das Bild des Autors](/images/aut1.png)
 
-Für die Beschreibung nutzen wir ebenfalls ein benutzerdefiniertes Feld.
+Für die Beschreibung nutzen wir ebenfalls ein benutzerdefiniertes Feld. Wähle den Typ `textarea`.
 
 ![Joomla 4 und Cassiopeia - Ein benutzerdefiniertes Feld für die Beschreibung des Autors](/images/aut2.png)
 
-Ein benutzerdefiniertes Feld vom Typ URL speichert die Homepage des Autors.
+Ein benutzerdefiniertes Feld vom Typ `url` speichert die Homepage des Autors.
 
 ![Joomla 4 und Cassiopeia - Ein benutzerdefiniertes Feld für die URL der Homepage des Autors](/images/aut3.png)
 
-### Die Felder beim Benutzer mit Angaben versehen
+### Die benutzerdefinierten Felder beim Benutzer mit Inhalt füllen
 
-Nun öffnen wie im Benutzermanager den Eintrag eines Autors.
+Nun öffnen wir im Benutzermanager den Eintrag eines Autors.
 
 ![Joomla 4 und Cassiopeia - Benutzermanager - Benutzerdefinierte Felder befüllen - Benutzer öffnen](/images/aut4a.png)
 
-Dann füllen wior die benutzerdefinieren Felder mit Inhalt.
+Dann füllen wir die benutzerdefinieren Felder mit Inhalt.
 
 ![Joomla 4 und Cassiopeia - Benutzermanager - Benutzerdefinierte Felder befüllen - Tabulator](/images/aut4b.png)
 
 ### Den Beitrag erstellen
 
-Wenn der Benutzer nun einen Beitrag erstellt, wird er automatisch als Autor gespeichert. Der Eintrag ist nachträglich änderbar.
+Wenn der Benutzer nun einen Beitrag erstellt, wird er automatisch als Autor gespeichert. 
 
-![Joomla 4 und Cassiopeia - Content Manager - Beitrag erstellen ](/images/aut10.png)
+![Joomla 4 und Cassiopeia - Content Manager - Beitrag erstellen ](/images/aut9a.png)
+
+> Falls mehrere an dem Beitrag arbeiten und der Autor später geändert werden soll, ist diese im Tabulator _Publishing_ möglich.
 
 ### Template Override
 
@@ -65,7 +67,7 @@ Wir wählen _Cassiopeia_.
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - Override erstellen](/images/aut5aa.png)
 
-Im Tablulator _Overrides_ erstellen wir nun das _Override_ für die Anzeige eines Beitrages. Dies ist nicht anderes als eine Kopie der bisherigen Ansicht. Diese neu erstellte Kopie können wir abändern. Sie bleibt bei einer Aktualisierung von Joomla erhalten. 
+Im Tablulator _Overrides_ erstellen wir nun das _Override_ für die Anzeige eines Beitrages. Dies ist nichts anderes als eine Kopie der bisherigen Ansicht. Diese neu erstellte Kopie können wir abändern. Sie bleibt bei einer Aktualisierung von Joomla erhalten. 
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - Editor](/images/aut5b.png)
 
@@ -73,14 +75,19 @@ Im Tabulator _Editor_ ist das abändern des Overrides möglich.
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - ](/images/aut5c.png)
 
-Kopiere den nachfolgenden Code in die Datei. 
+Kopiere den nachfolgenden Code in die Datei `/templates/cassiopeia/html/com_content/article/default.php`. 
 
-```php
+> Möchtest du Beitrag erstellen, unter denen die Autorinformation nicht erscheint? In meiner Installation gibt es einen Administrator, der diese Beiträge erstellt. Bei ihm fülle ich die benutzerdefinierten Felder nicht aus. Deshalb reicht die Zeile `<?php if (json_decode($fields[1]->value) != null && $beschreibung != null && $url != null) : ?>`, damit keine Information zum Autor eingeblendet wird. 
+
+```php {numberLines: 1}
 ...
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 ...
-...
-...
+```
+
+und 
+
+```php {numberLines: 136}
 ...
 	<?php $author = Joomla\CMS\Factory::getUser($this->item->created_by); ?>
 	<?php $userfields = FieldsHelper::getFields('com_users.user', $author); ?>
@@ -117,9 +124,15 @@ use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 ...
 ```
 
+Die Ansicht der Differenzen unterstützt dich. Hier kannst du dir jederzeit die Unterschiede zur Ansicht im Joomla Core ansehen.
+
+![Joomla 4 und Cassiopeia - Tempalte Override anlegen - ](/images/aut5d.png)
+
+### Vollständige Datei
+
 Die vollständige Datei sollte am Ende so aussehen, wie im nachfolgenden Codeblock.
 
-```php
+```php {numberLines}
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
@@ -290,13 +303,11 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
 </div>
 ```
 
-Die Ansicht der Differenzen unterstützt dich. Hier kannst du dir jederzeit die Unterschiede zur Ansicht im Joomla Core ansehen.
-
-![Joomla 4 und Cassiopeia - Tempalte Override anlegen - ](/images/aut5d.png)
-
 ### Mögliche Fehler
 
-Klappt das nicht so. wie du dir das vorstellst? Dann sieh dir zunächst einmal die Daten in den Feldern an. Nutze dazu die Zeile `<?php print_r($fields); ?>`. Mich hat die Ausgabe zunächst überwältigt. Wichtig sind aber nur einige wenige Felder. Ich habe sie im nachfolgenden Codeblock mit Abstand getrennt.
+#### Prüfe die Daten in den Feldern
+
+Klappt das nicht so. wie du dir das vorstellst? Dann sieh dir die Daten in den Feldern an. Nutze dazu die Zeile `<?php print_r($fields); ?>`. Mich hat die Ausgabe zunächst überwältigt. Wichtig sind aber nur einige wenige Felder. Ich habe sie im nachfolgenden Codeblock mit Abstand getrennt.
 
 ```
 Array ( 
