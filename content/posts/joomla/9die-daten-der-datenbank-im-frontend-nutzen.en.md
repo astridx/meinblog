@@ -228,13 +228,13 @@ class FooField extends FormField
 
 ```
 
-> The program code for the form field is adapted to [Bootstrap 5](https://github.com/joomla/joomla-cms/pull/32037).
+> The programme code for the form field is adapted to [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/). This framework was integrated into Joomla in the pull request [github.com/joomla/joomla-cms/pull/32037](https://github.com/joomla/joomla-cms/pull/32037).
 
 #### [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
 We open the selection in a modal window. The following code shows you the template for this.
 
-> A [Modal](https://en.wikipedia.org/wiki/Dialog_box) is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.
+> A [Modal](https://en.wikipedia.org/wiki/Dialog_box)[^en.wikipedia.org/wiki/Dialog_box] is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.
 
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
@@ -322,7 +322,9 @@ $onclick   = $this->escape($function);
 
 #### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
 
-We use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets) again. This time we add our own webasset. If you don't include it correctly, you will get the following error when you select a foo item for the menu item: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+We use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets). This time we add our own webasset. If you don't include it correctly, you will get the following error when you select a foo item for the menu item: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+
+> Because of the newly added file `joomla.asset.json` it is necessary that we reinstall the extension. We have used other files so far without a new installation in Joomla. This does not work with the file `joomla.asset.json`. This file has to be registered once during an installation. Furthermore, changes can be made in it. These are recognised without a new installation.
 
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
@@ -348,6 +350,8 @@ We use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets) again. Thi
   ]
 }
 ```
+
+> What does the attribute `"defer": true` mean? Scripts are loaded with `async` - asynchronous/parallel to other resources. `defer` promises the browser that the web page will not be changed by instructions. More information [at Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).
 
 #### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 
@@ -404,6 +408,7 @@ We have created a new JavaScript file. We place it in the `media\js` directory. 
  	</files>
 +    <media folder="media/com_foos" destination="com_foos">
 +		<folder>js</folder>
++		<filename>joomla.asset.json</filename>
 +    </media>
  	<!-- Back-end files -->
  	<administration>
@@ -485,7 +490,7 @@ We no longer output static text. An item from the database is displayed. Therefo
 
 ```
 
-> Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase), Joomla will take care of security or different syntax in PostgreSQL and MySQL.
+> Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/Accessing_the_database_using_JDatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL.
 
 #### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
 
@@ -576,7 +581,7 @@ Copy the files in the `administrator` folder into the `administrator` folder of 
 Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.  
 Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation.
 
-A new installation is not necessary. Continue using the files from the previous part.
+A new installation is required to register the file `joomla.asset.json`.
 
 2. open the menu manager to create a menu item. Click on `Menu` and then on `All Menu Items`.
 

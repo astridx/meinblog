@@ -148,7 +148,9 @@ Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen.
 
-Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/ templates/cassiopeia/joomla.asset.json#l14] reicht aus.
+Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^ reicht aus.
+
+> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, we templates/cassiopeia/joomla.asset.json#l14] reicht aus.
 
 > Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, weil Joomla ein `icon-` davor setzt. Das wird dann [hier](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) für Fontawesome umgewandelt. Auf diese Art funktionieren nur die Icons, die in dieser Datei für das Mappen vorgesehen sind.
 

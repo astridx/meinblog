@@ -141,7 +141,7 @@ In this way, a single line is self-contained and HTML code is still clearly stru
 
 ### Database table prefix
 
-Extension developers who use the database develop the extension so that the prefix is variable. They use the string '##__' to always reflect the correct string. This is replaced by the appropriate string at runtime by Joomla.
+Extension developers who use the database develop the extension so that the prefix is variable. They use the string '##\_\_' to always reflect the correct string. This is replaced by the appropriate string at runtime by Joomla.
 
 ### Where do I store JavaScript, CSS and image files that belong to my component?
 
@@ -151,7 +151,9 @@ Store these data in the directory 'media' in the Joomla root directory. This way
 
 You want to use icons but don't want to add your own library.
 
-Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/ templates/cassiopeia/joomla.asset.json#l14] is sufficient.
+Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^ is sufficient.
+
+> Attention: In Joomla Core files, you cannot simply copy them, be templates/cassiopeia/joomla.asset.json#l14] is sufficient.
 
 > Attention: In Joomla Core files, you cannot simply copy them, because Joomla puts an `icon-` in front of them. This is then converted [here](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) for Fontawesome. In this way, only the icons intended for mapping in this file will work.
 

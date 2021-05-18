@@ -56,7 +56,7 @@ $ docker run busybox nslookup google.com
 
 Wenn es wie oben gezeigt fehlschlägt, gibt es ein Problem bei der DNS-Auflösung.
 
-> Warum? Wenn Docker über die Datei  `/etc/resolv.conf` keinen lokal definierten DNS-Server finden kann, verwenden Container standardmäßig den [öffentlichen DNS-Server von Google](https://developers.google.com/speed/public-dns/), 8.8.8.8, zur DNS-Auflösung.
+> Warum? Wenn Docker über die Datei `/etc/resolv.conf` keinen lokal definierten DNS-Server finden kann, verwenden Container standardmäßig den [öffentlichen DNS-Server von Google](https://developers.google.com/speed/public-dns/), 8.8.8.8, zur DNS-Auflösung.
 
 ### Die schnelle Lösung: Überschreiben des DNS von Docker
 

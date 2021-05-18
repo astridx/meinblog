@@ -177,7 +177,7 @@ blockquote a {
 blockquote a:hover {
   border-radius: 0.3rem;
   border-bottom: 2px solid var(--dark-blockqoute);
-  background: var(--dark-blockqoute);
+ /* background: var(--dark-blockqoute);*/
   color: var(--heading-color);
 }
 

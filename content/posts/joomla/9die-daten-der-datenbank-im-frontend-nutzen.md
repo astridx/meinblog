@@ -228,13 +228,13 @@ class FooField extends FormField
 
 ```
 
-> Der Programmcode für das Formularfeld ist an [Bootstrap 5](https://github.com/joomla/joomla-cms/pull/32037) angepasst.
+> Der Programmcode für das Formularfeld ist an [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) angepasst. Dieses Framework wurde im Pull Request [github.com/joomla/joomla-cms/pull/32037](https://github.com/joomla/joomla-cms/pull/32037) in Joomla integriert.
 
 #### [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
 Die Auswahl öffnen wir in einem Modal-Fenster. Der nachfolgende Code zeigt dir das Template für dieses.
 
-> Ein [Modal](<https://de.wikipedia.org/w/index.php?title=Dialog_(Benutzeroberfl%C3%A4che)&oldid=197073746>) ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Modale Dialoge sperren den Rest der Anwendung solange der Dialog angezeigt wird. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
+> Ein [Modal](https://de.wikipedia.org/wiki/Dialog_(Benutzeroberfl%C3%A4che))[^https://de.wikipedia.org/wiki/Dialog_(Benutzeroberfl%C3%A4che)] ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Modale Dialoge sperren den Rest der Anwendung solange der Dialog angezeigt wird. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
 
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
@@ -322,7 +322,9 @@ $onclick   = $this->escape($function);
 
 #### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
 
-Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Dieses mal fügen wir ein eigenes Webasset hinzu. Falls du dieses nicht korrekt einbindest, wird dir folgender Fehler angezeigt, wenn du für den Menüpunkt ein Foo-Element auswählst: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Dieses mal fügen wir ein eigenes Webasset hinzu. Falls du dieses nicht korrekt einbindest, wird dir folgender Fehler angezeigt, wenn du für den Menüpunkt ein Foo-Element auswählst: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+
+> Wegen der neu hinzugekommenen Datei `joomla.asset.json` ist erforderlich, dass wir die Erweiterung neu installieren. Andere Dateien haben wir bisher ohne eine neue Installation in Joomla verwendet. Mit der Datei `joomla.asset.json` funktioniert das nicht. Diese muss einmal bei einer Installation registriert werden. Im Weiteren können Änderungen in ihr vorgenommen werden. Diese werden ohne Neuinstallation erkannt.
 
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
@@ -348,6 +350,8 @@ Wir nutzen wieder den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/
   ]
 }
 ```
+
+> Was bedeutet das Attribut `"defer": true`? Skripte werden mit `async` – asynchron/parallel zu anderen Ressourcen geladen. `defer` verspricht dem Browser, dass die Webseite nicht durch Anweisungen geändert wird. Weitere Informationen [bei Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).
 
 #### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 
@@ -404,6 +408,7 @@ Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `med
  	</files>
 +    <media folder="media/com_foos" destination="com_foos">
 +		<folder>js</folder>
++		<filename>joomla.asset.json</filename>
 +    </media>
  	<!-- Back-end files -->
  	<administration>
@@ -485,7 +490,7 @@ Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank
 
 ```
 
-> Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de) nutzt, dann kümmert sich Joomla um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
+> Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de)[^docs.joomla.org/Accessing_the_database_using_JDatabase/de] nutzt, dann kümmert sich Joomla um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
 
 #### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
 
@@ -576,7 +581,7 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `media` Ordner in den `media` Ordner deiner Joomla 4 Installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+Eine neue Installation ist erforderlich, um die Datei `joomla.asset.json` zu registrieren.
 
 2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu auf `Menü` und dann auf `All Menu Items`.
 
@@ -584,7 +589,7 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x9x1.png)
 
-3. Klicke auf das zweite `Select` und wähle ein Item aus. Stelle sicher, dass ein gewähltes Element mittels `Clear` wiederufbar ist.
+3. Klicke auf das zweite `Select` und wähle ein Item aus. Stelle sicher, dass ein gewähltes Element mittels `Clear` widerufbar ist.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x9x2.png)
 

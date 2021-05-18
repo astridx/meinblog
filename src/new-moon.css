@@ -83,7 +83,7 @@ pre[class*='language-'] {
 
 pre.language-text,
 code.language-text {
-  background: var(--light-background) !important;
+  background:  #e0e3e7 !important;
   color: #333 !important;
   box-shadow: none;
 }

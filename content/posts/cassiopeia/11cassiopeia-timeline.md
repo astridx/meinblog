@@ -13,7 +13,7 @@ tags:
   - Cassiopeia
 ---
 
-Auf einer Website veröffentlichst du Artikel. Du wünschst dir, dass in der Seitenleiste eine Timeline mit den neuesten Beiträgen ausgegeben wird. 
+Auf einer Website veröffentlichst du Artikel. Du wünschst dir, dass in der Seitenleiste eine Timeline mit den neuesten Beiträgen ausgegeben wird.
 
 Wie die Timeline am Ende aussieht, zeigt das nächste Bild.
 
@@ -23,7 +23,7 @@ Wie die Timeline am Ende aussieht, zeigt das nächste Bild.
 
 ### Beiträge erstellen
 
-Du hast sicherlich schon einige Beiträge veröffentlicht. Falls nicht legst du zur Demonstration am besten jetzt Beispielbeiträge an. 
+Du hast sicherlich schon einige Beiträge veröffentlicht. Falls nicht legst du zur Demonstration am besten jetzt Beispielbeiträge an.
 
 ![Joomla 4 und Cassiopeia - Beiträge anlegen](/images/timeline3.png)
 
@@ -51,7 +51,7 @@ Wir wählen _Cassiopeia_.
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - Override erstellen](/images/aut5aa.png)
 
-Im Tablulator _Overrides_ erstellen wir nun das _Override_ für die Anzeige der neuesten Beiträge. Dies ist nicht anderes als eine Kopie der bisherigen Ansicht. Diese neu erstellte Kopie können wir abändern. Sie bleibt bei einer Aktualisierung von Joomla erhalten. 
+Im Tablulator _Overrides_ erstellen wir nun das _Override_ für die Anzeige der neuesten Beiträge. Dies ist nicht anderes als eine Kopie der bisherigen Ansicht. Diese neu erstellte Kopie können wir abändern. Sie bleibt bei einer Aktualisierung von Joomla erhalten.
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - Editor](/images/timeline1.png)
 
@@ -59,7 +59,7 @@ Im Tabulator _Editor_ ist das abändern des Overrides möglich.
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - ](/images/aut5c.png)
 
-Kopiere den nachfolgenden Code in die Datei. 
+Kopiere den nachfolgenden Code in die Datei.
 
 ```php {numberLines}
 <?php
@@ -109,7 +109,7 @@ defined('_JEXEC') or die;
     left: -15px;
     position: absolute;
     top: calc(50% - 10px);
-  } 
+  }
 
 .alternating-container-timeline {
   display: flex;
@@ -146,7 +146,7 @@ defined('_JEXEC') or die;
 			</span>
 		  </div>
 		</div>
-		
+
 		<div class="row-content">
 		  <h4 class="row-title" itemprop="name">
 			<a href="<?php echo $item->link; ?>" itemprop="url"><?php echo $item->title; ?></a>
