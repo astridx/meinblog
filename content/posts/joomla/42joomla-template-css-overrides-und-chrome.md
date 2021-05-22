@@ -13,14 +13,14 @@ tags:
   - Joomla
 ---
 
-In diesem Kapitel werden wir die Anzeige der Erweiterungen im Frontend verändern. In Joomla geschieht dies mithilfe von
+In diesem Kapitel werden wir die Ausgabe der Erweiterungen im Frontend verändern. In Joomla geschieht dies mithilfe von
 
 - Overrides,
 - alternativen Overrides,
 - Layouts und
-- Modul Chrome.
+- Modul Chromes.
 
-Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über den Ordner `html` des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung. Overrides sind das erste Mittel der Wahl. Gibt es bereits ein Override für eine Erweiterung, erstellt man ein alternatives Override. Layouts überschreiben einen kleinen Bereich eine Ansicht und sind dabei in unterschiedlichen Ansichten wiederverwendbar. Last but not least bieten Modul Chromes eine Art, ein Override an verschieden Stellen leicht abgewandelt einzusetzten.
+Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im Ordner `html` des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung. Overrides sind das erste Mittel der Wahl. Gibt es bereits ein Override für eine Erweiterung, erstellt man ein alternatives Override. Layouts überschreiben einen begrenzten Bereich einer Ansicht und sind dabei in unterschiedlichen Ansichten wiederverwendbar. Last but not least bieten Modul Chromes eine Variante, um ein Override an verschieden Stellen leicht abgewandelt einzusetzten.
 
 ![Joomla Template erstellen - Module Chrome](/images/override.png)
 
@@ -30,12 +30,13 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt verändern wir die Frontend Ansicht von `com_content/featured`, `mod_articles_news` und `mod_menu`. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist. Am Ende haben wir alle Varianten durchgespielt, so dass du das Template selbst nach deinen Wünschen fertigstellen kannst.
+In diesem Abschnitt verändern wir die Frontend Ansicht von `com_content/featured`, `mod_articles_news` und `mod_menu`. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit nicht fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist. Am Ende haben wir alle Varianten durchgespielt, so dass du das Template selbst nach deinen Wünschen fertigstellen kannst.
 
-> Overrides können komfortabel mit Hilfe des Template-Managers erstellt werden. Dieser bietet eine Ansicht, die die Unterschiede zum Joomla-eigenen Code farblich markiert.
-> ![Joomla Template erstellen - Diff-View](/images/j4x42x4.png)
+Overrides können komfortabel mit Hilfe des Template-Managers erstellt werden. Dieser bietet eine Ansicht, die die Unterschiede zum Joomla-eigenen Code farblich markiert.
 
-> Tipp: Wenn man eine Ansicht nur geringfügig verändern möchte, bietet es sich an, diese als Vorlage zu nehmen. Dann ändert man die Vorlage wunschgemäß. Dazu geht man folgendermaßen vor. Man erstellt eine Kopie der vorhandenen Ansicht im `html`-Verzeichnis des Templates und bearbeitet diese. Die Kopie legt im Templateverzeichnis an, genau unter `templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php`. Falls man zum Beispiel die `Feature`-Ansicht in `com_content` ändern möchtest, dann kopiert man die Datei `components/com_content/views/feature/tmpl/default.php` nach `templates/TEMPLATE_NAME/html/com_content/feature/default.php`. Analog verhält es sich, falls du die Darstellung des `mod_article_latest`-Moduls ändern willst. Kopiere `modules/tmpl/mod_articles_news/default.php` nach `templates/TEMPLATE_NAME/html/mod_articles_news/default.php`. Joomla enthält das Frontend-Template namens Cassiopeia. Cassipeia verwendet Template-Overrides um das Dropdown Menu zu kreieren. An diesem kannst du dich orientieren. Öffne dazu das Verzeichnis `\template\cassiopeia`. Im Template-Ordner, ist ein Unterverzeichnis namens `html`.
+![Joomla Template erstellen - Diff-View](/images/j4x42x4.png)
+
+> Tipp: Wenn man eine Ansicht nur geringfügig verändern möchte, bietet es sich an, die original Ansicht als Vorlage zu nehmen. Dann ändert man diese wunschgemäß. Dazu geht man folgendermaßen vor. Man erstellt eine Kopie der vorhandenen Ansicht im `html`-Verzeichnis des Templates und bearbeitet diese. Die Kopie legt man im Templateverzeichnis an, genau unter `templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php`. Falls man zum Beispiel die `Feature`-Ansicht in `com_content` ändern möchtest, dann kopiert man die Datei `components/com_content/views/feature/tmpl/default.php` nach `templates/TEMPLATE_NAME/html/com_content/feature/default.php`. Analog verhält es sich, falls du die Darstellung des `mod_article_latest`-Moduls ändern möchtest. Kopiere `modules/tmpl/mod_articles_news/default.php` nach `templates/TEMPLATE_NAME/html/mod_articles_news/default.php`. Joomla enthält das Frontend-Template namens Cassiopeia. Cassipeia verwendet Template-Overrides um das Dropdown Menu zu kreieren. An diesem kannst du dich orientieren. Öffne dazu das Verzeichnis `\template\cassiopeia`. Im Template-Ordner, findest du ein Unterverzeichnis namens `html`.
 
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
@@ -45,13 +46,13 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 #### Assets-Verzeichnis
 
-Das Design habe ich vom HTML5 UP-Template [TXT](https://html5up.net/txt) übernommen. Hier geht es um Joomla. Erklärungen zu HTML, SCSS und CSS würden den Rahmen dieses Beitrags sprengen. Deshalb lasse ich diese außen vor und konzentriere mich auf Joomla.
+Das Design habe ich vom HTML5 UP-Template [TXT](https://html5up.net/txt)[^html5up.net/txt] übernommen. Hier geht es um Joomla. Erklärungen zu HTML, SCSS und CSS würden den Rahmen dieses Beitrags sprengen. Deshalb lasse ich diese außen vor und konzentriere mich auf Joomla.
 
 ##### Override `com_content/featured/` inklusive Layout Override
 
-Die Beispieldateien rufen als Starseite die Ansicht `components/com_content/tmpl/com_content/featured/` auf. Diese Datei ist sehr umfangreich. Viele Abfragen brauche ich nicht, deshalb beschränke ich mich unnächst auf das Wesentliche. Im Grunde genommen durchlaufe ich alle Artikel mit der Eigenschaft `featured/` zeige sie mithilfe des Untertemplates `default_item.php` an. Joomla stellt mir diese in `$this->items`zur Verfügung.
+Die Blog-Beispieldateien nutzen als Starseite die Ansicht `components/com_content/tmpl/com_content/featured/`. Der Code dieser Ansicht ist im Joomla Kern komplex. Viele dieser komplexen Abfragen brauche ich nicht, deshalb beschränke ich mich auf das Wesentliche. Sieh dir den nachfolgenden Code an. Im Grunde genommen durchlaufe ich alle Artikel mit der Eigenschaft `featured/` und zeige sie mithilfe des Untertemplates `default_item.php` an. Joomla stellt mir alle Eigenschaften eines Artikels in der Variablen `$this->items` zur Verfügung.
 
-> Das Joomla Templates und Untertemplates nutze, um den Code übersichtlich zu strukturieren hatten ich bereits bei den Frontend-Ansichten der Kategorien im Tutorialteil zur Komponente erwähnt.
+> Das Joomla Templates und Untertemplates oder Layouts nutze, um den Code übersichtlich zu strukturieren hatten ich bereits bei den Frontend-Ansichten der Kategorien im Tutorialteil zur Komponente erwähnt.
 
 [templates/facile/ html/com_content/featured/default.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/com_content/featured/default.php)
 
@@ -87,7 +88,7 @@ Das Untertemplate `templates/facile/ html/com_content/featured/default_item.php`
 - erstellt dann eine verlinkte Überschrift und
 - gibt darunter den Introtext aus.
 
-> Das Layouts `joomla.content.intro_image` wird an vielen Stellen in Joomla verwendet. Da unser Template andere CSS Elemente erwartet, ist die Darstellung des Bildes nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Dies tun wir so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf das Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php`. Die ursprüngliche Datei liegt im Verzeichnis `layouts/ joomla/content/intro_image.php`.
+> Das Layouts `joomla.content.intro_image` wird an vielen Stellen in Joomla verwendet. Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via `joomla.content.intro_image` nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php`. Zum Vergleich: Die ursprüngliche Joomla-eigene Datei des Layouts `joomla.content.intro_image` liegt im Verzeichnis `layouts/ joomla/content/intro_image.php`.
 
 [templates/facile/ html/com_content/featured/default_item.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/com_content/featured/default_item.php)
 
@@ -117,7 +118,9 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-Da Joomla zuerst im Templateverzeichnis nach Dateien sucht, wird das neue Layout automatisch angezeigt. Falls die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php` nicht existierte, würde als nächstes im Verzeichnis `layouts/ joomla/content/` gesucht und die Datei `intro_image.php` zur Anzeige verwendet. Unsere neu erstellte Datei `templates/facile/ html/layouts/joomla/content/intro_image.php` zeigt das Bild nun in der richtigen Größe an.
+Da Joomla zuerst im Templateverzeichnis nach Dateien sucht, wird das neue Layout als erstes gefunden und angezeigt. Unsere neu erstellte Datei `templates/facile/ html/layouts/joomla/content/intro_image.php` zeigt das Bild nun in der richtigen Größe an.
+
+> Falls die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php` nicht existierte, würde als nächstes im Verzeichnis `layouts/ joomla/content/` gesucht und die Datei `intro_image.php` zur Anzeige verwendet.
 
 [templates/facile/ html/layouts/joomla/content/intro_image.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/layouts/joomla/content/intro_image.php)
 
@@ -146,7 +149,7 @@ $alt = empty($images->image_intro_alt) && empty($images->image_intro_alt_empty) 
 
 ##### Override mit Module Chrome `mod_articles_news`
 
-Im oberen Bereich der Startseite zeigen die Joomla Blog Beispieldaten das Modul `mod_articles_news` an. Wir erstellen analog zur Ansicht der Hauptbeiträge in `com_content/featured/` ein Standard Override, in dem wir die Items in einem Untertemplate einbinden. Die beiden Dateien `mod_articles_news/_item.php` und `mod_articles_news/default.php` findest du nachfolgend. Sie unterstüzen lediglich die notwendigen Funktionen und sind deshalb kompakt.
+Im oberen Bereich der Startseite zeigen die Joomla Blog Beispieldaten das Modul `mod_articles_news` an. Wir erstellen analog zur Ansicht der Hauptbeiträge in `com_content/featured/` ein Standard Override, in dem wir die Items in einem Untertemplate einbinden. Die beiden Dateien `mod_articles_news/_item.php` und `mod_articles_news/default.php` findest du nachfolgend. Sie unterstützen lediglich die notwendigen Funktionen und sind deshalb kompakt.
 
 > `templates/facile/html/mod_articles_news/_item.php` beinhaltet ebenfalls ein Layout. `joomla.content.readmore` enthält den Code, der einen Weiterlesen Link erstellt. Eine Funktion, die in vielen Ansichten eingesetzt wird und deshalb ein gutes Beispiel für die Wiederverwendbarkeit ist.
 
@@ -204,7 +207,7 @@ if (empty($list)) {
 
 ```
 
-Das Override zum Modul `mod_articles_news` soll im oberen Bereich mit einer großen Überschrift angezeigt werden. Auf einer Unterseite, soll es mit kleiner Überschrift in der Seitenleiste erscheinen. Wir könnten mit einem alternativen Override eine Lösung schaffen. Diese Variante ist Thema des nächsten Kaptitels. Dabei würde aber viel Programmcode doppelt geschrieben. Eigentlich ist nur die erste Zeile mit der Überschrift unterschiedlich. Und hier kommen Joomlas Modul Chromes ins Spiel. Wir erstellen eine Datei im Verzeichnis `templates/facile/html/layouts/chromes/` die nur den unterschiedlichen Code enthält und ansonsten das Modul genauso einbindet, wie es ist. Für letzteres sorgt `echo $module->content;`. Die Module Chrome Datei können wir beliebig nennen. Ich habe `hr.php` als Namen gewählt. In der `index.php` am Ende dieses Abschnittes siehst du, wie du dafür sorgst, dass die Datei `hr.phg` im Kopfbereich der Seite aufgerufen wird und in der Seitenleiste nicht.
+Das Override zum Modul `mod_articles_news` soll im oberen Bereich mit einer großen Überschrift angezeigt werden. Auf einer Unterseite, soll es mit kleiner Überschrift in der Seitenleiste erscheinen. Wir könnten mit einem alternativen Override eine Lösung schaffen. Diese Variante ist Thema des nächsten Abschnitts. Dabei würde aber viel Programmcode redundant geschrieben. Eigentlich ist nur die erste Zeile mit der Überschrift unterschiedlich. Und hier kommen Joomlas Modul Chromes ins Spiel. Wir erstellen eine Datei im Verzeichnis `templates/facile/html/layouts/chromes/` die nur den unterschiedlichen Code enthält und ansonsten das Modul genauso einbindet, wie es ist. Für letzteres sorgt `echo $module->content;`. Die Module Chrome Datei können wir beliebig nennen. Ich habe `hr.php` als Namen gewählt. In der `index.php` am Ende dieses Abschnittes siehst du, wie du dafür sorgst, dass die Datei `hr.php` im Kopfbereich der Seite integriert wird aber nicht in der Seitenleiste.
 
 [templates/facile/ html/layouts/chromes/hr.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/layouts/chromes/hr.php)
 
@@ -223,11 +226,11 @@ $module  = $displayData['module'];
 
 ```
 
-#### Alternatives Override `mod_menu`
+#### Das alternative Override `mod_menu`
 
-Es gibt Anforderungen, bei denen das Aussehen eines Modules an unterschiedlichen Stellen stark variiert. In diesem Fall ist es erforderlich, dass zwei unterschiedliche Dateien erstellt werden. Die Datei, die `default.php` heißt, ist das eigentlich Override. Legen wir im Verzeichnis neben der `default.php` eine weitere Datei an, ist dies ein alternatives Override. Ein Anwendungsfall ist eine Menü. Im Kopfbereich sieht das Hauptmenü oft ganz anders aus, als das im Footer. In unserem Template ist das Hauptmenü in der Datei `default.php` implementiert und das Fußmenü in der Datei `bottom.php`.
+Es gibt Anforderungen, bei denen das Aussehen eines Modules an unterschiedlichen Stellen stark variiert. In diesem Fall ist es erforderlich, dass zwei unterschiedliche Dateien erstellt werden. Die Datei `default.php` ist das eigentlich Override. Legen wir im Verzeichnis neben der `default.php` eine weitere Datei an, ist dies ein alternatives Override. Ein Anwendungsfall ist eine Menü. Im Kopfbereich sieht das Hauptmenü oft ganz anders aus, als das im Footer. In unserem Template ist das Hauptmenü in der Datei `default.php` implementiert und das Fußmenü in der Datei `bottom.php`.
 
-> Anmerkung: Die beiden Dateien unterscheiden sich geringfügig. In der Datei `bottom.php` muss das `<ul>`-Element die Klasse `menu` erhalten, damit keine Listenpunkte in der Frontendansicht angezeigt werden. Dies könnte ebenfalls über ein Modul Chrome gehandhabt werden.
+> Anmerkung: Die beiden Dateien unterscheiden sich geringfügig. In der Datei `bottom.php` muss das `<ul>`-Element die Klasse `menu` erhalten, damit keine Listenpunkte in der Frontendansicht angezeigt werden. Randbemerkung: Dies könnte ebenfalls über ein Modul Chrome gehandhabt werden.
 
 [templates/facile/ html/mod_menu/default.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_menu/default.php)
 
@@ -317,9 +320,9 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 ##### [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php)
 
-Die nachfolgende `index.php` ist an die neu hinzugefügten CSS-Styles angepasst und gibt nun im Frontend ein schönes Design aus.
+Die nachfolgende `index.php` ist an die neu hinzugefügten CSS-Styles angepasst und gibt nun im Frontend ein ansprechenderes Design aus.
 
-Die Zeile `<jdoc:include type="modules" name="top-a" style="hr" />` sorgt dafür, dass an dieser Position das Modul Chrome `hr` für die Anzeige des Moduls hinzugezogen wird.
+Die Zeile `<jdoc:include type="modules" name="top-a" style="hr" />` sorgt dafür, dass an dieser Stelle das Modul Chrome `hr` für die Anzeige des Moduls hinzugezogen wird.
 
 [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php)
 
@@ -488,9 +491,9 @@ Die Zeile `<jdoc:include type="modules" name="top-a" style="hr" />` sorgt dafür
 
 ```
 
-> Tipp: Damit keine Elemente unnötig hinzugefügt werden ist es gute Praxis zu prüfen, ob eine Modulposition benötigt wird. Dies geschieht mit `$this->countModules('NAME_DER_POSITIONS', true)`.
+> Tipp: Damit keine Elemente unnötig hinzugefügt werden ist es gute Praxis zu prüfen, ob eine Modulposition in der Joomla Installation verwendet wird. Dies geschieht mit `$this->countModules('NAME_DER_POSITIONS', true)`.
 
-> Das Banner Modul habe ich gelöscht, weil ich das später mithilfe von Parametern eifügen möchte.
+> Das Banner Modul habe ich gelöscht, weil ich ein Banner später mithilfe von Parametern einfügen möchte.
 
 ## Teste dein Joomla-Template
 
@@ -500,21 +503,14 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-> Wir haben im vorhergehenden Kapitel die Beispieldaten installiert und verfügen deshalb über die im nächsten Bild dargestellten Module in unserer Joomla-Installation.
-> ![Joomla Template erstellen - Modulepositionen filtern](/images/j4x42x1.png)
+Wir haben im vorhergehenden Kapitel die Beispieldaten installiert und verfügen deshalb über die im nächsten Bild dargestellten Module in unserer Joomla-Installation.
 
-2. Öffne das Modul `Bottom Menü` und wähle als Layout `bottom`. Beim Modul `Blog Menü` ersetzt du das Layout `Dropdown` mit dem Standardlayout.
+![Joomla Template erstellen - Modulepositionen filtern](/images/j4x42x1.png)
+
+2. Öffne das Modul `Bottom Menü` und wähle als Layout `bottom`. Beim Modul `Blog Menü` ersetzt du das Layout `Dropdown` mit dem Standardlayout `Default`.
 
 ![Joomla Template erstellen - Alternatives Override - Bottom](/images/j4x42x5.png)
 
-3. Öffne das Modul `mod_articles_news` mit dem Namen `Latest Posts`, welches im Kopfbereich angezeigt wird. Bei den Erklärungen zur `index.php` hast du gesehen, dass ein Modul Chrome über den Parameter `style="hr"` in `<jdoc:include type="modules" name="top-a" style="hr" />` aktiviert wird. Du kannst dies aber auch im Backend einstellen. Das nächste Bild zeigt dir wie das geht.
+3. Öffne das Modul `mod_articles_news` (`Articles - Newsflash`) mit dem Namen `Latest Posts`, welches im Kopfbereich des Frontends angezeigt wird. Bei den Erklärungen zur `index.php` hast du erfahren, dass ein Modul Chrome über den Parameter `style="hr"` in `<jdoc:include type="modules" name="top-a" style="hr" />` aktiviert wird. Du kannst dies aber auch im Backend einstellen. Das nächste Bild zeigt dir wie das im Tabulator `Advanced` über den Parameter `Module Style` funktioniert.
 
 ![Joomla Template erstellen - Module Chrome](/images/j4x42x3.png)
-
-## Links
-
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/c-lodder/lightning]
-
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
-
-[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]

@@ -15,6 +15,8 @@ tags:
 
 Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die Performance spielt eine Rolle und unter Umständen die Reihenfolge, in der Dateien geladen werden. In Joomla gab es oft Konflikte und umständliche Behelfslösung. Joomla 4 ändert dies mit dem Konzept der Web-Assets.
 
+> Es ist wichtig zu verstehen, dass der _Joomla Web Assets Manager_ alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie auch den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über `Joomla\CMS\HTML\HTMLHelper` eingebunden werden - zum Beispiel über `HTMLHelper::_('jquery.framework');`. Der Vorteil des _Webassets Manager_ ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.
+
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -35,11 +37,13 @@ In diesem Kapitel wurde lediglich eine Datei geändert.
 
 ### Geänderte Dateien
 
-In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den Joomla Web Asset Manager. Dieser macht es erfoderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren lädt Joomla alles optimiert und konfliktfrei.
+In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den _Joomla Web Asset Manager_. Dieser macht es erforderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren lädt Joomla alles optimiert und konfliktfrei.
+
+> Weil wir `<jdoc:include type="metas" />` nutzen, benötigen wir die Zeile `<title>Titel</title>` nicht mehr. Joomla setzt als Titel nun den _Site Name_ ein. Dieser Name wird bei der Installation festgelegt und ist jederzeit über die _Globale Konfiguration_ editierbar.
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
-Die Änderungen in der Datei `templates/facile/ index.php`.
+Der nachfolgender Codeausschnitt zeigt dir die Änderungen in der Datei `templates/facile/ index.php`.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
@@ -93,7 +97,7 @@ Die Änderungen in der Datei `templates/facile/ index.php`.
 
 ```
 
-> Das asynchrone Laden der Web Assets führt zu einer Verbesserung der wahrgenommenen Ladezeit. Deshalb nutzen `im Aufruf`. Externe Ressourcen wie JavaScript können bei der Auszeichnung im HTML-Dokument die Attribute `defer` und `async` zugewiesen bekommen. Wird eine Ressource mit dem `defer`-Attribut versehen, erfolgt die Ausführung des Skriptes erst, nachdem das `Document Object Model (DOM)` geladen wurde. Mit der Angabe des Attributes `async` wird das JavaScript asynchron im Hintergrund geladen und ausgeführt. Durch dieses Vorgehen wird eine Blockierung des Renderings in dem Browser vermieden und mehrere Skripte werden parallel geladen und ausgeführt.
+> Das asynchrone Laden der Web Assets führt zu einer Verbesserung der wahrgenommenen Ladezeit. Externen Ressourcen wie JavaScript können bei der Auszeichnung im HTML-Dokument die Attribute `defer` und `async` zugewiesen werden. Wird eine Ressource mit dem `defer`-Attribut versehen, erfolgt die Ausführung des Skriptes erst, nachdem das `Document Object Model (DOM)` geladen wurde. Mit der Angabe des Attributes `async` wird das JavaScript asynchron im Hintergrund geladen und ausgeführt. Durch dieses Vorgehen wird eine Blockierung des Renderings dem Browser vermieden und mehrere Skripte werden parallel geladen und ausgeführt.
 
 ## Teste dein Joomla-Template
 
@@ -103,7 +107,7 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter, es sei denn, du verwendest die Variante mit der Datei `joomla.asset.json`. Die `joomla.asset.json` muss registriert werden und dies erfolgt beim Installieren.
 
-2. Es ist keine neue Funktion hinzukommen. Stelle sicher, dass das Drop Down Menü funktioniert und die Anzeige unverändert ist. Wenn das so ist, dann werden alle Dateien richtig geladen.
+2. Es ist keine sichtbare neue Funktion hinzukommen. Stelle sicher, dass das Drop Down Menü weiterhin funktioniert und die Anzeige unverändert ist. Wenn das so ist, dann werden alle Dateien korrekt geladen.
 
 ## Links
 

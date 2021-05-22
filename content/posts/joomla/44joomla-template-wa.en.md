@@ -15,6 +15,8 @@ tags:
 
 There is a lot to consider when loading styles and stylesheets in the frontend. Performance plays a role and possibly the order in which files are loaded. In Joomla, there were often conflicts and cumbersome workarounds. Joomla 4 changes this with the concept of web assets.
 
+> I think it is important to understand that the _Joomla Web Assets Manager_ manages all assets in a Joomla installation. It does not apply assets specifically for a template. If an extension is loaded and it needs assets, it can also use the Web Assets Manager. But: It does not have to. Assets can still be included via `Joomla\CMS\HTML\HTMLHelper` - for example via `HTMLHelper::_('jquery.framework');`. The advantage of the _Webassets Manager_ is that it ensures that assets are not loaded twice if two extension use the same asset file. And the assets are loaded in the defined order. This prevents conflicts.
+
 ## For the impatient
 
 Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] and transfer these changes into your development version.
@@ -35,11 +37,13 @@ In this chapter only one file has been changed.
 
 ### Modified files
 
-In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den Joomla Web Asset Manager. Dieser macht es erfoderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren lädt Joomla alles optimiert und konfliktfrei.
+In the file `templates/facile/ index.php` we change the way JavaScript and CSS is included. We replaced the `<script>` tags in the footer and the `<link rel="stylesheet" .. />` in the header. Instead of them we use the _Joomla Web Asset Manager_. This makes it necessary to use the `<jdoc:include type="styles" />` and `<jdoc:include type="styles" />` tags. We give control here. Joomla does work for us in return. If we configure the assets correctly Joomla loads everything optimized and conflict free.
+
+> Because we use `<jdoc:include type="metas" />`, we no longer need the line `<title>title</title>`. Joomla now uses the _site name_ as title. This name is set during installation and can be edited at any time via _global configuration_.
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
-Die Änderungen in der Datei `templates/facile/ index.php`.
+The following code snippet shows you the changes in the file `templates/facile/ index.php`.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
@@ -92,17 +96,17 @@ Die Änderungen in der Datei `templates/facile/ index.php`.
 
 ```
 
-> Das asynchrone Laden der Web Assets führt zu einer Verbesserung der wahrgenommenen Ladezeit. Deshalb nutzen `im Aufruf`. Externe Ressourcen wie JavaScript können bei der Auszeichnung im HTML-Dokument die Attribute `defer` und `async` zugewiesen bekommen. Wird eine Ressource mit dem `defer`-Attribut versehen, erfolgt die Ausführung des Skriptes erst, nachdem das `Document Object Model (DOM)` geladen wurde. Mit der Angabe des Attributes `async` wird das JavaScript asynchron im Hintergrund geladen und ausgeführt. Durch dieses Vorgehen wird eine Blockierung des Renderings in dem Browser vermieden und mehrere Skripte werden parallel geladen und ausgeführt.
+> Asynchronous loading of web assets leads to an improvement in noticed loading time. External resources such as JavaScript can be assigned the `defer` and `async` attributes when tagged in the HTML document. If a resource is given the `defer` attribute, the script will not execute until the `Document Object Model (DOM)` has been loaded. By specifying the `async` attribute, the JavaScript is loaded and executed asynchronously in the background. This avoids blocking the rendering to the browser and multiple scripts are loaded and executed in parallel.
 
-## Teste dein Joomla-Template
+## Test your Joomla template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen:
+1. install your template in Joomla version 4 to test it:
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
+Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter, es sei denn, du verwendest die Variante mit der Datei `joomla.asset.json`. Die `joomla.asset.json` muss registriert werden und dies erfolgt beim Installieren.
+A new installation is not necessary. Continue using the files from the previous part, unless you use the variant with the file `joomla.asset.json`. The `joomla.asset.json` has to be registered and this is done during the installation.
 
-2. Es ist keine neue Funktion hinzukommen. Stelle sicher, dass das Drop Down Menü funktioniert und die Anzeige unverändert ist. Wenn das so ist, dann werden alle Dateien richtig geladen.
+2. no visible new function has to be added. Make sure that the drop down menu works and the display fine. If it is, then all files are loaded correctly.
 
 ## Links
 

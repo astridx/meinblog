@@ -25,6 +25,8 @@ Look at the changed programme code in the [diff view](https://github.com/astridx
 
 In this section we create a recognisable image. In the first step, we choose an image. For the example, I chose a yellow PNG file. In the next step, we convert it into different formats using the website [realfavicongenerator.net](https://realfavicongenerator.net/).
 
+> Clear the browser cache if changes to the favicon are not visible during development.
+
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree41.png)
@@ -70,15 +72,15 @@ In order for the files to be found, new lines in the file `templates/facile/ ind
  </head>
 ```
 
-## Teste dein Joomla-Template
+## Test your Joomla template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen:
+1. install your template in Joomla version 4 to test it:
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
+Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Vergewissere dich, dass die Favicons auf den jeweiligen Geräten korrekt angezeigt werden. Nachfolgend siehst du eine Darstellung im Browser Firefox.
+A new installation is not necessary. Continue using the ones from the previous part. Make sure that the favicons are displayed correctly on the devices. Below you can see a representation in the browser Firefox.
 
-![Joomla Template erstellen - Favicon](/images/j4x46x1.png)
+![Create Joomla Template - Favicon](/images/j4x46x1.png)
 
 ## Links
 

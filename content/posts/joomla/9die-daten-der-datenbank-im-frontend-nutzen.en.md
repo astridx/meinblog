@@ -234,7 +234,7 @@ class FooField extends FormField
 
 We open the selection in a modal window. The following code shows you the template for this.
 
-> A [Modal](https://en.wikipedia.org/wiki/Dialog_box)[^en.wikipedia.org/wiki/Dialog_box] is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.
+> A [Modal](https://en.wikipedia.org/wiki/Dialog_box)[^en.wikipedia.org/wiki/dialog_box] is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.
 
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
@@ -490,7 +490,7 @@ We no longer output static text. An item from the database is displayed. Therefo
 
 ```
 
-> Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/Accessing_the_database_using_JDatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL.
+> Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/accessing_the_database_using_jdatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL.
 
 #### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
 

@@ -29,15 +29,17 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-In diesem Kapitel wird lediglich das Bild `templates/facile/images/banner.jpg` hinzugefügt, welches im Banner via CSS angezeigt wird. Dieses habe ich den Demo Images von [html5up.net](https://html5up.net/txt) entnommen und es ist von [unsplash.com](https://unsplash.com/).
+In this chapter only the image `templates/facile/images/banner.jpg` is added, which is displayed in the banner via CSS. I took this from the demo images of [html5up.net](https://html5up.net/txt) and it is from [unsplash.com](https://unsplash.com/).
 
 #### Template
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
-In der Datei `templates/facile/ index.php` ergänzen wir so, dass über Parameter ein Banner und Social Media Icons einfügbar sind.
+We add code to the file `templates/facile/ index.php` so that a banner and social media icons can be inserted via parameters.
 
-> In HTML haben manche Zeichen wie die spitzen Klammern `< >` eine besondere Bedeutung. Sie werden daher als HTML-Entities geschrieben, wenn sie als Text dargestellt werden sollen. Beispielsweise steht `&lt;` statt `<` und `&gt;` statt `>`. Bei der Verarbeitung von Zeichenketten kann es vorkommen, dass solch spezifische Zeichen enthalten sind und daher umgewandelt werden müssen. Wir bieten im Backend eine Texteingabemöglichkeit über ein Formular. Wir möchten aber nicht, dass darüber HTML-Code einschleust wird. Um das zu verhindern, nutzen wir die Funktion `htmlspecialchars()`. Die sorgt dafür, dass die Zeichen, die in HTML eine besondere Bedeutung haben, umgewandelt werden.
+> In HTML some characters, for example the _less than sign_ `<` or the _greater-than-sign_ `>`, have a special meaning. They are therefore written as [HTML entities)(https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)[^en.wikipedia.org/wiki/list_of_xml_and_html_character_entity_references] if they are to be displayed as text. For example, `&lt;` is written instead of `<` and `&gt;` is written instead of `>`. When processing strings, it may happen that they contain such specific characters. These must then be converted so that they can be further processed as plain text. We offer in the tempalte a text input option via a form in the backend. However, we do not want HTML code to be injected via this. This is a security risk. To prevent this, we use the function [htmlspecialchars(https://www.php.net/manual/en/function.htmlspecialchars.php)](^https://www.php.net/manual/en/function.htmlspecialchars.php). This ensures that the characters that have a special meaning in HTML are converted to plain text.
+
+Take a look at the code snippet below. I think the HTML code is self-explanatory.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -99,7 +101,7 @@ In der Datei `templates/facile/ index.php` ergänzen wir so, dass über Paramete
 
 ##### [templates/facile/language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
 
-Wir nutzen die Sprachdateien für die Beschriftung unseres Backendformulares. So sind die Texte in unterschiedliche Spachen übersetzbar.
+We use the language files for the labels of our backend form. This way the texts can be translated into different languages.
 
 [templates/facile/language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
 
@@ -123,11 +125,11 @@ Wir nutzen die Sprachdateien für die Beschriftung unseres Backendformulares. So
 
 ##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
-Da Joomla uns beim Erstellen der Formularfelder unterstützt, reicht es aus, die Felder über eine XML-Datei zu definieren.
+Since Joomla supports us in creating the form fields, it is enough to define the fields via an XML file.
 
-Damit ein Formularfeld in Anhängigkeit zu einem anderen angezeigt wird, nutzen wir `showon`. `showon="showBanner:1"` bewirkt, dass das aktuelle Feld nur eingeblendet wird, wenn das Feld `showBanner` den Wert `1` hat.
+In order to display one form field in dependency to another, we use `showon`. `showon="showBanner:1"` ensures that the current field is only shown if the `showBanner` field has the value `1`.
 
-Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Wert im Backendformular flexibel zu gestalten. So ist möglich, lediglich einen Link zu Facebook einzufügen oder viele Social Media Kanäle anzuzeigen.
+The field of type `type="subform"` provides the possibility to flexibly define the number of values in the backend form. Thus, with one form field it is possible to insert either only one link to Facebook or to display many social media channels.
 
 [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -225,30 +227,24 @@ Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Wert i
  </extension>
 ```
 
-## Teste dein Joomla-Template
+> The Joomla documentation [docs.joomla.org/Form_field](https://docs.joomla.org/Form_field) provides an overview of all possible form fields.
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen:
+## Test your Joomla template
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
+1. install your template in Joomla version 4 to test it:
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Auf alle Fälle solltest du sicherstellen, dass der Template Style Facile aktiv ist. In meinen Beispielen sind die Blog Beispieldateien installiert.
+Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation.
 
-2. Aktiviere im Template Style von Facile das Banner und sieh dir das Ergebnis im Frontend an.
+A new installation is not necessary. Continue using the ones from the previous part. In any case you should make sure that the template style Facile is active. In my examples the Blog sample files are installed.
 
-![Joomla Template erstellen - Banner über Parameter im Frontend](/images/j4x43x1.png)
+2. activate the banner in the template style of Facile and see the result in the frontend.
 
-![Joomla Template erstellen - Banner über Parameter im Backend](/images/j4x43x2.png)
+![Create Joomla Template - Banner via parameters in the frontend](/images/j4x43x1.png)
 
-2. Aktiviere im Template Style von Facile die Social Media Anzeige und sieh dir das Ergebnis im Frontend an.
+![Create Joomla Template - Banner via parameters in the backend](/images/j4x43x2.png)
 
-![Joomla Template erstellen - Social Media Backend](/images/j4x43x3.png)
+3. activate the social media display in the template style of Facile and see the result in the frontend.
 
-![Joomla Template erstellen - Social Media Frontend](/images/j4x43x4.png)
+![Create Joomla Template - Social Media Backend](/images/j4x43x3.png)
 
-## Links
-
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/c-lodder/lightning]
-
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
-
-[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]
+![Create Joomla Template - Social Media Frontend](/images/j4x43x4.png)

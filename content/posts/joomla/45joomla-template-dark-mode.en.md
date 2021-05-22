@@ -38,23 +38,23 @@ I use the following snippet to have the information displayed in the browser con
     </script>
 ```
 
-> Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken.
+> A simple solution would be to display everything in black and white. The entry `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in the CSS file would do this. A matching color scheme is better in terms of quality.
 
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree40.png)
 
-### Neue Dateien
+### New files
 
-Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses neue Stylesheet enthält die Regeln für den dunklen Modus. Es unterscheidet sich von `templates/assets/css/main.css` nur bei einigen Farbcodes.
+Added the CSS file `templates/assets/css/main.dark.css`. This new stylesheet contains the rules for the dark mode. It differs from `templates/assets/css/main.css` only in some color codes.
 
-> Die Systemnachrichten erscheinen im Dark Mode auffällig hell. Diese haben wir bisher unverändert übernommen. Im Dark Mode passe ich diese nun an. Es handelt sich um die [Webkomponente](https://developer.mozilla.org/de/docs/Web/Web_Components) `joomla-alert`. Das Erscheinungsbild ist via `joomla-alert { ..}` in der CSS-Datei änderbar.
+> The system messages appear to bright in dark mode. So far we have used these function unchanged. In Dark Mode I adjust these now. This is the [web component](https://developer.mozilla.org/en/docs/Web/Web_Components) `joomla-alert`. The appearance is changeable via `joomla-alert { ..}` in the CSS file.
 
-### Geänderte Dateien
+### Changed files
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
 
-Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit vom bevorzugten Farbschema. Zusätzlich integriert sie in der linken oberen Ecke einen Schieberegler, der den Modus ebenfalls umschaltet.
+The file `templates/facile/ index.php` now loads the CSS file depending on the _preferred color scheme_. Additionally it integrates a slider in the upper left corner, which makes the mode switchable by click. The necessary changes can be found in the following code example.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
 
@@ -67,7 +67,7 @@ Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit 
  HTMLHelper::_('jquery.framework');
  $wa->registerAndUseScript('dropotron', $templatePath . '/assets/js/jquery.dropotron.min.js', [], ['defer' => true], []);
  $wa->registerAndUseScript('scrolly', $templatePath . '/assets/js/jquery.scrolly.min.js', [], ['defer' => true], []);
-
+@@ -30,11 +31,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <jdoc:include type="styles" />
      <jdoc:include type="scripts" />
@@ -77,10 +77,32 @@ Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit 
  <body class="homepage is-preload">
      <div id="page-wrapper">
 -
++
 +        <dark-mode-toggle></dark-mode-toggle>
++
          <?php if ($this->countModules('menu', true)) : ?>
          <nav id="nav">
              <jdoc:include type="modules" name="menu" />
+@@ -150,6 +154,18 @@ class="button scrolly"><?php echo htmlspecialchars($this->params->get('bannerBut
+
+         <jdoc:include type="modules" name="debug" />
+     </div>
+-</body>
++    <script>
++    /*
++        if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
++            console.log('Dark mode is supported');
++        }
++        if (matchMedia('(prefers-color-scheme: dark)').matches) {
++            console.log('Dark mode');
++        } else {
++            console.log('Light  mode');
++        }
++    */
++    </script>
++    </body>
+
+ </html>
 ```
 
 ## Side Note: Dark Mode depending on the position of the sun
@@ -147,15 +169,15 @@ let error = (err) => {
 navigator.geolocation.getCurrentPosition(success, error, options)
 ```
 
-## Teste dein Joomla-Template
+## Test your Joomla template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen:
+1. install your template in Joomla version 4 to test it:
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
+Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Deine Website sollte nun den Dark Mode unterstützen. Im linken oberen Bereich sollte sich ein Schalter zum Umschalten des Modus befinden.
+A new installation is not necessary. Continue using the ones from the previous part. Your website should now support dark mode. In the upper left area there should be a switch to toggle the mode.
 
-![Joomla Template erstellen - Dark Mode](/images/j4x45x1.png)
+![Create Joomla Template - Dark Mode](/images/j4x45x1.png)
 
 ## Links
 

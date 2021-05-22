@@ -25,7 +25,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Abschnitt schaffen wir einen Wiedererkennungswert. Im ersten Schritt wählen wir ein Image. Für das Beispiel habe ich eine gelbe PNG-Datei gewählt. Im nächsten Schritt wandeln wir diese mithilfe der Website [realfavicongenerator.net](https://realfavicongenerator.net/) in unterschiedliche Formate.
 
-> Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.
+> Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht sichtbar werden.
 
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 

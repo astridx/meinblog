@@ -38,7 +38,7 @@ Das nachfolgende Schnippet nutze ich, um mir im Vorfeld die Angaben in der Konso
     </script>
 ```
 
-> Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken.
+> Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken. Ein passendes Farbschema ist qualitativ besser.
 
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
@@ -46,7 +46,7 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 ### Neue Dateien
 
-Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses neue Stylesheet enthält die Regeln für den dunklen Modus. Es unterscheidet sich von `templates/assets/css/main.css` nur bei einigen Farbcodes.
+Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses Stylesheet enthält die Regeln für den dunklen Modus. Es unterscheidet sich von `templates/assets/css/main.css` nur in Bezug auf Farbcodes.
 
 > Die Systemnachrichten erscheinen im Dark Mode auffällig hell. Diese haben wir bisher unverändert übernommen. Im Dark Mode passe ich diese nun an. Es handelt sich um die [Webkomponente](https://developer.mozilla.org/de/docs/Web/Web_Components) `joomla-alert`. Das Erscheinungsbild ist via `joomla-alert { ..}` in der CSS-Datei änderbar.
 
@@ -54,7 +54,7 @@ Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses neu
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
 
-Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit vom bevorzugten Farbschema. Zusätzlich integriert sie in der linken oberen Ecke einen Schieberegler, der den Modus ebenfalls umschaltet.
+Die Datei `templates/facile/ index.php` lädt jetzt die CSS-Datei in Abhängigkeit vom _bevorzugten Farbschema_. Zusätzlich integriert sie in der linken oberen Ecke einen Schieberegler, der den Modus ebenfalls umschaltet. Die hierzu notwendigen Änderungen findest du im nachfolgenden Codebeispiel.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
 
@@ -67,7 +67,7 @@ Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit 
  HTMLHelper::_('jquery.framework');
  $wa->registerAndUseScript('dropotron', $templatePath . '/assets/js/jquery.dropotron.min.js', [], ['defer' => true], []);
  $wa->registerAndUseScript('scrolly', $templatePath . '/assets/js/jquery.scrolly.min.js', [], ['defer' => true], []);
-
+@@ -30,11 +31,14 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <jdoc:include type="styles" />
      <jdoc:include type="scripts" />
@@ -77,10 +77,32 @@ Die Datei `templates/facile/ index.php` lädt nun die CSS-Datei in Abhängikeit 
  <body class="homepage is-preload">
      <div id="page-wrapper">
 -
++
 +        <dark-mode-toggle></dark-mode-toggle>
++
          <?php if ($this->countModules('menu', true)) : ?>
          <nav id="nav">
              <jdoc:include type="modules" name="menu" />
+@@ -150,6 +154,18 @@ class="button scrolly"><?php echo htmlspecialchars($this->params->get('bannerBut
+
+         <jdoc:include type="modules" name="debug" />
+     </div>
+-</body>
++    <script>
++    /*
++        if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
++            console.log('Dark mode is supported');
++        }
++        if (matchMedia('(prefers-color-scheme: dark)').matches) {
++            console.log('Dark mode');
++        } else {
++            console.log('Light  mode');
++        }
++    */
++    </script>
++    </body>
+
+ </html>
 ```
 
 ## Exkurs: Dark Mode abhängig vom Sonnenstand

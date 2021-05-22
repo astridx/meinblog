@@ -13,13 +13,13 @@ tags:
   - Joomla
 ---
 
-Our template should display the contents of Joomla at different positions. How module positions are integrated into the template is the subject of this chapter.
+Our template should dynamically display the Joomla content from components, modules and plugins at different positions. How module positions are integrated in the template is the topic of this chapter.
 
-## Für Ungeduldige
+## For the impatient
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
+Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] and incorporate these changes into your development version.
 
-## Schritt für Schritt
+## Step by step
 
 We will proceed step by step. In this part we add the module positions so that Joomla displays content dynamically. We will take care of the design in the next part.
 
@@ -27,19 +27,19 @@ In the following overview, the newly added files are marked with a background an
 
 ![Overview of the files edited in this chapter](/images/tree36.png)
 
-### Neue Dateien
+### New files
 
-In diesem Abschnitt wurden lediglich Änderungen.
+The only changes made in this section are.
 
-### Geänderte Dateien
+### Changed files
 
 #### Template
 
-Bisher haben wir eine stasche Website. In diesem Teil fügen wir mithilfe von Modulpositionen dynamsich Inhalte hinzu.
+So far, we have a static website. In this part, we add content dynamically using module positions.
 
 ##### [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/161043cf57d9bd06df1d23803db2cd1ed7aacbca/src/templates/facile/component.php)
 
-Die Datei `component.php` zeigt lediglich den Content vom Type `component` an. Also den Hauptinhalt. Die Navigation und die Inhalte in Seitenleisten werden ausgelassen. Sinnvoll ist diese Anzeige besonders für Ausdrucke auf Papier. Ein minimaler Aufbau sieht wie folgt aus.
+I already mentioned it in the previous part: The file `component.php` displays only main content. This is the content of type `component`. Navigation and content in sidebars are omitted. For testing we had created this file. So far it contained only the static text `Component`. Now we extend it by its actual task. A minimal structure looks like this.
 
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/161043cf57d9bd06df1d23803db2cd1ed7aacbca/src/templates/facile/component.php)
 
@@ -59,11 +59,15 @@ Die Datei `component.php` zeigt lediglich den Content vom Type `component` an. A
 +
 ```
 
-> [`<jdoc:include type="head" />`](https://docs.joomla.org/Jdoc_statements#jdoc:include) lädt Inhalte, die Erweiterungen benötigen und über spezielle Befehle einbinden. Das sind überwiegend Skripte und Styles.
+The main new entry is `<jdoc:include type="component" />`. The command inserts the main content of the current page.
+
+In addition, we use `<jdoc:include type="message" />` and `<jdoc:include type="head" />`. `<jdoc:include type="message" />` displays system and error messages that occurred during the request. `<jdoc:include type="head" />` loads content that requires extensions and includes them via special commands. These are mainly scripts and styles.
+
+> `<jdoc:include type="head" />`, `<jdoc:include type="message" />` and `<jdoc:include type="component" />` should appear only once in the `<body>` element of the template. More information about the commands can be found in the Joomla documentation [docs.joomla.org/Jdoc_statements/en](https://docs.joomla.org/Jdoc_statements/de).
 
 ##### [templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
-Ich hatte es bereits geschrieben: Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Im vorhergehenden Kapitel hatten wir die Joomla-eigenen Inhalte nicht integriert. Dies hole ich hier nach. Ein minimaler Aufbau, der Joomla Inhalte lädt, sieht wie folgt aus.
+You already know it: The file `index.php` is the heart of the template. It makes sure that everything works together. In the previous chapter we had not integrated Joomla's own content. I will make up for this here. A minimal structure, which inserts the Joomla content, looks like this.
 
 [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/index.php)
 
@@ -78,6 +82,14 @@ Ich hatte es bereits geschrieben: Die Datei `index.php` ist das Herzstück. Sie 
 +  <header>
 +	<div>
 +	  <nav>
++	      <div>
++		     <jdoc:include type="modules" name="topbar" />
++	      </div>
++
++	      <div>
++		     <jdoc:include type="modules" name="below-topbar" />
++	      </div>
++
 +				<div>
 +					<jdoc:include type="modules" name="menu" />
 +				</div>
@@ -136,21 +148,21 @@ Ich hatte es bereits geschrieben: Die Datei `index.php` ist das Herzstück. Sie 
  </html>
 ```
 
-> Innerhalb des Header-Bereichs laden Joomla Templates normalerweise Header-Informationen mit `<jdoc: include type="head" />` aus der Joomla API. Wir nutzen dies weiter oben in der Datei `component.php`. So ist man auf der sicheren Seite. Dieser `jdoc:include`-Befehl fügt die normalen Header-Informationen ein, die eine Website benötigt. Ich nutze diesen Befehl hier nicht, weil ich in der Hauptansicht selbst auswählen möchte, was ich benötige.
+> Inside the header area Joomla templates load header information with `<jdoc: include type="head" />` via Joomla API. We already use this above in the `component.php` file. The `jdoc:include` command inserts the necessary header information. This way you are on the safe side. I don`t use this command here, because I want to choose what I need in the main view itself.
 
-Den Befehl `jdoc:include` finden wir noch öfter in der `index.php`. Beispielsweise sehen wir `<jdoc:include type="message" />`, damit funktionieren die Systemmeldungen. Wann immer Joomla dem Websitebetrachter etwas mitteilt, wird diese Zeile es auf dem Bildschirm anzeigen. Wenn man beispielsweise eine E-Mail über ein Kontaktformular sendet, wird man die Nachricht "Ihre Nachricht wurde erfolgreich gesendet" sehen.
+We can find the `jdoc:include` command in other places in `index.php`. For example, we see `<jdoc:include type="message" />`, so the system messages work. Whenever Joomla has something to tell the website visitor, this line will display it on the screen. For example, when sending an email through a contact form, you will see the message "Your message was sent successfully".
 
-Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element sollte nur einmal im `<body>`-Element erscheinen, um den Hauptinhalt der Seite in Bezug auf die aktuell angezeigte Seite darzustellen.
+Another element to discuss is `<jdoc:include type="component" />`. This element inserts the main content into the site.
 
-Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`. Wie der Name schon sagt, werden hierüber Module eingebunden.
+The last element worth mentioning is `<jdoc:include type="modules" />`. As the name suggests, this is used to include modules.
 
-So, genug erklärt. Alle Inhalte sind eingebunden. Sie werden allerdings nicht schön dargestellt. Erschrecke nicht, wenn du später diese Version im Browser öffnest. Du siehst alle Inhalt in ungestylter Form.
+So, enough explained. All contents are included. They are not displayed nicely yet. Don't be scared if you open this version in your browser later. You will see all content in unstyled form at the moment.
 
 ##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t35...t36#diff-764a4776e5fab4421733468c2fc87d67e612f3d84297fb83ed0495d4c04b27d2)
 
-Über die Sprachdateien ist es möglich, die Positionen genau zu beschreiben. Beachte die Zeile `TPL_FACILE_POSITION_TOP-A="Area under banner"`. `TOP-A"` sagt einem Benutzer nicht viel. Mit `Area under banner` kann er etwas anfangen.
+Via the language files it is possible to describe the positions exactly. Note the line `TPL_FACILE_POSITION_TOP-A="Area under banner"`. `TOP-A` does not mean much to a user. He understands `Area under banner`.
 
-![Joomla Template erstellen - Modul Positionen besonders benennen](/images/j4x41x1.png)
+![Create Joomla Template - Name Module Positions](/images/j4x41x1.png)
 
 [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t35...t36#diff-764a4776e5fab4421733468c2fc87d67e612f3d84297fb83ed0495d4c04b27d2)
 
@@ -171,14 +183,15 @@ So, genug erklärt. Alle Inhalte sind eingebunden. Sie werden allerdings nicht s
 +TPL_FACILE_POSITION_BOTTOM-B="Bottom-b"
 +TPL_FACILE_POSITION_FOOTER="Footer"
 +TPL_FACILE_POSITION_DEBUG="Debug"
-
++TPL_FACILE_POSITION_TOPBAR="Top Bar"
++TPL_FACILE_POSITION_BELOW-TOP="Below Top"
 ```
 
 ##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t35...t36#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
 
-Die der Datei `templateDetails.xml`werden die Modulpositionen angelegt, um beim Anlegen eines Modules als Position auswählbar zu sein. So ist ein Modul über den Befehl `jdoc:include` in der `index.php` einbindbar.
+In the file `templateDetails.xml` the module positions are inserted to be selectable as position when creating a module. So a module is includeable via the command `jdoc:include` in the `index.php`.
 
-[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/8238130b429378f62cf6652b2f77255a62a7380d/src/templates/facile/templateDetails.xml)
+[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/8238130b429378f62cf6652b2f77255a62a7380d/src/templates/facile/templateDetails.xml)
 
 ```xml {diff}
 
@@ -187,6 +200,8 @@ Die der Datei `templateDetails.xml`werden die Modulpositionen angelegt, um beim 
  	</files>
 +
 +	<positions>
++		<position>topbar</position>
++		<position>below-top</position>
 +		<position>menu</position>
 +		<position>search</position>
 +		<position>banner</position>
@@ -206,44 +221,34 @@ Die der Datei `templateDetails.xml`werden die Modulpositionen angelegt, um beim 
 
 ```
 
-##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
+### Changed files
 
-### Geänderte Dateien
+Only files have been added in this section.
 
-In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
+## Test your Joomla template
 
-## Teste dein Joomla-Template
+1. install your template in Joomla version 4 to test it:
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen:
+Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation.
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
+A new installation is not necessary. Continue using the ones from the previous part.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+3. install the sample data, so that you have the same prerequisites as I have.
 
-3. Installiere die Beispieldaten, so dass du über die gleichen Voraussetzungen verfügst, wie ich.
+![Create Joomla Template - Install sample files](/images/j4x41x2.png)
 
-![Joomla Template erstellen - Beispieldateien installieren](/images/j4x41x2.png)
+4. test now, if the sample files are displayed correctly. Activate the template style Cassiopei and call the URL `joomla-cms4/index.php`. How you change a template style, I had shown in the previous chapter with a picture. Your view should be like in the following picture.
 
-4. Teste nun, ob die Beispieldateien korrekt angezeigt werde. Aktiviere dazu den Template Style Cassiopei und rufe die URL `joomla-cms4/index.php` auf. Wie du einen Template Style änderst, hatte ich im vorherigen Kapitel mit einem Bild gezeigt. Deine Ansicht sollte wie im folgenden Bild sein.
+![Create Joomla Template - View in Cassiopeia](/images/j4x41x4.png)
 
-![Joomla Template erstellen - Ansicht in Cassiopeia](/images/j4x41x4.png)
+5. next test if our template _Facile_ works without errors. Activate the Template Style Facile and call the URL `joomla-cms4/index.php` again. Your view should be like in the following picture.
 
-5. Teste als Nächstes, ob unser Template Facile fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile und rufe wieder die URL `joomla-cms4/index.php` auf. Deine Ansicht sollte wie im folgenden Bild sein.
+![Create Joomla Template - View Facil ungestyled](/images/j4x41x3.png)
 
-![Joomla Template erstellen - Ansicht Facil ungestyled](/images/j4x41x3.png)
+You can view the module positions in the frontend. Activate the view in the global configuration in the backend and call the URL `joomla-cms4/index.php?tp=1`. The appendage `?tp=1` is crucial.
 
-Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeige in der globalen Konfiguration im Backend und rufe dann die URL `joomla-cms4/index.php?tp=1` auf. Das Anhängsel `?tp=1` ist entscheidend.
+![Create Joomla Template - Show Module Positions - Backend](/images/j4x41x5.png)
 
-![Joomla Template erstellen - Modul Positionen anzeigen - Backend](/images/j4x41x5.png)
+![Create Joomla Template - Show Module Positions - Frontend](/images/j4x41x6.png)
 
-![Joomla Template erstellen - Modul Positionen anzeigen - Frontend](/images/j4x41x6.png)
-
-Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Tempalte als nächstes mit CSS und JavaScipt auf und passen die Standard Ansichten von Joomla an.
-
-## Links
-
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/c-lodder/lightning]
-
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
-
-[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]
+This does not look inviting. I agree with you there. So next we pep up the template with CSS and JavaScipt and adjust the default views of Joomla.

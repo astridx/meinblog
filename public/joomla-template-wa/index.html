@@ -34,6 +34,9 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/en/joomla-template-wa/">english</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAACZ0lEQVQ4y2P4T2XAAGP8+/cPjAmx0cWQxTEMhNF//vwB479//2I1FJ88A7JzkW2CgV+/foE1gvDv37/hhsAAOh/Dhd9//PhfUVX7Pz0z5/+nT5+whlPfhEn/w6Ni/1+7fgNuKIYLQbaDwIqVq/+zcPL+FxCV/B8SHvW/q6fv/3Wgxnfv3v+fMGnK/8KSsv/S8sr/WTh4/0fFJoD1gLyPYeCfPxCnX7x0+b+uocl/JTWt/5Kyiv/FpOT+B4VG/Lexd/7PLyLxX0xaHiwHMnTy1Om4DUR25br1G/5z8Aj+37Jt+/8zZ8/+19IzAhu+fsOm/9dv3PwvJCb1v6q2HsO7GGEIsgkEjh47/p+dW+D/tBmz/nv7BYFdFBOf9F/f2Oz/8pWr/osDXTl7zjwUR2C4EBb1MImM7Nz/gsBwBBl45erV/x8/fvpvaevwX0JG8X96Vu7/j9AIQ0+TWBP2x48fgQbm/Te1sAEbumnzVnDYevsH/dfUNQC61Pz/gwcPUbyMNwwPHTn6n4md+//O3Xv+F5dW/Hd29wJ728Pb7//5CxfBkQOLEFA6xellWCJt7ej6zyMoCk4mO3bu+i+npPZfWV37//yFi/6vBUYYKAwjouPg6RQ5cSOlQ0iEgLwnICL5X11LD2woMwfPf9/AkP91jc3/eYF8UOyDDAepSUnPwpcOIQbu2bcfnCxAGto7u/8fO37i//fv38Eajp84+X/Dxs3/tfWNwQm7vLIat4HIAQsyFORSXPn8wsVL/5cuWwG2CGdpg00jrECAWQZyCSzisJVSeIsvUJiil38wPsxgbOUjA81KbGoBAOxFbQm0w5BOAAAAAElFTkSuQmCC" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Web Asset Manager</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/44joomla-template-wa.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>13.01.2021</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die Performance spielt eine Rolle und unter Umständen die Reihenfolge, in der Dateien geladen werden. In Joomla gab es oft Konflikte und umständliche Behelfslösung. Joomla 4 ändert dies mit dem Konzept der Web-Assets.</p>
+<blockquote>
+<p>Es ist wichtig zu verstehen, dass der <em>Joomla Web Assets Manager</em> alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie auch den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über <code class="language-text">Joomla\CMS\HTML\HTMLHelper</code> eingebunden werden - zum Beispiel über <code class="language-text">HTMLHelper::_(&#39;jquery.framework&#39;);</code>. Der Vorteil des <em>Webassets Manager</em> ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.</p>
+</blockquote>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t38...t39">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t38...t39"><a href="#fn-github.com/astridx/boilerplate/compare/t38...t39" class="footnote-ref">github.com/astridx/boilerplate/compare/t38...t39</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
@@ -48,26 +51,26 @@ void function() {
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/202f8809799ad55b88bf449183adfbd9/90804/tree39.png"
+    href="/static/a4b472ab339d963aa5c0df3cdc96c6fd/90804/tree39.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAAB3klEQVQ4y33U2Y4qMQwE0P7/74MRSAPDvu/LMKy5OpbcQjzcSFHSTlyuqhiq9Xpdut1u2W63xXi9XuV4PJbBYBBrxtwTu91uJcfpdCqTyaT8/f3F9/P5LNXlcimbzSZAr9drBO/3e8TG43HEAAISm81m5XA41MBAf35+Ih+BSsAF1SW4CMThcDgso9EokoAa+/0+1JzP54jJXSwWEfcdgA6xQd8eQxe+v7+jMrkK7Ha7Wm4WwHg+n9fxCoCLaAN/PB7B8Pf3N8AajUYU4ZNkhd0xgVLx9fVVptNpKAyGKU8lclJyv98vq9UqEpMRtsvlMlZFnSvabreL96gkksgLjLDloxg2mCdj6/tQhH+dTieAQzJAANAlAySHTExIsQfIY5OKZM1reexQMCSbAmST4oBnGHvlbB1TXPH8zp5VnKr6lTHhGUAHQABihDHm5OnTd8nye71e2ENFDfjJMAFNrExJ2UbZ2PYkwwgPUzLapirZFpIxx4pM5+kVFYYipgLx00uGXok8JkvO32YOe0B5ljEeN5vNWJEIwOwnHpHmYvbdew9+tozX9hj8hVNLBuKQnDz4BEng9wLvCvJOhR0ZwLKaWPbgJ9tP1p9FqnwdgK1Wq/4j4BcLWJFM/geU+38johtuFsEghgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsSAAALEgHS3X78AAAB7klEQVQ4y33U2W4qQQwE0Pn/7+NGIBH2fU9YQxI6cyx5hHi4LbVmxm2Xq6oN1Xa7Lb1er+z3+2I9Ho9yPB7LaDSKZ8bkid3v95LrdDqV2WxWbrdbfP/+/pbqer2W3W4XoF9fXxH8/v6O2HQ6jRhAQGKLxaJ8fn42wED7/X7UI1AJSNBdgUQgDsfjcZlMJlEE1Pr4+Ag15/M5YmpXq1XEfQegQ2zQ946hhG63G53J1eBwODRyswHGy+WyiVcAJKIN/OfnJxheLpcAa7Va0YRPijWWYwOl4u3trczn81AYDFOeTuSk5OFwWDabTRQmI2zX63U8NXWuaafTKe6jUkgiLzDClo9i2GCejD2flyb8e39/D+CQDBAAdMUAySETE1K8A+SxTUWy5rU6dmgYkm0BsklxwDOM3XKOji2ueX7nzGpOVXPLmPAMoAMgADHCGHPyzOmz5FNdOxgMwh4qGsBXhgloY2UryjFik2va1sz69XjBCA9TMtq2LjkWijHHikzn6RUV1rTOmdaAGsRPLxm6JfKYrDh/m7m8A8qzjE1q1v/qOeQ1EgGY88Qj0iTm3D3P4OvIuO11XcNfOI1kIA7JyYNXkAR+bvCsIHMq7MgA5up1E8sZfGX7yvq1SZW3A7Ddbjd/BPxiASuSyf+A8v0P4cYbR8Yvq5kAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
         title="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
-        src="/static/202f8809799ad55b88bf449183adfbd9/f058b/tree39.png"
-        srcset="/static/202f8809799ad55b88bf449183adfbd9/c26ae/tree39.png 158w,
-/static/202f8809799ad55b88bf449183adfbd9/6bdcf/tree39.png 315w,
-/static/202f8809799ad55b88bf449183adfbd9/f058b/tree39.png 630w,
-/static/202f8809799ad55b88bf449183adfbd9/40601/tree39.png 945w,
-/static/202f8809799ad55b88bf449183adfbd9/78612/tree39.png 1260w,
-/static/202f8809799ad55b88bf449183adfbd9/90804/tree39.png 3733w"
+        src="/static/a4b472ab339d963aa5c0df3cdc96c6fd/f058b/tree39.png"
+        srcset="/static/a4b472ab339d963aa5c0df3cdc96c6fd/c26ae/tree39.png 158w,
+/static/a4b472ab339d963aa5c0df3cdc96c6fd/6bdcf/tree39.png 315w,
+/static/a4b472ab339d963aa5c0df3cdc96c6fd/f058b/tree39.png 630w,
+/static/a4b472ab339d963aa5c0df3cdc96c6fd/40601/tree39.png 945w,
+/static/a4b472ab339d963aa5c0df3cdc96c6fd/78612/tree39.png 1260w,
+/static/a4b472ab339d963aa5c0df3cdc96c6fd/90804/tree39.png 3733w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -77,9 +80,12 @@ void function() {
 <h3>Neue Dateien</h3>
 <p>In diesem Kapitel wurde lediglich eine Datei geändert.</p>
 <h3>Geänderte Dateien</h3>
-<p>In der Datei <code class="language-text">templates/facile/ index.php</code> ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die <code class="language-text">&lt;script&gt;</code>-Tags im Fußbereich und das <code class="language-text">&lt;link rel=&quot;stylesheet&quot; .. /&gt;</code> im Kopfbereich. Anstelle davon nutzen wir den Joomla Web Asset Manager. Dieser macht es erfoderlich, die Tags <code class="language-text">&lt;jdoc:include type=&quot;styles&quot; /&gt;</code> und <code class="language-text">&lt;jdoc:include type=&quot;styles&quot; /&gt;</code> zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren lädt Joomla alles optimiert und konfliktfrei.</p>
+<p>In der Datei <code class="language-text">templates/facile/ index.php</code> ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die <code class="language-text">&lt;script&gt;</code>-Tags im Fußbereich und das <code class="language-text">&lt;link rel=&quot;stylesheet&quot; .. /&gt;</code> im Kopfbereich. Anstelle davon nutzen wir den <em>Joomla Web Asset Manager</em>. Dieser macht es erforderlich, die Tags <code class="language-text">&lt;jdoc:include type=&quot;styles&quot; /&gt;</code> und <code class="language-text">&lt;jdoc:include type=&quot;styles&quot; /&gt;</code> zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren lädt Joomla alles optimiert und konfliktfrei.</p>
+<blockquote>
+<p>Weil wir <code class="language-text">&lt;jdoc:include type=&quot;metas&quot; /&gt;</code> nutzen, benötigen wir die Zeile <code class="language-text">&lt;title&gt;Titel&lt;/title&gt;</code> nicht mehr. Joomla setzt als Titel nun den <em>Site Name</em> ein. Dieser Name wird bei der Installation festgelegt und ist jederzeit über die <em>Globale Konfiguration</em> editierbar.</p>
+</blockquote>
 <h5><a href="https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php">templates/facile/ index.php</a></h5>
-<p>Die Änderungen in der Datei <code class="language-text">templates/facile/ index.php</code>.</p>
+<p>Der nachfolgender Codeausschnitt zeigt dir die Änderungen in der Datei <code class="language-text">templates/facile/ index.php</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php">templates/facile/ index.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"> \defined(&#39;_JEXEC&#39;) or die;</span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
@@ -127,7 +133,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source">     &lt;/div&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"> &lt;/body&gt;</span></span></code></pre>
 <blockquote>
-<p>Das asynchrone Laden der Web Assets führt zu einer Verbesserung der wahrgenommenen Ladezeit. Deshalb nutzen <code class="language-text">im Aufruf</code>. Externe Ressourcen wie JavaScript können bei der Auszeichnung im HTML-Dokument die Attribute <code class="language-text">defer</code> und <code class="language-text">async</code> zugewiesen bekommen. Wird eine Ressource mit dem <code class="language-text">defer</code>-Attribut versehen, erfolgt die Ausführung des Skriptes erst, nachdem das <code class="language-text">Document Object Model (DOM)</code> geladen wurde. Mit der Angabe des Attributes <code class="language-text">async</code> wird das JavaScript asynchron im Hintergrund geladen und ausgeführt. Durch dieses Vorgehen wird eine Blockierung des Renderings in dem Browser vermieden und mehrere Skripte werden parallel geladen und ausgeführt.</p>
+<p>Das asynchrone Laden der Web Assets führt zu einer Verbesserung der wahrgenommenen Ladezeit. Externen Ressourcen wie JavaScript können bei der Auszeichnung im HTML-Dokument die Attribute <code class="language-text">defer</code> und <code class="language-text">async</code> zugewiesen werden. Wird eine Ressource mit dem <code class="language-text">defer</code>-Attribut versehen, erfolgt die Ausführung des Skriptes erst, nachdem das <code class="language-text">Document Object Model (DOM)</code> geladen wurde. Mit der Angabe des Attributes <code class="language-text">async</code> wird das JavaScript asynchron im Hintergrund geladen und ausgeführt. Durch dieses Vorgehen wird eine Blockierung des Renderings dem Browser vermieden und mehrere Skripte werden parallel geladen und ausgeführt.</p>
 </blockquote>
 <h2>Teste dein Joomla-Template</h2>
 <ol>
@@ -136,7 +142,7 @@ void function() {
 <p>Kopiere die Dateien im <code class="language-text">templates</code> Ordner in den <code class="language-text">templates</code> Ordner deiner Joomla 4 Installation.</p>
 <p>Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter, es sei denn, du verwendest die Variante mit der Datei <code class="language-text">joomla.asset.json</code>. Die <code class="language-text">joomla.asset.json</code> muss registriert werden und dies erfolgt beim Installieren.</p>
 <ol start="2">
-<li>Es ist keine neue Funktion hinzukommen. Stelle sicher, dass das Drop Down Menü funktioniert und die Anzeige unverändert ist. Wenn das so ist, dann werden alle Dateien richtig geladen.</li>
+<li>Es ist keine sichtbare neue Funktion hinzukommen. Stelle sicher, dass das Drop Down Menü weiterhin funktioniert und die Anzeige unverändert ist. Wenn das so ist, dann werden alle Dateien korrekt geladen.</li>
 </ol>
 <h2>Links</h2>
 <p><a href="https://docs.joomla.org/J4.x:Web_Assets/de">Web Assets</a><sup id="fnref-https://docs.joomla.org/j4.x:web_assets/de"><a href="#fn-https://docs.joomla.org/j4.x:web_assets/de" class="footnote-ref">https://docs.joomla.org/j4.x:web_assets/de</a></sup></p>

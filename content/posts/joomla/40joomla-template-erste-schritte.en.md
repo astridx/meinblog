@@ -15,6 +15,8 @@ tags:
 
 Why create your own Joomla template? There are a few good reasons why we should tackle this!
 
+> Especially for extension developers, I think it is essential to know how a Joomla template works. This makes it possible to integrate the separation of logic and design into the extension.
+
 - Creating our own Joomla template means that we have complete control over every last detail of the look and feel of the website. We only create code that we like. It is much easier to change a custom template than a complex Joomla template, where often the different elements are attached to each other.
 - Creating our own template means that we don't overload the website with functions that we don't even use.
 - If we want a custom Joomla template that is not used by thousands of other websites, creating one is an option.
@@ -30,15 +32,15 @@ There are two types of templates in Joomla:
 
 We create a front-end template. This controls the way the website is presented to the user.
 
-## Für Ungeduldige
+The principle for creating a template for the administration area is exactly the same. You create it in the subdirectory `/administrator/templates`. You create the front-end template in the folder `/templates`.
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] an und übernimm diese Änderungen in deine Entwicklungsversion.
+## For the impatient
 
-## Schritt für Schritt
+Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] and incorporate these changes into your development version.
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
+## Step by step
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
+With the template it is also so that you do not reinvent the wheel. You can use many things that Joomla provides by default. This has advantages. The disadvantage is that individual wishes are more difficult to implement, or rather Joomla knowledge is a necessary prerequisite. Therefore we start rudimentary. The main thing is to look behind the functions and understand them.
 
 ![Overview of the files edited in this chapter](/images/tree35.png)
 
@@ -50,9 +52,11 @@ Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joom
 
 ##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-Die `component.php` ermöglicht es, eine abgespeckte Version der Site zu erzeugen. Das bedeutet, dass nur die Ansicht der Komponente angezeigt wird. Diese kann sehr gut für einen Ausdruck verwendet werden. Die Komponente ist für die Darstellung der Artikel zuständig. Das gesamte Layout, also zum Beispiel die Module und die Navigation bleibt dabei außen vor. Dies kann recht praktisch sein; der Fokus liegt auf dem Inhalt.
+The `component.php` provides the logic for a stripped down version of the site. This usually means that only the pure view of the component is displayed. This is used for printer-friendly output or display in a modal window. To clarify: As already mentioned, a component is responsible for the display of the _main content_. The whole layout, for example the modules in a sidebar and the navigation are accessories. The file `component.php` sets the focus on the _main content_.
 
-> Diese Ansicht wird im Browser über den Link `/index.php?tmpl=component` angezeigt.
+> Would you like to see the output of the file `component.php`? This view is displayed in the browser if you append `tmpl=component` to the URL - for example like this: `/index.php?tmpl=component`.
+
+We create the file `component.php` here for the sake of completeness and add the text `Component` to test it.
 
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
 
@@ -65,18 +69,18 @@ Component
 
 ##### [templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
 
-Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist nicht individuell. Viel besser ist es, eine eigene Fehlerseite zu erstellen.
+When website visitors call a page that does not exist, they receive an error message. Joomla's error message is generic. It is much better to create your own individual error page.
 
-Meiner Meinung nach eine gute Fehlerseite beinhaltet:
+In my opinion, a good error page includes:
 
-- Minimalistisches Design: Drücke dich mit einfachen Texten und klaren Bildern aus. Schreibe nur das Nötigste. Weniger ist mehr!
-- Verlinke auf die Startseite: Beschreibe klar und deutlich, wie die Homepage erreichbar ist und setze einen Link auf diese. Ein zusätzlicher Link, zum Beispiel im Logo, ist hilfreich. Er sollte aber nicht der einzige Punkt sein, um wieder auf die Homepage zu gelangen.
-- Eine Suche: Biete dem Besucher ein Suchfeld an. Er wird wissen, was er sehen will. Ein Suchfeld wird geschätzt und gibt dem Besucher eine Möglichkeit, dieses zu finden. Nebenbei bleibt er so auf deiner Website.
-- Keine Fachbegriffe: "404 Error" ist für viele Menschen völlig bedeutungslos.
+- Minimalist design: express yourself with simple texts and clear images. Write only what is necessary. Less is more!
+- Link to the homepage: Describe clearly how to reach the homepage and put a link to it. An additional link, for example in the logo, is helpful. But it should not be the only way to get back to the homepage.
+- A search: Offer the visitor a search field. He will know what he wants to see. A search field is used because it offers an option to find it. Besides, it keeps him on your website.
+- No technical terms: `404 Error` is completely meaningless to many people.
 
-> Die Fehlerseite sollte die Besucher nicht zurechtweisen. Schließlich ist es nicht ihre Schuld, wenn eine Seite nicht existiert oder ein interner Serverfehler auftritt.
+> In my opinion, the error page should not blame visitors. After all, it's not their fault if a page doesn't exist or an internal server error occurs.
 
-Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/index.php` erstellt. Sie beinhaltet nichts weiter als das Wort Error. So kannst du deiner Phantasie freien Lauf lassen.
+So that you know where to implement your error page, I have created the file `templates/facile/error.php`. It contains nothing but the word `Error`. This way it is possible to test the page. Let your imagination run wild with the content and the design.
 
 [templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
@@ -89,7 +93,7 @@ Error
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
-Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Ein minimaler Aufbau sieht wie folgt aus.
+The file `index.php` is the heart. It ensures that everything works together. The following code snippet shows you a minimal structure.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
@@ -121,17 +125,17 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 
 ```
 
-Die erste Zeile ist in PHP geschrieben. Das Gute an PHP und HTML ist, dass es zusammen geschrieben werden kann. Wir können PHP-Anweisungen in eine HMTL-Datei einfügen, und umgekehrt. `<?php` öffnet eine PHP-Anweisung - egal wo - und `?>` schließt sie wieder. In der ersten Zeile verbieten wir den direkten Zugriff auf diese Datei. Dies geschieht über die Joomla API mit dem Befehl `_JEXEC`. Diese Anweisung prüft, ob die Datei aus einer Joomla-Sitzung heraus aufgerufen wird, und sie schützt di Seite, indem sie es einem Hacker schwerer macht.
+The first line is written in PHP. The good thing about PHP and HTML is that it can be written together. We can put PHP statements into an HMTL file, and vice versa. `<?php` opens a PHP statement - anywhere - and `?>` closes it again. In the first line we forbid direct access to this file. This is done via the Joomla API with the command `_JEXEC`. This statement checks if the file is accessed from a Joomla session, and it protects the page by making it harder for a hacker.
 
-Später deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.org/QA/2002/04/valid-dtd-list.html). Dies stellt sicher, dass das Dokument von verschiedenen Browsern auf die gleiche Weise geparst wird. Die einfachste und zuverlässigste Doctype-Deklaration, die verwendet werden kann, ist die in HTML5 definierte. Diese verwenden wir.
+Then we declare the [document type](https://www.w3.org/QA/2002/04/valid-dtd-list.html)[^w3.org/qa/2002/04/valid-dtd-list.html] with `<!doctype html>`. This ensures that the document is parsed the same way by different browsers. The simplest and most reliable doctype declaration to use is the one defined in HTML5. This is what we use.
 
-Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`.
+What follows is the smallest possible structure of an HTML page. This page opens with `<html>` and ends with `</html>`. The header starts with `<head>` and ends with `</head>`. The body starts with `<body>` and ends with `</body>`.
 
-So, genug erklärt. So sieht die Website minimal aus. Sie lädt noch keine Inhalte aus Joomla! Mir ging es hier in erste Linie darum zu zeigen, dass die `index.php` des aktiven Templates für alles verantwortlich ist. In unserem Fall ist dies die Datei `templates/facile/index.php`.
+Enough explanation. This is how the website looks minimally. It does not yet load any content from Joomla! My main point here was to show that the `index.php` of the active template is responsible for everything. In our case, this is the file `templates/facile/index.php`. So far, the responsibility is limited. Only the (German) greeting `Hallo Joomla!` is displayed on the screen.
 
 ##### [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
-Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt dafür, dass im Backend bei der Verwaltung der Erweiterungen der Name zur Sprache passend angezeigt wird.
+The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` ensures that the name is displayed in the backend in the correct language when managing the extensions.
 
 [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
@@ -145,7 +149,7 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ##### [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
-Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` übersetzt nach der Installation in die korrekte Sprache.
+The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` translates the texts in the menu or during the installation into the correct language.
 
 [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
@@ -158,13 +162,13 @@ FACILE="Facile - Site template"
 
 ##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
-Die Datei `offline.php` wird aufgerufen, wenn im Backend der Wartungsmodus aktviert ist. Du aktivierst diesen in der globalen Konfiguration.
+The file `offline.php` is called when the maintenance mode is activated in the backend. You activate this in the global configuration.
 
-![Joomla Template erstellen - Offline Seite Backend](/images/j4x40x5.png)
+![Create Joomla Template - Offline Page Backend](/images/j4x40x5.png)
 
-> Um die Website technisch auf dem neuesten Stand zu halten oder um neue Funktionen zu integrien, wird sie von Zeit zu Zeit überarbeitet. Meist handelt es sich dabei um Updates. Während der Aktualisierung kann es zu Anzeigeproblemen kommen. Damit Besucher nicht durch eine Fehlermeldung irritiert werden, gibt es bei Joomla den Wartungsmodus. Ist dieser aktiv wird einem Besuchern eine spezielle Wartungsmodus-Seite angezeigt, die `offline.php`.
+> To keep the website technically up to date or to integrate new features, it will be revised from time to time. Mostly these are updates. During the update, display problems may occur. So that visitors are not irritated by an error message, Joomla has a maintenance mode. If this is active a special maintenance mode page is shown to the visitor, the `offline.php`.
 
-Der nachfolgende minimalischte Code sorgt dafür, dass ein Anmeldeformular angezeigt wird. Du könntest anstelle davon lediglich einen kurzen Text anzeigen. Das Formular ermöglicht es, dass ein Administrator die Website online testen.
+The following minimal code makes sure that a registration form is displayed. You could just display a short text instead of it. The login form allows an administrator to authenticate to test the site in the frontend.
 
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
@@ -223,11 +227,11 @@ $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 
 ##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
 
-Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert die Installationsroutine. Die Installationsroutine ist nichts anderes als eine Auflistung aller Ordner und Dateien, die zum Template gehören, damit diese bei der Installation entpackt und gespeichert werden.
+The file `templateDetails.xml` (note the big D) is the second most important file after `index.php`. It contains general information like name and author and defines everything important for the installation. This is mainly a listing of all folders and files that belong to the template. These will be unpacked during the installation and stored in the correct directories.
 
-Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:include` in der `index.php` eingebunden zu werden. Optional können wir Parameter anlegen, um das Template im Backend anpassbar zu machen. Vielleicht wollen Sie Ihr Template in verschiedenen Farben erstrahlen lassen? Nachfolgend habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns eine minimale Version der `templateDetails.xml` an:
+Additionally the module positions are created in the file `templateDetails.xml`. These will later be included in the website using the `jdoc:include` command in `index.php`. Optionally we can create parameters to make the template customizable via the backend. Below I have included `logoFile`, `siteTitle` and `siteDescription` as parameters. Let's have a look at a minimal version of `templateDetails.xml` in the following code snippet.
 
-[ssrc/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
+[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/templateDetails.xml -->
@@ -258,55 +262,60 @@ Zusätzlich werden hier die Modulpositionen angelegt, um über den Befehl `jdoc:
 
 ```
 
-Was sehen wir hier? Die erste Zeile erzeugt einen XML-Abschnitt, der Version und Zeichensatz (utf-8) bestimmt.
+What does this code do exactly? XML documents should start with an [XML declaration](https://en.wikipedia.org/wiki/XHTML#XML_declaration)[^en.wikipedia.org/wiki/xml-declaration], but they don't have to. We create the declaration and specify XML version and character set (utf-8) here.
 
-Kommen wir zu dem Teil der `templateDetails.xml`, der Informationen für die Installation enthält. Der Typ wird `template` genannt. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine bestehende Version zu installieren.
+Let's move on to the part of `templateDetails.xml` that contains information for the installation. The type is called `template`. The `method="upgrade"` allows to install the template at a later time over a previous version.
 
-> Was zu `method="upgrade"` wichtig ist: Dabei werden neuere Versionen der Dateien installiert. Alte Dateien, die nicht mehr benötigt werden, bleiben jedoch erhalten, werden also nicht gelöscht. Dies muss in einem Installationsskript vom Entwickler selbst übernommen werden.
+> What is important about `method="upgrade"`: It installs newer versions of the files. Old files that are no longer needed, however, remain. So they are not deleted. If you want to specifically ensure that your extension does not contain unnecessary files for users, this have to be explicitly implemented in an installation script.
 
-Als nächstes kommen die allgemeinen Informationen des Templates wie
+Next comes the general information of the template such as
 
-- Template-Name,
-- Erstellungsdatum,
-- Autor, Copyright,
-- E-Mail-Adresse, Website,
-- Version und
-- Beschreibung)
-  Diese werden später im Template-Manager im Joomla Backend angezeigt.
+- Template name,
+- creation date,
+- author, copyright,
+- e-mail address, website,
+- version and
+- Description)
 
-Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner `<folder>` und Dateien `<filename>` werden eingebettet. Das Modul `<positions>` kommt im Anschluss. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden - ist über den Modulmanager im Joomla Backend auswählbar.
+These will be displayed later in the template manager of the Joomla backend.
+
+After that the installation routine is listed. Folders (`<folder>`) and files (`<filename>`) belonging to the template. The HTML tag `<positions>` comes afterwards. Each position is written in a separate line and is now ready to be included in the `index.php` and is thus selectable via the module manager in the Joomla backend.
+
+> For more information on the `templateDetails.xml` file, see the Joomla documentation [docs.joomls.org](https://en.wikipedia.org/wiki/XHTML#XML_declaration)[^en.wikipedia.org/wiki/xhtml#xml_declaration].
 
 ##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
 
-Die beiden neuen PNG-Dateien sind die Bilder, die im Template Manager angezeigt werden.
+The two PNG files added in this chapter are the images that will be displayed in the Template Manager.
 
-![Joomla Template erstellen - Images](/images/j4x40x7.png)
+![Create Joomla Template - Images](/images/j4x40x7.png)
 
-### Geänderte Dateien
+### Changed files
 
-In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
+Only files have been added in this section.
 
-## Teste dein Joomla-Template
+## Test your Joomla template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
+1. install your template in Joomla version 4 to test it. In the beginning, the easiest thing to do is to copy the files manually in place:
 
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
+Copy the files from the `templates` folder into the `templates` folder of your Joomla 4 installation.
 
-2. Installiere dein Template wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu deinem eben kopierten Template. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
+2. install your template as described in part one, after you have copied all files. Open the menu `System | Install | Discover`. Here you will see an entry for the template you just copied. Select it and click on the button 'Install'.
 
-![Joomla Template erstellen - Die Installation](/images/j4x40x2.png)
+![Create Joomla Template - The Installation](/images/j4x40x2.png)
 
-3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
+Next, test whether the template works without errors. Activate the Template Style Facile.
 
-![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
+![Create Joomla Template - Activate Template Style](/images/j4x40x3.png)
 
-5. Rufe die URL `/index.php?tp=1` auf. Öffne die Frontend-Ansicht.
+5. call the URL `/index.php?tp=1`. Open the frontend view.
 
-![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x1.png)
+![Create Joomla Template - Frontend View](/images/j4x40x1.png)
 
-6. Test die einfache Error-Seite. Gibt dazu eine URL im Adressfeld des Browsers ein, die nicht exisitert.
+6. test the simple error page. To do this, enter a URL in the address field of the browser that does not exist. For example call the URL `/indexabcxyz.php`. You should see the text `Error`.
 
-![Joomla Template erstellen - Error Seite](/images/j4x40x4.png)
+![Create Joomla Template - Error Page](/images/j4x40x4.png)
+
+7. look at the output of the file `templates/facile/component.php` by typing `/index.php?tmpl=component` in the address bar of the browser. You should see the text `Component`.
 
 ## Links
 
@@ -314,4 +323,4 @@ Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Jooml
 
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
 
-[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]
+[HTML5 UP offers fancy HTML5 website templates](https://html5up.net/)[^https://html5up.net]
