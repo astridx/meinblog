@@ -66,6 +66,18 @@ Wenn du sofort loslegen möchtest, blätter zu [Die erste Ansicht im Backend](/d
 
 ## Basiswissen
 
+### Ändere niemals die Kerndateien.
+
+Der Zweck von Joomla-Erweiterungen ist es, ein System zu haben, das erweitert werden kann. Es ist möglich, dass dein Code und der Joomla Core Code unabhängig voneinander mit neuen Funktionen versehen werden können.
+
+Wenn du Änderungen an Joomla selbst vornimmst, werden diese mit dem nächsten Update überschrieben.
+
+Du hast das Gefühl, dass deine Funktion nur mit einem Core-Hack umgesetzt werden kann? Ihr Gefühl ist falsch! Es gibt immer eine Lösung, die die Systemdateien unangetastet lässt.
+
+### Lerne von den Kerndateien
+
+Dass du die Systemdateien nicht verändern solltest, heißt nicht, dass du sie gar nicht erst ansiehst. Ganz im Gegenteil! Beim Lesen wirst du auf viel Code stoßen, der nirgends dokumentiert ist. Wenn du dir nicht sicher bist, wie du eine Funktion am besten implementierst, stöbere einfach im Joomla-Code herum. Die Lösung findet sich meist im Herzen von Joomla.
+
 ### Die Datei autoload_psr4.php
 
 Während der Installation werden Einträge in der `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls auf du merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.

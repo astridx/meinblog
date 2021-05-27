@@ -44,6 +44,18 @@ If you want to get started immediately, scroll to [The first view in the backend
 
 ## Basics
 
+### Never change the core files
+
+The purpose of Joomla extensions is to have a system that can be extended. It is possible that your code and Joomla Core code can be provided with new functions independently of each other.
+
+If make changes to Joomla itself, these will be overwritten with the next update.
+
+You have the feeling that your function can only be implemented with a core hack? Your feeling is wrong! There is always a solution that leaves the system files untouched.
+
+### Learn from the core files
+
+That you should not change the system files does not mean that you do not even look at them. Quite the opposite! By reading you will come across lots of code that is not documented anywhere. If you are not sure how to best implement a function, just rummage around in the Joomla code. The solution is usually be found in the heart of Joomla.
+
 ### Joomla 4 offers five types of extensions
 
 - [Components](https://docs.joomla.org/Special:MyLanguage/Component):
