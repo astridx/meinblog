@@ -1,12 +1,12 @@
 ---
 date: 2021-05-05
-title: 'Mapbox GL - Höhenangaben per Tilequery abfrage'
+title: 'Maplibre GL - Höhenangaben per Tilequery abfrage'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-axios-tilequery-elevation
 langKey: de
 categories:
-  - MapboxGL
+  - MaplibreGL
 tags:
   - MaplibreGL
   - geografische Daten

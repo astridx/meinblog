@@ -1,6 +1,6 @@
 ---
 date: 2021-05-02
-title: 'Mapbox GL Quickstart'
+title: 'Maplibre GL Quickstart'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-quickstart
@@ -88,7 +88,7 @@ Nachfolgend die vollständige Datei.
 
 Fertig! Die Karte wird mit dem Stil `streets` über den gesamten Anzeigebereich [`style='width: 100vw; height: 100vw;'`](https://wiki.selfhtml.org/wiki/CSS/Wertetypen/Zahlen,_Ma%C3%9Fe_und_Ma%C3%9Feinheiten/Viewportabmessungen) zentriert auf die [Position](https://astrid-guenther.de/dies-und-das/39-geographische-koordinaten) `[7.5, 50.1]` mit der [Zoomstufe](https://wiki.openstreetmap.org/wiki/DE:Zoom_levels) 9 angezeigt:
 
-[![Full Screen Map Gatsby Mapbox GL Starter](https://user-images.githubusercontent.com/9974686/97810139-0f17ce80-1c72-11eb-987f-aea7edadfd6f.png)](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/map-full)
+[![Full Screen Map Gatsby Maplibre GL Starter](https://user-images.githubusercontent.com/9974686/97810139-0f17ce80-1c72-11eb-987f-aea7edadfd6f.png)](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/map-full)
 
 Die Grundlage haben wir gelegt. Mithilfe der Karte ist es möglich geografische Geschichten zu erzählen oder standortbezogene Informationen weiterzugeben.
 

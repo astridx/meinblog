@@ -1,12 +1,12 @@
 ---
 date: 2021-05-09
-title: 'Mapbox GL - Ebenen ein- und ausblenden'
+title: 'Maplibre GL - Ebenen ein- und ausblenden'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-show-and-hide-layers
 langKey: de
 categories:
-  - MapboxGL
+  - MaplibreGL
 tags:
   - MaplibreGL
   - geografische Daten

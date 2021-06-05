@@ -6,7 +6,7 @@ thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-scrolltofly
 langKey: de
 categories:
-  - MapboxGL
+  - MaplibreGL
 tags:
   - MaplibreGL
   - geografische Daten

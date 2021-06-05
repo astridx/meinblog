@@ -1,12 +1,12 @@
 ---
 date: 2021-05-08
-title: 'Mapbox GL - Maßstab'
+title: 'Maplibre GL - Maßstab'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-scale-control
 langKey: de
 categories:
-  - MapboxGL
+  - MaplibreGL
 tags:
   - MaplibreGL
   - geografische Daten

@@ -1,12 +1,12 @@
 ---
 date: 2021-05-03
-title: 'Mapbox GL Routing mit dem Plugin Directions'
+title: 'Maplibre GL Routing mit dem Plugin Directions'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-directions
 langKey: de
 categories:
-  - MapboxGL
+  - MaplibreGL
 tags:
   - MaplibreGL
   - geografische Daten

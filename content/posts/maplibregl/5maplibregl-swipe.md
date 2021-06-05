@@ -6,7 +6,7 @@ thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-swipe
 langKey: de
 categories:
-  - MapboxGL
+  - MaplibreGL
 tags:
   - MaplibreGL
   - geografische Daten
