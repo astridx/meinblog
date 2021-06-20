@@ -20,6 +20,7 @@ Zu Beginn richten wir die React-Anwendung ein und besorgen uns alle notwendigen 
 ```js
 npx create-react-app maplibre-app
 cd maplibre-app
+npm install
 npm install maplibre-gl
 npm install react-map-gl
 npm install react-app-rewired --save-dev
@@ -123,7 +124,7 @@ Die Konfiguration ist fertig. Im nächsten Schritt löschen wir Inhalte, die wir
 
 Wir räumen auf. Dazu löschen wir alle Inhalte im `src`-Ordner, mit Ausnahme der Datei `index.js`. Den Inhalt der Datei `index.js` minimieren wir auf die nachfolgenden zwei Zeilen.
 
-```js js {numberLines: -2}
+```js {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/maplibre-app/main/src/index.js
 
 import React from 'react';\

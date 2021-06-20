@@ -118,7 +118,7 @@ Nachfolgend siehst du die vollständige Datei.
 
 ```
 
-> Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an, wenn du nicht weißt wie du dies umsetzt.
+> Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an, wenn du nicht weißt wie du dies umsetzt. Under Ubuntu Linux it is possible to calculate the checksum via the console with `sha256sum -b myfile.zip` or `sha284sum -b myfile.zip`.
 
 #### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 

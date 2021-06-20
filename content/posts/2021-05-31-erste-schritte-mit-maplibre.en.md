@@ -20,6 +20,7 @@ To begin, we set up the React application and get all the necessary dependencies
 ```js
 npx create-react-app maplibre-app
 cd maplibre-app
+npm install
 npm install maplibre-gl
 npm install react-map-gl
 npm install react-app-rewired --save-dev

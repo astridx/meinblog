@@ -13,15 +13,15 @@ tags:
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+In this chapter we add an installation script. In the explanations of the component, I described what you use it for.
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] and incorporate these changes into your development version.
 
 ## Step by step
 
-In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu bestimmten Ereignissen ausgeführt wird.
+In this section we will create a script that will be executed on specific events during the installation.
 
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
@@ -31,18 +31,18 @@ In the following overview, the newly added files are marked with a background an
 
 #### Module
 
-##### [modules/mod_foo/script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+##### [modules/mod_foo/ script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
 
-Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso angewendet wird, wie bei einer Komponente.
+Using the example of the script file, I show that many things are applied in the same way in the case of a module as in the case of a component.
 
-> Vieles kannst du genauso anwenden, wie in der Komponente. Beispielsweise den Updateserver, das Changelog, Hilfeseiten.
+> You can use many things in the module in the same way as in the component. For example, the update server, the changelog, help pages.
 
-Es geht darum, die Vorgehensweise zu verdeutliche. deshalb übernimmt diese Skriptdatei nur das Setzen von Mindestvoraussetzungen und die Ausgabe von Texten. Deiner Phantasie sind keine Grenzen gesetzt, um diese Datei zu erweitern.
+The point is to clarify the procedure. That's why this script file only takes care of setting minimum requirements and outputting texts. There are no limits to your imagination to extend this file.
 
-[modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php)
+[modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/t34/src/modules/mod_foo/script.php)
 
 ```php
-//https://raw.githubusercontent.com/astridx/boilerplate/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/script.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t34/src/modules/mod_foo/script.php
 
 <?php
 /**
@@ -171,9 +171,9 @@ class mod_fooInstallerScript
 
 #### Module
 
-##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
 
-Die Sprachstrings für die Anzeige der Sprachstrings in der aktiven Sprache, fügen wir in die `en-GB.mod_foo.sys.ini` ein. Jawohl, dieses Mal die Sprachdatei mit der Endung `*.sys.ini`, weil die Texte bei der Installation verwendet werden.
+The language strings for the display of the language strings in the active language, we insert into the `en-GB.mod_foo.sys.ini`. Yes, this time the language file with the extension `*.sys.ini`, because the texts are used during the installation.
 
 [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
@@ -189,7 +189,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
-Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses aufzurufen hat.
+Finally, we enter the name of the script file in the manifest so that the installation routine will copy it to the right place and call it.
 
 [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
@@ -203,13 +203,13 @@ Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Ins
 <filename module="mod_foo">mod_foo.php</filename
 ```
 
-## Teste dein Joomla-Module
+## Test your Joomla modules
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+1. Create a new Installation. Uninstall your previous installation and copy all files again.
 
-Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 Installation.
+Copy the files in the `modules` folder into the `modules` folder of your Joomla 4 installation.
 
-Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla führt bei der Installation die Skriptdatei für dich aus. Überzeuge dich davon, indem du die Ausgabe der Sprachstrings überprüfst.
+Install your module as described in part one, after you have copied all the files. Joomla will execute the script file for you during the installation. Convince yourself of this by checking the output of the language strings.
 
 ![Joomla Modul testen - Das Installationsskript](/images/j4x39x1.png)
 

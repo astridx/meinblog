@@ -37,10 +37,10 @@ The logic in the module may be complex. Therefore it is good to structure the co
 
 To access the file easily, we add the namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
 
-[modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+[modules/mod_foo/ Helper/FooHelper.php](https://raw.githubusercontent.com/astridx/boilerplate/t32/src/modules/mod_foo/src/Helper/FooHelper.php)
 
 ```php
-// https://raw.githubusercontent.com/astridx/boilerplate/415dd9b0521abb3e2626309d595c80d2cafb8f30/src/modules/mod_foo/Helper/FooHelper.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t32/src/modules/mod_foo/src/Helper/FooHelper.php
 
 <?php
 /**
@@ -82,7 +82,7 @@ class FooHelper
 
 To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
 
-##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod\_foo/ mod\_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -95,7 +95,7 @@ To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import t
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
 
 We enter the namespace in the manifest. This way it will be registered in Joomla during the installation. We also add the new directory so that it is copied to the right place during installation.
 
@@ -117,7 +117,7 @@ We enter the namespace in the manifest. This way it will be registered in Joomla
 
 ##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/tmpl/default.php)
 
-In the layout, we finally access the variable. The logic for calculating the variable value is encapsulated. This keeps the layout clear.
+In the layout, we finally access the variable. The logic for calculating the variable value is encapsulated. This keeps the layout clear. We only insert the text `$test` here. If we want to know more about what is behind `$test`, we look in the helper.
 
 ```php {diff}
 \defined('_JEXEC') or die;

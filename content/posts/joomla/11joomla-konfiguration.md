@@ -63,6 +63,8 @@ Wir ergänzen die Datei `config.xml`, die die Parameter der Konfiguration implem
 
 #### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
+Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml` bei der Installation kopiert wird und Joomla so später auf sie zugreifen kann.
+
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
@@ -77,6 +79,8 @@ Wir ergänzen die Datei `config.xml`, die die Parameter der Konfiguration implem
 ```
 
 #### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
+
+Die Zeile `$toolbar->preferences('com_foos');` sorgt dafür, dass im Administrationsbereich recht oben die Schaltfäche `Optionen` eingefügt wird. Nur so ist die Konfiguration später editierbar.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 

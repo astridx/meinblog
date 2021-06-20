@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Wir erstellen ein Modul. Das ist ein Add-On zur Site, das die Funktionalität erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.
+Wir erstellen ein Modul. Das ist ein Add-On, welches die Anzeige des eigentlichen Inhalts erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.
 
 In Joomla gibt es eine Vielzahl von Modulen, an denen ich mich orientiere. Beispielsweise:
 
@@ -39,35 +39,35 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 #### Module
 
-##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+##### [modules/mod\_foo/language/en-GB/en-GB.mod\_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
-Diese Datei stellt die Texte für für die allgemeine Übersetzung bereit.
+Diese Datei stellt die Texte der Übersetzung allgemein bereit.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
-##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+##### [modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 Diese Datei stellt die Texte für Menü und Installationsroutine bereit.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod\_foo/ mod\_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
 
 `mod_foo.php` ist der Haupteinstiegspunkt ins Modul. Die Datei führt die Initialisierungsroutinen aus, ruft Hilfsroutinen auf, um alle erforderlichen Daten zu erfassen, und ruft das Template auf, in dem die Modulausgabe angezeigt wird.
 
 ```php
-// https://raw.githubusercontent.com/astridx/boilerplate/tutorial/src/modules/mod_foo/mod_foo.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/mod_foo.php
 
 <?php
 /**
@@ -94,12 +94,12 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 > In Joomla 3x war eine Zeile wie `$ moduleclass_sfx = htmlspecialchars ($ params-> get ('moduleclass_sfx'));` notwendig. Diese Zeile ist nicht mehr erforderlich. Siehe [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
 
-##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
 
 `mod_foo.xml` definiert die Dateien, die von der Installationsroutine kopiert werden und gibt Konfigurationsparameter für das Modul an. Du kennst dies bereits von den vorher erstellten Erweiterungen.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/mod_foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
@@ -123,9 +123,9 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 ```
 
-##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
+##### [modules/mod\_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
 
-`default.php` ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird.
+`default.php` ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird. `echo '[PROJECT_NAME]';` sorgt dafür, dass der Name des Projekts im Frontend an der Position angezeigt wird, an der das Modul veröffentlicht ist.
 
 ```php
 // https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/tmpl/default.php
@@ -169,7 +169,7 @@ Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 
 
 ![Joomla Modul erstellen](/images/j4x36x2.png)
 
-5. Und das ist es. Wechsel in die Frontendansicht deines Modules und überzeuge dich davon, dass alles richtig angezeigt wird.
+5. Fertig! Wechsel in die Frontendansicht und überzeuge dich davon, dass alles richtig angezeigt wird.
 
 ![Joomla Modul im Frontend](/images/j4x36x3.png)
 
@@ -177,7 +177,7 @@ Alternativ ist es möglich, dass Modul in einen Beitrag einzufügen.
 
 ![Joomla Modul im Frontend](/images/j4x36x4.png)
 
-Wir haben eine solide Grundlage für die weiteren Schritte.
+Wir haben eine solide Grundlage für die weiteren Schritte in der Entwicklung des Modules.
 
 ## Links
 

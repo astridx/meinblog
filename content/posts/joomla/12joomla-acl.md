@@ -29,7 +29,7 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 #### [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-Als Erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
+Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
