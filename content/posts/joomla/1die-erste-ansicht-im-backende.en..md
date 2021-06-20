@@ -403,7 +403,7 @@ Die Hauptaufgabe dieses Controllers ist es, die Anzeige vorzubereiten. Daher hei
 
 Erstellen wir den _DisplayController_. Wie immer legen wir zunächst den _DocBlock_ an. Hier ist ein Beispiel für einen typischen Dokumentarblock.
 
-![Ein Beispiel für einen typischen Dokumentarblock in Joomla](/images/docblock.png)
+![Ein Beispiel für einen typischen Dokumentarblock in Joomla](/images/dockblock.png)
 
 Wie du DocBlocks für Joomla erstellst, erklärten die Joomla Codierungsstandards unter [developer.joomla.org/ coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) und der Pull Request [github.com/joomla/joomla-cms/ pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
 
