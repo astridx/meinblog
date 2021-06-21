@@ -13,11 +13,11 @@ tags:
   - Joomla
 ---
 
-If you are new to Joomla, please read [Absolute basics of how a component works](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
+If you are new to Joomla, please read [Absolute basics of how a component works](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions].
 
-This tutorial is intended for Joomla 4. For information on creating a component for Joomla 3, see [Developing a Model View Controller Component / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component).
+This tutorial is intended for Joomla 4. For information on creating a component for Joomla 3, see [Developing a Model View Controller Component / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component)[^docs.joomla.org/J3.x:Developing_an_MVC_Component].
 
-You need Joomla 4.x for this tutorial. You can find Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) on the [Developer Website](https://developer.joomla.org/nightly-builds.html) or create a free website at [https://launch.joomla.org](https://launch.joomla.org).
+You need Joomla 4.x for this tutorial. You can find Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev)[^github.com/joomla/joomla-cms] on the [Developer Website](https://developer.joomla.org/nightly-builds.html)[^developer.joomla.org/nightly-builds.html] or create a free website at [launch.joomla.org](https://launch.joomla.org).
 
 ## Aim of this tutorial?
 
@@ -36,9 +36,9 @@ There are many examples of components in the standard Joomla. For example
 - com_tags oder
 - com_contact
 
-In each component you see certain implementations. Each component is complex and finding and separating certain elements of the implementation, such as frontenditing, validation, custom fields.... is tedious and cumbersome.
+In each component you see implementation details in context. Each is complex and finding and separating certain elements, such as page numbering or custom fields, is a hassle. This tutorial focuses on one detail in one chapter.
 
-> With this tutorial you will create a component for Joomla 4, using the many built-in Joomla implementations. You are not reinventing the wheel. Joomla offers a whole range of standard functions.
+> You create a component for Joomla 4, using the many built-in Joomla implementations. You are not reinventing the wheel. Joomla offers a whole range of standard functions.
 
 If you want to get started immediately, scroll to [The first view in the backend](/the-first-view-in-the-backend). Below you will find some things about Joomla 4 that you do not necessarily need for editing. However, some of them are _good to know_.
 
@@ -163,15 +163,13 @@ Store these data in the directory 'media' in the Joomla root directory. This way
 
 You want to use icons but don't want to add your own library.
 
-Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^ is sufficient.
+Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla they are delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14) is sufficient.
 
-> Attention: In Joomla Core files, you cannot simply copy them, be templates/cassiopeia/joomla.asset.json#l14] is sufficient.
-
-> Attention: In Joomla Core files, you cannot simply copy them, because Joomla puts an `icon-` in front of them. This is then converted [here](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) for Fontawesome. In this way, only the icons intended for mapping in this file will work.
+> Attention: In _Joomla Core files_, you cannot simply copy them, because Joomla puts an `icon-` in front of them. This is then converted [here](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss] for Fontawesome. In this way, only the icons intended for mapping in this file will work.
 
 The HTML code
 
-```
+```css
 <i class="fas fa-align-left"></i>
 ```
 

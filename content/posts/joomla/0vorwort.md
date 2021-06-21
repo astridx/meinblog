@@ -12,11 +12,11 @@ tags:
   - Joomla
 ---
 
-Wenn du neu bei Joomla bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions).
+Wenn du neu bei Joomla bist, lese bitte [Absolute Grundlagen der Funktionsweise einer Komponente](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions/de].
 
-Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component).
+Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component/de)[^docs.joomla.org/J3.x:Developing_an_MVC_Component/de].
 
-Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du unter [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
+Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du bei [GitHub](https://github.com/joomla/joomla-cms/)[^github.com/joomla/joomla-cms] auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html)[^developer.joomla.org/nightly-builds.html] oder erstelle eine kostenlose Website unter [launch.joomla.org](https://launch.joomla.org).
 
 ## Ziel dieses Tutorial?
 
@@ -26,7 +26,7 @@ Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles a
 
 ## Die Struktur dieses Tutorials
 
-Jedes Kapitel baut auf den vorherigen Builds auf. Wenn du dich jedoch für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an.
+Jedes Kapitel baut auf dem vorherigen auf. Wenn du dich jedoch für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an.
 
 Es gibt viele Beispiele für Komponenten im Standard Joomla. Beispielsweise
 
@@ -35,9 +35,9 @@ Es gibt viele Beispiele für Komponenten im Standard Joomla. Beispielsweise
 - com_tags oder
 - com_contact
 
-In jeder Komponente siehst du bestimmte Implementierungen. Jede Komponente ist komplex und das Finden und Trennen bestimmter Elemente der Implementierung, wie z. B. Seitennummerierung, benutzerdefinierte Felder ..., ist mühsam und umständlich.
+In jeder Komponente siehst du Implementierungsdetails im Zusammenhang. Jede ist komplex und das Finden und Trennen bestimmter Elemente, wie beispielsweise Seitennummerierung oder benutzerdefinierte Felder, ist mühsam. Dieses Tutorial konzentriert sich in einem Kapitel auf ein Detail.
 
-> Mit diesem Tutorial erstellst du eine Komponente für Joomla 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht bei allem neu. Joomla bietet eine ganze Reihe von Standardfunktionen.
+> Du erstellst eine Komponente für Joomla 4, unter Verwendung der vielen integrierten Joomla-Implementierungen. Du erfindest das Rad nicht neu. Joomla bietet eine ganze Reihe von Standardfunktionen.
 
 Wenn du sofort loslegen möchtest, blätter zu [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend). Nachfolgend findest du einige Dinge zu Joomla 4, die du für die Bearbeitung nicht zwingend benötigst. Manches davon ist aber _gut zu Wissen_.
 
@@ -103,7 +103,7 @@ Warum Namespaces verwenden?
 
 ### Großschreibung von Ordnernamen
 
-Du wirst vielleicht bemerken, dass einige der Joomla 4.x Ordner- und Dateinamen mit Großbuchstaben und andere mit Kleinbuchstaben beginen. Auf den ersten Blick scheint dies chaotisch. Auf den zweiten Blick macht dies Sinn.
+Du wirst vielleicht bemerken, dass einige der Joomla 4.x Ordner- und Dateinamen mit Großbuchstaben und andere mit Kleinbuchstaben beginen. Auf den ersten Blick scheint dies chaotisch. Auf den zweiten Blick macht es Sinn.
 
 Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in Kleinbuchstaben enthalten XML-Dateien, Templatedateien, usw. . Es gibt einige Ordner mit Kleinbuchstaben die PHP-Dateien enthalten (aufgrund von Rückwärtskompatibilität) wie die Helfer-Dateien.
 
@@ -160,15 +160,13 @@ Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen.
 
-Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^ reicht aus.
+Nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla werden sie mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14) reicht aus.
 
-> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, we templates/cassiopeia/joomla.asset.json#l14] reicht aus.
-
-> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, weil Joomla ein `icon-` davor setzt. Das wird dann [hier](https://github.com/joomla/joomla-cms/blob/9b0a9f7d638af9f1eba55239dbebfebf64848cf2/build/media_source/system/scss/_icomoon.scss#L452) für Fontawesome umgewandelt. Auf diese Art funktionieren nur die Icons, die in dieser Datei für das Mappen vorgesehen sind.
+> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt, weil Joomla ein `icon-` davor setzt. Das wird später [hier](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss] für Fontawesome umgewandelt. Auf diese Art funktionieren lediglich die Icons, die in dieser Datei für das Mappen vorgesehen sind.
 
 Der HTML-Code
 
-```
+```css
 <i class="fas fa-align-left"></i>
 ```
 
