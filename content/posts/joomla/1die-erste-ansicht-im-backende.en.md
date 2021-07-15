@@ -423,7 +423,7 @@ Wenn du die URL ansiehst, während du eine Komponente im Administrationsbereich 
 
 Lege alles so an, wie es in Joomla vorgesehen ist. Dies bringt dir Vorteile, wenn du Joomla Funktionen verwendest. Für viele oft benutze Funktionen erfindest du das Rad nicht neu. Praktisch siehst du das anhand der Methode `display`. In deinem Code implementierst du keine Aktion. Alle Arbeit wird von `parent::display()` erledigt.
 
-```php  {numberLines: -2}
+```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Controller/DisplayController.php
 
 <?php
@@ -482,7 +482,7 @@ class DisplayController extends BaseController
 
 [administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 
-```php  {numberLines: -2}
+```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 
 <?php

@@ -37,7 +37,7 @@ Als Erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Fo
 
 [administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/3bfbb76025d6b8d548e4411275ec2f6fad507628/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
-```php  {numberLines: -2}
+```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
 
 <?php
@@ -359,7 +359,7 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 
 [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
-```js  {numberLines: -2}
+```js {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/js/admin-foos-modal.js */
 
 ;(function () {

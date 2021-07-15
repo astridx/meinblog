@@ -20,12 +20,10 @@
     "gatsby-image": "^2.4.8",
     "gatsby-plugin-catch-links": "^2.4.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
-    "gatsby-plugin-ebook": "^1.0.2",
     "gatsby-plugin-feed": "^2.5.7",
     "gatsby-plugin-htaccess": "^1.4.0",
     "gatsby-plugin-i18n": "^1.0.1",
     "gatsby-plugin-local-search": "^1.1.1",
-    "gatsby-plugin-netlify": "^2.3.7",
     "gatsby-plugin-offline": "^3.3.2",
     "gatsby-plugin-react-helmet": "^3.3.5",
     "gatsby-plugin-sharp": "^2.6.13",
@@ -43,7 +41,7 @@
     "react-use-flexsearch": "^0.1.1"
   },
   "devDependencies": {
-    "eslint": "^7.3.1",
+    "eslint": "^6.3.1",
     "eslint-config-react-app": "^5.2.1",
     "gatsby-plugin-manifest": "^2.4.14",
     "prettier": "2.0.5"

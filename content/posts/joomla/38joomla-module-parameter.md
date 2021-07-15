@@ -35,7 +35,7 @@ In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 
 #### Modul
 
-##### [modules/mod\_foo/language/en-GB/en-GB.mod\_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
 
 [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
@@ -51,7 +51,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod\_foo/ mod\_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
 
 In der Einstiegsdatei des Moduls `modules/mod_foo/ mod_foo.php` prüfen wir, auf welchen Wert der Parameter gesetzt ist und speichern ihn in eine Variable. So ist später ein unkompliziertes Zugreifen möglich.
 
@@ -65,7 +65,7 @@ $test  = FooHelper::getText();
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
 Im Manifest fügen wir den neuen Paramter hinzu, so dass dieser im Joomla Backend bearbeitbar ist.
 

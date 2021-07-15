@@ -9,7 +9,7 @@ export default function Nav() {
       <div>
         <Link to="/">
           <img
-            style={{ display: 'block', 'max-width': '100%', margin: 'auto' }}
+            style={{ display: 'block', maxWidth: '100%', margin: 'auto' }}
             src="/logo2.png"
             alt=""
           />
@@ -19,7 +19,7 @@ export default function Nav() {
         <div>
           <Link to="/blog">Blog</Link>
           <Link to="/tutorial">Sets</Link>
-          <button id="dark-mode-button" style={{ 'margin-left': '20px' }}>
+          <button id="dark-mode-button" style={{ marginLeft: '20px' }}>
             <LanguageSelector />
           </button>
 

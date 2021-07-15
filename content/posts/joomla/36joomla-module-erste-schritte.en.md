@@ -39,7 +39,7 @@ In the following overview, the newly added files are marked with a background an
 
 #### Module
 
-##### [modules/mod\_foo/language/en-GB/en-GB.mod\_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 This file provides the texts for for general translation.
 
@@ -50,7 +50,7 @@ MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
-##### [modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+##### [modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 This file provides the texts for menu and installation routine.
 
@@ -62,7 +62,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod\_foo/ mod\_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.php)
 
 `mod_foo.php` is the main entry point into the module. The file executes the initialization routines, calls helper routines to collect all the required data, and calls the template where the module output is displayed.
 
@@ -94,7 +94,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 > In Joomla 3x a line like `$ moduleclass_sfx = htmlspecialchars ($ params-> get ('moduleclass_sfx'));` was necessary. This line is no longer required. See [PR 17447](https://github.com/joomla/joomla-cms/pull/17447).
 
-##### [modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/mod_foo.xml)
 
 `mod_foo.xml` defines the files that are copied by the installation routine and specifies configuration parameters for the module. You already know this from the previously created extensions.
 
@@ -123,7 +123,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 
 ```
 
-##### [modules/mod\_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
+##### [modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/51a02d3706fbf64b023e242def2086b1529cfe8d/src/modules/mod_foo/tmpl/default.php)
 
 `default.php` is the template. This file takes the data collected by `mod_foo.php` and generates the HTML code that is displayed on the page. `echo '[PROJECT_NAME]';` ensures that the name of the project is displayed in the frontend at the position where the module is published.
 

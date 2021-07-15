@@ -141,4 +141,4 @@ Creating docker-lamp_httpd      ... done
 
 ![Ansicht der neuen Domain im Browser](/images/neuedomain.png)
 
-`https://tutorial.local/` zeigt mir den Inhalt des Verzeichnisses `an.` und `` sind zwei Joomla Installationen, die über `https://tutorial.local/t1/installation/index.php` und `https://tutorial.local/t2/installation/index.php` erreiche.
+`https://tutorial.local/` zeigt mir den Inhalt des Verzeichnisses `an.` und ``sind zwei Joomla Installationen, die über`https://tutorial.local/t1/installation/index.php` und `https://tutorial.local/t2/installation/index.php` erreiche.

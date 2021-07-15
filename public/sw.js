@@ -27,23 +27,23 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-a2985182efa944830776.js"
+    "url": "webpack-runtime-d8196099a02cfb3b5653.js"
   },
   {
-    "url": "framework-c8d3a5345e3f321d7da5.js"
+    "url": "framework-b17a64ad725e0b3c1338.js"
   },
   {
-    "url": "app-674f29094b36642c536c.js"
+    "url": "app-6e19340bc1dca09b3b91.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "4b8070021aeaed8e46e3b0d0fb8f43a7"
+    "revision": "d00eecf53bbf792f80e9c6f1a0a5f9d3"
   },
   {
-    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-241020a1cf7d0f317bbe.js"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-ad6431e4664bcf916d19.js"
   },
   {
-    "url": "polyfill-34ee454f7a57a81b4b12.js"
+    "url": "polyfill-e795261d8342deefff90.js"
   },
   {
     "url": "manifest.webmanifest",
@@ -54,7 +54,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/(\.js$|\.css$|static\/)/, new workbox.strategies.CacheFirst(), 'GET');
 workbox.routing.registerRoute(/^https?:.*\/page-data\/.*\.json/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
-workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
+workbox.routing.registerRoute(/^https?:.*\.(png|jpg|jpeg|webp|avif|svg|gif|tiff|js|woff|woff2|json|css)$/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 workbox.routing.registerRoute(/^https?:\/\/fonts\.googleapis\.com\/css/, new workbox.strategies.StaleWhileRevalidate(), 'GET');
 
 /* global importScripts, workbox, idbKeyval */
@@ -139,7 +139,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-674f29094b36642c536c.js`))) {
+  if (!resources || !(await caches.match(`/app-6e19340bc1dca09b3b91.js`))) {
     return await fetch(event.request)
   }
 

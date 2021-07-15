@@ -281,7 +281,7 @@ In der Ãœbersicht der Komponente im Administrationsbereich schaffen wir Platz fÃ
 
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foos/default.php)
 
-```php  {diff}
+```php {diff}
 
  ?>
  <form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">

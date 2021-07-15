@@ -171,11 +171,11 @@ class mod_fooInstallerScript
 
 #### Module
 
-##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
 
 Die Sprachstrings für die Anzeige der Sprachstrings in der aktiven Sprache, fügen wir in die `en-GB.mod_foo.sys.ini` ein. Jawohl, dieses Mal die Sprachdatei mit der Endung `*.sys.ini`, weil die Texte bei der Installation verwendet werden.
 
-[src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 ```ini {diff}
 MOD_FOO="[PROJECT_NAME]"

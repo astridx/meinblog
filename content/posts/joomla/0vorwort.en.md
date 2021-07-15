@@ -13,9 +13,9 @@ tags:
   - Joomla
 ---
 
-If you are new to Joomla, please read [Absolute basics of how a component works](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions].
+If you are new to Joomla, please read [Absolute basics of how a component works](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/special:mylanguage/absolute_basics_of_how_a_component_functions].
 
-This tutorial is intended for Joomla 4. For information on creating a component for Joomla 3, see [Developing a Model View Controller Component / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component)[^docs.joomla.org/J3.x:Developing_an_MVC_Component].
+This tutorial is intended for Joomla 4. For information on creating a component for Joomla 3, see [Developing a Model View Controller Component / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component)[^docs.joomla.org/j3.x:developing_an_mvc_component].
 
 You need Joomla 4.x for this tutorial. You can find Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms/tree/4.0-dev)[^github.com/joomla/joomla-cms] on the [Developer Website](https://developer.joomla.org/nightly-builds.html)[^developer.joomla.org/nightly-builds.html] or create a free website at [launch.joomla.org](https://launch.joomla.org).
 

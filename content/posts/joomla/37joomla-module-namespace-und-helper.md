@@ -31,7 +31,7 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 Die Logik im Modul ist unter Umständen komplex. Deshalb ist gut, den Code übersichtlich zu strukturieren. Dies geschieht mittels Helper-Dateien. Diese legen wir im Verzeichnis `Helper` an.
 
-##### [modules/mod\_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+##### [modules/mod_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
 
 > Ich habe die Datei allgemein `FooHelper` benannt. Gute Stil ist es, ihr einen sprechenden Namen zu geben. Jede Hilfsdatei hat eine spezielle Aufgabe und nach ihr sollte sie benannt werden. Die Datei, die die neuesten Artikel lädt, heißt beispielsweise `ArticlesLatestHelper`. So erkennt man auf den ersten Blick, was in der Datei steckt.
 
@@ -80,7 +80,7 @@ class FooHelper
 
 ### Geänderte Dateien
 
-##### [modules/mod\_foo/ mod\_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 Um die Inhalte von `FooHelper` im Modul `mod_foo.php` zu nutzen, importieren wir diese mittels `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Anschließden rufen wir die Funktion `FooHelper::getText()` auf und speichern das Ergebnis in der Variablen `$test`.
 
@@ -97,7 +97,7 @@ Um die Inhalte von `FooHelper` im Modul `mod_foo.php` zu nutzen, importieren wir
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
 
 Den Namespace tragen wir ins Manifest ein. So wird dieser bei der Installation in Joomla registriert. Außerdem ergänzen wir das neue Verzeichnis, damit dieses bei einer Installation an die richtige Stelle kopiert wird.
 

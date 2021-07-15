@@ -82,7 +82,7 @@ class FooHelper
 
 To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
 
-##### [modules/mod\_foo/ mod\_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -95,7 +95,7 @@ To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import t
  require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 ```
 
-##### [modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
 
 We enter the namespace in the manifest. This way it will be registered in Joomla during the installation. We also add the new directory so that it is copied to the right place during installation.
 

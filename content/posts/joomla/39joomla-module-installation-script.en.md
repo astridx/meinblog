@@ -171,7 +171,7 @@ class mod_fooInstallerScript
 
 #### Module
 
-##### [src/modules/mod\_foo/language/en-GB/en-GB.mod\_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
 
 The language strings for the display of the language strings in the active language, we insert into the `en-GB.mod_foo.sys.ini`. Yes, this time the language file with the extension `*.sys.ini`, because the texts are used during the installation.
 

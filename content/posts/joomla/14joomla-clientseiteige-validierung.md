@@ -47,7 +47,7 @@ Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualt
 
 [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
-```js  {numberLines: -2}
+```js {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t11b/src/media/com_foos/js/admin-foos-letter.js
 
 document.addEventListener('DOMContentLoaded', function () {

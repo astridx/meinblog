@@ -12,7 +12,6 @@ tags:
   - Maplibre
 ---
 
-
 ## Setting up the environment
 
 To begin, we set up the React application and get all the necessary dependencies. To do this, we execute the following commands, which I explain next.
@@ -28,7 +27,7 @@ npm install react-app-rewired --save-dev
 
 ### Details zur Einrichtung
 
-#### npx create-react-app maplibre-app 
+#### npx create-react-app maplibre-app
 
 ```js
 npx create-react-app maplibre-app
@@ -43,7 +42,7 @@ With the command `npx create-react-app maplibre-app` we create a React applicati
 
 > What is `NPX`? At this point I would like to explain briefly what `Node` and `NPM` are. `Node` allows us to run JavaScript outside of a browser. It also allows us to run JavaScript on the server side. `NPM` stands for _Node Package Manager_ and is a tool that allows us to install and manage node packages as dependencies. `NPX` is an NPM package runner with which, in simple terms, node packages can be executed without having to install them. Why use [NPX](https://www.npmjs.com/package/npx)? Firstly, with `NPX` it is not necessary to install software that is only needed once. On the other hand, you always have access to the latest version.
 
-#### npm install maplibre-gl 
+#### npm install maplibre-gl
 
 ```js
 ...
@@ -53,9 +52,9 @@ npm install maplibre-gl
 ...
 ```
 
-[MapLibre GL](https://maplibre.org/maplibre-gl-js-docs/example/) is a community-led fork derived from [mapbox-gl-js](https://docs.mapbox.com/mapbox-gl-js/api/) before they moved to a [non-OSS licence](https://github.com/mapbox/mapbox-gl-js/blob/main/LICENSE.txt). 
+[MapLibre GL](https://maplibre.org/maplibre-gl-js-docs/example/) is a community-led fork derived from [mapbox-gl-js](https://docs.mapbox.com/mapbox-gl-js/api/) before they moved to a [non-OSS licence](https://github.com/mapbox/mapbox-gl-js/blob/main/LICENSE.txt).
 
-#### npm install react-map-gl 
+#### npm install react-map-gl
 
 ```js
 ...
@@ -88,19 +87,19 @@ In the root directory of your application, create a file with the name `config-o
 ```js {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/maplibre-app/main/config-overrides.js
 module.exports = function override(config, env) {
-    config.module.rules.push({
-        resolve:{
-            alias: {
-                ...config.resolve.alias,
-                'mapbox-gl': 'maplibre-gl'
-            }
-        }
-    })
+  config.module.rules.push({
+    resolve: {
+      alias: {
+        ...config.resolve.alias,
+        'mapbox-gl': 'maplibre-gl',
+      },
+    },
+  })
 
-    return config
+  return config
 }
-
 ```
+
 Next, adjust the scripts in the `package.json` file to use your override using `react-app-rewired`.
 
 ```js {diff}
@@ -127,15 +126,17 @@ We clean up. To do this, we delete all content in the `src` folder, with the exc
 ```js {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/maplibre-app/main/src/index.js
 
-import React from 'react';\
-import ReactDOM from 'react-dom'; ReactDOM.render(<></>, document.getElementById('root'));
+import React from 'react'
+\
+import ReactDOM from 'react-dom'
+ReactDOM.render(<></>, document.getElementById('root'))
 ```
 
 Now the application is ready to run.
 
 ### Start application
 
-Now start the application.  
+Now start the application.
 
 ```js
 npm start
@@ -154,19 +155,17 @@ In the `src` folder, create the file `Map.js` that we will use to display the ma
 ```js {numberLines: -2}
 // Map.js
 
-import React from "react";
-import ReactMapGL from "react-map-gl";
+import React from 'react'
+import ReactMapGL from 'react-map-gl'
 
 export const Map = () => {
   return (
-    <ReactMapGL
-      mapStyle="https://api.maptiler.com/maps/streets/style.json?key=my_key"
-    ></ReactMapGL>
-  );
-};
+    <ReactMapGL mapStyle="https://api.maptiler.com/maps/streets/style.json?key=my_key"></ReactMapGL>
+  )
+}
 ```
 
-I use a [maptiler token](https://cloud.maptiler.com/account/keys) in this tutorial at `https://api.maptiler.com/maps/streets/style.json?key=my_key`, and implement the map with MapLibre and MapTiler. If you want to follow the example yourself, please create your own [access key](https://cloud.maptiler.com/account/keys). 
+I use a [maptiler token](https://cloud.maptiler.com/account/keys) in this tutorial at `https://api.maptiler.com/maps/streets/style.json?key=my_key`, and implement the map with MapLibre and MapTiler. If you want to follow the example yourself, please create your own [access key](https://cloud.maptiler.com/account/keys).
 
 > Note: For learning, inserting the token into the source code is a simplification. In a real system, it should not be visible in the source code. Integrate this via [environment variable](https://create-react-app.dev/docs/adding-custom-environment-variables/).
 
@@ -265,7 +264,7 @@ export const MapReducer = (state, action) => {
 };
 ```
 
-The complicated structure allows us to minimise reloading of the map during runtime. 
+The complicated structure allows us to minimise reloading of the map during runtime.
 
 > [How to use React Context effectively](http://bit.ly/3gZjYIa) explains the linked post.
 
@@ -277,25 +276,25 @@ In our application, we will add and remove markers from the map. Consequently, w
 // mapHook.js
 export const MapReducer = (state, action) => {
   switch (action.type) {
-    case "ADD_MARKER":
+    case 'ADD_MARKER':
       return {
         ...state,
-        markers: [...state.markers, action.payload.marker]
-      };
-    case "REMOVE_MARKER":
+        markers: [...state.markers, action.payload.marker],
+      }
+    case 'REMOVE_MARKER':
       return {
         ...state,
         markers: [
           ...state.markers.filter(
-            x =>
+            (x) =>
               x[0] !== action.payload.marker[0] &&
               x[1] !== action.payload.marker[1]
-          )
-        ]
-      };
+          ),
+        ],
+      }
   }
-  return state;
-};
+  return state
+}
 ```
 
 ### Integrate into the application
@@ -304,17 +303,19 @@ The integration into the application is still missing. We implement this by inte
 
 ```js {diff}
 //index.js
-import React from "react";
-import ReactDOM from "react-dom";
-import { Map } from "./Map";
-import { MapProvider } from "./hooks/mapHook";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Map } from './Map'
+import { MapProvider } from './hooks/mapHook'
 
 ReactDOM.render(
-+  <MapProvider>
-    <Map />
-+  </MapProvider>,
-  document.getElementById("root")
-);
+  +(
+    <MapProvider>
+      <Map />+{' '}
+    </MapProvider>
+  ),
+  document.getElementById('root')
+)
 ```
 
 ### Manage markers dynamically
@@ -357,8 +358,8 @@ The next step is to display the markers at the saved coordinates. For this we cr
 ```js {numberLines: -2}
 //Marker/marker.js
 
-import React from "react";
-import { Marker as MapMarker } from "react-map-gl";
+import React from 'react'
+import { Marker as MapMarker } from 'react-map-gl'
 
 export const Marker = ({ marker, handleRemove }) => {
   return (
@@ -369,27 +370,26 @@ export const Marker = ({ marker, handleRemove }) => {
       longitude={marker[0]}
     >
       <img
-        onContextMenu={x => {
-          x.preventDefault();
-          handleRemove();
+        onContextMenu={(x) => {
+          x.preventDefault()
+          handleRemove()
         }}
         src="https://img.icons8.com/color/48/000000/marker.png"
       />
     </MapMarker>
-  );
-};
+  )
+}
 ```
-
 
 ```js
 //Marker/markerList.js
-import React from "react";
-import { Marker } from "./Marker";
-import { useStateMap, useDispatchMap } from "../hooks/mapHook";
+import React from 'react'
+import { Marker } from './Marker'
+import { useStateMap, useDispatchMap } from '../hooks/mapHook'
 
 export const MarkerList = () => {
-  const { markers } = useStateMap();
-  const mapDispatch = useDispatchMap();
+  const { markers } = useStateMap()
+  const mapDispatch = useDispatchMap()
   return (
     <>
       {markers?.map((marker, index) => (
@@ -397,13 +397,13 @@ export const MarkerList = () => {
           key={index}
           marker={marker}
           handleRemove={() =>
-            mapDispatch({ type: "REMOVE_MARKER", payload: { marker } })
+            mapDispatch({ type: 'REMOVE_MARKER', payload: { marker } })
           }
         />
       ))}
     </>
-  );
-};
+  )
+}
 ```
 
 By default, markers are anchored in the upper left corner. Conveniently, there are marker offset properties so that we can move the markers around a bit if necessary.

@@ -13,9 +13,9 @@ tags:
   - Joomla
 ---
 
-Schlagwörter oder Tags sind eine flexible Lösung, Inhalte in Joomla! zu organisieren. Ein Schlagwort kann vielen unterschiedlichen Elementen unterschiedlicher Inhaltstypen zugewiesen werden. Jedes Element kann unbegrenzt Schlagwörter haben.
+Mit Schlagwörtern oder Tags sind Inhalte in Joomla! flexibel organisierbar. Es ist möglich, ein Tag vielen unterschiedlichen Elementen zuzuweisen. Umgekehrt kann jedes Item über eine unbegrenzte Anzahl an Schlagwörtern verfügen.
 
-Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es leicht in andere Erweiterungen integriert werden kann, die Standard-Joomla-Design-Muster verwenden. Die Verwendung von Tags in einer Drittanbieter-Erweiterung ist ziemlich einfach. Für die Verwendung in einer eigenen Erweiterung sind die hier erläuterten Änderungen erforderlich.
+Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es bequem in andere Komponenten integrierbar ist. Zumindest dann, wenn diese die Standard-Joomla-Design-Muster verwenden. Die Nutzung von Tags in einer Drittanbieter-Erweiterung ist unkompliziert. Für die Integration in eine eigene Komponente reichen die in diesem Kapitel erläuterten Ergänzungen aus.
 
 ## Für Ungeduldige
 
@@ -29,13 +29,13 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 ### Neue Dateien
 
-Keinen neuen Dateien.
+In diesem Kapitel kommen keine Dateien hinzu.
 
 ### Geänderte Dateien
 
 #### [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
 
-Das Formular über das die Suchwergzeuge verwaltet werden erhält einen Eintrag für die Schlagwörter.
+Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werden, erhält einen Eintrag für die Schlagwörter.
 
 [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/filter_foos.xml)
 
@@ -61,7 +61,7 @@ Das Formular über das die Suchwergzeuge verwaltet werden erhält einen Eintrag 
 
 #### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Im XML-Formular ergänzen wir das Formularfeld, in dem die Informationen zum Tag enthalten sind. Da wir Joomla Standard nutzen, können wir viele vorgefertigte Funktionen Out-of-the-Box nutzen.
+Im dem XML-Formular `forms/foo.xml`, welches ein Foo-Item beschreibt, ergänzen wir das Formularfeld, in dem die Informationen zum Tag enthalten sind. Da wir Joomla Standard nutzen, können wir viele vorgefertigte Funktionen Out-of-the-Box nutzen. Beispielsweise sorgt `type="tag"` dafür, dass ein Auswahlfeld mit allen verfügbaren Schlagworten angezeigt wird.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -85,7 +85,7 @@ Im XML-Formular ergänzen wir das Formularfeld, in dem die Informationen zum Tag
 
 #### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
-Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als eigener Inhaltstyp erkannt wird.
+Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als eigener Inhaltstyp erkannt wird. Joomla Typen sind beispielsweise Content, Kontakt oder Banner. Im Skript sorgen wir jetzt dafür, dass ein Eintrag in der Tabelle `Contenttype` für die Foo Komponente ergänzt wird. Dies hat zur Folge, dass Joomla `com_foo` bei speziellen Abläufen berücksichtig, beispielsweise bei der Prüfung welches Element welches Schlagwort enthält.
 
 [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/script.php)
 
@@ -97,8 +97,6 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
 +
  		return true;
  	}
-
-
 
  		return $id;
  	}
@@ -173,7 +171,7 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
 
 #### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Im Model des Elements fügen wir die Tags in die Stapelverarbeitung Batch ein und sorgen dafür, dass die zugehörigen Tags geladen werden.
+Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein und sorgen dafür, dass die zugehörigen Tags geladen werden.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
@@ -210,7 +208,7 @@ use Joomla\CMS\Language\LanguageHelper;
 
 #### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Das Model der Übersichtsliste unserer Erweiterung im Backend ändern wir bezüglich der Filter und der Datenbankabfrage.
+Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweitern wir das Model der Übersichtsliste. Wir passen dieses bezüglich der Filter und der Datenbankabfrage an.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -276,7 +274,7 @@ Das Model der Übersichtsliste unserer Erweiterung im Backend ändern wir bezüg
 
 #### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-In der Datenorganisation der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
+Zum Schluss kümmern wir uns um die Anzeige. In der Datenorganisation der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
 
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -299,7 +297,7 @@ In der Datenorganisation der View stellen wir sicher, dass die zur Sprache passe
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
-2. Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Da wir im Installationsskript Dinge geändert haben, ist dies erforderlich.
+2. Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Da wir im Installationsskript Dinge geändert haben, ist eine neue Installation erforderlich.
 
 3. Erstelle mithilfe der Schlagwort Komponente ein Tag.
 

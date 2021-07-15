@@ -37,7 +37,7 @@ In this part, only files have been changed. There are no new files.
 
 #### Module
 
-##### [modules/mod\_foo/ language/en-GB/en-GB.mod\_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+##### [modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
 
 The labelling of the parameter in the backend should adapt to the active language. For this reason we use the language file.
 
@@ -53,7 +53,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 ```
 
-##### [modules/mod\_foo/ mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### [modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
 
 In the module's initial file `modules/mod_foo/ mod_foo.php`, we check which value the parameter is set to and store it in a variable. This way, uncomplicated access is possible later.
 
@@ -71,7 +71,7 @@ $test  = FooHelper::getText();
 
 In the manifest we add the new parameter so that it is editable in the Joomla backend.
 
-[modules/mod\_foo/ mod\_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
  		<folder>language</folder>

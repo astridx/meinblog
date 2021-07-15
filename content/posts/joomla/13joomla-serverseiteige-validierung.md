@@ -41,7 +41,7 @@ Hier ist nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich zeige dir vie
 
 [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
-```php  {numberLines: -2}
+```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php
 
 <?php
