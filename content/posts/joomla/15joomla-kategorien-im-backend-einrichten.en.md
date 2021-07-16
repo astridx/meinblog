@@ -29,7 +29,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8)
 
 We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database.
 
@@ -46,7 +47,8 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 
 ### Modified files
 
-#### [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
 The entries in the `access.xml` are necessary to set permissions for the category. The following code causes the display of a tab for setting user permissions per category in the administration area.
 
@@ -70,7 +72,8 @@ The entries in the `access.xml` are necessary to set permissions for the categor
 
 ```
 
-#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a menu item to be added in the administration area menu for editing the category.
 
@@ -89,7 +92,8 @@ The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a m
 
 ```
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This causes that only categories are displayed, which belong to your component.
 
@@ -115,7 +119,8 @@ We add a selection field with matching categories to the form used to create a F
 
 ```
 
-#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the `install` method, we create a category with the title `Uncategorised` for the component using the database during a new installation.
 
@@ -242,7 +247,8 @@ To be able to specify a user as the creator of the category, we request the ID o
 
 ```
 
-#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 In the service provider we register the interface `CategoryFactoryInterface`. It is not necessary to create `CategoryFactoryInterface` by yourself. We use the Joomla own functions.
 
@@ -267,7 +273,8 @@ In the service provider we register the interface `CategoryFactoryInterface`. It
 
 ```
 
-#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-896f245bc8e493f91277fd33913ef974)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-896f245bc8e493f91277fd33913ef974)
 
 In order to create the table column in which the category of a Foo element is stored during a new installation, we add the necessary SQL command in the SQL file that is called during the installation.
 
@@ -282,7 +289,8 @@ In order to create the table column in which the category of a Foo element is st
 
 ```
 
-#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-38764f2b1343234561c0d02cd2991ea1)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-38764f2b1343234561c0d02cd2991ea1)
 
 Additionally, implementations are required in the component class to use Joomla's own functions.
 
@@ -348,7 +356,8 @@ Additionally, implementations are required in the component class to use Joomla'
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.
 
@@ -380,7 +389,8 @@ In the model we add to the database query the table where Joomla stores categori
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1637778e5f7d1d56dd1751af1970f01b)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 The form for editing an element is told to display the category field using the information in the XML file.
 
@@ -397,7 +407,8 @@ The form for editing an element is told to display the category field using the 
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In the overview table of the view in the backend, we add a column for displaying the category.
 

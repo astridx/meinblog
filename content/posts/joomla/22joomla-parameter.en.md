@@ -43,7 +43,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
 
 In order to create the column in the database where the parameters are stored when the component is updated, we need the following SQL file.
 
@@ -57,7 +58,8 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 
 ### Modified files
 
-#### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
 In the configuration, the parameter is usually stored to set a default value. We will add a field `show_name` to the configuration. Then we will create the possibility to override it for an element or a menu item.
 
@@ -84,7 +86,8 @@ In the configuration, the parameter is usually stored to set a default value. We
 
 ```
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In the form we use to edit an element, we add the `params` field. So `show_name` is also configurable for a single element.
 
@@ -113,7 +116,8 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 
 > In Joomla there is the possibility to set the parmeter to the value [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F). The benefit is that when you configure it, it shows what is set globally. Use `useglobal="true"` like [com_contact](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).
 
-#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
 In order for a new installation to create the column where the parameters are stored, we add a line to the following SQL file.
 
@@ -128,7 +132,8 @@ In order for a new installation to create the column where the parameters are st
 
 ```
 
-#### [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
 In the class that managed the table, we make sure that the parameters are stored in the correct form.
 
@@ -172,7 +177,8 @@ use Joomla\Database\DatabaseDriver;
 	 * Remains public to be able to check for duplicated alias before saving
 ```
 
-#### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 The view mixes the data to the parameters so that the display fits.
 
@@ -240,7 +246,8 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 
 > Ein [Pull Request](https://github.com/joomla/joomla-cms/pull/32538/files) als Inspiration.
 
-#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
 
 At the end we use the parameter for display in the template. If there is the parameter and it is set to show the name, then the name will be shown. The label `$this->params->get('show_foo_name_label')` will also be displayed only then:
 
@@ -267,7 +274,8 @@ At the end we use the parameter for display in the template. If there is the par
  echo $this->item->event->beforeDisplayContent;
 ```
 
-#### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 [components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 

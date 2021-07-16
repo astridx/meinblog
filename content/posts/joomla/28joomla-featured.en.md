@@ -29,7 +29,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
 
 You already know this. We store the property `featured` in the database, so we extend the database table by one column. We do this in the file `24.0.0.sql`.
 
@@ -44,7 +45,8 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);
 
 ```
 
-#### [components/com_foos/ src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641)
 
 To process the data that is `featured`, we create our own model.
 
@@ -244,7 +246,8 @@ class FeaturedModel extends ListModel
 
 ```
 
-#### [components/com_foos/ src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3b300f4a420f00b560f4d6563e755204)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3b300f4a420f00b560f4d6563e755204)
 
 `featured` gets its own file to manage the display in the frontend.
 
@@ -439,7 +442,8 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [components/com_foos/ tmpl/featured/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/featured/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548)
 
 The display in the frontend is done as before via a template, which we implement in the file `default.php`.
 
@@ -484,7 +488,8 @@ The display in the frontend is done as before via a template, which we implement
 
 ```
 
-#### [components/com_foos/ tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/featured/default.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829)
 
 We need the file `components/com_foos/ tmpl/featured/default.xml` to enable the display of `featured` elements via a menu item in the frontend.
 
@@ -544,7 +549,8 @@ We need the file `components/com_foos/ tmpl/featured/default.xml` to enable the 
 
 ```
 
-#### [components/com_foos/ tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4)
 
 In the file `default.php` we use the statement `<?php echo $this->loadTemplate('items'); ?>`. This way we keep the template clear. Everything concerning an item is inserted into `default.php` via the subtemplate `default_items.php`.
 
@@ -628,7 +634,8 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 ### Modified files
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We extend the form with which an element is created or changed by the field for setting the property `featured`.
 
@@ -655,7 +662,8 @@ We extend the form with which an element is created or changed by the field for 
 
 ```
 
-#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
 
 In the case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the property `featured`.
 
@@ -670,7 +678,8 @@ In the case of a new installation, the script in the file `install.mysql.utf8.sq
 
 ```
 
-#### [administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
 
 We implement the logic with which we set the `featured` property in the `featured()` function in the `FoosController`.
 
@@ -753,7 +762,8 @@ We implement the logic with which we set the `featured` property in the `feature
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 In the model of an element we implement the method with which the assignment of the property (data) `featured` is saved and changed.
 
@@ -830,7 +840,8 @@ In the model of an element we implement the method with which the assignment of 
  	 *
 ```
 
-#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 In the list view model, we make the necessary adjustments to the database query.
 
@@ -878,7 +889,8 @@ In the list view model, we make the necessary adjustments to the database query.
 
 ```
 
-#### [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
 In `AdministratorService.php` we make it possible to change the assignment of the property also in the overview list. A click on the star symbol toggles the value.
 
@@ -938,7 +950,8 @@ In `AdministratorService.php` we make it possible to change the assignment of th
 
 ```
 
-#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 We add to the toolbar. `featured` should also be editable here via an action.
 
@@ -963,7 +976,8 @@ We add to the toolbar. `featured` should also be editable here via an action.
  			if ($user->authorise('core.admin'))
 ```
 
-#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 In the form for creating or editing an element, we insert the command that creates a field using the XML file.
 
@@ -979,7 +993,8 @@ In the form for creating or editing an element, we insert the command that creat
  			</div>
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In the overview of all elements in the backend in the file `administrator/components/com_foos/ tmpl/foos/default.php` we add a column in which the state is displayed with a filled or empty star and can be changed by clicking. The file `HTMLHelper` does the master work for us.
 

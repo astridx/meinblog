@@ -105,6 +105,7 @@ void function() {
     </span></p>
 <h3>Neue Dateien</h3>
 <p>Der Administrationsbereich unserer Komponente ist im Ordner <code class="language-text">com_foos</code> unter <code class="language-text">/administrator/component</code>. Jetzt arbeiten wir am Frontend, das im Ordner <code class="language-text">com_foos</code> direkt unter <code class="language-text">/components</code> gespeichert ist.</p>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702">components/com_foos/ src/Controller/DisplayController.php</a> - Einstiegspunkt ins Frontend</h4>
 <p>Dies ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse <em>DisplayController</em>. Joomla erwartet das so. Erweitere <em>BaseController</em>, um viele Dinge Out-of-the-Box zu nutzen.</p>
 <p>Alles was ich in Kapitel zur <em>ersten Ansicht im Backend</em> geschrieben habe, trifft hier analog zu.</p>
@@ -168,6 +169,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="54"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="55"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="56"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656">components/com_foos/ src/View/Foo/HtmlView.php</a> - Die Ansicht</h4>
 <p>Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!</p>
 <p>Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.</p>
@@ -245,6 +247,7 @@ void function() {
   </a>
     </span></p>
 </blockquote>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a> - Template</h4>
 <p>In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur <em>ersten Ansicht im Backend</em> geschrieben habe, trifft hier analog zu.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>
@@ -262,6 +265,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="9"></span><span class="grvsc-source"><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="10"></span><span class="grvsc-source"><span class="mtk4">Hello</span><span class="mtk1"> </span><span class="mtk4">Foos</span></span></span></code></pre>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a> - XML-Datei (Manifest)</h4>
 <p>Dies ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Deshalb tragen wie die beiden neuen Dateien hier ein, so weiß Joomla bei einer Installatin, dass es die Verzeichnisse <code class="language-text">src</code> und <code class="language-text">tmpl</code> gibt und wo <code class="language-text">components/com_foos</code> es sie hin kopieren soll.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>

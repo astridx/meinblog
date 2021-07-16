@@ -33,7 +33,8 @@ Es kommt keine neue Dateien hinzu.
 
 ### Geänderte Dateien
 
-#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, reichen mehr oder weniger zwei Zeilen. In der View rufst du
 `$this->pagination = $this->get('Pagination');` auf, um die Variable `$this->pagination` zu setzen.
@@ -65,7 +66,8 @@ Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, rei
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Im Template nutzen wir die Methode `getListFooter` der Variable `$this->pagination`. Das war alles!
 

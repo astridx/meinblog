@@ -103,6 +103,7 @@ void function() {
   </a>
     </span></p>
 <h3>New files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39">administrator/components/com_foos/ config.xml</a></h4>
 <p>We add the <code class="language-text">config.xml</code> file that implements the parameters of the configuration.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml">administrator/components/com_foos/ config.xml</a></p>
@@ -127,6 +128,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="16"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="17"></span><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">config</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
 <p>The addition in the <code class="language-text">foos.xml</code> file ensures that the <code class="language-text">config.xml</code> file is copied during installation and Joomla can thus access it later.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
@@ -137,6 +139,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;forms&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;language&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;services&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></h4>
 <p>The line <code class="language-text">$toolbar->preferences('com_foos');</code> ensures that the button `Options' is inserted at the top of the administration area. This is the only way to edit the configuration later.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/src/View/Foos/HtmlView.php">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></p>
@@ -148,6 +151,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/ src/Model/FooModel.php</a></h4>
 <p>The <code class="language-text">populateState</code> method ensures that the <code class="language-text">State</code> object is populated and accessible to all code. We add the new parameter here for the site area.</p>
 <p><code class="language-text">populateState()</code> is called automatically when we use <code class="language-text">getState()</code> for the first time. If we need something special in the method, we override it in our own model - as in the following code example.</p>
@@ -175,6 +179,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">setState</span><span class="mtk1">(</span><span class="mtk11">&#39;params&#39;</span><span class="mtk1">, </span><span class="mtk8">$</span><span class="mtk7">app</span><span class="mtk8">-&gt;</span><span class="mtk7">getParams</span><span class="mtk1">());</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a></h4>
 <p>Finally we replace <code class="language-text">echo Text::_('COM_FOOS_NAME') . $this->item->name;</code> with the correct text according to the status.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>

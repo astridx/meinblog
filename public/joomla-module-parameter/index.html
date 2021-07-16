@@ -75,7 +75,8 @@ void function() {
 <p>In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.</p>
 <h3>Geänderte Dateien</h3>
 <h4>Modul</h4>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a">modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.ini</a></h5>
+<!-- prettier-ignore -->
+<h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a">modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini</a></h5>
 <p><a href="https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini">modules/mod<em>foo/language/en-GB/en-GB.mod</em>foo.ini</a></p>
 <p>Die Beschriftung des Parameters im Administrationsbereich soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei.</p>
 <blockquote>
@@ -85,7 +86,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk4">MOD_FOO_XML_DESCRIPTION</span><span class="mtk8">=</span><span class="mtk11">&quot;Foo Module&quot;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk4">MOD_FOO_FIELD_URL_LABEL</span><span class="mtk8">=</span><span class="mtk11">&quot;URL&quot;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk4">COM_MODULES_FOOPARAMS_FIELDSET_LABEL</span><span class="mtk8">=</span><span class="mtk11">&quot;Foo Parameter&quot;</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84">modules/mod<em>foo/ mod</em>foo.php</a></h5>
+<!-- prettier-ignore -->
+<h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84">modules/mod_foo/ mod_foo.php</a></h5>
 <p>In der Einstiegsdatei des Moduls <code class="language-text">modules/mod_foo/ mod_foo.php</code> prüfen wir, auf welchen Wert der Parameter gesetzt ist und speichern ihn in eine Variable. So ist später ein unkompliziertes Zugreifen möglich.</p>
 <p><a href="">modules/mod<em>foo/ mod</em>foo.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">test</span><span class="mtk1">  </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">FooHelper::</span><span class="mtk7">getText</span><span class="mtk1">();</span></span></span>
@@ -93,7 +95,8 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk8">$</span><span class="mtk7">url</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">params</span><span class="mtk8">-&gt;</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;domain&#39;</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">require</span><span class="mtk1"> </span><span class="mtk8">ModuleHelper::</span><span class="mtk7">getLayoutPath</span><span class="mtk1">(</span><span class="mtk11">&#39;mod_foo&#39;</span><span class="mtk1">, </span><span class="mtk8">$</span><span class="mtk7">params</span><span class="mtk8">-&gt;</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;layout&#39;</span><span class="mtk1">, </span><span class="mtk11">&#39;default&#39;</span><span class="mtk1">));</span></span></span></code></pre>
-<h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3">modules/mod<em>foo/ mod</em>foo.xml</a></h5>
+<!-- prettier-ignore -->
+<h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3">modules/mod_foo/ mod_foo.xml</a></h5>
 <p>Im Manifest fügen wir den neuen Paramter hinzu, so dass dieser im Joomla Backend bearbeitbar ist.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml">modules/mod<em>foo/ mod</em>foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">&lt;</span><span class="mtk4">folder</span><span class="mtk8">&gt;</span><span class="mtk4">language</span><span class="mtk8">&lt;/</span><span class="mtk4">folder</span><span class="mtk8">&gt;</span></span></span>
@@ -148,6 +151,7 @@ void function() {
       />
   </a>
     </span></p>
+<!-- prettier-ignore -->
 <h5><a href="https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba">modules/mod_foo/tmpl/default.php</a></h5>
 <p>In der moduleigenen Template-Datei können wir nun auf den Wert des Parameters zugreifen. Im nachfolgenden Beispiel geben wir den Wert als Text aus. Meist wird ein Parameter in einer komplexeren Art verwendet, zum Beispiel innerhalb von Kontrollstrukturen wie If-Anweisungen oder Schleifen.</p>
 <blockquote>

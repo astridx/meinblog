@@ -74,6 +74,7 @@ void function() {
   </a>
     </span></p>
 <h3>New files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8">administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql</a></h4>
 <p>We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql</a></p>
@@ -83,6 +84,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);</span></span></span></code></pre>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3">administrator/components/com_foos/ access.xml</a></h4>
 <p>The entries in the <code class="language-text">access.xml</code> are necessary to set permissions for the category. The following code causes the display of a tab for setting user permissions per category in the administration area.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml">administrator/components/com_foos/access.xml</a></p>
@@ -99,6 +101,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">action</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;core.edit.own&quot;</span><span class="mtk1"> </span><span class="mtk3">title</span><span class="mtk1">=</span><span class="mtk11">&quot;JACTION_EDITOWN&quot;</span><span class="mtk1"> /&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;/</span><span class="mtk7">section</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">access</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
 <p>The <code class="language-text">&lt;menu link="option=com_categories&amp;amp;extension=com_foos"</code> entry causes a menu item to be added in the administration area menu for editing the category.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
@@ -110,6 +113,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		&lt;/</span><span class="mtk7">submenu</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		&lt;</span><span class="mtk7">files</span><span class="mtk1"> </span><span class="mtk3">folder</span><span class="mtk1">=</span><span class="mtk11">&quot;administrator/components/com_foos&quot;</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">filename</span><span class="mtk1">&gt;access.xml&lt;/</span><span class="mtk7">filename</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
 <p>We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field <code class="language-text">categoryedit</code> for this. Note the line <code class="language-text">extension="com_foos"</code>. This causes that only categories are displayed, which belong to your component.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>
@@ -129,6 +133,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">&lt;</span><span class="mtk4">field</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;access&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk4">type</span><span class="mtk8">=</span><span class="mtk11">&quot;accesslevel&quot;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40">administrator/components/com_foos/ script.php</a></h4>
 <p>To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the <code class="language-text">install</code> method, we create a category with the title <code class="language-text">Uncategorised</code> for the component using the database during a new installation.</p>
 <p>To be able to specify a user as the creator of the category, we request the ID of the administrator in the <code class="language-text">getAdminId()</code> method.</p>
@@ -247,6 +252,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">id</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f">administrator/components/com_foos/ services/provider.php</a></h4>
 <p>In the service provider we register the interface <code class="language-text">CategoryFactoryInterface</code>. It is not necessary to create <code class="language-text">CategoryFactoryInterface</code> by yourself. We use the Joomla own functions.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/services/provider.php">administrator/components/com_foos/ services/provider.php</a></p>
@@ -264,6 +270,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">component</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			}</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-896f245bc8e493f91277fd33913ef974">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></h4>
 <p>In order to create the table column in which the category of a Foo element is stored during a new installation, we add the necessary SQL command in the SQL file that is called during the installation.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/install.mysql.utf8.sql">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></p>
@@ -272,6 +279,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk4">ALTER</span><span class="mtk1"> </span><span class="mtk4">TABLE</span><span class="mtk1"> </span><span class="mtk11">`#__foos_details`</span><span class="mtk1"> </span><span class="mtk4">ADD</span><span class="mtk1"> </span><span class="mtk4">KEY</span><span class="mtk1"> </span><span class="mtk11">`idx_access`</span><span class="mtk1"> (</span><span class="mtk11">`access`</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk4">ALTER</span><span class="mtk1"> </span><span class="mtk4">TABLE</span><span class="mtk1"> </span><span class="mtk11">`#__foos_details`</span><span class="mtk1"> </span><span class="mtk4">ADD</span><span class="mtk1"> </span><span class="mtk4">COLUMN</span><span class="mtk1">  </span><span class="mtk11">`catid`</span><span class="mtk1"> </span><span class="mtk13 mtkb">int</span><span class="mtk1">(</span><span class="mtk6">11</span><span class="mtk1">) </span><span class="mtk4">NOT</span><span class="mtk1"> </span><span class="mtk5">NULL</span><span class="mtk1"> </span><span class="mtk4">DEFAULT</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk4">AFTER</span><span class="mtk1"> </span><span class="mtk11">`alias`</span><span class="mtk1">;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-38764f2b1343234561c0d02cd2991ea1">administrator/components/com_foos/ src/Extension/FoosComponent.php</a></h4>
 <p>Additionally, implementations are required in the component class to use Joomla's own functions.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Extension/FoosComponent.php">administrator/components/com_foos/ src/Extension/FoosComponent.php</a></p>
@@ -331,6 +339,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/com_foos/ src/Model/FoosModel.php</a></h4>
 <p>In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Model/FoosModel.php">administrator/components/com_foos/ src/Model/FoosModel.php</a></p>
@@ -355,6 +364,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">query</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1637778e5f7d1d56dd1751af1970f01b">administrator/components/com_foos/ tmpl/foo/edit.php</a></h4>
 <p>The form for editing an element is told to display the category field using the information in the XML file.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foo/edit.php">administrator/components/com_foos/ tmpl/foo/edit.php</a></p>
@@ -365,6 +375,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">input</span><span class="mtk1"> </span><span class="mtk4">type</span><span class="mtk8">=</span><span class="mtk11">&quot;hidden&quot;</span><span class="mtk1"> </span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span><span class="mtk1"> </span><span class="mtk4">value</span><span class="mtk8">=</span><span class="mtk11">&quot;&quot;</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;form.token&#39;</span><span class="mtk1">); </span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;/</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t11b...t12#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/com_foos/ tmpl/foos/default.php</a></h4>
 <p>In the overview table of the view in the backend, we add a column for displaying the category.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foos/default.php">administrator/components/com_foos/ tmpl/foos/default.php</a></p>

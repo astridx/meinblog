@@ -71,6 +71,7 @@ void function() {
   </a>
     </span></p>
 <h3>Neue Dateien</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3">administrator/components/com_foos/ access.xml</a></h4>
 <p>Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml">administrator/components/com_foos/ access.xml</a></p>
@@ -89,6 +90,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="10"></span><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">action</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;core.edit.own&quot;</span><span class="mtk1"> </span><span class="mtk3">title</span><span class="mtk1">=</span><span class="mtk11">&quot;JACTION_EDITOWN&quot;</span><span class="mtk1"> /&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="11"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">section</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="12"></span><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">access</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7">administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql</a></h4>
 <p>Die Berechtigungen speichert Joomla in der Datenbank. Bei einem Joomla-Update sind lediglich Datenbankänderungen relevant. Diese tragen wir in die Datei <code class="language-text">administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql</code> ein, hier ist dies konkret <code class="language-text">administrator/components/com_foos/sql/updates/mysql/10.0.0.sql</code>. Diese Datei wir ausschließlich bei einer Aktualisierung aufgerufen. Bei einer neuen Installation wird die Datenbank über die Hauptdatei <code class="language-text">administrator/components/com_foos/sql/install.mysql.utf8.sql</code> gleich korrekt eingerichtet.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql</a></p>
@@ -98,6 +100,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);</span></span></span></code></pre>
 <h3>Geänderte Dateien</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-9be56d6cedb2c832265e47642f0afb25">administrator/components/com_foos/ config.xml</a></h4>
 <p>Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration ein. Hierfür integrieren wir ein spezielles Formularfeld. Joomla bietet hierfür den Typ <code class="language-text">rules</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/config.xml">administrator/components/com_foos/ config.xml</a></p>
@@ -120,6 +123,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		/&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">config</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
 <p>Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzukommenden Dateien <code class="language-text">sql/updates/mysql</code> und <code class="language-text">access.xml</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/fcce13afc14c13603509611630f369b2d53864c1/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
@@ -142,6 +146,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">filename</span><span class="mtk1">&gt;foos.xml&lt;/</span><span class="mtk7">filename</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">filename</span><span class="mtk1">&gt;config.xml&lt;/</span><span class="mtk7">filename</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			&lt;</span><span class="mtk7">folder</span><span class="mtk1">&gt;forms&lt;/</span><span class="mtk7">folder</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
 <p>Das Formular zum Erstellen eines neuen Foo-Items erweitern wir um die Möglichkeit, Berechtigungen für ein einzelnes Element zu setzten. Wir ergänzen das Feld <code class="language-text">name="access"</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>
@@ -157,6 +162,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		/&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">form</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></h4>
 <p>Das SQL-Skript für eine neue Installation der Komponente mit diesem Stand der Implementierung wird ebenfalls um die notwendigen Felder erweitert.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></p>
@@ -167,6 +173,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/com_foos/ src/Model/FoosModel.php</a></h4>
 <p>Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage dir nun komplex erscheinen. Es ist jetzt erforderlich, Daten aus zwei Datenbanktabellen zu kombinieren. Die Tabelle, die die Berechtigungen von <code class="language-text">com_user</code> verwaltet <code class="language-text">#__viewlevels</code>, und die unsere Beispielkomponente. Lass dich davon nicht abschrecken. Joomla unterstützt beim Erstellen der Abfragen.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php">administrator/components/com_foos/ src/Model/FoosModel.php</a></p>
@@ -191,6 +198,7 @@ void function() {
 <blockquote>
 <p>Zur Erinnerung: Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die <a href="https://docs.joomla.org/Accessing_the_database_using_JDatabase/de">zur Verfügung stehenden Anweisungen</a> nutzt, dann kümmert sich Joomla für dich um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.</p>
 </blockquote>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></h4>
 <p>Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - <code class="language-text">$canDo</code> kommt hinzu.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/View/Foos/HtmlView.php">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></p>
@@ -225,6 +233,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-1637778e5f7d1d56dd1751af1970f01b">administrator/components/com_foos/ tmpl/foo/edit.php</a></h4>
 <p>Der Eintrag <code class="language-text">&lt;?php echo $this->getForm()->renderField(access);</code> ist notwendig, damit das Feld im Formular aufgenommen wird, welches wir in der XML Datei schon konfiguriert haben. Nur so ist es möglich, die Berechtigungen pro Element zu verändern.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foo/edit.php">administrator/components/com_foos/ tmpl/foo/edit.php</a></p>
@@ -235,6 +244,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">input</span><span class="mtk1"> </span><span class="mtk4">type</span><span class="mtk8">=</span><span class="mtk11">&quot;hidden&quot;</span><span class="mtk1"> </span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span><span class="mtk1"> </span><span class="mtk4">value</span><span class="mtk8">=</span><span class="mtk11">&quot;&quot;</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">HTMLHelper::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;form.token&#39;</span><span class="mtk1">); </span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;/</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t9...t10#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/com_foos/ tmpl/foos/default.php</a></h4>
 <p>Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in der Übersicht auf.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foos/default.php">administrator/components/com_foos/ tmpl/foos/default.php</a></p>

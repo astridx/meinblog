@@ -31,7 +31,8 @@ In the following overview, the newly added files are marked with a background an
 
 #### Module
 
-##### [modules/mod_foo/ script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+<!-- prettier-ignore -->
+##### [modules/mod\_foo/ script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
 
 Using the example of the script file, I show that many things are applied in the same way in the case of a module as in the case of a component.
 
@@ -187,7 +188,8 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 + MOD_FOO_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installation/update/uninstallation of the module</p>"
 ```
 
-##### [modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+<!-- prettier-ignore -->
+##### [modules/mod\_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
 
 Finally, we enter the name of the script file in the manifest so that the installation routine will copy it to the right place and call it.
 

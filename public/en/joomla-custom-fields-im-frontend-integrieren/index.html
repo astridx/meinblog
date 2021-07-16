@@ -105,6 +105,7 @@ void function() {
 <h3>New files</h3>
 <p>No new files are added in this chapter.</p>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82">components/com_foos/ src/View/Foo/HtmlView.php </a></h4>
 <p>Custom Fields display data in the frontend using events. The custom fields are displayed in three different places on the website. By default, the data is displayed before the content. This setting can be changed. Therefore we save the results of <code class="language-text">onContentAfterTitle</code>, <code class="language-text">onContentBeforeDisplay</code> and <code class="language-text">onContentAfterDisplay</code>. We do this in the <code class="language-text">View</code>.</p>
 <p>Specifically, we make sure that the events</p>
@@ -147,6 +148,7 @@ are triggered and the result is stored in a variable.</li>
 <blockquote>
 <p>Via <code class="language-text">onContentAfterTitle</code>, <code class="language-text">onContentBeforeDisplay</code>, <code class="language-text">onContentAfterDisplay</code> in addition to the user-defined fields, other elements are output that are assigned to the respective event.</p>
 </blockquote>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6">components/com_foos/ tmpl/foo/default.php</a></h4>
 <p>In the template we output the user-defined fields. In our case, this is not extensive, so we write all the stored texts one after the other. In a more complex file we insert the statement in the appropriate place.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>

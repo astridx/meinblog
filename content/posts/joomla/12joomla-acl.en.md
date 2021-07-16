@@ -27,7 +27,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
 First, we set all possible permissions in an XML file.
 
@@ -51,7 +52,8 @@ First, we set all possible permissions in an XML file.
 </access>
 ```
 
-#### [administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
 
 Joomla stores the permissions in the database. During a Joomla update only database changes are relevant. We enter these in the file `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql`, here this is specifically `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. This file is only called during an update. In case of a new installation the database will be set up correctly via the main file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
@@ -67,7 +69,8 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
 ### Modified files
 
-#### [administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-9be56d6cedb2c832265e47642f0afb25)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-9be56d6cedb2c832265e47642f0afb25)
 
 We set the permissions for the entire component in the configuration. For this we integrate a special form field. Joomla offers the type `rules` for this.
 
@@ -95,7 +98,8 @@ We set the permissions for the entire component in the configuration. For this w
  </config>
 ```
 
-#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 To make sure that everything runs smoothly during the installation, we add the new files `sql/updates/mysql` and `access.xml` here.
 
@@ -123,7 +127,8 @@ To make sure that everything runs smoothly during the installation, we add the n
  			<folder>forms</folder>
 ```
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We extend the form for creating a new Foo item with the possibility to set permissions for a single item. We add the field `name="access"`.
 
@@ -144,7 +149,8 @@ We extend the form for creating a new Foo item with the possibility to set permi
  </form>
 ```
 
-#### [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
 
 The SQL script for a new installation of the component with this state of implementation is also extended with the necessary fields.
 
@@ -160,7 +166,8 @@ The SQL script for a new installation of the component with this state of implem
 +ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
-#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 If you are not familiar with SQL so far, the database query will appear complex to you now. It is now necessary to combine data from two database tables. The table that manages the permissions of `com_user` `#__viewlevels`, and the one of our example component. Don't let this scare you. Joomla supports you in creating the queries.
 
@@ -190,7 +197,8 @@ If you are not familiar with SQL so far, the database query will appear complex 
 
 > As a reminder, Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de), Joomla will take care of security or different syntax in PostgreSQL and MySQL for you.
 
-#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added.
 
@@ -231,7 +239,8 @@ A button to create an element is only useful if this is allowed. Therefore we ch
  }
 ```
 
-#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1637778e5f7d1d56dd1751af1970f01b)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 The entry `<?php echo $this->getForm()->renderField(access);` is necessary to include the field in the form, which we have already configured in the XML file. Only this way it is possible to change the permissions per element.
 
@@ -247,7 +256,8 @@ The entry `<?php echo $this->getForm()->renderField(access);` is necessary to in
  </form>
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-3186af99ea4e3321b497b86fcd1cd757)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Last but not least, we include a column in the overview for the authorization display.
 

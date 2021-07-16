@@ -103,6 +103,7 @@ void function() {
   </a>
     </span></p>
 <h3>New files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950">administrator/components/com_foos/ src/Field/Modal/FooField.php</a></h4>
 <p>First, we create the form field through which it is possible to select or deselect a Foo element.</p>
 <blockquote>
@@ -299,6 +300,7 @@ void function() {
 <blockquote>
 <p>The programme code for the form field is adapted to <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap 5</a>. This framework was integrated into Joomla in the pull request <a href="https://github.com/joomla/joomla-cms/pull/32037">github.com/joomla/joomla-cms/pull/32037</a>.</p>
 </blockquote>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e">administrator/components/com_foos/ tmpl/foos/modal.php</a></h4>
 <p>We open the selection in a modal window. The following code shows you the template for this.</p>
 <blockquote>
@@ -446,6 +448,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="26"></span><span class="grvsc-source"><span class="mtk1">  })</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="27"></span><span class="grvsc-source"><span class="mtk1">})()</span></span></span></code></pre>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
 <p>We have created a new JavaScript file. We place it in the <code class="language-text">media\js</code> directory. So that it is copied when the component is installed, we add the <code class="language-text">js</code> folder in the section <code class="language-text">media</code> of the installation manifest.</p>
 <blockquote>
@@ -462,6 +465,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;!--</span><span class="mtk1"> </span><span class="mtk4">Back</span><span class="mtk8">-</span><span class="mtk4">end</span><span class="mtk1"> </span><span class="mtk4">files</span><span class="mtk1"> </span><span class="mtk8">--&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">administration</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">&lt;!--</span><span class="mtk1"> </span><span class="mtk4">Menu</span><span class="mtk1"> </span><span class="mtk4">entries</span><span class="mtk1"> </span><span class="mtk8">--&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/ src/Model/FooModel.php</a></h4>
 <p>We no longer output static text. An item from the database is displayed. Therefore we rename the <code class="language-text">getMsg</code> method to <code class="language-text">getItem</code>. We adjust the variable names and create a database query.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/Model/FooModel.php">components/com_foos/ src/Model/FooModel.php</a></p>
@@ -532,6 +536,7 @@ void function() {
 <blockquote>
 <p>Joomla supports you in creating the database queries. If you use the <a href="https://docs.joomla.org/Accessing_the_database_using_JDatabase">available statements</a><sup id="fnref-docs.joomla.org/accessing_the_database_using_jdatabase"><a href="#fn-docs.joomla.org/accessing_the_database_using_jdatabase" class="footnote-ref">docs.joomla.org/accessing_the_database_using_jdatabase</a></sup>, Joomla will take care of security or different syntax in PostgreSQL and MySQL.</p>
 </blockquote>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656">components/com_foos/ src/View/Foo/HtmlView.php</a></h4>
 <p>In the view we consequently replace <code class="language-text">$this->msg = $this->get('Msg');</code> with <code class="language-text">$this->item = $this->get('Item');</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/View/Foo/HtmlView.php">components/com_foos/ src/View/Foo/HtmlView.php</a></p>
@@ -557,6 +562,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk13 mtkb">parent</span><span class="mtk8">::</span><span class="mtk7">display</span><span class="mtk1">(</span><span class="mtk8">$</span><span class="mtk7">tpl</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6">components/com_foos/ tmpl/foo/default.php</a></h4>
 <p>We will customize the display of the name in the template. Here we access the <code class="language-text">item</code> element and its <code class="language-text">name</code> property. In this way we can flexibly and easily add new properties in the future.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>
@@ -566,6 +572,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"><span class="mtk4">Hello</span><span class="mtk1"> </span><span class="mtk4">Foos</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">msg</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">item</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.xml</a></h4>
 <p>We create an entry in the <code class="language-text">default.xml</code> file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries <code class="language-text">addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"</code> and <code class="language-text">type="modal_foo"</code>:</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/tmpl/foo/default.xml">components/com_foos/ tmpl/foo/default.xml</a></p>

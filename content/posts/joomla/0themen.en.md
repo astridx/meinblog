@@ -17,7 +17,7 @@ tags:
 
 1. [Preface](/en/joomla-tutorial-vorwort)
 1. [The first view in the backend](/en/die-erste-ansicht-im-backend)
-1. [[Joomla update and change log setup](/en/joomla-update-und-change-logeinrichten)
+1. [Joomla update and change log setup](/en/joomla-update-und-change-logeinrichten)
 1. [The First View in the Frontend](/en/die-erste-ansicht-im-frontend)
 1. [A Menu Item](/en/ein-menuepunkt)
 1. [The M in MVC: Model](/en/das-m-im-mvc-model)

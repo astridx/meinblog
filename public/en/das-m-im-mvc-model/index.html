@@ -79,6 +79,7 @@ void function() {
   </a>
     </span></p>
 <h3>New files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/ src/Model/FooModel.php</a></h4>
 <p>With the model it is also so that you do not reinvent the wheel. You extend the Joomla class <code class="language-text">BaseDatabaseModel</code>. Then implement only what you specifically use. In our case it is the output <code class="language-text">$this->message = 'Hello Foo!';</code> for which we create the method <code class="language-text">getMsg()</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php">components/com_foos/ src/Model/FooModel.php</a></p>
@@ -127,6 +128,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="40"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="41"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656">components/com_foos/ src/View/Foo/HtmlView.php</a></h4>
 <p>We get the data of the model in the view with <code class="language-text">$this->msg = $this->get('Msg');</code>. This seems awkward here. In complex applications this method has proven itself. The data calculation is done in the model. The design of the view using the calculated data is done by the view.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/View/Foo/HtmlView.php">components/com_foos/ src/View/Foo/HtmlView.php</a></p>
@@ -140,6 +142,7 @@ void function() {
 <blockquote>
 <p>You may be confused by the call <code class="language-text">$this->get('Msg');</code> as I was when I first started using Joomla. The method in the model is called <code class="language-text">getMsg()</code>, but we call it here via <code class="language-text">get('Msg')</code>. This doesn't fit. If you have dealt with object oriented programming before, you are tempted to call it via <code class="language-text">getMsg()</code>. If you are using Joomla, you will have an easier time using things the way they are prepared for you. You call <a href="https://en.wikipedia.org/wiki/Mutator_method">Getter</a> in the model via the method <code class="language-text">get()</code> with the appropriate parameter.</p>
 </blockquote>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a></h4>
 <p>Über das Template geben wir die Daten aus. Hier wird später alles richtig in HTML-Tags verpackt.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>

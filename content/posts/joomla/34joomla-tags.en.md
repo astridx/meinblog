@@ -33,7 +33,8 @@ No new files.
 
 ### Modified files
 
-#### [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
 
 The form through which the search tools are managed receives an entry for the keywords.
 
@@ -59,7 +60,8 @@ The form through which the search tools are managed receives an entry for the ke
 
 ```
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In the XML form, we add the form field that contains the information about the tag. Since we use Joomla Standard, we can use many ready-made functions out-of-the-box.
 
@@ -83,7 +85,8 @@ In the XML form, we add the form field that contains the information about the t
 
 ```
 
-#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 In the installation script, we make sure that our extension is recognised as a separate content type in Joomla.
 
@@ -171,32 +174,33 @@ In the installation script, we make sure that our extension is recognised as a s
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 In the model of the element, we insert the tags into the batch processing batch and ensure that the associated tags are loaded.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
-use Joomla\CMS\Language\LanguageHelper;
+ use Joomla\CMS\Language\LanguageHelper;
  use Joomla\Database\ParameterType;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\CMS\Helper\TagsHelper;
-
+ 
  /**
   * Item Model for a Foo.
-
+... class FooModel extends AdminModel
  	protected $batch_commands = [
  		'assetgroup_id' => 'batchAccess',
  		'language_id'   => 'batchLanguage',
 +		'tag'           => 'batchTag',
  		'user_id'       => 'batchUser',
  	];
-
-
+ 
+...  public function getItem($pk = null)
  			}
  		}
-
+ 
 +		// Load item tags
 +		if (!empty($item->id)) {
 +			$item->tags = new TagsHelper;
@@ -208,25 +212,25 @@ use Joomla\CMS\Language\LanguageHelper;
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 We change the model of the overview list of our extension in the backend regarding the filters and the database query.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
- 				'publish_down', 'a.publish_down',
- 			];
-
--			$assoc = Associations::isEnabled();
--
- 			if ($assoc) {
- 				$config['filter_fields'][] = 'association';
- 			}
-
+ use Joomla\CMS\Language\Associations;
+ use Joomla\CMS\Factory;
+ use Joomla\Utilities\ArrayHelper;
++use Joomla\Database\ParameterType;
+ 
+ /**
+  * Methods supporting a list of foo records.
+... protected function getListQuery()
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
-
+ 
 +		// Filter by a single or group of tags.
 +		$tag = $this->getState('filter.tag');
 +
@@ -271,12 +275,12 @@ We change the model of the overview list of our extension in the backend regardi
  		// Filter by access level.
  		if ($access = $this->getState('filter.access')) {
  			$query->where($db->quoteName('a.access') . ' = ' . (int) $access);
-
 ```
 
-#### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-In the data organisation of the view, we ensure that the keywords matching the language are loaded.
+In the view, we ensure that the keywords matching the language are loaded.
 
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -291,6 +295,26 @@ In the data organisation of the view, we ensure that the keywords matching the l
 
  		$this->addToolbar();
 
+```
+
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default\_batch\_body.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-e98ef88ae6674189329a5ff2d32c3cf2784a953a494ac8a97777b600ee44a022)
+
+So that the batch processing can also be used for the tags, we insert a form field. With the help of this field it is possible to select a keyword that will be assigned to all selected items.
+
+[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+
+```php {diff}
+ 				</div>
+ 			</div>
+ 		<?php endif; ?>
++		<div class="form-group col-md-6">
++			<div class="controls">
++				<?php echo LayoutHelper::render('joomla.html.batch.tag', []); ?>
++			</div>
++		</div>
+ 	</div>
+ </div>
 ```
 
 ## Test your Joomla component
@@ -315,13 +339,28 @@ A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.pn
 
 6. create a menu item that shows all elements that are assigned to a certain keyword and see the display in the frontend.
 
-> In the frontend view you only see published elements.
-
 ![A keyword in a custom Joomla 4 extension via menu item](/images/j4x34x4.png)
 
 ![A keyword in a custom Joomla 4 extension in a frontend view](/images/j4x34x5.png)
 
-> I leave it up to you to decide how and where you display the keywords in frontend views of your own extension.
+If you have tagged a Foo element and are now surprised that it is not displayed, first check whether the Foo element is published. Only published elements are displayed in the frontend. 
+
+7. Create a new tag and assign it to several Foo items by batch processing.
+
+![Assign a keyword in a custom Joomla 4 extension by batch processing - open batch processing](/images/j4x34x7.png)
+
+![Assign a keyword in a custom Joomla 4 extension by batch processing - submit form](/images/j4x34x6.png)
+
+8. think about how and where you show the keywords in the frontend of your own extension. com_contact' provides a parameter that allows the website owner to set whether tags are displayed. The display is done with the help of the layout `joomla.content.tags`.
+
+```php
+<?php if ($tparams->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+	<div class="com-contact__tags">
+		<?php $this->item->tagLayout = new FileLayout('joomla.content.tags'); ?>
+		<?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
+	</div>
+<?php endif; ?>
+```
 
 ## Links
 

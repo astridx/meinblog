@@ -37,7 +37,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 With the model it is also so that you do not reinvent the wheel. You extend the Joomla class `BaseDatabaseModel`. Then implement only what you specifically use. In our case it is the output `$this->message = 'Hello Foo!';` for which we create the method `getMsg()`.
 
@@ -93,7 +94,8 @@ class FooModel extends BaseDatabaseModel
 
 ### Modified files
 
-#### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 We get the data of the model in the view with `$this->msg = $this->get('Msg');`. This seems awkward here. In complex applications this method has proven itself. The data calculation is done in the model. The design of the view using the calculated data is done by the view.
 
@@ -112,7 +114,8 @@ We get the data of the model in the view with `$this->msg = $this->get('Msg');`.
 
 > You may be confused by the call `$this->get('Msg');` as I was when I first started using Joomla. The method in the model is called `getMsg()`, but we call it here via `get('Msg')`. This doesn't fit. If you have dealt with object oriented programming before, you are tempted to call it via `getMsg()`. If you are using Joomla, you will have an easier time using things the way they are prepared for you. You call [Getter](https://en.wikipedia.org/wiki/Mutator_method) in the model via the method `get()` with the appropriate parameter.
 
-#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
 
 Über das Template geben wir die Daten aus. Hier wird später alles richtig in HTML-Tags verpackt.
 

@@ -115,7 +115,8 @@ The left side of the equal sign in the language string, for example `COM_FOOS_CO
 
 The right side of the language string, for example `Foo Options"` in `COM_FOOS_CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
-#### [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
 We add the German language version for the administration area with the files 'administrator/components/com_foos/ language/en-DE/com_foos.ini' and 'administrator/components/com_foos/ language/en-DE/com_foos.sys.ini'.
 
@@ -151,7 +152,8 @@ Each language file is marked with an abbreviation, which is defined in [ISO-639]
 
 After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A frolder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
-#### [administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
 As mentioned before, you need two language files: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `sys.ini` for everything else.
 
@@ -179,7 +181,8 @@ COM_FOOS_CHANGE_FOO="Ändern Sie ein foo"
 COM_FOOS_SELECT_A_FOO="Wählen Sie ein foo aus"
 ```
 
-#### [administrator/components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
 
 I had already written it: The English versions of the language files are mandatory.
 
@@ -244,7 +247,8 @@ COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
 
 ```
 
-#### [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
 Also the file is `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` mandatory.
 
@@ -282,7 +286,8 @@ COM_FOOS_CATEGORY_VIEW_DEFAULT_TITLE="Category"
 
 ```
 
-#### [components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e)
 
 In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/language/en-DE/com_foos.ini` implements the German language.
 
@@ -295,7 +300,8 @@ COM_FOOS_NAME="Name: "
 
 ```
 
-#### [components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
 
 We add the mandatory English version in the file `components/com_foos/ language/en-GB/com_foos.ini`.
 
@@ -322,7 +328,8 @@ COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Publishing end"
 
 ### Modified files
 
-#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 So that the language files are copied during an installation, we add the `<folder>language</folder>` entry for the frontend and the backend.
 
@@ -373,7 +380,8 @@ To place your files together with Joomla's own language files, you add the `<lan
 ...
 ```
 
-#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f)
 
 So far we have output the name without a label in the frontend `echo $this->item->name;`. Now we add a label. For this we consider the different languages. The following code causes that instead of `Text::_('COM_FOOS_NAME')` in the frontend the string is output, which is entered in the corresponding language file. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is output. If the German language is active and there is the German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed.
 

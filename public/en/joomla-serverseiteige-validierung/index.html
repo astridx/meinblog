@@ -76,6 +76,7 @@ void function() {
   </a>
     </span></p>
 <h3>New files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679">administrator/components/com_foos/ src/Rule/LetterRule.php</a></h4>
 <p>The main goal here is not to learn meaningful validation. Rather, I'm showing you how to integrate your rules into Joomla. That's why you see here only a rudimentary example: In the name it is forbidden to insert a number from now on. In concrete terms, this means: <em>Astrid</em> is allowed. <em>Astrid9</em> is not allowed. For this we create the file <code class="language-text">LetterRule.php</code>.</p>
 <blockquote>
@@ -123,6 +124,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="36"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h3>Modified files</h3>
 <p>To make Joomla apply the rule in the <code class="language-text">LetterRule.php</code> file to the text field for entering the name, we modify the form file.</p>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
 <p>What has changed is <code class="language-text">&lt;fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"></code> and <code class="language-text">validate="Letter"</code></p>
 <p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>

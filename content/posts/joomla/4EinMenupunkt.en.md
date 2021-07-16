@@ -31,7 +31,8 @@ In the following overview, the newly added files are marked with a background an
 
 The menu item in the frontend works differently than the one in the administration area. We create a separate XML file. Later we will use parameters. But for now we keep it straightforward. We add some language strings for text. Later on, we will see how to translate them.
 
-#### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the following code:
 

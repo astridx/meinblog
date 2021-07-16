@@ -156,7 +156,8 @@ void function() {
 <p>Create the following six files to support the German language in addition to English.</p>
 <p>The left side of the equal sign in the language string, for example <code class="language-text">COM_FOOS_CONFIGURATION"</code> in <code class="language-text">COM_FOOS_CONFIGURATION="Foo Options"</code>, is always in upper case. Normally the extension name is at the beginning, in our case it is <code class="language-text">COM_FOOS</code>. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.</p>
 <p>The right side of the language string, for example <code class="language-text">Foo Options"</code> in <code class="language-text">COM_FOOS_CONFIGURATION = "Foo Options"</code>, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.</p>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde">administrator/components/com<em>foos/ language/de-DE/com</em>foos.ini</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde">administrator/components/com_foos/ language/de-DE/com_foos.ini</a></h4>
 <p>We add the German language version for the administration area with the files 'administrator/components/com<em>foos/ language/en-DE/com</em>foos.ini' and 'administrator/components/com<em>foos/ language/en-DE/com</em>foos.sys.ini'.</p>
 <blockquote>
 <p>Don't be confused if you see a lot of texts. These are not all used at the moment. I'm already inserting the text for the future chapters here.</p>
@@ -183,7 +184,8 @@ void function() {
 <h5>Naming conventions</h5>
 <p>Each language file is marked with an abbreviation, which is defined in <a href="https://en.wikipedia.org/wiki/ISO_639">ISO-639</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166">ISO-3166</a>: The first two lower case letters name the language. For German this is <code class="language-text">de</code> and <code class="language-text">en</code> for English.</p>
 <p>After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from <code class="language-text">DE</code> by <code class="language-text">CH</code> or Austrian by <code class="language-text">AT</code>. A frolder named <code class="language-text">de-CH</code> contains the translation for Switzerland and <code class="language-text">de-AT</code> the Austrian variant.</p>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987">administrator/components/com<em>foos/ language/de-DE/com</em>foos.sys.ini</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987">administrator/components/com_foos/ language/de-DE/com_foos.sys.ini</a></h4>
 <p>As mentioned before, you need two language files: one ending with <code class="language-text">.ini</code> and one ending with <code class="language-text">sys.ini</code>. The <a href="https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini"><code class="language-text">sys.ini</code></a> is primarily used during installation and for displaying the menu items and the <code class="language-text">sys.ini</code> for everything else.</p>
 <blockquote>
 <p>The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.</p>
@@ -206,7 +208,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="12"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="13"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_CHANGE_FOO=&quot;Ändern Sie ein foo&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="14"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_SELECT_A_FOO=&quot;Wählen Sie ein foo aus&quot;</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2">administrator/components/com<em>foos/ language/en-GB/com</em>foos.ini</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2">administrator/components/com_foos/ language/en-GB/com_foos.ini</a></h4>
 <p>I had already written it: The English versions of the language files are mandatory.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini">administrator/components/com<em>foos/ language/en-GB/com</em>foos.ini</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini --&gt;</span></span></span>
@@ -264,7 +267,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="50"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="51"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FILTER_SEARCH_DESC=&quot;Search in foo name.&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="52"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FILTER_SEARCH_LABEL=&quot;Search Foos&quot;</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59">administrator/components/com<em>foos/ language/en-GB/com</em>foos.sys.ini</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59">administrator/components/com_foos/ language/en-GB/com_foos.sys.ini</a></h4>
 <p>Also the file is <code class="language-text">administrator/components/com_foos/ language/en-GB/com_foos.sys.ini</code> mandatory.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini">administrator/components/com<em>foos/ language/en-GB/com</em>foos.sys.ini</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini --&gt;</span></span></span>
@@ -295,13 +299,15 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="23"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FORM_VIEW_DEFAULT_TITLE=&quot;Create Foo&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="24"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="25"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_CATEGORY_VIEW_DEFAULT_TITLE=&quot;Category&quot;</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e">components/com<em>foos/ language/de-DE/com</em>foos.ini</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e">components/com_foos/ language/de-DE/com_foos.ini</a></h4>
 <p>In the frontend there is only the <code class="language-text">.ini</code> - so no <code class="language-text">sys.ini</code>. The file <code class="language-text">components/com_foos/language/en-DE/com_foos.ini</code> implements the German language.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/de-DE/com_foos.ini">components/com<em>foos/ language/de-DE/com</em>foos.ini</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/de-DE/com_foos.ini --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_NAME=&quot;Name: &quot;</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6">components/com<em>foos/ language/en-GB/com</em>foos.ini</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6">components/com_foos/ language/en-GB/com_foos.ini</a></h4>
 <p>We add the mandatory English version in the file <code class="language-text">components/com_foos/ language/en-GB/com_foos.ini</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/en-GB/com_foos.ini">components/com<em>foos/language/en-GB/com</em>foos.ini</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/en-GB/com_foos.ini --&gt;</span></span></span>
@@ -321,6 +327,7 @@ void function() {
 <p>In the next chapters more language strings will be added. I will not mention them separately there. I have already integrated most of them into the sample files in this lesson. This way I avoid that the files appear in the diff view and blow it up unnecessarily. Specifically, I mean the diff view of the program code of the various chapters on Github, which I refer to here.</p>
 </blockquote>
 <h3>Modified files</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
 <p>So that the language files are copied during an installation, we add the <code class="language-text">&lt;folder>language&lt;/folder></code> entry for the frontend and the backend.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
@@ -359,6 +366,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">languages</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">administration</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a></h4>
 <p>So far we have output the name without a label in the frontend <code class="language-text">echo $this->item->name;</code>. Now we add a label. For this we consider the different languages. The following code causes that instead of <code class="language-text">Text::_('COM_FOOS_NAME')</code> in the frontend the string is output, which is entered in the corresponding language file. If there is a Spanish language file with the entry <code class="language-text">COM_FOOS_FIELD_NAME_LABEL="Nombre"</code> and the Spanish language is active in the frontend, then <code class="language-text">Nombre</code> is output. If the German language is active and there is the German language file with the entry <code class="language-text">COM_FOOS_FIELD_NAME_LABEL="Name"</code>, the word <code class="language-text">Name</code> is displayed.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>

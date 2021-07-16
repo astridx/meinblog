@@ -27,7 +27,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-a9b2d92dcca8384605c7c4c4e7111093)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-a9b2d92dcca8384605c7c4c4e7111093)
 
 The following file creates the middle part of the form that is displayed to trigger batch processing.
 
@@ -78,9 +79,14 @@ $noUser    = true;
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-d653f1f236af4637ec0c4a7ff789bde1)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-d653f1f236af4637ec0c4a7ff789bde1)
 
-The following file creates the footer of the form that is displayed to trigger batch processing.
+The following file creates the footer of the form that is displayed to trigger batch processing. The 'JCANCEL' button clears all values in the form fields using `document.getElementById('ELEMENT_ID').value=''`. I have included all possible fields here, although we don't use them all yet. For example, `batch-user-id` and `batch-tag-id` are not yet used in our form. The button `JGLOBAL_BATCH_PROCESS` starts the batch processing.
+
+> It is important that you create the batch form as described above in the file `administrator/components/com_foos/ tmpl/foos/default_batch_body.php`. `LayoutHelper` in combination with the appropriate layout ensures that all variables and IDs are set so that the standard functions run correctly.
+
+Translated with www.DeepL.com/Translator (free version)
 
 [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
@@ -100,7 +106,7 @@ The following file creates the footer of the form that is displayed to trigger b
 use Joomla\CMS\Language\Text;
 
 ?>
-<button type="button" class="btn btn-secondary" onclick="document.getElementById('batch-category-id').value='';document.getElementById('batch-access').value='';document.getElementById('batch-language-id').value='';document.getElementById('batch-user-id').value='';document.getElementById('batch-tag-id').value=''" data-dismiss="modal">
+<button type="button" class="btn btn-secondary" onclick="document.getElementById('batch-category-id').value='';document.getElementById('batch-access').value='';document.getElementById('batch-language-id').value='';document.getElementById('batch-user-id').value='';document.getElementById('batch-tag-id').value=''" data-bs-dismiss="modal">
 	<?php echo Text::_('JCANCEL'); ?>
 </button>
 <button type="submit" class="btn btn-success" onclick="Joomla.submitbutton('foo.batch');return false">
@@ -111,7 +117,8 @@ use Joomla\CMS\Language\Text;
 
 ### Modified files
 
-#### [administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-181b1576846350fbb4a7a1a73291de4b)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-181b1576846350fbb4a7a1a73291de4b)
 
 In the controller we implement the method `batch`. If we look at it closely, we add nothing more than the specifics: The name of the model used for data processing and the address to forward to after processing. At the end we call the implementation of Joomla with `return parent::batch($model);`. Done! For the standard functions, the wheel has already been invented by Joomla.
 
@@ -154,7 +161,8 @@ In the controller we implement the method `batch`. If we look at it closely, we 
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 In the model we specify whether copying and moving is supported. In case of `false` the command is not provided by the batch processing. We also specify the properties that are editable using the batch function.
 
@@ -187,7 +195,8 @@ protected $associationsContext = 'com_foos.item';
 
 ```
 
-#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-8e3d37bbd99544f976bf8fd323eb5250)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 To make the batch processing usable via a button, we add an entry to the toolbar.
 
@@ -229,7 +238,8 @@ To make the batch processing usable via a button, we add an entry to the toolbar
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-3186af99ea4e3321b497b86fcd1cd757)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 We create the template that is used to create the form to trigger batch processing with the help of `HTMLHelper`.
 

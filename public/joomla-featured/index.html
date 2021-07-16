@@ -74,6 +74,7 @@ void function() {
   </a>
     </span></p>
 <h3>Neue Dateien</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c">administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql</a></h4>
 <p>Du kennst das schon. Wir speichern die Eigenschaft <code class="language-text">featured</code> in der Datenbank, deshalb erweitern wir die Datenbanktabelle um eine Spalte. Dies erledigen wir in der Datei <code class="language-text">24.0.0.sql</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/%20sql/updates/mysql/24.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql</a></p>
@@ -82,6 +83,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT &#39;Set if foo is featured.&#39;;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-37eef9f609bf1f517dc937af031f8641">components/com_foos/ src/Model/FeaturedModel.php</a></h4>
 <p>Um die Daten, die <code class="language-text">featured</code> sind zu verarbeiten, erstellen wir ein eigenes Model.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/Model/FeaturedModel.php">components/com_foos/ src/Model/FeaturedModel.php</a></p>
@@ -275,6 +277,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="185"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">setState</span><span class="mtk1">(</span><span class="mtk11">&#39;params&#39;</span><span class="mtk1">, </span><span class="mtk8">$</span><span class="mtk7">params</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="186"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="187"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-3b300f4a420f00b560f4d6563e755204">components/com_foos/ src/View/Featured/HtmlView.php</a></h4>
 <p><code class="language-text">featured</code> bekommt eine eigene Datei zur Verwaltung der Anzeige im Frontend.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php">components/com_foos/ src/View/Featured/HtmlView.php</a></p>
@@ -463,6 +466,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="180"></span><span class="grvsc-source"><span class="mtk1">		}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="181"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="182"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-12fc2f2fbc661ff6c184bde121707548">components/com_foos/ tmpl/featured/default.php</a></h4>
 <p>Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in der Datei <code class="language-text">default.php</code> implementieren.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php">components/com_foos/ tmpl/featured/default.php</a></p>
@@ -501,6 +505,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="30"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="31"></span><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk8">endif</span><span class="mtk1">; </span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="32"></span><span class="grvsc-source"><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-ed5a4e7e95701b93a85d2bb4a6cd0829">components/com_foos/ tmpl/featured/default.xml</a></h4>
 <p>Die Datei <code class="language-text">components/com_foos/ tmpl/featured/default.xml</code> benötigen wir, damit im Frontend die Anzeige der <code class="language-text">featured</code> Elemente über einen Menüpunkt möglich ist.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml">components/com_foos/ tmpl/featured/default.xml</a></p>
@@ -554,7 +559,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="45"></span><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="46"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">fields</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="47"></span><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">metadata</span><span class="mtk1">&gt;</span></span></span></code></pre>
-<h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4">components/com<em>foos/ tmpl/featured/default</em>items.php</a></h4>
+<!-- prettier-ignore -->
+<h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-e50432f32d93661fd61575d3789b75a4">components/com_foos/ tmpl/featured/default_items.php</a></h4>
 <p>In der Datei <code class="language-text">default.php</code> nutzen wir die Anweisung <code class="language-text">&lt;?php echo $this->loadTemplate('items'); ?></code>. So halten wir das Template übersichtlich. Alles was ein Element betrifft wird über das Untertemplate <code class="language-text">default_items.php</code> in <code class="language-text">default.php</code> eingefügt.</p>
 <blockquote>
 <p>Wichtig bei der Verwendung von Subtemplates oder Untertemplates ist, dass das dieses im gleichen Verzeichnis wie das eigentliche Template liegt und, dass der Name übereinstimmt:<br>
@@ -631,6 +637,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="61"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk8">endif</span><span class="mtk1">; </span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="62"></span><span class="grvsc-source"><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span></code></pre>
 <h3>Geänderte Dateien</h3>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
 <p>Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um das Feld zur Festlegung der Eigenschaft <code class="language-text">featured</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f">administrator/components/com_foos/ forms/foo.xml</a></p>
@@ -651,6 +658,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		&lt;</span><span class="mtk7">field</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;published&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;list&quot;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></h4>
 <p>Im Falle einer neuen Installation, wird über das Skript in der Datei <code class="language-text">install.mysql.utf8.sql</code> die Datenbank erstellt. Hier fügen wir eine Spalte zur Speicherung der Eigenschaft <code class="language-text">featured</code> hinzu.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></p>
@@ -659,6 +667,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT &#39;Set if foo is featured.&#39;;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_featured_catid` (`featured`,`catid`);</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370">administrator/components/com_foos/ src/Controller/FoosController.php</a></h4>
 <p>Wir implementieren die Logik mit der wir die Eigenschaft <code class="language-text">featured</code> setzen in der Funktion <code class="language-text">featured()</code> im <code class="language-text">FoosController</code>.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Controller/FoosController.php">administrator/components/com_foos/ src/Controller/FoosController.php</a></p>
@@ -735,6 +744,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk3 mtki">/**</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7">administrator/components/com_foos/ src/Model/FooModel.php</a></h4>
 <p>Im Model eines Elementes implementieren wir die Methode, mit der die Belegung der Eigenschaft (Daten) <code class="language-text">featured</code> gespeichert und verändert wird.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FooModel.php">administrator/components/com_foos/ src/Model/FooModel.php</a></p>
@@ -806,6 +816,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk3 mtki">/**</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 	 * Preprocess the form.</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 	 *</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/com_foos/ src/Model/FoosModel.php</a></h4>
 <p>Im Model der Listenansicht erledigen wir die notwendigen Anpassungen bei der Datenbankabfrage.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Model/FoosModel.php">administrator/components/com_foos/ src/Model/FoosModel.php</a></p>
@@ -847,6 +858,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 		// Add the list ordering clause.</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 		$orderCol = $this-&gt;state-&gt;get(&#39;list.ordering&#39;, &#39;a.name&#39;);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 		$orderDirn = $this-&gt;state-&gt;get(&#39;list.direction&#39;, &#39;asc&#39;);</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e">administrator/components/com_foos/ src/Service/HTML/AdministratorService.php</a></h4>
 <p>Im <code class="language-text">AdministratorService.php</code> machen wir es möglich, die Belegung der Eigenschaft auch in der Übersichtsliste zu verändern. Ein Klick auf das Stern-Symbol schaltet den Wert um.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php">administrator/components/com_foos/ src/Service/HTML/AdministratorService.php</a></p>
@@ -900,6 +912,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">html</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></h4>
 <p>Wir ergänzen die Werkzeugleiste. <code class="language-text">featured</code> soll auch hier über eine Aktion bearbeitbar sein.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/View/Foos/HtmlView.php">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></p>
@@ -919,6 +932,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk8">$</span><span class="mtk7">childBar</span><span class="mtk8">-&gt;</span><span class="mtk7">archive</span><span class="mtk1">(</span><span class="mtk11">&#39;foos.archive&#39;</span><span class="mtk1">)</span><span class="mtk8">-&gt;</span><span class="mtk7">listCheck</span><span class="mtk1">(</span><span class="mtk5">true</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk8">$</span><span class="mtk7">user</span><span class="mtk8">-&gt;</span><span class="mtk7">authorise</span><span class="mtk1">(</span><span class="mtk11">&#39;core.admin&#39;</span><span class="mtk1">))</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b">administrator/components/com_foos/ tmpl/foo/edit.php</a></h4>
 <p>Im Formular <code class="language-text">administrator/components/com_foos/ tmpl/foo/edit.php</code> zum Anlegen oder Edieren eines Elementes fügen wir den Befehl ein, der mithilfe der XML-Datei ein Feld erstellt.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foo/edit.php">administrator/components/com_foos/ tmpl/foo/edit.php</a></p>
@@ -929,6 +943,7 @@ ausgeführt wird.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 					</span><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk8">&lt;/</span><span class="mtk4">div</span><span class="mtk8">&gt;</span></span></span></code></pre>
+<!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/com_foos/ tmpl/foos/default.php</a></h4>
 <p>In der Übersicht aller Elemente im Backend in der Datei <code class="language-text">administrator/components/com_foos/ tmpl/foos/default.php</code> fügen wir eine Spalte ein, in der der Zustand mit einem ausgefüllten oder leeren Stern angezeigt wird und per Klick geändert werden kann. Die Datei <code class="language-text">HTMLHelper</code> übernimmt die meister Arbeit für uns.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/tmpl/foos/default.php">administrator/components/com_foos/ tmpl/foos/default.php</a></p>

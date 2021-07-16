@@ -35,7 +35,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
 
 The service `components/com_foos/ src/Service/Router.php` does the actual work and converts the URLs into search engine friendly versions.
 
@@ -231,7 +232,8 @@ class Router extends RouterView
 
 ### Modified files
 
-#### [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 In the service provider we register the service.
 
@@ -274,7 +276,8 @@ use Joomla\CMS\Extension\Service\Provider\RouterFactory;
 
 `$container->registerServiceProvider(new RouterFactory('\\Joomla\\Component\\Foos'));` and `$component->setRouterFactory($container->get(RouterFactoryInterface::class));` are added.
 
-#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
 
 We implement `RouterServiceInterface` and use `RouterServiceTrait` so that these files are available.
 

@@ -27,7 +27,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [components/com_foos/ tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-cf093e47c9ffd0b7b3b78ec39042ac8f)
 
 [components/com_foos/ tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
 
@@ -55,7 +56,8 @@ echo $this->item->event->afterDisplayContent;
 
 ```
 
-#### [components/com_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-7176b16bc7f23a2478b1d0755d568b83)
 
 [components/com_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
@@ -90,7 +92,8 @@ echo $this->item->event->afterDisplayContent;
 
 ```
 
-#### [components/com_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-51b2e02f000a9a06e0fc5a6cfd9456c9)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-51b2e02f000a9a06e0fc5a6cfd9456c9)
 
 [components/com_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
@@ -123,7 +126,8 @@ echo $this->item->event->afterDisplayContent;
 
 ### Modified files
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In the form of the element we add a field to select the layout.
 
@@ -149,7 +153,8 @@ In the form of the element we add a field to select the layout.
 
 ```
 
-#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/src/Model/FooModel.php)
 
 This is what happens during development. Basically we would not have to change the file `components/com_foos/src/Model/FooModel.php`. In this chapter I noticed that a `use` entry is missing. Therefore a change is made after all.
 
@@ -165,7 +170,8 @@ This is what happens during development. Basically we would not have to change t
 
 ```
 
-#### [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
 In the case of a menu item, I find it important that it - or the content - is always displayed consistently. Therefore we query the active menu item. For example, if elements are displayed via a category view, then a uniform layout is possible. If the content is displayed as a single element, a different layout can be used.
 

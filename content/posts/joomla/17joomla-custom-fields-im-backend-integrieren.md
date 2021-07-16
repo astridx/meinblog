@@ -33,7 +33,8 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 ### Neue Dateien
 
-#### [administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
 
 In einer Hilfsdatei erstellen wir eine Sidebar - ein eigenes Untermenü - für die benutzerdefinierten Felder.
 
@@ -96,7 +97,8 @@ class FooHelper extends ContentHelper
 
 ### Geänderte Dateien
 
-#### [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e5dfd09c647ca1e552c9016cf918acf3)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
 Auch die benutzerdefinierten Felder werden mit Berechtigungen versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist. Hierfür ergänzen wir alles Notwendige in der Datei `access.xml`.
 
@@ -124,7 +126,8 @@ Auch die benutzerdefinierten Felder werden mit Berechtigungen versehen. So ist e
 
 ```
 
-#### [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
 
 Über die Konfiguration `config.xml` wird mithilfe eines Paramters festgelegt, ob die Erweiterung benutzerdefinierte Felder verwendet.
 
@@ -153,7 +156,8 @@ Auch die benutzerdefinierten Felder werden mit Berechtigungen versehen. So ist e
 
 ```
 
-#### [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-8e3d37bbd99544f976bf8fd323eb5250)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor.
 
@@ -208,7 +212,8 @@ In der `View` bereiten wir alles Notwendige für die Anzeige des Untermenüs vor
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php). `$this->useCoreUI = true;` sorgt dafür, dass der [Helper](https://github.com/joomla/joomla-cms/blob/c6332d48dab0fce0d4903f206dc979e2c2c59a12/layouts/joomla/edit/params.php#L20) flexibel die richtige Tab-Impementierung liefert.
 
@@ -273,7 +278,8 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
 
 ```
 
-#### [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In der Übersicht der Komponente im Administrationsbereich schaffen wir Platz für die `Sidebar`. Um genau zu sein: Wir fügen diese mit der CSS-Klasse `col-md-2` ein, wenn sie notwendig ist. Wir verkleinern dann den Hauptbereich, indem wir die Klasse `col-md-10` setzen. Ohne `Sidebar` nutzt der Hauptbereich die Klasse `col-md-12` und somit den vollen Bereich.
 

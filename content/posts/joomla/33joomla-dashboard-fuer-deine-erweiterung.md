@@ -27,7 +27,8 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 ### Neue Dateien
 
-#### [administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-3e57cc7bb34afac7fa0d4cb5dd66d925bee34fc4e12f58b1a59f836362889c0d)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-3e57cc7bb34afac7fa0d4cb5dd66d925bee34fc4e12f58b1a59f836362889c0d)
 
 In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
 
@@ -72,7 +73,8 @@ In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fes
 
 ### Geänderte Dateien
 
-#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrationstemplate weiß, das und wie es das Dashboard verlinkt.
 
@@ -114,7 +116,8 @@ Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrations
 
 ```
 
-#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-eigene Funktion auf die unsere Dashboard im CMS bekannt macht.
 

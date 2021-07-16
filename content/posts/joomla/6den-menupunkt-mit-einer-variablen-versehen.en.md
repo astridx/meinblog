@@ -33,7 +33,8 @@ No new file is added in this chapter. We only change.
 
 ### Modified files
 
-#### [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
 
 In the model, change the method in which text is calculated for output. Delete the following entry:
 
@@ -86,7 +87,8 @@ Combined, this looks like the following in the Diff view:
 
 So far, so good. We are still missing the possibility to configure the value for `show_text` at the menu item. We implement this next in the file `default.xml`.
 
-#### [components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
 
 You store a value using the menu item in the input element by expanding the XML file:
 

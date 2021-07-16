@@ -33,7 +33,8 @@ In diesem Kapitel kommen keine Dateien hinzu.
 
 ### Geänderte Dateien
 
-#### [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
 
 Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werden, erhält einen Eintrag für die Schlagwörter.
 
@@ -59,7 +60,8 @@ Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werd
 
 ```
 
-#### [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Im dem XML-Formular `forms/foo.xml`, welches ein Foo-Item beschreibt, ergänzen wir das Formularfeld, in dem die Informationen zum Tag enthalten sind. Da wir Joomla Standard nutzen, können wir viele vorgefertigte Funktionen Out-of-the-Box nutzen. Beispielsweise sorgt `type="tag"` dafür, dass ein Auswahlfeld mit allen verfügbaren Schlagworten angezeigt wird.
 
@@ -83,7 +85,8 @@ Im dem XML-Formular `forms/foo.xml`, welches ein Foo-Item beschreibt, ergänzen 
 
 ```
 
-#### [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als eigener Inhaltstyp erkannt wird. Joomla Typen sind beispielsweise Content, Kontakt oder Banner. Im Skript sorgen wir jetzt dafür, dass ein Eintrag in der Tabelle `Contenttype` für die Foo Komponente ergänzt wird. Dies hat zur Folge, dass Joomla `com_foo` bei speziellen Abläufen berücksichtig, beispielsweise bei der Prüfung welches Element welches Schlagwort enthält.
 
@@ -169,32 +172,33 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein und sorgen dafür, dass die zugehörigen Tags geladen werden.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
-use Joomla\CMS\Language\LanguageHelper;
+ use Joomla\CMS\Language\LanguageHelper;
  use Joomla\Database\ParameterType;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\CMS\Helper\TagsHelper;
-
+ 
  /**
   * Item Model for a Foo.
-
+... class FooModel extends AdminModel
  	protected $batch_commands = [
  		'assetgroup_id' => 'batchAccess',
  		'language_id'   => 'batchLanguage',
 +		'tag'           => 'batchTag',
  		'user_id'       => 'batchUser',
  	];
-
-
+ 
+...  public function getItem($pk = null)
  			}
  		}
-
+ 
 +		// Load item tags
 +		if (!empty($item->id)) {
 +			$item->tags = new TagsHelper;
@@ -206,25 +210,25 @@ use Joomla\CMS\Language\LanguageHelper;
 
 ```
 
-#### [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweitern wir das Model der Übersichtsliste. Wir passen dieses bezüglich der Filter und der Datenbankabfrage an.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
- 				'publish_down', 'a.publish_down',
- 			];
-
--			$assoc = Associations::isEnabled();
--
- 			if ($assoc) {
- 				$config['filter_fields'][] = 'association';
- 			}
-
+ use Joomla\CMS\Language\Associations;
+ use Joomla\CMS\Factory;
+ use Joomla\Utilities\ArrayHelper;
++use Joomla\Database\ParameterType;
+ 
+ /**
+  * Methods supporting a list of foo records.
+... protected function getListQuery()
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
-
+ 
 +		// Filter by a single or group of tags.
 +		$tag = $this->getState('filter.tag');
 +
@@ -272,9 +276,10 @@ Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweit
 
 ```
 
-#### [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-Zum Schluss kümmern wir uns um die Anzeige. In der Datenorganisation der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
+Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
 
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -291,6 +296,26 @@ Zum Schluss kümmern wir uns um die Anzeige. In der Datenorganisation der View s
 
 ```
 
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ tmpl/foos/default\_batch\_body.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-e98ef88ae6674189329a5ff2d32c3cf2784a953a494ac8a97777b600ee44a022)
+
+Damit die Stapelverarbeitung auch für die Tags nutzbar ist, fügen wir ein Formularfeld ein. Mithilfe dieses Feldes ist es möglich ein Schlagwort auszuwählen, dass allen selektierten Items zugeordnet wird.
+
+[administrator/components/com_foos/ tmpl/foos/default\_batch\_body.php](https://github.com/astridx/boilerplate/blob/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+
+```php {diff}
+ 				</div>
+ 			</div>
+ 		<?php endif; ?>
++		<div class="form-group col-md-6">
++			<div class="controls">
++				<?php echo LayoutHelper::render('joomla.html.batch.tag', []); ?>
++			</div>
++		</div>
+ 	</div>
+ </div>
+```
+
 ## Teste deine Joomla-Komponente
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
@@ -305,21 +330,36 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 4. Setze das gerade erstellte Schlagwort bei einem Foo-Element.
 
-![Ein Schlagwort in einer eigenen Joomla 4 Eweiterung](/images/j4x34x2.png)
+![Ein Schlagwort in einer eigenen Joomla 4 Erweiterung](/images/j4x34x2.png)
 
 5. Überzeuge dich davon, dass das Filtern anhand der Schlagwörter funktioniert.
 
-![Ein Schlagwort beim Filtern in der Listenansicht einer Joomla 4 Eweiterung](/images/j4x34x3.png)
+![Ein Schlagwort beim Filtern in der Listenansicht einer Joomla 4 Erweiterung](/images/j4x34x3.png)
 
 6. Erstelle einen Menüpunkt, der alle Elemente anzeigt, die einem bestimmten Schlagwort zugeordnet sind und sieh dir die Anzeige im Frontend an.
 
-![Ein Schlagwort in einer eigenen Joomla 4 Eweiterung](/images/j4x34x4.png)
+![Ein Schlagwort in einer eigenen Joomla 4 Erweiterung](/images/j4x34x4.png)
 
-![Ein Schlagwort in einer eigenen Joomla 4 Eweiterung](/images/j4x34x5.png)
+![Ein Schlagwort in einer eigenen Joomla 4 Erweiterung](/images/j4x34x5.png)
 
-> In der Anzeige siehst du lediglich veröffentlichte Elemente.
+Falls du ein Foo-Element mit einem Tag versehen hast und dich nun wunderst, dass dieses nicht angezeigt wird prüfe als erstes, ob das Foo Element veröffentlicht ist. Im Frontend werden lediglich veröffentlichte Elemente angezeigt.
 
-> Ich überlasse dir die Entscheidung, wie und wo du die Schlagworte in Frontendansichten deiner eigenen Erweiterung anzeigst.
+7. Erstelle ein neues Schlagwort und ordne es per Stapelverarbeitung mehreren Foo Items zu.
+
+![Ein Schlagwort in einer eigenen Joomla 4 Erweiterung per Stapelverarbeitung zuweisen - Stapelverarbeitung öffnen](/images/j4x34x7.png)
+
+![Ein Schlagwort in einer eigenen Joomla 4 Erweiterung per Stapelverarbeitung zuweisen - Formular absenden](/images/j4x34x6.png)
+
+8. Überlege, wie und wo du die Schlagworte in der Frontendansichten deiner eigenen Erweiterung anzeigst. `com_contact` bietet einen Parameter über den der Websitebetreiber einstellen kann. ob Tags angezeigt werden. Die Anzeige erfolgt mit Hilfe des Layouts `joomla.content.tags`.
+
+```php
+<?php if ($tparams->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+	<div class="com-contact__tags">
+		<?php $this->item->tagLayout = new FileLayout('joomla.content.tags'); ?>
+		<?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
+	</div>
+<?php endif; ?>
+```
 
 ## Links
 

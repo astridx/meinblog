@@ -27,7 +27,8 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-#### [administrator/components/com_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
 
 The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
@@ -237,7 +238,8 @@ class Icon
 
 ```
 
-#### [components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
 
 We adapt the XML file that Joomla uses to build the form.
 
@@ -396,7 +398,8 @@ We adapt the XML file that Joomla uses to build the form.
 
 ```
 
-#### [components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
 
 The file `components/com_foos/ src/Controller/FooController.php` contains the logic for processing in the form.
 
@@ -636,7 +639,8 @@ class FooController extends FormController
 
 ```
 
-#### [components/com_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
 
 The file `components/com_foos/ src/Model/FormModel.php` organises all the necessary data for processing in the form.
 
@@ -872,7 +876,8 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 
 ```
 
-#### [components/com_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
 
 The file `components/com_foos/ src/View/Form/HtmlView.php` fetches all the necessary data and passes it on to the template file `edit.php`.
 
@@ -1060,7 +1065,8 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-#### [components/com_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
 
 As a template, `components/com_foos/ tmpl/form/edit.php` ensures that the form is already displayed in the frontend.
 
@@ -1172,7 +1178,8 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 
 ```
 
-#### [components/com_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
 
 Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to create the menu item.
 
@@ -1199,7 +1206,8 @@ Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to
 
 ### Modified files
 
-#### [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
 
 In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 
@@ -1231,7 +1239,8 @@ In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`
 
 ```
 
-#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
+<!-- prettier-ignore -->
+#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
 
 We extend the template for the view: If you are allowed to edit the element `if ($canEdit)`, then you see the icon to open the form.
 
