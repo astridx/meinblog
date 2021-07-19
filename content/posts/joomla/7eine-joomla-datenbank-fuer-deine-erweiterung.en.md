@@ -1,6 +1,6 @@
 ---
 date: 2020-12-07
-title: 'Joomla 4.x Tutorial - Extension Development - A Joomla database for your extension'
+title: 'Joomla 4.x Tutorial - Extension Development - A database table for your extension'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/eine-joomla-datenbank-fuer-deine-erweiterung

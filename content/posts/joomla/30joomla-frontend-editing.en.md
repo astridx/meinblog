@@ -1,6 +1,6 @@
 ---
 date: 2020-12-30
-title: 'Joomla 4.x Tutorial - Extension Development - Frontend Edit'
+title: 'Joomla 4.x Tutorial - Extension Development - Frontend Editing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-frontend-editing

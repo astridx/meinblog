@@ -1,6 +1,6 @@
 ---
 date: 2021-01-16
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Paket - Alle Erweiterungen in einer Installationsdatei'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Package - Alle Erweiterungen in einer Installationsdatei'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-paket-alles-zusammen

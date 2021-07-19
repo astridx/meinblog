@@ -1,6 +1,6 @@
 ---
 date: 2020-12-28
-title: 'Joomla 4.x Tutorial - Extension Development - Featured or Main Entry'
+title: 'Joomla 4.x Tutorial - Extension Development - Featured'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-featured

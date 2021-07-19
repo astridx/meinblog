@@ -1,6 +1,6 @@
 ---
 date: 2020-12-27
-title: 'Joomla 4.x Tutorial - Extension Development - Help'
+title: 'Joomla 4.x Tutorial - Extension Development - Help Sites'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-hilfe

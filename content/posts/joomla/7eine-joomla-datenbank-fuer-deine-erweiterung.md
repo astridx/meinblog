@@ -1,6 +1,6 @@
 ---
 date: 2020-12-07
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Eine Joomla-Datenbank für deine Erweiterung'
+title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Eine Joomla-Datenbank-Tabelle für deine Erweiterung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: eine-joomla-datenbank-fuer-deine-erweiterung
