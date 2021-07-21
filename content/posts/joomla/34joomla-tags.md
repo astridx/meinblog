@@ -184,7 +184,7 @@ Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein 
  use Joomla\Database\ParameterType;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\CMS\Helper\TagsHelper;
- 
+
  /**
   * Item Model for a Foo.
 ... class FooModel extends AdminModel
@@ -194,11 +194,11 @@ Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein 
 +		'tag'           => 'batchTag',
  		'user_id'       => 'batchUser',
  	];
- 
+
 ...  public function getItem($pk = null)
  			}
  		}
- 
+
 +		// Load item tags
 +		if (!empty($item->id)) {
 +			$item->tags = new TagsHelper;
@@ -222,13 +222,13 @@ Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweit
  use Joomla\CMS\Factory;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\Database\ParameterType;
- 
+
  /**
   * Methods supporting a list of foo records.
 ... protected function getListQuery()
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
- 
+
 +		// Filter by a single or group of tags.
 +		$tag = $this->getState('filter.tag');
 +
@@ -301,7 +301,7 @@ Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher
 
 Damit die Stapelverarbeitung auch für die Tags nutzbar ist, fügen wir ein Formularfeld ein. Mithilfe dieses Feldes ist es möglich ein Schlagwort auszuwählen, dass allen selektierten Items zugeordnet wird.
 
-[administrator/components/com_foos/ tmpl/foos/default\_batch\_body.php](https://github.com/astridx/boilerplate/blob/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {diff}
  				</div>

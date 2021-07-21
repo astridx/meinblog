@@ -23,7 +23,7 @@ Update Server sounds complicated, basically it's just a URL to an XML file speci
 
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] and include these changes in your development version.
 
 ## Step by step
 
@@ -42,55 +42,55 @@ In the following overview, the newly added files are marked with a background an
 
 ![Overview of the files edited in this chapter](/images/tree1b.png)
 
-### Neue Dateien
+### New files
 
-Die Änderungen, die das Changelog und den Joomla Update Server betreffen, erwähne ich nur in diesem Kapitel. In jedem weiteren ist erforderlich, dass du die Nummern selbst anpasst, wenn dir dies wichtig ist. Das ist kein Hexenwerk. Wenn ich dies immer wieder neu beschrieb, langweilte dich das nicht nur - es blähte diesen Text unnötig auf.
+The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter, you are required to adjust the numbers yourself if this is important to you. This is not witchcraft. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.
 
 #### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b) (Update Server)
 
-Du hast der Komponente in der Datei [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) mitgeteilt, wo sie sich über Updates informiert.
+You have told the component where to find out about updates in the file [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml).
 
-Erstelle die Datei [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). Die Datei kann beliebig benannt werden, solange sie mit dem Namen übereinstimmt, den du in der Installations-XML [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) festgelegt hast.
+Create the file [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). The file can be named anything as long as it matches the name you specified in the installation XML [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml).
 
-Das Tag `updates` umgibt alle Update-Elemente. Erstelle jedes Mal einen weiteren Update-Abschnitt, wenn du eine neue Version veröffentlichst.
+The tag `updates` surrounds all update elements. Create another update section each time you release a new version.
 
-> Wenn deine Erweiterung andere Joomla Versionen unterstütz, erstelle für jede Version eine separate `<update>`-Definitionen.
+> If your extension supports other Joomla versions, create separate `<update>` definitions for each version.
 
-Der Wert von `name` wird in der Ansicht "Extension Manager Update" angezeigt. Wenn du denselben Namen wie die Erweiterung verwendest, vermeidst u Verwirrung:
+The value of `name` will be displayed in the Extension Manager Update view. If you use the same name as the extension, you avoid confusion:
 
-Der Wert des Tags `description` wird angezeigt, wenn du den Mauszeiger über den Namen in der Aktualisierungsansicht bewegen.
+The value of the `description` tag is displayed when you hover over the name in the Update view.
 
-Der Wert des `element`-Tags ist der installierte Name der Erweiterung. Dies sollte mit dem Wert in der Elementspalte in der Tabelle `#__extensions` in Ihrer Datenbank übereinstimmen.
+The value of the `element` tag is the installed name of the extension. This should match the value in the element column in the `#__extensions` table in your database.
 
-Der Wert des Tags `type` beschreibt, um welche Erweiterung es sich handelt, z. B. ob es sich um eine Komponente, ein Modul oder ein Plugin handelt.
+The value of the `type` tag describes what extension it is, e.g. whether it is a component, a module or a plugin.
 
-Der Wert des Tags `version` ist die Versionsnummer für diese Version. Diese Versionsnummer muss höher sein, als die aktuell installierte Version der Erweiterung, damit das verfügbare Update angezeigt wird.
+The value of the tag `version` is the version number for this version. This version number must be higher than the currently installed version of the extension in order for the available update to be displayed.
 
-Das Tag `changelogurl` ist optional und ermöglicht es, einen Link anzuzeigen, der über die Änderungen in dieser Version informiert. Diese Datei ist ebenfalls Thema dieses Kapitels.
+The tag `changelogurl` is optional and allows to display a link informing about the changes in this version. This file is also the subject of this chapter.
 
-Das Tag `infourl` ist optional und ermöglicht es dir, einen Link anzuzeigen, der über das Update oder einen Versionshinweis informiert.
+The tag `infourl` is optional and allows you to display a link that informs about the update or a version note.
 
-Das Tag `downloads` zeigt alle verfügbaren Download-Speicherorte für ein Update an.
-Der Wert des Tags `downloadurl` ist die URL zum Herunterladen der Erweiterung. Diese Datei kann sich an einer beliebigen Stelle befinden.
-Das Attribut `type` beschreibt, ob es sich um ein vollständiges Paket oder ein Update handelt, und das Format.
-Und das Attribut `format` definiert den Pakettyp wie `zip` or `tar`.
+The tag `downloads` shows all available download locations for an update.
+The value of the tag `downloadurl` is the URL to download the extension. This file can be located anywhere.
+The attribute `type` describes whether it is a full package or an update, and the format.
+And the attribute `format` defines the package type like `zip` or `tar`.
 
-The Tags `maintainer` und `maintainerurl` sind selbsterklärend.
+The tags `maintainer` and `maintainerurl` are self-explanatory.
 
-Das Tag `targetplatform` beschreibt die Joomla Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte immer auf "joomla" gesetzt werden: `<targetplatform name="joomla" version="4.*"/>`.
+The tag `targetplatform` describes the Joomla version for which this update is intended. The value of the attribute `name` should always be set to "joomla": `<targetplatform name="joomla" version="4.*"/>`.
 
-> Wenn du dein Update für eine bestimmte Joomla Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
+> If you create your update for a specific Joomla version you can use `min_dev_level` and `max_dev_level`.
 
-Manchmal möchtest du, dass dein Update für eine Mindest-PHP-Version verfügbar ist. Ereldig dies mit dem Tag `php_minimum`.
+Sometimes you want your update to be available for a minimum PHP version. Do this with the tag `php_minimum`.
 
-Schließe am Ende alle Tags `</update></updates>`
+At the end, close all tags `</update></updates>`.
 
-> Für Plugins füge ein Tag mit dem Namen `folder` und ein Tag mit dem Namen `client` hinzu. Diese Tags werden nur für Plugins benötigt.
+> For plugins, add a tag called `folder` and a tag called `client`. These tags are only needed for plugins.
 
-Das Tag `folder` beschreibt den Typ des Plugins. Abhängig von Ihrem Plugin-Typ kann dies `system`, `content`, `search` usw. sein.
-Der Wert des `client` -Tags beschreibt die client_id in der Tabelle #\_\_extension, die Joomla Wenn dies ein Site- (0) oder ein Administrator- (1) Erweiterungstyp ist. Plugins sind immer 0, Komponenten sind immer 1; Module können jedoch variieren, je nachdem, ob es sich um ein Front-End- oder ein Back-End-Modul handelt.
+The tag `folder` describes the type of plugin. Depending on your plugin type, this can be `system`, `content`, `search`, etc.
+The value of the `client` tag describes the client_id in the table #\_\_extension, the Joomla If this is a site (0) or an administrator (1) extension type. Plugins are always 0, components are always 1; however, modules can vary depending on whether it is a front-end or back-end module.
 
-Nachfolgend siehst du die vollständige Datei.
+Below you can see the complete file.
 
 [foo_update.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml)
 
@@ -118,11 +118,11 @@ Nachfolgend siehst du die vollständige Datei.
 
 ```
 
-> Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung in diesem [PR](https://github.com/joomla/joomla-cms/pull/30076) an, wenn du nicht weißt wie du dies umsetzt. Under Ubuntu Linux it is possible to calculate the checksum via the console with `sha256sum -b myfile.zip` or `sha284sum -b myfile.zip`.
+> Do you like to use a checksum? See the test description in this [PR](https://github.com/joomla/joomla-cms/pull/30076) if you don't know how to do this. Under Ubuntu Linux it is possible to calculate the checksum via the console with `sha256sum -b myfile.zip` or `sha284sum -b myfile.zip`.
 
 #### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 
-Informationen zum Changelog findest du unter in Github [Github](https://github.com/joomla/joomla-cms/pull/24026) und der [Dokumentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file).
+Information on the changelog can be found on Github [Github](https://github.com/joomla/joomla-cms/pull/24026) and the [documentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file).
 
 [changelog.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml)
 
@@ -173,7 +173,7 @@ Informationen zum Changelog findest du unter in Github [Github](https://github.c
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im Weiteren nicht explizit.
+Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
@@ -189,35 +189,35 @@ Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in jedem neuen
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. install your component in Joomla version 4 to test it:
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.
+A new installation is not necessary. Continue using the files from part 1.
 
-2. Als Nächstes erstellst du eine weitere Version der Beispiel-Erweiterung. Ändere dazu die Versionsnummer im Manifest. Vorher ist es nicht möglich, den Update Server zu testen. Denn, es gibt bisher keine Aktualisierung. Ich erwähne dies hier trotzdem, was genau nach dem Erstellen der nächsten Versionen passiert.
+2. Next, create another version of the example extension. To do this, change the version number in the manifest. Before that, it is not possible to test the update server. Because, there is no update yet. I mention this here anyway, what exactly happens after the creation of the next versions. 3.
 
-3. Wenn alles funktioniert siehst du nach der Installation diese Anzeigen vor dir, wenn du links das Menü `System` anklickst und dann rechts `Extension` im Bereich `Updates` auswählst. Das Bild hzeigt den Stand, nachdem die Version 23.0.0 veröffentlicht wurde.
+3. if everything works, you will see these displays in front of you after the installation, if you click on the menu 'System' on the left and then select 'Extension' in the section 'Updates' on the right. The image shows the status after version 23.0.0 was released.
 
 ![Joomla Update Server](/images/j4x2x1.png)
 
-4. Öffne also `System | Update | Extension`. Hier wird dir die Aktualisierung für deine Komponente angeboten. Falls dies nicht der Fall ist, klicke auf die Schaltfläche `Find Updates`.
+4. so open 'System | Update | Extension'. Here you will be offered the update for your component. If this is not the case, click on the button 'Find Updates'.
 
-5. Beim ersten Öffnen siehst du den Hinweis `The Download Key` is missing, weil du das Element `dlid` im Manifest eingetragen hast.
+5. When you open it for the first time you will see the message 'The Download Key is missing' because you have entered the element 'dlid' in the manifest.
 
-6. Füge einen Download Key über `System | Update Sites` hinzu. Klicke hierzu auf den Namen deiner Komponente. Dann siehst du das Textfeld, in das du einen beliebigen Wert einträgst. Zum jetzigen Zeitpunkt wird dieser beim Abruf des Updates nicht geprüft. Speichere den Wert.
+6. Add a download key via `System | Update Sites`. Click on the name of your component. Then you will see the text field in which you can enter any value. At the moment, this value is not checked when the update is retrieved. Save the value.
 
 ![Joomla Update Sites](/images/j4x2x2.png)
 
 ![Joomla Update Sites](/images/j4x2x2_2.png)
 
-5. Wenn du zurück zu `System | Update | Extension` navigierst, ist es dir möglich, eine Aktualisierung anzustoßen oder dir das Changelog anzusehen.
+7. if you navigate back to 'System | Update | Extension', you will be able to initiate an update or view the changelog.
 
-> Die Aktualisierung war vorher nicht möglich, weil der `Download Key` nicht konfiguriert war.
+> The update was not possible before because the 'Download Key' was not configured.
 
-> Klicke die Schaltfläche `Find Updates` in der Werkzeugleiste, falls das Update nicht mehr angezeigt wird.
+> Click the 'Find Updates' button in the toolbar if the update is no longer displayed.
 
 ![Joomla Update Server](/images/j4x2x3.png)

@@ -12,7 +12,7 @@ tags:
   - Joomla
 ---
 
-Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt<!-- \index{Menüpunkt} --> im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen Text. Du hast eine Grundlage für die weiteren Schritte.
+Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen statischen Text. Du hast eine Grundlage für die weiteren Schritte.
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
@@ -103,7 +103,7 @@ Kommen wir zum _dlid_-tag `<dlid prefix="dlid=" suffix="" />`. Du benötigst die
 
 Wir schließen zuletzt das `</extension>`-Tag.
 
-Zusätzlich zur XML-Installationsdatei sind weitere Dateien notwendig, um eine Komponente zu erstellen. Hier aber erst einmal der vollständige Code:
+Hier der vollständige Code:
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
 

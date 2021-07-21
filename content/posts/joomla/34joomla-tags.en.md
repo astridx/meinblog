@@ -186,7 +186,7 @@ In the model of the element, we insert the tags into the batch processing batch 
  use Joomla\Database\ParameterType;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\CMS\Helper\TagsHelper;
- 
+
  /**
   * Item Model for a Foo.
 ... class FooModel extends AdminModel
@@ -196,11 +196,11 @@ In the model of the element, we insert the tags into the batch processing batch 
 +		'tag'           => 'batchTag',
  		'user_id'       => 'batchUser',
  	];
- 
+
 ...  public function getItem($pk = null)
  			}
  		}
- 
+
 +		// Load item tags
 +		if (!empty($item->id)) {
 +			$item->tags = new TagsHelper;
@@ -224,13 +224,13 @@ We change the model of the overview list of our extension in the backend regardi
  use Joomla\CMS\Factory;
  use Joomla\Utilities\ArrayHelper;
 +use Joomla\Database\ParameterType;
- 
+
  /**
   * Methods supporting a list of foo records.
 ... protected function getListQuery()
  			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
  		}
- 
+
 +		// Filter by a single or group of tags.
 +		$tag = $this->getState('filter.tag');
 +
@@ -343,7 +343,7 @@ A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.pn
 
 ![A keyword in a custom Joomla 4 extension in a frontend view](/images/j4x34x5.png)
 
-If you have tagged a Foo element and are now surprised that it is not displayed, first check whether the Foo element is published. Only published elements are displayed in the frontend. 
+If you have tagged a Foo element and are now surprised that it is not displayed, first check whether the Foo element is published. Only published elements are displayed in the frontend.
 
 7. Create a new tag and assign it to several Foo items by batch processing.
 

@@ -164,7 +164,7 @@ class HtmlView extends BaseHtmlView
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f) - Template
 
-In dieser Datei ist der Text, den wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
+In this file is the text that we display. Everything I wrote in the chapter on the _The First View in the Backend_ applies here analogously.
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php)
 
@@ -190,7 +190,7 @@ Hello Foos
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578) - XML-Datei (Manifest)
 
-Dies ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Deshalb tragen wie die beiden neuen Dateien hier ein, so weiß Joomla bei einer Installatin, dass es die Verzeichnisse `src` und `tmpl` gibt und wo `components/com_foos` es sie hin kopieren soll.
+This is the file that tells Joomla how to install our component. That is why we enter the two new files here, so that Joomla knows when it installs that the directories `src` and `tmpl` exist and where `components/com_foos` it should copy them to.
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml)
 
@@ -209,21 +209,21 @@ Dies ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird.
 
 ```
 
-#### Die Behelfsdatei - components/com_foos/index.html
+#### The file - components/com_foos/index.html
 
-Diese Datei war nur ein Behelf und sie kann nun gelöscht werden.
+This file was only a workaround and it can now be deleted.
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere am Ende deine Komponente in Joomla Version 4, um sie zu testen:
+1. at the end, install your component in Joomla version 4 to test it:
 
-Führe eine neue Installation durch. Dies ist erforderlich, da die neuen Dateien im Frontend sonst nicht erkannt werden. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
+Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. To do this, uninstall your previous installation and copy all files again.
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
+Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
+Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla richtet bei der bei der Installation Namespaces für dich ein.
+Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation. 2.
 
-2. Öffne dann in einem Browser die Adresse `JOOMLA4/index.php?option=com_foos&view=foo`. Du siehst die eben erstelle Frontend-Ansicht.
+Then open the address 'JOOMLA4/index.php?option=com_foos&view=foo' in a browser. You will see the frontend view you just created.
 
-![Joomla Ansicht im Frontend](/images/j4x3x1.png)
+![Joomla View in Frontend](/images/j4x3x1.png)
