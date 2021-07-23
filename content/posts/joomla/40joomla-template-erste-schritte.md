@@ -305,7 +305,7 @@ Kopiere die Dateien des `templates` Ordners in den `templates` Ordner deiner Joo
 
 ![Joomla Template erstellen - Die Installation](/images/j4x40x2.png)
 
-3. Teste als Nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
+3. Teste als nächstes, ob das Template fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile.
 
 ![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
 

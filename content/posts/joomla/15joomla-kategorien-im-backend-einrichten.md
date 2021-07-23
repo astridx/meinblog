@@ -444,7 +444,7 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 ![Joomla Kategorie Menüpunkt](/images/j4x15x1.png)
 
-4. Öffne als Nächstes ein Element. Überzeuge dich davon, dass es möglich ist, diesem eine Kategorie zuzuordnen.
+4. Öffne als nächstes ein Element. Überzeuge dich davon, dass es möglich ist, diesem eine Kategorie zuzuordnen.
 
 ![Joomla Kategorie zuordnen](/images/j4x15x2.png)
 

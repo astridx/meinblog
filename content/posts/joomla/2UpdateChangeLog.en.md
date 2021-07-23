@@ -15,11 +15,9 @@ tags:
 
 You will continue to develop your component. How do you make sure that users always use the latest version? How do they know about an update? Now that the basic framework of the extension is ready, it's important that your users know about enhancements.
 
-In this chapter I will explain how to create and run an update server for your component. If you want to continue working on the features first, I fully understand. **Then just skip this unit.**
+In this chapter I will explain how to create and run an update server for your component. If you want to continue working on the features first, I fully understand. Then just skip this section and come back when you publish your extension.
 
-Update Server sounds complicated, basically it's just a URL to an XML file specified in the XML installation file. This XML contains a number of details, including the new version and the download URL. When Joomla finds an update, this is displayed in the administration area.
-
-![Joomla Update Server](/images/j4x2x3.png)
+Update Server sounds complicated, it's basically just a URL to an XML file. This URL is inserted in the extension's installation manifest. The XML file contains a number of details, including the new version number and the download URL to the installation file. When Joomla finds an update for an installed extension, this is displayed in the administration area.
 
 ## For impatient people
 
@@ -30,12 +28,10 @@ Look at the changed program code in the [diff view](https://github.com/astridx/b
 In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file `src/administrator/components/com_foos/foos.xml`.
 
 ```xml
-...
-	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
-	<updateservers>
-		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
-	</updateservers>
-...
+<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+<updateservers>
+	<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+</updateservers>
 ```
 
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
@@ -44,11 +40,11 @@ In the following overview, the newly added files are marked with a background an
 
 ### New files
 
-The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter, you are required to adjust the numbers yourself if this is important to you. This is not witchcraft. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.
+> The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter you can update the numbers yourself if this is important to you. This is not witchcraft. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.
 
 #### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b) (Update Server)
 
-You have told the component where to find out about updates in the file [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml).
+You have told your component in the file [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) where to find out about updates. That is in the file `foo_update.xml`.
 
 Create the file [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). The file can be named anything as long as it matches the name you specified in the installation XML [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml).
 
@@ -87,12 +83,12 @@ At the end, close all tags `</update></updates>`.
 
 > For plugins, add a tag called `folder` and a tag called `client`. These tags are only needed for plugins.
 
-The tag `folder` describes the type of plugin. Depending on your plugin type, this can be `system`, `content`, `search`, etc.
-The value of the `client` tag describes the client_id in the table #\_\_extension, the Joomla If this is a site (0) or an administrator (1) extension type. Plugins are always 0, components are always 1; however, modules can vary depending on whether it is a front-end or back-end module.
+The tag `folder` describes the type of plugin. Depending on the plugin type, this can be `system`, `content` or `search`, for example.
+The value of the `client` tag describes the `client_id` in the database table `#__extensions`. The value for plugins is always `0`, components are always `1`. Modules and Templates, however, may vary depending on whether it is a frontend `0` or a backend `1` module.
 
 Below you can see the complete file.
 
-[foo_update.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/foo_update.xml)
+[foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1b/foo_update.xml
@@ -122,9 +118,9 @@ Below you can see the complete file.
 
 #### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)
 
-Information on the changelog can be found on Github [Github](https://github.com/joomla/joomla-cms/pull/24026) and the [documentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file).
+Information on the changelog can be found on Github [in PR github.com/joomla/joomla-cms/pull/24026](https://github.com/joomla/joomla-cms/pull/24026) and the [Joomla documentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file/en)[^docs.joomla.org/adding_changelog_to_your_manifest_file/en]. Below you can see an example file.
 
-[changelog.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/changelog.xml)
+[changelog.xml](https://github.com/astridx/boilerplate/blob/t1b/changelog.xml)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1b/changelog.xml
@@ -168,6 +164,8 @@ Information on the changelog can be found on Github [Github](https://github.com/
 
 ```
 
+> You don't know what `<![CDATA[ ... ]]>` is? `CDATA` sections are used in XML when HTML code is included. This eliminates the use of the predefined entities such as `&lt;` and `&amp;`[^en.wikipedia.org/wiki/cdata].
+
 ### Modified files
 
 <!-- prettier-ignore -->
@@ -200,13 +198,13 @@ A new installation is not necessary. Continue using the files from part 1.
 
 2. Next, create another version of the example extension. To do this, change the version number in the manifest. Before that, it is not possible to test the update server. Because, there is no update yet. I mention this here anyway, what exactly happens after the creation of the next versions. 3.
 
-3. if everything works, you will see these displays in front of you after the installation, if you click on the menu 'System' on the left and then select 'Extension' in the section 'Updates' on the right. The image shows the status after version 23.0.0 was released.
+3. if everything works, you will see these displays in front of you after the installation, if you click on the menu `System` on the left and then select `Extension` in the section `Updates` on the right. The image shows the status after version 23.0.0 was released.
 
 ![Joomla Update Server](/images/j4x2x1.png)
 
-4. so open 'System | Update | Extension'. Here you will be offered the update for your component. If this is not the case, click on the button 'Find Updates'.
+4. so open `System | Update | Extension`. Here you will be offered the update for your component. If this is not the case, click on the button `Find Updates`.
 
-5. When you open it for the first time you will see the message 'The Download Key is missing' because you have entered the element 'dlid' in the manifest.
+5. When you open it for the first time you will see the message `The Download Key is missing` because you have entered the element `dlid` in the manifest.
 
 6. Add a download key via `System | Update Sites`. Click on the name of your component. Then you will see the text field in which you can enter any value. At the moment, this value is not checked when the update is retrieved. Save the value.
 
@@ -214,10 +212,14 @@ A new installation is not necessary. Continue using the files from part 1.
 
 ![Joomla Update Sites](/images/j4x2x2_2.png)
 
-7. if you navigate back to 'System | Update | Extension', you will be able to initiate an update or view the changelog.
+7. if you navigate back to `System | Update | Extension`, you will be able to initiate an update or view the changelog.
 
-> The update was not possible before because the 'Download Key' was not configured.
+> The update was not possible before because the `Download Key` was not configured.
 
-> Click the 'Find Updates' button in the toolbar if the update is no longer displayed.
+> Click the `Find Updates` button in the toolbar if the update is no longer displayed.
 
 ![Joomla Update Server](/images/j4x2x3.png)
+
+## Links
+
+[Deploying an Update Server](https://docs.joomla.org/Deploying_an_Update_Server/de)[^docs.joomla.org/deploying_an_update_server/en]

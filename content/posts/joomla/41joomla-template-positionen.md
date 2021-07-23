@@ -241,7 +241,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Template erstellen - Ansicht in Cassiopeia](/images/j4x41x4.png)
 
-5. Teste als Nächstes, ob unser Template Facile fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile und rufe wieder die URL `joomla-cms4/index.php` auf. Deine Ansicht sollte wie im folgenden Bild sein.
+5. Teste als nächstes, ob unser Template Facile fehlerfrei arbeitet. Aktiviere dazu den Template Style Facile und rufe wieder die URL `joomla-cms4/index.php` auf. Deine Ansicht sollte wie im folgenden Bild sein.
 
 ![Joomla Template erstellen - Ansicht Facil ungestyled](/images/j4x41x3.png)
 

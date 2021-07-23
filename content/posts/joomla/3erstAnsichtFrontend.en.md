@@ -224,6 +224,6 @@ Copy the files in the `components` folder into the `components` folder of your J
 
 Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation. 2.
 
-Then open the address 'JOOMLA4/index.php?option=com_foos&view=foo' in a browser. You will see the frontend view you just created.
+Then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
 
 ![Joomla View in Frontend](/images/j4x3x1.png)

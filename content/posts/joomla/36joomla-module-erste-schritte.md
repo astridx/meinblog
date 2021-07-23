@@ -164,7 +164,7 @@ Kopiere die Dateien im `modules` Ordner in den `modules` Ordner deiner Joomla 4 
 
 2. Installiere dein Modul wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Öffne dazu das Menü `System | Install | Discover`. Hier siehst du einen Eintrag zu dem eben kopierten Modul. Wähle diesen aus und klicke auf die Schaltfläche `Install`.
 
-3. Teste als Nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü `Content | Site Modules` und klicke in der Werkzeugleiste `New`.
+3. Teste als nächstes, ob dein Modul fehlerfrei arbeitet. Öffne das Menü `Content | Site Modules` und klicke in der Werkzeugleiste `New`.
 
 ![Joomla Modul testen](/images/j4x36x1.png)
 

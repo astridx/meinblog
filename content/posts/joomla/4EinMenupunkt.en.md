@@ -67,7 +67,7 @@ Copy the files in the `components` folder to the `components` folder of your Joo
 
 A new installation is not necessary. Continue using the ones from the previous part.
 
-2. open the menu manager to create a menu item. To do this, click on 'Menu' in the left sidebar and then on 'All Menu Items'.
+2. open the menu manager to create a menu item. To do this, click on `Menu` in the left sidebar and then on `All Menu Items`.
 
 ![Joomla Create a Menu Item](/images/j4x4x1.png)
 

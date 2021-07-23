@@ -567,7 +567,7 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne als Nächstes die Ansicht im Administrationsbereich für deine Komponente. Sind die drei Einträge mit Links versehen? Siehst du eine Schaltfläche zum Anlegen eines neuen Items?
+2. Öffne als nächstes die Ansicht im Administrationsbereich für deine Komponente. Sind die drei Einträge mit Links versehen? Siehst du eine Schaltfläche zum Anlegen eines neuen Items?
 
 ![Joomla Componente im Backend bearbeiten](/images/j4x8x1.png)
 

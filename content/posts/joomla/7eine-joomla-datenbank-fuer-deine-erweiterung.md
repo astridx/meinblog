@@ -76,7 +76,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Als Nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Name der Datenbanktabelle und der Spalte.
+Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Name der Datenbanktabelle und der Spalte.
 
 > Falls bisher nicht geschehen, wird dir hier klar, warum die Trennung von Model und View sinnvoll ist. Sieh dir einmal die Methode `getListQuery()` in Joomla-Komponenten an, zum Beispiel in `com_content`. Das SQL-Statement ist meist umfangreich. Deshalb ist es übersichtlicher, dies vom gestalterischen Teil abzukapseln.
 
@@ -293,7 +293,7 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla legt bei der Installation die Datenbank an.
 
-2. Teste als Nächstes, ob du die Ansicht deiner Komponente im Administrationsbereich fehlerfrei ist. Siehst du drei Einträge? Diese hatten wir beim Einrichten der Datenbank als Beispieldaten in der SQL-Datei eingetragen.
+2. Teste als nächstes, ob du die Ansicht deiner Komponente im Administrationsbereich fehlerfrei ist. Siehst du drei Einträge? Diese hatten wir beim Einrichten der Datenbank als Beispieldaten in der SQL-Datei eingetragen.
 
 ![Joomla Componente mit Datenbank](/images/j4x7x1.png)
 
