@@ -335,7 +335,7 @@ Copy the files in the `administrator` folder into the `administrator` folder of 
 
 5. convince yourself that filtering by keywords works.
 
-A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.png)
+![A keyword filtering in the list view of a Joomla 4 extension](/images/j4x34x3.png)
 
 6. create a menu item that shows all elements that are assigned to a certain keyword and see the display in the frontend.
 

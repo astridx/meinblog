@@ -15,15 +15,13 @@ tags:
 
 In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
-
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...3] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
+In der nachfolgenden Übersicht ist die neu hinzugekommene Datei hervorgehoben.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree3.png)
 
@@ -52,12 +50,10 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 
 ```
 
-> [CDATA](https://de.wikipedia.org/w/index.php?title=CDATA&oldid=189251190) (engl. Character Data) ist ein Schlüsselwort in XML. Mit CDATA werden Zeichendaten gekennzeichnet, deren Inhalt vom Parser nicht analysiert wird. Der CDATA-Abschnitt kann auch Markup-Zeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert.
+> Im Kapitel zum Update Server hatte ich es schon erwähnt: Der [Begriff CDATA](https://de.wikipedia.org/wiki/cdata)[^de.wikipedia.org/wiki/cdata] wird in der Auszeichnungssprache XML für verschiedene Zwecke verwendet. Er zeigt an, dass es sich bei einem bestimmten Teil des Dokuments um allgemeine Zeichen handelt und nicht um Programmcode mit einer spezifischeren, begrenzten Struktur. Der CDATA-Abschnitt kann Auszeichnungszeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert. Die Verwendung von Entitäten wie `&lt;` und `&amp;` ist nicht notwendig.
 
-Das `title`-Attribut im `layout`-Tag hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
-Der Text im `message`-Tag wird als Beschreibung angezeigt.
-
-> Der Sprachstring bleibt nicht so wie er ist. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
+Das `title`-Attribut im `layout`-Tag wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
+Der Text im `message`-Tag wird als Beschreibung angezeigt. Der Sprachstring bleibt nicht so wie er ist. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.
 
 ## Teste deine Joomla-Komponente
 
@@ -69,18 +65,18 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x1.png)
+![Joomla - Einen Menüpunkt im Backend anlegen](/images/j4x4x1.png)
 
 Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x2.png)
+![Joomla - Den Typ des Menüpunkt im Backend auswählen](/images/j4x4x2.png)
 
 3. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x3.png)
+![Joomla - Einen Menüpunkt im Backend speichern](/images/j4x4x3.png)
 
 4. Speichere den Menüpunkt.
 
 5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist und funktioniert.
 
-![Joomla Einen Menüpunkt erstellen](/images/j4x4x4.png)
+![Joomla - Die Ansicht des Menüpunkt im Frontend](/images/j4x4x4.png)

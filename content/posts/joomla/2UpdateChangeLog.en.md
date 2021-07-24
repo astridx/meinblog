@@ -164,7 +164,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 
 ```
 
-> You don't know what `<![CDATA[ ... ]]>` is? `CDATA` sections are used in XML when HTML code is included. This eliminates the use of the predefined entities such as `&lt;` and `&amp;`[^en.wikipedia.org/wiki/cdata].
+> You don't know what `<![CDATA[ ... ]]>` means? The [term CDATA](https://en.wikipedia.org/wiki/cdata)[^en.wikipedia.org/wiki/cdata] is used in the XML markup language for various purposes. It indicates that a given part of the document is general characters rather than program code with a more specific, limited structure. The CDATA section may contain markup characters (`<`, `>` and `&`). These are not interpreted further by the parser. The use of entities such as `&lt;` and `&amp;` is not necessary.
 
 ### Modified files
 

@@ -15,8 +15,6 @@ tags:
 
 We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.
 
-![Joomla Componente Menüpunkt für das Frontend](/images/j4x9x1.png)
-
 ## For impatient people
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and incorporate these changes into your development version.
@@ -32,7 +30,7 @@ In the following overview, the newly added files are marked with a background an
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
 
-First, we create the form field through which it is possible to select or deselect a Foo element.
+First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods `getInput` and `getLabel` and we set the type to `Modal_Foo`. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.
 
 > It is possible to extend the field so that a Foo element is created via a button. I have left this out here for the sake of simplicity. Sample code is provided by the component `com_contact` in the file `administrator/components/com_contact/ src/Field/Modal/ContactField.php`.
 
@@ -229,14 +227,12 @@ class FooField extends FormField
 
 ```
 
-> The programme code for the form field is adapted to [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/). This framework was integrated into Joomla in the pull request [github.com/joomla/joomla-cms/pull/32037](https://github.com/joomla/joomla-cms/pull/32037).
+> The programme code for the form field is adapted to [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)[^getbootstrap.com]. This framework was integrated into Joomla in the [pull request 32037](https://github.com/joomla/joomla-cms/pull/32037)[^github.com/joomla/joomla-cms/pull/32037].
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
-We open the selection in a modal window. The following code shows you the template for this.
-
-> A [Modal](https://en.wikipedia.org/wiki/Dialog_box)[^en.wikipedia.org/wiki/dialog_box] is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.
+We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
@@ -322,11 +318,15 @@ $onclick   = $this->escape($function);
 
 ```
 
+> A [Modal](https://en.wikipedia.org/wiki/Dialog_box)[^en.wikipedia.org/wiki/dialog_box] is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.
+
 #### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
 
-We use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets). This time we add our own webasset. If you don't include it correctly, you will get the following error when you select a foo item for the menu item: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+We use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets). This time we add our own webasset using the file `joomla.asset.json`. If you don't include it correctly, you will get the following error when you select a foo item for the menu item: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`. Reason: In the modal, the line `$wa->useScript('com_foos.admin-foos-modal');` calls the script `com_foos.admin-foos-modal`, which, however, was not registered correctly before. Therefore it is not found.
 
 > Because of the newly added file `joomla.asset.json` it is necessary that we reinstall the extension. We have used other files so far without a new installation in Joomla. This does not work with the file `joomla.asset.json`. This file has to be registered once during an installation. Furthermore, changes can be made in it. These are recognised without a new installation.
+
+> It is not mandatory to create the file `joomla.asset.json` if you want to use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de)[^docs.joomla.org/j4.x:web_assets]. In the documentation you will find possibilities to register webassets in the code afterwards.
 
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
@@ -354,6 +354,8 @@ We use the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets). This time
 ```
 
 > What does the attribute `"defer": true` mean? Scripts are loaded with `async` - asynchronous/parallel to other resources. `defer` promises the browser that the web page will not be changed by instructions. More information [at Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).
+
+> The Joomla Web Assets Manager manages all assets in a Joomla installation. It is not mandatory to include script files or stylesheets via this manager. However, it does have advantages. If dependencies are set correctly, no conflicts occur and necessary files are loaded by Joomla. For example, we have set a dependency in the line `"dependencies": ["core"],`.
 
 #### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 
@@ -401,8 +403,6 @@ The following is the JavaScript code that causes a foo element to be selectable 
 
 We have created a new JavaScript file. We place it in the `media\js` directory. So that it is copied when the component is installed, we add the `js` folder in the section `media` of the installation manifest.
 
-> Read in the preface why you choose the `media` directory ideally for assets like JavaScript files or stylesheets.
-
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
@@ -418,6 +418,8 @@ We have created a new JavaScript file. We place it in the `media\js` directory. 
  		<!-- Menu entries -->
 
 ```
+
+> Read in the preface why you choose the `media` directory ideally for assets like JavaScript files or stylesheets.
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029)

@@ -15,9 +15,7 @@ tags:
 
 Your goal was to make your extension multilingual! That's why you didn't enter the texts directly into the program code. Specifically, I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are uncomplicated exchangeable. So far you have seen cryptic texts because of that. In this part we translate the unattractive language strings.
 
-![Joomla language files are used](/images/j4x10x1.png)
-
-> Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header
+> Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts via language override[^docs.joomla.org/j3.x:language_overrides_in_joomla] without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header.
 
 ## For impatient people
 
@@ -29,15 +27,15 @@ In the following overview, the newly added files are marked with a background an
 
 ![Overview of the files edited in this chapter](/images/tree8.png)
 
-The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - `*.sys.ini` and `*.ini`. Briefly explained: The file with the extension `sys.ini` is used to translate the XML installation file as well as the menu elements. The `ini` is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6) which has a section on [the file `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini).
+The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - `*.sys.ini` and `*.ini`. Briefly explained: The file with the extension `sys.ini` is used to translate the XML installation file as well as the menu elements. The `ini` is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6) which has a section on [the file `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini)[^docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini].
 
-> The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English.
+> The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English. Note: This only applies to missing language files. A missing language key in a non-English language file will not be replaced with the key from the English file.
 
 ### Side Note: Special features
 
-> Would you like to see exactly how the ini file is parsed? At [php.net](https://www.php.net/manual/en/function.parse-ini-file.php) you will find the description of the function that does this work.
+> Would you like to see exactly how the ini file is parsed? At [php.net](https://www.php.net/manual/en/function.parse-ini-file.php)[^php.net/manual/en/function.parse-ini-file.php] you will find the description of the function that does this work.
 
-#### Commenting out
+#### Commenting
 
 You can mark a line as a comment using a semicolon `;`.
 
@@ -51,7 +49,7 @@ Note : All ini files need to be saved as UTF-8
 
 #### Escaping
 
-There are characters that have a special meaning - for example, the prefix characters. This meaning can be removed with a backslash ``.
+There are characters that have a special meaning - for example, the inverted commas `"` that mark the beginning and end of the translation. This meaning can be cancelled with a backslash `\`.
 
 ```
 ...
@@ -81,7 +79,7 @@ Text::sprintf('COM_CONTACT_CHECKED_OUT_BY', $checkoutUser->name)
 
 The value of `$checkoutUser->name` is inserted instead of the first variable in the language string. Here in the example instead of `%s`.
 
-> Unfortunately, you cannot determine which variable `$checkoutUser->name` belongs to which language string `%s`. The values are assigned in order.
+> Unfortunately, you cannot determine which variable `$checkoutUser->name` belongs to which language string `%s`. The values are assigned in order, if there are several variables.
 
 #### singular/singular
 
@@ -97,7 +95,7 @@ $message = Text::plural('COM_FOOS_N_ITEMS_FEATURED', count($ids));
 
 as an example.
 
-Depending on whether `count($ids)` has the value `1` or `2` the language string `COM_FOOS_N_ITEMS_FEATURED_1` or `COM_FOOS_N_ITEMS_FEATURED_2` is used. If `count($ids)` has neither `1` nor `2`, `COM_FOOS_N_ITEMS_FEATURED` is used as the fallback position.
+Depending on whether `count($ids)` has the value `1` or `2` the language string `COM_FOOS_N_ ITEMS_FEATURED_1` or `COM_FOOS_N_ ITEMS_FEATURED_2` is used. If `count($ids)` has neither `1` nor `2`, `COM_FOOS_N_ ITEMS_FEATURED` is used as the fallback position.
 
 ```
 ...
@@ -109,11 +107,9 @@ COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
 
 ### New files
 
-Create the following six files to support the German language in addition to English.
+Create six files to support the German language in addition to English. Each file is structured as follows: One language string is inserted per line. The left side of the equal sign in the language string, for example `COM_FOOS_ CONFIGURATION"` in `COM_FOOS_ CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.
 
-The left side of the equal sign in the language string, for example `COM_FOOS_CONFIGURATION"` in `COM_FOOS_CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.
-
-The right side of the language string, for example `Foo Options"` in `COM_FOOS_CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
+The right side of the language string, for example `Foo Options"` in `COM_FOOS_ CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
@@ -148,16 +144,14 @@ COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
 
 ##### Naming conventions
 
-Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639) and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166): The first two lower case letters name the language. For German this is `de` and `en` for English.
+Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/ISO_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/ISO_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English.
 
-After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A frolder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
+After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
-As mentioned before, you need two language files: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `sys.ini` for everything else.
-
-> The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.
+As mentioned before, you need two language files for the backend: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `ini` for everything else.
 
 [administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 

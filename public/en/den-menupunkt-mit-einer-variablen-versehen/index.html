@@ -34,42 +34,10 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/den-menupunkt-mit-einer-variablen-versehen/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Extend the Menu Item with a Variable</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/6den-menupunkt-mit-einer-variablen-versehen.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>06.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Sometimes you need to customize the frontend output for a menu item. For this you need a variable. In this part of the tutorial we will add a text variable to the menu item and use it for the display in the frontend.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1f3af051301c461beb026999bdf1bef0/191e2/j4x6x1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABlUlEQVQoz4WSW04VQRCGZ3VeHhQir+qDQtiCkgDR9bgNF+AGhEAiZA5n+lp9n/mt6sFjwAQ7+VLd1T1//9U1w/7ROfYOz/H83Wc8e/sJL96fPMlLiXz29ccz7DEHh2d4c/wVB8df8OrDKYbJGEzbCZ4IzhNiSkilIOW8I8v6UW6lIErkPUcBxnsW1BZ+swVpA0oFPua/hDVqF2Ap7vIupAf7a0zQPrKgTbCxsbrcUmFD4w8aH2BC7XEyEePWQdnIZ8Tp3PfcIyx/P0yOHbCYxI1JGO8ctorLp8wHVnZzzy5cwtVIvC5cUQPFupJaFx2s8/2NgnfQ11dwN79gtQIFApF/QIqEO2Xx7fs1JhsQY8Ayz1iWGbU1fn8WlIdtjUvghkzjCM1NUlpDKcU5/w/ElBR684x1mLvg0k1RLOKQIKNIp1g0SZfvydxByf8h5zV6SgjcBMfVNXYmonMDX9IwyE2SrLVyCev8f5RSu0MXHEot7BC43PzkPhgM4m7mjNiWsdzPn0KGlKis5X8w9/WPywvcTga/AWA/5ktp9CJaAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla Request Variable beim Joomla Menü Item"
-        title="Joomla Request Variable beim Joomla Menü Item"
-        src="/static/1f3af051301c461beb026999bdf1bef0/f058b/j4x6x1.png"
-        srcset="/static/1f3af051301c461beb026999bdf1bef0/c26ae/j4x6x1.png 158w,
-/static/1f3af051301c461beb026999bdf1bef0/6bdcf/j4x6x1.png 315w,
-/static/1f3af051301c461beb026999bdf1bef0/f058b/j4x6x1.png 630w,
-/static/1f3af051301c461beb026999bdf1bef0/40601/j4x6x1.png 945w,
-/static/1f3af051301c461beb026999bdf1bef0/78612/j4x6x1.png 1260w,
-/static/1f3af051301c461beb026999bdf1bef0/191e2/j4x6x1.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t4...t5">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t4...t5"><a href="#fn-github.com/astridx/boilerplate/compare/t4...t5" class="footnote-ref">github.com/astridx/boilerplate/compare/t4...t5</a></sup> and incorporate these changes into your development version.</p>
 <h2>Step by step</h2>
-<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
+<p>In the following overview, the changed files are highlighted.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -103,7 +71,7 @@ void function() {
   </a>
     </span></p>
 <h3>New files</h3>
-<p>No new file is added in this chapter. We only change.</p>
+<p>No new file is added in this chapter. We only change files.</p>
 <h3>Modified files</h3>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/ src/Model/FooModel.php</a></h4>
@@ -120,7 +88,10 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">app</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">Factory::</span><span class="mtk7">getApplication</span><span class="mtk1">();</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">message</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">app</span><span class="mtk8">-&gt;</span><span class="mtk7">input</span><span class="mtk8">-&gt;</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;show_text&#39;</span><span class="mtk1">, </span><span class="mtk11">&quot;Hi&quot;</span><span class="mtk1">);</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">...</span></span></span></code></pre>
-<p>Combined, this looks like the following in the Diff view:</p>
+<blockquote>
+<p>You can do without the check <code class="language-text">if (!isset($this->message))</code> in the new variant because the statement <code class="language-text">get('show_text', "Hi");</code> catches the error that occurs when the parameter <code class="language-text">show_text</code> is not set. Whenever the value <code class="language-text">show_text</code> is not set, the second parameter <code class="language-text">"Hi"</code> is used as default.</p>
+</blockquote>
+<p>Combined, the file looks like the following in the Diff view:</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php">components/com_foos/ src/Model/FooModel.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">\</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
@@ -141,26 +112,52 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">message</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span></code></pre>
-<p>So far, so good. We are still missing the possibility to configure the value for <code class="language-text">show_text</code> at the menu item. We implement this next in the file <code class="language-text">default.xml</code>.</p>
+<p>So far, so good. We are still missing the possibility to configure the value for <code class="language-text">show_text</code> at the menu item in the backend. We implement this next in the file <code class="language-text">default.xml</code>.</p>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f">components/com_foos/ tmpl/foo/default.xml</a></h4>
-<p>You store a value using the menu item in the input element by expanding the XML file:</p>
+<p>In your extension you offer the possibility to save a value at the menu item by extending the XML file with an input element. The following code shows you how to add a text input field.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml">components/com_foos/ tmpl/foo/default.xml</a></p>
-<pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk8">&lt;!</span><span class="mtk1">[</span><span class="mtk4">CDATA</span><span class="mtk1">[</span><span class="mtk4">COM_FOOS_FOO_VIEW_DEFAULT_DESC</span><span class="mtk1">]]</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">&lt;/</span><span class="mtk4">message</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;/</span><span class="mtk4">layout</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;!--</span><span class="mtk1"> </span><span class="mtk4">Add</span><span class="mtk1"> </span><span class="mtk4">fields</span><span class="mtk1"> </span><span class="mtk4">to</span><span class="mtk1"> </span><span class="mtk4">the</span><span class="mtk1"> </span><span class="mtk4">request</span><span class="mtk1"> </span><span class="mtk4">variables</span><span class="mtk1"> </span><span class="mtk8">for</span><span class="mtk1"> </span><span class="mtk4">the</span><span class="mtk1"> </span><span class="mtk4">layout</span><span class="mtk8">.</span><span class="mtk1"> </span><span class="mtk8">--&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;</span><span class="mtk4">fields</span><span class="mtk1"> </span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;request&quot;</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">&lt;</span><span class="mtk4">fieldset</span><span class="mtk1"> </span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;request&quot;</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			</span><span class="mtk8">&lt;</span><span class="mtk4">field</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;show_text&quot;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk4">type</span><span class="mtk8">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk4">label</span><span class="mtk8">=</span><span class="mtk11">&quot;COM_FOOS_FIELD_TEXT_SHOW_LABEL&quot;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk8">default=</span><span class="mtk11">&quot;Hi&quot;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			</span><span class="mtk8">/&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk8">&lt;/</span><span class="mtk4">fieldset</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">&lt;/</span><span class="mtk4">fields</span><span class="mtk8">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;/</span><span class="mtk4">metadata</span><span class="mtk8">&gt;</span></span></span></code></pre>
+<pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk11">&lt;![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		&lt;/</span><span class="mtk7">message</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;/</span><span class="mtk7">layout</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3 mtki">&lt;!-- Add fields to the request variables for the layout. --&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">fields</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;request&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">fieldset</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;request&quot;</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			&lt;</span><span class="mtk7">field</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;show_text&quot;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk3">label</span><span class="mtk1">=</span><span class="mtk11">&quot;COM_FOOS_FIELD_TEXT_SHOW_LABEL&quot;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">				</span><span class="mtk3">default</span><span class="mtk1">=</span><span class="mtk11">&quot;Hi&quot;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			/&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">fields</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">metadata</span><span class="mtk1">&gt;</span></span></span></code></pre>
+<p>The XML entry</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">field</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;show_text&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3">label</span><span class="mtk1">=</span><span class="mtk11">&quot;COM_FOOS_FIELD_TEXT_SHOW_LABEL&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3">default</span><span class="mtk1">=</span><span class="mtk11">&quot;Hi&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/&gt;</span></span></span></code></pre>
+<p>converts Joomla to the following HTML code for the output in the backend form.</p>
+<pre class="grvsc-container solarized-light" data-language="html" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk1"> </span><span class="mtk3">class</span><span class="mtk1">=</span><span class="mtk11">&quot;control-label&quot;</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">&lt;</span><span class="mtk7">label</span><span class="mtk1"> </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;jform_request_show_text-lbl&quot;</span><span class="mtk1"> </span><span class="mtk3">for</span><span class="mtk1">=</span><span class="mtk11">&quot;jform_request_show_text&quot;</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    COM_FOOS_FIELD_TEXT_SHOW_LABEL</span><span class="mtk3">&lt;/</span><span class="mtk7">label</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk1"> </span><span class="mtk3">class</span><span class="mtk1">=</span><span class="mtk11">&quot;controls has-success&quot;</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">&lt;</span><span class="mtk7">input</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;text&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;jform[request][show_text]&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;jform_request_show_text&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">value</span><span class="mtk1">=</span><span class="mtk11">&quot;Hi&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">class</span><span class="mtk1">=</span><span class="mtk11">&quot;form-control valid form-control-success&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">aria-invalid</span><span class="mtk1">=</span><span class="mtk11">&quot;false&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">/&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;/</span><span class="mtk7">div</span><span class="mtk3">&gt;</span></span></span></code></pre>
+<blockquote>
+<p>With <code class="language-text">type="text"</code> we use one of the simplest form fields, that is the one of type <code class="language-text">text</code>. Various types of form fields are built into Joomla. The Joomla documentation lists these standard types. Take a look at the table on the website <a href="https://docs.joomla.org/Form_field/en">docs.joomla.org/Form_field/en</a>. Often you can implement a special requirement with a special field.</p>
+</blockquote>
 <h2>Test your Joomla component</h2>
 <ol>
 <li>install your component in Joomla version 4 to test it:</li>
@@ -168,7 +165,7 @@ void function() {
 <p>Copy the files in the <code class="language-text">components</code> folder to the <code class="language-text">components</code> folder of your Joomla 4 installation.</p>
 <p>A new installation is not necessary. Continue using the ones from the previous part.</p>
 <ol start="2">
-<li>switch to the Menu Manager and open the created menu item or create a new one. Here you will now see a text field where you can insert any text.</li>
+<li>switch to the Menu Manager and open a created menu item or create a new one. Here you will now see a text field where you can insert any text.</li>
 </ol>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -187,8 +184,8 @@ void function() {
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Request Variable at Joomla Menu Item"
-        title="Joomla Request Variable at Joomla Menu Item"
+        alt="Joomla Request Variable at Joomla Menu Item - Backend"
+        title="Joomla Request Variable at Joomla Menu Item - Backend"
         src="/static/1f3af051301c461beb026999bdf1bef0/f058b/j4x6x1.png"
         srcset="/static/1f3af051301c461beb026999bdf1bef0/c26ae/j4x6x1.png 158w,
 /static/1f3af051301c461beb026999bdf1bef0/6bdcf/j4x6x1.png 315w,
@@ -222,8 +219,8 @@ void function() {
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Request Variable at Joomla Menu Item"
-        title="Joomla Request Variable at Joomla Menu Item"
+        alt="Joomla Request Variable at Joomla Menu Item - Frontend"
+        title="Joomla Request Variable at Joomla Menu Item - Frontend"
         src="/static/fd17bc74a942ddcdf58082bff0cb04ea/f058b/j4x6x2.png"
         srcset="/static/fd17bc74a942ddcdf58082bff0cb04ea/c26ae/j4x6x2.png 158w,
 /static/fd17bc74a942ddcdf58082bff0cb04ea/6bdcf/j4x6x2.png 315w,
@@ -237,8 +234,10 @@ void function() {
       />
   </a>
     </span></p>
-<p>I apologize for my lack of imagination. I'm sure you can think of funnier or more useful examples. But the sense and function of the variables will be clear, right?</p>
-<p>Create multiple menu items, each containing different text. Don't just output the text on the frontend, style the output using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/if...else">conditional statements</a>. A popular use case is to influence the design of the output using variables. For example, you use the variable to query whether the content is to be output in a list or in a table.</p>
+<p>I'm sure you can think of funnier or more useful examples. But the sense and function of the variables will be clear.</p>
+<ol start="4">
+<li>Create multiple menu items, each containing different text. Don't just output the text on the frontend, style the output using <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/if...else">conditional statements</a><sup id="fnref-developer.mozilla.org/en/docs/web/javascript/reference/statements/if...else"><a href="#fn-developer.mozilla.org/en/docs/web/javascript/reference/statements/if...else" class="footnote-ref">developer.mozilla.org/en/docs/web/javascript/reference/statements/if...else</a></sup>. A popular use case is to change the design of the output using variables. For example, you use the variable to query whether the content is to be output in a list or in a table.</li>
+</ol>
 <style class="grvsc-styles">
   .grvsc-container {
     overflow: auto;
@@ -338,7 +337,6 @@ void function() {
   .solarized-light .mtk11 { color: #2AA198; }
   .solarized-light .mtk3 { color: #93A1A1; }
   .solarized-light .mtk13 { color: #073642; }
-  .solarized-light .mtk4 { color: #CB4B16; }
   .solarized-light .grvsc-line-highlighted::before {
     background-color: var(--grvsc-line-highlighted-background-color, rgba(0, 0, 0, 0.05));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(0, 0, 0, 0.2));

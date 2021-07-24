@@ -15,8 +15,6 @@ tags:
 
 Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Content zu einem Element per Menüpunkt ausgibst. Hierzu erstellen wir ein eigenes Formularfeld.
 
-![Joomla Componente Menüpunkt für das Frontend](/images/j4x9x1.png)
-
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b..t7] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -32,7 +30,7 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
 
-Als erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen.
+Als erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Foo-Element auszuwählen, beziehungsweise abzuwählen. Auf ein vorgefertigtes Feld können wir in diesem Fall nicht zugreifen. Im Wesentlichen implementieren wir die Methoden `getInput` und `getLabel` und wir legen Typ mit `Modal_Foo` fest. Das der Name der Klasse mit dem Wort `Field` beginnt und dass die Klasse im Verzeichnis `Field` gespeichert wird ist nicht zwingend. Es kann aber hilfreich sein, weil es in Joomla-eigenen Erweiterung Standard ist.
 
 > Es ist möglich, das Feld so zu erweitern, dass ein Foo-Elemente über eine Schaltfläche angelegt wird. Dies habe ich hier der Übersicht halber außen vor gelassen. Beispielcode bietet die Komponente `com_contact` in der Datei `administrator/components/com_contact/ src/Field/Modal/ContactField.php`.
 
@@ -229,14 +227,12 @@ class FooField extends FormField
 
 ```
 
-> Der Programmcode für das Formularfeld ist an [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) angepasst. Dieses Framework wurde im Pull Request [github.com/joomla/joomla-cms/pull/32037](https://github.com/joomla/joomla-cms/pull/32037) in Joomla integriert.
+> Der Programmcode für das Formularfeld ist an [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)[^getbootstrap.com] angepasst. Dieses Framework wurde im [Pull Request 32037](https://github.com/joomla/joomla-cms/pull/32037)[^github.com/joomla/joomla-cms/pull/32037] in Joomla 4 integriert.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
-Die Auswahl öffnen wir in einem Modal-Fenster. Der nachfolgende Code zeigt dir das Template für dieses.
-
-> Ein [Modal](<https://de.wikipedia.org/wiki/Dialog_(Benutzeroberfl%C3%A4che)>)[^https://de.wikipedia.org/wiki/dialog_(benutzeroberfl%c3%a4che)] ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Modale Dialoge sperren den Rest der Anwendung solange der Dialog angezeigt wird. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
+Die Auswahl öffnen wir über das FooField in einem Modal-Fenster. Als Adresse haben wir im Feld `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'` eingefügt. Der nachfolgende Code zeigt dir das Template für dieses Modal-Fenster.
 
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
@@ -322,11 +318,15 @@ $onclick   = $this->escape($function);
 
 ```
 
+> Ein [Modal](<https://de.wikipedia.org/wiki/Dialog_(Benutzeroberfl%C3%A4che)>)[^https://de.wikipedia.org/wiki/dialog_(benutzeroberfl%c3%a4che)] ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Modale Dialoge sperren den Rest der Anwendung solange der Dialog angezeigt wird. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.
+
 #### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
 
-Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Dieses mal fügen wir ein eigenes Webasset hinzu. Falls du dieses nicht korrekt einbindest, wird dir folgender Fehler angezeigt, wenn du für den Menüpunkt ein Foo-Element auswählst: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`.
+Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Dieses mal fügen wir ein eigenes Webasset mithilfe der Datei `joomla.asset.json` hinzu. Falls du dieses nicht korrekt einbindest, wird dir folgender Fehler angezeigt, wenn du für den Menüpunkt ein Foo-Element auswählst: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`. Grund: Im Modal wird mit der Zeile `$wa->useScript('com_foos.admin-foos-modal');` das Skript `com_foos.admin-foos-modal` aufgerufen, welches aber vorher nicht richtig registriert wurde. Deshalb wird es nicht gefunden.
 
-> Wegen der neu hinzugekommenen Datei `joomla.asset.json` ist erforderlich, dass wir die Erweiterung neu installieren. Andere Dateien haben wir bisher ohne eine neue Installation in Joomla verwendet. Mit der Datei `joomla.asset.json` funktioniert das nicht. Diese muss einmal bei einer Installation registriert werden. Im Weiteren können Änderungen in ihr vorgenommen werden. Diese werden ohne Neuinstallation erkannt.
+> Wegen der neu hinzugekommenen Datei `joomla.asset.json` ist es erforderlich, dass wir die Erweiterung neu installieren. Andere Dateien haben wir bisher ohne eine neue Installation in Joomla verwendet. Mit der Datei `joomla.asset.json` funktioniert das nicht. Diese muss einmal bei einer Installation registriert werden. Im Weiteren können Änderungen in ihr vorgenommen werden. Diese werden ohne Neuinstallation erkannt.
+
+> Es ist nicht zwingend die Datei `joomla.asset.json` anzulegen, wenn du den den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de)[^docs.joomla.org/j4.x:web_assets/de] nutzen möchtest. In der Dokumentation findest du Möglichkeiten, Webassets nachträglich im Code zu registrieren.
 
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
@@ -353,7 +353,9 @@ Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Di
 }
 ```
 
-> Was bedeutet das Attribut `"defer": true`? Skripte werden mit `async` – asynchron/parallel zu anderen Ressourcen geladen. `defer` verspricht dem Browser, dass die Webseite nicht durch Anweisungen geändert wird. Weitere Informationen [bei Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).
+> Was bedeutet das Attribut `"defer": true`? Skripte werden mit `async` – asynchron/parallel zu anderen Ressourcen geladen. `defer` verspricht dem Browser, dass die Webseite nicht durch Anweisungen geändert wird. Weitere Informationen [bei Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)[^developer.mozilla.org/en-us/docs/web/html/element/script].
+
+> Der Joomla Web Assets Manager verwaltet alle Assets in einer Joomla-Installation. Es ist nicht zwingend Skriptdateien oder Stylesheets über diesen Manager einzubinden. Es bringt allerdings Vorteile. Wenn Abhängigkeiten korrekt gesetzt sind, treten keine Konflikte auf und notwendige Dateien werden von Joomla geladen. Eine Abhängigkeit haben wir beispielsweise in der Zeile `"dependencies": ["core"],` gesetzt.
 
 #### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 
@@ -401,8 +403,6 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 
 Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `media\js` ab. Damit sie bei der Installation der Komponente kopiert wird, fügen wir den Ordner `js` in den Abschnitt `media` des Installationsmanifests ein.
 
-> Lies im Vorwort warum du das `media` Verzeichnis idealerweise für Assets wie JavaScript-Dateien oder Stylesheets wählst.
-
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
@@ -418,6 +418,8 @@ Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `med
  		<!-- Menu entries -->
 
 ```
+
+> Lies im Vorwort warum du das `media` Verzeichnis idealerweise für Assets wie JavaScript-Dateien oder Stylesheets wählst.
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029)

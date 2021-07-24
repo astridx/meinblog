@@ -14,9 +14,7 @@ tags:
 
 Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Texte nicht direkt in den Programmcode eingegeben. Konkret meine ich die Texte, welche im Browser angezeigt werden. Du hattest alles so vorbereitet, dass du spezielle Dateien nutzt. Diese sind unkompliziert austauschbar. Bisher hast du deshalb kryptische Texte gesehen. In diesem Teil übersetzen wir die unschönen Sprachstrings.
 
-![Joomla Sprachdateien werden genutzt](/images/j4x10x1.png)
-
-> Selbst wenn deine Zielgruppe die englisch Sprache spricht und du ausschließlich diese Sprache unterstützt ist es wichtig, eine Sprachdatei für Texte zu verwenden, welche du im Front-End oder im Back-End der Komponente anzeigst. So ist es Nutzern möglich, Texte zu überschreiben, ohne den Quellcode zu bearbeiten. Unter Umständen schreibt ein Benutzer lieber _Vorname_ anstelle von _Name_ in die Spaltenüberschrift
+> Selbst wenn deine Zielgruppe die englisch Sprache spricht und du ausschließlich diese Sprache unterstützt ist es wichtig, eine Sprachdatei für Texte zu verwenden, welche du im Front-End oder im Back-End der Komponente anzeigst. So ist es Nutzern möglich, Texte mithilfe eines Sprachoverrides[^docs.joomla.org/j3.x:language_overrides_in_joomla/de] zu überschreiben, ohne den Quellcode zu bearbeiten. Unter Umständen schreibt ein Benutzer lieber _Vorname_ anstelle von _Name_ in die Spaltenüberschrift.
 
 ## Für Ungeduldige
 
@@ -28,13 +26,13 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree8.png)
 
-Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine Datei gibt, benötigt das Backend zwei - `*.sys.ini` und `*.ini`. Kurz erklärt: Die Datei mit der Endung `sys.ini` wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die `ini` ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt einzutragen sind. Erklärt ist dies im Artikel [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6), der einen Abschnitt über [die Datei `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) enthält.
+Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine Datei gibt, benötigt das Backend zwei - `*.sys.ini` und `*.ini`. Kurz erklärt: Die Datei mit der Endung `sys.ini` wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die `ini` ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt einzutragen sind. Erklärt ist dies im Artikel [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6), der einen Abschnitt über [die Datei `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini)[^docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini] enthält.
 
-> Das Hinzufügen der englischen Sprachdateien ist zwingend erforderlich. Alle anderen Sprachen sind optional. Der Grund hierfür ist, dass bei einer fehlenden Datei standardmäßig auf die englische Version zurückgegriffen wird. Wenn ein Franzose die Erweiterung - welches deutsche und englische Sprachdateien enthält - auf seinem Joomla mit der Standardsprache Französisch installiert, werden die Texte in englischer Sprache angezeigt.
+> Das Hinzufügen der englischen Sprachdateien ist zwingend erforderlich. Alle anderen Sprachen sind optional. Der Grund hierfür ist, dass bei einer fehlenden Datei standardmäßig auf die englische Version zurückgegriffen wird. Wenn ein Franzose eine Erweiterung - welche deutsche und englische Sprachdateien enthält - auf seinem Joomla mit der Standardsprache Französisch installiert, werden die Texte in englischer Sprache angezeigt. Achtung: Dies gilt lediglich für fehlende Sprach-Dateien. Ein Fehlender Sprachschlüssel in einer nicht-englischen Sprachdatei wird nicht mit dem Schlüssel aus der englischen Datei ersetzt.
 
 ### Exkurs: Besonderheiten
 
-> Möchtest du dir ganz genau ansehen, wie die ini-Datei geparst wird? Unter [php.net](https://www.php.net/manual/de/function.parse-ini-file.php) findest du die Beschreibung der Funktion, die diese Arbeit übernimmt.
+> Möchtest du dir ganz genau ansehen, wie die ini-Datei geparst wird? Unter [php.net](https://www.php.net/manual/de/function.parse-ini-file.php)[^php.net/manual/de/function.parse-ini-file.php] findest du die Beschreibung der Funktion, die diese Arbeit übernimmt.
 
 #### Auskommentieren
 
@@ -50,7 +48,7 @@ Du kannst mithilfe eines Semikolons `;` eine Zeile als Kommentar markieren.
 
 #### Escapen
 
-Es gibt Zeichen die eine besondere Bedeutung haben - beispielsweise die Anfürungszeichen. Diese Bedeutung ist mit einem Backslash `\` aufhebbar.
+Es gibt Zeichen die eine besondere Bedeutung haben - beispielsweise die Anführungszeichen `"`, die den Beginn und dass Ende der Übersetzung markieren. Diese Bedeutung ist mit einem Backslash `\` aufhebbar.
 
 ```
 ...
@@ -62,7 +60,7 @@ COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
 
 #### Variablen
 
-Manchmal hängt die Ausgabe des Sprachstrings von einer Variablen ab. Die Funktion `Text::sprintf` sorgt dafür, dass du den Text nicht kompliziert im Programmcode zusammensetzten musst. Gibt anstelle der Variablen in der Sprachdatei ein Zeichen mit dem Prefix `%` ein. Beispielsweise kannst du `%s` verwenden.
+Manchmal hängt die Ausgabe des Sprachstrings von einer Variablen ab. Die Funktion `Text::sprintf` sorgt dafür, dass du den Text nicht kompliziert im Programmcode zusammensetzten musst. Gib anstelle der Variablen in der Sprachdatei ein Zeichen mit dem Prefix `%` ein. Beispielsweise kannst du `%s` verwenden.
 
 ```
 ...
@@ -80,7 +78,7 @@ Text::sprintf('COM_CONTACT_CHECKED_OUT_BY', $checkoutUser->name)
 
 Der Wert von `$checkoutUser->name` wird anstelle der ersten Variablen im Sprachstring eingefügt. Hier im Beispiel anstelle von `%s`.
 
-> Leider kannst du nicht festlegen, welche Variable `$checkoutUser->name` zu welchem Sprachstring `%s` gehört. Die Werte werden der Reihe nach zugeordnet.
+> Leider kannst du nicht festlegen, welche Variable `$checkoutUser->name` zu welchem Sprachstring `%s` gehört. Die Werte werden der Reihe nach zugeordnet, wenn es mehrere Variablen gibt.
 
 #### Einzahl/Mehrzahl
 
@@ -96,7 +94,7 @@ $message = Text::plural('COM_FOOS_N_ITEMS_FEATURED', count($ids));
 
 als Beispiel.
 
-Jenachdem, ob `count($ids)` den Wert `1` oder `2` hat wird der Sprachstring `COM_FOOS_N_ITEMS_FEATURED_1` oder `COM_FOOS_N_ITEMS_FEATURED_2` verwendet. Hat `count($ids)` weder den Wert `1` noch `2`, wird `COM_FOOS_N_ITEMS_FEATURED` als Rückfallposition herangezogen.
+Jenachdem, ob `count($ids)` den Wert `1` oder `2` hat wird der Sprachstring `COM_FOOS_N_ ITEMS_FEATURED_1` oder `COM_FOOS_N_ ITEMS_FEATURED_2` verwendet. Hat `count($ids)` weder den Wert `1` noch `2`, wird `COM_FOOS_N_ ITEMS_FEATURED` als Rückfallposition herangezogen.
 
 ```
 ...
@@ -108,11 +106,9 @@ COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
 
 ### Neue Dateien
 
-Erstelle die folgenden sechs Dateien, um neben der englischen die deutsche Sprache zu unterstützen.
+Erstelle sechs Dateien, um neben der englischen die deutsche Sprache zu unterstützen. Jede Datei ist wie folgt aufgebaut: Pro Zeile wird eine Sprachzeichenfolge eingefügt. Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge, beispielsweise `COM_FOOS_ CONFIGURATION` in `COM_FOOS_ CONFIGURATION="Foo Optionen"`, ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Name der Erweiterung, in unserem Fall ist das `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu. Hier beschreibst du kurz, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig.
 
-Die linke Seite des Gleichheitszeichens in der Sprachzeichenfolge, beispielsweise `COM_FOOS_CONFIGURATION` in `COM_FOOS_CONFIGURATION="Foo Optionen"`, ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Erweiterungsnamen, in unserem Fall ist das `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu. Hier beschreibst du kurz, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig.
-
-Die rechte Seite der Sprachzeichenfolge, beispielsweise `Foo Optionen` in `COM_FOOS_CONFIGURATION = "Foo Optionen"`, ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, ändert der Übersetzer nur diese rechte Seite des Sprachstrings in seiner Sprachdatei. Die rechte Seite wird in Anführungszeichen eingefasst.
+Die rechte Seite der Sprachzeichenfolge, beispielsweise `Foo Optionen` in `COM_FOOS_ CONFIGURATION = "Foo Optionen"`, ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, ändert der Übersetzer nur diese rechte Seite des Sprachstrings in seiner Sprachdatei. Die rechte Seite wird in Anführungszeichen eingefasst.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
@@ -147,16 +143,14 @@ COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
 
 ##### Namenskonventionen
 
-Jede Sprachdatei ist mit einem Kürzel gekennzeichnet, welches in der [ISO-639](https://de.wikipedia.org/wiki/ISO_639 'ISO-639 Joomla') und [ISO-3166](https://de.wikipedia.org/wiki/ISO_3166 'ISO-3166') festgelegt ist: Die ersten beiden Kleinbuchstaben benennen die Sprache. Für Deutsch ist das `de` und `en` für Englisch.
+Jede Sprachdatei ist mit einem Kürzel gekennzeichnet, welches in der [ISO-639](https://de.wikipedia.org/wiki/ISO_639)[^de.wikipedia.org/wiki/ISO_639] und [ISO-3166](https://de.wikipedia.org/wiki/ISO_3166)[^de.wikipedia.org/wiki/ISO_3166] festgelegt ist: Die ersten beiden Kleinbuchstaben benennen die Sprache. Für Deutsch ist das `de` und `en` für Englisch.
 
 Nach dem Bindestrich weisen die zwei Großbuchstaben auf das Land. So können die Besonderheiten im Schweizerdeutsch zum Beispiel über `CH` oder Österreichisch über `AT` vom `DE` abgegrenzt werden. Ein Verzeichnis mit dem Namen `de-CH` enthält die Übersetzung für die Schweiz und `de-AT` die österreichische Variante.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
-Wie bereits erwähnt, benötigst du zwei Sprachdateien: Eine mit der Endung `.ini` und eine, die mit `sys.ini` endet. Die [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) wird in erster Linie bei der Installation und für die Anzeige der Menüpunkte verwendet und die `sys.ini` für alles andere.
-
-> Der Grund für die Zweiteilung ist die Performance. Bei der Installation oder der Einrichtung der Navigation im Backend ist es so nicht notwendig, alle Sprachstrings zu laden. In kleinen Erweiterungen ist dieser Vorteil der zwei Sprachdateien meiner Meinung nach nicht groß. Deshalb befülle ich beide Dateien teilweise mit den gleichen Sprachzeichenfolgen. So bin ich auf der sicheren Seite. Das ist nicht professionell, hat sich für mich aber als tauglich in der Praxis erwiesen.
+Wie bereits erwähnt, benötigst du im Backend zwei Sprachdateien: Eine mit der Endung `.ini` und eine, die mit `sys.ini` endet. Die [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) wird in erster Linie bei der Installation und für die Anzeige der Menüpunkte verwendet und die `ini` für alles andere.
 
 [administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
@@ -249,7 +243,7 @@ COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
-Auch die Datei ist `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` zwingend.
+Auch die Datei `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` ist zwingend.
 
 [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 

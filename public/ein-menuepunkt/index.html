@@ -34,42 +34,10 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/en/ein-menuepunkt/">english</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Ein Menüpunkt</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/4EinMenupunkt.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>04.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/4b069f2b89e03a7c5c76de07314156cd/191e2/j4x4x2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVUlEQVQoz6WRy0rDUBCG8zQirkTcivgyboQqYpOcnJMTsnflRhB3rryh4m3RvkBXKr0suqggVGPSFmNtm5qkv5PUghtrpQMfw2GGjzkzytziCnb3D3B4eomjs2scnyfcpJz8Qlq7oEz9V7d5bO/sYXZhGTPzS1CEKfHebmOaeKzVoGo6mMGhWJaNp/ornFaX6MB9acJ3PPgfPSIYy5vfQdD0cXf/AE03SGhCYdyC5zUQBH0E/T5CAhgMGYyB6nEUpROWKxVkNQY9EUorEXqI4pj6BkNVkv8gJqIoToUVEhqGAS6+ha7r4jMMJxL9JBpNWC5DZwwGJ6EpJRzHQbfbSxv+Q0hDJFGtViHpuFzI5CgWGs3WVFeu15+xkV2HynQotm2jUCikeygWiyiVShMx6k1yPpfDaiaDTVWjHUoTQojhUjmfGEY728qq0HVG3xVY26C3yvEFtnCvyGebXK0AAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla Einen Menüpunkt erstellen"
-        title="Joomla Einen Menüpunkt erstellen"
-        src="/static/4b069f2b89e03a7c5c76de07314156cd/f058b/j4x4x2.png"
-        srcset="/static/4b069f2b89e03a7c5c76de07314156cd/c26ae/j4x4x2.png 158w,
-/static/4b069f2b89e03a7c5c76de07314156cd/6bdcf/j4x4x2.png 315w,
-/static/4b069f2b89e03a7c5c76de07314156cd/f058b/j4x4x2.png 630w,
-/static/4b069f2b89e03a7c5c76de07314156cd/40601/j4x4x2.png 945w,
-/static/4b069f2b89e03a7c5c76de07314156cd/78612/j4x4x2.png 1260w,
-/static/4b069f2b89e03a7c5c76de07314156cd/191e2/j4x4x2.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t2...t3">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t2...3"><a href="#fn-github.com/astridx/boilerplate/compare/t2...3" class="footnote-ref">github.com/astridx/boilerplate/compare/t2...3</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 <h2>Schritt für Schritt</h2>
-<p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
+<p>In der nachfolgenden Übersicht ist die neu hinzugekommene Datei hervorgehoben.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -119,13 +87,10 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="6"></span><span class="grvsc-source"><span class="mtk1">	&lt;/</span><span class="mtk7">layout</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="7"></span><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">metadata</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <blockquote>
-<p><a href="https://de.wikipedia.org/w/index.php?title=CDATA&#x26;oldid=189251190">CDATA</a> (engl. Character Data) ist ein Schlüsselwort in XML. Mit CDATA werden Zeichendaten gekennzeichnet, deren Inhalt vom Parser nicht analysiert wird. Der CDATA-Abschnitt kann auch Markup-Zeichen (<code class="language-text">&lt;</code>, <code class="language-text">></code> und <code class="language-text">&amp;</code>) enthalten. Diese werden vom Parser nicht weiter interpretiert.</p>
+<p>Im Kapitel zum Update Server hatte ich es schon erwähnt: Der <a href="https://de.wikipedia.org/wiki/cdata">Begriff CDATA</a><sup id="fnref-de.wikipedia.org/wiki/cdata"><a href="#fn-de.wikipedia.org/wiki/cdata" class="footnote-ref">de.wikipedia.org/wiki/cdata</a></sup> wird in der Auszeichnungssprache XML für verschiedene Zwecke verwendet. Er zeigt an, dass es sich bei einem bestimmten Teil des Dokuments um allgemeine Zeichen handelt und nicht um Programmcode mit einer spezifischeren, begrenzten Struktur. Der CDATA-Abschnitt kann Auszeichnungszeichen (<code class="language-text">&lt;</code>, <code class="language-text">></code> und <code class="language-text">&amp;</code>) enthalten. Diese werden vom Parser nicht weiter interpretiert. Die Verwendung von Entitäten wie <code class="language-text">&amp;lt;</code> und <code class="language-text">&amp;amp;</code> ist nicht notwendig.</p>
 </blockquote>
-<p>Das <code class="language-text">title</code>-Attribut im <code class="language-text">layout</code>-Tag hier wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
-Der Text im <code class="language-text">message</code>-Tag wird als Beschreibung angezeigt.</p>
-<blockquote>
-<p>Der Sprachstring bleibt nicht so wie er ist. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.</p>
-</blockquote>
+<p>Das <code class="language-text">title</code>-Attribut im <code class="language-text">layout</code>-Tag wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
+Der Text im <code class="language-text">message</code>-Tag wird als Beschreibung angezeigt. Der Sprachstring bleibt nicht so wie er ist. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.</p>
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
 <li>Installiere deine Komponente in Joomla Version 4, um sie zu testen:</li>
@@ -152,8 +117,8 @@ Der Text im <code class="language-text">message</code>-Tag wird als Beschreibung
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Einen Menüpunkt erstellen"
-        title="Joomla Einen Menüpunkt erstellen"
+        alt="Joomla - Einen Menüpunkt im Backend anlegen"
+        title="Joomla - Einen Menüpunkt im Backend anlegen"
         src="/static/fee6cd52590bbdf8f10eae9959a7e777/f058b/j4x4x1.png"
         srcset="/static/fee6cd52590bbdf8f10eae9959a7e777/c26ae/j4x4x1.png 158w,
 /static/fee6cd52590bbdf8f10eae9959a7e777/6bdcf/j4x4x1.png 315w,
@@ -185,8 +150,8 @@ Der Text im <code class="language-text">message</code>-Tag wird als Beschreibung
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Einen Menüpunkt erstellen"
-        title="Joomla Einen Menüpunkt erstellen"
+        alt="Joomla - Den Typ des Menüpunkt im Backend auswählen"
+        title="Joomla - Den Typ des Menüpunkt im Backend auswählen"
         src="/static/4b069f2b89e03a7c5c76de07314156cd/f058b/j4x4x2.png"
         srcset="/static/4b069f2b89e03a7c5c76de07314156cd/c26ae/j4x4x2.png 158w,
 /static/4b069f2b89e03a7c5c76de07314156cd/6bdcf/j4x4x2.png 315w,
@@ -220,8 +185,8 @@ Der Text im <code class="language-text">message</code>-Tag wird als Beschreibung
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Einen Menüpunkt erstellen"
-        title="Joomla Einen Menüpunkt erstellen"
+        alt="Joomla - Einen Menüpunkt im Backend speichern"
+        title="Joomla - Einen Menüpunkt im Backend speichern"
         src="/static/9a5596d0b00e827badb5e098315af988/f058b/j4x4x3.png"
         srcset="/static/9a5596d0b00e827badb5e098315af988/c26ae/j4x4x3.png 158w,
 /static/9a5596d0b00e827badb5e098315af988/6bdcf/j4x4x3.png 315w,
@@ -256,8 +221,8 @@ Der Text im <code class="language-text">message</code>-Tag wird als Beschreibung
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Einen Menüpunkt erstellen"
-        title="Joomla Einen Menüpunkt erstellen"
+        alt="Joomla - Die Ansicht des Menüpunkt im Frontend"
+        title="Joomla - Die Ansicht des Menüpunkt im Frontend"
         src="/static/1e48e3473c0138e90e90fd2d0fd3ab0d/f058b/j4x4x4.png"
         srcset="/static/1e48e3473c0138e90e90fd2d0fd3ab0d/c26ae/j4x4x4.png 158w,
 /static/1e48e3473c0138e90e90fd2d0fd3ab0d/6bdcf/j4x4x4.png 315w,

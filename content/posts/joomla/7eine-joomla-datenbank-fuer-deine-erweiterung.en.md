@@ -13,11 +13,7 @@ tags:
   - Joomla
 ---
 
-Your view in the administration area usually does not contain only static text. You display data here that is dynamic. At least that's how most extensions work. That's why in this part we create a database for your component.
-
-In the database, we store three records during setup and display them in the administration area. A static list is displayed. The single entries are not changeable via the backend. We will work on that in the next part.
-
-![Joomla Componente mit Datenbank](/images/j4x7x1.png)
+Your view in the administration area usually does not contain only static text. You display data here that is dynamic. At least that's how most extensions work. That's why in this part we create a database for your component. In the database, we store three records during setup and display them in the administration area. A static list is displayed. The single entries are not changeable via the backend. We will work on that in the next part.
 
 ## For impatient people
 
@@ -34,11 +30,9 @@ In the following overview, the newly added files are marked with a background an
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-We create a file that contains SQL statements for creating the database table. So that these statements are executed, we add the name later in the manifest. At the same time we store sample content in the database table with `INSERT INTO ...`.
+We create a file that contains SQL statements for creating the database table. So that these statements are called, we add the name of the file later in the manifest. With `CREATE TABLE IF NOT EXISTS ...` we create the database table if it does not already exist. With `INSERT INTO ...` we store sample contents in the database table.
 
-> In a real extension I would not add sample data via the SQL file during installation. In Joomla 4 a plugin of the type `sampledata` is a good choice. For inspiration you can find sample plugins in the `joomla-cms/plugins/sampledata` directory.
-
-> Read in the preface of this set what exactly the prefix `#__` means, if you don`t know.
+> In a real extension, I would not add sample data via the SQL file during installation. In Joomla 4, a plugin of the type `sampledata` is a good choice. For inspiration you can find plugins in the directory `joomla-cms/plugins/sampledata`.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -58,6 +52,8 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 ('Elmar');
 ```
 
+> Read in the preface of this tutorial what exactly the prefix `#__` means, if you are unfamiliar with it.
+
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
 
@@ -71,7 +67,7 @@ So that Joomla does not contain unnecessary data in case of uninstallation, we s
 DROP TABLE IF EXISTS `#__foos_details`;
 ```
 
-> You might think ahead and ask yourself already how to handle potential future database changes. What is needed to store the first name in addition to the name in a future version. SQL updates are name-based in Joomla. For each version of the component you have to create a file whose name consists of the version number and the file extension 'sql' in case database contents change. Practically you will experience this in the further course of this tutorial.
+> You might think ahead and ask yourself already how to handle potential future database changes. What is needed to store the first name in addition to the name in a future version. SQL updates are name-based in Joomla. This means exactly: For each version of the component you have to create a file whose name consists of the version number and the file extension `.sql` in case database contents change. Practically you will experience this in the further course of this tutorial.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
@@ -79,6 +75,8 @@ DROP TABLE IF EXISTS `#__foos_details`;
 Next, we create a _Model_ for the administration area. Since we are extending the `ListModel` class, we do not need to take care of the connection to the database ourselves. We create the `getListQuery()` method and specify our specific requirements here. Specific are for example the name of the database table and the column.
 
 > If not done so far, you will see here why the separation of model and view makes sense. Have a look at the method `getListQuery()` in Joomla components, for example in `com_content`. The SQL statement is usually extensive. Therefore it is clearer to encapsulate this from the design part.
+
+The following code shows you the model, which in our case is still quite clear.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -150,7 +148,7 @@ class FoosModel extends ListModel
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-The following entry in the installation manifest causes the SQL statements in the mentioned files to be called at the appropriate time.
+The entry in the installation manifest marked with a plus sign causes the SQL statements in the named files to be called at the right moment, either during an installation or during an uninstallation..
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/foos.xml)
 
@@ -182,13 +180,11 @@ The following entry in the installation manifest causes the SQL statements in th
 
 ```
 
-> I only support a MySQL database in this example. Joomla supports](https://downloads.joomla.org/technical-requirements) beside MySQL (from 5.6) also PostgreSQL (from 11). If you also support both databases, you can find an implementation to look at in the [Weblinks Component](https://github.com/joomla-extensions/weblinks). How you name the [drivers](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) is flexible. `postgresql` and `mysql` are correct, `mysqli`, `pdomysql` and `pgsql` are adapted.
+> In this example, I only support a MySQL database. [Joomla supports](https://downloads.joomla.org/technical-requirements)[^downloads.joomla.org/technical-requirements] as well as MySQL (from 5.6) and PostgreSQL (from 11). If you also support both databases, you can find an implementation to check out in the [Weblinks component](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. How you name the [drivers](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) is flexible. `postgresql` and `mysql` are correct, `mysqli`, `pdomysql` and `pgsql` are adapted by Joomla in the file `/libraries/src/ Installer/Installer.php`.
 
 ##### Updates
 
-For the sake of completeness, I anticipate here changes of a following chapter concerning updating:
-
-If something changes, it is sufficient to include only the changes in the database. You should take care that existing data are not affected. You save the changes in a separate file for each version. The directory, where the files for the future updates are to be stored, you write in the `<update>` tag. This is logical, right?
+For the sake of completeness, I anticipate here changes of a following chapter concerning updating. If something changes, it is sufficient to include only the changes in the database. You should take care that existing data are not affected. You save the changes in a separate file for each version. The directory, where the files for the future updates are to be stored, you write in the `<update>` tag. This is logical, right?
 
 ```xml
   ...
@@ -210,7 +206,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-Previously it was not necessary to set the `MVC factory`, now it is required. Otherwise you will see the following error message or you will be forced to program the connection to the database yourself: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.
+Previously it was not necessary to set the `MVC factory` in `provider.php`, now it is required. Otherwise you will see the following error message or you will be forced to program the connection to the database yourself: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php)
 
@@ -293,12 +289,12 @@ Copy the files in the `administrator` folder to the `administrator` folder of yo
 
 Install your component as described in part one, after copying all files. Joomla creates the database during the installation.
 
-Next, test if the view of your component in the administration area is correct. Do you see three entries? We had entered these as sample data in the SQL file when setting up the database.
+2. Next, test if the view of your component in the administration area is correct. Do you see three entries? We had entered these as sample data in the SQL file when setting up the database.
 
 ![Joomla Component with Database](/images/j4x7x1.png)
 
 3. make sure that the elements are stored in the database.
 
-I use locally [phpMyAdmin](https://www.phpmyadmin.net/) for database administration.
+I use locally [phpmyadmin.net](https://www.phpmyadmin.net/) for database administration.
 
 ![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)

@@ -15,13 +15,9 @@ tags:
 
 After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. But this will change soon. First we build the rough structure.
 
-Below you can see the first simple view.
-
-![Joomla Ansicht im Frontend](/images/j4x3x1.png)
-
 ## For impatient people
 
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] an und übernimm diese Änderungen in deine Entwicklungsversion.
+Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and incorporate these changes into your development version.
 
 ## Schritt für Schritt
 
@@ -31,14 +27,12 @@ In the following overview, the newly added files are marked with a background an
 
 ### Neue Dateien
 
-Der Administrationsbereich unserer Komponente ist im Ordner `com_foos` unter `/administrator/component`. Jetzt arbeiten wir am Frontend, das im Ordner `com_foos` direkt unter `/components` gespeichert ist.
+The administration area of our component is located in the folder `com_foos` under `/administrator/component`. Now we work on the frontend. The data of the frontend view are stored in the folder `com_foos` directly under `/components`.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702) - Einstiegspunkt ins Frontend
+#### [components/com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702)
 
-Dies ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen.
-
-Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
+The DisplayController in the directory `components/com_foos/ src/Controller/` is the entry point for the Model-View-Controller part in the frontend of the Foo component. Name the class _DisplayController_. Joomla expects this. Extend _BaseController_ to use many things out-of-the-box. Everything I wrote in the chapter on the _First View in the Backend_ applies here analogously.
 
 [components/com_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php)
 
@@ -108,13 +102,9 @@ class DisplayController extends BaseController
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656) - Die Ansicht
 
-Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!
+At the moment, the view of our component is simple. Only a static text is displayed. This will change!
 
-Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.
-
-In der Datei `HtmlView.php` wir das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten.
-
-Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
+There are several files that work together to generate the view in the frontend. For example, the controller that calls it. We created this earlier in the current chapter. Later on, we will add a special cell model that prepares the data. At the moment we use the model of the parent classes, because we build on Joomla standard. The file `HtmlView.php` calls the inherited model to prepare the data for the view.
 
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -162,9 +152,9 @@ class HtmlView extends BaseHtmlView
 > ![Settings for logging in the Joomla backend](/images/j4x3x2.png)
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f) - Template
+#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f)
 
-In this file is the text that we display. Everything I wrote in the chapter on the _The First View in the Backend_ applies here analogously.
+The file `components/com\_foos/ tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php)
 
@@ -188,9 +178,9 @@ Hello Foos
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578) - XML-Datei (Manifest)
+#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-This is the file that tells Joomla how to install our component. That is why we enter the two new files here, so that Joomla knows when it installs that the directories `src` and `tmpl` exist and where `components/com_foos` it should copy them to.
+Administrator/components/com_foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml)
 
@@ -222,8 +212,8 @@ Perform a new installation. This is necessary, otherwise the new files will not 
 Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
 Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation. 2.
+Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.
 
-Then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
+2. then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
 
 ![Joomla View in Frontend](/images/j4x3x1.png)

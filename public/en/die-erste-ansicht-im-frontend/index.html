@@ -34,41 +34,8 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/die-erste-ansicht-im-frontend/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - The First View in the Frontend</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/3erstAnsichtFrontend.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>03.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. But this will change soon. First we build the rough structure.</p>
-<p>Below you can see the first simple view.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/1920e918b42fcd7d729741a27c87d145/191e2/j4x3x1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSElEQVQoz61S20rDQBDNp4lPPohSQ2yL9RJFEN9EEKGgFilCURH/x7c++Sr4CSrYhtyzm8sedzbZtBUjCA4cZjI7c+ZMdo2l1hmWN86xfTzC4ckDjk4fYdlDrJh9rG5eYK19ifXOFVqdAczuNaytISzpzfYA3d4Nejsj7O7dwrbvcLB/DyPLcqRpiunUgR+EiBMGxjgSnoKlGRj5Kk5knnOqdfH2/oEwjFSOODQMkPk+kOeYmQDCoMxHUYlAfqdcnUZxgs/JRA5mKIoC82aIOIaQDYJoCgEhROmlasF56TXkUKrjMh+EodqEtiJS1SdhoCqqIQSaTJ/4QQTHcVXMaVDVUxKWkYJu0NO+Q683fn7F0/hlobZeWZPVxE3q5hoZz+H4THnSvaCwSc1v+GnQ7B/+sxmRvOFYwvV89QzoTf4VdOvE43kevgAhb/Ggz3OStwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla Ansicht im Frontend"
-        title="Joomla Ansicht im Frontend"
-        src="/static/1920e918b42fcd7d729741a27c87d145/f058b/j4x3x1.png"
-        srcset="/static/1920e918b42fcd7d729741a27c87d145/c26ae/j4x3x1.png 158w,
-/static/1920e918b42fcd7d729741a27c87d145/6bdcf/j4x3x1.png 315w,
-/static/1920e918b42fcd7d729741a27c87d145/f058b/j4x3x1.png 630w,
-/static/1920e918b42fcd7d729741a27c87d145/40601/j4x3x1.png 945w,
-/static/1920e918b42fcd7d729741a27c87d145/78612/j4x3x1.png 1260w,
-/static/1920e918b42fcd7d729741a27c87d145/191e2/j4x3x1.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>For impatient people</h2>
-<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t1c...t2">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t1c...t2"><a href="#fn-github.com/astridx/boilerplate/compare/t1c...t2" class="footnote-ref">github.com/astridx/boilerplate/compare/t1c...t2</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+<p>Look at the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t1c...t2">diff view</a><sup id="fnref-github.com/astridx/boilerplate/compare/t1c...t2"><a href="#fn-github.com/astridx/boilerplate/compare/t1c...t2" class="footnote-ref">github.com/astridx/boilerplate/compare/t1c...t2</a></sup> and incorporate these changes into your development version.</p>
 <h2>Schritt für Schritt</h2>
 <p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
 <p><span
@@ -104,11 +71,10 @@ void function() {
   </a>
     </span></p>
 <h3>Neue Dateien</h3>
-<p>Der Administrationsbereich unserer Komponente ist im Ordner <code class="language-text">com_foos</code> unter <code class="language-text">/administrator/component</code>. Jetzt arbeiten wir am Frontend, das im Ordner <code class="language-text">com_foos</code> direkt unter <code class="language-text">/components</code> gespeichert ist.</p>
+<p>The administration area of our component is located in the folder <code class="language-text">com_foos</code> under <code class="language-text">/administrator/component</code>. Now we work on the frontend. The data of the frontend view are stored in the folder <code class="language-text">com_foos</code> directly under <code class="language-text">/components</code>.</p>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702">components/com_foos/ src/Controller/DisplayController.php</a> - Einstiegspunkt ins Frontend</h4>
-<p>Dies ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse <em>DisplayController</em>. Joomla erwartet das so. Erweitere <em>BaseController</em>, um viele Dinge Out-of-the-Box zu nutzen.</p>
-<p>Alles was ich in Kapitel zur <em>ersten Ansicht im Backend</em> geschrieben habe, trifft hier analog zu.</p>
+<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702">components/com_foos/ src/Controller/DisplayController.php</a></h4>
+<p>The DisplayController in the directory <code class="language-text">components/com_foos/ src/Controller/</code> is the entry point for the Model-View-Controller part in the frontend of the Foo component. Name the class <em>DisplayController</em>. Joomla expects this. Extend <em>BaseController</em> to use many things out-of-the-box. Everything I wrote in the chapter on the <em>First View in the Backend</em> applies here analogously.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php">components/com_foos/ src/Controller/DisplayController.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/Controller/DisplayController.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
@@ -171,10 +137,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="56"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656">components/com_foos/ src/View/Foo/HtmlView.php</a> - Die Ansicht</h4>
-<p>Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird nur ein statischer Text angezeigt. Dies wird sich ändern!</p>
-<p>Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beispielsweise der Controller, der sie aufruft. Den erstellen wir im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.</p>
-<p>In der Datei <code class="language-text">HtmlView.php</code> wir das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten.</p>
-<p>Alles was ich in Kapitel zur <em>ersten Ansicht im Backend</em> geschrieben habe, trifft hier analog zu.</p>
+<p>At the moment, the view of our component is simple. Only a static text is displayed. This will change!</p>
+<p>There are several files that work together to generate the view in the frontend. For example, the controller that calls it. We created this earlier in the current chapter. Later on, we will add a special cell model that prepares the data. At the moment we use the model of the parent classes, because we build on Joomla standard. The file <code class="language-text">HtmlView.php</code> calls the inherited model to prepare the data for the view.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php">components/com_foos/ src/View/Foo/HtmlView.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/View/Foo/HtmlView.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
@@ -248,8 +212,8 @@ void function() {
     </span></p>
 </blockquote>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a> - Template</h4>
-<p>In this file is the text that we display. Everything I wrote in the chapter on the <em>The First View in the Backend</em> applies here analogously.</p>
+<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a></h4>
+<p>The file <code class="language-text">components/com\_foos/ tmpl/foo/default.php</code> contains the text we display. Everything I wrote in the chapter about the <em>first view in the backend</em> also applies here.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/tmpl/foo/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
@@ -266,8 +230,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="10"></span><span class="grvsc-source"><span class="mtk4">Hello</span><span class="mtk1"> </span><span class="mtk4">Foos</span></span></span></code></pre>
 <h3>Modified files</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a> - XML-Datei (Manifest)</h4>
-<p>This is the file that tells Joomla how to install our component. That is why we enter the two new files here, so that Joomla knows when it installs that the directories <code class="language-text">src</code> and <code class="language-text">tmpl</code> exist and where <code class="language-text">components/com_foos</code> it should copy them to.</p>
+<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
+<p>Administrator/components/com<em>foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories <code class="language-text">src</code> and <code class="language-text">tmpl</code> exist and where to copy them to. The copy destination is the directory `components/com</em>foos<code class="language-text">because of</code>folder="components/com_foos"`.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">description</span><span class="mtk8">&gt;</span><span class="mtk4">COM_FOOS_XML_DESCRIPTION</span><span class="mtk8">&lt;/</span><span class="mtk4">description</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">namespace</span><span class="mtk1"> </span><span class="mtk4">path</span><span class="mtk8">=</span><span class="mtk11">&quot;src&quot;</span><span class="mtk8">&gt;</span><span class="mtk4">FooNamespace</span><span class="mtk1">\</span><span class="mtk4">Component</span><span class="mtk1">\</span><span class="mtk4">Foos</span><span class="mtk8">&lt;/</span><span class="mtk4">namespace</span><span class="mtk8">&gt;</span></span></span>
@@ -289,8 +253,10 @@ void function() {
 <p>Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. To do this, uninstall your previous installation and copy all files again.</p>
 <p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.<br>
 Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</p>
-<p>Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation. 2.</p>
-<p>Then open the address <code class="language-text">JOOMLA4/index.php?option=com_foos&amp;view=foo</code> in a browser. You will see the frontend view you just created.</p>
+<p>Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.</p>
+<ol start="2">
+<li>then open the address <code class="language-text">JOOMLA4/index.php?option=com_foos&amp;view=foo</code> in a browser. You will see the frontend view you just created.</li>
+</ol>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "

@@ -34,40 +34,8 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/sprachdateien-nutzen/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Using Language Files</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/10sprachdateien-nutzen.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>10.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Your goal was to make your extension multilingual! That's why you didn't enter the texts directly into the program code. Specifically, I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are uncomplicated exchangeable. So far you have seen cryptic texts because of that. In this part we translate the unattractive language strings.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/c27ddd68b02f3a7f9978779fa526411b/191e2/j4x10x1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDElEQVQoz52S0U7CMBSG+wbe8x5eyx1EL7wxcGHUmBhjCDwAYGIiPBIPYXwJEyMkGLpNWkZ32u6nlg1ncARc8mXn9GTf/nZjlZMOjo7vUb3so9ke4vSmj9pVF/XrMnp+fnb7iPO7JzRaAzRbQ1w8PHvY6OUdo9cx3sYBFOdIFIG02R/KcHVCGgzZxT8moBn3tbUp0vRwtLFgk88A0ZfENJiDrHW6/8mQC6ezEDJegkcLqETD2O/B4RhHQk4YL5V/g4g1QqERyTKoZI0KMwITMvbbnC8oE+568Hcfivyu17WDrQ/TuEbtSEYlqWhrjeVfVGwS7iErJMuTbhL6/8QJ5dYZ0h/b/5H5PpMUWQFq0Od6he81awAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla language files are used"
-        title="Joomla language files are used"
-        src="/static/c27ddd68b02f3a7f9978779fa526411b/f058b/j4x10x1.png"
-        srcset="/static/c27ddd68b02f3a7f9978779fa526411b/c26ae/j4x10x1.png 158w,
-/static/c27ddd68b02f3a7f9978779fa526411b/6bdcf/j4x10x1.png 315w,
-/static/c27ddd68b02f3a7f9978779fa526411b/f058b/j4x10x1.png 630w,
-/static/c27ddd68b02f3a7f9978779fa526411b/40601/j4x10x1.png 945w,
-/static/c27ddd68b02f3a7f9978779fa526411b/78612/j4x10x1.png 1260w,
-/static/c27ddd68b02f3a7f9978779fa526411b/191e2/j4x10x1.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <blockquote>
-<p>Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts without editing the source code. Under some circumstances a user prefers to write <em>first name</em> instead of <em>name</em> in the column header</p>
+<p>Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts via language override<sup id="fnref-docs.joomla.org/j3.x:language_overrides_in_joomla"><a href="#fn-docs.joomla.org/j3.x:language_overrides_in_joomla" class="footnote-ref">docs.joomla.org/j3.x:language_overrides_in_joomla</a></sup> without editing the source code. Under some circumstances a user prefers to write <em>first name</em> instead of <em>name</em> in the column header.</p>
 </blockquote>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t7...t8">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t7...t8"><a href="#fn-github.com/astridx/boilerplate/compare/t7...t8" class="footnote-ref">github.com/astridx/boilerplate/compare/t7...t8</a></sup> and incorporate these changes into your development version.</p>
@@ -105,15 +73,15 @@ void function() {
       />
   </a>
     </span></p>
-<p>The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - <code class="language-text">*.sys.ini</code> and <code class="language-text">*.ini</code>. Briefly explained: The file with the extension <code class="language-text">sys.ini</code> is used to translate the XML installation file as well as the menu elements. The <code class="language-text">ini</code> is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6">International Enhancements</a> which has a section on <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini">the file <code class="language-text">*.sys.ini</code></a>.</p>
+<p>The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - <code class="language-text">*.sys.ini</code> and <code class="language-text">*.ini</code>. Briefly explained: The file with the extension <code class="language-text">sys.ini</code> is used to translate the XML installation file as well as the menu elements. The <code class="language-text">ini</code> is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6">International Enhancements</a> which has a section on <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini">the file <code class="language-text">*.sys.ini</code></a><sup id="fnref-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini"><a href="#fn-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini" class="footnote-ref">docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini</a></sup>.</p>
 <blockquote>
-<p>The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English.</p>
+<p>The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English. Note: This only applies to missing language files. A missing language key in a non-English language file will not be replaced with the key from the English file.</p>
 </blockquote>
 <h3>Side Note: Special features</h3>
 <blockquote>
-<p>Would you like to see exactly how the ini file is parsed? At <a href="https://www.php.net/manual/en/function.parse-ini-file.php">php.net</a> you will find the description of the function that does this work.</p>
+<p>Would you like to see exactly how the ini file is parsed? At <a href="https://www.php.net/manual/en/function.parse-ini-file.php">php.net</a><sup id="fnref-php.net/manual/en/function.parse-ini-file.php"><a href="#fn-php.net/manual/en/function.parse-ini-file.php" class="footnote-ref">php.net/manual/en/function.parse-ini-file.php</a></sup> you will find the description of the function that does this work.</p>
 </blockquote>
-<h4>Commenting out</h4>
+<h4>Commenting</h4>
 <p>You can mark a line as a comment using a semicolon <code class="language-text">;</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">; Joomla! Project</span></span>
 <span class="grvsc-line"><span class="grvsc-source">; (C) 2005 Open Source Matters, Inc. &lt;https://www.joomla.org&gt;</span></span>
@@ -121,7 +89,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source">Note : All ini files need to be saved as UTF-8</span></span>
 <span class="grvsc-line"><span class="grvsc-source">....</span></span></code></pre>
 <h4>Escaping</h4>
-<p>There are characters that have a special meaning - for example, the prefix characters. This meaning can be removed with a backslash <code class="language-text"></code>.</p>
+<p>There are characters that have a special meaning - for example, the inverted commas <code class="language-text">"</code> that mark the beginning and end of the translation. This meaning can be cancelled with a backslash <code class="language-text">\</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">COM_CONTACT_CONTACT_REQUIRED=&quot;&lt;strong class=\&quot;red\&quot;&gt;*&lt;/strong&gt; Required field&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -137,7 +105,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <p>The value of <code class="language-text">$checkoutUser->name</code> is inserted instead of the first variable in the language string. Here in the example instead of <code class="language-text">%s</code>.</p>
 <blockquote>
-<p>Unfortunately, you cannot determine which variable <code class="language-text">$checkoutUser->name</code> belongs to which language string <code class="language-text">%s</code>. The values are assigned in order.</p>
+<p>Unfortunately, you cannot determine which variable <code class="language-text">$checkoutUser->name</code> belongs to which language string <code class="language-text">%s</code>. The values are assigned in order, if there are several variables.</p>
 </blockquote>
 <h4>singular/singular</h4>
 <p>There is singular or singular and plural or plural and the Joomla language strings support this.</p>
@@ -146,16 +114,15 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source">$message = Text::plural(&#39;COM_FOOS_N_ITEMS_FEATURED&#39;, count($ids));</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <p>as an example.</p>
-<p>Depending on whether <code class="language-text">count($ids)</code> has the value <code class="language-text">1</code> or <code class="language-text">2</code> the language string <code class="language-text">COM_FOOS_N_ITEMS_FEATURED_1</code> or <code class="language-text">COM_FOOS_N_ITEMS_FEATURED_2</code> is used. If <code class="language-text">count($ids)</code> has neither <code class="language-text">1</code> nor <code class="language-text">2</code>, <code class="language-text">COM_FOOS_N_ITEMS_FEATURED</code> is used as the fallback position.</p>
+<p>Depending on whether <code class="language-text">count($ids)</code> has the value <code class="language-text">1</code> or <code class="language-text">2</code> the language string <code class="language-text">COM_FOOS_N_ ITEMS_FEATURED_1</code> or <code class="language-text">COM_FOOS_N_ ITEMS_FEATURED_2</code> is used. If <code class="language-text">count($ids)</code> has neither <code class="language-text">1</code> nor <code class="language-text">2</code>, <code class="language-text">COM_FOOS_N_ ITEMS_FEATURED</code> is used as the fallback position.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">COM_FOOS_N_ITEMS_FEATURED=&quot;%d foos featured.&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">COM_FOOS_N_ITEMS_FEATURED_1=&quot;Foo featured.&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">COM_FOOS_N_ITEMS_FEATURED_2=&quot;Two foos featured.&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h3>New files</h3>
-<p>Create the following six files to support the German language in addition to English.</p>
-<p>The left side of the equal sign in the language string, for example <code class="language-text">COM_FOOS_CONFIGURATION"</code> in <code class="language-text">COM_FOOS_CONFIGURATION="Foo Options"</code>, is always in upper case. Normally the extension name is at the beginning, in our case it is <code class="language-text">COM_FOOS</code>. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.</p>
-<p>The right side of the language string, for example <code class="language-text">Foo Options"</code> in <code class="language-text">COM_FOOS_CONFIGURATION = "Foo Options"</code>, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.</p>
+<p>Create six files to support the German language in addition to English. Each file is structured as follows: One language string is inserted per line. The left side of the equal sign in the language string, for example <code class="language-text">COM_FOOS_ CONFIGURATION"</code> in <code class="language-text">COM_FOOS_ CONFIGURATION="Foo Options"</code>, is always in upper case. Normally the extension name is at the beginning, in our case it is <code class="language-text">COM_FOOS</code>. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.</p>
+<p>The right side of the language string, for example <code class="language-text">Foo Options"</code> in <code class="language-text">COM_FOOS_ CONFIGURATION = "Foo Options"</code>, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.</p>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde">administrator/components/com_foos/ language/de-DE/com_foos.ini</a></h4>
 <p>We add the German language version for the administration area with the files 'administrator/components/com<em>foos/ language/en-DE/com</em>foos.ini' and 'administrator/components/com<em>foos/ language/en-DE/com</em>foos.sys.ini'.</p>
@@ -182,14 +149,11 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="14"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC=&quot;Diese Einstellungen gelten für alle foo.&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="15"></span><span class="grvsc-source"><span class="mtk1">COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY=&quot;Foo&quot;</span></span></span></code></pre>
 <h5>Naming conventions</h5>
-<p>Each language file is marked with an abbreviation, which is defined in <a href="https://en.wikipedia.org/wiki/ISO_639">ISO-639</a> and <a href="https://en.wikipedia.org/wiki/ISO_3166">ISO-3166</a>: The first two lower case letters name the language. For German this is <code class="language-text">de</code> and <code class="language-text">en</code> for English.</p>
-<p>After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from <code class="language-text">DE</code> by <code class="language-text">CH</code> or Austrian by <code class="language-text">AT</code>. A frolder named <code class="language-text">de-CH</code> contains the translation for Switzerland and <code class="language-text">de-AT</code> the Austrian variant.</p>
+<p>Each language file is marked with an abbreviation, which is defined in <a href="https://en.wikipedia.org/wiki/ISO_639">ISO-639</a><sup id="fnref-en.wikipedia.org/wiki/iso_639"><a href="#fn-en.wikipedia.org/wiki/iso_639" class="footnote-ref">en.wikipedia.org/wiki/iso_639</a></sup> and <a href="https://en.wikipedia.org/wiki/ISO_3166">ISO-3166</a><sup id="fnref-en.wikipedia.org/wiki/iso_3166"><a href="#fn-en.wikipedia.org/wiki/iso_3166" class="footnote-ref">en.wikipedia.org/wiki/iso_3166</a></sup>: The first two lower case letters name the language. For German this is <code class="language-text">de</code> and <code class="language-text">en</code> for English.</p>
+<p>After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from <code class="language-text">DE</code> by <code class="language-text">CH</code> or Austrian by <code class="language-text">AT</code>. A folder named <code class="language-text">de-CH</code> contains the translation for Switzerland and <code class="language-text">de-AT</code> the Austrian variant.</p>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987">administrator/components/com_foos/ language/de-DE/com_foos.sys.ini</a></h4>
-<p>As mentioned before, you need two language files: one ending with <code class="language-text">.ini</code> and one ending with <code class="language-text">sys.ini</code>. The <a href="https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini"><code class="language-text">sys.ini</code></a> is primarily used during installation and for displaying the menu items and the <code class="language-text">sys.ini</code> for everything else.</p>
-<blockquote>
-<p>The reason for this dichotomy is performance. When installing or setting up the navigation in the backend, it is thus not necessary to load all language strings. In small extensions this advantage of two language files is not big in my opinion. Therefore I partially fill both files with the same language strings. This way I am on the safe side. This is not professional, but it has proven to be suitable for me in practice.</p>
-</blockquote>
+<p>As mentioned before, you need two language files for the backend: one ending with <code class="language-text">.ini</code> and one ending with <code class="language-text">sys.ini</code>. The <a href="https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini"><code class="language-text">sys.ini</code></a> is primarily used during installation and for displaying the menu items and the <code class="language-text">ini</code> for everything else.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini">administrator/components/com<em>foos/ language/de-DE/com</em>foos.sys.ini</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini --&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
