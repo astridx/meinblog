@@ -92,7 +92,7 @@ To make Joomla apply the rule in the `LetterRule.php` file to the text field for
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`
+What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`. The parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` ensures that the form searches for rules in the namespace `FooNamespace\Component\Foos\Administrator\Rule` and `validate="Letter"` indicates that the rule `Letter`, i.e. according to Joomla standard the class `LetterRule`, is applied.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -131,6 +131,6 @@ A new installation is not necessary. Continue using the ones from the previous p
 
 5. try to save your input at the end. This is not possible. You will see a warning.
 
-![Joomla Validation](/images/j4x13x1.png)
+![Joomla Validation - Server Side Validation](/images/j4x13x1.png)
 
 > Did you notice it? You may see the warning only after you have made a lot of changes in the form. In this small extension it does not matter. In large forms, the hint at the end can be frustrating. A user may want to see it immediately after the incorrect input. So it is possible to act immediately and avoid unnecessary work. This is where client-side validation comes into play. We will look at this in the next part.

@@ -126,7 +126,7 @@ void function() {
 <p>To make Joomla apply the rule in the <code class="language-text">LetterRule.php</code> file to the text field for entering the name, we modify the form file.</p>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
-<p>What has changed is <code class="language-text">&lt;fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"></code> and <code class="language-text">validate="Letter"</code></p>
+<p>What has changed is <code class="language-text">&lt;fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"></code> and <code class="language-text">validate="Letter"</code>. The parameter <code class="language-text">addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"</code> ensures that the form searches for rules in the namespace <code class="language-text">FooNamespace\Component\Foos\Administrator\Rule</code> and <code class="language-text">validate="Letter"</code> indicates that the rule <code class="language-text">Letter</code>, i.e. according to Joomla standard the class <code class="language-text">LetterRule</code>, is applied.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;?</span><span class="mtk4">xml</span><span class="mtk1"> </span><span class="mtk4">version</span><span class="mtk8">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk1"> </span><span class="mtk4">encoding</span><span class="mtk8">=</span><span class="mtk11">&quot;utf-8&quot;</span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">&lt;</span><span class="mtk4">form</span><span class="mtk8">&gt;</span></span></span>
@@ -172,8 +172,8 @@ void function() {
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Validation"
-        title="Joomla Validation"
+        alt="Joomla Validation - Server Side Validation"
+        title="Joomla Validation - Server Side Validation"
         src="/static/84e86a4ba9f2d5c52f04737d2375e07e/f058b/j4x13x1.png"
         srcset="/static/84e86a4ba9f2d5c52f04737d2375e07e/c26ae/j4x13x1.png 158w,
 /static/84e86a4ba9f2d5c52f04737d2375e07e/6bdcf/j4x13x1.png 315w,

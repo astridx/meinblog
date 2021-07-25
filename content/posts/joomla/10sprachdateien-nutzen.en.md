@@ -107,16 +107,14 @@ COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
 
 ### New files
 
-Create six files to support the German language in addition to English. Each file is structured as follows: One language string is inserted per line. The left side of the equal sign in the language string, for example `COM_FOOS_ CONFIGURATION"` in `COM_FOOS_ CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed.
-
-The right side of the language string, for example `Foo Options"` in `COM_FOOS_ CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
+Create six files to support the German language in addition to English. Each file is structured as follows: One language string is inserted per line. The _left side_ of the equal sign in the language string, for example `COM_FOOS_ CONFIGURATION"` in `COM_FOOS_ CONFIGURATION="Foo Options"`, is always in upper case. Normally the extension name is at the beginning, in our case it is `COM_FOOS`. After that you ideally add a short description. Here you describe briefly what this string is used for. Make sure that you do not use spaces. Only letters and underscores are allowed. The _right side_ of the language string, for example `Foo Options"` in `COM_FOOS_ CONFIGURATION = "Foo Options"`, is the actual text that will be displayed on the site. When your extension is translated into another language, the translator only changes this right side of the language string in his language file. The right side is enclosed in quotation marks.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
 We add the German language version for the administration area with the files 'administrator/components/com_foos/ language/en-DE/com_foos.ini' and 'administrator/components/com_foos/ language/en-DE/com_foos.sys.ini'.
 
-> Don't be confused if you see a lot of texts. These are not all used at the moment. I'm already inserting the text for the future chapters here.
+> Don't be confused if you see a lot of texts in the sample data. These are not all used at the moment. I'm already inserting the text for the future chapters here.
 
 [administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
 
@@ -125,28 +123,12 @@ We add the German language version for the administration area with the files 'a
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Optionen"
-
-COM_FOOS_MANAGER_FOO_NEW="Neu"
-COM_FOOS_MANAGER_FOO_EDIT="Bearbeiten"
-COM_FOOS_MANAGER_FOOS="Foo Manager"
-
-COM_FOOS_TABLE_TABLEHEAD_NAME="Name"
-COM_FOOS_TABLE_TABLEHEAD_ID="ID"
-COM_FOOS_ERROR_FOO_NOT_FOUND="Foo nicht gefunden"
-
-COM_FOOS_FIELD_NAME_LABEL="Name"
-
-COM_FOOS_FIELD_FOO_SHOW_CATEGORY_LABEL="Namensschild anzeigen"
-COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC="Diese Einstellungen gelten für alle foo."
-COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
-
+COM_FOOS_FOOS="Foos"
+COM_FOOS_CATEGORIES="Kategorien"
+...
 ```
 
-##### Naming conventions
-
-Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/ISO_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/ISO_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English.
-
-After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
+> Naming conventions: Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/ISO_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/ISO_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English. After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
@@ -160,91 +142,36 @@ As mentioned before, you need two language files for the backend: one ending wit
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_XML_DESCRIPTION="Foo Komponente"
-
+...
 COM_FOOS_INSTALLERSCRIPT_PREFLIGHT="<p>Alles hier passiert vor der Installation / Aktualisierung / Deinstallation der Komponente</p>"
 COM_FOOS_INSTALLERSCRIPT_UPDATE="<p>TDie Komponente wurde aktualisiert</p>"
 COM_FOOS_INSTALLERSCRIPT_UNINSTALL="<p>Die Komponente wurde deinstalliert</p>"
 COM_FOOS_INSTALLERSCRIPT_INSTALL="<p>Die Komponente wurde installiert</p>"
 COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Alles hier passiert nach der Installation / Aktualisierung / Deinstallation der Komponente</p>"
-
-COM_FOOS_FOO_VIEW_DEFAULT_TITLE="Ein einzelnes Foo"
-COM_FOOS_FOO_VIEW_DEFAULT_DESC="Dies ist ein Link zu den Informationen für ein Foo."
-COM_FOOS_SELECT_FOO_LABEL="Wählen Sie ein foo aus"
-
-COM_FOOS_CHANGE_FOO="Ändern Sie ein foo"
-COM_FOOS_SELECT_A_FOO="Wählen Sie ein foo aus"
+...
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
 
-I had already written it: The English versions of the language files are mandatory.
+I had already written it: The English versions of the language files should always be available as a fallback.
 
 [administrator/components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
+<!--  htttps://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
 COM_FOOS_FOOS="Foos"
 COM_FOOS_CATEGORIES="Categories"
-
-COM_FOOS_MANAGER_FOO_NEW="New"
-COM_FOOS_MANAGER_FOO_EDIT="Edit"
-COM_FOOS_MANAGER_FOOS="Foo Manager"
-
-COM_FOOS_TABLE_TABLEHEAD_NAME="Name"
-COM_FOOS_TABLE_TABLEHEAD_ID="ID"
-COM_FOOS_ERROR_FOO_NOT_FOUND="Foo not found"
-
-COM_FOOS_FIELD_NAME_LABEL="Name"
-
-COM_FOOS_FIELD_FOO_SHOW_CATEGORY_LABEL="Show name label"
-COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DESC="These settings apply for all foo."
-COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY="Foo"
-
-COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Finish Publishing"
-COM_FOOS_FIELD_PUBLISH_UP_LABEL="Start Publishing"
-COM_FOOS_N_ITEMS_PUBLISHED="%d foos published."
-COM_FOOS_N_ITEMS_PUBLISHED_1="%d foo published."
-COM_FOOS_N_ITEMS_UNPUBLISHED="%d foos unpublished."
-COM_FOOS_N_ITEMS_UNPUBLISHED_1="%d foo unpublished."
-COM_FOOS_N_ITEMS_CHECKED_IN_1="%d foo checked in."
-COM_FOOS_N_ITEMS_CHECKED_IN_MORE="%d foos checked in."
-COM_FOOS_N_ITEMS_FEATURED="%d foos featured."
-COM_FOOS_N_ITEMS_FEATURED_1="Foo featured."
-COM_FOOS_N_ITEMS_UNFEATURED="%d foos unfeatured."
-COM_FOOS_N_ITEMS_UNFEATURED_1="Foo unfeatured."
-
-COM_FOOS_EDIT_FOO="Edit Foo"
-COM_FOOS_NEW_FOO="New Foo"
-
-COM_FOOS_HEADING_ASSOCIATION="Association"
-COM_FOOS_CHANGE_FOO="Change a foo"
-COM_FOOS_SELECT_A_FOO="Select a foo"
-
-COM_FOOS_TABLE_CAPTION="Foo Table Caption"
-
-COM_FOOS_N_ITEMS_ARCHIVED="%d foos archived."
-COM_FOOS_N_ITEMS_ARCHIVED_1="%d foo archived."
-COM_FOOS_N_ITEMS_DELETED="%d foos deleted."
-COM_FOOS_N_ITEMS_DELETED_1="%d foo deleted."
-COM_FOOS_N_ITEMS_TRASHED="%d foos trashed."
-COM_FOOS_N_ITEMS_TRASHED_1="%d foo trashed."
-COM_FOO_MANAGER_FOOS="Foos"
-
-COM_FOOS_FIELD_PARAMS_NAME_LABEL="Show Name"
-
-COM_FOOS_FILTER_SEARCH_DESC="Search in foo name."
-COM_FOOS_FILTER_SEARCH_LABEL="Search Foos"
-
+...
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
-Also the file is `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` mandatory.
+We also add the file `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` as a fallback for all non-German or English Joomla installations.
 
 [administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
@@ -252,70 +179,42 @@ Also the file is `administrator/components/com_foos/ language/en-GB/com_foos.sys
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
-COM_FOOS_XML_DESCRIPTION="Foo Component"
-
+COM_FOOS_CONFIGURATION="Foo Options"
+...
 COM_FOOS_INSTALLERSCRIPT_PREFLIGHT="<p>Anything here happens before the installation/update/uninstallation of the component</p>"
 COM_FOOS_INSTALLERSCRIPT_UPDATE="<p>The component has been updated</p>"
 COM_FOOS_INSTALLERSCRIPT_UNINSTALL="<p>The component has been uninstalled</p>"
 COM_FOOS_INSTALLERSCRIPT_INSTALL="<p>The component has been installed</p>"
 COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installation/update/uninstallation of the component</p>"
-
-COM_FOOS_FOO_VIEW_DEFAULT_TITLE="Single Foo"
-COM_FOOS_FOO_VIEW_DEFAULT_DESC="This links to the information for one foo."
-COM_FOOS_SELECT_FOO_LABEL="Select a foo"
-
-COM_FOOS_CHANGE_FOO="Change a foo"
-COM_FOOS_SELECT_A_FOO="Select a foo"
-
-COM_FOOS_FOO_VIEW_WITHHEAD_TITLE="Single Foo with a headertext"
-COM_FOOS_FOO_VIEW_WITHHEAD_DESC="This links to the information for one foo with a headertext."
-
-COM_FOOS_FEATURED_VIEW_DEFAULT_TITLE="Featured Foos"
-COM_FOOS_FEATURED_VIEW_DEFAULT_DESC="This view lists the featured foos."
-
-COM_FOOS_FORM_VIEW_DEFAULT_DESC="Create a new foo."
-COM_FOOS_FORM_VIEW_DEFAULT_TITLE="Create Foo"
-
-COM_FOOS_CATEGORY_VIEW_DEFAULT_TITLE="Category"
-
+...
 ```
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-9c71769b65375e899db729d95b37c96e)
 
-In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/language/en-DE/com_foos.ini` implements the German language.
+In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/ language/en-DE/com_foos.ini` implements the German language.
 
 [components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/de-DE/com_foos.ini -->
 
-COM_FOOS_NAME="Name: "
-
+COM_FOOS_NAME="Vorame: "
+...
 ```
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-43a9aed65969ca2daddc1de76e8664a6)
 
-We add the mandatory English version in the file `components/com_foos/ language/en-GB/com_foos.ini`.
+We add the English version to the file `components/com_foos/ language/en-GB/com_foos.ini` so that it is used as a fallback in all languages other as German.
 
-[components/com_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/en-GB/com_foos.ini)
+[components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/en-GB/com_foos.ini -->
 
-COM_FOOS_NAME="Name: "
-COM_FOOS_FOO_NAME_LABEL="Name"
-COM_FOOS_FIELD_NAME_LABEL="Name"
-COM_FOOS_NEW_FOO="New"
-COM_FOOS_EDIT_FOO="Edit"
-JGLOBAL_FIELDSET_DISPLAY_OPTIONS="Display"
-JGLOBAL_FIELDSET_PUBLISHING="Publishing"
-COM_FOOS_FIELD_PARAMS_NAME_LABEL="Label"
-JFIELD_ALT_LAYOUT_LABEL="Layout"
-COM_FOOS_FIELD_PUBLISH_UP_LABEL="Publishing start"
-COM_FOOS_FIELD_PUBLISH_DOWN_LABEL="Publishing end"
-
+COM_FOOS_NAME="Surname: "
+...
 ```
 
 > In the next chapters more language strings will be added. I will not mention them separately there. I have already integrated most of them into the sample files in this lesson. This way I avoid that the files appear in the diff view and blow it up unnecessarily. Specifically, I mean the diff view of the program code of the various chapters on Github, which I refer to here.
@@ -350,18 +249,18 @@ So that the language files are copied during an installation, we add the `<folde
 
 ##### Where are the language files ideally stored?
 
-Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/language/en-GB/` and `components/com_foos/language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the directory `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
+Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/ language/en-GB/` and `components/com_foos/ language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the directory `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
 
-To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact` where you need to adjust the value of the `folder` parameter to your structure:
+You want to store your language files in the same directory as the Joomla core extensions? To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact` 
 
 ```xml
 ...
-	<files folder="components/com_foos">
+	<files folder="components/com_contact">
 ...
 	</files>
 
 	<languages folder="site">
-		<language tag="en-GB">language/en-GB.com_foos.ini</language>
+		<language tag="en-GB">language/en-GB.com_contact.ini</language>
 	</languages>
 
 	<administration>
@@ -374,10 +273,32 @@ To place your files together with Joomla's own language files, you add the `<lan
 ...
 ```
 
+where you need to adjust the value of the `folder` parameter to your structure:
+
+```xml
+...
+	<files folder="components/com_foos">
+...
+	</files>
+
+	<languages folder="language">
+		<language tag="en-GB">language/en-GB.com_foos.ini</language>
+	</languages>
+
+	<administration>
+...
+		<languages folder="administrator/language">
+			<language tag="en-GB">language/en-GB.com_foos.ini</language>
+			<language tag="en-GB">language/en-GB.com_foos.sys.ini</language>
+		</languages>
+	</administration>
+...
+```
+
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t7...t8#diff-a33732ebd6992540b8adca5615b51a1f)
 
-So far we have output the name without a label in the frontend `echo $this->item->name;`. Now we add a label. For this we consider the different languages. The following code causes that instead of `Text::_('COM_FOOS_NAME')` in the frontend the string is output, which is entered in the corresponding language file. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is output. If the German language is active and there is the German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed.
+Last but not least, we now use the language files. So far we have printed the name without a label in the frontend via `echo $this->item->name;`. Now we add a label that takes different languages into account. The following code causes the string that is entered in the corresponding language file to be printed in the frontend. This is done by the command `Text::_('COM_FOOS_NAME')`. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is printed. If the German language is set and there is a German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed. If the Spanish language is active without a Spanish language file, the English language file is used.
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/tmpl/foo/default.php)
 
@@ -410,4 +331,4 @@ If you do a new installation, you will notice that the hints in the installation
 
 ![Joomla language files are used](/images/j4x10x1.png)
 
-3. sample the innovation. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.
+3. try out the new feature. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.

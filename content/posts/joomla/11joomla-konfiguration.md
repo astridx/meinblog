@@ -15,8 +15,6 @@ tags:
 
 Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst. Wir erstellen die globale Konfiguration für unsere Komponente!
 
-![Joomla Konfiguration](/images/j4x11x2.png)
-
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] an und übernimm diese Änderungen in deine Entwicklungsversion.
@@ -32,7 +30,9 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
 
-Wir ergänzen die Datei `config.xml`, die die Parameter der Konfiguration implementiert.
+Hinzu kommt die Datei `config.xml`. Diese implementiert die Konfigurations-Parameter. In der XML-Datei kannst du wie gewohnt auf alle [Standard-Formular-Feldtypen](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/Form_field/de] zurückgreifen oder analog des bereits erstellten Modalfeldes FieldFoo eigene Typen implementieren.
+
+Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit minimieren wir, indem wir die globalen Sprachstrings `JNO` und `JYES` einsetzten. Alle Texte, die Joomla in der Datei [`language/en-GB/joomla.ini`](https://github.com/joomla/joomla-cms/blob/4.0-dev/language/en-GB/joomla.ini) übersetzt, sind global verwendbar.
 
 [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml)
 
@@ -83,7 +83,7 @@ Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Die Zeile `$toolbar->preferences('com_foos');` sorgt dafür, dass im Administrationsbereich recht oben die Schaltfäche `Optionen` eingefügt wird. Nur so ist die Konfiguration später editierbar.
+Die Zeile `$toolbar->preferences('com_foos');` sorgt dafür, dass im Administrationsbereich recht oben die Schaltfäche `Optionen` eingefügt wird. So ist die Konfiguration später im Backend unkompliziert erreichbar.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -106,7 +106,7 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist 
 
 `populateState()` wird automatisch aufgerufen, wenn wir `getState()` zum ersten Mal verwenden. Wenn wir etwas Besonderes in der Methode benötigen, überschreiben wir sie im eigenen Modell - so wie im folgenden Code-Beispiel.
 
-> Vielleicht fragst du dich, welche `populateState()`-Methode aufgerufen wird, wenn in der eigenen Erweiterung nichts implementiert ist. Ganz einfach: `FooModel` (`components/com_foos/src/Model/FooModel.php`) erweitert `BaseDatabaseModel` (`libraries/src/MVC/Model/BaseDatabaseModel.php`), diese wiederum erweitert `BaseModel` (`libraries/src/MVC/Model/BaseModel.php`). Letztere implementiert `StateBehaviorTrait` (`libraries/src/MVC/Model/StateBehaviorTrait.php`) in welchem du die Methode `protected function populateState() {}` findest. Die ist zwar leer und bewirkt so nichts. Aber: Sie ist aufrufbar ist.
+> Vielleicht fragst du dich, welche `populateState()`-Methode aufgerufen wird, wenn in der eigenen Erweiterung nichts implementiert ist. Ganz einfach: `FooModel` (`components/com_foos/src/Model/FooModel.php`) erweitert `BaseDatabaseModel` (`libraries/src/MVC/Model/BaseDatabaseModel.php`), diese wiederum erweitert `BaseModel` (`libraries/src/MVC/Model/BaseModel.php`). Letztere implementiert `StateBehaviorTrait` (`libraries/src/MVC/Model/StateBehaviorTrait.php`) in welchem du die Methode `protected function populateState() {}` findest. Die ist zwar leer und bewirkt so nichts. Aber: Sie ist aufrufbar. Es ist extrem sehr hilfreich immer mal wieder solchen Fragen nachzugehen. So lernt man Joomla kennen.
 
 [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/src/Model/FooModel.php)
 
@@ -137,7 +137,7 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;` mit dem laut Status korrekten Text.
+Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. Wir zeigen das Label nur an, wenn im Status der Parameter auf `true` oder `1` gesetzt ist. 
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php)
 
@@ -165,12 +165,12 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich und überzeuge dich davon, dass dir rechts oben die Schaltfläche `Options` angezeigt wird.
 
-![Joomla Konfiguration](/images/j4x11x1.png)
+![Joomla Konfiguration - Schaltfläche im Backend](/images/j4x11x1.png)
 
 3. Klicke auf `Options` und stelle die Anzeige des Labels nach deinen wünschen ein.
 
-![Joomla Konfiguration](/images/j4x11x2.png)
+![Joomla Konfiguration - Ansicht der globalen Konfiguration](/images/j4x11x2.png)
 
-4. Öffne als Letztes, die Ansicht im Frontend. Verhält die Anzeige des Labels sich so, wie du das im Administrationsbereich eingestellt hast?
+4. Öffne zuletzt, die Ansicht im Frontend. Verhält die Anzeige des Labels sich so, wie du das im Administrationsbereich eingestellt hast?
 
-![Joomla Konfiguration](/images/j4x11x3.png)
+![Joomla Konfiguration - Frontend](/images/j4x11x3.png)

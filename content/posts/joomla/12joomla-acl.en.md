@@ -30,7 +30,9 @@ In the following overview, the newly added files are marked with a background an
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-First, we set all possible permissions in an XML file.
+First, we set all possible permissions in an XML file. Each component can define individual permissions. I orientate myself here on the usual actions in Joomla. `core.admin` thereby determines which groups are allowed to configure the permissions at component level via the `options` button in the toolbar. `core.manage` determines which groups are allowed to access the backend of the component. 
+
+> Whether you have individual rights requirements or you also like to follow Joomla and are unsure, the [Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial] is a helpful read.
 
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
@@ -152,7 +154,7 @@ We extend the form for creating a new Foo item with the possibility to set permi
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
 
-The SQL script for a new installation of the component with this state of implementation is also extended with the necessary fields.
+The SQL script for a new installation of the component is also extended with the necessary fields. In this way we ensure that the database is also completely set up for a new installation.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -169,7 +171,7 @@ The SQL script for a new installation of the component with this state of implem
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-If you are not familiar with SQL so far, the database query will appear complex to you now. It is now necessary to combine data from two database tables. The table that manages the permissions of `com_user` `#__viewlevels`, and the one of our example component. Don't let this scare you. Joomla supports you in creating the queries.
+If you are not familiar with SQL, the database query in the model will now seem complex. It is now necessary to combine data from two database tables. One table is `#__viewlevels` which manages the permissions of `com_user`. The other table is that of our example component which is named `#__foos_details`. Don't feel discouraged by this. Joomla supports you in creating the queries.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -195,12 +197,12 @@ If you are not familiar with SQL so far, the database query will appear complex 
  	}
 ```
 
-> As a reminder, Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de), Joomla will take care of security or different syntax in PostgreSQL and MySQL for you.
+> As a reminder, Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/Accessing_the_database_using_JDatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL for you.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added.
+A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added. `$canDo = ContentHelper::getActions('com_foos');` gets the actions you defined in the file `administrator/components/com_foos/ access.xml` at the beginning of this chapter.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -297,14 +299,19 @@ Install your component as described in part one, after copying all files. Joomla
 
 2. create a new item in your component. Make sure that you are offered a checkbox for saving a permission. The value you enter here will be saved with the item and can be queried when it is displayed in a list.
 
-![Joomla Configuration](/images/j4x12x1.png)
+![Joomla Configuration - Set permissions in an element](/images/j4x12x1.png)
 
-3. for a better overview the value is displayed in the main view.
+3. for an overview, the value is additionally displayed in the main view.
 
-![Joomla Configuration](/images/j4x12x2.png)
+![Joomla Configuration - Display permissions in the overview list](/images/j4x12x2.png)
 
-4. open the options in the global configuration. Here you have the possibility to set the permissions for the use of the component itself.
+Open the options of the global configuration. Here you have the possibility to set the permissions for the use of the component globally.
 
-![Joomla Configuration](/images/j4x12x3.png)
+![Joomla Configuration - Permissions in the Global Configuration](/images/j4x12x3.png)
 
-Play around with the settings. Allow once only the Super Admin to create new elements in your extension. Then log in as administrator and see that the 'New' button has disappeared.
+5. play with the settings. Allow only the Super Admin to create new elements in your extension. Then log in as a simple administrator and make sure that the 'New' button has disappeared.
+
+## Links
+
+[Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial]
+

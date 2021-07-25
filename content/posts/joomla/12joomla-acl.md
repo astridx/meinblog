@@ -30,7 +30,9 @@ In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem H
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
+Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jede Komponente kann individuelle Berechtigungen definieren. Ich orientiere mich hier an den Aktionen, die in Joomla üblich sind. `core.admin` legt dabei fest, welche Gruppen die Berechtigungen auf Komponentenebene über die Schaltfläche `Optionen` in der Symbolleiste konfigurieren dürfen. `core.manage` bestimmt, welche Gruppen auf das Backend der Komponente zugreifen dürfen. 
+
+> Egal ob du individuellen Rechteanforderungen hast oder ob du dich ebenfalls an Joomla orientieren magst und unsicher bist, ist das [Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial/de] eine hilfreiche Lektüre. 
 
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
@@ -55,7 +57,7 @@ Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest.
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-887ce564d59a60e62da6554aa4e91cd7)
 
-Die Berechtigungen speichert Joomla in der Datenbank. Bei einem Joomla-Update sind lediglich Datenbankänderungen relevant. Diese tragen wir in die Datei `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql` ein, hier ist dies konkret `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. Diese Datei wir ausschließlich bei einer Aktualisierung aufgerufen. Bei einer neuen Installation wird die Datenbank über die Hauptdatei `administrator/components/com_foos/sql/install.mysql.utf8.sql` gleich korrekt eingerichtet.
+Die Berechtigungen speichert Joomla in der Datenbank. Bei einem Joomla-Update sind lediglich Datenbankänderungen relevant. Diese tragen wir in die Datei `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql` ein, in unserem Fall ist dies konkret die Datei `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. Diese Datei wird ausschließlich bei einer Aktualisierung aufgerufen. Bei einer neuen Installation wird die Datenbank über die Hauptdatei `administrator/components/com_foos/sql/install.mysql.utf8.sql` gleich korrekt eingerichtet.
 
 [administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
@@ -101,7 +103,7 @@ Die Berechtigungen für die gesamte Komponente stellen wir in der Konfiguration 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzukommenden Dateien `sql/updates/mysql` und `access.xml`.
+Damit bei der Installation alles glatt läuft, ergänzen wir die hier neu hinzukommenden Dateien. Hierbei handelt es sich um `sql/updates/mysql` und `access.xml`.
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/fcce13afc14c13603509611630f369b2d53864c1/src/administrator/components/com_foos/foos.xml)
 
@@ -152,7 +154,7 @@ Das Formular zum Erstellen eines neuen Foo-Items erweitern wir um die Möglichke
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t9...t10#diff-896f245bc8e493f91277fd33913ef974)
 
-Das SQL-Skript für eine neue Installation der Komponente mit diesem Stand der Implementierung wird ebenfalls um die notwendigen Felder erweitert.
+Das SQL-Skript für eine neue Installation der Komponente wird ebenfalls um die notwendigen Felder erweitert. So stellen wir sicher, dass die Datenbank bei einer neuen Installation ebenfalls vollständig eingerichtet wird.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -169,7 +171,7 @@ Das SQL-Skript für eine neue Installation der Komponente mit diesem Stand der I
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage dir nun komplex erscheinen. Es ist jetzt erforderlich, Daten aus zwei Datenbanktabellen zu kombinieren. Die Tabelle, die die Berechtigungen von `com_user` verwaltet `#__viewlevels`, und die unsere Beispielkomponente. Lass dich davon nicht abschrecken. Joomla unterstützt beim Erstellen der Abfragen.
+Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage im Model dir nun komplex erscheinen. Es ist jetzt erforderlich, Daten aus zwei Datenbanktabellen zu kombinieren. Die eine Tabelle ist `#__viewlevels`, welche die die Berechtigungen von `com_user` verwaltet. Die andere Tabelle ist die unserer Beispielkomponente welche `#__foos_details` benannt ist. Lass dich davon nicht abschrecken. Joomla unterstützt beim Erstellen der Abfragen.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -195,12 +197,12 @@ Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage dir n
  	}
 ```
 
-> Zur Erinnerung: Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de) nutzt, dann kümmert sich Joomla für dich um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
+> Zur Erinnerung: Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de)[^docs.joomla.org/Accessing_the_database_using_JDatabase/de] nutzt, dann kümmert sich Joomla um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - `$canDo` kommt hinzu.
+Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erlaubt ist. Deshalb ändern wir die View ab - `$canDo` kommt hinzu. `$canDo = ContentHelper::getActions('com_foos');` fragt die Aktionen ab, die du zu Beginn dieses Kapitels in der Datei `administrator/components/com_foos/ access.xml` festegelegt hast.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -242,7 +244,7 @@ Eine Schaltfläche zum Erstellen eines Elementes ist nur sinnvoll, wenn dies erl
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, damit das Feld im Formular aufgenommen wird, welches wir in der XML Datei schon konfiguriert haben. Nur so ist es möglich, die Berechtigungen pro Element zu verändern.
+Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, damit das Feld im Formular aufgenommen wird, welches wir in der XML Datei schon konfiguriert haben. So ist es möglich, die Berechtigungen pro Element zu verändern.
 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
@@ -259,7 +261,7 @@ Der Eintrag `<?php echo $this->getForm()->renderField(access);` ist notwendig, d
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in der Übersicht auf.
+Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in der Übersichtliste auf.
 
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foos/default.php)
 
@@ -285,7 +287,7 @@ Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in d
  								</td>
 ```
 
-> Beachte, dass ich hier nicht alle Fälle abgedeckt habe, bei denen Berechtigungen zu handhaben sind. Diese Beschreibung ist als exemplarische Vorgehensweise gedacht.
+> Beachte, dass ich nicht alle Fälle abdecke, bei denen Berechtigungen zu handhaben sind. Diese Beschreibung ist als exemplarische Vorgehensweise gedacht.
 
 ## Teste deine Joomla-Komponente
 
@@ -297,14 +299,18 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 2. Erstelle in deiner Komponente ein neues Item. Überzeuge dich davon, dass dir ein Auswahlfeld für das Speichern einer Berechtigung angeboten wird. Der Wert, den du hier eingibst, wird mit dem Element gespeichert und ist bei der Anzeige in einer Liste abfragbar.
 
-![Joomla Konfiguration](/images/j4x12x1.png)
+![Joomla Konfiguration - Berechtigungen in einem Element einstellen](/images/j4x12x1.png)
 
-3. Zur besseren Übersicht wird der Wert in der Hauptansicht angezeigt.
+3. Zur Übersicht wird der Wert zusätzlich in der Hauptansicht angezeigt.
 
-![Joomla Konfiguration](/images/j4x12x2.png)
+![Joomla Konfiguration - Anzeige der Berechtigungen in der Übersichtsliste](/images/j4x12x2.png)
 
-4. Öffne die Optionen der globalen Konfiguration. Hier hast du die Möglichkeit, die Berechtigungen für die Nutzung der Komponente selbst zu setzten.
+4. Öffne die Optionen der globalen Konfiguration. Hier hast du die Möglichkeit, die Berechtigungen für die Nutzung der Komponente global zu setzten.
 
-![Joomla Konfiguration](/images/j4x12x3.png)
+![Joomla Konfiguration - Berechtigungen in der globalen Konfiguration](/images/j4x12x3.png)
 
-Spiele mit den Einstellungen herum. Erlaube einmal nur dem Super Admin, neue Elemente in deiner Erweiterung zu erstellen. Melde dich dann als Administrator an und sieh, dass die Schaltfläche `New` verschwunden ist.
+5. Spiele mit den Einstellungen. Erlaube einmal nur dem Super Admin, neue Elemente in deiner Erweiterung zu erstellen. Melde dich danach als einfacher Administrator an und überzeuge dich davon, dass die Schaltfläche `New` verschwunden ist.
+
+## Links
+
+[Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial/de]
