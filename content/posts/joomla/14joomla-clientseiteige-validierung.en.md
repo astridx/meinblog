@@ -29,11 +29,11 @@ This part covers the client-side validation in Joomla 4.
 
 Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t11a...t11b)[^github.com/astridx/boilerplate/compare/t11a...t11b] and apply these changes to your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree11b.png)
+
+## Step by step
 
 ### New files
 
@@ -155,12 +155,7 @@ Last but not least, we register the new file under the name `com_foos.admin-foos
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
-Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the files from the previous part. 2.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part. 2.
 
 2. Open the view of your component in the administration area and create a new item or edit an existing one. Enter a number in the text field for the title. 3.
 

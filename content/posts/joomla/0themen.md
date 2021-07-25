@@ -3,7 +3,7 @@ date: 2020-11-29
 title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Der Weg zu Joomla 4 Erweiterungen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
-slug: der-weg-zu-joomlae4-erweiterungen
+slug: der-weg-zu-joomla4-erweiterungen
 langKey: de
 categories:
   - Code

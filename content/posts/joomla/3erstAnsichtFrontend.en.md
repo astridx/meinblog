@@ -19,11 +19,11 @@ After you have a working backend for your component, you implement the frontend.
 
 Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and incorporate these changes into your development version.
 
-## Schritt für Schritt
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree2.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -205,14 +205,7 @@ This file was only a workaround and it can now be deleted.
 
 ## Test your Joomla component
 
-1. at the end, install your component in Joomla version 4 to test it:
-
-Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. To do this, uninstall your previous installation and copy all files again.
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
-
-Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.
+1. at the end, install your component in Joomla version 4 to test it: Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. To do this, uninstall your previous installation and copy all files again. Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.
 
 2. then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
 

@@ -19,11 +19,11 @@ Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht sind die geänderten Dateien hervorgehoben.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree5.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -148,11 +148,7 @@ wandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code.
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Wechsele in den Menü Manager und öffne einen Menüpunkt oder erstelle einen neuen. Hier siehst du jetzt ein Textfeld, in das du einen beliebigen Text einfügst.
 
@@ -162,6 +158,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ![Joomla Request Variable beim Joomla Menü Item - Frontend](/images/j4x6x2.png)
 
-Dir fallen sicher lustigere oder sinnvollere Beispiele ein. Der Sinn und die Funktion der Variablen werden im Beispiel klar.
+Dir fallen sicher praktischere Beispiele ein. Der Sinn und die Funktion der Variablen werden im Beispiel klar.
 
 4. Erstelle mehrere Menüpunkte, die jeweils einen anderen Text oder Typ enthalten. Gibt nicht lediglich den Text im Frontend aus, gestalte die Ausgabe mithilfe von [bedingten Anweisungen](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else)[^developer.mozilla.org/de/docs/web/javascript/reference/statements/if...else]. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.

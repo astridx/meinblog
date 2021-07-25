@@ -20,11 +20,11 @@ Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Text
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t7...t8)[^github.com/astridx/boilerplate/compare/t7...t8] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree8.png)
+
+## Schritt für Schritt
 
 Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine Datei gibt, benötigt das Backend zwei - `*.sys.ini` und `*.ini`. Kurz erklärt: Die Datei mit der Endung `sys.ini` wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die `ini` ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt einzutragen sind. Erklärt ist dies im Artikel [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6), der einen Abschnitt über [die Datei `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini)[^docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini] enthält.
 
@@ -315,14 +315,7 @@ Last but not least nutzen wir jetzt die Sprachdateien. Bisher haben wir den Name
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
-
-Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hinweise im Installationsskript nun übersetzt werden.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hinweise im Installationsskript nun übersetzt werden.
 
 ![Joomla Sprachdateien werden genutzt](/images/j4x10x3.png)
 
@@ -330,4 +323,4 @@ Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hin
 
 ![Joomla Sprachdateien werden genutzt](/images/j4x10x1.png)
 
-3. Probieren Sie die neue Funktion aus. Erstelle Sprachdateien für verschiedene Sprachen und ändere die Standardsprache in Joomla. Stelle sicher, dass Joomla korrekt übersetzt.
+3. Probiere die neue Funktion aus. Erstelle Sprachdateien für verschiedene Sprachen und ändere die Standardsprache in Joomla. Stelle sicher, dass Joomla korrekt übersetzt.

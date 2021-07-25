@@ -25,11 +25,11 @@ Dieser Teil behandelt die serverseitige Validierung in Joomla 4.
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree11a.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -117,11 +117,7 @@ Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\Adminis
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. 
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle ein neues Item oder editiere ein vorhandenes. Gib im Textfeld für den Titel dabei eine Zahl ein.
 

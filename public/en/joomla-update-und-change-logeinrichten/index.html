@@ -38,12 +38,6 @@ void function() {
 <p>Update Server sounds complicated, it's basically just a URL to an XML file. This URL is inserted in the extension's installation manifest. The XML file contains a number of details, including the new version number and the download URL to the installation file. When Joomla finds an update for an installed extension, this is displayed in the administration area.</p>
 <h2>For impatient people</h2>
 <p>Look at the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t1...t1b">diff view</a><sup id="fnref-github.com/astridx/boilerplate/compare/t1...t1b"><a href="#fn-github.com/astridx/boilerplate/compare/t1...t1b" class="footnote-ref">github.com/astridx/boilerplate/compare/t1...t1b</a></sup> and include these changes in your development version.</p>
-<h2>Step by step</h2>
-<p>In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file <code class="language-text">src/administrator/components/com_foos/foos.xml</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">server</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;extension&quot;</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;Foo Updates&quot;</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml&lt;/</span><span class="mtk7">server</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -77,6 +71,12 @@ void function() {
       />
   </a>
     </span></p>
+<h2>Step by step</h2>
+<p>In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file <code class="language-text">src/administrator/components/com_foos/foos.xml</code>.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">server</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;extension&quot;</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;Foo Updates&quot;</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml&lt;/</span><span class="mtk7">server</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <h3>New files</h3>
 <blockquote>
 <p>The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter you can update the numbers yourself if this is important to you. This is not witchcraft. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.</p>

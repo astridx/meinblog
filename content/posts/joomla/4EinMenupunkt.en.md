@@ -19,11 +19,11 @@ In this article you will learn how to create a menu item for the frontend view o
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...t3] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added file is highlighted.
 
 ![Overview of the files edited in this chapter](/images/tree3.png)
+
+## Step by step
 
 ### New files
 
@@ -57,11 +57,7 @@ The text in the `message` tag is displayed as a description. The language string
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `components` folder to the `components` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the ones from the previous part.
+1. install your component in Joomla version 4 to test it: Copy the files in the `components` folder to the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the ones from the previous part.
 
 2. open the menu manager to create a menu item. To do this, click on `Menu` in the left sidebar and then on `All Menu Items`.
 

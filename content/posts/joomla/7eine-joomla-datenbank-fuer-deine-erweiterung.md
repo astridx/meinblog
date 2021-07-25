@@ -19,11 +19,11 @@ Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statisch
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree6.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -283,11 +283,7 @@ Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
-
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla legt bei der Installation die Datenbank an.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla legt bei der Installation die Datenbank an.
 
 2. Teste als nächstes, ob die Ansicht deiner Komponente im Administrationsbereich fehlerfrei ist. Siehst du drei Einträge? Diese hatten wir beim Einrichten der Datenbank als Beispieldaten in der SQL-Datei eingetragen.
 

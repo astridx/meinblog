@@ -19,11 +19,11 @@ Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten ein
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree6b.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -558,12 +558,7 @@ Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formu
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Öffne als nächstes die Ansicht im Administrationsbereich für deine Komponente. Sind die drei Einträge mit Links versehen? Siehst du eine Schaltfläche zum Anlegen eines neuen Items?
 

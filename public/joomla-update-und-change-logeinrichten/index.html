@@ -38,12 +38,6 @@ void function() {
 <p>Update Server klingt kompliziert, im Grunde handelt es sich lediglich eine URL zu einer XML-Datei. Diese URL wird im Installationsmanifest der Erweiterung eingefügt. Die XML-Datei enthält eine Reihe von Details, einschließlich der neuen Versionsnummer und die Download-URL zur Installationsdatei. Wenn Joomla eine Aktualisierung für eine installierte Erweiterung findet, wird dies im Administrationsbereich angezeigt.</p>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t1...t1b">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t1...t1b"><a href="#fn-github.com/astridx/boilerplate/compare/t1...t1b" class="footnote-ref">github.com/astridx/boilerplate/compare/t1...t1b</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
-<h2>Schritt für Schritt</h2>
-<p>Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gespeichert werden. Die Adressen oder URLs unter der diese abgelegt sind, hatten wir im vorherigen Kapitel in der Datei <code class="language-text">src/administrator/components/com_foos/foos.xml</code> eingetragen.</p>
-<pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">server</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;extension&quot;</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;Foo Updates&quot;</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml&lt;/</span><span class="mtk7">server</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -77,6 +71,12 @@ void function() {
       />
   </a>
     </span></p>
+<h2>Schritt für Schritt</h2>
+<p>Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gespeichert werden. Die Adressen oder URLs unter der diese abgelegt sind, hatten wir im vorherigen Kapitel in der Datei <code class="language-text">src/administrator/components/com_foos/foos.xml</code> eingetragen.</p>
+<pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">server</span><span class="mtk1"> </span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;extension&quot;</span><span class="mtk1"> </span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;Foo Updates&quot;</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml&lt;/</span><span class="mtk7">server</span><span class="mtk1">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/</span><span class="mtk7">updateservers</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <h3>Neue Dateien</h3>
 <blockquote>
 <p>Die Änderungen bezüglich des Changelogs und des Joomla Update Servers werden nur in diesem Kapitel erwähnt. In jedem anderen Kapitel kannst du die Zahlen selbst aktualisieren, wenn dies für dich wichtig ist. Dies ist kein Hexenwerk. Wenn ich das immer wieder beschreiben würde, würde es dich nicht nur langweilen - es würde diesen Text unnötig aufblähen.</p>
@@ -195,12 +195,7 @@ Der Wert des <code class="language-text">client</code>-Tags beschreibt die <code
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">scriptfile</span><span class="mtk8">&gt;</span><span class="mtk4">script</span><span class="mtk8">.</span><span class="mtk4">php</span><span class="mtk8">&lt;/</span><span class="mtk4">scriptfile</span><span class="mtk8">&gt;</span></span></span></code></pre>
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
-<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen:</li>
-</ol>
-<p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.</p>
-<p>Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.</p>
-<ol start="2">
+<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation. Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus Teil 1 weiter.</li>
 <li>Als nächstes erstellst du eine weitere Version der Beispiel-Erweiterung. Ändere dazu die Versionsnummer im Manifest. Vorher ist es nicht möglich, den Update Server zu testen. Denn, es gibt bisher keine Aktualisierung. Ich erwähne dies hier trotzdem, was genau nach dem Erstellen der nächsten Versionen passiert.</li>
 <li>Wenn alles funktioniert siehst du nach der Installation diese Anzeigen vor dir, wenn du links das Menü <code class="language-text">System</code> anklickst und dann rechts <code class="language-text">Extension</code> im Bereich <code class="language-text">Updates</code> auswählst. Das Bild hzeigt den Stand, nachdem die Version 23.0.0 veröffentlicht wurde.</li>
 </ol>

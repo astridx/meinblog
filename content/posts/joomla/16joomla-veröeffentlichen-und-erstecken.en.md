@@ -28,11 +28,11 @@ If you worked with Joomla, you know it from other components: Items have a statu
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree13.png)
+
+## Step by step
 
 ### New files
 
@@ -349,9 +349,7 @@ Finally, we include the fields in the overview.
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
 
 2. the database has been changed again, so it is necessary to update it. Uninstalling and reinstalling is time-consuming. That's why I'll tell you an easier method.
 
@@ -367,4 +365,4 @@ Copy the files in the `administrator` folder to the `administrator` folder of yo
 
 6. open an element and check that the status is also editable in this view. It is also possible to specify a date, so that items are hidden or published according to the date.
 
-![Joomla Validation](/images/j4x16x3.png)
+![Joomla Published](/images/j4x16x3.png)

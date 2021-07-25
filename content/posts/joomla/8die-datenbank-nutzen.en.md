@@ -19,11 +19,11 @@ In the previous part we set up a database for the Joomla components. In this par
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree6b.png)
+
+## Step by step
 
 ### New files
 
@@ -558,12 +558,7 @@ In the template of the overview list, we replace the simple text with a form. Th
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the files from the previous part.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
 
 2. next open the view in the administration area for your component. Are the three entries provided with links? Do you see a button to create a new item?
 

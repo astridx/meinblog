@@ -21,18 +21,18 @@ Almost every website divides its content into categories. Joomla offers this use
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree12.png)
+
+## Step by step
 
 ### New files
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-d7cb057651fb85156ba13996b6a045c8)
 
-We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database.
+We store the data in the database that is necessary to classify an element into a category. Therefore, in case of an update, it is important to add a column to the database. To do this, we create the file `administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql` and enter the necessary SQL statement in it. We choose the name because we are currently working on version 12 of our extension.
 
 [administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
@@ -50,7 +50,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_catid` (`catid`);
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-The entries in the `access.xml` are necessary to set permissions for the category. The following code causes the display of a tab for setting user permissions per category in the administration area.
+The entries in the file `access.xml` marked below with a plus sign are necessary to set permissions for the categories. The new code causes the display of a tab for setting user permissions per category in the administration area.
 
 [administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/access.xml)
 
@@ -95,7 +95,7 @@ The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a m
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This causes that only categories are displayed, which belong to your component.
+We add a selection field with matching categories to the form used to create a Foo item. We use the Joomla own field `categoryedit` for this. Note the line `extension="com_foos"`. This ensures that only categories belonging to the component `com_foos` are displayed.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -122,9 +122,7 @@ We add a selection field with matching categories to the form used to create a F
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
-To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the `install` method, we create a category with the title `Uncategorised` for the component using the database during a new installation.
-
-To be able to specify a user as the creator of the category, we request the ID of the administrator in the `getAdminId()` method.
+To ensure that a category already exists at the beginning, we add the script that is called during the installation. Using the `install` method, we create a category with the title `Uncategorised` for the component during a new installation. We store these directly in the database. To be able to specify a user as the creator of the category, we request the ID of the administrator in the `getAdminId()` method.
 
 [administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/script.php)
 
@@ -250,7 +248,7 @@ To be able to specify a user as the creator of the category, we request the ID o
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-In the service provider we register the interface `CategoryFactoryInterface`. It is not necessary to create `CategoryFactoryInterface` by yourself. We use the Joomla own functions.
+In the service provider we register the interface `CategoryFactoryInterface`. It is not necessary to create `CategoryFactory Interface` by yourself. We use the Joomla own functions.
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/services/provider.php)
 
@@ -292,7 +290,7 @@ In order to create the table column in which the category of a Foo element is st
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Additionally, implementations are required in the component class to use Joomla's own functions.
+Additionally, implementations are required in the component class to use Joomla's own functions. The method `countItems` is necessary so that an overview of assigned items appears in the category view. The method `getTableNameForSection` ensures that the correct database table is always queried.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
@@ -392,7 +390,7 @@ In the model we add to the database query the table where Joomla stores categori
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-The form for editing an element is told to display the category field using the information in the XML file.
+We add the category field to the form for editing an element. It is rendered using the information in the XML form `administrator/components/com_foos/ forms/foo.xml`, which we worked on earlier in this chapter.
 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
@@ -428,15 +426,11 @@ In the overview table of the view in the backend, we add a column for displaying
 
 ```
 
-> The categories help you to display your data in a structured way in the frontend. We will create the frontend views in the further course of this article series.
+> The categories help you to display your data in a structured way in the frontend. We will create the frontend views in the further course of this tutorial.
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
-
-Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
 
 2. Open the view of your component in the administration area.
 

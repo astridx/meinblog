@@ -42,7 +42,6 @@ void function() {
 <p>Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor allem bei größeren Projekten. Joomla verwendet das <a href="https://de.wikipedia.org/wiki/Model_View_Controller">Model-View-Controller-Konzept (MVC)</a><sup id="fnref-de.wikipedia.org/wiki/model_view_controller"><a href="#fn-de.wikipedia.org/wiki/model_view_controller" class="footnote-ref">de.wikipedia.org/wiki/model_view_controller</a></sup>. In diesem Tutorial-Teil fügen wir ein Model zum Frontend hinzu. Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.</p>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t3...t4">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t3...t4"><a href="#fn-github.com/astridx/boilerplate/compare/t3...t4" class="footnote-ref">github.com/astridx/boilerplate/compare/t3...t4</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
-<h2>Schritt für Schritt</h2>
 <p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -76,6 +75,7 @@ void function() {
       />
   </a>
     </span></p>
+<h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029">components/com_foos/ src/Model/FooModel.php</a></h4>
@@ -151,12 +151,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk4">Hello</span><span class="mtk1"> </span><span class="mtk4">Foos</span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">msg</span><span class="mtk1">;</span></span></span></code></pre>
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
-<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen:</li>
-</ol>
-<p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.</p>
-<p>Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</p>
-<ol start="2">
+<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation. Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</li>
 <li>Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden.</li>
 </ol>
 <p><span

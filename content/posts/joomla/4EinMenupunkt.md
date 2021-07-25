@@ -19,11 +19,11 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...3] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht ist die neu hinzugekommene Datei hervorgehoben.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree3.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -57,11 +57,7 @@ Der Text im `message`-Tag wird als Beschreibung angezeigt. Der Sprachstring blei
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`.
 

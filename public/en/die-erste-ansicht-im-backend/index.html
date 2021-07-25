@@ -34,41 +34,9 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/die-erste-ansicht-im-backend/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - The First View in the Backend</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/1die-erste-ansicht-im-backende.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>01.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>We'll start with the basics. For this we create the <em>View</em> in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/5c10a47a24e165681ee7b93ebd40b2c5/191e2/j4x1x3.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABK0lEQVQoz42SzUrEMBSF8wiufRDduR1BRMTB3QiK+Ic7NyoqOPhI8xT6CIKbUWnVNknzM0065ZjU4FintgY+bnIIh3NvQhZXTrGwdIDlzTOs7V6ht3OJ1cFFK73BOdb3rrGxf4P+0RDbJ3foHw+xdXgLMrp/xujhFY8vHDJhEB8cQhcQyraS+apn+0yZCgKjAS2QJhmoKMCoBvNVTh1FK7RBI0rnMNyZjSOwVDlTW12sao0mbR4Spa7FKAZ7GoNxE9J5bEMqW9dFOIuZTpiawBoD4VvWZYdZk7mtaUQqN0OTQ7xRUDX9X7JwpiJoYRw+KSmlRMEYqHtd5g1FR5LfbYov7XuGCEvm5Q+T7heew4XhDqKUgnbE7wwJc18mm4D+iW7UUq4Ruw4j5/EJb+nfoXSUSZkAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="The First View in the Joomla Backend"
-        title="The First View in the Joomla Backend"
-        src="/static/5c10a47a24e165681ee7b93ebd40b2c5/f058b/j4x1x3.png"
-        srcset="/static/5c10a47a24e165681ee7b93ebd40b2c5/c26ae/j4x1x3.png 158w,
-/static/5c10a47a24e165681ee7b93ebd40b2c5/6bdcf/j4x1x3.png 315w,
-/static/5c10a47a24e165681ee7b93ebd40b2c5/f058b/j4x1x3.png 630w,
-/static/5c10a47a24e165681ee7b93ebd40b2c5/40601/j4x1x3.png 945w,
-/static/5c10a47a24e165681ee7b93ebd40b2c5/78612/j4x1x3.png 1260w,
-/static/5c10a47a24e165681ee7b93ebd40b2c5/191e2/j4x1x3.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t0...t1">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t0...t1"><a href="#fn-github.com/astridx/boilerplate/compare/t0...t1" class="footnote-ref">github.com/astridx/boilerplate/compare/t0...t1</a></sup> and incorporate these changes into your development version.</p>
-<h2>Step by step</h2>
+<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -86,8 +54,8 @@ void function() {
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Overview of the files in the first chapter"
-        title="Overview of the files in the first chapter"
+        alt="Overview of the files edited in this chapter"
+        title="Overview of the files edited in this chapter"
         src="/static/49d0a8275ff2175fc778b981700ca661/f058b/tree1.png"
         srcset="/static/49d0a8275ff2175fc778b981700ca661/c26ae/tree1.png 158w,
 /static/49d0a8275ff2175fc778b981700ca661/6bdcf/tree1.png 315w,
@@ -101,6 +69,7 @@ void function() {
       />
   </a>
     </span></p>
+<h2>Step by step</h2>
 <h3>New files</h3>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
@@ -698,11 +667,7 @@ The description of the component will be shown during installation and when you 
 <p>Everything is new. There are no changed files yet.</p>
 <h2>Test your Joomla component</h2>
 <ol>
-<li>install your component in Joomla version 4 to test it. In the beginning, the easiest thing to do is to copy the files manually in place:</li>
-</ol>
-<p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.<br>
-Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</p>
-<ol start="2">
+<li>install your component in Joomla version 4 to test it: In the beginning, the easiest thing to do is to copy the files manually in place. Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation. Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</li>
 <li>open the menu <code class="language-text">System | Install | Discover</code>. Here you will see an entry for the component you just copied. Select it and click on the button '<code class="language-text">Install</code>.</li>
 </ol>
 <p><span

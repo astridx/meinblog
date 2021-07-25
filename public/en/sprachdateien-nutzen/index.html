@@ -39,7 +39,6 @@ void function() {
 </blockquote>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t7...t8">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t7...t8"><a href="#fn-github.com/astridx/boilerplate/compare/t7...t8" class="footnote-ref">github.com/astridx/boilerplate/compare/t7...t8</a></sup> and incorporate these changes into your development version.</p>
-<h2>Step by step</h2>
 <p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -73,6 +72,7 @@ void function() {
       />
   </a>
     </span></p>
+<h2>Step by step</h2>
 <p>The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - <code class="language-text">*.sys.ini</code> and <code class="language-text">*.ini</code>. Briefly explained: The file with the extension <code class="language-text">sys.ini</code> is used to translate the XML installation file as well as the menu elements. The <code class="language-text">ini</code> is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6">International Enhancements</a> which has a section on <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini">the file <code class="language-text">*.sys.ini</code></a><sup id="fnref-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini"><a href="#fn-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini" class="footnote-ref">docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini</a></sup>.</p>
 <blockquote>
 <p>The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English. Note: This only applies to missing language files. A missing language key in a non-English language file will not be replaced with the key from the English file.</p>
@@ -271,12 +271,8 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">Text::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;COM_FOOS_NAME&#39;</span><span class="mtk1">) </span><span class="mtk8">.</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">item</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">;</span></span></span></code></pre>
 <h2>Test your Joomla component</h2>
 <ol>
-<li>install your component in Joomla version 4 to test it:</li>
+<li>install your component in Joomla version 4 to test it: Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation. Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part. If you do a new installation, you will notice that the hints in the installation script are now translated.</li>
 </ol>
-<p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.<br>
-Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</p>
-<p>A new installation is not necessary. Continue using the files from the previous part.</p>
-<p>If you do a new installation, you will notice that the hints in the installation script are now translated.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "

@@ -39,7 +39,6 @@ void function() {
 </blockquote>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t7...t8">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t7...t8"><a href="#fn-github.com/astridx/boilerplate/compare/t7...t8" class="footnote-ref">github.com/astridx/boilerplate/compare/t7...t8</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
-<h2>Schritt für Schritt</h2>
 <p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -73,6 +72,7 @@ void function() {
       />
   </a>
     </span></p>
+<h2>Schritt für Schritt</h2>
 <p>Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine Datei gibt, benötigt das Backend zwei - <code class="language-text">*.sys.ini</code> und <code class="language-text">*.ini</code>. Kurz erklärt: Die Datei mit der Endung <code class="language-text">sys.ini</code> wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die <code class="language-text">ini</code> ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt einzutragen sind. Erklärt ist dies im Artikel <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6">International Enhancements</a>, der einen Abschnitt über <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini">die Datei <code class="language-text">*.sys.ini</code></a><sup id="fnref-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini"><a href="#fn-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini" class="footnote-ref">docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini</a></sup> enthält.</p>
 <blockquote>
 <p>Das Hinzufügen der englischen Sprachdateien ist zwingend erforderlich. Alle anderen Sprachen sind optional. Der Grund hierfür ist, dass bei einer fehlenden Datei standardmäßig auf die englische Version zurückgegriffen wird. Wenn ein Franzose eine Erweiterung - welche deutsche und englische Sprachdateien enthält - auf seinem Joomla mit der Standardsprache Französisch installiert, werden die Texte in englischer Sprache angezeigt. Achtung: Dies gilt lediglich für fehlende Sprach-Dateien. Ein Fehlender Sprachschlüssel in einer nicht-englischen Sprachdatei wird nicht mit dem Schlüssel aus der englischen Datei ersetzt.</p>
@@ -271,12 +271,8 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk9">echo</span><span class="mtk1"> </span><span class="mtk8">Text::</span><span class="mtk7">_</span><span class="mtk1">(</span><span class="mtk11">&#39;COM_FOOS_NAME&#39;</span><span class="mtk1">) </span><span class="mtk8">.</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">item</span><span class="mtk8">-&gt;</span><span class="mtk7">name</span><span class="mtk1">;</span></span></span></code></pre>
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
-<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen:</li>
+<li>Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation. Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hinweise im Installationsskript nun übersetzt werden.</li>
 </ol>
-<p>Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation.<br>
-Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation.</p>
-<p>Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</p>
-<p>Falls du eine neue Installation druchführst, wirst du feststellen, dass die Hinweise im Installationsskript nun übersetzt werden.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -345,7 +341,7 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   </a>
     </span></p>
 <ol start="3">
-<li>Probieren Sie die neue Funktion aus. Erstelle Sprachdateien für verschiedene Sprachen und ändere die Standardsprache in Joomla. Stelle sicher, dass Joomla korrekt übersetzt.</li>
+<li>Probiere die neue Funktion aus. Erstelle Sprachdateien für verschiedene Sprachen und ändere die Standardsprache in Joomla. Stelle sicher, dass Joomla korrekt übersetzt.</li>
 </ol>
 <style class="grvsc-styles">
   .grvsc-container {

@@ -19,11 +19,11 @@ Are there things you plan to offer configurable? Then this part is important for
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree9.png)
+
+## Step by step
 
 ### New files
 
@@ -157,12 +157,7 @@ Finally, we replace `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. We onl
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the files from the previous part.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
 
 2. open the view of your component in the administration area and make sure that you see the button `Options` in the upper right corner.
 

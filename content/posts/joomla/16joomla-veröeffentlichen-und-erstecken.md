@@ -21,17 +21,15 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 - archivierst und
 - löschst.
 
-![Joomla Published](/images/j4x16x3.png)
-
 ## Für Ungeduldige
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t12...t13] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-## Schritt für Schritt
-
 In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
 
 ![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree13.png)
+
+## Schritt für Schritt
 
 ### Neue Dateien
 
@@ -348,9 +346,7 @@ Zum Schluss nehmen wir die Felder in der Übersicht auf.
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere dazu die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
 2. Die Datenbank ist wieder geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Deinstallieren und Neuinstallieren ist aufwendig. Deshalb verrate ich dir eine einfachere Methode.
 

@@ -15,15 +15,15 @@ tags:
 
 We'll start with the basics. For this we create the _View_ in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.
 
-![The First View in the Joomla Backend](/images/j4x1x3.png)
-
 ## For impatient people
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t0...t1)[^github.com/astridx/boilerplate/compare/t0...t1] and incorporate these changes into your development version.
 
-## Step by step
+In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
-![Overview of the files in the first chapter](/images/tree1.png)
+![Overview of the files edited in this chapter](/images/tree1.png)
+
+## Step by step
 
 ### New files
 
@@ -724,10 +724,7 @@ Everything is new. There are no changed files yet.
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it. In the beginning, the easiest thing to do is to copy the files manually in place:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
+1. install your component in Joomla version 4 to test it: In the beginning, the easiest thing to do is to copy the files manually in place. Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
 2. open the menu `System | Install | Discover`. Here you will see an entry for the component you just copied. Select it and click on the button '`Install`.
 

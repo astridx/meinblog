@@ -19,11 +19,11 @@ Your view in the administration area usually does not contain only static text. 
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree6.png)
+
+## Step by step
 
 ### New files
 
@@ -283,18 +283,12 @@ Last but not least, we display everything using the template file. Instead of th
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
-
-Install your component as described in part one, after copying all files. Joomla creates the database during the installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla creates the database during the installation.
 
 2. Next, test if the view of your component in the administration area is correct. Do you see three entries? We had entered these as sample data in the SQL file when setting up the database.
 
 ![Joomla Component with Database](/images/j4x7x1.png)
 
-3. make sure that the elements are stored in the database.
-
-I use locally [phpmyadmin.net](https://www.phpmyadmin.net/) for database administration.
+3. make sure that the elements are stored in the database. I use locally [phpmyadmin.net](https://www.phpmyadmin.net/) for database administration.
 
 ![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)

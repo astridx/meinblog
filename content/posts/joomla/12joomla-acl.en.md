@@ -19,11 +19,11 @@ Not everyone has the right to edit all content. For this purpose Joomla offers a
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree10.png)
+
+## Step by step
 
 ### New files
 
@@ -291,11 +291,7 @@ Last but not least, we include a column in the overview for the authorization di
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation.
-
-Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
 
 2. create a new item in your component. Make sure that you are offered a checkbox for saving a permission. The value you enter here will be saved with the item and can be queried when it is displayed in a list.
 

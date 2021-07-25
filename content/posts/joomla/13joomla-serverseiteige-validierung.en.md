@@ -25,11 +25,11 @@ This part covers the server-side validation in Joomla 4.
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree11a.png)
+
+## Step by step
 
 ### New files
 
@@ -117,11 +117,7 @@ What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Admini
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the ones from the previous part.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the ones from the previous part.
 
 2. Open the view of your component in the administration area and create a new item or edit an existing one. Enter a number in the text field for the name.
 

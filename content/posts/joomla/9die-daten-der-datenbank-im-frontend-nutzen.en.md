@@ -19,11 +19,11 @@ We have a database where the data about the component is stored. The next step i
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and incorporate these changes into your development version.
 
-## Step by step
-
 In the following overview, the newly added files are marked with a background and the changed ones are outlined.
 
 ![Overview of the files edited in this chapter](/images/tree7.png)
+
+## Step by step
 
 ### New files
 
@@ -584,13 +584,7 @@ We create an entry in the `default.xml` file for the new form field. This way we
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.  
-Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation.
-
-A new installation is required to register the file `joomla.asset.json`.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. Copy the files in the `media` folder into the `media` folder of your Joomla 4 installation. A new installation is required to register the file `joomla.asset.json`.
 
 2. open the menu manager to create a menu item. Click on `Menu` and then on `All Menu Items`.
 
