@@ -19,10 +19,6 @@ Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell 
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-In der nachfolgenden Übersicht sind die geänderten Dateien hervorgehoben.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree5.png)
-
 ## Schritt für Schritt
 
 ### Neue Dateien

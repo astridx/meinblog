@@ -18,10 +18,6 @@ Nachdem du über ein funktionierendes Backend für deine Komponente verfügst, i
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree2.png)
-
 ## Schritt für Schritt
 
 ### Neue Dateien

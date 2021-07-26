@@ -21,10 +21,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt bearbeiten wir die Komponenten und fügen ein Plugin hinzu. In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree30.png)
-
 ### Neue Dateien
 
 #### Komponente

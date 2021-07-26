@@ -19,10 +19,6 @@ Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten ein
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree6b.png)
-
 ## Schritt für Schritt
 
 ### Neue Dateien

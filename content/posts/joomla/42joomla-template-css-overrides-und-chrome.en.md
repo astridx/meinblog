@@ -38,10 +38,6 @@ Overrides can be created comfortably with the help of the template manager. This
 
 > Tip: If you want to change a view only slightly, it is a good idea to take the original view as a template. Then you can change it. To do this, create a copy of the existing view in the `html` directory of the template and edit it. The copy is placed in the template directory, exactly as the file `templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php`. For example, if you want to change the `feature` view of `com_content`, then copy the file `components/com_content/views/feature/tmpl/default.php` to `templates/TEMPLATE_NAME/html/com_content/feature/default.php`. Similarly, if you want to change the appearance of the `mod_article_latest` module. Copy `modules/tmpl/mod_articles_news/default.php` to `templates/TEMPLATE_NAME/html/mod_articles_news/default.php`. Joomla includes the frontend template called Cassiopeia. Cassipeia uses template overrides to create the dropdown menu. You can use this as an example. Open the directory `\template\cassiopeia`. In the template folder, you will find a subdirectory called `html`.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree37.png)
-
 ### New files
 
 #### Assets directory

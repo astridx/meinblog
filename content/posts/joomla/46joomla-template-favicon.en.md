@@ -27,10 +27,6 @@ In this section we create a recognisable image. In the first step, we choose an 
 
 > Clear the browser cache if changes to the favicon are not visible during development.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree41.png)
-
 ### New files
 
 The favicon generator creates 9 files which we copy into our template directory. I put all of them in the directory `templates/facile/ favicon_package`. These are exactly the files

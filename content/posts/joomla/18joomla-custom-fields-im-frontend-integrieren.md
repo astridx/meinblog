@@ -23,10 +23,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree14b.png)
-
 ### Neue Dateien
 
 In diesem Kapitel kommen keine neuen Dateien hinzu.

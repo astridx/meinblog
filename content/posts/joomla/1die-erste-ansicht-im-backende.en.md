@@ -19,10 +19,6 @@ We'll start with the basics. For this we create the _View_ in the administration
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t0...t1)[^github.com/astridx/boilerplate/compare/t0...t1] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree1.png)
-
 ## Step by step
 
 ### New files

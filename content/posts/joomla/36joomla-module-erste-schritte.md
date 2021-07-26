@@ -31,10 +31,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Abschnitt fügen wir ein Module hinzu. Es gibt einige grundlegende Dateien, die im Standardmuster der Modulentwicklung verwendet werden. Diese erstellen wir in diesem Teil.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree31.png)
-
 ### Neue Dateien
 
 #### Module

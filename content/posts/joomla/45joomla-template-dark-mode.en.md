@@ -40,10 +40,6 @@ I use the following snippet to have the information displayed in the browser con
 
 > A simple solution would be to display everything in black and white. The entry `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in the CSS file would do this. A matching color scheme is better in terms of quality.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree40.png)
-
 ### New files
 
 Added the CSS file `templates/assets/css/main.dark.css`. This new stylesheet contains the rules for the dark mode. It differs from `templates/assets/css/main.css` only in some color codes.

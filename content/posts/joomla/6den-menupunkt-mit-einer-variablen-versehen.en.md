@@ -19,10 +19,6 @@ Sometimes you need to customize the frontend output for a menu item. For this yo
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] and incorporate these changes into your development version.
 
-In the following overview, the changed files are highlighted.
-
-![Overview of the files edited in this chapter](/images/tree5.png)
-
 ## Step by step
 
 ### New files

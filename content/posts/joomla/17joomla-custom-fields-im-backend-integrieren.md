@@ -17,8 +17,6 @@ Custom Fields (Benutzerdefinierte Felder) in Joomla sind seit Joomla Version 3.7
 
 Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
 
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x17x1.png)
-
 > Ich lege hier für die benutzerdefinierten Felder ein eigenes Untermenü an. Die Joomla eigenen Komponenten erstellen einen Menüpunkt im Administrationsmenü. Wenn dir diese Art lieber ist, gucke in einer der Core-Komponenten ab.
 
 ## Für Ungeduldige
@@ -26,10 +24,6 @@ Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich progr
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
-
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree14a.png)
 
 ### Neue Dateien
 

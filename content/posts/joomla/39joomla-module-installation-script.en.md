@@ -23,10 +23,6 @@ Look at the changed program code in the [diff view](https://github.com/astridx/b
 
 In this section we will create a script that will be executed on specific events during the installation.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree34.png)
-
 ### New fiels
 
 #### Module

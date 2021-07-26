@@ -19,10 +19,6 @@ After you have a working backend for your component, you implement the frontend.
 
 Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree2.png)
-
 ## Schritt für Schritt
 
 ### Neue Dateien

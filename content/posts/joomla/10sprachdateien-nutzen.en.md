@@ -21,10 +21,6 @@ Your goal was to make your extension multilingual! That's why you didn't enter t
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t7...t8)[^github.com/astridx/boilerplate/compare/t7...t8] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree8.png)
-
 ## Step by step
 
 The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - `*.sys.ini` and `*.ini`. Briefly explained: The file with the extension `sys.ini` is used to translate the XML installation file as well as the menu elements. The `ini` is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6) which has a section on [the file `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini)[^docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini].

@@ -19,10 +19,6 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...3] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-In der nachfolgenden Übersicht ist die neu hinzugekommene Datei hervorgehoben.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree3.png)
-
 ## Schritt für Schritt
 
 ### Neue Dateien

@@ -19,10 +19,6 @@ In this article you will learn how to create a menu item for the frontend view o
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...t3] and incorporate these changes into your development version.
 
-In the following overview, the newly added file is highlighted.
-
-![Overview of the files edited in this chapter](/images/tree3.png)
-
 ## Step by step
 
 ### New files

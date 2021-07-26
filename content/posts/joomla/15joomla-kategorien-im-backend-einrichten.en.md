@@ -21,10 +21,6 @@ Almost every website divides its content into categories. Joomla offers this use
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree12.png)
-
 ## Step by step
 
 ### New files

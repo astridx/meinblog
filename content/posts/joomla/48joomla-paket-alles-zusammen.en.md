@@ -21,9 +21,7 @@ Look at the changed programme code in the [Diff View](https://github.com/astridx
 
 ## Step by step
 
-In this section we will create an installation package. In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree42.png)
+In this section we will create an installation package.
 
 ### New files
 

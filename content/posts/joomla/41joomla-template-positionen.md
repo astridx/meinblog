@@ -23,10 +23,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Wir werden Schritt für Schritt vorgehen. In diesem Teil fügen wir die Modulpositionen hinzu, damit Joomla Inhalte dynamisch anzeigt. Um das Design werden wir uns im nächsten Teil kümmern.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree36.png)
-
 ### Neue Dateien
 
 In diesem Abschnitt wurde lediglich geändert.

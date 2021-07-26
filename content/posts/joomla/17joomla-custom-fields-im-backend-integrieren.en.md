@@ -17,8 +17,6 @@ Custom fields in Joomla have been the talk of the town since Joomla version 3.7.
 
 This part shows you how to program the support in the administration area. In the next chapter we will integrate Custom Fields in the frontend.
 
-![Integrate Joomla Custom Fields into a custom component](/images/j4x17x1.png)
-
 > I create a separate submenu here for the custom fields. The Joomla custom components create a menu item in the administration menu. If you prefer this way, look in one of the core components.
 
 ## For impatient people
@@ -26,10 +24,6 @@ This part shows you how to program the support in the administration area. In th
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] and incorporate these changes into your development version.
 
 ## Step by step
-
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree14a.png)
 
 ### New files
 

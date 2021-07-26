@@ -28,10 +28,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree15a.png)
-
 ### Neue Dateien
 
 Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung ist das Skript `15.0.0.sql` dasjenige, welches für Version 15.0.0. ausgeführt wird.

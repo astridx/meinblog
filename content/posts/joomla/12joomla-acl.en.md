@@ -19,10 +19,6 @@ Not everyone has the right to edit all content. For this purpose Joomla offers a
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree10.png)
-
 ## Step by step
 
 ### New files

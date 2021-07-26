@@ -19,10 +19,6 @@ In the previous part we set up a database for the Joomla components. In this par
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree6b.png)
-
 ## Step by step
 
 ### New files

@@ -23,10 +23,6 @@ Update Server sounds complicated, it's basically just a URL to an XML file. This
 
 Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] and include these changes in your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree1b.png)
-
 ## Step by step
 
 In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file `src/administrator/components/com_foos/foos.xml`.

@@ -27,10 +27,6 @@ In diesem Abschnitt schaffen wir einen Wiedererkennungswert. Im ersten Schritt w
 
 > Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht sichtbar werden.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree41.png)
-
 ### Neue Dateien
 
 Der Favicon-Generator erstellt 9 Datei, die wir in unser Template-Verzeichnis kopieren. Ich habe alle im Verzeichnis `templates/facile/ favicon_package` abgelegt. Es handelt sich dabei genau um die Files

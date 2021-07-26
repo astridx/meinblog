@@ -22,15 +22,9 @@ If you worked with Joomla, you know it from other components: Items have a statu
 - trash
   items.
 
-![Joomla Published](/images/j4x16x3.png)
-
 ## For impatient people
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and incorporate these changes into your development version.
-
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree13.png)
 
 ## Step by step
 

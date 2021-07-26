@@ -21,10 +21,6 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ## Step by step
 
-In this section we edit the components and add a plugin. In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree30.png)
-
 ### New files
 
 #### Componente

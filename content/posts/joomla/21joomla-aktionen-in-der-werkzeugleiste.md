@@ -25,10 +25,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Ich zeige dir hier, wie du die Standardfunktionen in die Werkzeugleiste integrierst. Jede Komponente hat eigene Funktionen. Genau wie die in Joomla üblichen fügst du die speziellen über Schaltflächen in der Werkzeugleiste hinzu. Gucke hier bei den Standardfunktionen ab.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree17.png)
-
 ### Neue Dateien
 
 Wir ändern in diesem Kapitel lediglich Dateien, es kommt keine neue hinzu.

@@ -23,10 +23,6 @@ Take a look at the changed programme code in the [Diff View](https://github.com/
 
 In this section we will look at parameters and see that there are circumstances where they work more intuitively than module chromes.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree38.png)
-
 ### New files
 
 In this chapter only the image `templates/facile/images/banner.jpg` is added, which is displayed in the banner via CSS. I took this from the demo images of [html5up.net](https://html5up.net/txt) and it is from [unsplash.com](https://unsplash.com/).

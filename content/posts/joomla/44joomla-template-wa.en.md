@@ -23,10 +23,6 @@ Look at the changed programme code in the [Diff View](https://github.com/astridx
 
 ## Step by step
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree39.png)
-
 In this section, we are not adding a new function. We are merely rebuilding. We change the way we integrate the JavaScript and CSS files. From now on, a Joomla-specific function will be used for this, which offers many advantages.
 
 > In connection with the use of the database in the frontend, I had already written in the explanations about the component that you can also integrate web assets via the file 'joomla.asset.json'. Here I show you how to use the Web Asset Manager without `joomla.asset.json`.

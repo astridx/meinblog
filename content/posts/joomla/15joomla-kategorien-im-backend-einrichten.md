@@ -21,10 +21,6 @@ Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses n�
 
 Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree12.png)
-
 ## Schritt für Schritt
 
 ### Neue Dateien

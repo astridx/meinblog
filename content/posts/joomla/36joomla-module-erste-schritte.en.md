@@ -31,10 +31,6 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 In this section we will add a module. There are some basic files that are used in the standard module development pattern. We create these in this part.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree31.png)
-
 ### New files
 
 #### Module

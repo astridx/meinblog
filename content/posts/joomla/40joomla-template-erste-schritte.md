@@ -42,10 +42,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind, beziehungsweise Joomla-Wissen voraussetzten. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree35.png)
-
 ### Neue Dateien
 
 #### Template

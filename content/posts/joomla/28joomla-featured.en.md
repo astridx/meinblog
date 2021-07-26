@@ -23,10 +23,6 @@ Look at the changed programme code in the [Diff View](https://github.com/astridx
 
 ## Step by step
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree24.png)
-
 ### New files
 
 <!-- prettier-ignore -->

@@ -40,10 +40,6 @@ Das nachfolgende Schnippet nutze ich, um mir im Vorfeld die Angaben in der Konso
 
 > Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken. Ein passendes Farbschema ist qualitativ besser.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree40.png)
-
 ### Neue Dateien
 
 Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses Stylesheet enthält die Regeln für den dunklen Modus. Es unterscheidet sich von `templates/assets/css/main.css` nur in Bezug auf Farbcodes.

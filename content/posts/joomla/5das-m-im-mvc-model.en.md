@@ -25,10 +25,6 @@ It is problematic to combine these three elements in one class. Especially for l
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t3...t4)[^github.com/astridx/boilerplate/compare/t3...t4] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree4.png)
-
 ## Step by step
 
 ### New files

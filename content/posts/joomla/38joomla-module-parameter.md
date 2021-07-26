@@ -23,10 +23,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Abschnitt fügen wir Parameter zum Modul hinzu.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree33.png)
-
 ### Neue Dateien
 
 In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.

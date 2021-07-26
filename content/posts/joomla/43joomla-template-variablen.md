@@ -23,10 +23,6 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 In diesem Abschnitt sehen wir uns Parameter an und werden feststellen, dass es Gegebenheiten gibt, bei denen diese intuitiver arbeiten, als Module Chromes.
 
-In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.
-
-![Übersicht über die in diesem Kapitel bearbeiteten Dateien](/images/tree38.png)
-
 ### Neue Dateien
 
 In diesem Kapitel wird lediglich das Bild `templates/facile/images/banner.jpg` hinzugefügt, welches im Banner via CSS angezeigt wird. Dieses habe ich den Demo Images von [html5up.net](https://html5up.net/txt) entnommen und es ist von [unsplash.com](https://unsplash.com/).

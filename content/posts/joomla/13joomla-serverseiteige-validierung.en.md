@@ -25,10 +25,6 @@ This part covers the server-side validation in Joomla 4.
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree11a.png)
-
 ## Step by step
 
 ### New files

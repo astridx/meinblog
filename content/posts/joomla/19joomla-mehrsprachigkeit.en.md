@@ -29,10 +29,6 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ## Step by step
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree15a.png)
-
 ### New files
 
 So that the language is saved to the element, we add a column to the database table. When updating, the script `15.0.0.sql` is the one that is executed for version 15.0.0.

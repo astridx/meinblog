@@ -19,10 +19,6 @@ Your view in the administration area usually does not contain only static text. 
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree6.png)
-
 ## Step by step
 
 ### New files

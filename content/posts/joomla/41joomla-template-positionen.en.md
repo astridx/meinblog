@@ -23,10 +23,6 @@ Take a look at the changed programme code in the [Diff-Ansicht](https://github.c
 
 We will proceed step by step. In this part we add the module positions so that Joomla displays content dynamically. We will take care of the design in the next part.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree36.png)
-
 ### New files
 
 The only changes made in this section are.

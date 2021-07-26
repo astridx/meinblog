@@ -19,10 +19,6 @@ Are there things you plan to offer configurable? Then this part is important for
 
 View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] and incorporate these changes into your development version.
 
-In the following overview, the newly added files are marked with a background and the changed ones are outlined.
-
-![Overview of the files edited in this chapter](/images/tree9.png)
-
 ## Step by step
 
 ### New files
