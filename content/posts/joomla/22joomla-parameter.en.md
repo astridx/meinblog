@@ -27,7 +27,7 @@ If a parameter is set for the three possibilities, the following hierarchy appli
 - After that, the parameter that applies specifically to the item takes precedence.
 - The parameter that is set for the component has the lowest priority.
 
-![Joomla Parameters](/images/parameter.png)
+![Joomla Parameters](/images/parameter.en.png)
 
 For the menu item we already had a parameter set and for the component as a whole there is one in the options. Now it's the turn of the item in particular.
 

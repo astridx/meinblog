@@ -39,39 +39,6 @@ void function() {
 </blockquote>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t7...t8">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t7...t8"><a href="#fn-github.com/astridx/boilerplate/compare/t7...t8" class="footnote-ref">github.com/astridx/boilerplate/compare/t7...t8</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
-<p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/4ee51f4fc27874874b80515a85b2794a/90804/tree8.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACU0lEQVQ4y3WT2W6rQBBE+f+PyWvyAZHyGile4xXjHQPe8Irdt87IHVmW7kgjGOiurqruifI8t0GvZ4WedzO73++23W4tSRLbbDZ2Op2MVazXNp/P7Xq9mq/9fm+TyeQv5na7WbTpdCx5f7fl56c9r91uZ61Wy+Lh0KrLxa7ns130LIoiFOLdQYeK6ff7gUiUqmr/99fS6dTyLAsJVDoLINd7zD8VzZVQiclOAKgqyzKoofBisbC1FHCO1qrWVlKz3Q7UYcLiPV2tLF8urRiPrZC0tc6+KMoCDCt8RXiXKCERi1WzaVm3a6WYHQ6HIKOhb4fj0SoBLNPUxoqtqipsGHFuNBoBFObRQdQzvXRrNRt/f9vs58e2akgpKfFoZKkY3gXmjDLZkgqYJ0V51pSL35wjvDppF6KeCGyuH1vJQ/pEvg4GgyD/KJbeCF8wXKpgT1NCkSAZU68KBDQW/Y1Mhw3MV/JsNpuFBlB9qgJsGgcYm45TlDjIRbSdjQeJJAICIwoQiEecHQCmbD+TO1IeTJnRAAgDKsRxHACRxqYpDC4NYCxIci9dss8hhYOHDhgYqhmYDKPzgyGgMOIbcjkTc36MV7hpigMneOiSoQ1DwH0sSAYEVoAS4175FUQB7FAUrp4zRCrJmOwePcvz24Os528A1uv1oA4SATDMkwDxCGkEAug++fvryNBtcngyLX+SAcH0uWZx9/DiFcSBnws8K/CYCHZIpCkr7T3XThZwj/n2yvaV9WuhqBQjfmW6s/W3N+t8fNj06yvcFOTgrTP5H9Dz+R+wLBYCPYKS/wAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
-        title="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
-        src="/static/4ee51f4fc27874874b80515a85b2794a/f058b/tree8.png"
-        srcset="/static/4ee51f4fc27874874b80515a85b2794a/c26ae/tree8.png 158w,
-/static/4ee51f4fc27874874b80515a85b2794a/6bdcf/tree8.png 315w,
-/static/4ee51f4fc27874874b80515a85b2794a/f058b/tree8.png 630w,
-/static/4ee51f4fc27874874b80515a85b2794a/40601/tree8.png 945w,
-/static/4ee51f4fc27874874b80515a85b2794a/78612/tree8.png 1260w,
-/static/4ee51f4fc27874874b80515a85b2794a/90804/tree8.png 3733w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>Schritt für Schritt</h2>
 <p>Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweils eigene Sprachdateien. Anders als im Frontend, wo es nur eine Datei gibt, benötigt das Backend zwei - <code class="language-text">*.sys.ini</code> und <code class="language-text">*.ini</code>. Kurz erklärt: Die Datei mit der Endung <code class="language-text">sys.ini</code> wird zum Übersetzen der XML-Installationsdatei sowie der Menüelemente verwendet. Die <code class="language-text">ini</code> ist für den Rest zuständig. Dies hat den Vorteil, dass bei er Installation und für den Aufbau des Menüs nur das Laden von kleinen Textdateien notwendig ist. Nachteilig wirkst sich aus, dass teilweise Sprachstrings doppelt einzutragen sind. Erklärt ist dies im Artikel <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6">International Enhancements</a>, der einen Abschnitt über <a href="http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini">die Datei <code class="language-text">*.sys.ini</code></a><sup id="fnref-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini"><a href="#fn-docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini" class="footnote-ref">docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini</a></sup> enthält.</p>
 <blockquote>

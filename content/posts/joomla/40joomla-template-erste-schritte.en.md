@@ -42,7 +42,7 @@ Take a look at the changed programme code in the [Diff-Ansicht](https://github.c
 
 With the template it is also so that you do not reinvent the wheel. You can use many things that Joomla provides by default. This has advantages. The disadvantage is that individual wishes are more difficult to implement, or rather Joomla knowledge is a necessary prerequisite. Therefore we start rudimentary. The main thing is to look behind the functions and understand them.
 
-### Neue Dateien
+### New files
 
 #### Template
 

@@ -54,6 +54,7 @@ tags:
 ## Plugin und Component
 
 1. [Web Services - Support Joomla API](/en/joomla-webservices)
+1. [Plugins](/en/joomla-plugins)
 
 ## Module
 

@@ -54,6 +54,7 @@ tags:
 ## Plugin und Komponente
 
 1. [Webservices inklusive Plugin - Unterstützen der Joomla-API](/joomla-webservices)
+1. [Plugins](/joomla-plugins)
 
 ## Module
 

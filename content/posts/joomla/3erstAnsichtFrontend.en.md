@@ -19,9 +19,9 @@ After you have a working backend for your component, you implement the frontend.
 
 Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and incorporate these changes into your development version.
 
-## Schritt für Schritt
+## Step by step
 
-### Neue Dateien
+### New files
 
 The administration area of our component is located in the folder `com_foos` under `/administrator/component`. Now we work on the frontend. The data of the frontend view are stored in the folder `com_foos` directly under `/components`.
 

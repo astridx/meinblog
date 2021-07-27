@@ -36,39 +36,6 @@ void function() {
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/die-daten-der-datenbank-im-frontend-nutzen/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Using the Database Data in the Frontend</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/9die-daten-der-datenbank-im-frontend-nutzen.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>09.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.</p>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t6b...t7">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t6b...t7"><a href="#fn-github.com/astridx/boilerplate/compare/t6b...t7" class="footnote-ref">github.com/astridx/boilerplate/compare/t6b...t7</a></sup> and incorporate these changes into your development version.</p>
-<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/04128bfa07207d2a27f1330efddd4f3d/90804/tree7.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACk0lEQVQ4y3WUW3OiQBCF+f+/J495yGMuVVtJSnMVUdF4AVFAVATtPd8sWDxkp5gapqc5fU53D956vTbf922TJGaXi56L5Xluk8nErQxs+GE7nU7Wjt1uZ7PZzI7Ho9ufz2fz9tpkUWT+w4OlAr6UpVV1bYkC4FxqDyBA2BaLhWVZdgUGdDQa2XA4dHYPQ66XiYxJHFslR0BgF4ahTTV3eic6I01T22w2VhTFVc1yubTtduv2DpDD2c+Pm+yrqnLRBmIcjMeWyDmXDx+1ow0AGKzb4RWNYxAEjkktuTAkFeP3d/tzd2fD52dLJH8lBdPp1PkwYcT+7e3NgZKSf5IbeURDTimwHazFMFJuSgGd93vHIFZxIuWcIu1lY+31evbx8eH2HmCtRBILIAnHRgp82Q4KgHMl5q4TYCfJMAScLmF1kgEEgNIjG0DkFAKIJWPx8mJLSUq+vmz++WmxcprN57aR1KNUnORLO81lI1VOMhO55GOtPHDAJMAPrdP0GRUeCHzY71ugOZTUtVQAxveoulYZ40jyIh3AFtZIIbe1HAFbrVZW0kLyJ6cnve9kH4s1ZFwOW0CqtODGqB+3HMoWqrrB/b2FT0+Wie1cPgH9qq44KQgjUYpchwjH5dBJ1sfT72/zHx9tLimp8lVLMrZYAIVYF6pmqEAoQUHV3BRuE+xQ5K5eyzCSnGAwsEgschpYFaypaNOwrGVT7W5zA9gXCZcaFcgB7g8HixUlVCPHOsjFovkrXH8Y7r0zsNER5JW1/ZE4QPosU/OuXl8tVrSNKlk3Dl2A7uxev66Ph4SDGFKUmXIWqWKRkrwS04Vyd24auP2gC/5bIK8QQ45SSX6/uTH/9tZSAfMLQ07MtWuY/A+ou/8LwbAQliG2hy0AAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Overview of the files edited in this chapter"
-        title="Overview of the files edited in this chapter"
-        src="/static/04128bfa07207d2a27f1330efddd4f3d/f058b/tree7.png"
-        srcset="/static/04128bfa07207d2a27f1330efddd4f3d/c26ae/tree7.png 158w,
-/static/04128bfa07207d2a27f1330efddd4f3d/6bdcf/tree7.png 315w,
-/static/04128bfa07207d2a27f1330efddd4f3d/f058b/tree7.png 630w,
-/static/04128bfa07207d2a27f1330efddd4f3d/40601/tree7.png 945w,
-/static/04128bfa07207d2a27f1330efddd4f3d/78612/tree7.png 1260w,
-/static/04128bfa07207d2a27f1330efddd4f3d/90804/tree7.png 3733w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>Step by step</h2>
 <h3>New files</h3>
 <!-- prettier-ignore -->

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung. Je nach System sind Hilfeseite nicht sofort auffindbar oder sogar versteckt. Joomla bietet hierfür eine einheitliche Vorgehensweise.
+Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? Eine Hilfe ist aus diesem Grund immer eine sinnvolle Ergänzung. Je nach System sind Hilfeseite nicht sofort auffindbar oder sogar versteckt. Joomla bietet hierfür eine einheitliche Vorgehensweise.<!-- \index{Hilfe Seite} -->
 
 ![Joomla Hilfelink in der Listenansicht](/images/j4x27x1.png)
 

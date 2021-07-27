@@ -42,39 +42,6 @@ void function() {
 <p>It is problematic to combine these three elements in one class. Especially for larger projects. Joomla uses the <a href="https://en.wikipedia.org/wiki/Model_View_Controller">Model-View-Controller-Concept (MVC)</a><sup id="fnref-en.wikipedia.org/wiki/model_view_controller"><a href="#fn-en.wikipedia.org/wiki/model_view_controller" class="footnote-ref">en.wikipedia.org/wiki/model_view_controller</a></sup>. In this tutorial part, we add a Model to the frontend. The Model object is responsible for the data and its processing.</p>
 <h2>For impatient people</h2>
 <p>View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t3...t4">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t3...t4"><a href="#fn-github.com/astridx/boilerplate/compare/t3...t4" class="footnote-ref">github.com/astridx/boilerplate/compare/t3...t4</a></sup> and incorporate these changes into your development version.</p>
-<p>In the following overview, the newly added files are marked with a background and the changed ones are outlined.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/aa3d753927835e85f34b2b87e9484d38/90804/tree4.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACPElEQVQ4y3WUy27CQAxF8/8f1FWlLtouuqwECIkSHgkJEBLeCQQS18eqEYrUkUZhPPb1vbaHIM9zGY/Hst1uhdW2rRyPR5nP5/Z1G37Y6roWX6fTSRaLhVwuFzs3TSNBVVUGFoahXK9XM95uNymKwpyxAQgQtuVyKYfD4QEM6HQ6tXjsAQZnRACOgGCLo0jiOLagVhOx9vu9ETifzw81q9VKdrudnQ2QS9iwOcOQbKOfHwknEynUmUCCfDV/CQCDta8AMBwnGgjY/X43hueylFilfH9+ynwwkGK9lpVuGOPDhhHngd4DisKH5EjlkQ05JlntiTLOFaTWOjujzWYjWZZZk0pNyrfX68lwOLRzAJhLpLAAUkdsZJ/oBNTaxas635467N1fa0KmhCQmGUAAaD2yAUROqayyNJX09VXW7++Sf3xINhpJotJ26gMYmyYRl6ovykwyG7kwQgLgXNKQaDaTSut8Z6Q0UaV3lbJ1QGKZEJii6tFlMsw0mBrBmB1qlxfqDNheG4csr6VL9jmEjNXQAekSjTGGKveibKKvL5m9vEj29iYnLXqqgKHWCx8UsOisT4jV0CVDG4aA+1jQkFSTwLDER397rZDHYnZhhyJ7es4QqUmSWJF5jqpHGt2PQdbfACHrebgB7Pf7pg4SBujzRGFpCI7tH5gXv7uwMRHE8PU/EgMEhNdCHb0WXRAHfk7w3CD3CWCHRMDoIsDYKAG2Ltsu624ie8v+yHk+SOfVUC/kAOxM/gN6Pv8CuMcYCes86uUAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Overview of the files edited in this chapter"
-        title="Overview of the files edited in this chapter"
-        src="/static/aa3d753927835e85f34b2b87e9484d38/f058b/tree4.png"
-        srcset="/static/aa3d753927835e85f34b2b87e9484d38/c26ae/tree4.png 158w,
-/static/aa3d753927835e85f34b2b87e9484d38/6bdcf/tree4.png 315w,
-/static/aa3d753927835e85f34b2b87e9484d38/f058b/tree4.png 630w,
-/static/aa3d753927835e85f34b2b87e9484d38/40601/tree4.png 945w,
-/static/aa3d753927835e85f34b2b87e9484d38/78612/tree4.png 1260w,
-/static/aa3d753927835e85f34b2b87e9484d38/90804/tree4.png 3733w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>Step by step</h2>
 <h3>New files</h3>
 <!-- prettier-ignore -->

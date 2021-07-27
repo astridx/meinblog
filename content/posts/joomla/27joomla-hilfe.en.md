@@ -14,6 +14,7 @@ tags:
 ---
 
 Self-explanatory software is ideal. But which programme is? For this reason, help is always a useful addition. Depending on the system, help pages cannot be found immediately or are even hidden. Joomla offers a uniform procedure for this.
+<!-- \index{Help Site} -->
 
 ![Joomla Help link in the list view](/images/j4x27x1.png)
 

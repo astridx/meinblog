@@ -22,7 +22,7 @@ In this chapter we will change the output of the extensions in the frontend. In 
 
 The standard output of each Joomla extension can be manipulated via files in the template's `html` folder. Joomla offers different options for this purpose. Overrides, alternative overrides, layouts and module chromes. Each variant has its purpose. Overrides are the first choice. If there is already an override for an extension, you create an alternative override. Layouts override a limited area of a view and can be reused in different views. Last but not least, module chromes offer a variant to use an override in different places slightly modified.
 
-![Create Joomla Template - Module Chrome](/images/override.png)
+![Create Joomla Template - Module Chrome](/images/overview.en.png)
 
 ## For the impatient
 

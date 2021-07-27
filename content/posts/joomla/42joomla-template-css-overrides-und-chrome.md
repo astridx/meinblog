@@ -22,7 +22,7 @@ In diesem Kapitel werden wir die Ausgabe der Erweiterungen im Frontend veränder
 
 Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im Ordner `html` des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung. Overrides sind das erste Mittel der Wahl. Gibt es bereits ein Override für eine Erweiterung, erstellt man ein alternatives Override. Layouts überschreiben einen begrenzten Bereich einer Ansicht und sind dabei in unterschiedlichen Ansichten wiederverwendbar. Last but not least bieten Modul Chromes eine Variante, um ein Override an verschieden Stellen leicht abgewandelt einzusetzten.
 
-![Joomla Template erstellen - Module Chrome](/images/override.png)
+![Joomla Template erstellen - Module Chrome](/images/overview.png)
 
 ## Für Ungeduldige
 

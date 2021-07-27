@@ -38,39 +38,6 @@ void function() {
 <p>Update Server klingt kompliziert, im Grunde handelt es sich lediglich eine URL zu einer XML-Datei. Diese URL wird im Installationsmanifest der Erweiterung eingefügt. Die XML-Datei enthält eine Reihe von Details, einschließlich der neuen Versionsnummer und die Download-URL zur Installationsdatei. Wenn Joomla eine Aktualisierung für eine installierte Erweiterung findet, wird dies im Administrationsbereich angezeigt.</p>
 <h2>Für Ungeduldige</h2>
 <p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t1...t1b">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t1...t1b"><a href="#fn-github.com/astridx/boilerplate/compare/t1...t1b" class="footnote-ref">github.com/astridx/boilerplate/compare/t1...t1b</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
-<p>In der nachfolgenden Übersicht sind die neu hinzugekommenen Dateien mit einem Hintergrund versehen und die geänderten umrandet.</p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/0d1f4f3e4f290a22057fa86c286121bd/90804/tree1b.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 84.81012658227847%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACG0lEQVQ4y22U646CQAyFef8X8gX2p/80xhjFG6h4RUBUQLv9GmtYspNMZDrt6Tltx+B0Okk4m0l6Pou8XvLWnee5rFYr+2W932/BD1tVVeKrKAqJ41gej4edXxoblM+nZFEk815Pzj8/8tpupdHLsybA+an3AAKEbbfbSZZlX2BAF4uFhGFo9qC43SS/XmWphlOSSKXZnuoMu/V6LZEmI4jsrKv6Xi4XuWkcifBLNC5NUzsHOHMZKzM2Ceq6tmzT6dQyI5dAgnx5AsBg7SsADMf5fC6FBjVNYzLLsjTbYDCwhNSJQMqADxtGKBiNRnZHSYyhyyMbcgDEvlwu5Xg8WiCbxflwOBhrkvI7HA5lPB7bOQDMJSIPQAqODTawhN39fv/TYe/+fr+XmU4JSUwygDgSRDCAyCEbbLZaVyRz3mw2tvFx1jSJOPxQZpLZyKUeSACcSxyxcXYAmLL9TCzzCVNUfbtMBq8ZjNmUwJtA4wjy7rpkn0MSWw0dkC7RmC5DQGGEDbk+RtzL5wHYhCiO1dAlQxuGgPtYEAwIrADFx2uFPFaszCCCInt6zhCpBFNkr1FbHt8+n+2VaNx4MpG1AkPCAH2eqBHSCPa5a89gu3YmV0HCfl8incFUO/+VDAhFp45ei/9A2puVqf9Rnyd/LvWHeQA7JALGcALsM4ity7bLspvU3rI/cp4P0nk11IsSAOy17DK0709Ct/0CepQY4eFVj2gAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
-        title="Übersicht über die in diesem Kapitel bearbeiteten Dateien"
-        src="/static/0d1f4f3e4f290a22057fa86c286121bd/f058b/tree1b.png"
-        srcset="/static/0d1f4f3e4f290a22057fa86c286121bd/c26ae/tree1b.png 158w,
-/static/0d1f4f3e4f290a22057fa86c286121bd/6bdcf/tree1b.png 315w,
-/static/0d1f4f3e4f290a22057fa86c286121bd/f058b/tree1b.png 630w,
-/static/0d1f4f3e4f290a22057fa86c286121bd/40601/tree1b.png 945w,
-/static/0d1f4f3e4f290a22057fa86c286121bd/78612/tree1b.png 1260w,
-/static/0d1f4f3e4f290a22057fa86c286121bd/90804/tree1b.png 3733w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <h2>Schritt für Schritt</h2>
 <p>Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gespeichert werden. Die Adressen oder URLs unter der diese abgelegt sind, hatten wir im vorherigen Kapitel in der Datei <code class="language-text">src/administrator/components/com_foos/foos.xml</code> eingetragen.</p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml&lt;/</span><span class="mtk7">changelogurl</span><span class="mtk1">&gt;</span></span></span>
