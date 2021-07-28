@@ -13,9 +13,7 @@ tags:
   - Joomla
 ---
 
-Very few use custom fields in the administration area alone. As a rule, output is required in the frontend. We will address this question in the current part of the article series. How and where are user-defined fields in Joomla output in the frontend?
-
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
+Very few use custom fields in the administration area alone. As a rule, output is required in the frontend. We will address this question in the current part of the article series. How and where are user-defined fields in Joomla output in the frontend?<!-- \index{custom fields (frontend)} -->
 
 ## For impatient people
 
@@ -96,13 +94,9 @@ In the template we output the user-defined fields. In our case, this is not exte
 
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the files from the previous part.
+1. install your component in Joomla version 4 to test it: Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
 
 2. open the view of your component in the administration area. Click on the menu item 'Fields' in this new menu.
 

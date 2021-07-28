@@ -33,7 +33,7 @@ void function() {
 
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
-    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/joomla-parameter/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Parameters</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/22joomla-parameter.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>22.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.</p>
+    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/joomla-parameter/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Parameters</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/22joomla-parameter.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>22.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.<!-- \index{parameter} --></p>
 <p>Parameters exist for</p>
 <ul>
 <li>one item in particular,</li>
@@ -337,11 +337,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source">&lt;/field&gt;</span></span></code></pre>
 <h2>Test your Joomla component</h2>
 <ol>
-<li>install your component in Joomla version 4 to test it:</li>
-</ol>
-<p>Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation.<br>
-Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</p>
-<ol start="2">
+<li>install your component in Joomla version 4 to test it: Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation. Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation.</li>
 <li>The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click <code class="language-text">Update Structure</code>.</li>
 </ol>
 <p><span
@@ -396,8 +392,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter in einem Element"
-        title="Joomla Parameter in einem Element"
+        alt="Joomla parameter of an element."
+        title="Joomla parameter of an element."
         src="/static/29dd50a30291653edc86bfb76fbe3f0a/f058b/j4x22x1.png"
         srcset="/static/29dd50a30291653edc86bfb76fbe3f0a/c26ae/j4x22x1.png 158w,
 /static/29dd50a30291653edc86bfb76fbe3f0a/6bdcf/j4x22x1.png 315w,
@@ -428,8 +424,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter in einem Element"
-        title="Joomla Parameter in einem Element"
+        alt="Joomla parameter of an element."
+        title="Joomla parameter of an element."
         src="/static/7da20fcf456e57c1cd01fd6212a7d4f0/f058b/j4x22x2.png"
         srcset="/static/7da20fcf456e57c1cd01fd6212a7d4f0/c26ae/j4x22x2.png 158w,
 /static/7da20fcf456e57c1cd01fd6212a7d4f0/6bdcf/j4x22x2.png 315w,
@@ -463,8 +459,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter/Optionen in einer Komponente"
-        title="Joomla Parameter/Optionen in einer Komponente"
+        alt="Joomla parameters/options of a component"
+        title="Joomla parameters/options of a component"
         src="/static/7f8463b742e29ab8de2eda3c909f9bd5/f058b/j4x22x3.png"
         srcset="/static/7f8463b742e29ab8de2eda3c909f9bd5/c26ae/j4x22x3.png 158w,
 /static/7f8463b742e29ab8de2eda3c909f9bd5/6bdcf/j4x22x3.png 315w,
@@ -495,8 +491,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter/Optionen in einem Komponente"
-        title="Joomla Parameter/Optionen in einem Komponente"
+        alt="Joomla parameters/options of a component"
+        title="Joomla parameters/options of a component"
         src="/static/e94439124d4af56115c461f3ef26e6f2/f058b/j4x22x4.png"
         srcset="/static/e94439124d4af56115c461f3ef26e6f2/c26ae/j4x22x4.png 158w,
 /static/e94439124d4af56115c461f3ef26e6f2/6bdcf/j4x22x4.png 315w,
@@ -530,8 +526,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter in einem Menüpunkt"
-        title="Joomla Parameter in einem Menüpunkt"
+        alt="Joomla parameters of a the menu item."
+        title="Joomla parameters of a the menu item."
         src="/static/b8f2a2b02db603ffb4a0cdc45748c7e4/f058b/j4x22x5.png"
         srcset="/static/b8f2a2b02db603ffb4a0cdc45748c7e4/c26ae/j4x22x5.png 158w,
 /static/b8f2a2b02db603ffb4a0cdc45748c7e4/6bdcf/j4x22x5.png 315w,
@@ -562,8 +558,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter in einem Menüpunkt"
-        title="Joomla Parameter in einem Menüpunkt"
+        alt="Joomla parameters of a the menu item."
+        title="Joomla parameters of a the menu item."
         src="/static/975d4a02e2ff63343ee164f9f262e761/f058b/j4x22x6.png"
         srcset="/static/975d4a02e2ff63343ee164f9f262e761/c26ae/j4x22x6.png 158w,
 /static/975d4a02e2ff63343ee164f9f262e761/6bdcf/j4x22x6.png 315w,
@@ -594,8 +590,8 @@ Copy the files in the <code class="language-text">components</code> folder into 
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Parameter in einem Menüpunkt"
-        title="Joomla Parameter in einem Menüpunkt"
+        alt="Joomla parameters of a the menu item."
+        title="Joomla parameters of a the menu item."
         src="/static/c031b9760ad27375ed58f780928cbd29/f058b/j4x22x7.png"
         srcset="/static/c031b9760ad27375ed58f780928cbd29/c26ae/j4x22x7.png 158w,
 /static/c031b9760ad27375ed58f780928cbd29/6bdcf/j4x22x7.png 315w,

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Suchmaschinenfreundliche URLs funktionieren bisher nicht. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.
+Suchmaschinenfreundliche URLs funktionieren bisher nicht. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.<!-- \index{Service} -->
 
 > _Suchmaschinenfreundliche (SEF)_, [menschlich lesbare](https://en.wikipedia.org/wiki/Clean_URL 'wikipedia:Saubere URL') sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias) für jedes Segment der URL definieren.
 

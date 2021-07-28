@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Our goal in this part: when we enter a number in the name field, an error message is displayed immediately after we leave the field. In server-side validation, the message was not issued until after the form was sent to the server via the `Save` button.
+Our goal in this part: when we enter a number in the name field, an error message is displayed immediately after we leave the field. In server-side validation, the message was not issued until after the form was sent to the server via the `Save` button.<!-- \index{validation (client-side)} -->
 
 In client-side validation, we provide a better user experience by responding quickly at the browser level. Here, all inputs in the user's browser are validated immediately. Client-side validation does not require a query to the server, thus reducing the load on the server and the network. This type of validation works on the browser side using scripting languages such as JavaScript or with HTML5 attributes.
 
@@ -39,7 +39,7 @@ Client-side validation is done via a JavaScript file.
 
 Again, it is about the principle, just like in the previous chapter. The quality of the validation is in this tutorial secondary and I choose a simple example. Numbers are forbidden in the text field for the name. _Astrid_ is allowed. _Astrid9_ is not allowed.
 
-> In the example I use a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)[^en.wikipedia.org/wiki/Regular_expression]. `regex.test(value)` returns `true` if `regex` is equal to `/^([a-z]+)$/i` and `value` does not contain a number. For more information on the test method, see [developer.mozilla.org](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)[^developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test]. It is not mandatory to use a regular expression. It is only important that `true` is returned for a pass and `false` for a fail.
+> In the example I use a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)[^en.wikipedia.org/wiki/regular_expression]. `regex.test(value)` returns `true` if `regex` is equal to `/^([a-z]+)$/i` and `value` does not contain a number. For more information on the test method, see [developer.mozilla.org](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)[^developer.mozilla.org/en/docs/web/javascript/reference/global_objects/regexp/test]. It is not mandatory to use a regular expression. It is only important that `true` is returned for a pass and `false` for a fail.
 
 [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 

@@ -16,7 +16,7 @@ In diesem Teil kommt keine neue Funktionalität hinzu. Wir verbessern den bisher
 
 - Logik,
 - Daten und
-- der Darstellung.
+- der Darstellung.<!-- \index{Model-View-Controller} -->
 
 Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor allem bei größeren Projekten. Joomla verwendet das [Model-View-Controller-Konzept (MVC)](https://de.wikipedia.org/wiki/Model_View_Controller)[^de.wikipedia.org/wiki/model_view_controller]. In diesem Tutorial-Teil fügen wir ein Model zum Frontend hinzu. Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
 

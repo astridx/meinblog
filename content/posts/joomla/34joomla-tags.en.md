@@ -15,7 +15,7 @@ tags:
 
 Tags or Keywords are a flexible solution to organise content in Joomla! A keyword can be assigned to many different elements of different content types. Each element can have unlimited tags.
 
-Das Tagging-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es leicht in andere Erweiterungen integriert werden kann, die Standard-Joomla-Design-Muster verwenden. Die Verwendung von Tags in einer Drittanbieter-Erweiterung ist ziemlich einfach. Für die Verwendung in einer eigenen Erweiterung sind die hier erläuterten Änderungen erforderlich.
+Joomla's tagging system is used in all core extensions. It is designed to be easily integrated into other extensions that use standard Joomla design patterns. Using tags in a third-party extension is quite simple. Using it in your own extension requires the modifications explained in this section.<!-- \index{tags} -->
 
 ## For impatient people
 

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component.
+Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component.<!-- \index{access control list} -->
 
 ## For impatient people
 
@@ -26,9 +26,9 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-First, we set all possible permissions in an XML file. Each component can define individual permissions. I orientate myself here on the usual actions in Joomla. `core.admin` thereby determines which groups are allowed to configure the permissions at component level via the `options` button in the toolbar. `core.manage` determines which groups are allowed to access the backend of the component. 
+First, we set all possible permissions in an XML file. Each component can define individual permissions. I orientate myself here on the usual actions in Joomla. `core.admin` thereby determines which groups are allowed to configure the permissions at component level via the `options` button in the toolbar. `core.manage` determines which groups are allowed to access the backend of the component.
 
-> Whether you have individual rights requirements or you also like to follow Joomla and are unsure, the [Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial] is a helpful read.
+> Whether you have individual rights requirements or you also like to follow Joomla and are unsure, the [Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/j3.x:access_control_list_tutorial] is a helpful read.
 
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
@@ -193,7 +193,7 @@ If you are not familiar with SQL, the database query in the model will now seem 
  	}
 ```
 
-> As a reminder, Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/Accessing_the_database_using_JDatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL for you.
+> As a reminder, Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/accessing_the_database_using_jdatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL for you.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
@@ -305,5 +305,4 @@ Open the options of the global configuration. Here you have the possibility to s
 
 ## Links
 
-[Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial]
-
+[Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/j3.x:access_control_list_tutorial]

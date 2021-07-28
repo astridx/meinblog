@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Almost every website divides its content into categories. Joomla offers this useful feature as well. The current part of the tutorial shows you how to ideally integrate categories into a Joomla component. Don't reinvent the wheel yourself. Use what Joomla offers you.
+Almost every website divides its content into categories. Joomla offers this useful feature as well. The current part of the tutorial shows you how to ideally integrate categories into a Joomla component. Don't reinvent the wheel yourself. Use what Joomla offers you.<!-- \index{categories (backend)} -->
 
 > [Categories](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') are a way of organising content in Joomla! A category contains posts and other categories. A post can only be in one category. If a category is contained in another, it is a subcategory of the category.
 

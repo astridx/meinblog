@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In the previous part we set up a database for the Joomla components. In this part you will learn how to change or add data using a form in the administration area. At the end, the view of your component in the administration area contains a button to add new items. You change an existing item by clicking on the title in the list view.
+In the previous part we set up a database for the Joomla components. In this part you will learn how to change or add data using a form in the administration area. At the end, the view of your component in the administration area contains a button to add new items. You change an existing item by clicking on the title in the list view.<!-- \index{Database (Using)} -->
 
 ## For impatient people
 
@@ -278,7 +278,7 @@ class FooTable extends Table
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-The file `administrator/components/com_foos/ src/View/ F o o /HtmlView.php` organises the view of an element. Be careful not to mix this up this with the file `administrator/components/com_foos/ src/View/ F o o s /HtmlView.php`, which displays all elements in an overview list. To edit an element, we need a toolbar just like in the list view. The display itself is done as usual via the method `display` of the class `BaseHtmlView`. Only our special features are given via `$this->form = $this->get('Form');` and `$this->item = $this->get('Item');`.
+The file `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organises the view of an element. Be careful not to mix this up this with the file `administrator/components/com_foos/ src/View/Foo s /HtmlView.php`, which displays all elements in an overview list. To edit an element, we need a toolbar just like in the list view. The display itself is done as usual via the method `display` of the class `BaseHtmlView`. Only our special features are given via `$this->form = $this->get('Form');` and `$this->item = $this->get('Item');`.
 
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 

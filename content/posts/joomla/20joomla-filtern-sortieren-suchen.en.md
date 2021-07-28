@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Filtering, sorting and searching - now we organize the Joomla 4 component ! Joomla offers view filters and search tools with which you can limit the number of visible items. If the status filter is set accordingly, only items whose status is published will be displayed. Beside the status filter the search tools offer the search by title or content and the possibility to sort the table, i.e. to change the order.
+Filtering, sorting and searching - now we organize the Joomla 4 component ! Joomla offers view filters and search tools with which you can limit the number of visible items. If the status filter is set accordingly, only items whose status is published will be displayed. Beside the status filter the search tools offer the search by title or content and the possibility to sort the table, i.e. to change the order.<!-- \index{filtering} --><!-- \index{sorting} --><!-- \index{searching} -->
 
 ![Joomla Filter Sort and Search -Search Tools](/images/j4x20x1.png)
 
@@ -573,16 +573,14 @@ Icons show us if a column is sorted and in which direction. To make the sorting 
  						<th scope="col" style="width:1%">
 ```
 
-## Teste deine Joomla-Komponente
+## Test your Joomla component
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1- install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
-
-2. The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click `Update Structure`.
+2.the database has been changed, so it is necessary to update it. Open the `System | Information | Database` area as described in part 16. Select your component and click `Update Structure`.
 
 ![Joomla Published](/images/j4x16x1.png)
 
-3. Öffne die Ansicht deiner Komponente im Administrationsbereich und filter, sortiere und suche nach Items in deiner Komponente.
+3. open the view of your component in the administration area and filter, sort and search for items in your component.
 
-![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
+![Joomla Filter Sort and Search - Searchtools](/images/j4x20x1.png)

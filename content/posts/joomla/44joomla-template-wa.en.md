@@ -1,6 +1,6 @@
 ---
 date: 2021-01-13
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Web Asset Manager'
+title: 'Joomla 4.x-Tutorial - Extension Development - Template - Web Asset Manager'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-wa
@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-There is a lot to consider when loading styles and stylesheets in the frontend. Performance plays a role and possibly the order in which files are loaded. In Joomla, there were often conflicts and cumbersome workarounds. Joomla 4 changes this with the concept of web assets.
+There is a lot to consider when loading styles and stylesheets in the frontend. Performance plays a role and possibly the order in which files are loaded. In Joomla, there were often conflicts and cumbersome workarounds. Joomla 4 changes this with the concept of web assets.<!-- \index{template!web assets} -->
 
 > I think it is important to understand that the _Joomla Web Assets Manager_ manages all assets in a Joomla installation. It does not apply assets specifically for a template. If an extension is loaded and it needs assets, it can also use the Web Assets Manager. But: It does not have to. Assets can still be included via `Joomla\CMS\HTML\HTMLHelper` - for example via `HTMLHelper::_('jquery.framework');`. The advantage of the _Webassets Manager_ is that it ensures that assets are not loaded twice if two extension use the same asset file. And the assets are loaded in the defined order. This prevents conflicts.
 

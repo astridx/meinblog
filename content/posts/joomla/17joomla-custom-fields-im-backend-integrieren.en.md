@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Custom fields in Joomla have been the talk of the town since Joomla version 3.7. They offer a lot of additional possibilities independently from third party providers. That's why our component supports custom fields.
+Custom fields<!-- \index{Custom fields (backend)} --> in Joomla have been the talk of the town since Joomla version 3.7. They offer a lot of additional possibilities independently from third party providers. That's why our component supports custom fields.
 
 This part shows you how to program the support in the administration area. In the next chapter we will integrate Custom Fields in the frontend.
 

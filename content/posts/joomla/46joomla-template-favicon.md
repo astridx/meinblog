@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das verwendet wird, um eine Website auf wiedererkennbare Weise zu kennzeichnen. Es erscheint auf unterschiedlichen Geräten beim Speichern einer Website als Favorit.
+Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das verwendet wird, um eine Website auf wiedererkennbare Weise zu kennzeichnen. Es erscheint auf unterschiedlichen Geräten beim Speichern einer Website als Favorit.<!-- \index{Template!Favicon} -->
 
 > Die Größe und der Typ des Favicon wird auf unterschiedlichen Geräten anders erwartet. Ich nutze die Website [realfavicongenerator.net](https://realfavicongenerator.net/), um die optimale Form meines Bildes für die jeweiligen Geräte zu erstellen. Ich sehe dieses Werkzeug als erprobt und am einfachsten in der Handhabung an. Es gibt allerdings eine alternative neuere Vorgehensweise. Diese wird vom Joomla Standardtemplate Cassiopeia verwendet. Falls du lieber das moderne SVG-Format mit einer ICO-Datei als Rückfallebene verwendest, findest du unter [Favicon im Joomla-Template](https://blog.astrid-guenther.de/cassiopeia-favicon) eine Lösung die besser zu dir passt.
 

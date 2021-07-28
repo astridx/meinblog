@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-You don't develop the extension as an end in itself. It helps with the completion of tasks. In order for the people working with the component to always have an overview of the possible work steps, it makes sense to have a toolbar. In this part of the tutorial we will extend the already existing toolbar with the standard actions. Here we will access a variety of ready-made methods. Again, for the standard, it is not necessary to invent the wheel yourself. Later on, for special tasks, it makes sense to use the standard as an example.
+You don't develop the extension as an end in itself. It helps with the completion of tasks. In order for the people working with the component to always have an overview of the possible work steps, it makes sense to have a toolbar. In this part of the tutorial we will extend the already existing toolbar with the standard actions. Here we will access a variety of ready-made methods. Again, for the standard, it is not necessary to invent the wheel yourself. Later on, for special tasks, it makes sense to use the standard as an example.<!-- \index{actions} --><!-- \index{toolbar} -->
 
 ![Joomla actions in the toolbar](/images/j4x21x1.png)
 

@@ -26,7 +26,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein. Mit `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle.
+Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein. Mit `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle.
 
 > In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins im Verzeichnis `joomla-cms/plugins/sampledata`.
 
@@ -178,7 +178,7 @@ Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die
 
 > Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://downloads.joomla.org/de/technical-requirements-de)[^downloads.joomla.org/de/technical-requirements-de] neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstützt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponente](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt, `mysqli`, `pdomysql` und `pgsql` werden von Joomla in der Datei `/libraries/src/ Installer/Installer.php` angepasst.
 
-##### Aktualisierungen
+##### Aktualisierungen<!-- \index{Datenbank (Aktualisierung)} -->
 
 Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezüglich Aktualisierung vorweg. Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen aufzunehmen. Dabei sollte darauf geachtet werden, dass bestehende Daten nicht tangiert werden. Die Neuerungen speicherst du für jede Version deiner Erweiterung in einer separaten Datei ab. Das Verzeichnis, in dem die Dateien für die Aktualisierungen abzulegen sind, schreibst du in das `<update>`-Tag.
 

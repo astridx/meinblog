@@ -59,12 +59,8 @@ Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeige
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf die Hilfschaltfläche und vergewissere dich davon, dass du zu der von dir eingegebenen Website weitergeleitet wirst.
 
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
-
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Hilfelink und vergewissere dich davon, dass du zu der von dir eingegebenen Hilfeseite weitergeleitet wirst.
-
-![Joomla Hilfelink in der Detailansicht](/images/j4x27x2.png)
+![Joomla Schaltfläche mit Link zur Hilfeseite in der Detailansicht](/images/j4x27x2.png)

@@ -13,9 +13,7 @@ tags:
   - Joomla
 ---
 
-Die wenigsten nutzen benutzerdefinierten Felder alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie. Wie und wo werden benutzerdefinierten Felder in Joomla im Frontend ausgegeben?
-
-![Joomla Custom Fields in eine eigene Komponente integrieren](/images/j4x18x1.png)
+Die wenigsten nutzen benutzerdefinierten Felder alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie. Wie und wo werden benutzerdefinierten Felder in Joomla im Frontend ausgegeben?<!-- \index{Benutzerdefinierte Felder (Frontend)} -->
 
 ## Für Ungeduldige
 
@@ -98,11 +96,7 @@ Im Template geben wir die benutzerdefinierten Felder aus. In unserem Fall ist di
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Menüpunkt `Fields` in diesem neuen Menü.
 

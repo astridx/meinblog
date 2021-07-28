@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Das Thema Dark Mode hat für viel Wirbel gesorgt. So hat zum Beispiel Apple den Dark Mode in seine Betriebssysteme integriert. Windows und Google haben das Gleiche getan. Der Dark Mode ist in Mode. Und nicht nur das. Er bietet Vorteile. Ob dunklere Displays gut für die Augen sind, ist umstritten. Klar ist hingegen, dass bei weniger Licht Energie gespart wird.
+Das Thema Dark Mode hat für viel Wirbel gesorgt. So hat zum Beispiel Apple den Dark Mode in seine Betriebssysteme integriert. Windows und Google haben das Gleiche getan. Der Dark Mode ist in Mode. Und nicht nur das. Er bietet Vorteile. Ob dunklere Displays gut für die Augen sind, ist umstritten. Klar ist hingegen, dass bei weniger Licht Energie gespart wird.<!-- \index{Template!Dark Mode} -->
 
 ## Für Ungeduldige
 

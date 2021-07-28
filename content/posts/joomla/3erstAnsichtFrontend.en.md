@@ -144,7 +144,7 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-> Joomla logging offers the possibility to log messages in a file and on the screen. In the case of the screen, you will find this within the Joomla debug console at the bottom of the web page when debugging is active. This function may be helpful when developing, so I mention it here. The entry `Log::add('Log me.', Log::DEBUG);` causes a line to be added to the log file. It is important that the necessary functions are loaded in the head of the file via `use Joomla\CMS\Log\Log;`. The following image shows where the logging is set in the Joomla backend.
+> Joomla logging offers the possibility to log messages in a file and on the screen. In the case of the screen, you will find this within the Joomla debug console<!-- \index{Debug Console} --> at the bottom of the web page when debugging is active. This function may be helpful when developing, so I mention it here. The entry `Log::add('Log me.', Log::DEBUG);` causes a line to be added to the log file. It is important that the necessary functions are loaded in the head of the file via `use Joomla\CMS\Log\Log;`. The following image shows where the logging is set in the Joomla backend.
 > ![Settings for logging in the Joomla backend](/images/j4x3x2.png)
 
 <!-- prettier-ignore -->

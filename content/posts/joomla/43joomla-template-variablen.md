@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Parameter machen das Template im Backend flexibel anpassbar. Vielleicht sollen eine Farbauswahl möglich sein? Das Standardtemplate Cassiopeia bietet unter anderem `logoFile`, `siteTitle` und `siteDescription` als Parameter. Wir ergänzen ein Banner und Social Media Icons.
+Parameter machen das Template im Backend flexibel anpassbar. Vielleicht sollen eine Farbauswahl möglich sein? Das Standardtemplate Cassiopeia bietet unter anderem `logoFile`, `siteTitle` und `siteDescription` als Parameter. Wir ergänzen ein Banner und Social Media Icons.<!-- \index{Template!Parameter} -->
 
 ## Für Ungeduldige
 

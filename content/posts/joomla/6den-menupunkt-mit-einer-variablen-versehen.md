@@ -52,7 +52,7 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 ...
 ```
 
-> Du kannst bei der neuen Variante auf die Überprüfung `if (!isset($this->message))` verzichten, weil die Anweisung `get('show_text', "Hi");` den Fehler abfängt, der auftritt, wenn der Parameter `show_text` nicht gesetzt ist. Immer dann, wenn der Wert `show_text` nicht gesetzt ist, wird der zweite Parameter `"Hi"` als Standard verwendet.
+> Du kannst bei der neuen Variante auf die Überprüfung `if (!isset($this->message))` verzichten, weil die Anweisung `get('show_text', "Hi");` den Fehler abfängt, der auftritt, wenn der Parameter<!-- \index{Parameter} --> `show_text` nicht gesetzt ist. Immer dann, wenn der Wert `show_text` nicht gesetzt ist, wird der zweite Parameter `"Hi"` als Standard verwendet.
 
 Zusammen sieht die Datei in der Diff-Ansicht wie folgt aus:
 

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Wir ergänzen in diesem Kapitel ein Installationsskript. Bei den Erklärungen zur Komponente hatte ich beschrieben, wofür du dieses verwendest.
+Wir ergänzen in diesem Kapitel ein Installationsskript. Bei den Erklärungen zur Komponente hatte ich beschrieben, wofür du dieses verwendest.<!-- \index{Module!Installationsskript} -->
 
 ## Für Ungeduldige
 

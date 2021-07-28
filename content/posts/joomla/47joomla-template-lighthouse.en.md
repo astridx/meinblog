@@ -1,6 +1,6 @@
 ---
 date: 2021-01-15
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Lighthouse'
+title: 'Joomla 4.x-Tutorial - Extension Development - Template - Lighthouse'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-lighthouse
@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-The template is ready. Now you want to make sure that it does not contain any errors. Then take a look at [Lighthouse](https://developers.google.com/web/tools/lighthouse). This is a browser plug-in and an audit tool developed in Google Chrome with which the loading time of a website can be examined and optimised. In addition to the structure of HTML, CSS and JavaScript files, it also takes into account the integration of images and the cache settings of the website.
+The template is ready. Now you want to make sure that it does not contain any errors. Then take a look at [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse]. This is a browser plug-in and an audit tool developed in Google Chrome with which the loading time of a website can be examined and optimised. In addition to the structure of HTML, CSS and JavaScript files, it also takes into account the integration of images and the cache settings of the website.<!-- \index{Google Lighthouse} --><!-- \index{template!performance, accessibility, best practice, seo, pwa} -->
 
 ## Google Lighthouse
 
@@ -22,8 +22,8 @@ The Lighthouse analyses includes
 - Performance - How fast does the website load?
 - Accessibility - Does the website include barriers for certain people or devices?
 - Best Practices - Does the website use modern standards?
-- Search Engine Optimisation - How well is the website readable by search engines?
-- Progressive Web App - Does the website offer features of a [Web App](https://de.wikipedia.org/wiki/Mobile_App)?
+- Search Engine Optimisation (SEO) - How well is the website readable by search engines?
+- Progressive Web App (PWA) - Does the website offer features of a [Web App](https://en.wikipedia.org/wiki/Mobile_app)[^en.wikipedia.org/wiki/mobile_app]?
 
 ![Create Joomla Template - Page Speed Analysis with Lighthouse](/images/j4x47x1.png)
 

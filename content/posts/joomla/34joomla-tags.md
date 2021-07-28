@@ -15,7 +15,7 @@ tags:
 
 Mit Schlagwörtern oder Tags sind Inhalte in Joomla! flexibel organisierbar. Es ist möglich, ein Tag vielen unterschiedlichen Elementen zuzuweisen. Umgekehrt kann jedes Item über eine unbegrenzte Anzahl an Schlagwörtern verfügen.
 
-Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es bequem in andere Komponenten integrierbar ist. Zumindest dann, wenn diese die Standard-Joomla-Design-Muster verwenden. Die Nutzung von Tags in einer Drittanbieter-Erweiterung ist unkompliziert. Für die Integration in eine eigene Komponente reichen die in diesem Kapitel erläuterten Ergänzungen aus.
+Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es bequem in andere Komponenten integrierbar ist. Zumindest dann, wenn diese die Standard-Joomla-Design-Muster verwenden. Die Nutzung von Tags in einer Drittanbieter-Erweiterung ist unkompliziert. Für die Integration in eine eigene Komponente reichen die in diesem Kapitel erläuterten Ergänzungen aus.<!-- \index{Schlagworte} --><!-- \index{Tags} -->
 
 ## Für Ungeduldige
 

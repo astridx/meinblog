@@ -1,6 +1,6 @@
 ---
 date: 2021-01-10
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Module Positions'
+title: 'Joomla 4.x-Tutorial - Extension Development - Template - Module Positions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-positionen
@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Our template should dynamically display the Joomla content from components, modules and plugins at different positions. How module positions are integrated in the template is the topic of this chapter.
+Our template should dynamically display the Joomla content from components, modules and plugins at different positions. How module positions are integrated in the template is the topic of this chapter.<!-- \index{template!positions} -->
 
 ## For the impatient
 

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Komponente! Joomla bietet Ansichtsfilter und Suchwerkzeuge, mit denen du die Anzahl der sichtbaren Items einschränkst. Wenn der Statusfilter entsprechend gesetzt ist, werden nur Elemente angezeigt, deren Status veröffentlicht ist. Neben dem Statusfilter bieten die Suchwerkzeuge die Suche nach Titel oder Inhalt und die Möglichkeit die Tabelle zu sortieren, sprich, die Reihenfolge zu ändern.
+Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Komponente! Joomla bietet Ansichtsfilter und Suchwerkzeuge, mit denen du die Anzahl der sichtbaren Items einschränkst. Wenn der Statusfilter entsprechend gesetzt ist, werden nur Elemente angezeigt, deren Status veröffentlicht ist. Neben dem Statusfilter bieten die Suchwerkzeuge die Suche nach Titel oder Inhalt und die Möglichkeit die Tabelle zu sortieren, sprich, die Reihenfolge zu ändern.<!-- \index{filtern} --><!-- \index{sortieren} --><!-- \index{suchen} -->
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
 
@@ -575,9 +575,7 @@ Icons zeigen uns an, ob und in welche Richtung eine Spalte sortiert ist. Damit d
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
 2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
@@ -585,4 +583,4 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 3. Öffne die Ansicht deiner Komponente im Administrationsbereich und filter, sortiere und suche nach Items in deiner Komponente.
 
-![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
+![Joomla Filtern Sortieren und Suchen - Searchtools](/images/j4x20x1.png)

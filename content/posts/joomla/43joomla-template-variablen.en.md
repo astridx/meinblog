@@ -1,6 +1,6 @@
 ---
 date: 2021-01-12
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Parameters and Variables'
+title: 'Joomla 4.x-Tutorial - Extension Development - Template - Parameters and Variables'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-variablen
@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Parameters make the template flexibly configurable in the backend. Perhaps a colour selection should be possible? The standard template Cassiopeia offers, among others, `logoFile`, `siteTitle` and `siteDescription` as parameters. We add a banner and social media icons.
+Parameters make the template flexibly configurable in the backend. Perhaps a colour selection should be possible? The standard template Cassiopeia offers, among others, `logoFile`, `siteTitle` and `siteDescription` as parameters. We add a banner and social media icons.<!-- \index{template!parameters} -->
 
 ## For the impatient
 

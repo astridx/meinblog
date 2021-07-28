@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Wir erstellen ein Modul. Das ist ein Add-On, welches die Anzeige des eigentlichen Inhalts erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.
+Wir erstellen ein Modul. Das ist ein Add-On, welches die Anzeige des eigentlichen Inhalts erweitert. Man verwendet es, wenn ein Inhalt nicht der Hauptinhalt ist und an unterschiedlichen Positionen dargestellt wird. Nebenbei ist es möglich, die Menüpunkte auszuwählen, unter denen das Modul sichtbar ist.<!-- \index{Modul} -->
 
 In Joomla gibt es eine Vielzahl von Modulen, an denen ich mich orientiere. Beispielsweise:
 

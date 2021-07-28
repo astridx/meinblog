@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Wir haben eine Menge unterschiedlicher Erweiterung erstellt. Es ist lästig, für jede einzelne eine separate Installation durchzuführen. Dies ist einem Benutzer nicht zumutbar. Außerdem bauen diese teilweise aufeinander auf und es ist wichtig, sicherzustellen, dass alles installiert ist und nichts vergessen wurde. Deshalb zeige ich in diesem abschießenden Kapitel, wie unterschiedliche Erweiterungen zu einem Installationspaket zusammengepackt werden.
+Wir haben eine Menge unterschiedlicher Erweiterung erstellt. Es ist lästig, für jede einzelne eine separate Installation durchzuführen. Dies ist einem Benutzer nicht zumutbar. Außerdem bauen diese teilweise aufeinander auf und es ist wichtig, sicherzustellen, dass alles installiert ist und nichts vergessen wurde. Deshalb zeige ich in diesem abschießenden Kapitel, wie unterschiedliche Erweiterungen zu einem Installationspaket zusammengepackt werden.<!-- \index{Paket} -->
 
 ## Für Ungeduldige
 
@@ -21,7 +21,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 ## Schritt für Schritt
 
-In diesem Abschnitt erstellen wir ein Installationspaket. 
+In diesem Abschnitt erstellen wir ein Installationspaket.
 
 ### Neue Dateien
 

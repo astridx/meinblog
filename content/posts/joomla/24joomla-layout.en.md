@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Sometimes it is necessary to design the display differently in the frontend. This is basically the responsibility of the template. A component is responsible for the output of content, no more and no less. The template ensures a uniform appearance. Nevertheless, there are use cases for different layouts. How you incorporate them for a view is the topic of the following article.
+Sometimes it is necessary to design the display differently in the frontend. This is basically the responsibility of the template. A component is responsible for the output of content, no more and no less. The template ensures a uniform appearance. Nevertheless, there are use cases for different layouts. How you incorporate them for a view is the topic of the following article.<!-- \index{layout} -->
 
 ## For impatient people
 

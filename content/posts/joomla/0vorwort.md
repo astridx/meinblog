@@ -66,6 +66,60 @@ Wenn du sofort loslegen möchtest, blätter zu _Die erste Ansicht im Backend_. N
 
 ## Basiswissen
 
+### Entwicklungsumgebung
+
+In diesem Text ist der Joomla Code Thema. Es geht nicht um die neuesten Werkzeuge für Entwickler. Ein paar Dinge sind allerdings essentiell.
+
+#### Testumgebung
+
+Du möchtest eine Erweiterung für Joomla programmieren und benötigst deshalb eine Umgebung in der Joomla installiert ist. Meiner Meinung nach ist ein [XAMPP-Serverpaket](https://www.apachefriends.org/index.html)[^https://www.apachefriends.org/index.html] auf einem lokalen Arbeitsrechner eine ideale Voraussetzung zur Entwicklung neuer Erweiterungen. Der direkte Zugriff auf die Dateien von Joomla im lokalen Dateisystem erleichtert die Handhabe.
+
+#### Code-Editoren oder IDE
+
+Zwingend ist ebenfalls ein guter Editor. Dies sollte einer sein, mit dem du dich wohlfühlst. Wikipedia führt eine Liste mit [Editoren.](https://de.wikipedia.org/wiki/Liste_von_Texteditoren)[^de.wikipedia.org/wiki/liste_von_texteditoren]
+
+Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^https://de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. Mit Bequemlichkeit meine ich Funktionen wie
+
+- Versionierung: Integration von Subversion oder GIT
+- Codevervollständigung: Benutzereingabe sinnvoll ergänzen
+- Syntax-Highlighting: farbliche Hervorhebung von Variablen, Klassennamen oder Anweisungen.
+- Coding Standards: Beachten von Regeln
+- Debugging: Auffinden von Fehlern
+
+Auch zu IDEs kannst du dir bei Wikipedia anhand einer [Liste mit IDEs](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen] einen Überblick verschaffen.
+
+In der Joomla-Community ist die kostenpflichtige IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^https://www.jetbrains.com/phpstorm/] beliebt. Immer häufiger trifft man auf Nutzer von [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/]. Nennenswert sind daneben [NetBeans](https://netbeans.org) und [Eclipse](https://eclipse.org).
+
+Sucht du nach einer Anleitung, zur Einrichtung der Entwicklungsumgebung? Joomla mit Visual Studio Code findest du in der [Joomla Dokumentation](https://docs.joomla.org/Visual_Studio_Code)[^docs.joomla.org/visual_studio_code]. Für PHPStorm bietet Jetbrains eine [Beschreibung](https://www.jetbrains.com/help/phpstorm/joomla-specific-coding-assistance.html).
+
+### Joomla 3 und Joomla 4 im Vergleich
+
+#### Neues in Joomla 4
+
+##### Frontend und Backend barrierefrei und mit Bootstrap 5
+
+Joomla 4 integriert Bootstrap 5 in den Joomla-Kern. Dabei sind die mitgelieferten Templates zugänglich und entsprechen der Stufe AA der WCAG 2.1. Die WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Barrierefreiheit, der in der Europäischen Union für öffentliche Stellen verbindlich ist. Als Erweiterungsentwickler ist es nicht zwingend, dass du Bootstrap 5 verwendest. Technisch sollte sie aber die neuesten Standards einhalten. Es wäre schade die gute Vorlage die Joomla bietet, nicht zu nutzen.
+
+##### Optimierte Web Assets
+
+Mit einem einzigen Aufruf ist es Developern mithilfe der Web Assets möglich, mehrere Javascript- und CSS-Dateien in einer festgelegten Reihenfolge zu laden. Verwendet ein Erweiterungsentwickler beispielsweise Styles, die davon abhängen, dass Font Awesome zuerst geladen wird und er weiß, dass Joomla 4 das Icon-Font-Set verwendet, kommen Web Assets ins Spiel. Web Assets werden in diesem Tutorial an mehreren Stellen beschrieben.
+
+##### Webservices ermöglichen einen automatisierten Datenaustausch
+
+Joomla 4 Webdienste machen Inhalte für andere Websites oder mobile Anwendungen zugänglich. Was ist ein Webservice? Unterschiedliche Definitionen sorgen für Verwirrung. Die SOAP-Standards werden als Webdienste bezeichnet. Andere kennen diese unter dem Begriff REST-API. Das W3C definiert einen Webservice allgemein als eine Schnittstelle für die automatisierte Kommunikation über Rechnernetze. Die API-Integration in Joomla 4 implementiert eine solche im Core des CMS unter Zuhilfenahme von REST. In dem Beispiel, dass wir in diesem Text aufbauen, unterstützen wir die Joomla API ebenfalls.
+
+##### Workflow
+
+Mit der neuen Komponente Workflow ist es möglich, Websiteinhalte mit einem Arbeitsablauf zu verknüpfen. Thirt Party Erweiterungen können mithifle der Kernerweiterung ebenfalls einen Arbeitsablauf anbieten. Auf diese Funktion ist hier im Buch noch nicht aufgenommen.
+
+##### Viele weitere Änderungen und Verbesserungen
+
+Joomla 4 beinhaltet neue Sicherheitsfunktionen wie die Unterstützung von vorbereiteten Anweisungen für Datenbanksysteme. So wird ein SQL-Injection verhindert, da die Datenbank die Gültigkeit von Parametern prüft. Außerdem wurde die Codebasis Restrukturierung. Der Code wurde gründlich bereinigt, veraltete Funktionen entfernt und PHP-Namespaces eingeführt.
+
+#### Rückwärtskompatibilität zu Joomla 3
+
+Dieser Text richtet sich in erster Linie an Entwickler, die eine neue Erweiterung in Angriff nehmen. Nichtsdestotrotz sind Probleme in Bezug auf die Kompatibilität mit Joomla 3 interessant. Eine [Seite in der Joomla Dokumentation](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4/de)[^docs.joomla.org/potential_backward_compatibility_issues_in_joomla_4/de] fasst die wichtigen Punkte zusammen.
+
 ### Ändere niemals die Kerndateien.
 
 Der Zweck von Joomla-Erweiterungen ist es, ein System zu haben, das erweitert werden kann. So ist es möglich, dass dein Code und der Joomla Core Code unabhängig voneinander mit neuen Funktionen versehen werden können.
@@ -82,7 +136,7 @@ Dass du die Systemdateien nicht verändern solltest, heißt nicht, dass du sie g
 
 Während der Installation werden Einträge in der Datei `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
 
-### Namespace
+### Namespace<!-- \index{Namespace} -->
 
 Beachte den Namespace Eintrag im oberen Bereich der meisten PHP-Dateien
 
@@ -112,16 +166,16 @@ Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispiel
 
 Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen `DisplayController`, um besser zu reflektieren, was die Klasse tut. Siehe: https://github.com/joomla/joomla-cms/pull/17624
 
-### index.html?
+### index.html?<!-- \index{index.html} -->
 
 Benötigst du in jedem Ordner deiner Komponente eine leere Datei mit dem Namen `index.html`? Die `index.html` ist nicht mehr erforderlich, da das Auflisten von Verzeichnissen [in der Standardkonfiguration von Joomla nicht zulässig](https://github.com/joomla/joomla-cms/pull/4171)[^github.com/joomla/joomla-cms/pull/4171] ist.
 Wenn du weiter interessiert bist lese die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s)[^groups.google.com/forum/#!topic/joomla-dev-cms/en1g7qouw2s].
 
-### Technische Anforderungen
+### Technische Anforderungen<!-- \index{Technische Anforderungen} -->
 
 Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unterstützt werden und was nicht weiter verfolgt wird? Dafür gibt es das [Statistik-Plugin](https://developer.joomla.org/about/stats.html)[^developer.joomla.org/about/stats.html]. Dank der Benutzer, die diese Erweiterung aktivieren, fließen wichtige Informationen in die Entwicklung ein.
 
-### Alternative Syntax für Kontrollstrukturen
+### Alternative Syntax für Kontrollstrukturen<!-- \index{Alternative Syntax PHP} -->
 
 PHP bietet eine [weitere Schreibweise](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für Kontrollstrukturen an. Diese ist praktisch, wenn man größere Blöcke HTML direkt ausgibt - ohne `echo` zu benutzen. Nutze diese in Template-Dateien. So bleiben die übersichtlich.
 
@@ -145,7 +199,7 @@ foreach ($this->items as $i => $item) {
 
 Auf diese Art und Weise ist eine einzelne Zeile in sich geschlossen und der HTML-Code ist trotzdem übersichtlich strukturiert.
 
-### Datenbanktabellenpräfix
+### Datenbanktabellenpräfix<!-- \index{Datenbankpräfix} -->
 
 Als Erweiterungsentwickler entwickelt man seine Erweiterung idealerweise so, dass das Präfix der Datenbank variable ist. Dazu nutzt man die Zeichenkette `#__`. Der String `#__` wird zur Laufzeit von Joomla mit dem passenden Präfix ersetzt.
 
@@ -153,7 +207,7 @@ Als Erweiterungsentwickler entwickelt man seine Erweiterung idealerweise so, das
 
 Wo speicherst du am besten JavaScript-, CSS- und Bilddateien? Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist besonders bei CSS-Dateien von Vorteil, um das Design der gesamten Joomla-Website einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/development_best_practices] empfehlen dies ebenfalls.
 
-### Fontawesome Icons
+### Fontawesome Icons<!-- \index{Fontawesome Icons} -->
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen. Dann nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla wird Fontawesome mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] reicht aus.
 

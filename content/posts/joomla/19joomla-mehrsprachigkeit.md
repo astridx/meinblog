@@ -12,7 +12,7 @@ tags:
   - Joomla
 ---
 
-Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.
+Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.<!-- \index{Sprachverknüpfungen} -->
 
 > Abgrenzung Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.
 
@@ -1203,7 +1203,7 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 3. Installiere über `System | Install | Languages` mindestens eine weitere Sprache. Ich habe die deutsche und die persische Sprache gewählt.
 
-> [Persisch](https://en.wikipedia.org/wiki/Persian_language 'Persische Sprache') ist eine der am weitesten verbreiteten RTL-Schreibsysteme der Neuzeit und kann deshalb zum Testen der RTL-Integration in Joomla verwendet werden. In einer **Rechts-nach-links, von oben nach unten** [Schrift](https://en.wikipedia.org/wiki/Writing_system 'Schriftsystem') (häufig abgekürzt als **Rechts-nach-links** oder abgekürzt als **RTL**) schreibt man auf einer Seite von rechts nach links, wobei neue Zeilen von oben nach unten geschrieben werden. Dies steht im Gegensatz zur Links-nach-Rechts-Schreibweise (https://en.wikipedia.org/wiki/Writing_system "Writing system"), bei der die Schrift von links beginnt und nach rechts fortgesetzt wird.
+> [Persisch](https://de.wikipedia.org/wiki/Persische_Sprache)[^de.wikipedia.org/wiki/persische_sprache] ist neben Arabic, Hebrew, Pashto, Urdu und Sindhi eine der am weitesten verbreiteten [RTL-Schreibsysteme](https://en.wikipedia.org/wiki/Right-to-left_script)[^wikipedia.org/wiki/right-to-left_script] der Neuzeit und kann deshalb zum Testen der RTL-Integration in Joomla verwendet werden. In einer _Rechts-nach-links, von oben nach unten_ [Schrift](https://de.wikipedia.org/wiki/Schrift)[^de.wikipedia.org/wiki/schrift] (häufig abgekürzt als _Rechts-nach-links_ oder abgekürzt als _RTL_) schreibt man auf einer Seite von rechts nach links, wobei neue Zeilen von oben nach unten geschrieben werden. Dies steht im Gegensatz zur _Links-nach-Rechts-Schreibweise_, bei der die Schrift von links beginnt und nach rechts fortgesetzt wird.
 
 ![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x1.png)
 

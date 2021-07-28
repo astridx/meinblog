@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.
+We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.<!-- \index{Form field} -->
 
 ## For impatient people
 

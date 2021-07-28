@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Your goal was to make your extension multilingual! That's why you didn't enter the texts directly into the program code. Specifically, I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are uncomplicated exchangeable. So far you have seen cryptic texts because of that. In this part we translate the unattractive language strings.
+Your goal was to make your extension multilingual! That's why you didn't enter the texts directly into the program code. Specifically, I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are uncomplicated exchangeable. So far you have seen cryptic texts because of that. In this part we translate the unattractive language strings.<!-- \index{language Strings} -->
 
 > Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts via language override[^docs.joomla.org/j3.x:language_overrides_in_joomla] without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header.
 
@@ -124,7 +124,7 @@ COM_FOOS_CATEGORIES="Kategorien"
 ...
 ```
 
-> Naming conventions: Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/ISO_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/ISO_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English. After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
+> Naming conventions: Each language file is marked with an abbreviation, which is defined in [ISO-639](https://en.wikipedia.org/wiki/ISO_639)[^en.wikipedia.org/wiki/iso_639] and [ISO-3166](https://en.wikipedia.org/wiki/ISO_3166)[^en.wikipedia.org/wiki/iso_3166]: The first two lower case letters name the language. For German this is `de` and `en` for English. After the hyphen, the two capital letters indicate the country. For example, Swiss German can be distinguished from `DE` by `CH` or Austrian by `AT`. A folder named `de-CH` contains the translation for Switzerland and `de-AT` the Austrian variant.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
@@ -247,7 +247,7 @@ So that the language files are copied during an installation, we add the `<folde
 
 Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/ language/en-GB/` and `components/com_foos/ language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the directory `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
 
-You want to store your language files in the same directory as the Joomla core extensions? To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact` 
+You want to store your language files in the same directory as the Joomla core extensions? To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact`
 
 ```xml
 ...

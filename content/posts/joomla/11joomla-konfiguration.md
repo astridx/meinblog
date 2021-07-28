@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst. Wir erstellen die globale Konfiguration für unsere Komponente!
+Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst. Wir erstellen die globale Konfiguration für unsere Komponente!<!-- \index{Konfiguration (globale)} -->
 
 ## Für Ungeduldige
 
@@ -26,7 +26,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
 
-Hinzu kommt die Datei `config.xml`. Diese implementiert die Konfigurations-Parameter. In der XML-Datei kannst du wie gewohnt auf alle [Standard-Formular-Feldtypen](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/Form_field/de] zurückgreifen oder analog des bereits erstellten Modalfeldes FieldFoo eigene Typen implementieren.
+Hinzu kommt die Datei `config.xml`. Diese implementiert die Konfigurations-Parameter. In der XML-Datei kannst du wie gewohnt auf alle [Standard-Formular-Feldtypen](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/form_field/de] zurückgreifen oder analog des bereits erstellten Modalfeldes FieldFoo eigene Typen implementieren.
 
 Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit minimieren wir, indem wir die globalen Sprachstrings `JNO` und `JYES` einsetzten. Alle Texte, die Joomla in der Datei [`language/en-GB/joomla.ini`](https://github.com/joomla/joomla-cms/blob/4.0-dev/language/en-GB/joomla.ini) übersetzt, sind global verwendbar.
 
@@ -133,7 +133,7 @@ Die `populateState`-Methode stellt sicher, dass das `State`-Objekt gefüllt ist 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. Wir zeigen das Label nur an, wenn im Status der Parameter auf `true` oder `1` gesetzt ist. 
+Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. Wir zeigen das Label nur an, wenn im Status der Parameter auf `true` oder `1` gesetzt ist.
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/18417fb928286a84f8a5151f86e4c0cc0aeb64dd/src/components/com_foos/tmpl/foo/default.php)
 

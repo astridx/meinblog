@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. Das ist benutzerfreundlich, weil es einen Überblick bietet. So kann sich sich ein Benutzer ohne viele Klicks in der Erweiterung orientieren. In diesem Teil erstellen wir ein solches Dashboard für unsere Beispielkomponente.
+Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. Das ist benutzerfreundlich, weil es einen Überblick bietet. So kann sich sich ein Benutzer ohne viele Klicks in der Erweiterung orientieren. In diesem Teil erstellen wir ein solches Dashboard für unsere Beispielkomponente.<!-- \index{Dashboard} -->
 
 ## Für Ungeduldige
 

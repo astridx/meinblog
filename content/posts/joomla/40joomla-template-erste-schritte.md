@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Warum ein eigenes Joomla Template erstellen? Es gibt gute Gründe, warum wir dies in Angriff nehmen sollten!
+Warum ein eigenes Joomla Template erstellen? Es gibt gute Gründe, warum wir dies in Angriff nehmen sollten!<!-- \index{Template} -->
 
 > Gerade für Erweiterungsentwickler ist es meiner Meinung nach wesentlich, zu wissen wie ein Joomla Template funktioniert. Denn so ist es möglich, die Trennung von Logik und Design in die Extension zu integrieren.
 

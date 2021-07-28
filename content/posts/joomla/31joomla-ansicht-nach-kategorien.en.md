@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Why use categories? One reason for categories is that there are many posts on a site. They can be grouped and managed more easily. Example: In post management, posts can be filtered by category. If there are 200 posts in the site, it is easy to find a post if you know its category.
+Why use categories? One reason for categories is that there are many posts on a site. They can be grouped and managed more easily. Example: In post management, posts can be filtered by category. If there are 200 posts in the site, it is easy to find a post if you know its category.<!-- \index{categories (frontend)} -->
 
 For the frontend, there are built-in menu item types in Joomla! that use categories: Category Blog, Category List. The menu entry types (also called "layouts") simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable.
 
@@ -882,19 +882,15 @@ HTMLHelper::_('behavior.core');
 
 > The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012) keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template - or whether only in this way a user-friendly offer is possible - where the number of intro articles can be determined in the backend via a user interface.
 
-### Geänderte Dateien
+### Modified files
 
 In this chapter we only add new files.
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since new files have been added, this is necessary.
 
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
-
-Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since new files have been added, this is necessary. 2.
-
-Create a menu item that displays the elements of a category of our extension.
+2. Create a menu item that displays the elements of a category of our extension.
 
 ![Categories in Joomla - Create Menu Item](/images/j4x31x1.png)
 

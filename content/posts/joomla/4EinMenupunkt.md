@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.
+In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansicht deiner Komponente erstellst. So ist es nicht notwendig, dass du die genaue URL weißt. Später ist eine Umwandlung in suchmaschinenfreundliche URLs automatisch möglich.<!-- \index{Menüpunkt (Frontend)} -->
 
 ## Für Ungeduldige
 

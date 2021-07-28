@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-We add namespace and helper.
+We add namespace and helper.<!-- \index{module!helper} --><!-- \index{module!namespace} -->
 
 ## For impatient people
 

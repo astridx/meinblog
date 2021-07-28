@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-We'll start with the basics. For this we create the _View_ in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.
+We'll start with the basics. For this we create the _View_ in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area<!-- \index{menu item (backend)} -->. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.
 
 ## For impatient people
 
@@ -26,7 +26,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-`foos.xml` tells Joomla how to install our component. Just like modules and plugins, components have an XML installation file that informs Joomla about the extension to be installed. This file is called a manifest and contains details such as
+`foos.xml` tells Joomla how to install our component. Just like modules and plugins, components have an XML installation<!-- \index{installation manifest} --> file that informs Joomla about the extension to be installed. This file is called a manifest and contains details such as
 
 - the version number,
 - all files and folders used by the component,
@@ -135,7 +135,7 @@ Let's move on to the _dlid_-tag.
 <dlid prefix="dlid=" suffix="" />
 ```
 
-You need this if you use the _Download Key Manager_. In general, this is only the case for commercial extensions. You can find more information on Github at [github.com/joomla/joomla-cms/pull/25553](https://github.com/joomla/joomla-cms/pull/25553).
+You need this if you use the _Download Key Manager_. In general, this is only the case for commercial extensions<!-- \index{commercial extensions} -->. You can find more information on Github at [github.com/joomla/joomla-cms/pull/25553](https://github.com/joomla/joomla-cms/pull/25553).
 
 Finally, we close the `</extension>` tag. Here is the complete code:
 
@@ -183,7 +183,7 @@ Finally, we close the `</extension>` tag. Here is the complete code:
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
-With the installation script file you call code
+With the installation script<!-- \index{installation script} --> file you call code
 
 - when your component is installed,
 - before your component is installed,
@@ -435,7 +435,7 @@ return new class implements ServiceProviderInterface
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19)
 
-The file `DisplayController.php` is the entry point for the Model View Controller part in the administration area of the Foo component. Name the class _DisplayController_. Joomla expects it like this. Extend _BaseController_ to use many things out-of-the-box.
+The file `DisplayController.php`<!-- \index{DisplayController (Backend)} --> is the entry point for the Model View Controller part in the administration area of the Foo component. Name the class _DisplayController_. Joomla expects it like this. Extend _BaseController_ to use many things out-of-the-box.
 
 The main task of this controller is to prepare the display. Therefore the default controller is called DisplayController. It calls the method `display()` of the parent class `BaseController` in the namespace `Joomla\CMS\MVC\Controller` - exactly this is the file `/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php`. In the Model-View-Controller model, controllers are often used to set up the start environment.
 
@@ -469,7 +469,7 @@ Next, we import the namespace of the parent class `BaseController` with the keyw
 use Joomla\CMS\MVC\Controller\BaseController;
 ```
 
-Then we create the class for the controller. I already wrote that you should call this DisplayController and extend the class BaseController. Then define the variable `$default_view` in which you set the default view with `foos`. You choose `foos` as the view because the name of the component is `foos` and for this reason you will also created the directory `/administrator/components/com_foos/src/View/ F o o s`. If nothing is defined, the Foos view with the default layout is used by default. Setting this variable is not necessary. But I think it is always better to insert this line.
+Then we create the class for the controller. I already wrote that you should call this DisplayController and extend the class BaseController. Then define the variable `$default_view` in which you set the default view with `foos`. You choose `foos` as the view because the name of the component is `foos` and for this reason you will also created the directory `/administrator/components/com_foos/src/View/Foos`. If nothing is defined, the Foos view with the default layout is used by default. Setting this variable is not necessary. But I think it is always better to insert this line.
 
 If you take a closer look at the URL while using a component in the administration area, you may notice the view and layout variables. For example, the URL `index.php ?option=com_foos &view=foos &layout=default` loads the `foos` view with the default layout `default`. Thus, the file `components/` + `com_foos/tmpl/foos/` + `default.php` is called when you are in the frontend. If you are working in the backend, `administrator/components/` + `com_foos/tmpl/foos/` + `default.php` is used.
 
@@ -704,7 +704,7 @@ Hello Foos
 <!-- prettier-ignore -->
 #### [components/com\_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15)
 
-I wrote in the preface that the file `index.html` is not needed. That is correct! Here I only added it because I am putting together an installation package, but Joomla reports an error during the installation if there is no folder for the frontend or if an empty directory is passed in the installation package. At the moment we have no content for the frontend. The temporary insertion of the file is therefore only a help at this point to avoid error messages during the installation.
+I wrote in the preface that the file `index.html`<!-- \index{index.html} --> is not needed. That is correct! Here I only added it because I am putting together an installation package, but Joomla reports an error during the installation if there is no folder for the frontend or if an empty directory is passed in the installation package. At the moment we have no content for the frontend. The temporary insertion of the file is therefore only a help at this point to avoid error messages during the installation.
 
 [components/com_foos/index.html](https://github.com/astridx/boilerplate/blob/t1/src/components/com_foos/index.html)
 

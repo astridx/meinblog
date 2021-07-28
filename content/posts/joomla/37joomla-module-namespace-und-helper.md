@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Wir ergänzen Namespace und Helper.
+Wir ergänzen Namespace und Helper.<!-- \index{Modul!Helper} --><!-- \index{Modul!Namespace} -->
 
 ## Für Ungeduldige
 

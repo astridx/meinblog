@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.
+Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.<!-- \index{parameter} -->
 
 Parameters exist for
 
@@ -319,10 +319,7 @@ To make it possible to store the parameter at the menu item, we add a field in t
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
 2. The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click `Update Structure`.
 
@@ -330,22 +327,22 @@ Copy the files in the `components` folder into the `components` folder of your J
 
 3. Open the view of your component in the administration area. When editing an item, there is now the `Display` tab and the `Show Name` parameter.
 
-![Joomla Parameter in einem Element](/images/j4x22x1.png)
+![Joomla parameter of an element.](/images/j4x22x1.png)
 
-![Joomla Parameter in einem Element](/images/j4x22x2.png)
+![Joomla parameter of an element.](/images/j4x22x2.png)
 
 4. Open the global options of your component in the administration area. Here there is now the parameter `Show Name`.
 
-![Joomla Parameter/Optionen in einer Komponente](/images/j4x22x3.png)
+![Joomla parameters/options of a component](/images/j4x22x3.png)
 
-![Joomla Parameter/Optionen in einem Komponente](/images/j4x22x4.png)
+![Joomla parameters/options of a component](/images/j4x22x4.png)
 
 5. Open the menu manager to create a menu item. To do this, click on `Menu` in the left sidebar and then on `All Menu Items`. Then click on the `New` button and fill in all necessary fields. You can find the appropriate `Menu Item Type` by clicking the `Select` button. Now there is the tab `Display` and the parameter `Show Name`.
 
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x5.png)
+![Joomla parameters of a the menu item.](/images/j4x22x5.png)
 
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x6.png)
+![Joomla parameters of a the menu item.](/images/j4x22x6.png)
 
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x7.png)
+![Joomla parameters of a the menu item.](/images/j4x22x7.png)
 
 6. Set the `Show Name` parameter in different combinations and make sure that the display in the frontend is correct.

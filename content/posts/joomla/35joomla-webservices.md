@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente ermöglicht es anderen, zusätzliche Software für diese zu erstellen oder Daten in eigenen Programmen zu nutzen – zusammenzuarbeiten.
+In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente ermöglicht es anderen, zusätzliche Software für diese zu erstellen oder Daten in eigenen Programmen zu nutzen – zusammenzuarbeiten.<!-- \index{API} --><!-- \index{Webservices} -->
 
 ## Für Ungeduldige
 
@@ -208,8 +208,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 ### Komponente
 
-#<!-- prettier-ignore -->
-
+<!-- prettier-ignore -->
 #### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werden die Dateien im Unterordner `api` bei einer Installation nicht in das richtige Verzeichnis kopiert.
@@ -230,13 +229,7 @@ In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werde
 
 ## Teste deine Joomla-Komponente
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut.
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla 4 Installation.
-Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla 4 Installation.
-
-Installiere deine Komponente **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
+1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut. Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla 4 Installation. Installiere deine Komponente **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
 
 2. Aktiviere das Plugin
 
@@ -256,7 +249,7 @@ Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
 > Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
 
-Nutzt du [Curl](https://curl.haxx.se/)? Die folgende Abfrage listet dir alle Elemente auf:
+Nutzt du [Curl](https://curl.haxx.se/)[^curl.haxx.se]? Die folgende Abfrage listet dir alle Elemente auf:
 
 ```
 curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foos' \

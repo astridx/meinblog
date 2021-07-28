@@ -20,7 +20,7 @@ If you worked with Joomla, you know it from other components: Items have a statu
 - schedule,
 - archive and
 - trash
-  items.
+  items.<!-- \index{unpbulish} --><!-- \index{publish} -->
 
 ## For impatient people
 

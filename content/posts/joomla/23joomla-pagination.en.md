@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Quickly there is a lot of content. Displaying all elements on one page is not useful. It has a negative impact on the overview and performance. That's why we split the items on subpages and add pagination for navigation at the bottom.
+Quickly there is a lot of content. Displaying all elements on one page is not useful. It has a negative impact on the overview and performance. That's why we split the items on subpages and add pagination for navigation at the bottom.<!-- \index{pagination} -->
 
 ![Joomla Pagination](/images/j4x23x1.png)
 

@@ -1,6 +1,6 @@
 ---
 date: 2021-01-16
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Package - Alle Erweiterungen in einer Installationsdatei'
+title: 'Joomla 4.x-Tutorial - Extension Development - Package - Putting several extensions together in one installable package'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-paket-alles-zusammen
@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-We have created a lot of different extensions. It is annoying to do a separate installation for each one. This is not reasonable for a user. Moreover, some of these extensions build on each other and it is important to make sure that everything is installed and nothing has been forgotten. Therefore, in this concluding chapter I show how different extensions are packed together into one installation package.
+We have created a lot of different extensions. It is annoying to do a separate installation for each one. This is not reasonable for a user. Moreover, some of these extensions build on each other and it is important to make sure that everything is installed and nothing has been forgotten. Therefore, in this concluding chapter I show how different extensions are packed together into one installation package.<!-- \index{package} -->
 
 ## For the impatient
 
@@ -107,14 +107,14 @@ You already know the manifest. In the case of a package, there is little new her
 </extension>
 ```
 
-## Teste dein Joomla-Template
+## Test your Joomla Template
 
-1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation.
+1. make a new installation. To do this, uninstall your previous installation.
 
-2. Erstelle für jede Erweiterung ein ZIP-Archiv
+2. create a ZIP file for each extension.
 
-3. Erstelle ein ZIP Archiv das alle ZIP-Dateien und die Dateien dieses Kapitels enthält.
+3. create a ZIP that contains all ZIP files and the files of this chapter.
 
-4. Installiere das in Punkt 3 erstellt ZIP in Joomla.
+4. install the ZIP created in point 3 in Joomla.
 
-5. Stelle sicher, dass alle im Bereich Files angegebenen Erweiterungen installiert wurden.
+5. make sure that all the extensions specified in the Files section have been installed.

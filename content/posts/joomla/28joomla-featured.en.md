@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Some items are special and for them there is a special attribute in Joomla: `featured` or `main entry`. This part of the article series adds `featured` to our component.
+Some items are special and for them there is a special attribute in Joomla: `featured` or `main entry`. This part of the article series adds `featured` to our component.<!-- \index{featured} -->
 
 > In Joomla, elements marked with `featured` are displayed when the home page menu item is linked to the `featured` layout. In this way, it is possible to show or hide an element only by changing the 'featured' property on a page - for example the start page. This has no effect on other display properties - for example, displaying in a category blog.
 

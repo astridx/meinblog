@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigung von Aufgaben. Damit die Menschen, die mit der Komponente arbeiten, immer einen Überblick über die möglichen Arbeitsschritte haben, ist es sinnvoll, eine Symbolleiste zu haben. In diesem Teil des Tutorials werden wir die bereits vorhandene Symbolleiste um die Standardaktionen erweitern. Hierbei greifen wir auf eine Vielzahl von vorgefertigten Methoden zu. Auch hier gilt: Beim Standard ist es nicht notwendig, das Rad selbst zu erfinden. Bei zukünftigen speziellen Aufgaben ist es sinnvoll, den Standard als Beispiel zu verwenden.
+Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigung von Aufgaben. Damit die Menschen, die mit der Komponente arbeiten, immer einen Überblick über die möglichen Arbeitsschritte haben, ist es sinnvoll, eine Symbolleiste zu haben. In diesem Teil des Tutorials werden wir die bereits vorhandene Symbolleiste um die Standardaktionen erweitern. Hierbei greifen wir auf eine Vielzahl von vorgefertigten Methoden zu. Auch hier gilt: Beim Standard ist es nicht notwendig, das Rad selbst zu erfinden. Bei zukünftigen speziellen Aufgaben ist es sinnvoll, den Standard als Beispiel zu verwenden.<!-- \index{Aktionen} --><!-- \index{Werzeugleiste} -->
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
 

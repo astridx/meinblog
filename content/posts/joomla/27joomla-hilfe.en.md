@@ -57,11 +57,7 @@ Two lines per view are sufficient to display a button at the top right that cont
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the files from the previous part.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
 
 2. Open the view of your component in the administration area. Click on the help link and make sure that you are redirected to the help page you entered.
 

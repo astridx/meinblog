@@ -37,7 +37,7 @@ Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gesp
 
 > Die Änderungen bezüglich des Changelogs und des Joomla Update Servers werden nur in diesem Kapitel erwähnt. In jedem anderen Kapitel kannst du die Zahlen selbst aktualisieren, wenn dies für dich wichtig ist. Dies ist kein Hexenwerk. Wenn ich das immer wieder beschreiben würde, würde es dich nicht nur langweilen - es würde diesen Text unnötig aufblähen.
 
-#### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b)
+#### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b) (Update Server)<!-- \index{Update Server} -->
 
 Du hast der Komponente in der Datei [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) mitgeteilt, wo sie sich über Updates informiert. Nämlich in der Datei `foo_update.xml`.
 
@@ -111,7 +111,7 @@ Nachfolgend siehst du die vollständige Datei.
 
 > Magst du eine Prüfsumme verwenden? Sieh dir die Testbeschreibung im [PR github.com/joomla/joomla-cms/pull/30076](https://github.com/joomla/joomla-cms/pull/30076) an, wenn du nicht weißt wie du dies umsetzt. Unter Ubuntu Linux ist es möglich über die Konsole mit `sha256sum -b meineDatei.zip` oder `sha284sum -b meineDatei.zip` die Prüfsumme zu berechnen.
 
-#### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2)
+#### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)<!-- \index{Changelog} -->
 
 Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/joomla-cms/pull/24026](https://github.com/joomla/joomla-cms/pull/24026) und in der [Joomla Dokumentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file/de)[^docs.joomla.org/adding_changelog_to_your_manifest_file/de]. Nachfolgend siehst du eine Beispieldatei.
 

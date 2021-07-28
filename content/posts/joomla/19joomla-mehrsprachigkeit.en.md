@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-With Joomla it is possible to set up a multilingual website without installing third party extensions. In this tutorial, I'll show you how to program your component to support language linking.
+With Joomla it is possible to set up a multilingual website without installing third party extensions. In this tutorial, I'll show you how to program your component to support language linking.<!-- \index{multilingual associations} -->
 
 > Differentiation multilingualism and language links: Multilingual content, menu items and language switches are set up with a standard Joomla installation without any additional extensions. Until version 3.7, Joomla required switching between views to translate content. Since 3.7 there is an improvement in usability, the so-called Multilingual Associations. With this extension, multilingual content can be created and linked in a user-friendly way. Thereby one remains in one view. The language links show incidentally which multilingual content is missing.
 
@@ -1194,10 +1194,7 @@ In the components overview in the administration area, we add columns to display
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
 2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part 16. Select your component and click on `Update Structure`.
 
@@ -1205,7 +1202,7 @@ Copy the files in the `components` folder into the `components` folder of your J
 
 3. install at least one more language via `System | Install | Languages`. I chose the german and the persian language.
 
-> [Persian](https://en.wikipedia.org/wiki/Persian_language 'Persian Language') is one of the most widely used RTL writing systems of modern times and can therefore be used to test the RTL integration in Joomla. In a **right-to-left, top-to-bottom** [script](https://en.wikipedia.org/wiki/Writing_system 'writing system') (often abbreviated as **right-to-left** or abbreviated as **RTL**), one writes from right to left on a page, with new lines written from top to bottom. This is in contrast to the left-to-right writing system (https://en.wikipedia.org/wiki/Writing_system "Writing system"), where writing starts from the left and continues to the right.
+> [Persian](https://en.wikipedia.org/wiki/Persian_language)[^wikipedia.org/wiki/persian_language] is together with Arabic, Hebrew, Pashto, Urdu, and Sindhi one of the most widely used [RTL](https://en.wikipedia.org/wiki/Right-to-left_script)[^wikipedia.org/wiki/right-to-left_script] writing systems of modern times and can therefore be used to test the RTL integration in Joomla. In a _right-to-left, top-to-bottom_ [script](https://en.wikipedia.org/wiki/Writing_system)[^] (often abbreviated as _right-to-left_ or abbreviated as _RTL_), one writes from right to left on a page, with new lines written from top to bottom. This is in contrast to the left-to-right [writing system](https://en.wikipedia.org/wiki/Writing_system), where writing starts from the left and continues to the right.
 
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x1.png)
 

@@ -26,7 +26,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-We create a file that contains SQL statements for creating the database table. So that these statements are called, we add the name of the file later in the manifest. With `CREATE TABLE IF NOT EXISTS ...` we create the database table if it does not already exist. With `INSERT INTO ...` we store sample contents in the database table.
+We create a file that contains SQL statements for creating the database table<!-- \index{Database} -->. So that these statements are called, we add the name of the file later in the manifest. With `CREATE TABLE IF NOT EXISTS ...` we create the database table if it does not already exist. With `INSERT INTO ...` we store sample contents in the database table.
 
 > In a real extension, I would not add sample data via the SQL file during installation. In Joomla 4, a plugin of the type `sampledata` is a good choice. For inspiration you can find plugins in the directory `joomla-cms/plugins/sampledata`.
 
@@ -178,7 +178,7 @@ The entry in the installation manifest marked with a plus sign causes the SQL st
 
 > In this example, I only support a MySQL database. [Joomla supports](https://downloads.joomla.org/technical-requirements)[^downloads.joomla.org/technical-requirements] as well as MySQL (from 5.6) and PostgreSQL (from 11). If you also support both databases, you can find an implementation to check out in the [Weblinks component](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. How you name the [drivers](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) is flexible. `postgresql` and `mysql` are correct, `mysqli`, `pdomysql` and `pgsql` are adapted by Joomla in the file `/libraries/src/ Installer/Installer.php`.
 
-##### Updates
+##### Updates<!-- \index{Database (Update)} -->
 
 For the sake of completeness, I anticipate here changes of a following chapter concerning updating. If something changes, it is sufficient to include only the changes in the database. You should take care that existing data are not affected. You save the changes in a separate file for each version. The directory, where the files for the future updates are to be stored, you write in the `<update>` tag. This is logical, right?
 

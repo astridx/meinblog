@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Unser Template soll die Joomla Inhalte aus Komponenten, Modulen und Plugins an verschiedenen Positionen dynamisch anzeigen. Wie Modul Positionen im Template integriert werden, ist Thema dieses Kapitels.
+Unser Template soll die Joomla Inhalte aus Komponenten, Modulen und Plugins an verschiedenen Positionen dynamisch anzeigen. Wie Modul Positionen im Template integriert werden, ist Thema dieses Kapitels.<!-- \index{Template!Positionen} -->
 
 ## Für Ungeduldige
 

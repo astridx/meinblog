@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Nicht jeder hat das Recht, alle Inhalte zu bearbeiten. Dazu bietet Joomla eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.
+Nicht jeder hat das Recht, alle Inhalte zu bearbeiten. Dazu bietet Joomla eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.<!-- \index{Zugriffskontrollliste} -->
 
 ## Für Ungeduldige
 
@@ -26,9 +26,9 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t9...t10#diff-e5dfd09c647ca1e552c9016cf918acf3)
 
-Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jede Komponente kann individuelle Berechtigungen definieren. Ich orientiere mich hier an den Aktionen, die in Joomla üblich sind. `core.admin` legt dabei fest, welche Gruppen die Berechtigungen auf Komponentenebene über die Schaltfläche `Optionen` in der Symbolleiste konfigurieren dürfen. `core.manage` bestimmt, welche Gruppen auf das Backend der Komponente zugreifen dürfen. 
+Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jede Komponente kann individuelle Berechtigungen definieren. Ich orientiere mich hier an den Aktionen, die in Joomla üblich sind. `core.admin` legt dabei fest, welche Gruppen die Berechtigungen auf Komponentenebene über die Schaltfläche `Optionen` in der Symbolleiste konfigurieren dürfen. `core.manage` bestimmt, welche Gruppen auf das Backend der Komponente zugreifen dürfen.
 
-> Egal ob du individuellen Rechteanforderungen hast oder ob du dich ebenfalls an Joomla orientieren magst und unsicher bist, ist das [Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial/de] eine hilfreiche Lektüre. 
+> Egal ob du individuellen Rechteanforderungen hast oder ob du dich ebenfalls an Joomla orientieren magst und unsicher bist, ist das [Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/j3.x:access_control_list_tutorial/de] eine hilfreiche Lektüre.
 
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
@@ -193,7 +193,7 @@ Wenn du mit SQL bisher nicht vertraut bist, dann wird die Datenbankabfrage im Mo
  	}
 ```
 
-> Zur Erinnerung: Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de)[^docs.joomla.org/Accessing_the_database_using_JDatabase/de] nutzt, dann kümmert sich Joomla um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
+> Zur Erinnerung: Joomla unterstützt dich beim Erstellen der Datenbankabfragen. Wenn du die [zur Verfügung stehenden Anweisungen](https://docs.joomla.org/Accessing_the_database_using_JDatabase/de)[^docs.joomla.org/accessing_the_database_using_jdatabase/de] nutzt, dann kümmert sich Joomla um Sicherheit oder unterschiedliche Syntax in PostgreSQL und MySQL.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t9...t10#diff-8e3d37bbd99544f976bf8fd323eb5250)
@@ -305,4 +305,4 @@ Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in d
 
 ## Links
 
-[Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/J3.x:Access_Control_List_Tutorial/de]
+[Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/j3.x:access_control_list_tutorial/de]

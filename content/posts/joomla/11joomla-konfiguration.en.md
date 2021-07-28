@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Are there things you plan to offer configurable? Then this part is important for you. Here I show you how to add a configuration to your component in the Joomla typical way. We create the global configuration for our component!
+Are there things you plan to offer configurable? Then this part is important for you. Here I show you how to add a configuration to your component in the Joomla typical way. We create the global configuration for our component!<!-- \index{configuration (global)} -->
 
 ## For impatient people
 
@@ -26,10 +26,9 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
 
-We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/Form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
+We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
 
 We use a selection field of type `type="list"`. We minimise the translation work by using the global language strings `JNO` and `JYES`. All texts that Joomla translates in the file [`language/en-GB/joomla.ini`](https://github.com/joomla/joomla-cms/blob/4.0-dev/language/en-GB/joomla.ini) can be used globally.
-
 
 [administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/blob/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml)
 

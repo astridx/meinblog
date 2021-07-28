@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In this chapter we add an installation script. In the explanations of the component, I described what you use it for.
+In this chapter we add an installation script. In the explanations of the component, I described what you use it for.<!-- \index{module!installation script} -->
 
 ## For impatient people
 
@@ -209,9 +209,9 @@ Copy the files in the `modules` folder into the `modules` folder of your Joomla 
 
 Install your module as described in part one, after you have copied all the files. Joomla will execute the script file for you during the installation. Convince yourself of this by checking the output of the language strings.
 
-![Joomla Modul testen - Das Installationsskript](/images/j4x39x1.png)
+![Testing the Joomla Module - The Installation Script](/images/j4x39x1.png)
 
-![Joomla Modul testen - Das Installationsskript](/images/j4x39x2.png)
+![Testing the Joomla Module - The Installation Script](/images/j4x39x2.png)
 
 ## Links
 

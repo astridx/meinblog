@@ -19,7 +19,7 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 - veröffentlichst,
 - terminierst,
 - archivierst und
-- löschst.
+- löschst.<!-- \index{verstecken} --><!-- \index{veröffentlichen} -->
 
 ## Für Ungeduldige
 

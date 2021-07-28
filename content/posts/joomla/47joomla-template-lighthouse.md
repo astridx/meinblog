@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Das Template ist fertig. Nun möchtest du sichergehen, dass es keine Fehler enthält. Dann sieh dir [Lighthouse](https://developers.google.com/web/tools/lighthouse) an. Das ist ein Browser-Plugin und ein in Google Chrome entwickeltes Audit-Tool mit dem die Ladezeit einer Internetpräsenz untersucht und optimiert werden kann. Es beachtet neben dem Aufbau von HTML-, CSS- und JavaScript-Dateien auch die Integration von Bildern und die Cache-Vorgaben der Website.
+Das Template ist fertig. Nun möchtest du sichergehen, dass es keine Fehler enthält. Dann sieh dir [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse] an. Das ist ein Browser-Plugin und ein in Google Chrome entwickeltes Audit-Tool mit dem die Ladezeit einer Internetpräsenz untersucht und optimiert werden kann. Es beachtet neben dem Aufbau von HTML-, CSS- und JavaScript-Dateien auch die Integration von Bildern und die Cache-Vorgaben der Website.<!-- \index{Google Lighthoause} --><!-- \index{Template!Performance, Zugänglichkeit, Accessibility, Bewährte Praxis, SEO,PWA} -->
 
 ## Google Lighthouse
 
@@ -21,9 +21,9 @@ Die Lighthouse-Analyse beinhaltet
 
 - Performance - Wie schnell lädt die Website?
 - Zugänglichkeit - Beinhaltet die Website Barrieren für bestimmte Menschen oder Geräte?
-- Best Practices - Berücksichtigt die Website moderne Standards?
-- Suchmaschinenoptimierung - Wie gut ist die Website für Suchmaschinen auslesbar?
-- Progressive Web App - Bietet die Website Funktionen einer [Web App](https://de.wikipedia.org/wiki/Mobile_App)?
+- Bewährte Praxis - Berücksichtigt die Website moderne Standards?
+- Suchmaschinenoptimierung (SEO) - Wie gut ist die Website für Suchmaschinen auslesbar?
+- Progressive Web App (PWA) - Bietet die Website Funktionen einer [Web App](https://de.wikipedia.org/wiki/Mobile_App)[de.wikipedia.org/wiki/Mobile_App]?
 
 ![Joomla Template erstellen - Page Speed Analyse mit Lighthouse](/images/j4x47x1.png)
 

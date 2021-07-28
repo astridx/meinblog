@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten eingerichtet. In diesem Teil lernst du, wie du mithilfe eines Formulars im Administrationsbereich die Daten der Datenbank änderst oder ergänzt. Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du in der Listenansicht auf den Titel klickst.
+Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten eingerichtet. In diesem Teil lernst du, wie du mithilfe eines Formulars im Administrationsbereich die Daten der Datenbank änderst oder ergänzt. Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du in der Listenansicht auf den Titel klickst.<!-- \index{Datenbank nutzen} -->
 
 ## Für Ungeduldige
 
@@ -278,7 +278,7 @@ class FooTable extends Table
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
-Die Datei `administrator/components/com_foos/ src/View/ F o o /HtmlView.php` organisiert die Ansicht eines Elements. Achte darauf, dass du diese nicht mit der Datei `administrator/components/com_foos/ src/View/ F o o s /HtmlView.php` verwechselt, welche alle Elemente in einer Übersichtsliste anzeigt. Für die Bearbeitung eines Elementes benötigen wir genau wie bei der Listenansicht eine Toolbar. Die Anzeige selbst erfolgt wie gewohnt über die Methode `display` der Klasse `BaseHtmlView`. Lediglich unsere Besonderheiten geben wir über `$this->form = $this->get('Form');` und `$this->item = $this->get('Item');` mit.
+Die Datei `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organisiert die Ansicht eines Elements. Achte darauf, dass du diese nicht mit der Datei `administrator/components/com_foos/ src/View/Foo s /HtmlView.php` verwechselt, welche alle Elemente in einer Übersichtsliste anzeigt. Für die Bearbeitung eines Elementes benötigen wir genau wie bei der Listenansicht eine Toolbar. Die Anzeige selbst erfolgt wie gewohnt über die Methode `display` der Klasse `BaseHtmlView`. Lediglich unsere Besonderheiten geben wir über `$this->form = $this->get('Form');` und `$this->item = $this->get('Item');` mit.
 
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 

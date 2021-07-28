@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Seite ist nicht sinnvoll. Es wirkt sich negativ auf die Übersicht und die Performance aus. Deshalb teilen wir die Elemente auf Unterseiten auf und fügen eine Paginierung für die Navigation am unteren Rand hinzu.
+Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Seite ist nicht sinnvoll. Es wirkt sich negativ auf die Übersicht und die Performance aus. Deshalb teilen wir die Elemente auf Unterseiten auf und fügen eine Paginierung für die Navigation am unteren Rand hinzu.<!-- \index{Paginierung} -->
 
 ![Joomla Pagination](/images/j4x23x1.png)
 

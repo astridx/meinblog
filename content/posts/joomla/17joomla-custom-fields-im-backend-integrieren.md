@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Custom Fields (Benutzerdefinierte Felder) in Joomla sind seit Joomla Version 3.7 in aller Munde. Sie bieten unabhängig von Drittanbietern viele zusätzliche Möglichkeiten. Deshalb unterstützt unsere Komponente die benutzerdefinierten Felder.
+Custom Fields (Benutzerdefinierte Felder)<!-- \index{Benutzerdefinierte Felder (Backend)} --> in Joomla sind seit Joomla Version 3.7 in aller Munde. Sie bieten unabhängig von Drittanbietern viele zusätzliche Möglichkeiten. Deshalb unterstützt unsere Komponente die benutzerdefinierten Felder.
 
 Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
 

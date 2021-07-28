@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Search engine friendly URLs do not work yet. We use a service to repair this fault. At the same time, this is a good example to work out what is necessary to integrate a service in a Joomla extension.
+Search engine friendly URLs do not work yet. We use a service to repair this fault. At the same time, this is a good example to work out what is necessary to integrate a service in a Joomla extension.<!-- \index{service} -->
 
 ## For impatient people
 

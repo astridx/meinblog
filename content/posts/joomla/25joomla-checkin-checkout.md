@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftreten, wenn zwei Benutzer denselben Datensatz gleichzeitig editieren. Das Auschecken sperrt ein Item, wenn ein Anwender es zur Bearbeitung öffnet. Beim Speichern und Schließen wird es dann wieder freigegeben. Eine sinnvolle Funktion, die wir in diesem Teil der Artikelserie unsere Beispielerweiterung integrieren.
+Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auftreten, wenn zwei Benutzer denselben Datensatz gleichzeitig editieren. Das Auschecken sperrt ein Item, wenn ein Anwender es zur Bearbeitung öffnet. Beim Speichern und Schließen wird es dann wieder freigegeben. Eine sinnvolle Funktion, die wir in diesem Teil der Artikelserie unsere Beispielerweiterung integrieren.<!-- \index{Checkin und Checkout} -->
 
 > Manchmal kommt es vor, dass ein Element als aus gecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war oder man hat im Menü des Browsers die Zurück-Schaltfläche geklickt anstelle den Beitrag ordnungsgemäß zu schließen.
 

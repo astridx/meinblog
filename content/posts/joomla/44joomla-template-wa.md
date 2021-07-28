@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die Performance spielt eine Rolle und unter Umständen die Reihenfolge, in der Dateien geladen werden. In Joomla gab es oft Konflikte und umständliche Behelfslösung. Joomla 4 ändert dies mit dem Konzept der Web-Assets.
+Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die Performance spielt eine Rolle und unter Umständen die Reihenfolge, in der Dateien geladen werden. In Joomla gab es oft Konflikte und umständliche Behelfslösung. Joomla 4 ändert dies mit dem Konzept der Web-Assets.<!-- \index{Template!Web-Assets} -->
 
 > Es ist wichtig zu verstehen, dass der _Joomla Web Assets Manager_ alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie auch den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über `Joomla\CMS\HTML\HTMLHelper` eingebunden werden - zum Beispiel über `HTMLHelper::_('jquery.framework');`. Der Vorteil des _Webassets Manager_ ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.
 

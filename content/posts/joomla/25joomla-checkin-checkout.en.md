@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-The checkout function avoids unexpected results that occur when two users edit the same item at the same time. Checking out locks an item when a user opens it for editing. It is then unlocked again when saved or closed. This is a useful function that we are integrating into our sample extension in this part of the article series.
+The checkout function avoids unexpected results that occur when two users edit the same item at the same time. Checking out locks an item when a user opens it for editing. It is then unlocked again when saved or closed. This is a useful function that we are integrating into our sample extension in this part of the article series.<!-- \index{checkin and checkout} -->
 
 > Sometimes it happens that an item is marked as checked out, although no one has opened it for editing at the same time. This usually happens when a previous opening was not finished correctly. For example, the web browser was closed even though the item was open for editing, or the back button in the browser menu was clicked instead of closing the item properly.
 

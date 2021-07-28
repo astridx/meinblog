@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche `Speichern` an den Server gesendet wurde.
+Unser Ziel in diesem Teil: Wenn wir eine Zahl in das Namensfeld eingeben, wird unmittelbar nach dem Verlassen des Feldes eine Fehlermeldung angezeigt. Bei der serverseitigen Überprüfung wurde die Meldung erst ausgegeben, nachdem das Formular über die Schaltfläche `Speichern` an den Server gesendet wurde.<!-- \index{Validation (clientseitige)} -->
 
 In der clientseitigen Validierung bieten wir eine bessere Benutzererfahrung, indem wir unmittelbar auf Browserebene reagieren. Es werden alle Eingaben im Browser des Benutzers sofort validiert. Für die clientseitige Validierung ist keine Rückfrage beim Server erforderlich, so das dieser und das Netzwerk entlastet werden. Diese Art der Überprüfung arbeitet auf der Clientseite mithilfe von Skriptsprachen wie JavaScript oder mit HTML5-Attributen.
 
@@ -39,7 +39,7 @@ Die clientseitige Validierung erfolgt mithilfe einer JavaScript-Datei.
 
 Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualtiät der Validierung ist in diesem Tutorial Nebensache und ich wähle ein simples Beispiel. Zahlen sind im Textfeld für den Namen verboten. _Astrid_ ist erlaubt. _Astrid9_ ist nicht erlaubt.
 
-> Im Beispiel nutze ich einen [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)[^de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck]. `regex.test(value)` gibt `true` zurück, wenn die Variable `regex` gleich `/^([a-z]+)$/i` ist und `value` keine Zahl enthält. Weitere Informationen zur Test-Methode findest du bei [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)[^developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test]. Es ist nicht zwingend einen regulären Ausdruck zu verwenden. Wichtig ist lediglich, dass bei einem bestandenen Test `true` und einem Fehlschlag `false` zurückgegeben wird.
+> Im Beispiel nutze ich einen [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)[^de.wikipedia.org/wiki/regul%c3%a4rer_ausdruck]. `regex.test(value)` gibt `true` zurück, wenn die Variable `regex` gleich `/^([a-z]+)$/i` ist und `value` keine Zahl enthält. Weitere Informationen zur Test-Methode findest du bei [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/regexp/test]. Es ist nicht zwingend einen regulären Ausdruck zu verwenden. Wichtig ist lediglich, dass bei einem bestandenen Test `true` und einem Fehlschlag `false` zurückgegeben wird.
 
 [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 

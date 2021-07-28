@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In this part we will take a look at the Joomla 4 API and how to access Joomla 4 content. A [programming interface](https://de.wikipedia.org/wiki/Programmierschnittstelle) - API for short (from English application programming interface) - is a program part that is made available by a software system to other programs for connection to the system. Nowadays, many online services provide APIs; these are then called [web service](https://de.wikipedia.org/wiki/Webservice). The existence of a documented programming interface (API) for a Joomla component allows others to create additional software for it or to use data in their own programs - to collaborate.
+In this part we will take a look at the Joomla 4 API and how to access Joomla 4 content. A [programming interface](https://de.wikipedia.org/wiki/Programmierschnittstelle) - API for short (from English application programming interface) - is a program part that is made available by a software system to other programs for connection to the system. Nowadays, many online services provide APIs; these are then called [web service](https://de.wikipedia.org/wiki/Webservice). The existence of a documented programming interface (API) for a Joomla component allows others to create additional software for it or to use data in their own programs - to collaborate.<!-- \index{API} --><!-- \index{web services} -->
 
 ## For impatient people
 
@@ -23,7 +23,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ### New files
 
-#### Componente
+#### Component
 
 ##### [api/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
 
@@ -211,15 +211,14 @@ PLG_WEBSERVICES_FOOS="Web Services - Foos"
 PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for your website."
 ```
 
-### Geänderte Dateien
+### Modified files
 
-### Komponente
+### Component
 
-#<!-- prettier-ignore -->
-
+<!-- prettier-ignore -->
 #### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werden die Dateien im Unterordner `api` bei einer Installation nicht in das richtige Verzeichnis kopiert.
+In the installation file it is important to include the folder `api`. Otherwise the files in the subfolder `api` will not be copied to the correct directory during an installation.
 
 ```xml {diff}
  			<folder>tmpl</folder>
@@ -237,13 +236,7 @@ In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werde
 
 ## Test your Joomla component
 
-1. perform a new installation. To do this, uninstall your previous installation and copy all files again.
-
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
-Copy the files in the `api` folder into the `api` folder of your Joomla 4 installation.
-Copy the files in the `plugin` folder into the `plugin` folder of your Joomla 4 installation.
-
-Install your component **and the plugin** as described in part one, after copying all files. 2.
+1. create a new installation. To do this, uninstall your previous installation and copy all files again. Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `api` folder into the `api` folder of your Joomla 4 installation. Copy the files in the `plugin` folder into the `plugin` folder of your Joomla 4 installation. Install your component **and the plugin** as described in part one, after copying all files. 2.
 
 2. activate the plugin
 
@@ -261,7 +254,7 @@ Delete a Foo element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
 > For the examples, I assume that your installation is located at `http://localhost/joomla-cms4` and that your user and password are `admin`. Change this if necessary.
 
-> For [Curl](https://curl.haxx.se/) you need to change the password to [Base64](https://de.wikipedia.org/wiki/Base64). A website that does this for you is [base64encode.org](https://www.base64encode.org/).
+> For [Curl](https://curl.haxx.se/)[^curl.haxx.se] you need to change the password to [Base64](https://de.wikipedia.org/wiki/Base64). A website that does this for you is [base64encode.org](https://www.base64encode.org/).
 
 Do you use [Curl](https://curl.haxx.se/)? The following query will list all the elements:
 
@@ -271,7 +264,7 @@ curl --location --request GET 'http://localhost/joomla-cms4/api/index.php/v1/foo
 --header 'Authorization: Basic YWRtaW46YWRtaW4='
 ```
 
-The output format is JSON and looks like this, for example:
+The output format is JSON and looks like this:
 
 ```json
 {
@@ -313,14 +306,14 @@ The output format is JSON and looks like this, for example:
 }
 ```
 
-Nutzt du [Postman](https://www.postman.com/)? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json) unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
+Do you use [postman.com](https://www.postman.com/)? Then the [collection](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] might be helpful for you. It contains additional queries for `com_content`.
 
-> Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/) in Firefox.
+> I like to use the addon [restclient](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient/] in Firefox.
 
 ## Links
 
-[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs)[^https://docs.joomla.org/j4.x:joomla_core_apis]
+[Joomla API Specification](https://docs.joomla.org/J4.x:Joomla_Core_APIs)[^https://docs.joomla.org/j4.x:joomla_core_apis]
 
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/j4.x:joomla_core_apis]
+[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/)[^https://docs.joomla.org/j4.x:joomla_core_apis]
 
 [Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]

@@ -1,6 +1,6 @@
 ---
 date: 2021-01-14
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Dark Mode'
+title: 'Joomla 4.x-Tutorial - Extension Development - Template - Dark Mode'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-dark-mode
@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-The topic of dark mode has caused a lot of excitement. Apple, for example, has integrated dark mode into its operating systems. Windows and Google have done the same. Dark Mode is in fashion. And not only that. It offers advantages. Whether darker displays are good for the eyes is debatable. What is clear, however, is that less light saves energy.
+The topic of dark mode has caused a lot of excitement. Apple, for example, has integrated dark mode into its operating systems. Windows and Google have done the same. Dark Mode is in fashion. And not only that. It offers advantages. Whether darker displays are good for the eyes is debatable. What is clear, however, is that less light saves energy.<!-- \index{template!dark mode} -->
 
 ## For the impatient
 

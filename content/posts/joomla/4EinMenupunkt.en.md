@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In this article you will learn how to create a menu item for the frontend view of your component. This way, you don't need to know the exact URL. Later, a conversion to search engine friendly URLs is possible automatically.
+In this article you will learn how to create a menu item for the frontend view of your component. This way, you don't need to know the exact URL. Later, a conversion to search engine friendly URLs is possible automatically.<!-- \index{menu item (frontend)} -->
 
 ## For impatient people
 

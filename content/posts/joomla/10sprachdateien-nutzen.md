@@ -12,7 +12,7 @@ tags:
   - Joomla
 ---
 
-Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Texte nicht direkt in den Programmcode eingegeben. Konkret meine ich die Texte, welche im Browser angezeigt werden. Du hattest alles so vorbereitet, dass du spezielle Dateien nutzt. Diese sind unkompliziert austauschbar. Bisher hast du deshalb kryptische Texte gesehen. In diesem Teil übersetzen wir die unschönen Sprachstrings.
+Dein Ziel war, dass deine Erweiterung mehrsprachig ist! Deshalb hast du die Texte nicht direkt in den Programmcode eingegeben. Konkret meine ich die Texte, welche im Browser angezeigt werden. Du hattest alles so vorbereitet, dass du spezielle Dateien nutzt. Diese sind unkompliziert austauschbar. Bisher hast du deshalb kryptische Texte gesehen. In diesem Teil übersetzen wir die unschönen Sprachstrings.<!-- \index{Sprachstrings} -->
 
 > Selbst wenn deine Zielgruppe die englisch Sprache spricht und du ausschließlich diese Sprache unterstützt ist es wichtig, eine Sprachdatei für Texte zu verwenden, welche du im Front-End oder im Back-End der Komponente anzeigst. So ist es Nutzern möglich, Texte mithilfe eines Sprachoverrides[^docs.joomla.org/j3.x:language_overrides_in_joomla/de] zu überschreiben, ohne den Quellcode zu bearbeiten. Unter Umständen schreibt ein Benutzer lieber _Vorname_ anstelle von _Name_ in die Spaltenüberschrift.
 
@@ -123,7 +123,7 @@ COM_FOOS_CATEGORIES="Kategorien"
 ...
 ```
 
-> Namenskonventionen: Jede Sprachdatei ist mit einem Kürzel gekennzeichnet, welches in der [ISO-639](https://de.wikipedia.org/wiki/ISO_639)[^de.wikipedia.org/wiki/ISO_639] und [ISO-3166](https://de.wikipedia.org/wiki/ISO_3166)[^de.wikipedia.org/wiki/ISO_3166] festgelegt ist: Die ersten beiden Kleinbuchstaben benennen die Sprache. Für Deutsch ist das `de` und `en` für Englisch. Nach dem Bindestrich weisen die zwei Großbuchstaben auf das Land. So können die Besonderheiten im Schweizerdeutsch zum Beispiel über `CH` oder Österreichisch über `AT` vom `DE` abgegrenzt werden. Ein Verzeichnis mit dem Namen `de-CH` enthält die Übersetzung für die Schweiz und `de-AT` die österreichische Variante.
+> Namenskonventionen: Jede Sprachdatei ist mit einem Kürzel gekennzeichnet, welches in der [ISO-639](https://de.wikipedia.org/wiki/ISO_639)[^de.wikipedia.org/wiki/iso_639] und [ISO-3166](https://de.wikipedia.org/wiki/ISO_3166)[^de.wikipedia.org/wiki/iso_3166] festgelegt ist: Die ersten beiden Kleinbuchstaben benennen die Sprache. Für Deutsch ist das `de` und `en` für Englisch. Nach dem Bindestrich weisen die zwei Großbuchstaben auf das Land. So können die Besonderheiten im Schweizerdeutsch zum Beispiel über `CH` oder Österreichisch über `AT` vom `DE` abgegrenzt werden. Ein Verzeichnis mit dem Namen `de-CH` enthält die Übersetzung für die Schweiz und `de-AT` die österreichische Variante.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
@@ -246,7 +246,7 @@ Damit die Sprachdateien bei einer Installation kopiert werden, fügen wir den Ei
 
 Die Joomla eigenen Komponenten speichern die Dateien für den Administrationsbereich im Ordner `/administrator/language/en-GB/` und die für die Site im Ordner `/language/en-GB/`. Dies ist der erste Ort, in dem Joomla nach den Sprachdateien sucht. Aus diesem Grund war es üblich, dass Erweiterungsentwickler hier ihre Dateien ablegten. Manchmal ist es unkomplizierter, sie im eigenen Komponentenordner abzulegen. In unserem Beispiel ist dies der Ordner `administrator/components/com_foos/ language/en-GB/` und `components/com_foos/ language/en-GB/` für das Frontend. Das ist der Ort, an dem Joomla nach der Sprachdatei sucht, wenn es im Verzeichnis `/administrator/language/en-GB /` beziehungsweise `/ language/en-GB` nichts Passendes findet.
 
-Du möchtest deine Sprachdateien im gleichen Verzeichnis wie die Joomla Kernerweiterungen speichern? Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst du das `<language>`-Tag zum Installationsmanifest hinzu. Hier ein Beispiel aus `com_contact`, 
+Du möchtest deine Sprachdateien im gleichen Verzeichnis wie die Joomla Kernerweiterungen speichern? Um deine Dateien zusammen mit den Joomla eigenen Sprachdateien abzulegen, fügst du das `<language>`-Tag zum Installationsmanifest hinzu. Hier ein Beispiel aus `com_contact`,
 
 ```xml
 ...

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Gibt es Einstellungen, die für alle Items deiner Komponente gelten und die ein Anwender an seine Erfordernisse anpasst? Zeigst du beispielsweise digitale Karten an und willst es dem Benutzer ermölgichen, das Einblenden der Lizenz selbst zu bestimmen? In Joomla gibt für diesen Zweck Parameter.
+Gibt es Einstellungen, die für alle Items deiner Komponente gelten und die ein Anwender an seine Erfordernisse anpasst? Zeigst du beispielsweise digitale Karten an und willst es dem Benutzer ermölgichen, das Einblenden der Lizenz selbst zu bestimmen? In Joomla gibt für diesen Zweck Parameter.<!-- \index{Parameter} -->
 
 Parameter gibt es für
 
@@ -320,10 +320,7 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
 
 ## Teste deine Joomla-Komponente
 
-1. Installiere deine Komponente in Joomla Version 4, um sie zu testen:
-
-Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
-Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
+1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
 2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
@@ -331,22 +328,22 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 3. Öffne die Ansicht deiner Komponente im Administrationsbereich. Beim Bearbeiten eines Items gibt es jetzt den Tabulator `Display` und den Parameter `Show Name`.
 
-![Joomla Parameter in einem Element](/images/j4x22x1.png)
+![Joomla Parameter eines Elementes.](/images/j4x22x1.png)
 
-![Joomla Parameter in einem Element](/images/j4x22x2.png)
+![Joomla Parameter eines Elementes.](/images/j4x22x2.png)
 
 4. Öffne die Optionen deiner Komponente im Administrationsbereich. Hier gibt es jetzt den Parameter `Show Name`.
 
-![Joomla Parameter/Optionen in einer Komponente](/images/j4x22x3.png)
+![Joomla Parameter/Optionen einer Komponente.](/images/j4x22x3.png)
 
-![Joomla Parameter/Optionen in einem Komponente](/images/j4x22x4.png)
+![Joomla Parameter/Optionen einem Komponente.](/images/j4x22x4.png)
 
 5. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`. Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche. Hier gibt es jetzt den Tabulator `Display` und den Parameter `Show Name`.
 
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x5.png)
+![Joomla Parameter eines Menüpunkts.](/images/j4x22x5.png)
 
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x6.png)
+![Joomla Parameter eines Menüpunkt.](/images/j4x22x6.png)
 
-![Joomla Parameter in einem Menüpunkt](/images/j4x22x7.png)
+![Joomla Parameter eines Menüpunkt.](/images/j4x22x7.png)
 
 6. Setzte den Parameter `Show Name` in unterschiedlichen Kombinationen und vergewissere dich, dass die Anzeige im Frontend korrekt ist.

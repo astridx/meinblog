@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Warum Kategorien verwenden? Ein Grund für Kategorien ist, dass es viele Beiträge auf einer Site gibt. Sie können einfacher gruppiert und verwaltet werden. Beispiel: In der Beitragsverwaltung können die Beiträge nach Kategorien gefiltert werden. Wenn es 200 Beiträge auf der Site gibt, ist es einfach, einen Beitrag zu finden, wenn man seine Kategorie kennt.
+Warum Kategorien verwenden? Ein Grund für Kategorien ist, dass es viele Beiträge auf einer Site gibt. Sie können einfacher gruppiert und verwaltet werden. Beispiel: In der Beitragsverwaltung können die Beiträge nach Kategorien gefiltert werden. Wenn es 200 Beiträge auf der Site gibt, ist es einfach, einen Beitrag zu finden, wenn man seine Kategorie kennt.<!-- \index{Kategorien (Frontend)} -->
 
 Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien verwenden: Kategorie Blog und Kategorie Liste. Die Menüeintragstypen oder Layouts vereinfachen die Anzeige der Beiträge in einer Kategorie. Wenn ein neuer Beitrag der Kategorie zugewiesen wird, erscheint er automatisch auf der Seite. Diese Anzeige ist konfigurierbar.
 

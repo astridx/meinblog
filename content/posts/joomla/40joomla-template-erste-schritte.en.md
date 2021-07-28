@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Why create your own Joomla template? There are a few good reasons why we should tackle this!
+Why create your own Joomla template? There are a few good reasons why we should tackle this!<!-- \index{template} -->
 
 > Especially for extension developers, I think it is essential to know how a Joomla template works. This makes it possible to integrate the separation of logic and design into the extension.
 
