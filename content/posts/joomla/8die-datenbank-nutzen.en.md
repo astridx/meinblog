@@ -153,13 +153,12 @@ class FooModel extends AdminModel
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	public function getForm($data = array(), $loadData = true)
+	public function getForm($data = [], $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm($this->typeAlias, 'foo', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm($this->typeAlias, 'foo', ['control' => 'jform', 'load_data' => $loadData]);
 
-		if (empty($form))
-		{
+		if (empty($form)) {
 			return false;
 		}
 
@@ -257,15 +256,13 @@ class FooTable extends Table
 	 */
 	public function generateAlias()
 	{
-		if (empty($this->alias))
-		{
+		if (empty($this->alias)) {
 			$this->alias = $this->name;
 		}
 
 		$this->alias = ApplicationHelper::stringURLSafe($this->alias, $this->language);
 
-		if (trim(str_replace('-', '', $this->alias)) == '')
-		{
+		if (trim(str_replace('-', '', $this->alias)) == '') {
 			$this->alias = Factory::getDate()->format('Y-m-d-H-i-s');
 		}
 
@@ -412,6 +409,50 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 
 > Are you interested in the content of the files [Core.js](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/js/core.es6.js) or [Keepalive.js](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/js/keepalive.es6.js)? In this case, look at them directly in Joomla. In the development version, they are located in the directory `build/media_source/system/js/` and are prepared for installation with the help of scripts, [Node.js](https://nodejs.org/en/)[^nodejs.org] and [Composer](https://getcomposer.org/)[^getcomposer.org/] in the directory `media/system/js`. For further information, please refer to the [Joomla Documentation](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment)[^docs.joomla.org/j4.x:setting_up_your_local_environment].
 
+<!-- prettier-ignore -->
+#### [administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-442a0783a9ed95c4c4b8d6ea41e2b598e8596d42f4c2f35195968a69d4cc060d)<!-- \index{Empty State} -->
+
+With the file `administrator/components/com_foos/ tmpl/foos/emptystate.php` we create a special layout for the case that the component contains no element and is therefore empty.
+
+[administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
+
+```php {numberLines: -2}
+// https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\Layout\LayoutHelper;
+
+$displayData = [
+	'textPrefix' => 'COM_FOOS',
+	'formURL' => 'index.php?option=com_foos',
+	'helpURL' => 'https://github.com/astridx/boilerplate#readme',
+	'icon' => 'icon-copy',
+];
+
+$user = Factory::getApplication()->getIdentity();
+
+if ($user->authorise('core.create', 'com_foos') || count($user->getAuthorisedCategories('com_foos', 'core.create')) > 0) {
+	$displayData['createURL'] = 'index.php?option=com_foos&task=foo.add';
+}
+
+echo LayoutHelper::render('joomla.content.emptystate', $displayData);
+```
+
+> `'icon' => 'icon-copy'` only works with the icons that are included by name in the file [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss]. I explained why this is so in the preface. Adjust the layout for the icon if you want to display a different symbol.
+
+The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[github.com/joomla/joomla-cms/pull/33264].
+
+> Good design is already a challenge when there is data to display. It is even more difficult to implement an empty page in a user-friendly way. Have a look at [emptystat.es](https://emptystat.es/) if you want to get inspired about your Empty State implementation. 
+
 ### Modified files
 
 <!-- prettier-ignore -->
@@ -435,24 +476,29 @@ To ensure that the 'forms' directory is passed to Joomla during a new installati
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-In the view that displays the overview list, we add the toolbar. Here we insert a button that creates a new element.
+In the view that displays the overview list, we add the toolbar. Here we insert a button that creates a new element. We also query with `if (!count($this->items) && $this->get('IsEmptyState'))` whether there are items to display. If the view is empty, we display the user-friendly Empty State layout `$this->setLayout('emptystate');`.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
-\defined('_JEXEC') or die;
-
+ 
+ \defined('_JEXEC') or die;
+ 
 +use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Toolbar\Toolbar;
 +use Joomla\CMS\Toolbar\ToolbarHelper;
-
+ 
  /**
   * View class for a list of foos.
-
+ class HtmlView extends BaseHtmlView
  	public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');
++
++		if (!count($this->items) && $this->get('IsEmptyState')) {
++			$this->setLayout('emptystate');
++		}
 +
 +		$this->addToolbar();
 +
@@ -475,7 +521,6 @@ In the view that displays the overview list, we add the toolbar. Here we insert 
 +
 +		$toolbar->addNew('foo.add');
 +	}
-+
  }
 
 ```
@@ -488,6 +533,8 @@ In the template of the overview list, we replace the simple text with a form. Th
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
+  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+  */
  \defined('_JEXEC') or die;
 +
 +use Joomla\CMS\HTML\HTMLHelper;
@@ -495,12 +542,12 @@ In the template of the overview list, we replace the simple text with a form. Th
 +use Joomla\CMS\Router\Route;
  ?>
 -<?php foreach ($this->items as $i => $item) : ?>
--<?php echo $item->name; ?>
+-	<?php echo $item->name; ?>
 -</br>
 -<?php endforeach; ?>
 +<form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
 +	<div class="row">
-+        <div class="col-md-12">
++		<div class="col-md-12">
 +			<div id="j-main-container" class="j-main-container">
 +				<?php if (empty($this->items)) : ?>
 +					<div class="alert alert-warning">
@@ -537,7 +584,7 @@ In the template of the overview list, we replace the simple text with a form. Th
 +									<?php echo $item->id; ?>
 +								</td>
 +							</tr>
-+							<?php endforeach; ?>
++						<?php endforeach; ?>
 +						</tbody>
 +					</table>
 +
@@ -556,14 +603,20 @@ In the template of the overview list, we replace the simple text with a form. Th
 
 1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
 
-2. next open the view in the administration area for your component. Are the three entries provided with links? Do you see a button to create a new item?
+2. next, open the list view of your component in the administration area. Are the three items provided with links? Do you see a button to create a new item?
 
-![Edit Joomla Component in Backend](/images/j4x8x1.png)
+![Edit Joomla Component in Backend - List View](/images/j4x8x1.png)
 
-3. last click on the button 'New' or on the title of an item. You will see the form for creating or editing items. Add a new item.
+3. then click on the button `New` or on the title of an item. You will see the form for creating or editing items. Add a new item.
 
-![Edit Joomla Component in Backend](/images/j4x8x2.png)
+![Edit Joomla Component in Backend - Open View of an Item](/images/j4x8x2.png)
 
-4. change existing items via click on the name.
+4. change existing items by clicking on the name.
 
-![Edit Joomla component in the backend](/images/j4x8x3.png)
+![Edit Joomla Component in the Backend - Edit an Element](/images/j4x8x3.png)
+
+5. delete all Foo-Items via the database and make sure that the Empty-State layout is displayed. Have you not yet edited the database yourself? In the previous section I suggested [phpmyadmin.net](https://www.phpmyadmin.net/) as a tool. In the following you will see the standard view followed by our user-friendly Empty State version for comparison. In the next but one section we will take care of the language files, then the layout will be perfect.
+
+![Edit Joomla Component in Backend - Empty View without Empty State Layout](/images/j4x8x10.png)
+
+![Edit Joomla Component in Backend - Empty View with Empty State Layout](/images/j4x8x11.png)

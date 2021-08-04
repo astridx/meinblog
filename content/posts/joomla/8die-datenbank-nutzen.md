@@ -153,13 +153,12 @@ class FooModel extends AdminModel
 	 *
 	 * @since   __BUMP_VERSION__
 	 */
-	public function getForm($data = array(), $loadData = true)
+	public function getForm($data = [], $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm($this->typeAlias, 'foo', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm($this->typeAlias, 'foo', ['control' => 'jform', 'load_data' => $loadData]);
 
-		if (empty($form))
-		{
+		if (empty($form)) {
 			return false;
 		}
 
@@ -257,15 +256,13 @@ class FooTable extends Table
 	 */
 	public function generateAlias()
 	{
-		if (empty($this->alias))
-		{
+		if (empty($this->alias)) {
 			$this->alias = $this->name;
 		}
 
 		$this->alias = ApplicationHelper::stringURLSafe($this->alias, $this->language);
 
-		if (trim(str_replace('-', '', $this->alias)) == '')
-		{
+		if (trim(str_replace('-', '', $this->alias)) == '') {
 			$this->alias = Factory::getDate()->format('Y-m-d-H-i-s');
 		}
 
@@ -412,6 +409,51 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 
 > Interessierst dich der Inhalt der Dateien [Core.js](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/js/core.es6.js) oder [Keepalive.js](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/js/keepalive.es6.js)? Sieh sie dir in dem Falle in Joomla direkt an. Sie befinden sich in der Entwicklungsversion im Verzeichnis `build/media_source/system/js/` und werden mithilfe von Skripten, [Node.js](https://nodejs.org/en/)[^nodejs.org] und [Composer](https://getcomposer.org/)[^getcomposer.org/] für die Installation aufbereitet im Verzeichnis `media/system/js` abgelegt. Weitere Informationen hierzu findest du in der [Joomla Dokumentation](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de)[^docs.joomla.org/j4.x:setting_up_your_local_environment/de].
 
+<!-- prettier-ignore -->
+#### [administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-442a0783a9ed95c4c4b8d6ea41e2b598e8596d42f4c2f35195968a69d4cc060d)<!-- \index{Empty State} -->
+
+Mit der Datei `administrator/components/com_foos/ tmpl/foos/emptystate.php` erstellen wir ein spezielles Layout für den Fall, dass die Komponente kein Element enthält und somit leer ist. 
+
+
+[administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
+
+```php {numberLines: -2}
+// https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\Layout\LayoutHelper;
+
+$displayData = [
+	'textPrefix' => 'COM_FOOS',
+	'formURL' => 'index.php?option=com_foos',
+	'helpURL' => 'https://github.com/astridx/boilerplate#readme',
+	'icon' => 'icon-copy',
+];
+
+$user = Factory::getApplication()->getIdentity();
+
+if ($user->authorise('core.create', 'com_foos') || count($user->getAuthorisedCategories('com_foos', 'core.create')) > 0) {
+	$displayData['createURL'] = 'index.php?option=com_foos&task=foo.add';
+}
+
+echo LayoutHelper::render('joomla.content.emptystate', $displayData);
+```
+
+> `'icon' => 'icon-copy'` funktioniert lediglich die Icons, die in der Datei [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] namentlich aufgenommen sind. Warum das so ist, hatte ich Vorwort erklärt. Passe das Layout für das Icon an, falls du ein anderes Symbol darstellen möchtest.
+
+Das Empty-State-Layout wurde in Joomla im [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[github.com/joomla/joomla-cms/pull/33264] integriert.
+
+> Gutes Design ist schon eine Herausforderung, wenn es Daten zum darstellen gibt. Noch schwieriger ist es, eine leer Seiten benutzerfreundlich umzusetzen. Stöbere bei [emptystat.es](https://emptystat.es/), wenn du dich in Bezug auf deine Empty State Umsetzung inspirieren lassen möchtest. 
+
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
@@ -435,24 +477,29 @@ Damit während einer neuen Installation das Verzeichnis `forms` an Joomla überg
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hier fügen wir eine Schaltfläche ein, über die ein neues Element erstellt wird.
+In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hier fügen wir eine Schaltfläche ein, über die ein neues Element erstellt wird. Außerdem fragen wir über `if (!count($this->items) && $this->get('IsEmptyState'))` ab, ob es Elemente zum Anzeigen gibt. Falls die Ansicht leer ist, zeigen wir das benutzerfreundliche Empty State Layout `$this->setLayout('emptystate');` an.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
-\defined('_JEXEC') or die;
-
+ 
+ \defined('_JEXEC') or die;
+ 
 +use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Toolbar\Toolbar;
 +use Joomla\CMS\Toolbar\ToolbarHelper;
-
+ 
  /**
   * View class for a list of foos.
-
+ class HtmlView extends BaseHtmlView
  	public function display($tpl = null): void
  	{
  		$this->items = $this->get('Items');
++
++		if (!count($this->items) && $this->get('IsEmptyState')) {
++			$this->setLayout('emptystate');
++		}
 +
 +		$this->addToolbar();
 +
@@ -475,7 +522,6 @@ In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hie
 +
 +		$toolbar->addNew('foo.add');
 +	}
-+
  }
 
 ```
@@ -488,6 +534,8 @@ Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formu
 [administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
+  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+  */
  \defined('_JEXEC') or die;
 +
 +use Joomla\CMS\HTML\HTMLHelper;
@@ -495,12 +543,12 @@ Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formu
 +use Joomla\CMS\Router\Route;
  ?>
 -<?php foreach ($this->items as $i => $item) : ?>
--<?php echo $item->name; ?>
+-	<?php echo $item->name; ?>
 -</br>
 -<?php endforeach; ?>
 +<form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
 +	<div class="row">
-+        <div class="col-md-12">
++		<div class="col-md-12">
 +			<div id="j-main-container" class="j-main-container">
 +				<?php if (empty($this->items)) : ?>
 +					<div class="alert alert-warning">
@@ -537,7 +585,7 @@ Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formu
 +									<?php echo $item->id; ?>
 +								</td>
 +							</tr>
-+							<?php endforeach; ?>
++						<?php endforeach; ?>
 +						</tbody>
 +					</table>
 +
@@ -556,14 +604,20 @@ Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formu
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne als nächstes die Ansicht im Administrationsbereich für deine Komponente. Sind die drei Einträge mit Links versehen? Siehst du eine Schaltfläche zum Anlegen eines neuen Items?
+2. Öffne als nächstes die Listenansicht deiner Komponente im Administrationsbereich. Sind die drei Einträge mit Links versehen? Siehst du eine Schaltfläche zum Anlegen eines neuen Items?
 
-![Joomla Componente im Backend bearbeiten](/images/j4x8x1.png)
+![Joomla Komponente im Backend bearbeiten - Listenansicht](/images/j4x8x1.png)
 
-3. Klicke als Letztes auf die Schaltfläche `Neu` oder auf den Titel eines Elements. Siehst du das Formular zum Anlegen oder Bearbeiten der Items. Füge ein neues Element hinzu.
+3. Klicke dann auf die Schaltfläche `Neu` oder auf den Titel eines Elements. Siehst du das Formular zum Anlegen oder Bearbeiten der Items. Füge ein neues Element hinzu.
 
-![Joomla Componente im Backend bearbeiten](/images/j4x8x2.png)
+![Joomla Komponente im Backend bearbeiten - Ansicht eines Elementes öffnen](/images/j4x8x2.png)
 
 4. Ändere vorhandene Einträge via Klick auf den Namen.
 
-![Joomla Componente im Backend bearbeiten](/images/j4x8x3.png)
+![Joomla Komponente im Backend bearbeiten - Ein Element bearbeiten](/images/j4x8x3.png)
+
+5. Lösche über die Datenbank alle Foo-Items und überzeuge dich davon, dass das Layout Empty-State angezeigt wird. Hast du bisher die Datenbank noch nicht selbst bearbeitet? Im vorherigen Abschnitt hatte ich dir [phpmyadmin.net](https://www.phpmyadmin.net/) als Werkzeug vorgeschlagen. Nachfolgend siehst du zum Vergleich erst die Standardansicht gefolgt von unserer benutzerfreundlichen Empty State Version. Im übernächsten Abschnitt nehmen wir uns die Sprachdateien vor, dann ist das Layout perfekt.
+
+![Joomla Komponente im Backend bearbeiten - Leere Ansicht ohne Emty-State-Layout](/images/j4x8x10.png)
+
+![Joomla Komponente im Backend bearbeiten - Leere Ansicht mit Emty-State-Layout](/images/j4x8x11.png)
