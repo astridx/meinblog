@@ -80,8 +80,7 @@ The `<menu link="option=com_categories&amp;extension=com_foos"` entry causes a m
  		<menu view="foos">COM_FOOS</menu>
  		<submenu>
  			<menu link="option=com_foos">COM_FOOS</menu>
-+			<menu link="option=com_categories&amp;extension=com_foos"
-+				view="categories" img="class:foos-cat" alt="Foos/Categories">JCATEGORY</menu>
++			<menu link="option=com_categories&amp;extension=com_foos">JCATEGORY</menu>
  		</submenu>
  		<files folder="administrator/components/com_foos">
  			<filename>access.xml</filename>
@@ -426,7 +425,7 @@ In the overview table of the view in the backend, we add a column for displaying
 
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation.
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder to the `administrator` folder of your Joomla 4 installation. Install your component as described in part one, after copying all files. Joomla will update the database for you during the installation. On the right-hand side of the table is an overview that lists how many elements are published or unpublished. This does not work yet. We will work on publishing and unpublishing in the next part.
 
 2. Open the view of your component in the administration area.
 

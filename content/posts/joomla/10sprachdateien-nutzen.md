@@ -54,6 +54,8 @@ COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
 
 ```
 
+> Sprachstrings in Joomla verwendeten in der Vergangenheit die Zeichenfolge `_QQ_`, um doppelte Anführungszeichen innerhalb der Sprach-INI-Dateien zu vermeiden. Dies war eine kurzfristige Lösung. Ältere PHP-Versionen waren nicht in der Lage, doppelte Anführungszeichen zu verarbeiten. Weitere Informationen findest du im [PR 19024.](https://github.com/joomla/joomla-cms/issues/19024)[^https://github.com/joomla/joomla-cms/issues/19024]
+
 #### Variablen
 
 Manchmal hängt die Ausgabe des Sprachstrings von einer Variablen ab. Die Funktion `Text::sprintf` sorgt dafür, dass du den Text nicht kompliziert im Programmcode zusammensetzten musst. Gib anstelle der Variablen in der Sprachdatei ein Zeichen mit dem Prefix `%` ein. Beispielsweise kannst du `%s` verwenden.

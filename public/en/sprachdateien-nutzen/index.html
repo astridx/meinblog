@@ -61,6 +61,9 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source">COM_CONTACT_CONTACT_REQUIRED=&quot;&lt;strong class=\&quot;red\&quot;&gt;*&lt;/strong&gt; Required field&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
+<blockquote>
+<p>Language strings in Joomla have in the past used the string "<em>QQ</em>" to avoid double quotes within the language INI files. This was a short-term solution. Older PHP versions were not able to handle double quotes. For more information, see the <a href="https://github.com/joomla/joomla-cms/issues/19024">PR 19024.</a><sup id="fnref-https://github.com/joomla/joomla-cms/issues/19024"><a href="#fn-https://github.com/joomla/joomla-cms/issues/19024" class="footnote-ref">https://github.com/joomla/joomla-cms/issues/19024</a></sup></p>
+</blockquote>
 <h4>Variables</h4>
 <p>Sometimes the output of the language string depends on a variable. The function <code class="language-text">Text::sprintf</code> ensures that you do not have to compose the text in a complicated way in the programme code. Instead of the variable in the language file, enter a character with the prefix <code class="language-text">%</code>. For example, you can use <code class="language-text">%s</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>

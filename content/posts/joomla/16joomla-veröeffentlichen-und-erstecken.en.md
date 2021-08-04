@@ -35,7 +35,7 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
-[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -52,31 +52,68 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
 
-Now we need the `AdminController` class. Therefore we create the class `FoosController` which inherits from `AdminController`.
+Now Joomla needs the class `AdminController`. Therefore, we create the class `FoosController`, which inherits from `AdminController`. At the moment, `FoosController` does not contain any implementations of its own. The controller only calls methods of the parent class.
 
-[administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
 // https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
 
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Controller;
+
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\MVC\Controller\AdminController;
 use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 use Joomla\Input\Input;
 
-defined('_JEXEC') or die;
-
+/**
+ * Foos list controller class.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FoosController extends AdminController
 {
-	public function __construct($config = array(), MVCFactoryInterface $factory = null, $app = null, $input = null)
+	/**
+	 * Constructor.
+	 *
+	 * @param   array                $config   An optional associative array of configuration settings.
+	 * Recognized key values include 'name', 'default_task', 'model_path', and
+	 * 'view_path' (this list is not meant to be comprehensive).
+	 * @param   MVCFactoryInterface  $factory  The factory.
+	 * @param   CMSApplication       $app      The JApplication for the dispatcher
+	 * @param   Input                $input    Input
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function __construct($config = [], MVCFactoryInterface $factory = null, $app = null, $input = null)
 	{
 		parent::__construct($config, $factory, $app, $input);
 	}
 
-	public function getModel($name = 'Foo', $prefix = 'Administrator', $config = array('ignore_request' => true))
+	/**
+	 * Proxy for getModel.
+	 *
+	 * @param   string  $name    The name of the model.
+	 * @param   string  $prefix  The prefix for the PHP class name.
+	 * @param   array   $config  Array of configuration parameters.
+	 *
+	 * @return  \Joomla\CMS\MVC\Model\BaseDatabaseModel
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function getModel($name = 'Foo', $prefix = 'Administrator', $config = ['ignore_request' => true])
 	{
 		return parent::getModel($name, $prefix, $config);
 	}
@@ -96,7 +133,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
-
+ 
 +		<field
 +			name="published"
 +			type="list"
@@ -135,19 +172,19 @@ Three fields are added to the form. One, in which the status is set and two, thr
  		<field
  			name="catid"
  			type="categoryedit"
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
 
-We implement the necessary information in the database in case of a new installation.
+`administrator/components/com_foos/ sql/install.mysql.utf8.sql` is used in the case of a new installation to create the database. Therefore, we add the necessary information here. We had already added this in the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. This file is only used during an update.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
+ ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
-
+ 
  ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `state` tinyint(3) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -161,19 +198,19 @@ We implement the necessary information in the database in case of a new installa
 +ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-38764f2b1343234561c0d02cd2991ea1)
 
-The component class gets the new function `getStateColumnForSection`.
+The component class receives the new function 'getStateColumnForSection'. This is used to show in the category view how many items are published or hidden. Remember. We introduced categories in the previous part. Then this part did not work in the category view. Now it is counted correctly. See for yourself after you have added this function to the component in Joomla.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
+ protected function getTableNameForSection(string $section = null)
+ 	{
  		return ($section === 'category' ? 'categories' : 'foos_details');
-
  	}
 +
 +	/**
@@ -196,31 +233,34 @@ The component class gets the new function `getStateColumnForSection`.
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-We extend the model so that the information about the status is loaded.
+We extend the model so that the information about the status is retrieved from the database when the list view is created for the backend.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
-
+ protected function getListQuery()
+ 
  		// Select the required fields from the table.
  		$query->select(
--			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'))
-+			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'))
+-			$db->quoteName(['a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'])
++			$db->quoteName(['a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'])
  		);
-
+ 
  		$query->from($db->quoteName('#__foos_details', 'a'));
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
 
-In the class that manages the database table, we add checks. This way we make sure that no impossible data is stored.
+In the file `administrator/components/com_foos/ src/Table/FooTable.php`, which manages the database table, we add checks. This way we make sure that no impossible data is stored. 
+
+We need `store($updateNulls = true)` because the parent class `Table` sets the variable `$updateNulls` to `false`. This causes form fields that hold the value `null` not to be changed in the database. Most of the time this is correct. The most common case is probably that a value is not set from the beginning and has not been changed in the form when editing the element. Because an empty date field is stored in the database with `null`, it is necessary in our case to force the storage of `null` values. This is done by setting the variable `$updateNulls` to `true`.
 
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
-
+ public function generateAlias()
+ 
  		return $this->alias;
  	}
 +
@@ -234,37 +274,45 @@ In the class that manages the database table, we add checks. This way we make su
 +	 */
 +	public function check()
 +	{
-+		try
-+		{
++		try {
 +			parent::check();
-+		}
-+		catch (\Exception $e)
-+		{
++		} catch (\Exception $e) {
 +			$this->setError($e->getMessage());
 +
 +			return false;
 +		}
 +
 +		// Check the publish down date is not earlier than publish up.
-+		if ($this->publish_down > $this->_db->getNullDate() && $this->publish_down < $this->publish_up)
-+		{
++		if ($this->publish_down > $this->_db->getNullDate() && $this->publish_down < $this->publish_up) {
 +			$this->setError(Text::_('JGLOBAL_START_PUBLISH_AFTER_FINISH'));
 +
 +			return false;
 +		}
 +
 +		// Set publish_up, publish_down to null if not set
-+		if (!$this->publish_up)
-+		{
++		if (!$this->publish_up) {
 +			$this->publish_up = null;
 +		}
 +
-+		if (!$this->publish_down)
-+		{
++		if (!$this->publish_down) {
 +			$this->publish_down = null;
 +		}
 +
 +		return true;
++	}
++
++	/**
++	 * Stores a foo.
++	 *
++	 * @param   boolean  $updateNulls  True to update fields even if they are null.
++	 *
++	 * @return  boolean  True on success, false on failure.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function store($updateNulls = true)
++	{
++		return parent::store($updateNulls);
 +	}
  }
 
@@ -278,7 +326,6 @@ In the form for editing an element, we make sure that the new fields are rendere
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
-
  	<?php echo $this->getForm()->renderField('alias'); ?>
  	<?php echo $this->getForm()->renderField('access'); ?>
  	<?php echo $this->getForm()->renderField('catid'); ?>
@@ -288,13 +335,12 @@ In the form for editing an element, we make sure that the new fields are rendere
  	<input type="hidden" name="task" value="">
  	<?php echo HTMLHelper::_('form.token'); ?>
  </form>
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Finally, we include the fields in the overview.
+Finally, we add to the overview list in the backend. We create a column for displaying the publication status.
 
 > Are you wondering about the the tags `<td>` and `<th>`. This seems to be a mistake at first sight. But it is correct. You can find more information in this [Github-Issue](https://github.com/joomla/joomla-cms/pull/24546).
 
@@ -328,7 +374,7 @@ Finally, we include the fields in the overview.
  										<?php echo $this->escape($item->name); ?>
 
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
-  									</div>
+ 									</div>
  								</th>
 +								<td class="text-center">
 +									<?php
@@ -338,7 +384,6 @@ Finally, we include the fields in the overview.
  								<td class="small d-none d-md-table-cell">
  									<?php echo $item->access_level; ?>
  								</td>
-
 ```
 
 ## Test your Joomla component

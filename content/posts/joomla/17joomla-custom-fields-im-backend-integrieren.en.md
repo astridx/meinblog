@@ -27,76 +27,16 @@ View the changed program code in the [Diff View](https://github.com/astridx/boil
 
 ### New files
 
-<!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e2ec43fec6e2c22254228beb71e9c787)
-
-In a help file we create a sidebar - a separate submenu - for the custom fields.
-
-[administrator/components/com_foos/ src/Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/Helper/FooHelper.php)
-
-```php {numberLines: -3}
-// https://raw.githubusercontent.com/astridx/boilerplate/t14a/src/administrator/components/com_foos/src/Helper/FooHelper.php
-
-<?php
-/**
- * @package     Joomla.Administrator
- * @subpackage  com_foos
- *
- * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-
-namespace FooNamespace\Component\Foos\Administrator\Helper;
-
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Component\ComponentHelper;
-use Joomla\CMS\Helper\ContentHelper;
-use Joomla\CMS\Language\Text;
-
-/**
- * Foo component helper.
- *
- * @since  __BUMP_VERSION__
- */
-class FooHelper extends ContentHelper
-{
-	/**
-	 * Configure the Linkbar.
-	 *
-	 * @param   string  $vName  The name of the active view.
-	 *
-	 * @return  void
-	 *
-	 * @since   __BUMP_VERSION__
-	 */
-	public static function addSubmenu($vName)
-	{
-		if (ComponentHelper::isEnabled('com_fields') && ComponentHelper::getParams('com_foos')->get('custom_fields_enable', '1')) {
-			\JHtmlSidebar::addEntry(
-				Text::_('JGLOBAL_FIELDS'),
-				'index.php?option=com_fields&context=com_foos.foo',
-				$vName == 'fields.fields'
-			);
-			\JHtmlSidebar::addEntry(
-				Text::_('JGLOBAL_FIELD_GROUPS'),
-				'index.php?option=com_fields&view=groups&context=com_foos.foo',
-				$vName == 'fields.groups'
-			);
-		}
-	}
-}
-
-```
+We have not created a new file in this part, we have only changed files.
 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-e5dfd09c647ca1e552c9016cf918acf3)
+#### [administrator/components/com\_foos/access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9e0953a0d7bd9275f21f699e0722ed100264bd28b3b9452cabcde1e393603e93)
 
-The user-defined fields are also assigned permissions. So it is possible that changing or viewing a field is allowed only for certain users. For this we add everything necessary in the `access.xml` file.
+In the file `administrator/components/com_foos/ access.xml` we prepare everything to give permissions to the user-defined fields. So it is possible that only specific users are allowed to change or view a field.
 
-[administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/access.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/access.xml)
 
 ```xml {diff}
  		<action name="core.edit.state" title="JACTION_EDITSTATE" />
@@ -121,13 +61,13 @@ The user-defined fields are also assigned permissions. So it is possible that ch
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
 
-The configuration `config.xml` uses a paramer to specify whether the extension uses custom fields.
+The configuration `config.xml` uses a paramter to define whether the extension uses custom fields.
 
 > Do you wonder why this parameter exists? It is [not mandatory](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
 
-[administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/config.xml)
 
 ```php {diff}
  			<option value="0">JNO</option>
@@ -137,8 +77,8 @@ The configuration `config.xml` uses a paramer to specify whether the extension u
 +		<field
 +			name="custom_fields_enable"
 +			type="radio"
-+			class="switcher"
 +			label="JGLOBAL_CUSTOM_FIELDS_ENABLE_LABEL"
++			layout="joomla.form.field.radio.switcher"
 +			default="1"
 +			>
 +			<option value="0">JNO</option>
@@ -151,59 +91,51 @@ The configuration `config.xml` uses a paramer to specify whether the extension u
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-2fc2de3e713c03872261cc037f7f6194d843f9cbc953d34db10e9693dfa82924)
 
-In the `View` we prepare everything necessary for displaying the submenu.
+In the navigation menu on the left in the Joomla administration area we add two links. The first new link leads to the view where custom fields are created for the component. The other one leads to the view where groups are created.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/66d580532028f860fa60865098d80d362e4d9aff/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/foos.xml)
+
+```php {diff}
+ 		<submenu>
+ 			<menu link="option=com_foos">COM_FOOS</menu>
+ 			<menu link="option=com_categories&amp;extension=com_foos">JCATEGORY</menu>
++			<menu link="option=com_fields&amp;context=com_foos.foo">JGLOBAL_FIELDS</menu>
++			<menu link="option=com_fields&amp;view=groups&amp;context=com_foos.foo">JGLOBAL_FIELD_GROUPS</menu>
+ 		</submenu>
+ 		<files folder="administrator/components/com_foos">
+ 			<filename>access.xml</filename>
+
+```
+
+<!-- prettier-ignore -->
+#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-b50434577837f29c2b0bf385fb9e14819e0ab8fb1557b6d88583896698e7a7c0)
+
+The form through which a Foo element can be edited now has tabs. To ensure that the data is not lost within the session when switching between tabs, we change the `loadFormData()` method in the file `administrator/components/com_foos/ src/Model/FooModel.php`. It is not necessary that we cache data ourselves. The method `$app->getUserState()` does this for us. At the same time we make sure that a default value is set for the category if a new element is loaded and therefore `$this->getState('foo.id') == 0` equals `true`.
+
+[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 
- \defined('_JEXEC') or die;
-
-+use Joomla\CMS\HTML\HTMLHelper;
- use Joomla\CMS\Helper\ContentHelper;
- use Joomla\CMS\Language\Text;
- use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
- use Joomla\CMS\Toolbar\Toolbar;
- use Joomla\CMS\Toolbar\ToolbarHelper;
-+use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
-
- /**
-  * View class for a list of foos.
-
- 	 */
- 	protected $items;
-
-+	/**
-+	 * The sidebar markup
-+	 *
-+	 * @var  string
-+	 */
-+	protected $sidebar;
-+
- 	/**
- 	 * Method to display the view.
- 	 *
-
- 	 */
- 	protected function addToolbar()
  	{
-+		FooHelper::addSubmenu('foos');
-+		$this->sidebar = \JHtmlSidebar::render();
+ 		$app = Factory::getApplication();
+ 
+-		$data = $this->getItem();
++		// Check the session for previously entered form data.
++		$data = $app->getUserState('com_foos.edit.foo.data', []);
 +
- 		$canDo = ContentHelper::getActions('com_foos');
-
- 		// Get the toolbar object instance
-
- 		{
- 			$toolbar->preferences('com_foos');
- 		}
++		if (empty($data)) {
++			$data = $this->getItem();
 +
-+		HTMLHelper::_('sidebar.setAction', 'index.php?option=com_foos');
- 	}
- }
-
++			// Prime some default values.
++			if ($this->getState('foo.id') == 0) {
++				$data->set('catid', $app->input->get('catid', $app->getUserState('com_foos.foos.filter.category_id'), 'int'));
++			}
++		}
+ 
+ 		$this->preprocessData($this->typeAlias, $data);
+ 
 ```
 
 <!-- prettier-ignore -->
@@ -221,18 +153,17 @@ To make editing the custom fields work the same way as in Joomla's own extension
  use Joomla\CMS\Router\Route;
 +use Joomla\CMS\Language\Text;
 +use Joomla\CMS\Layout\LayoutHelper;
-
+ 
  $app = Factory::getApplication();
  $input = $app->input;
-
+ 
 +$this->useCoreUI = true;
 +
  $wa = $this->document->getWebAssetManager();
  $wa->useScript('keepalive')
  	->useScript('form.validate')
-
  ?>
-
+ 
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
 -	<?php echo $this->getForm()->renderField('name'); ?>
 -	<?php echo $this->getForm()->renderField('alias'); ?>
@@ -242,7 +173,7 @@ To make editing the custom fields work the same way as in Joomla's own extension
 -	<?php echo $this->getForm()->renderField('publish_up'); ?>
 -	<?php echo $this->getForm()->renderField('publish_down'); ?>
 +	<div>
-+		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
++		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', ['active' => 'details']); ?>
 +
 +		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_FOOS_NEW_FOO') : Text::_('COM_FOOS_EDIT_FOO')); ?>
 +		<div class="row">
@@ -261,7 +192,7 @@ To make editing the custom fields work the same way as in Joomla's own extension
 +			</div>
 +		</div>
 +		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-+
++		
 +		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 +
 +		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
@@ -272,44 +203,13 @@ To make editing the custom fields work the same way as in Joomla's own extension
 
 ```
 
-<!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-3186af99ea4e3321b497b86fcd1cd757)
-
-In the overview of the component in the administration area we create space for the `sidebar`. To be precise: We insert it with the CSS class `col-md-2` if it is necessary. We then reduce the size of the main area by setting the class `col-md-10`. Without `sidebar` the main area uses the class `col-md-12` and thus the full area.
-
-> The classes `col-md-2`, `col-md-10` and `col-md-12` don't mean anything to you? These are Boostrap classes. Joomla 4 uses the framework [Boostrap 5](https://getbootstrap.com/docs/5.0/layout/grid/) by default.
-
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foos/default.php)
-
-```php {diff}
-
- ?>
- <form action="<?php echo Route::_('index.php?option=com_foos'); ?>" method="post" name="adminForm" id="adminForm">
- 	<div class="row">
--        <div class="col-md-12">
-+		<?php if (!empty($this->sidebar)) : ?>
-+			<div id="j-sidebar-container" class="col-md-2">
-+				<?php echo $this->sidebar; ?>
-+			</div>
-+		<?php endif; ?>
-+		<div class="<?php if (!empty($this->sidebar)) {echo 'col-md-10'; } else { echo 'col-md-12'; } ?>">
- 			<div id="j-main-container" class="j-main-container">
- 				<?php if (empty($this->items)) : ?>
- 					<div class="alert alert-warning">
-
-```
-
 ## Test your Joomla component
 
-1. install your component in Joomla version 4 to test it:
+1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part.
 
-Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
+2. Open the view of your component in the administration area. You will see entries in the navigation on the left. Click on the menu item 'Fields' in this new menu.
 
-A new installation is not necessary. Continue using the files from the previous part.
-
-2. open the view of your component in the administration area. You will see another sidebar. Click on the menu item 'Fields' in this new menu.
-
-![Integrate Joomla Custom Fields into a custom component](/images/j4x17x1.png)
+![Integrate Joomla Custom Fields into a custom component](/images/j4x17x10.png)
 
 3. after that create a custom field of type 'text'.
 

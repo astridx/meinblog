@@ -80,7 +80,7 @@ Zwingend ist ebenfalls ein guter Editor. Dies sollte einer sein, mit dem du dich
 
 Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^https://de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. Mit Bequemlichkeit meine ich Funktionen wie
 
-- Versionierung: Integration von Subversion oder GIT
+- Versionierung: Integration von [GIT](https://de.wikipedia.org/wiki/Git)[^de.wikipedia.org/wiki/Git]
 - Codevervollständigung: Benutzereingabe sinnvoll ergänzen
 - Syntax-Highlighting: farbliche Hervorhebung von Variablen, Klassennamen oder Anweisungen.
 - Coding Standards: Beachten von Regeln
@@ -91,6 +91,8 @@ Auch zu IDEs kannst du dir bei Wikipedia anhand einer [Liste mit IDEs](https://d
 In der Joomla-Community ist die kostenpflichtige IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^https://www.jetbrains.com/phpstorm/] beliebt. Immer häufiger trifft man auf Nutzer von [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/]. Nennenswert sind daneben [NetBeans](https://netbeans.org) und [Eclipse](https://eclipse.org).
 
 Sucht du nach einer Anleitung, zur Einrichtung der Entwicklungsumgebung? Joomla mit Visual Studio Code findest du in der [Joomla Dokumentation](https://docs.joomla.org/Visual_Studio_Code)[^docs.joomla.org/visual_studio_code]. Für PHPStorm bietet Jetbrains eine [Beschreibung](https://www.jetbrains.com/help/phpstorm/joomla-specific-coding-assistance.html).
+
+> Wenn du magst, kannst du meine ersten Schritte mit Visual Studio Code unter [blog.astrid-guenther.de/ubuntu-vscode-docker-lamp](https://blog.astrid-guenther.de/ubuntu-vscode-docker-lamp) lesen.
 
 ### Joomla 3 und Joomla 4 im Vergleich
 

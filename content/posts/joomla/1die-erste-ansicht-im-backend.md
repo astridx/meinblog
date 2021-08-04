@@ -730,7 +730,7 @@ Alles ist neu. Es gibt noch keine geänderten Dateien.
 
 ![Ansicht nach der Installation](/images/j4x1x2.png)
 
-4. Teste als nächstes, ob du die Ansicht für deine Komponente fehlerfrei ist.
+4. Teste als nächstes, ob die Ansicht für deine Komponente fehlerfrei ist.
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 

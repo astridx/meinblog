@@ -80,8 +80,7 @@ Der Eintrag `<menu link="option=com_ categories&amp;extension=com_foos"` bewirkt
  		<menu view="foos">COM_FOOS</menu>
  		<submenu>
  			<menu link="option=com_foos">COM_FOOS</menu>
-+			<menu link="option=com_categories&amp;extension=com_foos"
-+				view="categories" img="class:foos-cat" alt="Foos/Categories">JCATEGORY</menu>
++			<menu link="option=com_categories&amp;extension=com_foos">JCATEGORY</menu>
  		</submenu>
  		<files folder="administrator/components/com_foos">
  			<filename>access.xml</filename>
@@ -430,7 +429,7 @@ In der Übersichtstabelle der Ansicht im Backend fügen wir eine Spalte für die
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich.
 
-3. In der Seitenleiste siehst du einen neuen Menüpunkt. Dieser bietet dir alles, was du zum Anlegen und Bearbeiten der Kategorien deiner Komponente benötigst.
+3. In der Seitenleiste siehst du einen neuen Menüpunkt. Dieser bietet dir alles, was du zum Anlegen und Bearbeiten der Kategorien deiner Komponente benötigst. Im rechten Bereich der Tabelle ist eine Übersicht, die auflistet, wie viele Elemente veröffentlicht oder versteckt sind. Diese funktioniert noch nicht. Veröffentlichen und verstecken nehmen wir uns im nächsten Teil vor.
 
 ![Joomla Kategorie Menüpunkt](/images/j4x15x1.png)
 

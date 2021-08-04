@@ -55,6 +55,8 @@ COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
 
 ```
 
+> Language strings in Joomla have in the past used the string "_QQ_" to avoid double quotes within the language INI files. This was a short-term solution. Older PHP versions were not able to handle double quotes. For more information, see the [PR 19024.](https://github.com/joomla/joomla-cms/issues/19024)[^https://github.com/joomla/joomla-cms/issues/19024]
+
 #### Variables
 
 Sometimes the output of the language string depends on a variable. The function `Text::sprintf` ensures that you do not have to compose the text in a complicated way in the programme code. Instead of the variable in the language file, enter a character with the prefix `%`. For example, you can use `%s`.

@@ -34,7 +34,7 @@ Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/a
 
 Im Falle eines Updates, wird die Datenbank mithilfe der Datei `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql` auf den neuesten Stand für Version 13 gebracht. Konkret werden Spalten für das Speichern der Daten zur Veröffentlichung eingefügt.
 
-[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
 <!--  https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -51,31 +51,68 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-83275f4e46bde5a95cd61ce239609370)
 
-Jetzt benötigen wir die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt.
+Jetzt benötigt Joomla die Klasse `AdminController`. Deshalb erstellen wir die Klasse `FoosController`, welche von `AdminController` erbt. `FoosController` enthält momentan keine eigenen Implementierungen. Der Controller ruft lediglich Methoden der Elternklasse auf.
 
-[administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
 // https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
 
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Administrator\Controller;
+
+\defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\MVC\Controller\AdminController;
 use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 use Joomla\Input\Input;
 
-defined('_JEXEC') or die;
-
+/**
+ * Foos list controller class.
+ *
+ * @since  __BUMP_VERSION__
+ */
 class FoosController extends AdminController
 {
-	public function __construct($config = array(), MVCFactoryInterface $factory = null, $app = null, $input = null)
+	/**
+	 * Constructor.
+	 *
+	 * @param   array                $config   An optional associative array of configuration settings.
+	 * Recognized key values include 'name', 'default_task', 'model_path', and
+	 * 'view_path' (this list is not meant to be comprehensive).
+	 * @param   MVCFactoryInterface  $factory  The factory.
+	 * @param   CMSApplication       $app      The JApplication for the dispatcher
+	 * @param   Input                $input    Input
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function __construct($config = [], MVCFactoryInterface $factory = null, $app = null, $input = null)
 	{
 		parent::__construct($config, $factory, $app, $input);
 	}
 
-	public function getModel($name = 'Foo', $prefix = 'Administrator', $config = array('ignore_request' => true))
+	/**
+	 * Proxy for getModel.
+	 *
+	 * @param   string  $name    The name of the model.
+	 * @param   string  $prefix  The prefix for the PHP class name.
+	 * @param   array   $config  Array of configuration parameters.
+	 *
+	 * @return  \Joomla\CMS\MVC\Model\BaseDatabaseModel
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
+	public function getModel($name = 'Foo', $prefix = 'Administrator', $config = ['ignore_request' => true])
 	{
 		return parent::getModel($name, $prefix, $config);
 	}
@@ -92,10 +129,9 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
-
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
-
+ 
 +		<field
 +			name="published"
 +			type="list"
@@ -134,19 +170,19 @@ Im Formular kommen drei Felder hinzu. Eines, in dem der Status festgelegt wird u
  		<field
  			name="catid"
  			type="categoryedit"
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t12...t13#diff-896f245bc8e493f91277fd33913ef974)
 
-Wir implementieren die notwendigen Informationen in der Datenbank für den Fall einer neuen Installation.
+`administrator/components/com_foos/ sql/install.mysql.utf8.sql` wird im Falle einer neuen Installation verwendet, um die Datenbank anzulegen. Deshalb ergänzen wir hier die notwendigen Informationen. In der Datei `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql` hatten wir diese schon ergänzt. Diese Datei wird lediglich bei einer Aktualisierung angewendet.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
+ ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
  ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
-
+ 
  ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `state` tinyint(3) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -160,19 +196,19 @@ Wir implementieren die notwendigen Informationen in der Datenbank für den Fall 
 +ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
 +
 +ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-38764f2b1343234561c0d02cd2991ea1)
 
-Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`.
+Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Diese wird verwendet um in der Kategorie-Ansicht anzuzeigen, wie viele Elemente veröffentlich oder versteckt sind. Erinnerst du dich. Kategorien hatten wir im vorherigen Teil eingeführt. Da hat dieser Teil in der Kategorie-Ansicht nicht funktioniert. Jetzt wird korrekt gezählt. Überzeuge dich selbst davon, nachdem du die Komponente um diese Funktion in Joomla ergänzt hast.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
+ protected function getTableNameForSection(string $section = null)
+ 	{
  		return ($section === 'category' ? 'categories' : 'foos_details');
-
  	}
 +
 +	/**
@@ -189,37 +225,39 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`.
 +		return 'published';
 +	}
  }
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-2daf62ad6c51630353e31eaa3cc28626)
 
-Das Model erweitern wir, damit die Information über den Status geladen wird.
+Das Model erweitern wir, damit die Information über den Status aus der Datenbank abgefragt werden, wenn die Listenansicht für das Backend erstellt wird.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
-
+ protected function getListQuery()
+ 
  		// Select the required fields from the table.
  		$query->select(
--			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'))
-+			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'))
+-			$db->quoteName(['a.id', 'a.name', 'a.alias', 'a.access', 'a.catid'])
++			$db->quoteName(['a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'])
  		);
-
+ 
  		$query->from($db->quoteName('#__foos_details', 'a'));
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-19bf55010e1963bede0668355cebb307)
 
-In der Klasse, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
+In der Datei `administrator/components/com_foos/ src/Table/FooTable.php`, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden. 
+
+`store($updateNulls = true)` benötigen wir, weil die Elternklasse `Table` die Variable `$updateNulls` auf `false` setzt. Dies bewirkt Formularfelder, die den Wert `null`  führen, nicht in der Datenbank verändert werden. Meist ist dies korrekt. Der häufigste Fall ist wohl, dass ein Wert von Anfang an nicht gesetzt ist und im Formular beim Bearbeiten den Elements nicht geändert wurde. Weil ein leeres Datumfeld in der Datenbank mit `null` abgespeichert wird, ist es in unserem Fall erforderlich, dass wir das Speichern von `null`-Werten erzwingen. Dies geschieht, indem wir die Variable `$updateNulls` auf `true` setzten.
 
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
-
+ public function generateAlias()
+ 
  		return $this->alias;
  	}
 +
@@ -233,40 +271,47 @@ In der Klasse, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. 
 +	 */
 +	public function check()
 +	{
-+		try
-+		{
++		try {
 +			parent::check();
-+		}
-+		catch (\Exception $e)
-+		{
++		} catch (\Exception $e) {
 +			$this->setError($e->getMessage());
 +
 +			return false;
 +		}
 +
 +		// Check the publish down date is not earlier than publish up.
-+		if ($this->publish_down > $this->_db->getNullDate() && $this->publish_down < $this->publish_up)
-+		{
++		if ($this->publish_down > $this->_db->getNullDate() && $this->publish_down < $this->publish_up) {
 +			$this->setError(Text::_('JGLOBAL_START_PUBLISH_AFTER_FINISH'));
 +
 +			return false;
 +		}
 +
 +		// Set publish_up, publish_down to null if not set
-+		if (!$this->publish_up)
-+		{
++		if (!$this->publish_up) {
 +			$this->publish_up = null;
 +		}
 +
-+		if (!$this->publish_down)
-+		{
++		if (!$this->publish_down) {
 +			$this->publish_down = null;
 +		}
 +
 +		return true;
 +	}
++
++	/**
++	 * Stores a foo.
++	 *
++	 * @param   boolean  $updateNulls  True to update fields even if they are null.
++	 *
++	 * @return  boolean  True on success, false on failure.
++	 *
++	 * @since   __BUMP_VERSION__
++	 */
++	public function store($updateNulls = true)
++	{
++		return parent::store($updateNulls);
++	}
  }
-
 ```
 
 <!-- prettier-ignore -->
@@ -277,7 +322,6 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
-
  	<?php echo $this->getForm()->renderField('alias'); ?>
  	<?php echo $this->getForm()->renderField('access'); ?>
  	<?php echo $this->getForm()->renderField('catid'); ?>
@@ -287,13 +331,12 @@ Im Formular zum Bearbeiten eines Elements, sorgen wir dafür, dass die neuen Fel
  	<input type="hidden" name="task" value="">
  	<?php echo HTMLHelper::_('form.token'); ?>
  </form>
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t12...t13#diff-3186af99ea4e3321b497b86fcd1cd757)
 
-Zum Schluss nehmen wir die Felder in der Übersicht auf.
+Zum Schluss ergänzen wir die Übersichtsliste im Backend. Wir erstellen eine Spalte für die Anzeige des Veröffentlichungsstatus.
 
 > Wunderst du dich über die Verteilung der Tags `<td>` und `<th>`. Das erscheint auf den ersten Blick ein Fehler. Es ist aber korrekt. Weitere Informationen findest du in diesem [Github-Issue](https://github.com/joomla/joomla-cms/pull/24546).
 
@@ -327,7 +370,7 @@ Zum Schluss nehmen wir die Felder in der Übersicht auf.
  										<?php echo $this->escape($item->name); ?>
 
  										<?php echo Text::_('JCATEGORY') . ': ' . $this->escape($item->category_title); ?>
-  									</div>
+ 									</div>
  								</th>
 +								<td class="text-center">
 +									<?php
@@ -337,7 +380,6 @@ Zum Schluss nehmen wir die Felder in der Übersicht auf.
  								<td class="small d-none d-md-table-cell">
  									<?php echo $item->access_level; ?>
  								</td>
-
 ```
 
 ## Teste deine Joomla-Komponente
