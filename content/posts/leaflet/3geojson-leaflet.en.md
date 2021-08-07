@@ -12,14 +12,14 @@ tags:
   - Leaflet
 ---
 
-In the last chapter you learned about points, markers, lines and polygons. You can now draw these on a leaflet map and know when which object is the right one. You can distinguish [layer groups](https://leafletjs.com/reference.html#layergroup)[^https://leafletjs.com/reference.html#layergroup] and [feature groups](https://leafletjs.com/reference.html#featuregroup)[^https://leafletjs.com/reference.html#featuregroup] from each other and you know what to look for when displaying a leaflet map on a small display. In addition, you can now react appropriately to a mouse click or other event.
+In the last chapter you learned about points, markers, lines and polygons. You can now draw these on a leaflet map and know when which object is the right one. You can distinguish [layer groups](https://leafletjs.com/reference.html#layergroup)[^leafletjs.com/reference.html#layergroup] and [feature groups](https://leafletjs.com/reference.html#featuregroup)[^leafletjs.com/reference.html#featuregroup] from each other and you know what to look for when displaying a leaflet map on a small display. In addition, you can now react appropriately to a mouse click or other event.
 
-The next chapter is about the format [GeoJson](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442)[^https://de.wikipedia.org/w/index.php?title=geojson&oldid=183228442] and how to handle data well even in large quantities.
+The next chapter is about the format [GeoJson](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442)[^de.wikipedia.org/w/index.php?title=geojson&oldid=183228442] and how to handle data well even in large quantities.
 
-GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://de.wikipedia.org/w/index.php?title=Simple_Feature_Access&oldid=171319596)[^https://de.wikipedia.org/w/index.php?title=simple_feature_access&oldid=171319596]. For the description of the geodata GeoJSON uses
-uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/w/index.php?title=JSON&oldid=1018029384)[^https://en.wikipedia.org/wiki/json].
+GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://de.wikipedia.org/w/index.php?title=Simple_Feature_Access&oldid=171319596)[^de.wikipedia.org/w/index.php?title=simple_feature_access&oldid=171319596]. For the description of the geodata GeoJSON uses
+uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/w/index.php?title=JSON&oldid=1018029384)[^en.wikipedia.org/wiki/json].
 
-> The term _Simple Feature Access Specification_ hides a specification of the [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium&oldid=180537320)[^https://de.wikipedia.org/w/index.php?title=open_geospatial_consortium&oldid=180537320]. This specification contains a generally valid description for geodata and their geometries. The fact that the specification is universally valid means that this data can be exchanged easily. The OGC is a non-profit organisation that aims to develop universally valid standards for geodata.
+> The term _Simple Feature Access Specification_ hides a specification of the [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium&oldid=180537320)[^de.wikipedia.org/w/index.php?title=open_geospatial_consortium&oldid=180537320]. This specification contains a generally valid description for geodata and their geometries. The fact that the specification is universally valid means that this data can be exchanged easily. The OGC is a non-profit organisation that aims to develop universally valid standards for geodata.
 
 ## In this chapter we will …
 
@@ -27,11 +27,11 @@ First, we look at why GeoJSON was developed. Next, we compare the individual Geo
 
 ## The history of GeoJSON
 
-[GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) builds on [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070)[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070]. Before JSON was specified as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/w/index.php?title=XML&oldid=1016987270)[^https://en.wikipedia.org/w/index.php?title=xml&oldid=1016987270].
+[GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) builds on [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070)[^de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070]. Before JSON was specified as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/w/index.php?title=XML&oldid=1016987270)[^en.wikipedia.org/w/index.php?title=xml&oldid=1016987270].
 
 Whenever something new is created, there is a reason for it!
 
-XML was [published in 1998](https://www.w3.org/TR/1998/REC-xml-19980210)[^https://www.w3.org/tr/1998/rec-xml-19980210] in order to be able to exchange data between machines without humans having to rework it. This became more and more important in times of the internet. Now there must also be a reason why JSON and GeoJSON why JSON and GeoJSON came into being.
+XML was [published in 1998](https://www.w3.org/TR/1998/REC-xml-19980210)[^www.w3.org/tr/1998/rec-xml-19980210] in order to be able to exchange data between machines without humans having to rework it. This became more and more important in times of the internet. Now there must also be a reason why JSON and GeoJSON why JSON and GeoJSON came into being.
 
 ### Why did the GeoJSON format come into being?
 
@@ -106,7 +106,7 @@ Let's start from the beginning.
 
 #### A geometry
 
-Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442#Geometrien)[^https://de.wikipedia.org/w/index.php?title=geojson&oldid=183228442#geometrien]
+Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442#Geometrien)[^de.wikipedia.org/w/index.php?title=geojson&oldid=183228442#geometrien]
 ist eine Form.
 Alle Formen in GeoJSON werden mit einer oder mehrerer Koordin (en beschrieben.
 Eine K)]
@@ -139,7 +139,7 @@ nämlich die geografische Längen und die geografische Breite.
 GeoJSON unterstützt drei Dimensionen – neben der geografischen Länge
 und der geografischen Breite können Sie zusätzlich die Höhe auf der Erde angeben.
 
-> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten&oldid=1581004)[^https://wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten&oldid=1581004]
+> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten&oldid=1581004)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten&oldid=1581004]
 > ist noch eine vierte Große relevant.
 > Neben der horizontalen Position und der Höhe spie ( auch
 > die aktuelle Z)]
@@ -164,21 +164,11 @@ oder
 
 > Vielleicht haben Sie in der Vergangenheit schon öfter mit Geodaten gearbeitet und wundern sich nun über die Reihenfolge, in der die Dimensionen im Format GeoJSON stehen? Viele Systeme geben zuerst die geografische Länge und erst dann die geografische Breite an. Auch in Leaflet wird bei der Koordinate zuerst die Latitude - also die geografische Breite - und erste dann die Longitude - also die geografische Länge - angegeben: `Breitengrad | Längengrad`. Um dieses Durcheinander zu verstehen, müssen Sie das Folgende bedenken: Früher war es üblich, dass die erste Stelle einer Koordinate den Breitengrad und die zweite Stelle den Längengrad beschrieb. In der Mathematik ist die übliche Reihenfolge beim Arbeiten mit Koordinatensystemen: `X-Wert | Y-Wert`. Wenn man eine Landkarte mit einem Koordinatensystem vergleicht, erkennt man schnell, dass der Breitengrad dem `X-Wert` und der Längengrad der dem `Y-Wert` entspricht. Dies hat zur Folge, dass es beim Rechnen mit einem Computer viele Vorteile bringt, wenn man die Reihenfolge `Längengrad | Breitengrad` einhält. In der digitalen Welt gibt es momentan noch keine Einigkeit über die Reihenfolge. Es sieht so aus, als ob wir mitten in einem Umbruch stecken. Eine Übersicht, die zeigt, welche Anwendung die Dimensionen in welcher Reihenfolge verwendet finden Sie unter anderem unter der Adresse https://macwright.org/lonlat/.
 
-Früher erlaubte GeoJSON die Speicherung von mehr als drei Zahlen pro Position.
-Diese Möglichkeit wurde auch genutzt.
-Es wurden beispielsweise Sportdaten wie die Herzfrequenz zusammen
-mit der Position gespeichert. So konnte ein Sportler später nachsehen, wie
-sich sein Puls am Berg und im Tal unterscheidet. Da dies nicht der Sinn
-einer Position ist, führte dieses Vorgehen teilweise zu Problemen
-in anderen GeoJSON Anwendungen.
-In der [neuen GeoJSON Spezifikation](https://tools.ietf.org/html/rfc7946#section-3.1.1)[^https://tools.ietf.org/html/rfc7946#section-3.1.1]
-ist das Speichern von mehr als drei Werten pro Position nun nicht mehr zulässig.
+Früher erlaubte GeoJSON die Speicherung von mehr als drei Zahlen pro Position. Diese Möglichkeit wurde auch genutzt. Es wurden beispielsweise Sportdaten wie die Herzfrequenz zusammen mit der Position gespeichert. So konnte ein Sportler später nachsehen, wie sich sein Puls am Berg und im Tal unterscheidet. Da dies nicht der Sinn einer Position ist, führte dieses Vorgehen teilweise zu Problemen in anderen GeoJSON Anwendungen. In der [neuen GeoJSON Spezifikation](https://tools.ietf.org/html/rfc7946#section-3.1.1)[^tools.ietf.org/html/rfc7946#section-3.1.1] ist das Speichern von mehr als drei Werten pro Position nun nicht mehr zulässig.
 
 ##### Point
 
-Der Typ Point – also Punkt – ist die einfachste Geometrie in GeoJSON.
-Er gibt die Koordinaten einer bestimmten Position im Raum an.
-Die genaue Schreibweise sehen Sie nachfolgend.
+Der Typ Point – also Punkt – ist die einfachste Geometrie in GeoJSON. Er gibt die Koordinaten einer bestimmten Position im Raum an. Die genaue Schreibweise sehen Sie nachfolgend.
 
 ```
 {
@@ -187,8 +177,8 @@ Die genaue Schreibweise sehen Sie nachfolgend.
 }
 ```
 
-In Leaflet wird der Typ [Point](https://tools.ietf.org/html/rfc7946#section-3.1.2)[^https://tools.ietf.org/html/rfc7946#section-3.1.2]
-als [Marker](https://leafletjs.com/reference.html#marker)[^https://leafletjs.com/reference.html#marker] zur Karte hinzugefügt.
+In Leaflet wird der Typ [Point](https://tools.ietf.org/html/rfc7946#section-3.1.2)[^tools.ietf.org/html/rfc7946#section-3.1.2]
+als [Marker](https://leafletjs.com/reference.html#marker)[^leafletjs.com/reference.html#marker] zur Karte hinzugefügt.
 
 ##### Multipoint
 
@@ -227,8 +217,8 @@ In GeoJSON wird eine Linie mit dem Typ LineString dargestellt.
 }
 ```
 
-Ein GeoJSON Objekt vom Typ [LineString](https://tools.ietf.org/html/rfc7946#section-3.1.4)[^https://tools.ietf.org/html/rfc7946#section-3.1.4] entspricht einem
-[Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^https://leafletjs.com/reference.html#polyline] in Leaflet.
+Ein GeoJSON Objekt vom Typ [LineString](https://tools.ietf.org/html/rfc7946#section-3.1.4)[^tools.ietf.org/html/rfc7946#section-3.1.4] entspricht einem
+[Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline] in Leaflet.
 
 ##### MultiLineString
 
@@ -256,8 +246,8 @@ LineString-Koordinaten-Arrays angegeben.
 ```
 
 Ein GeoJSON Objekt vom Typ
-[MultiLineString](https://tools.ietf.org/html/rfc7946#section-3.1.5)[^https://tools.ietf.org/html/rfc7946#section-3.1.5]
-entspricht einem Leaflet [Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^https://leafletjs.com/reference.html#polyline], welches mehr als eine abgeschlossene
+[MultiLineString](https://tools.ietf.org/html/rfc7946#section-3.1.5)[^tools.ietf.org/html/rfc7946#section-3.1.5]
+entspricht einem Leaflet [Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline], welches mehr als eine abgeschlossene
 Linie definiert.
 Das bedeute, dass alle Linien zusammen auf einem Layer gezeichnet werden.
 
@@ -271,7 +261,7 @@ Das bedeute, dass alle Linien zusammen auf einem Layer gezeichnet werden.
 
 ##### Polygone
 
-Im Vergleich zu Linien sind Polygone komplexe Geometrien. Polygone verfügen über eine Fläche. Es gibt also einen Innenbereich, der sich von einem Außenbereich unterscheidet. Und hinzu kommt: Der Innenbereich kann Löcher haben! Wie die Löcher in einem Polygon entstehen, habe ich Ihnen im Kapitel _Die Karte mit Daten bestücken_ im Unterkapitel _Polygone_ erklärt. Ein GeoJSON Objekt vom Typ [Polygon](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^https://tools.ietf.org/html/rfc7946#section-3.1.6] entspricht einem [Polygon Objekt](https://leafletjs.com/reference.html#polygon)[^https://leafletjs.com/reference.html#polygon] in Leaflet. Die Koordinatenliste enthält bei einem Polygon – analog zu Leaflets Polygon – eine Ebene mehr als die Koordinatenliste des Typs LineString.
+Im Vergleich zu Linien sind Polygone komplexe Geometrien. Polygone verfügen über eine Fläche. Es gibt also einen Innenbereich, der sich von einem Außenbereich unterscheidet. Und hinzu kommt: Der Innenbereich kann Löcher haben! Wie die Löcher in einem Polygon entstehen, habe ich Ihnen im Kapitel _Die Karte mit Daten bestücken_ im Unterkapitel _Polygone_ erklärt. Ein GeoJSON Objekt vom Typ [Polygon](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6] entspricht einem [Polygon Objekt](https://leafletjs.com/reference.html#polygon)[^leafletjs.com/reference.html#polygon] in Leaflet. Die Koordinatenliste enthält bei einem Polygon – analog zu Leaflets Polygon – eine Ebene mehr als die Koordinatenliste des Typs LineString.
 
 ```
     {
@@ -288,26 +278,7 @@ Im Vergleich zu Linien sind Polygone komplexe Geometrien. Polygone verfügen üb
     }
 ```
 
-Bei einem einfachen Polygon ist der Sinn dieser Ebene nicht offensichtlich.
-Auf den ersten Blick könnten Sie der Meinung sein, dass es einfacher wäre,
-das Polygon genau wie die Linie zu erstellen.
-Dass es sich um ein Polygon handelt, ist über den Eintrag bei der Eigenschaft
-Typ klar. Und, wenn es sich um den Typ Polygon handelt,
-wird die Linie einfach geschlossen!
-Der erste Blick ist oft trügerisch.
-Wir benötigen diese zusätzliche Möglichkeit der Klammerung oder
-Verschachtelung um Löcher in die Fläche zeichnen zu können.
-Polygone sind in GeoJSON mehr als nur geschlossene Linien.
-Ich wiederhole mich.
-Polygone haben einen Innenbereich, und dieser Innenbereich kann Löcher haben.
-Aus diesem Grund ist beim Typ Polygone in der GeoJSON Spezifikation ein
-neuer Begriff zu lesen, nämlich der Begriff
-[LinearRing](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^https://tools.ietf.org/html/rfc7946#section-3.1.6].
-Ein LinearRing ist ein geschlossener LineString mit vier oder mehr Positionen.
-Obwohl ein LinearRing nicht explizit als GeoJSON-Geometrie-Typ eingeführt ist,
-wird der Begriff in der
-[Polygon-Geometrie-Typ-Definition](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^https://tools.ietf.org/html/rfc7946#section-3.1.6]
-der Spezifikation erwähnt.
+Bei einem einfachen Polygon ist der Sinn dieser Ebene nicht offensichtlich. Auf den ersten Blick könnten Sie der Meinung sein, dass es einfacher wäre, das Polygon genau wie die Linie zu erstellen. Dass es sich um ein Polygon handelt, ist über den Eintrag bei der Eigenschaft Typ klar. Und, wenn es sich um den Typ Polygon handelt, wird die Linie einfach geschlossen! Der erste Blick ist oft trügerisch. Wir benötigen diese zusätzliche Möglichkeit der Klammerung oder Verschachtelung um Löcher in die Fläche zeichnen zu können. Polygone sind in GeoJSON mehr als nur geschlossene Linien. Ich wiederhole mich. Polygone haben einen Innenbereich, und dieser Innenbereich kann Löcher haben. Aus diesem Grund ist beim Typ Polygone in der GeoJSON Spezifikation ein neuer Begriff zu lesen, nämlich der Begriff [LinearRing](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6]. Ein LinearRing ist ein geschlossener LineString mit vier oder mehr Positionen. Obwohl ein LinearRing nicht explizit als GeoJSON-Geometrie-Typ eingeführt ist, wird der Begriff in der [Polygon-Geometrie-Typ-Definition](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6] der Spezifikation erwähnt.
 
 Ein _LinearRing_ ist entweder die äußere Ringposition, die die äußere Kante des Polygons bildet und definiert, welche Flächen gefüllt sind. Ein _LinearRing_ kann auch ein Innenring sein, der die Flächen des Polygons definieren, die leer sind. Es kann eine beliebige Anzahl von Innenringen geben,
 einschließlich null Innenringe. Wenn das Polygon über keinen Innenring verfügt bedeutet dies, dass das Polygon nur einen Innenbereich und einen Außenbereich hat – also keine Löcher hat.
@@ -444,8 +415,8 @@ Es geht komplizierter. Sie können auch mehr als ein Polygon mit Löchern – al
 ```
 
 Ein GeoJSON Objekt vom Typ
-[MultiPolygon](https://tools.ietf.org/html/rfc7946#section-3.1.7)[^https://tools.ietf.org/html/rfc7946#section-3.1.7] entspricht einem
-[Leaflet Polygon Objekt](https://leafletjs.com/reference.html#polygon)[^https://leafletjs.com/reference.html#polygon],
+[MultiPolygon](https://tools.ietf.org/html/rfc7946#section-3.1.7)[^tools.ietf.org/html/rfc7946#section-3.1.7] entspricht einem
+[Leaflet Polygon Objekt](https://leafletjs.com/reference.html#polygon)[^leafletjs.com/reference.html#polygon],
 welches mehr als ein Polygon definiert.
 Das bedeute, dass alle Formen zusammen auf einen Layer gezeichnet werden.
 
@@ -457,7 +428,7 @@ eines Objektes auf der Erde. Unsere Welt enthält eine Menge Objekte,
 die gemeinsame Eigenschaften haben.
 Wenn wir diesen Objekten diese gemeinsamen Eigenschaften auf einen
 Schlag zuordnen möchten, können wir diese Objekte mit dem
-Typ [GeometryCollection](https://tools.ietf.org/html/rfc7946#section-3.1.8)[^https://tools.ietf.org/html/rfc7946#section-3.1.8]
+Typ [GeometryCollection](https://tools.ietf.org/html/rfc7946#section-3.1.8)[^tools.ietf.org/html/rfc7946#section-3.1.8]
 zusammenfassen. Zum Beispiel haben die beiden Geometrien im nachfolgenden Beispiel
 denselben Namen.
 
@@ -510,7 +481,7 @@ Das nachfolgende Programmcodebeispiel enthält ein ganz einfaches Feature Elemen
 ```
 
 Im nächsten Beispiel sehen Sie ein etwas komplexeres Feature. Sie erkennen hier, dass eine Eigenschaft eines Feature Elements
-mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070#Datenstruktur_und_Formatdefinition)[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070#datenstruktur_und_formatdefinition] beschrieben werden kann.
+mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070#Datenstruktur_und_Formatdefinition)[^de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070#datenstruktur_und_formatdefinition] beschrieben werden kann.
 
 ```
   {
@@ -620,7 +591,7 @@ Im nächsten Kapitel wird Ihnen dies anhand von praktischen Beispielen klar werd
 > haben auch schon die ersten Dateien erstellt.
 > Vielleicht sind Sie auch schon auf das ein oder andere Problem
 > gestoßen oder möchten einfach nur mit der Syntax vertraut werden.
-> Auf der Website [http://geojsonlint.com](http://geojsonlint.com)[^http://geojsonlint.com]
+> Auf der Website [http://geojsonlint.com](http://geojsonlint.com)[^geojsonlint.com]
 > können Sie Ihre GeoJSON Daten testen.
 
 ### Die Grenzen von GeoJSON
@@ -630,8 +601,8 @@ Kapitel näher gebracht. Wie jedes andere Format hat GeoJSON auch seine Grenzen.
 Diese sind nun Thema dieses Kapitels.
 
 - GeoJSON hat kein Konstrukt das eine Komprimierung unterstützt
-  wie beispielsweise [TopoJSON](https://github.com/topojson/topojson)[^https://github.com/topojson/topojson]
-  oder [OSM XML](https://wiki.openstreetmap.org/w/index.php?title=OSM_XML&oldid=1419416)[^https://wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten&oldid=1581004].
+  wie beispielsweise [TopoJSON](https://github.com/topojson/topojson)[^github.com/topojson/topojson]
+  oder [OSM XML](https://wiki.openstreetmap.org/w/index.php?title=OSM_XML&oldid=1419416)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten&oldid=1581004].
 - GeoJSON unterstützt die gleichen Datentypen wie JSON.
   JSON unter (ützt nicht jeden Daten)].
 - GeoJSON unterstützt die gleichen Datentypen wie JSON.
@@ -718,7 +689,7 @@ zum Leaflet-Kartenobjekt hinzugefügt.
 Mehr mussten wir nicht tun! Das Ergebnis ist ein Standard Marker
 an der Stelle auf der Erde, die das GeoJSON Point Element beschreibt.
 
-> Das Leaflet-Objekt [GeoJSON](http://leafletjs.com/reference#geojson)[^http://leafletjs.com/reference#geojson]
+> Das Leaflet-Objekt [GeoJSON](http://leafletjs.com/reference#geojson)[^leafletjs.com/reference#geojson]
 > ist ein Leaflet-Layer. Also eine Ebene.
 > Ganz konkret erweitert die Klasse GeoJSON die Klasse
 > [FeatureGroup](http://leafletjs.com/reference#featuregroup).
@@ -865,7 +836,7 @@ hinzufügen können.
 
 > Im vorausgehenden Beispiel habe ich die Methode `JSON.stringify()`
 > beim Erstellen des Textes im Pop-up Fenster angewandt. Mit
-> der Methode [JSON.stringify()](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)[^https://developer.mozilla.org/de/docs/web/javascript/reference/global_objects/json/stringify]
+> der Methode [JSON.stringify()](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/json/stringify]
 > können Sie eine JavaScript Variable in einen Text im JSON-Format
 > konvertieren.
 
@@ -915,11 +886,11 @@ der Karte zum Export anzubieten.
 ### Stylen
 
 Ein GeoJSON Layer biete Ihnen mit der
-[Methode `setStyle()`](https://leafletjs.com/reference.html#geojson-setstyle)[^https://leafletjs.com/reference.html#geojson-setstyle]
+[Methode `setStyle()`](https://leafletjs.com/reference.html#geojson-setstyle)[^leafletjs.com/reference.html#geojson-setstyle]
 die Möglichkeit das Aussehen der Kartenschicht zu gestalten.
 
 Sie können neben den hier beschriebenen Optionen auf eine große Auswahl weiterer Stil Optionen zugreifen. Die vollständige Liste finden Sie in der
-Dokumentation von Leaflet. Sehen Sie sich dazu die Optionen zur [Klasse `Path`](http://leafletjs.com/reference.html#path)[^http://leafletjs.com/reference.html#path] an.
+Dokumentation von Leaflet. Sehen Sie sich dazu die Optionen zur [Klasse `Path`](http://leafletjs.com/reference.html#path)[^leafletjs.com/reference.html#path] an.
 
 #### Beim Erstellen eines GeoJSON Layer einen Stil mitgeben
 
@@ -1252,7 +1223,7 @@ Interessant werden Karten, wenn Sie viele Informationen bieten. Eine Karte mit v
 
 #### OnEachFeature() – Bearbeite jedes Feature
 
-[`onEachFeature()`](http://leafletjs.com/reference.html#geojson-oneachfeature)[^http://leafletjs.com/reference.html#geojson-oneachfeature]
+[`onEachFeature()`](http://leafletjs.com/reference.html#geojson-oneachfeature)[^leafletjs.com/reference.html#geojson-oneachfeature]
 ist eine Methode, die einmal für jedes im Layer vorhandene GeoJSON Objekt
 vom Typ Feature aufgerufen wird.
 Nützlich ist diese Option zum Anhängen von Ereignissen oder Pop-up Fenstern
@@ -1327,7 +1298,7 @@ wie Sie mit dieser Methode einen eigenen Marker erstellen und mit individuellen 
 
 #### PointToLayer – Punkt zu Ebene
 
-Die [Methode `pointtoLayer()`](https://leafletjs.com/reference.html#geojson-pointtolayer)[^https://leafletjs.com/reference.html#geojson-pointtolayer],
+Die [Methode `pointtoLayer()`](https://leafletjs.com/reference.html#geojson-pointtolayer)[^leafletjs.com/reference.html#geojson-pointtolayer],
 die wir uns in diesem Kapitel ansehen, ist spezielle für die Arbeit mit einem GeoJSON Objekten vom Typ `Point` gemacht. Dieses Objekt ist das GeoJSON Pendant zum Leaflet-Marker. Wenn wir einen Point beim Erstellen des GeoJSON Layers als Parameter übergeben, dann wird ein Standard Marker erstellt.
 Wollen wir diesen Marker individuell gestalten, dann brauchten wir entweder einen Variablennamen, den wir ansprechen können, oder wir müssen den Marker selbst instanziieren.
 Für das Instanziieren brauchen wir eine Position oder einen Point.

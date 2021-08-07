@@ -145,27 +145,9 @@ Im nachfolgenden Codebeispiel sehen Sie das Einbinden von Leaflet unter der Anna
 <!--index_998a.html-->
 ```
 
-Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser
-immer noch ein leeres Browser-Fenster. Erst im letzten Schritt -
-im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_ wird die Karte sichtbar.
+Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser immer noch ein leeres Browser-Fenster. Erst im letzten Schritt - im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_ wird die Karte sichtbar.
 
-> Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe
-> eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe,
-> aber für das Tag, in dem das Skript eingebunden wird, zwei separate
-> Tags – also ein _binary_
-> Tag – verwendet habe.  
-> **`<link`** `rel="stylesheet" href="../leaflet/leaflet.css"`**`/>`**  
-> **`<script`**`src="../leaflet/leaflet.js"`**`></script>`**  
-> [HTML unterscheidet](https://de.wikipedia.org/w/index.php?title=Hilfe:Tags&oldid=181586744#Syntax)[^4]
-> zwischen Tags, die nie
-> Inhalt enthalten können – nämlich den _void_-Tags –, und
-> solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall
-> muss ein selbst-schließendes _unary_ Tag verwendet werden.
-> Hierzu gehört das <link>-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich
-> entfallen - muss aber nicht.
-> Im zweiten Fall darf kein selbst-schließendes _unary_ Tag
-> benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer
-> ist. Hierzu gehört das <script>-Tag.
+> Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe, aber für das Tag, in dem das Skript eingebunden wird, zwei separate Tags – also ein _binary_ Tag – verwendet habe. **`<link`** `rel="stylesheet" href="../leaflet/leaflet.css"`**`/>`**  **`<script`**`src="../leaflet/leaflet.js"`**`></script>`** [HTML unterscheidet](https://de.wikipedia.org/wiki/Hilfe:Tags)[^de.wikipedia.org/wiki/Hilfe:Tags] zwischen Tags, die nie Inhalt enthalten können – nämlich den _void_-Tags –, und solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall muss ein selbst-schließendes _unary_ Tag verwendet werden. Hierzu gehört das <link>-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich entfallen - muss aber nicht. Im zweiten Fall darf kein selbst-schließendes _unary_ Tag benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer ist. Hierzu gehört das <script>-Tag.
 
 #### Leaflet performant einbinden – defer oder async
 
@@ -190,11 +172,7 @@ Sehen wir uns zunächst einmal an, was genau passiert, wenn ein Browser eine Web
 6. Nun endlich kann der Parser seine Arbeit fortsetzten und den Rest des
    HTML-Dokuments analysieren und am Ende im Browser anzeigen.
 
-Wenn Sie sich diese Abfolge ansehen, können Sie sich vorstellen, dass Punkt vier
-das performante Laden der Website negativ beeinflusst. Der Ladevorgang der Website
-macht praktisch eine Pause. Solange bis alle Skripte heruntergeladen sind, passiert
-nichts mehr. Und wenn es eine Sache gibt, die Website-Besucher und Suchmaschinen nicht
-mögen, dann ist dies die Wartezeit beim Aufbau der Website.
+Wenn Sie sich diese Abfolge ansehen, können Sie sich vorstellen, dass Punkt vier das performante Laden der Website negativ beeinflusst. Der Ladevorgang der Website macht praktisch eine Pause. Solange bis alle Skripte heruntergeladen sind, passiert nichts mehr. Und wenn es eine Sache gibt, die Website-Besucher und Suchmaschinen nicht mögen, dann ist dies die Wartezeit beim Aufbau der Website.
 
 ##### Wie können Sie die Ladezeit positiv beeinflussen?
 
