@@ -15,9 +15,7 @@ tags:
 
 Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wichtig für dich. Hier zeige ich dir, wie du eine Konfiguration auf die Joomla typische Art und Weise zu deiner Komponente hinzufügst. Wir erstellen die globale Konfiguration für unsere Komponente!<!-- \index{Konfiguration (globale)} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

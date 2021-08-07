@@ -14,9 +14,7 @@ tags:
 
 Wir fangen mit den Grundlagen an. Dazu erstellen wir die _View_ im Administrationsbereich rudimentär. Am Ende dieses Textes weißt du, wie du einen Menüpunkt<!-- \index{Menüpunkt (Backend)} --> im Menü des Administrationsbereichs einfügst. Über den Menüeintrag öffnest du die Ansicht zu deiner Komponente. Sei nicht enttäuscht: Diese enthält bisher nichts weiter als einen kurzen statischen Text. Du hast eine Grundlage für die weiteren Schritte.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t0...t1)[^github.com/astridx/boilerplate/compare/t0...t1] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t0...t1)[^github.com/astridx/boilerplate/compare/t0...t1] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

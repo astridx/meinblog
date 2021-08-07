@@ -17,9 +17,7 @@ Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das 
 
 > Die Größe und der Typ des Favicon wird auf unterschiedlichen Geräten anders erwartet. Ich nutze die Website [realfavicongenerator.net](https://realfavicongenerator.net/), um die optimale Form meines Bildes für die jeweiligen Geräte zu erstellen. Ich sehe dieses Werkzeug als erprobt und am einfachsten in der Handhabung an. Es gibt allerdings eine alternative neuere Vorgehensweise. Diese wird vom Joomla Standardtemplate Cassiopeia verwendet. Falls du lieber das moderne SVG-Format mit einer ICO-Datei als Rückfallebene verwendest, findest du unter [Favicon im Joomla-Template](https://blog.astrid-guenther.de/cassiopeia-favicon) eine Lösung die besser zu dir passt.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t40...t41)[^github.com/astridx/boilerplate/compare/t40...t41] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t40...t41)[^github.com/astridx/boilerplate/compare/t40...t41] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -70,11 +68,7 @@ Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile
 
 ## Teste dein Joomla-Template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen:
-
-Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation.
-
-Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Vergewissere dich, dass die Favicons auf den jeweiligen Geräten korrekt angezeigt werden. Nachfolgend siehst du eine Darstellung im Browser Firefox.
+1. Installiere dein Template in Joomla Version 4, um es zu testen: Kopiere die Dateien im `templates` Ordner in den `templates` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter. Vergewissere dich, dass die Favicons auf den jeweiligen Geräten korrekt angezeigt werden. Nachfolgend siehst du eine Darstellung im Browser Firefox.
 
 ![Joomla Template erstellen - Favicon](/images/j4x46x1.png)
 

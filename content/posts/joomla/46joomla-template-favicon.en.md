@@ -17,9 +17,7 @@ A [favicon](https://de.wikipedia.org/wiki/Favicon is a small icon used to identi
 
 > The size and type of the favicon is expected to be different on different devices. I use the website [realfavicongenerator.net](https://realfavicongenerator.net/) to create the optimal format of my image for the individual devices. I consider this tool to be tried and tested and the easiest to use. However, there is an alternative newer approach that is used by the Joomla standard template Cassiopeia. If you prefer to use the modern SVG format with an ICO file as a fallback layer, you will find a solution that suits you better under [Favicon in Joomla template](https://blog.astrid-guenther.de/en/cassiopeia-favicon).
 
-## For the impatient
-
-Look at the changed programme code in the [diff view](https://github.com/astridx/boilerplate/compare/t40...t41)[^github.com/astridx/boilerplate/compare/t40...t41] and transfer these changes into your development version.
+> For impatient people: Look at the changed programme code in the [diff view](https://github.com/astridx/boilerplate/compare/t40...t41)[^github.com/astridx/boilerplate/compare/t40...t41] and transfer these changes into your development version.
 
 ## Step by step
 
@@ -70,11 +68,7 @@ In order for the files to be found, new lines in the file `templates/facile/ ind
 
 ## Test your Joomla template
 
-1. install your template in Joomla version 4 to test it:
-
-Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation.
-
-A new installation is not necessary. Continue using the ones from the previous part. Make sure that the favicons are displayed correctly on the devices. Below you can see a representation in the browser Firefox.
+1. install your template in Joomla version 4 to test it: Copy the files in the `templates` folder to the `templates` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the ones from the previous part. Make sure that the favicons are displayed correctly on the devices. Below you can see a representation in the browser Firefox.
 
 ![Create Joomla Template - Favicon](/images/j4x46x1.png)
 

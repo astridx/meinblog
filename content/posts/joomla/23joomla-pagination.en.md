@@ -17,9 +17,7 @@ Quickly there is a lot of content. Displaying all elements on one page is not us
 
 ![Joomla Pagination](/images/j4x23x1.png)
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and incorporate these changes into your development version.
 
 ## Step by step
 

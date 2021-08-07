@@ -17,9 +17,7 @@ The administration area has filled up. I have inserted the individual parameters
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
 
-## For impatient people
-
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t24...t24b)[^github.com/astridx/boilerplate/compare/t24...t24b] and incorporate these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t24...t24b)[^github.com/astridx/boilerplate/compare/t24...t24b] and incorporate these changes into your development version.
 
 ## Step by step
 

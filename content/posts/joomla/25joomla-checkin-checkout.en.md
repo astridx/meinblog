@@ -17,9 +17,7 @@ The checkout function avoids unexpected results that occur when two users edit t
 
 > Sometimes it happens that an item is marked as checked out, although no one has opened it for editing at the same time. This usually happens when a previous opening was not finished correctly. For example, the web browser was closed even though the item was open for editing, or the back button in the browser menu was clicked instead of closing the item properly.
 
-## For impatient people
-
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] and incorporate these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] and incorporate these changes into your development version.
 
 ## Step by step
 

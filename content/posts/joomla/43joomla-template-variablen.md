@@ -15,9 +15,7 @@ tags:
 
 Parameter machen das Template im Backend flexibel anpassbar. Vielleicht sollen eine Farbauswahl möglich sein? Das Standardtemplate Cassiopeia bietet unter anderem `logoFile`, `siteTitle` und `siteDescription` als Parameter. Wir ergänzen ein Banner und Social Media Icons.<!-- \index{Template!Parameter} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

@@ -17,9 +17,7 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Kompon
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

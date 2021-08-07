@@ -157,8 +157,8 @@ defined('_JEXEC') or die;
 </div>
 ```
 
-Die Ansicht der Differenzen unterstützt dich. Hier kannst du dir jederzeit die Unterschiede zur Ansicht im Joomla Core ansehen.
+Die Ansicht der Differenzen<!-- \index{Override!Differenzanzeige} --> unterstützt dich. Hier kannst du dir jederzeit die Unterschiede zur Ansicht im Joomla Core ansehen.
 
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - ](/images/aut5d.png)
 
-> Das Beispiel habe ich für Joomla Version 3 auf der Website [j-over](https://www.j-over.de/de/template-overrides/timeline-mit-flexbox endeckt.
+> Das Beispiel habe ich für Joomla Version 3 auf der Website [j-over](https://www.j-over.de/de/template-overrides/timeline-mit-flexbox)[^j-over.de/de/template-overrides/timeline-mit-flexbox] endeckt.

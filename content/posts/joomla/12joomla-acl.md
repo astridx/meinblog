@@ -15,9 +15,7 @@ tags:
 
 Nicht jeder hat das Recht, alle Inhalte zu bearbeiten. Dazu bietet Joomla eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.<!-- \index{Zugriffskontrollliste} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

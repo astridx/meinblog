@@ -15,9 +15,7 @@ tags:
 
 We add namespace and helper.<!-- \index{module!helper} --><!-- \index{module!namespace} -->
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] and incorporate these changes into your development version.
 
 ## Step by step
 

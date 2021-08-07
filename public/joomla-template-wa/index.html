@@ -37,8 +37,9 @@ void function() {
 <blockquote>
 <p>Es ist wichtig zu verstehen, dass der <em>Joomla Web Assets Manager</em> alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie auch den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über <code class="language-text">Joomla\CMS\HTML\HTMLHelper</code> eingebunden werden - zum Beispiel über <code class="language-text">HTMLHelper::_('jquery.framework');</code>. Der Vorteil des <em>Webassets Manager</em> ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.</p>
 </blockquote>
-<h2>Für Ungeduldige</h2>
-<p>Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t38...t39">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t38...t39"><a href="#fn-github.com/astridx/boilerplate/compare/t38...t39" class="footnote-ref">github.com/astridx/boilerplate/compare/t38...t39</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+<blockquote>
+<p>Für Ungeduldige: Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t38...t39">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t38...t39"><a href="#fn-github.com/astridx/boilerplate/compare/t38...t39" class="footnote-ref">github.com/astridx/boilerplate/compare/t38...t39</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
+</blockquote>
 <h2>Schritt für Schritt</h2>
 <p>In diesem Abschnitt kommt keine neue Funktion hinzu. Wir bauen lediglich um. Wir ändern die Art, wie wir die JavaScript und CSS-Dateien integrieren. Ab jetzt wird eine Joomla-eigene Funktion dafür verwendet, die viele Vorteile bietet.</p>
 <blockquote>

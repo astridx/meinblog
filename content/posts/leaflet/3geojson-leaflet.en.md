@@ -43,46 +43,30 @@ Why did the GeoJSON format come into being? Obviously there were things where XM
 - All three formats can be analysed and used by many programming languages.
 - All three formats can be exchanged with the help of the Hypertext Transfer Protocol (HTTP) - i.e. via the Internet.
 
-Sehen wir uns in diesem Kapitel die einzelnen Formate einmal genauer an um zu erkennen, welche Vorteile das Format JSON – beim Arbeiten mit
-[Geodaten](https://de.wikipedia.org/w/index.php?title=Geodaten&oldid=181076558)[^https://de.wikipedia.org/w/index.php?title=geodaten&oldid=181076558] das Format GeoJSON – gegenüber XML bringt.
+Let's take a closer look at the individual formats in this chapter to see what advantages the JSON format - when working with
+[Geodata](https://de.wikipedia.org/wiki/Geodaten)[^en.wikipedia.org/wiki/Geodata] the format GeoJSON - compared to XML.
 
 #### XML
 
-XML beschreibt die Struktur von Daten.
-Anhand der _Tags_ wird den Daten eine Bedeutung – eine
-[Semantik](https://de.wikipedia.org/w/index.php?title=Semantik&oldid=184048296)[^https://de.wikipedia.org/w/index.php?title=semantik&oldid=184048296] – gegeben.
-Durch das Tag-System von XML werden oft kleine Datenbes (nde sehr aufgebläht un)] – gegeben.
-Durch das Tag-System von XML werden oft kleine Datenbestände sehr aufgebläht und
-dadurch unübersichtlich.
-Außerdem ist das Ansprechen einzelner Tags in einer XML-Datei teilweise recht kompliziert.
+XML describes the structure of data.
+By means of the _tags_, the data is given a meaning - a [semantics](https://de.wikipedia.org/wiki/Semantik)[^en.wikipedia.org/wiki/Semantics].
+Due to the tag system of XML, small data sets often become bloated and thus confusing. In addition, addressing individual tags in an XML file is sometimes quite complicated.
 
 #### JSON
 
-JSON ist im Grunde genommen nichts anderes als die Festlegung auf eine bestimmte Syntax –
-also eine _Syntax-Konvention_. Den Daten wird keine bestimmte Bedeutung geben,
-vielmehr geht es um die syntaktische Anordnung.
-Da JSON Daten strukturiert, können leicht Objekte aus diesen Daten definiert werden.
-JSON wird fortwährend weiterentwickelt. Im Dezember 1999 wurde die erste JSON Format-Spezifikation verabschiedet.
-Aktuell wird es durch zwei konkurrierende Standards spezifiziert,
-[RFC 8259](https://tools.ietf.org/html/rfc8259)[^https://tools.ietf.org/html/rfc8259] und [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)[^.
+JSON is basically nothing more than the specification of a certain syntax -- i.e. a _syntax convention_. No particular meaning is given to the data, rather it is a matter of syntactic arrangement. Since JSON structures data, objects can easily be defined from that data. JSON is under continuous development. In December 1999, the first JSON format specification was adopted. Currently it is specified by two competing standards, [RFC 8259](https://tools.ietf.org/html/rfc8259)[^tools.ietf.org/html/rfc8259] and [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)[^ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf].
 
-Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen (ndhabung. Da JSON selb)].
+The big advantage of JSON compared to XML is its ease of use. Since JSON itself represents valid Javascript, it can be executed directly and thus converted into a Javascript object. The individual properties of these objects can then be accessed via the attributes. In the chapter _Heatmaps in Leaflet - Density_ we will include a file containing GeoJSON objects as a script. Just by including the file, we can access the GeoJSON objects of the included file within other scripts. In contrast, an XML file must first be parsed with an XML parser.
 
-Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen Handhabung. Da JSON selbst gültiges Javascript darstellt, kann es direkt ausgeführt und somit in ein Javascript-Objekt überführt werden. Auf die einzelnen Eigenschaften dieser Objekte kann dann über die Attribute zugegriffen werden. Im Kapitel _Heatmaps in Leaflet – Dichte_ werden wir eine Datei, die GeoJSON Objekte enthält, als Skript einbinden. Allein durch das Einbinden der Datei können wir innerhalb anderer Skripte auf die GeoJSON Objekte der eingebundenen Datei zugreifen. Im Gegensatz dazu muss eine XML-Datei erst mit einem XML-Parser analysiert werden.
+Another advantage of JSON: There is no end tag in JSON. This is the main reason why JSON is more compact. The result is that JSON can be read and processed more quickly.
 
-Ein weiterer Vorteil von JSON: In JSON gibt es kein Ende-Tag.
-Hauptsächlich deshalb ist JSON kompakter. Dies hat nämlich zur Folge,
-dass JSON schneller gelesen und verarbeitet werden kann.
+> The data of any GeoJson file located in a GitHub repository is automatically displayed on an interactive map when the file is clicked in the repository. [Github](https://github.com/blog/1528-there-s-a-map-for-that) has been creating these maps with Leaflet since 2013. You can see this in the repository [world.geo.json](https://github.com/astridx/world.geo.json/blob/master/countries.geo.json)[^github.com/astridx/world.geo.json/blob/master/countries.geo.json] for example.
 
-> Die Daten einer jeden GeoJson-Datei, die sich in einem GitHub Repository befindet, werden – wenn man die Datei im Repository anklickt – automatisch auf einer interaktiven Karte angezeigt. [Github](https://github.com/blog/1528-there-s-a-map-for-that) erstellt diese Karten schon seit 2013 mit Leaflet. Dies können Sie sich beispielsweise im Repository [world.geo.json](https://github.com/astridx/world.geo.json/blob/master/countries.geo.json)[^https://github.com/astridx/world.geo.json/blob/master/countries.geo.json]ansehen.
+Even a small example illustrates that XML requires more characters than JSON to describe the same object. An object encoded in XML with 95 characters requires just 73 characters in JSON. This difference is negligible for one object. As a rule, a large number of objects are described digitally. With a large number of objects, this difference can be very significant.
 
-Schon ein kleines Beispiel veranschaulicht, dass XML für das (schreiben des gleichen)] ansehen.
+Here you can see the XML excerpt consisting of 95 characters.
 
-Schon ein kleines Beispiel veranschaulicht, dass XML für das Beschreiben des gleichen Objektes mehr Zeichen benötigt als JSON. Ein, in XML mit 95 Zeichen kodiertes, Objekt benötigt in JSON gerade einmal 73 Zeichen. Bei einem Objekt ist dieser Unterschied vernachlässigbar. In der Regel werden eine Vielzahl von Objekten digital beschrieben. Bei einer Vielzahl von Objekten kann dieser Unterschied stark ins Gewicht fallen.
-
-Hier sehen Sie zunächst den aus 95 Zeichen bestehende XML Ausschnitt.
-
-```
+```xml
 <joomlers>
   <number>1721</number>
   <vorname>Astrid</vorname>
@@ -90,7 +74,7 @@ Hier sehen Sie zunächst den aus 95 Zeichen bestehende XML Ausschnitt.
 </joomlers>
 ```
 
-Das gleiche Objekt kann mit 73 Zeichen im JSON Format beschrieben werden.
+The same object can be described with 73 characters in JSON format.
 
 ```
 „joomlers“: {
@@ -100,50 +84,27 @@ Das gleiche Objekt kann mit 73 Zeichen im JSON Format beschrieben werden.
 },
 ```
 
-#### Und warum nach JSON nun auch noch GeoJSON?
+#### And why after JSON now also GeoJSON?
 
-Geodaten könnten in JSON beschrieben und verarbeitet werden. Welchen Vorteil bringt das spezielle **Geo**JSON-Format? GeoJSON ist JSON – allerdings auf Geodaten spezialisiert. GeoJSON gibt den Geodaten wieder eine Semantik – also eine Bedeutung. Nun fragen Sie sich sicher, was dieses Hin und Her soll. Macht das Sinn? Ja, es macht Sinn: GeoJSON pickt sich nur die positiven Eigenschaften der Formate JSON und XML heraus.
+Geodata could be described and processed in JSON. What is the advantage of the special **Geo**JSON format? GeoJSON is JSON - but specialised for geodata. GeoJSON gives the geodata semantics again - i.e. a meaning. Now you are probably wondering what this back and forth is all about. Does it make sense? Yes, it makes sense: GeoJSON only picks out the positive properties of the JSON and XML formats.
 
-GeoJSON beschreibt Punkte, Linien und Polygone und kann gut mit diesen Formen in einem Koordinatensystem gut umgehen. Im vorausgehenden Kapitel haben wir gesehen, dass das Arbeiten mit Geodaten im Grunde genommen nichts anderes ist. GeoJSON hat sich zu einem sehr beliebten Datenformat vieler Geoninformationssysteme entwickelt. In diesem Buch erwähne ich GeoJSON speziell, weil auch Leaflet sehr gut im Umgang mit Daten im GeoJSON Format ist. Hier sehen wir uns zunächst die GeoJSON Objekte einmal genauer an. Wenn Sie lieber sofort praktisch arbeiten möchten, dann Blättern Sie am besten ein Kapitel weiter. Im Kapitel _GeoJSON in Leaflet_ erfahren Sie, wie Sie GeoJSON-Elemente auf Ihrer Karte anzeigen und weiter
-bearbeiten können.
+GeoJSON describes points, lines and polygons and does well with these shapes in a coordinate system. In the previous chapter we saw that working with geodata is basically no different. GeoJSON has become a very popular data format for many geospatial information systems. In this book I mention GeoJSON specifically because Leaflet is also very good at handling data in GeoJSON format. Here we will first take a closer look at GeoJSON objects. If you'd rather get practical right away, it's best to scroll one chapter further. In the chapter _GeoJSON in Leaflet_ you will learn how to display and edit GeoJSON elements on your map.
+edit them.
 
-Zur zeitlichen Einordnung: GoeJSON ist noch recht jung.
+To put it in perspective: GoeJSON is still quite young.
 
-- Im Juni 2008 wurde die erste GeoJSON Format-Spezifikation verabschiedet.
-- Im August 2016 wurde die [RFC (Requests for Comments) 7946](http://geojson.org/)[^http://geojson.org/] veröffentlicht.
+- In June 2008, the first GeoJSON format specification was adopted.
+- In August 2016, the [RFC (Requests for Comments) 7946](http://geojson.org/)[^geojson.org/] was published.
 
-> Die formale Spezifikation des GeoJSON Formates finden Sie unter der
-> Adresse [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)
-> im Internet.
+> The formal specification of the GeoJSON format can be found on the internet at [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946).
 
-### GeoJSON erkunden
+### Exploring GeoJSON
 
-Sie wissen nun, dass Sie mit GeoJSON viele geografische Datenstrukturen
-in einer maschinenlesbaren Sprache kodieren können.
-Ein GeoJSON-Objekt kann dabei eine einfache Geometrie,
-zum Beispiel einen Punkt eine Linie oder ein Polygon, darstellen.
-Zusätzlich können Sie einer Geometrie eine Bedeutung geben.
-Sie können jedem Element Eigenschaften zuordnen. Zum Beispiel können Sie einer
-Linie die Eigenschaft `typ=straße` oder `name=Kirchstraße` mitgeben.
-In diesem Fall erstellen Sie ein GeoJSON Objekt vom Typ
-[Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^https://tools.ietf.org/html/rfc7946#section-3.2].
-Wenn Sie mehrere Feature-Objekte zu einer Gruppe zusammen fassen möchten,
-können Sie diese zu einer Sammlung von Features zusammen fassen.
-Hierfür gibt es den GeoJSON Typ
-[FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^https://tools.ietf.org/html/rfc7946#section-3.3].
-Das Verständnis dieser Konzepte bringt viele Vorteile.
-Es hilft Ihnen auch, die Arbeit mit Geodaten im Allgemeinen zu verstehen:
-Die Grundkonzepte, die in GeoJSON angewandt werden,
-sind schon seit vielen Jahren ein Teil
-von [Geoinformationssystemen](https://de.wikipedia.org/w/index.php?title=Geoinformationssystem&oldid=183596912)[^https://github.com/astridx/world.geo.json/blob/master/countries.geo.json].
-Beginnen wir von vorne.
+You now know that GeoJSON allows you to encode many geographic data structures in a machine-readable language. A GeoJSON object can represent a simple geometry, for example a point, a line or a polygon. In addition, you can give a geometry a meaning. You can assign properties to each element. For example, you can give a line the property 'type=street' or 'name=church street'. In this case you create a GeoJSON object of type [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. If you want to combine several feature objects into a group, you can combine them into a collection of features. For this, there is the GeoJSON type [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Understanding these concepts brings many benefits. It also helps you to understand how to work with geodata in general. This is because the basic concepts applied in GeoJSON have been a part of [geoinformation systems](https://de.wikipedia.org/wiki/Geoinformationssystem)[^en.wikipedia.org/wiki/Geoinformation-System] for many years. 
 
-#### Eine Geometrie
+Let's start from the beginning.
 
-Eine [Geometrie](https://de (ikipedia.org/w/index.p)].
-Beginnen wir von vorne.
-
-#### Eine Geometrie
+#### A geometry
 
 Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442#Geometrien)[^https://de.wikipedia.org/w/index.php?title=geojson&oldid=183228442#geometrien]
 ist eine Form.

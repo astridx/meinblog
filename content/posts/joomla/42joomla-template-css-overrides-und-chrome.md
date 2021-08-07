@@ -24,9 +24,7 @@ Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im O
 
 ![Joomla Template erstellen - Module Chrome](/images/overview.png)
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

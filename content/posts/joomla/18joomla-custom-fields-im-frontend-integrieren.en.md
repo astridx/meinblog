@@ -15,9 +15,7 @@ tags:
 
 Very few use custom fields in the administration area alone. As a rule, output is required in the frontend. We will address this question in the current part of the article series. How and where are user-defined fields in Joomla output in the frontend?<!-- \index{custom fields (frontend)} -->
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] and incorporate these changes into your development version.
 
 ## Step by step
 

@@ -22,9 +22,7 @@ Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweit
 
 Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle Bereiche der Mehrsprachigkeit und der Sprachverknüpfungen in Joomla ab.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14b...t15a)[^github.com/astridx/boilerplate/compare/t14b...t15a] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14b...t15a)[^github.com/astridx/boilerplate/compare/t14b...t15a] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

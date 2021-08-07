@@ -34,9 +34,7 @@ Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die W
 
 > Das Prinzip zur Erstellung eines Templates für den Administrationsbereich ist genau das Gleiche. Du legst es im Unterverzeichnis `/administrator/templates` an. Das Front-End-Template erstellst du im Ordner `/templates`.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

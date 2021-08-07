@@ -25,9 +25,7 @@ Meistens hängt die clientseitige Validierung davon ab, dass im Browser JavaScri
 
 Dieser Teil behandelt die die clientseitige Validierung in Joomla 4.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11a...t11b)[^github.com/astridx/boilerplate/compare/t11a...t11b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11a...t11b)[^github.com/astridx/boilerplate/compare/t11a...t11b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

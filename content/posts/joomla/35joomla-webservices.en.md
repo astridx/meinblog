@@ -15,9 +15,7 @@ tags:
 
 In this part we will take a look at the Joomla 4 API and how to access Joomla 4 content. A [programming interface](https://de.wikipedia.org/wiki/Programmierschnittstelle) - API for short (from English application programming interface) - is a program part that is made available by a software system to other programs for connection to the system. Nowadays, many online services provide APIs; these are then called [web service](https://de.wikipedia.org/wiki/Webservice). The existence of a documented programming interface (API) for a Joomla component allows others to create additional software for it or to use data in their own programs - to collaborate.<!-- \index{API} --><!-- \index{web services} -->
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t29...t30)[^github.com/astridx/boilerplate/compare/t29...t30] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t29...t30)[^github.com/astridx/boilerplate/compare/t29...t30] and incorporate these changes into your development version.
 
 ## Step by step
 

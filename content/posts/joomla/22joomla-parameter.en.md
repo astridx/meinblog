@@ -31,9 +31,7 @@ If a parameter is set for the three possibilities, the following hierarchy appli
 
 For the menu item we already had a parameter set and for the component as a whole there is one in the options. Now it's the turn of the item in particular.
 
-## For the impatient
-
-Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t17...t18] and take over these changes into your development version.
+> For impatient people: Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t17...t18] and take over these changes into your development version.
 
 ## Step by step
 

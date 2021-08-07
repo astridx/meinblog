@@ -15,9 +15,7 @@ tags:
 
 Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten eingerichtet. In diesem Teil lernst du, wie du mithilfe eines Formulars im Administrationsbereich die Daten der Datenbank änderst oder ergänzt. Am Ende enthält die Ansicht deiner Komponente im Administrationsbereich eine Schaltfläche zum Hinzufügen von neuen Elementen. Du änderst ein vorhandenes Item, indem du in der Listenansicht auf den Titel klickst.<!-- \index{Datenbank nutzen} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

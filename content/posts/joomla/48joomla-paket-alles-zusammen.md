@@ -15,9 +15,7 @@ tags:
 
 Wir haben eine Menge unterschiedlicher Erweiterung erstellt. Es ist lästig, für jede einzelne eine separate Installation durchzuführen. Dies ist einem Benutzer nicht zumutbar. Außerdem bauen diese teilweise aufeinander auf und es ist wichtig, sicherzustellen, dass alles installiert ist und nichts vergessen wurde. Deshalb zeige ich in diesem abschießenden Kapitel, wie unterschiedliche Erweiterungen zu einem Installationspaket zusammengepackt werden.<!-- \index{Paket} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

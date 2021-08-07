@@ -17,9 +17,7 @@ Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auft
 
 > Manchmal kommt es vor, dass ein Element als aus gecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war oder man hat im Menü des Browsers die Zurück-Schaltfläche geklickt anstelle den Beitrag ordnungsgemäß zu schließen.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

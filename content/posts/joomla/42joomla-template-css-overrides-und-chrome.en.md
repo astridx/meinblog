@@ -24,9 +24,7 @@ The standard output of each Joomla extension can be manipulated via files in the
 
 ![Create Joomla Template - Module Chrome](/images/overview.en.png)
 
-## For the impatient
-
-Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] and incorporate these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] and incorporate these changes into your development version.
 
 ## Step by step
 

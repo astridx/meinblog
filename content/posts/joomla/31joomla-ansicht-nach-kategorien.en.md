@@ -23,9 +23,7 @@ Example: Imagine a blog layout of the category Events that displays the latest p
 
 > Reminder: [Categories](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') are a way of organising content in Joomla! A category contains posts and other categories. A post can only be in one category. If a category is contained in another, it is a subcategory of the category.
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t25...t26)[^github.com/astridx/boilerplate/compare/t25...t26] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t25...t26)[^github.com/astridx/boilerplate/compare/t25...t26] and incorporate these changes into your development version.
 
 ## Step by step
 

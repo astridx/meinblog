@@ -15,9 +15,7 @@ tags:
 
 The topic of dark mode has caused a lot of excitement. Apple, for example, has integrated dark mode into its operating systems. Windows and Google have done the same. Dark Mode is in fashion. And not only that. It offers advantages. Whether darker displays are good for the eyes is debatable. What is clear, however, is that less light saves energy.<!-- \index{template!dark mode} -->
 
-## For the impatient
-
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] and transfer these changes to your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] and transfer these changes to your development version.
 
 ## Step by step
 

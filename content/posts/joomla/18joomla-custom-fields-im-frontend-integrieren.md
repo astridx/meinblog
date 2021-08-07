@@ -15,9 +15,7 @@ tags:
 
 Die wenigsten nutzen benutzerdefinierten Felder alleine im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie. Wie und wo werden benutzerdefinierten Felder in Joomla im Frontend ausgegeben?<!-- \index{Benutzerdefinierte Felder (Frontend)} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

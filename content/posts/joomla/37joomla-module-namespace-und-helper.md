@@ -15,9 +15,7 @@ tags:
 
 Wir ergänzen Namespace und Helper.<!-- \index{Modul!Helper} --><!-- \index{Modul!Namespace} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

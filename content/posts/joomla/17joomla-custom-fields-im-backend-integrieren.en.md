@@ -19,9 +19,7 @@ This part shows you how to program the support in the administration area. In th
 
 > I create a separate submenu here for the custom fields. The Joomla custom components create a menu item in the administration menu. If you prefer this way, look in one of the core components.
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] and incorporate these changes into your development version.
 
 ## Step by step
 

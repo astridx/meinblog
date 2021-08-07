@@ -15,9 +15,7 @@ tags:
 
 We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.<!-- \index{Form field} -->
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and incorporate these changes into your development version.
 
 ## Step by step
 

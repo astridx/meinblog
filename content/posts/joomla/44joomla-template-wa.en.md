@@ -17,9 +17,7 @@ There is a lot to consider when loading styles and stylesheets in the frontend. 
 
 > I think it is important to understand that the _Joomla Web Assets Manager_ manages all assets in a Joomla installation. It does not apply assets specifically for a template. If an extension is loaded and it needs assets, it can also use the Web Assets Manager. But: It does not have to. Assets can still be included via `Joomla\CMS\HTML\HTMLHelper` - for example via `HTMLHelper::_('jquery.framework');`. The advantage of the _Webassets Manager_ is that it ensures that assets are not loaded twice if two extension use the same asset file. And the assets are loaded in the defined order. This prevents conflicts.
 
-## For the impatient
-
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] and transfer these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] and transfer these changes into your development version.
 
 ## Step by step
 

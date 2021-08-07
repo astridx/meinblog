@@ -15,9 +15,7 @@ tags:
 
 Your view in the administration area usually does not contain only static text. You display data here that is dynamic. At least that's how most extensions work. That's why in this part we create a database for your component. In the database, we store three records during setup and display them in the administration area. A static list is displayed. The single entries are not changeable via the backend. We will work on that in the next part.
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] and incorporate these changes into your development version.
 
 ## Step by step
 

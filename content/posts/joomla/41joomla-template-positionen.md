@@ -15,9 +15,7 @@ tags:
 
 Unser Template soll die Joomla Inhalte aus Komponenten, Modulen und Plugins an verschiedenen Positionen dynamisch anzeigen. Wie Modul Positionen im Template integriert werden, ist Thema dieses Kapitels.<!-- \index{Template!Positionen} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

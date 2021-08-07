@@ -15,9 +15,7 @@ tags:
 
 Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen "stapelverarbeitend" hinzuzufügen.<!-- \index{Stapelverarbeitung} --><!-- \index{Batch} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

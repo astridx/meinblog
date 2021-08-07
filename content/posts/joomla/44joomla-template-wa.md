@@ -17,9 +17,7 @@ Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die 
 
 > Es ist wichtig zu verstehen, dass der _Joomla Web Assets Manager_ alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie auch den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über `Joomla\CMS\HTML\HTMLHelper` eingebunden werden - zum Beispiel über `HTMLHelper::_('jquery.framework');`. Der Vorteil des _Webassets Manager_ ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

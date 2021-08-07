@@ -19,9 +19,7 @@ Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich progr
 
 > Ich lege hier für die benutzerdefinierten Felder ein eigenes Untermenü an. Die Joomla eigenen Komponenten erstellen einen Menüpunkt im Administrationsmenü. Wenn dir diese Art lieber ist, gucke in einer der Core-Komponenten ab.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

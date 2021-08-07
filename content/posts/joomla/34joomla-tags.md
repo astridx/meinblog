@@ -17,9 +17,7 @@ Mit Schlagwörtern oder Tags sind Inhalte in Joomla! flexibel organisierbar. Es 
 
 Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es bequem in andere Komponenten integrierbar ist. Zumindest dann, wenn diese die Standard-Joomla-Design-Muster verwenden. Die Nutzung von Tags in einer Drittanbieter-Erweiterung ist unkompliziert. Für die Integration in eine eigene Komponente reichen die in diesem Kapitel erläuterten Ergänzungen aus.<!-- \index{Schlagworte} --><!-- \index{Tags} -->
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t28...t29)[^github.com/astridx/boilerplate/compare/t28...t29] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t28...t29)[^github.com/astridx/boilerplate/compare/t28...t29] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

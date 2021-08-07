@@ -18,9 +18,7 @@ In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komp
 
 Update Server klingt kompliziert, im Grunde handelt es sich lediglich eine URL zu einer XML-Datei. Diese URL wird im Installationsmanifest der Erweiterung eingefügt. Die XML-Datei enthält eine Reihe von Details, einschließlich der neuen Versionsnummer und die Download-URL zur Installationsdatei. Wenn Joomla eine Aktualisierung für eine installierte Erweiterung findet, wird dies im Administrationsbereich angezeigt.
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

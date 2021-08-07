@@ -17,9 +17,7 @@ Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Se
 
 ![Joomla Pagination](/images/j4x23x1.png)
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

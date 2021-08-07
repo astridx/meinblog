@@ -17,9 +17,7 @@ Your goal was to make your extension multilingual! That's why you didn't enter t
 
 > Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts via language override[^docs.joomla.org/j3.x:language_overrides_in_joomla] without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header.
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t7...t8)[^github.com/astridx/boilerplate/compare/t7...t8] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t7...t8)[^github.com/astridx/boilerplate/compare/t7...t8] and incorporate these changes into your development version.
 
 ## Step by step
 

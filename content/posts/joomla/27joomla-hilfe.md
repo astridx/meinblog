@@ -17,9 +17,7 @@ Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? 
 
 ![Joomla Hilfelink in der Listenansicht](/images/j4x27x1.png)
 
-## Für Ungeduldige
-
-Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

@@ -23,9 +23,7 @@ In Joomla, there are a variety of modules that I use as a guide. For example:
 
 This section explains how you create the basic framework for a simple module. In the first step it only outputs a text. We will build on this in the further course.
 
-## For impatient people
-
-View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t30...t31)[^github.com/astridx/boilerplate/compare/t30...t31] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t30...t31)[^github.com/astridx/boilerplate/compare/t30...t31] and incorporate these changes into your development version.
 
 ## Step by step
 

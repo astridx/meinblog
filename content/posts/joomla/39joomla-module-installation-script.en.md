@@ -15,9 +15,7 @@ tags:
 
 In this chapter we add an installation script. In the explanations of the component, I described what you use it for.<!-- \index{module!installation script} -->
 
-## For impatient people
-
-Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] and incorporate these changes into your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] and incorporate these changes into your development version.
 
 ## Step by step
 

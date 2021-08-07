@@ -15,9 +15,7 @@ tags:
 
 Joomla offers a number of functions that enable administrators to process several items at once. We now add this batch processing to the component. Based on this, it is possible for you to add your own "batch processing" functions.<!-- \index{batch} -->
 
-## For impatient people
-
-Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] and incorporate these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] and incorporate these changes into your development version.
 
 ## Step by step
 

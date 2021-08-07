@@ -15,9 +15,7 @@ tags:
 
 After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. But this will change soon. First we build the rough structure.
 
-## For impatient people
-
-Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and incorporate these changes into your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and incorporate these changes into your development version.
 
 ## Step by step
 
