@@ -190,7 +190,7 @@ Use
 <?php endforeach; ?>
 ```
 
-instead of y
+instead of
 
 ```php
 foreach ($this->items as $i => $item) {
