@@ -33,7 +33,7 @@ Why this structure? There are many examples of components in the standard Joomla
 
 - com_content
 - com_banner
-- com_tags oder
+- com_tags or
 - com_contact
 
 In each component you see implementation details in context. Each is complex and finding and separating certain elements, such as page numbering or custom fields, is a hassle. This tutorial focuses on one detail per chapter.
@@ -190,7 +190,7 @@ Use
 <?php endforeach; ?>
 ```
 
-instead of y
+instead of
 
 ```php
 foreach ($this->items as $i => $item) {
