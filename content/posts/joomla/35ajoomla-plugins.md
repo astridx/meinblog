@@ -15,9 +15,88 @@ tags:
 
 Du hast im vorhergehenden Abschnitt ein Plugin erstellt. Sicherlich hast du vorher auch schon andere Plugins im Plugin-Manager konfiguriert und kennst unterschiedliche Arten. Plugins decken viele verschiedene Bereiche in Joomla ab. Dieses Kapitel bietet einen Überblick darüber, was Plugins sind und wie sie innerhalb von Joomla funktionieren.<!-- \index{Plugins} -->
 
+> Einen Überblick über alle im Joomla Kern zur Verfügung stehen Plugins und den dazugehörigen Ereignissen/Events bietet die [Joomla-Dokumentation](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)[^docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin]. Schau dir den Code an, wenn du Inspiration beim Programmieren benötigst.
+
 ## Was ist ein Joomla-Plugin?
 
 Du weißt schon, dass es verschiedene Arten von Erweiterungen gibt: Komponenten, Module, Templates, Sprachen und Plugins. Während Komponenten, Module, Templates und Sprachen meist eine direkte Ausgabe bewirken, arbeitet ein Plugin in der Regel im Hintergrund. Plugins sind vielfältig. Jedes Plugin hat seinen eigenen Zweck.
 Lass uns Plugins ein wenig organisieren. Auch innerhalb von Joomla, sind sie in Plugin-Gruppen aufgeteilt. Es ist viel einfacher, den Zweck zu verstehen, wenn man jeden Typ für sich ansieht. Zum Beispiel Inhaltsplugins und Systemplugins. Glücklicherweise ist es nicht schwer, ein Beispiel-Plugin zu schreiben. Das hast du im letzten Kapitel bereits gesehen. In diesem Kapitel verschaffen wir uns einen Überblick, über die verschiedenen Typen und deren Besonderheiten.
 
 ## Plugin-Typen im Joomla 4-Kern
+
+Der Joomla-Kern kommt mit einer Menge Plugins. Diese sind auf 22 Plugin-Typen verteilt und so ist auch dieser Teil des Textes aufgebaut. Es gibt beispielsweise ein Kapitel über Inhalts-Plugins und ein anderes über System-Plugins. 
+
+> In der [Joomla-Dokumentation](https://docs.joomla.org/Plugin/Events)[^docs.joomla.org/Plugin/Events] finden Sie eine Liste aller Plugin-Gruppen mit allen zugehörigen Ereignissen. Verwende diese Liste als schnelle Referenz, wenn du eine Aufgabe zu erledigen hast.
+
+Meiner Meinung nach hilft es zum Verständnis von Joomla-Plugins, wenn man jeden Typ für sich betrachtet. Deshalb tun wir dies jetzt. Die Typen oder Gruppen unterteilen sich wie folgt:
+
+### [Action Log](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Action_Log_Group/en)<!-- \index{Plugin!Action Log} -->
+
+### [API Authentication](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_API_Authentication_Group/en)
+
+### [Authentifizierung (Authentication)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Authentication_Group/en)
+
+Wenn sich jemand bei Joomla anmeldet, authentifiziert die Joomla-Anwendung diesen Benutzer. Auf den meisten Websites wird die Authentifizierung gegen die Joomla-Datenbank durchgeführt. Diese Art der Authentifizierung wird durch das Authentifizierungs-Plugin durchgeführt. Mit einem Authentifizierungs-Plugin ist es möglich, externe Dienste zur Authentifizierung von Benutzern zu verwenden: Joomla bietet ein Authentifizierungs-Plugin für LDAP, das in Windows-Domänen verwendet wird.
+
+> Joomla 3 hatte Plugins für die Authentifizierung über Gmail an Bord. [Joomla 4 bietet dies nicht mehr an](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. Die Technik, die das Plugin verwendet, ist nicht mehr auf dem neuesten Stand der Technik und weniger sicher. Heutzutage sollten sich Anwendungen über das [OAuth 2.0 Protokoll](https://de.wikipedia.org/wiki/OAuth)[^de.wikipedia.org/wiki/OAuth][^https://oauth.net/] bei Google autorisieren. 
+
+### [Behaviour](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Behaviour_Group/en)
+
+### [CAPTCHA](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_CAPTCHA_Group/en)
+
+Plugins dieser Gruppe ermöglichen die Prüfung von Formularen mit einem [Captcha 
+Check](https://de.wikipedia.org/wiki/Captcha)[^de.wikipedia.org/wiki/Captcha] (engl. completely automated public Turing test to tell computers and humans apart), einem vollautomatischen öffentlichen Turing-Test der erkennt, ob ein Mensch oder eine Maschine das Formular absendet. Der Joomla-Kern wird mit einem Plugin für [Google reCaptcha](https://www.google.com/recaptcha/about/)[^google.com/recaptcha/about/] geliefert. Individuelle Captcha-Methoden sind leicht hinzufügbar. 
+
+> Captchas sind meiner Meinung nach ein schöne Möglichkeit, der Website einen individuellen Touch zu geben. Wem es zu aufwendig ist, zum Thema passende Bilder zu erstellen, kann mit Fragen arbeiten. Auf der Website eines Feuerwehrvereins wäre ein mögliche Frage, nach der Farbe des Feuerwehrautos.
+
+### [Inhalt (Content)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Content_Group/en)
+
+Ein Inhalts-Plugin wird meist verwendet, um den Inhalt des Artikels zu ändern, bevor er angezeigt wird oder bevor er in der Datenbank gespeichert wird. Wer besondere Anforderungen hat, kann ein Plugin dieses Tys für benutzerdefinierte Funktionen nutzen, nachdem der Artikel in der Datenbank gespeichert wurde. Immer dann, wenn man die Verarbeitung des Inhalts individuell gestalten möchte, ist die Wahl dieses Plugin-Typ richtig. 
+
+### [Editors (3 Plugins)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Editor_Group/en)
+
+Editor Plugins wandeln ein HTML-Textarea-Element in einen vollwertigen JavaScript-basierten Editor um. Bekannte Plugins dieser Gruppe sind TinyMCE und CodeMirror. Wenn kein [WYSIWYG-Editor-Plugin](https://de.wikipedia.org/wiki/WYSIWYG)[^de.wikipedia.org/wiki/WYSIWYG] aktiviert ist, zeigt Joomla eine normal HTML-Textarea an. Technisch geschieht dies ebenfalls über ein Plugin, nämlich via `Editor | Keiner`.
+
+> Ein Drittanwenderplugin aus der Gruppe Editor, welches in der Joomla Community sehr beliebt ist, ist der [JCE-Editor](https://www.joomlacontenteditor.net/)[^https://www.joomlacontenteditor.net/].
+
+### [Editor Schaltfläche (Button)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)
+
+Am unteren Rand eines Joomla-Editors erscheinen zusätzlich zur Symbolleiste Schaltflächen - zum Beispiel eine Schaltfläche zum Hinzufügen eines `Mehr lesen`-Links oder eine Schaltfläche zum Hinzufügen eines Seitenumbruchs. Diese Schaltflächen werden von Plugins des Typs editors-xtd erzeugt.
+
+### [Extensions](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Extension_Group/en)
+
+Es gibt nicht viele Plugins in dieser Gruppe, trotzdem ist es eine interessante Gruppe. Wann immer eine Joomla-Erweiterung installiert oder entfernt wird entfernt, ist über ein Plugins dieser Gruppe möglich, sich in die Installation einzuklinken. Ein Erweiterungs-Plugin erledigt eine Aufgabe während einer Installation! Das Joomla-Plugin vom Typ Erweiterung wird verwendet, um Update-Seiten zu bereinigen. Update Seiten sind URLs, die für die Aktualisierung von Erweiterungen im Erweiterungsmanager gespeichert sind. Seit Joomla 3.2 ist es für kommerzielle Erweiterungen möglich, dieses Plugin zu nutzen, um private Downloads mit einem Sicherheitsschlüssel zu ermöglichen. `Erweiterungen - Namespace Updater` erstellt und aktualisiert automatisch die Datei `administrator/cache/autoload_psr4.php`.
+
+### [Fields](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Fields_Group/en)
+
+### [FileSystem](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_FileSystem_Group/en)
+
+### [Finder](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Smart_Search_Group/en)
+
+Die Standard-Suche in Joomla 4 ist die Komponente Suchindex oder Smart Search: com_finder. In Joomla 3 war dies com_search. Der Hauptunterschied zwischen den beiden ist, dass com_search den Inhalt in Echtzeit durchsucht sucht und dafür möglicherweise viele verschiedene Datenbanktabellen öffnet, während com_finder zuerst Index-Tabellen erstellt und dann nur diesen Index durchsucht. Letzteres ermöglicht eine effizientere und deshalb schnellere Volltextsuche. Der neue Suchindex ist komplexer als die altbewährte klassische Suche, die keine Konfiguration erforderte, dafür im Gegenzug nur wenige Optionen bot. com_finder verwendet einen aktiven Index, der auf [Stammformreduktion](https://de.wikipedia.org/wiki/Stemming)[^de.wikipedia.org/wiki/Stemming] aufbaut. Konkret wird die [PHP-Bibliothek php-stemmer](https://github.com/wamania/php-stemmer)[github.com/wamania/php-stemmer] angewendet. Die Idee besteht darin, die Performanz und die Qualität des Suchergebnisses zu erhöhen, indem man mehrere syntaktische Wörter mit einer Grundform abdecken. So haben zum Beispiel `gärtnern` und `Garten` eine verwandte Bedeutungen. Für jede Art von Inhalten ist ein eigenes Finder-Plugin erforderlich. Erstelle ein Finder-Plugin, wenn du  möchtest, dass Inhalte deiner Komponente gefunden werden, 
+
+> com_search ist als entkoppelte Komponente [weiterhin verfügbar](https://github.com/joomla-extensions/search)[^github.com/joomla-extensions/search] und sie erfordert ebenfalls ein separates Plugin, damit Inhalte von Dritterweiterungen gefunden werden.
+
+### [Installer](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Installer_Group/en)
+
+### [Media Action](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Media_Action_Group/en)
+
+### [Privacy](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Privacy_Group/en)
+
+### [Quick Icon](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Quick_Icon_Group/en)
+
+### [Sample Data](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Sample_Data_Group/en)
+
+### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)
+
+System Plugins erledigt die unterschiedlichsten Aufgaben. Das klingt zugegebenermaßen vage. Um es etwas konkreter zu machen, folgen Beispiele. System-Plugins können HTML-Code, CSS oder JavaScript zur Joomla-Seite hinzufügen, nachdem diese generiert wurde. Plugins dieses Typs ändern Joomla Formulare, bevor sie generiert werden. Mithilfe von System Plugins sind alternative Fehlerbehandlung möglich. Dies war nur ein kleiner Ausschnitt des mögliche. Du siehst, System Plugins sind sehr mächtig. Um diese mächtige Aufgabe erfüllen zu können, werden diese häufig aufgerufen und benötigen demzufolge Ressourcen. Setzte sie deshalb mit bedacht ein!
+
+### [Two Factor Authentication](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Two_Factor_Authentication_Group/en)
+
+Neben der normalen Authentifizierung gibt es die die Möglichkeit, zusätzliche Sicherheit durch Hinzufügen einer gleichzeitigen zweiten Authentifizierung zu erreichen.
+
+### [User](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_User_Group/en)
+
+### [Web Services](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Web_Services_Group/en)
+
+### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)

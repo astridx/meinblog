@@ -107,11 +107,8 @@ Wie Joomla selbst haben Komponenten ein Frontend und einen Administrationsbereic
 		</submenu>
 		<files folder="administrator/components/com_foos">
 			<filename>foos.xml</filename>
-			<folder>Controller</folder>
-			<folder>Extension</folder>
-			<folder>Service</folder>
-			<folder>View</folder>
 			<folder>services</folder>
+			<folder>src</folder>
 			<folder>tmpl</folder>
 		</files>
 	</administration>

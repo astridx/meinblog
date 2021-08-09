@@ -152,27 +152,9 @@ Verzeichnis kopieren können ohne Pfadangaben korrigieren zu müssen. Bei einer 
 <span class="grvsc-line"><span class="grvsc-source"> &lt;/body&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source"> &lt;/html&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">&lt;!--index_998a.html--&gt;</span></span></code></pre>
-<p>Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser
-immer noch ein leeres Browser-Fenster. Erst im letzten Schritt -
-im Kapitel <em>Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu</em> wird die Karte sichtbar.</p>
+<p>Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser immer noch ein leeres Browser-Fenster. Erst im letzten Schritt - im Kapitel <em>Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu</em> wird die Karte sichtbar.</p>
 <blockquote>
-<p>Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe
-eines selbst-schließenden Tags – also einem <em>unary</em> Tag – geschrieben habe,
-aber für das Tag, in dem das Skript eingebunden wird, zwei separate
-Tags – also ein <em>binary</em>
-Tag – verwendet habe.<br>
-<strong><code class="language-text">&lt;link</code></strong> <code class="language-text">rel="stylesheet" href="../leaflet/leaflet.css"</code><strong><code class="language-text">/></code></strong><br>
-<strong><code class="language-text">&lt;script</code></strong><code class="language-text">src="../leaflet/leaflet.js"</code><strong><code class="language-text">>&lt;/script></code></strong><br>
-<a href="https://de.wikipedia.org/w/index.php?title=Hilfe:Tags&#x26;oldid=181586744#Syntax">HTML unterscheidet</a><sup id="fnref-4"><a href="#fn-4" class="footnote-ref">4</a></sup>
-zwischen Tags, die nie
-Inhalt enthalten können – nämlich den <em>void</em>-Tags –, und
-solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall
-muss ein selbst-schließendes <em>unary</em> Tag verwendet werden.
-Hierzu gehört das <link>-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich
-entfallen - muss aber nicht.
-Im zweiten Fall darf kein selbst-schließendes <em>unary</em> Tag
-benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer
-ist. Hierzu gehört das <script>-Tag.</p>
+<p>Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe eines selbst-schließenden Tags – also einem <em>unary</em> Tag – geschrieben habe, aber für das Tag, in dem das Skript eingebunden wird, zwei separate Tags – also ein <em>binary</em> Tag – verwendet habe. <strong><code class="language-text">&lt;link</code></strong> <code class="language-text">rel="stylesheet" href="../leaflet/leaflet.css"</code><strong><code class="language-text">/></code></strong>  <strong><code class="language-text">&lt;script</code></strong><code class="language-text">src="../leaflet/leaflet.js"</code><strong><code class="language-text">>&lt;/script></code></strong> <a href="https://de.wikipedia.org/wiki/Hilfe:Tags">HTML unterscheidet</a><sup id="fnref-de.wikipedia.org/wiki/hilfe:tags"><a href="#fn-de.wikipedia.org/wiki/hilfe:tags" class="footnote-ref">de.wikipedia.org/wiki/hilfe:tags</a></sup> zwischen Tags, die nie Inhalt enthalten können – nämlich den <em>void</em>-Tags –, und solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall muss ein selbst-schließendes <em>unary</em> Tag verwendet werden. Hierzu gehört das <link>-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich entfallen - muss aber nicht. Im zweiten Fall darf kein selbst-schließendes <em>unary</em> Tag benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer ist. Hierzu gehört das <script>-Tag.</p>
 </blockquote>
 <h4>Leaflet performant einbinden – defer oder async</h4>
 <p>In diesem Kapitel erkläre ich Ihnen, wie Sie Leaflet in Ihre Website einbinden
@@ -194,11 +176,7 @@ weiter.</p>
 <li>Nun endlich kann der Parser seine Arbeit fortsetzten und den Rest des
 HTML-Dokuments analysieren und am Ende im Browser anzeigen.</li>
 </ol>
-<p>Wenn Sie sich diese Abfolge ansehen, können Sie sich vorstellen, dass Punkt vier
-das performante Laden der Website negativ beeinflusst. Der Ladevorgang der Website
-macht praktisch eine Pause. Solange bis alle Skripte heruntergeladen sind, passiert
-nichts mehr. Und wenn es eine Sache gibt, die Website-Besucher und Suchmaschinen nicht
-mögen, dann ist dies die Wartezeit beim Aufbau der Website.</p>
+<p>Wenn Sie sich diese Abfolge ansehen, können Sie sich vorstellen, dass Punkt vier das performante Laden der Website negativ beeinflusst. Der Ladevorgang der Website macht praktisch eine Pause. Solange bis alle Skripte heruntergeladen sind, passiert nichts mehr. Und wenn es eine Sache gibt, die Website-Besucher und Suchmaschinen nicht mögen, dann ist dies die Wartezeit beim Aufbau der Website.</p>
 <h5>Wie können Sie die Ladezeit positiv beeinflussen?</h5>
 <p>Um das im vorherigen Abschnitt beschriebene Problem zu umgehen wurde früher oft
 empfohlen, den JavaScript-Code möglichst nah am schließenden
