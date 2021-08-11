@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
@@ -14,6 +14,7 @@ import config from '../utils/config'
 import projects from '../data/projects'
 import interviews from '../data/interviews'
 import speaking from '../data/speaking'
+import books from '../data/books'
 
 export default function BlogIndex({ data }) {
   const latest = data.latest.edges
@@ -33,7 +34,7 @@ export default function BlogIndex({ data }) {
   return (
     <Layout>
       <Helmet>
-        <html lang="en" />
+        <html lang="de" />
         <title>{config.siteTitle}</title>
         <meta
           name="google-site-verification"
@@ -44,28 +45,30 @@ export default function BlogIndex({ data }) {
       <section className="small lead">
         <h1>Welcome</h1>
         <p className="subtitle">
-          Ich bin Softwareentwicklerin, Autorin und ich mag{' '}
+        I am a software developer, writer and I like{' '}
           <a href="https://github.com/astridx" target="_blank" rel="noreferrer">
             Open Source.
           </a>{' '}
-          Diese Website ist eine Art Kompendium. Hier sammele ich Wissen,
-          welches ich im Laufe der Jahre aufbaue.
+          This website is a kind of compendium. Here I collect knowledge which I build up over the years.
         </p>
       </section>
-      <Section title="Neu">
-        <Posts data={simplifiedLatest} tags />
+      <Section title="Books" className="medium">
+        <Lists data={books} />
       </Section>
-      <Section title="Beliebt">
-        <Posts data={simplifiedPopular} tags />
-      </Section>
-      <Section title="Projekte">
-        <Projects data={projects} />
-      </Section>
-      <Section title="Veröffentlichungen" className="medium">
+      <Section title="Publications" className="medium">
         <Lists data={interviews} />
       </Section>
-      <Section title="Vorträge" className="medium">
+      <Section title="Popular">
+        <Posts data={simplifiedPopular} tags />
+      </Section>
+      <Section title="Projects">
+        <Projects data={projects} />
+      </Section>
+      <Section title="Presentations" className="medium">
         <Lists data={speaking} />
+      </Section>
+      <Section title="New">
+        <Posts data={simplifiedLatest} tags />
       </Section>
     </Layout>
   )

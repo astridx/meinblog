@@ -30,9 +30,13 @@ Der Joomla-Kern kommt mit einer Menge Plugins. Diese sind auf 22 Plugin-Typen ve
 
 Meiner Meinung nach hilft es zum Verständnis von Joomla-Plugins, wenn man jeden Typ für sich betrachtet. Deshalb tun wir dies jetzt. Die Typen oder Gruppen unterteilen sich wie folgt:
 
-### [Action Log](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Action_Log_Group/en)<!-- \index{Plugin!Action Log} -->
+### [Action Log (Aktivitäten)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Action_Log_Group/en)<!-- \index{Plugin!Action Log} -->
 
-### [API Authentication](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_API_Authentication_Group/en)
+Plugins vom Typ Action Log zeichnen die Benutzeraktivitäten in den Joomla-Core-Erweiterungen der Seite auf, um sie bei Bedarf später zu überprüfen. Wenn du Aktivitäten in einer Drittanbieter-Erweiterung protokollieren möchtest, erstellst du dafür ein Plugin dieses Typs.
+
+### [API Authentication (API Authentifizierung)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_API_Authentication_Group/en)
+
+Plugins des Typs API Authentifizierung werden verwendet, um die Authentifizierung für Web Services in Joomla zu ermöglichen. Erinnerst du dich: Ein Joomla Kern Plugin dieses Typs hast du im vorherigen Kapitel zu Webservices aktiviert.
 
 ### [Authentifizierung (Authentication)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Authentication_Group/en)
 
@@ -40,7 +44,9 @@ Wenn sich jemand bei Joomla anmeldet, authentifiziert die Joomla-Anwendung diese
 
 > Joomla 3 hatte Plugins für die Authentifizierung über Gmail an Bord. [Joomla 4 bietet dies nicht mehr an](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. Die Technik, die das Plugin verwendet, ist nicht mehr auf dem neuesten Stand der Technik und weniger sicher. Heutzutage sollten sich Anwendungen über das [OAuth 2.0 Protokoll](https://de.wikipedia.org/wiki/OAuth)[^de.wikipedia.org/wiki/OAuth][^https://oauth.net/] bei Google autorisieren. 
 
-### [Behaviour](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Behaviour_Group/en)
+### [Behaviour (Verhalten)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Behaviour_Group/en)
+
+Plugins des Typs Verhalten werden verwendet, um ein bestimmtes Verhalten in der Website zu aktivieren. Beispiele im Joomla Kern sind das Verschlagworten oder die Versionierung von Elementen.
 
 ### [CAPTCHA](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_CAPTCHA_Group/en)
 
@@ -67,9 +73,13 @@ Am unteren Rand eines Joomla-Editors erscheinen zusätzlich zur Symbolleiste Sch
 
 Es gibt nicht viele Plugins in dieser Gruppe, trotzdem ist es eine interessante Gruppe. Wann immer eine Joomla-Erweiterung installiert oder entfernt wird entfernt, ist über ein Plugins dieser Gruppe möglich, sich in die Installation einzuklinken. Ein Erweiterungs-Plugin erledigt eine Aufgabe während einer Installation! Das Joomla-Plugin vom Typ Erweiterung wird verwendet, um Update-Seiten zu bereinigen. Update Seiten sind URLs, die für die Aktualisierung von Erweiterungen im Erweiterungsmanager gespeichert sind. Seit Joomla 3.2 ist es für kommerzielle Erweiterungen möglich, dieses Plugin zu nutzen, um private Downloads mit einem Sicherheitsschlüssel zu ermöglichen. `Erweiterungen - Namespace Updater` erstellt und aktualisiert automatisch die Datei `administrator/cache/autoload_psr4.php`.
 
-### [Fields](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Fields_Group/en)
+### [Fields (Felder)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Fields_Group/en)
+
+Der  Plugin-Typ Fields ermöglicht das Erstellen von Feldern in Erweiterungen, die eigene Felder unterstützen. Beispielsweise kann ein Kalender beim Erstellen eines Items hinzugefügt werden, über den ein Datum mit dem Item gespeichert wird, welches an einer bestimmen Stelle im Inhalt ausgegeben wird. Dies erleichtert es Inhalte im gleichen Layout auszugeben oder Inhalte in anderen Erweiterungen abzufragen. Beispiel: Ein Feld, welches eine geografische Koordinate speichert, zeigt in einem Modul einen Marker an dieser Position auf einer digitalen Karte an.
 
 ### [FileSystem](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_FileSystem_Group/en)
+
+Plugins des Typs Filesystem werden zur Definition eines oder mehrerer lokaler Verzeichnisse zum Speichern von Dateien verwendet. Möchtest du das flexible Ändern eines Verzeichnis für deine Erweiterung anbieten. Dann schaue dir das Joomla Kern Plugin `Dateisystem - Lokal` an mit dem du das Verzeichnis, in dem Bilddateien abgelegt werden, einstellst.
 
 ### [Finder](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Smart_Search_Group/en)
 
@@ -79,13 +89,23 @@ Die Standard-Suche in Joomla 4 ist die Komponente Suchindex oder Smart Search: c
 
 ### [Installer](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Installer_Group/en)
 
-### [Media Action](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Media_Action_Group/en)
+Möchtest du den Installationsprozess deiner Erweiterung verändern? Dann sieh dir die Plugins vom Typ Installer an.
+
+### [Media Action (Medienfunktion)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Media_Action_Group/en)
+
+Das Zuschneiden von Bildern, das Ändern der Größer oder das Drehen ist jeweils mit einem Kern Joomla Plugin vom Medienfunktion möglich. Erweitere diese Plugin-Gruppe, wenn dir die Funktionen zur Medien- oder Bildbearbeitung nicht ausreichen.
 
 ### [Privacy](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Privacy_Group/en)
 
+Verarbeitet deine selbst programmierte Erweiterung personenbezogene Daten, dann kommen Plugins des Typs Datenschutz ins Spiel. Erstelle ein Plugin dieses Typs und sorge im Code dafür, dass diese Daten von Joomla in der Komponente Datenschutz korrekt weiter verarbeitet. Nur so kann Joomla Benutzeranfragen nach gespeicherten Daten oder Löschwünsche handhaben. Für Joomla Kernerweiterungen sind die erforderlichen Plugins in Joomla 4 vorhanden.
+
 ### [Quick Icon](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Quick_Icon_Group/en)
 
-### [Sample Data](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Sample_Data_Group/en)
+Verwende ein Plugin des Typs Quickicon, um ein Quickicon auf dem Dashboard des Joomla Backend zu platzieren.
+
+### [Sample Data (Beispieldaten)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Sample_Data_Group/en)
+
+Das _Joomla Kern Modul_ Beispieldaten bietet einen einheitlichen Workflow zum Hinzufügen von Beispieldateien. Möchtest du dich hier einklinken und Beispieldateien für deine Erweiterung per Klick installierbar machen? Dann, du vermutest es sicher schon, ist ein Plugin vom Typ Beispieldateien erforderlich.
 
 ### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)
 
@@ -95,8 +115,14 @@ System Plugins erledigt die unterschiedlichsten Aufgaben. Das klingt zugegebener
 
 Neben der normalen Authentifizierung gibt es die die Möglichkeit, zusätzliche Sicherheit durch Hinzufügen einer gleichzeitigen zweiten Authentifizierung zu erreichen.
 
-### [User](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_User_Group/en)
+### [User (Benutzer)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_User_Group/en)
+
+Gibt eine Verbindung zwischen den Daten in einer Komponete und den Benutzern in der Joomla Benutzerverwaltung? Technische wird diese mit einem Plugin vom Typ Benutzer umgesetzt. Du fragst dich wie dies funktioniert? Dann sieh dir das Plugin zur Kontakt Komponente an, welches einen Kontakt mit einem Benutzer koppelt.
 
 ### [Web Services](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Web_Services_Group/en)
 
+Ein Plugin des Typs Web Services fügt die Routen der einer Erweiterung zur API der Website hinzu. Dieses Plugin haben wir im vorherigen Teil praktisch angewandt.
+
 ### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)
+
+Bei der Workflowverwaltung gibt es unterschiedlicher Übergänge, die per Plugin manipulierbar sind.

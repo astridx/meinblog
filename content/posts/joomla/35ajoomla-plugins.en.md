@@ -32,7 +32,11 @@ In my opinion, it helps to understand Joomla plugins if you study each type on i
 
 ### [Action Log](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Action_Log_Group/en)<!-- \index{Plugin!Action Log} -->
 
+Plugins of the Action Log type record user activities in the Joomla Core extensions of the page to review them later if needed. If you want to log activities in a third-party extension, create a plugin of this type for it.
+
 ### [API Authentication](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_API_Authentication_Group/en)
+
+API Authentication type plugins are used to provide authentication for web services in Joomla. Remember: You activated a Joomla core plugin of this type in the previous chapter on web services.
 
 ### [Authentication](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Authentication_Group/en)
 
@@ -41,6 +45,8 @@ When someone logs into Joomla, the Joomla application authenticates that user. O
 > Joomla 3 had plugins for authentication via Gmail on board. [Joomla 4 no longer offers this](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. The technology used by the plugin is no longer state of the art and less secure. Nowadays, applications should authorize themselves via the [OAuth 2.0](https://oauth.net/)[^oauth.net] protocol with Google. 
 
 ### [Behaviour](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Behaviour_Group/en)
+
+Behavior type plugins are used to enable a specific behavior in the website. Examples in Joomla core are tagging or versioning of elements.
 
 ### [CAPTCHA](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_CAPTCHA_Group/en)
 
@@ -68,7 +74,11 @@ There are not many plugins in this group, nevertheless it is an interesting grou
 
 ### [Fields](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Fields_Group/en)
 
+The Fields plugin type allows you to create fields in extensions that support custom fields. For example, a calendar can be added when creating an item, through which a date is stored with the item, which is output at a specific location in the content. This makes it easier to output content in the same layout or to query content in other extensions. For example, a field that stores a geographic coordinate will display a marker at that position on a digital map in a module.
+
 ### [FileSystem](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_FileSystem_Group/en)
+
+Plugins of the Filesystem type are used to define one or more local directories for storing files. Do you want to offer the flexible changing of a directory for your extension. Then check out the Joomla core plugin `Filesystem - Local` with which you can set the directory where image files are stored.
 
 ### [Finder](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Smart_Search_Group/en)
 
@@ -78,13 +88,23 @@ The default search in Joomla 4 is the Search Index or Smart Search component: co
 
 ### [Installer](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Installer_Group/en)
 
+Do you want to change the installation process of your extension? Then take a look at the installer type plugins.
+
 ### [Media Action](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Media_Action_Group/en)
+
+Cropping images, changing the size or rotating them is each possible with a core Joomla plugin from the Media Action. Expand this plugin group if the media or image editing functions are not enough for you.
 
 ### [Privacy](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Privacy_Group/en)
 
+If your self-programmed extension processes personal data, then plugins of the type Privacy come into play. Create a plugin of this type and make sure in the code that this data is correctly processed by Joomla in the core privacy component. This is the only way Joomla can handle user requests for stored data or deletion requests. For Joomla core extensions the required plugins are available in Joomla 4.
+
 ### [Quick Icon](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Quick_Icon_Group/en)
 
+Use a plugin of the type quickicon to place a quickicon on the dashboard of the Joomla backend.
+
 ### [Sample Data](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Sample_Data_Group/en)
+
+The _Joomla Core Sample Data module_ provides a unified workflow for adding sample files. Want to jump in here and make sample files installable for your extension with a click? Then, you probably guessed it already, a plugin of the type sample files is required.
 
 ### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)
 
@@ -96,6 +116,12 @@ In addition to standard authentication, there is the possibility to achieve addi
 
 ### [User](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_User_Group/en)
 
+Is there a connection between the data in a component and the users in the Joomla user management? Technically, this is implemented with a plug-in of the user type. Are you wondering how this works? Then take a look at the plugin for the contact component, which links a contact to a user. 
+
 ### [Web Services](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Web_Services_Group/en)
 
+A Web Services plug-in adds the routes of an extension to the website's API. We practically used this plugin in the previous part. 
+
 ### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)
+
+In workflow management, there are different transitions that can be manipulated using a plugin.

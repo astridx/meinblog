@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout'
@@ -14,6 +14,7 @@ import config from '../utils/config'
 import projects from '../data/projects'
 import interviews from '../data/interviews'
 import speaking from '../data/speaking'
+import books from '../data/books'
 
 export default function BlogIndex({ data }) {
   const latest = data.latest.edges
@@ -52,8 +53,11 @@ export default function BlogIndex({ data }) {
           welches ich im Laufe der Jahre aufbaue.
         </p>
       </section>
-      <Section title="Neu">
-        <Posts data={simplifiedLatest} tags />
+      <Section title="Bücher" className="medium">
+        <Lists data={books} />
+      </Section>
+      <Section title="Veröffentlichungen" className="medium">
+        <Lists data={interviews} />
       </Section>
       <Section title="Beliebt">
         <Posts data={simplifiedPopular} tags />
@@ -61,11 +65,11 @@ export default function BlogIndex({ data }) {
       <Section title="Projekte">
         <Projects data={projects} />
       </Section>
-      <Section title="Veröffentlichungen" className="medium">
-        <Lists data={interviews} />
-      </Section>
       <Section title="Vorträge" className="medium">
         <Lists data={speaking} />
+      </Section>
+      <Section title="Neu">
+        <Posts data={simplifiedLatest} tags />
       </Section>
     </Layout>
   )
