@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all maps? In Joomla there are parameters for this purpose.<!-- \index{parameter} -->
+Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all his maps? In Joomla there are parameters for this purpose.<!-- \index{parameter} -->
 
 Parameters exist for
 
@@ -21,7 +21,7 @@ Parameters exist for
 - for the whole component (all items of the component) and
 - for a menu item.
 
-If a parameter is set for the three possibilities, the following hierarchy applies in Joomla by default:
+If a parameter is set for all of the three possibilities, the following hierarchy applies in Joomla by default:
 
 - The menu item beats everything.
 - After that, the parameter that applies specifically to the item takes precedence.
@@ -29,11 +29,13 @@ If a parameter is set for the three possibilities, the following hierarchy appli
 
 ![Joomla Parameters](/images/parameter.en.png)
 
-For the menu item we already had a parameter set and for the component as a whole there is one in the options. Now it's the turn of the item in particular.
+For the menu item we had already set a parameter. For the component, you can find it in the options of the configuration. We will look at the item in particular in this section.
 
 > For impatient people: Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t17...t18] and take over these changes into your development version.
 
 ## Step by step
+
+The code with which the assignment of a parameter is calculated, was for a long time differently integrated in the Joomla core components. Shortly before the release of Joomla 4 there were efforts to simplify and unify this. Example pull requests are [PR 34894](https://github.com/joomla/joomla-cms/pull/34894)[^github.com/joomla/joomla-cms/pull/34894] and [PR 32538](https://github.com/joomla/joomla-cms/pull/32538)[github.com/joomla/joomla-cms/pull/32538], from which one can be inspired for own implementations.
 
 ### New files
 
@@ -69,7 +71,7 @@ In the configuration, the parameter is usually stored to set a default value. We
 +			type="radio"
 +			label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
 +			default="1"
-+			class="switcher"
++			layout="joomla.form.field.radio.switcher"
 +			>
 +			<option value="0">JHIDE</option>
 +			<option value="1">JSHOW</option>
@@ -77,7 +79,6 @@ In the configuration, the parameter is usually stored to set a default value. We
  	</fieldset>
  	<fieldset
  		name="permissions"
-
 ```
 
 <!-- prettier-ignore -->
@@ -105,15 +106,14 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 +		</fieldset>
 +	</fields>
  </form>
-
 ```
 
-> In Joomla there is the possibility to set the parmeter to the value [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F). The benefit is that when you configure it, it shows what is set globally. Use `useglobal="true"` like [com_contact](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).
+> In Joomla there is the possibility to set the parmeter to the value [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F). The benefit is that when you configure it, it shows what is set globally. Use `useglobal="true"` like [/administrator/components/com_contact/forms/contact.xml](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).<!-- \index{parameter!useglobal} --><!-- \index{useglobal!parameter} -->
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
-In order for a new installation to create the column where the parameters are stored, we add a line to the following SQL file.
+To create the column where the parameters will be stored during a new installation, we add a line to the following SQL file.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -129,56 +129,38 @@ In order for a new installation to create the column where the parameters are st
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
-In the class that managed the table, we make sure that the parameters are stored in the correct form.
+In the class that handels the table, we make sure that the parameters are stored in the correct form.
 
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
-use Joomla\CMS\Application\ApplicationHelper;
-use Joomla\CMS\Table\Table;
-use Joomla\Database\DatabaseDriver;
+ use Joomla\CMS\Application\ApplicationHelper;
+ use Joomla\CMS\Table\Table;
+ use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
-
-/**
- * Foos Table class.
-
-		parent::__construct('#__foos_details', 'id', $db);
-	}
-
-+	/**
-+	 * Stores a foo.
-+	 *
-+	 * @param   boolean  $updateNulls  True to update fields even if they are null.
-+	 *
-+	 * @return  boolean  True on success, false on failure.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
-+	public function store($updateNulls = false)
-+	{
+ 
+ /**
+  * Foos Table class.
+ public function check()
+ 	 */
+ 	public function store($updateNulls = true)
+ 	{
 +		// Transform the params field
 +		if (is_array($this->params)) {
 +			$registry = new Registry($this->params);
 +			$this->params = (string) $registry;
 +		}
 +
-+		return parent::store($updateNulls);
-+	}
-
-	/**
-	 * Generate a valid alias from title / date.
-	 * Remains public to be able to check for duplicated alias before saving
-```
+ 		return parent::store($updateNulls);
+ 	}
+ }
+ ```
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-The view mixes the data to the parameters so that the display fits.
-
-> In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`.
-
-Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you mix the two so that the value at the item takes precedence.
+The view combines the data on the parameters so that the display fits. In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`. Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you mix the two so that the value at the item takes precedence.
 
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
@@ -186,10 +168,9 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
-
+ 
  /**
   * HTML Foos View class for the Foo component
-
   */
  class HtmlView extends BaseHtmlView
  {
@@ -212,10 +193,10 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
  	/**
  	 * The item object details
  	 *
-
+ public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
-
+ 
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -233,37 +214,33 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 +		$temp->merge($itemparams);
 +		$item->params = $temp;
 +
- 		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
-
+ 		Factory::getApplication()->triggerEvent('onContentPrepare', ['com_foos.foo', &$item]);
+ 
  		// Store the events for later
 ```
-
-> Ein [Pull Request](https://github.com/joomla/joomla-cms/pull/32538/files) als Inspiration.
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
 
-At the end we use the parameter for display in the template. If there is the parameter and it is set to show the name, then the name will be shown. The label `$this->params->get('show_foo_name_label')` will also be displayed only then:
+At the end we use the parameter when handling the display in the template `components/com_foos/ tmpl/foo/default.php`. If there is the parameter and it is set that the name should be displayed `if ($this->item->params->get('show_name'))`, then the name will be displayed. The label `$this->params->get('show_foo_name_label')` will also be displayed only in that case:
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
- use Joomla\CMS\Language\Text;
-
--if ($this->get('State')->get('params')->get('show_foo_name_label'))
--{
+  use Joomla\CMS\Language\Text;
+ 
+-if ($this->get('State')->get('params')->get('show_foo_name_label')) {
 -	echo Text::_('COM_FOOS_NAME');
 -}
 +if ($this->item->params->get('show_name')) {
-+
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
-
+ 
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
-
+ 
  echo $this->item->event->afterDisplayTitle;
  echo $this->item->event->beforeDisplayContent;
 ```
@@ -286,6 +263,7 @@ To make it possible to store the parameter at the menu item, we add a field in t
 +				name="show_name"
 +				type="radio"
 +				label="COM_FOOS_FIELD_PARAMS_NAME_LABEL"
++				layout="joomla.form.field.radio.switcher"
 +				default="1"
 +				class=""
 +				>
@@ -295,10 +273,9 @@ To make it possible to store the parameter at the menu item, we add a field in t
 +		</fieldset>
 +	</fields>
  </metadata>
-
 ```
 
-> The form element `Input` with the type `radio` has a typical look in Joomla. It is called switcher and you create the look using the layout `joomla.form.field.radio.switcher`.
+> The html form element `input` with the type `radio` has a typical look in Joomla. It is called switcher and you create the look using the layout `joomla.form.field.radio.switcher`.
 > ![Joomla Parameter in einem Menüpunkt](/images/j4x22x8.png)
 
 ```
