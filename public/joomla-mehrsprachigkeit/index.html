@@ -33,81 +33,17 @@ void function() {
 
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
-    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/en/joomla-mehrsprachigkeit/">english</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Mehrsprachigkeit - Multilinguale Sprachverknüpfungen</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/19joomla-mehrsprachigkeit.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>19.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.<!-- \index{Sprachverknüpfungen} --></p>
+    </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/en/joomla-mehrsprachigkeit/">english</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Mehrsprachigkeit - Multilinguale Sprachverknüpfungen</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/19joomla-mehrsprachigkeit.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>19.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.<!-- \index{Sprachverknüpfungen} --><!-- \index{Mehrsprachigkeit} --></p>
 <blockquote>
-<p>Abgrenzung Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.</p>
+<p>Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt es eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.</p>
 </blockquote>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/3f464d5c77f611bbd58f734de2407bda/191e2/j4x19x5.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDUlEQVQoz6WP0UrDMBiF83jbhQruWgcquhfwYoKDPo0P4BMMvBLvBAdeezGYbZImadok5Zi0Hc3olOECH+f8h/6nCZlN7zG+mGM0fcDocv4n46D+25OrR0zuEkxmCc5uFo0/v01wer0ASalEtk6hVYnS1iiN89QRLqLLqijzXpcO4bgavpArKFWBMYGUcrBcgnHhkR0iYphRv6cKjZe3Fd4/v0AKP4ST5zm+Nxtwznw5PZgsy1BphafnJZavHyBKO0htIYoWGeZG7X79hbCbKwtChQEVFlRaMM/W72iDiXyctbBun2xNj8H+zAxn0edNqYf8u2wn739AjrlZeHarpr8hV+7AMjt4JutKYn4ASmrg2AEqj6oAAAAASUVORK5CYII='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        src="/static/3f464d5c77f611bbd58f734de2407bda/f058b/j4x19x5.png"
-        srcset="/static/3f464d5c77f611bbd58f734de2407bda/c26ae/j4x19x5.png 158w,
-/static/3f464d5c77f611bbd58f734de2407bda/6bdcf/j4x19x5.png 315w,
-/static/3f464d5c77f611bbd58f734de2407bda/f058b/j4x19x5.png 630w,
-/static/3f464d5c77f611bbd58f734de2407bda/40601/j4x19x5.png 945w,
-/static/3f464d5c77f611bbd58f734de2407bda/78612/j4x19x5.png 1260w,
-/static/3f464d5c77f611bbd58f734de2407bda/191e2/j4x19x5.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/985e9d78cf784fba8044353948e3cf3a/191e2/j4x19x6.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABv0lEQVQoz32SW0tUURTHz7cTBQPHnixM89ZLLxGojUTTJ5CIHjIpK0h98EFETFGfo16EAsEaujDTjM44Hs++73P2v7X3zOggTgv+LNZl//bal+j+5BzGx2YxPjJNmsHEaFOjtx4gN/QQPXfy6PUaniU9Qs/tGfSN5HHz3lMMTD7BjbHHGJwqIEfqvzuH6OfRL4haHWcxQ3wuEMcJkkSAMwllUhihISlWJoPSKRyaZlMHTXVNeW0zcKnBuEJ0+KOCkzpHpS5QPfWSqLT01+dOGEp/KiiWqqjHHPufDzG/tIVvtM73lqlerrHga2cEXFzdwcLKNhaWr4hyLz98xJu1PXz5WsS7tV0srm5j/vU6Cs+W8eL9Jl6t7IRez3j+dgOfDr4jEoKOoxSkVHQkDa3NhXxsjEWccCSMh5y1lg7sgtfGUP1SUltEzrVvpbtxoQimm8F/+o11iGyaIsvoYomekvcLXIe8MQIqpeGobmgyY9MWu7PPhceJ/OgemBK4DbgK5AGoQpy1Bmj3dfoA9Dt7+33M6OnttUBBX4ILGaY4PVeoNmR3oKDH8HZQbKCR6C4TavqjLABLNY6jchLy2TXAf1Fd2MnI9BEdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        src="/static/985e9d78cf784fba8044353948e3cf3a/f058b/j4x19x6.png"
-        srcset="/static/985e9d78cf784fba8044353948e3cf3a/c26ae/j4x19x6.png 158w,
-/static/985e9d78cf784fba8044353948e3cf3a/6bdcf/j4x19x6.png 315w,
-/static/985e9d78cf784fba8044353948e3cf3a/f058b/j4x19x6.png 630w,
-/static/985e9d78cf784fba8044353948e3cf3a/40601/j4x19x6.png 945w,
-/static/985e9d78cf784fba8044353948e3cf3a/78612/j4x19x6.png 1260w,
-/static/985e9d78cf784fba8044353948e3cf3a/191e2/j4x19x6.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <p>Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle Bereiche der Mehrsprachigkeit und der Sprachverknüpfungen in Joomla ab.</p>
 <blockquote>
 <p>Für Ungeduldige: Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t14b...t15a">Diff-Ansicht</a><sup id="fnref-github.com/astridx/boilerplate/compare/t14b...t15a"><a href="#fn-github.com/astridx/boilerplate/compare/t14b...t15a" class="footnote-ref">github.com/astridx/boilerplate/compare/t14b...t15a</a></sup> an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 </blockquote>
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
-<p>Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung ist das Skript <code class="language-text">15.0.0.sql</code> dasjenige, welches für Version 15.0.0. ausgeführt wird.</p>
+<p>Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung der Komponente ist das Skript <code class="language-text">15.0.0.sql</code> dasjenige, welches für Version 15.0.0. ausgeführt wird.</p>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-fa2e66efed41380705fb9f91c257ea9c">administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql</a></h4>
 <p><a href="https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql</a></p>
@@ -117,7 +53,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="2"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);</span></span></span></code></pre>
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-89e05e395916539c641802f3bb6165c5">administrator/components/ com_foos/src/Helper/AssociationsHelper.php</a></h4>
-<p>Die Hilfsdatei <code class="language-text">AssociationsHelper.php</code> ist die Schnittstelle zur Komponente Sprachverknüpfungen <code class="language-text">com_associations</code>. <code class="language-text">AssociationsHelper.php</code> gibt es im Frontend und im Backend - letztere sehen wir uns als erstes an, die Frontend-Version kommt später in diesem Kapitel hinzu.</p>
+<p>Die Hilfsdatei <code class="language-text">AssociationsHelper.php</code> ist die Schnittstelle zur Komponente Sprachverknüpfungen <code class="language-text">com_associations</code>. <code class="language-text">AssociationsHelper.php</code> gibt es im Frontend und im Backend - letztere sehen wir uns als erstes an, die Frontend-Version kommt später in diesem Kapitel an die Reihe.</p>
 <p>In dieser Helper-Datei stellen wir die Angaben bereit, die für unsere Komponente spezifisch sind, so dass die Joomla eigenen Routinen sich in unserer Komponente zurecht finden.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php">administrator/components/ com_foos/src/Helper/AssociationsHelper.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php</span></span></span>
@@ -569,12 +505,12 @@ void function() {
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
 <p>Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Damit Joomla dieses Feld findet, gibt man den Pfad in der Form <code class="language-text">addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"</code> als Parameter im <code class="language-text">&lt;fieldset></code> an.</p>
-<p>Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zugeordnet wird.</p>
+<p>Außerdem fügen wir ein Feld hinzu, in dem ein Element einer Sprache zugeordnet wird.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;?</span><span class="mtk7">xml</span><span class="mtk3"> version</span><span class="mtk1">=</span><span class="mtk11">&quot;1.0&quot;</span><span class="mtk3"> encoding</span><span class="mtk1">=</span><span class="mtk11">&quot;utf-8&quot;</span><span class="mtk1">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;</span><span class="mtk7">form</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">fieldset</span><span class="mtk1"> </span><span class="mtk3">addruleprefix</span><span class="mtk1">=</span><span class="mtk11">&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;</span><span class="mtk1">&gt;</span></span></span>
-<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">fieldset</span></span></span>
+<span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&lt;</span><span class="mtk7">fieldset</span><span class="mtk1"> </span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk3">addruleprefix</span><span class="mtk1">=</span><span class="mtk11">&quot;FooNamespace\Component\Foos\Administrator\Rule&quot;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		</span><span class="mtk3">addfieldprefix</span><span class="mtk1">=</span><span class="mtk11">&quot;FooNamespace\Component\Foos\Administrator\Field&quot;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">	&gt;</span></span></span>
@@ -584,7 +520,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			</span><span class="mtk3">hint</span><span class="mtk1">=</span><span class="mtk11">&quot;JFIELD_ALIAS_PLACEHOLDER&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		/&gt;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">		&lt;</span><span class="mtk7">field</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			</span><span class="mtk3">name</span><span class="mtk1">=</span><span class="mtk11">&quot;language&quot;</span></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">			</span><span class="mtk3">type</span><span class="mtk1">=</span><span class="mtk11">&quot;contentlanguage&quot;</span></span></span>

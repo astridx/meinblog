@@ -52,7 +52,7 @@ Add the following lines in its place:
 
 > You can do without the check `if (!isset($this->message))` in the new variant because the statement `get('show_text', "Hi");` catches the error that occurs when the parameter `show_text` is not set. Whenever the value `show_text` is not set, the second parameter<!-- \index{Parameter} --> `"Hi"` is used as default.
 
-Combined, the file looks like the following in the Diff view:
+The complete file looks like this in the Diff view:
 
 [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
@@ -118,7 +118,7 @@ The XML entry
 />
 ```
 
-converts Joomla to the following HTML code for the output in the backend form.
+turns Joomla into the following HTML code for the output in the backend form:
 
 ```html
 <div class="control-label">

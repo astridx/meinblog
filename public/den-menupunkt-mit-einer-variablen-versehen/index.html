@@ -59,7 +59,7 @@ void function() {
 <blockquote>
 <p>Du kannst bei der neuen Variante auf die Überprüfung <code class="language-text">if (!isset($this->message))</code> verzichten, weil die Anweisung <code class="language-text">get('show_text', "Hi");</code> den Fehler abfängt, der auftritt, wenn der Parameter<!-- \index{Parameter} --> <code class="language-text">show_text</code> nicht gesetzt ist. Immer dann, wenn der Wert <code class="language-text">show_text</code> nicht gesetzt ist, wird der zweite Parameter <code class="language-text">"Hi"</code> als Standard verwendet.</p>
 </blockquote>
-<p>Zusammen sieht die Datei in der Diff-Ansicht wie folgt aus:</p>
+<p>Die vollständige Datei sieht in der Diff-Ansicht wie folgt aus:</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php">components/com_foos/ src/Model/FooModel.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">\</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
@@ -107,7 +107,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3">label</span><span class="mtk1">=</span><span class="mtk11">&quot;COM_FOOS_FIELD_TEXT_SHOW_LABEL&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk3">default</span><span class="mtk1">=</span><span class="mtk11">&quot;Hi&quot;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">/&gt;</span></span></span></code></pre>
-<p>wandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code.</p>
+<p>verwandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code:</p>
 <pre class="grvsc-container solarized-light" data-language="html" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">div</span><span class="mtk1"> </span><span class="mtk3">class</span><span class="mtk1">=</span><span class="mtk11">&quot;control-label&quot;</span><span class="mtk3">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">&lt;</span><span class="mtk7">label</span><span class="mtk1"> </span><span class="mtk3">id</span><span class="mtk1">=</span><span class="mtk11">&quot;jform_request_show_text-lbl&quot;</span><span class="mtk1"> </span><span class="mtk3">for</span><span class="mtk1">=</span><span class="mtk11">&quot;jform_request_show_text&quot;</span><span class="mtk3">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    COM_FOOS_FIELD_TEXT_SHOW_LABEL</span><span class="mtk3">&lt;/</span><span class="mtk7">label</span></span></span>

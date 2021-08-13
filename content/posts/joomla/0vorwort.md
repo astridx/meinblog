@@ -35,7 +35,7 @@ Warum diese Struktur? Es gibt viele Beispiele für Komponenten im Standard Jooml
 - com_tags oder
 - com_contact
 
-In jeder Komponente siehst du Implementierungsdetails im Zusammenhang. Jede ist komplex und das Finden und Trennen bestimmter Elemente, wie beispielsweise Seitennummerierung oder benutzerdefinierte Felder, ist mühsam. Dieses Tutorial konzentriert sich pro Kapitel auf ein Detail.
+In jeder Komponente siehst du Implementierungsdetails im Zusammenhang. Jede ist komplex und das Finden und Trennen bestimmter Elemente, wie beispielsweise Seitennummerierung oder eigene Felder, ist mühsam. Dieses Tutorial konzentriert sich pro Kapitel auf ein Detail.
 
 > Du erstellst eine Komponente für Joomla 4, unter Wiederverwendung der vielen bereits vorhandenen Implementierungen in Joomla. Du erfindest das Rad nicht neu. Joomla bietet eine ganze Reihe von Standardfunktionen.
 

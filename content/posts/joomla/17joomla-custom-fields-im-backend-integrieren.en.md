@@ -13,11 +13,9 @@ tags:
   - Joomla
 ---
 
-Custom fields<!-- \index{Custom fields (backend)} --> in Joomla have been the talk of the town since Joomla version 3.7. They offer a lot of additional possibilities independently from third party providers. That's why our component supports custom fields.
+Custom Fields (Own Fields)<!-- \index{Custom fields (backend)} --> are very popular since Joomla version 3.7. They offer many additional possibilities. Therefore, there is no question that we integrate them into our component.
 
 This part shows you how to program the support in the administration area. In the next chapter we will integrate Custom Fields in the frontend.
-
-> I create a separate submenu here for the custom fields. The Joomla custom components create a menu item in the administration menu. If you prefer this way, look in one of the core components.
 
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] and incorporate these changes into your development version.
 
@@ -55,7 +53,6 @@ In the file `administrator/components/com_foos/ access.xml` we prepare everythin
 +		<action name="core.edit.value" title="JACTION_EDITVALUE" />
 +	</section>
  </access>
-
 ```
 
 <!-- prettier-ignore -->
@@ -63,7 +60,7 @@ In the file `administrator/components/com_foos/ access.xml` we prepare everythin
 
 The configuration `config.xml` uses a paramter to define whether the extension uses custom fields.
 
-> Do you wonder why this parameter exists? It is [not mandatory](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
+> Do you wonder why this parameter exists? It is [not mandatory](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration)[^https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration].
 
 [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/config.xml)
 
@@ -85,13 +82,12 @@ The configuration `config.xml` uses a paramter to define whether the extension u
  	</fieldset>
  	<fieldset
  		name="permissions"
-
 ```
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-2fc2de3e713c03872261cc037f7f6194d843f9cbc953d34db10e9693dfa82924)
 
-In the navigation menu on the left in the Joomla administration area we add two links. The first new link leads to the view where custom fields are created for the component. The other one leads to the view where groups are created.
+In the navigation menu on the left in the Joomla administration area we add two links. The first new link leads to the view where custom fields are created for the component. The other one leads to the view where field groups are created.
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/foos.xml)
 
@@ -139,9 +135,9 @@ The form through which a Foo element can be edited now has tabs. To ensure that 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-To make editing the custom fields work the same way as in Joomla's own extensions, we use [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php). `$this->useCoreUI = true;` ensures that the [Helper](https://github.com/joomla/joomla-cms/blob/c6332d48dab0fce0d4903f206dc979e2c2c59a12/layouts/joomla/edit/params.php#L20) flexibly provides the correct tab implementation.
+To make editing the custom fields work the same way as in Joomla's own extensions, we use [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php]. `$this->useCoreUI = true;` ensures that the [Helper](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#L20)[^github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#L20] flexibly provides the correct tab implementation.
 
-> A comparison between previously most used `bootstrap.tab` and `uitab` is provided by [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805).
+> A comparison between previously most used `bootstrap.tab` and `uitab` is provided by [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805)[^github.com/joomla/joomla-cms/pull/21805].<!-- \index{bootstrap.tab} --><!-- \index{uitab} -->
 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
@@ -211,7 +207,7 @@ To make editing the custom fields work the same way as in Joomla's own extension
 
 3. after that create a custom field of type 'text'.
 
-4. make sure that when you edit a foo item, this field is also offered for editing.
+4. make sure that when you edit a foo item, this custom field is also offered for editing.
 
 ![Integrate Joomla Custom Fields into a custom component](/images/j4x17x2.png)
 

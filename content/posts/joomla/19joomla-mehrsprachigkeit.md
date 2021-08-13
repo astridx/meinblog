@@ -12,13 +12,9 @@ tags:
   - Joomla
 ---
 
-Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.<!-- \index{Sprachverknüpfungen} -->
+Mit Joomla ist es möglich, eine mehrsprachige Website einzurichten, ohne Erweiterungen von Dritten zu installieren. In diesem Tutorial zeige ich dir, wie du deine Komponente so programmierst, dass sie Sprachverknüpfungen unterstützt.<!-- \index{Sprachverknüpfungen} --><!-- \index{Mehrsprachigkeit} -->
 
-> Abgrenzung Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.
-
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x5.png)
-
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)
+> Mehrsprachigkeit und Sprachverknüpfungen: Mehrsprachige Inhalte, Menüpunkte und Sprachumschalter werden mit einer Standard Joomla Installation ohne zusätzliche Erweiterungen eingerichtet. Bis zur Version 3.7 war es in Joomla erforderlich, zwischen Ansichten zu wechseln, um Inhalte zu übersetzen. Seit 3.7 gibt es eine Verbesserung der Usability, die sogenannten Sprachverknüpfungen. Mit dieser Erweiterung lassen sich mehrsprachige Inhalte benutzerfreundlich erstellen und verknüpfen. Dabei bleibt man in einer Ansicht. Die Sprachverknüpfungen zeigen nebenbei, welche mehrsprachigen Inhalte fehlen.
 
 Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle Bereiche der Mehrsprachigkeit und der Sprachverknüpfungen in Joomla ab.
 
@@ -28,7 +24,7 @@ Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle 
 
 ### Neue Dateien
 
-Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung ist das Skript `15.0.0.sql` dasjenige, welches für Version 15.0.0. ausgeführt wird.
+Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung der Komponente ist das Skript `15.0.0.sql` dasjenige, welches für Version 15.0.0. ausgeführt wird.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-fa2e66efed41380705fb9f91c257ea9c)
@@ -46,7 +42,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 
 #### [administrator/components/ com_foos/src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-89e05e395916539c641802f3bb6165c5)
 
-Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Sprachverknüpfungen `com_associations`. `AssociationsHelper.php` gibt es im Frontend und im Backend - letztere sehen wir uns als erstes an, die Frontend-Version kommt später in diesem Kapitel hinzu.
+Die Hilfsdatei `AssociationsHelper.php` ist die Schnittstelle zur Komponente Sprachverknüpfungen `com_associations`. `AssociationsHelper.php` gibt es im Frontend und im Backend - letztere sehen wir uns als erstes an, die Frontend-Version kommt später in diesem Kapitel an die Reihe.
 
 In dieser Helper-Datei stellen wir die Angaben bereit, die für unsere Komponente spezifisch sind, so dass die Joomla eigenen Routinen sich in unserer Komponente zurecht finden.
 
@@ -286,7 +282,6 @@ class AssociationsHelper extends AssociationExtensionHelper
 		];
 	}
 }
-
 ```
 
 <!-- prettier-ignore -->
@@ -527,7 +522,7 @@ abstract class RouteHelper
 
 Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Damit Joomla dieses Feld findet, gibt man den Pfad in der Form `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` als Parameter im `<fieldset>` an.
 
-Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zugeordnet wird.
+Außerdem fügen wir ein Feld hinzu, in dem ein Element einer Sprache zugeordnet wird.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -535,7 +530,7 @@ Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zug
  <?xml version="1.0" encoding="utf-8"?>
  <form>
 -	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
-+	<fieldset
++	<fieldset 
 +		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 +		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 +	>
@@ -545,7 +540,7 @@ Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zug
 
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
-
+ 
 +		<field
 +			name="language"
 +			type="contentlanguage"
@@ -557,7 +552,6 @@ Außerdem fügen wir ein Feld hinzu, in dem ein Element (Item) einer Sprache zug
  		<field
  			name="published"
  			type="list"
-
 ```
 
 <!-- prettier-ignore -->

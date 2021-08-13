@@ -52,7 +52,7 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 > Du kannst bei der neuen Variante auf die Überprüfung `if (!isset($this->message))` verzichten, weil die Anweisung `get('show_text', "Hi");` den Fehler abfängt, der auftritt, wenn der Parameter<!-- \index{Parameter} --> `show_text` nicht gesetzt ist. Immer dann, wenn der Wert `show_text` nicht gesetzt ist, wird der zweite Parameter `"Hi"` als Standard verwendet.
 
-Zusammen sieht die Datei in der Diff-Ansicht wie folgt aus:
+Die vollständige Datei sieht in der Diff-Ansicht wie folgt aus:
 
 [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
 
@@ -118,7 +118,7 @@ Den XML Eintrag
 />
 ```
 
-wandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code.
+verwandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code:
 
 ```html
 <div class="control-label">

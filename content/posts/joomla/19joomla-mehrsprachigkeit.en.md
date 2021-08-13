@@ -15,11 +15,7 @@ tags:
 
 With Joomla it is possible to set up a multilingual website without installing third party extensions. In this tutorial, I'll show you how to program your component to support language linking.<!-- \index{multilingual associations} -->
 
-> Differentiation multilingualism and language links: Multilingual content, menu items and language switches are set up with a standard Joomla installation without any additional extensions. Until version 3.7, Joomla required switching between views to translate content. Since 3.7 there is an improvement in usability, the so-called Multilingual Associations. With this extension, multilingual content can be created and linked in a user-friendly way. Thereby one remains in one view. The language links show incidentally which multilingual content is missing.
-
-![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x5.png)
-
-![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x6.png)
+> Multilingualism and language links: Multilingual content, menu items and language switches are set up with a standard Joomla installation without any additional extensions. Until version 3.7, Joomla required switching between views to translate content. Since 3.7 there is an improvement in usability, the so-called Multilingual Associations. With this extension, multilingual content can be created and linked in a user-friendly way. Thereby one remains in one view. The language links show incidentally which multilingual content is missing.
 
 The chapter is one of the most extensive in this series. For that it covers all areas of multilingualism and language links in Joomla.
 
@@ -29,7 +25,7 @@ The chapter is one of the most extensive in this series. For that it covers all 
 
 ### New files
 
-So that the language is saved to the element, we add a column to the database table. When updating, the script `15.0.0.sql` is the one that is executed for version 15.0.0.
+So that the language is saved to the element, we add a column to the database table. When updating the component, the script `15.0.0.sql` is the one that is executed for version 15.0.0.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-fa2e66efed41380705fb9f91c257ea9c)
@@ -50,7 +46,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
 
 The helper file `AssociationsHelper.php` is the interface to the language associations component `com_associations`. `AssociationsHelper.php` exists in the frontend and the backend - we'll look at the latter first, the frontend version comes later in this chapter.
 
-In this helper file we provide the details that are specific to our component, so that Joomla's own routines can find their way around our component.
+In this helper file we provide the details that are specific to our component, so that Joomla's own routines can find their way around in our component.
 
 [administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
@@ -317,7 +313,6 @@ We don't have any special requests, so we use the default template to edit the l
 use Joomla\CMS\Layout\LayoutHelper;
 
 echo LayoutHelper::render('joomla.edit.associations', $this);
-
 ```
 
 <!-- prettier-ignore -->
@@ -519,7 +514,6 @@ abstract class RouteHelper
 		return $link;
 	}
 }
-
 ```
 
 ### Modified files
@@ -529,7 +523,7 @@ abstract class RouteHelper
 
 We create a field through which an author selects the language link. In order for Joomla to find this field, we specify the path in the form `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
 
-We also add a field where an element (item) is assigned to a language.
+We also add a field where an item is assigned to a language.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -537,7 +531,7 @@ We also add a field where an element (item) is assigned to a language.
  <?xml version="1.0" encoding="utf-8"?>
  <form>
 -	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
-+	<fieldset
++	<fieldset 
 +		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 +		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 +	>
@@ -547,7 +541,7 @@ We also add a field where an element (item) is assigned to a language.
 
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
-
+ 
 +		<field
 +			name="language"
 +			type="contentlanguage"
@@ -559,7 +553,6 @@ We also add a field where an element (item) is assigned to a language.
  		<field
  			name="published"
  			type="list"
-
 ```
 
 <!-- prettier-ignore -->

@@ -13,7 +13,8 @@ tags:
   - Joomla
 ---
 
-Very few use custom fields in the administration area alone. As a rule, output is required in the frontend. We will address this question in the current part of the article series. How and where are user-defined fields in Joomla output in the frontend?<!-- \index{custom fields (frontend)} -->
+Very few use custom fields only in the administration area. As usual, an output in the frontend is required. We will address this question in the current part of the article series. How and where are custom fields in Joomla displayed in the frontend?
+<!-- \index{custom fields (frontend)} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] and incorporate these changes into your development version.
 
@@ -30,60 +31,61 @@ No new files are added in this chapter.
 
 Custom Fields display data in the frontend using events. The custom fields are displayed in three different places on the website. By default, the data is displayed before the content. This setting can be changed. Therefore we save the results of `onContentAfterTitle`, `onContentBeforeDisplay` and `onContentAfterDisplay`. We do this in the `View`.
 
-Specifically, we make sure that the events
+Specifically, we make sure that the events<!-- \index{Event!onContentAfterDisplay} --><!-- \index{Event!onContentBeforeDisplay} --><!-- \index{Event!onContentAfterTitle} -->
 
-- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle),
-- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay) and
-- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/Plugin/Events/Content#onContentAfterTitle],
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay] and
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay]
   are triggered and the result is stored in a variable.
+
+> Joomla uses the [observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)[^en.wikipedia.org/wiki/Observer_pattern] for event handling. This is a software design pattern where an object maintains a list of its dependents called observers and automatically notifies them of state changes, usually by calling one of their methods.
 
 [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
-
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * HTML Foos View class for the Foo component
-
+ class HtmlView extends BaseHtmlView
  	 */
  	public function display($tpl = null)
  	{
 -		$this->item = $this->get('Item');
 +		$item = $this->item = $this->get('Item');
 +
-+		Factory::getApplication()->triggerEvent('onContentPrepare', array ('com_foos.foo', &$item));
++		Factory::getApplication()->triggerEvent('onContentPrepare', ['com_foos.foo', &$item]);
 +
 +		// Store the events for later
 +		$item->event = new \stdClass;
-+		$results = Factory::getApplication()->triggerEvent('onContentAfterTitle', array('com_foos.foo', &$item, &$item->params));
++		$results = Factory::getApplication()->triggerEvent('onContentAfterTitle', ['com_foos.foo', &$item, &$item->params]);
 +		$item->event->afterDisplayTitle = trim(implode("\n", $results));
 +
-+		$results = Factory::getApplication()->triggerEvent('onContentBeforeDisplay', array('com_foos.foo', &$item, &$item->params));
++		$results = Factory::getApplication()->triggerEvent('onContentBeforeDisplay', ['com_foos.foo', &$item, &$item->params]);
 +		$item->event->beforeDisplayContent = trim(implode("\n", $results));
 +
-+		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', array('com_foos.foo', &$item, &$item->params));
++		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', ['com_foos.foo', &$item, &$item->params]);
 +		$item->event->afterDisplayContent = trim(implode("\n", $results));
-
+ 
  		return parent::display($tpl);
  	}
-
 ```
 
-> Via `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` in addition to the user-defined fields, other elements are output that are assigned to the respective event.
+> Via `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`, in addition to the custom fields, other elements are displayed that are mapped to the related event.
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
 
-In the template we output the user-defined fields. In our case, this is not extensive, so we write all the stored texts one after the other. In a more complex file we insert the statement in the appropriate place.
+IIn the template we display our custom fields. In our case, this is not complex, so we write all the stored texts one after the other. In a more complex file, the events are inserted at the correct place.
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  }
-
+ 
  echo $this->item->name;
 +
 +echo $this->item->event->afterDisplayTitle;
@@ -98,14 +100,14 @@ In the template we output the user-defined fields. In our case, this is not exte
 
 2. open the view of your component in the administration area. Click on the menu item 'Fields' in this new menu.
 
-![Integrate Joomla Custom Fields into a custom component](/images/j4x17x1.png)
+![Integrate Joomla Custom Fields into a custom component | Create field in backend.](/images/j4x17x1.png)
 
 3. after that create a custom field of type 'text', if you didn't do it in the previous chapter.
 
 4. edit a published foo item. Make sure you add a value to the custom field.
 
-![Integrate Joomla Custom Fields into a custom component](/images/j4x18x1.png)
+![Integrate Joomla Custom Fields into a custom component | Assign a value to the field in the backend.](/images/j4x18x1.png)
 
 5. at the end open the detail view of the just edited Foo item. You will see next to the previously existing values now additionally the text you entered in the custom field.
 
-![Integrate Joomla Custom Fields into a custom component](/images/j4x18x2.png)
+![Integrate Joomla Custom Fields into a custom component | Display value of the field in the frontend.](/images/j4x18x2.png)
