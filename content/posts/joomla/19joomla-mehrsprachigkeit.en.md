@@ -514,6 +514,7 @@ abstract class RouteHelper
 		return $link;
 	}
 }
+
 ```
 
 ### Modified files
@@ -521,9 +522,7 @@ abstract class RouteHelper
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-We create a field through which an author selects the language link. In order for Joomla to find this field, we specify the path in the form `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
-
-We also add a field where an item is assigned to a language.
+We create a field through which an author selects the language link. This is the field `name="language"`. In order for Joomla to find this field, we add the path in the form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -558,7 +557,7 @@ We also add a field where an item is assigned to a language.
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-In the provider we register our `AssociationsHelper` as a service that implements [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php). This way we make sure that all necessary functions are available.
+In the provider we register our `AssociationsHelper` as a service that implements [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php]. This way we ensure that all necessary functions are inherited into our component and are thus available.
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/services/provider.php)
 
@@ -568,28 +567,26 @@ In the provider we register our `AssociationsHelper` as a service that implement
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
 +use FooNamespace\Component\Foos\Administrator\Helper\AssociationsHelper;
 +use Joomla\CMS\Association\AssociationExtensionInterface;
-
+ 
  /**
   * The foos service provider.
 
  	 */
  	public function register(Container $container)
  	{
-);
 +		$container->set(AssociationExtensionInterface::class, new AssociationsHelper);
-('\\NamespaceJoomla\\Component\\Foos'));
-
- 		$container->set(
- 			ComponentInterface::class,
-
++
+ 		$container->registerServiceProvider(new CategoryFactory('\\FooNamespace\\Component\\Foos'));
+ 		$container->registerServiceProvider(new MVCFactory('\\FooNamespace\\Component\\Foos'));
+ 		$container->registerServiceProvider(new ComponentDispatcherFactory('\\FooNamespace\\Component\\Foos'));
+ function (Container $container) {
  				$component->setRegistry($container->get(Registry::class));
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
  				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
 +				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
-
+ 
  				return $component;
  			}
-
 ```
 
 <!-- prettier-ignore -->
@@ -601,7 +598,7 @@ In order for the language to be saved to the element, we add a column in the dat
 
 ```php {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
-
+ 
  ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
@@ -621,8 +618,9 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
 
 ```php {diff}
 
+ 
  defined('JPATH_PLATFORM') or die;
-
+ 
 +use Joomla\CMS\Association\AssociationServiceInterface;
 +use Joomla\CMS\Association\AssociationServiceTrait;
  use Joomla\CMS\Categories\CategoryServiceInterface;
@@ -633,13 +631,12 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
   * @since  __BUMP_VERSION__
   */
 -class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface
-+class FoosComponent extends MVCComponent
-+implements BootableExtensionInterface, CategoryServiceInterface, AssociationServiceInterface
++class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface, AssociationServiceInterface
  {
  	use CategoryServiceTrait;
 +	use AssociationServiceTrait;
  	use HTMLRegistryAwareTrait;
-
+ 
  	/**
 
 ```
@@ -655,19 +652,22 @@ We previously used the modal to select a Foo item using a popup when creating a 
  		// Setup variables for display.
  		$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'
  			. Session::getFormToken() . '=1';
+-		$linkFoo  = 'index.php?option=com_foos&amp;view=foo&amp;layout=modal&amp;tmpl=component&amp;'
+-			. Session::getFormToken() . '=1';
  		$modalTitle   = Text::_('COM_FOOS_CHANGE_FOO');
-
-+		if (isset($this->element['language']))
-+		{
+ 
++		if (isset($this->element['language'])) {
 +			$linkFoos .= '&amp;forcedLanguage=' . $this->element['language'];
 +			$modalTitle .= ' &#8212; ' . $this->element['label'];
 +		}
 +
  		$urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
-
- 		if ($value)
+ 
+ 		if ($value) {
 
 ```
+
+> Are you confused by the characters [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/en/2014/] or [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? They are quite harmless. `&#8212;` is nothing more than a [dash](https://en.wikipedia.org/wiki/Dash#En_dash)[en.wikipedia.org/wiki/Dash#En_dash]. `&amp;` stands for the ampersand character `&`. In HTML, the latter stands for the beginning of an entity reference. Thus it is a special character. If you use such a character in a text that is checked for security reasons, you should use the encoded entity `&amp;` - more technical stuff on [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/TR/xhtml1/guidelines.html#C_12]. For the dash, we use [Unicode](https://en.wikipedia.org/wiki/Unicode)[^en.wikipedia.org/wiki/Unicode]. The goal in this case is to unify the use of different and incompatible encodings in different countries or cultures.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
@@ -678,18 +678,18 @@ We adjust the model, with which data of an item is calculated, with concern to t
 
 ```php {diff}
  \defined('_JEXEC') or die;
-
+ 
  use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
  use Joomla\CMS\MVC\Model\AdminModel;
 +use Joomla\CMS\Language\LanguageHelper;
-
+ 
  /**
   * Item Model for a Foo.
-
+ class FooModel extends AdminModel
  	 */
  	public $typeAlias = 'com_foos.foo';
-
+ 
 +	/**
 +	 * The context used for the associations table
 +	 *
@@ -701,10 +701,10 @@ We adjust the model, with which data of an item is calculated, with concern to t
  	/**
  	 * Method to get the row form.
  	 *
-
+protected function loadFormData()
  		return $data;
  	}
-
+ 
 +	/**
 +	 * Method to get a single record.
 +	 *
@@ -721,16 +721,13 @@ We adjust the model, with which data of an item is calculated, with concern to t
 +		// Load associated foo items
 +		$assoc = Associations::isEnabled();
 +
-+		if ($assoc)
-+		{
-+			$item->associations = array();
++		if ($assoc) {
++			$item->associations = [];
 +
-+			if ($item->id != null)
-+			{
++			if ($item->id != null) {
 +				$associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $item->id, 'id', null);
 +
-+				foreach ($associations as $tag => $association)
-+				{
++				foreach ($associations as $tag => $association) {
 +					$item->associations[$tag] = $association->id;
 +				}
 +			}
@@ -752,20 +749,17 @@ We adjust the model, with which data of an item is calculated, with concern to t
 +	 */
 +	protected function preprocessForm(\JForm $form, $data, $group = 'content')
 +	{
-+		if (Associations::isEnabled())
-+		{
++		if (Associations::isEnabled()) {
 +			$languages = LanguageHelper::getContentLanguages(false, true, null, 'ordering', 'asc');
 +
-+			if (count($languages) > 1)
-+			{
++			if (count($languages) > 1) {
 +				$addform = new \SimpleXMLElement('<form />');
 +				$fields = $addform->addChild('fields');
 +				$fields->addAttribute('name', 'associations');
 +				$fieldset = $fields->addChild('fieldset');
 +				$fieldset->addAttribute('name', 'item_associations');
 +
-+				foreach ($languages as $language)
-+				{
++				foreach ($languages as $language) {
 +					$field = $fieldset->addChild('field');
 +					$field->addAttribute('name', $language->lang_code);
 +					$field->addAttribute('type', 'modal_foo');
@@ -907,7 +901,7 @@ In the list view model, besides adding the language information, it is important
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
-We implement the `association` service in `AdministratorService.php`. Via the ID the function returns the HTML markup for editing the language links.
+We implement the `association` service in `AdministratorService.php`. Via the ID the function returns the HTML markup for editing the language links.<!-- \index{Menüpunkt (Service!administrator)} -->
 
 [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 

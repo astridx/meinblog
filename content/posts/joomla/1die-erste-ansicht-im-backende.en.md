@@ -434,11 +434,13 @@ The file `DisplayController.php`<!-- \index{DisplayController (Backend)} --> is 
 
 The main task of this controller is to prepare the display. Therefore the default controller is called DisplayController. It calls the method `display()` of the parent class `BaseController` in the namespace `Joomla\CMS\MVC\Controller` - exactly this is the file `/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php`. In the Model-View-Controller model, controllers are often used to set up the start environment.
 
-Let's create the _DisplayController_. As always, we first create the _DocBlock_. Here is an example of a typical document block.
+Let's create the _DisplayController_. As always, we first create the _DocBlock_<!-- \index{DocBlock} -->. Here is an example of a typical document block.
 
 ![An example of a typical docblock in Joomla](/images/dockblock.png)
 
-How to create DocBlocks for Joomla is explained in the Joomla coding standards at [developer.joomla.org/ coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) and the pull request [github.com/joomla/joomla-cms/ pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
+> What does `__BUMP_VERSION__` or `__DEPLOY_VERSION__` stand for? Sometimes you see strange text like this in a _DocBlock_. For example in [PR 27712](https://github.com/joomla/joomla-cms/pull/27712/files)[^github.com/joomla/joomla-cms/pull/27712/files]. In Joomla, we put `__DEPLOY_VERSION__` in place of the version number of a new method we create. Since we don't know in which version this new code will be accepted in Joomla, we can't use a real version number. When the new code is added to the core, this strange string is automatically replaced with the current version number. In other systems `__BUMP_VERSION__` is common. I use `__BUMP_VERSION__` here as well.<!-- \index{DEPLOY_VERSION} --><!-- \index{DEPLOY_VERSION} -->
+
+How to create DocBlocks for Joomla is explained in the Joomla coding standards<!-- \index{coding standards} --> at [developer.joomla.org/ coding-standards/docblocks.html](https://developer.joomla.org/coding-standards/docblocks.html) and the pull request [github.com/joomla/joomla-cms/ pull/31504](https://github.com/joomla/joomla-cms/pull/31504).
 
 > A DocBlock is displayed before each class and before each function. All code contains DocBlock comments, which make it easier for automated tools to generate documentation. In addition it helps some IDEs to provide code completion. And sometimes the comment is helpful for programmers. I don't print the documentary blocks further here. In the code examples on Github, the DocBlocks are still present.
 
