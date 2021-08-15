@@ -664,7 +664,7 @@ Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-El
 
 ```
 
-> Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] `–`. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/TR/xhtml1/guidelines.html#C_12]. Beim Gedankenstrich `–` nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/Unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
+> Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] `-`. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/TR/xhtml1/guidelines.html#C_12]. Beim Gedankenstrich `-` nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/Unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
@@ -1119,24 +1119,24 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 > [Persisch](https://de.wikipedia.org/wiki/Persische_Sprache)[^de.wikipedia.org/wiki/persische_sprache] ist neben Arabic, Hebrew, Pashto, Urdu und Sindhi eine der am weitesten verbreiteten [RTL-Schreibsysteme](https://en.wikipedia.org/wiki/Right-to-left_script)[^wikipedia.org/wiki/right-to-left_script] der Neuzeit und kann deshalb zum Testen der RTL-Integration in Joomla verwendet werden. In einer _Rechts-nach-links, von oben nach unten_ [Schrift](https://de.wikipedia.org/wiki/Schrift)[^de.wikipedia.org/wiki/schrift] (häufig abgekürzt als _Rechts-nach-links_ oder abgekürzt als _RTL_) schreibt man auf einer Seite von rechts nach links, wobei neue Zeilen von oben nach unten geschrieben werden. Dies steht im Gegensatz zur _Links-nach-Rechts-Schreibweise_, bei der die Schrift von links beginnt und nach rechts fortgesetzt wird.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x1.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x1.png)
 
 4. Stelle über `System | Manage | Plugins` sicher, dass das Plugin `System - Language Filter` veröffentlicht ist.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x2.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x2.png)
 
 5. Öffne die Ansicht eines Items deiner Komponente im Administrationsbereich und überzeuge dich davon, dass der Status `Language` änderbar ist. Ändere diesen von `All` in eine beliebige Sprache.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x3.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x3.png)
 
 7. Spiele mit den Sprachverknüpfungen und überzeuge dich davon, dass alles korrekt verknüpft wird.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x4.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x4.png)
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x5.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x5.png)
 
 8. Erweitere die Tests auf die Komponente `Multilingual Associations`. Diese unterstützt deine Erweiterung ebenfalls.
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x7.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x7.png)
 
-![Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)
+![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)

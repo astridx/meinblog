@@ -347,7 +347,7 @@ Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Di
 }
 ```
 
-> Was bedeutet das Attribut `"defer": true`? Skripte werden mit `async` – asynchron/parallel zu anderen Ressourcen geladen. `defer` verspricht dem Browser, dass die Webseite nicht durch Anweisungen geändert wird. Weitere Informationen [bei Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)[^developer.mozilla.org/en-us/docs/web/html/element/script].
+> Was bedeutet das Attribut `"defer": true`? Skripte werden mit `async` - asynchron/parallel zu anderen Ressourcen geladen. `defer` verspricht dem Browser, dass die Webseite nicht durch Anweisungen geändert wird. Weitere Informationen [bei Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)[^developer.mozilla.org/en-us/docs/web/html/element/script].
 
 > Der Joomla Web Assets Manager verwaltet alle Assets in einer Joomla-Installation. Es ist nicht zwingend Skriptdateien oder Stylesheets über diesen Manager einzubinden. Es bringt allerdings Vorteile. Wenn Abhängigkeiten korrekt gesetzt sind, treten keine Konflikte auf und notwendige Dateien werden von Joomla geladen. Eine Abhängigkeit haben wir beispielsweise in der Zeile `"dependencies": ["core"],` gesetzt.
 
