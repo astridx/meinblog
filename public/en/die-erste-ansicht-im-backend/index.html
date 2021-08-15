@@ -381,7 +381,7 @@ The description of the component will be shown during installation and when you 
 <h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19">administrator/components/com_foos/ src/Controller/DisplayController.php</a></h4>
 <p>The file <code class="language-text">DisplayController.php</code><!-- \index{DisplayController (Backend)} --> is the entry point for the Model View Controller part in the administration area of the Foo component. Name the class <em>DisplayController</em>. Joomla expects it like this. Extend <em>BaseController</em> to use many things out-of-the-box.</p>
 <p>The main task of this controller is to prepare the display. Therefore the default controller is called DisplayController. It calls the method <code class="language-text">display()</code> of the parent class <code class="language-text">BaseController</code> in the namespace <code class="language-text">Joomla\CMS\MVC\Controller</code> - exactly this is the file <code class="language-text">/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php</code>. In the Model-View-Controller model, controllers are often used to set up the start environment.</p>
-<p>Let's create the <em>DisplayController</em>. As always, we first create the <em>DocBlock</em>. Here is an example of a typical document block.</p>
+<p>Let's create the <em>DisplayController</em>. As always, we first create the <em>DocBlock</em><!-- \index{DocBlock} -->. Here is an example of a typical document block.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -412,7 +412,10 @@ The description of the component will be shown during installation and when you 
       />
   </a>
     </span></p>
-<p>How to create DocBlocks for Joomla is explained in the Joomla coding standards at <a href="https://developer.joomla.org/coding-standards/docblocks.html">developer.joomla.org/ coding-standards/docblocks.html</a> and the pull request <a href="https://github.com/joomla/joomla-cms/pull/31504">github.com/joomla/joomla-cms/ pull/31504</a>.</p>
+<blockquote>
+<p>What does <code class="language-text">__BUMP_VERSION__</code> or <code class="language-text">__DEPLOY_VERSION__</code> stand for? Sometimes you see strange text like this in a <em>DocBlock</em>. For example in <a href="https://github.com/joomla/joomla-cms/pull/27712/files">PR 27712</a><sup id="fnref-github.com/joomla/joomla-cms/pull/27712/files"><a href="#fn-github.com/joomla/joomla-cms/pull/27712/files" class="footnote-ref">github.com/joomla/joomla-cms/pull/27712/files</a></sup>. In Joomla, we put <code class="language-text">__DEPLOY_VERSION__</code> in place of the version number of a new method we create. Since we don't know in which version this new code will be accepted in Joomla, we can't use a real version number. When the new code is added to the core, this strange string is automatically replaced with the current version number. In other systems <code class="language-text">__BUMP_VERSION__</code> is common. I use <code class="language-text">__BUMP_VERSION__</code> here as well.<!-- \index{DEPLOY_VERSION} --><!-- \index{DEPLOY_VERSION} --></p>
+</blockquote>
+<p>How to create DocBlocks for Joomla is explained in the Joomla coding standards<!-- \index{coding standards} --> at <a href="https://developer.joomla.org/coding-standards/docblocks.html">developer.joomla.org/ coding-standards/docblocks.html</a> and the pull request <a href="https://github.com/joomla/joomla-cms/pull/31504">github.com/joomla/joomla-cms/ pull/31504</a>.</p>
 <blockquote>
 <p>A DocBlock is displayed before each class and before each function. All code contains DocBlock comments, which make it easier for automated tools to generate documentation. In addition it helps some IDEs to provide code completion. And sometimes the comment is helpful for programmers. I don't print the documentary blocks further here. In the code examples on Github, the DocBlocks are still present.</p>
 </blockquote>
