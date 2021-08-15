@@ -79,11 +79,6 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
-use FooNamespace\Module\Foo\Site\Helper\FooHelper;
-
-$test  = FooHelper::getText();
-
-$url = $params->get('domain');
 
 require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 
@@ -127,7 +122,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 `default.php` ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird. `echo '[PROJECT_NAME]';` sorgt dafür, dass der Name des Projekts im Frontend an der Position angezeigt wird, an der das Modul veröffentlicht ist.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/tmpl/default.php
+// https://github.com/astridx/boilerplate/raw/t31/src/modules/mod_foo/tmpl/default.php
 
 <?php
 /**

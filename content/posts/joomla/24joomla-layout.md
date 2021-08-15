@@ -30,7 +30,7 @@ Wir nutzen bereits Layouts. Das Empty State Layout (`administrator/components/co
 
 ```php {numberLines: -2}
 <?php
-// https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withhead.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/foo/withhead.php
 
 \defined('_JEXEC') or die;
 
@@ -58,7 +58,7 @@ echo $this->item->event->afterDisplayContent;
 [components/com_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withhead.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/foo/withhead.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
@@ -94,7 +94,7 @@ echo $this->item->event->afterDisplayContent;
 [components/com_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/85d92ab0e9f18bfb01341ffec184818b0a2f5545/src/components/com_foos/tmpl/foo/withheadandfoot.php
+// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/foo/withheadandfoot.php
 
 <?php
 

@@ -39,7 +39,7 @@ In this section we will add a module. There are some basic files that are used i
 This file provides the texts for for general translation.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
@@ -51,7 +51,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 This file provides the texts for menu and installation routine.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
@@ -64,7 +64,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 `mod_foo.php` is the main entry point into the module. The file executes the initialization routines, calls helper routines to collect all the required data, and calls the template where the module output is displayed.
 
 ```php
-// https://raw.githubusercontent.com/astridx/boilerplate/tutorial/src/modules/mod_foo/mod_foo.php
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/mod_foo.php
 
 <?php
 /**
@@ -97,7 +97,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 `mod_foo.xml` defines the files that are copied by the installation routine and specifies configuration parameters for the module. You already know this from the previously created extensions.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/mod_foo.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/mod_foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">
@@ -127,7 +127,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 `default.php` is the template. This file takes the data collected by `mod_foo.php` and generates the HTML code that is displayed on the page. `echo '[PROJECT_NAME]';` ensures that the name of the project is displayed in the frontend at the position where the module is published.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/a45646218b9814967123a5fdbea27cbabc8a6293/src/modules/mod_foo/tmpl/default.php
+// https://github.com/astridx/boilerplate/raw/t31/src/modules/mod_foo/tmpl/default.php
 
 <?php
 /**

@@ -44,23 +44,26 @@ Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualt
 ```js {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t11b/src/media/com_foos/js/admin-foos-letter.js
 
-document.addEventListener('DOMContentLoaded', function () {
-  'use strict'
-  setTimeout(function () {
-    if (document.formvalidator) {
-      document.formvalidator.setHandler('letter', function (value) {
-        var returnedValue = false
+document.addEventListener('DOMContentLoaded', function(){
+	"use strict";
+	setTimeout(function() {
+		if (document.formvalidator) {
+			document.formvalidator.setHandler('letter', function (value) {
 
-        var regex = /^([a-z]+)$/i
+				var returnedValue = false;
 
-        if (regex.test(value)) returnedValue = true
+				var regex = /^([a-z]+)$/i;
 
-        return returnedValue
-      })
-      //console.log(document.formvalidator);
-    }
-  }, 1000)
-})
+				if (regex.test(value))
+					returnedValue = true;
+
+				return returnedValue;
+			});
+			//console.log(document.formvalidator);
+		}
+	}, (1000));
+});
+
 ```
 
 ### Geänderte Dateien
