@@ -690,12 +690,6 @@ We extend the model `administrator/components/com_foos/ src/Model/FooModel.php` 
  	 */
  	public $typeAlias = 'com_foos.foo';
  
-+	/**
-+	 * The context used for the associations table
-+	 *
-+	 * @var    string
-+	 * @since  __BUMP_VERSION__
-+	 */
 +	protected $associationsContext = 'com_foos.item';
 +
  	/**
@@ -705,15 +699,6 @@ protected function loadFormData()
  		return $data;
  	}
  
-+	/**
-+	 * Method to get a single record.
-+	 *
-+	 * @param   integer  $pk  The id of the primary key.
-+	 *
-+	 * @return  mixed  Object on success, false on failure.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function getItem($pk = null)
 +	{
 +		$item = parent::getItem($pk);
@@ -736,17 +721,6 @@ protected function loadFormData()
 +		return $item;
 +	}
 +
-+	/**
-+	 * Preprocess the form.
-+	 *
-+	 * @param   \JForm  $form   Form object.
-+	 * @param   object  $data   Data object.
-+	 * @param   string  $group  Group name.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function preprocessForm(\JForm $form, $data, $group = 'content')
 +	{
 +		if (Associations::isEnabled()) {
@@ -790,7 +764,7 @@ protected function loadFormData()
 
 > Note: `FooModel.php` is the model which calculates the data for an element. `FoosModel.php` - note the `s` - is the list view model - it handles data for a group of elements.
 
-In the list view model, besides adding the language information, it is important to update the state via `populateState`. Otherwise the appropriate language will not be active at all times. The state contains the information which language is active.
+In the model of the list, besides adding the language information, it is important to update the state via `populateState`. Otherwise the correct language will not be active at each time. The state includes the information which language is active.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -856,18 +830,6 @@ In the list view model, besides adding the language information, it is important
  		return $query;
  	}
 +
-+	/**
-+	 * Method to auto-populate the model state.
-+	 *
-+	 * Note. Calling getState in this method will result in recursion.
-+	 *
-+	 * @param   string  $ordering   An optional ordering field.
-+	 * @param   string  $direction  An optional direction (asc|desc).
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function populateState($ordering = 'a.name', $direction = 'asc')
 +	{
 +		$app = Factory::getApplication();
@@ -906,40 +868,26 @@ We implement the `association` service in `AdministratorService.php`. Via the ID
 [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
-defined('JPATH_BASE') or die;
-
+ 
+ defined('JPATH_BASE') or die;
+ 
 +use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Language\Text;
 +use Joomla\CMS\Layout\LayoutHelper;
 +use Joomla\CMS\Router\Route;
-+
- /**
-  * Foo HTML class.
-  *
 
-  */
  class AdministratorService
  {
-+	/**
-+	 * Get the associated language flags
-+	 *
-+	 * @param   integer  $fooid  The item id to search associations
-+	 *
-+	 * @return  string  The language HTML
-+	 *
-+	 * @throws  Exception
-+	 */
+
 +	public function association($fooid)
 +	{
 +		// Defaults
 +		$html = '';
 +
 +		// Get the associations
-+		if ($associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $fooid, 'id', null))
-+		{
-+			foreach ($associations as $tag => $associated)
-+			{
++		if ($associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $fooid, 'id', null)) {
++			foreach ($associations as $tag => $associated) {
 +				$associations[$tag] = (int) $associated->id;
 +			}
 +
@@ -958,19 +906,14 @@ defined('JPATH_BASE') or die;
 +				->select('l.title as language_title');
 +			$db->setQuery($query);
 +
-+			try
-+			{
++			try {
 +				$items = $db->loadObjectList('id');
-+			}
-+			catch (\RuntimeException $e)
-+			{
++			} catch (\RuntimeException $e) {
 +				throw new \Exception($e->getMessage(), 500, $e);
 +			}
 +
-+			if ($items)
-+			{
-+				foreach ($items as &$item)
-+				{
++			if ($items) {
++				foreach ($items as &$item) {
 +					$text = strtoupper($item->lang_sef);
 +					$url = Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id);
 +					$tooltip = '<strong>' . htmlspecialchars($item->language_title, ENT_QUOTES, 'UTF-8') . '</strong><br>'
@@ -1001,10 +944,9 @@ If only one language is possible or changing it is not desired, we set the value
 ```php {diff}
  		$this->form  = $this->get('Form');
  		$this->item = $this->get('Item');
-
+ 
 +		// If we are forcing a language in modal (used for associations).
-+		if ($this->getLayout() === 'modal' && $forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'cmd'))
-+		{
++		if ($this->getLayout() === 'modal' && $forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'cmd')) {
 +			// Set the language field to the forcedLanguage and disable changing it.
 +			$this->form->setValue('language', null, $forcedLanguage);
 +			$this->form->setFieldAttribute('language', 'readonly', 'true');
@@ -1014,7 +956,7 @@ If only one language is possible or changing it is not desired, we set the value
 +		}
 +
  		$this->addToolbar();
-
+ 
  		return parent::display($tpl);
 
 ```
@@ -1027,37 +969,31 @@ The view of the list should contain the sidebar and the toolbar if it is not a m
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
+ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Toolbar\Toolbar;
  use Joomla\CMS\Toolbar\ToolbarHelper;
- use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * View class for a list of foos.
-
- 	{
- 		$this->items = $this->get('Items');
-
+ public function display($tpl = null): void
+ 			$this->setLayout('emptystate');
+ 		}
+ 
 -		$this->addToolbar();
--		$this->sidebar = \JHtmlSidebar::render();
-
 +		// We don't need toolbar in the modal window.
-+		if ($this->getLayout() !== 'modal')
-+		{
++		if ($this->getLayout() !== 'modal') {
 +			$this->addToolbar();
 +			$this->sidebar = \JHtmlSidebar::render();
-+		}
-+		else
-+		{
++		} else {
 +			// In article associations modal we need to remove language filter if forcing a language.
 +			// We also need to change the category filter to show show categories with All or the forced language.
-+			if ($forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'CMD'))
-+			{
++			if ($forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'CMD')) {
 +				// If the language is forced we can't allow to select the language, so transform the language selector filter into a hidden field.
 +				$languageXml = new \SimpleXMLElement('<field name="language" type="hidden" default="' . $forcedLanguage . '" />');
 +			}
 +		}
-
+ 
  		parent::display($tpl);
  	}
 
@@ -1066,12 +1002,13 @@ The view of the list should contain the sidebar and the toolbar if it is not a m
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-In the form for editing an element we add a form field for setting the language.
+In the form for editing an element we add a form field for specifying the language. For this we use the layout `administrator/components/com_foos/ tmpl/foo/edit_associations.php` created earlier in this part. 
+
+> Why the layout `edit_associations.php` is called in the file `edit.php` with the name `associations`, you might already think. In the part about the layouts, I go into this in more detail.
 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
-
  use Joomla\CMS\Factory;
  use Joomla\CMS\HTML\HTMLHelper;
 +use Joomla\CMS\Language\Associations;
@@ -1081,12 +1018,12 @@ In the form for editing an element we add a form field for setting the language.
 
  $app = Factory::getApplication();
  $input = $app->input;
-
+ 
 +$assoc = Associations::isEnabled();
 +
-+$this->ignore_fieldsets = array('item_associations');
++$this->ignore_fieldsets = ['item_associations'];
  $this->useCoreUI = true;
-
+ 
  $wa = $this->document->getWebAssetManager();
 
  						<?php echo $this->getForm()->renderField('publish_up'); ?>
@@ -1098,15 +1035,15 @@ In the form for editing an element we add a form field for setting the language.
  			</div>
  		</div>
  		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-
+ 		
 +		<?php if ($assoc) : ?>
 +			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 +			<?php echo $this->loadTemplate('associations'); ?>
 +			<?php echo HTMLHelper::_('uitab.endTab'); ?>
 +		<?php endif; ?>
-+
++		
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
-
+ 
  		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 
 ```
@@ -1145,9 +1082,6 @@ In the components overview in the administration area, we add columns to display
 +										<?php echo Text::_('JGRID_HEADING_LANGUAGE'); ?>
 +									</th>
 +								<?php endif; ?>
-+								<th scope="col" style="width:1%; min-width:85px" class="text-center">
-+									<?php echo Text::_('JSTATUS'); ?>
-+								</th>
  								<th scope="col">
  									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_ID'); ?>
  								</th>

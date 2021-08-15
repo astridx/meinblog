@@ -761,7 +761,7 @@ protected function loadFormData()
 
 > Achtung: `FooModel.php` ist das Model welches die Daten für ein Element berechnet. `FoosModel.php` - beachte das `s` - ist das Model der Listenansicht - es behandelt Daten für eine Gruppe von Elementen.
 
-Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig, den Status über `populateState` zu aktualisieren. Anderfalls ist nicht jederzeit die passende Sprache aktiv. Der Status beinhaltet die Information, welche Sprache aktiv ist.
+Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig, den Status über `populateState` zu aktualisieren. Andernfalls ist nicht jederzeit die passende Sprache aktiv. Der Status beinhaltet die Information, welche Sprache aktiv ist.
 
 [administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
@@ -860,31 +860,26 @@ Wir implementieren den Service `association` in `AdministratorService.php`. Übe
 [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
-defined('JPATH_BASE') or die;
-
+ 
+ defined('JPATH_BASE') or die;
+ 
 +use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Language\Text;
 +use Joomla\CMS\Layout\LayoutHelper;
 +use Joomla\CMS\Router\Route;
-+
- /**
-  * Foo HTML class.
-  *
 
-  */
  class AdministratorService
  {
+
 +	public function association($fooid)
 +	{
 +		// Defaults
 +		$html = '';
 +
 +		// Get the associations
-+		if ($associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $fooid, 'id', null))
-+		{
-+			foreach ($associations as $tag => $associated)
-+			{
++		if ($associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $fooid, 'id', null)) {
++			foreach ($associations as $tag => $associated) {
 +				$associations[$tag] = (int) $associated->id;
 +			}
 +
@@ -903,19 +898,14 @@ defined('JPATH_BASE') or die;
 +				->select('l.title as language_title');
 +			$db->setQuery($query);
 +
-+			try
-+			{
++			try {
 +				$items = $db->loadObjectList('id');
-+			}
-+			catch (\RuntimeException $e)
-+			{
++			} catch (\RuntimeException $e) {
 +				throw new \Exception($e->getMessage(), 500, $e);
 +			}
 +
-+			if ($items)
-+			{
-+				foreach ($items as &$item)
-+				{
++			if ($items) {
++				foreach ($items as &$item) {
 +					$text = strtoupper($item->lang_sef);
 +					$url = Route::_('index.php?option=com_foos&task=foo.edit&id=' . (int) $item->id);
 +					$tooltip = '<strong>' . htmlspecialchars($item->language_title, ENT_QUOTES, 'UTF-8') . '</strong><br>'
@@ -946,10 +936,9 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 ```php {diff}
  		$this->form  = $this->get('Form');
  		$this->item = $this->get('Item');
-
+ 
 +		// If we are forcing a language in modal (used for associations).
-+		if ($this->getLayout() === 'modal' && $forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'cmd'))
-+		{
++		if ($this->getLayout() === 'modal' && $forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'cmd')) {
 +			// Set the language field to the forcedLanguage and disable changing it.
 +			$this->form->setValue('language', null, $forcedLanguage);
 +			$this->form->setFieldAttribute('language', 'readonly', 'true');
@@ -959,7 +948,7 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 +		}
 +
  		$this->addToolbar();
-
+ 
  		return parent::display($tpl);
 
 ```
@@ -972,37 +961,31 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
+ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Toolbar\Toolbar;
  use Joomla\CMS\Toolbar\ToolbarHelper;
- use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * View class for a list of foos.
-
- 	{
- 		$this->items = $this->get('Items');
-
+ public function display($tpl = null): void
+ 			$this->setLayout('emptystate');
+ 		}
+ 
 -		$this->addToolbar();
--		$this->sidebar = \JHtmlSidebar::render();
-
 +		// We don't need toolbar in the modal window.
-+		if ($this->getLayout() !== 'modal')
-+		{
++		if ($this->getLayout() !== 'modal') {
 +			$this->addToolbar();
 +			$this->sidebar = \JHtmlSidebar::render();
-+		}
-+		else
-+		{
++		} else {
 +			// In article associations modal we need to remove language filter if forcing a language.
 +			// We also need to change the category filter to show show categories with All or the forced language.
-+			if ($forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'CMD'))
-+			{
++			if ($forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'CMD')) {
 +				// If the language is forced we can't allow to select the language, so transform the language selector filter into a hidden field.
 +				$languageXml = new \SimpleXMLElement('<field name="language" type="hidden" default="' . $forcedLanguage . '" />');
 +			}
 +		}
-
+ 
  		parent::display($tpl);
  	}
 
@@ -1011,12 +994,14 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festlegen der Sprache ein.
+In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur Angabe der Sprache ein. Dazu verwenden wir das Layout `administrator/components/com_foos/ tmpl/foo/edit_associations.php`, das wir zuvor in diesem Teil erstellten. 
+
+> Warum das Layout `edit_associations.php` in der Datei `edit.php` mit dem Namen `associations` aufgerufen wird, denkst du dir vielleicht bereits. In dem Teil über die Layouts gehe ich darauf näher ein.
 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
-
+ 
  use Joomla\CMS\Factory;
  use Joomla\CMS\HTML\HTMLHelper;
 +use Joomla\CMS\Language\Associations;
@@ -1026,12 +1011,12 @@ Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festle
 
  $app = Factory::getApplication();
  $input = $app->input;
-
+ 
 +$assoc = Associations::isEnabled();
 +
-+$this->ignore_fieldsets = array('item_associations');
++$this->ignore_fieldsets = ['item_associations'];
  $this->useCoreUI = true;
-
+ 
  $wa = $this->document->getWebAssetManager();
 
  						<?php echo $this->getForm()->renderField('publish_up'); ?>
@@ -1043,15 +1028,15 @@ Im Formular zum Editieren eines Elementes fügen wir ein Formularfeld zum Festle
  			</div>
  		</div>
  		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-
+ 		
 +		<?php if ($assoc) : ?>
 +			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 +			<?php echo $this->loadTemplate('associations'); ?>
 +			<?php echo HTMLHelper::_('uitab.endTab'); ?>
 +		<?php endif; ?>
-+
++		
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
-
+ 
  		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 
 ```
@@ -1090,9 +1075,6 @@ In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalte
 +										<?php echo Text::_('JGRID_HEADING_LANGUAGE'); ?>
 +									</th>
 +								<?php endif; ?>
-+								<th scope="col" style="width:1%; min-width:85px" class="text-center">
-+									<?php echo Text::_('JSTATUS'); ?>
-+								</th>
  								<th scope="col">
  									<?php echo Text::_('COM_FOOS_TABLE_TABLEHEAD_ID'); ?>
  								</th>
