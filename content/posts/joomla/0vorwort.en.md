@@ -173,11 +173,11 @@ Additionally, the default controller, which in Joomla 3 is just called Controlle
 
 Do you need an empty file `index.html` in each folder of your component? The `index.html` is no longer needed, as that is directory listings [not allowed in the default configuration](https://github.com/joomla/joomla-cms/pull/4171)[^github.com/joomla/joomla-cms/pull/4171]. If you are further interested read the discussion on the topic in the [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s)[^groups.google.com/forum/#!topic/joomla-dev-cms/en1g7qouw2s].
 
-### Technical requirements<!-- \index{Technical requirements} -->
+### Technical requirements<!-- \index{technical requirements} -->
 
 Do you know how those responsible at Joomla decide which functions are supported and what is not pursued further? That's what the [statistics plugin](https://developer.joomla.org/about/stats.html)[^developer.joomla.org/about/stats.html] is for. Thanks to the users who activate this extension, important information flows into the development.
 
-### Alternative syntax<!-- \index{Alternative syntax PHP} --> for control structures
+### Alternative syntax<!-- \index{alternative syntax PHP} --> for control structures
 
 PHP offers an [additional notation](https://www.php.net/manual/en/control-structures.alternative-syntax.php) for control structures. This is especially handy when outputting larger blocks of HTML directly - without using `echo`. Use them in template files. This way they remain clear.
 
@@ -209,7 +209,7 @@ As an extension developer, you ideally develop your extension so that the databa
 
 Where do you best store JavaScript, CSS and image files? Store these data in the directory `media` in the Joomla root directory. This way it is possible to overwrite them. This is particularly advantageous for CSS files to make the design of the whole Joomla Website consistent. The [Best Practice Guidelines](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/development_best_practices] also recommend this.
 
-### Fontawesome Icons<!-- \index{Fontawesome Icons} -->
+### Fontawesome Icons<!-- \index{Fontawesome} -->
 
 You want to use icons but don't want to add your own library. Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla Fontawesome is delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] is sufficient.
 
