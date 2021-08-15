@@ -190,13 +190,6 @@ To ensure that a category already exists at the beginning, we add the script tha
  		return true;
  	}
 +
-+	/**
-+	 * Retrieve the admin user id.
-+	 *
-+	 * @return  integer|boolean  One Administrator ID.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	private function getAdminId()
 +	{
 +		$db    = Factory::getDbo();
@@ -300,16 +293,6 @@ Additionally, implementations are required in the component class to use Joomla'
  		$this->getRegistry()->register('foosadministrator', new AdministratorService);
  	}
 +
-+	/**
-+	 * Adds Count Items for Category Manager.
-+	 *
-+	 * @param   \stdClass[]  $items    The category objects
-+	 * @param   string       $section  The section
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function countItems(array $items, string $section)
 +	{
 +		try
@@ -329,15 +312,6 @@ Additionally, implementations are required in the component class to use Joomla'
 +		}
 +	}
 +
-+	/**
-+	 * Returns the table for the count items functions for the given section.
-+	 *
-+	 * @param   string  $section  The section
-+	 *
-+	 * @return  string|null
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function getTableNameForSection(string $section = null)
 +	{
 +		return ($section === 'category' ? 'categories' : 'foos_details');

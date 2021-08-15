@@ -108,15 +108,6 @@ The `populateState` method ensures that the `State` object is populated and acce
  		return $this->_item[$pk];
  	}
 +
-+	/**
-+	 * Method to auto-populate the model state.
-+	 *
-+	 * Note. Calling getState in this method will result in recursion.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function populateState()
 +	{
 +		$app = Factory::getApplication();

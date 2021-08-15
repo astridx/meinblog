@@ -211,15 +211,6 @@ The component class receives the new function 'getStateColumnForSection'. This i
  		return ($section === 'category' ? 'categories' : 'foos_details');
  	}
 +
-+	/**
-+	 * Returns the state column for the count items functions for the given section.
-+	 *
-+	 * @param   string  $section  The section
-+	 *
-+	 * @return  string|null
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function getStateColumnForSection(string $section = null)
 +	{
 +		return 'published';
@@ -262,14 +253,6 @@ We need `store($updateNulls = true)` because the parent class `Table` sets the v
  		return $this->alias;
  	}
 +
-+	/**
-+	 * Overloaded check function
-+	 *
-+	 * @return  boolean
-+	 *
-+	 * @see     Table::check
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function check()
 +	{
 +		try {
@@ -299,15 +282,6 @@ We need `store($updateNulls = true)` because the parent class `Table` sets the v
 +		return true;
 +	}
 +
-+	/**
-+	 * Stores a foo.
-+	 *
-+	 * @param   boolean  $updateNulls  True to update fields even if they are null.
-+	 *
-+	 * @return  boolean  True on success, false on failure.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function store($updateNulls = true)
 +	{
 +		return parent::store($updateNulls);

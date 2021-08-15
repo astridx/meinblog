@@ -233,11 +233,6 @@ In the view we get the items at the end. For this we call the method `$this->get
   */
  class HtmlView extends BaseHtmlView
  {
-+	/**
-+	 * An array of items
-+	 *
-+	 * @var  array
-+	 */
 +	protected $items;
 +
  	/**

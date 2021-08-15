@@ -233,11 +233,6 @@ In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode `$thi
   */
  class HtmlView extends BaseHtmlView
  {
-+	/**
-+	 * An array of items
-+	 *
-+	 * @var  array
-+	 */
 +	protected $items;
 +
  	/**

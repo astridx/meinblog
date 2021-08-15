@@ -1931,13 +1931,6 @@ In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hie
  		parent::display($tpl);
  	}
 +
-+	/**
-+	 * Add the page title and toolbar.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function addToolbar()
 +	{
 +		// Get the toolbar object instance

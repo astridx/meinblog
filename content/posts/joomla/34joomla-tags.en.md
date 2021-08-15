@@ -100,13 +100,6 @@ In the installation script, we make sure that our extension is recognised as a s
  		return $id;
  	}
 +
-+	/**
-+	 * Adding content_type for tags.
-+	 *
-+	 * @return  integer|boolean  One Administrator ID.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	private function saveContentTypes()
 +	{
 +		$table = Table::getInstance('Contenttype', 'JTable');

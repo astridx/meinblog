@@ -129,15 +129,6 @@ Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betracht
   */
  class FooController extends FormController
  {
-+	/**
-+	 * Method to run batch operations.
-+	 *
-+	 * @param   object  $model  The model.
-+	 *
-+	 * @return  boolean   True if successful, false otherwise and internal error is set.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function batch($model = null)
 +	{
 +		$this->checkToken();
@@ -163,18 +154,8 @@ Im Model geben wir an, ob das Kopieren und Verschieben unterstützt wird. Im Fal
 ```php {diff}
 protected $associationsContext = 'com_foos.item';
 
-+	/**
-+	 * Batch copy/move command. If set to false, the batch copy/move command is not supported
-+	 *
-+	 * @var  string
-+	 */
 +	protected $batch_copymove = 'category_id';
 +
-+	/**
-+	 * Allowed batch commands
-+	 *
-+	 * @var array
-+	 */
 +	protected $batch_commands = array(
 +		'assetgroup_id' => 'batchAccess',
 +		'language_id'   => 'batchLanguage',

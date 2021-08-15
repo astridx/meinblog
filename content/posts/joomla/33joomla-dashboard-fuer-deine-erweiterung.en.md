@@ -29,7 +29,7 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 [administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/7d68b12d50e602b39b39f2459dccfa8d507b31e9/src/administrator/components/com_foos/presets/foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/7d68b12d50e602b39b39f2459dccfa8d507b31e9/src/administrator/components/com_foos/presets/foos.xml -->
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/t28/src/administrator/components/com_foos/presets/foos.xml -->
 
 <?xml version="1.0"?>
 <menu
@@ -87,7 +87,6 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
 +			</params>
 +		</menu>
  		<submenu>
--			<menu link="option=com_foos">COM_FOOS</menu>
 +			<menu link="option=com_foos">
 +				COM_FOOS
 +				<params>
@@ -95,18 +94,18 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
 +					<menu-quicktask>index.php?option=com_foos&amp;view=foo&amp;layout=edit</menu-quicktask>
 +				</params>
 +			</menu>
- 			<menu link="option=com_categories&amp;extension=com_foos"
--				view="categories" img="class:foos-cat" alt="Foos/Categories">JCATEGORY</menu>
-+				view="categories" img="class:foos-cat" alt="Foos/Categories">
+ 			<menu link="option=com_foos">COM_FOOS</menu>
+-			<menu link="option=com_categories&amp;extension=com_foos">JCATEGORY</menu>
++			<menu link="option=com_categories&amp;extension=com_foos">
 +				JCATEGORY
 +				<params>
 +					<menu-quicktask-title>JCATEGORY</menu-quicktask-title>
 +					<menu-quicktask>index.php?option=com_categories&amp;view=category&amp;layout=edit&amp;extension=com_foos</menu-quicktask>
 +				</params>
 +			</menu>
+ 			<menu link="option=com_fields&amp;context=com_foos.foo">JGLOBAL_FIELDS</menu>
+ 			<menu link="option=com_fields&amp;view=groups&amp;context=com_foos.foo">JGLOBAL_FIELD_GROUPS</menu>
  		</submenu>
- 		<files folder="administrator/components/com_foos">
- 			<filename>access.xml</filename>
 
 ```
 
@@ -122,7 +121,7 @@ In the installation script we add the call. With this, we call a Joomla-specific
  use Joomla\CMS\Log\Log;
  use Joomla\CMS\Table\Table;
 +use Joomla\CMS\Installer\InstallerScript;
-
+ 
  /**
   * Script file of Foo Component
   *
@@ -133,23 +132,24 @@ In the installation script we add the call. With this, we call a Joomla-specific
  {
  	/**
  	 * Minimum Joomla version to check
-
+ public function install($parent): bool
  			return false;
  		}
-
+ 
 +		$this->addDashboardMenu('foos', 'foos');
 +
  		return true;
  	}
-
-
+ 
+ public function update($parent): bool
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
-
+ 
 +		$this->addDashboardMenu('foo', 'foo');
 +
  		return true;
  	}
+
 ```
 
 ## Test your Joomla component

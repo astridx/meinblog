@@ -664,14 +664,12 @@ Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-El
 
 ```
 
-> Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich]. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/TR/xhtml1/guidelines.html#C_12]. Beim Gedankenstrich nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/Unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
-
-Letzteres wird in HTML für die Beschreibung von & als darstellbares Zeichen &AMP ("Ampersand") verwendet, weil "&" alleine bereits eine HTML Funktion zugewiesen ist
+> Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] `–`. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/TR/xhtml1/guidelines.html#C_12]. Beim Gedankenstrich `–` nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/Unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
-Das Model, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
+Das Model `administrator/components/com_foos/ src/Model/FooModel.php`, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
 
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FooModel.php)
 
@@ -689,12 +687,6 @@ Das Model, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich
  	 */
  	public $typeAlias = 'com_foos.foo';
  
-+	/**
-+	 * The context used for the associations table
-+	 *
-+	 * @var    string
-+	 * @since  __BUMP_VERSION__
-+	 */
 +	protected $associationsContext = 'com_foos.item';
 +
  	/**
@@ -704,15 +696,6 @@ protected function loadFormData()
  		return $data;
  	}
  
-+	/**
-+	 * Method to get a single record.
-+	 *
-+	 * @param   integer  $pk  The id of the primary key.
-+	 *
-+	 * @return  mixed  Object on success, false on failure.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function getItem($pk = null)
 +	{
 +		$item = parent::getItem($pk);
@@ -735,17 +718,6 @@ protected function loadFormData()
 +		return $item;
 +	}
 +
-+	/**
-+	 * Preprocess the form.
-+	 *
-+	 * @param   \JForm  $form   Form object.
-+	 * @param   object  $data   Data object.
-+	 * @param   string  $group  Group name.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function preprocessForm(\JForm $form, $data, $group = 'content')
 +	{
 +		if (Associations::isEnabled()) {
@@ -795,32 +767,32 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 
 ```php {diff}
  \defined('_JEXEC') or die;
-
+ 
  use Joomla\CMS\MVC\Model\ListModel;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Factory;
-
+ 
  /**
   * Methods supporting a list of foo records.
-
-
+ protected function getListQuery()
+ 
  		// Select the required fields from the table.
  		$query->select(
--			$db->quoteName(array('a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'))
+-			$db->quoteName(['a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'])
 +			$db->quoteName(
-+				array(
++				[
 +					'a.id', 'a.name', 'a.alias', 'a.access',
 +					'a.catid', 'a.published', 'a.publish_up', 'a.publish_down',
 +					'a.language'
-+				)
++				]
 +			)
  		);
-
+ 
  		$query->from($db->quoteName('#__foos_details', 'a'));
-
+ protected function getListQuery()
  				$db->quoteName('#__categories', 'c') . ' ON ' . $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid')
  			);
-
+ 
 +		// Join over the language
 +		$query->select($db->quoteName('l.title', 'language_title'))
 +			->select($db->quoteName('l.image', 'language_image'))
@@ -830,8 +802,7 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 +			);
 +
 +		// Join over the associations.
-+		if (Associations::isEnabled())
-+		{
++		if (Associations::isEnabled()) {
 +			$subQuery = $db->getQuery(true)
 +				->select('COUNT(' . $db->quoteName('asso1.id') . ') > 1')
 +				->from($db->quoteName('#__associations', 'asso1'))
@@ -847,40 +818,25 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 +		}
 +
 +		// Filter on the language.
-+		if ($language = $this->getState('filter.language'))
-+		{
++		if ($language = $this->getState('filter.language')) {
 +			$query->where($db->quoteName('a.language') . ' = ' . $db->quote($language));
 +		}
 +
  		return $query;
  	}
 +
-+	/**
-+	 * Method to auto-populate the model state.
-+	 *
-+	 * Note. Calling getState in this method will result in recursion.
-+	 *
-+	 * @param   string  $ordering   An optional ordering field.
-+	 * @param   string  $direction  An optional direction (asc|desc).
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function populateState($ordering = 'a.name', $direction = 'asc')
 +	{
 +		$app = Factory::getApplication();
 +		$forcedLanguage = $app->input->get('forcedLanguage', '', 'cmd');
 +
 +		// Adjust the context to support modal layouts.
-+		if ($layout = $app->input->get('layout'))
-+		{
++		if ($layout = $app->input->get('layout')) {
 +			$this->context .= '.' . $layout;
 +		}
 +
 +		// Adjust the context to support forced languages.
-+		if ($forcedLanguage)
-+		{
++		if ($forcedLanguage) {
 +			$this->context .= '.' . $forcedLanguage;
 +		}
 +
@@ -888,8 +844,7 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 +		parent::populateState($ordering, $direction);
 +
 +		// Force a language.
-+		if (!empty($forcedLanguage))
-+		{
++		if (!empty($forcedLanguage)) {
 +			$this->setState('filter.language', $forcedLanguage);
 +		}
 +	}
@@ -920,15 +875,6 @@ defined('JPATH_BASE') or die;
   */
  class AdministratorService
  {
-+	/**
-+	 * Get the associated language flags
-+	 *
-+	 * @param   integer  $fooid  The item id to search associations
-+	 *
-+	 * @return  string  The language HTML
-+	 *
-+	 * @throws  Exception
-+	 */
 +	public function association($fooid)
 +	{
 +		// Defaults

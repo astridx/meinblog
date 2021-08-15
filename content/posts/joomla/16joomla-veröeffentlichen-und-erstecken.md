@@ -209,15 +209,6 @@ Die Komponentenklasse erhält die neue Funktion `getStateColumnForSection`. Dies
  		return ($section === 'category' ? 'categories' : 'foos_details');
  	}
 +
-+	/**
-+	 * Returns the state column for the count items functions for the given section.
-+	 *
-+	 * @param   string  $section  The section
-+	 *
-+	 * @return  string|null
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function getStateColumnForSection(string $section = null)
 +	{
 +		return 'published';
@@ -259,14 +250,6 @@ In der Datei `administrator/components/com_foos/ src/Table/FooTable.php`, die di
  		return $this->alias;
  	}
 +
-+	/**
-+	 * Overloaded check function
-+	 *
-+	 * @return  boolean
-+	 *
-+	 * @see     Table::check
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function check()
 +	{
 +		try {
@@ -296,15 +279,6 @@ In der Datei `administrator/components/com_foos/ src/Table/FooTable.php`, die di
 +		return true;
 +	}
 +
-+	/**
-+	 * Stores a foo.
-+	 *
-+	 * @param   boolean  $updateNulls  True to update fields even if they are null.
-+	 *
-+	 * @return  boolean  True on success, false on failure.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function store($updateNulls = true)
 +	{
 +		return parent::store($updateNulls);

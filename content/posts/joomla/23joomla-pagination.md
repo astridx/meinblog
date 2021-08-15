@@ -38,11 +38,6 @@ Wir haben keine speziellen Wünsche. Um die Standard Paginierung anzuzeigen, rei
 ```php {diff}
  	protected $items;
 
-+	/**
-+	 * The pagination object
-+	 *
-+	 * @var  \JPagination
-+	 */
 +	protected $pagination;
 +
  	/**

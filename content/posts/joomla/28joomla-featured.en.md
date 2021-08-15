@@ -695,13 +695,6 @@ We implement the logic with which we set the `featured` property in the `feature
 +		$this->registerTask('unfeatured', 'featured');
 +	}
 +
-+	/**
-+	 * Method to toggle the featured setting of a list of foos.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function featured()
 +	{
 +		// Check for request forgeries
@@ -776,16 +769,6 @@ In the model of an element we implement the method with which the assignment of 
  		return $item;
  	}
 
-+	/**
-+	 * Method to toggle the featured setting of foos.
-+	 *
-+	 * @param   array    $pks    The ids of the items to toggle.
-+	 * @param   integer  $value  The value to toggle to.
-+	 *
-+	 * @return  boolean  True on success.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function featured($pks, $value = 0)
 +	{
 +		// Sanitize the ids.
@@ -904,17 +887,6 @@ In `AdministratorService.php` we make it possible to change the assignment of th
 
 +		return $html;
 +	}
-+	/**
-+	 * Show the featured/not-featured icon.
-+	 *
-+	 * @param   integer  $value      The featured value.
-+	 * @param   integer  $i          Id of the item.
-+	 * @param   boolean  $canChange  Whether the value can be changed or not.
-+	 *
-+	 * @return  string	The anchor tag to toggle featured/unfeatured foos.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	public function featured($value, $i, $canChange = true)
 +	{
 +		// Array of image, task, title, action

@@ -15,13 +15,13 @@ tags:
 
 Suchmaschinenfreundliche URLs funktionieren bisher nicht. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.<!-- \index{Service} -->
 
-> _Suchmaschinenfreundliche (SEF)_, [menschlich lesbare](https://en.wikipedia.org/wiki/Clean_URL 'wikipedia:Saubere URL') sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias) für jedes Segment der URL definieren.
+_Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/wiki/Clean_URL)[^de.wikipedia.org/wiki/Clean_URL] sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias/de)[^docs.joomla.org/Alias/de] für jedes Segment der URL definieren.<!-- \index{Suchmaschinenfreundlich (SEF)} --><!-- \index{Service!Suchmaschinenfreundlich (SEF)} -->
 
 > Intern wird der lokale Teil einer SEF-URL (der Teil nach dem Domainnamen) als _Route_ bezeichnet. Das Erstellen und Verarbeiten von SEF-URLs wird daher als _Routing_ bezeichnet, und der entsprechende Code wird _Router_ genannt.
 
 > Ein Beispiel für das Routing ist die URL zum Artikel "Willkommen bei Joomla" in den Beispieldaten. Ohne eingeschaltete SEF-URLs ist die URL `/index.php?option=com_content&view=article&id=1:welcome-to-joomla&catid=1:latest-news&Itemid=50`. Mit eingeschalteten SEF-URLs und ausgeschaltetem mod_rewrite ist es `/index.php/the-news/1-latest-news/1-welcome-to-joomla`. Mit eingeschalteten SEF-URLs und mod_rewrite ist es `/the-news/1-latest-news/1-welcome-to-joomla`.
 
-> Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search Engine Friendly URLs_ in der _Globalen Konfiguration_ eingeschaltet wird. Diese Option ist standardmäßig aktiviert. Weitere Informationen findest du unter [Aktivieren von suchmaschinenfreundlichen (SEF) URLs in der Dokumentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
+Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search Engine Friendly URLs_ in der _Globalen Konfiguration_ eingeschaltet wird. Diese Option ist standardmäßig aktiviert. Weitere Informationen findest du unter [Aktivieren von suchmaschinenfreundlichen (SEF) URLs in der Dokumentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t26...t27)[^github.com/astridx/boilerplate/compare/t26...t27] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -36,7 +36,18 @@ Der Service `components/com_foos/ src/Service/Router.php` erledigt die eigentlic
 
 [components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
-```php
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/astridx/boilerplate/t27/src/components/com_foos/src/Service/Router.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  com_foos
+ *
+ * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace FooNamespace\Component\Foos\Site\Service;
 
 \defined('_JEXEC') or die;
@@ -54,16 +65,55 @@ use Joomla\CMS\Menu\AbstractMenu;
 use Joomla\Database\DatabaseInterface;
 use Joomla\Database\ParameterType;
 
+/**
+ * Routing class from com_foos
+ *
+ * @since  __BUMP_VERSION__
+ */
 class Router extends RouterView
 {
+	/**
+	 * Flag to remove IDs
+	 *
+	 * @var    boolean
+	 */
 	protected $noIDs = false;
 
+	/**
+	 * The category factory
+	 *
+	 * @var CategoryFactoryInterface
+	 *
+	 * @since  __BUMP_VERSION__
+	 */
 	private $categoryFactory;
 
+	/**
+	 * The category cache
+	 *
+	 * @var  array
+	 *
+	 * @since  __BUMP_VERSION__
+	 */
 	private $categoryCache = [];
 
+	/**
+	 * The db
+	 *
+	 * @var DatabaseInterface
+	 *
+	 * @since  __BUMP_VERSION__
+	 */
 	private $db;
 
+	/**
+	 * Content Component router constructor
+	 *
+	 * @param   SiteApplication           $app              The application object
+	 * @param   AbstractMenu              $menu             The menu object to work with
+	 * @param   CategoryFactoryInterface  $categoryFactory  The category object
+	 * @param   DatabaseInterface         $db               The database object
+	 */
 	public function __construct(SiteApplication $app, AbstractMenu $menu, CategoryFactoryInterface $categoryFactory, DatabaseInterface $db)
 	{
 		$this->categoryFactory = $categoryFactory;
@@ -92,19 +142,24 @@ class Router extends RouterView
 		$this->attachRule(new NomenuRules($this));
 	}
 
+	/**
+	 * Method to get the segment(s) for a category
+	 *
+	 * @param   string  $id     ID of the category to retrieve the segments for
+	 * @param   array   $query  The request that is built right now
+	 *
+	 * @return  array|string  The segments of this item
+	 */
 	public function getCategorySegment($id, $query)
 	{
 		$category = $this->getCategories()->get($id);
 
-		if ($category)
-		{
+		if ($category) {
 			$path = array_reverse($category->getPath(), true);
 			$path[0] = '1:root';
 
-			if ($this->noIDs)
-			{
-				foreach ($path as &$segment)
-				{
+			if ($this->noIDs) {
+				foreach ($path as &$segment) {
 					list($id, $segment) = explode(':', $segment, 2);
 				}
 			}
@@ -112,19 +167,33 @@ class Router extends RouterView
 			return $path;
 		}
 
-		return array();
+		return [];
 	}
 
+	/**
+	 * Method to get the segment(s) for a category
+	 *
+	 * @param   string  $id     ID of the category to retrieve the segments for
+	 * @param   array   $query  The request that is built right now
+	 *
+	 * @return  array|string  The segments of this item
+	 */
 	public function getCategoriesSegment($id, $query)
 	{
 		return $this->getCategorySegment($id, $query);
 	}
 
-
+	/**
+	 * Method to get the segment(s) for a foo
+	 *
+	 * @param   string  $id     ID of the foo to retrieve the segments for
+	 * @param   array   $query  The request that is built right now
+	 *
+	 * @return  array|string  The segments of this item
+	 */
 	public function getFooSegment($id, $query)
 	{
-		if (!strpos($id, ':'))
-		{
+		if (!strpos($id, ':')) {
 			$id = (int) $id;
 			$dbquery = $this->db->getQuery(true);
 			$dbquery->select($this->db->quoteName('alias'))
@@ -136,42 +205,51 @@ class Router extends RouterView
 			$id .= ':' . $this->db->loadResult();
 		}
 
-		if ($this->noIDs)
-		{
+		if ($this->noIDs) {
 			list($void, $segment) = explode(':', $id, 2);
 
-			return array($void => $segment);
+			return [$void => $segment];
 		}
 
-		return array((int) $id => $id);
+		return [(int) $id => $id];
 	}
 
+	/**
+	 * Method to get the segment(s) for a form
+	 *
+	 * @param   string  $id     ID of the foo form to retrieve the segments for
+	 * @param   array   $query  The request that is built right now
+	 *
+	 * @return  array|string  The segments of this item
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	public function getFormSegment($id, $query)
 	{
 		return $this->getFooSegment($id, $query);
 	}
 
+	/**
+	 * Method to get the id for a category
+	 *
+	 * @param   string  $segment  Segment to retrieve the ID for
+	 * @param   array   $query    The request that is parsed right now
+	 *
+	 * @return  mixed   The id of this item or false
+	 */
 	public function getCategoryId($segment, $query)
 	{
-		if (isset($query['id']))
-		{
+		if (isset($query['id'])) {
 			$category = $this->getCategories(['access' => false])->get($query['id']);
 
-			if ($category)
-			{
-				foreach ($category->getChildren() as $child)
-				{
-					if ($this->noIDs)
-					{
-						if ($child->alias == $segment)
-						{
+			if ($category) {
+				foreach ($category->getChildren() as $child) {
+					if ($this->noIDs) {
+						if ($child->alias == $segment) {
 							return $child->id;
 						}
-					}
-					else
-					{
-						if ($child->id == (int) $segment)
-						{
+					} else {
+						if ($child->id == (int) $segment) {
 							return $child->id;
 						}
 					}
@@ -182,15 +260,30 @@ class Router extends RouterView
 		return false;
 	}
 
+	/**
+	 * Method to get the segment(s) for a category
+	 *
+	 * @param   string  $segment  Segment to retrieve the ID for
+	 * @param   array   $query    The request that is parsed right now
+	 *
+	 * @return  mixed   The id of this item or false
+	 */
 	public function getCategoriesId($segment, $query)
 	{
 		return $this->getCategoryId($segment, $query);
 	}
 
+	/**
+	 * Method to get the segment(s) for a foo
+	 *
+	 * @param   string  $segment  Segment of the foo to retrieve the ID for
+	 * @param   array   $query    The request that is parsed right now
+	 *
+	 * @return  mixed   The id of this item or false
+	 */
 	public function getFooId($segment, $query)
 	{
-		if ($this->noIDs)
-		{
+		if ($this->noIDs) {
 			$dbquery = $this->db->getQuery(true);
 			$dbquery->select($this->db->quoteName('id'))
 				->from($this->db->quoteName('#__foos_details'))
@@ -210,18 +303,27 @@ class Router extends RouterView
 		return (int) $segment;
 	}
 
+	/**
+	 * Method to get categories from cache
+	 *
+	 * @param   array  $options   The options for retrieving categories
+	 *
+	 * @return  CategoryInterface  The object containing categories
+	 *
+	 * @since   __BUMP_VERSION__
+	 */
 	private function getCategories(array $options = []): CategoryInterface
 	{
 		$key = serialize($options);
 
-		if (!isset($this->categoryCache[$key]))
-		{
+		if (!isset($this->categoryCache[$key])) {
 			$this->categoryCache[$key] = $this->categoryFactory->createCategory($options);
 		}
 
 		return $this->categoryCache[$key];
 	}
 }
+
 ```
 
 ### Geänderte Dateien
@@ -233,39 +335,32 @@ Im Service Provider registrieren wir den Service.
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
 
-```php
-\defined('_JEXEC') or die;
-...
-use Joomla\CMS\Component\Router\RouterFactoryInterface;
-use Joomla\CMS\Extension\Service\Provider\RouterFactory;
-...
-...
-	public function register(Container $container)
-	{
-		$container->set(AssociationExtensionInterface::class, new AssociationsHelper);
+```php {diff}
+ use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
+ use FooNamespace\Component\Foos\Administrator\Helper\AssociationsHelper;
+ use Joomla\CMS\Association\AssociationExtensionInterface;
++use Joomla\CMS\Component\Router\RouterFactoryInterface;
++use Joomla\CMS\Extension\Service\Provider\RouterFactory;
+ 
+ /**
+  * The foos service provider.
+ public function register(Container $container)
+ 		$container->registerServiceProvider(new CategoryFactory('\\FooNamespace\\Component\\Foos'));
+ 		$container->registerServiceProvider(new MVCFactory('\\FooNamespace\\Component\\Foos'));
+ 		$container->registerServiceProvider(new ComponentDispatcherFactory('\\FooNamespace\\Component\\Foos'));
++		$container->registerServiceProvider(new RouterFactory('\\FooNamespace\\Component\\Foos'));
+ 
+ 		$container->set(
+ 			ComponentInterface::class,
+ function (Container $container) {
+ 				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
+ 				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
+ 				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
++				$component->setRouterFactory($container->get(RouterFactoryInterface::class));
+ 
+ 				return $component;
+ 			}
 
-		$container->registerServiceProvider(new CategoryFactory('\\Joomla\\Component\\Foos'));
-		$container->registerServiceProvider(new MVCFactory('\\Joomla\\Component\\Foos'));
-		$container->registerServiceProvider(new ComponentDispatcherFactory('\\Joomla\\Component\\Foos'));
-		$container->registerServiceProvider(new RouterFactory('\\Joomla\\Component\\Foos'));
-
-		$container->set(
-			ComponentInterface::class,
-			function (Container $container)
-			{
-				$component = new FoosComponent($container->get(ComponentDispatcherFactoryInterface::class));
-
-				$component->setRegistry($container->get(Registry::class));
-				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
-				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
-				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
-				$component->setRouterFactory($container->get(RouterFactoryInterface::class));
-
-				return $component;
-			}
-		);
-	}
-};
 ```
 
 `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'));` und `$component->setRouterFactory ($container->get(RouterFactoryInterface::class));` kommen hinzu.
@@ -277,27 +372,29 @@ Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so 
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
-```php
-<?php
-namespace FooNamespace\Component\Foos\Administrator\Extension;
+```php {diff}
+ use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;
+ use Psr\Container\ContainerInterface;
+ use Joomla\CMS\Helper\ContentHelper;
++use Joomla\CMS\Component\Router\RouterServiceInterface;
++use Joomla\CMS\Component\Router\RouterServiceTrait;
+ 
+ /**
+  * Component class for com_foos
+  *
+  * @since  __BUMP_VERSION__
+  */
+-class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface, AssociationServiceInterface
++class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface, AssociationServiceInterface, RouterServiceInterface
+ {
+ 	use CategoryServiceTrait;
+ 	use AssociationServiceTrait;
+ 	use HTMLRegistryAwareTrait;
++	use RouterServiceTrait;
+ 
+ 	/**
+ 	 * Booting the extension. This is the function to set up the environment of the extension like
 
-defined('JPATH_PLATFORM') or die;
-
-...
-...
-use Joomla\CMS\Component\Router\RouterServiceInterface;
-use Joomla\CMS\Component\Router\RouterServiceTrait;
-
-class FoosComponent extends MVCComponent
-implements BootableExtensionInterface, CategoryServiceInterface, AssociationServiceInterface, RouterServiceInterface
-{
-	use CategoryServiceTrait;
-	use AssociationServiceTrait;
-	use HTMLRegistryAwareTrait;
-	use RouterServiceTrait;
-
-...
-...
 ```
 
 ## Teste deine Joomla-Komponente

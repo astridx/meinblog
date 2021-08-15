@@ -420,6 +420,8 @@ Wir haben eine neue JavaScript-Datei erstellt. Wir legen sie im Verzeichnis `med
 
 Wir geben keinen statischen Text mehr aus. Es wird ein Element aus der Datenbank angezeigt. Deshalb benennen wir die Methode `getMsg` in `getItem` um. Wir passen die Variablenbezeichnungen an und erstellen eine Datenbankabfrage.
 
+> Make sure you update the DocBlock here. This sounds nit-picky and unimportant at the beginning. In small extensions, it may still be minor. But later you may want to create documentation automatically based on this information. Then you will be happy if they are correct.<!-- \index{DocBlock} -->
+
 [components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}

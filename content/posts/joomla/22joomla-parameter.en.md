@@ -174,20 +174,8 @@ The view combines the data on the parameters so that the display fits. In Joomla
   */
  class HtmlView extends BaseHtmlView
  {
-+	/**
-+	 * The page parameters
-+	 *
-+	 * @var    \Joomla\Registry\Registry|null
-+	 * @since  __BUMP_VERSION__
-+	 */
 +	protected $params = null;
 +
-+	/**
-+	 * The item model state
-+	 *
-+	 * @var    \Joomla\Registry\Registry
-+	 * @since  __BUMP_VERSION__
-+	 */
 +	protected $state;
 +
  	/**

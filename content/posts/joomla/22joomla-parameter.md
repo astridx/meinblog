@@ -180,20 +180,8 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
   */
  class HtmlView extends BaseHtmlView
  {
-+	/**
-+	 * The page parameters
-+	 *
-+	 * @var    \Joomla\Registry\Registry|null
-+	 * @since  __BUMP_VERSION__
-+	 */
 +	protected $params = null;
 +
-+	/**
-+	 * The item model state
-+	 *
-+	 * @var    \Joomla\Registry\Registry
-+	 * @since  __BUMP_VERSION__
-+	 */
 +	protected $state;
 +
  	/**

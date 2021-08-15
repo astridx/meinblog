@@ -38,11 +38,6 @@ We do not have any special requests. To display the default pagination, more or 
 ```php {diff}
  	protected $items;
 
-+	/**
-+	 * The pagination object
-+	 *
-+	 * @var  \JPagination
-+	 */
 +	protected $pagination;
 +
  	/**

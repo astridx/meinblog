@@ -98,13 +98,6 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
  		return $id;
  	}
 +
-+	/**
-+	 * Adding content_type for tags.
-+	 *
-+	 * @return  integer|boolean  One Administrator ID.
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	private function saveContentTypes()
 +	{
 +		$table = Table::getInstance('Contenttype', 'JTable');

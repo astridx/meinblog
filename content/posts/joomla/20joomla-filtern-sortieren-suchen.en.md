@@ -354,25 +354,11 @@ index af7c2fa6..f966bd96 100644
  	 */
  	protected $items;
 
-+	/**
-+	 * The model state
-+	 *
-+	 * @var  \JObject
-+	 */
 +	protected $state;
 +
 +	/**
-+	 * Form object for search filters
-+	 *
-+	 * @var  \JForm
-+	 */
 +	public $filterForm;
 +
-+	/**
-+	 * The active search filters
-+	 *
-+	 * @var  array
-+	 */
 +	public $activeFilters;
 +
  	/**

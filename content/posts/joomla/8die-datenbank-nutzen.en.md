@@ -1930,13 +1930,6 @@ In the view that displays the overview list, we add the toolbar. Here we insert 
  		parent::display($tpl);
  	}
 +
-+	/**
-+	 * Add the page title and toolbar.
-+	 *
-+	 * @return  void
-+	 *
-+	 * @since   __BUMP_VERSION__
-+	 */
 +	protected function addToolbar()
 +	{
 +		// Get the toolbar object instance
