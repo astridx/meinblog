@@ -50,7 +50,7 @@ Add the following lines in its place:
 ...
 ```
 
-> You can do without the check `if (!isset($this->message))` in the new variant because the statement `get('show_text', "Hi");` catches the error that occurs when the parameter `show_text` is not set. Whenever the value `show_text` is not set, the second parameter<!-- \index{Parameter} --> `"Hi"` is used as default.
+> You can do without the check `if (!isset($this->message))` in the new variant because the statement `get('show_text', "Hi");` catches the error that occurs when the parameter `show_text` is not set. Whenever the value `show_text` is not set, the second parameter<!-- \index{parameter} --> `"Hi"` is used as default.
 
 The complete file looks like this in the Diff view:
 

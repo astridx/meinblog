@@ -139,7 +139,7 @@ That you should not change the system files does not mean that you do not even l
 
 During the installation, entries are made in `/library/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem.
 
-### Namespace<!-- \index{Namespace} -->
+### Namespace<!-- \index{namespace} -->
 
 Note the namespace entry at the top of most PHP files.
 
@@ -201,7 +201,7 @@ foreach ($this->items as $i => $item) {
 
 In this way, a single line is self-contained and the HTML code is still clearly structured.
 
-### Database table prefix<!-- \index{Database prefix} -->
+### Database table prefix<!-- \index{database!prefix} -->
 
 As an extension developer, you ideally develop your extension so that the database prefix is variable. For this purpose, one uses the string `#__`. The string `#__` is replaced with the correct prefix at runtime by Joomla.
 

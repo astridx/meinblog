@@ -492,7 +492,7 @@ class CategoryModel extends ListModel
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-931af94e5b12bab015c84906dc961848)
 
-[components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/Category.php)<!-- \index{Menüpunkt (Service!Category)} -->
+[components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/Category.php)<!-- \index{Service!Kategorie} -->
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t26/src/components/com_foos/src/Service/Category.php

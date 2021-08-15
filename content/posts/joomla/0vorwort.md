@@ -201,7 +201,7 @@ foreach ($this->items as $i => $item) {
 
 Auf diese Art und Weise ist eine einzelne Zeile in sich geschlossen und der HTML-Code ist trotzdem übersichtlich strukturiert.
 
-### Datenbanktabellenpräfix<!-- \index{Datenbankpräfix} -->
+### Datenbanktabellenpräfix<!-- \index{Datenbank!Präfix} -->
 
 Als Erweiterungsentwickler entwickelt man seine Erweiterung idealerweise so, dass das Präfix der Datenbank variable ist. Dazu nutzt man die Zeichenkette `#__`. Der String `#__` wird zur Laufzeit von Joomla mit dem passenden Präfix ersetzt.
 

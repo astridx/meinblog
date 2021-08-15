@@ -110,7 +110,7 @@ Below you can see the complete file.
 
 > Do you like to use a checksum? See the test description in this [PR](https://github.com/joomla/joomla-cms/pull/30076) if you don't know how to do this. Under Ubuntu Linux it is possible to calculate the checksum via the console with `sha256sum -b myfile.zip` or `sha284sum -b myfile.zip`.
 
-#### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)<!-- \index{Changelog} -->
+#### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)<!-- \index{changelog} -->
 
 Information on the changelog can be found on Github [in PR github.com/joomla/joomla-cms/pull/24026](https://github.com/joomla/joomla-cms/pull/24026) and the [Joomla documentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file/en)[^docs.joomla.org/adding_changelog_to_your_manifest_file/en]. Below you can see an example file.
 

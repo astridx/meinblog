@@ -176,7 +176,7 @@ Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die
 
 > Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://downloads.joomla.org/de/technical-requirements-de)[^downloads.joomla.org/de/technical-requirements-de] neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstützt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponente](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt, `mysqli`, `pdomysql` und `pgsql` werden von Joomla in der Datei `/libraries/src/ Installer/Installer.php` angepasst.
 
-##### Aktualisierungen<!-- \index{Datenbank (Aktualisierung)} -->
+##### Aktualisierungen<!-- \index{Datenbank!Aktualisierung} -->
 
 Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezüglich Aktualisierung vorweg. Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen aufzunehmen. Dabei sollte darauf geachtet werden, dass bestehende Daten nicht tangiert werden. Die Neuerungen speicherst du für jede Version deiner Erweiterung in einer separaten Datei ab. Das Verzeichnis, in dem die Dateien für die Aktualisierungen abzulegen sind, schreibst du in das `<update>`-Tag.
 
@@ -200,7 +200,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Menüpunkt (Service!Provider)} -->
+Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php)
 

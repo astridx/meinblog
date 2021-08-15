@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Custom Fields (Eigene Felder)<!-- \index{Eigene Felder (Backend)} --><!-- \index{Custom Fields (Backend)} --> sind seit Joomla Version 3.7 in aller Munde. Sie bieten viele zusätzliche Möglichkeiten. Deshalb steht es außer Frage, dass wir diese in unsere Komponente integrieren.
+Custom Fields (Eigene Felder)<!-- \index{Eigene Felder!Backend} --><!-- \index{Custom Fields!Backend} --> sind seit Joomla Version 3.7 in aller Munde. Sie bieten viele zusätzliche Möglichkeiten. Deshalb steht es außer Frage, dass wir diese in unsere Komponente integrieren.
 
 Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
 
