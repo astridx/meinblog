@@ -160,7 +160,7 @@ Du wirst bemerken, dass einige der Joomla 4 Ordner- und Dateinamen mit Großbuch
 
 Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in Kleinbuchstaben enthalten XML-Dateien, Template-Dateien. Es gibt einige einige Ordner mit Kleinbuchstaben die PHP-Dateien enthalten. Diese sind notwendig, um Kompatibilität mit Joomla 3 zu gewährleisten. Oft sind dies Helferdateien.
 
-> Weitere Informationen findest du unter: [https://github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990).
+> Weitere Informationen findest du unter: [github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990).
 
 ### Aussagekräftige Namen
 

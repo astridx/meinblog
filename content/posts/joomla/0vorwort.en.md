@@ -161,7 +161,7 @@ You will notice that some of the Joomla 4 folder and file names start with upper
 
 The folders in upper case contain PHP classes with namespace. Those in lower case contain XML files, template files. There are a few lower case folders that contain PHP files. These are necessary to ensure compatibility with Joomla 3. Often these are helper files.
 
-For more information, see: [https://github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990)
+For more information, see: [github.com/joomla/joomla-cms/issues/22990](https://github.com/joomla/joomla-cms/issues/22990).
 
 ### Meaningful class names
 
