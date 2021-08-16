@@ -13,9 +13,7 @@ tags:
   - Joomla
 ---
 
-Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Seite ist nicht sinnvoll. Es wirkt sich negativ auf die Übersicht und die Performance aus. Deshalb teilen wir die Elemente auf Unterseiten auf und fügen eine Paginierung für die Navigation am unteren Rand hinzu.<!-- \index{Paginierung} -->
-
-![Joomla Pagination](/images/j4x23x1.png)
+Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Seite ist nicht sinnvoll. Es wirkt sich negativ auf die Übersicht und die Performance aus. Deshalb teilen wir die Elemente auf Unterseiten auf und fügen eine Paginierung oder Seitennummerierung hinzu. Mit dieser ist die Navigation durch die Seiten möglich, mithilfe von Links unteren Rand.<!-- \index{Paginierung} --><!-- \index{Seitennummerierung} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -74,8 +72,9 @@ Im Template nutzen wir die Methode `getListFooter` der Variable `$this->paginati
 
 ```
 
-> In der globalen Konfiguration kannst du die Anzahl an Elementen bestimmen, die standardmäßig angezeigt wird. Normalerweise ist dies auf 20 Elemente eingestellt.
-> ![Joomla Pagination in der globalen Konfiguration](/images/j4x23x2.png)
+In der globalen Konfiguration kannst du die Anzahl an Elementen bestimmen, die standardmäßig angezeigt wird. Normalerweise ist dies auf 20 Elemente eingestellt.
+
+![Joomla Pagination in der globalen Konfiguration](/images/j4x23x2.png)
 
 ## Teste deine Joomla-Komponente
 
@@ -85,4 +84,6 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle so viele Items, dass diese nicht mehr auf einer Seite angezeigt werden. Im unteren Bereich siehst du eine Navigation, um durch die Inhalte zu blättern.
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle so viele Items, dass diese nicht mehr auf einer Seite angezeigt werden. Im unteren Bereich siehst du eine Navigation, welche es dir ermöglicht, durch die Inhalte zu blättern.
+
+![Joomla Pagination](/images/j4x23x1.png)

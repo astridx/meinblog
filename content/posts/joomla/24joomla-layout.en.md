@@ -19,7 +19,7 @@ Sometimes it is necessary to design the display differently in the frontend. Thi
 
 ## Step by step
 
-We already use layouts. The Empty State Layout (`administrator/components/com_foos/tmpl/foos/emptystate.php`)[https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php] is an example. This part of the text is about looking at all the steps to integrate a layout as a whole.
+We already use layouts. The empty state Layout (`administrator/components/com_foos/tmpl/foos/emptystate.php`)[^https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php] is an example. This part of the text is about looking at all the steps to integrate a layout as a whole.
 
 ### New files
 

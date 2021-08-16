@@ -15,8 +15,6 @@ tags:
 
 Quickly there is a lot of content. Displaying all elements on one page is not useful. It has a negative impact on the overview and performance. That's why we split the items on subpages and add pagination for navigation at the bottom.<!-- \index{pagination} -->
 
-![Joomla Pagination](/images/j4x23x1.png)
-
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and incorporate these changes into your development version.
 
 ## Step by step
@@ -74,8 +72,9 @@ In the template we use the `getListFooter` method of the variable `$this->pagina
 
 ```
 
-> In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements.
-> ![Joomla Pagination in global configuration](/images/j4x23x2.png)
+In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements. 
+
+![Joomla Pagination in global configuration](/images/j4x23x2.png)
 
 ## Test your Joomla component
 
@@ -86,3 +85,5 @@ Copy the files in the `administrator` folder to the `administrator` folder of yo
 A new installation is not necessary. Continue using the ones from the previous part.
 
 2. open the view of your component in the administration area and create so many items that they are no longer displayed on one page. In the lower part you will see a navigation to browse through the contents.
+
+![Joomla Pagination](/images/j4x23x1.png)

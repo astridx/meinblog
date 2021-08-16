@@ -75,10 +75,10 @@ class FooHelper
 
 ### Modified files
 
-To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
-
 <!-- prettier-ignore -->
 ##### [modules/mod\_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+
+To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
 
 ```php {diff}
  \defined('_JEXEC') or die;
