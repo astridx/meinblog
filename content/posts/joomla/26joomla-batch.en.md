@@ -80,8 +80,6 @@ The following file creates the footer of the form that is displayed to trigger b
 
 > It is important that you create the batch form as described above in the file `administrator/components/com_foos/ tmpl/foos/default_batch_body.php`. `LayoutHelper` in combination with the appropriate layout ensures that all variables and IDs are set so that the standard functions run correctly.
 
-Translated with www.DeepL.com/Translator (free version)
-
 [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}

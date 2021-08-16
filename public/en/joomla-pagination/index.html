@@ -34,38 +34,6 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/joomla-pagination/">deutsch</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQ4y2P4T2XAAGP8+/cPTsMwNj6yGDobbiCy4N+/f7EqhPFh8uhqMVyILPH12ze42O/fv8Ea//z5A8Yg8P37dwxDMVwIU7x67br/GjoG/wuKSrGG0ekzZ/4bmFj8Dw6P+v/u3XsMQ+EGwgRdPXz+c/OL/JdVVP3v4Oz2PzU96/+9+/f/T585+7+nTwDQMPP/knJK/1k4ef9v3LwF7gucLlyzbv1/dW39//LK6v/tgQY6uLj/d3Tx+C8qKfvf2c3rvybQ9bKKav9D8LkQ3dDQiOj/Zla2YDbI6/wiEv89fQP+f/z48f/U6TP+8wqJ/X/8+AlYHqYHayzDJMsra8Berq6t/y8iIQOkG/7bO7n+t7Rx+J+VWwAOw48fP+FONugx9vrNm/8WNvb/xaTl/7e2d4HFjp84+V9RVROMN23ZihJ2ONMhzIVz5i347+LhDfa2nJLa/8NHj/5PTEmHhKGu4X+/oFCwYdgSPYoLYTaCwtDY3Pr/p0+f/ienZfw3MrP8Lywu/f/EyVP/5y1Y9J9HQOT/q1ev8IchzLunTp/5r29s9l9FQ+d/34RJ/0OAhguJSf33DQj+P3Hy1P9efoH/xYFBUVpe9f8XPi/DDHT39vsvKCr1XxboVQERSbAX16xd/z8tM+c/v7DEf0lZxf9Kalr/Wbn4/m/YtJlwOuzq6QNrDAgO+//w0aP/36DZEGQhKAhWr1n3XwqYsI3MrP7fvXcPfzqEgatXr/3/8uUrRtjCwJ07d/+/ePkSf17GlqZArkaWA2kmurRB1ohuEHr5h2ww3mRD1RKbWgAAOadtyeo+NXgAAAAASUVORK5CYII=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></section></div></aside><header class="article-header medium"><h1>Joomla 4.x Tutorial - Extension Development - Pagination</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/joomla/23joomla-pagination.en.md" rel="noreferrer" target="_blank">Modify this post</a></header><aside><div class="aside-content"><section><time>23.12.2020</time><div class="cell tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></section></div></aside><section class="post"><article><div><p>Quickly there is a lot of content. Displaying all elements on one page is not useful. It has a negative impact on the overview and performance. That's why we split the items on subpages and add pagination for navigation at the bottom.<!-- \index{pagination} --></p>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/static/f0fa343722c7b5c502d91b7f28189b4b/191e2/j4x23x1.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABnElEQVQoz32SyUrEQBCG8wbefQ/PelPxIu4IiiCII3p3O7jgGyn4CgpzF1wOI446Ok6SSe/d+a1KJo4jasOfdDpdX/3V1dHw6A6GRjYwtryPxa1TjK/skXYxubpP2uu9S02QptYOML1+iIXaEeY2jzFfO8XS9hlmN08ws3GE6OKqgfPrJzw0YwgpEacCmTRQxkNpluvJwlqH90ShftvG9c0bmq0OrZviXyflWIkIxQhIuwLaWPiQoysdUqGRZAaxsIgzizTTyEPAy4fCZf0ZF2TivtGClAqSgFooiHaCSFNWITVa7S4+Uo12oqFtQJYJcmRhnEEgUKBEeZ7jz0F7LEEj3sRiV3Hm0Ok6GMuOJZzzsN72gKHYF0ie5t73k1SJjMurknM6txLGYofaGDjPQEfBfiD4N9GjMBKV8O9AWwClUnTYmqDuy92/QHbIwAGHdPgVkGF8hlwyOyyD+m4qFauUEJS4KLna+LNk7p7WZdnc+fCXKDzQ7ciTFHTTSocMrYDcmLI5plAi+mt8ffrz8pub2XjNcPdI91h5fAJ6gekOhJdIWwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="Joomla Pagination"
-        title="Joomla Pagination"
-        src="/static/f0fa343722c7b5c502d91b7f28189b4b/f058b/j4x23x1.png"
-        srcset="/static/f0fa343722c7b5c502d91b7f28189b4b/c26ae/j4x23x1.png 158w,
-/static/f0fa343722c7b5c502d91b7f28189b4b/6bdcf/j4x23x1.png 315w,
-/static/f0fa343722c7b5c502d91b7f28189b4b/f058b/j4x23x1.png 630w,
-/static/f0fa343722c7b5c502d91b7f28189b4b/40601/j4x23x1.png 945w,
-/static/f0fa343722c7b5c502d91b7f28189b4b/78612/j4x23x1.png 1260w,
-/static/f0fa343722c7b5c502d91b7f28189b4b/191e2/j4x23x1.png 1836w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-      />
-  </a>
-    </span></p>
 <blockquote>
 <p>For impatient people: View the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t18...t19">Diff View</a><sup id="fnref-github.com/astridx/boilerplate/compare/t18...t19"><a href="#fn-github.com/astridx/boilerplate/compare/t18...t19" class="footnote-ref">github.com/astridx/boilerplate/compare/t18...t19</a></sup> and incorporate these changes into your development version.</p>
 </blockquote>
@@ -106,9 +74,8 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk8">endif</span><span class="mtk1">; </span><span class="mtk8">?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">&lt;</span><span class="mtk4">input</span><span class="mtk1"> </span><span class="mtk4">type</span><span class="mtk8">=</span><span class="mtk11">&quot;hidden&quot;</span><span class="mtk1"> </span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;task&quot;</span><span class="mtk1"> </span><span class="mtk4">value</span><span class="mtk8">=</span><span class="mtk11">&quot;&quot;</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">&lt;</span><span class="mtk4">input</span><span class="mtk1"> </span><span class="mtk4">type</span><span class="mtk8">=</span><span class="mtk11">&quot;hidden&quot;</span><span class="mtk1"> </span><span class="mtk4">name</span><span class="mtk8">=</span><span class="mtk11">&quot;boxchecked&quot;</span><span class="mtk1"> </span><span class="mtk4">value</span><span class="mtk8">=</span><span class="mtk11">&quot;0&quot;</span><span class="mtk8">&gt;</span></span></span></code></pre>
-<blockquote>
-<p>In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements.
-<span
+<p>In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements. </p>
+<p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
     >
@@ -140,7 +107,6 @@ void function() {
       />
   </a>
     </span></p>
-</blockquote>
 <h2>Test your Joomla component</h2>
 <ol>
 <li>install your component in Joomla version 4 to test it:</li>
@@ -150,6 +116,38 @@ void function() {
 <ol start="2">
 <li>open the view of your component in the administration area and create so many items that they are no longer displayed on one page. In the lower part you will see a navigation to browse through the contents.</li>
 </ol>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f0fa343722c7b5c502d91b7f28189b4b/191e2/j4x23x1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABnElEQVQoz32SyUrEQBCG8wbefQ/PelPxIu4IiiCII3p3O7jgGyn4CgpzF1wOI446Ok6SSe/d+a1KJo4jasOfdDpdX/3V1dHw6A6GRjYwtryPxa1TjK/skXYxubpP2uu9S02QptYOML1+iIXaEeY2jzFfO8XS9hlmN08ws3GE6OKqgfPrJzw0YwgpEacCmTRQxkNpluvJwlqH90ShftvG9c0bmq0OrZviXyflWIkIxQhIuwLaWPiQoysdUqGRZAaxsIgzizTTyEPAy4fCZf0ZF2TivtGClAqSgFooiHaCSFNWITVa7S4+Uo12oqFtQJYJcmRhnEEgUKBEeZ7jz0F7LEEj3sRiV3Hm0Ok6GMuOJZzzsN72gKHYF0ie5t73k1SJjMurknM6txLGYofaGDjPQEfBfiD4N9GjMBKV8O9AWwClUnTYmqDuy92/QHbIwAGHdPgVkGF8hlwyOyyD+m4qFauUEJS4KLna+LNk7p7WZdnc+fCXKDzQ7ciTFHTTSocMrYDcmLI5plAi+mt8ffrz8pub2XjNcPdI91h5fAJ6gekOhJdIWwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla Pagination"
+        title="Joomla Pagination"
+        src="/static/f0fa343722c7b5c502d91b7f28189b4b/f058b/j4x23x1.png"
+        srcset="/static/f0fa343722c7b5c502d91b7f28189b4b/c26ae/j4x23x1.png 158w,
+/static/f0fa343722c7b5c502d91b7f28189b4b/6bdcf/j4x23x1.png 315w,
+/static/f0fa343722c7b5c502d91b7f28189b4b/f058b/j4x23x1.png 630w,
+/static/f0fa343722c7b5c502d91b7f28189b4b/40601/j4x23x1.png 945w,
+/static/f0fa343722c7b5c502d91b7f28189b4b/78612/j4x23x1.png 1260w,
+/static/f0fa343722c7b5c502d91b7f28189b4b/191e2/j4x23x1.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
 <style class="grvsc-styles">
   .grvsc-container {
     overflow: auto;
