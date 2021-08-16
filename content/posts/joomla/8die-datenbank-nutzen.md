@@ -61,6 +61,7 @@ Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in ein
 	</fieldset>
 </form>
 ```
+<!-- \index{Alias} -->
 
 > Du wünschst dir einen Überblick über alle möglichen Formular-Elemente? In der [Joomla Dokumentation](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/form_field/de] sind alle standardmäßig enthaltenen Formularfelder aufgelistet.
 

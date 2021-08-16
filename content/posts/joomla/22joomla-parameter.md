@@ -16,20 +16,17 @@ tags:
 Gibt es Einstellungen, die für alle Items deiner Komponente gelten und die ein Anwender an seine Erfordernisse anpasst? Zeigst du beispielsweise digitale Karten an und willst es dem Benutzer ermöglichen, das Einblenden der Lizenz selbst zu bestimmen? In Joomla gibt für diesen Zweck Parameter.<!-- \index{Parameter} -->
 
 Parameter werden für
-
 - ein Item speziell,
 - für ganze Komponente (alle Items der Komponente) und
 - für einen Menüpunkt.
-
 gesetzt.
 
 Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, gilt in Joomla standarmäßig folgende Hierarchie:
-
-- Der Menüpunkt schlägt alles.
+- Die Einstellung am Menüpunkt hat immer Vorrang.
 - Danach zieht der Parameter, der für das Item speziell gilt.
 - Die niedrigst Priorität hat der Parameter, der für die Komponente gesetzt ist.
 
-![Joomla Parameters](/images/parameter.png)
+![Parameter-Behandlung in Joomla](/images/parameter.png)
 
 Beim Menüpunkt hatten wir schon einen Parameter gesetzt. Für die Komponente gibt es diesen in den Optionen der Konfiguration. Das Item im Speziellen nehmen wir uns in diesem Abschnitt vor.
 
@@ -42,9 +39,9 @@ Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit un
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
+#### [administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql](https://raw.githubusercontent.com/astridx/boilerplate/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
-Damit bei einer Aktualisierung der Komponente die Spalte in der Datenbank erstellt wird, in der die Parameter gespeichert werden, benötigen wir die folgende SQL-Datei.
+Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
 
 [administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
@@ -59,7 +56,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
-In der Konfiguration wird der Parameter üblicherweise gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend werden wir die Möglichkeit schaffen, diesen für ein Element oder einen Menüpunkt zu überschreiben.
+In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend schaffen wir die Möglichkeit, diesen für ein einzelnes Element `administrator/components/com_foos/ forms/foo.xml` oder einen Menüpunkt `components/com_foos/tmpl/foo/default.xml` zu überschreiben.
 
 [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
 
@@ -115,7 +112,7 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
-Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die folgende SQL-Datei.
+Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -131,7 +128,17 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
-In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden.
+In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden. Wir verwenden das [Registry-Entwurfsmuster](https://de.wikipedia.org/wiki/Registry_(Entwurfsmuster))[^de.wikipedia.org/wiki/Registry_(Entwurfsmuster)]. <!-- \index{Entwurfsmuster!Registy} --> Dieses nutzt die Möglichkeit, Eigenschaften [in PHP zu überschreiben](http://php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members)[^php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members]. Eigenschaften fügen wir mittels
+
+```
+$registry = neue Registry;
+$registry->foo = 'foo';
+```
+zur Registry hinzu. Um einen Wert abzurufen, nutzen wir
+
+```
+$foo = $registry->foo;
+```
 
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
@@ -157,12 +164,13 @@ In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter
  		return parent::store($updateNulls);
  	}
  }
+ 
 ```
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-Die View kombiniert die Daten zu den Parametern so zusammen, dass die Anzeige passt.
+Die View kombiniert die Daten zu den Parametern so, dass die Anzeige passt.
 
 > In Joomla ist es üblich, dass die Einstellung beim Menüpunkt alles überschreibt. Falls es hier keinen Parameter gibt, zieht der Wert, der beim Element gespeichert wurde. Last but not least wird der Wert der Konfiguration herangezogen. Den aktiven Menüpunkt fragst du über `$active = $app->getMenu()->getActive();` ab.
 

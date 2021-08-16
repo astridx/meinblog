@@ -24,9 +24,11 @@ Your view in the administration area usually does not contain only static text. 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest. With `CREATE TABLE IF NOT EXISTS ...` we create the database table if it does not already exist. With `INSERT INTO ...` we store sample contents in the database table.
+We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest. 
 
-> In a real extension, I would not add sample data via the SQL file during installation. In Joomla 4, a plugin of the type `sampledata` is a good choice. For inspiration you can find plugins in the directory `joomla-cms/plugins/sampledata`.
+Besides the `id`, which we use to make the element uniquely findable and the name `name`, which is optional and names the item in our extension, there is the alias `alias`. The latter prepares the data for routing, among other things. Imagine a system URL like `http://www.example.com/index.php?option=com_foos&view=foo&id=1`. This is not very readable for humans. Machines like search engines also process such a URL poorly. A textual description is mandatory. In Joomla this is done with the help of the alias. This can be defined by the user. So that the text for the URL contains only valid characters, there are automatic processes in the background processing of Joomla.<!-- \index{alias} --><!-- \index{Search Engine Friendly (SEF)!alias} -->
+
+With `CREATE TABLE IF NOT EXISTS ...` we create the database table if it does not already exist. With `INSERT INTO ...` we store sample contents in the database table. In a real extension, I would not add sample data via the SQL file during installation. In Joomla 4, a plugin of the type `sampledata` is a good choice. For inspiration you can find plugins in Joomla in the directory `plugins/sampledata`.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 

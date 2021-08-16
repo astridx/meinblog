@@ -355,14 +355,14 @@ The `postflight` function is called after the component has been installed. This
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-`provider.php` is used to implement the component services. Via an interface, the component class defines which services it provides. A dependency injection container or DI container is used for this. To register, `ComponentDispatcherFactory` and `MVCFactory` are mandatory for each component. Registering `CategoryFactory` is at this place optional, we need `CategoryFactory` when we integrate categories later. Using `provider.php` it is possible to introduce new services without breaking backwards compatibility (BC).
-
-If you are not familiar with the concept of DI Container but would like to learn more, you can find explanations and some examples in the following links:
+`provider.php` is used to implement the component services. Via an interface, the component class defines which services it provides. A dependency injection container or DI container is used for this. To register, `ComponentDispatcherFactory` and `MVCFactory` are mandatory for each component. Registering `CategoryFactory` is at this place optional, we need `CategoryFactory` when we integrate categories later. Using `provider.php` it is possible to introduce new services without breaking backwards compatibility (BC). If you are not familiar with the concept of DI Container but would like to learn more, you can find explanations and some examples in the following links:<!-- \index{DI Container} -->
 
 - [joomla-framework/di](https://github.com/joomla-framework/di)[^github.com/joomla-framework/di].
 - [docs/why-dependency-injection.md](https://github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md)[^github.com/joomla-framework/di/blob/master/docs/why-dependency-injection.md].
 
-More information about the implementation can be found on [Github](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217];
+More information about the implementation can be found on [Github](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217].
+
+You often see the word 'factory' in Joomla. This is because Joomla uses the [factory design pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)[en.wikipedia.org/wiki/Factory_method_pattern].  The factory method is a pattern where the interface to create an object is an abstract method of an inheriting class. However, the concrete implementation of the creation of new objects does not take place in the superclass, but in subclasses derived from it. The latter implement the said abstract method. To program extensions for Joomla it is not mandatory that you know the design patterns. However, it can be worthwhile to think outside the box. In software engineering, a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)[^en.wikipedia.org/wiki/Software_design_pattern] is a general, reusable solution to a common problem. Someone else had the same problem and found a solution. We don't have to solve the same problem, but can build on it.<!-- \index{design pattern!factory method} --><!-- \index{design pattern} -->
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 

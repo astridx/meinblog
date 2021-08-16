@@ -245,6 +245,8 @@ class FeaturedModel extends ListModel
 
 `featured` gets its own file to manage the display in the frontend.
 
+> You see here the first time the word slug in the line `$item->slug = $item->alias ? ($item->id . ':' . $item->alias) : $item->id;`. A slug is used to keep the code supporting search engine friendly URLs as short as possible. It is composed of the ID of the element, a colon and the alias.<!-- \index{slug} --><!-- \index{Search Engine Friendly (SEF)!slug} -->
+
 [components/com_foos/ src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php)
 
 ```php {numberLines: -2}

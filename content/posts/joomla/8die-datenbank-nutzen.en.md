@@ -61,6 +61,7 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 	</fieldset>
 </form>
 ```
+<!-- \index{alias} -->
 
 > You want an overview of all possible form elements? In the [Joomla documentation](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] all standard form fields are listed.
 

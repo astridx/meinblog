@@ -37,7 +37,7 @@ Specifically, we make sure that the events<!-- \index{Event!onContentAfterDispla
 - [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay]
   are triggered and the result is stored in a variable.
 
-> Joomla uses the [observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)[^en.wikipedia.org/wiki/Observer_pattern] for event handling. This is a software design pattern where an object maintains a list of its dependents called observers and automatically notifies them of state changes, usually by calling one of their methods.
+> Joomla uses the [observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)[^en.wikipedia.org/wiki/Observer_pattern] for event handling. This is a software design pattern where an object maintains a list of its dependents called observers and automatically notifies them of state changes, usually by calling one of their methods.<!-- \index{design pattern!observer} -->
 
 [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 

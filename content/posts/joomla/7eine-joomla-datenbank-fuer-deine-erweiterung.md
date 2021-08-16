@@ -24,9 +24,11 @@ Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statisch
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein. Mit `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle.
+Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein.
 
-> In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins im Verzeichnis `joomla-cms/plugins/sampledata`.
+Neben der `id`, über welche wir das Element eindeutig auffindbar machen und dem Namen `name`, der optional ist und den Datensatz in unserer Erweiterung benennt, gibt es den Alias `alias`. Letzterer bereitet die Daten unter anderem für das Routing vor. Stell dir eine System-URL wie `http://www.example.com/index.php?option=com_foos&view=foo&id=1` vor. Diese ist für Menschen schlecht lesbar. Auch Maschinen wie Suchmaschinen verarbeiten eine solche URL schlecht. Eine textuelle Beschreibung ist zwingend. In Joomla geschieht dies mithilfe des Alias. Dieser kann vom Benutzer selbst festgelegt werden. Damit der Text für die URL ausschließlich gültige Zeichen enthält, gibt es automatische Abläufe in der Hintergrundverarbeitung von Joomla.<!-- \index{Alias} --><!-- \index{Suchmaschinenfreundlich (SEF)!Alias} -->
+
+Mit `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle. In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins in Joomla im Verzeichnis `plugins/sampledata`.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 

@@ -13,24 +13,22 @@ tags:
   - Joomla
 ---
 
-Warum Kategorien verwenden? Ein Grund für Kategorien ist, dass es viele Beiträge auf einer Site gibt. Sie können einfacher gruppiert und verwaltet werden. Beispiel: In der Beitragsverwaltung können die Beiträge nach Kategorien gefiltert werden. Wenn es 200 Beiträge auf der Site gibt, ist es einfach, einen Beitrag zu finden, wenn man seine Kategorie kennt.<!-- \index{Kategorien (Frontend)} -->
+Warum Kategorien verwenden? Oft werden Kategorien eingesetzt, wenn es viele Beiträge auf einer Site gibt. Mithilfe von Kategorien können diese einfacher gruppiert und verwaltet werden. Beispiel: In der Beitragsverwaltung können die Beiträge nach Kategorien gefiltert werden. Wenn es 200 Beiträge auf der Site gibt, ist es einfach, einen Beitrag zu finden, wenn man seine Kategorie kennt.<!-- \index{Kategorien!Frontend} -->
 
-Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien verwenden: Kategorie Blog und Kategorie Liste. Die Menüeintragstypen oder Layouts vereinfachen die Anzeige der Beiträge in einer Kategorie. Wenn ein neuer Beitrag der Kategorie zugewiesen wird, erscheint er automatisch auf der Seite. Diese Anzeige ist konfigurierbar.
-
-Beispiel: Stelle dir ein Blog-Layout der Kategorie Ereignisse vor, das die neuesten Beiträge zuerst anzeigt. Wenn ein neuer Beitrag zu dieser Kategorie hinzugefügt wird, erscheint er automatisch ganz oben im Blog Events. Alles, was du tun musst ist, den Beitrag zur Kategorie hinzuzufügen.
-
-> Die Kategorie-Struktur, beispielsweise `Events | Onlineveranstaltungen | Sport | Yoga`, ist völlig unabhängig von der Menüstruktur der Site. Die Site kann eine oder sechs Menüebenen haben und Yoga kann als Hauptmenüpunkt eingeordnet werden.
-
-> Zur Erinnerung: [Kategorien](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') sind eine Möglichkeit, Inhalte in Joomla! zu organisieren. Eine Kategorie enthält Beiträge und andere Kategorien. Ein Beitrag kann nur in einer Kategorie sein. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie der Kategorie.
+Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien verwenden: Kategorie Blog und Kategorie Liste. Die Menüeintragstypen oder Layouts vereinfachen die Anzeige der Beiträge in einer Kategorie. Wenn ein neuer Beitrag der Kategorie zugewiesen wird, erscheint er automatisch auf der Seite. Diese Anzeige ist konfigurierbar. Beispiel: Stelle dir ein Blog-Layout der Kategorie `Events` vor, welches die neuesten Beiträge als erstes auf der Website anzeigt. Wenn ein neuer Beitrag zu dieser Kategorie hinzugefügt wird, erscheint dieser automatisch ganz oben im Blog Events. Alles, was du tun musst ist, den Beitrag zur Kategorie hinzuzufügen. Die Kategorie-Struktur, beispielsweise `Events | Onlineveranstaltungen | Sport | Yoga`, ist völlig unabhängig von der Menüstruktur der Site. Die Site kann eine oder sechs Menüebenen haben und `Yoga` kann als Menüpunkt in der ersten Ebene eingeordnet werden.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t25...t26)[^github.com/astridx/boilerplate/compare/t25...t26] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
+[Kategorien](https://docs.joomla.org/Category/de)[^docs.joomla.org/Category/de] sind eine Möglichkeit, Inhalte in Joomla zu organisieren. Eine Kategorie enthält Elemente und andere Kategorien. Ein Artikel kann nur zu einer Kategorie gehören. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie dieser Kategorie.  Kommt es in deiner Struktur vor, dass einzelne Elemente zu mehreren Untergruppen gehören? Dann sind Kategorien nicht die richtige Wahl. Verwenden Sie in diesem Fall Schlagwörter oder Tags.
+
 ### Neue Dateien
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Model/CategoryModel.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-71b6dccdcef138d4aabf575d418deb76)
+
+Die Klasse, mit der wir die Daten zur Anzeige der Kategorie-Ansicht vorbereiten, erweitert die Klasse `ListModel` in der Datei `/libraries/src/MVC/Model/ListModel.php`, genau wie die Klasse `FeaturedModel` in `components/com_foos/src/Model/FeaturedModel.php`. ListModel bietet unter anderem die Möglichkeit, die Anzeige mehrerer Elemente gleichzeitig auf einer Webseite zu handhaben, einschließlich der Unterstützung für Paginierung. Nachfolgend füge ich meinen vollständigen Code ein, der sich von `com_contact` ableitet.
 
 [components/com_foos/ src/Model/CategoryModel.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Model/CategoryModel.php)
 
@@ -492,6 +490,8 @@ class CategoryModel extends ListModel
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-931af94e5b12bab015c84906dc961848)
 
+Im `Category`-Service für den Frontend Teil setzen wir die spezifischen Optionen für unsere Komponente.
+
 [components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/Category.php)<!-- \index{Service!Kategorie} -->
 
 ```php {numberLines: -2}
@@ -540,6 +540,8 @@ class Category extends Categories
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d5d0bc03614ed16454bf9941dc8ebd7a)
+
+Die Category-Ansicht im Frontend handhaben wir über die Datei `components/com_foos/ src/View/Category/HtmlView.php`.
 
 [components/com_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/View/Category/HtmlView.php)
 
@@ -653,9 +655,12 @@ class HtmlView extends CategoryView
 }
 
 ```
+<!-- \index{slug} -->
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
+
+Das wir für die Kategorie-Ansicht ebenfalls ein Template erstellen, ist nicht neu. Wie üblich legen wir die Datei `default.php` im Verzeichnis `components/com_foos/tmpl/category` an. Wir nutzen `joomla.content.category_default`. Diese Layoutdatei findest du unter `layouts/joomla/content/category_default.php`.
 
 [components/com_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
 
@@ -685,10 +690,10 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-> Wir nutzen hier `joomla.content.category_default`. Diese Layoutdatei findest du unter `layouts/joomla/content/category_default.php`.
-
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
+
+In order to be able to create a menu item for navigation in the frontend in a user-friendly way, we create the file `components/com_foos/tmpl/category/default.xml`. We have done this here in the text before several times. For example for an element or for the view of the featured entries.
 
 [components/com_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
 
@@ -761,6 +766,8 @@ use Joomla\CMS\Layout\LayoutHelper;
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
 
+Damit der Code der Kategorie-Ansicht übersichtlich ist, arbeiten wir mit Layouts. Im Template `components/com_foos/tmpl/category/default.php` verwenden wir das Layout `joomla.content.category_default`. Dieses wiederum setzt das Layout `items` voraus, welches wir in der Datei `components/com_foos/tmpl/category/default_items.php` implementieren. Auf den ersten Blick erscheint dies umständlich. In der Praxis hat es sich bewährt.
+
 [components/com_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
 
 ```php {numberLines: -2}
@@ -828,11 +835,11 @@ HTMLHelper::_('behavior.core');
 
 ```
 
-> Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach Aufgabe des Templates - ist, überlasse ich das Stylen dir. Ich bin der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012). Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist - bei dem die Anzahl an Intro Artikeln im Backend über eine Benutzeroberfläche bestimmbar ist.
+> Die Ansicht ist nicht gestylt. Da dies ohnehin Geschmacksache - und meiner Meinung nach Aufgabe des Templates - ist, überlasse ich das Stylen dir. Ich bin der Meinung, dass die Layouts der Kategorien die Trennung von Model, View und Controller nicht beachten. Deshalb kommt es immer wieder zu Diskussionen wie im [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012)[^github.com/joomla/joomla-cms/issues/32012]. Immer wieder muss entschieden werden, ob das Einfügen einer CSS-Klasse in der Ausgabe einer Komponente zu viel Abhängigkeit bringt und nur ins Template gehört oder ob nur so ein benutzerfreundliches Angebot möglich ist - bei dem die Anzahl an Intro Artikeln im Backend über eine Benutzeroberfläche bestimmbar ist.
 
 ### Geänderte Dateien
 
-In diesem Kapitel fügen wir nur neue Dateien hinzu.
+In diesem Kapitel fügen wir lediglich neue Dateien hinzu.
 
 ## Teste deine Joomla-Komponente
 

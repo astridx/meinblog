@@ -248,6 +248,9 @@ void function() {
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-3b300f4a420f00b560f4d6563e755204">components/com_foos/ src/View/Featured/HtmlView.php</a></h4>
 <p><code class="language-text">featured</code> gets its own file to manage the display in the frontend.</p>
+<blockquote>
+<p>You see here the first time the word slug in the line <code class="language-text">$item->slug = $item->alias ? ($item->id . ':' . $item->alias) : $item->id;</code>. A slug is used to keep the code supporting search engine friendly URLs as short as possible. It is composed of the ID of the element, a colon and the alias.<!-- \index{slug} --><!-- \index{Search Engine Friendly (SEF)!slug} --></p>
+</blockquote>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php">components/com_foos/ src/View/Featured/HtmlView.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/src/View/Featured/HtmlView.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
@@ -811,7 +814,7 @@ is executed.</p>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 		$orderDirn = $this-&gt;state-&gt;get(&#39;list.direction&#39;, &#39;asc&#39;);</span></span></span></code></pre>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e">administrator/components/com_foos/ src/Service/HTML/AdministratorService.php</a></h4>
-<p>In <code class="language-text">AdministratorService.php</code> we make it possible to change the assignment of the property also in the overview list. A click on the star symbol toggles the value.<!-- \index{Menüpunkt (Service!administrator)} --></p>
+<p>In <code class="language-text">AdministratorService.php</code> we make it possible to change the assignment of the property also in the overview list. A click on the star symbol toggles the value.<!-- \index{service!administrator} --></p>
 <p><a href="https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php">administrator/components/com_foos/ src/Service/HTML/AdministratorService.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\Language\</span><span class="mtk8">Text</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\Layout\</span><span class="mtk8">LayoutHelper</span><span class="mtk1">;</span></span></span>

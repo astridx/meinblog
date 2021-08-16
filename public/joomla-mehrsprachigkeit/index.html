@@ -618,7 +618,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk8">$</span><span class="mtk7">value</span><span class="mtk1">) {</span></span></span></code></pre>
 <blockquote>
-<p>Verwirren dich die Zeichen <a href="https://unicode-table.com/de/2014/"><code class="language-text">&amp;#8212;</code></a><sup id="fnref-unicode-table.com/de/2014/"><a href="#fn-unicode-table.com/de/2014/" class="footnote-ref">unicode-table.com/de/2014/</a></sup> oder <a href="https://unicode-table.com/de/0026/"><code class="language-text">&amp;amp;</code></a><sup id="fnref-https://unicode-table.com/de/0026/"><a href="#fn-https://unicode-table.com/de/0026/" class="footnote-ref">https://unicode-table.com/de/0026/</a></sup>? Die sind ganz harmlos. <code class="language-text">&amp;#8212;</code> ist nichts weiter als ein <a href="https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich">Gedankenstrich</a>[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] <code class="language-text">–</code>. <code class="language-text">&amp;amp;</code> steht für das kaufmännische Und-Zeichen <code class="language-text">&amp;</code>. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität <code class="language-text">&amp;amp;</code> verwenden - mehr Technisches auf <a href="https://www.w3.org/TR/xhtml1/guidelines.html#C_12">w3c.org</a><sup id="fnref-w3.org/tr/xhtml1/guidelines.html#c_12"><a href="#fn-w3.org/tr/xhtml1/guidelines.html#c_12" class="footnote-ref">w3.org/tr/xhtml1/guidelines.html#c_12</a></sup>. Beim Gedankenstrich <code class="language-text">–</code> nutzen wir <a href="https://de.wikipedia.org/wiki/Unicode">Unicode</a><sup id="fnref-de.wikipedia.org/wiki/unicode"><a href="#fn-de.wikipedia.org/wiki/unicode" class="footnote-ref">de.wikipedia.org/wiki/unicode</a></sup>. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.</p>
+<p>Verwirren dich die Zeichen <a href="https://unicode-table.com/de/2014/"><code class="language-text">&amp;#8212;</code></a><sup id="fnref-unicode-table.com/de/2014/"><a href="#fn-unicode-table.com/de/2014/" class="footnote-ref">unicode-table.com/de/2014/</a></sup> oder <a href="https://unicode-table.com/de/0026/"><code class="language-text">&amp;amp;</code></a><sup id="fnref-https://unicode-table.com/de/0026/"><a href="#fn-https://unicode-table.com/de/0026/" class="footnote-ref">https://unicode-table.com/de/0026/</a></sup>? Die sind ganz harmlos. <code class="language-text">&amp;#8212;</code> ist nichts weiter als ein <a href="https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich">Gedankenstrich</a>[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] <code class="language-text">-</code>. <code class="language-text">&amp;amp;</code> steht für das kaufmännische Und-Zeichen <code class="language-text">&amp;</code>. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität <code class="language-text">&amp;amp;</code> verwenden - mehr Technisches auf <a href="https://www.w3.org/TR/xhtml1/guidelines.html#C_12">w3c.org</a><sup id="fnref-w3.org/tr/xhtml1/guidelines.html#c_12"><a href="#fn-w3.org/tr/xhtml1/guidelines.html#c_12" class="footnote-ref">w3.org/tr/xhtml1/guidelines.html#c_12</a></sup>. Beim Gedankenstrich <code class="language-text">-</code> nutzen wir <a href="https://de.wikipedia.org/wiki/Unicode">Unicode</a><sup id="fnref-de.wikipedia.org/wiki/unicode"><a href="#fn-de.wikipedia.org/wiki/unicode" class="footnote-ref">de.wikipedia.org/wiki/unicode</a></sup>. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.</p>
 </blockquote>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7">administrator/components/com_foos/ src/Model/FooModel.php</a></h4>
@@ -795,7 +795,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> }</span></span></span></code></pre>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-66f0a18f94a16b0a790b4c8f20a4dd6e">administrator/components/com_foos/ src/Service/HTML/AdministratorService.php</a></h4>
-<p>Wir implementieren den Service <code class="language-text">association</code> in <code class="language-text">AdministratorService.php</code>. Über die ID gibt die Funktion das HTML-Markup zum Bearbeiten der Sprachverknüpfungen zurück.<!-- \index{Menüpunkt (Service!Administrator)} --></p>
+<p>Wir implementieren den Service <code class="language-text">association</code> in <code class="language-text">AdministratorService.php</code>. Über die ID gibt die Funktion das HTML-Markup zum Bearbeiten der Sprachverknüpfungen zurück.<!-- \index{Service!Administrator} --></p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php">administrator/components/com_foos/ src/Service/HTML/AdministratorService.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;JPATH_BASE&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
@@ -1075,8 +1075,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/29269858434eaa82cd7430c5009967a9/f058b/j4x19x1.png"
         srcset="/static/29269858434eaa82cd7430c5009967a9/c26ae/j4x19x1.png 158w,
 /static/29269858434eaa82cd7430c5009967a9/6bdcf/j4x19x1.png 315w,
@@ -1110,8 +1110,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/8bbaa9d4e07599a1a7535dc7c2ad4e7a/f058b/j4x19x2.png"
         srcset="/static/8bbaa9d4e07599a1a7535dc7c2ad4e7a/c26ae/j4x19x2.png 158w,
 /static/8bbaa9d4e07599a1a7535dc7c2ad4e7a/6bdcf/j4x19x2.png 315w,
@@ -1145,8 +1145,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/951cc2e2f11070f68ac0f32c6f9731c2/f058b/j4x19x3.png"
         srcset="/static/951cc2e2f11070f68ac0f32c6f9731c2/c26ae/j4x19x3.png 158w,
 /static/951cc2e2f11070f68ac0f32c6f9731c2/6bdcf/j4x19x3.png 315w,
@@ -1180,8 +1180,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/24051eb5b58c74c4693254af2b5bc29b/f058b/j4x19x4.png"
         srcset="/static/24051eb5b58c74c4693254af2b5bc29b/c26ae/j4x19x4.png 158w,
 /static/24051eb5b58c74c4693254af2b5bc29b/6bdcf/j4x19x4.png 315w,
@@ -1212,8 +1212,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/3f464d5c77f611bbd58f734de2407bda/f058b/j4x19x5.png"
         srcset="/static/3f464d5c77f611bbd58f734de2407bda/c26ae/j4x19x5.png 158w,
 /static/3f464d5c77f611bbd58f734de2407bda/6bdcf/j4x19x5.png 315w,
@@ -1247,8 +1247,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/3589e630cc789dc625e9c61aebd91f71/f058b/j4x19x7.png"
         srcset="/static/3589e630cc789dc625e9c61aebd91f71/c26ae/j4x19x7.png 158w,
 /static/3589e630cc789dc625e9c61aebd91f71/6bdcf/j4x19x7.png 315w,
@@ -1279,8 +1279,8 @@ Kopiere die Dateien im <code class="language-text">components</code> Ordner in d
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
-        title="Joomla Sprachverknüpfungen – Multilinguale Associations in deiner Erweiterung"
+        alt="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
+        title="Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung"
         src="/static/985e9d78cf784fba8044353948e3cf3a/f058b/j4x19x6.png"
         srcset="/static/985e9d78cf784fba8044353948e3cf3a/c26ae/j4x19x6.png 158w,
 /static/985e9d78cf784fba8044353948e3cf3a/6bdcf/j4x19x6.png 315w,

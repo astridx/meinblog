@@ -37,7 +37,7 @@ Konkret sorgen wir dafür, dass die Ereignisse<!-- \index{Ereignis!onContentAfte
 - [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay]
   ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
-> Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster))[^de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen, die Beobachter genannt werden, unterhält und diese automatisch über Zustandsänderungen benachrichtigt, normalerweise durch den Aufruf einer ihrer Methoden.
+> Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster))[^de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen, die Beobachter genannt werden, unterhält und diese automatisch über Zustandsänderungen benachrichtigt, normalerweise durch den Aufruf einer ihrer Methoden.<!-- \index{Entwurfsmuster!Beobachter} -->
 
 [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 

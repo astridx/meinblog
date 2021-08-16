@@ -231,6 +231,7 @@ class Icon
 }
 
 ```
+<!-- \index{slug} -->
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)

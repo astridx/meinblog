@@ -16,18 +16,15 @@ tags:
 Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all his maps? In Joomla there are parameters for this purpose.<!-- \index{parameter} -->
 
 Parameters exist for
-
 - one item in particular,
 - for the whole component (all items of the component) and
 - for a menu item.
-
 If a parameter is set for all of the three possibilities, the following hierarchy applies in Joomla by default:
-
-- The menu item beats everything.
+- The setting on the menu item always has priority.
 - After that, the parameter that applies specifically to the item takes precedence.
 - The parameter that is set for the component has the lowest priority.
 
-![Joomla Parameters](/images/parameter.en.png)
+![Parameter handling in Joomla](/images/parameter.en.png)
 
 For the menu item we had already set a parameter. For the component, you can find it in the options of the configuration. We will look at the item in particular in this section.
 
@@ -42,9 +39,9 @@ The code with which the assignment of a parameter is calculated, was for a long 
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
 
-In order to create the column in the database where the parameters are stored when the component is updated, we need the following SQL file.
+In order to create the `params` column in the database where the parameters are stored when the component is updated, we need the SQL file `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://raw.githubusercontent.com/astridx/boilerplate/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```xml {numberLines: -2}
 /* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
@@ -57,7 +54,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
-In the configuration, the parameter is usually stored to set a default value. We will add a field `show_name` to the configuration. Then we will create the possibility to override it for an element or a menu item.
+In the configuration, the parameter is saved to set a default value. We add a field `show_name` to the configuration. Then we create the possibility to override it for a single element `administrator/components/com_foos/ forms/foo.xml` or a menu item `components/com_foos/tmpl/foo/default.xml`.
 
 [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
 
@@ -113,7 +110,7 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
-To create the column where the parameters will be stored during a new installation, we add a line to the following SQL file.
+To create the column where the parameters will be stored during a new installation, we add a line to the SQL file `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -129,7 +126,18 @@ To create the column where the parameters will be stored during a new installati
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
-In the class that handels the table, we make sure that the parameters are stored in the correct form.
+In the class that handels the table, we make sure that the parameters are stored in the correct form. We use the [registry design pattern](https://martinfowler.com/eaaCatalog/registry.html)[^martinfowler.com/eaaCatalog/registry.html]. <!-- \index{design pattern!Registy} --> This uses the ability to override properties [in PHP](http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members). We add properties using
+
+```
+$registry = new registry;
+$registry->foo = 'foo';
+
+```
+to the registry. To get a value, we use
+
+```
+$foo = $registry->foo;
+```
 
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
@@ -160,11 +168,14 @@ In the class that handels the table, we make sure that the parameters are stored
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-The view combines the data on the parameters so that the display fits. In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`. Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you mix the two so that the value at the item takes precedence.
+The view combines the data on the parameters so that the display fits. In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`. 
+
+Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you combine the two so that the value at the item is applied.
 
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
+ 
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;

@@ -13,24 +13,22 @@ tags:
   - Joomla
 ---
 
-Why use categories? One reason for categories is that there are many posts on a site. They can be grouped and managed more easily. Example: In post management, posts can be filtered by category. If there are 200 posts in the site, it is easy to find a post if you know its category.<!-- \index{categories (frontend)} -->
+Why use categories? Categories are often used when there are many posts on a site. With the help of categories, they can be grouped and managed more easily. Example: In the component content, articles can be filtered by category. If there are 200 articles on the site, it is easier to find a post if you know its category.<!-- \index{categories!frontend} -->
 
-For the frontend, there are built-in menu item types in Joomla! that use categories: Category Blog, Category List. The menu entry types (also called "layouts") simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable.
-
-Example: Imagine a blog layout of the category Events that displays the latest posts first. If a new post is added to this category, it will automatically appear first in the Events blog. All you have to do is add the post to the category.
-
-> The category structure, for example `Events |Online Events | Sport | Yoga`, is completely independent of the menu structure of the site. The site can have one or six menu levels and yoga can be classified as the main menu item.
-
-> Reminder: [Categories](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') are a way of organising content in Joomla! A category contains posts and other categories. A post can only be in one category. If a category is contained in another, it is a subcategory of the category.
+For the frontend, there are built-in menu item types in Joomla! that use categories: Category Blog and Category List. The menu item types or layouts simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable. For example, imagine a blog layout of the 'Events' category that displays the latest articles first on the site. When a new article is added to this category, it will automatically appear at the top of the Events blog. All you have to do is add the post to the category. The category structure, for example 'Events | Online Events | Sports | Yoga', is completely independent of the site's menu structure. The site can have one or six menu levels and `Yoga` can be placed as a menu item in the first level.
 
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t25...t26)[^github.com/astridx/boilerplate/compare/t25...t26] and incorporate these changes into your development version.
 
 ## Step by step
 
+[Categories](https://docs.joomla.org/Category)[^docs.joomla.org/Category]  are a way to organize content in Joomla. A category contains items and other categories. An item can belong to only one category. If a category is contained in another, it is a subcategory of that category.  Does it happen in your structure that single elements belong to several subsets? Then categories are not the right choice. In this case use tags.
+
 ### New files
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Model/CategoryModel.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-71b6dccdcef138d4aabf575d418deb76)
+
+The class we use to prepare the data for displaying the category view extends the `ListModel` class in the `/libraries/src/MVC/Model/ListModel.php` file, as does the `FeaturedModel` class in `components/com_foos/src/Model/FeaturedModel.php`. ListModel provides, among other things, the ability to handle the display of multiple items simultaneously on a web page, including support for pagination. Below I include my full code, which is derived from `com_contact`.
 
 [components/com_foos/ src/Model/CategoryModel.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Model/CategoryModel.php)
 
@@ -492,6 +490,8 @@ class CategoryModel extends ListModel
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-931af94e5b12bab015c84906dc961848)
 
+In the `Category` service for the frontend part we set the specific options for our component.
+
 [components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/category.php)<!-- \index{service!category} -->
 
 ```php {numberLines: -2}
@@ -540,6 +540,8 @@ class Category extends Categories
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d5d0bc03614ed16454bf9941dc8ebd7a)
+
+We handle the category view in the frontend via the file `components/com_foos/ src/View/Category/HtmlView.php`.
 
 [components/com_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/View/Category/HtmlView.php)
 
@@ -653,9 +655,12 @@ class HtmlView extends CategoryView
 }
 
 ```
+<!-- \index{slug} -->
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
+
+That we also create a template for the category view is not new. As usual we create the file `default.php` in the directory `components/com_foos/tmpl/category`. We use `joomla.content.category_default` here. You can find this layout file in the folder `layouts/joomla/content/category_default.php`.
 
 [components/com_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
 
@@ -685,10 +690,10 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-> We use `joomla.content.category_default` here. You can find this layout file in the folder `layouts/joomla/content/category_default.php`.
-
 <!-- prettier-ignore -->
 #### [components/com\_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
+
+Um im Backend auf benutzerfreundliche Art und Weise einen Menüpunkt für die Navigation im Frontend anlegen zu können, erstellen wir die Datei `components/com_foos/tmpl/category/default.xml`. Das haben wir hier im Text vorher schon öfter erledigt. Beispielsweise für ein Element oder für die Ansicht der Haupteinträge (`featured`).
 
 [components/com_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
 
@@ -756,10 +761,12 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 > The category views in Joomla usually have a lot of other parameters. For example, I have ignored the subcategories and filters. This keeps the example clear. Look up in the core extensions what is important to you .
 
-> If your element is not displayed, it may be because you have set the parameter `show_name` to no for the element.
+> If your element is not displayed, it may be because you have set the parameter `show_name` to `no` for the element.
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
+
+To make the category view code clear, we work with layouts. In the template `components/com_foos/tmpl/category/default.php` we use the layout `joomla.content.category_default`. This in turn requires the `items` layout, which we implement in the file `components/com_foos/tmpl/category/default_items.php`. At first glance, this seems cumbersome. In practice, however, it has proven its worth.
 
 [components/com_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
 
@@ -828,7 +835,7 @@ HTMLHelper::_('behavior.core');
 
 ```
 
-> The view is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012) keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template - or whether only in this way a user-friendly offer is possible - where the number of intro articles can be determined in the backend via a user interface.
+> The view in this chapter is not styled. Since this is a matter of taste - and in my opinion a task of the template - anyway, I leave the styling to you. I am of the opinion that the layouts of the categories do not respect the separation of model, view and controller. That's why discussions like the one in [Issue 32012](https://github.com/joomla/joomla-cms/issues/32012)[^github.com/joomla/joomla-cms/issues/32012] keep coming up. Again and again it has to be decided whether the insertion of a CSS class in the output of a component brings too much dependency and belongs only in the template - or whether only in this way a user-friendly offer is possible - where the number of intro articles can be determined in the backend via a user interface.
 
 ### Modified files
 
