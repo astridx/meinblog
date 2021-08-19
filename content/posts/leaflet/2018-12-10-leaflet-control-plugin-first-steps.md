@@ -31,16 +31,16 @@ die links oben und rechts oben in der folgenden Abbildung angezeigt werden.
 
 ## So erstellen Sie ein Leaflet Control-Plugin
 
-Bevor ich mit Ihnen praktisch ein Control erstelle, hier die recht langweilig klingende Definition: Control-Plugins sind JavaScript-Klassen, die die Leaflet [Klasse](https://leafletjs.com/reference-1.6.0.html#class) [`L.Control`](https://leafletjs.com/reference-1.3.4.html#control) erweitern. Üblicherweise wird der Name des Plugins zum Namensraum von Leaflet, zu `L`, hinzugefügt.
+Bevor ich mit Ihnen praktisch ein Control erstelle, hier die recht langweilig klingende Definition: Control-Plugins sind JavaScript-Klassen, die die Leaflet [Klasse](https://leafletjs.com/reference.html#class) [`L.Control`](https://leafletjs.com/reference.html#control) erweitern. Üblicherweise wird der Name des Plugins zum Namensraum von Leaflet, zu `L`, hinzugefügt.
 
 Im nächsten Beispiel zeige ich Ihnen, wie Sie ein Control-Plugin mit dem Namen `L.LeafletControlExample` erstellen. Hier zunächst der JavaScript Code.
 
-```javascript
+```js
 L.LeafletControlExample = L.Control.extend({
   options: {
     position: ‚topright‘
   },
-  ...
+  …
 }
 ```
 
@@ -48,7 +48,7 @@ Die Erweiterungsmethode `extend` der Klasse `L.Control` verwendet einen einzigen
 
 Das Standardmuster für die Erstellung eines Leaflet-Plugins, implementiert eine [Factory-Methode](https://de.wikipedia.org/wiki/Fabrikmethode), mit der die Erstellung des Plugins mit anderen Methoden-Aufrufen verkettet wird. Das ist praktisch. Deshalb enthält jedes Plugin diese Factory-Methode. Schreiben Sie dazu ans Ende der Datei den folgenden Text.
 
-```javascript
+```js
 L.leafletControlExample = function (options) {
   return new L.LeafletControlExample(options)
 }
@@ -56,7 +56,7 @@ L.leafletControlExample = function (options) {
 
 Erstellen Sie Ihr Plugin in einer Zeile und fügen es zur Karte hinzu. Im Beispiel würde das wie folgt aussehen:
 
-```javascript
+```js
 L.leafletControlExample({ position: ‚bottomright‘ }).addTo(map);
 ```
 
@@ -71,20 +71,20 @@ Leaflet ruft die folgenden Methoden eines Steuerelement-Plugins auf, wenn das El
 
 Leaflet ruft die initialize-Methode auf, wenn eine neue Instanz eines Controll-Plugins erstellt wird, indem entweder new direkt aufgerufen wird oder wenn die Factory-Methode verwendet wird:
 
-```javascript
+```js
 L.leafletControlExample()
 new L.LeafletControlExample()
 ```
 
 In der folgenden `initialize`-Methode wird `L.Util.setOptions` aufgerufen, um die Werte der Standardeinstellungen zu setzten.
 
-```javascript
-...
+```js
+…
 initialize: function(options) {
   L.Util.setOptions(this, options);
   // Initialisierung des Control-Plugins.
  }
-...
+…
 ```
 
 Nach dem Aufruf von setOptions fügen wir der `initialize`-Methode weiteren Code zur Initialisierung des Steuerelements hinzu.
@@ -94,14 +94,12 @@ Leaflet ruft die `onAdd`-Methode auf, wenn das Steuerelement mit einem der folge
 - control.addTo(Karte);
 - map.addControl(Steuerelement);
 
-Ein Leaflet-Control-Plugins ist ein DOM-Element Element - in der Regel ein HTML-Element -, das auf der Karte angezeigt wird. Genauer ausgedrückt: Das Element wird auf einer Schicht oberhalb der eigentlichen Kartenschicht angezeigt.
-
-**Wichtig:** Die onAdd-Methode muss das DOM-Element zurückgeben.
+Ein Leaflet-Control-Plugins ist ein DOM-Element Element - in der Regel ein HTML-Element -, das auf der Karte angezeigt wird. Genauer ausgedrückt: Das Element wird auf einer Schicht oberhalb der eigentlichen Kartenschicht angezeigt. Wichtig: Die onAdd-Methode muss das DOM-Element zurückgeben.
 
 In der folgenden `onAdd`-Methode erstellen wir ein div-Element. Diesem `div`-Element fügen wir danach die Klasse `leaflet-control-example` hinzu. So formatieren wir das Steuerelement später mit CSS problemlos.
 
-```javascript
-...
+```js
+…
 onAdd: function(map) {
   var controlElementTag = ‚div‘;
   var controlElementClass = ‚leaflet-control-example‘;
@@ -112,38 +110,38 @@ onAdd: function(map) {
 
   return controlElement;
 },
-...
+…
 ```
 
 Wenn alles fertig ist, geben Sie das DOM-Element mit return controlElement zurück.
 
 Leaflet erwartet eine weitere Methode. Diese heißt `onRemove`. `onRemove` wird - wie der Name schon sagt - aufgerufen, wenn das Steuerelement von der Karte entfernt wird.
 
-```javascript
+```js
 control.removeFrom(Karte)
 map.removeControl(Steuerelement)
 ```
 
 Die onRemove-Methode ist der Ort, an dem aufgeräumt wird. Entfernen Sie hier die DOM-Elemente und Ereignis-Listener.
 
-```javascript
-...
+```js
+…
 onRemove: function(map) {
   // Tear down the control.
 }
-...
+…
 ```
 
 ### Styling
 
 Gestalten Sie Leaflet Steuerelemente wie jedes andere DOM-Element mit CSS. Hier füge ich der CSS-Klasse leaflet-control-example Stilregeln hinzu. Naja, bisher stehen hier drei Punkte. Sie haben sicher etwas mehr Fantasie. Zur Erinnerung: Das div-Element mit der Klasse leaflet-control-example haben wir in der onAdd-Methode hinzugefügt.
 
-```javascript
-...
+```js
+…
 .leaflet-control-example {
-  ...
+  …
 }
-...
+…
 ```
 
 ### Lesen Sie weiter

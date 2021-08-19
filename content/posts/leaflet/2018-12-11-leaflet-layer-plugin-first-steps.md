@@ -35,19 +35,19 @@ Während [Control-Plugin](/leaflet-control-plugin-first-steps)s Leaflet um neue 
 
 ### So erstellen Sie ein Leaflet-Layer-Plugin
 
-Bevor ich mit Ihnen praktisch einen Layer erstelle, hier die recht langweilig klingende Definition: Layer-Plugins sind JavaScript-Klassen, die die [Leaflet Klasse](http://leafletjs.com/reference.html#class) [`L.Layer`](https://leafletjs.com/reference-1.3.4.html#layer) erweitern. Üblicherweise wird der Name des Layer-Plugins zum Namensraum von Leaflet, also zu `L`, hinzugefügt.
+Bevor ich mit Ihnen praktisch einen Layer erstelle, hier die recht langweilig klingende Definition: Layer-Plugins sind JavaScript-Klassen, die die [Leaflet Klasse](http://leafletjs.com/reference.html#class) [`L.Layer`](https://leafletjs.com/reference.html#layer) erweitern. Üblicherweise wird der Name des Layer-Plugins zum Namensraum von Leaflet, also zu `L`, hinzugefügt.
 
 Im nächsten Beispiel zeige ich Ihnen, wie Sie ein Layer-Plugin mit dem Namen `L.LeafletLayerExample` erstellen. Hier zunächst der JavaScript-Code.
 
-```javascript
+```js
     L.LeafletLayerExample = L.Layer.extend({
-      ...
+      …
     )}
 ```
 
 Das Standardmuster für die Erstellung eines Leaflet-Plugins, implementiert eine [Factory-Methode](https://de.wikipedia.org/wiki/Fabrikmethode), mit der die Erstellung des Plugins mit anderen Methodenaufrufen verkettet werden kann. Das ist ganz praktisch. Deshalb sollte jedes Leaflet-Plugin diese Factory-Methode enthalten. Schreiben Sie dazu ganz ans Ende der Datei den folgenden Text.
 
-```javascript
+```js
 L.leafletLayerExample = function (options) {
   return new L.LeafletLayerExample(options)
 }
@@ -55,7 +55,7 @@ L.leafletLayerExample = function (options) {
 
 Nun können sie Ihr Plugin ganz einfach in einer Zeile erstellen und zur Karte hinzufügen – wenn es fertig ist. Im Beispiel würde das wie folgt aussehen:
 
-```javascript
+```js
 L.leafletLayerExample().addTo(map)
 ```
 
@@ -75,13 +75,13 @@ Leaflet ruft die `initialize`\-Methode auf, wenn eine neue Instanz eines Layer-P
 
 Ein übliches Layer-Plugin-Muster besteht darin, die Koordinaten des Layers als Schlüssel-Wert-Paar des Optionsparameters zu übergeben. Der Optionsparameter wird dazu an die Initialisierungsmethode übergeben. Durch das Festlegen der Position der Ebene kann das Plugin die Ebene korrekt aktualisieren, wenn die Karte vergrößert, verkleinert oder verschoben wird.
 
-```javascript
-    ...
+```js
+    …
     initialize: function(options) {
       this._latLng = options.latLng;
       // Initialisierung des Layer-Plugins.
     }
-    ...
+    …
 ```
 
 Nach dem Setzen des Wertes für `this._latLng` kann der `initialize`\-Methode weiterer Code zur Initialisierung des Layers hinzugefügt werden.
@@ -93,8 +93,8 @@ Leaflet ruft die `onAdd`\-Methode auf, wenn der Layer mit den folgenden Methoden
 
 Bisher war das Erstellen eines Leaflet-Ebenen-Plugins dem Erstellen eines Control-Plugins sehr ähnlich. Der Hauptunterschied zwischen Layer- und Steuerelement-Plugins liegt in der Menge der Arbeit, die die `onAdd`\-Methode ausführen muss. Idealerweise erstellt man hier zunächst einen Verweis auf die Karte (`this._map = map;`), um später bei der Verarbeitung von Ereignissen leicht auf diese zugreifen zu können.
 
-```javascript
-    ...
+```js
+    …
     onAdd: function(map) {
       this._map = map;
 
@@ -108,7 +108,7 @@ Bisher war das Erstellen eines Leaflet-Ebenen-Plugins dem Erstellen eines Contro
       map.on('viewreset', this._updatePosition, this);
       this._updatePosition();
     }
-    ...
+    …
 ```
 
 Nachdem der Verweise auf die Karte fertig ist, erstellt die `onAdd`\-Methode das DOM-Element, das zur Anzeige der Ebenen-Inhalte genutzt werden soll. (`var layerElementTag = 'div';`).
@@ -124,13 +124,13 @@ Da die Methode `_updatePosition` die Berechnung zum korrekten Positionieren des 
 Wenn die Karte vergrößert oder verkleinert wird, haben die Breiten- und Längengrade der Ebene (festgelegt, als die Ebene erstellt wurde) unterschiedliche Koordinaten auf dem Bildschirm. Um die Ebene nach einem Zoom neu zu positionieren, berechnet die Methode `_updatePosition` zunächst die Bildschirmkoordinaten der Ebene mit der Methode `latLngToLayerPoint`  
 (`var position = this._map.latLngToLayerPoint(this._latLng);`) neu. Als Nächstes werden die Bildschirmkoordinaten des DOM-Elements der Ebene mit den neuen Bildschirmkoordinaten (`L.DomUtil.setPosition(this._layerElement, position);`) aktualisiert.
 
-```javascript
-    ...
+```js
+    …
     _updatePosition: function() {
       var position = this._map.latLngToLayerPoint(this._latLng);
       L.DomUtil.setPosition(this._layerElement, position);
     }
-    ...
+    …
 ```
 
 Leaflet ruft eine dritte Layer-Plugin-Methode auf. Diese Methode heißt `onRemove`. Die Methode `onRemove` wird - wie der Name schon sagt - aufgerufen, wenn der Layer aus der Karte entfernt wird.
@@ -141,25 +141,25 @@ Leaflet ruft eine dritte Layer-Plugin-Methode auf. Diese Methode heißt `onRemov
 Genau wie die `onRemove`\-Methode eines Leaflet-Control-Plugins ist die `onRemove`\-Methode eines Layer-Plugins der Ort, an dem aufgeräumt wird. Entfernen Sie hier die DOM-Elemente und Ereignis-Listener. Darüber hinaus sollte sich die Ebene aus dem Overlay-Fensterbereich der Leaflet Karte  
 entfernen (`map.getPanes().overlayPane.removeChild(this._layerElement);`) und sie sollte die Überwachung von `viewreset`\-Ereignissen (`map.off('viewreset', this._updatePosition, this);`) beenden.
 
-```javascript
-    ...
+```js
+    …
     onRemove: function(map) {
       map.getPanes().overlayPane.removeChild(this._layerElement);
       map.off('viewreset', this._updatePosition, this);
     }
-    ...
+    …
 ```
 
 ### Styling
 
 Leaflet Layer können Sie wie jedes andere DOM-Element mit CSS gestalten. Hier füge ich der CSS-Klasse `leaflet-layer-example` Stilregeln hinzu. Naja, bisher füge ich nur drei Punkte hinzu. Sie haben sicher etwas mehr Fantasie. Zur Erinnerung: Das `div`\-Element mit der Klasse `leaflet-layer-example` haben wir in der `onAdd`\-Methode hinzugefügt.
 
-```javascript
-    ...
+```js
+    …
     .leaflet-layer-example {
-      ...
+      …
     }
-    ...
+    …
 ```
 
 ### Lesen Sie weiter

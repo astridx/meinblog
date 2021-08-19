@@ -14,12 +14,12 @@ tags:
 
 In the last chapter you learned about points, markers, lines and polygons. You can now draw these on a leaflet map and know when which object is the right one. You can distinguish [layer groups](https://leafletjs.com/reference.html#layergroup)[^leafletjs.com/reference.html#layergroup] and [feature groups](https://leafletjs.com/reference.html#featuregroup)[^leafletjs.com/reference.html#featuregroup] from each other and you know what to look for when displaying a leaflet map on a small display. In addition, you can now react appropriately to a mouse click or other event.
 
-The next chapter is about the format [GeoJson](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442)[^de.wikipedia.org/w/index.php?title=geojson&oldid=183228442] and how to handle data well even in large quantities.
+The next chapter is about the format [GeoJson](https://de.wikipedia.org/w/index.php?title=GeoJSON)[^de.wikipedia.org/w/index.php?title=geojson] and how to handle data well even in large quantities.
 
-GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://de.wikipedia.org/w/index.php?title=Simple_Feature_Access&oldid=171319596)[^de.wikipedia.org/w/index.php?title=simple_feature_access&oldid=171319596]. For the description of the geodata GeoJSON uses
-uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/w/index.php?title=JSON&oldid=1018029384)[^en.wikipedia.org/wiki/json].
+GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://de.wikipedia.org/w/index.php?title=Simple_Feature_Access)[^de.wikipedia.org/w/index.php?title=simple_feature_access]. For the description of the geodata GeoJSON uses
+uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/w/index.php?title=JSON)[^en.wikipedia.org/wiki/json].
 
-> The term _Simple Feature Access Specification_ hides a specification of the [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium&oldid=180537320)[^de.wikipedia.org/w/index.php?title=open_geospatial_consortium&oldid=180537320]. This specification contains a generally valid description for geodata and their geometries. The fact that the specification is universally valid means that this data can be exchanged easily. The OGC is a non-profit organisation that aims to develop universally valid standards for geodata.
+> The term _Simple Feature Access Specification_ hides a specification of the [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium)[^de.wikipedia.org/w/index.php?title=open_geospatial_consortium]. This specification contains a generally valid description for geodata and their geometries. The fact that the specification is universally valid means that this data can be exchanged easily. The OGC is a non-profit organisation that aims to develop universally valid standards for geodata.
 
 ## In this chapter we will …
 
@@ -27,7 +27,7 @@ First, we look at why GeoJSON was developed. Next, we compare the individual Geo
 
 ## The history of GeoJSON
 
-[GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) builds on [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070)[^de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070]. Before JSON was specified as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/w/index.php?title=XML&oldid=1016987270)[^en.wikipedia.org/w/index.php?title=xml&oldid=1016987270].
+[GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) builds on [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation]. Before JSON was specified as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/w/index.php?title=XML)[^en.wikipedia.org/w/index.php?title=xml].
 
 Whenever something new is created, there is a reason for it!
 
@@ -76,7 +76,7 @@ Here you can see the XML excerpt consisting of 95 characters.
 
 The same object can be described with 73 characters in JSON format.
 
-```
+```js
 „joomlers“: {
 „number“: „1721“,
 „vorname“: „Astrid“,
@@ -106,13 +106,8 @@ Let's start from the beginning.
 
 #### A geometry
 
-Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON&oldid=183228442#Geometrien)[^de.wikipedia.org/w/index.php?title=geojson&oldid=183228442#geometrien]
-ist eine Form.
-Alle Formen in GeoJSON werden mit einer oder mehrerer Koordin (en beschrieben.
-Eine K)]
-ist eine Form.
-Alle Formen in GeoJSON werden mit einer oder mehrerer Koordinaten beschrieben.
-Eine Koordinate heißt in GeoJSON _Position_.
+Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON#Geometrien)[^de.wikipedia.org/w/index.php?title=geojson#geometrien]
+ist eine Form. Alle Formen in GeoJSON werden mit einer oder mehrerer Koordinaten beschrieben. Eine Koordinate heißt in GeoJSON _Position_.
 
 GeoJSON unterstützt die Geometriearten
 
@@ -129,36 +124,19 @@ GeoJSON unterstützt die Geometriearten
 
 Das wichtigste Element beim Arbeiten mit Geodaten ist die Beschreibung des
 Punktes auf der Erde.
-Der Punkt auf der Erde ist der, dem die Geodaten zugeordnet werden.
-Diesen Wert kennen wir auch unter dem Namen Koordinate.
-Im Kapitel _Das Koordinatensystem der Erde_ habe ich schon eine ganze Menge zum Thema Koordinaten auf der Erde geschrieben.
-Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination.
-Jede Zahl einer Koordinate steht für eine Dimension.
-Wir beschränken uns in diesem Buch auf zwei Dimensionen,
-nämlich die geografische Längen und die geografische Breite.
-GeoJSON unterstützt drei Dimensionen – neben der geografischen Länge
-und der geografischen Breite können Sie zusätzlich die Höhe auf der Erde angeben.
+Der Punkt auf der Erde ist der, dem die Geodaten zugeordnet werden. Diesen Wert kennen wir auch unter dem Namen Koordinate. Im Kapitel _Das Koordinatensystem der Erde_ habe ich schon eine ganze Menge zum Thema Koordinaten auf der Erde geschrieben. Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination. Jede Zahl einer Koordinate steht für eine Dimension. Wir beschränken uns in diesem Buch auf zwei Dimensionen, nämlich die geografische Längen und die geografische Breite. GeoJSON unterstützt drei Dimensionen – neben der geografischen Länge und der geografischen Breite können Sie zusätzlich die Höhe auf der Erde angeben.
 
-> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten&oldid=1581004)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten&oldid=1581004]
-> ist noch eine vierte Große relevant.
-> Neben der horizontalen Position und der Höhe spie ( auch
-> die aktuelle Z)]
-> ist noch eine vierte Große relevant.
-> Neben der horizontalen Position und der Höhe spielt auch
-> die aktuelle Zeit eine Rolle.
+> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten] ist noch eine vierte Große relevant. Neben der horizontalen Position und der Höhe spielt auch die aktuelle Zeit eine Rolle.
 
-Die Koordinaten werden in GeoJSON im Dezimalformat formatiert.
-Die erste Zahl steht für die Longitude – also die geografische Länge –
-und die zweite Zahl für die Latitude – also die geografische Breite.
-Konkret sieht eine Position in GeoJSON so aus:
+Die Koordinaten werden in GeoJSON im Dezimalformat formatiert. Die erste Zahl steht für die Longitude – also die geografische Länge – und die zweite Zahl für die Latitude – also die geografische Breite. Konkret sieht eine Position in GeoJSON so aus:
 
-```
+```js
 [Länge, Breite, Höhe]
 ```
 
 oder
 
-```
+```js
 [50.254, 7.5847, 324.1]
 ```
 
@@ -170,7 +148,7 @@ Früher erlaubte GeoJSON die Speicherung von mehr als drei Zahlen pro Position. 
 
 Der Typ Point – also Punkt – ist die einfachste Geometrie in GeoJSON. Er gibt die Koordinaten einer bestimmten Position im Raum an. Die genaue Schreibweise sehen Sie nachfolgend.
 
-```
+```js
 {
     "type": "Point",
     "coordinates": [30.0, 10.0]
@@ -185,7 +163,7 @@ als [Marker](https://leafletjs.com/reference.html#marker)[^leafletjs.com/referen
 Der Typ MultiPoint wird mit einem Array von Positionen beschrieben.
 Mit ihm können mehrere Punkte auf der Erde angegeben werden.
 
-```
+```js
 {
     "type": "MultiPoint",
     "coordinates": [
@@ -206,7 +184,7 @@ Die Linie ist die Verbindung zwischen diesen Punkten.
 Eine Linie wird mit einem Array von zwei oder mehr Positionen gebildet.
 In GeoJSON wird eine Linie mit dem Typ LineString dargestellt.
 
-```
+```js
 {
     "type": "LineString",
     "coordinates": [
@@ -225,7 +203,7 @@ Ein GeoJSON Objekt vom Typ [LineString](https://tools.ietf.org/html/rfc7946#sect
 Beim Typ MultiLineString werden die Koordinaten mit einem Array von
 LineString-Koordinaten-Arrays angegeben.
 
-```
+```js
 {
     "type": "MultiLineString",
     "coordinates": [
@@ -245,25 +223,15 @@ LineString-Koordinaten-Arrays angegeben.
 }
 ```
 
-Ein GeoJSON Objekt vom Typ
-[MultiLineString](https://tools.ietf.org/html/rfc7946#section-3.1.5)[^tools.ietf.org/html/rfc7946#section-3.1.5]
-entspricht einem Leaflet [Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline], welches mehr als eine abgeschlossene
-Linie definiert.
-Das bedeute, dass alle Linien zusammen auf einem Layer gezeichnet werden.
+Ein GeoJSON Objekt vom Typ [MultiLineString](https://tools.ietf.org/html/rfc7946#section-3.1.5)[^tools.ietf.org/html/rfc7946#section-3.1.5] entspricht einem Leaflet [Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline], welches mehr als eine abgeschlossene Linie definiert. Das bedeute, dass alle Linien zusammen auf einem Layer gezeichnet werden.
 
-> Wie bei den Objekten in Leaflet gilt auch hier: Linien und Punkte
-> sind die einfachsten Geometrieformen. Bei beiden müssen Sie nicht
-> viele geometrische Regeln beachten. Ein Punkt kann irgendwo an einem
-> Ort liegen und eine Linie kann eine beliebige Anzahl an Punkten
-> enthalten. Eine Linie darf sich selbst überqueren. Punkte und Linien
-> haben keine Fläche – somit gibt es auch kein _Außen_ und kein
-> _Innen_.
+> Wie bei den Objekten in Leaflet gilt auch hier: Linien und Punkte sind die einfachsten Geometrieformen. Bei beiden müssen Sie nicht viele geometrische Regeln beachten. Ein Punkt kann irgendwo an einem Ort liegen und eine Linie kann eine beliebige Anzahl an Punkten enthalten. Eine Linie darf sich selbst überqueren. Punkte und Linien haben keine Fläche – somit gibt es auch kein _Außen_ und kein _Innen_.
 
 ##### Polygone
 
 Im Vergleich zu Linien sind Polygone komplexe Geometrien. Polygone verfügen über eine Fläche. Es gibt also einen Innenbereich, der sich von einem Außenbereich unterscheidet. Und hinzu kommt: Der Innenbereich kann Löcher haben! Wie die Löcher in einem Polygon entstehen, habe ich Ihnen im Kapitel _Die Karte mit Daten bestücken_ im Unterkapitel _Polygone_ erklärt. Ein GeoJSON Objekt vom Typ [Polygon](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6] entspricht einem [Polygon Objekt](https://leafletjs.com/reference.html#polygon)[^leafletjs.com/reference.html#polygon] in Leaflet. Die Koordinatenliste enthält bei einem Polygon – analog zu Leaflets Polygon – eine Ebene mehr als die Koordinatenliste des Typs LineString.
 
-```
+```js
     {
         "type": "Polygon",
         "coordinates": [
@@ -283,7 +251,7 @@ Bei einem einfachen Polygon ist der Sinn dieser Ebene nicht offensichtlich. Auf 
 Ein _LinearRing_ ist entweder die äußere Ringposition, die die äußere Kante des Polygons bildet und definiert, welche Flächen gefüllt sind. Ein _LinearRing_ kann auch ein Innenring sein, der die Flächen des Polygons definieren, die leer sind. Es kann eine beliebige Anzahl von Innenringen geben,
 einschließlich null Innenringe. Wenn das Polygon über keinen Innenring verfügt bedeutet dies, dass das Polygon nur einen Innenbereich und einen Außenbereich hat – also keine Löcher hat.
 
-```
+```js
 {
     "type": "Polygon",
     "coordinates": [
@@ -308,7 +276,7 @@ einschließlich null Innenringe. Wenn das Polygon über keinen Innenring verfüg
 
 ![Ein Polygon mit einem Innenring. Der Innenring definiert einen Außenbereich im Polygon – er schneidet quasi ein Loch in das Polygon .](/images/928b.png)
 
-```
+```js
 {
     "type": "Polygon",
     "coordinates": [
@@ -341,19 +309,13 @@ einschließlich null Innenringe. Wenn das Polygon über keinen Innenring verfüg
 ![Ein Polygon mit zwei Innenringen – der zweite Innenring wird innerhalb des ersten Innenringes gezeichnet. Dieser zweite Innenring zeichnet einen neuen Innenbereich in den Außenbereich der durch den ersten Innenring entstanden ist.](/images/928c.png)
 
 > Vielleicht
-> ist Ihnen aufgefallen, das die erste und die letzte Koordinate jedes
-> LinearRings gleich ist. Die Wiederholung der Koordinate ist bei einem
-> Leaflet Objekt nicht erwünscht. Hier werden die Ringe eines Polygone
-> automatisch geschlossen. Die erste und letzte Position eines GeoJSON
-> LinearRing muss im Gegensatz dazu identisch sein.
+> ist Ihnen aufgefallen, das die erste und die letzte Koordinate jedes LinearRings gleich ist. Die Wiederholung der Koordinate ist bei einem Leaflet Objekt nicht erwünscht. Hier werden die Ringe eines Polygone automatisch geschlossen. Die erste und letzte Position eines GeoJSON LinearRing muss im Gegensatz dazu identisch sein.
 
 ##### MultiPolygon
 
-Beim Typ MultiPolygon werden die Koordinaten mit einem Array von
-Polygon-Koordinaten-Arrays angegeben.
-Hier sehen Sie zunächst ein Beispiel, dass zwei einfache Polygone darstellt.
+Beim Typ MultiPolygon werden die Koordinaten mit einem Array von Polygon-Koordinaten-Arrays angegeben. Hier sehen Sie zunächst ein Beispiel, dass zwei einfache Polygone darstellt.
 
-```
+```js
 {
     "type": "MultiPolygon",
     "coordinates": [
@@ -381,7 +343,7 @@ Hier sehen Sie zunächst ein Beispiel, dass zwei einfache Polygone darstellt.
 
 Es geht komplizierter. Sie können auch mehr als ein Polygon mit Löchern – also mehr als einem LinearString – zusammen als MultiPolygon gruppieren.
 
-```
+```js
 {
     "type": "MultiPolygon",
     "coordinates": [
@@ -432,7 +394,7 @@ Typ [GeometryCollection](https://tools.ietf.org/html/rfc7946#section-3.1.8)[^too
 zusammenfassen. Zum Beispiel haben die beiden Geometrien im nachfolgenden Beispiel
 denselben Namen.
 
-```
+```js
 {
     "type": "Feature",
     "geometry": {
@@ -454,12 +416,7 @@ denselben Namen.
 }
 ```
 
-Einen Anwendungsfall für eine Geometriekollektion gibt es in der
-Praxis allerdings nur sehr selten: Meist ist es so,
-dass jede Geometrie auch eigene Eigenschaften besitzt.
-Im nächsten Kapitel werden Sie lesen, dass Sie eine Geometrie mit
-eigenen Eigenschaften im Typ Feature beschreiben können
-und Feature Objekte werden mit dem Typ FeatureCollection zusammengefasst.
+Einen Anwendungsfall für eine Geometriekollektion gibt es in der Praxis allerdings nur sehr selten: Meist ist es so, dass jede Geometrie auch eigene Eigenschaften besitzt. Im nächsten Kapitel werden Sie lesen, dass Sie eine Geometrie mit eigenen Eigenschaften im Typ Feature beschreiben können und Feature Objekte werden mit dem Typ FeatureCollection zusammengefasst.
 
 #### Einer GeoJSON Geometrie Eigenschaften zuordnen
 
@@ -467,7 +424,7 @@ Geometrien sind Formen – nicht mehr und nicht weniger. Sie sind ein zentraler 
 
 Das nachfolgende Programmcodebeispiel enthält ein ganz einfaches Feature Element.
 
-```
+```js
 {
   "type": "Feature",
   "geometry": {
@@ -481,9 +438,9 @@ Das nachfolgende Programmcodebeispiel enthält ein ganz einfaches Feature Elemen
 ```
 
 Im nächsten Beispiel sehen Sie ein etwas komplexeres Feature. Sie erkennen hier, dass eine Eigenschaft eines Feature Elements
-mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation&oldid=183718070#Datenstruktur_und_Formatdefinition)[^de.wikipedia.org/w/index.php?title=javascript_object_notation&oldid=183718070#datenstruktur_und_formatdefinition] beschrieben werden kann.
+mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition)[^de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition] beschrieben werden kann.
 
-```
+```js
   {
   "type": "Feature",
   "geometry": {
@@ -529,7 +486,7 @@ Den Typ, den Sie sicherlich am meisten nutzen werden,
 habe ich für den Schluss aufgehoben. Die Syntax einer FeatureCollection
 können Sie im nachfolgenden Beispiel ablesen.
 
-```
+```js
 {
     "type": "FeatureCollection",
     "features": [{
@@ -580,46 +537,16 @@ können Sie im nachfolgenden Beispiel ablesen.
 
 Ein Objekt vom Typ [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3) enthält ein Schlüssel-Wert-Paar. Der Wert ist ein Array das aus Feature Objekten besteht und der Schlüssel lautet Features. Wie der Name schon sagt, darf das Array ausschließlich Objekte vom Typ Feature enthalten.
 
-Welche Vorteile bring ein Objekt vom Typ FeatureCollection zusätzlich zu
-den einzelnen Feature Objekten? Ein Objekt vom Typ FeatureCollections ist
-sehr sinnvoll, wenn Sie mit GeoJSON-Typen arbeiten,
-die gemeinsame Eigenschaften haben.
-Im nächsten Kapitel wird Ihnen dies anhand von praktischen Beispielen klar werden.
+Welche Vorteile bring ein Objekt vom Typ FeatureCollection zusätzlich zu den einzelnen Feature Objekten? Ein Objekt vom Typ FeatureCollections ist sehr sinnvoll, wenn Sie mit GeoJSON-Typen arbeiten, die gemeinsame Eigenschaften haben. Im nächsten Kapitel wird Ihnen dies anhand von praktischen Beispielen klar werden.
 
-> **Hinweis:**  
-> Sie möchten gerne GeoJSON nutzen und
-> haben auch schon die ersten Dateien erstellt.
-> Vielleicht sind Sie auch schon auf das ein oder andere Problem
-> gestoßen oder möchten einfach nur mit der Syntax vertraut werden.
-> Auf der Website [http://geojsonlint.com](http://geojsonlint.com)[^geojsonlint.com]
-> können Sie Ihre GeoJSON Daten testen.
+> _Hinweis:_ Sie möchten gerne GeoJSON nutzen und haben auch schon die ersten Dateien erstellt. Vielleicht sind Sie auch schon auf das ein oder andere Problem gestoßen oder möchten einfach nur mit der Syntax vertraut werden. Auf der Website [http://geojsonlint.com](http://geojsonlint.com)[^geojsonlint.com] können Sie Ihre GeoJSON Daten testen.
 
 ### Die Grenzen von GeoJSON
 
-Die Vorteile von GeoJSON hatte ich Ihnen weiter vorne in diesem
-Kapitel näher gebracht. Wie jedes andere Format hat GeoJSON auch seine Grenzen.
-Diese sind nun Thema dieses Kapitels.
+Die Vorteile von GeoJSON hatte ich Ihnen weiter vorne in diesem Kapitel näher gebracht. Wie jedes andere Format hat GeoJSON auch seine Grenzen. Diese sind nun Thema dieses Kapitels.
 
-- GeoJSON hat kein Konstrukt das eine Komprimierung unterstützt
-  wie beispielsweise [TopoJSON](https://github.com/topojson/topojson)[^github.com/topojson/topojson]
-  oder [OSM XML](https://wiki.openstreetmap.org/w/index.php?title=OSM_XML&oldid=1419416)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten&oldid=1581004].
-- GeoJSON unterstützt die gleichen Datentypen wie JSON.
-  JSON unter (ützt nicht jeden Daten)].
-- GeoJSON unterstützt die gleichen Datentypen wie JSON.
-  JSON unterstützt nicht jeden Datentyp. Zum Beispiel gibt es keinen Typ
-  für Datumswerte in JSON.
-- GeoJSON hat kein Konstrukt für die Anzeige von Pop-up Fenstern wie Titel
-  oder Beschreibung.
-- GeoJSON hat keine Geometrie vom Typ Kreis – oder irgendeine andere Art von Kurve.
-- In GeoJSON können Sie den einzelnen Koordinaten – also den Positionen –
-  keine eigene Eigenschaft zuweisen. Wenn Sie die _LineString_ Darstellung
-  eines Trainingslaufs haben und Ihr GPS Gerät mehr als 1000 verschiedene
-  Punkte während dieses Laufs zusammen mit Ihrer Herzfrequenz protokolliert hat,
-  bietet GeoJSON keine klare Antwort auf die Frage, wie Sie diese Daten am
-  besten darstellen. Sie könnten eine zusätzliche Eigenschafte als
-  Array mit der gleichen Länge wie das Array der Koordinaten speichern –
-  eine klare und einheitliche Regelung gibt es nicht. Jeder muss für sich selbst
-  das Rad neu erfinden.
+- GeoJSON hat kein Konstrukt das eine Komprimierung unterstützt wie beispielsweise [TopoJSON](https://github.com/topojson/topojson)[^github.com/topojson/topojson] oder [OSM XML](https://wiki.openstreetmap.org/w/index.php?title=OSM_XML)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten].
+- GeoJSON unterstützt die gleichen Datentypen wie JSON. JSON unterstützt nicht jeden Datentyp. Zum Beispiel gibt es keinen Typ für Datumswerte in JSON. GeoJSON hat kein Konstrukt für die Anzeige von Pop-up Fenstern wie Titel oder Beschreibung. GeoJSON hat keine Geometrie vom Typ Kreis – oder irgendeine andere Art von Kurve. In GeoJSON können Sie den einzelnen Koordinaten – also den Positionen – keine eigene Eigenschaft zuweisen. Wenn Sie die _LineString_ Darstellung eines Trainingslaufs haben und Ihr GPS Gerät mehr als 1000 verschiedene Punkte während dieses Laufs zusammen mit Ihrer Herzfrequenz protokolliert hat, bietet GeoJSON keine klare Antwort auf die Frage, wie Sie diese Daten am besten darstellen. Sie könnten eine zusätzliche Eigenschafte als Array mit der gleichen Länge wie das Array der Koordinaten speichern – eine klare und einheitliche Regelung gibt es nicht. Jeder muss für sich selbst das Rad neu erfinden.
 
 ## GeoJson in Leaflet
 
@@ -627,16 +554,7 @@ Leaflet unterstützt alle GeoJSON-Typen. In der Regel werden Sie überwiegend de
 
 ### Ein GeoJSON Feature in Leaflet einbinden
 
-Beginnen wir mit einem übersichtlichen Beispiel:
-Die einfachste Art GeoJSON in Ihrer Karte zu nutzen,
-ist die Verwendung als Variable direkt – fest programmiert.
-So etwas sollte man in der Praxis nicht machen. Ein Programm mit fix
-programmierten Variablen ist in der Regel starr und unflexibel. Etwas größere
-Anwendungen werden so auch schnell unübersichtlich, weil alles durcheinander
-geschrieben ist.  
-Übungsbeispiele sollen nur einen bestimmten Punkt hervorheben. Außerdem lassen sich die Beispiele so möglichst einfach darstellen.
-Deshalb nutze ich in den Programmcodebeispielen in
-diesem Buch fest programmierte Variablen.
+Beginnen wir mit einem übersichtlichen Beispiel: Die einfachste Art GeoJSON in Ihrer Karte zu nutzen, ist die Verwendung als Variable direkt – fest programmiert. So etwas sollte man in der Praxis nicht machen. Ein Programm mit fix programmierten Variablen ist in der Regel starr und unflexibel. Etwas größere Anwendungen werden so auch schnell unübersichtlich, weil alles durcheinander geschrieben ist. Übungsbeispiele sollen nur einen bestimmten Punkt hervorheben. Außerdem lassen sich die Beispiele so möglichst einfach darstellen. Deshalb nutze ich in den Programmcodebeispielen in diesem Buch fest programmierte Variablen.
 
 > Eine andere alternative Art GeoJSON Daten in ein HTML-Dokument einzubinden finden Sie im Kapitel _Choroplethenkarte_ im Unterkapitel _Open Data_.
 
@@ -647,7 +565,7 @@ Das nachfolgende Programmcodebeispiel enthält einen _Punkt_. Sobald Sie diesen 
 Hier also nun das erste praktische Beispiel zum Thema GeoJSON und Leaflet.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_973.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_973.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -658,66 +576,43 @@ Hier also nun das erste praktische Beispiel zum Thema GeoJSON und Leaflet.
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       var geojsonFeature1 = {
-        type: 'Feature',
+        type: "Feature",
         geometry: {
-          type: 'Point',
+          type: "Point",
           coordinates: [7.26469, 50.27264],
         },
         properties: {
-          name: 'Gering',
+          name: "Gering",
         },
-      }
-      L.geoJSON(geojsonFeature1).addTo(mymap)
+      };
+      L.geoJSON(geojsonFeature1).addTo(mymap);
     </script>
   </body>
 </html>
+
 ```
 
-<!--index_973.html-->
+Was passiert hier genau? Als erste haben wir den GeoJSON Code fest in der Variablen `geojsonFeature1` gespeichert. Als nächstes haben wir ein Leaflet Objekt vom Typ GeoJSON erstellt und diesem unseren GeoJSON Code, also die Variable `geojsonFeature1`, übergeben. Das GeoJSON Objekt haben wir gleichzeitig mithilfe der Methode `addTo()` zum Leaflet-Kartenobjekt hinzugefügt. Mehr mussten wir nicht tun! Das Ergebnis ist ein Standard Marker an der Stelle auf der Erde, die das GeoJSON Point Element beschreibt.
 
-Was passiert hier genau? Als erste haben wir den GeoJSON Code fest
-in der Variablen `geojsonFeature1` gespeichert.
-Als nächstes haben wir ein Leaflet Objekt vom Typ GeoJSON erstellt und
-diesem unseren GeoJSON Code, also die Variable `geojsonFeature1`, übergeben.
-Das GeoJSON Objekt haben wir gleichzeitig mithilfe der Methode `addTo()`
-zum Leaflet-Kartenobjekt hinzugefügt.  
-Mehr mussten wir nicht tun! Das Ergebnis ist ein Standard Marker
-an der Stelle auf der Erde, die das GeoJSON Point Element beschreibt.
-
-> Das Leaflet-Objekt [GeoJSON](http://leafletjs.com/reference#geojson)[^leafletjs.com/reference#geojson]
-> ist ein Leaflet-Layer. Also eine Ebene.
-> Ganz konkret erweitert die Klasse GeoJSON die Klasse
-> [FeatureGroup](http://leafletjs.com/reference#featuregroup).
+> Das Leaflet-Objekt [GeoJSON](http://leafletjs.com/reference#geojson)[^leafletjs.com/reference#geojson] ist ein Leaflet-Layer. Also eine Ebene. Ganz konkret erweitert die Klasse GeoJSON die Klasse [FeatureGroup](http://leafletjs.com/reference#featuregroup).
 
 Auf der nachfolgenden Abbildung können Sie sich das Ergebnis ansehen.
 
 ![Ein Marker auf einer Leaflet Karte mithilfe von GeoJSON eingefügt.](/images/955.png)
 
-> Wenn Sie an die Zeile  
-> `L.geoJSON(geojsonFeature1).addTo(mymap);`  
-> den Text  
-> `.bindPopup('Pop-up Text');`  
-> anhängen, also  
-> `L.geoJSON(geojsonFeature1).addTo(mymap).bindPopup('Pop-up Text');`  
-> schreiben, öffnet sich ein Pop-up Fenster, wenn Sie den Marker anklicken.
+> Wenn Sie an die Zeile `L.geoJSON(geojsonFeature1).addTo(mymap);` den Text `.bindPopup('Pop-up Text');` anhängen, also `L.geoJSON(geojsonFeature1).addTo(mymap).bindPopup('Pop-up Text');` schreiben, öffnet sich ein Pop-up Fenster, wenn Sie den Marker anklicken.
 
 ### Eine GeoJSON FeatureCollection in Leaflet einbinden
 
-Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt –
-also ein Feature. Geodaten bestehen in der Regel aus mehreren Geometrien
-mit dazugehörigen Eigenschaften – also FeatureCollections.
-Leaflet liest eine FeatureCollection genauso ein, wie Sie es im letzten Beispiel
-anhand des einen Features gesehen haben. Das nächste Beispiel zeigt Ihnen,
-wie Sie einen Punkt, ein Polygon und eine Linie in einem Schritt auf
-Ihrer Karte anzeigen könnten.
+Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt – also ein Feature. Geodaten bestehen in der Regel aus mehreren Geometrien mit dazugehörigen Eigenschaften – also FeatureCollections. Leaflet liest eine FeatureCollection genauso ein, wie Sie es im letzten Beispiel anhand des einen Features gesehen haben. Das nächste Beispiel zeigt Ihnen, wie Sie einen Punkt, ein Polygon und eine Linie in einem Schritt auf Ihrer Karte anzeigen könnten.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_972.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_972.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -728,22 +623,22 @@ Ihrer Karte anzeigen könnten.
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       var geojsonFeatureCollection = {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 50] },
-            properties: { prop0: 'value0' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 50] },
+            properties: { prop0: "value0" },
           },
           {
-            type: 'Feature',
+            type: "Feature",
             geometry: {
-              type: 'LineString',
+              type: "LineString",
               coordinates: [
                 [7, 50],
                 [7, 51],
@@ -751,12 +646,12 @@ Ihrer Karte anzeigen könnten.
                 [6, 52],
               ],
             },
-            properties: { prop0: 'value0', prop1: 0.0 },
+            properties: { prop0: "value0", prop1: 0.0 },
           },
           {
-            type: 'Feature',
+            type: "Feature",
             geometry: {
-              type: 'Polygon',
+              type: "Polygon",
               coordinates: [
                 [
                   [6, 49],
@@ -767,17 +662,16 @@ Ihrer Karte anzeigen könnten.
                 ],
               ],
             },
-            properties: { prop0: 'value0', prop1: { this: 'that' } },
+            properties: { prop0: "value0", prop1: { this: "that" } },
           },
         ],
-      }
-      L.geoJSON(geojsonFeatureCollection).addTo(mymap)
+      };
+      L.geoJSON(geojsonFeatureCollection).addTo(mymap);
     </script>
   </body>
 </html>
-```
 
-<!--index_972.html-->
+```
 
 Voila! Drei Elemente mit Standardeigenschaften auf der Leaflet Karte.
 
@@ -788,7 +682,7 @@ Voila! Drei Elemente mit Standardeigenschaften auf der Leaflet Karte.
 So, und nun machen wir genau das Gegenteil. Ein jedes Leaflet Objekt, das wir uns im Kapitel _Die Karte mit Daten bestücken_ angesehen haben, verfügt über eine Leaflet Methode mit dem Namen `toGeoJson()`. Und diese Methode tut genau das, was der Name schon vermuten lässt: Das übergebene Leaflet Objekt wird in ein GeoJSON Objekt umgewandelt und ausgegeben. Sehen Sie sich im nächsten Beispiel die Anwendung der Methode `toGeoJson()` an.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_971.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_971.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -799,46 +693,28 @@ So, und nun machen wir genau das Gegenteil. Ein jedes Leaflet Objekt, das wir un
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
-      var myMarker = L.marker([50.27264, 7.26469])
-      var markerAsGeoJSON = myMarker.toGeoJSON()
-      var geoJsonLayer = L.geoJson().addTo(mymap)
+      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var myMarker = L.marker([50.27264, 7.26469]);
+      var markerAsGeoJSON = myMarker.toGeoJSON();
+      var geoJsonLayer = L.geoJson().addTo(mymap);
       geoJsonLayer
         .addData(markerAsGeoJSON)
         .bindPopup(
-          'Ich bin mit der Methode .addData() zur Karte hinzugefügt worden. In GeoJson sehe ich so aus:<br> ' +
+          "Ich bin mit der Methode .addData() zur Karte hinzugefügt worden. In GeoJson sehe ich so aus:<br> " +
             JSON.stringify(markerAsGeoJSON)
-        )
+        );
     </script>
   </body>
 </html>
+
 ```
 
-<!--index_971.html-->
+Was zeigt Ihnen dieses Beispiel genau? Das folgende Beispiel zeigt Ihnen, wie Sie einen Marker ins GeoJSON Format konvertieren können. Dazu erstellen Sie zunächst mit var `myMarker=L.marker([50.27264, 7.26469])` einen Leaflet Marker. Danach rufen Sie die Methode `toGeoJSON()` des Markers auf und speichern das zurückgegeben GeoJSON Objekt in der Variablen `markerAsGeoJSON`. Als Nächstes erstellen Sie einen leeren GeoJSON Layer und fügen diesen zum Kartenobjekt hinzu: `var geoJsonLayer = L.geoJson().addTo(mymap)`. Sie hätten den GeoJSON Code in der Variablen `markerAsGeoJSON` wie in vorherigen Beispielen sofort beim Erstellen des Layers als Parameter mitgeben können. Hier wollte ich ihnen die Methode `addData()` zeigen, mit der Sie auch nachträglich noch GeoJSON Objekte zur GeoJSON Ebene hinzufügen können.
 
-Was zeigt Ihnen dieses Beispiel genau?
-Das folgende Beispiel zeigt Ihnen, wie Sie einen Marker ins GeoJSON
-Format konvertieren können.
-Dazu erstellen Sie zunächst mit var `myMarker=L.marker([50.27264, 7.26469])`
-einen Leaflet Marker. Danach rufen Sie die Methode `toGeoJSON()`
-des Markers auf und speichern das zurückgegeben GeoJSON Objekt in der Variablen
-`markerAsGeoJSON`. Als Nächstes erstellen Sie einen leeren GeoJSON Layer
-und fügen diesen zum Kartenobjekt hinzu:
-`var geoJsonLayer = L.geoJson().addTo(mymap)`.
-Sie hätten den GeoJSON Code in der Variablen `markerAsGeoJSON`
-wie in vorherigen Beispielen sofort beim Erstellen des Layers als
-Parameter mitgeben können. Hier wollte ich ihnen die Methode `addData()`
-zeigen, mit der Sie auch nachträglich noch GeoJSON Objekte zur GeoJSON Ebene
-hinzufügen können.
-
-> Im vorausgehenden Beispiel habe ich die Methode `JSON.stringify()`
-> beim Erstellen des Textes im Pop-up Fenster angewandt. Mit
-> der Methode [JSON.stringify()](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/json/stringify]
-> können Sie eine JavaScript Variable in einen Text im JSON-Format
-> konvertieren.
+> Im vorausgehenden Beispiel habe ich die Methode `JSON.stringify()` beim Erstellen des Textes im Pop-up Fenster angewandt. Mit der Methode [JSON.stringify()](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/json/stringify] können Sie eine JavaScript Variable in einen Text im JSON-Format konvertieren.
 
 Die nac (olgende Abbildung zeig)]
 
@@ -903,7 +779,7 @@ gibt die Funktion die Farbe Rot zurück, falls ein Polygon vorliegt,
 antwortet die Funktion mit der Farbe Violett.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_970.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_970.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -914,30 +790,30 @@ antwortet die Funktion mit der Farbe Violett.
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([49.3264, 7.26469], 6)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([49.3264, 7.26469], 6);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       function styleFunction(feature) {
         switch (feature.geometry.type) {
-          case 'LineString':
-            return { color: 'red' }
-          case 'Polygon':
-            return { color: 'purple' }
+          case "LineString":
+            return { color: "red" };
+          case "Polygon":
+            return { color: "purple" };
         }
       }
       var geojsonFeatureCollection = {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 50] },
-            properties: { prop0: 'value0' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 50] },
+            properties: { prop0: "value0" },
           },
           {
-            type: 'Feature',
+            type: "Feature",
             geometry: {
-              type: 'LineString',
+              type: "LineString",
               coordinates: [
                 [7, 50],
                 [7, 51],
@@ -945,12 +821,12 @@ antwortet die Funktion mit der Farbe Violett.
                 [6, 52],
               ],
             },
-            properties: { prop0: 'value0', prop1: 0.0 },
+            properties: { prop0: "value0", prop1: 0.0 },
           },
           {
-            type: 'Feature',
+            type: "Feature",
             geometry: {
-              type: 'Polygon',
+              type: "Polygon",
               coordinates: [
                 [
                   [6, 49],
@@ -961,20 +837,19 @@ antwortet die Funktion mit der Farbe Violett.
                 ],
               ],
             },
-            properties: { prop0: 'value0', prop1: { this: 'that' } },
+            properties: { prop0: "value0", prop1: { this: "that" } },
           },
         ],
-      }
+      };
       //var geoJsonLayer = L.geoJson(geojsonFeatureCollection,{color: "purple"}).addTo(mymap);
       var geoJsonLayer = L.geoJson(geojsonFeatureCollection, {
         style: styleFunction,
-      }).addTo(mymap)
+      }).addTo(mymap);
     </script>
   </body>
 </html>
-```
 
-<!--index_970.html-->
+```
 
 > Wenn Sie einen Stil auf alle Objekte > anwenden möchten, dann ist es nicht notwendig eine Funktion zu erstellen. Die Zeile `var geoJsonLayer = L.geoJson(geojsonFeatureCollection,{color: "purple"}).addTo(mymap);` reicht völlig aus.
 
@@ -1013,15 +888,15 @@ Ein Beispiel zeigt der nachfolgende Ausschnitt aus einer GeoJSON-Datei.
       "geometry": {
         "type": "Polygon",
         "coordinates": [
-...
-...
+…
+…
 ```
 
 Wir müssen für die Verwendung in Leaflet `stroke`, `stroke-width`, `stroke-opacity`, `fill` und `fill-opacity` in die CSS-Eigenschaften `color`, `weight`, `opacity`, `fillColor` und `fillOpacity` umwandeln. Eine mögliche Umsetzung zeigt der nachfolgende Codeausschnitt.
 
 ```js
-...
-...
+…
+…
 function areaStyle(feature){
   return {
     fillColor: getAreaFill(feature),
@@ -1066,11 +941,11 @@ function getAreaFillOpacity(feature){
     return 0.7;
   }
 };
-...
-...
+…
+…
 L.geoJSON(geojsonText, {style: areaStyle}).addTo(mymap);
-...
-...
+…
+…
 ```
 
 > https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/Working_with_Objects
@@ -1086,7 +961,7 @@ wurden, als schon besucht kennzeichnen möchte. Oder Sie möchten ein Objekt,
 Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_969.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_969.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -1097,30 +972,30 @@ Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([49.27264, 7.26469], 6)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([49.27264, 7.26469], 6);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       function styleFunction(feature) {
         switch (feature.geometry.type) {
-          case 'LineString':
-            return { color: 'red' }
-          case 'Polygon':
-            return { color: 'purple' }
+          case "LineString":
+            return { color: "red" };
+          case "Polygon":
+            return { color: "purple" };
         }
       }
       var geojsonFeatureCollection = {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 50] },
-            properties: { prop0: 'value0' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 50] },
+            properties: { prop0: "value0" },
           },
           {
-            type: 'Feature',
+            type: "Feature",
             geometry: {
-              type: 'LineString',
+              type: "LineString",
               coordinates: [
                 [7, 50],
                 [7, 51],
@@ -1128,12 +1003,12 @@ Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
                 [6, 52],
               ],
             },
-            properties: { prop0: 'value0', prop1: 0.0 },
+            properties: { prop0: "value0", prop1: 0.0 },
           },
           {
-            type: 'Feature',
+            type: "Feature",
             geometry: {
-              type: 'Polygon',
+              type: "Polygon",
               coordinates: [
                 [
                   [6, 49],
@@ -1144,30 +1019,29 @@ Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
                 ],
               ],
             },
-            properties: { prop0: 'value0', prop1: { this: 'that' } },
+            properties: { prop0: "value0", prop1: { this: "that" } },
           },
         ],
-      }
+      };
       var geoJsonLayer = L.geoJson(geojsonFeatureCollection, {
         style: styleFunction,
-      }).addTo(mymap)
-      geoJsonLayer.on('mouseover', styleWhenMouseOver)
-      geoJsonLayer.on('mouseout', styleWhenMouseOut)
+      }).addTo(mymap);
+      geoJsonLayer.on("mouseover", styleWhenMouseOver);
+      geoJsonLayer.on("mouseout", styleWhenMouseOut);
       function styleWhenMouseOver(e) {
-        geoJsonLayer.setStyle({ color: 'green' })
+        geoJsonLayer.setStyle({ color: "green" });
       }
       function styleWhenMouseOut(e) {
         //geoJsonLayer.setStyle({color:"gray"});
         geoJsonLayer.eachLayer(function (layer) {
-          geoJsonLayer.resetStyle(layer)
-        })
+          geoJsonLayer.resetStyle(layer);
+        });
       }
     </script>
   </body>
 </html>
-```
 
-<!--index_969.html-->
+```
 
 Auf den ersten Blick hat sich im Vergleich zum vorherigen Beispiel nichts geändert.
 Wenn Sie allerdings die Maus über ein Objekt bewegen, sehen Sie eine Änderung.
@@ -1184,7 +1058,7 @@ Wenn Sie ein schon angeklicktes Element
 mit der Farbe Grau einfärben möchten, dann könnten Sie dies über
 die Funktion
 
-```
+```js
 function styleWhenMouseOut(e){
 geoJsonLayer.setStyle({color:"gray"});
 });
@@ -1193,7 +1067,7 @@ geoJsonLayer.setStyle({color:"gray"});
 
 anstelle von
 
-```
+```js
 function styleWhenMouseOut(e){
 geoJsonLayer.eachLayer(function (layer) {
 geoJsonLayer.resetStyle(layer);
@@ -1230,7 +1104,7 @@ Nützlich ist diese Option zum Anhängen von Ereignissen oder Pop-up Fenstern
 an jedes Feature Objekt.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_968.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_968.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -1241,41 +1115,40 @@ an jedes Feature Objekt.
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       var geojsonFeatureCollection = {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [6, 50] },
-            properties: { name: 'Dorf 1' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [6, 50] },
+            properties: { name: "Dorf 1" },
           },
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 50] },
-            properties: { name: 'Dorf 2' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 50] },
+            properties: { name: "Dorf 2" },
           },
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 51] },
-            properties: { name: 'Dorf 3' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 51] },
+            properties: { name: "Dorf 3" },
           },
         ],
-      }
+      };
       L.geoJson(geojsonFeatureCollection, {
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(feature.properties.name)
+          layer.bindPopup(feature.properties.name);
         },
-      }).addTo(mymap)
+      }).addTo(mymap);
     </script>
   </body>
 </html>
-```
 
-<!--index_968.html-->
+```
 
 Der vorhergehende Programmcode zeigt Ihnen, wie Sie jedem Feature Objekt,
 das über die hart kodiert eingefügten GeoJSON Daten eingelesen wird,
@@ -1307,7 +1180,7 @@ auf die Koordinaten. Sehen Sie sich das nächste Beispiel an.
 Ein Beispiel erklärt oft mehr als viele Worte.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_967.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_967.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -1318,62 +1191,61 @@ Ein Beispiel erklärt oft mehr als viele Worte.
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       var geojsonFeatureCollection = {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [6, 50] },
-            properties: { name: 'Dorf 1' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [6, 50] },
+            properties: { name: "Dorf 1" },
           },
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 50] },
-            properties: { name: 'Dorf 2' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 50] },
+            properties: { name: "Dorf 2" },
           },
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 51] },
-            properties: { name: 'Dorf 3' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 51] },
+            properties: { name: "Dorf 3" },
           },
         ],
-      }
+      };
       var options_draggable = {
         draggable: true,
-        title: 'Ein Ort in der Nähe von Gering',
-      }
+        title: "Ein Ort in der Nähe von Gering",
+      };
       var options_notdraggable = {
         draggable: false,
-        title: 'Ein Ort in der Nähe von Gering',
-      }
+        title: "Ein Ort in der Nähe von Gering",
+      };
       L.geoJson(geojsonFeatureCollection, {
         pointToLayer: function (feature, latlng) {
           switch (feature.properties.name) {
-            case 'Dorf 1':
+            case "Dorf 1":
               return L.marker(latlng, options_draggable).bindPopup(
                 feature.properties.name
-              )
-            case 'Dorf 2':
+              );
+            case "Dorf 2":
               return L.marker(latlng, options_notdraggable).bindPopup(
                 feature.properties.name
-              )
-            case 'Dorf 3':
+              );
+            case "Dorf 3":
               return L.marker(latlng, options_notdraggable).bindPopup(
                 feature.properties.name
-              )
+              );
           }
         },
-      }).addTo(mymap)
+      }).addTo(mymap);
     </script>
   </body>
 </html>
-```
 
-<!--index_967.html-->
+```
 
 Im vorhergehenden Programmcodebeispiel sehen Sie,
 wie ein Marker erstellt und mit einem individuellen Pop-up Text versehen wird.
@@ -1400,7 +1272,7 @@ Mithilfe der Option `filter` können Sie große Datenbestände auf das
 Wesentliche beschränken. Sehen Sie sich dies _im Kleinen_ im nächsten Beispiel an.
 
 ```html
-<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version2_2021/2/index_966.html-->
+<!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_966.html-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -1411,50 +1283,49 @@ Wesentliche beschränken. Sehen Sie sich dies _im Kleinen_ im nächsten Beispiel
     <script src="../leaflet/leaflet.js"></script>
   </head>
   <body>
-    <div style="height: 700px;" id="mapid"></div>
+    <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
       var geojsonFeatureCollection = {
-        type: 'FeatureCollection',
+        type: "FeatureCollection",
         features: [
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [6, 50] },
-            properties: { name: 'Dorf 1' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [6, 50] },
+            properties: { name: "Dorf 1" },
           },
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 50] },
-            properties: { name: 'Dorf 2' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 50] },
+            properties: { name: "Dorf 2" },
           },
           {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [7, 51] },
-            properties: { name: 'Dorf 3' },
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [7, 51] },
+            properties: { name: "Dorf 3" },
           },
         ],
-      }
+      };
       var options = {
         draggable: true,
-        title: 'Ein Ort in der Nähe von Gering',
-      }
+        title: "Ein Ort in der Nähe von Gering",
+      };
       L.geoJson(geojsonFeatureCollection, {
         filter: function (feature, latlng) {
           switch (feature.properties.name) {
-            case 'Dorf 1':
-              return true
+            case "Dorf 1":
+              return true;
             default:
-              return false
+              return false;
           }
         },
-      }).addTo(mymap)
+      }).addTo(mymap);
     </script>
   </body>
 </html>
-```
 
-<!--index_966.html-->
+```
 
 Im Beispiel sehen Sie, dass auf einem GeoJSON Layer nur die Elemente angezeigt werden,
 deren Rückgabewert beim Filtern positiv oder `true` ist. Im Beispiel bedeutet dies genau,
