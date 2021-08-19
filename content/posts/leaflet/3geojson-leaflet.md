@@ -106,7 +106,9 @@ Beginnen wir von vorne.
 
 #### Eine Geometrie
 
-Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON#Geometrien)[^de.wikipedia.org/w/index.php?title=geojson#geometrien] ist eine Form. Alle Formen in GeoJSON werden mit einer oder mehrerer Koordinaten beschrieben. Eine Koordinate heißt in GeoJSON _Position_. GeoJSON unterstützt die Geometriearten
+Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON#Geometrien)[^de.wikipedia.org/w/index.php?title=geojson#geometrien] ist eine Form. Alle Formen in GeoJSON werden mit einer oder mehrerer Koordinaten beschrieben. Eine Koordinate heißt in GeoJSON _Position_.
+
+GeoJSON unterstützt die Geometriearten
 
 1. Point,
 2. LineString,
@@ -119,30 +121,11 @@ Eine [Geometrie](https://de.wikipedia.org/w/index.php?title=GeoJSON#Geometrien)[
 
 ##### Position
 
-Das wichtigste Element beim Arbeiten mit Geodaten ist die Beschreibung des
-Punktes auf der Erde.
-Der Punkt auf der Erde ist der, dem die Geodaten zugeordnet werden.
-Diesen Wert kennen wir auch unter dem Namen Koordinate.
-Im Kapitel _Das Koordinatensystem der Erde_ habe ich schon eine ganze Menge zum Thema Koordinaten auf der Erde geschrieben.
-Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination.
-Jede Zahl einer Koordinate steht für eine Dimension.
-Wir beschränken uns in diesem Buch auf zwei Dimensionen,
-nämlich die geografische Längen und die geografische Breite.
-GeoJSON unterstützt drei Dimensionen – neben der geografischen Länge
-und der geografischen Breite können Sie zusätzlich die Höhe auf der Erde angeben.
+Das wichtigste Element beim Arbeiten mit Geodaten ist die Beschreibung des Punktes auf der Erde. Der Punkt auf der Erde ist der, dem die Geodaten zugeordnet werden. Diesen Wert kennen wir auch unter dem Namen Koordinate. Im Kapitel _Das Koordinatensystem der Erde_ habe ich schon eine ganze Menge zum Thema Koordinaten auf der Erde geschrieben. Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination. Jede Zahl einer Koordinate steht für eine Dimension. Wir beschränken uns in diesem Buch auf zwei Dimensionen, nämlich die geografische Längen und die geografische Breite. GeoJSON unterstützt drei Dimensionen – neben der geografischen Länge und der geografischen Breite können Sie zusätzlich die Höhe auf der Erde angeben.
 
-> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten]
-> ist noch eine vierte Große relevant.
-> Neben der horizontalen Position und der Höhe spie ( auch
-> die aktuelle Z)]
-> ist noch eine vierte Große relevant.
-> Neben der horizontalen Position und der Höhe spielt auch
-> die aktuelle Zeit eine Rolle.
+> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten] ist noch eine vierte Große relevant. Neben der horizontalen Position und der Höhe spielt auch die aktuelle Zeit eine Rolle.
 
-Die Koordinaten werden in GeoJSON im Dezimalformat formatiert.
-Die erste Zahl steht für die Longitude – also die geografische Länge –
-und die zweite Zahl für die Latitude – also die geografische Breite.
-Konkret sieht eine Position in GeoJSON so aus:
+Die Koordinaten werden in GeoJSON im Dezimalformat formatiert. Die erste Zahl steht für die Longitude – also die geografische Länge – und die zweite Zahl für die Latitude – also die geografische Breite. Konkret sieht eine Position in GeoJSON so aus:
 
 ```js
 [Länge, Breite, Höhe]
@@ -156,21 +139,11 @@ oder
 
 > Vielleicht haben Sie in der Vergangenheit schon öfter mit Geodaten gearbeitet und wundern sich nun über die Reihenfolge, in der die Dimensionen im Format GeoJSON stehen? Viele Systeme geben zuerst die geografische Länge und erst dann die geografische Breite an. Auch in Leaflet wird bei der Koordinate zuerst die Latitude - also die geografische Breite - und erste dann die Longitude - also die geografische Länge - angegeben: `Breitengrad | Längengrad`. Um dieses Durcheinander zu verstehen, müssen Sie das Folgende bedenken: Früher war es üblich, dass die erste Stelle einer Koordinate den Breitengrad und die zweite Stelle den Längengrad beschrieb. In der Mathematik ist die übliche Reihenfolge beim Arbeiten mit Koordinatensystemen: `X-Wert | Y-Wert`. Wenn man eine Landkarte mit einem Koordinatensystem vergleicht, erkennt man schnell, dass der Breitengrad dem `X-Wert` und der Längengrad der dem `Y-Wert` entspricht. Dies hat zur Folge, dass es beim Rechnen mit einem Computer viele Vorteile bringt, wenn man die Reihenfolge `Längengrad | Breitengrad` einhält. In der digitalen Welt gibt es momentan noch keine Einigkeit über die Reihenfolge. Es sieht so aus, als ob wir mitten in einem Umbruch stecken. Eine Übersicht, die zeigt, welche Anwendung die Dimensionen in welcher Reihenfolge verwendet finden Sie unter anderem unter der Adresse https://macwright.org/lonlat/.
 
-Früher erlaubte GeoJSON die Speicherung von mehr als drei Zahlen pro Position.
-Diese Möglichkeit wurde auch genutzt.
-Es wurden beispielsweise Sportdaten wie die Herzfrequenz zusammen
-mit der Position gespeichert. So konnte ein Sportler später nachsehen, wie
-sich sein Puls am Berg und im Tal unterscheidet. Da dies nicht der Sinn
-einer Position ist, führte dieses Vorgehen teilweise zu Problemen
-in anderen GeoJSON Anwendungen.
-In der [neuen GeoJSON Spezifikation](https://tools.ietf.org/html/rfc7946#section-3.1.1)[^tools.ietf.org/html/rfc7946#section-3.1.1]
-ist das Speichern von mehr als drei Werten pro Position nun nicht mehr zulässig.
+Früher erlaubte GeoJSON die Speicherung von mehr als drei Zahlen pro Position. Diese Möglichkeit wurde auch genutzt. Es wurden beispielsweise Sportdaten wie die Herzfrequenz zusammen mit der Position gespeichert. So konnte ein Sportler später nachsehen, wie sich sein Puls am Berg und im Tal unterscheidet. Da dies nicht der Sinn einer Position ist, führte dieses Vorgehen teilweise zu Problemen in anderen GeoJSON Anwendungen. In der [neuen GeoJSON Spezifikation](https://tools.ietf.org/html/rfc7946#section-3.1.1)[^tools.ietf.org/html/rfc7946#section-3.1.1] ist das Speichern von mehr als drei Werten pro Position nun nicht mehr zulässig.
 
 ##### Point
 
-Der Typ Point – also Punkt – ist die einfachste Geometrie in GeoJSON.
-Er gibt die Koordinaten einer bestimmten Position im Raum an.
-Die genaue Schreibweise sehen Sie nachfolgend.
+Der Typ Point – also Punkt – ist die einfachste Geometrie in GeoJSON. Er gibt die Koordinaten einer bestimmten Position im Raum an. Die genaue Schreibweise sehen Sie nachfolgend.
 
 ```js
 {
@@ -179,13 +152,11 @@ Die genaue Schreibweise sehen Sie nachfolgend.
 }
 ```
 
-In Leaflet wird der Typ [Point](https://tools.ietf.org/html/rfc7946#section-3.1.2)[^tools.ietf.org/html/rfc7946#section-3.1.2]
-als [Marker](https://leafletjs.com/reference.html#marker)[^leafletjs.com/reference.html#marker] zur Karte hinzugefügt.
+In Leaflet wird der Typ [Point](https://tools.ietf.org/html/rfc7946#section-3.1.2)[^tools.ietf.org/html/rfc7946#section-3.1.2] als [Marker](https://leafletjs.com/reference.html#marker)[^leafletjs.com/reference.html#marker] zur Karte hinzugefügt.
 
 ##### Multipoint
 
-Der Typ MultiPoint wird mit einem Array von Positionen beschrieben.
-Mit ihm können mehrere Punkte auf der Erde angegeben werden.
+Der Typ MultiPoint wird mit einem Array von Positionen beschrieben. Mit ihm können mehrere Punkte auf der Erde angegeben werden.
 
 ```js
 {
@@ -198,15 +169,11 @@ Mit ihm können mehrere Punkte auf der Erde angegeben werden.
 }
 ```
 
-Mit dem Typ Multipoint können Sie mehrere Marker auf einen Schlag zu
-Ihrer Leaflet Karte hinzufügen.
+Mit dem Typ Multipoint können Sie mehrere Marker auf einen Schlag zu Ihrer Leaflet Karte hinzufügen.
 
 ##### LineString
 
-Um eine Linie darzustellen, benötigen Sie mindestens zwei Punkte.
-Die Linie ist die Verbindung zwischen diesen Punkten.
-Eine Linie wird mit einem Array von zwei oder mehr Positionen gebildet.
-In GeoJSON wird eine Linie mit dem Typ LineString dargestellt.
+Um eine Linie darzustellen, benötigen Sie mindestens zwei Punkte. Die Linie ist die Verbindung zwischen diesen Punkten. Eine Linie wird mit einem Array von zwei oder mehr Positionen gebildet. In GeoJSON wird eine Linie mit dem Typ LineString dargestellt.
 
 ```js
 {
@@ -247,19 +214,9 @@ LineString-Koordinaten-Arrays angegeben.
 }
 ```
 
-Ein GeoJSON Objekt vom Typ
-[MultiLineString](https://tools.ietf.org/html/rfc7946#section-3.1.5)[^tools.ietf.org/html/rfc7946#section-3.1.5]
-entspricht einem Leaflet [Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline], welches mehr als eine abgeschlossene
-Linie definiert.
-Das bedeute, dass alle Linien zusammen auf einem Layer gezeichnet werden.
+Ein GeoJSON Objekt vom Typ [MultiLineString](https://tools.ietf.org/html/rfc7946#section-3.1.5)[^tools.ietf.org/html/rfc7946#section-3.1.5] entspricht einem Leaflet [Polyline Objekt](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline], welches mehr als eine abgeschlossene Linie definiert. Das bedeute, dass alle Linien zusammen auf einem Layer gezeichnet werden.
 
-> Wie bei den Objekten in Leaflet gilt auch hier: Linien und Punkte
-> sind die einfachsten Geometrieformen. Bei beiden müssen Sie nicht
-> viele geometrische Regeln beachten. Ein Punkt kann irgendwo an einem
-> Ort liegen und eine Linie kann eine beliebige Anzahl an Punkten
-> enthalten. Eine Linie darf sich selbst überqueren. Punkte und Linien
-> haben keine Fläche – somit gibt es auch kein _Außen_ und kein
-> _Innen_.
+> Wie bei den Objekten in Leaflet gilt auch hier: Linien und Punkte sind die einfachsten Geometrieformen. Bei beiden müssen Sie nicht viele geometrische Regeln beachten. Ein Punkt kann irgendwo an einem Ort liegen und eine Linie kann eine beliebige Anzahl an Punkten enthalten. Eine Linie darf sich selbst überqueren. Punkte und Linien haben keine Fläche – somit gibt es auch kein _Außen_ und kein _Innen_.
 
 ##### Polygone
 
@@ -280,11 +237,7 @@ Im Vergleich zu Linien sind Polygone komplexe Geometrien. Polygone verfügen üb
     }
 ```
 
-Bei einem einfachen Polygon ist der Sinn dieser Ebene nicht offensichtlich.
-Auf den ersten Blick könnten Sie der Meinung sein, dass es einfacher wäre,
-das Polygon genau wie die Linie zu erstellen.
-Dass es sich um ein Polygon handelt, ist über den Eintrag bei der Eigenschaft
-Typ klar. Und, wenn es sich um den Typ Polygon handelt, wird die Linie einfach geschlossen! Der erste Blick ist oft trügerisch. Wir benötigen diese zusätzliche Möglichkeit der Klammerung oder Verschachtelung um Löcher in die Fläche zeichnen zu können. Polygone sind in GeoJSON mehr als nur geschlossene Linien. Ich wiederhole mich. Polygone haben einen Innenbereich, und dieser Innenbereich kann Löcher haben. Aus diesem Grund ist beim Typ Polygone in der GeoJSON Spezifikation ein neuer Begriff zu lesen, nämlich der Begriff [LinearRing](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6]. Ein LinearRing ist ein geschlossener LineString mit vier oder mehr Positionen. Obwohl ein LinearRing nicht explizit als GeoJSON-Geometrie-Typ eingeführt ist, wird der Begriff in der [Polygon-Geometrie-Typ-Definition](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6] der Spezifikation erwähnt.
+Bei einem einfachen Polygon ist der Sinn dieser Ebene nicht offensichtlich. Auf den ersten Blick könnten Sie der Meinung sein, dass es einfacher wäre, das Polygon genau wie die Linie zu erstellen. Dass es sich um ein Polygon handelt, ist über den Eintrag bei der Eigenschaft Typ klar. Und, wenn es sich um den Typ Polygon handelt, wird die Linie einfach geschlossen! Der erste Blick ist oft trügerisch. Wir benötigen diese zusätzliche Möglichkeit der Klammerung oder Verschachtelung um Löcher in die Fläche zeichnen zu können. Polygone sind in GeoJSON mehr als nur geschlossene Linien. Ich wiederhole mich. Polygone haben einen Innenbereich, und dieser Innenbereich kann Löcher haben. Aus diesem Grund ist beim Typ Polygone in der GeoJSON Spezifikation ein neuer Begriff zu lesen, nämlich der Begriff [LinearRing](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6]. Ein LinearRing ist ein geschlossener LineString mit vier oder mehr Positionen. Obwohl ein LinearRing nicht explizit als GeoJSON-Geometrie-Typ eingeführt ist, wird der Begriff in der [Polygon-Geometrie-Typ-Definition](https://tools.ietf.org/html/rfc7946#section-3.1.6)[^tools.ietf.org/html/rfc7946#section-3.1.6] der Spezifikation erwähnt.
 
 Ein _LinearRing_ ist entweder die äußere Ringposition, die die äußere Kante des Polygons bildet und definiert, welche Flächen gefüllt sind. Ein _LinearRing_ kann auch ein Innenring sein, der die Flächen des Polygons definieren, die leer sind. Es kann eine beliebige Anzahl von Innenringen geben,
 einschließlich null Innenringe. Wenn das Polygon über keinen Innenring verfügt bedeutet dies, dass das Polygon nur einen Innenbereich und einen Außenbereich hat – also keine Löcher hat.
@@ -463,8 +416,7 @@ Das nachfolgende Programmcodebeispiel enthält ein ganz einfaches Feature Elemen
 }
 ```
 
-Im nächsten Beispiel sehen Sie ein etwas komplexeres Feature. Sie erkennen hier, dass eine Eigenschaft eines Feature Elements
-mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition)[^de.wikipedia.org/w/index.php?title=javascript_object_notation#datenstruktur_und_formatdefinition] beschrieben werden kann.
+Im nächsten Beispiel sehen Sie ein etwas komplexeres Feature. Sie erkennen hier, dass eine Eigenschaft eines Feature Elements mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation#Datenstruktur_und_Formatdefinition)[^de.wikipedia.org/w/index.php?title=javascript_object_notation#datenstruktur_und_formatdefinition] beschrieben werden kann.
 
 ```js
   {
@@ -492,25 +444,16 @@ mit jedem [JSON-Objekt Datentyp](https://de.wikipedia.org/w/index.php?title=Java
 
 JSON kennt folgende Datentypen:
 
-- Nullwert  
-  Ein Nullwert wird durch das Schlüsselwort `null` dargestellt.
-- Boolescher Wert  
-  Ein Boolescher Wert wird durch die Schlüsselwörter `true` und `false` dargestellt.
-- Zahl  
-  Eine Zahl ist eine Folge der Ziffern `0`–`9`.
-- Zeichenkette  
-  Eine Zeichenkette beginnt und endet mit doppelten geraden Anführungszeichen `"`.
-- Array  
-  Ein Array beginnt mit `[` und endet mit `]`.
-- Objekt  
-  Ein Objekt beginnt mit `{` und endet mit `}`.
+- Nullwert: Ein Nullwert wird durch das Schlüsselwort `null` dargestellt.
+- Boolescher Wert: Ein Boolescher Wert wird durch die Schlüsselwörter `true` und `false` dargestellt.
+- Zahl: Eine Zahl ist eine Folge der Ziffern `0`–`9`.
+- Zeichenkette: Eine Zeichenkette beginnt und endet mit doppelten geraden Anführungszeichen `"`.
+- Array: Ein Array beginnt mit `[` und endet mit `]`.
+- Objekt: Ein Objekt beginnt mit `{` und endet mit `}`.
 
 #### FeatureCollection
 
-So nun haben wir jede Menge Typen kennen gelernt.
-Den Typ, den Sie sicherlich am meisten nutzen werden,
-habe ich für den Schluss aufgehoben. Die Syntax einer FeatureCollection
-können Sie im nachfolgenden Beispiel ablesen.
+So nun haben wir jede Menge Typen kennen gelernt. Den Typ, den Sie sicherlich am meisten nutzen werden, habe ich für den Schluss aufgehoben. Die Syntax einer FeatureCollection können Sie im nachfolgenden Beispiel ablesen.
 
 ```js
 {
@@ -563,46 +506,16 @@ können Sie im nachfolgenden Beispiel ablesen.
 
 Ein Objekt vom Typ [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3) enthält ein Schlüssel-Wert-Paar. Der Wert ist ein Array das aus Feature Objekten besteht und der Schlüssel lautet Features. Wie der Name schon sagt, darf das Array ausschließlich Objekte vom Typ Feature enthalten.
 
-Welche Vorteile bring ein Objekt vom Typ FeatureCollection zusätzlich zu
-den einzelnen Feature Objekten? Ein Objekt vom Typ FeatureCollections ist
-sehr sinnvoll, wenn Sie mit GeoJSON-Typen arbeiten,
-die gemeinsame Eigenschaften haben.
-Im nächsten Kapitel wird Ihnen dies anhand von praktischen Beispielen klar werden.
+Welche Vorteile bring ein Objekt vom Typ FeatureCollection zusätzlich zu den einzelnen Feature Objekten? Ein Objekt vom Typ FeatureCollections ist sehr sinnvoll, wenn Sie mit GeoJSON-Typen arbeiten, die gemeinsame Eigenschaften haben. Im nächsten Kapitel wird Ihnen dies anhand von praktischen Beispielen klar werden.
 
-> **Hinweis:**  
-> Sie möchten gerne GeoJSON nutzen und
-> haben auch schon die ersten Dateien erstellt.
-> Vielleicht sind Sie auch schon auf das ein oder andere Problem
-> gestoßen oder möchten einfach nur mit der Syntax vertraut werden.
-> Auf der Website [http://geojsonlint.com](http://geojsonlint.com)[^geojsonlint.com]
-> können Sie Ihre GeoJSON Daten testen.
+> _Hinweis:_ Sie möchten gerne GeoJSON nutzen und haben auch schon die ersten Dateien erstellt. Vielleicht sind Sie auch schon auf das ein oder andere Problem gestoßen oder möchten einfach nur mit der Syntax vertraut werden. Auf der Website [http://geojsonlint.com](http://geojsonlint.com)[^geojsonlint.com] können Sie Ihre GeoJSON Daten testen.
 
 ### Die Grenzen von GeoJSON
 
-Die Vorteile von GeoJSON hatte ich Ihnen weiter vorne in diesem
-Kapitel näher gebracht. Wie jedes andere Format hat GeoJSON auch seine Grenzen.
-Diese sind nun Thema dieses Kapitels.
+Die Vorteile von GeoJSON hatte ich Ihnen weiter vorne in diesem Kapitel näher gebracht. Wie jedes andere Format hat GeoJSON auch seine Grenzen. Diese sind nun Thema dieses Kapitels.
 
-- GeoJSON hat kein Konstrukt das eine Komprimierung unterstützt
-  wie beispielsweise [TopoJSON](https://github.com/topojson/topojson)[^github.com/topojson/topojson]
-  oder [OSM XML](https://wiki.openstreetmap.org/w/index.php?title=OSM_XML)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten].
-- GeoJSON unterstützt die gleichen Datentypen wie JSON.
-  JSON unter (ützt nicht jeden Daten)].
-- GeoJSON unterstützt die gleichen Datentypen wie JSON.
-  JSON unterstützt nicht jeden Datentyp. Zum Beispiel gibt es keinen Typ
-  für Datumswerte in JSON.
-- GeoJSON hat kein Konstrukt für die Anzeige von Pop-up Fenstern wie Titel
-  oder Beschreibung.
-- GeoJSON hat keine Geometrie vom Typ Kreis – oder irgendeine andere Art von Kurve.
-- In GeoJSON können Sie den einzelnen Koordinaten – also den Positionen –
-  keine eigene Eigenschaft zuweisen. Wenn Sie die _LineString_ Darstellung
-  eines Trainingslaufs haben und Ihr GPS Gerät mehr als 1000 verschiedene
-  Punkte während dieses Laufs zusammen mit Ihrer Herzfrequenz protokolliert hat,
-  bietet GeoJSON keine klare Antwort auf die Frage, wie Sie diese Daten am
-  besten darstellen. Sie könnten eine zusätzliche Eigenschafte als
-  Array mit der gleichen Länge wie das Array der Koordinaten speichern –
-  eine klare und einheitliche Regelung gibt es nicht. Jeder muss für sich selbst
-  das Rad neu erfinden.
+- GeoJSON hat kein Konstrukt das eine Komprimierung unterstützt wie beispielsweise [TopoJSON](https://github.com/topojson/topojson)[^github.com/topojson/topojson] oder [OSM XML](https://wiki.openstreetmap.org/w/index.php?title=OSM_XML)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten].
+- GeoJSON unterstützt die gleichen Datentypen wie JSON. JSON unterstützt nicht jeden Datentyp. Zum Beispiel gibt es keinen Typ für Datumswerte in JSON. GeoJSON hat kein Konstrukt für die Anzeige von Pop-up Fenstern wie Titel oder Beschreibung. GeoJSON hat keine Geometrie vom Typ Kreis – oder irgendeine andere Art von Kurve. In GeoJSON können Sie den einzelnen Koordinaten – also den Positionen – keine eigene Eigenschaft zuweisen. Wenn Sie die _LineString_ Darstellung eines Trainingslaufs haben und Ihr GPS Gerät mehr als 1000 verschiedene Punkte während dieses Laufs zusammen mit Ihrer Herzfrequenz protokolliert hat, bietet GeoJSON keine klare Antwort auf die Frage, wie Sie diese Daten am besten darstellen. Sie könnten eine zusätzliche Eigenschafte als Array mit der gleichen Länge wie das Array der Koordinaten speichern – eine klare und einheitliche Regelung gibt es nicht. Jeder muss für sich selbst das Rad neu erfinden.
 
 ## GeoJson in Leaflet
 
@@ -610,16 +523,7 @@ Leaflet unterstützt alle GeoJSON-Typen. In der Regel werden Sie überwiegend de
 
 ### Ein GeoJSON Feature in Leaflet einbinden
 
-Beginnen wir mit einem übersichtlichen Beispiel:
-Die einfachste Art GeoJSON in Ihrer Karte zu nutzen,
-ist die Verwendung als Variable direkt – fest programmiert.
-So etwas sollte man in der Praxis nicht machen. Ein Programm mit fix
-programmierten Variablen ist in der Regel starr und unflexibel. Etwas größere
-Anwendungen werden so auch schnell unübersichtlich, weil alles durcheinander
-geschrieben ist.  
-Übungsbeispiele sollen nur einen bestimmten Punkt hervorheben. Außerdem lassen sich die Beispiele so möglichst einfach darstellen.
-Deshalb nutze ich in den Programmcodebeispielen in
-diesem Buch fest programmierte Variablen.
+Beginnen wir mit einem übersichtlichen Beispiel: Die einfachste Art GeoJSON in Ihrer Karte zu nutzen, ist die Verwendung als Variable direkt – fest programmiert. So etwas sollte man in der Praxis nicht machen. Ein Programm mit fix programmierten Variablen ist in der Regel starr und unflexibel. Etwas größere Anwendungen werden so auch schnell unübersichtlich, weil alles durcheinander geschrieben ist. Übungsbeispiele sollen nur einen bestimmten Punkt hervorheben. Außerdem lassen sich die Beispiele so möglichst einfach darstellen. Deshalb nutze ich in den Programmcodebeispielen in diesem Buch fest programmierte Variablen.
 
 > Eine andere alternative Art GeoJSON Daten in ein HTML-Dokument einzubinden finden Sie im Kapitel _Choroplethenkarte_ im Unterkapitel _Open Data_.
 
@@ -662,41 +566,19 @@ Hier also nun das erste praktische Beispiel zum Thema GeoJSON und Leaflet.
 
 ```
 
-Was passiert hier genau? Als erste haben wir den GeoJSON Code fest
-in der Variablen `geojsonFeature1` gespeichert.
-Als nächstes haben wir ein Leaflet Objekt vom Typ GeoJSON erstellt und
-diesem unseren GeoJSON Code, also die Variable `geojsonFeature1`, übergeben.
-Das GeoJSON Objekt haben wir gleichzeitig mithilfe der Methode `addTo()`
-zum Leaflet-Kartenobjekt hinzugefügt.  
-Mehr mussten wir nicht tun! Das Ergebnis ist ein Standard Marker
-an der Stelle auf der Erde, die das GeoJSON Point Element beschreibt.
+Was passiert hier genau? Als erste haben wir den GeoJSON Code fest in der Variablen `geojsonFeature1` gespeichert. Als nächstes haben wir ein Leaflet Objekt vom Typ GeoJSON erstellt und diesem unseren GeoJSON Code, also die Variable `geojsonFeature1`, übergeben. Das GeoJSON Objekt haben wir gleichzeitig mithilfe der Methode `addTo()` zum Leaflet-Kartenobjekt hinzugefügt. Mehr mussten wir nicht tun! Das Ergebnis ist ein Standard Marker an der Stelle auf der Erde, die das GeoJSON Point Element beschreibt.
 
-> Das Leaflet-Objekt [GeoJSON](http://leafletjs.com/reference#geojson)[^leafletjs.com/reference#geojson]
-> ist ein Leaflet-Layer. Also eine Ebene.
-> Ganz konkret erweitert die Klasse GeoJSON die Klasse
-> [FeatureGroup](http://leafletjs.com/reference#featuregroup).
+> Das Leaflet-Objekt [GeoJSON](http://leafletjs.com/reference#geojson)[^leafletjs.com/reference#geojson] ist ein Leaflet-Layer. Also eine Ebene. Ganz konkret erweitert die Klasse GeoJSON die Klasse [FeatureGroup](http://leafletjs.com/reference#featuregroup).
 
 Auf der nachfolgenden Abbildung können Sie sich das Ergebnis ansehen.
 
 ![Ein Marker auf einer Leaflet Karte mithilfe von GeoJSON eingefügt.](/images/955.png)
 
-> Wenn Sie an die Zeile  
-> `L.geoJSON(geojsonFeature1).addTo(mymap);`  
-> den Text  
-> `.bindPopup('Pop-up Text');`  
-> anhängen, also  
-> `L.geoJSON(geojsonFeature1).addTo(mymap).bindPopup('Pop-up Text');`  
-> schreiben, öffnet sich ein Pop-up Fenster, wenn Sie den Marker anklicken.
+> Wenn Sie an die Zeile `L.geoJSON(geojsonFeature1).addTo(mymap);` den Text `.bindPopup('Pop-up Text');` anhängen, also `L.geoJSON(geojsonFeature1).addTo(mymap).bindPopup('Pop-up Text');` schreiben, öffnet sich ein Pop-up Fenster, wenn Sie den Marker anklicken.
 
 ### Eine GeoJSON FeatureCollection in Leaflet einbinden
 
-Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt –
-also ein Feature. Geodaten bestehen in der Regel aus mehreren Geometrien
-mit dazugehörigen Eigenschaften – also FeatureCollections.
-Leaflet liest eine FeatureCollection genauso ein, wie Sie es im letzten Beispiel
-anhand des einen Features gesehen haben. Das nächste Beispiel zeigt Ihnen,
-wie Sie einen Punkt, ein Polygon und eine Linie in einem Schritt auf
-Ihrer Karte anzeigen könnten.
+Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt – also ein Feature. Geodaten bestehen in der Regel aus mehreren Geometrien mit dazugehörigen Eigenschaften – also FeatureCollections. Leaflet liest eine FeatureCollection genauso ein, wie Sie es im letzten Beispiel anhand des einen Features gesehen haben. Das nächste Beispiel zeigt Ihnen, wie Sie einen Punkt, ein Polygon und eine Linie in einem Schritt auf Ihrer Karte anzeigen könnten.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_972.html-->
@@ -801,73 +683,58 @@ So, und nun machen wir genau das Gegenteil. Ein jedes Leaflet Objekt, das wir un
 
 Was zeigt Ihnen dieses Beispiel genau? Das folgende Beispiel zeigt Ihnen, wie Sie einen Marker ins GeoJSON Format konvertieren können. Dazu erstellen Sie zunächst mit var `myMarker=L.marker([50.27264, 7.26469])` einen Leaflet Marker. Danach rufen Sie die Methode `toGeoJSON()` des Markers auf und speichern das zurückgegeben GeoJSON Objekt in der Variablen `markerAsGeoJSON`. Als Nächstes erstellen Sie einen leeren GeoJSON Layer und fügen diesen zum Kartenobjekt hinzu: `var geoJsonLayer = L.geoJson().addTo(mymap)`. Sie hätten den GeoJSON Code in der Variablen `markerAsGeoJSON` wie in vorherigen Beispielen sofort beim Erstellen des Layers als Parameter mitgeben können. Hier wollte ich ihnen die Methode `addData()` zeigen, mit der Sie auch nachträglich noch GeoJSON Objekte zur GeoJSON Ebene hinzufügen können.
 
-> Im vorausgehenden Beispiel habe ich die Methode `JSON.stringify()`
-> beim Erstellen des Textes im Pop-up Fenster angewandt. Mit
-> der Methode [JSON.stringify()](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/json/stringify]
-> können Sie eine JavaScript Variable in einen Text im JSON-Format
-> konvertieren.
+> Im vorausgehenden Beispiel habe ich die Methode `JSON.stringify()` beim Erstellen des Textes im Pop-up Fenster angewandt. Mit der Methode [JSON.stringify()](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/json/stringify] können Sie eine JavaScript Variable in einen Text im JSON-Format konvertieren.
 
-Die nac (olgende Abbildung zeig)]
-
-> können Sie eine JavaScript Variable in einen Text im JSON-Format
-> konvertieren.
-
-Die nachfolgende Abbildung zeigt das Bild, welches Sie im Browser sehen,
-wenn Sie die HTML-Datei des vorausgehenden Beispiels im Browser öffnen.
+Die nachfolgende Abbildung zeigt das Bild, welches Sie im Browser sehen, wenn Sie die HTML-Datei des vorausgehenden Beispiels im Browser öffnen.
 
 ![Ein Marker auf einer Leaflet Karte, der seinen eigenen - ins GeoJSON Format konvertieren - Programmcode zeigt.](/images/960.png)
 
-Sie werden nun sicher mein Beispiel als umständlich ansehen.
-Ich habe einen Marker, denn ich ohne zusätzliche Schritte auf der Karten hätte
-anzeigen könnte, vorher umgewandelt dann in umgewandelter Form zur
-Karte hinzugefügt. Diese Vorgehensweise ist nicht Sinn und Zweck der Leaflet
-Methode `toGeoJSON()`. Sinn und Zweck ist es eher, Daten
-der Karte zum Export anzubieten.
+Sie werden nun sicher mein Beispiel als umständlich ansehen. Ich habe einen Marker, denn ich ohne zusätzliche Schritte auf der Karten hätte anzeigen könnte, vorher umgewandelt dann in umgewandelter Form zur Karte hinzugefügt. Diese Vorgehensweise ist nicht Sinn und Zweck der Leaflet Methode `toGeoJSON()`. Sinn und Zweck ist es eher, Daten der Karte zum Export anzubieten.
 
-> Wenn Sie möchten, dass die Methode `toGeoJSON()` Eigenschaften zu
-> Ihren eigenen Leaflet Objekten exportiert, müssen Sie diese
-> in einer bestimmten Form mit Ihrem Leaflet Objekt speichern. Möchten
-> Sie beispielsweise ein `Polyline` Objekt exportieren, dann müssen
-> Sie mit diesem Polyline-Objekt eine Variable `feature` speichern.
-> Die Variablen `feature` enthält den Text Feature in der Variablen `type` und
-> die zu exportierenden Eigenschaften in der Variablen `properties`.  
-> `var polyline = L.polyline([`  
-> `[50.27264, 7.26469], [51.27264, 7.26469], [51.27264, 6.26469]`  
-> `]);`  
-> `polyline.`**`feature`**`= {};`  
-> `polyline.`**`feature.type`**`= "Feature";`  
-> `polyline.`**`feature.properties`**`= {};`  
-> `polyline.feature.properties["Foo"] = "Bar";`  
-> Der Export des Polyline Objektes würde wie folgt aussehen:  
-> `{"type":"FeatureCollection",`  
-> `"features":[`  
-> `{`  
-> `"type":"Feature",`  
-> `"properties":{"Foo":"Bar"}`  
-> `"geometry":{"type":"LineString",`  
-> `"coordinates":[[7.26469,50.27264],[7.26469,51.27264],[6.26469,51.27264]]`  
-> `}}`  
-> `]`  
-> `}`
+> Wenn Sie möchten, dass die Methode `toGeoJSON()` Eigenschaften zu Ihren eigenen Leaflet Objekten exportiert, müssen Sie diese in einer bestimmten Form mit Ihrem Leaflet Objekt speichern. Möchten Sie beispielsweise ein `Polyline` Objekt exportieren, dann müssen Sie mit diesem Polyline-Objekt eine Variable `feature` speichern. Die Variablen `feature` enthält den Text Feature in der Variablen `type` und die zu exportierenden Eigenschaften in der Variablen `properties`.
+
+```js
+var polyline = L.polyline([
+    [50.27264, 7.26469], [51.27264, 7.26469], [51.27264, 6.26469]
+]);
+polyline.feature = {};
+polyline.feature.type = "Feature";
+polyline.feature.properties = {};
+polyline.feature.properties["Foo"] = "Bar";
+```
+
+Der Export des Polyline Objektes würde wie folgt aussehen:
+
+```js
+{
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: { Foo: "Bar" },
+      geometry: {
+        type: "LineString",
+        coordinates: [
+          [7.26469, 50.27264],
+          [7.26469, 51.27264],
+          [6.26469, 51.27264],
+        ],
+      },
+    },
+  ],
+};
+```
 
 ### Stylen
 
-Ein GeoJSON Layer biete Ihnen mit der
-[Methode `setStyle()`](https://leafletjs.com/reference.html#geojson-setstyle)[^leafletjs.com/reference.html#geojson-setstyle]
-die Möglichkeit das Aussehen der Kartenschicht zu gestalten.
+Ein GeoJSON Layer biete Ihnen mit der [Methode `setStyle()`](https://leafletjs.com/reference.html#geojson-setstyle)[^leafletjs.com/reference.html#geojson-setstyle] die Möglichkeit das Aussehen der Kartenschicht zu gestalten.
 
 Sie können neben den hier beschriebenen Optionen auf eine große Auswahl weiterer Stil Optionen zugreifen. Die vollständige Liste finden Sie in der
 Dokumentation von Leaflet. Sehen Sie sich dazu die Optionen zur [Klasse `Path`](http://leafletjs.com/reference.html#path)[^leafletjs.com/reference.html#path] an.
 
 #### Beim Erstellen eines GeoJSON Layer einen Stil mitgeben
 
-Der nachfolgende Programmcode zeigt Ihnen, wie Sie
-Stylesheets beim Erstellen eines GeoJSON Layer als Parameter mitgeben können.
-Im nachfolgenden Programmcode finden Sie eine Funktion,
-die je nach GeoJSON Objekt eine andere Farbe zurück gibt.
-Wenn es sich um den Typ LineString handelt,
-gibt die Funktion die Farbe Rot zurück, falls ein Polygon vorliegt,
-antwortet die Funktion mit der Farbe Violett.
+Der nachfolgende Programmcode zeigt Ihnen, wie Sie Stylesheets beim Erstellen eines GeoJSON Layer als Parameter mitgeben können. Im nachfolgenden Programmcode finden Sie eine Funktion, die je nach GeoJSON Objekt eine andere Farbe zurück gibt. Wenn es sich um den Typ LineString handelt, gibt die Funktion die Farbe Rot zurück, falls ein Polygon vorliegt, antwortet die Funktion mit der Farbe Violett.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_970.html-->
@@ -1043,13 +910,7 @@ L.geoJSON(geojsonText, {style: areaStyle}).addTo(mymap);
 
 #### Ein komplexeres Beispiel: Eine andere Farbe beim Überrollen mit der Maus
 
-Im vorherigen Kapitel haben Sie gelernt, wie Sie mit der Option
-`style` des GeoJSON Layers ein Aussehen festlegen können.
-Sicherlich ändert sich das Aussehen Ihrer Objekte im Laufe der Zeit.
-Ganz häufig kommt es vor, dass man Objekte, die anklickbar sind und angeklickt
-wurden, als schon besucht kennzeichnen möchte. Oder Sie möchten ein Objekt,
-über dem sich die Maus gerade befindet, hervorheben.
-Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
+Im vorherigen Kapitel haben Sie gelernt, wie Sie mit der Option `style` des GeoJSON Layers ein Aussehen festlegen können. Sicherlich ändert sich das Aussehen Ihrer Objekte im Laufe der Zeit. Ganz häufig kommt es vor, dass man Objekte, die anklickbar sind und angeklickt wurden, als schon besucht kennzeichnen möchte. Oder Sie möchten ein Objekt, über dem sich die Maus gerade befindet, hervorheben. Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_969.html-->
@@ -1134,20 +995,11 @@ Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
 
 ```
 
-Auf den ersten Blick hat sich im Vergleich zum vorherigen Beispiel nichts geändert.
-Wenn Sie allerdings die Maus über ein Objekt bewegen, sehen Sie eine Änderung.
-Das Polygon und die Linie verfärben sich nun grün.
-Der Marker kann seine Farbe nicht ändern.
-Im Grunde genommen handelt sich bei dem Marker um ein Image.
-Das HTML-Element Image verfügt nicht über die CSS Eigenschaft `color`.
-Wenn Sie das Aussehen des Markers ändern möchten,
-dann müssten Sie diesem eine andere Bilddatei zuordnen.
+Auf den ersten Blick hat sich im Vergleich zum vorherigen Beispiel nichts geändert. Wenn Sie allerdings die Maus über ein Objekt bewegen, sehen Sie eine Änderung. Das Polygon und die Linie verfärben sich nun grün. Der Marker kann seine Farbe nicht ändern. Im Grunde genommen handelt sich bei dem Marker um ein Image. Das HTML-Element Image verfügt nicht über die CSS Eigenschaft `color`. Wenn Sie das Aussehen des Markers ändern möchten, dann müssten Sie diesem eine andere Bilddatei zuordnen.
 
 ![Drei Element auf einer Karte die sich grün färben, wenn man die Maus über sie bewegt.](/images/958.png)
 
-Wenn Sie ein schon angeklicktes Element
-mit der Farbe Grau einfärben möchten, dann könnten Sie dies über
-die Funktion
+Wenn Sie ein schon angeklicktes Element mit der Farbe Grau einfärben möchten, dann könnten Sie dies über die Funktion
 
 ```js
 function styleWhenMouseOut(e){
@@ -1159,24 +1011,23 @@ geoJsonLayer.setStyle({color:"gray"});
 anstelle von
 
 ```js
+function styleWhenMouseOut(e) {
+  geoJsonLayer.eachLayer(function (layer) {
+    geoJsonLayer.resetStyle(layer)
+  })
+}
+```
+
+erreichen.
+
+Achtung: Wenn Sie
+
+````js
 function styleWhenMouseOut(e){
 geoJsonLayer.eachLayer(function (layer) {
 geoJsonLayer.resetStyle(layer);
 });
 }
-```
-
-erreichen. 
-
-_Achtung_: Wenn Sie 
-
-```js
-function styleWhenMouseOut(e){
-geoJsonLayer.eachLayer(function (layer) {
-geoJsonLayer.resetStyle(layer);
-});`  
-}
-```
 
 anstelle von
 
@@ -1184,9 +1035,9 @@ anstelle von
 geoJsonLayer.on('mouseout',function(e){
 geoJsonLayer.resetStyle(e.layer);
 });
-``` 
+````
 
-schreiben würden, würde nur ein Layer – nämlich der, der gerade mit der Maus überrollt oder dem Finger getouched wird – geändert.
+schreiben würden, würde nur ein Layer – nämlich der, der gerade überrollt wird – geändert.
 
 ### Iterieren
 
@@ -1195,10 +1046,7 @@ Interessant werden Karten, wenn Sie viele Informationen bieten. Eine Karte mit v
 #### OnEachFeature() – Bearbeite jedes Feature
 
 [`onEachFeature()`](http://leafletjs.com/reference.html#geojson-oneachfeature)[^leafletjs.com/reference.html#geojson-oneachfeature]
-ist eine Methode, die einmal für jedes im Layer vorhandene GeoJSON Objekt
-vom Typ Feature aufgerufen wird.
-Nützlich ist diese Option zum Anhängen von Ereignissen oder Pop-up Fenstern
-an jedes Feature Objekt.
+ist eine Methode, die einmal für jedes im Layer vorhandene GeoJSON Objekt vom Typ Feature aufgerufen wird. Nützlich ist diese Option zum Anhängen von Ereignissen oder Pop-up Fenstern an jedes Feature Objekt.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_968.html-->
@@ -1247,9 +1095,7 @@ an jedes Feature Objekt.
 
 ```
 
-Der vorhergehende Programmcode zeigt Ihnen, wie Sie jedem Feature Objekt, das über die hart kodiert eingefügten GeoJSON Daten eingelesen wird, ein Pop-up anhängen können – und zwar jedem ein individuelles. Der Text für das Pop-up wird aus den GeoJSON Daten ausgelesen, er versteckt sich in der Eigenschaft `feature.properties.name`.
-
-Das nachfolgende Bild stellt die drei Marker dar.
+Der vorhergehende Programmcode zeigt Ihnen, wie Sie jedem Feature Objekt, das über die hart kodiert eingefügten GeoJSON Daten eingelesen wird, ein Pop-up anhängen können – und zwar jedem ein individuelles. Der Text für das Pop-up wird aus den GeoJSON Daten ausgelesen, er versteckt sich in der Eigenschaft `feature.properties.name`. Das nachfolgende Bild stellt die drei Marker dar.
 
 ![Drei Marker mit individuellem Pop-up Text.](/images/957.png)
 

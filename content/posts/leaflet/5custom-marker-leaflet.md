@@ -12,62 +12,31 @@ tags:
   - Leaflet
 ---
 
-Sie wissen nun wie Sie die unterschiedlichsten Geodaten auf Ihrer Karte anzeigen
-können und auch wie Sie mit den Geodaten ein Thema visualisieren können.
+Sie wissen nun wie Sie die unterschiedlichsten Geodaten auf Ihrer Karte anzeigen können und auch wie Sie mit den Geodaten ein Thema visualisieren können.
 
 ## In diesem Kapitel werden wir …
 
-In diesem Kapitel werden wir über die reine Anzeige hinaus
-noch einen Schritt weiter gehen.
-Nun geht es darum, der Karte eine individuelle Note zu geben.
-Wir sehen uns an, wie Sie Marker beliebig gestalten können.
-Außerdem sehen wir uns Plugins an, die Sie bei dieser Arbeit unterstützen.
+In diesem Kapitel werden wir über die reine Anzeige hinaus noch einen Schritt weiter gehen. Nun geht es darum, der Karte eine individuelle Note zu geben. Wir sehen uns an, wie Sie Marker beliebig gestalten können. Außerdem sehen wir uns Plugins an, die Sie bei dieser Arbeit unterstützen.
 
 ## Ein individueller Marker auf Ihrer Karte
 
-Wenn Leaflet einen Marker auf einer Karte anzeigt, werden gleich zwei
-Bilddateien angezeigt.
-Zunächst wird das eigentliche Bild an die passende Stelle auf die Karte gelegt.
-Danach wird ein Schatten zu diesem Bild hinzugefügt.
-Mit einem passenden Schatten fallen die Marker eher ins Auge.
-Der Schatten verleiht einem Marker eine Tiefe.
-So hebt dieser sich besser von der Karte ab.
+Wenn Leaflet einen Marker auf einer Karte anzeigt, werden gleich zwei Bilddateien angezeigt. Zunächst wird das eigentliche Bild an die passende Stelle auf die Karte gelegt. Danach wird ein Schatten zu diesem Bild hinzugefügt. Mit einem passenden Schatten fallen die Marker eher ins Auge. Der Schatten verleiht einem Marker eine Tiefe. So hebt dieser sich besser von der Karte ab.
 
 Wenn Sie die Dateien zu Leaflet, wie im Kapitel _Eine lokale Leaflet-Kopie einbinden_ beschrieben, auf Ihren Rechner kopiert haben,
 sehen Sie unter den kopierten Daten einen Unterordner mit dem Namen `images`. In den Beispieldateien zu diesem Buch befindet sich ebenfalls eine Leaflet Kopie in der der Ordner `images` enthalten ist. Dieser Ordner `images` enthält die Imagedateien die angezeigt werden, wenn kein individuelles Image angegeben ist. Ich habe die Bilder hier nachfolgend abgedruckt. Wenn Sie dieses Buch bisher durchgearbeitet haben, kommen Ihnen die Bilder sicher teilweise bekannt vor.
 
 ![(Bilder, die standardmäßig in Leaflet verwendet werden.)](/images/978.png)
 
-Oft ist es so, dass das Bekannte vertraut ist und man sich deshalb damit
-sicher und wohl fühlt. Manchmal möchte man aber aus der Reihen tanzen.
-Wenn Sie auf Ihrer Karte außergewöhnliche Stellen mit einem Marker markieren möchten,
-dann sollten diese Marker vielleicht aus der Reihe tanzen.
-Wenn Sie an einer besonderen Stelle keine blaue Einheitsgrafik anzeigen möchten,
-dann zeigen Sie doch Ihre eigene Grafik an!
+Oft ist es so, dass das Bekannte vertraut ist und man sich deshalb damit sicher und wohl fühlt. Manchmal möchte man aber aus der Reihen tanzen. Wenn Sie auf Ihrer Karte außergewöhnliche Stellen mit einem Marker markieren möchten, dann sollten diese Marker vielleicht aus der Reihe tanzen. Wenn Sie an einer besonderen Stelle keine blaue Einheitsgrafik anzeigen möchten, dann zeigen Sie doch Ihre eigene Grafik an!
 
-Haben Sie schon eine schöne Grafik für Ihren Marker und den passenden Schatten dazu?
-Wie Sie ein eigenes Image mit einem Grafikprogramm erstellen,
-gehört nicht zum Thema dieses Buches.
-Hier möchte ich Ihnen nur ein paar Punkte aufzählen,
-die Sie beim Erstellen des Images für einen Leaflet Marker beachten sollten.
+Haben Sie schon eine schöne Grafik für Ihren Marker und den passenden Schatten dazu? Wie Sie ein eigenes Image mit einem Grafikprogramm erstellen, gehört nicht zum Thema dieses Buches. Hier möchte ich Ihnen nur ein paar Punkte aufzählen, die Sie beim Erstellen des Images für einen Leaflet Marker beachten sollten.
 
 Falls Sie keine Grafiken besitzen und auch nicht selbst Hand anlegen möchten, dann können Sie entweder die Übungen mit den Beispielbildern des [Leaflet Tutorials](http://leafletjs.com/examples/custom-icons/)[^leafletjs.com/examples/custom-icons] durcharbeiten – oder Sie blättern direkt weiter zum nächsten Kapitel. Das Kapitel _Ein Marker Plugin_ bietet Ihnen einen Kompromiss. Sie benötigen keine eigenen Grafiken, können einem Marker aber trotzdem ein
 anderes Aussehen verleihen.
 
-> Sie möchten gerne selbst die Grafiken erstellen, wissen aber noch nicht genau
-> wie und womit? Dann sehen Sie
-> sich doch das Programm [GIMP](https://www.gimp.org)[^www.gimp.org] an. GIMP
-> (GNU Image Manipulation Program) ist eine gute kostenlose Alternative
-> zum Bildbearbeitungsprogramm
-> [Photoshop von Adobe](http://www.adobe.com/de/products/photoshop.html)[^adobe.com/de/products/photoshop.html] und
-> kommt mit zahlreichen professionellen
-> Bearbeitungsfunktionen.
+> Sie möchten gerne selbst die Grafiken erstellen, wissen aber noch nicht genau wie und womit? Dann sehen Sie sich doch das Programm [GIMP](https://www.gimp.org)[^www.gimp.org] an. GIMP (GNU Image Manipulation Program) ist eine gute kostenlose Alternative zum Bildbearbeitungsprogramm [Photoshop von Adobe](http://www.adobe.com/de/products/photoshop.html)[^adobe.com/de/products/photoshop.html] und kommt mit zahlreichen professionellen Bearbeitungsfunktionen.
 
-Wenn Sie zwei Bilder haben – also ein Bild, das Ihren Marker selbst darstellt
-und eines, das den Schatten zeigt – dann können wir diese beiden Bilder als
-Marker in Ihre Karte einbinden. Ich habe hier zum Ausprobieren die Bilddateien
-aus dem Leaflet Tutorial
-[Markers with Custom Icons](http://leafletjs.com/examples/custom-icons/)[^leafletjs.com/examples/custom-icons] verwenden.
+Wenn Sie zwei Bilder haben – also ein Bild, das Ihren Marker selbst darstellt und eines, das den Schatten zeigt – dann können wir diese beiden Bilder als Marker in Ihre Karte einbinden. Ich habe hier zum Ausprobieren die Bilddateien aus dem Leaflet Tutorial [Markers with Custom Icons](http://leafletjs.com/examples/custom-icons/)[^leafletjs.com/examples/custom-icons] verwenden.
 
 ![(Bilddateien aus dem Leaflet Tutorial [Markers with Custom Icons](http://leafletjs.com/examples/custom-icons/).)](/images/945.png)
 
@@ -110,8 +79,7 @@ Im nachfolgenden Beispiel sehen Sie den Text, der für die Anzeige des benutzerd
 
 ```
 
-Sehen wir uns diese Zeilen genau an:
-Zunächst einmal sticht die Instanziierung des Bildes hervor.
+Sehen wir uns diese Zeilen genau an: Zunächst einmal sticht die Instanziierung des Bildes hervor.
 
 ```js
 var greenIcon = L.icon({
@@ -125,47 +93,15 @@ popupAnchor:  [-3, -76]
 });
 ```
 
-Die Bedeutung der einzelnen Optionen habe ich in der nachfolgenden Abbildung
-veranschaulicht. Aber zunächst einmal sehen wir uns das Problem genauer an:
+Die Bedeutung der einzelnen Optionen habe ich in der nachfolgenden Abbildung veranschaulicht. Aber zunächst einmal sehen wir uns das Problem genauer an:
 
-Die Schwierigkeit beim Positionieren des Bildes liegt darin,
-die Position des Icons mit der Stelle auf der Erde, die markiert werden soll,
-zu verbinden. Das Bild ist in der Regel größer als der zu markierende Punkt.
-Außerdem enthält das Bild oft eine Art Pfeil,
-dessen Spitze auf den zu markierenden Punkt zeigen sollte.
-Zudem gibt es meist noch ein Pop-up Fenster,
-das relativ zum Bild geöffnet werden sollte.
-Wie also nutzen Sie die Optionen, um das Bild an der passende Stelle
-auf der Karte anzuzeigen? Dies erkläre ich Ihnen nachfolgend.
+Die Schwierigkeit beim Positionieren des Bildes liegt darin, die Position des Icons mit der Stelle auf der Erde, die markiert werden soll, zu verbinden. Das Bild ist in der Regel größer als der zu markierende Punkt. Außerdem enthält das Bild oft eine Art Pfeil, dessen Spitze auf den zu markierenden Punkt zeigen sollte. Zudem gibt es meist noch ein Pop-up Fenster, das relativ zum Bild geöffnet werden sollte. Wie also nutzen Sie die Optionen, um das Bild an der passende Stelle auf der Karte anzuzeigen? Dies erkläre ich Ihnen nachfolgend.
 
-Sie können mit der optionalen Option `iconSize: [38, 95]` die Größe des Bildes
-mitgeben. Mit der optionalen Option `shadowSize: [50, 64]` können Sie die Größe
-des Schattens beeinflussen. Wenn Sie die Werte für diese Option nicht setzten,
-wird die Originalgröße des Images verwendet.  
-Die Option `iconAnchor: [22, 94]` gibt Ihnen nun die Möglichkeit,
-die Stelle, an der das Bild in die Karte eingefügt werden soll,
-zu definieren.
-Ohne ein Setzen dieser Option, würde die linke obere Ecke des Bildes an der Stelle,
-die markiert werden soll, beginnen.
-In der Regel ist es aber so, dass man das Bild mittig oder vielleicht sogar
-über dieser Stelle einfügen möchte. `iconAnchor: [22, 94]` fügt das Bild
-22 Pixel weiter links und 94 Pixel oberhalb der zu markierenden Stelle ein.  
-Wenn Sie sich die nachfolgende Abbildung ansehen, wird dies klar.
-Der rote Punkt stellt in der Abbildung die zu markierende Stelle dar.
-Für die Option `shadowAnchor: [4, 62]` gilt das gleiche wie für
-`iconAnchor`. Das Schattenbild wird 4 Pixel links und 76 Pixel oberhalb
-des roten Punktes, also der zu markierenden Stelle, eingefügt.
-Die Belegung der Wert in der Option `popupAnchor: [-3, -76]` ist meiner Meinung
-nach etwas verwirrend, weil im Gegensatz zu den anderen Optionen
-für die gleiche Wirkung ein Minuszeichen vorangestellt werden muss.
-Wenn Sie das Pop-up Fenster links obenhalb der zu markierenden Position öffnen möchten,
-müssen Sie bei der Option `popupAnchor` also ein Minuszeichen voran stellen!
+Sie können mit der optionalen Option `iconSize: [38, 95]` die Größe des Bildes mitgeben. Mit der optionalen Option `shadowSize: [50, 64]` können Sie die Größe des Schattens beeinflussen. Wenn Sie die Werte für diese Option nicht setzten, wird die Originalgröße des Images verwendet. Die Option `iconAnchor: [22, 94]` gibt Ihnen nun die Möglichkeit, die Stelle, an der das Bild in die Karte eingefügt werden soll, zu definieren. Ohne ein Setzen dieser Option, würde die linke obere Ecke des Bildes an der Stelle, die markiert werden soll, beginnen. In der Regel ist es aber so, dass man das Bild mittig oder vielleicht sogar über dieser Stelle einfügen möchte. `iconAnchor: [22, 94]` fügt das Bild 22 Pixel weiter links und 94 Pixel oberhalb der zu markierenden Stelle ein. Wenn Sie sich die nachfolgende Abbildung ansehen, wird dies klar. Der rote Punkt stellt in der Abbildung die zu markierende Stelle dar. Für die Option `shadowAnchor: [4, 62]` gilt das gleiche wie für `iconAnchor`. Das Schattenbild wird 4 Pixel links und 76 Pixel oberhalb des roten Punktes, also der zu markierenden Stelle, eingefügt. Die Belegung der Wert in der Option `popupAnchor: [-3, -76]` ist meiner Meinung nach etwas verwirrend, weil im Gegensatz zu den anderen Optionen für die gleiche Wirkung ein Minuszeichen vorangestellt werden muss. Wenn Sie das Pop-up Fenster links obenhalb der zu markierenden Position öffnen möchten, müssen Sie bei der Option `popupAnchor` also ein Minuszeichen voran stellen!
 
 ![(Das Bild zu einem Marker auf einer Leaflet Karte positionieren.)](/images/928.png)
 
-Im Kapitel _Die Karte mit Daten bestücken_ – genau im Unterkapitel _Punkte und Marker_ – haben wir schon Marker mit Optionen angelegt.
-Im nächsten Codeschnipsel sehen Sie nun, dass Sie auch das Bild zum Marker – also das Icon – als Option angeben können.
-Im Programmcode geben Sie dazu einfach den Namen des eben erstellen `L.Icon` Objektes an.
+Im Kapitel _Die Karte mit Daten bestücken_ – genau im Unterkapitel _Punkte und Marker_ – haben wir schon Marker mit Optionen angelegt. Im nächsten Codeschnipsel sehen Sie nun, dass Sie auch das Bild zum Marker – also das Icon – als Option angeben können. Im Programmcode geben Sie dazu einfach den Namen des eben erstellen `L.Icon` Objektes an.
 
 ```js
 L.marker(
@@ -175,49 +111,21 @@ L.marker(
 .bindPopup("Ich bin ein Marker mit einem individuellen Image.");
 ```
 
-Wenn Sie das HTML Dokument dieses Beispiels im Browser öffnen,
-sehen Sie eine Karte auf der das grüne Icon als Marker an der festgelegten Koordinate
-– passend positioniert – erscheint.
+Wenn Sie das HTML Dokument dieses Beispiels im Browser öffnen, sehen Sie eine Karte auf der das grüne Icon als Marker an der festgelegten Koordinate – passend positioniert – erscheint.
 
 ![(Eine Karte mit einem benutzerdefinierten Icon als Marker.)](/images/977.png)
 
 ### Eigenschaften eines individuellen Marker
 
-Ein eigenes Marker Bild erstellen Sie in Leaflet mithilfe der
-[Kasse `L.icon`](http://leafletjs.com/reference.html#icon)[^leafletjs.com/reference.html#icon].
-Das haben Sie eben praktisch gesehen. Diese Klasse bietet Ihnen eine Menge Optionen.
+Ein eigenes Marker Bild erstellen Sie in Leaflet mithilfe der [Kasse `L.icon`](http://leafletjs.com/reference.html#icon)[^leafletjs.com/reference.html#icon]. Das haben Sie eben praktisch gesehen. Diese Klasse bietet Ihnen eine Menge Optionen.
 
-- `iconUrl:`  
-  Die `iconUrl` müssen Sie auf alle Fälle angeben.
-  Diese Option muss die Adresse zur Bilddatei enthalten – absolut oder relativ zu
-  dem Verzeichnis, in dem Ihr Skript gespeichert ist.
-- `iconRetinaUrl:`  
-  Die `iconRetinaUrl` bietet Ihnen optional die Möglichkeit,
-  die Adresse einer für Retina Bildschirme optimierten Version des Bildes –
-  absolut oder relativ zu dem Verzeichnis, in dem Ihr Skript gespeichert ist –
-  anzugeben. Wie Leaflet dieses Bild genau optimiert,
-  erkläre ich Ihnen im Anschluss an die Auflistung dieser Optionen.
-- `iconSize:`  
-  Die optionale `iconSize` beeinflusst die Größe, mit der das Bild angezeigt wird.
-- `IconAnchor:`  
-  Die Option `IconAnchor` beschreibt die Pixelkoordinate, an der das Bild eingefügt
-  werden soll. Die Koordinate gibt die Pixelwerte relativ zu der Stelle an,
-  die markiert werden soll.
-  **Achtung**, verwechseln Sie die Pixelkoordinat nicht mit der geografischen Koordinate.
-- `PopupAnchor:`  
-  Die Option `PopupAnchor` beschreibt den Punkte, an dem ein Pop-up Fenster geöffent
-  werden soll. Die Koordinate gibt die Pixelwerte relativ zu der Stelle an,
-  die markiert werden soll.
-  Wenn Sie das Pop-up Fenster links obenhalb der zu markierenden Position öffnen möchten,
-  müssen Sie bei den Werten der Option `popupAnchor` ein Minuszeichen voran stellen!
-  Sind die Werte positiv, öffnet sich das Pop-up rechts unterhalb zu markierenden Position.
-- `ShadowUrl:`  
-  Die Option `ShadowUrl` enthält die Adresse zur Imagedatei, die den Schatten
-  darstellen soll. Wenn nichts angegeben ist, wird kein Schattenbild erstellt.
-- `ShadowRetinaUrl:`  
-  Mit der Option `ShadowRetinaUrl` können Sie ein Bild angeben, dass speziell
-  für Retina Displays optimiert ist. Wie Leaflet dieses Bild genau optimiert,
-  erkläre ich Ihnen im Anschluss an die Auflistung dieser Optionen.
+- `iconUrl:` Die `iconUrl` müssen Sie auf alle Fälle angeben. Diese Option muss die Adresse zur Bilddatei enthalten – absolut oder relativ zu dem Verzeichnis, in dem Ihr Skript gespeichert ist.
+- `iconRetinaUrl:` Die `iconRetinaUrl` bietet Ihnen optional die Möglichkeit, die Adresse einer für Retina Bildschirme optimierten Version des Bildes – absolut oder relativ zu dem Verzeichnis, in dem Ihr Skript gespeichert ist – anzugeben. Wie Leaflet dieses Bild genau optimiert, erkläre ich Ihnen im Anschluss an die Auflistung dieser Optionen.
+- `iconSize:` Die optionale `iconSize` beeinflusst die Größe, mit der das Bild angezeigt wird.
+- `IconAnchor:` Die Option `IconAnchor` beschreibt die Pixelkoordinate, an der das Bild eingefügt werden soll. Die Koordinate gibt die Pixelwerte relativ zu der Stelle an, die markiert werden soll. Achtung: Verwechseln Sie die Pixelkoordinat nicht mit der geografischen Koordinate.
+- `PopupAnchor:` Die Option `PopupAnchor` beschreibt den Punkte, an dem ein Pop-up Fenster geöffent werden soll. Die Koordinate gibt die Pixelwerte relativ zu der Stelle an, die markiert werden soll. Wenn Sie das Pop-up Fenster links obenhalb der zu markierenden Position öffnen möchten, müssen Sie bei den Werten der Option `popupAnchor` ein Minuszeichen voran stellen! Sind die Werte positiv, öffnet sich das Pop-up rechts unterhalb zu markierenden Position.
+- `ShadowUrl:` Die Option `ShadowUrl` enthält die Adresse zur Imagedatei, die den Schatten darstellen soll. Wenn nichts angegeben ist, wird kein Schattenbild erstellt.
+- `ShadowRetinaUrl:` Mit der Option `ShadowRetinaUrl` können Sie ein Bild angeben, dass speziell für Retina Displays optimiert ist. Wie Leaflet dieses Bild genau optimiert, erkläre ich Ihnen im Anschluss an die Auflistung dieser Optionen.
 - `shadowSize:` `shadowSize` beschreibt die Höhe und Breite des Bildes, dass den Schatten darstellen soll, in Pixeln.
 - `shadowAnchor:` Die Pixel Koordinaten an der das Schattenbild eingefügt werden soll, können Sie mit der Option `ShadowAnchor` übergeben. Ansonsten gilt für diese Option das gleiche, was ich bei der Option `iconAnchor` geschrieben habe.
 - `className:` Mit der Option `className` können Sie für beide Bilder - also dem Schattenbild und dem eigentlichen Marker Bild - den Namen einer CSS-Klasse definieren.
@@ -326,34 +234,17 @@ L.marker(
 
 > Sie haben vielleicht bemerkt, dass wir das Schlüsselwort `new` für die Erstellung von `LeafIcon` Instanzen verwendet haben. Warum haben wir vorher alle Leafelt Objekte ohne das Schlüsselwort `new` erstellt? Die Antwort ist einfach: Die echten Leaflet Klassen sind mit einem Großbuchstaben – beispielsweise `**L**.Icon` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.icon` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden: `**L.icon** = function icon(options) {return new L.Icon(options);};` Die Funktion `L.icon` können Sie sich auf Github in der Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153] ansehen. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=Fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode, anstatt durch direkten Aufruf eines Konstruktors, erzeugt wird. Dies hatte ich im Kapitel _Wir beginnen mit einer einfachen Karte_ schon einmal erwähnt.
 
-Im nachfolgenden Bild sehen Sie das Ergebnis.
-Jeder Marker wird nun mit einem individuellen Icon erstellt.
-Die meisten Optionen sind gleich – allerdings hat jeder Marker seine eigene Farbe.
+Im nachfolgenden Bild sehen Sie das Ergebnis. Jeder Marker wird nun mit einem individuellen Icon erstellt. Die meisten Optionen sind gleich – allerdings hat jeder Marker seine eigene Farbe.
 
 ![(Drei Marker mit unterschiedlichen Icons, die mithilfe einer Elternklasse erstellt wurden.)](/images/976.png)
 
 ## Ein Marker Plugin
 
-Sie wissen nun, wie Sie einen Marker mit einem standardisierten Aussehen einfügen
-und können einen Marker mit einem eigenen Image belegen.
-Leider haben Sie aber kein eigenes Image und haben auch nicht viel Erfahrung
-mit einem Grafikprogramm.
-Sie können kein professionell aussehendes individuelles Image hervorzaubern
-oder haben einfach nicht die Zeit dazu.
-Trotzdem möchten Sie Ihrer Karte ein besonderes Aussehen verleihen.
-In diesem Fall bietet Ihnen dieses Kapitel eine Lösung.
-Ich stelle Ihnen zwei Plugins vor, die Sie bei der Erstellung von individuellen Marker
-Objekten unterstützen.
+Sie wissen nun, wie Sie einen Marker mit einem standardisierten Aussehen einfügen und können einen Marker mit einem eigenen Image belegen. Leider haben Sie aber kein eigenes Image und haben auch nicht viel Erfahrung mit einem Grafikprogramm. Sie können kein professionell aussehendes individuelles Image hervorzaubern oder haben einfach nicht die Zeit dazu. Trotzdem möchten Sie Ihrer Karte ein besonderes Aussehen verleihen. In diesem Fall bietet Ihnen dieses Kapitel eine Lösung. Ich stelle Ihnen zwei Plugins vor, die Sie bei der Erstellung von individuellen Marker Objekten unterstützen.
 
 ### BeautifyMarker
 
-[Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/BeautifyMarker],
-ist ein einfaches Plugin, das bunte Marker ganz ohne eigene Grafik zu
-einer Leaflet-Karte hinzufügt.
-Trotzdem behalten Sie die volle Kontrolle über den Stil der Marker.
-Konkret heißt das: Sie können über unbegrenzte Farben und viele Eigenschaften verfügen.
-Das Plugin Leaflet.BeautifyIcon bietet auch die Möglichkeit, Schriftart und Glyphen,
-also die grafische Darstellung von Schriftzeichen, anzupassen.
+[Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/BeautifyMarker], ist ein einfaches Plugin, das bunte Marker ganz ohne eigene Grafik zu einer Leaflet-Karte hinzufügt. Trotzdem behalten Sie die volle Kontrolle über den Stil der Marker. Konkret heißt das: Sie können über unbegrenzte Farben und viele Eigenschaften verfügen. Das Plugin Leaflet.BeautifyIcon bietet auch die Möglichkeit, Schriftart und Glyphen, also die grafische Darstellung von Schriftzeichen, anzupassen.
 
 ![Marker, die mithilfe des Plugins [Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker) erstellt wurden.](/images/974.png)
 
@@ -426,64 +317,28 @@ Damit Sie sich dieses besser vorstellen können, habe ich ein Beispiel erstellt.
 
 ```
 
-Was müssen Sie tun, wenn Sie das
-[Plugin `Leaflet.BeautifyMarker`](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/BeautifyMarker]
-verwenden möchten?
-Zunächst einmal müssen Sie die notwendigen Skripte und Stylesheet Dateien einbinden.
-Das ist zum einen das Skript und die CSS-Datei zum Plugin selbst.
-Diese Dateien können Sie über die Website [https://github.com/marslan390/BeautifyMarker](https://github.com/marslan390/BeautifyMarker) herunterladen.
-Zum anderen können Sie zusammen mit Leaflet.BeautifyMarker Drittdienste nutzen.
-Sie können
-[Font Awesome CSS](https://fontawesome.com/)[^fontawesome.com] und
-[Bootstrap CSS](https://getbootstrap.com/)[^getbootstrap.com]
-einbinden.
-Ich habe im Beispiel die CSS-Dateien von Font Awesome und von Boostrap eingebunden,
-um Ihnen dies zu demonstrieren.
-Für dieses Beispiel wäre nur die CSS-Datei von Font Awesome CSS notwendig gewesen.
+Was müssen Sie tun, wenn Sie das [Plugin `Leaflet.BeautifyMarker`](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/BeautifyMarker] verwenden möchten? Zunächst einmal müssen Sie die notwendigen Skripte und Stylesheet Dateien einbinden. Das ist zum einen das Skript und die CSS-Datei zum Plugin selbst. Diese Dateien können Sie über die Website [https://github.com/marslan390/BeautifyMarker](https://github.com/marslan390/BeautifyMarker) herunterladen. Zum anderen können Sie zusammen mit Leaflet.BeautifyMarker Drittdienste nutzen. Sie können [Font Awesome CSS](https://fontawesome.com/)[^fontawesome.com] und [Bootstrap CSS](https://getbootstrap.com/)[^getbootstrap.com] einbinden. Ich habe im Beispiel die CSS-Dateien von Font Awesome und von Boostrap eingebunden, um Ihnen dies zu demonstrieren. Für dieses Beispiel wäre nur die CSS-Datei von Font Awesome CSS notwendig gewesen.
 
-Weiter müssen Sie nicht tun. Sie können sofort einen Marker mithilfe der Option
-`icon: L.BeautifyIcon.icon(options)` kreieren.
+Weiter müssen Sie nicht tun. Sie können sofort einen Marker mithilfe der Option `icon: L.BeautifyIcon.icon(options)` kreieren.
 
 ```js
 L.marker([50.27264, 8.26469], {
-icon: L.BeautifyIcon.icon(options),
-draggable: true
+  icon: L.BeautifyIcon.icon(options),
+  draggable: true
 }).addTo(mymap).bindPopup("Ich bin ein beautify Marker");
 ```
 
-Sehen Sie sich die Optionen des Plugin `Leaflet.BeautifyMarker` an.
-Es macht Spaß diese zu erkunden.
-Wie die Optionen wirken, die ich verwendet haben, können Sie sich im nächsten Bild
-teilweise ansehen. Das sich eines der Icons dreht, erkennen Sie allerdings nur,
-wenn Sie die HTML Datei mit der Karte selbst im Browser öffnen.
+Sehen Sie sich die Optionen des Plugin `Leaflet.BeautifyMarker` an. Es macht Spaß diese zu erkunden. Wie die Optionen wirken, die ich verwendet haben, können Sie sich im nächsten Bild teilweise ansehen. Das sich eines der Icons dreht, erkennen Sie allerdings nur, wenn Sie die HTML Datei mit der Karte selbst im Browser öffnen.
 
 ![(Eine Leaflet Karte mit `Leaflet.BeautifyMarker`-Markern.)](/images/975.png)
 
-> Ich hatte Ihnen ja schon geschrieben,
-> dass es jede Menge Plugins für Leaflet gibt und dies gilt für den
-> Bereich Marker besonders. Die meisten sind auf der Website von
-> Leaflet aufgelistet. Diese Liste finden Sie unter der Adresse
-> [https://leafletjs.com/plugins.html#markers--renderers](https://leafletjs.com/plugins.html#markers--renderers)[^leafletjs.com/plugins.html#markers--renderers].
+> Ich hatte Ihnen ja schon geschrieben, dass es jede Menge Plugins für Leaflet gibt und dies gilt für den Bereich Marker besonders. Die meisten sind auf der Website von Leaflet aufgelistet. Diese Liste finden Sie unter der Adresse [https://leafletjs.com/plugins.html#markers--renderers](https://leafletjs.com/plugins.html#markers--renderers)[^leafletjs.com/plugins.html#markers--renderers].
 
 ## Cluster
 
-Je nachdem welche Informationen Sie mit Ihrer Karte weitergeben möchten,
-kann es vorkommen, dass Sie sehr viele Marker benötigen.
-Wenn Sie mit vielen Marker Objekten arbeiten, sollten Sie beachten,
-dass diese das Laden der Karte verlangsamen.
-Außerdem kann es vorkommen, dass Marker nahe nebeneinander liegen und sich
-beim Zoomen überschneiden.
-Dies ist nicht benutzerfreundlich.
-Schön wäre es, wenn bei einer Detailansicht alle Marker zu sehen sind –
-diese aber beim Hineinzoomen in die Karte zu Clustern zusammengefasst werden.
-So hat der Benutzer alle Informationen passend zur Kartenanzeige.
+Je nachdem welche Informationen Sie mit Ihrer Karte weitergeben möchten, kann es vorkommen, dass Sie sehr viele Marker benötigen. Wenn Sie mit vielen Marker Objekten arbeiten, sollten Sie beachten, dass diese das Laden der Karte verlangsamen. Außerdem kann es vorkommen, dass Marker nahe nebeneinander liegen und sich beim Zoomen überschneiden. Dies ist nicht benutzerfreundlich. Schön wäre es, wenn bei einer Detailansicht alle Marker zu sehen sind – diese aber beim Hineinzoomen in die Karte zu Clustern zusammengefasst werden. So hat der Benutzer alle Informationen passend zur Kartenanzeige.
 
-In diesem Kapitel erfahren Sie, wie Sie
-das [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/Leaflet/Leaflet.markercluster]
-zum Clustern von Marker Objekten verwenden und so eine große Anzahl von Marker
-Objekten auf einer Karte benutzerfreundlich und übersichtlich darstellen können.
-Sehen Sie sich das nachfolgende Beispiel an, um zu verstehen, wie das Clustern von
-Marker Objekten funktioniert.
+In diesem Kapitel erfahren Sie, wie Sie das [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/Leaflet/Leaflet.markercluster] zum Clustern von Marker Objekten verwenden und so eine große Anzahl von Marker Objekten auf einer Karte benutzerfreundlich und übersichtlich darstellen können. Sehen Sie sich das nachfolgende Beispiel an, um zu verstehen, wie das Clustern von Marker Objekten funktioniert.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_952.html-->
@@ -526,11 +381,7 @@ Marker Objekten funktioniert.
 
 ```
 
-Das haben wir gemacht: Als erstes haben wir die notwendigen Dateien zum
-[Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/Leaflet/Leaflet.markercluster]
-eingebunden. Damit wir auch genug Marker zum Clustern zur Verfügung haben,
-haben wir dann Punkte über eine externe Datei eingebunden.
-Die Datei `points.js` enthält 380 Punkte und sieht auszugsweise wie folgt aus:
+Das haben wir gemacht: Als erstes haben wir die notwendigen Dateien zum [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/Leaflet/Leaflet.markercluster] eingebunden. Damit wir auch genug Marker zum Clustern zur Verfügung haben, haben wir dann Punkte über eine externe Datei eingebunden. Die Datei `points.js` enthält 380 Punkte und sieht auszugsweise wie folgt aus:
 
 ```js
 var points = [
@@ -547,9 +398,7 @@ var markers = L.markerClusterGroup(
 );
 ```
 
-ein Objekt vom Typ `markerClusterGroup` erzeugen und diesem Objekt jeden einzelnen
-Marker hinzufügen.
-Das Objekt `markerClusterGroup` übernimmt nun die ganze Arbeit für uns.
+ein Objekt vom Typ `markerClusterGroup` erzeugen und diesem Objekt jeden einzelnen Marker hinzufügen. Das Objekt `markerClusterGroup` übernimmt nun die ganze Arbeit für uns.
 
 So wie in der nachfolgenden Abbildung zu sehen ist, könnte Ihre Karte aussehen.
 
@@ -557,28 +406,21 @@ So wie in der nachfolgenden Abbildung zu sehen ist, könnte Ihre Karte aussehen.
 
 ### Optionen, Methoden und Ereignisse
 
-Sie können einem Cluster jede Menge Optionen mitgeben und sehr viele
-Methoden und Ereignisse nutzen.
-Zum Beispiel können sie die standardmäßig aktivierte Option `showCoverageOnHover` mit
+Sie können einem Cluster jede Menge Optionen mitgeben und sehr viele Methoden und Ereignisse nutzen. Zum Beispiel können sie die standardmäßig aktivierte Option `showCoverageOnHover` mit
 
-`var markers = L.markerClusterGroup(`  
-`{`**`showCoverageOnHover : false`**`}`  
-`);`
+```js
+var markers = L.markerClusterGroup(`  
+{->showCoverageOnHover : false<-}`  
+);
+```
 
-ausschalten. Aktiviert bewirkt diese Option das Folgende:
-Wenn Sie die Maus über einen Cluster bewegen, blendet sich ein Polygon ein,
-dass die Grenzen des Bereichs in dem die Marker sich befinden, anzeigt.
-Alle Optionen, Methoden und Ereignisse finden Sie in der Dokumentation zum Plugin
-auf Github[^github.com/Leaflet/Leaflet.markercluster].
+ausschalten. Aktiviert bewirkt diese Option das Folgende: Wenn Sie die Maus über einen Cluster bewegen, blendet sich ein Polygon ein, dass die Grenzen des Bereichs in dem die Marker sich befinden, anzeigt. Alle Optionen, Methoden und Ereignisse finden Sie in der Dokumentation zum Plugin auf Github[^github.com/Leaflet/Leaflet.markercluster].
 
 ## Marker animieren
 
 ### Hüpfende Marker
 
-Wenn Sie einen Marker animieren möchten, unterstützt Sie beispielsweise das
-[Plugin `leaflet.bouncemarker`](https://github.com/maximeh/leaflet.bouncemarker)[^github.com/maximeh/leaflet.bouncemarker].
-Wie Sie den hüpfenden Marker in Ihre Karte einbinden, zeige ich Ihnen wieder
-anhand eines Beispiels.
+Wenn Sie einen Marker animieren möchten, unterstützt Sie beispielsweise das [Plugin `leaflet.bouncemarker`](https://github.com/maximeh/leaflet.bouncemarker)[^github.com/maximeh/leaflet.bouncemarker]. Wie Sie den hüpfenden Marker in Ihre Karte einbinden, zeige ich Ihnen wieder anhand eines Beispiels.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_951.html-->
@@ -613,24 +455,13 @@ anhand eines Beispiels.
 
 ```
 
-Als Ergebnis sehen Sie einen Marker, der sofort nachdem die Karte im Browser geladen ist,
-in die Karte spring und dann noch eine Weile auf und ab hüpft.
-Nach dem der Marker gelandet ist, öffnet sich ein Pop-up-Fenster mit der Meldung:
-Gelandet!.
+Als Ergebnis sehen Sie einen Marker, der sofort nachdem die Karte im Browser geladen ist, in die Karte spring und dann noch eine Weile auf und ab hüpft. Nach dem der Marker gelandet ist, öffnet sich ein Pop-up-Fenster mit der Meldung: Gelandet!.
 
 ### Animierte Marker
 
 #### Ein Marker bewegt sich
 
-Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann.
-Möchten Sie vielleicht mit Ihrem Marker einen Weg beschreiben?
-Dann ist das
-[Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/Leaflet.AnimatedMarker]
-vielleicht etwas für Sie.
-Mit diesem Plugin können Sie einen Marker so animieren,
-dass er einer Linie folgt.
-Vielleicht möchten Sie einen Marker in Form eines Autos darstellen,
-das auf einer Straße fährt?
+Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möchten Sie vielleicht mit Ihrem Marker einen Weg beschreiben? Dann ist das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/Leaflet.AnimatedMarker] vielleicht etwas für Sie. Mit diesem Plugin können Sie einen Marker so animieren, dass er einer Linie folgt. Vielleicht möchten Sie einen Marker in Form eines Autos darstellen, das auf einer Straße fährt?
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_950.html-->
@@ -670,15 +501,7 @@ das auf einer Straße fährt?
 
 #### Einen Marker in Bewegung versetzen und wieder stoppen
 
-Wenn Sie die Bewegung des Markers beeinflussen möchten,
-unterstützt Sie das
-[Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/Leaflet.AnimatedMarker] auch.
-Bauen Sie zum Testen zwei Schaltenflächen ein,
-über die Sie den Maker anhalten oder starten können. `Leaflet.AnimatedMarker`
-bietet Ihnen Methoden mit passender Funktionalität. Sie müssen diese Methoden nur
-der passenden Schaltfläche zuordnen.
-
-Das nächste Beispiel will Ihnen eine Idee zur Umsetzung dieser Aufabenstellung geben.
+Wenn Sie die Bewegung des Markers beeinflussen möchten, unterstützt Sie das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/Leaflet.AnimatedMarker] auch. Bauen Sie zum Testen zwei Schaltenflächen ein, über die Sie den Maker anhalten oder starten können. `Leaflet.AnimatedMarker` bietet Ihnen Methoden mit passender Funktionalität. Sie müssen diese Methoden nur der passenden Schaltfläche zuordnen. Das nächste Beispiel will Ihnen eine Idee zur Umsetzung dieser Aufabenstellung geben.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_949.html-->
@@ -727,20 +550,11 @@ Das nächste Beispiel will Ihnen eine Idee zur Umsetzung dieser Aufabenstellung 
 
 ```
 
-Wie Sie sehen, können Sie die Funktionen `start()` und `stop()`,
-die Ihnen das
-Plugin `Leaflet.AnimatedMarker`
-zur Verfügung stellt, nutzen.
+Wie Sie sehen, können Sie die Funktionen `start()` und `stop()`, die Ihnen das Plugin `Leaflet.AnimatedMarker` zur Verfügung stellt, nutzen.
 
 #### Plugins kombinieren
 
-Und natürlich können Sie Plugins auch kombinieren.
-Ihrer Kreativität sind keine Grenzen gesteckt.
-Schon allein mit den beiden gerade gezeigten Plugins
-`Leaflet.AnimatedMarker` und `leaflet.bouncemarker`
-können Sie einen Marker auf der Karte Aktionen ausführen lassen und
-ihn am Schluss gekonnt aus dem Bild hüpfen lassen.
-Sehen Sie selbst, probieren Sie das nächste Beispiel aus!
+Und natürlich können Sie Plugins auch kombinieren. Ihrer Kreativität sind keine Grenzen gesteckt. Schon allein mit den beiden gerade gezeigten Plugins `Leaflet.AnimatedMarker` und `leaflet.bouncemarker` können Sie einen Marker auf der Karte Aktionen ausführen lassen und ihn am Schluss gekonnt aus dem Bild hüpfen lassen. Sehen Sie selbst, probieren Sie das nächste Beispiel aus!
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_948.html-->
@@ -790,21 +604,11 @@ Sehen Sie selbst, probieren Sie das nächste Beispiel aus!
 
 ## Leaflet Data Visualization Framework (DVF)
 
-Möchten Sie gerne mit Ihrer Karte Daten visualisieren.
-Heatmaps und Choroplethenkarten sind aber nicht das Richtige für Sie?
-Sie können Daten mithilfe von Markern in überzeugende Karten verwandeln.
-Hierbei unterstützt Sie das Plugin
-[Leaflet Data Visualization Framework (DVF)](https://github.com/humangeo/leaflet-dvf)[^github.com/humangeo/leaflet-dvf].
-Leider ist dieses Plugin zu dem Zeitpunkt,
-zu dem ich dieses Kapitel geschrieben haben,
-nicht mit der neuesten Leaflet Version kompatibel.
-Deshalb verwende ich im Beispiel eine ältere Leaflet Version.
+Möchten Sie gerne mit Ihrer Karte Daten visualisieren. Heatmaps und Choroplethenkarten sind aber nicht das Richtige für Sie? Sie können Daten mithilfe von Markern in überzeugende Karten verwandeln. Hierbei unterstützt Sie das Plugin [Leaflet Data Visualization Framework (DVF)](https://github.com/humangeo/leaflet-dvf)[^github.com/humangeo/leaflet-dvf]. Leider ist dieses Plugin zu dem Zeitpunkt, zu dem ich dieses Kapitel geschrieben haben, nicht mit der neuesten Leaflet Version kompatibel. Deshalb verwende ich im Beispiel eine ältere Leaflet Version.
 
 ### Das Plugin Data Visualization Framework
 
-Das erste Beispiel zeigt Ihnen, wie Sie Formen als Marker darstellen können.
-Hier geht es noch nicht um das Visualisieren von Daten, sondern eher darum,
-die Möglichkeiten diese Plugins zu sehen und ein Gefühl für die Anwendung zu bekommen.
+Das erste Beispiel zeigt Ihnen, wie Sie Formen als Marker darstellen können. Hier geht es noch nicht um das Visualisieren von Daten, sondern eher darum, die Möglichkeiten diese Plugins zu sehen und ein Gefühl für die Anwendung zu bekommen.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_947.html-->
