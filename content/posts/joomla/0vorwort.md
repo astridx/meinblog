@@ -134,9 +134,11 @@ Du hast das Gefühl, dass deine Funktion nur mit einem Core-Hack umgesetzt werde
 
 Dass du die Systemdateien nicht verändern solltest, heißt nicht, dass du sie gar nicht erst ansiehst. Ganz im Gegenteil! Beim Lesen wirst du auf viel Code stoßen, der nirgendwo dokumentiert ist. Wenn du dir nicht sicher bist, wie du eine Funktion am besten implementierst, stöbere im Joomla-Code. Die Lösung findet sich oft im Herzen von Joomla.
 
-### Die Datei autoload_psr4.php
+### Die Datei autoload_psr4.php<!-- \index{autoload_psr4.php} -->
 
-Während der Installation werden Einträge in der Datei `/library/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
+Während der Installation werden Einträge in der Datei `/administrator/cache/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.
+
+> Der nachfolgende Text wurde in englischer Sprache mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla erstellt einen Cache der Namespaces seiner Erweiterungen in `JOOMLA_ROOT/administrator/cache/autoload_psr4.php`. Wenn Erweiterungen in Git erstellt, gelöscht oder entfernt werden, muss diese Datei neu erstellt werden. Sie können die Datei einfach löschen und sie wird beim nächsten Aufruf von Joomla neu erstellt."
 
 ### Namespace<!-- \index{Namespace} -->
 

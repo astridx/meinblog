@@ -626,11 +626,11 @@ class AdministratorService
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-Die Ansicht `administrator/components/com_foos/ View/Foos/HtmlView.php` definiert Objekte (Symbolleiste, Titel) und ruft das Modell (Daten) auf. Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird lediglich ein statischer Text angezeigt. Dies ändert sich bald! Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beteiligt ist beispielsweise der Controller, der die Ansicht aufruft. Den Controller erstellten wir vorher im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.
+Die Ansicht `administrator/components/com_foos/ src/View/Foos/HtmlView.php` definiert Objekte (Symbolleiste, Titel) und ruft das Modell (Daten) auf. Im Moment hat unsere Komponente eine rudimentäre Ansicht. Es wird lediglich ein statischer Text angezeigt. Dies ändert sich bald! Es gibt mehrere Dateien, die zusammenarbeiten, um die Ansicht im Frontend zu generieren. Beteiligt ist beispielsweise der Controller, der die Ansicht aufruft. Den Controller erstellten wir vorher im aktuellen Kapitel. Später kommt das Modell hinzu, welches die Daten vorbereitet.
 
 In der Datei `HtmlView.php` werden alle Schaltflächen und Titel der Symbolleiste definiert. Das Modell wird aufgerufen, um die Daten für die Ansicht vorzubereiten. Im Moment rufen wir nur die Funktion der Eltern-Klasse auf, um das Standardtemplate anzuzeigen: `parent::display($tpl);`. Warum selbst Hand anlegen, wenn es Funktionen in Joomla dafür gibt?
 
-[administrator/components/com_foos/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php

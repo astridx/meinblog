@@ -44,7 +44,7 @@ Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge 
 
 ```
 
-> Im Kapitel zum Update Server hatte ich es schon erwähnt: Der [Begriff CDATA](https://de.wikipedia.org/wiki/cdata)[^de.wikipedia.org/wiki/cdata] wird in der Auszeichnungssprache XML für verschiedene Zwecke verwendet. Er zeigt an, dass es sich bei einem bestimmten Teil des Dokuments um allgemeine Zeichen handelt und nicht um Programmcode mit einer spezifischeren, begrenzten Struktur. Der CDATA-Abschnitt kann Auszeichnungszeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert. Die Verwendung von Entitäten wie `&lt;` und `&amp;` ist nicht notwendig.
+> Im Kapitel zum Update Server hatte ich es schon erwähnt: Der [Begriff CDATA](https://de.wikipedia.org/wiki/cdata)[^de.wikipedia.org/wiki/cdata] wird in der Auszeichnungssprache XML für verschiedene Zwecke verwendet. Er zeigt an, dass es sich bei einem bestimmten Teil des Dokuments um allgemeine Zeichen handelt und nicht um Programmcode mit einer spezifischeren, begrenzten Struktur. Der CDATA-Abschnitt kann Auszeichnungszeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert. Die Verwendung von Entitäten wie `&lt;` und `&amp;` ist nicht notwendig.<!-- \index{CDATA} -->
 
 Das `title`-Attribut im `layout`-Tag wird verwendet, wenn wir im Administrationsbereich einen neuen Menüpunkt für diese Komponente erstellen.
 Der Text im `message`-Tag wird als Beschreibung angezeigt. Der Sprachstring bleibt nicht so wie er ist. Er wird in unterschiedliche Sprachen übersetzt. Daran werden wir später arbeiten. Hier bereiten wir alles vor.

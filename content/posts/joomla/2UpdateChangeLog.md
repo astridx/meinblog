@@ -157,7 +157,7 @@ Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/
 
 ```
 
-> Du weißt nicht, was `<![CDATA[ ... ]]>` bedeutet? Der [Begriff CDATA](https://de.wikipedia.org/wiki/cdata)[^de.wikipedia.org/wiki/cdata] wird in der Auszeichnungssprache XML für verschiedene Zwecke verwendet. Er zeigt an, dass es sich bei einem bestimmten Teil des Dokuments um allgemeine Zeichen handelt und nicht um Programmcode mit einer spezifischeren, begrenzten Struktur. Der CDATA-Abschnitt kann Auszeichnungszeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert. Die Verwendung von Entitäten wie `&lt;` und `&amp;` ist nicht notwendig.
+> Du weißt nicht, was `<![CDATA[ ... ]]>` bedeutet? Der [Begriff CDATA](https://de.wikipedia.org/wiki/cdata)[^de.wikipedia.org/wiki/cdata] wird in der Auszeichnungssprache XML für verschiedene Zwecke verwendet. Er zeigt an, dass es sich bei einem bestimmten Teil des Dokuments um allgemeine Zeichen handelt und nicht um Programmcode mit einer spezifischeren, begrenzten Struktur. Der CDATA-Abschnitt kann Auszeichnungszeichen (`<`, `>` und `&`) enthalten. Diese werden vom Parser nicht weiter interpretiert. Die Verwendung von Entitäten wie `&lt;` und `&amp;` ist nicht notwendig.<!-- \index{CDATA} -->
 
 ### Geänderte Dateien
 

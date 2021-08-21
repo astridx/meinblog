@@ -118,8 +118,11 @@ A template defines the design of your Joomla website.</li>
 <p>You have the feeling that your function can only be implemented with a core hack? Your feeling is wrong! There is always a solution that leaves the system files untouched.</p>
 <h3>Learn from the core files</h3>
 <p>That you should not change the system files does not mean that you do not even look at them. Quite the opposite! By reading you will come across lots of code that is not documented anywhere. If you are not sure how to best implement a function, just rummage around in the Joomla code. The solution is usually be found in the heart of Joomla.</p>
-<h3>The autoload_psr4.php file</h3>
-<p>During the installation, entries are made in <code class="language-text">/library/autoload_psr4.php</code>. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem.</p>
+<h3>The autoload<em>psr4.php file&#x3C;!-- \index{autoload</em>psr4.php} --></h3>
+<p>During the installation, entries are made in <code class="language-text">/administrator/cache/autoload_psr4.php</code>. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. </p>
+<blockquote>
+<p>Der nachfolgende Text wurde mit dem <a href="https://github.com/joomla/joomla-cms/pull/28436/files">PR 28436</a><sup id="fnref-github.com/joomla/joomla-cms/pull/28436/files"><a href="#fn-github.com/joomla/joomla-cms/pull/28436/files" class="footnote-ref">github.com/joomla/joomla-cms/pull/28436/files</a></sup> in die <a href="https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md">README auf Github</a><sup id="fnref-github.com/joomla/joomla-cms/blob/4.0-dev/readme.md"><a href="#fn-github.com/joomla/joomla-cms/blob/4.0-dev/readme.md" class="footnote-ref">github.com/joomla/joomla-cms/blob/4.0-dev/readme.md</a></sup> eingefügt: "Joomla creates a cache of the namespaces of its extensions in <code class="language-text">JOOMLA_ROOT/administrator/cache/autoload_psr4.php</code>. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."</p>
+</blockquote>
 <h3>Namespace<!-- \index{namespace} --></h3>
 <p>Note the namespace entry at the top of most PHP files.</p>
 <p><code class="language-text">Namespace FooNamespace\Component\Foos\Administrator\View\Foos;</code></p>

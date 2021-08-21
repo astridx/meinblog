@@ -44,7 +44,7 @@ Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the f
 
 ```
 
-> I already mentioned it in the chapter on the update server: The [term CDATA](https://en.wikipedia.org/wiki/cdata)[^en.wikipedia.org/wiki/cdata] is used in the XML markup language for various purposes. It indicates that a given part of the document is general characters rather than program code with a more specific, limited structure. The CDATA section may contain markup characters (`<`, `>` and `&`). These are not interpreted further by the parser. The use of entities such as `&lt;` and `&amp;` is not necessary.
+> I already mentioned it in the chapter on the update server: The [term CDATA](https://en.wikipedia.org/wiki/cdata)[^en.wikipedia.org/wiki/cdata] is used in the XML markup language for various purposes. It indicates that a given part of the document is general characters rather than program code with a more specific, limited structure. The CDATA section may contain markup characters (`<`, `>` and `&`). These are not interpreted further by the parser. The use of entities such as `&lt;` and `&amp;` is not necessary.<!-- \index{CDATA} -->
 
 The `title` attribute in the `layout` tag here is used when we create a new menu item for this component in the administration area.
 The text in the `message` tag is displayed as a description. The language string does not stay as it is. It will be translated into different languages. We will work on this later. Here we prepare everything.

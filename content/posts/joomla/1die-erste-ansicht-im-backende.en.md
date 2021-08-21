@@ -626,11 +626,11 @@ class AdministratorService
 <!-- prettier-ignore -->
 #### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
-The view `administrator/components/com_foos/ View/Foos/HtmlView.php` defines objects (toolbar, title) and calls the model (data). At the moment our component has a primitive view. Only a static text is shown. This will change soon! There are several files that work together to generate the view in the frontend. For example, the controller that calls the view is involved. We created the controller earlier in the current chapter. Later, we will add the model, which prepares the data.
+The view `administrator/components/com_foos/ src/View/Foos/HtmlView.php` defines objects (toolbar, title) and calls the model (data). At the moment our component has a primitive view. Only a static text is shown. This will change soon! There are several files that work together to generate the view in the frontend. For example, the controller that calls the view is involved. We created the controller earlier in the current chapter. Later, we will add the model, which prepares the data.
 
 In the file `HtmlView.php` all buttons and titles of the toolbar are defined. The model is called to prepare the data for the view. At the moment we only call the function of the parent class to display the default template: `parent::display($tpl);`. Why do it yourself when there are functions in Joomla to do it?
 
-[administrator/components/com_foos/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
