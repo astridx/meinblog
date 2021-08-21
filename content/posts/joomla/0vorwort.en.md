@@ -135,9 +135,9 @@ You have the feeling that your function can only be implemented with a core hack
 
 That you should not change the system files does not mean that you do not even look at them. Quite the opposite! By reading you will come across lots of code that is not documented anywhere. If you are not sure how to best implement a function, just rummage around in the Joomla code. The solution is usually be found in the heart of Joomla.
 
-### The autoload_psr4.php file<!-- \index{autoload_psr4.php} -->
+### The autoload_psr4.php file
 
-During the installation, entries are made in `/administrator/cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. 
+During the installation, entries are made in `/administrator/cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. <!-- \index{autoload_psr4.php} -->
 
 > Der nachfolgende Text wurde mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
 
