@@ -20,7 +20,7 @@ Du benötigst Joomla 4.x für dieses Tutorial. Joomla 4 findest du bei [GitHub](
 
 ## Ziel dieses Tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen `foo` in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen. Wenn du magst, kannst du das Skript [github.com/astridx/boilerplate/blob/t43/duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) hierfür verwenden.
+Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen `foo` in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen. Wenn du magst, kannst du das Skript [github.com/astridx/boilerplate/blob/ t43/duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) hierfür verwenden.
 
 > Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen. Das Tutorial ist weiterhin eine Hilfe für Programmierer einer Joomla 3 Komponente, wenn diese Ihre Komponente für Joomla 4 erweitern. Wenn du beispielsweise an der Validierung deiner Joomla 3 Komponente arbeitest, findest du in den Kapiteln über die serverseitige und die clientseitige Validierung das, was du benötigst - nicht mehr und nicht weniger.
 
@@ -136,19 +136,21 @@ Dass du die Systemdateien nicht verändern solltest, heißt nicht, dass du sie g
 
 ### Die Datei autoload_psr4.php
 
-Während der Installation werden Einträge in der Datei `/administrator/cache/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.<!-- \index{autoload_psr4.php} -->
+Während der Installation werden Einträge in der Datei `/administrator/ cache/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.<!-- \index{autoload_psr4.php} -->
 
-> Der nachfolgende Text wurde in englischer Sprache mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla erstellt einen Cache der Namespaces seiner Erweiterungen in `JOOMLA_ROOT/administrator/cache/autoload_psr4.php`. Wenn Erweiterungen in Git erstellt, gelöscht oder entfernt werden, muss diese Datei neu erstellt werden. Sie können die Datei einfach löschen und sie wird beim nächsten Aufruf von Joomla neu erstellt."
+> Der nachfolgende Text wurde in englischer Sprache mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla erstellt einen Cache der Namespaces seiner Erweiterungen in `JOOMLA_ROOT/administrator/cache/ autoload_psr4.php`. Wenn Erweiterungen in Git erstellt, gelöscht oder entfernt werden, muss diese Datei neu erstellt werden. Sie können die Datei einfach löschen und sie wird beim nächsten Aufruf von Joomla neu erstellt."
 
 ### Namespace<!-- \index{Namespace} -->
 
 Beachte den Namespace Eintrag im oberen Bereich der meisten PHP-Dateien
 
-`Namespace FooNamespace\Component\Foos\Administrator\View\Foos;`
+`Namespace FooNamespace\ Component\Foos\Administrator\View\Foos;`
 
 und als Tag in der Manifestdatei
 
-`<Namespace>FooNamespace\Component\Foos</ Namespace>`.
+`<Namespace>FooNamespace\ Component\Foos</ Namespace>`.
+
+> Denke daran, dass du den Parameter `path="src"` mitgibst, falls du die Dateien mit Namespace im Unterverzeichnis `src` speicherst. Dies ist in Joomla üblich und die in diesem Tutorial erstellten Beispiel-Erweiterungen [verwenden dieses Verzeichnis ebenfalls](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12].
 
 Warum Namespaces verwenden? Alle PHP-Klassen werden so in einer definierten Struktur organisiert und automatisch über den `Classloader` geladen. Dabei wird `ContentModelArticles` zu `Joomla\Component\Content\ Administrator\Model\ArticlesModel`.
 
@@ -166,7 +168,7 @@ Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in
 
 ### Aussagekräftige Namen
 
-Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise führen die Controller jetzt `Controller` als Suffix beim Klassennamen. So wird `FooNamespace\Component\Foos\ Administrator\Controller\Foos` zu `FooNamespace\Component\Foos\ Administrator\Controller\FoosController`.
+Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise führen die Controller jetzt `Controller` als Suffix beim Klassennamen. So wird `FooNamespace\Component\Foos\ Administrator\Controller\Foos` zu `FooNamespace\Component\Foos\ Administrator\Controller\ FoosController`.
 
 Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen `DisplayController`, um besser zu reflektieren, was die Klasse tut. Siehe: https://github.com/joomla/joomla-cms/pull/17624
 
@@ -215,7 +217,7 @@ Wo speicherst du am besten JavaScript-, CSS- und Bilddateien? Speichere diese Da
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen. Dann nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla wird Fontawesome mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] reicht aus.
 
-> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt werden, weil Joomla den Text `icon-` voran stellt. Das wird später mithilfe der Datei [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] für Fontawesome umgewandelt. Auf diese Art funktionieren lediglich die Icons, die in der vorgenannten Datei aufgenommen sind. Warum verkompliziert Joomla die Auswahl von Font Awesome Icons? Der Grund hierfür ist folgender: So können Erweiterungen, weiterhin verwendet werden, die für Joomla 3 programmiert wurden.
+> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt werden, weil Joomla den Text `icon-` voran stellt. Das wird später mithilfe der Datei [`build/media_source/ system/scss/_icomoon.scss`](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] für Fontawesome umgewandelt. Auf diese Art funktionieren lediglich die Icons, die in der vorgenannten Datei aufgenommen sind. Warum verkompliziert Joomla die Auswahl von Font Awesome Icons? Der Grund hierfür ist folgender: So können Erweiterungen, weiterhin verwendet werden, die für Joomla 3 programmiert wurden.
 
 Der HTML-Code
 

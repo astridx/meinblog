@@ -21,7 +21,7 @@ You need Joomla 4.x for this tutorial. You can find Joomla 4 on [GitHub](https:/
 
 ## Aim of this tutorial?
 
-This tutorial does not create a practical example. I have intentionally kept everything general. My main goal is to show you how Joomla works - and to help you understand it better yourself. In the end, you replace the name 'foo' in all files with the name of your component and extend it with your special requirements. If you like, you can use the script [github.com/astridx/boilerplate/blob/t43/duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) for this.
+This tutorial does not create a practical example. I have intentionally kept everything general. My main goal is to show you how Joomla works - and to help you understand it better yourself. In the end, you replace the name 'foo' in all files with the name of your component and extend it with your special requirements. If you like, you can use the script [github.com/astridx/boilerplate/blob/ t43/duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh) for this.
 
 > Therefore, this tutorial is primarily intended for programmers who want to create a new component and do not know Joomla yet. The tutorial is also a help for programmers of a Joomla 3 component, if they extend their component for Joomla 4. For example, if you are working on validating your Joomla 3 component, you will find what you need in the chapters on server-side and client-side validation - no more and no less.
 
@@ -137,19 +137,23 @@ That you should not change the system files does not mean that you do not even l
 
 ### The autoload_psr4.php file
 
-During the installation, entries are made in `/administrator/cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. <!-- \index{autoload_psr4.php} -->
+During the installation, entries are made in `/administrator/ cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. <!-- \index{autoload_psr4.php} -->
 
-> Der nachfolgende Text wurde mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
+> Der nachfolgende Text wurde mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
 
 ### Namespace<!-- \index{namespace} -->
 
 Note the namespace entry at the top of most PHP files.
 
-`Namespace FooNamespace\Component\Foos\Administrator\View\Foos;`
+`Namespace FooNamespace\ Component\Foos\Administrator\View\Foos;`
 
 and as a tag in the manifest file
 
-`<Namespace>FooNamespace\Component\Foos</ Namespace>`.
+`<Namespace>FooNamespace\ Component\Foos</ Namespace>`.
+
+> Remember to include the `path="src"` parameter if you put the namespace files in the `src` subdirectory. This is common in Joomla and the sample extensions [created in this tutorial also use this directory](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12].
+
+Translated with www.DeepL.com/Translator (free version)
 
 Why use namespaces? All PHP classes are thus organised in a defined structure and automatically loaded via the `Classloader`. Thereby `ContentModelArticles` becomes `Joomla\Component\Content\ Administrator\Model\ArticlesModel`.
 
@@ -167,7 +171,7 @@ For more information, see: [github.com/joomla/joomla-cms/issues/22990](https://g
 
 ### Meaningful class names
 
-The component MVC classes have more meaningful names in Joomla 4. For example, the controllers now have controller as a suffix for their class name. Thus, `FooNamespace\Component\Foos\ Administrator\Controller\Foos` becomes `FooNamespace\Component\Foos\ Administrator\Controller\FoosController`.
+The component MVC classes have more meaningful names in Joomla 4. For example, the controllers now have controller as a suffix for their class name. Thus, `FooNamespace\Component\Foos\ Administrator\Controller\Foos` becomes `FooNamespace\Component\Foos\ Administrator\Controller\ FoosController`.
 
 Additionally, the default controller, which in Joomla 3 is just called Controller, gets the name `DisplayController` to better reflect what the class does. See: https://github.com/joomla/joomla-cms/pull/17624
 
@@ -215,7 +219,7 @@ Where do you best store JavaScript, CSS and image files? Store these data in the
 
 You want to use icons but don't want to add your own library. Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla Fontawesome is delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] is sufficient.
 
-> Attention: In _Joomla Core files_, you cannot simply copy them, because Joomla add the text `icon-` in front of the icon name. This is then converted via the file [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] for Fontawesome. In this way, only the icons included in the previously mentioned file will work. Why does Joomla complicate the selection of Font Awesome icons? The reason for this is as follows: Extensions that were programmed for Joomla 3 can still be used.
+> Attention: In _Joomla Core files_, you cannot simply copy them, because Joomla add the text `icon-` in front of the icon name. This is then converted via the file [`build/media_source/ system/scss/_icomoon.scss`](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] for Fontawesome. In this way, only the icons included in the previously mentioned file will work. Why does Joomla complicate the selection of Font Awesome icons? The reason for this is as follows: Extensions that were programmed for Joomla 3 can still be used.
 
 The HTML code
 

@@ -202,4 +202,6 @@ Diese Datei war nur ein Behelf und sie kann nun gelöscht werden.
 
 2. Öffne dann in einem Browser die Adresse `JOOMLA4/index.php?option=com_foos&view=foo`. Du siehst die eben erstelle Frontend-Ansicht.
 
+> Denkst du schon einen Schritt weiter und sorgst dich um [Suchmaschinenfreundliche (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de]. Aktiviere diese Funktion bitte noch nicht. Diese Beispielerweiterung unterstützt SEF noch nicht. Das Joomla-konforme Routing ergänzen wir später.
+
 ![Joomla Ansicht im Frontend](/images/j4x3x1.png)
