@@ -13,43 +13,43 @@ tags:
   - Cassiopeia
 ---
 
-Cassiopeia bietet Optionen, die über Styles im Template Manager angepasst werden können. Um größere Änderungen am Aussehen des Templates vorzunehmen, müssen wir in der Lage sein, die Template-Dateien selbst zu bearbeiten, wie beispielsweise die `user.css`, die `index.php` und die `templateDetails.xml`.
+Cassiopeia bietet Optionen, die über Stile im Template-Manager angepasst werden können. Um größere Änderungen am Aussehen des Templates vorzunehmen, müssen wir die Template-Dateien selbst bearbeiten, wie beispielsweise `user.css`, `index.php` oder `templateDetails.xml`.
 
-Hier sehe ich mir zunächst die Optionen an, für die keine Änderungen im Programmcode notwendig sind und gehen dann auf kleiner Anpassungen in Form von Überschreibungen ein.
+Hier schaue ich mir zunächst die Optionen an, für die keine Änderungen im Code notwendig sind und gehe dann auf kleinere Anpassungen mittels Overrides ein.
 
-Die Bilder sind mithilfe der Beispieldateien erstellt worden. Um gleiche Voraussetzungen zu haben, wäre es gut, wenn du diese ebenfalls in einer Testumgebung installierst. Klick dazu im Dashboard die mit `Installieren` beschriebene Schaltfläche neben Blog-Beispieldateien.
+Die in diesem Text zur Veranschaulichung angehängten Bilder wurden mit den Joomla-Blog-Beispieldateien erstellt. Um eine gleiche Basis zu haben, wäre es gut, wenn du diese ebenfalls in einer Testumgebung installierst. Klicken Sie dazu im Dashboard neben den Blog-Beispieldateien auf die Schaltfläche `Installieren`.
 
 ![Blog-Beispieldateien installieren](/images/c11.png)
 
-Das Front-End sollte nun so wie in der nachfolgenden Abbildung aussehen.
+Das Front-End sollte nun so aussehen, wie in der nachfolgenden Abbildung dargestellt.
 
 ![Cassiopeia im Frontend](/images/c12.png)
 
 ## Optionen im einzelnen
 
-Um zu diesen Optionen im Joomla Backend zu gelangen, öffne `System | Site Templates Style`.
+Öffne zunächst im Backend die Ansicht `System | Site Templates Style`, Um zu den Template Optionen im Joomla Backend zu gelangen.
 
-![Templates_Edit_Style_admin_Administration](/images/c2.png)
+![Templates Edit Style Administration | Site Templates Style](/images/c2.png)
 
 Klicke dann Cassiopeia in der Spalte Style.
 
-![Templates_Edit_Style_admin_Administration](/images/c3.png)
+![Templates Edit Style Administration | Cassiopeia Style](/images/c3.png)
 
 ### Registerkarte Details
 
-![Templates_Edit_Style_admin_Administration](/images/c6.png)
+![Templates Edit Style Administration | Details](/images/c6.png)
 
-Diese Registerkarte enthält Informationen über das Template und erlaubt keine Änderungen.
+Diese Registerkarte enthält Informationen zum Template und erlaubt keine Änderungen.
 
 ### Registerkarte Erweitert
 
-![Templates_Edit_Style_admin_Administration](/images/c4.png)
+![Templates Edit Style Administration | Erweitert](/images/c4.png)
 
-Diese Registerkarte zeigt verschiedene Parameter, über die das Template beeinflussbar ist.
+Diese Registerkarte zeigt verschiedene Parameter, über die das Template modifizierbar ist. Nachfolgend sehen ich mir diese im einzelnen an.
 
-#### Logo, Titel und Beschreibung
+#### Logo, Titel und Tagline/Slogan
 
-![Templates_Edit_Style_admin_Administration](/images/ce1.png)
+![Templates Edit Style Administration](/images/ce1.png)
 
 ##### Logo
 

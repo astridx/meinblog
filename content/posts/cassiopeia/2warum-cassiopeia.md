@@ -13,13 +13,13 @@ tags:
   - Cassiopeia
 ---
 
-## Soll ich Cassiopeia oder ein 3rd Party Joomla Template verwenden?
+## Sollte ich Cassiopeia oder eine Joomla-Vorlage eines Drittanbieters verwenden?
 
-Das Cassiopeia Template ist die Frontend-Vorlage, die in einer Joomla 4-Installation enthalten ist. Cassiopeia ist ein unkompliziertes Template, dabei es ist responsive für die korrekte Darstellung auf einer Vielzahl von Geräten und barrierefrei.
+Das Cassiopeia Template ist das Frontend-Template, das standardmäßig in einer Joomla 4-Installation enthalten ist. Cassiopeia ist eine unkomplizierte Vorlage. Es ist responsiv. Das bedeutet, dass es den Inhalt auf verschiedenen Geräten korrekt anzeigt. Außerdem ist es barrierefrei.
 
-Wir haben die Wahl, diese mitgelieferten Template für das Frontend zu verwenden oder ein Template eines Drittanbieters zu installieren. Dies ist eine Entscheidung, die wir bereits bei der Entwicklung einer Website treffen sollten. Verschiedene Joomla Templates stellen Inhalt auf sehr unterschiedliche Weise dar.
+Wer Joomla 4 installiert, steht vor der Wahl, entweder dieses mitgelieferte Template für das Frontend zu verwenden oder ein Template eines Drittanbieters zu installieren. Dies ist eine Entscheidung, die während der Entwicklung einer Website getroffen werden sollte. Zwar sind in Joomla das Design und der Inhalt getrennt und der Wechsel des Templates ist jederzeit möglich. Aber: Verschiedene Joomla-Templates stellen Inhalte auf sehr unterschiedliche Weise dar. Das hat Auswirkungen auf den Inhalt. Wenn dein Template zum Beispiel Bilder in den Vordergrund stellt, wirst du den Text sicherlich kürzer und präziser halten und mehr Wert auf die Auswahl der Bilder legen. Dies ist häufig bei Vorlagen für Fotografen oder für Präsentationen der Fall. Wenn du eine Vorlage hast, bei der die Texte den Hauptteil ausmachen, dann gehst du beim Hinzufügen des Inhalts den umgekehrten Weg.
 
-Cassiopeia ist ein guter Ausgangspunkt, wenn wir nur ein paar Änderungen am Aussehen und an der Funktionalität der Website vornehmen möchten.
+Cassiopeia ist ein guter Ausgangspunkt, wenn dir die Standardansicht von Joomla 4 gefällt und du nur ein paar Änderungen am Aussehen und der Funktionalität vornehmen möchtest. Außerdem findest du in den Joomla-Foren die meiste Unterstützung für dieses Template.
 
 ### Cassiopeia als Basis für ein eigenes Joomla Template
 
@@ -37,41 +37,45 @@ Es ist möghlich größere Änderungen am Layout vorzunehmen oder Modulpositione
 
 Wenn wir ein Verständnis der Joomla-API haben, können wir Cassiopeia ändern. Wir können Änderungen an der `index.php` vornehmen und Template Overrides hinzufügen. Die Joomla-API ist die Schnittstelle, die Informationen aus den Kerndateien bietet, um die Webseite zu erstellen.
 
-#### Joomla Aktualisierungen
+#### Was wichtig ist: Joomla-Updates
 
-Wenn wir Änderungen am Cassiopeia Template vornehmen, laufen wir Gefahr, diese Änderungen zu verlieren, wenn wir Joomla aktualisieren. Deshalb müssen wir entsprechende Vorsichtsmaßnahmen treffen. Fügen wir ein benutzerdefiniertes Stylesheet hinzu und führen wir ein Protokoll und kommentieren wir alle Änderungen, die wir an den Template-Dateien vornehmen. Wir können die modifizierte Cassiopeia-Vorlage kopieren und umbenennen oder ein [Child Template](https://github.com/joomla/joomla-cms/discussions/32442) erstellen, damit Joomla-Upgrades die Dateien nicht überschreiben.
+Wenn wir Änderungen am Cassiopeia Template direkt vornehmen, laufen wir Gefahr, dass diese Änderungen verloren gehen. Beim Aktualisieren von Joomla können Dateien überschrieben werden. Nur im Fall der `user.css` können wir sicher sein, dass sie erhalten bleibt. Daher ist es ratsam, Vorkehrungen zu treffen. Je nach Änderung ist es empfehlenswert, diese zu protokollieren. Am besten ist es allerdings, Cassiopeia zu kopieren, die Kopie der Vorlage umzubenennen und diese als Template zu verwenden. Der Nachteil in diesem Fall ist, dass Aktualisierungen von Cassiopeia selbst nicht automatisch in unsere Kopie übernommen werden.
 
-### Verwendung von 3rd Party Templates für Ihre Joomla-Seite
+> Vielleicht wird es in Zukunft möglich sein, [Child Templates](https://github.com/joomla/joomla-cms/pull/32896)[^https://github.com/joomla/joomla-cms/pull/32896] in Joomla zu verwenden. Wenn Sie diese Funktion verwenden, werden Aktualisierungen im Haupt-Template automatisch in die Kopien übernommen. Das Kind erbt vom Elternteil.
 
-Templates von Drittanbietern sind Templates, die sofort einsatzbereit sind. Wir müssen kein Styling vornehmen. Wir können einfach anfangen, unseren eigenen Inhalt hinzuzufügen. Es gibt kostenlose Templates und solche, die kostenpflichtig sind.
+### Verwendung von Templates von Drittanbietern für deine Joomla-Website
 
-Drittanbietertemplates können einfach oder ziemlich kompliziert sein. Sie können viele Einstellungen haben, um die Seite einzigartig aussehen zu lassen. Diese Einstellungen unmfassen die Wahl der Schriftart, der Farben, des Layouts und der Hintergründe. Diese Templates bieten teilweise eine große Auswahl an Positionen für Module oder andere spezielle Möglichkeiten zur Darstellung des Inhalts.
+Templates von Drittanbietern sind Templates, die sofort einsatzbereit sind, d.h. wir müssen kein Styling vornehmen, weil wir ein Template wählen, das unseren Anforderungen entspricht. Wir können direkt damit beginnen, unseren eigenen Inhalt hinzuzufügen. Es gibt kostenlose Templates und solche, die kostenpflichtig sind.
 
-#### Es gibt Vor- und Nachteile bei der Verwendung von Drittanbietertemplates.
+Templates von Drittanbietern können einfach oder recht kompliziert sein. Sie können viele Einstellungen beinhalten, um der Seite ein einzigartiges Aussehen zu verleihen. Zu diesen Einstellungen gehören die Wahl der Schriftarten, Farben, des Layouts und der Hintergründe. Diese Templates bieten teilweise eine große Auswahl an Positionen für Module oder andere spezielle Möglichkeiten zur Darstellung des Inhalts.
 
-##### Pros
+> Im deutschsprachigen Forum sind Links zu Template-Anbietern in [Joes Liste](https://forum.joomla.de/thread/69-template-gesucht-joe-s-liste/)[^forum.joomla.de/thread/69-template-searched-joe-s-liste/] gesammelt.
 
-- das Template ist sofort einsatzbereit, wir verbringen keine Zeit mit dem Styling
-- Drittanbietertemplates können sehr schöne Funktionen oder Optionen haben, die die Attraktivität der Website erhöhen
-- Drittanbietertemplates können speziell für die Zusammenarbeit mit anderen Erweiterungen, wie beispielsweise Shops, Social, Foren usw., konzipiert sein
+#### Die Verwendung von Drittanbieter-Templates hat ihre Vor- und Nachteile.
 
-##### Kontra
+##### Vorteile
 
-- das Template kann kostenpflichtig sein, oder wir müssen andere kostenpflichtige Erweiterungen hinzufügen, um die gewünschte Funktionalität zu erhalten.
-- das Template ist möglicherweise nicht für das nächste große Upgrade für Joomla verfügbar
-- Drittanbietertemplates können ziemlich kompliziert anpassbar sein
-- die Kerndateien können umfangreiche Überschreibungen haben, die später Probleme mit einigen Joomla-Funktionen verursachen
-- wir verlassen sich auf das Fachwissen und die Fähigkeiten anderer Entwickler
-- Drittanbietertemplates können Sicherheitsrisiken oder andere Schwachstellen hinzufügen
+- Das Template ist sofort einsatzbereit, wir müssen keine Zeit mit dem Styling verbringen
+- Templates von Drittanbietern können sehr nützliche Funktionen oder Optionen haben, die die Attraktivität der Website erhöhen
+- Templates von Drittanbietern können speziell für die Zusammenarbeit mit anderen Erweiterungen wie Shops, Social Media, Foren usw. konzipiert sein.
 
-### Dinge, auf die Sie achten sollten, wenn Sie 3rd-Party-Templates verwenden
+##### Nachteile
 
-Informiere dich, bevor Sie Templates von Drittanbietern installieren.
+- Das Template kann kostenpflichtig sein, oder wir müssen andere kostenpflichtige Erweiterungen hinzufügen, um die gewünschte Funktionalität zu erhalten.
+- das Template ist möglicherweise bei der nächsten großen Aktualisierung von Joomla nicht mehr verwendbar.
+- Templates von Drittanbietern können recht kompliziert in der Anpassung sein
+- die Kerndateien können umfangreiche Overrides beinhalten, die später Probleme mit einigen Joomla-Funktionen verursachen
+- wir sind auf das Fachwissen und die Fähigkeiten der Template-Entwickler angewiesen
+- Templates von Drittanbietern können Sicherheitsrisiken oder andere Schwachstellen mit sich bringen
+
+### Dinge, auf die du achten solltest, wenn du Templates von Drittanbietern verwendest.
+
+Informiere dich, bevor du Templates von Drittanbietern installierst.
 
 - Wähle ausschließlich Templates aus zuverlässigen Quellen.
-- Vergewissere dich, dass das Template mit der neuesten Version von Joomla funktioniert.
-- Schaue dir die Bewertungen für das Template an.
-- Mache eine Suche im [Joomla-Forum](https://forum.joomla.de/), um zu sehen, ob es viele Beiträge mit Problemen im Zusammenhang mit dem Tamplate gibt.
+- Stellen Sie sicher, dass das Template mit der neuesten Version von Joomla funktioniert.
+- Schaue dir die Rezensionen für das Template an.
+- Führe eine Suche im [Joomla-Forum](https://forum.joomla.org/)[^forum.joomla.org] durch, um zu sehen, ob es viele Beiträge mit Problemen im Zusammenhang mit dem Template gibt.
 - Gibt es Support für das Template?
-- Gibt es ein Forum, um zu recherchieren oder Fragen zu stellen?
-- Wird der Template-Anbieter mit neuen Versionen von Joomla Schritt halten?
+- Gibt es ein Forum zur Klärung etwaiger Probleme?
+- Wird der Anbieter des Templates das Template an neue Versionen von Joomla anpassen?
