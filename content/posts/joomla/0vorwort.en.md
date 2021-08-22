@@ -139,7 +139,7 @@ That you should not change the system files does not mean that you do not even l
 
 During the installation, entries are made in `/administrator/ cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. <!-- \index{autoload_psr4.php} -->
 
-> Der nachfolgende Text wurde mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/readme.md] eingefügt: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
+> The following text was added to the [README on Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/pull/28436/files] using the [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/blob/4.0-dev/readme.md]: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
 
 ### Namespace<!-- \index{namespace} -->
 
