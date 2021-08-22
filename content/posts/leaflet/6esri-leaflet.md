@@ -685,7 +685,7 @@ können Sie Funktionen über das Internet bereitstellen. Mit dem [Karten-Service
 
 #### Attribute
 
-So, nun kommen wir zum praktischen Beispiel. Wir konfigurieren eine Abfrage zum Filtern von Daten. Konkret verwenden wir Daten zur Bodengeologie, deren Daten über die Adresse [https://services.arcgis.com](https://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer)[^services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer (t_beispieldateien_zum_)] bereit gestellt werden.
+So, nun kommen wir zum praktischen Beispiel. Wir konfigurieren eine Abfrage zum Filtern von Daten. Konkret verwenden wir Daten zur Bodengeologie, deren Daten über die Adresse [https://services.arcgis.com](https://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer)[^services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer (t*beispieldateien_zum*)] bereit gestellt werden.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_935.html-->

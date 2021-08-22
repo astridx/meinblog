@@ -40,7 +40,7 @@ void function() {
 <h2>Step by step</h2>
 <h3>New files</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950">administrator/components/com_foos/ src/Field/Modal/FooField.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950">administrator/components/ com_foos/ src/Field/Modal/FooField.php</a></h4>
 <p>First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods <code class="language-text">getInput</code> and <code class="language-text">getLabel</code> and we set the type to <code class="language-text">Modal_Foo</code>. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.</p>
 <blockquote>
 <p>It is possible to extend the field so that a Foo element is created via a button. I have left this out here for the sake of simplicity. Sample code is provided by the component <code class="language-text">com_contact</code> in the file <code class="language-text">administrator/components/com_contact/ src/Field/Modal/ContactField.php</code>.</p>
@@ -237,7 +237,7 @@ void function() {
 <p>The programme code for the form field is adapted to <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">Bootstrap 5</a><sup id="fnref-getbootstrap.com"><a href="#fn-getbootstrap.com" class="footnote-ref">getbootstrap.com</a></sup>. This framework was integrated into Joomla in the <a href="https://github.com/joomla/joomla-cms/pull/32037">pull request 32037</a><sup id="fnref-github.com/joomla/joomla-cms/pull/32037"><a href="#fn-github.com/joomla/joomla-cms/pull/32037" class="footnote-ref">github.com/joomla/joomla-cms/pull/32037</a></sup>.</p>
 </blockquote>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e">administrator/components/com_foos/ tmpl/foos/modal.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e">administrator/components/ com_foos/ tmpl/foos/modal.php</a></h4>
 <p>We open the selection in a modal window via the FooField. As address we have inserted in the field <code class="language-text">$linkFoos = 'index.php?option=com_foos&amp;amp;view=foos&amp;amp;layout=modal&amp;amp;tmpl=component&amp;amp;'</code>. The following code shows you the template for this modal window.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php">administrator/components/com_foos/ tmpl/foos/modal.php</a></p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/tmpl/foos/modal.php</span></span></span>
@@ -391,7 +391,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="27"></span><span class="grvsc-source"><span class="mtk1">})()</span></span></span></code></pre>
 <h3>Modified files</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/ com_foos/ foos.xml</a></h4>
 <p>We have created a new JavaScript file. We place it in the <code class="language-text">media\js</code> directory. So that it is copied when the component is installed, we add the <code class="language-text">js</code> folder in the section <code class="language-text">media</code> of the installation manifest.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">&lt;</span><span class="mtk4">folder</span><span class="mtk8">&gt;</span><span class="mtk4">src</span><span class="mtk8">&lt;/</span><span class="mtk4">folder</span><span class="mtk8">&gt;</span></span></span>

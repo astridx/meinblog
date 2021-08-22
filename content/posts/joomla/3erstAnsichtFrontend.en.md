@@ -203,6 +203,6 @@ This file was only a workaround and it can now be deleted.
 
 2. then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
 
-> Do you care about [Search Engine Friendly (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs]. Please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{Search Engine Friendly (SEF)} -->
+> Do you care about [Search Engine Friendly (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls]. Please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{Search Engine Friendly (SEF)} -->
 
 ![Joomla View in Frontend](/images/j4x3x1.png)

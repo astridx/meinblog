@@ -40,7 +40,7 @@ void function() {
 <h2>Schritt für Schritt</h2>
 <h3>Neue Dateien</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974">administrator/components/ com_foos/ sql/install.mysql.utf8.sql</a></h4>
 <p>Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein.</p>
 <p>Neben der <code class="language-text">id</code>, über welche wir das Element eindeutig auffindbar machen und dem Namen <code class="language-text">name</code>, der optional ist und den Datensatz in unserer Erweiterung benennt, gibt es den Alias <code class="language-text">alias</code>. Letzterer bereitet die Daten unter anderem für das Routing vor. Stell dir eine System-URL wie <code class="language-text">http://www.example.com/index.php?option=com_foos&amp;view=foo&amp;id=1</code> vor. Diese ist für Menschen schlecht lesbar. Auch Maschinen wie Suchmaschinen verarbeiten eine solche URL schlecht. Eine textuelle Beschreibung ist zwingend. In Joomla geschieht dies mithilfe des Alias. Dieser kann vom Benutzer selbst festgelegt werden. Damit der Text für die URL ausschließlich gültige Zeichen enthält, gibt es automatische Abläufe in der Hintergrundverarbeitung von Joomla.<!-- \index{Alias} --><!-- \index{Suchmaschinenfreundlich (SEF)!Alias} --></p>
 <p>Mit <code class="language-text">CREATE TABLE IF NOT EXISTS ...</code> legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit <code class="language-text">INSERT INTO ...</code> speichern wir Beispielinhalte in der Datenbanktabelle. In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs <code class="language-text">sampledata</code> an. Zur Inspiration findest du Plugins in Joomla im Verzeichnis <code class="language-text">plugins/sampledata</code>.</p>
@@ -62,7 +62,7 @@ void function() {
 <p>Lies im Vorwort dieses Tutorials, was genau das Präfix <code class="language-text">#__</code> bedeutet, falls dir dieses unbekannt ist.</p>
 </blockquote>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a">administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a">administrator/components/ com_foos/ sql/uninstall.mysql.utf8.sql</a></h4>
 <p>Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. Diese wird beim Deinstallieren automatisch ausgeführt.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql">administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql --&gt;</span></span></span>
@@ -72,7 +72,7 @@ void function() {
 <p>Vielleicht denkst du weiter und fragst dich schon jetzt, wie du potentielle zukünftige Datenbankänderungen handhabst. Was ist notwendig, um in einer späteren Version neben dem Namen auch den Vornamen zu speichern. SQL-Updates sind in Joomla namensbasiert. Genau bedeutet das: Für jede Version der Komponente ist eine Datei anzulegen, deren Name aus der Versionsnummer und der Dateiendung <code class="language-text">.sql</code> besteht, falls sich Datenbankinhalte ändern. Praktisch wirst du dies im weiteren Verlauf dieses Tutorials erleben.</p>
 </blockquote>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/com_foos/ src/Model/FoosModel.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/ com_foos/ src/Model/FoosModel.php</a></h4>
 <p>Als nächstes erstellen wir ein <em>Model</em> für den Administrationsbereich. Da wir die Klasse <code class="language-text">ListModel</code> erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode <code class="language-text">getListQuery()</code> an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Namen der Datenbanktabelle und der Spalte.</p>
 <blockquote>
 <p>Falls bisher nicht geschehen, wird dir hier klar, warum die Trennung von Model und View sinnvoll ist. Sieh dir einmal die Methode <code class="language-text">getListQuery()</code> in Joomla-Komponenten an, zum Beispiel in <code class="language-text">com_content</code>. Das SQL-Statement ist meist umfangreich. Deshalb ist es übersichtlicher, dieses vom gestalterischen Teil abzukapseln.</p>
@@ -140,7 +140,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="56"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <h3>Geänderte Dateien</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/ com_foos/ foos.xml</a></h4>
 <p>Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die SQL-Statements in den genannten Dateien zum passenden Zeitpunkt aufgerufen werden, nämlich während einer Installation oder während einer Deinstallation.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;</span><span class="mtk7">description</span><span class="mtk1">&gt;COM_FOOS_XML_DESCRIPTION&lt;/</span><span class="mtk7">description</span><span class="mtk1">&gt;</span></span></span>
@@ -183,7 +183,7 @@ void function() {
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f">administrator/components/com_foos/ services/provider.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f">administrator/components/ com_foos/ services/provider.php</a></h4>
 <p>Bisher war es nicht notwendig die <code class="language-text">MVC factory</code> in der Datei <code class="language-text">provider.php</code> zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: <code class="language-text">MVC factory not set in Joomla\CMS\Extension\MVCComponent</code>.<!-- \index{Service!Provider} --></p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php">administrator/components/com_foos/ services/provider.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> </span><span class="mtk8">use</span><span class="mtk1"> Joomla\CMS\Extension\Service\Provider\</span><span class="mtk8">ComponentDispatcherFactory</span><span class="mtk1">;</span></span></span>
@@ -202,7 +202,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 				</span><span class="mtk8">return</span><span class="mtk1"> </span><span class="mtk8">$</span><span class="mtk7">component</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			}</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/ com_foos/ src/View/Foos/HtmlView.php</a></h4>
 <p>In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode <code class="language-text">$this->get('Items')</code> des Models auf:</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/View/Foos/HtmlView.php">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">*/</span></span></span>
@@ -222,7 +222,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/com_foos/ tmpl/foos/default.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/ com_foos/ tmpl/foos/default.php</a></h4>
 <p>Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes <code class="language-text">Hello Foos</code> steht jetzt eine Schleife, die alle Elemente durchläuft.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php">administrator/components/com_foos/ tmpl/foos/default.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">*/</span></span></span>

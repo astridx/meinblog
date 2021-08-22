@@ -198,7 +198,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="10"></span><span class="grvsc-source"><span class="mtk4">Hello</span><span class="mtk1"> </span><span class="mtk4">Foos</span></span></span></code></pre>
 <h3>Modified files</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/com_foos/ foos.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/ com_foos/ foos.xml</a></h4>
 <p>Administrator/components/com<em>foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories <code class="language-text">src</code> and <code class="language-text">tmpl</code> exist and where to copy them to. The copy destination is the directory `components/com</em>foos<code class="language-text">because of</code>folder="components/com_foos"`.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	</span><span class="mtk8">&lt;</span><span class="mtk4">description</span><span class="mtk8">&gt;</span><span class="mtk4">COM_FOOS_XML_DESCRIPTION</span><span class="mtk8">&lt;/</span><span class="mtk4">description</span><span class="mtk8">&gt;</span></span></span>
@@ -219,6 +219,9 @@ void function() {
 <li>at the end, install your component in Joomla version 4 to test it: Perform a new installation. This is necessary, otherwise the new files will not be recognised in the frontend. To do this, uninstall your previous installation and copy all files again. Copy the files in the <code class="language-text">administrator</code> folder into the <code class="language-text">administrator</code> folder of your Joomla 4 installation. Copy the files in the <code class="language-text">components</code> folder into the <code class="language-text">components</code> folder of your Joomla 4 installation. Install your component as described in part one, after you have copied all the files. Joomla will set up namespaces for you during installation.</li>
 <li>then open the address <code class="language-text">JOOMLA4/index.php?option=com_foos&amp;view=foo</code> in a browser. You will see the frontend view you just created.</li>
 </ol>
+<blockquote>
+<p>Do you care about <a href="https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs">Search Engine Friendly (SEF) URLs</a><sup id="fnref-docs.joomla.org/enabling_search_engine_friendly_(sef)_urls"><a href="#fn-docs.joomla.org/enabling_search_engine_friendly_(sef)_urls" class="footnote-ref">docs.joomla.org/enabling_search_engine_friendly_(sef)_urls</a></sup>. Please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{Search Engine Friendly (SEF)} --></p>
+</blockquote>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "

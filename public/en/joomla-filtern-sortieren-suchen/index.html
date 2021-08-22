@@ -72,7 +72,7 @@ void function() {
 <h2>Step by step</h2>
 <h3>New files</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-680833320598887b6d6cc4feb95d4408">administrator/components/com_foos/ forms/filter_foos.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-680833320598887b6d6cc4feb95d4408">administrator/components/ com_foos/ forms/filter_foos.xml</a></h4>
 <p>First, we create the form through which the filters will be set.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/forms/filter_foos.xml">administrator/components/com<em>foos/ forms/filter</em>foos.xml</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3 mtki">&lt;!-- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/forms/filter_foos.xml --&gt;</span></span></span>
@@ -185,7 +185,7 @@ void function() {
 <p><code class="language-text">featured</code> is included here as a filter field for the sake of completeness, although we do not support this in the extension yet.</p>
 </blockquote>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe">administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe">administrator/components/ com_foos/ sql/updates/mysql/16.0.0.sql</a></h4>
 <p>In case of an update of your component, the file <code class="language-text">16.0.0.sql</code> adds a column to store the sequence.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql">administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql</a></p>
 <pre class="grvsc-container solarized-light" data-language="xml" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk1">-- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql</span></span></span>
@@ -193,7 +193,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;</span></span></span></code></pre>
 <h3>Modified files</h3>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/com_foos/ forms/foo.xml</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-262e27353fbe755d3813ea2df19cd0ed">administrator/components/ com_foos/ forms/foo.xml</a></h4>
 <p>The form used to create or modify an element is extended with a field for specifying the order.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/foo.xml">administrator/components/com_foos/ forms/foo.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 			label=&quot;JFIELD_ACCESS_LABEL&quot;</span></span></span>
@@ -209,7 +209,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;/</span><span class="mtk7">fieldset</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;/</span><span class="mtk7">form</span><span class="mtk1">&gt;</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-896f245bc8e493f91277fd33913ef974">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-896f245bc8e493f91277fd33913ef974">administrator/components/ com_foos/ sql/install.mysql.utf8.sql</a></h4>
 <p>In case of a new installation, the script in the file <code class="language-text">install.mysql.utf8.sql</code> creates the database. Here we add a column to store the order.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql">administrator/components/com_foos/ sql/install.mysql.utf8.sql</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="xml" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT &#39;*&#39; AFTER `alias`;</span></span></span>
@@ -218,7 +218,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-add"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-add" aria-hidden="true" data-content="+"></span><span class="grvsc-source"><span class="mtk1">ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/com_foos/ src/Model/FoosModel.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626">administrator/components/ com_foos/ src/Model/FoosModel.php</a></h4>
 <p>There are a lot of changes in the model for the list. In the constructor we first save the filter fields to the configuration.</p>
 <p>In the <code class="language-text">getListQuery()</code> method we adjust the database query to respect the filters and sorting. This way the data is immediately in the form in which we display it.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/Model/FoosModel.php">administrator/components/com_foos/ src/Model/FoosModel.php</a></p>
@@ -334,7 +334,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 		return $query;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk3 mtki"> 	}</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250">administrator/components/ com_foos/ src/View/Foos/HtmlView.php</a></h4>
 <p>The view loads the filter form <code class="language-text">src/administrator/components/com_foos/ forms/foo.xml</code>, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php">administrator/components/com_foos/ src/View/Foos/HtmlView.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting solarized-light" data-language="php" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> \</span><span class="mtk7">defined</span><span class="mtk1">(</span><span class="mtk11">&#39;_JEXEC&#39;</span><span class="mtk1">) </span><span class="mtk8">or</span><span class="mtk1"> </span><span class="mtk8">die</span><span class="mtk1">;</span></span></span>
@@ -419,7 +419,7 @@ void function() {
 <span class="grvsc-line grvsc-line-diff grvsc-line-diff-del"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-diff-del" aria-hidden="true" data-content="-"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 		</span><span class="mtk8">$</span><span class="mtk7">canDo</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">ContentHelper::</span><span class="mtk7">getActions</span><span class="mtk1">(</span><span class="mtk11">&#39;com_foos&#39;</span><span class="mtk1">);</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/com_foos/ tmpl/foos/default.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757">administrator/components/ com_foos/ tmpl/foos/default.php</a></h4>
 <p>The code below shows all the essentials for using <code class="language-text">searchtools</code> in the list view of the backend.
 In the case of the header, I replaced <code class="language-text">&lt;?php echo TEXT::_('JGRID_HEADING_ACCESS') ?></code> with <code class="language-text">&lt;?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?></code>. This way the header of the table is marked with a small arrow when a sort is active in a column.</p>
 <p><a href="https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/default.php">administrator/components/com_foos/ tmpl/foos/default.php</a></p>
@@ -534,7 +534,7 @@ In the case of the header, I replaced <code class="language-text">&lt;?php echo 
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk11"> 								&lt;/td&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk11"> 								&lt;td class=&quot;</span><span class="mtk4">small</span><span class="mtk1"> </span><span class="mtk4">d</span><span class="mtk8">-</span><span class="mtk4">none</span><span class="mtk1"> </span><span class="mtk4">d</span><span class="mtk8">-</span><span class="mtk4">md</span><span class="mtk8">-</span><span class="mtk4">table</span><span class="mtk8">-</span><span class="mtk4">cell</span><span class="mtk11">&quot;&gt;</span></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-aeba8d42de72372f42f890d454bf928e">administrator/components/com_foos/ tmpl/foos/modal.php</a></h4>
+<h4><a href="https://github.com/astridx/boilerplate/compare/t15a...t16#diff-aeba8d42de72372f42f890d454bf928e">administrator/components/ com_foos/ tmpl/foos/modal.php</a></h4>
 <p>Icons show us if a column is sorted and in which direction. To make the sorting clear to someone who doesn't see these markers, we add a <code class="language-text">&lt;caption></code> element. This is not displayed, it is read out.</p>
 <blockquote>
 <p>The <a href="https://getbootstrap.com/docs/5.0/getting-started/accessibility/#visually-hidden-content">class <code class="language-text">visually-hidden</code></a> hides an element for all devices except screen readers.</p>
