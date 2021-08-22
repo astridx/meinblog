@@ -130,7 +130,6 @@ Here you can see an example of the List View toolbar - the view that gives you a
  	protected function addToolbar()
  	{
 -		$canDo = ContentHelper::getActions('com_foos');
-+		FooHelper::addSubmenu('foos');
 +		$this->sidebar = \JHtmlSidebar::render();
 +
 +		$canDo = ContentHelper::getActions('com_foos', 'category', $this->state->get('filter.category_id'));
