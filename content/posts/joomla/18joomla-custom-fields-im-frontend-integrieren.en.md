@@ -32,21 +32,21 @@ Custom Fields display data in the frontend using events. The custom fields are d
 
 Specifically, we make sure that the events<!-- \index{Event!onContentAfterDisplay} --><!-- \index{Event!onContentBeforeDisplay} --><!-- \index{Event!onContentAfterTitle} -->
 
-- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/Plugin/Events/Content#onContentAfterTitle],
-- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay] and
-- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay]
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/plugin/events/content#oncontentaftertitle],
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/plugin/events/content#oncontentbeforedisplay] and
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/plugin/events/content#oncontentafterdisplay]
   are triggered and the result is stored in a variable.
 
-> Joomla uses the [observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)[^en.wikipedia.org/wiki/Observer_pattern] for event handling. This is a software design pattern where an object maintains a list of its dependents called observers and automatically notifies them of state changes, usually by calling one of their methods.<!-- \index{design pattern!observer} -->
+> Joomla uses the [observer design pattern](https://en.wikipedia.org/wiki/Observer_pattern)[^en.wikipedia.org/wiki/observer_pattern] for event handling. This is a software design pattern where an object maintains a list of its dependents called observers and automatically notifies them of state changes, usually by calling one of their methods.<!-- \index{design pattern!observer} -->
 
 [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Factory;
- 
+
  /**
   * HTML Foos View class for the Foo component
  class HtmlView extends BaseHtmlView
@@ -68,7 +68,7 @@ Specifically, we make sure that the events<!-- \index{Event!onContentAfterDispla
 +
 +		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', ['com_foos.foo', &$item, &$item->params]);
 +		$item->event->afterDisplayContent = trim(implode("\n", $results));
- 
+
  		return parent::display($tpl);
  	}
 ```
@@ -84,7 +84,7 @@ IIn the template we display our custom fields. In our case, this is not complex,
 
 ```php {diff}
  }
- 
+
  echo $this->item->name;
 +
 +echo $this->item->event->afterDisplayTitle;

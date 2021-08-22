@@ -21,7 +21,7 @@ Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien 
 
 ## Schritt für Schritt
 
-[Kategorien](https://docs.joomla.org/Category/de)[^docs.joomla.org/Category/de] sind eine Möglichkeit, Inhalte in Joomla zu organisieren. Eine Kategorie enthält Elemente und andere Kategorien. Ein Artikel kann nur zu einer Kategorie gehören. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie dieser Kategorie.  Kommt es in deiner Struktur vor, dass einzelne Elemente zu mehreren Untergruppen gehören? Dann sind Kategorien nicht die richtige Wahl. Verwenden Sie in diesem Fall Schlagwörter oder Tags.
+[Kategorien](https://docs.joomla.org/Category/de)[^docs.joomla.org/category/de] sind eine Möglichkeit, Inhalte in Joomla zu organisieren. Eine Kategorie enthält Elemente und andere Kategorien. Ein Artikel kann nur zu einer Kategorie gehören. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie dieser Kategorie. Kommt es in deiner Struktur vor, dass einzelne Elemente zu mehreren Untergruppen gehören? Dann sind Kategorien nicht die richtige Wahl. Verwenden Sie in diesem Fall Schlagwörter oder Tags.
 
 ### Neue Dateien
 
@@ -655,6 +655,7 @@ class HtmlView extends CategoryView
 }
 
 ```
+
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->

@@ -22,7 +22,7 @@ In the previous part we set up a database for the Joomla components. In this par
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Joomla creates the form for you if you give it the requirements in an XML file. Below you can see this for our example.
 
@@ -61,12 +61,13 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 	</fieldset>
 </form>
 ```
+
 <!-- \index{alias} -->
 
 > You want an overview of all possible form elements? In the [Joomla documentation](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] all standard form fields are listed.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
+#### [administrator/components/ com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
 
 We create more or less an empty class with `FooController`. Although it contains no logic of its own, we need it because it inherits from `FormController`. Joomla expects `FooController` as the controller of the extension in this place under this name.
 
@@ -102,7 +103,7 @@ class FooController extends FormController
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 Now we create the model to fetch the data for an element. This we call `FooModel`. It inherits the main implementations from `AdminModel`. We add our own special requirements. With `$typeAlias` we set the typalias for the content type. This way Joomla knows for all inherited functions to which element it has to apply them exactly. For example, the alias in `loadFormData()` is used to convert the matching XML file into a form. Remember, you created the file in the current chapter. And for the correct mapping of the table, the alias is essential when you reuse Joomla functions. The typalias plays a big role in the background without you noticing it.
 
@@ -200,7 +201,7 @@ class FooModel extends AdminModel
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/ com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
 
 We implement the access to the database table. It is important to set `$this->typeAlias` and to specify the name of the table `#__foos_details`.
 
@@ -272,7 +273,7 @@ class FooTable extends Table
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
 The file `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organises the view of an element. Be careful not to mix this up this with the file `administrator/components/com_foos/ src/View/Foo s /HtmlView.php`, which displays all elements in an overview list. To edit an element, we need a toolbar just like in the list view. The display itself is done as usual via the method `display` of the class `BaseHtmlView`. Only our special features are given via `$this->form = $this->get('Form');` and `$this->item = $this->get('Item');`.
 
@@ -360,7 +361,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 In the file `edit.php` is the view implemented, which is called for editing. It is important for me to address the [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets)[^docs.joomla.org/j4.x:web_assets] `$wa = $this->document->getWebAssetManager();` here. This is new in Joomla 4. You load two JavaScript files via Webassetmanager. `useScript('keepalive')` loads `media/system/js/keepalive.js` and keeps your session alive while you edit or create an article. `useScript('form.validate')` loads a lot of helpful functions with `media/system/js/core.js`. For example, validation, which we'll look at in more detail later.
 
@@ -452,12 +453,12 @@ echo LayoutHelper::render('joomla.content.emptystate', $displayData);
 
 The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[github.com/joomla/joomla-cms/pull/33264].
 
-> Good design is already a challenge when there is data to display. It is even more difficult to implement an empty page in a user-friendly way. Have a look at [emptystat.es](https://emptystat.es/) if you want to get inspired about your Empty State implementation. 
+> Good design is already a challenge when there is data to display. It is even more difficult to implement an empty page in a user-friendly way. Have a look at [emptystat.es](https://emptystat.es/) if you want to get inspired about your Empty State implementation.
 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 To ensure that the 'forms' directory is passed to Joomla during a new installation, enter it in the installation manifest.
 
@@ -475,21 +476,21 @@ To ensure that the 'forms' directory is passed to Joomla during a new installati
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 In the view that displays the overview list, we add the toolbar. Here we insert a button that creates a new element. We also query with `if (!count($this->items) && $this->get('IsEmptyState'))` whether there are items to display. If the view is empty, we display the user-friendly Empty State layout `$this->setLayout('emptystate');`.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
- 
+
  \defined('_JEXEC') or die;
- 
+
 +use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Toolbar\Toolbar;
 +use Joomla\CMS\Toolbar\ToolbarHelper;
- 
+
  /**
   * View class for a list of foos.
  class HtmlView extends BaseHtmlView
@@ -520,7 +521,7 @@ In the view that displays the overview list, we add the toolbar. Here we insert 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In the template of the overview list, we replace the simple text with a form. The form contains a form field for each column in the database table and makes it possible to create or change data.
 

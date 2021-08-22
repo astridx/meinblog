@@ -45,11 +45,12 @@ export default function BlogIndex({ data }) {
       <section className="small lead">
         <h1>Welcome</h1>
         <p className="subtitle">
-        I am a software developer, writer and I like{' '}
+          I am a software developer, writer and I like{' '}
           <a href="https://github.com/astridx" target="_blank" rel="noreferrer">
             Open Source.
           </a>{' '}
-          This website is a kind of compendium. Here I collect knowledge which I build up over the years.
+          This website is a kind of compendium. Here I collect knowledge which I
+          build up over the years.
         </p>
       </section>
       <Section title="Books" className="medium">

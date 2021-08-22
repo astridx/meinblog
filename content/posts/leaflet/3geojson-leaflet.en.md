@@ -105,4 +105,3 @@ You now know that GeoJSON allows you to encode many geographic data structures i
 Let's start from the beginning.
 
 #### A geometry
-

@@ -14,7 +14,6 @@ export default [
   {
     meta: 'bookboon.com',
     title: 'Softwaretestmethoden',
-    path:
-      'https://bookboon.com/de/softwaretestmethoden-ebook',
+    path: 'https://bookboon.com/de/softwaretestmethoden-ebook',
   },
 ]

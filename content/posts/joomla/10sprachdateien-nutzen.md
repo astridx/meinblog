@@ -105,7 +105,7 @@ COM_FOOS_N_ITEMS_FEATURED_2="Two foos featured."
 Erstelle sechs Dateien, um neben der englischen die deutsche Sprache zu unterstützen. Jede Datei ist wie folgt aufgebaut: Pro Zeile wird eine Sprachzeichenfolge eingefügt. Die _linke Seite_ des Gleichheitszeichens in der Sprachzeichenfolge, beispielsweise `COM_FOOS_ CONFIGURATION` in `COM_FOOS_ CONFIGURATION="Foo Optionen"`, ist immer in Großbuchstaben. Normalerweise steht zu Beginn der Name der Erweiterung, in unserem Fall ist das `COM_FOOS`. Danach fügst du idealerweise eine kurze Beschreibung hinzu. Hier beschreibst du kurz, wofür dieser String genutzt wird. Stelle sicher, dass du kein Leerzeichen verwendest. Es sind nur Buchstaben und Unterstriche zulässig. Die _rechte Seite_ der Sprachzeichenfolge, beispielsweise `Foo Optionen` in `COM_FOOS_ CONFIGURATION = "Foo Optionen"`, ist der tatsächliche Text, der auf der Site angezeigt wird. Wenn deine Erweiterung in eine weitere Sprache übersetzt wird, ändert der Übersetzer nur diese rechte Seite des Sprachstrings in seiner Sprachdatei. Die rechte Seite wird in Anführungszeichen eingefasst.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
+#### [administrator/components/ com\_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cb357e383d05f82d66215fa10abf3bde)
 
 Wir ergänzen die deutsche Sprachversion für den Administrationsbereich mit den Dateien `administrator/components/com_foos/ language/de-DE/com_foos.ini` und `administrator/components/com_foos/ language/de-DE/com_foos.sys.ini`.
 
@@ -126,7 +126,7 @@ COM_FOOS_CATEGORIES="Kategorien"
 > Namenskonventionen: Jede Sprachdatei ist mit einem Kürzel gekennzeichnet, welches in der [ISO-639](https://de.wikipedia.org/wiki/ISO_639)[^de.wikipedia.org/wiki/iso_639] und [ISO-3166](https://de.wikipedia.org/wiki/ISO_3166)[^de.wikipedia.org/wiki/iso_3166] festgelegt ist: Die ersten beiden Kleinbuchstaben benennen die Sprache. Für Deutsch ist das `de` und `en` für Englisch. Nach dem Bindestrich weisen die zwei Großbuchstaben auf das Land. So können die Besonderheiten im Schweizerdeutsch zum Beispiel über `CH` oder Österreichisch über `AT` vom `DE` abgegrenzt werden. Ein Verzeichnis mit dem Namen `de-CH` enthält die Übersetzung für die Schweiz und `de-AT` die österreichische Variante.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
+#### [administrator/components/ com\_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-0bb25b2f8499b27811f2a24af0dd3987)
 
 Wie bereits erwähnt, benötigst du im Backend zwei Sprachdateien: Eine mit der Endung `.ini` und eine, die mit `sys.ini` endet. Die [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) wird in erster Linie bei der Installation und für die Anzeige der Menüpunkte verwendet und die `ini` für alles andere.
 
@@ -147,7 +147,7 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Alles hier passiert nach der Installatio
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
+#### [administrator/components/ com\_foos/language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-cbdc0f2989570582624b6f9332e7c2f2)
 
 Ich hatte es schon geschrieben: Die englischen Versionen der Spachdateien sollte immer als Rückfallposition vorhanden sein.
 
@@ -164,7 +164,7 @@ COM_FOOS_CATEGORIES="Categories"
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
+#### [administrator/components/ com\_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t7...t8#diff-2a376eb220cf55ce50bb756c0cd9bf59)
 
 Auch die Datei `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` ergänzen wir als Rückfallposition für alle nicht deutschen oder englischen Joomla-Installationen.
 
@@ -217,7 +217,7 @@ COM_FOOS_NAME="Surname: "
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t7...t8#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Damit die Sprachdateien bei einer Installation kopiert werden, fügen wir den Eintrag `<folder>language</folder>` für das Frontend und das Backend hinzu.
 

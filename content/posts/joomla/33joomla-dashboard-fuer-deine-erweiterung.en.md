@@ -22,7 +22,7 @@ Extensive Joomla Core extensions have a dashboard in which related functions are
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
+#### [administrator/components/ com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
 
 In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 
@@ -68,7 +68,7 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 We modify the XML manifest so that the sidebar in the Joomla administration template knows how to link to the dashboard.
 
@@ -110,7 +110,7 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 In the installation script we add the call. With this, we call a Joomla-specific function that makes our dashboard known in the CMS.
 
@@ -121,7 +121,7 @@ In the installation script we add the call. With this, we call a Joomla-specific
  use Joomla\CMS\Log\Log;
  use Joomla\CMS\Table\Table;
 +use Joomla\CMS\Installer\InstallerScript;
- 
+
  /**
   * Script file of Foo Component
   *
@@ -135,16 +135,16 @@ In the installation script we add the call. With this, we call a Joomla-specific
  public function install($parent): bool
  			return false;
  		}
- 
+
 +		$this->addDashboardMenu('foos', 'foos');
 +
  		return true;
  	}
- 
+
  public function update($parent): bool
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
- 
+
 +		$this->addDashboardMenu('foo', 'foo');
 +
  		return true;

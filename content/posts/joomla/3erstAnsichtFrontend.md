@@ -171,9 +171,9 @@ Hello Foos
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
-`administrator/components/com\_foos/ foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Deshalb fügen wie die beiden neu hinzugekommenen Dateien hier ein. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wo es sie hin kopieren soll. Kopierziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
+`administrator/components/ com\_foos/ foos.xml` ist die Datei, die Joomla mitteilt, wie unsere Komponente installiert wird. Deshalb fügen wie die beiden neu hinzugekommenen Dateien hier ein. So weiß Joomla bei einer Installation oder einer Aktualisierung, dass es die Verzeichnisse `src` und `tmpl` gibt und wo es sie hin kopieren soll. Kopierziel ist aufgrund von `folder="components/com_foos"` das Verzeichnis `components/com_foos`.
 
 [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml)
 
@@ -202,6 +202,6 @@ Diese Datei war nur ein Behelf und sie kann nun gelöscht werden.
 
 2. Öffne dann in einem Browser die Adresse `JOOMLA4/index.php?option=com_foos&view=foo`. Du siehst die eben erstelle Frontend-Ansicht.
 
-> Denkst du schon einen Schritt weiter und sorgst dich um [Suchmaschinenfreundliche (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de]. Aktiviere diese Funktion bitte noch nicht. Diese Beispielerweiterung unterstützt SEF noch nicht. Das Joomla-konforme Routing ergänzen wir später.
+> Denkst du schon einen Schritt weiter und sorgst dich um [Suchmaschinenfreundliche (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de>)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/de]. Aktiviere diese Funktion bitte noch nicht. Diese Beispielerweiterung unterstützt SEF noch nicht. Das Joomla-konforme Routing ergänzen wir später.<!-- \index{Suchmaschinenfreundlich (SEF)} -->
 
 ![Joomla Ansicht im Frontend](/images/j4x3x1.png)

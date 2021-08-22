@@ -81,7 +81,7 @@ A good editor is also essential. This should be one you feel comfortable with. W
 
 More convenience is offered by an integrated development environment [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^https://de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. By convenience I mean functions like
 
-- versioning: integration of [GIT](https://en.wikipedia.org/wiki/Git)[^wikipedia.org/wiki/Git]
+- versioning: integration of [GIT](https://en.wikipedia.org/wiki/Git)[^wikipedia.org/wiki/git]
 - Code completion: Complement user input in a meaningful way
 - Syntax highlighting: colour highlighting of variables, class names or statements.
 - Coding standards: Observance of rules
@@ -139,7 +139,7 @@ That you should not change the system files does not mean that you do not even l
 
 During the installation, entries are made in `/administrator/ cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. <!-- \index{autoload_psr4.php} -->
 
-> Der nachfolgende Text wurde mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
+> Der nachfolgende Text wurde mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/readme.md] eingefügt: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
 
 ### Namespace<!-- \index{namespace} -->
 

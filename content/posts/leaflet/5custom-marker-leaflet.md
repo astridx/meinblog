@@ -56,41 +56,40 @@ Im nachfolgenden Beispiel sehen Sie den Text, der für die Anzeige des benutzerd
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         10
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var greenIcon = L.icon({
-        iconUrl: "http://leafletjs.com/examples/custom-icons/leaf-green.png",
-        shadowUrl: "http://leafletjs.com/examples/custom-icons/leaf-shadow.png",
+        iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+        shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
         iconSize: [38, 95],
         shadowSize: [50, 64],
         iconAnchor: [22, 94],
         shadowAnchor: [4, 62],
         popupAnchor: [-3, -76],
-      });
+      })
       L.marker([50.27264, 7.26469], { icon: greenIcon })
         .addTo(mymap)
-        .bindPopup("Ich bin ein Marker mit einem individuellen Image.");
+        .bindPopup('Ich bin ein Marker mit einem individuellen Image.')
     </script>
   </body>
 </html>
-
 ```
 
 Sehen wir uns diese Zeilen genau an: Zunächst einmal sticht die Instanziierung des Bildes hervor.
 
 ```js
 var greenIcon = L.icon({
-iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
-shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-iconSize:     [38, 95],
-shadowSize:   [50, 64],
-iconAnchor:   [22, 94],
-shadowAnchor: [4, 62],
-popupAnchor:  [-3, -76]
-});
+  iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+  shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+  iconSize: [38, 95],
+  shadowSize: [50, 64],
+  iconAnchor: [22, 94],
+  shadowAnchor: [4, 62],
+  popupAnchor: [-3, -76],
+})
 ```
 
 Die Bedeutung der einzelnen Optionen habe ich in der nachfolgenden Abbildung veranschaulicht. Aber zunächst einmal sehen wir uns das Problem genauer an:
@@ -104,11 +103,9 @@ Sie können mit der optionalen Option `iconSize: [38, 95]` die Größe des Bilde
 Im Kapitel _Die Karte mit Daten bestücken_ – genau im Unterkapitel _Punkte und Marker_ – haben wir schon Marker mit Optionen angelegt. Im nächsten Codeschnipsel sehen Sie nun, dass Sie auch das Bild zum Marker – also das Icon – als Option angeben können. Im Programmcode geben Sie dazu einfach den Namen des eben erstellen `L.Icon` Objektes an.
 
 ```js
-L.marker(
-[50.27264, 7.26469],
-{icon: greenIcon})
-.addTo(mymap)
-.bindPopup("Ich bin ein Marker mit einem individuellen Image.");
+L.marker([50.27264, 7.26469], { icon: greenIcon })
+  .addTo(mymap)
+  .bindPopup('Ich bin ein Marker mit einem individuellen Image.')
 ```
 
 Wenn Sie das HTML Dokument dieses Beispiels im Browser öffnen, sehen Sie eine Karte auf der das grüne Icon als Marker an der festgelegten Koordinate – passend positioniert – erscheint.
@@ -130,7 +127,7 @@ Ein eigenes Marker Bild erstellen Sie in Leaflet mithilfe der [Kasse `L.icon`](h
 - `shadowAnchor:` Die Pixel Koordinaten an der das Schattenbild eingefügt werden soll, können Sie mit der Option `ShadowAnchor` übergeben. Ansonsten gilt für diese Option das gleiche, was ich bei der Option `iconAnchor` geschrieben habe.
 - `className:` Mit der Option `className` können Sie für beide Bilder - also dem Schattenbild und dem eigentlichen Marker Bild - den Namen einer CSS-Klasse definieren.
 
-> Besonderheiten beim [Retina Display](https://de.wikipedia.org/w/index.php?title=Retina-Display)[^de.wikipedia.org/w/index.php?title=Retina-Display] Hochauflösende Displays haben eine höhere Pixeldichte als gewöhnliche Monitore. Auf der gleichen Fläche werden etwa viermal so viele Pixel dargestellt. Der Vorteil dieser Technologie liegt darin, dass die Pixel nun so klein sind, dass das menschliche Auge sie nicht mehr auflösen kann. Das Ergebnis sind sehr scharfe Grafiken und Texte. Damit das Bild nun auf einem HiDPI (High Dots Per Inch) Bildschirm, also einem Retina Display, scharf dargestellt wird, muss es mit mindestens zweifacher Breite und Höhe zur Verfügung gestellt werden. Denn: Eine Pixelgrafik, die bei gewöhnlicher Auflösung das ganze Display ausfüllt, würde auf einem Retina Display der gleichen Größe nur ein Viertel des Displays einnehmen. Ein Pixel der Grafik entspricht auch auf dem Retina-Display einem Pixel. Es werden aber auf der gleichen Fläche viermal so viele Pixel, nun allerdings nur mit einem Viertel der Größe, abgebildet. Damit die Pixelgrafiken nicht plötzlich alle zu klein dargestellt werden, rechnen die Geräte die Grafiken um. Dadurch geht Qualität verloren. Pixelgrafiken wirken auf dem Retina-Display daher teilweise unscharf. Um dieses Problem zu umgehen, prüft Leaflet die Auflösung des Anzeigegerätes. Anschließend werden die Marker Bilder – sofern eine Grafik mit hohere Auflösung vorhanden ist – in hoher Auflösung angezeigt.
+> Besonderheiten beim [Retina Display](https://de.wikipedia.org/w/index.php?title=Retina-Display)[^de.wikipedia.org/w/index.php?title=retina-display] Hochauflösende Displays haben eine höhere Pixeldichte als gewöhnliche Monitore. Auf der gleichen Fläche werden etwa viermal so viele Pixel dargestellt. Der Vorteil dieser Technologie liegt darin, dass die Pixel nun so klein sind, dass das menschliche Auge sie nicht mehr auflösen kann. Das Ergebnis sind sehr scharfe Grafiken und Texte. Damit das Bild nun auf einem HiDPI (High Dots Per Inch) Bildschirm, also einem Retina Display, scharf dargestellt wird, muss es mit mindestens zweifacher Breite und Höhe zur Verfügung gestellt werden. Denn: Eine Pixelgrafik, die bei gewöhnlicher Auflösung das ganze Display ausfüllt, würde auf einem Retina Display der gleichen Größe nur ein Viertel des Displays einnehmen. Ein Pixel der Grafik entspricht auch auf dem Retina-Display einem Pixel. Es werden aber auf der gleichen Fläche viermal so viele Pixel, nun allerdings nur mit einem Viertel der Größe, abgebildet. Damit die Pixelgrafiken nicht plötzlich alle zu klein dargestellt werden, rechnen die Geräte die Grafiken um. Dadurch geht Qualität verloren. Pixelgrafiken wirken auf dem Retina-Display daher teilweise unscharf. Um dieses Problem zu umgehen, prüft Leaflet die Auflösung des Anzeigegerätes. Anschließend werden die Marker Bilder – sofern eine Grafik mit hohere Auflösung vorhanden ist – in hoher Auflösung angezeigt.
 
 ### Die Klasse L.Icon erweitern
 
@@ -150,89 +147,88 @@ So, nun haben Sie einen benutzerdefinierten Marker erstellt und möchten weitere
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         8
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var LeafIcon = L.Icon.extend({
         options: {
-          shadowUrl: "leaf-shadow.png",
+          shadowUrl: 'leaf-shadow.png',
           iconSize: [38, 95],
           shadowSize: [50, 64],
           iconAnchor: [22, 94],
           shadowAnchor: [4, 62],
           popupAnchor: [-3, -76],
         },
-      });
+      })
       var greenIcon = new LeafIcon({
-        iconUrl: "http://leafletjs.com/examples/custom-icons/leaf-green.png",
-      });
+        iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+      })
       var redIcon = new LeafIcon({
-        iconUrl: "http://leafletjs.com/examples/custom-icons/leaf-red.png",
-      });
+        iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
+      })
       var orangeIcon = new LeafIcon({
-        iconUrl: "http://leafletjs.com/examples/custom-icons/leaf-orange.png",
-      });
+        iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png',
+      })
       L.marker([50.27264, 7.26469], { icon: greenIcon })
         .addTo(mymap)
-        .bindPopup("Ich bin ein grüner Marker.");
+        .bindPopup('Ich bin ein grüner Marker.')
       L.marker([50.27264, 6.26469], { icon: redIcon })
         .addTo(mymap)
-        .bindPopup("Ich bin ein roter Marker.");
+        .bindPopup('Ich bin ein roter Marker.')
       L.marker([50.27264, 8.26469], { icon: orangeIcon })
         .addTo(mymap)
-        .bindPopup("Ich bin ein oranger Marker.");
+        .bindPopup('Ich bin ein oranger Marker.')
     </script>
   </body>
 </html>
-
 ```
 
 Dieser Programmcodeabschnitt hat Ähnlichkeit mit dem vorherigen Beispiel. Wenn Sie genau hinsehen, finden Sie aber Unterschiede. Wir erstellen im ersten Schritt kein neues `Icon` Objekt um dieses Anzuzeigen, sondern erweitern die Klasse `L:Icon` mit der Klasse `LeafIcon`. Wir legen nur die gemeinsamen Optionen für das Objekt `LeafIcon` fest. Die URL des Bildes ist die Option, die von Marker zu Marker unterschiedlich ist. Deshalb geben wir diese beim Erweitern der Klasse in den Optionen noch nicht an.
 
 ```js
 var LeafIcon = L.Icon.extend({
-options: {
-shadowUrl: 'leaf-shadow.png',
-iconSize: [38, 95],
-shadowSize: [50, 64],
-iconAnchor: [22, 94],
-shadowAnchor: [4, 62],
-popupAnchor: [-3, -76]
-}
-});
+  options: {
+    shadowUrl: 'leaf-shadow.png',
+    iconSize: [38, 95],
+    shadowSize: [50, 64],
+    iconAnchor: [22, 94],
+    shadowAnchor: [4, 62],
+    popupAnchor: [-3, -76],
+  },
+})
 ```
 
 Im zweiten Schritt erstellen wir drei Instanzen des `LeafIcon`, also des erweiterten `L.Icon`.
 
 ```js
-var greenIcon = new LeafIcon(
-{iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png'}
-);
-var redIcon = new LeafIcon(
-{iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png'}
-);
-var orangeIcon = new LeafIcon(
-{iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png'}
-);
+var greenIcon = new LeafIcon({
+  iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+})
+var redIcon = new LeafIcon({
+  iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
+})
+var orangeIcon = new LeafIcon({
+  iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-orange.png',
+})
 ```
 
 Und zu guter Letzt fügen wir die Marker mit dem zugehörigen Icon an die passende Stelle auf der Karte zum Kartenobjekt hinzu.
 
 ```js
-L.marker(
-[50.27264, 7.26469], {icon: greenIcon})
-.addTo(mymap).bindPopup("Ich bin ein grüner Marker.");
-L.marker(
-[50.27264, 6.26469], {icon: redIcon})
-.addTo(mymap).bindPopup("Ich bin ein roter Marker.");
-L.marker(
-[50.27264, 8.26469], {icon: orangeIcon})
-.addTo(mymap).bindPopup("Ich bin ein oranger Marker.");
+L.marker([50.27264, 7.26469], { icon: greenIcon })
+  .addTo(mymap)
+  .bindPopup('Ich bin ein grüner Marker.')
+L.marker([50.27264, 6.26469], { icon: redIcon })
+  .addTo(mymap)
+  .bindPopup('Ich bin ein roter Marker.')
+L.marker([50.27264, 8.26469], { icon: orangeIcon })
+  .addTo(mymap)
+  .bindPopup('Ich bin ein oranger Marker.')
 ```
 
-> Sie haben vielleicht bemerkt, dass wir das Schlüsselwort `new` für die Erstellung von `LeafIcon` Instanzen verwendet haben. Warum haben wir vorher alle Leafelt Objekte ohne das Schlüsselwort `new` erstellt? Die Antwort ist einfach: Die echten Leaflet Klassen sind mit einem Großbuchstaben – beispielsweise `**L**.Icon` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.icon` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden: `**L.icon** = function icon(options) {return new L.Icon(options);};` Die Funktion `L.icon` können Sie sich auf Github in der Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153] ansehen. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=Fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode, anstatt durch direkten Aufruf eines Konstruktors, erzeugt wird. Dies hatte ich im Kapitel _Wir beginnen mit einer einfachen Karte_ schon einmal erwähnt.
+> Sie haben vielleicht bemerkt, dass wir das Schlüsselwort `new` für die Erstellung von `LeafIcon` Instanzen verwendet haben. Warum haben wir vorher alle Leafelt Objekte ohne das Schlüsselwort `new` erstellt? Die Antwort ist einfach: Die echten Leaflet Klassen sind mit einem Großbuchstaben – beispielsweise `**L**.Icon` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.icon` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden: `**L.icon** = function icon(options) {return new L.Icon(options);};` Die Funktion `L.icon` können Sie sich auf Github in der Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^github.com/leaflet/leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/icon.js#l153] ansehen. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode, anstatt durch direkten Aufruf eines Konstruktors, erzeugt wird. Dies hatte ich im Kapitel _Wir beginnen mit einer einfachen Karte_ schon einmal erwähnt.
 
 Im nachfolgenden Bild sehen Sie das Ergebnis. Jeder Marker wird nun mit einem individuellen Icon erstellt. Die meisten Optionen sind gleich – allerdings hat jeder Marker seine eigene Farbe.
 
@@ -244,7 +240,7 @@ Sie wissen nun, wie Sie einen Marker mit einem standardisierten Aussehen einfüg
 
 ### BeautifyMarker
 
-[Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/BeautifyMarker], ist ein einfaches Plugin, das bunte Marker ganz ohne eigene Grafik zu einer Leaflet-Karte hinzufügt. Trotzdem behalten Sie die volle Kontrolle über den Stil der Marker. Konkret heißt das: Sie können über unbegrenzte Farben und viele Eigenschaften verfügen. Das Plugin Leaflet.BeautifyIcon bietet auch die Möglichkeit, Schriftart und Glyphen, also die grafische Darstellung von Schriftzeichen, anzupassen.
+[Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/beautifymarker], ist ein einfaches Plugin, das bunte Marker ganz ohne eigene Grafik zu einer Leaflet-Karte hinzufügt. Trotzdem behalten Sie die volle Kontrolle über den Stil der Marker. Konkret heißt das: Sie können über unbegrenzte Farben und viele Eigenschaften verfügen. Das Plugin Leaflet.BeautifyIcon bietet auch die Möglichkeit, Schriftart und Glyphen, also die grafische Darstellung von Schriftzeichen, anzupassen.
 
 ![Marker, die mithilfe des Plugins [Leaflet.BeautifyMarker](https://github.com/marslan390/BeautifyMarker) erstellt wurden.](/images/974.png)
 
@@ -274,58 +270,59 @@ Damit Sie sich dieses besser vorstellen können, habe ich ein Beispiel erstellt.
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         8
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       L.marker([50.27264, 7.26469], {
         icon: L.BeautifyIcon.icon({ iconSize: [50, 50] }),
         draggable: true,
       })
         .addTo(mymap)
-        .bindPopup("Ich bin ein beautify Marker");
+        .bindPopup('Ich bin ein beautify Marker')
       options = {
-        icon: "spinner",
-        spin: "true",
-        borderColor: "#8A90B4",
-        textColor: "white",
-        backgroundColor: "#8A90B4",
-      };
+        icon: 'spinner',
+        spin: 'true',
+        borderColor: '#8A90B4',
+        textColor: 'white',
+        backgroundColor: '#8A90B4',
+      }
       L.marker([50.27264, 6.26469], {
         icon: L.BeautifyIcon.icon(options),
         draggable: true,
       })
         .addTo(mymap)
-        .bindPopup("Ich bin ein beautify Marker");
+        .bindPopup('Ich bin ein beautify Marker')
       options = {
-        icon: "plane",
-        iconShape: "marker",
-        borderColor: "#8D208B",
-        textColor: "#8D208B",
-        backgroundColor: "transparent",
-      };
+        icon: 'plane',
+        iconShape: 'marker',
+        borderColor: '#8D208B',
+        textColor: '#8D208B',
+        backgroundColor: 'transparent',
+      }
       L.marker([50.27264, 8.26469], {
         icon: L.BeautifyIcon.icon(options),
         draggable: true,
       })
         .addTo(mymap)
-        .bindPopup("Ich bin ein beautify Marker");
+        .bindPopup('Ich bin ein beautify Marker')
     </script>
   </body>
 </html>
-
 ```
 
-Was müssen Sie tun, wenn Sie das [Plugin `Leaflet.BeautifyMarker`](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/BeautifyMarker] verwenden möchten? Zunächst einmal müssen Sie die notwendigen Skripte und Stylesheet Dateien einbinden. Das ist zum einen das Skript und die CSS-Datei zum Plugin selbst. Diese Dateien können Sie über die Website [https://github.com/marslan390/BeautifyMarker](https://github.com/marslan390/BeautifyMarker) herunterladen. Zum anderen können Sie zusammen mit Leaflet.BeautifyMarker Drittdienste nutzen. Sie können [Font Awesome CSS](https://fontawesome.com/)[^fontawesome.com] und [Bootstrap CSS](https://getbootstrap.com/)[^getbootstrap.com] einbinden. Ich habe im Beispiel die CSS-Dateien von Font Awesome und von Boostrap eingebunden, um Ihnen dies zu demonstrieren. Für dieses Beispiel wäre nur die CSS-Datei von Font Awesome CSS notwendig gewesen.
+Was müssen Sie tun, wenn Sie das [Plugin `Leaflet.BeautifyMarker`](https://github.com/marslan390/BeautifyMarker)[^github.com/marslan390/beautifymarker] verwenden möchten? Zunächst einmal müssen Sie die notwendigen Skripte und Stylesheet Dateien einbinden. Das ist zum einen das Skript und die CSS-Datei zum Plugin selbst. Diese Dateien können Sie über die Website [https://github.com/marslan390/BeautifyMarker](https://github.com/marslan390/BeautifyMarker) herunterladen. Zum anderen können Sie zusammen mit Leaflet.BeautifyMarker Drittdienste nutzen. Sie können [Font Awesome CSS](https://fontawesome.com/)[^fontawesome.com] und [Bootstrap CSS](https://getbootstrap.com/)[^getbootstrap.com] einbinden. Ich habe im Beispiel die CSS-Dateien von Font Awesome und von Boostrap eingebunden, um Ihnen dies zu demonstrieren. Für dieses Beispiel wäre nur die CSS-Datei von Font Awesome CSS notwendig gewesen.
 
 Weiter müssen Sie nicht tun. Sie können sofort einen Marker mithilfe der Option `icon: L.BeautifyIcon.icon(options)` kreieren.
 
 ```js
 L.marker([50.27264, 8.26469], {
   icon: L.BeautifyIcon.icon(options),
-  draggable: true
-}).addTo(mymap).bindPopup("Ich bin ein beautify Marker");
+  draggable: true,
+})
+  .addTo(mymap)
+  .bindPopup('Ich bin ein beautify Marker')
 ```
 
 Sehen Sie sich die Optionen des Plugin `Leaflet.BeautifyMarker` an. Es macht Spaß diese zu erkunden. Wie die Optionen wirken, die ich verwendet haben, können Sie sich im nächsten Bild teilweise ansehen. Das sich eines der Icons dreht, erkennen Sie allerdings nur, wenn Sie die HTML Datei mit der Karte selbst im Browser öffnen.
@@ -338,7 +335,7 @@ Sehen Sie sich die Optionen des Plugin `Leaflet.BeautifyMarker` an. Es macht Spa
 
 Je nachdem welche Informationen Sie mit Ihrer Karte weitergeben möchten, kann es vorkommen, dass Sie sehr viele Marker benötigen. Wenn Sie mit vielen Marker Objekten arbeiten, sollten Sie beachten, dass diese das Laden der Karte verlangsamen. Außerdem kann es vorkommen, dass Marker nahe nebeneinander liegen und sich beim Zoomen überschneiden. Dies ist nicht benutzerfreundlich. Schön wäre es, wenn bei einer Detailansicht alle Marker zu sehen sind – diese aber beim Hineinzoomen in die Karte zu Clustern zusammengefasst werden. So hat der Benutzer alle Informationen passend zur Kartenanzeige.
 
-In diesem Kapitel erfahren Sie, wie Sie das [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/Leaflet/Leaflet.markercluster] zum Clustern von Marker Objekten verwenden und so eine große Anzahl von Marker Objekten auf einer Karte benutzerfreundlich und übersichtlich darstellen können. Sehen Sie sich das nachfolgende Beispiel an, um zu verstehen, wie das Clustern von Marker Objekten funktioniert.
+In diesem Kapitel erfahren Sie, wie Sie das [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/leaflet/leaflet.markercluster] zum Clustern von Marker Objekten verwenden und so eine große Anzahl von Marker Objekten auf einer Karte benutzerfreundlich und übersichtlich darstellen können. Sehen Sie sich das nachfolgende Beispiel an, um zu verstehen, wie das Clustern von Marker Objekten funktioniert.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_952.html-->
@@ -358,30 +355,29 @@ In diesem Kapitel erfahren Sie, wie Sie das [Plugin `Leaflet.markercluster`](htt
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.219264, 7.19469],
         13
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var markers = L
         .markerClusterGroup
         //{showCoverageOnHover : false, disableClusteringAtZoom: 17}
-        ();
+        ()
       for (var i = 0; i < points.length; i++) {
-        var a = points[i];
-        var title = a[2];
-        var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title });
-        marker.bindPopup(title);
-        markers.addLayer(marker);
+        var a = points[i]
+        var title = a[2]
+        var marker = L.marker(new L.LatLng(a[0], a[1]), { title: title })
+        marker.bindPopup(title)
+        markers.addLayer(marker)
       }
-      mymap.addLayer(markers);
+      mymap.addLayer(markers)
     </script>
   </body>
 </html>
-
 ```
 
-Das haben wir gemacht: Als erstes haben wir die notwendigen Dateien zum [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/Leaflet/Leaflet.markercluster] eingebunden. Damit wir auch genug Marker zum Clustern zur Verfügung haben, haben wir dann Punkte über eine externe Datei eingebunden. Die Datei `points.js` enthält 380 Punkte und sieht auszugsweise wie folgt aus:
+Das haben wir gemacht: Als erstes haben wir die notwendigen Dateien zum [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/leaflet/leaflet.markercluster] eingebunden. Damit wir auch genug Marker zum Clustern zur Verfügung haben, haben wir dann Punkte über eine externe Datei eingebunden. Die Datei `points.js` enthält 380 Punkte und sieht auszugsweise wie folgt aus:
 
 ```js
 var points = [
@@ -394,8 +390,7 @@ var points = [
 Zu guter Letzt haben wir mit
 
 ```js
-var markers = L.markerClusterGroup(
-);
+var markers = L.markerClusterGroup()
 ```
 
 ein Objekt vom Typ `markerClusterGroup` erzeugen und diesem Objekt jeden einzelnen Marker hinzufügen. Das Objekt `markerClusterGroup` übernimmt nun die ganze Arbeit für uns.
@@ -410,11 +405,10 @@ Sie können einem Cluster jede Menge Optionen mitgeben und sehr viele Methoden u
 
 ```js
 var markers = L.markerClusterGroup(`  
-{->showCoverageOnHover : false<-}`  
-);
+{->showCoverageOnHover : false<-}`)
 ```
 
-ausschalten. Aktiviert bewirkt diese Option das Folgende: Wenn Sie die Maus über einen Cluster bewegen, blendet sich ein Polygon ein, dass die Grenzen des Bereichs in dem die Marker sich befinden, anzeigt. Alle Optionen, Methoden und Ereignisse finden Sie in der Dokumentation zum Plugin auf Github[^github.com/Leaflet/Leaflet.markercluster].
+ausschalten. Aktiviert bewirkt diese Option das Folgende: Wenn Sie die Maus über einen Cluster bewegen, blendet sich ein Polygon ein, dass die Grenzen des Bereichs in dem die Marker sich befinden, anzeigt. Alle Optionen, Methoden und Ereignisse finden Sie in der Dokumentation zum Plugin auf Github[^github.com/leaflet/leaflet.markercluster].
 
 ## Marker animieren
 
@@ -437,22 +431,21 @@ Wenn Sie einen Marker animieren möchten, unterstützt Sie beispielsweise das [P
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         12
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       L.marker([50.27264, 7.26469], {
         bounceOnAdd: true,
         bounceOnAddOptions: { duration: 5000, height: 100 },
         bounceOnAddCallback: function () {
-          alert("Gelandet!");
+          alert('Gelandet!')
         },
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Als Ergebnis sehen Sie einen Marker, der sofort nachdem die Karte im Browser geladen ist, in die Karte spring und dann noch eine Weile auf und ab hüpft. Nach dem der Marker gelandet ist, öffnet sich ein Pop-up-Fenster mit der Meldung: Gelandet!.
@@ -461,7 +454,7 @@ Als Ergebnis sehen Sie einen Marker, der sofort nachdem die Karte im Browser gel
 
 #### Ein Marker bewegt sich
 
-Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möchten Sie vielleicht mit Ihrem Marker einen Weg beschreiben? Dann ist das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/Leaflet.AnimatedMarker] vielleicht etwas für Sie. Mit diesem Plugin können Sie einen Marker so animieren, dass er einer Linie folgt. Vielleicht möchten Sie einen Marker in Form eines Autos darstellen, das auf einer Straße fährt?
+Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möchten Sie vielleicht mit Ihrem Marker einen Weg beschreiben? Dann ist das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/leaflet.animatedmarker] vielleicht etwas für Sie. Mit diesem Plugin können Sie einen Marker so animieren, dass er einer Linie folgt. Vielleicht möchten Sie einen Marker in Form eines Autos darstellen, das auf einer Straße fährt?
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_950.html-->
@@ -478,11 +471,11 @@ Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möch
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         9
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var line = L.polyline([
           [50.6851, 7.94136],
           [50.68576, 6.94149],
@@ -491,17 +484,16 @@ Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möch
         animatedMarker = L.animatedMarker(line.getLatLngs(), {
           distance: 2000,
           interval: 1000,
-        });
-      mymap.addLayer(animatedMarker);
+        })
+      mymap.addLayer(animatedMarker)
     </script>
   </body>
 </html>
-
 ```
 
 #### Einen Marker in Bewegung versetzen und wieder stoppen
 
-Wenn Sie die Bewegung des Markers beeinflussen möchten, unterstützt Sie das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/Leaflet.AnimatedMarker] auch. Bauen Sie zum Testen zwei Schaltenflächen ein, über die Sie den Maker anhalten oder starten können. `Leaflet.AnimatedMarker` bietet Ihnen Methoden mit passender Funktionalität. Sie müssen diese Methoden nur der passenden Schaltfläche zuordnen. Das nächste Beispiel will Ihnen eine Idee zur Umsetzung dieser Aufabenstellung geben.
+Wenn Sie die Bewegung des Markers beeinflussen möchten, unterstützt Sie das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/leaflet.animatedmarker] auch. Bauen Sie zum Testen zwei Schaltenflächen ein, über die Sie den Maker anhalten oder starten können. `Leaflet.AnimatedMarker` bietet Ihnen Methoden mit passender Funktionalität. Sie müssen diese Methoden nur der passenden Schaltfläche zuordnen. Das nächste Beispiel will Ihnen eine Idee zur Umsetzung dieser Aufabenstellung geben.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_949.html-->
@@ -520,8 +512,8 @@ Wenn Sie die Bewegung des Markers beeinflussen möchten, unterstützt Sie das [P
     <button onclick="stop()">Stop</button>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.46469], 9);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.46469], 9)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var line = L.polyline([
           [50.6851, 7.94136],
           [50.6851, 7.84136],
@@ -536,18 +528,17 @@ Wenn Sie die Bewegung des Markers beeinflussen möchten, unterstützt Sie das [P
           autoStart: false,
           distance: 200,
           interval: 100,
-        });
-      mymap.addLayer(animatedMarker);
+        })
+      mymap.addLayer(animatedMarker)
       function start() {
-        animatedMarker.start();
+        animatedMarker.start()
       }
       function stop() {
-        animatedMarker.stop();
+        animatedMarker.stop()
       }
     </script>
   </body>
 </html>
-
 ```
 
 Wie Sie sehen, können Sie die Funktionen `start()` und `stop()`, die Ihnen das Plugin `Leaflet.AnimatedMarker` zur Verfügung stellt, nutzen.
@@ -573,9 +564,9 @@ Und natürlich können Sie Plugins auch kombinieren. Ihrer Kreativität sind kei
     <button onclick="start()">Start</button>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      b = new L.Marker([51.68649, 6.94165], { bounceOnAdd: true });
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      b = new L.Marker([51.68649, 6.94165], { bounceOnAdd: true })
       var line = L.polyline([
           [50.6851, 7.94136],
           [50.68576, 6.94149],
@@ -586,20 +577,19 @@ Und natürlich können Sie Plugins auch kombinieren. Ihrer Kreativität sind kei
           distance: 2000,
           interval: 10,
           onEnd: function () {
-            b.addTo(mymap);
-            b.bounce({ duration: 100, height: 50 });
-            mymap.removeLayer(animatedMarker);
-            setTimeout("mymap.removeLayer(b)", 900);
+            b.addTo(mymap)
+            b.bounce({ duration: 100, height: 50 })
+            mymap.removeLayer(animatedMarker)
+            setTimeout('mymap.removeLayer(b)', 900)
           },
-        });
-      mymap.addLayer(animatedMarker);
+        })
+      mymap.addLayer(animatedMarker)
       function start() {
-        animatedMarker.start();
+        animatedMarker.start()
       }
     </script>
   </body>
 </html>
-
 ```
 
 ## Leaflet Data Visualization Framework (DVF)
@@ -630,44 +620,43 @@ Das erste Beispiel zeigt Ihnen, wie Sie Formen als Marker darstellen können. Hi
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         7
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var marker = new L.MapMarker([50.27264, 7.26469], {
         radius: 30,
         fillOpacity: 0.5,
-        fillColor: "orange",
-        color: "purple",
+        fillColor: 'orange',
+        color: 'purple',
         innerRadius: 7,
         numberOfSides: 4,
         rotation: 10,
-      });
-      mymap.addLayer(marker);
+      })
+      mymap.addLayer(marker)
       var polygonmarker = new L.RegularPolygonMarker([50.27264, 6.26469], {
         numberOfSides: 3,
         rotation: 10,
         radius: 10,
-        fillColor: "green",
+        fillColor: 'green',
         fillOpacity: 1,
         opacity: 1,
         weight: 1,
         radius: 30,
-      });
-      mymap.addLayer(polygonmarker);
+      })
+      mymap.addLayer(polygonmarker)
       var star = new L.StarMarker([50.27264, 8.26469], {
         numberOfPoints: 8,
         opacity: 1,
         weight: 2,
         fillOpacity: 0,
         radius: 30,
-      });
-      mymap.addLayer(star);
+      })
+      mymap.addLayer(star)
     </script>
   </body>
 </html>
-
 ```
 
 Die nächste Abbildung zeigt Ihnen die drei im vorherigen Beispiel erstellen Marker.
@@ -698,11 +687,11 @@ Das außergewöhnlichste an diesem Plugin ist meiner Meinung nach die Einfachhei
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.27264, 7.26469],
         7
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var options = {
         data: {
           data1: 20,
@@ -712,58 +701,57 @@ Das außergewöhnlichste an diesem Plugin ist meiner Meinung nach die Einfachhei
         },
         chartOptions: {
           data1: {
-            fillColor: "blue",
+            fillColor: 'blue',
             minValue: 0,
             maxValue: 50,
             maxHeight: 30,
             displayText: function (value) {
               //return value.toFixed(2);
-              return "Mein Text";
+              return 'Mein Text'
             },
           },
           data2: {
-            fillColor: "red",
+            fillColor: 'red',
             minValue: 0,
             maxValue: 50,
             maxHeight: 30,
           },
           data3: {
-            fillColor: "green",
+            fillColor: 'green',
             minValue: 0,
             maxValue: 50,
             maxHeight: 30,
           },
           data4: {
-            fillColor: "yellow",
+            fillColor: 'yellow',
             minValue: 0,
             maxValue: 50,
             maxHeight: 30,
           },
         },
         weight: 1,
-        color: "#000000",
+        color: '#000000',
         radius: 30,
         fillOpacity: 1,
-      };
-      var bar = new L.BarChartMarker([50.27264, 7.26469], options);
-      mymap.addLayer(bar);
-      var radial = new L.RadialBarChartMarker([50.27264, 8.26469], options);
-      mymap.addLayer(radial);
-      var pie = new L.PieChartMarker([50.27264, 6.26469], options);
-      mymap.addLayer(pie);
-      var cox = new L.CoxcombChartMarker([50.97264, 7.26469], options);
-      mymap.addLayer(cox);
+      }
+      var bar = new L.BarChartMarker([50.27264, 7.26469], options)
+      mymap.addLayer(bar)
+      var radial = new L.RadialBarChartMarker([50.27264, 8.26469], options)
+      mymap.addLayer(radial)
+      var pie = new L.PieChartMarker([50.27264, 6.26469], options)
+      mymap.addLayer(pie)
+      var cox = new L.CoxcombChartMarker([50.97264, 7.26469], options)
+      mymap.addLayer(cox)
       var stack = new L.StackedRegularPolygonMarker(
         [50.97264, 8.26469],
         options
-      );
-      mymap.addLayer(stack);
-      var radialmeter = new L.RadialMeterMarker([50.97264, 6.26469], options);
-      mymap.addLayer(radialmeter);
+      )
+      mymap.addLayer(stack)
+      var radialmeter = new L.RadialMeterMarker([50.97264, 6.26469], options)
+      mymap.addLayer(radialmeter)
     </script>
   </body>
 </html>
-
 ```
 
 Ich habe wenige Daten für dieses Beispiel künstlich erstellt. Diese Daten habe ich in einer Variable im Programmcode fix eingetragen. Dies ist nicht Sinn der Sache. In der Regel will man dynamische Daten visualisieren. Das Prinzip wird so aber meiner Meinung nach klar. Das Beispiel zeigt Ihnen, wie Sie Daten in Form eines Diagramms mithilfe des Leaflet Data Visualization Framework auf Ihrer Leaflet Karte einblenden können. Und das nachfolgende Bild zeigt Ihnen das Ergebnis.

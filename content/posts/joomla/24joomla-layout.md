@@ -123,7 +123,7 @@ echo $this->item->event->afterDisplayContent;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t19...t20#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 

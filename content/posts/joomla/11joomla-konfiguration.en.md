@@ -22,7 +22,7 @@ Are there things you plan to offer configurable? Then this part is important for
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
+#### [administrator/components/ com\_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
 
 We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
 
@@ -57,7 +57,7 @@ We use a selection field of type `type="list"`. We minimise the translation work
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 The addition in the `foos.xml` file ensures that the `config.xml` file is copied during installation and Joomla can thus access it later.
 
@@ -75,7 +75,7 @@ The addition in the `foos.xml` file ensures that the `config.xml` file is copied
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 The line `$toolbar->preferences('com_foos');` ensures that the button `Options' is inserted at the top of the administration area. This way, the configuration is easily accessible later in the backend.
 

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-In this article you will learn how to create a menu item for the frontend view of your component. So it is not necessary that you know the exact URL. Later a modification to [search engine friendly (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/] is possible. As a note, please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{menu item!frontend} -->
+In this article you will learn how to create a menu item for the frontend view of your component. So it is not necessary that you know the exact URL. Later a modification to [search engine friendly (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/>)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/] is possible. As a note, please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{menu item!frontend} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...t3] and incorporate these changes into your development version.
 

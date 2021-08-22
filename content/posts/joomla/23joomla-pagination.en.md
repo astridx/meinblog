@@ -26,7 +26,7 @@ No new files are added.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 We do not have any special requests. To display the default pagination, more or less two lines are enough. In the view you call
 `$this->pagination = $this->get('Pagination');` to set the variable `$this->pagination`.
@@ -54,7 +54,7 @@ We do not have any special requests. To display the default pagination, more or 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t18...t19#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In the template we use the `getListFooter` method of the variable `$this->pagination`. That was all!
 
@@ -72,7 +72,7 @@ In the template we use the `getListFooter` method of the variable `$this->pagina
 
 ```
 
-In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements. 
+In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements.
 
 ![Joomla Pagination in global configuration](/images/j4x23x2.png)
 

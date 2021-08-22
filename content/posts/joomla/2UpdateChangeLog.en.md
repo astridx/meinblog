@@ -94,7 +94,7 @@ Below you can see the complete file.
         <element>com_foos</element>
         <type>component</type>
         <version>1.0.1</version>
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>      
+		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
 		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
@@ -163,7 +163,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 

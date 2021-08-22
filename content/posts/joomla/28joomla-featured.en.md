@@ -24,7 +24,7 @@ Some items are special and for them there is a special attribute in Joomla: `fea
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
+#### [administrator/components/ com\_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-adb53beac2e127edac496abfa3c7bb0c)
 
 You already know this. We store the property `featured` in the database, so we extend the database table by one column. We do this in the file `24.0.0.sql`.
 
@@ -631,7 +631,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 We extend the form with which an element is created or changed by the field for setting the property `featured`.
 
@@ -659,7 +659,7 @@ We extend the form with which an element is created or changed by the field for 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t23...t24#diff-896f245bc8e493f91277fd33913ef974)
 
 In the case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the property `featured`.
 
@@ -675,7 +675,7 @@ In the case of a new installation, the script in the file `install.mysql.utf8.sq
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
+#### [administrator/components/ com\_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-83275f4e46bde5a95cd61ce239609370)
 
 We implement the logic with which we set the `featured` property in the `featured()` function in the `FoosController`.
 
@@ -752,7 +752,7 @@ We implement the logic with which we set the `featured` property in the `feature
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 In the model of an element we implement the method with which the assignment of the property (data) `featured` is saved and changed.
 
@@ -820,7 +820,7 @@ In the model of an element we implement the method with which the assignment of 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 In the list view model, we make the necessary adjustments to the database query.
 
@@ -869,7 +869,7 @@ In the list view model, we make the necessary adjustments to the database query.
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+#### [administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
 In `AdministratorService.php` we make it possible to change the assignment of the property also in the overview list. A click on the star symbol toggles the value.<!-- \index{service!administrator} -->
 
@@ -919,7 +919,7 @@ In `AdministratorService.php` we make it possible to change the assignment of th
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 We add to the toolbar. `featured` should also be editable here via an action.
 
@@ -945,7 +945,7 @@ We add to the toolbar. `featured` should also be editable here via an action.
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 In the form for creating or editing an element, we insert the command that creates a field using the XML file.
 
@@ -962,7 +962,7 @@ In the form for creating or editing an element, we insert the command that creat
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t23...t24#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In the overview of all elements in the backend in the file `administrator/components/com_foos/ tmpl/foos/default.php` we add a column in which the state is displayed with a filled or empty star and can be changed by clicking. The file `HTMLHelper` does the master work for us.
 

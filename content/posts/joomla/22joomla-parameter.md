@@ -16,12 +16,14 @@ tags:
 Gibt es Einstellungen, die für alle Items deiner Komponente gelten und die ein Anwender an seine Erfordernisse anpasst? Zeigst du beispielsweise digitale Karten an und willst es dem Benutzer ermöglichen, das Einblenden der Lizenz selbst zu bestimmen? In Joomla gibt für diesen Zweck Parameter.<!-- \index{Parameter} -->
 
 Parameter werden für
+
 - ein Item speziell,
 - für ganze Komponente (alle Items der Komponente) und
 - für einen Menüpunkt.
-gesetzt.
+  gesetzt.
 
 Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, gilt in Joomla standarmäßig folgende Hierarchie:
+
 - Die Einstellung am Menüpunkt hat immer Vorrang.
 - Danach zieht der Parameter, der für das Item speziell gilt.
 - Die niedrigst Priorität hat der Parameter, der für die Komponente gesetzt ist.
@@ -39,7 +41,7 @@ Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit un
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql](https://raw.githubusercontent.com/astridx/boilerplate/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+#### [administrator/components/ com\_foos/ sql/updates/mysql/18.0.0.sql](https://raw.githubusercontent.com/astridx/boilerplate/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
 
@@ -54,7 +56,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/ com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
 In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend schaffen wir die Möglichkeit, diesen für ein einzelnes Element `administrator/components/com_foos/ forms/foo.xml` oder einen Menüpunkt `components/com_foos/tmpl/foo/default.xml` zu überschreiben.
 
@@ -81,7 +83,7 @@ In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu se
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params` hinzu. So ist `show_name` ebenfalls für ein einzelnes Element konfigurierbar.
 
@@ -110,7 +112,7 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 > In Joomla gibt es die Möglichkeit, den Parmeter auf den Wert [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F) zu setzen. Der Vorteil ist, dass beim Konfigurien angezeigt wird, was global eingestellt ist. Verwende dazu `useglobal="true"` wie [/administrator/components/com_contact/forms/contact.xml](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).<!-- \index{Parameter!useglobal} --><!-- \index{useglobal!Parameter} -->
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
 Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
 
@@ -126,14 +128,15 @@ Damit bei einer neuen Installation die Spalte erstellt wird, in der die Paramete
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/ com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
-In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden. Wir verwenden das [Registry-Entwurfsmuster](https://de.wikipedia.org/wiki/Registry_(Entwurfsmuster))[^de.wikipedia.org/wiki/Registry_(Entwurfsmuster)]. <!-- \index{Entwurfsmuster!Registy} --> Dieses nutzt die Möglichkeit, Eigenschaften [in PHP zu überschreiben](http://php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members)[^php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members]. Eigenschaften fügen wir mittels
+In der Klasse, die die Tabelle verwaltet, stellen wir sicher, dass die Parameter in der korrekten Form gespeichert werden. Wir verwenden das [Registry-Entwurfsmuster](<https://de.wikipedia.org/wiki/Registry_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/registry_(entwurfsmuster)]. <!-- \index{Entwurfsmuster!Registy} --> Dieses nutzt die Möglichkeit, Eigenschaften [in PHP zu überschreiben](http://php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members)[^php.net/manual/de/language.oop5.overloading.php#language.oop5.overloading.members]. Eigenschaften fügen wir mittels
 
 ```
 $registry = neue Registry;
 $registry->foo = 'foo';
 ```
+
 zur Registry hinzu. Um einen Wert abzurufen, nutzen wir
 
 ```
@@ -148,7 +151,7 @@ $foo = $registry->foo;
  use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
- 
+
  /**
   * Foos Table class.
  public function check()
@@ -164,7 +167,7 @@ $foo = $registry->foo;
  		return parent::store($updateNulls);
  	}
  }
- 
+
 ```
 
 <!-- prettier-ignore -->
@@ -182,7 +185,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
- 
+
  /**
   * HTML Foos View class for the Foo component
   */
@@ -198,7 +201,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
  public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
- 
+
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -217,7 +220,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 +		$item->params = $temp;
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', ['com_foos.foo', &$item]);
- 
+
  		// Store the events for later
 ```
 
@@ -230,7 +233,7 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
- 
+
 -if ($this->get('State')->get('params')->get('show_foo_name_label')) {
 -	echo Text::_('COM_FOOS_NAME');
 -}
@@ -238,11 +241,11 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
- 
+
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
- 
+
  echo $this->item->event->afterDisplayTitle;
  echo $this->item->event->beforeDisplayContent;
 ```

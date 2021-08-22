@@ -28,7 +28,7 @@ Fangen wir von vorne an. Es ist nämlich meiner Meinung nach auch spannend, einm
 
 Auch wenn die vielen Informationen auf einer Karte komplex erscheinen: Das Berechnen einer Route kann von einer Software oder einem Dienst effizient durchgeführt werden. Dazu müssen die Daten der Karte, auf der die Berechnung ausgeführt werden soll, bestimmte Informationen enthalten. Die Daten von OpenStreetMap beinhalten Informationen, um Routen für verschiedene Profile berechnen zu können. Eine Route kann zum Beispiel für die Nutzung eines Autos oder eines Fahrrads unterschiedlich berechnet werden. Auch Optionen wie _'zu Fuß'_ oder _'mit dem Pferd'_ sind mit OpenStreetMap Daten möglich.
 
-Damit die Software zur Routenberechnung fehlerfrei funktioniert, müssen diese Daten qualitativ gut sein. Das bedeutet, dass Linien – also zum Beispiel Straßen – die verbunden sein sollen, auch wirklich verbunden sind. Umgekehrt dürfen Straßen, die sich auf verschieden Ebenen kreuzen - zum Beispiel bei Brücken oder Tunneln, nicht verbunden sein. Das bedeutet auch, dass Poller oder Absperrpfosten, an denen kein Auto vorbeikommt, auch als solche eingezeichnet sind. Ganz wichtig ist es, dass Abbiegeverbote an Kreuzungen auf der Karte klar gekennzeichnet sind. Wie OpenStreetMap das macht, können Sie unter anderem auf der Website [https://wiki.openstreetmap.org](https://wiki.openstreetmap.org/w/index.php?title=OSM_tags_for_routing)[^wiki.openstreetmap.org/w/index.php?title=OSM_tags_for_routing] nachlesen.
+Damit die Software zur Routenberechnung fehlerfrei funktioniert, müssen diese Daten qualitativ gut sein. Das bedeutet, dass Linien – also zum Beispiel Straßen – die verbunden sein sollen, auch wirklich verbunden sind. Umgekehrt dürfen Straßen, die sich auf verschieden Ebenen kreuzen - zum Beispiel bei Brücken oder Tunneln, nicht verbunden sein. Das bedeutet auch, dass Poller oder Absperrpfosten, an denen kein Auto vorbeikommt, auch als solche eingezeichnet sind. Ganz wichtig ist es, dass Abbiegeverbote an Kreuzungen auf der Karte klar gekennzeichnet sind. Wie OpenStreetMap das macht, können Sie unter anderem auf der Website [https://wiki.openstreetmap.org](https://wiki.openstreetmap.org/w/index.php?title=OSM_tags_for_routing)[^wiki.openstreetmap.org/w/index.php?title=osm_tags_for_routing] nachlesen.
 
 Um bei der Routen-Berechnung die schnellste Route bestimmen zu können, sind Geschwindigkeitsangaben notwendig. OpenStreetMap speichert für jede Straße den Standardhöchstwert für deutsche Straßen. Dieser Standardwerte kann jedoch für bestimmte Straßen anders sein. In diesem Fall ist es notwendig, dass beim Erstellung des Straßen-Objektes die zulässige Höchstgeschwindigkeit hinzufügt wird. Dies geschieht mit einer speziellen Eigenschaft oder mit einem speziellen Tag. Nebenbei haben auch andere Faktoren, wie Kurven, Steigungen oder Straßenbelag einen Einfluss auf die Geschwindigkeit – und dieser ist je nach Profil noch einmal unterschiedlich. Eine Steigung verringert die Geschwindigkeit eines Fahrrades stärker, als die eines Autos. Dafür wird der Fußgänger in Kurven nicht so viel an Geschwindigkeit verlieren wie ein Fahrrad.
 
@@ -57,18 +57,17 @@ Nachfolgende finden Sie das erste Beispiel für diesen Themenbereich.
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var control = L.Routing.control({
         waypoints: [
           L.latLng(50.273543, 7.262993),
           L.latLng(50.281168, 7.276211),
         ],
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Was haben wir genau gemacht? Zunächst einmal haben wir die für die Verwendung der [Leaflet Routing Machine](http://www.liedman.net/leaflet-routing-machine)[^liedman.net/leaflet-routing-machine] erforderlichen Dateien eingebunden. Verantwortlich hierfür sind die Zeilen
@@ -82,11 +81,8 @@ Die aktuellen Dateien zum Plugin finden Sie unter der Adresse [https://github.co
 
 ```js
 var control = L.Routing.control({
-waypoints: [
-L.latLng(50.273543, 7.262993),
-L.latLng(50.281168, 7.276211)
-],
-}).addTo(mymap);
+  waypoints: [L.latLng(50.273543, 7.262993), L.latLng(50.281168, 7.276211)],
+}).addTo(mymap)
 ```
 
 ein `L.Routing.control` erstellt und dieses zur Karte hinzugefügt. Die Koordinaten, zwischen denen eine Route berechnet werden soll, haben wir mit der Option `waypoints` an das Control übergeben.
@@ -108,21 +104,20 @@ Sie können einen Router, also eine Software, die die Route berechnen soll, mit 
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var control = L.Routing.control({
         waypoints: [
           L.latLng(50.273543, 7.262993),
           L.latLng(50.281168, 7.276211),
         ],
         router: L.Routing.mapbox(
-          "pk.eyJ1IjoiYXNlbG5pZ3UiLCJhIjoiVi0zVHJBQSJ9.9fUKqRI4g5v59l9C-tM55w"
+          'pk.eyJ1IjoiYXNlbG5pZ3UiLCJhIjoiVi0zVHJBQSJ9.9fUKqRI4g5v59l9C-tM55w'
         ),
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 > Wenn Sie die Option `router` nicht belegen, wird standardmäßig die Open Source Routing Machine – [http://project-osrm.org](http://project-osrm.org) – genutzt. Für diesen freien Router benötigen Sie kein Zugriffstoken. Leider ist dieser aber nicht so zuverlässig wie Mapbox. Bedenken Sie, es handelt sich um eine Demoversion, die Sie frei nutzen können und einem geschenkten Gaul schaut man schließlich nicht ins Maul!
@@ -150,25 +145,24 @@ Der nächste Programmcode zeigt Ihnen am Beispiel von Mapbox, wie Sie die Sprach
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var control = L.Routing.control({
         waypoints: [
           L.latLng(50.273543, 7.262993),
           L.latLng(50.281168, 7.276211),
         ],
         router: L.Routing.mapbox(
-          "pk.eyJ1IjoiYXNlbG5pZ3UiLCJhIjoiVi0zVHJBQSJ9.9fUKqRI4g5v59l9C-tM55w",
+          'pk.eyJ1IjoiYXNlbG5pZ3UiLCJhIjoiVi0zVHJBQSJ9.9fUKqRI4g5v59l9C-tM55w',
           {
-            profile: "mapbox/walking",
-            language: "de",
+            profile: 'mapbox/walking',
+            language: 'de',
           }
         ),
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Der Mapbox Router bietet Ihnen unter anderem die Optionen `profil` und `language`. Die Namen sagen es schon aus. Als [Profil](https://www.mapbox.com/api-documentation/#retrieve-directions)[^mapbox.com/api-documentation/#retrieve-directions] können Sie einstellen, ob Sie wandern, radeln oder lieber mit dem Auto fahren möchten. Die [Option `language`](https://www.mapbox.com/api-documentation/#instructions-languages)[^mapbox.com/api-documentation/#instructions-languages] bietet Ihnen eine Menge unterschiedlicher Sprachen. Möchten Sie noch etwas anderes ändern? Die Dokumentation zum Router von Mapbox finden Sie unter der Adresse [https://www.mapbox.com/](https://www.mapbox.com/api-documentation/#introduction)[^mapbox.com/api-documentation/#introduction].
@@ -192,21 +186,20 @@ Auch der Router des Projektes [http://project-osrm.org](http://project-osrm.org)
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var control = L.Routing.control({
         waypoints: [
           L.latLng(50.273543, 7.262993),
           L.latLng(50.281168, 7.276211),
         ],
         router: new L.Routing.OSRMv1({
-          language: "de",
+          language: 'de',
         }),
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 > Sie können die URL, von der die Route abgefragt wird, auch direkt eingeben. Im Falle von [http://project-osrm.org](http://project-osrm.org) könnte dies wie folgt aussehen: [https://router.project-osrm.org/route/v1/driving/7.262993,50.273543;7.276211,50.281168](https://router.project-osrm.org/route/v1/driving/7.262993,50.273543;7.276211,50.281168).
@@ -244,25 +237,24 @@ Bisher wurde die Route ausschließlich anhand von Koordinaten berechnet. Mensche
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var control = L.Routing.control({
         waypoints: [
           L.latLng(50.273543, 7.262993),
           L.latLng(50.281168, 7.276211),
         ],
         router: L.Routing.mapbox(
-          "pk.eyJ1IjoiYXNlbG5pZ3UiLCJhIjoiVi0zVHJBQSJ9.9fUKqRI4g5v59l9C-tM55w",
+          'pk.eyJ1IjoiYXNlbG5pZ3UiLCJhIjoiVi0zVHJBQSJ9.9fUKqRI4g5v59l9C-tM55w',
           {
-            language: "de",
+            language: 'de',
           }
         ),
         geocoder: L.Control.Geocoder.nominatim({}),
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 In diesem Beispiel haben wir das vorhergehende Beispiel mit dem Plugin [Geocoder Control](https://github.com/perliedman/leaflet-control-geocoder)[^github.com/perliedman/leaflet-control-geocoder] erweitert. Konkret haben wir mithilfe der Zeilen

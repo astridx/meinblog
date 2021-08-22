@@ -38,7 +38,6 @@ Noch vor Schritt 1 erstellen wir eine einfache HTML-Datei. Diese Datei ist die G
   </head>
   <body></body>
 </html>
-
 ```
 
 Ein Aufruf dieser Datei in Ihrem Browser öffnet zunächst nur ein leeres Browser-Fenster. Nur der Titel der Seite ist in der Titelleiste des Browsers abzulesen. In den nächsten vier Kapiteln erfahren Sie, wie Sie die digitale Landkarte in das Fenster bekommen. Vier Kapitel hört sich aufwendig an. Das ist es aber nicht. Fangen Sie an und Sie werden sehen, dass Sie schon in wenigen Minuten die Karte präsentieren können.
@@ -50,7 +49,7 @@ Sie haben zwei Möglichkeiten die notwendigen Dateien in Ihr HTML-Dokument zu in
 1. Binden Sie die Dateien über ein CDN in Ihr HTML-Dokument ein.
 2. Kopieren Sie die Dateien und binden Sie die lokale Kopie in Ihr HTML-Dokument ein.
 
-> Ein [Content Delivery Network](https://de.wikipedia.org/w/index.php?title=Content_Delivery_Network)[^de.wikipedia.org/w/index.php?title=Content_Delivery_Network] oder Content _Distribution_ Network (CDN) ist ein Netz von Servern, das über das Internet verbundenen ist. Die Server in diesem Netzwerk bieten Inhalte zum Download an.
+> Ein [Content Delivery Network](https://de.wikipedia.org/w/index.php?title=Content_Delivery_Network)[^de.wikipedia.org/w/index.php?title=content_delivery_network] oder Content _Distribution_ Network (CDN) ist ein Netz von Servern, das über das Internet verbundenen ist. Die Server in diesem Netzwerk bieten Inhalte zum Download an.
 
 #### Leaflet über ein Content Delivery Network einbinden
 
@@ -72,14 +71,13 @@ Sie können Leaflet mithilfe eines CDN nutzen. So müssen Sie die Dateien nicht 
   </head>
   <body></body>
 </html>
-
 ```
 
 > Welche Leaflet-Versionen Ihnen über das CDN zur Verfügung stehen, können Sie jederzeit unter der Adresse http://leafletjs.com/download.html nachlesen.
 
 Auch wenn die Dateien der Leaflet Bibliothek nun automatisch über das CDN heruntergeladen werden: Ein Aufruf Ihrer Datei in Ihrem Browser öffnet immer noch ein leeres Browser-Fenster. Erst im letzten Schritt, im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_, wird die Karte sichtbar.
 
-> Fast alle modernen Browser unterstützen [Subresource Integrity (SRI)](https://en.wikipedia.org/w/index.php?title=Subresource_Integrity)[^en.wikipedia.org/w/index.php?title=Subresource_Integrity] und auch Leaflet verwendet diese Sicherheitsfunktion. SRI steht für die Überprüfung der Integrität von Dateien die im Internet verwendet werden. Mithilfe dieser Funktion können Sie sich davor schützen, dass nachträglich veränderte Dateien auf Ihrem Server ausgeführt werden. Die Dateien könnten beispielsweise bei der Übertragung im Internet verändert werden. Wenn Sie SRI nutzen, erhalten Sie immer exakt die Version, die Ihnen auch ausgeliefert werden sollte – oder eine Fehlermeldung. Dabei wird auf eine Prüfsumme – also einen Hash-Wert – zurückgegriffen. Diese Prüfsumme macht die Datei eindeutig erkennbar. Um potenzielle Sicherheitsprobleme zu vermeiden, empfehle ich Ihnen SRI zu nutzen, wenn Sie Leaflet über ein CDN einbinden. Informationen dazu, wie Sie dies genau handhaben, finden Sie unter der Adresse [leafletjs.com/download.html](http://leafletjs.com/download.html) .
+> Fast alle modernen Browser unterstützen [Subresource Integrity (SRI)](https://en.wikipedia.org/w/index.php?title=Subresource_Integrity)[^en.wikipedia.org/w/index.php?title=subresource_integrity] und auch Leaflet verwendet diese Sicherheitsfunktion. SRI steht für die Überprüfung der Integrität von Dateien die im Internet verwendet werden. Mithilfe dieser Funktion können Sie sich davor schützen, dass nachträglich veränderte Dateien auf Ihrem Server ausgeführt werden. Die Dateien könnten beispielsweise bei der Übertragung im Internet verändert werden. Wenn Sie SRI nutzen, erhalten Sie immer exakt die Version, die Ihnen auch ausgeliefert werden sollte – oder eine Fehlermeldung. Dabei wird auf eine Prüfsumme – also einen Hash-Wert – zurückgegriffen. Diese Prüfsumme macht die Datei eindeutig erkennbar. Um potenzielle Sicherheitsprobleme zu vermeiden, empfehle ich Ihnen SRI zu nutzen, wenn Sie Leaflet über ein CDN einbinden. Informationen dazu, wie Sie dies genau handhaben, finden Sie unter der Adresse [leafletjs.com/download.html](http://leafletjs.com/download.html) .
 
 #### Eine lokale Leaflet-Kopie einbinden
 
@@ -87,7 +85,7 @@ Eine zweite – vielleicht etwas kompliziertere – Möglichkeit ist, die Leafle
 
 Im nachfolgenden Codebeispiel sehen Sie das Einbinden von Leaflet unter der Annahme, dass Sie die heruntergeladenen Dateien - relativ zu Ihrem HTML-Dokument ein Verzeichnis höher - im Unterverzeichnis `/leaflet` auf Ihrem Webserver abgelegt haben.
 
-> Wenn Sie mit [relativen Pfadangaben](https://de.wikipedia.org/w/index.php?title=Pfadname)[^de.wikipedia.org/w/index.php?title=Pfadname] arbeiten, setzen Sie die Links innerhalb eines Projektes mit Hilfe von Punkten. Der große Vorteil von relativen Pfadangaben ist, dass Sie ein Projekt jederzeit in ein anderes Verzeichnis kopieren können ohne Pfadangaben korrigieren zu müssen. Bei einer relativen Pfadangabe bedeuten die Punkte folgendes: Ein Punkt gefolgt von einem Schrägstrich (`./datei.html`) zeigt auf eine Datei, die sich im gleichen Verzeichnis befindet. Zwei Punkte gefolgt von einem Schrägstrich (`../datei.html`) zeigen auf eine Datei, die sich ein Verzeichnis höher befindet. Zweimal zwei Punkte gefolgt von einem Schrägstrich hintereinander (`../../datei.html`) zeigen auf eine Datei, die sich zwei Verzeichnisse höher befindet. Wenn Ihnen meine Erklärung nicht hilfreich erscheint sehen sich doch einfach alles im nächsten Beispiel an. Manchmal sagt ein Beispiel mehr als viele Worte. Nach meiner Erfahrung wird bei der praktischen Anwendung Vieles oft sehr schnell klarer.
+> Wenn Sie mit [relativen Pfadangaben](https://de.wikipedia.org/w/index.php?title=Pfadname)[^de.wikipedia.org/w/index.php?title=pfadname] arbeiten, setzen Sie die Links innerhalb eines Projektes mit Hilfe von Punkten. Der große Vorteil von relativen Pfadangaben ist, dass Sie ein Projekt jederzeit in ein anderes Verzeichnis kopieren können ohne Pfadangaben korrigieren zu müssen. Bei einer relativen Pfadangabe bedeuten die Punkte folgendes: Ein Punkt gefolgt von einem Schrägstrich (`./datei.html`) zeigt auf eine Datei, die sich im gleichen Verzeichnis befindet. Zwei Punkte gefolgt von einem Schrägstrich (`../datei.html`) zeigen auf eine Datei, die sich ein Verzeichnis höher befindet. Zweimal zwei Punkte gefolgt von einem Schrägstrich hintereinander (`../../datei.html`) zeigen auf eine Datei, die sich zwei Verzeichnisse höher befindet. Wenn Ihnen meine Erklärung nicht hilfreich erscheint sehen sich doch einfach alles im nächsten Beispiel an. Manchmal sagt ein Beispiel mehr als viele Worte. Nach meiner Erfahrung wird bei der praktischen Anwendung Vieles oft sehr schnell klarer.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_998a.html-->
@@ -102,12 +100,11 @@ Im nachfolgenden Codebeispiel sehen Sie das Einbinden von Leaflet unter der Anna
   </head>
   <body></body>
 </html>
-
 ```
 
 Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser immer noch ein leeres Browser-Fenster. Erst im letzten Schritt - im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_ wird die Karte sichtbar.
 
-> Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe, aber für das Tag, in dem das Skript eingebunden wird, zwei separate Tags – also ein _binary_ Tag – verwendet habe. **`<link`** `rel="stylesheet" href="../leaflet/leaflet.css"`**`/>`**  **`<script`**`src="../leaflet/leaflet.js"`**`></script>`** [HTML unterscheidet](https://de.wikipedia.org/wiki/Hilfe:Tags)[^de.wikipedia.org/wiki/Hilfe:Tags] zwischen Tags, die nie Inhalt enthalten können – nämlich den _void_-Tags –, und solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall muss ein selbst-schließendes _unary_ Tag verwendet werden. Hierzu gehört das `<link>`-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich entfallen - muss aber nicht. Im zweiten Fall darf kein selbst-schließendes _unary_ Tag benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer ist. Hierzu gehört das <script>-Tag.
+> Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe, aber für das Tag, in dem das Skript eingebunden wird, zwei separate Tags – also ein _binary_ Tag – verwendet habe. **`<link`** `rel="stylesheet" href="../leaflet/leaflet.css"`**`/>`** **`<script`**`src="../leaflet/leaflet.js"`**`></script>`** [HTML unterscheidet](https://de.wikipedia.org/wiki/Hilfe:Tags)[^de.wikipedia.org/wiki/hilfe:tags] zwischen Tags, die nie Inhalt enthalten können – nämlich den _void_-Tags –, und solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall muss ein selbst-schließendes _unary_ Tag verwendet werden. Hierzu gehört das `<link>`-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich entfallen - muss aber nicht. Im zweiten Fall darf kein selbst-schließendes _unary_ Tag benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer ist. Hierzu gehört das <script>-Tag.
 
 #### Leaflet performant einbinden – defer oder async
 
@@ -129,7 +126,7 @@ Wenn Sie sich diese Abfolge ansehen, können Sie sich vorstellen, dass Punkt vie
 
 ##### Wie können Sie die Ladezeit positiv beeinflussen?
 
-Um das im vorherigen Abschnitt beschriebene Problem zu umgehen wurde früher oft empfohlen, den JavaScript-Code möglichst nah am schließenden `<body>`-Tag in die Website zu integrieren. Zu dieser Empfehlung gibt es mit HTML5 zwei gute Alternativen – nämlich die Attribute [`defer`](https://wiki.selfhtml.org/wiki/HTML/Attribute/defer)[^https://wiki.selfhtml.org/wiki/HTML/Attribute/defer] und [`async`](https://wiki.selfhtml.org/wiki/HTML/Attribute/async)[^wiki.selfhtml.org/wiki/HTML/Attribute/async]. [^https://html.spec.whatwg.org/multipage/scripting.html#attr-script-defer]. 
+Um das im vorherigen Abschnitt beschriebene Problem zu umgehen wurde früher oft empfohlen, den JavaScript-Code möglichst nah am schließenden `<body>`-Tag in die Website zu integrieren. Zu dieser Empfehlung gibt es mit HTML5 zwei gute Alternativen – nämlich die Attribute [`defer`](https://wiki.selfhtml.org/wiki/HTML/Attribute/defer)[^https://wiki.selfhtml.org/wiki/html/attribute/defer] und [`async`](https://wiki.selfhtml.org/wiki/HTML/Attribute/async)[^wiki.selfhtml.org/wiki/html/attribute/async]. [^https://html.spec.whatwg.org/multipage/scripting.html#attr-script-defer].
 
 Sofern Sie das Attribut `defer` verwenden, wird das Skript ausgeführt, wenn das HTML-Dokument geladen und für die Ansicht umgewandelt - also geparst - ist. Zum anderen können Sie das Attribut `async` einsetzten. Mit `async` wird Ihr Skript asynchron mit dem HTML-Dokument ausgeführt. Wenn Sie keines dieser Attribute explizit angegeben, wird erst das vollständige Skript geladen und ausgeführt und erst dann wird das Laden und Parsen des HTML-Dokuments fortgesetzt.
 
@@ -157,7 +154,6 @@ Wenn Sie Ihre Karte auf Ihrer Website anzeigen, werden Sie nicht nur das Leaflet
     ></script>
   </body>
 </html>
-
 ```
 
 In ihrem eigenen Skript `mymap_99.js` müssen Sie mithilfe von `window.addEventListener('load', function() … )` das Laden des vollständigen HTML-Dokuments abwarte.
@@ -166,17 +162,16 @@ In ihrem eigenen Skript `mymap_99.js` müssen Sie mithilfe von `window.addEventL
 // https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/mymap_99.js
 
 window.addEventListener(
-  "load",
+  'load',
   function () {
-    var map = L.map("map", {
+    var map = L.map('map', {
       center: [50.27264, 7.26469],
       zoom: 10,
-    });
-    L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(map);
+    })
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map)
   },
   false
-);
-
+)
 ```
 
 Alle weiteren Beispiele hier im Buch habe ich ohne das Attribut `async` erstellt, weil ich den Schwerpunkt auf die Verwendung von Leaflet selbst setzen wollte.
@@ -188,7 +183,7 @@ Das Einfügen eines HTML-Elements in unser Grundgerüst dürfte für Sie kein Pr
 Setzen Sie ein `<div>`-Element mit einer bestimmten `ID` an die Stelle in Ihrem HTML-Dokument, an der Sie Ihre Karte anzeigen möchten. Stellen Sie dabei sicher, dass das `<div>`-Element, also der Kartencontainer, eine definierte Höhe hat.
 
 > Der einfachste Weg einem HTML-Element eine feste Höhe zuzuordnen, ist das `style`-Attribut – also direkt im HTML-Element selbst. Weil hier im Buch _Leaflet_ das Hauptthema ist, verwende ich für das Einbinden von Stylesheets in den Beispielen diese einfache Methode. Durch das direkte Festlegen von
-> Formaten gehen allerdings im praktischen Einsatz viele Vorteile verloren. Alternative Varianten zum Einbinden von Stylesheets finden Sie unter anderem unter der Adresse [https://wiki.selfhtml.org/wiki/CSS/alternative_Stylesheets](https://wiki.selfhtml.org/index.php?title=CSS/alternative_Stylesheets)[^wiki.selfhtml.org/wiki/HTML/Attribute/async].
+> Formaten gehen allerdings im praktischen Einsatz viele Vorteile verloren. Alternative Varianten zum Einbinden von Stylesheets finden Sie unter anderem unter der Adresse [https://wiki.selfhtml.org/wiki/CSS/alternative_Stylesheets](https://wiki.selfhtml.org/index.php?title=CSS/alternative_Stylesheets)[^wiki.selfhtml.org/wiki/html/attribute/async].
 
 Im nachfolgenden Programmcodeausschnitt sehen Sie die relevante Zeile `<div style="height: 180px;" id="mapid"></div>`.
 
@@ -207,7 +202,6 @@ Im nachfolgenden Programmcodeausschnitt sehen Sie die relevante Zeile `<div styl
     <div style="height: 180px" id="mapid"></div>
   </body>
 </html>
-
 ```
 
 So, nun ist das HTML-Dokument bereit ein Leaflet Kartenobjekt zu initialisieren und interessante Dinge mit ihm anzustellen.
@@ -229,16 +223,15 @@ Nun wird es spannend. Wir erstellen das Skript das die Karte anzeigen wird. Dabe
   <body>
     <div style="height: 180px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
     </script>
   </body>
 </html>
-
 ```
 
 Was haben wir genau gemacht? Wir haben mit dem Befehl `var mymap = L.map('mapid')` ein neues Objekt – oder eine neue Instanz – der Klasse `map` erstellt und dieser den Namen `mymap` gegeben.
 
-> Sie frage sich nun vielleicht, wie wir eine neue Instanz ohne die Verwendung des Schlüsselwortes `new` erstellen konnten? Die Antwort ist einfach: Die Leaflet-Klassen sind mit einem Großbuchstaben – beispielsweise `L.Map` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.map` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=Fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode anstatt durch direkten Aufruf eines Konstruktors erzeugt wird. Wollen Sie sich dies selbst ansehen? Die [Funktion `L.map()`](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/map/Map.js#L1708)[^github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/map/Map.js#L1708] der Klasse `L.Map` finden Sie auf Github ganz am Ende in der Datei `map.js`. Ein weiteres Beispiel finden Sie zu Beginn des Kapitels _Custom Markers_.
+> Sie frage sich nun vielleicht, wie wir eine neue Instanz ohne die Verwendung des Schlüsselwortes `new` erstellen konnten? Die Antwort ist einfach: Die Leaflet-Klassen sind mit einem Großbuchstaben – beispielsweise `L.Map` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.map` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode anstatt durch direkten Aufruf eines Konstruktors erzeugt wird. Wollen Sie sich dies selbst ansehen? Die [Funktion `L.map()`](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/map/Map.js#L1708)[^github.com/leaflet/leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/map/map.js#l1708] der Klasse `L.Map` finden Sie auf Github ganz am Ende in der Datei `map.js`. Ein weiteres Beispiel finden Sie zu Beginn des Kapitels _Custom Markers_.
 
 Das Festlegen des Kartenmittelpunktes mithilfe der Koordinaten `[50.27264, 7.26469]` und der Methode `setView()` und die Angabe der Zoomstufe 13 ist optional. Ich empfehle Ihnen, diese Werte immer mitzugeben. Denn: Es ist für jeden ärgerlich eine Karte zu sehen, die die ganze Welt anzeigt – die relevanten Daten befinden sich aber alle in Gering, einem kleinen Dorf in der deutschen Eifel. Man muss somit erst einmal mehrmals auf die Schaltflächen zum Zoomen klicken.
 
@@ -270,21 +263,20 @@ Ich verwende hier das Angebot von http://www.openstreetmap.org zur Darstellung d
   <body>
     <div style="height: 180px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Was haben wir genau gemacht? Wir haben ein `TileLayer`-Objekt erstellt und diesem die URL des OpenStreetMap-Servers übergeben. Außerdem haben wir die Methode `addTo()` aufgerufen und dieser Methode unser Karten-Objekt `mymap` als Parameter übergeben. So weiß Leaflet nun genau, welche Bilder es wo abrufen soll und kann die Kartenschicht zeichnen.
 
-> Ich hatte es eben schon erwähnt: Leaflet ist so programmiert, dass Sie die verschiedenen Methoden verketten können. Dies ist möglich, weil die unterschiedlichen Methoden Objekte zurückgeben, die wieder Funktionen enthalten. Leaflet setzt das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=Fabrikmethode] ein. So konnten wir `.addTo(mymap)` einfach an `L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')` anhängen. Alternativ hätten wir zuerst ein TileLayer Objekt erstellen müssen und hätten erst im nächsten Schritt die Methode `addTo()` aufrufen können.
+> Ich hatte es eben schon erwähnt: Leaflet ist so programmiert, dass Sie die verschiedenen Methoden verketten können. Dies ist möglich, weil die unterschiedlichen Methoden Objekte zurückgeben, die wieder Funktionen enthalten. Leaflet setzt das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=fabrikmethode] ein. So konnten wir `.addTo(mymap)` einfach an `L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')` anhängen. Alternativ hätten wir zuerst ein TileLayer Objekt erstellen müssen und hätten erst im nächsten Schritt die Methode `addTo()` aufrufen können.
 
 ```js
-var x = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-x.addTo(mymap);
+var x = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')
+x.addTo(mymap)
 ```
 
 Fertig! Sie haben nun eine vollständige Karte erstellt. Zählen Sie nach: In diesen vier Schritten haben Sie gerade einmal fünf Zeilen Programmcode eingegeben.
@@ -303,10 +295,10 @@ Mithilfe von Längen und Breitengraden können Sie die genaue Position eines jed
 
 Das Grad-Netz der Erde ist ein gedachtes Koordinatensystem auf der Erdoberfläche mit sich rechtwinklig schneidenden Längen- und Breitenkreisen. Zum Aufbau dieses Koordinatensystems wird unser Erdball zunächst in 180 Breitenkreise und 360 Längenkreise eingeteilt.
 
-- Die [Breitengrade](https://de.wikipedia.org/w/index.php?title=Geographische_Breite)[^de.wikipedia.org/w/index.php?title=Geographische_Breite] oder Breitenkreise verlaufen parallel zum Äquator.
-- Die [Längengrade](https://de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge)[^de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge] oder Längenkreise verbinden Nord- und Südpol.
+- Die [Breitengrade](https://de.wikipedia.org/w/index.php?title=Geographische_Breite)[^de.wikipedia.org/w/index.php?title=geographische_breite] oder Breitenkreise verlaufen parallel zum Äquator.
+- Die [Längengrade](https://de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge)[^de.wikipedia.org/w/index.php?title=geographische_l%c3%a4nge] oder Längenkreise verbinden Nord- und Südpol.
 
-So entsteht ein [grobmaschiges Gitter](https://de.wikipedia.org/w/index.php?title=Geographische_Koordinaten)[^de.wikipedia.org/w/index.php?title=Geographische_Koordinaten], anhand dessen jeder die ungefähre Position auf der Erdoberfläche bestimmen kann.
+So entsteht ein [grobmaschiges Gitter](https://de.wikipedia.org/w/index.php?title=Geographische_Koordinaten)[^de.wikipedia.org/w/index.php?title=geographische_koordinaten], anhand dessen jeder die ungefähre Position auf der Erdoberfläche bestimmen kann.
 
 ![Das Gradnetz der Erde - By CIA, Niteowlneils (Public domain), via Wikimedia Commons](/images/964er.png)
 
@@ -320,25 +312,25 @@ Die [Breitengrade](https://de.wikipedia.org/w/index.php?title=Geographische_Brei
 
 #### Längengrade
 
-Die [Längengrade](https://de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge)[^de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge]
+Die [Längengrade](https://de.wikipedia.org/w/index.php?title=Geographische_L%C3%A4nge)[^de.wikipedia.org/w/index.php?title=geographische_l%c3%a4nge]
 auf der Erde verlaufen von Norden nach Süden. Sie umspannen die Erde praktisch. Eine Längenkreishälfte wird als Meridian bezeichnet. Die Längenkreise haben keinen natürlichen Nullpunkt. Heute gilt der Meridan, der den Londoner Stadtteil Greenwich durchläuft, als Nullmeridian und somit als Ausgangspunkt für die Berechnung der Längengrade.
 
 ![Längengrade (Longitude) - By Pearson Scott Foresman (Public domain), via Wikimedia Commons](/images/964la.png)
 
 ### Schreibweisen von geografischen Koordinaten
 
-Bei der Angabe von geographischen Koordinaten wird heute normalerweise eine von zwei Schreibweisen verwendet: Entweder das [Sexagesimalsystem](https://de.wikipedia.org/w/index.php?title=Sexagesimalsystem)[^de.wikipedia.org/w/index.php?title=Sexagesimalsystem], welches von Wikipedia verwendet wird, oder die Dezimalschreibweise, die von Computerprogrammen bevorzugt wird. Im Laufe unserer Geschichte haben sich allerdings eine Menge mehr unterschiedlicher Systeme entwickelt.
+Bei der Angabe von geographischen Koordinaten wird heute normalerweise eine von zwei Schreibweisen verwendet: Entweder das [Sexagesimalsystem](https://de.wikipedia.org/w/index.php?title=Sexagesimalsystem)[^de.wikipedia.org/w/index.php?title=sexagesimalsystem], welches von Wikipedia verwendet wird, oder die Dezimalschreibweise, die von Computerprogrammen bevorzugt wird. Im Laufe unserer Geschichte haben sich allerdings eine Menge mehr unterschiedlicher Systeme entwickelt.
 
 > Falls Sie einmal in die Verlegenheit kommen sollten und eine Koordinate von einem System in ein anderes umrechnen müssen, kann ich Ihnen die Website [https://www.deine-berge.de/Rechner/Koordinaten/Dezimal/51,10](https://www.deine-berge.de/Rechner/Koordinaten/Dezimal/51,10)[^16] empfehlen, weil diese das Umrechnen zwischen vielen verschiedenen Systemen unterstützt.
 
 #### Das Sexagesimalsystem
 
-Das [Sexagesimalsystem](https://de.wikipedia.org/w/index.php?title=Sexagesimalsystem)[^de.wikipedia.org/w/index.php?title=Sexagesimalsystem] ist die traditionelle Schreibweise. Dieses System heißt Sexagesimal, weil ein Grad eines Breitengrades 60 Minuten entspricht. Somit basiert das Sexagesimalsystem auf der Zahl 60. Und der lateinische Name der Zahl 60 ist _'sexagesimus'_.
+Das [Sexagesimalsystem](https://de.wikipedia.org/w/index.php?title=Sexagesimalsystem)[^de.wikipedia.org/w/index.php?title=sexagesimalsystem] ist die traditionelle Schreibweise. Dieses System heißt Sexagesimal, weil ein Grad eines Breitengrades 60 Minuten entspricht. Somit basiert das Sexagesimalsystem auf der Zahl 60. Und der lateinische Name der Zahl 60 ist _'sexagesimus'_.
 
 Jeder Breiten- und Längengrad wird in 60 Minuten mit je 60 Sekunden unterteilt. Eine Koordinate besteht somit aus drei Teilen.
 
-- Der erste Teil gibt die Längen- und Breitengrade als Winkel in Grad (°) an. Die Angabe ist ganzzahlig und liegt beim Längengrad zwischen -180 und +180 und beim Breitengrad zwischen -90 und +90. Dabei steht beim Breitengrad `-`90° für die Angabe 90° `Süd` und  `+`90° für die Angabe 90° `Nord`. Die Breite wird entsprechend in `-`180° bis `+`180° angegeben, anstelle von 180° `West` bis 180° `Ost`.
-- Der zweite Teil gibt die Minuten an. Die Minuten werden durch eine Prime (′) gekennzeichnet. Jeder Grad hat 60 Minuten. Das bedeutet, dass diese Zahl nicht kleiner als 0 sein darf und kleiner als 60 sein muss. 
+- Der erste Teil gibt die Längen- und Breitengrade als Winkel in Grad (°) an. Die Angabe ist ganzzahlig und liegt beim Längengrad zwischen -180 und +180 und beim Breitengrad zwischen -90 und +90. Dabei steht beim Breitengrad `-`90° für die Angabe 90° `Süd` und `+`90° für die Angabe 90° `Nord`. Die Breite wird entsprechend in `-`180° bis `+`180° angegeben, anstelle von 180° `West` bis 180° `Ost`.
+- Der zweite Teil gibt die Minuten an. Die Minuten werden durch eine Prime (′) gekennzeichnet. Jeder Grad hat 60 Minuten. Das bedeutet, dass diese Zahl nicht kleiner als 0 sein darf und kleiner als 60 sein muss.
 - Der dritte Teil gibt die Sekunden an. Jede Minute hat 60 Sekunden, die anhand einer Doppelprime (″) erkennbar sind. Genau wie bei den Minuten gilt also auch hier: Die Sekundenzahl darf nicht kleiner als 0 sein und muss kleiner als 60 sein.
 
 Eine Breitenminute entspricht auf der Erdoberfläche einer Strecke von circa 1,852 Kilometern. Die Strecke, die einer Längenminute entspricht, beträgt am Äquator ebenfalls 1,852 Kilometer, verringert sich aber zum Pol hin auf 0 Kilometer. Bei der Positionsangabe eines Ortes, also der Angabe der geographischen Koordinaten, nennt man zuerst die Breite und dann die Länge. So liegt Koblenz bei 50° N (nördliche Breite) und 7° O (östliche Länge).
@@ -355,21 +347,21 @@ Orten auf der West- und Südhalbkugel wird in der Regel ein Minus (-) vorangeste
 
 ## Exkurs: Wie werden Landkarten auf einer Website angezeigt?
 
-Eine Karte ist im Grunde genommen nichts anderes als die Darstellung einer [Abbildung](https://de.wikipedia.org/w/index.php?title=Abbild)[^de.wikipedia.org/w/index.php?title=Abbild] oder [Grafik](https://de.wikipedia.org/w/index.php?title=Grafik)[^de.wikipedia.org/w/index.php?title=Grafik]. Abbildungen oder Grafiken müssen, damit sie von Computern verarbeitet werden können, in einem [Grafikformat](https://de.wikipedia.org/w/index.php?title=Grafikformat)[^de.wikipedia.org/w/index.php?title=Grafikformat] gespeichert werden. Bevor wir uns genau ansehen, wie die Grafiken für Landkarten erstellt werden, erkläre ich Ihnen nachfolgend kurz die wesentlichen Unterschiede dieser beiden Formate.
+Eine Karte ist im Grunde genommen nichts anderes als die Darstellung einer [Abbildung](https://de.wikipedia.org/w/index.php?title=Abbild)[^de.wikipedia.org/w/index.php?title=abbild] oder [Grafik](https://de.wikipedia.org/w/index.php?title=Grafik)[^de.wikipedia.org/w/index.php?title=grafik]. Abbildungen oder Grafiken müssen, damit sie von Computern verarbeitet werden können, in einem [Grafikformat](https://de.wikipedia.org/w/index.php?title=Grafikformat)[^de.wikipedia.org/w/index.php?title=grafikformat] gespeichert werden. Bevor wir uns genau ansehen, wie die Grafiken für Landkarten erstellt werden, erkläre ich Ihnen nachfolgend kurz die wesentlichen Unterschiede dieser beiden Formate.
 
 ### Grafikformate: Vektoren und Rastergrafiken
 
-Ein Grafikformat ist ein Dateiformat, das den Aufbau einer Bilddatei beschreibt. Bei den Grafikformaten können Sie alles in allem zwischen [Vektorgrafiken](https://de.wikipedia.org/w/index.php?title=Vektorgrafik)[^de.wikipedia.org/w/index.php?title=Vektorgrafik] und [Rastergrafiken](https://de.wikipedia.org/w/index.php?title=Rastergrafik)[^de.wikipedia.org/w/index.php?title=Rastergrafik] unterscheiden. Im nächsten Bild sehen Sie oben eine Vektorgrafik und unten eine Rastergrafik.
+Ein Grafikformat ist ein Dateiformat, das den Aufbau einer Bilddatei beschreibt. Bei den Grafikformaten können Sie alles in allem zwischen [Vektorgrafiken](https://de.wikipedia.org/w/index.php?title=Vektorgrafik)[^de.wikipedia.org/w/index.php?title=vektorgrafik] und [Rastergrafiken](https://de.wikipedia.org/w/index.php?title=Rastergrafik)[^de.wikipedia.org/w/index.php?title=rastergrafik] unterscheiden. Im nächsten Bild sehen Sie oben eine Vektorgrafik und unten eine Rastergrafik.
 
 ![Vektorgrafik und Rastergrafik](/images/930.png)
 
 #### Vektoren
 
-[Vektorgrafiken](https://de.wikipedia.org/w/index.php?title=Vektorgrafik)[^de.wikipedia.org/w/index.php?title=Vektorgrafik] basieren, im Gegensatz zu Rastergrafiken, nicht auf einem Pixelraster, indem jedem Bildpunkt ein Farbwert zugeordnet ist. Vektorgrafiken basieren auf einer Formel, die die Elemente, aus denen das Bild aufgebaut ist, genau beschreibt. Ein Kreis kann in einer Vektorgrafik anhand des Mittelpunktes, des Radiuses, der Linienstärke und der Farbe vollständig beschrieben werden. Deshalb müssen auch nur diese Parameter gespeichert werden. Je nach Bildgröße benötigen Vektorgrafiken daher oft weniger Speicherplatzbedarf als Rastergrafiken. Außerdem können sie im Gegensatz zur Rastergrafik stufenlos und verlustfrei skaliert, also vergrößert oder verkleinert werden.
+[Vektorgrafiken](https://de.wikipedia.org/w/index.php?title=Vektorgrafik)[^de.wikipedia.org/w/index.php?title=vektorgrafik] basieren, im Gegensatz zu Rastergrafiken, nicht auf einem Pixelraster, indem jedem Bildpunkt ein Farbwert zugeordnet ist. Vektorgrafiken basieren auf einer Formel, die die Elemente, aus denen das Bild aufgebaut ist, genau beschreibt. Ein Kreis kann in einer Vektorgrafik anhand des Mittelpunktes, des Radiuses, der Linienstärke und der Farbe vollständig beschrieben werden. Deshalb müssen auch nur diese Parameter gespeichert werden. Je nach Bildgröße benötigen Vektorgrafiken daher oft weniger Speicherplatzbedarf als Rastergrafiken. Außerdem können sie im Gegensatz zur Rastergrafik stufenlos und verlustfrei skaliert, also vergrößert oder verkleinert werden.
 
 #### Rastergrafiken
 
-[Rastergrafiken](https://de.wikipedia.org/w/index.php?title=Rastergrafik)[^de.wikipedia.org/w/index.php?title=Rastergrafik] kennen Sie sicherlich auch unter dem Namen Pixelgrafik oder Bitmap. Dieses Format beschreibt die Bilder in Form einer Anordnung von Pixeln als Raster. Pixel sind im Grunde genommen nichts anderes als Bildpunkten, denen eine Farbe zugeordnet ist. Anders als bei Vektorgrafiken ist die Bildgröße – die Breite und Höhe gemessen in Pixeln – und die Farbtiefe – die maximale Anzahl an Farben – ein wesentliches Merkmal des Bildes. Eine Rastergrafik kann nicht stufenlos und verlustfrei vergrößert werden.
+[Rastergrafiken](https://de.wikipedia.org/w/index.php?title=Rastergrafik)[^de.wikipedia.org/w/index.php?title=rastergrafik] kennen Sie sicherlich auch unter dem Namen Pixelgrafik oder Bitmap. Dieses Format beschreibt die Bilder in Form einer Anordnung von Pixeln als Raster. Pixel sind im Grunde genommen nichts anderes als Bildpunkten, denen eine Farbe zugeordnet ist. Anders als bei Vektorgrafiken ist die Bildgröße – die Breite und Höhe gemessen in Pixeln – und die Farbtiefe – die maximale Anzahl an Farben – ein wesentliches Merkmal des Bildes. Eine Rastergrafik kann nicht stufenlos und verlustfrei vergrößert werden.
 
 ### Vektoren und Rastergrafiken für digitale Karten
 
@@ -381,7 +373,7 @@ Leider ist die Darstellung dieser Informationen auf einer Webseite in einem Vekt
 
 Das Problem bei der Bereitstellung von geographischen Informationen als Rastergrafik ist, dass eine gute Bildqualität eine hohe Auflösung voraussetzt. Dies hat zur Folge, das die Grafikdateien sehr groß werden. Bilddateien, die über das Internet geladen und im Browser angezeigt werden, sollten aber so klein wie möglich sein.
 
-Aus diesem Grund wird die Karte für kleine Ausschnitte im Vorfeld berechnet und in einem Rasterformat gespeichert. Als Rasterformat wird [PNG](https://de.wikipedia.org/w/index.php?title=Portable_Network_Graphics)[^de.wikipedia.org/w/index.php?title=Portable_Network_Graphics] verwendet. Wie dies genau gemacht wird, erkläre ich Ihnen im nächsten Kapitel.
+Aus diesem Grund wird die Karte für kleine Ausschnitte im Vorfeld berechnet und in einem Rasterformat gespeichert. Als Rasterformat wird [PNG](https://de.wikipedia.org/w/index.php?title=Portable_Network_Graphics)[^de.wikipedia.org/w/index.php?title=portable_network_graphics] verwendet. Wie dies genau gemacht wird, erkläre ich Ihnen im nächsten Kapitel.
 
 ### Wir unterteilen die Welt in Kacheln
 
@@ -396,14 +388,14 @@ Um eine Karte anzuzeigen, wird die Welt also in Ausschnitte, genau genommen in Q
 | 2          | 16             | 10.009 Kilometer        | 39 Kilometer         |
 | 3          | 64             | 5.004 Kilometer         | 19,5 Kilometer       |
 | 4          | 256            | 2.502 Kilometer         | 9,8 Kilometer        |
-| …        | …            | …..                   | ….                 |
+| …          | …              | …..                     | ….                   |
 | 15         | 1 Milliarden   | 1.224 Meter             | 4,8 Meter            |
 | 16         | 4 Milliarden   | 612 Meter               | 2,4 Meter            |
 | 17         | 17 Milliarden  | 306 Meter               | 1,2 Meter            |
 | 18         | 68 Milliarden  | 306 Meter               | 0,6 Meter            |
 | 19         | 275 Milliarden | 76 Meter                | 0,3 Meter            |
 
-Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetmap.org/wiki/Zoom_levels](https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels)[^https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels] mit weiteren Angaben im Internet abrufen.
+Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetmap.org/wiki/Zoom_levels](https://wiki.openstreetmap.org/w/index.php?title=Zoom_levels)[^https://wiki.openstreetmap.org/w/index.php?title=zoom_levels] mit weiteren Angaben im Internet abrufen.
 
 > Vielleicht probieren Sie nun das Zoomen im vorangegangene Beispiel aus und wundern sich, dass Sie die Karte nur bis zur Zoom-Stufe 18 vergrößern können. Das liegt daran, dass bei dieser OpenStreeMap Karte standardmäßig die Option `maxZoom` mit 18 gesetzt ist. Sie können diese Option jedoch überschreiben. Wie das geht sehen Sie im nachfolgenden Programmcodebeispiel. Weitere Informationen finden Sie im Kapitel zur Karte von _Stamen_.
 
@@ -420,15 +412,14 @@ Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetm
   <body>
     <div style="height: 180px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         minZoom: 0,
         maxZoom: 19,
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 > Vielleicht sind Sie es gewohnt, bei der Darstellung von Landkarten in den Zahlen eines Maßstabs zu denken? Bei digitalen Karten gibt es keinen Maßstab im Sinne einer Papierkarte, weil die Druckauflösung nicht bekannt ist und ein Maßstab hiervon abhängt. Ein Maßstab kann immer nur relativ zur Auflösung angegeben werden.
@@ -456,7 +447,7 @@ Zum Beispiel wird das Bild für die niedrigste Zoom-Stufe – also das Bild welc
 
 Die vollständige URL dieses Kachelbildes auf dem Openstreetmap Server ist `http://a.tile.openstreetmap.org/0/0/0.png`. Probieren Sie es, klicken Sie den Link an oder öffnen Sie selbst die Adresse http://a.tile.openstreetmap.org/0/0/0.png in Ihrem Internetbrowser.
 
-> Tiefergehend können Sie das Thema auf der Website von OpenStreetMap, genau unter der Adresse [http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames](https://wiki.openstreetmap.org/w/index.php?title=Slippy_map_tilenames)[^wiki.openstreetmap.org/w/index.php?title=Slippy_map_tilenames], nachlesen. 
+> Tiefergehend können Sie das Thema auf der Website von OpenStreetMap, genau unter der Adresse [http://wiki.openstreetmap.org/wiki/Slippy_map_tilenames](https://wiki.openstreetmap.org/w/index.php?title=Slippy_map_tilenames)[^wiki.openstreetmap.org/w/index.php?title=slippy_map_tilenames], nachlesen.
 
 Bei der Zoom-Stufe 1 sind die Kacheln so angeordnet, wie in der nachfolgenden Grafik dargestellt.
 
@@ -470,7 +461,7 @@ Nachdem das Erstellen der ersten Karte so einfach vonstatten ging fragen Sie sic
 
 Ich zeige Ihnen dies hier anhand von zwei weiteren Providern, nämlich [thunderforest.com](https://www.thunderforest.com) und [stamen.com](https://stamen.com). Im Kapitel _ESRI - Environmental Systems Research Institute_ finden Sie weitere Beispiele.
 
-> Mögen Sie die Karten von [GoogleMaps](https://www.google.com/maps)[^google.com/maps] und möchten Sie gerne die Kacheln von Google für Ihre digitale Karte nutzen? Wenn Sie dies zusammen mit Leaflet tun möchten, können Sie dies mithifle des Plugins [L.GridLayer.GoogleMutant](https://gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant)[^gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant].
+> Mögen Sie die Karten von [GoogleMaps](https://www.google.com/maps)[^google.com/maps] und möchten Sie gerne die Kacheln von Google für Ihre digitale Karte nutzen? Wenn Sie dies zusammen mit Leaflet tun möchten, können Sie dies mithifle des Plugins [L.GridLayer.GoogleMutant](https://gitlab.com/IvanSanchez/Leaflet.GridLayer.GoogleMutant)[^gitlab.com/ivansanchez/leaflet.gridlayer.googlemutant].
 
 ### Thunderforest
 
@@ -533,14 +524,13 @@ Wenn Sie Thunderforest verwenden möchten, müssen Sie unser bisheriges Beispiel
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
       L.tileLayer(
-        "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=8db5bf38e3d841b6a57a7201f78cfbec"
-      ).addTo(mymap);
+        'https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=8db5bf38e3d841b6a57a7201f78cfbec'
+      ).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 ### Stamen
@@ -578,13 +568,12 @@ Beim Einbinden einer Karte von Stamen müssen Sie zusätzlich eine JavaScript Da
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      var layer = new L.StamenTileLayer("watercolor");
-      mymap.addLayer(layer);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      var layer = new L.StamenTileLayer('watercolor')
+      mymap.addLayer(layer)
     </script>
   </body>
 </html>
-
 ```
 
 > _Achtung:_ Der `StamenTileLayer` unterstützt nicht alle Zoom-Stufen. Wenn Sie den Typ `watercolor` verwenden, sehen Sie zum Beispiel mit der Zoom-Stufe 19 eine leere graue Fläche. Um dies zu verhindern können Sie die Optionen des `StamenTileLayer` überschreiben.
@@ -609,20 +598,19 @@ Beim Einbinden einer Karte von Stamen müssen Sie zusätzlich eine JavaScript Da
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 13);
-      var layer = new L.StamenTileLayer("watercolor");
-      layer.options.maxZoom = 19;
-      layer.options.maxNativeZoom = 18;
-      mymap.addLayer(layer);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 13)
+      var layer = new L.StamenTileLayer('watercolor')
+      layer.options.maxZoom = 19
+      layer.options.maxNativeZoom = 18
+      mymap.addLayer(layer)
     </script>
   </body>
 </html>
-
 ```
 
 ESRI ist ein weiterer Anbieter von Basiskarten. Was ESRI genau ist und wie Sie die Karten dieses Institius einbinden können erkläre ich Ihnen im Kapitel zu _ESRI_.
 
-> Haben Sie noch nicht den Kartenstil gefunden, den Sie suchen oder sind Sie einfach nur neugierig, welche Karten sonst noch angeboten werden? Verweise auf weitere Tile-Server-Provider finden Sie unter der Adresse: [http://wiki.openstreetmap.org/wiki/Tiles](https://wiki.openstreetmap.org/w/index.php?title=Tiles)[^wiki.openstreetmap.org/w/index.php?title=Tiles].
+> Haben Sie noch nicht den Kartenstil gefunden, den Sie suchen oder sind Sie einfach nur neugierig, welche Karten sonst noch angeboten werden? Verweise auf weitere Tile-Server-Provider finden Sie unter der Adresse: [http://wiki.openstreetmap.org/wiki/Tiles](https://wiki.openstreetmap.org/w/index.php?title=Tiles)[^wiki.openstreetmap.org/w/index.php?title=tiles].
 
 ## Images als Layer – Web-Map-Service
 
@@ -630,11 +618,11 @@ Sie haben eine gute Satellitenaufnahme und möchten diese als Schicht in Ihrer K
 
 ### Eine einfache Leaflet-Karte mithilfe des Web-Map-Services erstellen
 
-Eine Alternative zur schon beschriebenen Kachel-Technik ist der Web-Map-Service (WMS)](https://de.wikipedia.org/w/index.php?title=Web_Map_Service)[^de.wikipedia.org/w/index.php?title=Web_Map_Service]. Der WMS ist ein Spezialfall eines [Web Services](https://de.wikipedia.org/w/index.php?title=Webservice)[^de.wikipedia.org/w/index.php?title=Webservice]. Dieser Service bietet Ihnen eine Schnittstelle zum Abrufen von Landkartenausschnitten über das Internet.
+Eine Alternative zur schon beschriebenen Kachel-Technik ist der Web-Map-Service (WMS)](https://de.wikipedia.org/w/index.php?title=Web_Map_Service)[^de.wikipedia.org/w/index.php?title=web_map_service]. Der WMS ist ein Spezialfall eines [Web Services](https://de.wikipedia.org/w/index.php?title=Webservice)[^de.wikipedia.org/w/index.php?title=webservice]. Dieser Service bietet Ihnen eine Schnittstelle zum Abrufen von Landkartenausschnitten über das Internet.
 
 Todo und Vectortechnik
 
-Ein WMS bietet drei Funktionen, die von einem Benutzer angefragt werden können. Die Funktionen `GetCapabilities` und `GetFeatureInfo` vernachlässigen wir hier. Diese sind für die Anzeige der Karte nicht relevant. Die Funktion `GetMap` ist die, die wir uns genauer ansehen und die von Leaflet angewendet wird. Bei einem Aufruf von `GetMap` liefert der WMS ein [georeferenziertes](https://de.wikipedia.org/w/index.php?title=Georeferenzierung)[^de.wikipedia.org/w/index.php?title=Georeferenzierung] Rasterbild.
+Ein WMS bietet drei Funktionen, die von einem Benutzer angefragt werden können. Die Funktionen `GetCapabilities` und `GetFeatureInfo` vernachlässigen wir hier. Diese sind für die Anzeige der Karte nicht relevant. Die Funktion `GetMap` ist die, die wir uns genauer ansehen und die von Leaflet angewendet wird. Bei einem Aufruf von `GetMap` liefert der WMS ein [georeferenziertes](https://de.wikipedia.org/w/index.php?title=Georeferenzierung)[^de.wikipedia.org/w/index.php?title=georeferenzierung] Rasterbild.
 
 > Bei einem [georeferenzierten](https://de.wikipedia.org/w/index.php?title=Georeferenzierung) Rasterbild handelt es sich um eine Bilddatei, der raumbezogene Informationen hinzugefügt wurden. Das hört sich zunächst einmal sehr theoretisch an. Praktisch können Sie sich den Vorgang der Georeferenzierung so veranschaulichen: Stellen Sie sich vor, dass das Bild auf einen Bereich auf der Erde gelegt wird. Gleichzeitig wird das Gradnetz der Erde dieses Bereichs mit dem Bild verbunden. Im Ergebnis wird also jedem Pixel des Bildes eine Koordinate – in Relation zum Gradnetz der Erde – zugewiesen. Georeferenzierung kennen Sie vielleicht auch unter dem Begriff Geokodierung, Geotagging oder Verortung.
 
@@ -645,7 +633,7 @@ Innerhalb des `GetMap` Aufrufs können Sie Optionen auswählen. Zum Beispiel kö
 - wie groß der Kartenausschnitt sein soll oder
 - welches Ausgabeformat Sie gerne hätten.
 
-Mit folgendem URL-Abruf erhalten Sie beispielsweise ein speziell zusammengestelltes Bild vom GeoWebservice des [Deutschen Wetterdienstes](http://www.dwd.de/)[^dwd.de]: [`https://maps.dwd.de/geoserver/dwd/ows ?service=WMS&version=1.3 &request=GetMap &layers=dwd:Warnungen_Landkreise &bbox=6.15,51.76,14.90,55.01 &width=512&height=418 &srs=EPSG:4326 &format=image/jpeg &CQL_FILTER=EC_II%20IN%20(%2751%27,%2752%27)`](https://maps.dwd.de/geoserver/dwd/ows?service=WMS&version=1.3&request=GetMap&layers=dwd:Warnungen_Landkreise&bbox=6.15,51.76,14.90,55.01&width=512&height=418&srs=EPSG:4326&format=image/jpeg&CQL_FILTER=EC_II%20IN%20(%2751%27,%2752%27)).
+Mit folgendem URL-Abruf erhalten Sie beispielsweise ein speziell zusammengestelltes Bild vom GeoWebservice des [Deutschen Wetterdienstes](http://www.dwd.de/)[^dwd.de]: [`https://maps.dwd.de/geoserver/dwd/ows ?service=WMS&version=1.3 &request=GetMap &layers=dwd:Warnungen_Landkreise &bbox=6.15,51.76,14.90,55.01 &width=512&height=418 &srs=EPSG:4326 &format=image/jpeg &CQL_FILTER=EC_II%20IN%20(%2751%27,%2752%27)`](<https://maps.dwd.de/geoserver/dwd/ows?service=WMS&version=1.3&request=GetMap&layers=dwd:Warnungen_Landkreise&bbox=6.15,51.76,14.90,55.01&width=512&height=418&srs=EPSG:4326&format=image/jpeg&CQL_FILTER=EC_II%20IN%20(%2751%27,%2752%27)>).
 
 `https://maps.dwd.de/geoserver/dwd/ows?service=WMS&version=1.3`  
 `&request=GetMap`  
@@ -678,30 +666,31 @@ Ich möchte Sie hier an dieser Stelle nicht mit trockenen Dokumentationen von We
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
       var dwd = L.tileLayer
-        .wms("https://maps.dwd.de/geoserver/dwd/wms", {
-          layers: "dwd:bluemarble",
+        .wms('https://maps.dwd.de/geoserver/dwd/wms', {
+          layers: 'dwd:bluemarble',
         })
-        .addTo(mymap);
+        .addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Wenn Sie dieses Beispiel mit dem Laden eines `L.tileLayer` ohne WMS vergleichen, ist eigentlich nur eine Zeile anders. Anstelle der Zeile
 
 ```js
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
 ```
 
 haben wir
 
 ```js
-L.tileLayer.wms("https://maps.dwd.de/geoserver/dwd/wms", {
-layers:'dwd:bluemarble',
-}).addTo(mymap);
+L.tileLayer
+  .wms('https://maps.dwd.de/geoserver/dwd/wms', {
+    layers: 'dwd:bluemarble',
+  })
+  .addTo(mymap)
 ```
 
 eingefügt. Wir ergänzen also zusätzlich `.wms` hinter `L.tileLayer` und die Option `{layers:'dwd:bluemarble',}`.
@@ -734,31 +723,30 @@ Das Schöne an WMS-Layern ist, das Sie diese übereinander legen können. Das na
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
       L.tileLayer
-        .wms("https://maps.dwd.de/geoserver/dwd/wms", {
+        .wms('https://maps.dwd.de/geoserver/dwd/wms', {
           transparent: true,
-          layers: "dwd:bluemarble",
+          layers: 'dwd:bluemarble',
         })
-        .addTo(mymap);
+        .addTo(mymap)
       L.tileLayer
-        .wms("https://maps.dwd.de/geoserver/dwd/wms", {
-          format: "image/png",
+        .wms('https://maps.dwd.de/geoserver/dwd/wms', {
+          format: 'image/png',
           transparent: true,
-          layers: "dwd:Warngebiete_Kreise",
+          layers: 'dwd:Warngebiete_Kreise',
         })
-        .addTo(mymap);
+        .addTo(mymap)
       L.tileLayer
-        .wms("https://maps.dwd.de/geoserver/dwd/wms", {
-          format: "image/png",
+        .wms('https://maps.dwd.de/geoserver/dwd/wms', {
+          format: 'image/png',
           transparent: true,
-          layers: "dwd:Warnungen_Gemeinden_vereinigt",
+          layers: 'dwd:Warnungen_Gemeinden_vereinigt',
         })
-        .addTo(mymap);
+        .addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Dieses Beispiel ist meiner Meinung nach selbsterklärend. Wichtig ist, dass Sie die Option `transparent` mit `true` übergeben. Andernfalls sehen Sie nur einen – nämlich den obersten – Layer. Bereiche, die nicht mit Daten gefüllt sind, werden weiß gezeichnet. Außerdem müssen Sie die Option `format` mit `'image/png'` belegen. Leaflet lädt ansonsten automatisch das Format `'image/jpeg'` und dieses Format unterstützt keine Transparenz.
@@ -784,26 +772,25 @@ Das nachfolgende Beispiel zeigt Ihnen, wie Sie einen `L.tileLayer` mit einem `L.
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       L.tileLayer
-        .wms("https://maps.dwd.de/geoserver/dwd/wms", {
-          format: "image/png",
+        .wms('https://maps.dwd.de/geoserver/dwd/wms', {
+          format: 'image/png',
           transparent: true,
-          layers: "dwd:Warngebiete_Kreise",
+          layers: 'dwd:Warngebiete_Kreise',
         })
-        .addTo(mymap);
+        .addTo(mymap)
       L.tileLayer
-        .wms("https://maps.dwd.de/geoserver/dwd/wms", {
+        .wms('https://maps.dwd.de/geoserver/dwd/wms', {
           transparent: true,
-          format: "image/png",
-          layers: "dwd:Warnungen_Gemeinden_vereinigt",
+          format: 'image/png',
+          layers: 'dwd:Warnungen_Gemeinden_vereinigt',
         })
-        .addTo(mymap);
+        .addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Für dieses Beispiel gilt das, was ich im vorherigen Beispiel bezüglich Transparenz und Format geschrieben habe. Zusätzlich müssen Sie darauf achten, dass Sie den `L.tileLayer` nicht über die `L.tileLayer.wms.Layer` Schicht legen. Der `L.tileLayer` ist nicht transparent. Er würde die `L.tileLayer.wms.Layer` Schicht vollständig abdecken.

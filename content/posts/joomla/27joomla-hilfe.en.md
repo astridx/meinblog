@@ -30,7 +30,7 @@ In this chapter, only files are changed.
 Two lines per view are sufficient to display a button at the top right that contains a question mark as an icon and has an Internet address specified in the code as the link target. I have chosen `http://joomla.org` as an example. The principle is clear. You have the possibility to create a separate help file for each `View` and to link it in the view of the component - exactly where questions usually arise.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
 ```php {diff}
 
@@ -41,7 +41,7 @@ Two lines per view are sufficient to display a button at the top right that cont
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t22...t23#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/af04f8493aa045e8bcb2a49b8b1f8a60a927d78a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 

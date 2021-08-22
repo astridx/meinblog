@@ -8,13 +8,11 @@ export default [
   {
     meta: 'entwickler.de',
     title: 'Joomla 4.0 setzt zum Endspurt an',
-    path:
-      'https://entwickler.de/php/joomla-40-setzt-zum-endspurt-an',
+    path: 'https://entwickler.de/php/joomla-40-setzt-zum-endspurt-an',
   },
   {
     meta: 'entwickler.de',
     title: 'Was spricht für Deno?',
-    path:
-      'https://entwickler.de/javascript/was-spricht-fur-deno-003',
+    path: 'https://entwickler.de/javascript/was-spricht-fur-deno-003',
   },
 ]

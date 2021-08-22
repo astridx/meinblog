@@ -172,7 +172,7 @@ Hello Foos
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Administrator/components/com_foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
 
@@ -203,6 +203,6 @@ This file was only a workaround and it can now be deleted.
 
 2. then open the address `JOOMLA4/index.php?option=com_foos&view=foo` in a browser. You will see the frontend view you just created.
 
-> Do you care about [Search Engine Friendly (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs]. Please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.
+> Do you care about [Search Engine Friendly (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>)[docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs]. Please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{Search Engine Friendly (SEF)} -->
 
 ![Joomla View in Frontend](/images/j4x3x1.png)

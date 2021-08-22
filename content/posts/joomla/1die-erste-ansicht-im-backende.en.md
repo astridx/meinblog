@@ -22,7 +22,7 @@ We'll start with the basics. For this we create the _View_ in the administration
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 `foos.xml` tells Joomla how to install our component. Just like modules and plugins, components have an XML installation<!-- \index{installation manifest} --> file that informs Joomla about the extension to be installed. This file is called a manifest and contains details such as
 
@@ -176,7 +176,7 @@ Finally, we close the `</extension>` tag. Here is the complete code:
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 With the installation script<!-- \index{installation script} --> file you call code
 
@@ -353,7 +353,7 @@ The `preflight` function is called before the component is installed. You can ad
 The `postflight` function is called after the component has been installed. This function is used to set default values for component parameters.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 `provider.php` is used to implement the component services. Via an interface, the component class defines which services it provides. A dependency injection container or DI container is used for this. To register, `ComponentDispatcherFactory` and `MVCFactory` are mandatory for each component. Registering `CategoryFactory` is at this place optional, we need `CategoryFactory` when we integrate categories later. Using `provider.php` it is possible to introduce new services without breaking backwards compatibility (BC). If you are not familiar with the concept of DI Container but would like to learn more, you can find explanations and some examples in the following links:<!-- \index{DI Container} -->
 
@@ -362,7 +362,7 @@ The `postflight` function is called after the component has been installed. This
 
 More information about the implementation can be found on [Github](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217].
 
-You often see the word 'factory' in Joomla. This is because Joomla uses the [factory design pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)[en.wikipedia.org/wiki/Factory_method_pattern].  The factory method is a pattern where the interface to create an object is an abstract method of an inheriting class. However, the concrete implementation of the creation of new objects does not take place in the superclass, but in subclasses derived from it. The latter implement the said abstract method. To program extensions for Joomla it is not mandatory that you know the design patterns. However, it can be worthwhile to think outside the box. In software engineering, a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)[^en.wikipedia.org/wiki/Software_design_pattern] is a general, reusable solution to a common problem. Someone else had the same problem and found a solution. We don't have to solve the same problem, but can build on it.<!-- \index{design pattern!factory method} --><!-- \index{design pattern} -->
+You often see the word 'factory' in Joomla. This is because Joomla uses the [factory design pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)[^en.wikipedia.org/wiki/factory_method_pattern]. The factory method is a pattern where the interface to create an object is an abstract method of an inheriting class. However, the concrete implementation of the creation of new objects does not take place in the superclass, but in subclasses derived from it. The latter implement the said abstract method. To program extensions for Joomla it is not mandatory that you know the design patterns. However, it can be worthwhile to think outside the box. In software engineering, a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)[^en.wikipedia.org/wiki/software_design_pattern] is a general, reusable solution to a common problem. Someone else had the same problem and found a solution. We don't have to solve the same problem, but can build on it.<!-- \index{design pattern!factory method} --><!-- \index{design pattern} -->
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
 
@@ -428,11 +428,11 @@ return new class implements ServiceProviderInterface
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19)
+#### [administrator/components/ com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19)
 
 The file `DisplayController.php`<!-- \index{DisplayController (Backend)} --> is the entry point for the Model View Controller part in the administration area of the Foo component. Name the class _DisplayController_. Joomla expects it like this. Extend _BaseController_ to use many things out-of-the-box.
 
-The main task of this controller is to prepare the display. Therefore the default controller is called DisplayController. It calls the method `display()` of the parent class `BaseController` in the namespace `Joomla\CMS\MVC\Controller` - exactly this is the file `/var/www/html/joomla-cms4/libraries/src/MVC/Controller/BaseController.php`. In the Model-View-Controller model, controllers are often used to set up the start environment.
+The main task of this controller is to prepare the display. Therefore the default controller is called DisplayController. It calls the method `display()` of the parent class `BaseController` in the namespace `Joomla\CMS\MVC\Controller` - exactly this is the file `libraries/src/MVC/Controller/ BaseController.php`. In the Model-View-Controller model, controllers are often used to set up the start environment.
 
 Let's create the _DisplayController_. As always, we first create the _DocBlock_<!-- \index{DocBlock} -->. Here is an example of a typical document block.
 
@@ -450,7 +450,7 @@ After the DocBlock you add the _namespace_.
 namespace FooNamespace\Component\Foos\Administrator\Controller;
 ```
 
-You declare this with the corresponding keyword. Namespaces were introduced in Joomla 4. If this concept is new to you, read the overview of namespaces at [php.net/manual/en/language.namespaces.php](https://www.php.net/manual/de/language.namespaces.php). It is important that it is in the file before any other code.
+You declare this with the corresponding keyword. Namespaces were introduced in Joomla 4. If this concept is new to you, read the overview of namespaces at [php.net](https://www.php.net/manual/en/language.namespaces.php)[^php.net/manual/en/language.namespaces.php]. It is important that it is in the file before any other code.
 
 After the namespace we add
 
@@ -466,7 +466,7 @@ Next, we import the namespace of the parent class `BaseController` with the keyw
 use Joomla\CMS\MVC\Controller\BaseController;
 ```
 
-Then we create the class for the controller. I already wrote that you should call this DisplayController and extend the class BaseController. Then define the variable `$default_view` in which you set the default view with `foos`. You choose `foos` as the view because the name of the component is `foos` and for this reason you will also created the directory `/administrator/components/com_foos/src/View/Foos`. If nothing is defined, the Foos view with the default layout is used by default. Setting this variable is not necessary. But I think it is always better to insert this line.
+Then we create the class for the controller. I already wrote that you should call this DisplayController and extend the class BaseController. Then define the variable `$default_view` in which you set the default view with `foos`. You choose `foos` as the view because the name of the component is `foos` and for this reason you will also created the directory `/administrator/components/ com_foos/src/View/Foos`. If nothing is defined, the Foos view with the default layout is used by default. Setting this variable is not necessary. But I think it is always better to insert this line.
 
 If you take a closer look at the URL while using a component in the administration area, you may notice the view and layout variables. For example, the URL `index.php ?option=com_foos &view=foos &layout=default` loads the `foos` view with the default layout `default`. Thus, the file `components/` + `com_foos/tmpl/foos/` + `default.php` is called when you are in the frontend. If you are working in the backend, `administrator/components/` + `com_foos/tmpl/foos/` + `default.php` is used.
 
@@ -528,7 +528,7 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1)
 
 `FoosComponent.php` is the code for booting the extension. It is the first file that is called when Joomla loads the component. Boot' is the function to set up the environment of the extension, such as registering new classes. For more information, see the pull request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). In the following we will expand the file `FoosComponent.php`.
 
@@ -590,7 +590,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+#### [administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
 Although we are developing the code for a minimal component, some administrator files are needed. The file `AdministratorService.php` will be used later to add functions like multilingualism or main entries/featured. At the moment we do not need these functions. But we are already preparing everything here.
 
@@ -624,7 +624,7 @@ class AdministratorService
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 The view `administrator/components/com_foos/ src/View/Foos/HtmlView.php` defines objects (toolbar, title) and calls the model (data). At the moment our component has a primitive view. Only a static text is shown. This will change soon! There are several files that work together to generate the view in the frontend. For example, the controller that calls the view is involved. We created the controller earlier in the current chapter. Later, we will add the model, which prepares the data.
 
@@ -675,7 +675,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 The file `default.php` is the template for rendering the view. In it is the text that we display. At the moment we are putting all the effort into the output of the text "Hello Foos".
 

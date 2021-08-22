@@ -27,7 +27,7 @@ Das Kapitel ist eines der umfangreichsten in dieser Serie. Dafür deckt es alle 
 Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte zur Datenbanktabelle hinzu. Bei einer Aktualisierung der Komponente ist das Skript `15.0.0.sql` dasjenige, welches für Version 15.0.0. ausgeführt wird.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-fa2e66efed41380705fb9f91c257ea9c)
+#### [administrator/components/ com\_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-fa2e66efed41380705fb9f91c257ea9c)
 
 [administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
@@ -285,7 +285,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-00a681faa92b56a5268be6268afbe52f)
+#### [administrator/components/ com\_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-00a681faa92b56a5268be6268afbe52f)
 
 Wir haben keine speziellen Wünsche und nutzen deshalb das Standardtemplate zum Editieren der Sprachverknüpfungen. Du findest das im Verzeichnis `/layouts/joomla/ edit/associations.php`. Wie du es lädst zeigt dir der nachfolgende Beispielcode.
 
@@ -518,7 +518,7 @@ abstract class RouteHelper
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Dies ist das Feld `name="language"`. Damit Joomla dieses Feld findet, fügen wir den Pfad in der Form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` als Parameter im `<fieldset>` ein.
 
@@ -528,7 +528,7 @@ Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Di
   <?xml version="1.0" encoding="utf-8"?>
  <form>
 -	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
-+	<fieldset 
++	<fieldset
 +		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 +		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 +	>
@@ -538,7 +538,7 @@ Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Di
 
  			hint="JFIELD_ALIAS_PLACEHOLDER"
  		/>
- 
+
 +		<field
 +			name="language"
 +			type="contentlanguage"
@@ -553,9 +553,9 @@ Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Di
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-Im Provider registrieren wir unseren `AssociationsHelper` als Service der [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php] implementiert. So stellen wir sicher, dass alle notwendigen Funktionen in unsere Komponente vererbt werden und so vorhanden sind.
+Im Provider registrieren wir unseren `AssociationsHelper` als Service der [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/association/associationextensioninterface.php] implementiert. So stellen wir sicher, dass alle notwendigen Funktionen in unsere Komponente vererbt werden und so vorhanden sind.
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/services/provider.php)
 
@@ -565,7 +565,7 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der [Assoc
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
 +use FooNamespace\Component\Foos\Administrator\Helper\AssociationsHelper;
 +use Joomla\CMS\Association\AssociationExtensionInterface;
- 
+
  /**
   * The foos service provider.
 
@@ -582,13 +582,13 @@ Im Provider registrieren wir unseren `AssociationsHelper` als Service der [Assoc
  				$component->setMVCFactory($container->get(MVCFactoryInterface::class));
  				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
 +				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
- 
+
  				return $component;
  			}
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-896f245bc8e493f91277fd33913ef974)
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -596,7 +596,7 @@ Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Da
 
 ```php {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `publish_down` datetime AFTER `alias`;
- 
+
  ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 +
 +ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
@@ -606,7 +606,7 @@ Damit die Sprache zum Element gespeichert wird, fügen wir eine Spalte in der Da
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-38764f2b1343234561c0d02cd2991ea1)
 
 In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationServiceTrait`, so das alles Notwendige in unserer Erweiterung implementiert ist.
 
@@ -615,9 +615,9 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
- 
+
  defined('JPATH_PLATFORM') or die;
- 
+
 +use Joomla\CMS\Association\AssociationServiceInterface;
 +use Joomla\CMS\Association\AssociationServiceTrait;
  use Joomla\CMS\Categories\CategoryServiceInterface;
@@ -633,13 +633,13 @@ In FoosComponent ergänzen wir `AssociationServiceInterface` und `AssociationSer
  	use CategoryServiceTrait;
 +	use AssociationServiceTrait;
  	use HTMLRegistryAwareTrait;
- 
+
  	/**
 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-aa20a48089379605365184314b6cc950)
+#### [administrator/components/ com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-aa20a48089379605365184314b6cc950)
 
 Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-Element mithilfe eines Popups auszuwählen. Jetzt verwenden wir es wieder, um eine Sprachverknüpfung zu selektieren. Damit nur die passenden Sprachen angezeigt werden, erweitern wir die URL um die Sprachinformation.
 
@@ -652,22 +652,22 @@ Das Modal haben wir bisher genutzt, um beim Anlegen eines Menüpunkts ein Foo-El
 -		$linkFoo  = 'index.php?option=com_foos&amp;view=foo&amp;layout=modal&amp;tmpl=component&amp;'
 -			. Session::getFormToken() . '=1';
  		$modalTitle   = Text::_('COM_FOOS_CHANGE_FOO');
- 
+
 +		if (isset($this->element['language'])) {
 +			$linkFoos .= '&amp;forcedLanguage=' . $this->element['language'];
 +			$modalTitle .= ' &#8212; ' . $this->element['label'];
 +		}
 +
  		$urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
- 
+
  		if ($value) {
 
 ```
 
-> Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] `-`. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/TR/xhtml1/guidelines.html#C_12]. Beim Gedankenstrich `-` nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/Unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
+> Verwirren dich die Zeichen [`&#8212;`](https://unicode-table.com/de/2014/)[^unicode-table.com/de/2014/] oder [`&amp;`](https://unicode-table.com/de/0026/)[^https://unicode-table.com/de/0026/]? Die sind ganz harmlos. `&#8212;` ist nichts weiter als ein [Gedankenstrich](https://de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich)[de.wikipedia.org/wiki/Halbgeviertstrich#Gedankenstrich] `-`. `&amp;` steht für das kaufmännische Und-Zeichen `&`. In HTML steht letzteres für den Beginn einer Entity-Referenz. Somit ist es ein besonderes Zeichen. Wenn du ein solches Zeichen in einem Text nutzt der aus sicherheitsgründen überprüft wird, sollten du die kodierte Entität `&amp;` verwenden - mehr Technisches auf [w3c.org](https://www.w3.org/TR/xhtml1/guidelines.html#C_12)[^w3.org/tr/xhtml1/guidelines.html#c_12]. Beim Gedankenstrich `-` nutzen wir [Unicode](https://de.wikipedia.org/wiki/Unicode)[^de.wikipedia.org/wiki/unicode]. Ziel ist in diesem Fall, die Verwendung unterschiedlicher und inkompatibler Kodierungen in verschiedenen Ländern oder Kulturkreisen zu vereinheitlichen.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 Das Model `administrator/components/com_foos/ src/Model/FooModel.php`, mit dem Daten eines Elementes berechnet werden, passen wir bezüglich der Sprache an. Dabei spielen `getItem` und `preprocessForm` die wesentliche Rolle.
 
@@ -675,18 +675,18 @@ Das Model `administrator/components/com_foos/ src/Model/FooModel.php`, mit dem D
 
 ```php {diff}
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
  use Joomla\CMS\MVC\Model\AdminModel;
 +use Joomla\CMS\Language\LanguageHelper;
- 
+
  /**
   * Item Model for a Foo.
  class FooModel extends AdminModel
  	 */
  	public $typeAlias = 'com_foos.foo';
- 
+
 +	protected $associationsContext = 'com_foos.item';
 +
  	/**
@@ -695,7 +695,7 @@ Das Model `administrator/components/com_foos/ src/Model/FooModel.php`, mit dem D
 protected function loadFormData()
  		return $data;
  	}
- 
+
 +	public function getItem($pk = null)
 +	{
 +		$item = parent::getItem($pk);
@@ -757,7 +757,7 @@ protected function loadFormData()
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 > Achtung: `FooModel.php` ist das Model welches die Daten für ein Element berechnet. `FoosModel.php` - beachte das `s` - ist das Model der Listenansicht - es behandelt Daten für eine Gruppe von Elementen.
 
@@ -767,15 +767,15 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 
 ```php {diff}
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\MVC\Model\ListModel;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Factory;
- 
+
  /**
   * Methods supporting a list of foo records.
  protected function getListQuery()
- 
+
  		// Select the required fields from the table.
  		$query->select(
 -			$db->quoteName(['a.id', 'a.name', 'a.alias', 'a.access', 'a.catid', 'a.published', 'a.publish_up', 'a.publish_down'])
@@ -787,12 +787,12 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 +				]
 +			)
  		);
- 
+
  		$query->from($db->quoteName('#__foos_details', 'a'));
  protected function getListQuery()
  				$db->quoteName('#__categories', 'c') . ' ON ' . $db->quoteName('c.id') . ' = ' . $db->quoteName('a.catid')
  			);
- 
+
 +		// Join over the language
 +		$query->select($db->quoteName('l.title', 'language_title'))
 +			->select($db->quoteName('l.image', 'language_image'))
@@ -853,16 +853,16 @@ Im Model der Liste ist es neben dem Hinzufügen der Sprachinformationen wichtig,
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+#### [administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
 
 Wir implementieren den Service `association` in `AdministratorService.php`. Über die ID gibt die Funktion das HTML-Markup zum Bearbeiten der Sprachverknüpfungen zurück.<!-- \index{Service!Administrator} -->
 
 [administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
- 
+
  defined('JPATH_BASE') or die;
- 
+
 +use Joomla\CMS\Factory;
 +use Joomla\CMS\Language\Associations;
 +use Joomla\CMS\Language\Text;
@@ -927,7 +927,7 @@ Wir implementieren den Service `association` in `AdministratorService.php`. Übe
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
 Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht ist, setzen wir den Wert des Sprachauswahlfeldes und schützte es vor Schreibzugriff. Außerdem sind nur Kategorien dieser Sprache auswählbar.
 
@@ -936,7 +936,7 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 ```php {diff}
  		$this->form  = $this->get('Form');
  		$this->item = $this->get('Item');
- 
+
 +		// If we are forcing a language in modal (used for associations).
 +		if ($this->getLayout() === 'modal' && $forcedLanguage = Factory::getApplication()->input->get('forcedLanguage', '', 'cmd')) {
 +			// Set the language field to the forcedLanguage and disable changing it.
@@ -948,13 +948,13 @@ Wenn nur eine Sprache möglich ist beziehungsweise das Ändern nicht gewünscht 
 +		}
 +
  		$this->addToolbar();
- 
+
  		return parent::display($tpl);
 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nicht um eine Modalansicht oder ein Popup handelt. Falls die Ansicht modal ist, verwirren Toolbar und Sidebar. In dem Fall filtern wir die Items automatisch nach der gerade aktiven Sprache.
 
@@ -965,13 +965,13 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
  use Joomla\CMS\Toolbar\Toolbar;
  use Joomla\CMS\Toolbar\ToolbarHelper;
 +use Joomla\CMS\Factory;
- 
+
  /**
   * View class for a list of foos.
  public function display($tpl = null): void
  			$this->setLayout('emptystate');
  		}
- 
+
 -		$this->addToolbar();
 +		// We don't need toolbar in the modal window.
 +		if ($this->getLayout() !== 'modal') {
@@ -985,23 +985,23 @@ Die View der Liste soll die Sidebar und die Toolbar enthalten, wenn es sich nich
 +				$languageXml = new \SimpleXMLElement('<field name="language" type="hidden" default="' . $forcedLanguage . '" />');
 +			}
 +		}
- 
+
  		parent::display($tpl);
  	}
 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur Angabe der Sprache ein. Dazu verwenden wir das Layout `administrator/components/com_foos/ tmpl/foo/edit_associations.php`, das wir zuvor in diesem Teil erstellten. 
+In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur Angabe der Sprache ein. Dazu verwenden wir das Layout `administrator/components/com_foos/ tmpl/foo/edit_associations.php`, das wir zuvor in diesem Teil erstellten.
 
 > Warum das Layout `edit_associations.php` in der Datei `edit.php` mit dem Namen `associations` aufgerufen wird, denkst du dir vielleicht bereits. In dem Teil über die Layouts gehe ich darauf näher ein.
 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
- 
+
  use Joomla\CMS\Factory;
  use Joomla\CMS\HTML\HTMLHelper;
 +use Joomla\CMS\Language\Associations;
@@ -1011,12 +1011,12 @@ In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur A
 
  $app = Factory::getApplication();
  $input = $app->input;
- 
+
 +$assoc = Associations::isEnabled();
 +
 +$this->ignore_fieldsets = ['item_associations'];
  $this->useCoreUI = true;
- 
+
  $wa = $this->document->getWebAssetManager();
 
  						<?php echo $this->getForm()->renderField('publish_up'); ?>
@@ -1028,21 +1028,21 @@ In das Formular zur Bearbeitung eines Elements fügen wir ein Formularfeld zur A
  			</div>
  		</div>
  		<?php echo HTMLHelper::_('uitab.endTab'); ?>
- 		
+
 +		<?php if ($assoc) : ?>
 +			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 +			<?php echo $this->loadTemplate('associations'); ?>
 +			<?php echo HTMLHelper::_('uitab.endTab'); ?>
 +		<?php endif; ?>
-+		
++
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
- 
+
  		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalten, um die Sprachinformationen anzuzeigen. Diese Spalten zeigen wir lediglich an, wenn es erforderlich ist. Dies ist der Fall, wenn Sprachverknüpfungen und Mehrsprachigkeit aktiviert sind. Um dies herauszufinden nutzen wir die Joomla eigene Funktionen `Associations::isEnabled()` und `Multilanguage::isEnabled()`.
 

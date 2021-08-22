@@ -80,7 +80,7 @@ Zwingend ist ebenfalls ein guter Editor. Dies sollte einer sein, mit dem du dich
 
 Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^https://de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. Mit Bequemlichkeit meine ich Funktionen wie
 
-- Versionierung: Integration von [GIT](https://de.wikipedia.org/wiki/Git)[^de.wikipedia.org/wiki/Git]
+- Versionierung: Integration von [GIT](https://de.wikipedia.org/wiki/Git)[^de.wikipedia.org/wiki/git]
 - Codevervollständigung: Benutzereingabe sinnvoll ergänzen
 - Syntax-Highlighting: farbliche Hervorhebung von Variablen, Klassennamen oder Anweisungen.
 - Coding Standards: Beachten von Regeln
@@ -138,7 +138,7 @@ Dass du die Systemdateien nicht verändern solltest, heißt nicht, dass du sie g
 
 Während der Installation werden Einträge in der Datei `/administrator/ cache/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.<!-- \index{autoload_psr4.php} -->
 
-> Der nachfolgende Text wurde in englischer Sprache mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/README.md] eingefügt: "Joomla erstellt einen Cache der Namespaces seiner Erweiterungen in `JOOMLA_ROOT/administrator/cache/ autoload_psr4.php`. Wenn Erweiterungen in Git erstellt, gelöscht oder entfernt werden, muss diese Datei neu erstellt werden. Sie können die Datei einfach löschen und sie wird beim nächsten Aufruf von Joomla neu erstellt."
+> Der nachfolgende Text wurde in englischer Sprache mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/readme.md] eingefügt: "Joomla erstellt einen Cache der Namespaces seiner Erweiterungen in `JOOMLA_ROOT/administrator/cache/ autoload_psr4.php`. Wenn Erweiterungen in Git erstellt, gelöscht oder entfernt werden, muss diese Datei neu erstellt werden. Sie können die Datei einfach löschen und sie wird beim nächsten Aufruf von Joomla neu erstellt."
 
 ### Namespace<!-- \index{Namespace} -->
 

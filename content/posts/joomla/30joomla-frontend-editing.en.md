@@ -22,7 +22,7 @@ There are several reasons for allowing a user to edit in the frontend. One is th
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
+#### [administrator/components/ com\_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
 
 The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
@@ -231,6 +231,7 @@ class Icon
 }
 
 ```
+
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
@@ -245,7 +246,7 @@ We adapt the XML file that Joomla uses to build the form.
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset 
+	<fieldset
 		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 	>
@@ -1129,7 +1130,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 			</div>
 		</div>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-		
+
 		<?php if ( !$isModal && $assoc) : ?>
 			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
 			<?php echo $this->loadTemplate('associations'); ?>
@@ -1137,7 +1138,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 		<?php elseif ($isModal && $assoc) : ?>
 			<div class="hidden"><?php echo $this->loadTemplate('associations'); ?></div>
 		<?php endif; ?>
-		
+
 		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
 		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
@@ -1202,7 +1203,7 @@ Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
 
 In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 

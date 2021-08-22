@@ -15,7 +15,7 @@ tags:
 
 Suchmaschinenfreundliche URLs funktionieren bisher nicht. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.<!-- \index{Service} -->
 
-_Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/wiki/Clean_URL)[^de.wikipedia.org/wiki/Clean_URL] sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias/de)[^docs.joomla.org/Alias/de] für jedes Segment der URL definieren.<!-- \index{Suchmaschinenfreundlich (SEF)} --><!-- \index{Service!Suchmaschinenfreundlich (SEF)} -->
+_Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/wiki/Clean_URL)[^de.wikipedia.org/wiki/clean_url] sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias/de)[^docs.joomla.org/alias/de] für jedes Segment der URL definieren.<!-- \index{Suchmaschinenfreundlich (SEF)} --><!-- \index{Service!Suchmaschinenfreundlich (SEF)} -->
 
 > Intern wird der lokale Teil einer SEF-URL (der Teil nach dem Domainnamen) als _Route_ bezeichnet. Das Erstellen und Verarbeiten von SEF-URLs wird daher als _Routing_ bezeichnet, und der entsprechende Code wird _Router_ genannt.
 
@@ -329,7 +329,7 @@ class Router extends RouterView
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 Im Service Provider registrieren wir den Service.
 
@@ -341,7 +341,7 @@ Im Service Provider registrieren wir den Service.
  use Joomla\CMS\Association\AssociationExtensionInterface;
 +use Joomla\CMS\Component\Router\RouterFactoryInterface;
 +use Joomla\CMS\Extension\Service\Provider\RouterFactory;
- 
+
  /**
   * The foos service provider.
  public function register(Container $container)
@@ -349,7 +349,7 @@ Im Service Provider registrieren wir den Service.
  		$container->registerServiceProvider(new MVCFactory('\\FooNamespace\\Component\\Foos'));
  		$container->registerServiceProvider(new ComponentDispatcherFactory('\\FooNamespace\\Component\\Foos'));
 +		$container->registerServiceProvider(new RouterFactory('\\FooNamespace\\Component\\Foos'));
- 
+
  		$container->set(
  			ComponentInterface::class,
  function (Container $container) {
@@ -357,7 +357,7 @@ Im Service Provider registrieren wir den Service.
  				$component->setCategoryFactory($container->get(CategoryFactoryInterface::class));
  				$component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
 +				$component->setRouterFactory($container->get(RouterFactoryInterface::class));
- 
+
  				return $component;
  			}
 
@@ -366,7 +366,7 @@ Im Service Provider registrieren wir den Service.
 `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'));` und `$component->setRouterFactory ($container->get(RouterFactoryInterface::class));` kommen hinzu.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
+#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 
@@ -378,7 +378,7 @@ Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so 
  use Joomla\CMS\Helper\ContentHelper;
 +use Joomla\CMS\Component\Router\RouterServiceInterface;
 +use Joomla\CMS\Component\Router\RouterServiceTrait;
- 
+
  /**
   * Component class for com_foos
   *
@@ -391,7 +391,7 @@ Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so 
  	use AssociationServiceTrait;
  	use HTMLRegistryAwareTrait;
 +	use RouterServiceTrait;
- 
+
  	/**
  	 * Booting the extension. This is the function to set up the environment of the extension like
 

@@ -21,7 +21,7 @@ For the frontend, there are built-in menu item types in Joomla! that use categor
 
 ## Step by step
 
-[Categories](https://docs.joomla.org/Category)[^docs.joomla.org/Category]  are a way to organize content in Joomla. A category contains items and other categories. An item can belong to only one category. If a category is contained in another, it is a subcategory of that category.  Does it happen in your structure that single elements belong to several subsets? Then categories are not the right choice. In this case use tags.
+[Categories](https://docs.joomla.org/Category)[^docs.joomla.org/category] are a way to organize content in Joomla. A category contains items and other categories. An item can belong to only one category. If a category is contained in another, it is a subcategory of that category. Does it happen in your structure that single elements belong to several subsets? Then categories are not the right choice. In this case use tags.
 
 ### New files
 
@@ -655,6 +655,7 @@ class HtmlView extends CategoryView
 }
 
 ```
+
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->

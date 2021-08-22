@@ -44,17 +44,17 @@ Warum ist das Format GeoJSON entstanden? Offensichtlich gab es Dinge, bei denen 
 - Alle drei Formate sind mit mithilfe des Hypertext Transfer Protokolls (HTTP) – also über das Internet – austauschbar.
 
 Sehen wir uns in diesem Kapitel die einzelnen Formate genauer an um zu erkennen, welche Vorteile das Format JSON – beim Arbeiten mit
-[Geodaten](https://de.wikipedia.org/wiki/Geodaten)[^de.wikipedia.org/wiki/Geodaten] das Format GeoJSON – gegenüber XML bringt.
+[Geodaten](https://de.wikipedia.org/wiki/Geodaten)[^de.wikipedia.org/wiki/geodaten] das Format GeoJSON – gegenüber XML bringt.
 
 #### XML
 
 XML beschreibt die Struktur von Daten.
-Anhand der _Tags_ wird den Daten eine Bedeutung – eine [Semantik](https://de.wikipedia.org/wiki/Semantik)[^de.wikipedia.org/wiki/Semantik] – gegeben.
+Anhand der _Tags_ wird den Daten eine Bedeutung – eine [Semantik](https://de.wikipedia.org/wiki/Semantik)[^de.wikipedia.org/wiki/semantik] – gegeben.
 Aufgrund des Tag-Systems von XML werden oft kleine Datenbesände aufgebläht und dadurch unübersichtlich. Außerdem ist das Ansprechen einzelner Tags in einer XML-Datei teilweise recht kompliziert.
 
 #### JSON
 
-JSON ist im Grunde genommen nichts anderes als die Festlegung auf eine bestimmte Syntax -- also eine _Syntax-Konvention_. Den Daten wird keine bestimmte Bedeutung geben, vielmehr geht es um die syntaktische Anordnung. Da JSON Daten strukturiert, können leicht Objekte aus diesen Daten definiert werden. JSON wird fortwährend weiterentwickelt. Im Dezember 1999 wurde die erste JSON Format-Spezifikation verabschiedet. Aktuell wird es durch zwei konkurrierende Standards spezifiziert, [RFC 8259](https://tools.ietf.org/html/rfc8259)[^tools.ietf.org/html/rfc8259] und [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)[^ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf].
+JSON ist im Grunde genommen nichts anderes als die Festlegung auf eine bestimmte Syntax -- also eine _Syntax-Konvention_. Den Daten wird keine bestimmte Bedeutung geben, vielmehr geht es um die syntaktische Anordnung. Da JSON Daten strukturiert, können leicht Objekte aus diesen Daten definiert werden. JSON wird fortwährend weiterentwickelt. Im Dezember 1999 wurde die erste JSON Format-Spezifikation verabschiedet. Aktuell wird es durch zwei konkurrierende Standards spezifiziert, [RFC 8259](https://tools.ietf.org/html/rfc8259)[^tools.ietf.org/html/rfc8259] und [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)[^ecma-international.org/publications/files/ecma-st/ecma-404.pdf].
 
 Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen Handhabung. Da JSON selbst gültiges Javascript darstellt, kann es direkt ausgeführt und somit in ein Javascript-Objekt überführt werden. Auf die einzelnen Eigenschaften dieser Objekte kann dann über die Attribute zugegriffen werden. Im Kapitel _Heatmaps in Leaflet – Dichte_ werden wir eine Datei, die GeoJSON Objekte enthält, als Skript einbinden. Allein durch das Einbinden der Datei können wir innerhalb anderer Skripte auf die GeoJSON Objekte der eingebundenen Datei zugreifen. Im Gegensatz dazu muss eine XML-Datei erst mit einem XML-Parser analysiert werden.
 
@@ -100,7 +100,7 @@ Zur zeitlichen Einordnung: GoeJSON ist noch recht jung.
 
 ### GeoJSON erkunden
 
-Sie wissen nun, dass Sie mit GeoJSON viele geografische Datenstrukturen in einer maschinenlesbaren Sprache kodieren können. Ein GeoJSON-Objekt kann dabei eine einfache Geometrie, zum Beispiel einen Punkt eine Linie oder ein Polygon, darstellen. Zusätzlich können Sie einer Geometrie eine Bedeutung geben. Sie können jedem Element Eigenschaften zuordnen. Zum Beispiel können Sie einer Linie die Eigenschaft `typ=straße` oder `name=Kirchstraße` mitgeben. In diesem Fall erstellen Sie ein GeoJSON Objekt vom Typ [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. Wenn Sie mehrere Feature-Objekte zu einer Gruppe zusammen fassen möchten, können Sie diese zu einer Sammlung von Features zusammen fassen. Hierfür gibt es den GeoJSON Typ [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Das Verständnis dieser Konzepte bringt viele Vorteile. Es hilft Ihnen auch, die Arbeit mit Geodaten im Allgemeinen zu verstehen. Denn die Grundkonzepte, die in GeoJSON angewandt werden, sind schon seit vielen Jahren ein Teil von [Geoinformationssystemen](https://de.wikipedia.org/wiki/Geoinformationssystem)[^de.wikipedia.org/wiki/Geoinformationssystem]. 
+Sie wissen nun, dass Sie mit GeoJSON viele geografische Datenstrukturen in einer maschinenlesbaren Sprache kodieren können. Ein GeoJSON-Objekt kann dabei eine einfache Geometrie, zum Beispiel einen Punkt eine Linie oder ein Polygon, darstellen. Zusätzlich können Sie einer Geometrie eine Bedeutung geben. Sie können jedem Element Eigenschaften zuordnen. Zum Beispiel können Sie einer Linie die Eigenschaft `typ=straße` oder `name=Kirchstraße` mitgeben. In diesem Fall erstellen Sie ein GeoJSON Objekt vom Typ [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. Wenn Sie mehrere Feature-Objekte zu einer Gruppe zusammen fassen möchten, können Sie diese zu einer Sammlung von Features zusammen fassen. Hierfür gibt es den GeoJSON Typ [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Das Verständnis dieser Konzepte bringt viele Vorteile. Es hilft Ihnen auch, die Arbeit mit Geodaten im Allgemeinen zu verstehen. Denn die Grundkonzepte, die in GeoJSON angewandt werden, sind schon seit vielen Jahren ein Teil von [Geoinformationssystemen](https://de.wikipedia.org/wiki/Geoinformationssystem)[^de.wikipedia.org/wiki/geoinformationssystem].
 
 Beginnen wir von vorne.
 
@@ -128,13 +128,13 @@ Das wichtigste Element beim Arbeiten mit Geodaten ist die Beschreibung des Punkt
 Die Koordinaten werden in GeoJSON im Dezimalformat formatiert. Die erste Zahl steht für die Longitude – also die geografische Länge – und die zweite Zahl für die Latitude – also die geografische Breite. Konkret sieht eine Position in GeoJSON so aus:
 
 ```js
-[Länge, Breite, Höhe]
+;[Länge, Breite, Höhe]
 ```
 
 oder
 
 ```js
-[50.254, 7.5847, 324.1]
+;[50.254, 7.5847, 324.1]
 ```
 
 > Vielleicht haben Sie in der Vergangenheit schon öfter mit Geodaten gearbeitet und wundern sich nun über die Reihenfolge, in der die Dimensionen im Format GeoJSON stehen? Viele Systeme geben zuerst die geografische Länge und erst dann die geografische Breite an. Auch in Leaflet wird bei der Koordinate zuerst die Latitude - also die geografische Breite - und erste dann die Longitude - also die geografische Länge - angegeben: `Breitengrad | Längengrad`. Um dieses Durcheinander zu verstehen, müssen Sie das Folgende bedenken: Früher war es üblich, dass die erste Stelle einer Koordinate den Breitengrad und die zweite Stelle den Längengrad beschrieb. In der Mathematik ist die übliche Reihenfolge beim Arbeiten mit Koordinatensystemen: `X-Wert | Y-Wert`. Wenn man eine Landkarte mit einem Koordinatensystem vergleicht, erkennt man schnell, dass der Breitengrad dem `X-Wert` und der Längengrad der dem `Y-Wert` entspricht. Dies hat zur Folge, dass es beim Rechnen mit einem Computer viele Vorteile bringt, wenn man die Reihenfolge `Längengrad | Breitengrad` einhält. In der digitalen Welt gibt es momentan noch keine Einigkeit über die Reihenfolge. Es sieht so aus, als ob wir mitten in einem Umbruch stecken. Eine Übersicht, die zeigt, welche Anwendung die Dimensionen in welcher Reihenfolge verwendet finden Sie unter anderem unter der Adresse https://macwright.org/lonlat/.
@@ -547,23 +547,22 @@ Hier also nun das erste praktische Beispiel zum Thema GeoJSON und Leaflet.
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var geojsonFeature1 = {
-        type: "Feature",
+        type: 'Feature',
         geometry: {
-          type: "Point",
+          type: 'Point',
           coordinates: [7.26469, 50.27264],
         },
         properties: {
-          name: "Gering",
+          name: 'Gering',
         },
-      };
-      L.geoJSON(geojsonFeature1).addTo(mymap);
+      }
+      L.geoJSON(geojsonFeature1).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Was passiert hier genau? Als erste haben wir den GeoJSON Code fest in der Variablen `geojsonFeature1` gespeichert. Als nächstes haben wir ein Leaflet Objekt vom Typ GeoJSON erstellt und diesem unseren GeoJSON Code, also die Variable `geojsonFeature1`, übergeben. Das GeoJSON Objekt haben wir gleichzeitig mithilfe der Methode `addTo()` zum Leaflet-Kartenobjekt hinzugefügt. Mehr mussten wir nicht tun! Das Ergebnis ist ein Standard Marker an der Stelle auf der Erde, die das GeoJSON Point Element beschreibt.
@@ -594,20 +593,20 @@ Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt – also 
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var geojsonFeatureCollection = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: [
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 50] },
-            properties: { prop0: "value0" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 50] },
+            properties: { prop0: 'value0' },
           },
           {
-            type: "Feature",
+            type: 'Feature',
             geometry: {
-              type: "LineString",
+              type: 'LineString',
               coordinates: [
                 [7, 50],
                 [7, 51],
@@ -615,12 +614,12 @@ Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt – also 
                 [6, 52],
               ],
             },
-            properties: { prop0: "value0", prop1: 0.0 },
+            properties: { prop0: 'value0', prop1: 0.0 },
           },
           {
-            type: "Feature",
+            type: 'Feature',
             geometry: {
-              type: "Polygon",
+              type: 'Polygon',
               coordinates: [
                 [
                   [6, 49],
@@ -631,15 +630,14 @@ Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt – also 
                 ],
               ],
             },
-            properties: { prop0: "value0", prop1: { this: "that" } },
+            properties: { prop0: 'value0', prop1: { this: 'that' } },
           },
         ],
-      };
-      L.geoJSON(geojsonFeatureCollection).addTo(mymap);
+      }
+      L.geoJSON(geojsonFeatureCollection).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Voila! Drei Elemente mit Standardeigenschaften auf der Leaflet Karte.
@@ -664,21 +662,20 @@ So, und nun machen wir genau das Gegenteil. Ein jedes Leaflet Objekt, das wir un
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      var myMarker = L.marker([50.27264, 7.26469]);
-      var markerAsGeoJSON = myMarker.toGeoJSON();
-      var geoJsonLayer = L.geoJson().addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var myMarker = L.marker([50.27264, 7.26469])
+      var markerAsGeoJSON = myMarker.toGeoJSON()
+      var geoJsonLayer = L.geoJson().addTo(mymap)
       geoJsonLayer
         .addData(markerAsGeoJSON)
         .bindPopup(
-          "Ich bin mit der Methode .addData() zur Karte hinzugefügt worden. In GeoJson sehe ich so aus:<br> " +
+          'Ich bin mit der Methode .addData() zur Karte hinzugefügt worden. In GeoJson sehe ich so aus:<br> ' +
             JSON.stringify(markerAsGeoJSON)
-        );
+        )
     </script>
   </body>
 </html>
-
 ```
 
 Was zeigt Ihnen dieses Beispiel genau? Das folgende Beispiel zeigt Ihnen, wie Sie einen Marker ins GeoJSON Format konvertieren können. Dazu erstellen Sie zunächst mit var `myMarker=L.marker([50.27264, 7.26469])` einen Leaflet Marker. Danach rufen Sie die Methode `toGeoJSON()` des Markers auf und speichern das zurückgegeben GeoJSON Objekt in der Variablen `markerAsGeoJSON`. Als Nächstes erstellen Sie einen leeren GeoJSON Layer und fügen diesen zum Kartenobjekt hinzu: `var geoJsonLayer = L.geoJson().addTo(mymap)`. Sie hätten den GeoJSON Code in der Variablen `markerAsGeoJSON` wie in vorherigen Beispielen sofort beim Erstellen des Layers als Parameter mitgeben können. Hier wollte ich ihnen die Methode `addData()` zeigen, mit der Sie auch nachträglich noch GeoJSON Objekte zur GeoJSON Ebene hinzufügen können.
@@ -695,12 +692,14 @@ Sie werden nun sicher mein Beispiel als umständlich ansehen. Ich habe einen Mar
 
 ```js
 var polyline = L.polyline([
-    [50.27264, 7.26469], [51.27264, 7.26469], [51.27264, 6.26469]
-]);
-polyline.feature = {};
-polyline.feature.type = "Feature";
-polyline.feature.properties = {};
-polyline.feature.properties["Foo"] = "Bar";
+  [50.27264, 7.26469],
+  [51.27264, 7.26469],
+  [51.27264, 6.26469],
+])
+polyline.feature = {}
+polyline.feature.type = 'Feature'
+polyline.feature.properties = {}
+polyline.feature.properties['Foo'] = 'Bar'
 ```
 
 Der Export des Polyline Objektes würde wie folgt aussehen:
@@ -750,28 +749,28 @@ Der nachfolgende Programmcode zeigt Ihnen, wie Sie Stylesheets beim Erstellen ei
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([49.3264, 7.26469], 6);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([49.3264, 7.26469], 6)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       function styleFunction(feature) {
         switch (feature.geometry.type) {
-          case "LineString":
-            return { color: "red" };
-          case "Polygon":
-            return { color: "purple" };
+          case 'LineString':
+            return { color: 'red' }
+          case 'Polygon':
+            return { color: 'purple' }
         }
       }
       var geojsonFeatureCollection = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: [
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 50] },
-            properties: { prop0: "value0" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 50] },
+            properties: { prop0: 'value0' },
           },
           {
-            type: "Feature",
+            type: 'Feature',
             geometry: {
-              type: "LineString",
+              type: 'LineString',
               coordinates: [
                 [7, 50],
                 [7, 51],
@@ -779,12 +778,12 @@ Der nachfolgende Programmcode zeigt Ihnen, wie Sie Stylesheets beim Erstellen ei
                 [6, 52],
               ],
             },
-            properties: { prop0: "value0", prop1: 0.0 },
+            properties: { prop0: 'value0', prop1: 0.0 },
           },
           {
-            type: "Feature",
+            type: 'Feature',
             geometry: {
-              type: "Polygon",
+              type: 'Polygon',
               coordinates: [
                 [
                   [6, 49],
@@ -795,18 +794,17 @@ Der nachfolgende Programmcode zeigt Ihnen, wie Sie Stylesheets beim Erstellen ei
                 ],
               ],
             },
-            properties: { prop0: "value0", prop1: { this: "that" } },
+            properties: { prop0: 'value0', prop1: { this: 'that' } },
           },
         ],
-      };
+      }
       //var geoJsonLayer = L.geoJson(geojsonFeatureCollection,{color: "purple"}).addTo(mymap);
       var geoJsonLayer = L.geoJson(geojsonFeatureCollection, {
         style: styleFunction,
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 > Wenn Sie einen Stil auf alle Objekte > anwenden möchten, dann ist es nicht notwendig eine Funktion zu erstellen. Die Zeile `var geoJsonLayer = L.geoJson(geojsonFeatureCollection,{color: "purple"}).addTo(mymap);` reicht völlig aus.
@@ -926,28 +924,28 @@ Im vorherigen Kapitel haben Sie gelernt, wie Sie mit der Option `style` des GeoJ
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([49.27264, 7.26469], 6);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([49.27264, 7.26469], 6)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       function styleFunction(feature) {
         switch (feature.geometry.type) {
-          case "LineString":
-            return { color: "red" };
-          case "Polygon":
-            return { color: "purple" };
+          case 'LineString':
+            return { color: 'red' }
+          case 'Polygon':
+            return { color: 'purple' }
         }
       }
       var geojsonFeatureCollection = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: [
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 50] },
-            properties: { prop0: "value0" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 50] },
+            properties: { prop0: 'value0' },
           },
           {
-            type: "Feature",
+            type: 'Feature',
             geometry: {
-              type: "LineString",
+              type: 'LineString',
               coordinates: [
                 [7, 50],
                 [7, 51],
@@ -955,12 +953,12 @@ Im vorherigen Kapitel haben Sie gelernt, wie Sie mit der Option `style` des GeoJ
                 [6, 52],
               ],
             },
-            properties: { prop0: "value0", prop1: 0.0 },
+            properties: { prop0: 'value0', prop1: 0.0 },
           },
           {
-            type: "Feature",
+            type: 'Feature',
             geometry: {
-              type: "Polygon",
+              type: 'Polygon',
               coordinates: [
                 [
                   [6, 49],
@@ -971,28 +969,27 @@ Im vorherigen Kapitel haben Sie gelernt, wie Sie mit der Option `style` des GeoJ
                 ],
               ],
             },
-            properties: { prop0: "value0", prop1: { this: "that" } },
+            properties: { prop0: 'value0', prop1: { this: 'that' } },
           },
         ],
-      };
+      }
       var geoJsonLayer = L.geoJson(geojsonFeatureCollection, {
         style: styleFunction,
-      }).addTo(mymap);
-      geoJsonLayer.on("mouseover", styleWhenMouseOver);
-      geoJsonLayer.on("mouseout", styleWhenMouseOut);
+      }).addTo(mymap)
+      geoJsonLayer.on('mouseover', styleWhenMouseOver)
+      geoJsonLayer.on('mouseout', styleWhenMouseOut)
       function styleWhenMouseOver(e) {
-        geoJsonLayer.setStyle({ color: "green" });
+        geoJsonLayer.setStyle({ color: 'green' })
       }
       function styleWhenMouseOut(e) {
         //geoJsonLayer.setStyle({color:"gray"});
         geoJsonLayer.eachLayer(function (layer) {
-          geoJsonLayer.resetStyle(layer);
-        });
+          geoJsonLayer.resetStyle(layer)
+        })
       }
     </script>
   </body>
 </html>
-
 ```
 
 Auf den ersten Blick hat sich im Vergleich zum vorherigen Beispiel nichts geändert. Wenn Sie allerdings die Maus über ein Objekt bewegen, sehen Sie eine Änderung. Das Polygon und die Linie verfärben sich nun grün. Der Marker kann seine Farbe nicht ändern. Im Grunde genommen handelt sich bei dem Marker um ein Image. Das HTML-Element Image verfügt nicht über die CSS Eigenschaft `color`. Wenn Sie das Aussehen des Markers ändern möchten, dann müssten Sie diesem eine andere Bilddatei zuordnen.
@@ -1062,37 +1059,36 @@ ist eine Methode, die einmal für jedes im Layer vorhandene GeoJSON Objekt vom T
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var geojsonFeatureCollection = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: [
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [6, 50] },
-            properties: { name: "Dorf 1" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [6, 50] },
+            properties: { name: 'Dorf 1' },
           },
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 50] },
-            properties: { name: "Dorf 2" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 50] },
+            properties: { name: 'Dorf 2' },
           },
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 51] },
-            properties: { name: "Dorf 3" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 51] },
+            properties: { name: 'Dorf 3' },
           },
         ],
-      };
+      }
       L.geoJson(geojsonFeatureCollection, {
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(feature.properties.name);
+          layer.bindPopup(feature.properties.name)
         },
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Der vorhergehende Programmcode zeigt Ihnen, wie Sie jedem Feature Objekt, das über die hart kodiert eingefügten GeoJSON Daten eingelesen wird, ein Pop-up anhängen können – und zwar jedem ein individuelles. Der Text für das Pop-up wird aus den GeoJSON Daten ausgelesen, er versteckt sich in der Eigenschaft `feature.properties.name`. Das nachfolgende Bild stellt die drei Marker dar.
@@ -1119,58 +1115,57 @@ Die [Methode `pointtoLayer()`](https://leafletjs.com/reference.html#geojson-poin
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var geojsonFeatureCollection = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: [
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [6, 50] },
-            properties: { name: "Dorf 1" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [6, 50] },
+            properties: { name: 'Dorf 1' },
           },
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 50] },
-            properties: { name: "Dorf 2" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 50] },
+            properties: { name: 'Dorf 2' },
           },
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 51] },
-            properties: { name: "Dorf 3" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 51] },
+            properties: { name: 'Dorf 3' },
           },
         ],
-      };
+      }
       var options_draggable = {
         draggable: true,
-        title: "Ein Ort in der Nähe von Gering",
-      };
+        title: 'Ein Ort in der Nähe von Gering',
+      }
       var options_notdraggable = {
         draggable: false,
-        title: "Ein Ort in der Nähe von Gering",
-      };
+        title: 'Ein Ort in der Nähe von Gering',
+      }
       L.geoJson(geojsonFeatureCollection, {
         pointToLayer: function (feature, latlng) {
           switch (feature.properties.name) {
-            case "Dorf 1":
+            case 'Dorf 1':
               return L.marker(latlng, options_draggable).bindPopup(
                 feature.properties.name
-              );
-            case "Dorf 2":
+              )
+            case 'Dorf 2':
               return L.marker(latlng, options_notdraggable).bindPopup(
                 feature.properties.name
-              );
-            case "Dorf 3":
+              )
+            case 'Dorf 3':
               return L.marker(latlng, options_notdraggable).bindPopup(
                 feature.properties.name
-              );
+              )
           }
         },
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Im vorhergehenden Programmcodebeispiel sehen Sie, wie ein Marker erstellt und mit einem individuellen Pop-up Text versehen wird. Das Ergebnis ist auf den ersten Blick genau das Gleiche, wie im vorhergehenden Kapitel. Welcher Pop-up Text dem Marker genau zugewiesen wird, ist in dem Beispiel auch von der Eigenschaft `feature.properties.name` abhängig. Zusätzlich werden in diesem Beispiel Optionen von dem Namen abhängig gemacht. Nur der Marker von Dorf 1 kann auf der Karte verschoben werden. Der größte Unterschied ist, dass wir den Marker hier selbst erstellen und deshalb Einfluss auf die Optionen haben.
@@ -1197,46 +1192,45 @@ Mithilfe der Option `filter` können Sie große Datenbestände auf das Wesentlic
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid").setView([50.27264, 7.26469], 7);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      var mymap = L.map('mapid').setView([50.27264, 7.26469], 7)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       var geojsonFeatureCollection = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: [
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [6, 50] },
-            properties: { name: "Dorf 1" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [6, 50] },
+            properties: { name: 'Dorf 1' },
           },
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 50] },
-            properties: { name: "Dorf 2" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 50] },
+            properties: { name: 'Dorf 2' },
           },
           {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: [7, 51] },
-            properties: { name: "Dorf 3" },
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [7, 51] },
+            properties: { name: 'Dorf 3' },
           },
         ],
-      };
+      }
       var options = {
         draggable: true,
-        title: "Ein Ort in der Nähe von Gering",
-      };
+        title: 'Ein Ort in der Nähe von Gering',
+      }
       L.geoJson(geojsonFeatureCollection, {
         filter: function (feature, latlng) {
           switch (feature.properties.name) {
-            case "Dorf 1":
-              return true;
+            case 'Dorf 1':
+              return true
             default:
-              return false;
+              return false
           }
         },
-      }).addTo(mymap);
+      }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Im Beispiel sehen Sie, dass auf einem GeoJSON Layer nur die Elemente angezeigt werden, deren Rückgabewert beim Filtern positiv oder `true` ist. Im Beispiel bedeutet dies genau, das nur die Marker angezeigt werden, bei den `feature.properties.name` gleich `Dorf 1` ist. Nur hier wird, wegen `case "Dorf 1": return true` ein positiver Wert, also `true`, zurück gegeben. Ansonsten, ist die Ausgabe der Filterfunktion wegen `default: return false;` gleich `false`.

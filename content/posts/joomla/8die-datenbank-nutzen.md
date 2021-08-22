@@ -22,7 +22,7 @@ Im vorhergehenden Teil hatten wir eine Datenbank für die Joomla-Komponenten ein
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in einer XML-Datei vorgibst. Nachfolgend siehst du dies für unser Beispiel.
 
@@ -61,12 +61,13 @@ Joomla erstellt das Formular für dich, wenn du ihm die Rahmenbedingungen in ein
 	</fieldset>
 </form>
 ```
+
 <!-- \index{Alias} -->
 
 > Du wünschst dir einen Überblick über alle möglichen Formular-Elemente? In der [Joomla Dokumentation](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/form_field/de] sind alle standardmäßig enthaltenen Formularfelder aufgelistet.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
+#### [administrator/components/ com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
 
 Wir erstellen mit `FooController` mehr oder weniger eine leere Klasse. Obwohl diese keine eigene Logik beinhaltet, brauchen wir sie, weil sie von `FormController` erbt. Joomla erwartet `FooController` als Controller der Erweiterung an der Stelle unter dem Namen.
 
@@ -102,7 +103,7 @@ class FooController extends FormController
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
 Jetzt erstellen wir das Model, mit dem die Daten für ein Element abgeholt werden. Dieses nennen wir `FooModel`. Es erbt die wesentlichen Implementierungen von `AdminModel`. Wir programmieren unsere speziellen Anforderungen selbst hinzu. Mit `$typeAlias` setzen wir den Typalias für den Inhaltstyp. So weiß Joomla bei allen vererbten Funktionen, auf welches Element es diese genau anzuwenden hat. Beispielsweise wird der Alias in `loadFormData()` genutzt, um die passende XML-Datei in ein Formular umzuwandeln. Erinnerst du dich, die Datei hast du im aktuellen Kapitel erstellt. Und für das korrekte Zuordnen der Tabelle ist der Alias unerlässlich, wenn du Joomla Funktionen wiederverwendest. Der Typalias übernimmt im Hintergrund eine große Rolle, ohne dass du es mitbekommst.
 
@@ -200,7 +201,7 @@ class FooModel extends AdminModel
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/ com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-19bf55010e1963bede0668355cebb307)
 
 Wir implementieren den Zugriff auf die Datenbanktabelle. Wichtig ist das Setzten von `$this->typeAlias` und die Angabe des Namens der Tabelle `#__foos_details`.
 
@@ -272,7 +273,7 @@ class FooTable extends Table
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
 
 Die Datei `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organisiert die Ansicht eines Elements. Achte darauf, dass du diese nicht mit der Datei `administrator/components/com_foos/ src/View/Foo s /HtmlView.php` verwechselt, welche alle Elemente in einer Übersichtsliste anzeigt. Für die Bearbeitung eines Elementes benötigen wir genau wie bei der Listenansicht eine Toolbar. Die Anzeige selbst erfolgt wie gewohnt über die Methode `display` der Klasse `BaseHtmlView`. Lediglich unsere Besonderheiten geben wir über `$this->form = $this->get('Form');` und `$this->item = $this->get('Item');` mit.
 
@@ -360,7 +361,7 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 In der Datei `edit.php` ist die Ansicht implementiert, die zum Bearbeiten aufgerufen wird. Mir ist wichtig, dass ich den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de)[^docs.joomla.org/j4.x:web_assets/de] `$wa = $this->document->getWebAssetManager();` an dieser Stelle anspreche. Der ist in Joomla 4 neu. Du lädst zwei JavaScript Dateien via Webassetmanager. `useScript('keepalive')` lädt `media/system/js/keepalive.js` und hält deine Sitzung am Leben, während du ein Element bearbeitest oder erstellst. `useScript('form.validate')` lädt mit `media/system/js/core.js` eine Menge hilfreicher Funktionen. Zum Beispiel die Validierung, die wir später genauer ansehen.
 
@@ -411,8 +412,7 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 <!-- prettier-ignore -->
 #### [administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-442a0783a9ed95c4c4b8d6ea41e2b598e8596d42f4c2f35195968a69d4cc060d)<!-- \index{Empty State} -->
 
-Mit der Datei `administrator/components/com_foos/ tmpl/foos/emptystate.php` erstellen wir ein spezielles Layout für den Fall, dass die Komponente kein Element enthält und somit leer ist. 
-
+Mit der Datei `administrator/components/com_foos/ tmpl/foos/emptystate.php` erstellen wir ein spezielles Layout für den Fall, dass die Komponente kein Element enthält und somit leer ist.
 
 [administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
 
@@ -452,12 +452,12 @@ echo LayoutHelper::render('joomla.content.emptystate', $displayData);
 
 Das Empty-State-Layout wurde in Joomla im [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[github.com/joomla/joomla-cms/pull/33264] integriert.
 
-> Gutes Design ist schon eine Herausforderung, wenn es Daten zum darstellen gibt. Noch schwieriger ist es, eine leer Seiten benutzerfreundlich umzusetzen. Stöbere bei [emptystat.es](https://emptystat.es/), wenn du dich in Bezug auf deine Empty State Umsetzung inspirieren lassen möchtest. 
+> Gutes Design ist schon eine Herausforderung, wenn es Daten zum darstellen gibt. Noch schwieriger ist es, eine leer Seiten benutzerfreundlich umzusetzen. Stöbere bei [emptystat.es](https://emptystat.es/), wenn du dich in Bezug auf deine Empty State Umsetzung inspirieren lassen möchtest.
 
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Damit während einer neuen Installation das Verzeichnis `forms` an Joomla übergeben wird, tragen wird diese im Installationsmanifest ein.
 
@@ -475,21 +475,21 @@ Damit während einer neuen Installation das Verzeichnis `forms` an Joomla überg
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hier fügen wir eine Schaltfläche ein, über die ein neues Element erstellt wird. Außerdem fragen wir über `if (!count($this->items) && $this->get('IsEmptyState'))` ab, ob es Elemente zum Anzeigen gibt. Falls die Ansicht leer ist, zeigen wir das benutzerfreundliche Empty State Layout `$this->setLayout('emptystate');` an.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
- 
+
  \defined('_JEXEC') or die;
- 
+
 +use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Toolbar\Toolbar;
 +use Joomla\CMS\Toolbar\ToolbarHelper;
- 
+
  /**
   * View class for a list of foos.
  class HtmlView extends BaseHtmlView
@@ -520,7 +520,7 @@ In der Ansicht, die die Übersichtsliste anzeigt, ergänzen wir die Toolbar. Hie
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formular. Das Formular enthält ein Formularfeld für jede Spalte in der Datenbanktabelle und ermöglicht es, Daten anzulegen beziehungsweise zu ändern.
 

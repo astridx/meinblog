@@ -24,7 +24,7 @@ Filtering, sorting and searching - now we organize the Joomla 4 component ! Joom
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-680833320598887b6d6cc4feb95d4408)
+#### [administrator/components/ com\_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-680833320598887b6d6cc4feb95d4408)
 
 First, we create the form through which the filters will be set.
 
@@ -143,7 +143,7 @@ First, we create the form through which the filters will be set.
 > `featured` is included here as a filter field for the sake of completeness, although we do not support this in the extension yet.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe)
+#### [administrator/components/ com\_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-49ec0cc94fa89db6f20d60195f94c0fe)
 
 In case of an update of your component, the file `16.0.0.sql` adds a column to store the sequence.
 
@@ -159,7 +159,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 The form used to create or modify an element is extended with a field for specifying the order.
 
@@ -182,7 +182,7 @@ The form used to create or modify an element is extended with a field for specif
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-896f245bc8e493f91277fd33913ef974)
 
 In case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the order.
 
@@ -199,7 +199,7 @@ In case of a new installation, the script in the file `install.mysql.utf8.sql` c
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 There are a lot of changes in the model for the list. In the constructor we first save the filter fields to the configuration.
 
@@ -323,7 +323,7 @@ In the `getListQuery()` method we adjust the database query to respect the filte
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 The view loads the filter form `src/administrator/components/com_foos/ forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
 
@@ -415,7 +415,7 @@ index af7c2fa6..f966bd96 100644
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 The code below shows all the essentials for using `searchtools` in the list view of the backend.
 In the case of the header, I replaced `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` with `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>`. This way the header of the table is marked with a small arrow when a sort is active in a column.
@@ -537,7 +537,7 @@ In the case of the header, I replaced `<?php echo TEXT::_('JGRID_HEADING_ACCESS'
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-aeba8d42de72372f42f890d454bf928e)
+#### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t15a...t16#diff-aeba8d42de72372f42f890d454bf928e)
 
 Icons show us if a column is sorted and in which direction. To make the sorting clear to someone who doesn't see these markers, we add a `<caption>` element. This is not displayed, it is read out.
 

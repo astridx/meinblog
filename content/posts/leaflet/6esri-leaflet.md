@@ -14,9 +14,9 @@ tags:
 
 Wenn Sie intensiver mit digitalen Landkarten arbeiten, möchten Sie sicherlich auch einmal Daten eines Geoinformationssystems (GIS) auf Ihrer Karte anzeigen.
 
-> Ein [Geoinformationssystem](https://de.wikipedia.org/w/index.php?title=Geoinformationssystem)[^de.wikipedia.org/w/index.php?title=Geoinformationssystem] ist ein Informationssystem zur Erfassung, Bearbeitung, Organisation, Analyse und Präsentation von Daten, die einen Bezug zu einer Stelle auf unserer Erde haben. Zu einem Geoinformationssystem gehören dabei die notwendige Hardware, die notwendige Software, die Daten und die Anwendungen selbst.
+> Ein [Geoinformationssystem](https://de.wikipedia.org/w/index.php?title=Geoinformationssystem)[^de.wikipedia.org/w/index.php?title=geoinformationssystem] ist ein Informationssystem zur Erfassung, Bearbeitung, Organisation, Analyse und Präsentation von Daten, die einen Bezug zu einer Stelle auf unserer Erde haben. Zu einem Geoinformationssystem gehören dabei die notwendige Hardware, die notwendige Software, die Daten und die Anwendungen selbst.
 
-Wenn Sie Daten eines Geoinformationssystems nutzen möchten, werden Sie früher oder später über den Begriff [Shapefile](https://de.wikipedia.org/w/index.php?title=Shapefile)[^de.wikipedia.org/w/index.php?title=Shapefile] oder Shape Datei stolpern. Aber auch wenn Sie nie auf den Begriff Shape Datei stoßen werden Sie vielleicht einmal einen Webservice nutzen, der Endpunkt eines ARCServers ist. Außerdem werden Sie sicher auch das [ESRI Inc (Environmental Systems Research Institute)](https://de.wikipedia.org/w/index.php?title=ESRI)[^de.wikipedia.org/w/index.php?title=ESRI] kennenlernen. Dieses Institut ist ein US-amerikanischer Softwarehersteller. Das ESRI hat sich auf Geoinformationssysteme spezialisiert. Das Unternehmen hat unter anderem die Anwendung [ArcGIS](https://de.wikipedia.org/w/index.php?title=ArcGIS)[^de.wikipedia.org/w/index.php?title=ArcGIS] erstellt und das Dateiformat Shapefiles eingeführt.
+Wenn Sie Daten eines Geoinformationssystems nutzen möchten, werden Sie früher oder später über den Begriff [Shapefile](https://de.wikipedia.org/w/index.php?title=Shapefile)[^de.wikipedia.org/w/index.php?title=shapefile] oder Shape Datei stolpern. Aber auch wenn Sie nie auf den Begriff Shape Datei stoßen werden Sie vielleicht einmal einen Webservice nutzen, der Endpunkt eines ARCServers ist. Außerdem werden Sie sicher auch das [ESRI Inc (Environmental Systems Research Institute)](https://de.wikipedia.org/w/index.php?title=ESRI)[^de.wikipedia.org/w/index.php?title=esri] kennenlernen. Dieses Institut ist ein US-amerikanischer Softwarehersteller. Das ESRI hat sich auf Geoinformationssysteme spezialisiert. Das Unternehmen hat unter anderem die Anwendung [ArcGIS](https://de.wikipedia.org/w/index.php?title=ArcGIS)[^de.wikipedia.org/w/index.php?title=arcgis] erstellt und das Dateiformat Shapefiles eingeführt.
 
 > Die wesentlichen Produkte des ESRI sind
 > Geoinformationssysteme. Die Namen der verschiedenen
@@ -101,18 +101,17 @@ Das nachfolgende Beispiel zeigt Ihnen, wie Sie eine ESRI Basiskarte in Leaflet a
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 7);
-      var gray = L.esri.basemapLayer("Gray").addTo(mymap);
-      var graylabels = L.esri.basemapLayer("GrayLabels").addTo(mymap);
-      gray.setOpacity(0.5);
-      gray.on("load", alertme);
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 7)
+      var gray = L.esri.basemapLayer('Gray').addTo(mymap)
+      var graylabels = L.esri.basemapLayer('GrayLabels').addTo(mymap)
+      gray.setOpacity(0.5)
+      gray.on('load', alertme)
       function alertme() {
-        alert("Fertig!");
+        alert('Fertig!')
       }
     </script>
   </body>
 </html>
-
 ```
 
 Was haben wir gemacht? Wichtig ist, dass wir das Skript zum ESRI Leaflet Plugin einbinden. Ich habe dies mit der Zeile `<script src="esri-leaflet-debug.js"></script>` getan. Im Echtsystem können Sie die komprimierte Version verwenden, also `<script src="esri-leaflet.js"></script>`. Die aktuellste Version dieses Skripts können Sie von der Adresse [http://esri.github.io/esri-leaflet/download](http://esri.github.io/esri-leaflet/download/) kopieren. Nach dem Einbinden des Plugins haben wir mit der Zeile `var gray = L.esri.basemapLayer('Gray').addTo(mymap);` das `L.esri.basemapLayer` Objekt erstellt und es auch sofort zur Karte hinzugefügt. Zusätzlich haben wir die Karte mit `gray.setOpacity(0.5);` transparent dargestellt und dem Ereignis `on('load')` die Funktion `alertme()` zugeordnet. Immer dann, wenn die Karte fertig geladen ist, soll die Funktion `alertme()` ausgeführt werden. Genau bedeutet das, dass immer, wenn die Karte fertig geladen ist, ein Hinweisfenster erscheint. Verschieben Sie die Karte einmal. Dabei werden Sie sehen, dass das Ereignis `on('load')` auch immer dann, wenn die Karte erschoben wird, eintritt.
@@ -160,20 +159,19 @@ Im nächsten Beispiel habe ich im HTML-Dokument eine Auswahllist über der Karte
       <option value="USATopo">USATopo</option>
     </select>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 7);
-      var layer = L.esri.basemapLayer("Gray").addTo(mymap);
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 7)
+      var layer = L.esri.basemapLayer('Gray').addTo(mymap)
       function changeBasemap(basemaps) {
-        var basemap = basemaps.value;
+        var basemap = basemaps.value
         if (layer) {
-          mymap.removeLayer(layer);
+          mymap.removeLayer(layer)
         }
-        layer = L.esri.basemapLayer(basemap);
-        mymap.addLayer(layer);
+        layer = L.esri.basemapLayer(basemap)
+        mymap.addLayer(layer)
       }
     </script>
   </body>
 </html>
-
 ```
 
 Was haben wir genau gemacht? Hier gibt es nichts weltbewegend Neues. Eine Auswahlliste haben wir schon oft im Buch verwendet. Wenn ein Website-Besucher den aktiven Listeneintrag der Auswahlliste ändert, wird die aktuelle Kartenebene mit `mymap.removeLayer(layer)` entfernt. Danach wird eine neue Ebene mit der gewünschten Option erstellt – `layer = L.esri.basemapLayer(basemap)` – und diese wird dann zum Kartenobjekt hinzugefügt `mymap.addLayer(layer)`.
@@ -188,7 +186,7 @@ Das Dateiformat Shapefile wurde von der Firma ESRI für die Software ArcView ent
 
 ### Was genau verbirgt sich hinter dem Begriff Shapefile
 
-Ein [Shapefile](https://de.wikipedia.org/w/index.php?title=Shapefile)[^de.wikipedia.org/w/index.php?title=Shapefile] ist keine einzelne Datei. In der Regel handelt es sich um mehrere Dateien, die zu einem Zip-Archiv zusammengefasst sind. In diesem Zip-Archiv müssen mindestens die drei nachfolgend genannten Dateitypen vorhanden sein:
+Ein [Shapefile](https://de.wikipedia.org/w/index.php?title=Shapefile)[^de.wikipedia.org/w/index.php?title=shapefile] ist keine einzelne Datei. In der Regel handelt es sich um mehrere Dateien, die zu einem Zip-Archiv zusammengefasst sind. In diesem Zip-Archiv müssen mindestens die drei nachfolgend genannten Dateitypen vorhanden sein:
 
 - Eine Datei mit der Endung `.shp` dient zur Speicherung der Geometriedaten.
 - Eine Datei mit der Endung `.dbf` enthält Attribute oder Eigenschaften.
@@ -202,7 +200,7 @@ Natürlich können Sie selbst ein Shapefile erstellen. Das ist aber gar nicht ei
 
 Bei einer Suche nach _Open Data_ in einer Suchmaschine im Internet habe ich unter anderem das Schienennetz der Deutschen Bahn als Shapefile gefunden: [http://data.deutschebahn.com/dataset/geo-strecke](http://data.deutschebahn.com/dataset/geo-strecke). Höchstwahrscheinlich interessieren Sie sich für Daten in der Nähe Ihres Wohnortes. Dann geben Sie zum Suchbegriff _Open Data_ einfach den Namen einer Stadt in der Nähe Ihres Wohnortes ein. Eine Suche nach _Open Data_ in der Nähe von _Koblenz_ hat mich zu einer Website des Landesvermessungsamtes Koblenz geführt. Die Website [https://lvermgeo.rlp.de/de/geodaten/opendata/](https://lvermgeo.rlp.de/de/geodaten/opendata/) informiert über das Angebot des Landesvermessungsamtes - insbesondere über das Angebot an offenen Daten. Einige dieser Daten, zum Beispiel die Flurgrenzen, stehen als Shapefile zur Verfügung.
 
-Wenn Sie per Internetsuche keine passenden Daten finden, können Sie auf der Website von Openstreetmap, insbesondere auf der Unterseite [https://wiki.openstreetmap.org/wiki/Shapefiles](https://wiki.openstreetmap.org/w/index.php?title=Shapefiles)[^wiki.openstreetmap.org/w/index.php?title=Shapefiles] nach weiteren Anbietern suchen. Neben weiteren Informationen zum Shapefile Format gibt es hier auch eine Liste mit Anbietern von Shapefiles.
+Wenn Sie per Internetsuche keine passenden Daten finden, können Sie auf der Website von Openstreetmap, insbesondere auf der Unterseite [https://wiki.openstreetmap.org/wiki/Shapefiles](https://wiki.openstreetmap.org/w/index.php?title=Shapefiles)[^wiki.openstreetmap.org/w/index.php?title=shapefiles] nach weiteren Anbietern suchen. Neben weiteren Informationen zum Shapefile Format gibt es hier auch eine Liste mit Anbietern von Shapefiles.
 
 > Es muss nicht an Ihnen liegen, wenn Sie bei der Arbeit mit Geodaten auf einen Fehler stoßen. Insbesondere dann nicht, wenn Sie Daten von anderen in Ihre Arbeit einbinden. Da das Shapefile Format kompliziert ist, ist es gut, dass es im Internet Websites gibt, auf denen man eine Shapefile Datei testen kann. Eine dieser Websites ist [http://leaflet.calvinmetcalf.com](http://leaflet.calvinmetcalf.com)[^leaflet.calvinmetcalf.com].
 
@@ -234,14 +232,13 @@ Wie ich die Shape Datei mit Leaflet in eine Karte integriere, zeigt Ihnen das na
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 6);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      var shpfile = new L.Shapefile("vg2500_geo84.zip");
-      shpfile.addTo(mymap);
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 6)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var shpfile = new L.Shapefile('vg2500_geo84.zip')
+      shpfile.addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Die Zeilen
@@ -282,18 +279,17 @@ Im nächsten Beispiel sehen Sie, wie Sie das Aussehen der Formen in der Shape Da
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 6);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      var shpfile = new L.Shapefile("vg2500_geo84.zip", {
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 6)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var shpfile = new L.Shapefile('vg2500_geo84.zip', {
         style: function (feature) {
-          return { color: "black", fillColor: "red", fillOpacity: 0.75 };
+          return { color: 'black', fillColor: 'red', fillOpacity: 0.75 }
         },
-      });
-      shpfile.addTo(mymap);
+      })
+      shpfile.addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 Das vorhergehende Beispiel manipuliert die Option `style`. Die Belegung der Option `style` mit `color:"black",fillColor:"red",fillOpacity:.75` färbt die Grenzen der Shape Datei schwarz und füllt die Formen mit der Farbe Rot – bei einer Transparenz von 75 Prozent. Das rot gefärbte Deutschland können Sie sich in der nächsten Abbildung ansehen.
@@ -320,18 +316,17 @@ Schön wäre es, wenn man für jede Verwaltungseinheit den Namen in einem Pop-up
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 5);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      var shpfile = new L.Shapefile("vg2500_geo84.zip", {
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 5)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var shpfile = new L.Shapefile('vg2500_geo84.zip', {
         onEachFeature: function (feature, layer) {
-          layer.bindPopup(feature.properties.GEN);
+          layer.bindPopup(feature.properties.GEN)
         },
-      });
-      shpfile.addTo(mymap);
+      })
+      shpfile.addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 In diesem Beispiel haben wir die Option `onEachFeature` verwendet. Wir haben dieser Option eine anonyme Funktion zugeordnet in der wir jedem Feature in der Shape Datei mithilfe von `layer.bindPopup(feature.properties.GEN)` ein Pop-up Fenster zugewiesen haben. Im Pop-up Fenster erscheint der Text, der bei dem Feature im Attribut `GEN` als Eigenschaft eingetragen ist. Wenn Sie sich nun fragen, woher Sie wissen können, dass es als Eigenschaft ein Attribut `GEN` gibt, dann warten Sie bis zum nächsten Beispiel. Dort werde ich Ihnen zeigen, wie Sie alle Optionen auslesen können. Probieren Sie aber zunächst dieses Beispiel selbst aus. Öffnen Sie die Karte und klicken Sie einen Landkreis an. Wie in der nachfolgenden Abbildung zu sehen ist, sollte sich auch auf Ihrer Karte ein Pop-up Fenster öffnen.
@@ -360,26 +355,25 @@ Sie wissen nicht, welche Eigenschaften in der Shape Datei genau für die Geometr
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 5);
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      var shpfile = new L.Shapefile("vg2500_geo84.zip", {
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 5)
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var shpfile = new L.Shapefile('vg2500_geo84.zip', {
         onEachFeature: function (feature, layer) {
-          var holder = [];
+          var holder = []
           for (var key in feature.properties) {
-            holder.push(key + ": " + feature.properties[key] + "<br>");
-            popupContent = holder.join("");
+            holder.push(key + ': ' + feature.properties[key] + '<br>')
+            popupContent = holder.join('')
           }
-          layer.bindPopup(popupContent);
+          layer.bindPopup(popupContent)
         },
-      });
-      shpfile.addTo(mymap);
+      })
+      shpfile.addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
-Für die Beantwortung dieser Fragestellung nutzen wir auch wieder die Option `onEachFeature`. In dieser Option erstellen wir eine Variable, genau ein Array, mit dem Namen `holder`. Als nächstes durchlaufen wir in einer Schleife alle Schlüssel, die in den Eigenschaften der Shape Datei, also in `feature.properties` enthalten sind. Wir fügen mit [`push()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push)[^developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push] jeden Eintrag in das Array `holder` ein und separieren diesen von dem nächsten Eintrag mit [`join()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join)[^developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join]. Den Text mit allen Schlüssel-Wert-Paaren fügen wir am Schluss als Pop-up Text zum Layer hinzu.
+Für die Beantwortung dieser Fragestellung nutzen wir auch wieder die Option `onEachFeature`. In dieser Option erstellen wir eine Variable, genau ein Array, mit dem Namen `holder`. Als nächstes durchlaufen wir in einer Schleife alle Schlüssel, die in den Eigenschaften der Shape Datei, also in `feature.properties` enthalten sind. Wir fügen mit [`push()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/push)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/array/push] jeden Eintrag in das Array `holder` ein und separieren diesen von dem nächsten Eintrag mit [`join()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/join)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/array/join]. Den Text mit allen Schlüssel-Wert-Paaren fügen wir am Schluss als Pop-up Text zum Layer hinzu.
 
 Als Ergebnis sehen Sie alle möglichen Schlüssel-Wert-Paare in einem Pop-up Fenster über Ihrer Karte, sobald Sie eine Fläche anklicken.
 
@@ -425,50 +419,52 @@ Für das nachfolgende Beispiel habe ich Daten des Geoportals Köln genutzt. Dies
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.97264, 7.00469], 12);
+      var mymap = L.map('mapid', {}).setView([50.97264, 7.00469], 12)
       //L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);
-      L.esri.basemapLayer("Gray").addTo(mymap);
+      L.esri.basemapLayer('Gray').addTo(mymap)
       var url =
-        "https://geoportal.stadt-koeln.de/arcgis/rest/services/Behindertenparkplaetze/MapServer";
+        'https://geoportal.stadt-koeln.de/arcgis/rest/services/Behindertenparkplaetze/MapServer'
       var dMap = L.esri
         .dynamicMapLayer({
           url: url,
           opacity: 0.25,
           useCors: false,
         })
-        .addTo(mymap);
+        .addTo(mymap)
       dMap.bindPopup(function (err, featureCollection, response) {
         return (
           featureCollection.features[0].properties.Bezeichnung +
-          "<br>Anzahl: " +
+          '<br>Anzahl: ' +
           featureCollection.features[0].properties.Anzahl
-        );
-      });
+        )
+      })
     </script>
   </body>
 </html>
-
 ```
 
 Als erstes haben wir im vorherigen Beispiel das Skript zum Esri Leaflet Plugin eingebunden. Als nächstes haben wir die URL, unter welcher der betreffende Service angeboten wird, in die Variabel `url` gespeichert. Danach haben wir mit dem Code
 
 ```js
-var dMap = L.esri.dynamicMapLayer({
-url: url,
-opacity : 0.25,
-useCors: false
-}).addTo(mymap);
+var dMap = L.esri
+  .dynamicMapLayer({
+    url: url,
+    opacity: 0.25,
+    useCors: false,
+  })
+  .addTo(mymap)
 ```
 
 ein `L.esri.dynamicMapLayer`-Objekt erstellt und diesem gleichzeitig Optionen übergeben. Unter anderem die URL. Zuletzt haben wir dann mit dem Code
 
 ```js
-dMap.bindPopup(
-function(err, featureCollection, response){
-return featureCollection.features[0].properties.Bezeichnung +
-'<br>Anzahl: ' +
-featureCollection.features[0].properties.Anzahl;
-});
+dMap.bindPopup(function (err, featureCollection, response) {
+  return (
+    featureCollection.features[0].properties.Bezeichnung +
+    '<br>Anzahl: ' +
+    featureCollection.features[0].properties.Anzahl
+  )
+})
 ```
 
 jedem Feature ein Pop-up hinzugefügt und in dieses Pop-up die Eigenschaften `Bezeichnung` und `Anzahl` als Text eingetragen. Welche Eigenschaften Ihnen ein Web Service zur Verfügung stellt, finden Sie in der Dokumentation zum jeweiligen Service. Die Adresse zur Dokumentation des hier verwendeten Services hatte ich Ihnen weiter oben schon genannt.
@@ -479,13 +475,13 @@ Die nachfolgende Abbildung zeigt Ihnen alle Parkplätze, die im Web Service Behi
 
 ### Geocoding
 
-Was ist [Geocoding](https://de.wikipedia.org/w/index.php?title=Georeferenzierung)[^de.wikipedia.org/w/index.php?title=Georeferenzierung]? Geocoding bezeichnet die Umwandlung von Adressen wie _'Kirchstraße 13, 56571 Muster'_ in geografische Koordinaten wie _'50.423021 Breite'_ und _'7.083739 Länge'_. Nur so können Sie nämlich einen Marker auf einer Karte platzieren oder die Karte an einer bestimmten Adresse zentriert öffnen.
+Was ist [Geocoding](https://de.wikipedia.org/w/index.php?title=Georeferenzierung)[^de.wikipedia.org/w/index.php?title=georeferenzierung]? Geocoding bezeichnet die Umwandlung von Adressen wie _'Kirchstraße 13, 56571 Muster'_ in geografische Koordinaten wie _'50.423021 Breite'_ und _'7.083739 Länge'_. Nur so können Sie nämlich einen Marker auf einer Karte platzieren oder die Karte an einer bestimmten Adresse zentriert öffnen.
 
 > Nicht nur ESRI bietet Geocoding Dienste an. Auch OpenStreetMap bietet Ihnen diesen Service. [Nominatim](https://nominatim.openstreetmap.org)[^nominatim.openstreetmap.org] ist eine Anwendung, mithilfe derer OpenStreetMap Daten anhand von Texten durchsucht werden können. Diese Texte sind in der Regel eine Adresse oder ein Teil einer Adresse. Falls der Suchtext mit einer Eigenschaft eines OpenStreetMap-Objektes, übereinstimmt, wird die Koordinate zu diesem Objekt auf eine Suchanfrage hin zurückgegeben.
 
-> Da Nominatim auf OpenStreetMap Daten beruht, können Sie sich nicht darauf verlassen, dass alle Adressen eingetragen sind. OSM ist keine kommerzielle Firma, sondern ein Projekt das auf der Mitarbeit von Freiwilligen beruht. Dafür können Sie aber selbst Einfluss auf den Datenbestand nehmen. Bei OpenStreetMap kann jeder mitmachen: [http://wiki.openstreetmap.org/wiki/DE:Getting_Involved](http://wiki.openstreetmap.org/wiki/DE:Getting_Involved)[^wiki.openstreetmap.org/wiki/DE:Getting_Involved]. Ein Pluign, dass unter anderem Nominatim als Service nutze, ist das Plugin [Leaflet Control Geocoder](https://github.com/perliedman/leaflet-control-geocoder)[^github.com/perliedman/leaflet-control-geocoder]. Letzteres sehen wir uns im nächsten Kapitel an.
+> Da Nominatim auf OpenStreetMap Daten beruht, können Sie sich nicht darauf verlassen, dass alle Adressen eingetragen sind. OSM ist keine kommerzielle Firma, sondern ein Projekt das auf der Mitarbeit von Freiwilligen beruht. Dafür können Sie aber selbst Einfluss auf den Datenbestand nehmen. Bei OpenStreetMap kann jeder mitmachen: [http://wiki.openstreetmap.org/wiki/DE:Getting_Involved](http://wiki.openstreetmap.org/wiki/DE:Getting_Involved)[^wiki.openstreetmap.org/wiki/de:getting_involved]. Ein Pluign, dass unter anderem Nominatim als Service nutze, ist das Plugin [Leaflet Control Geocoder](https://github.com/perliedman/leaflet-control-geocoder)[^github.com/perliedman/leaflet-control-geocoder]. Letzteres sehen wir uns im nächsten Kapitel an.
 
-Ich zeige Ihnen in diesem Kapitel anhand des [ESRI Leaflet Geocoder Plugins](https://github.com/Esri/esri-leaflet-geocoder)[^github.com/Esri/esri-leaflet-geocoder] folgendes:
+Ich zeige Ihnen in diesem Kapitel anhand des [ESRI Leaflet Geocoder Plugins](https://github.com/Esri/esri-leaflet-geocoder)[^github.com/esri/esri-leaflet-geocoder] folgendes:
 
 - Ich zeige Ihnen, wie Sie eine Adresse in eine Koordinate umwandeln können.
 - Ich zeige Ihnen, wie Sie eine Koordinate in eine Adresse umwandeln können.
@@ -513,31 +509,30 @@ Sie zeigen eine Karte auf Ihrer Website an und möchten es anderen ermöglichen,
   <body>
     <div style="height: 300px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.97264, 7.00469], 12);
-      L.esri.basemapLayer("Gray").addTo(mymap);
-      var searchControl = L.esri.Geocoding.geosearch().addTo(mymap);
-      var results = L.layerGroup().addTo(mymap);
-      searchControl.on("results", function (data) {
-        results.clearLayers();
+      var mymap = L.map('mapid', {}).setView([50.97264, 7.00469], 12)
+      L.esri.basemapLayer('Gray').addTo(mymap)
+      var searchControl = L.esri.Geocoding.geosearch().addTo(mymap)
+      var results = L.layerGroup().addTo(mymap)
+      searchControl.on('results', function (data) {
+        results.clearLayers()
         for (var i = data.results.length - 1; i >= 0; i--) {
-          results.addLayer(L.marker(data.results[i].latlng));
+          results.addLayer(L.marker(data.results[i].latlng))
         }
-      });
+      })
     </script>
   </body>
 </html>
-
 ```
 
 Zur Darstellung des Textfeldes für die Eingabe der Adresse ist es notwendig zwei weitere Skripte einzubinden. Neben dem Skript `esri-leaflet.js` sollten Sie auch noch die Dateien `esri-leaflet-geocoder.css` und `esri-leaflet-geocoder.js` in Ihr HTML-Dokument einbinden. Die notwendigen Dateien hierfür finden Sie unter der Adresse https://github.com/Esri/esri-leaflet-geocoder. Als nächstes wird dann mit `var searchControl = L.esri.Geocoding.geosearch().addTo(mymap);` das Eingabefeld für die zu suchende Adresse erstellt und zur Karte hinzugefügt. Dieses Eingabefeld nennt Leaflet auch Control. Wir brauchen eine Ebene, die die Suchergebnisse richtig verarbeitet. Diese erstellen wir mit der Zeile `var results = L.layerGroup().addTo(mymap);`. Zum Schluss können wir dann das Ereignis `on("results")` des Objektes `searchControl` mit einer Funktion belegen.
 
 ```js
-searchControl.on('results', function(data) {
-results.clearLayers();
-for (var i = data.results.length - 1; i >= 0; i--) {
-results.addLayer(L.marker(data.results[i].latlng));
-}
-});
+searchControl.on('results', function (data) {
+  results.clearLayers()
+  for (var i = data.results.length - 1; i >= 0; i--) {
+    results.addLayer(L.marker(data.results[i].latlng))
+  }
+})
 ```
 
 Wenn es neue Suchergebnisse gibt, dann werden alle alten Suchergebnisse von der Ebene entfernt und die neuen Suchergebnisse als Marker auf der Ebene platziert.
@@ -568,27 +563,26 @@ Manchmal kommt es vor, dass Sie eine Karte schon an einer bestimmten Adresse zen
   <body>
     <div style="height: 300px" id="mapid"></div>
     <script>
-      var x = location.search;
-      var y = x.split("=");
-      var temp = y[1];
-      var address = decodeURIComponent(temp);
-      var mymap = L.map("mapid", {}).setView([50.97264, 7.00469], 3);
-      L.esri.basemapLayer("Gray").addTo(mymap);
+      var x = location.search
+      var y = x.split('=')
+      var temp = y[1]
+      var address = decodeURIComponent(temp)
+      var mymap = L.map('mapid', {}).setView([50.97264, 7.00469], 3)
+      L.esri.basemapLayer('Gray').addTo(mymap)
       L.esri.Geocoding.geocode()
         .text(address)
         .run(function (err, result, response) {
-          L.marker(result.results[0].latlng).addTo(mymap);
-          mymap.setView(result[0].latlng, 13);
-        });
+          L.marker(result.results[0].latlng).addTo(mymap)
+          mymap.setView(result[0].latlng, 13)
+        })
     </script>
   </body>
 </html>
-
 ```
 
-Was haben wir genau gemacht? Angenommen, wir haben in der Adresszeile des Browsers den Text `?test=56751 Gering` an die URL angefügt. Dieser Text würde im Beispiel als erstes in der Variablen `x` gespeichert. Hierzu wird die [Eigenschaft `location.search`](https://wiki.selfhtml.org/index.php?title=JavaScript/Location/search)[^wiki.selfhtml.org/index.php?title=JavaScript/Location/search] zu Hilfe genommen. Diese Eigenschaft speichert eine Zeichenkette die, durch ein Fragezeichen getrennt, zur aktuellen URL gehört. Die Variable `x` enthält also nun den Text `test=56729 Kehrig`. Diesen Text haben wir dann mithilfe von `x.split("=")` an der Position des Gleichheitszeichens getrennt und die beiden Teile als Array in der Variablen `y` gespeichert. Den Adressteil können wir nun über `y[1]` abrufen. Wir müssen die Adresse vor der Eingabe in eine Suchfunktion aber noch dekodieren. In der URL wurde diese nämlich kodiert. `var address = decodeURIComponent(temp)` macht aus `56729%20Kehrig` wieder `56729 Kehrig` und speichert den dekodierten Text in der Variablen `address` ab. Und diesen Text können wir nun als Suchtext in die Methode `text()` des Geocode Objektes eingeben und auf dem Ergebnis die Methode `run()` ausführen.
+Was haben wir genau gemacht? Angenommen, wir haben in der Adresszeile des Browsers den Text `?test=56751 Gering` an die URL angefügt. Dieser Text würde im Beispiel als erstes in der Variablen `x` gespeichert. Hierzu wird die [Eigenschaft `location.search`](https://wiki.selfhtml.org/index.php?title=JavaScript/Location/search)[^wiki.selfhtml.org/index.php?title=javascript/location/search] zu Hilfe genommen. Diese Eigenschaft speichert eine Zeichenkette die, durch ein Fragezeichen getrennt, zur aktuellen URL gehört. Die Variable `x` enthält also nun den Text `test=56729 Kehrig`. Diesen Text haben wir dann mithilfe von `x.split("=")` an der Position des Gleichheitszeichens getrennt und die beiden Teile als Array in der Variablen `y` gespeichert. Den Adressteil können wir nun über `y[1]` abrufen. Wir müssen die Adresse vor der Eingabe in eine Suchfunktion aber noch dekodieren. In der URL wurde diese nämlich kodiert. `var address = decodeURIComponent(temp)` macht aus `56729%20Kehrig` wieder `56729 Kehrig` und speichert den dekodierten Text in der Variablen `address` ab. Und diesen Text können wir nun als Suchtext in die Methode `text()` des Geocode Objektes eingeben und auf dem Ergebnis die Methode `run()` ausführen.
 
-> Weitere Informationen zu `decodeURIComponent()` finden Sie unter der Adresse [https://wiki.selfhtml.org/](https://wiki.selfhtml.org/index.php?title=JavaScript/decodeURIComponent)[^wiki.selfhtml.org/index.php?title=JavaScript/decodeURIComponent].
+> Weitere Informationen zu `decodeURIComponent()` finden Sie unter der Adresse [https://wiki.selfhtml.org/](https://wiki.selfhtml.org/index.php?title=JavaScript/decodeURIComponent)[^wiki.selfhtml.org/index.php?title=javascript/decodeuricomponent].
 
 ```js
 L.esri.Geocoding.geocode()
@@ -602,7 +596,7 @@ mymap.setView(result.results[0].latlng,13);
 });
 ```
 
-Die Rückruffunktion, die daraufhin ausgeführt wird, erstellt einen Marker für das erste Ergebnis und zentriert diesen Marker, bei einer Zoom-Stufe von 13, in der Karte. Eine [Rückruffunktion](https://de.wikipedia.org/w/index.php?title=R%C3%BCckruffunktion)[^de.wikipedia.org/w/index.php?title=R%C3%BCckruffunktion] ist eine Funktion, die einer anderen Funktion als Parameter übergeben und von dieser erst später, unter definierten Bedingungen mit definierten Argumenten, aufgerufen wird. Eine solche Funktion kennen Sie sicher auch unter dem englischen Namen `callback function`.
+Die Rückruffunktion, die daraufhin ausgeführt wird, erstellt einen Marker für das erste Ergebnis und zentriert diesen Marker, bei einer Zoom-Stufe von 13, in der Karte. Eine [Rückruffunktion](https://de.wikipedia.org/w/index.php?title=R%C3%BCckruffunktion)[^de.wikipedia.org/w/index.php?title=r%c3%bcckruffunktion] ist eine Funktion, die einer anderen Funktion als Parameter übergeben und von dieser erst später, unter definierten Bedingungen mit definierten Argumenten, aufgerufen wird. Eine solche Funktion kennen Sie sicher auch unter dem englischen Namen `callback function`.
 
 Möchten Sie die Suchanfrage genauer formulieren? Dann ersetzen Sie den Text
 
@@ -652,27 +646,26 @@ Umgekehrtes Geocoding ist die Bezeichnung für die Umwandlung geografischer Koor
   <body>
     <div style="height: 300px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.97264, 7.00469],
         12
-      );
-      L.esri.basemapLayer("Gray").addTo(mymap);
-      mymap.on("click", function (e) {
-        var r = L.marker();
+      )
+      L.esri.basemapLayer('Gray').addTo(mymap)
+      mymap.on('click', function (e) {
+        var r = L.marker()
         L.esri.Geocoding.reverseGeocode()
           .latlng(e.latlng)
           .run(function (error, result, response) {
-            mymap.removeLayer(r);
+            mymap.removeLayer(r)
             r = L.marker(result.latlng)
               .addTo(mymap)
               .bindPopup(result.address.Match_addr)
-              .openPopup();
-          });
-      });
+              .openPopup()
+          })
+      })
     </script>
   </body>
 </html>
-
 ```
 
 Das haben wir gemacht? Wir haben veranlasst, dass immer zu dem Zeitpunkt, zu dem jemand auf die Karte klickt, eine umgekehrte Geocoding Suche gestartet wird. Genau habe wir dies mit dem Programmcode, der in der Funktion `mymap.on('click', function(e){}` ausgeführt wird, erreicht. Gleichzeitig wird ein Marker an der Position, die angeklickt wurde, erstellt. Das Ergebnis der Suche – also die gefundene Adresse – wird schlussendlich als Text in einem Pop-up zum Marker angezeigt. Wie dieses Pop-up aussieht, können Sie sich in der nächsten Abbildung ansehen.
@@ -692,7 +685,7 @@ können Sie Funktionen über das Internet bereitstellen. Mit dem [Karten-Service
 
 #### Attribute
 
-So, nun kommen wir zum praktischen Beispiel. Wir konfigurieren eine Abfrage zum Filtern von Daten. Konkret verwenden wir Daten zur Bodengeologie, deren Daten über die Adresse [https://services.arcgis.com](https://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer)[^services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer (https://bit.ly/2WcQS20)] bereit gestellt werden.
+So, nun kommen wir zum praktischen Beispiel. Wir konfigurieren eine Abfrage zum Filtern von Daten. Konkret verwenden wir Daten zur Bodengeologie, deren Daten über die Adresse [https://services.arcgis.com](https://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer)[^services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer (t_beispieldateien_zum_)] bereit gestellt werden.
 
 ```html
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_935.html-->
@@ -748,29 +741,29 @@ So, nun kommen wir zum praktischen Beispiel. Wir konfigurieren eine Abfrage zum 
     </select>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 12);
-      L.esri.basemapLayer("Gray").addTo(mymap);
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 12)
+      L.esri.basemapLayer('Gray').addTo(mymap)
       var url =
-        "http://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer/0";
-      var bodengeologie = document.getElementById("bodengeologieID");
+        'http://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer/0'
+      var bodengeologie = document.getElementById('bodengeologieID')
       var bodengeologieLayer = L.esri
         .featureLayer({
           url: url,
         })
-        .addTo(mymap);
-      var popupTemplate = "<h3>Details:</h3>\n\
-PARAMADOTXT: {PARAMADOTXT}<br>";
+        .addTo(mymap)
+      var popupTemplate =
+        '<h3>Details:</h3>\n\
+PARAMADOTXT: {PARAMADOTXT}<br>'
       bodengeologieLayer.bindPopup(function (layer) {
-        console.log(layer.feature.properties);
-        return L.Util.template(popupTemplate, layer.feature.properties);
-      });
-      bodengeologie.addEventListener("change", function () {
-        bodengeologieLayer.setWhere(bodengeologie.value);
-      });
+        console.log(layer.feature.properties)
+        return L.Util.template(popupTemplate, layer.feature.properties)
+      })
+      bodengeologie.addEventListener('change', function () {
+        bodengeologieLayer.setWhere(bodengeologie.value)
+      })
     </script>
   </body>
 </html>
-
 ```
 
 Was macht der Programmcode in diesem Beispiel konkret. Zunächst wird mit dem Befehl `var bodengeologieLayer = L.esri.featureLayer({ url: url }).addTo(mymap);` ein `L.esri.featureLayer` Objekt erstellt und dieses zur Karte hinzugefügt. Der nächste Schritt ist das Filtern der Daten. Dies erreichen wir mit der Zeile `bodengeologieLayer.setWhere(bodengeologie.value);`, wichti ist der Einschub `setWhere`. Das Ergebnis sehen Sie in der nächsten Abbildung. Wenn Sie in der Auswahlliste den Eintrag _Schiefer_ auswählen, werden nur die Regionen in denen Schiefer vorkommt, auf der Karte als Bereich angezeigt.
@@ -796,39 +789,38 @@ Ein weiteres Merkmal, das auf Landkarten oft wichtig ist, ist die Entfernung zu 
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", {}).setView([50.27264, 7.26469], 12);
-      L.esri.basemapLayer("Gray").addTo(mymap);
+      var mymap = L.map('mapid', {}).setView([50.27264, 7.26469], 12)
+      L.esri.basemapLayer('Gray').addTo(mymap)
       var url =
-        "http://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer/0";
-      var bodengeologie = document.getElementById("bodengeologieID");
+        'http://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer/0'
+      var bodengeologie = document.getElementById('bodengeologieID')
       var bodengeologieLayer = L.esri
         .featureLayer({
           url: url,
         })
-        .addTo(mymap);
-      var nearbyIds = [];
-      mymap.on("click", function (e) {
+        .addTo(mymap)
+      var nearbyIds = []
+      mymap.on('click', function (e) {
         bodengeologieLayer
           .query()
           .nearby(e.latlng, 5000)
           .ids(function (error, ids) {
             for (var j = 0; j < nearbyIds.length; j++) {
               bodengeologieLayer.setFeatureStyle(nearbyIds[j], {
-                color: "#3388FF",
-              });
+                color: '#3388FF',
+              })
             }
-            nearbyIds = ids;
+            nearbyIds = ids
             for (var i = 0; i < ids.length; i++) {
               bodengeologieLayer.setFeatureStyle(ids[i], {
-                color: "#BA454E",
-              });
+                color: '#BA454E',
+              })
             }
-          });
-      });
+          })
+      })
     </script>
   </body>
 </html>
-
 ```
 
 Was passiert hier? Zunächst werden im Beispiel Bodengeologien mithilfe des Objektes `L.esri.featureLayer` zur Karte hinzugefügt. Soweit gibt es keinen Unterschied zum vorherigen Beispiel. Danach rufen wir die Funktion `nearby()` des [Objektes `L.esri.Query()`](https://esri.github.io/esri-leaflet/api-reference/tasks/query.html)[^esri.github.io/esri-leaflet/api-reference/tasks/query.html] für jeden Marker auf. Alle die Marker, die sich in einem Abstand von 5000 Metern befinden, werden im Anschluss rot (#BA454E) gefärbt. Alle anderen bekommen die Farbe Blau (#3388FF);

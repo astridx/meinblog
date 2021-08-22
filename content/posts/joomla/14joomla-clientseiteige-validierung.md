@@ -44,32 +44,29 @@ Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualt
 ```js {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t11b/src/media/com_foos/js/admin-foos-letter.js
 
-document.addEventListener('DOMContentLoaded', function(){
-	"use strict";
-	setTimeout(function() {
-		if (document.formvalidator) {
-			document.formvalidator.setHandler('letter', function (value) {
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict'
+  setTimeout(function () {
+    if (document.formvalidator) {
+      document.formvalidator.setHandler('letter', function (value) {
+        var returnedValue = false
 
-				var returnedValue = false;
+        var regex = /^([a-z]+)$/i
 
-				var regex = /^([a-z]+)$/i;
+        if (regex.test(value)) returnedValue = true
 
-				if (regex.test(value))
-					returnedValue = true;
-
-				return returnedValue;
-			});
-			//console.log(document.formvalidator);
-		}
-	}, (1000));
-});
-
+        return returnedValue
+      })
+      //console.log(document.formvalidator);
+    }
+  }, 1000)
+})
 ```
 
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
 
 Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein, damit Joomla weiß, das die Datei `joomla.asset.json` zur Erweiterung gehört und diese ins `media/com_foos` Verzeichnis kopiert. Die Datei legen wir später in diesem Teil an.
 
@@ -87,7 +84,7 @@ Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
 
 Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die JavaScript-Datei `media/com_foos/js/admin-foos-letter.js`, welche für das Prüfen zuständig ist, über den [Webasset-Manager](https://docs.joomla.org/J4.x:Web_Assets/de) anwendbar ist. Dazu werden wird sie später in diesem Kapitel über die Datei `joomla.asset.json` registrieren.
 
@@ -107,7 +104,7 @@ Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 Wir ergänzen `class="validate-letter"`, damit Joomla weiß, welche CSS-Klasse zu prüfen ist. Diese Klasse setzt Joomla beim Anlegen des Feldes. Überzeuge dich selbst davon, indem du das Formular im Backend öffnest und die den Quellcode ansiehst.
 

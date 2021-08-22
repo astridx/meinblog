@@ -17,11 +17,11 @@ Joomla is an open source content management system, CMS for short, for creating 
 
 A Joomla website requires a certain environment. A server must meet the [minimum requirements](https://downloads.joomla.org/technical-requirements)[^https://downloads.joomla.org/technical-requirements]<!-- \index{installation!minimum requirements} --> for a Joomla installation. In particular, look for supported MySQL or PostgreSQL database versions, PHP version and supported web servers. It is also important that your hosting account has access to the database, as well as access to the file system to upload and unpack the Joomla installation files.
 
-Joomla can also be installed on a local computer <!-- \index{installation!local} --> as long as it has the necessary requirements. For beginners, I recommend an easy-to-install distribution that contains Apache, MariaDB and PHP. For this purpose, [WAMP](https://www.wampserver.com/en/)[^wampserver.com/en/], [LAMP](https://en.wikipedia.org/wiki/LAMP_(software_bundle))[^en.wikipedia.org/wiki/LAMP_(software_bundle)] or [XAMP](https://www.apachefriends.org/index.html)[^apachefriends.org/index.html] come into question. A local installation is often used to learn the Joomla system and to develop new sites before they go live on the web.
+Joomla can also be installed on a local computer <!-- \index{installation!local} --> as long as it has the necessary requirements. For beginners, I recommend an easy-to-install distribution that contains Apache, MariaDB and PHP. For this purpose, [WAMP](https://www.wampserver.com/en/)[^wampserver.com/en/], [LAMP](<https://en.wikipedia.org/wiki/LAMP_(software_bundle)>)[^en.wikipedia.org/wiki/lamp_(software_bundle)] or [XAMP](https://www.apachefriends.org/index.html)[^apachefriends.org/index.html] come into question. A local installation is often used to learn the Joomla system and to develop new sites before they go live on the web.
 
 ## Cassiopeia
 
-Joomla 4 comes with a frontend template and an administrator template. The frontend template defines what the visitor sees. The administrator template works in the backend, the place where administrators create content, change settings, manage users, upload extensions for additional functions. 
+Joomla 4 comes with a frontend template and an administrator template. The frontend template defines what the visitor sees. The administrator template works in the backend, the place where administrators create content, change settings, manage users, upload extensions for additional functions.
 
 Cassiopeia is the front-end template. The Cassiopeia folder and the associated files are located in the Joomla 4 template directory. The Cassiopeia files contain the necessary program code and styles for an accessible and responsive website.
 
@@ -88,16 +88,15 @@ All styles that are used by default are contained in this file, including the `@
 
 ## What is SCSS or Sass?<!-- \index{SCSS!What is it?} --><!-- \index{Sass!What is it?} -->
 
-[What is SCSS or Sass](https://de.wikipedia.org/wiki/Sass_(stylesheet language))[^en.wikipedia.org/wiki/Sass_(stylesheet-language)]? Sass (stands for "Syntactically awesome style sheets") is an extension to CSS that allows you to use variables, nested rules, inline imports and more. As a CSS pre-processor, it helps organise code, allowing stylesheets to be created more quickly and clearly. Sass is compatible with all versions of CSS. SCSS is a special notation or syntax.
+[What is SCSS or Sass](https://de.wikipedia.org/wiki/Sass_(stylesheet language))[^en.wikipedia.org/wiki/sass_(stylesheet-language)]? Sass (stands for "Syntactically awesome style sheets") is an extension to CSS that allows you to use variables, nested rules, inline imports and more. As a CSS pre-processor, it helps organise code, allowing stylesheets to be created more quickly and clearly. Sass is compatible with all versions of CSS. SCSS is a special notation or syntax.
 
 ## What is Bootstrap?<!-- \index{Bootstrap!What is it?} -->
 
 Bootstrap 5 is a front-end web development tool that consists of CSS mixed with some JavaScript. It helps website developers build websites more responsive to different screen sizes. It also uses `@media` queries and utility classes.It was developed by web developers at Twitter to make designing for different screen sizes easier by using pre-built solutions and requiring less custom code.
 
-
 Bootstrap 5 uses a [12-way grid system](https://getbootstrap.com/docs/5.0/layout/grid/)[^getbootstrap.com/docs/5.0/layout/grid/] that can be _static_ or _fluid_. This means that the page either locks in at certain site widths or scales down with a fluid motion where all areas take up a percentage of the total width and scale down accordingly.
 
-Cassiopeia is designed for Bootstrap 5. If you don't know Bootstrap, it takes some time to get familiar with the framework.When Bootstrap is used correctly, it facilitates technically good design. Some people think that websites created with Bootstrap all look the same.  I think it's like everywhere else in life. Everything offers advantages and disadvantages and the middle is often the best.Those who are knowledgeable can take advantage of Bootstrap and still build a custom website. With less knowledge, Bootstrap helps to implement a website for all devices in a technically good and accessible way.
+Cassiopeia is designed for Bootstrap 5. If you don't know Bootstrap, it takes some time to get familiar with the framework.When Bootstrap is used correctly, it facilitates technically good design. Some people think that websites created with Bootstrap all look the same. I think it's like everywhere else in life. Everything offers advantages and disadvantages and the middle is often the best.Those who are knowledgeable can take advantage of Bootstrap and still build a custom website. With less knowledge, Bootstrap helps to implement a website for all devices in a technically good and accessible way.
 
 ## How does Cassiopeia use Bootstrap 5?
 
@@ -109,7 +108,7 @@ The static layout uses 12 columns and designs the website to have a _maximum_ wi
 
 ### Responsive: Fluid Layout<!-- \index{fluid!Layout} --><!-- \index{layout!fluid} -->
 
-The fluid system uses percentages instead of pixels for column widths. Elements of the class `.container-fluid` narrow proportionally as the width of the display device decreases.  The inner divisions within the website also decrease in width. For narrow devices, the subdivisions stack on top of each other. This all happens fluidly and changes constantly. This is optimal for many website. Graphic designers who are used to working with fixed paper sizes find this strange because positioning of images and hyphenation work differently.
+The fluid system uses percentages instead of pixels for column widths. Elements of the class `.container-fluid` narrow proportionally as the width of the display device decreases. The inner divisions within the website also decrease in width. For narrow devices, the subdivisions stack on top of each other. This all happens fluidly and changes constantly. This is optimal for many website. Graphic designers who are used to working with fixed paper sizes find this strange because positioning of images and hyphenation work differently.
 
 ### CSS Grid<!-- \index{CSS Grid!What is it?} -->
 

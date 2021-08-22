@@ -22,7 +22,7 @@ Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wic
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
+#### [administrator/components/ com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
 
 Hinzu kommt die Datei `config.xml`. Diese implementiert die Konfigurations-Parameter. In der XML-Datei kannst du wie gewohnt auf alle [Standard-Formular-Feldtypen](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/form_field/de] zurückgreifen oder analog des bereits erstellten Modalfeldes FieldFoo eigene Typen implementieren.
 
@@ -57,7 +57,7 @@ Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit min
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml` bei der Installation kopiert wird und Joomla so später auf sie zugreifen kann.
 
@@ -75,7 +75,7 @@ Die Ergänzung in der Datei `foos.xml` stellt sicher, dass die Datei `config.xml
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 Die Zeile `$toolbar->preferences('com_foos');` sorgt dafür, dass im Administrationsbereich recht oben die Schaltfäche `Optionen` eingefügt wird. So ist die Konfiguration später im Backend unkompliziert erreichbar.
 

@@ -22,7 +22,7 @@ Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zus
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-3e57cc7bb34afac7fa0d4cb5dd66d925bee34fc4e12f58b1a59f836362889c0d)
+#### [administrator/components/ com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-3e57cc7bb34afac7fa0d4cb5dd66d925bee34fc4e12f58b1a59f836362889c0d)
 
 In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
 
@@ -68,7 +68,7 @@ In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fes
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrationstemplate weiß, das und wie es das Dashboard verlinkt.
 
@@ -110,7 +110,7 @@ Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrations
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
 
 Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-eigene Funktion auf die unsere Dashboard im CMS bekannt macht.
 
@@ -121,7 +121,7 @@ Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-
  use Joomla\CMS\Log\Log;
  use Joomla\CMS\Table\Table;
 +use Joomla\CMS\Installer\InstallerScript;
- 
+
  /**
   * Script file of Foo Component
   *
@@ -135,16 +135,16 @@ Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-
  public function install($parent): bool
  			return false;
  		}
- 
+
 +		$this->addDashboardMenu('foos', 'foos');
 +
  		return true;
  	}
- 
+
  public function update($parent): bool
  	{
  		echo Text::_('COM_FOOS_INSTALLERSCRIPT_UPDATE');
- 
+
 +		$this->addDashboardMenu('foo', 'foo');
 +
  		return true;

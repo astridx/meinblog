@@ -22,9 +22,9 @@ Your view in the administration area usually does not contain only static text. 
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
 
-We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest. 
+We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest.
 
 Besides the `id`, which we use to make the element uniquely findable and the name `name`, which is optional and names the item in our extension, there is the alias `alias`. The latter prepares the data for routing, among other things. Imagine a system URL like `http://www.example.com/index.php?option=com_foos&view=foo&id=1`. This is not very readable for humans. Machines like search engines also process such a URL poorly. A textual description is mandatory. In Joomla this is done with the help of the alias. This can be defined by the user. So that the text for the URL contains only valid characters, there are automatic processes in the background processing of Joomla.<!-- \index{alias} --><!-- \index{Search Engine Friendly (SEF)!alias} -->
 
@@ -51,7 +51,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 > Read in the preface of this tutorial what exactly the prefix `#__` means, if you are unfamiliar with it.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
+#### [administrator/components/ com\_foos/ sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
 
 So that Joomla does not contain unnecessary data in case of uninstallation, we simultaneously create a file that contains the SQL command to delete the database table. This automatically executed when uninstalling.
 
@@ -66,7 +66,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 > You might think ahead and ask yourself already how to handle potential future database changes. What is needed to store the first name in addition to the name in a future version. SQL updates are name-based in Joomla. This means exactly: For each version of the component you have to create a file whose name consists of the version number and the file extension `.sql` in case database contents change. Practically you will experience this in the further course of this tutorial.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### [administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 Next, we create a _Model_ for the administration area. Since we are extending the `ListModel` class, we do not need to take care of the connection to the database ourselves. We create the `getListQuery()` method and specify our specific requirements here. Specific are for example the name of the database table and the column.
 
@@ -142,7 +142,7 @@ class FoosModel extends ListModel
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 The entry in the installation manifest marked with a plus sign causes the SQL statements in the named files to be called at the right moment, either during an installation or during an uninstallation..
 
@@ -200,7 +200,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
 Previously it was not necessary to set the `MVC factory` in `provider.php`, now it is required. Otherwise you will see the following error message or you will be forced to program the connection to the database yourself: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{service!provider} -->
 
@@ -225,7 +225,7 @@ Previously it was not necessary to set the `MVC factory` in `provider.php`, now 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250)
 
 In the view we get the items at the end. For this we call the method `$this->get('Items')` in the model:
 
@@ -252,7 +252,7 @@ In the view we get the items at the end. For this we call the method `$this->get
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
 
 Last but not least, we display everything using the template file. Instead of the static text `Hello Foos` there is now a loop that goes through all elements.
 

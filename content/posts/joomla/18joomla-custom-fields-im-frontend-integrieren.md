@@ -32,21 +32,21 @@ Eigene Felder zeigen im Frontend Daten mithilfe von Ereignisse an. Die benutzerd
 
 Konkret sorgen wir dafür, dass die Ereignisse<!-- \index{Ereignis!onContentAfterDisplay} --><!-- \index{Ereignis!onContentBeforeDisplay} --><!-- \index{Ereignis!onContentAfterTitle} --><!-- \index{Event!onContentAfterDisplay} --><!-- \index{Event!onContentBeforeDisplay} --><!-- \index{Event!onContentAfterTitle} -->
 
-- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/Plugin/Events/Content#onContentAfterTitle],
-- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay] und
-- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay]
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/plugin/events/content#oncontentaftertitle],
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/plugin/events/content#oncontentbeforedisplay] und
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/plugin/events/content#oncontentafterdisplay]
   ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
-> Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster))[^de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen, die Beobachter genannt werden, unterhält und diese automatisch über Zustandsänderungen benachrichtigt, normalerweise durch den Aufruf einer ihrer Methoden.<!-- \index{Entwurfsmuster!Beobachter} -->
+> Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](<https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/beobachter_(entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen, die Beobachter genannt werden, unterhält und diese automatisch über Zustandsänderungen benachrichtigt, normalerweise durch den Aufruf einer ihrer Methoden.<!-- \index{Entwurfsmuster!Beobachter} -->
 
 [components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
- 
+
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 +use Joomla\CMS\Factory;
- 
+
  /**
   * HTML Foos View class for the Foo component
  class HtmlView extends BaseHtmlView
@@ -68,7 +68,7 @@ Konkret sorgen wir dafür, dass die Ereignisse<!-- \index{Ereignis!onContentAfte
 +
 +		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', ['com_foos.foo', &$item, &$item->params]);
 +		$item->event->afterDisplayContent = trim(implode("\n", $results));
- 
+
  		return parent::display($tpl);
  	}
 ```
@@ -84,7 +84,7 @@ Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht u
 
 ```php {diff}
  }
- 
+
  echo $this->item->name;
 +
 +echo $this->item->event->afterDisplayTitle;

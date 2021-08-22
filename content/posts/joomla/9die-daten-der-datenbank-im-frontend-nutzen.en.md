@@ -22,7 +22,7 @@ We have a database where the data about the component is stored. The next step i
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
+#### [administrator/components/ com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
 
 First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods `getInput` and `getLabel` and we set the type to `Modal_Foo`. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.
 
@@ -224,7 +224,7 @@ class FooField extends FormField
 > The programme code for the form field is adapted to [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)[^getbootstrap.com]. This framework was integrated into Joomla in the [pull request 32037](https://github.com/joomla/joomla-cms/pull/32037)[^github.com/joomla/joomla-cms/pull/32037].
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
+#### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
 We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
@@ -393,7 +393,7 @@ The following is the JavaScript code that causes a foo element to be selectable 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
 
 We have created a new JavaScript file. We place it in the `media\js` directory. So that it is copied when the component is installed, we add the `js` folder in the section `media` of the installation manifest.
 

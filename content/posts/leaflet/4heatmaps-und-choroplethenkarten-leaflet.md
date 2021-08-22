@@ -20,21 +20,21 @@ In diesem Kapitel werden wir nicht nur einfach Elemente auf die Karte zeichnen. 
 
 ## Heatmaps
 
-[Heatmaps](https://de.wikipedia.org/w/index.php?title=Heatmap)[^de.wikipedia.org/w/index.php?title=Heatmap] kennen wir im Deutschen auch unter dem Namen Wärmebild.
+[Heatmaps](https://de.wikipedia.org/w/index.php?title=Heatmap)[^de.wikipedia.org/w/index.php?title=heatmap] kennen wir im Deutschen auch unter dem Namen Wärmebild.
 
 ### Was ist eine Heatmap?
 
 Eine Heatmap ist im Grunde genommen ein Diagramm, mit dem Daten visualisiert werden. Diese Visualisierung dient dazu, in einer großen Datenmenge intuitiv und schnell einen Überblick zu bekommen. In der grafischen Darstellung kristallisieren sich besonders markante Werte oft schnell heraus. Heatmaps färben Bereich unterschiedlich, wenn die _Intensität_ oder die _Dichte_ des untersuchten Objektes unterschiedlich ist.
 
-> Möchten Sie gerne wissen, wie die Darstellung einer Heatmap technisch umgesetzt wird? Vereinfacht ausgedrückt wird zunächst ein Gitternetz über die Karte gelegt. Im nächsten Schritt wird die Anzahl der Punkte in jedem Bereich des Gitternetzes gezählt. Je nach Punktanzahl wird zum Schluss die Anzeige angepasst. Ist in einem Bereich kein Punkt vorhanden, wird dieser Bereich nicht mit Farbe gefüllt. Bei den anderen Bereichen wird je nach Anzahl der Punkte die passende Farbe im Bereich eingeblendet. Dieses Verfahren nennt man Multivariate Kerndichte Schätzung (englisch: Multivariate kernel density estimation). Detaillierter können Sie dies beispielsweise bei [Wikipedia](https://de.wikipedia.org/w/index.php?title=Kerndichtesch%C3%A4tzer)[^de.wikipedia.org/w/index.php?title=Kerndichtesch%C3%A4tzer] nachlesen.
+> Möchten Sie gerne wissen, wie die Darstellung einer Heatmap technisch umgesetzt wird? Vereinfacht ausgedrückt wird zunächst ein Gitternetz über die Karte gelegt. Im nächsten Schritt wird die Anzahl der Punkte in jedem Bereich des Gitternetzes gezählt. Je nach Punktanzahl wird zum Schluss die Anzeige angepasst. Ist in einem Bereich kein Punkt vorhanden, wird dieser Bereich nicht mit Farbe gefüllt. Bei den anderen Bereichen wird je nach Anzahl der Punkte die passende Farbe im Bereich eingeblendet. Dieses Verfahren nennt man Multivariate Kerndichte Schätzung (englisch: Multivariate kernel density estimation). Detaillierter können Sie dies beispielsweise bei [Wikipedia](https://de.wikipedia.org/w/index.php?title=Kerndichtesch%C3%A4tzer)[^de.wikipedia.org/w/index.php?title=kerndichtesch%c3%a4tzer] nachlesen.
 
 ![(By Drleft (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons)](/images/946.png)
 
-Meist werden bei geringer Intensität oder geringer Dichte kalte Farben verwendet. Bei einem hohen Aufkommen wird der Bereich mit warmen Farben eingefärbt. Dies erklärt auch den Namen Heatmap – der englische Begriff für Hitze ist _heat_. Blau gilt als [kalte Farbe](https://de.wikipedia.org/w/index.php?title=Kalte_Farbe)[^de.wikipedia.org/w/index.php?title=Kalte_Farbe], Rot, Orange und Gelb gelten als [warme Farben](https://de.wikipedia.org/w/index.php?title=Warme_Farbe)[^de.wikipedia.org/w/index.php?title=Warme_Farbe].
+Meist werden bei geringer Intensität oder geringer Dichte kalte Farben verwendet. Bei einem hohen Aufkommen wird der Bereich mit warmen Farben eingefärbt. Dies erklärt auch den Namen Heatmap – der englische Begriff für Hitze ist _heat_. Blau gilt als [kalte Farbe](https://de.wikipedia.org/w/index.php?title=Kalte_Farbe)[^de.wikipedia.org/w/index.php?title=kalte_farbe], Rot, Orange und Gelb gelten als [warme Farben](https://de.wikipedia.org/w/index.php?title=Warme_Farbe)[^de.wikipedia.org/w/index.php?title=warme_farbe].
 
 ### Heatmaps in Leaflet – Dichte
 
-Unser erstes Beispiel zeigt eine Heatmap, die die unterschiedliche Dichte von Punkten sichtbar macht. Die Funktionen zum Anzeigen einer Heatmap werden nicht im Standardumfang von Leaflet mitgeliefert. Es handelt sich hierbei um eine besondere Funktion, die im Normalfall nicht zur Darstellung einer digitalen Karte benötigt wird. Leaflet selbst konzentriert sich auf die Anwendungsfälle, die üblicherweise beim Anzeigen einer Karte benötigt werden – ist aber offen für Plugins. Eines dieser Plugins ist [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/Leaflet/Leaflet.heat].
+Unser erstes Beispiel zeigt eine Heatmap, die die unterschiedliche Dichte von Punkten sichtbar macht. Die Funktionen zum Anzeigen einer Heatmap werden nicht im Standardumfang von Leaflet mitgeliefert. Es handelt sich hierbei um eine besondere Funktion, die im Normalfall nicht zur Darstellung einer digitalen Karte benötigt wird. Leaflet selbst konzentriert sich auf die Anwendungsfälle, die üblicherweise beim Anzeigen einer Karte benötigt werden – ist aber offen für Plugins. Eines dieser Plugins ist [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/leaflet/leaflet.heat].
 
 > Weitere Plugins, mit denen Sie Wärmeabbildungen oder ähnliche Visualisierungen aus Vektordaten erstellen können, finden Sie auf der Website von Leaflet im Bereich Plugins: [http://leafletjs.com/plugins.html#heatmaps](http://leafletjs.com/plugins.html#heatmaps)[^leafletjs.com/plugins.html#heatmaps].
 
@@ -74,7 +74,6 @@ Nachfolgende finden Sie das erste Beispiel für diesen Themenbereich.
     </script>
   </body>
 </html>
-
 ```
 
 Was zeigt Ihnen dieses Beispiel? Als Erstes haben wir die Skript-Datei zum Plugin mit `<script src="leaflet-heat.js"></script>` eingebunden. Ich hatte die Datei von der oben verlinkten Website kopiert und unter dem Namen `leaflet-heat.js` im gleichen Verzeichnis wie die Datei `index.html` abgelegt. Danach habe ich eine Variable mit dem Namen `points` vom Typ `Array` erstellt. In dieser Variablen habe ich 700 Koordinaten gespeichert. Zu guter Letzt habe ich ein Objekt der Klasse `L.heatLayer` instanziiert und diesem die Koordinaten in der Variablen `points` und einige Optionen übergeben.
@@ -83,7 +82,7 @@ Der Dritte Wert bei der Übergabe der Koordinaten steht für die Intensität.
 
 ```js
 var points = [
-[50.1555 , 7.591838 , ->0.2<-], 
+[50.1555 , 7.591838 , ->0.2<-],
 …
 ```
 
@@ -95,13 +94,13 @@ Das Ergebnis sehen Sie im nachfolgenden Bild. Da wir noch nichts gestaltet haben
 
 #### Stile und Optionen
 
-Das [Plugin Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/Leaflet/Leaflet.heat] erlaubt es Ihnen Parameter zu übergeben. Dabei haben Sie folgende Möglichkeiten:
+Das [Plugin Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/leaflet/leaflet.heat] erlaubt es Ihnen Parameter zu übergeben. Dabei haben Sie folgende Möglichkeiten:
 
 - `minOpacity:` Die Option `minOpacity` gibt die minimale Dichte an, ab der die Anzeige beginnt.
 - `maxZoom:` Die Opiton `maxZoom` sollte auf die Zoomstufe gesetzt werden, bei der die Punkte die maximale Intensität erreichen. Als Standard wird der Wert, der für `maxZoom` in der Karte gesetzt ist, verwendet. Auf die Darstellung der Heatmap Ebene hat diese Option keine Auswirkungen. Sie sollten den Wert so setzten, dass Ihre Karte die beste Aussagekraft hat. Wenn der Wert zu hoch ist, kann es sein, dass die Punkte so weit auseinander liegen, dass der dichteste Bereich nicht mehr deutlich erkennbar ist. Setzen Sie den Wert zu niedrig an, kann man die Daten vielleicht nicht mehr zusammenhängend im Überblick sehen.
-- `max:`  Der Standardwert der maximalen Punktintensität ist 1.0.
+- `max:` Der Standardwert der maximalen Punktintensität ist 1.0.
 - `radius:` Diese Option erklärt sich meiner Meinung nach von selbst. Mit dem Wert `radius` geben Sie die Größe an, in der die Punkte angezeigt werden sollen. 25 ist der Standardwert.
-- `blur:`  Mit der Option `blur` können Sie die Schärfe beeinflussen. Der Wert bestimmt, wie viele Punkte zusammen gefasst werden. Ein niedriger `blur` Wert erzeugt einzelne Punkte, wohingegen ein hoher Wert Punkte zusammenfasst. Standardmäßig ist der Wert auf 15 festgesetzt.
+- `blur:` Mit der Option `blur` können Sie die Schärfe beeinflussen. Der Wert bestimmt, wie viele Punkte zusammen gefasst werden. Ein niedriger `blur` Wert erzeugt einzelne Punkte, wohingegen ein hoher Wert Punkte zusammenfasst. Standardmäßig ist der Wert auf 15 festgesetzt.
 - `gradient:` Die Option `gradient` steht für die Konfiguration des Farbverlaufs. Standardwert ist `{0.4: 'blue', 0.65: 'lime', 1: 'red'}`. Sie können beliebig viele Werte zwischen 0 und 1 zwischen den Klammern angeben. Die Farbe, die am Rand angezeigt werden soll, sollten Sie mit dem niedrigen Wert angeben. Der Rand ist der Bereich in dem die Punkte nicht dicht beieinander sind. Die Farbe, die im Zentrum zu sehen sein soll, geben Sie idealerweise nahe beim Wert 1 an. Das Zentrum ist der Bereich in dem die Punkte am dichtesten beieinander liegen.
 
 ##### Nachfolgend sehen Sie einen Vergleich einer Ansichten mit unterschiedlichen Werten für die Optionen blur, gradient und maxZoom
@@ -166,14 +165,13 @@ Mithilfe der Methode `addLatLng()` können Sie nachträglich einen Punkt zum Hea
     </script>
   </body>
 </html>
-
 ```
 
 In der nächsten Abbildung können Sie den neu hinzugefügten Punkt erkennen.
 
 ![Heatmap mit einem mithilfe der Methode `addLatLng` hinzugefügten Punkt.](/images/979.png)
 
-> Möchten Sie es Website Besuchern ermöglichen selbst Punkte zur Heatmap auf ihrer Karte hinzuzufügen? Eine Demo auf der Website zum Plugin zeigt genau solch ein Beispiel: [http://leaflet.github.io/Leaflet.heat/demo/draw.html](http://leaflet.github.io/Leaflet.heat/demo/draw.html)[^leaflet.github.io/Leaflet.heat/demo/draw.html]
+> Möchten Sie es Website Besuchern ermöglichen selbst Punkte zur Heatmap auf ihrer Karte hinzuzufügen? Eine Demo auf der Website zum Plugin zeigt genau solch ein Beispiel: [http://leaflet.github.io/Leaflet.heat/demo/draw.html](http://leaflet.github.io/Leaflet.heat/demo/draw.html)[^leaflet.github.io/leaflet.heat/demo/draw.html]
 
 ##### Die Methoden addLatLng(), addLatLngs() und setOptions() der Klasse L.heatLayer zusammen in einem Beispiel
 
@@ -234,7 +232,6 @@ In diesem Kapitel stelle ich Ihnen ein Beispiel vor, das per Schaltfläche die v
     </script>
   </body>
 </html>
-
 ```
 
 Was passiert genau in diesem Beispiel? Zunächst fügen wir vier Schaltflächen in das HTML-Dokument ein. Jede Schaltfläche führt eine der Methoden `add()`, `newPoint()`, `reset()` oder `setOptions()` der Klasse L.heatLayer aus, wenn sie angeklickt wird.
@@ -295,7 +292,6 @@ Im nächsten Beispiel zeige ich Ihnen, wie Sie zu jedem Punkt in einer Heatmap e
     </script>
   </body>
 </html>
-
 ```
 
 Was ist in diesem Beispiel anders? Wir haben der Variablen `point` einen dritten Wert mitgegeben. Dieser dritte Wert beschreibt die Adresse zu einem Image. Dies hätte aber auch ein gewöhnlicher Text sein können. Diesen dritten Wert haben wir dann in der Methode `bindPopup(points[i][2],{keepInView)` dazu genutzt, einen individuellen Marker zu kreieren. So wie in der nächsten Abbildung könnte die fertige Karte auch bei Ihnen aussehen.
@@ -304,7 +300,7 @@ Was ist in diesem Beispiel anders? Wir haben der Variablen `point` einen dritten
 
 ### Heatmaps mit Leaflet – Intensität
 
-Im vorhergehenden Kapitel haben wir eine Heatmap mithilfe des Plugins [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/Leaflet/Leaflet.heat] erstellt. Diese Heatmap hat die Dichte von Punkten auf einer Karte visualisierte. Wir haben bisher die Möglichkeit die Intensität zu visualisieren nicht genutzt. Ich stelle Ihnen hier ein anderes Plugin für diesen Zweck vor. Als nächstes möchte ich nun mit Ihnen eine Heatmap, die die Intensität der Eigenschaft eines Punktes darstellt, mithilfe des Plugins [heatmap.js](https://github.com/pa7/heatmap.js)[^github.com/pa7/heatmap.js] erarbeiten. Herunterladen können Sie das Plugin unter der Adresse [https://www.patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html](https://www.patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html)[^patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html]. Hier finden Sie auch die Dokumentation zum Plugin. Nachfolgende sehen Sie das erste Beispiel.
+Im vorhergehenden Kapitel haben wir eine Heatmap mithilfe des Plugins [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/leaflet/leaflet.heat] erstellt. Diese Heatmap hat die Dichte von Punkten auf einer Karte visualisierte. Wir haben bisher die Möglichkeit die Intensität zu visualisieren nicht genutzt. Ich stelle Ihnen hier ein anderes Plugin für diesen Zweck vor. Als nächstes möchte ich nun mit Ihnen eine Heatmap, die die Intensität der Eigenschaft eines Punktes darstellt, mithilfe des Plugins [heatmap.js](https://github.com/pa7/heatmap.js)[^github.com/pa7/heatmap.js] erarbeiten. Herunterladen können Sie das Plugin unter der Adresse [https://www.patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html](https://www.patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html)[^patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html]. Hier finden Sie auch die Dokumentation zum Plugin. Nachfolgende sehen Sie das erste Beispiel.
 
 ```html
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_961.html-->
@@ -350,7 +346,6 @@ Im vorhergehenden Kapitel haben wir eine Heatmap mithilfe des Plugins [Leaflet.h
     </script>
   </body>
 </html>
-
 ```
 
 Was zeigt Ihnen dieses Beispiel genau? Sie sehen, dass Sie neben dem Skript `leaflet.heat.js` auch das Skript `heat.js` einbinden können oder müssen. Als nächstes müssen Sie die Daten, die Sie visualisieren möchten, angeben – diese müssen eine Angabe zu dem maximal möglichen Wert enthalten: `var myData={`**`max:100`**`, data: [ {lat: 51.0934, lon:8.666819, value: 99} ….`. Danach können Sie die Heatmap Ebene erstellen. Der Übersicht halber habe ich die Optionen der Heatmap Ebene in einer separaten Variablen, nämlich der Variablen `cfg`, definiert. Die Anweisung zum Erstellen der Heatmap Ebene mit den Optionen in der Variablen `cfg` lautet `var heatmapLayer = new HeatmapOverlay(cfg);`. Dieser Ebene können Sie nun die Daten mit dem Befehl `heatmapLayer.setData(myData);` hinzufügen. Zum Schluss fügen Sie diesen Layer nun zum Kartenobjekt hinzu. Die Anweisung hierfür lautet: `L.Map('mapid', { center: new L.LatLng(50.0586, 7.6568),` `zoom: 8, layers: [baseLayer,`**`heatmapLayer`**`]});`.
@@ -421,7 +416,6 @@ Das nachfolgende Beispiel demonstriert Ihnen, wie unterschiedlich Punkte mit unt
     </script>
   </body>
 </html>
-
 ```
 
 Im vorhergehen Codebeispiel haben wir 4 Punkte mit unterschiedlicher Intensität zur Karte hinzugefügt. Die Werte für die Intensität betragen 99, 60, 40 und 20 bei einem maximalen Wert von 100. In der nachfolgenden Abbildung sehen Sie die unterschiedliche Darstellung auf der Karte.
@@ -447,27 +441,26 @@ Besonders spannend sind Karten, wenn wenn man sie bearbeiten und somit veränder
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [50.1555, 7.591838],
         15
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
-      var points = [];
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
+      var points = []
       var heat = L.heatLayer(points, {
         blur: 15,
         maxZoom: 15,
         max: 1.0,
         radius: 25,
-        gradient: { 0.4: "blue", 0.65: "lime", 1: "red" },
-      }).addTo(mymap);
+        gradient: { 0.4: 'blue', 0.65: 'lime', 1: 'red' },
+      }).addTo(mymap)
       function addpoint(e) {
-        heat.addLatLng(e.latlng);
+        heat.addLatLng(e.latlng)
       }
-      mymap.on("click", addpoint);
+      mymap.on('click', addpoint)
     </script>
   </body>
 </html>
-
 ```
 
 Was haben wir genau gemacht? Als erstes haben wir mit der Zeile `<script src="leaflet-heat.js"></script>` das Plugin `leaflet.heat` eingebunden. In diesem konkreten Beispiel ist es wichtig, dass ein Doppelklick keine Änderung der Zoom-Stufen auf der Karte auslöst. Deshalb stellen wir sicher, dass jemand nicht versehentlich zu schnell klickt und ungewollt die Zoom-Stufe ändert, obwohl er eigentlich zwei Punkte hinzufügen möchte. Dies verhindern wir, indem wir die Option `doubleClickZoom` auf `false` setzen. Zu Beginn sollen in unserem Beispiel noch keine Daten auf der Karte angezeigt werden. Deshalb haben wir zunächst einen leeren Datensatz mit `var points = [];` erstellt. Diesen leeren Datensatz geben wir einem `L.heatLayer` Objekt bei der Instanziierung als Parameter mit: `var heat = L.heatLayer(points, {…}`. Nun fehlt noch die Methode, mit der ein Punkt hinzugefügt wird. Diese Methode ist mit der Anweisung `function addpoint(e){ heat.addLatLng(e.latlng); }` schnell erstellt. Und `mymap.on('click', addpoint);` bewirkt, dass diese auch ausgeführt wird, wenn jemand auf die Karte klickt.
@@ -541,12 +534,11 @@ Das ist fast wie Kino – im nächsten Beispiel verändert sich die Karte automa
     </script>
   </body>
 </html>
-
 ```
 
 Wie entsteht die Animation im Beispiel genau? Als erstes integrieren wir wieder die notwendigen Skripte. Danach erstellen wir die vier Daten-Arrays und nennen diese `points`, `points1`, `points2` und `points3`. Jedes Array enthält unterschiedliche Daten. Mit dem ersten leeren Array erstellen wir die Schicht mit den Daten für die Heatmap - also das Objekt des Typs `heatLayer`. Die Hilfsvariable `x` in Verbindung mit der Methode `setIntervall()` ermöglicht es uns dann, die Heatmap Ebenen fortlaufend mit anderen Daten zu belegen und somit andere Daten anzuzeigen.
 
-> In diesem Beispiel habe ich zwei JavaScript Elemente verwendet, die vielleicht erklärungsbedürftig sind. Als erstes habe ich den Variablennamen mit `window[name]` zusammengesetzt. Was bedeutet dies genau? Da es sich um JavaScript Objekte handelt, wird jede Variable in einem globalen JavaScript Object gespeichert. Wenn Sie also die Variable `points1` im globalen Bereich initialisieren – also nicht in einem Funktionskontext –, dann schreiben Sie diese Variablen implizit in ein globales Objekt. In einem Browser ist dies das [Objekt `window`](https://developer.mozilla.org/de/docs/Web/API/Window)[^developer.mozilla.org/de/docs/Web/API/Window]. Der Wert dieser Variablen kann mit der Punkt Notation oder der Klammer Notation abgerufen werden. Also entweder mit var `name = window.points1;` oder mit `var name = window['points1'];`. Außerdem haben wir die [Methode `setInterval()`](https://developer.mozilla.org/de/docs/Web/API/WindowTimers/setInterval)[^developer.mozilla.org/de/docs/Web/API/WindowTimers/setInterval] eingesetzt. Mit dieser Methode können Sie eine Funktion wiederholt aufrufen. Hierbei können Sie ein Intervall zwischen den einzelnen Aufrufen definieren.
+> In diesem Beispiel habe ich zwei JavaScript Elemente verwendet, die vielleicht erklärungsbedürftig sind. Als erstes habe ich den Variablennamen mit `window[name]` zusammengesetzt. Was bedeutet dies genau? Da es sich um JavaScript Objekte handelt, wird jede Variable in einem globalen JavaScript Object gespeichert. Wenn Sie also die Variable `points1` im globalen Bereich initialisieren – also nicht in einem Funktionskontext –, dann schreiben Sie diese Variablen implizit in ein globales Objekt. In einem Browser ist dies das [Objekt `window`](https://developer.mozilla.org/de/docs/Web/API/Window)[^developer.mozilla.org/de/docs/web/api/window]. Der Wert dieser Variablen kann mit der Punkt Notation oder der Klammer Notation abgerufen werden. Also entweder mit var `name = window.points1;` oder mit `var name = window['points1'];`. Außerdem haben wir die [Methode `setInterval()`](https://developer.mozilla.org/de/docs/Web/API/WindowTimers/setInterval)[^developer.mozilla.org/de/docs/web/api/windowtimers/setinterval] eingesetzt. Mit dieser Methode können Sie eine Funktion wiederholt aufrufen. Hierbei können Sie ein Intervall zwischen den einzelnen Aufrufen definieren.
 
 So wie im nachfolgenden Bild sieht die Karte nur alle 6 Sekunden aus. In der Zwischenzeit wechselt die Ansicht zweimal.
 
@@ -556,7 +548,7 @@ So wie im nachfolgenden Bild sieht die Karte nur alle 6 Sekunden aus. In der Zwi
 
 Im vorherigen Kapitel haben wir eine Heatmap zum visualisieren von Daten verwendet. Wir haben zunächst mithilfe des Plugin `leaflet.heat` Bereiche, in denen Punkte dichter vorkommen, farblich hervorgehoben. Dann haben wir zusätzlich das Plugin `heat.js` geladen und Bereiche, in denen die Punkte eine hohe Intensität haben, farblich besonders markiert.
 
-Eine [Choroplethenkarte](https://de.wikipedia.org/w/index.php?title=Choroplethenkarte)[^de.wikipedia.org/w/index.php?title=Choroplethenkarte]
+Eine [Choroplethenkarte](https://de.wikipedia.org/w/index.php?title=Choroplethenkarte)[^de.wikipedia.org/w/index.php?title=choroplethenkarte]
 macht erst einmal nichts anderes. Sie visualisiert die Dichte oder die Intensität bestimmter Objekte. Sie tut dies aber auf eine andere Art und Weise als die Heatmap.
 
 ### Was genau unterscheidet eine Choroplethenkarte von einer Heatmap?
@@ -571,7 +563,7 @@ Schön ist, dass wir mit Leaflet keine zusätzlichen Plugins für das Erstellen 
 
 Wenn Sie nicht selbst über Daten verfügen, können sie auf jede Menge offener Data zugreifen.
 
-> [Open Data](https://de.wikipedia.org/w/index.php?title=Open_Data)[^de.wikipedia.org/w/index.php?title=Open_Data], also offene Daten, sind Daten, die von jedem ohne jegliche Einschränkungen verwendet und weitergegeben werden dürfen. Warum gibt es Open Data? Viele Menschen vertreten die Meinung, dass frei nutzbare Daten zu mehr Transparenz und Zusammenarbeit führen. Die Bereitstellung offener Daten durch öffentliche Einrichtungen wird als eine Voraussetzung für [Open Government](https://de.wikipedia.org/w/index.php?title=Open_Government)[^de.wikipedia.org/w/index.php?title=Open_Government], also der Öffnung von Regierung und Verwaltung gegenüber der Bevölkerung und der Wirtschaft, angesehen. Die Befürworter von Open Data teilen somit viele Argumente mit den Befürwortern von [Open-Source](https://de.wikipedia.org/w/index.php?title=Open_Source)[^de.wikipedia.org/w/index.php?title=Open_Source]. Open Data und Leaflet als Open Source Software passen gut zusammen.
+> [Open Data](https://de.wikipedia.org/w/index.php?title=Open_Data)[^de.wikipedia.org/w/index.php?title=open_data], also offene Daten, sind Daten, die von jedem ohne jegliche Einschränkungen verwendet und weitergegeben werden dürfen. Warum gibt es Open Data? Viele Menschen vertreten die Meinung, dass frei nutzbare Daten zu mehr Transparenz und Zusammenarbeit führen. Die Bereitstellung offener Daten durch öffentliche Einrichtungen wird als eine Voraussetzung für [Open Government](https://de.wikipedia.org/w/index.php?title=Open_Government)[^de.wikipedia.org/w/index.php?title=open_government], also der Öffnung von Regierung und Verwaltung gegenüber der Bevölkerung und der Wirtschaft, angesehen. Die Befürworter von Open Data teilen somit viele Argumente mit den Befürwortern von [Open-Source](https://de.wikipedia.org/w/index.php?title=Open_Source)[^de.wikipedia.org/w/index.php?title=open_source]. Open Data und Leaflet als Open Source Software passen gut zusammen.
 
 [GeoJSON Utilities](http://opendatalab.de/projects/geojson-utilities/)[^opendatalab.de/projects/geojson-utilities] ist ein Projekt, welches den Export von Gemeindeflächen, Landkreisflächen und Bundeslandflächen in Deutschland im GeoJSON Format ermöglicht. Jede exportierte Fläche enthält zusätzliche Eigenschaften wie die Einwohnerzahl und die Größe der Fläche in Quadratmetern. Ich habe diese Daten für Rheinland-Pfalz in eine Datei exportiert. Im nächsten Beispiel zeige ich Ihnen, wie Sie mithilfe dieser Datei eine Chorophletenkarte erstellen können. [GeoJSON Utilities](http://opendatalab.de/projects/geojson-utilities/) ist übrigens auch eine mit Leaflet erstellte Anwendung.
 
@@ -641,13 +633,21 @@ Der nachfolgende Programmcodeausschnitt nimmt den Parameter `x` entgegen und ber
 
 ```js
 function color(x) {
-return x > 1000 ? '#990000' :
-x > 750 ? '#d7301f' :
-x > 500 ? '#ef6548' :
-x > 250 ? '#fc8d59' :
-x > 200 ? '#fdbb84' :
-x > 100 ? '#fdd49e' :
-x > 0   ? '#fee8c8' :'#fff7ec';
+  return x > 1000
+    ? '#990000'
+    : x > 750
+    ? '#d7301f'
+    : x > 500
+    ? '#ef6548'
+    : x > 250
+    ? '#fc8d59'
+    : x > 200
+    ? '#fdbb84'
+    : x > 100
+    ? '#fdd49e'
+    : x > 0
+    ? '#fee8c8'
+    : '#fff7ec'
 }
 ```
 
@@ -657,13 +657,13 @@ Nun benötigen wir noch eine Funktion, die das Zuweisen des passenden CSS Styles
 
 ```js
 function myStyle(feature) {
-return {
-fillColor: color(feature.properties.destatis.population),
-weight: 1,
-opacity: 1,
-color: 'white',
-fillOpacity: 0.85
-};
+  return {
+    fillColor: color(feature.properties.destatis.population),
+    weight: 1,
+    opacity: 1,
+    color: 'white',
+    fillOpacity: 0.85,
+  }
 }
 ```
 
@@ -686,42 +686,41 @@ Nachfolgenden habe ich die gerade besprochenen Codeschnipsel in einem vollständ
   <body>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [49.9555, 7.591838],
         8
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       function color(x) {
         return x > 1000
-          ? "#990000"
+          ? '#990000'
           : x > 750
-          ? "#d7301f"
+          ? '#d7301f'
           : x > 500
-          ? "#ef6548"
+          ? '#ef6548'
           : x > 250
-          ? "#fc8d59"
+          ? '#fc8d59'
           : x > 200
-          ? "#fdbb84"
+          ? '#fdbb84'
           : x > 100
-          ? "#fdd49e"
+          ? '#fdd49e'
           : x > 0
-          ? "#fee8c8"
-          : "#fff7ec";
+          ? '#fee8c8'
+          : '#fff7ec'
       }
       function myStyle(feature) {
         return {
           fillColor: color(feature.properties.destatis.population),
           weight: 1,
           opacity: 1,
-          color: "white",
+          color: 'white',
           fillOpacity: 0.85,
-        };
+        }
       }
-      var geoJsonLayer = L.geoJson(ct, { style: myStyle }).addTo(mymap);
+      var geoJsonLayer = L.geoJson(ct, { style: myStyle }).addTo(mymap)
     </script>
   </body>
 </html>
-
 ```
 
 In Ihrem Browser sollte die Karte nun so wie in der nächsten Abbildung aussehen.
@@ -753,53 +752,53 @@ In unser GeoJSON Datei ist die Fläche der Gemeinde in der Eigenschaft `area` ge
     <button onclick="density()">Population/Fläche</button>
     <div style="height: 700px" id="mapid"></div>
     <script>
-      var mymap = L.map("mapid", { doubleClickZoom: false }).setView(
+      var mymap = L.map('mapid', { doubleClickZoom: false }).setView(
         [49.9555, 7.591838],
         8
-      );
-      L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png").addTo(mymap);
+      )
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap)
       function color(x) {
         return x > 1000
-          ? "#990000"
+          ? '#990000'
           : x > 750
-          ? "#d7301f"
+          ? '#d7301f'
           : x > 500
-          ? "#ef6548"
+          ? '#ef6548'
           : x > 250
-          ? "#fc8d59"
+          ? '#fc8d59'
           : x > 200
-          ? "#fdbb84"
+          ? '#fdbb84'
           : x > 100
-          ? "#fdd49e"
+          ? '#fdd49e'
           : x > 0
-          ? "#fee8c8"
-          : "#fff7ec";
+          ? '#fee8c8'
+          : '#fff7ec'
       }
       function densityColor(x) {
         return x > 500
-          ? "#990000"
+          ? '#990000'
           : x > 400
-          ? "#d7301f"
+          ? '#d7301f'
           : x > 300
-          ? "#ef6548"
+          ? '#ef6548'
           : x > 200
-          ? "#fc8d59"
+          ? '#fc8d59'
           : x > 100
-          ? "#fdbb84"
+          ? '#fdbb84'
           : x > 50
-          ? "#fdd49e"
+          ? '#fdd49e'
           : x > 0
-          ? "#fee8c8"
-          : "#fff7ec";
+          ? '#fee8c8'
+          : '#fff7ec'
       }
       function myStyle(feature) {
         return {
           fillColor: color(feature.properties.destatis.population),
           weight: 1,
           opacity: 1,
-          color: "white",
+          color: 'white',
           fillOpacity: 0.85,
-        };
+        }
       }
       function myDensityStyle(feature) {
         return {
@@ -809,24 +808,21 @@ In unser GeoJSON Datei ist die Fläche der Gemeinde in der Eigenschaft `area` ge
           ),
           weight: 1,
           opacity: 1,
-          color: "white",
+          color: 'white',
           fillOpacity: 0.85,
-        };
+        }
       }
       function total() {
-        var geoJsonLayer = L.geoJson(ct, { style: myStyle }).addTo(mymap);
-        removeLayer(densitylayer);
+        var geoJsonLayer = L.geoJson(ct, { style: myStyle }).addTo(mymap)
+        removeLayer(densitylayer)
       }
       function density() {
-        var densitylayer = L.geoJson(ct, { style: myDensityStyle }).addTo(
-          mymap
-        );
-        removeLayer(geoJsonLayer);
+        var densitylayer = L.geoJson(ct, { style: myDensityStyle }).addTo(mymap)
+        removeLayer(geoJsonLayer)
       }
     </script>
   </body>
 </html>
-
 ```
 
 Das vorhergehende Codebeispiel baut auf dem davor erstellten Codebeispiel auf. Neben der `style` Funktion fügen wir eine weitere Funktion, nämlich die Funktion `densityStyle()`, ein. Die Funktion `densityStyle()` gibt, wie der Name schon sagt, die Farbe für die _relative Angabe_ zurück. Damit wir die Choroplethenkarten Ebenen der beiden vorhergehenden Beispiele vergleichen können, habe ich eine Schaltfläche in das HTML Dokument integriert. Je nachdem welche Schaltfläche angeklickt wird, wird die passende Formel ausgeführt. Einmal die, die absoluten Werte anzeigt, ein anderes mal die, die die relativen Werte ausgibt.

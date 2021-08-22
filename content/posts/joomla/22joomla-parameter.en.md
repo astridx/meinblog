@@ -16,10 +16,11 @@ tags:
 Are there settings that apply to all items in your component that a user can customize to their needs? For example, do you display digital maps and do you want to allow the user to determine the display of the license for all his maps? In Joomla there are parameters for this purpose.<!-- \index{parameter} -->
 
 Parameters exist for
+
 - one item in particular,
 - for the whole component (all items of the component) and
 - for a menu item.
-If a parameter is set for all of the three possibilities, the following hierarchy applies in Joomla by default:
+  If a parameter is set for all of the three possibilities, the following hierarchy applies in Joomla by default:
 - The setting on the menu item always has priority.
 - After that, the parameter that applies specifically to the item takes precedence.
 - The parameter that is set for the component has the lowest priority.
@@ -37,7 +38,7 @@ The code with which the assignment of a parameter is calculated, was for a long 
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
+#### [administrator/components/ com\_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-61df23203c29920003ce39f96f2fb2f7)
 
 In order to create the `params` column in the database where the parameters are stored when the component is updated, we need the SQL file `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
 
@@ -52,7 +53,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
+#### [administrator/components/ com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-9be56d6cedb2c832265e47642f0afb25)
 
 In the configuration, the parameter is saved to set a default value. We add a field `show_name` to the configuration. Then we create the possibility to override it for a single element `administrator/components/com_foos/ forms/foo.xml` or a menu item `components/com_foos/tmpl/foo/default.xml`.
 
@@ -79,7 +80,7 @@ In the configuration, the parameter is saved to set a default value. We add a fi
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t17...t18#diff-262e27353fbe755d3813ea2df19cd0ed)
 
 In the form we use to edit an element, we add the `params` field. So `show_name` is also configurable for a single element.
 
@@ -108,7 +109,7 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 > In Joomla there is the possibility to set the parmeter to the value [global](https://docs.joomla.org/How_do_you_set_parameters_for_articles_and_other_content_items%3F). The benefit is that when you configure it, it shows what is set globally. Use `useglobal="true"` like [/administrator/components/com_contact/forms/contact.xml](https://github.com/joomla/joomla-cms/blob/8053386a7c9c1c1f1766748aae3c5161662aaf2d/administrator/components/com_contact/forms/contact.xml#L395).<!-- \index{parameter!useglobal} --><!-- \index{useglobal!parameter} -->
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
+#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t17...t18#diff-896f245bc8e493f91277fd33913ef974)
 
 To create the column where the parameters will be stored during a new installation, we add a line to the SQL file `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
 
@@ -124,15 +125,16 @@ To create the column where the parameters will be stored during a new installati
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
+#### [administrator/components/ com\_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-19bf55010e1963bede0668355cebb307)
 
-In the class that handels the table, we make sure that the parameters are stored in the correct form. We use the [registry design pattern](https://martinfowler.com/eaaCatalog/registry.html)[^martinfowler.com/eaaCatalog/registry.html]. <!-- \index{design pattern!Registy} --> This uses the ability to override properties [in PHP](http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members). We add properties using
+In the class that handels the table, we make sure that the parameters are stored in the correct form. We use the [registry design pattern](https://martinfowler.com/eaaCatalog/registry.html)[^martinfowler.com/eaacatalog/registry.html]. <!-- \index{design pattern!Registy} --> This uses the ability to override properties [in PHP](http://php.net/manual/en/language.oop5.overloading.php#language.oop5.overloading.members). We add properties using
 
 ```
 $registry = new registry;
 $registry->foo = 'foo';
 
 ```
+
 to the registry. To get a value, we use
 
 ```
@@ -147,7 +149,7 @@ $foo = $registry->foo;
  use Joomla\Database\DatabaseDriver;
 +use Joomla\CMS\Language\Text;
 +use Joomla\Registry\Registry;
- 
+
  /**
   * Foos Table class.
  public function check()
@@ -163,23 +165,23 @@ $foo = $registry->foo;
  		return parent::store($updateNulls);
  	}
  }
- ```
+```
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-The view combines the data on the parameters so that the display fits. In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`. 
+The view combines the data on the parameters so that the display fits. In Joomla it is usual that the setting at the menu item overwrites everything. If there is no parameter here, the value that was saved for the element is used. Last but not least the value of the configuration is used. You query the active menu item via `$active = $app->getMenu()->getActive();`.
 
 Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you combine the two so that the value at the item is applied.
 
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
- 
+
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
  use Joomla\CMS\Factory;
 +use Joomla\Registry\Registry;
- 
+
  /**
   * HTML Foos View class for the Foo component
   */
@@ -195,7 +197,7 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
  public function display($tpl = null)
  	{
  		$item = $this->item = $this->get('Item');
- 
+
 +		$state = $this->State = $this->get('State');
 +		$params = $this->Params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
@@ -214,7 +216,7 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 +		$item->params = $temp;
 +
  		Factory::getApplication()->triggerEvent('onContentPrepare', ['com_foos.foo', &$item]);
- 
+
  		// Store the events for later
 ```
 
@@ -227,7 +229,7 @@ At the end we use the parameter when handling the display in the template `compo
 
 ```php {diff}
   use Joomla\CMS\Language\Text;
- 
+
 -if ($this->get('State')->get('params')->get('show_foo_name_label')) {
 -	echo Text::_('COM_FOOS_NAME');
 -}
@@ -235,11 +237,11 @@ At the end we use the parameter when handling the display in the template `compo
 +	if ($this->Params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
- 
+
 -echo $this->item->name;
 +	echo $this->item->name;
 +}
- 
+
  echo $this->item->event->afterDisplayTitle;
  echo $this->item->event->beforeDisplayContent;
 ```
