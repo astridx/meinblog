@@ -3,7 +3,7 @@ date: 2021-03-05
 title: 'A tutorial on how to use the Cassiopeia template for Joomla 4 - Options in Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: cassiopeia-optionen
+slug: en/cassiopeia-optionen
 langKey: de
 categories:
   - Code

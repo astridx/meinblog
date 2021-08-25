@@ -3,7 +3,7 @@ date: 2021-03-04
 title: 'A tutorial on how to use the Cassiopeia template for Joomla 4 - Why Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: warum-cassiopeia
+slug: en/warum-cassiopeia
 langKey: de
 categories:
   - Code
