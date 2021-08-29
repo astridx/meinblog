@@ -14,57 +14,49 @@ tags:
 
 Im letzten Kapitel haben Sie Punkte, Marker, Linien und Polygone kennengelernt. Sie können diese nun auf eine Leaflet-Karte zeichnen und wissen, wann welches Objekt das Richtige ist. Sie können [Layer-Gruppen](https://leafletjs.com/reference.html#layergroup)[^leafletjs.com/reference.html#layergroup] und [Feature-Gruppen](https://leafletjs.com/reference.html#featuregroup)[^leafletjs.com/reference.html#featuregroup] voneinander abgrenzen und Sie wissen, was bei der Anzeige einer Leaflet Karten auf einem kleinen Display zu beachten ist. Außerdem können Sie nun auf einen Mausklick oder ein anderes Ereignis entsprechend reagieren.
 
-Im nächsten Kapitel geht es um das Format [GeoJson](https://de.wikipedia.org/w/index.php?title=GeoJSON)[^de.wikipedia.org/w/index.php?title=geojson] und darum, wie Sie Daten auch in großen Mengen gut handhaben.
+Im nächsten Kapitel geht es um das Format [GeoJson](https://de.wikipedia.org/wiki/GeoJSON)[^de.wikipedia.org/wiki/GeoJSON] und darum, wie Sie Daten in großen Mengen gut handhaben.
 
-GeoJSON ist ein offenes Format, welches es einfach macht, geografische Daten zu beschreiben. Dabei richtet es sich nach einer Spezifikation – nämlich nach der [Simple-Feature-Access-Spezifikation](https://de.wikipedia.org/w/index.php?title=Simple_Feature_Access)[^de.wikipedia.org/w/index.php?title=simple_feature_access]. Für die Beschreibung der Geodaten verwendet GeoJSON die [JavaScript Objekt Notation (JSON)](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/wiki/javascript_object_notation].
+GeoJSON ist ein offenes Format, welches es einfach macht, geografische Daten zu beschreiben. Dabei richtet es sich nach einer Spezifikation – nämlich nach der [Simple-Feature-Access-Spezifikation](https://de.wikipedia.org/wiki/Simple_Feature_Access)[^de.wikipedia.org/wiki/Simple_Feature_Access]. Für die Beschreibung der Geodaten verwendet GeoJSON die [JavaScript Objekt Notation (JSON)](https://de.wikipedia.org/wiki/JavaScript_Object_Notation)[^de.wikipedia.org/wiki/JavaScript_Object_Notation].
 
 > Hinter dem Begriff _Simple-Feature-Access-Spezifikation_ versteckt sich eine Spezifikation des [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium)[^de.wikipedia.org/w/index.php?title=open_geospatial_consortium]. Diese Spezifikation beinhaltet eine allgemein gültige Beschreibung für Geodaten und deren Geometrien. Dadurch, dass die Spezifikation allgemeingültig ist, können diese Daten gut ausgetauscht werden. Das OGC ist eine gemeinnützige Organisation, die die Entwicklung von allgemeingültigen Standards für Geodaten zum Ziel hat.
 
 ## In diesem Kapitel werden wir …
 
-Als Erstes sehen wir uns an, warum GeoJSON entwickelt wurde. Als Nächstes vergleichen wir die einzelnen GeoJSON Elemente mit den Objekten, die uns
-Leaflet zur Verfügung stellt. Und zu guter Letzt probieren wir die Methoden aus, die Leaflet uns spezielle für das Verarbeiten von GeoJSON-Daten anbietet.
+Zuerst schauen wir uns an, warum GeoJSON entwickelt wurde. Dann vergleichen wir die einzelnen GeoJSON-Elemente mit den Objekten, die Leaflet bietet. Und zu guter Letzt probieren wir die Methoden aus, die Leaflet speziell für die Verarbeitung von GeoJSON-Daten bereitstellt.
 
 ## Die Entwicklungsgeschichte von GeoJSON
 
-[GeoJSON](https://de.wikipedia.org/w/index.php?title=GeoJSON) baut auf [JSON](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] auf. Bevor JSON als Datenformat spezifiziert wurde, gab es die erweiterbare Auszeichnungssprache [XML](https://de.wikipedia.org/w/index.php?title=Extensible_Markup_Language)[^de.wikipedia.org/w/index.php?title=extensible_markup_language] (englisch: Extensible Markup Language).
+[GeoJSON](https://de.wikipedia.org/wiki/GeoJSON)[^de.wikipedia.org/wiki/GeoJSON] erweitert [JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation)[^de.wikipedia.org/wiki/JavaScript_Object_Notation]. Bevor JSON als Datenformat eingeführt wurde, gab es die erweiterbare Auszeichnungssprache [XML](https://de.wikipedia.org/wiki/Extensible_Markup_Language)[^en.wikipedia.org/wiki/Extensible_Markup_Language].
 
-Immer wenn etwas Neues entsteht, gibt es einen Grund dafür!
+Wann immer etwas Neues geschaffen wird, gibt es einen Grund dafür!
 
-XML wurde [1998 veröffentlicht](https://www.w3.org/TR/1998/REC-xml-19980210)[^www.w3.org/tr/1998/rec-xml-19980210], um Daten zwischen Maschinen austauschen zu können, ohne das Menschen nacharbeiten müssen. Dies wurde in Zeiten des Internets immer wichtiger. Nun muss es auch einen Grund geben, warum neben XML erst JSON – und später GeoJSON entstanden ist.
+XML wurde [1998](https://www.w3.org/TR/1998/REC-xml-19980210)[^www.w3.org/tr/1998/rec-xml-19980210] veröffentlicht, um den Austausch von Daten zwischen Maschinen zu ermöglichen, ohne dass sie von Menschen nachbearbeitet werden müssen. Dies wurde in Zeiten des Internets immer wichtiger. Warum hat sich JSON - und später GeoJSON - neben XML entwickelt?
 
-### Warum ist das Format GeoJSON entstanden?
+### Warum wurde das GeoJSON-Format eingeführt?
 
-Warum ist das Format GeoJSON entstanden? Offensichtlich gab es Dinge, bei denen XML für den Austausch von Daten nicht optimal war. Warum war dies so und welche Vorteile bietet JSON, beziehungsweise GeoJSON? Zunächst einmal bieten alle drei Formate folgendes:
+Was war die Motivation für die Entwicklung des GeoJSON-Formats? Offensichtlich gab es Situationen, in denen XML für den Datenaustausch nicht optimal war. Warum war dies der Fall, und was sind die Vorteile von JSON oder GeoJSON? Zunächst einmal bieten alle drei Formate Folgendes:
 
 - Alle drei Formate können von einem Menschen gelesen und verstanden werden.
-- Alle drei Formate sind hierarchisch gegliedert. Das bedeutet, das Werte innerhalb von anderen Werten dargestellt werden können.
+- Alle drei Formate sind hierarchisch strukturiert. Das bedeutet, dass Werte innerhalb anderer Werte dargestellbar sind.
 - Alle drei Formate sind relativ leicht zu erlernen.
-- Alle drei Formate können von vielen Programmiersprachen analysiert und genutzt werden.
-- Alle drei Formate sind mit mithilfe des Hypertext Transfer Protokolls (HTTP) – also über das Internet – austauschbar.
+- Alle drei Formate können von vielen Programmiersprachen analysiert und verwendet werden.
+- Alle drei Formate sind über das Hypertext Transfer Protocol (HTTP), also über das Internet, austauschbar.
 
-Sehen wir uns in diesem Kapitel die einzelnen Formate genauer an um zu erkennen, welche Vorteile das Format JSON – beim Arbeiten mit
-[Geodaten](https://de.wikipedia.org/wiki/Geodaten)[^de.wikipedia.org/wiki/geodaten] das Format GeoJSON – gegenüber XML bringt.
+Schauen wir uns in diesem Kapitel die einzelnen Formate genauer an, um zu sehen, welche Vorteile das JSON-Format gegenüber XML hat und welche Möglichkeiten das GeoJSON-Format bei der Arbeit mit [Geodaten](https://de.wikipedia.org/wiki/Geodaten)[^en.wikipedia.org/wiki/geodata] bietet.
 
 #### XML
 
-XML beschreibt die Struktur von Daten.
-Anhand der _Tags_ wird den Daten eine Bedeutung – eine [Semantik](https://de.wikipedia.org/wiki/Semantik)[^de.wikipedia.org/wiki/semantik] – gegeben.
-Aufgrund des Tag-Systems von XML werden oft kleine Datenbesände aufgebläht und dadurch unübersichtlich. Außerdem ist das Ansprechen einzelner Tags in einer XML-Datei teilweise recht kompliziert.
+XML beschreibt die Struktur von Daten. Mit Hilfe der _Tags_ wird den Daten eine Bedeutung gegeben - eine [Semantik](https://de.wikipedia.org/wiki/Semantik)[^de.wikipedia.org/wiki/semantics]. Aufgrund des Tag-Systems von XML werden kleine Datenmengen oftmals aufgebläht und damit unübersichtlich. Darüber hinaus ist die Adressierung einzelner Tags in einer XML-Datei mitunter recht kompliziert.
 
 #### JSON
 
-JSON ist im Grunde genommen nichts anderes als die Festlegung auf eine bestimmte Syntax -- also eine _Syntax-Konvention_. Den Daten wird keine bestimmte Bedeutung geben, vielmehr geht es um die syntaktische Anordnung. Da JSON Daten strukturiert, können leicht Objekte aus diesen Daten definiert werden. JSON wird fortwährend weiterentwickelt. Im Dezember 1999 wurde die erste JSON Format-Spezifikation verabschiedet. Aktuell wird es durch zwei konkurrierende Standards spezifiziert, [RFC 8259](https://tools.ietf.org/html/rfc8259)[^tools.ietf.org/html/rfc8259] und [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)[^ecma-international.org/publications/files/ecma-st/ecma-404.pdf].
+JSON ist im Grunde nichts anderes als die Spezifikation einer [Syntax](https://de.wikipedia.org/wiki/Syntax)[^de.wikipedia.org/wiki/Syntax]. Den Daten wird keine Bedeutung gegeben, vielmehr handelt es sich um eine pure syntaktische Struktur. Da JSON Daten strukturiert, lassen sich Objekte leicht aus diesen Daten definieren. JSON befindet sich in ständiger Entwicklung. Im Dezember 1999 wurde die erste JSON-Formatspezifikation verabschiedet. Derzeit gibt es zwei unterschiedliche aber inhaltlich gleiche Standards, [RFC 8259](https://tools.ietf.org/pdf/rfc8259.pdf)[^tools.ietf.org/pdf/rfc8259.pdf] und [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)[^ecma-international.org/publications-and-standards/standards/ecma-404].
 
-Der große Vorteil von JSON im Vergleich zu XML liegt in der einfachen Handhabung. Da JSON selbst gültiges Javascript darstellt, kann es direkt ausgeführt und somit in ein Javascript-Objekt überführt werden. Auf die einzelnen Eigenschaften dieser Objekte kann dann über die Attribute zugegriffen werden. Im Kapitel _Heatmaps in Leaflet – Dichte_ werden wir eine Datei, die GeoJSON Objekte enthält, als Skript einbinden. Allein durch das Einbinden der Datei können wir innerhalb anderer Skripte auf die GeoJSON Objekte der eingebundenen Datei zugreifen. Im Gegensatz dazu muss eine XML-Datei erst mit einem XML-Parser analysiert werden.
+Der Hauptvorteil von JSON gegenüber XML ist die einfache Verwendung. Da JSON selbst gültiges JavaScript darstellt, kann es direkt aufgerufen und somit in ein JavaScript-Objekt umgewandelt werden. Auf die einzelnen Eigenschaften dieser Objekte wird über die Attribute zugegriffen. Im nächsten Teil werden wir eine Datei mit GeoJSON-Objekten einbinden. Allein durch das Einbinden ist es möglich, auf die darin enthaltenen GeoJSON-Objekte zuzugreifen. Im Vergleich dazu muss eine XML-Datei erst mit einem XML-Parser geparst werden! Ein weiterer Vorteil von JSON ist, dass kein Ende-Tag erforderlich ist. Vor allem aus diesem Grund ist JSON kompakter und wird schneller gelesen und verarbeitet.
 
-Ein weiterer Vorteil von JSON: In JSON gibt es kein Ende-Tag. Hauptsächlich deshalb ist JSON kompakter. Dies hat nämlich zur Folge, dass JSON schneller gelesen und verarbeitet werden kann.
+> Die Daten einer GeoJSON-Datei, die sich in einem GitHub Repository befindet, werden automatisch auf einer interaktiven Karte angezeigt, wenn man die Datei im Repository anklickt. [Github](https://github.com/blog/1528-there-s-a-map-for-that) erstellt diese Karten mit Leaflet. Überzeugen Sie sich beispielsweise im Repository [world.geo.json](https://github.com/astridx/world.geo.json/blob/master/countries.geo.json)[^github.com/astridx/world.geo.json/blob/master/countries.geo.json] selbst davon.
 
-> Die Daten einer jeden GeoJson-Datei, die sich in einem GitHub Repository befindet, werden – wenn man die Datei im Repository anklickt – automatisch auf einer interaktiven Karte angezeigt. [Github](https://github.com/blog/1528-there-s-a-map-for-that) erstellt diese Karten schon seit 2013 mit Leaflet. Dies können Sie sich beispielsweise im Repository [world.geo.json](https://github.com/astridx/world.geo.json/blob/master/countries.geo.json)[^github.com/astridx/world.geo.json/blob/master/countries.geo.json] ansehen.
-
-Schon ein kleines Beispiel veranschaulicht, dass XML für das Beschreiben des gleichen Objektes mehr Zeichen benötigt als JSON. Ein, in XML mit 95 Zeichen kodiertes, Objekt benötigt in JSON gerade einmal 73 Zeichen. Bei einem Objekt ist dieser Unterschied vernachlässigbar. In der Regel werden eine Vielzahl von Objekten digital beschrieben. Bei einer Vielzahl von Objekten kann dieser Unterschied stark ins Gewicht fallen.
-
-Hier sehen Sie zunächst den aus 95 Zeichen bestehende XML Ausschnitt.
+Ein kleines Beispiel verdeutlicht, dass XML mehr Zeichen benötigt als JSON, um das gleiche Objekt zu beschreiben. Ein Objekt, das in XML mit 95 Zeichen kodiert ist, benötigt in JSON 73 Zeichen. Für ein einzelnes Objekt ist dieser Unterschied unerheblich. Normalerweise wird eine große Anzahl von Objekten digital verarbeitet. Bei einer großen Anzahl von Objekten ist dieser Unterschied bedeutsam. Im folgenden sehen Sie zunächst das XML-Snippet, das aus 95 Zeichen besteht.
 
 ```xml
 <joomlers>
@@ -84,25 +76,24 @@ Das gleiche Objekt kann mit 73 Zeichen im JSON Format beschrieben werden.
 },
 ```
 
-#### Und warum nach JSON nun auch noch GeoJSON?
+#### Und warum nach JSON noch GeoJSON?
 
-Geodaten könnten in JSON beschrieben und verarbeitet werden. Welchen Vorteil bringt das spezielle **Geo**JSON-Format? GeoJSON ist JSON – allerdings auf Geodaten spezialisiert. GeoJSON gibt den Geodaten wieder eine Semantik – also eine Bedeutung. Nun fragen Sie sich sicher, was dieses Hin und Her soll. Macht das Sinn? Ja, es macht Sinn: GeoJSON pickt sich nur die positiven Eigenschaften der Formate JSON und XML heraus.
+Geodaten können in JSON beschrieben und verarbeitet werden. Was ist der Vorteil des speziellen _Geo_-JSON-Formats? GeoJSON ist JSON - aber für Geodaten optimiert. GeoJSON gibt den Geodaten wieder eine Semantik – also eine Bedeutung. Nun fragen Sie sich sicher, was dieses Hin und Her soll. Macht das Sinn? Ja, es macht Sinn: GeoJSON pickt sich nur die positiven Eigenschaften der Formate JSON und XML heraus.
 
-GeoJSON beschreibt Punkte, Linien und Polygone und kann gut mit diesen Formen in einem Koordinatensystem gut umgehen. Im vorausgehenden Kapitel haben wir gesehen, dass das Arbeiten mit Geodaten im Grunde genommen nichts anderes ist. GeoJSON hat sich zu einem sehr beliebten Datenformat vieler Geoninformationssysteme entwickelt. In diesem Buch erwähne ich GeoJSON speziell, weil auch Leaflet sehr gut im Umgang mit Daten im GeoJSON Format ist. Hier sehen wir uns zunächst die GeoJSON Objekte einmal genauer an. Wenn Sie lieber sofort praktisch arbeiten möchten, dann Blättern Sie am besten ein Kapitel weiter. Im Kapitel _GeoJSON in Leaflet_ erfahren Sie, wie Sie GeoJSON-Elemente auf Ihrer Karte anzeigen und weiter
-bearbeiten können.
+GeoJSON beschreibt Punkte, Linien und Polygone und kann gut mit diesen Formen in einem Koordinatensystem gut umgehen. Im vorausgehenden Kapitel haben wir gesehen, dass das Arbeiten mit Geodaten im Grunde genommen nichts anderes ist. GeoJSON hat sich zu einem sehr beliebten Datenformat vieler Geoninformationssysteme entwickelt. In diesem Buch erwähne ich GeoJSON speziell, weil auch Leaflet sehr gut im Umgang mit Daten im GeoJSON Format ist. Hier sehen wir uns zunächst die GeoJSON Objekte einmal genauer an. Wenn Sie lieber sofort praktisch arbeiten möchten, dann Blättern Sie am besten weiter. Im nächsten Teil erfahren Sie, wie Sie GeoJSON-Elemente auf Ihrer Karte anzeigen und weiter bearbeiten können.
 
-Zur zeitlichen Einordnung: GoeJSON ist noch recht jung.
+Zur zeitlichen Einordnung: GeoJSON ist noch recht jung.
 
 - Im Juni 2008 wurde die erste GeoJSON Format-Spezifikation verabschiedet.
 - Im August 2016 wurde die [RFC (Requests for Comments) 7946](http://geojson.org/)[^geojson.org/] veröffentlicht.
 
-> Die formale Spezifikation des GeoJSON Formates finden Sie unter der Adresse [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946) im Internet.
+> Die formale Spezifikation des GeoJSON-Formats ist unter [https://tools.ietf.org/html/rfc7946](https://tools.ietf.org/html/rfc7946)[^tools.ietf.org/html/rfc7946] online verfügbar.
 
 ### GeoJSON erkunden
 
-Sie wissen nun, dass Sie mit GeoJSON viele geografische Datenstrukturen in einer maschinenlesbaren Sprache kodieren können. Ein GeoJSON-Objekt kann dabei eine einfache Geometrie, zum Beispiel einen Punkt eine Linie oder ein Polygon, darstellen. Zusätzlich können Sie einer Geometrie eine Bedeutung geben. Sie können jedem Element Eigenschaften zuordnen. Zum Beispiel können Sie einer Linie die Eigenschaft `typ=straße` oder `name=Kirchstraße` mitgeben. In diesem Fall erstellen Sie ein GeoJSON Objekt vom Typ [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. Wenn Sie mehrere Feature-Objekte zu einer Gruppe zusammen fassen möchten, können Sie diese zu einer Sammlung von Features zusammen fassen. Hierfür gibt es den GeoJSON Typ [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Das Verständnis dieser Konzepte bringt viele Vorteile. Es hilft Ihnen auch, die Arbeit mit Geodaten im Allgemeinen zu verstehen. Denn die Grundkonzepte, die in GeoJSON angewandt werden, sind schon seit vielen Jahren ein Teil von [Geoinformationssystemen](https://de.wikipedia.org/wiki/Geoinformationssystem)[^de.wikipedia.org/wiki/geoinformationssystem].
+Sie wissen jetzt, dass Sie GeoJSON verwenden können, um viele geografische Datenstrukturen in einer maschinenlesbaren Sprache zu kodieren. Ein GeoJSON-Objekt kann eine einfache Geometrie darstellen, zum Beispiel einen Punkt, eine Linie oder ein Polygon. Darüber hinaus können Sie einer Geometrie eine Bedeutung geben. Sie können jedem Element Eigenschaften zuweisen. Zum Beispiel können Sie einer Linie die Eigenschaft "type=street" oder "name=Kirchstraße" zuweisen. In diesem Fall erstellen Sie ein GeoJSON-Objekt vom Typ [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. Wenn Sie mehrere Feature-Objekte zusammenfassen möchten, können Sie diese zu einer Sammlung von Features zusammenfassen. Hierfür gibt es einen GeoJSON-Typ namens [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Das Verständnis dieser Konzepte bringt viele Vorteile mit sich. Es hilft Ihnen außerdem zu verstehen, wie Sie mit Geodaten im allgemeinen arbeiten. Denn die grundlegenden Konzepte, die in GeoJSON verwendet werden, sind seit vielen Jahren Bestandteil von [Geoinformationssystemen](https://de.wikipedia.org/wiki/Geoinformationssystem)[^de.wikipedia.org/wiki/geoinformation-system]. 
 
-Beginnen wir von vorne.
+Fangen wir von vorne an:
 
 #### Eine Geometrie
 
@@ -121,23 +112,23 @@ GeoJSON unterstützt die Geometriearten
 
 ##### Position
 
-Das wichtigste Element beim Arbeiten mit Geodaten ist die Beschreibung des Punktes auf der Erde. Der Punkt auf der Erde ist der, dem die Geodaten zugeordnet werden. Diesen Wert kennen wir auch unter dem Namen Koordinate. Im Kapitel _Das Koordinatensystem der Erde_ habe ich schon eine ganze Menge zum Thema Koordinaten auf der Erde geschrieben. Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination. Jede Zahl einer Koordinate steht für eine Dimension. Wir beschränken uns in diesem Buch auf zwei Dimensionen, nämlich die geografische Längen und die geografische Breite. GeoJSON unterstützt drei Dimensionen – neben der geografischen Länge und der geografischen Breite können Sie zusätzlich die Höhe auf der Erde angeben.
+Das wichtigste Element bei der Arbeit mit Geodaten ist die Definition des Punktes auf der Erde. Der Punkt auf der Erde ist derjenige, dem die Geodaten zugeordnet sind. Wir kennen diese Daten auch unter dem Namen Koordinate. Im Kapitel über das Koordinatensystem habe ich schon recht viel über Koordinaten auf der Erde geschrieben. Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination. Jede Zahl einer Koordinate steht für eine Dimension. Wir werden uns in diesem Buch auf zwei Dimensionen beschränken, nämlich die geographische Länge und die geographische Breite. GeoJSON unterstützt drei Dimensionen - neben der geografischen Länge und der geografischen Breite können Sie auch die Höhe auf der Erde angeben.
 
-> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten] ist noch eine vierte Große relevant. Neben der horizontalen Position und der Höhe spielt auch die aktuelle Zeit eine Rolle.
+> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten] ist noch eine vierte Große relevant. Neben Längengrad, Breitengrad, Höhe spielt die Zeit eine Rolle.
 
 Die Koordinaten werden in GeoJSON im Dezimalformat formatiert. Die erste Zahl steht für die Longitude – also die geografische Länge – und die zweite Zahl für die Latitude – also die geografische Breite. Konkret sieht eine Position in GeoJSON so aus:
 
 ```js
-;[Länge, Breite, Höhe]
+[Längengrad, Breitengrad, Höhe]
 ```
 
 oder
 
 ```js
-;[50.254, 7.5847, 324.1]
+[50.254, 7.5847, 324.1]
 ```
 
-> Vielleicht haben Sie in der Vergangenheit schon öfter mit Geodaten gearbeitet und wundern sich nun über die Reihenfolge, in der die Dimensionen im Format GeoJSON stehen? Viele Systeme geben zuerst die geografische Länge und erst dann die geografische Breite an. Auch in Leaflet wird bei der Koordinate zuerst die Latitude - also die geografische Breite - und erste dann die Longitude - also die geografische Länge - angegeben: `Breitengrad | Längengrad`. Um dieses Durcheinander zu verstehen, müssen Sie das Folgende bedenken: Früher war es üblich, dass die erste Stelle einer Koordinate den Breitengrad und die zweite Stelle den Längengrad beschrieb. In der Mathematik ist die übliche Reihenfolge beim Arbeiten mit Koordinatensystemen: `X-Wert | Y-Wert`. Wenn man eine Landkarte mit einem Koordinatensystem vergleicht, erkennt man schnell, dass der Breitengrad dem `X-Wert` und der Längengrad der dem `Y-Wert` entspricht. Dies hat zur Folge, dass es beim Rechnen mit einem Computer viele Vorteile bringt, wenn man die Reihenfolge `Längengrad | Breitengrad` einhält. In der digitalen Welt gibt es momentan noch keine Einigkeit über die Reihenfolge. Es sieht so aus, als ob wir mitten in einem Umbruch stecken. Eine Übersicht, die zeigt, welche Anwendung die Dimensionen in welcher Reihenfolge verwendet finden Sie unter anderem unter der Adresse https://macwright.org/lonlat/.
+> Vielleicht haben Sie in der Vergangenheit mit Geodaten gearbeitet und wundern sich nun über die Reihenfolge, in der die Dimensionen im Format GeoJSON stehen? Viele Systeme geben zuerst die geografische Länge und erst dann die geografische Breite an. Auch in Leaflet wird bei der Koordinate zuerst die Latitude - also die geografische Breite - und erste dann die Longitude - also die geografische Länge - angegeben: `Breitengrad | Längengrad`. Um dieses Durcheinander zu verstehen, müssen Sie das Folgende bedenken: Früher war es üblich, dass die erste Stelle einer Koordinate den Breitengrad und die zweite Stelle den Längengrad beschrieb. In der Mathematik ist die übliche Reihenfolge beim Arbeiten mit Koordinatensystemen: `X-Wert | Y-Wert`. Wenn man eine Landkarte mit einem Koordinatensystem vergleicht, erkennt man schnell, dass der Breitengrad dem `X-Wert` und der Längengrad der dem `Y-Wert` entspricht. Dies hat zur Folge, dass es beim Rechnen mit einem Computer viele Vorteile bringt, wenn man die Reihenfolge `Längengrad | Breitengrad` einhält. In der digitalen Welt gibt es momentan noch keine Einigkeit über die Reihenfolge. Es sieht so aus, als ob wir mitten in einem Umbruch stecken. Eine Übersicht, die zeigt, welche Anwendung die Dimensionen in welcher Reihenfolge verwendet finden Sie unter anderem unter der Adresse https://macwright.org/lonlat/.
 
 Früher erlaubte GeoJSON die Speicherung von mehr als drei Zahlen pro Position. Diese Möglichkeit wurde auch genutzt. Es wurden beispielsweise Sportdaten wie die Herzfrequenz zusammen mit der Position gespeichert. So konnte ein Sportler später nachsehen, wie sich sein Puls am Berg und im Tal unterscheidet. Da dies nicht der Sinn einer Position ist, führte dieses Vorgehen teilweise zu Problemen in anderen GeoJSON Anwendungen. In der [neuen GeoJSON Spezifikation](https://tools.ietf.org/html/rfc7946#section-3.1.1)[^tools.ietf.org/html/rfc7946#section-3.1.1] ist das Speichern von mehr als drei Werten pro Position nun nicht mehr zulässig.
 
