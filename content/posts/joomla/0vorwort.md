@@ -181,7 +181,55 @@ Wenn du weiter interessiert bist lese die Diskussion zum Thema in einer [Google 
 
 Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unterstützt werden und was nicht weiter verfolgt wird? Dafür gibt es das [Statistik-Plugin](https://developer.joomla.org/about/stats.html)[^developer.joomla.org/about/stats.html]. Dank der Benutzer, die diese Erweiterung aktivieren, fließen wichtige Informationen in die Entwicklung ein.
 
-### Alternative Syntax für Kontrollstrukturen<!-- \index{Alternative Syntax PHP} -->
+### PHP 
+
+#### PHP-Operatoren für Gleichheit (== zwei Gleichheitszeichen) und Identität (=== drei Gleichheitszeichen)<!-- \index{PHP!Vergleichsoperator} -->
+
+Der [Vergleichsoperator](https://www.php.net/manual/de/language.operators.comparison.php#language.operators.comparison)[php.net/manual/de/language.operators.comparison.php#language.operators.comparison] `==` vergleicht zwischen zwei verschiedenen Typen, wenn diese unterschiedlich sind, während der Operator `===` einen typensicheren Vergleich durchführt. Das bedeutet, dass er nur dann `wahr` zurückgibt, wenn beide Operanden denselben Typ und denselben Wert haben. Beispiele:
+
+`1 === 1`: wahr
+`1 == 1`: wahr
+`1 === "1"`: falsch // 1 ist eine Ganzzahl, "1" ist ein String
+`1 == "1"`: true // "1" wird in eine ganze Zahl umgewandelt
+`"foo" === "foo"`: true // beide Operanden sind Strings und haben den gleichen Wert
+
+Achtung: Zwei Instanzen derselben Klasse mit gleichwertigen Elementen werden vom Operator mit drei Gleichheitszeichen`===` mit `false` ausgewertet. Beispiel:
+
+```
+$a = new stdClass();
+$a->foo = "bar";
+$b = clone $a;
+var_dump($a === $b); // bool(false)
+```
+
+In Joomla nutzen wir wann immer möglich den typsicheren Vergleich, weil dieser genauer ist.
+
+#### Einfache Anführungszeichen und doppelte Anführungszeichen<!-- \index{PHP!Anführungszeichen} -->
+
+##### Einfache Anführungszeichen `'`
+
+Die einfachste Art, eine Zeichenkette anzugeben, ist, sie in einfache Anführungszeichen einzuschließen. Einfache Anführungszeichen sind im Allgemeinen schneller, und alles, was in Anführungszeichen steht, wird als einfache Zeichenkette behandelt. Beispiel:
+
+```
+echo 'Beginne mit einer einfachen Zeichenkette';
+echo 'String mit einem Apostroph';
+echo 'String mit einer php-Variablen'.$name;
+```
+
+##### Doppelte Anführungszeichen `"`
+
+Verwende doppelte Anführungszeichen in PHP, um beim Trennen die Verwendung eines Punktes zu vermeiden. Verwende geschweifte Klammern {} in Strings, um Variablen einzuschließen, wenn du den Verkettungsoperator (.) nicht verwenden magst. Beispiel:
+
+```
+var $name = "Peter";
+echo "Hello {$name}";
+```
+
+In Joomla nutzen wir wenn möglich einfache Anführungszeichen. Die Verwendung einfacher Anführungszeichen ist etwas schneller. PHP benötigt keine zusätzliche Verarbeitung, um zu interpretieren, was sich innerhalb des einfachen Anführungszeichens befindet. Wenn du doppelte Anführungszeichen verwendest, muss PHP prüfen, ob sich in der Zeichenkette irgendwelche Variablen befinden. 
+
+Weitere Informationen dazu und die Beschreibung von zwei weitern Möglichkeiten Strings in PHP zu verwneden findest du auf der Website [php.net](https://www.php.net/manual/de/language.types.string.php)[^php.net/manual/de/language.types.string.php].
+
+#### Alternative Syntax für Kontrollstrukturen<!-- \index{PHP!Alternative Syntax PHP} -->
 
 PHP bietet eine [weitere Schreibweise](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für Kontrollstrukturen an. Diese ist praktisch, wenn man größere Blöcke HTML direkt ausgibt - ohne `echo` zu benutzen. Nutze diese in Template-Dateien. So bleiben die übersichtlich.
 

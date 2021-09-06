@@ -42,7 +42,7 @@ Wenn Sie zwei Bilder haben – also ein Bild, das Ihren Marker selbst darstellt 
 
 Im nachfolgenden Beispiel sehen Sie den Text, der für die Anzeige des benutzerdefinierten Markers verantwortlich ist.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_955.html-->
 
 <!DOCTYPE html>
@@ -133,7 +133,7 @@ Ein eigenes Marker Bild erstellen Sie in Leaflet mithilfe der [Kasse `L.icon`](h
 
 So, nun haben Sie einen benutzerdefinierten Marker erstellt und möchten weitere Marker kreiere. Schön, dass Leaflet objektorientiertes Arbeiten unterstützt. So können Sie sich das Erstellen von neuen Marker Objekten sehr einfach machen. Erweitern Sie einfach die Klasse `L.Icon` und geben alle gemeinsamen Eigenschaften hier einmal an. Ausschließlich die besonderen Eigenschaften des Markers müssen Sie separat für jeden Marker angeben. Das nachfolgende Codebeispiel zeigt Ihnen, wie Sie drei unterschiedliche Marker, die ein paar gemeinsame Eigenschaften haben, mithilfe von einer Eltern-Klasse erstellen können. So können die drei Marker von dem Elternteil die gemeinsamen Eigenschaften erben.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_954.html-->
 
 <!DOCTYPE html>
@@ -228,7 +228,7 @@ L.marker([50.27264, 8.26469], { icon: orangeIcon })
   .bindPopup('Ich bin ein oranger Marker.')
 ```
 
-> Sie haben vielleicht bemerkt, dass wir das Schlüsselwort `new` für die Erstellung von `LeafIcon` Instanzen verwendet haben. Warum haben wir vorher alle Leafelt Objekte ohne das Schlüsselwort `new` erstellt? Die Antwort ist einfach: Die echten Leaflet Klassen sind mit einem Großbuchstaben – beispielsweise `**L**.Icon` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.icon` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden: `**L.icon** = function icon(options) {return new L.Icon(options);};` Die Funktion `L.icon` können Sie sich auf Github in der Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^github.com/leaflet/leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/icon.js#l153] ansehen. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode, anstatt durch direkten Aufruf eines Konstruktors, erzeugt wird. Dies hatte ich im Kapitel _Wir beginnen mit einer einfachen Karte_ schon einmal erwähnt.
+> Sie haben vielleicht bemerkt, dass wir das Schlüsselwort `new` für die Erstellung von `LeafIcon` Instanzen verwendet haben. Warum haben wir vorher alle Leafelt Objekte ohne das Schlüsselwort `new` erstellt? Die Antwort ist einfach: Die echten Leaflet Klassen sind mit einem Großbuchstaben – beispielsweise `L.Icon` – benannt und diese müssen mit `new` erstellt werden. Es gibt aber Shortcuts mit Kleinbuchstaben – `L.icon` – die aus Bequemlichkeitsgründen von den Leaflet-Programmierern für Sie erstellt wurden: `L.icon = function icon(options) {return new L.Icon(options);};` Die Funktion `L.icon` können Sie sich auf Github in der Datei [icon.js](https://github.com/Leaflet/Leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/Icon.js#L153)[^github.com/leaflet/leaflet/blob/7ed780cd35474f2acf0f17e7394807ff0973a031/src/layer/marker/icon.js#l153] ansehen. Leaflet setzt hier das Entwurfsmuster [Fabrikmethode](https://de.wikipedia.org/w/index.php?title=Fabrikmethode)[^de.wikipedia.org/w/index.php?title=fabrikmethode] ein. Das Muster beschreibt, wie ein Objekt durch Aufruf einer Methode, anstatt durch direkten Aufruf eines Konstruktors, erzeugt wird. Dies hatte ich im Kapitel _Wir beginnen mit einer einfachen Karte_ schon einmal erwähnt.
 
 Im nachfolgenden Bild sehen Sie das Ergebnis. Jeder Marker wird nun mit einem individuellen Icon erstellt. Die meisten Optionen sind gleich – allerdings hat jeder Marker seine eigene Farbe.
 
@@ -246,7 +246,7 @@ Sie wissen nun, wie Sie einen Marker mit einem standardisierten Aussehen einfüg
 
 Damit Sie sich dieses besser vorstellen können, habe ich ein Beispiel erstellt.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_953.html-->
 
 <!DOCTYPE html>
@@ -337,7 +337,7 @@ Je nachdem welche Informationen Sie mit Ihrer Karte weitergeben möchten, kann e
 
 In diesem Kapitel erfahren Sie, wie Sie das [Plugin `Leaflet.markercluster`](https://github.com/Leaflet/Leaflet.markercluster)[^github.com/leaflet/leaflet.markercluster] zum Clustern von Marker Objekten verwenden und so eine große Anzahl von Marker Objekten auf einer Karte benutzerfreundlich und übersichtlich darstellen können. Sehen Sie sich das nachfolgende Beispiel an, um zu verstehen, wie das Clustern von Marker Objekten funktioniert.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_952.html-->
 
 <!DOCTYPE html>
@@ -416,7 +416,7 @@ ausschalten. Aktiviert bewirkt diese Option das Folgende: Wenn Sie die Maus übe
 
 Wenn Sie einen Marker animieren möchten, unterstützt Sie beispielsweise das [Plugin `leaflet.bouncemarker`](https://github.com/maximeh/leaflet.bouncemarker)[^github.com/maximeh/leaflet.bouncemarker]. Wie Sie den hüpfenden Marker in Ihre Karte einbinden, zeige ich Ihnen wieder anhand eines Beispiels.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_951.html-->
 
 <!DOCTYPE html>
@@ -456,7 +456,7 @@ Als Ergebnis sehen Sie einen Marker, der sofort nachdem die Karte im Browser gel
 
 Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möchten Sie vielleicht mit Ihrem Marker einen Weg beschreiben? Dann ist das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/leaflet.animatedmarker] vielleicht etwas für Sie. Mit diesem Plugin können Sie einen Marker so animieren, dass er einer Linie folgt. Vielleicht möchten Sie einen Marker in Form eines Autos darstellen, das auf einer Straße fährt?
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_950.html-->
 
 <!DOCTYPE html>
@@ -495,7 +495,7 @@ Es gibt sehr viele spannende Ideen, die man mit einer Karte umsetzen kann. Möch
 
 Wenn Sie die Bewegung des Markers beeinflussen möchten, unterstützt Sie das [Plugin `Leaflet.AnimatedMarker`](https://github.com/openplans/Leaflet.AnimatedMarker)[^github.com/openplans/leaflet.animatedmarker] auch. Bauen Sie zum Testen zwei Schaltenflächen ein, über die Sie den Maker anhalten oder starten können. `Leaflet.AnimatedMarker` bietet Ihnen Methoden mit passender Funktionalität. Sie müssen diese Methoden nur der passenden Schaltfläche zuordnen. Das nächste Beispiel will Ihnen eine Idee zur Umsetzung dieser Aufabenstellung geben.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_949.html-->
 
 <!DOCTYPE html>
@@ -547,7 +547,7 @@ Wie Sie sehen, können Sie die Funktionen `start()` und `stop()`, die Ihnen das 
 
 Und natürlich können Sie Plugins auch kombinieren. Ihrer Kreativität sind keine Grenzen gesteckt. Schon allein mit den beiden gerade gezeigten Plugins `Leaflet.AnimatedMarker` und `leaflet.bouncemarker` können Sie einen Marker auf der Karte Aktionen ausführen lassen und ihn am Schluss gekonnt aus dem Bild hüpfen lassen. Sehen Sie selbst, probieren Sie das nächste Beispiel aus!
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_948.html-->
 
 <!DOCTYPE html>
@@ -600,7 +600,7 @@ Möchten Sie gerne mit Ihrer Karte Daten visualisieren. Heatmaps und Choroplethe
 
 Das erste Beispiel zeigt Ihnen, wie Sie Formen als Marker darstellen können. Hier geht es noch nicht um das Visualisieren von Daten, sondern eher darum, die Möglichkeiten diese Plugins zu sehen und ein Gefühl für die Anwendung zu bekommen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_947.html-->
 
 <!DOCTYPE html>
@@ -667,7 +667,7 @@ Die nächste Abbildung zeigt Ihnen die drei im vorherigen Beispiel erstellen Mar
 
 Das außergewöhnlichste an diesem Plugin ist meiner Meinung nach die Einfachheit, mit der Diagramme als Marker dargestellt werden können. Sehen sich dies im nachfolgenden Beispiel an.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/4/index_946.html-->
 
 <!DOCTYPE html>

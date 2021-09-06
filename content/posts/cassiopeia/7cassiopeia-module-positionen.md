@@ -17,7 +17,11 @@ Schon beim ersten Blick auf eine frische Joomla 4 Installation wird eine der wes
 
 > Eine Modulposition ist ein Platzhalter in einem [Template](https://docs.joomla.org/Special:MyLanguage/Template). Platzhalter bestimmen eine oder mehrere Positionen innerhalb der Vorlage und teilen der Joomla-Anwendung mit, wo Module, die einer bestimmten Position zugeordnet sind, angezeigt werden sollen.
 
-![Modulpositionen in Cassiopeia als Übersicht](images/cassiopeia_module.png)
+Zwei Positionen wurden kurz vor Veröffentlichung von Joomla 4 hinzugefügt. "topbar" bietet eine Möglichkeit, ganz oben auf der Seite ein Modul anzuzeigen. "below-top" erscheint, wie der Name schon sagt, darunter. Warum wurde "below-top" integriert? Nicht alle Nutzer möchten ein Logo in der Kopfzeile ihrer Internetseite anzeigen lassen. Cassipoeia bietet per Parameter die Möglichkeit, die Anzeige eines Logos oder einer Beschreibung auszuschalten. Dazu gibt es eine neue Position "below-top", in der der Benutzer ein eigenes Modul anstelle des Logo hinzufügen kann. Die Verwendung von beidem - Position "below-top" und Logo - ist möglich.
+
+Die nachfolgende Grafik zeigt die Modulpositionen in Cassiopeia als Übersicht - Es fehlen noch die Positionen "topbar" und "below-top":
+
+![Modulpositionen in Cassiopeia als Übersicht - Es fehlen noch die Positionen "topbar" und "below-top"](images/cassiopeia_module.png)
 
 Das Standard-Template von Joomla 4 - Cassiopeia - hat eine feste Anzahl von Standard-Modul-Positionen. Diese Positionen werden in der Dropdown-Liste Position angezeigt, wenn du einzelne Module erstellst oder bearbeitest. Die Module bearbeitest du im Modul-Manager `JOOMLA4/administrator/index.php?option=com_modules&view=modules`. Die Stelle, an der eine Position innerhalb des HTML-Dokumentes der Website dargestellt wird, wird in der Datei `index.php` eines Joomla-Tempates festgelegt. In Cassiopeia sieht das für die Position `sidebar-right` so aus:
 

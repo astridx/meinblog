@@ -42,7 +42,7 @@ Sehen wir uns also an inwieweit die Dienste, die das Plugin Leaflet Routing Mach
 
 Nachfolgende finden Sie das erste Beispiel für diesen Themenbereich.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/6/index_932a.html-->
 
 <!DOCTYPE html>
@@ -89,7 +89,7 @@ ein `L.Routing.control` erstellt und dieses zur Karte hinzugefügt. Die Koordina
 
 Sie können einen Router, also eine Software, die die Route berechnen soll, mit dem Eintrag `router: L.Routing.mapbox('pk.ihrkey')` festgelegt. Für die Nutzung des Mapbox Routers benötigen Sie ein Zugriffstoken. Dieses können Sie unter der Adresse [https://www.mapbox.com](https://www.mapbox.com/api-documentation/#access-tokens)[^mapbox.com/api-documentation/#access-tokens] anfordern. In dieser Dokumentation finden Sie auch weitere Informationen zum Router und zu den Lizenzbedingungen. Im nächsten Programmcodeblock habe ich das vorhergehende Beispiel so abgeändert, dass der Router von Mapbox angewendet wird.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/6/index_932b.html-->
 
 <!DOCTYPE html>
@@ -130,7 +130,7 @@ Die nächste Abbildung zeigt Ihnen unseren bisherigen Stand. Die Route wird bere
 
 Der nächste Programmcode zeigt Ihnen am Beispiel von Mapbox, wie Sie die Sprache und das Routing Profil verändern können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/6/index_931b.html-->
 
 <!DOCTYPE html>
@@ -171,7 +171,7 @@ Der Mapbox Router bietet Ihnen unter anderem die Optionen `profil` und `language
 
 Auch der Router des Projektes [http://project-osrm.org](http://project-osrm.org) bietet Ihnen Optionen. Soweit ich weiß, kann auf dem Demoserver aber nur das Profil `driving` genutzt werden. Aber die Sprache können Sie benutzerdefiniert anpassen. Wie dies geht zeigt Ihnen das nächste Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/6/index_931.html-->
 
 <!DOCTYPE html>
@@ -220,7 +220,7 @@ Wahrscheinlich möchten Sie, dass die Adressen, zwischen denen geroutet wird, va
 
 Bisher wurde die Route ausschließlich anhand von Koordinaten berechnet. Menschen nutzen aber lieber Texte in Form von Adressen. Das Sie mithilfe von Geocoding Adressen in Koordinaten verwandelt können – beziehungsweise Koordinaten in Adressen verwandeln können – haben Sie im Kapitel _Geocoding ESRI_ schon lesen können. Hier im Beispiel kombinieren wir nun Routing und Geocoding. Sehen Sie selbst:
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/6/index_930.html-->
 
 <!DOCTYPE html>

@@ -19,7 +19,7 @@ Bootstrap 5 und CSS Grid Layout werden die Werkzeuge sein, die für das Frontend
 
 ## Bootstrap 2 vs. Bootstrap 5
 
-Zusammengefasst bedeutet Boostrap 2 versus Boostrap 4: Float versus Flex zum Aufbau von Layouts. Vergleichen wir die beiden Bootstrap Versionen, bevor wir uns CSS Grid genauer ansehen.
+Zusammengefasst bedeutet Boostrap 2 versus Boostrap 5: Float versus Flex zum Aufbau von Layouts. Vergleichen wir die beiden Bootstrap Versionen, bevor wir uns CSS Grid genauer ansehen.
 
 - Bootstrap 2 wird in Joomla 3 unterstützt.
 - Bootstrap 5 wird in Joomla 4 unterstützt werden.

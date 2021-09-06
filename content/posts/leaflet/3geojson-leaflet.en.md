@@ -14,9 +14,9 @@ tags:
 
 In the last chapter you learned about points, markers, lines and polygons. You can now draw these on a leaflet map and know when which object is the right one. You can distinguish [layer groups](https://leafletjs.com/reference.html#layergroup)[^leafletjs.com/reference.html#layergroup] and [feature groups](https://leafletjs.com/reference.html#featuregroup)[^leafletjs.com/reference.html#featuregroup] from each other and you know what to look for when displaying a leaflet map on a small display. In addition, you can now react appropriately to a mouse click or other event.
 
-The next chapter is about the format [GeoJson](https://en.wikipedia.org/wiki/GeoJSON)[^en.wikipedia.org/wiki/GeoJSON] and how to handle data well even in large quantities.
+The next chapter is about the format [GeoJson](https://en.wikipedia.org/wiki/GeoJSON)[^en.wikipedia.org/wiki/geojson] and how to handle data well even in large quantities.
 
-GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://en.wikipedia.org/wiki/Simple_Features)[^en.wikipedia.org/wiki/Simple_Features]. For the description of the geodata GeoJSON uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON)[^en.wikipedia.org/wiki/JSON].
+GeoJSON is an open format that makes it easy to describe geographic data. It follows a specification - namely the [Simple Feature Access Specification](https://en.wikipedia.org/wiki/Simple_Features)[^en.wikipedia.org/wiki/simple_features]. For the description of the geodata GeoJSON uses the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON)[^en.wikipedia.org/wiki/json].
 
 > The term _Simple Feature Access Specification_ hides a specification of the [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium)[^de.wikipedia.org/w/index.php?title=open_geospatial_consortium]. This specification contains a generally valid description for geodata and their geometries. The fact that the specification is universally valid means that this data can be exchanged easily. The OGC is a non-profit organisation that aims to develop universally valid standards for geodata.
 
@@ -26,7 +26,7 @@ First, we look at why GeoJSON was built. Then we compare the individual GeoJSON 
 
 ## The history of GeoJSON
 
-[GeoJSON](https://de.wikipedia.org/wiki/GeoJSON)[^en.wikipedia.org/wiki/GeoJSON] extended [JSON](https://en.wikipedia.org/wiki/JSON)[^en.wikipedia.org/wiki/JSON]. Before JSON was established as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/wiki/XML)[^en.wikipedia.org/wiki/XML].
+[GeoJSON](https://de.wikipedia.org/wiki/GeoJSON)[^en.wikipedia.org/wiki/geojson] extended [JSON](https://en.wikipedia.org/wiki/JSON)[^en.wikipedia.org/wiki/json]. Before JSON was established as a data format, there was the extensible markup language [XML](https://en.wikipedia.org/wiki/XML)[^en.wikipedia.org/wiki/xml].
 
 Whenever something new is created, there is a reason for it!
 
@@ -42,15 +42,15 @@ What was the motivation for the development of the GeoJSON format? Obviously, th
 - All three formats can be analyzed and used by many programming languages.
 - All three formats are interchangeable over the Hypertext Transfer Protocol (HTTP), i.e., via the Internet.
 
-Let's take a closer look at each format in this chapter to see what advantages the JSON format has over XML and what possibilities the GeoJSON format offers when working with [geodata](https://en.wikipedia.org/wiki/Geographic_data_and_information)[^en.wikipedia.org/wiki/Geographic_data_and_information].
+Let's take a closer look at each format in this chapter to see what advantages the JSON format has over XML and what possibilities the GeoJSON format offers when working with [geodata](https://en.wikipedia.org/wiki/Geographic_data_and_information)[^en.wikipedia.org/wiki/geographic_data_and_information].
 
 #### XML
 
-XML describes the structure of data. With the help of _tags_ a meaning is given to the data - a [semantics](https://en.wikipedia.org/wiki/Semantics)[^en.wikipedia.org/wiki/Semantics]. Because of XML's tag system, small data sets often become blown up and thus confusing. In addition, the addressing of individual tags in an XML file is sometimes quite complicated.
+XML describes the structure of data. With the help of _tags_ a meaning is given to the data - a [semantics](https://en.wikipedia.org/wiki/Semantics)[^en.wikipedia.org/wiki/semantics]. Because of XML's tag system, small data sets often become blown up and thus confusing. In addition, the addressing of individual tags in an XML file is sometimes quite complicated.
 
 #### JSON
 
-JSON is basically nothing more than the specification of a [syntax](https://en.wikipedia.org/wiki/Syntax)[^en.wikipedia.org/wiki/Syntax]. No meaning is given to the data, rather it is a pure syntactic structure. Because JSON structures data, objects can be easily defined from that data. JSON is under constant development. In December 1999, the first JSON format specification was adopted. Currently, there are two different but similar standards in terms of content, [[RFC 8259](https://tools.ietf.org/pdf/rfc8259.pdf)[^tools.ietf.org/pdf/rfc8259.pdf] and [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)[^ecma-international.org/publications-and-standards/standards/ecma-404].
+JSON is basically nothing more than the specification of a [syntax](https://en.wikipedia.org/wiki/Syntax)[^en.wikipedia.org/wiki/syntax]. No meaning is given to the data, rather it is a pure syntactic structure. Because JSON structures data, objects can be easily defined from that data. JSON is under constant development. In December 1999, the first JSON format specification was adopted. Currently, there are two different but similar standards in terms of content, [[RFC 8259](https://tools.ietf.org/pdf/rfc8259.pdf)[^tools.ietf.org/pdf/rfc8259.pdf] and [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)[^ecma-international.org/publications-and-standards/standards/ecma-404].
 
 The main advantage of JSON over XML is its ease of use. Since JSON represents valid JavaScript by itself, it can be called directly and thus converted into a JavaScript object. The individual properties of these objects are accessed via the attributes. In the next chapter, we will include a file containing GeoJSON objects. Just by including it, it is possible to access the GeoJSON objects inside. In comparison, an XML file must first be parsed with an XML parser! Another advantage of JSON is that no end tag is required. Mainly for this reason JSON is more compact and is read and executed faster.
 
@@ -91,13 +91,13 @@ To put it in time chronology: GeoJSON is still quite young:
 
 ### Explore GeoJSON
 
-You now know that you can use GeoJSON to encode many geographic data structures in a machine-readable language. A GeoJSON object can represent a simple geometry, for example a point, a line or a polygon. In addition, you can give a geometry a meaning. You can assign properties to each element. For example, you can give a line the property 'type=street' or 'name=church street'. In this case, you create a GeoJSON object of type [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. If you want to group multiple feature objects together, you can group them into a collection of features. For this, there is a GeoJSON type called [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Understanding these concepts has many advantages. It also helps you understand how to work with geospatial data in general. This is because the basic concepts applied in GeoJSON have been a part of [geoinformation systems](https://en.wikipedia.org/wiki/Geographic_information_system)[^en.wikipedia.org/wiki/Geographic_information_system] for many years. 
+You now know that you can use GeoJSON to encode many geographic data structures in a machine-readable language. A GeoJSON object can represent a simple geometry, for example a point, a line or a polygon. In addition, you can give a geometry a meaning. You can assign properties to each element. For example, you can give a line the property 'type=street' or 'name=church street'. In this case, you create a GeoJSON object of type [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. If you want to group multiple feature objects together, you can group them into a collection of features. For this, there is a GeoJSON type called [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Understanding these concepts has many advantages. It also helps you understand how to work with geospatial data in general. This is because the basic concepts applied in GeoJSON have been a part of [geoinformation systems](https://en.wikipedia.org/wiki/Geographic_information_system)[^en.wikipedia.org/wiki/geographic_information_system] for many years.
 
 Let's start from the beginning:
 
 #### A geometry
 
-A [geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries)[^en.wikipedia.org/wiki/GeoJSON#Geometries] is a shape. All shapes in GeoJSON are described using one or more coordinates. A coordinate is called _position_ in GeoJSON.
+A [geometry](https://en.wikipedia.org/wiki/GeoJSON#Geometries)[^en.wikipedia.org/wiki/geojson#geometries] is a shape. All shapes in GeoJSON are described using one or more coordinates. A coordinate is called _position_ in GeoJSON.
 
 GeoJSON does support the geometry types
 
@@ -114,7 +114,7 @@ GeoJSON does support the geometry types
 
 The most important element when working with geodata is the definition of the point on the Earth. The point on the earth is the one to which the geodata is assigned. We know this data also under the name coordinate. In the chapter about the coordinate system I have already written quite a lot about coordinates on the earth. Here again briefly: A coordinate is a number combination. Each number of a coordinate is for a dimension. We'll limit ourselves to two dimensions in this book, namely the geographic longitude and the geographic latitude. GeoJSON supports three dimensions - in addition to longitude and latitude, you can also specify the Elevation on Earth.
 
-> With the [global navigation satellite system (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten] a fourth dimension is relevant. Besides longitude, latitude and altitude, the time matters.
+> With the [global navigation satellite system (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten] a fourth dimension is relevant. Besides longitude, latitude and altitude, the time matters.
 
 The coordinates are formatted in GeoJSON in decimal format. The first number is the geographical longitude and the second number is the geographical latitude. Concretely, a position in GeoJSON looks like this:
 
@@ -125,6 +125,5 @@ The coordinates are formatted in GeoJSON in decimal format. The first number is 
 or
 
 ```js
-[50.254, 7.5847, 324.1]
+;[50.254, 7.5847, 324.1]
 ```
-

@@ -27,7 +27,7 @@ Um eine Karte mit Leaflet auf einer Internetseite anzuzeigen, reichen wenige Sch
 
 Noch vor Schritt 1 erstellen wir eine einfache HTML-Datei. Diese Datei ist die Grundlage für die Beispiele hier im Buch. Den Programmcode für die einfache HTML-Datei sehen Sie im nachfolgenden Programmcodebeispiel. Fügen Sie diesen Programmcode in eine Datei ein und speichern diese Datei ab.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_999.html-->
 
 <!DOCTYPE html>
@@ -53,9 +53,9 @@ Sie haben zwei Möglichkeiten die notwendigen Dateien in Ihr HTML-Dokument zu in
 
 #### Leaflet über ein Content Delivery Network einbinden
 
-Sie können Leaflet mithilfe eines CDN nutzen. So müssen Sie die Dateien nicht selbst herunterladen. Es ist lediglich eine Verlinkung nötig. Mit der richtigen Verlinkung wird Leaflet automatisch über das CDN heruntergeladen, wenn ein Website Besucher Ihre Website aufruft. Im nachfolgenden Programmcodebeispiel sehen Sie den Text für die Verlinkung zur Leaflet-Version 1.2.0.
+Sie können Leaflet mithilfe eines CDN nutzen. So müssen Sie die Dateien nicht selbst herunterladen. Es ist lediglich eine Verlinkung nötig. Mit der richtigen Verlinkung wird Leaflet automatisch über das CDN heruntergeladen, wenn ein Website Besucher Ihre Website aufruft. Im nachfolgenden Programmcodebeispiel sehen Sie den Text für die Verlinkung zur Leaflet-Version 1.7.1.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_998.html-->
 
 <!DOCTYPE html>
@@ -65,9 +65,9 @@ Sie können Leaflet mithilfe eines CDN nutzen. So müssen Sie die Dateien nicht 
     <title>Eine OSM Karte mit Leaflet</title>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     />
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   </head>
   <body></body>
 </html>
@@ -87,7 +87,7 @@ Im nachfolgenden Codebeispiel sehen Sie das Einbinden von Leaflet unter der Anna
 
 > Wenn Sie mit [relativen Pfadangaben](https://de.wikipedia.org/w/index.php?title=Pfadname)[^de.wikipedia.org/w/index.php?title=pfadname] arbeiten, setzen Sie die Links innerhalb eines Projektes mit Hilfe von Punkten. Der große Vorteil von relativen Pfadangaben ist, dass Sie ein Projekt jederzeit in ein anderes Verzeichnis kopieren können ohne Pfadangaben korrigieren zu müssen. Bei einer relativen Pfadangabe bedeuten die Punkte folgendes: Ein Punkt gefolgt von einem Schrägstrich (`./datei.html`) zeigt auf eine Datei, die sich im gleichen Verzeichnis befindet. Zwei Punkte gefolgt von einem Schrägstrich (`../datei.html`) zeigen auf eine Datei, die sich ein Verzeichnis höher befindet. Zweimal zwei Punkte gefolgt von einem Schrägstrich hintereinander (`../../datei.html`) zeigen auf eine Datei, die sich zwei Verzeichnisse höher befindet. Wenn Ihnen meine Erklärung nicht hilfreich erscheint sehen sich doch einfach alles im nächsten Beispiel an. Manchmal sagt ein Beispiel mehr als viele Worte. Nach meiner Erfahrung wird bei der praktischen Anwendung Vieles oft sehr schnell klarer.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_998a.html-->
 
 <!DOCTYPE html>
@@ -104,7 +104,7 @@ Im nachfolgenden Codebeispiel sehen Sie das Einbinden von Leaflet unter der Anna
 
 Auch wenn Leaflet nun lokal geladen wird, zeigt ein Aufruf dieser Datei in Ihrem Browser immer noch ein leeres Browser-Fenster. Erst im letzten Schritt - im Kapitel _Fügen Sie eine Schicht mit Kacheln – einen Tile-Layer – zum Karten-Objekt hinzu_ wird die Karte sichtbar.
 
-> Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe, aber für das Tag, in dem das Skript eingebunden wird, zwei separate Tags – also ein _binary_ Tag – verwendet habe. **`<link`** `rel="stylesheet" href="../leaflet/leaflet.css"`**`/>`** **`<script`**`src="../leaflet/leaflet.js"`**`></script>`** [HTML unterscheidet](https://de.wikipedia.org/wiki/Hilfe:Tags)[^de.wikipedia.org/wiki/hilfe:tags] zwischen Tags, die nie Inhalt enthalten können – nämlich den _void_-Tags –, und solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall muss ein selbst-schließendes _unary_ Tag verwendet werden. Hierzu gehört das `<link>`-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich entfallen - muss aber nicht. Im zweiten Fall darf kein selbst-schließendes _unary_ Tag benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer ist. Hierzu gehört das <script>-Tag.
+> Vielleicht fragen Sie sich, warum ich den Link zur CSS-Datei mithilfe eines selbst-schließenden Tags – also einem _unary_ Tag – geschrieben habe, aber für das Tag, in dem das Skript eingebunden wird, zwei separate Tags – also ein _binary_ Tag – verwendet habe. `<link rel="stylesheet" href="../leaflet/leaflet.css"/><script src="../leaflet/leaflet.js"></script>` [HTML unterscheidet](https://de.wikipedia.org/wiki/Hilfe:Tags)[^de.wikipedia.org/wiki/hilfe:tags] zwischen Tags, die nie Inhalt enthalten können – nämlich den _void_-Tags –, und solchen, die prinzipiell Inhalt enthalten können. Im ersten Fall muss ein selbst-schließendes _unary_ Tag verwendet werden. Hierzu gehört das `<link>`-Tag. Seit HTML5 kann sogar der abschließende Schrägstrich entfallen - muss aber nicht. Im zweiten Fall darf kein selbst-schließendes _unary_ Tag benutzt werden – auch dann nicht, wenn das Tag tatsächlich leer ist. Hierzu gehört das `<script>`-Tag.
 
 #### Leaflet performant einbinden – defer oder async
 
@@ -134,7 +134,7 @@ Sofern Sie das Attribut `defer` verwenden, wird das Skript ausgeführt, wenn das
 
 Wenn Sie Ihre Karte auf Ihrer Website anzeigen, werden Sie nicht nur das Leaflet-Skript laden. Sie werden später noch eigenen JavaSript-Code schreiben. Dieser eigene Code setzt das Laden des Leaflet-Skripts voraus. Aus diesem Grund müssen Sie sicherstellen, dass die Leaflet Bibliothek vollständig geladen ist, bevor Ihr eigener Code ausgeführt wird. Dies können Sie mithilfe des _Eventhandlers_: `load`. Obwohl Ihr eigenes Skript voraussetzt, dass Leaflet vollständig geladen ist, können Sie das Attribut `async` verwenden. Sehen Sie selbst: Das folgende einfache Beispiel zeigt es Ihnen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/mymap_99.html-->
 
 <html>
@@ -142,14 +142,14 @@ Wenn Sie Ihre Karte auf Ihrer Website anzeigen, werden Sie nicht nur das Leaflet
     <title>Eine OSM Karte mit Leaflet</title>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     />
   </head>
   <body>
     <div id="map" style="width: 600px; height: 400px"></div>
     <script src="mymap_99.js" async></script>
     <script
-      src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       async
     ></script>
   </body>
@@ -187,7 +187,7 @@ Setzen Sie ein `<div>`-Element mit einer bestimmten `ID` an die Stelle in Ihrem 
 
 Im nachfolgenden Programmcodeausschnitt sehen Sie die relevante Zeile `<div style="height: 180px;" id="mapid"></div>`.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_997.html-->
 
 <!DOCTYPE html>
@@ -210,7 +210,7 @@ So, nun ist das HTML-Dokument bereit ein Leaflet Kartenobjekt zu initialisieren 
 
 Nun wird es spannend. Wir erstellen das Skript das die Karte anzeigen wird. Dabei beginnen wir mit dem Erstellen des Karten-Objektes. Im nachfolgenden Programmcodeausschnitt sehen Sie die erste Zeile des Skripts.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_996.html-->
 
 <!DOCTYPE html>
@@ -250,7 +250,7 @@ dass diese Kacheln normalerweise als 256 Pixel x 256 Pixel Images angeboten werd
 
 Ich verwende hier das Angebot von http://www.openstreetmap.org zur Darstellung der Karte. Den Programmcode zum Einbinden der Imagedateien vom OpenStreetMap Tile-Server habe ich im nachfolgenden Programmcodebeispiel eingefügt. Es ist die Zeile `L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mymap);`. Die rechtlichen Voraussetzungen zur Verwendung der Kacheln des Openstreetmap-Servers finden Sie unter der Adresse `https://operations.osmfoundation.org/policies/tiles`.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_995.html-->
 
 <!DOCTYPE html>
@@ -399,7 +399,7 @@ Die vollständige Tabelle können Sie unter der Adresse [http://wiki.openstreetm
 
 > Vielleicht probieren Sie nun das Zoomen im vorangegangene Beispiel aus und wundern sich, dass Sie die Karte nur bis zur Zoom-Stufe 18 vergrößern können. Das liegt daran, dass bei dieser OpenStreeMap Karte standardmäßig die Option `maxZoom` mit 18 gesetzt ist. Sie können diese Option jedoch überschreiben. Wie das geht sehen Sie im nachfolgenden Programmcodebeispiel. Weitere Informationen finden Sie im Kapitel zur Karte von _Stamen_.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_995a.html-->
 
 <!DOCTYPE html>
@@ -511,7 +511,7 @@ Nachfolgende Übersicht zeigt Ihnen die verschiedenen Kartenstile von Thunderfor
 
 Wenn Sie Thunderforest verwenden möchten, müssen Sie unser bisheriges Beispiel nun in einer Zeile abändern. Sie müssen als Tile Layer nur die im Beispiel zu sehende URL angeben. Der nachfolgende Programmcode zeigt Ihnen ein vollständiges Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_994.html-->
 
 <!DOCTYPE html>
@@ -551,7 +551,7 @@ Stamen legt den Schwerpunkt auf gutes Design. Informationen zu den Karten von St
 
 Beim Einbinden einer Karte von Stamen müssen Sie zusätzlich eine JavaScript Datei verlinken. Wie Sie den `StamenTileLayer` genau nutzen, können Sie im nachfolgenden Programmcodebeispiel ablesen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_993.html-->
 
 <!DOCTYPE html>
@@ -581,7 +581,7 @@ Beim Einbinden einer Karte von Stamen müssen Sie zusätzlich eine JavaScript Da
 - Setzten Sie dafür nach der Instanziierung die Options `maxZoom` auf 19. So bleibt die Zoom-Stufe 19 als Ebene auf der Karte erhalten.
 - Setzen Sie dann aber die Option `maxNativeZoom` auf 18. Dies bewirkt, dass Leaflet nicht versucht, Kachel für eine Zoom-Stufe 19 zu laden. Stattdessen benutze Leaflet auch bei Zoom-Stufe 19 die Kacheln der Zoom-Stufe 18 – skaliert diese aber auf die Größe der Zoom-Stufe 19.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_993a.html-->
 
 <!DOCTYPE html>
@@ -653,7 +653,7 @@ Detaillierte technische Informationen zum Web Mapping Service (WMS) allgemein fi
 
 Ich möchte Sie hier an dieser Stelle nicht mit trockenen Dokumentationen von Web Services langweilen. Viel lieber zeige ich Ihnen ein praktisches Beispiel. Im nachfolgenden Programmcodeausschnitt sehen Sie die wesentlichen Zeilen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_992.html-->
 
 <!DOCTYPE html>
@@ -710,7 +710,7 @@ Für alle anderen Parameter setzt Leaflet, oder der Service selbst, Standardwert
 
 Das Schöne an WMS-Layern ist, das Sie diese übereinander legen können. Das nachfolgende Beispiel enthält Programmcode, der im Ergebnis gleichzeitig drei WMS-Layer übereinander anzeigt.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_991.html -->
 
 <!DOCTYPE html>
@@ -759,7 +759,7 @@ Dieses Beispiel ist meiner Meinung nach selbsterklärend. Wichtig ist, dass Sie 
 
 Das nachfolgende Beispiel zeigt Ihnen, wie Sie einen `L.tileLayer` mit einem `L.tileLayer.wms` kombinieren können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_990.html -->
 
 <!DOCTYPE html>
@@ -799,7 +799,7 @@ Die nachfolgende Abbildung zeigt Ihnen die zwei `L.tileLayer.wms` Layer über de
 
 ![Zwei `L.tileLayer.wms` Layer über dem `L.tileLayer` Layer.](/images/994b.png)
 
-> **Achtung:** Wenn auf Ihrer Karte der Layer `dwd:Warnungen_Gemeinden_vereinigt` nicht angezeigt wird, kann es daran liegen, dass es zur Zeit keine Warnungen gibt. Dieser Layer enthält nur Daten, wenn aktuell Wetterwarnungen vorliegen. Die grünen Polygone – im Layer `dwd:Warngebiete_Kreise` – die die Landkreise darstellen, werden dahingegen immer eingeblendet.
+> Achtung: Wenn auf Ihrer Karte der Layer `dwd:Warnungen_Gemeinden_vereinigt` nicht angezeigt wird, kann es daran liegen, dass es zur Zeit keine Warnungen gibt. Dieser Layer enthält nur Daten, wenn aktuell Wetterwarnungen vorliegen. Die grünen Polygone – im Layer `dwd:Warngebiete_Kreise` – die die Landkreise darstellen, werden dahingegen immer eingeblendet.
 
 ## In diesem Kapitel haben wir …
 

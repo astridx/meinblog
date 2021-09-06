@@ -183,7 +183,55 @@ Do you need an empty file `index.html` in each folder of your component? The `in
 
 Do you know how those responsible at Joomla decide which functions are supported and what is not pursued further? That's what the [statistics plugin](https://developer.joomla.org/about/stats.html)[^developer.joomla.org/about/stats.html] is for. Thanks to the users who activate this extension, important information flows into the development.
 
-### Alternative syntax<!-- \index{alternative syntax PHP} --> for control structures
+### PHP
+
+#### PHP operators for equality (== two equal signs) and identity (=== three equal signs)<!-- \index{PHP!comparison operator} -->
+
+The [comparison operator](https://www.php.net/manual/en/language.operators.comparison.php#language.operators.comparison)[php.net/manual/en/language.operators.comparison.php#language.operators.comparison] `==` compares between two different types if they are different, while the `===` operator performs a type-safe comparison. This means that it returns `true` only if both operands have the same type and the same value. Examples:
+
+`1 === 1`: true
+`1 == 1`: true
+`1 === "1"`: false // 1 is an integer, "1" is a string
+`1 == "1"`: true // "1" is converted to an integer, which is 1
+`"foo" === "foo"`: true // both operands are strings and have the same value
+
+Note: Two instances of the same class with equivalent elements will be evaluated by the operator with three equal signs `===` with `false`. Example:
+
+```
+$a = new stdClass();
+$a->foo = "bar";
+$b = clone $a;
+var_dump($a === $b); // bool(false)
+```
+
+In Joomla, we use type-safe comparison whenever possible because it is more accurate.
+
+#### Single quotes and double quotes<!-- \index{PHP!single quotes and double quotes} -->
+
+##### Single quotes
+
+The simplest way to specify a string is to enclose it in single quotes. Single quotes are generally faster, and anything enclosed in quotes is treated as a single string. Example:
+
+```
+echo 'Start with a single string';
+echo 'String with an apostrophe';
+echo 'String with a php variable'.$name;
+```
+
+##### Double quotes
+
+Use double quotes in PHP to avoid using a period when separating. Use curly braces {} in strings to enclose variables if you don't like to use the concatenation operator (.). Example:
+
+```
+var $name = "Peter";
+echo "Hello {$name}"
+```
+
+In Joomla we use single quotes when possible. Using single quotes is slightly faster. PHP does not need any additional processing to interpret what is inside the single quote. If you use double quotes, PHP needs to check if there are any variables in the string. 
+
+More information about this and the explanation of two other ways to use strings in PHP can be found on the website [php.net](https://www.php.net/manual/en/language.types.string.php)[^php.net/manual/en/language.types.string.php].
+
+#### Alternative syntax<!-- \index{PHP!alternative syntax PHP} --> for control structures
 
 PHP offers an [additional notation](https://www.php.net/manual/en/control-structures.alternative-syntax.php) for control structures. This is especially handy when outputting larger blocks of HTML directly - without using `echo`. Use them in template files. This way they remain clear.
 

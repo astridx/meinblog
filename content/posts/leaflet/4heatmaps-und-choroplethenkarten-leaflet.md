@@ -12,7 +12,7 @@ tags:
   - Leaflet
 ---
 
-In den vorherigen Kapiteln haben wir uns angesehen, wie Sie Elemente direkt – oder mithilfe von in GeoJSON formatierten Daten – zu Ihrer Karte hinzugefügt können. Jetzt geht es darum, dieses Wissen in die Tat umzusetzen und eigene Vorstellungen umzusetzen.
+In den vorherigen Kapiteln haben wir uns angesehen, wie Sie Elemente direkt zu Ihrer Karte hinzugefügt können oder mithilfe von in GeoJSON formatierten Daten. Ab jetzt geht es darum, dieses Wissen in die Tat umzusetzen und eigene Vorstellungen umzusetzen.
 
 ## In diesem Kapitel werden wir …
 
@@ -40,7 +40,7 @@ Unser erstes Beispiel zeigt eine Heatmap, die die unterschiedliche Dichte von Pu
 
 Nachfolgende finden Sie das erste Beispiel für diesen Themenbereich.
 
-```html
+```html {numberLines: -1}
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_965.html-->
 
 <!DOCTYPE html>
@@ -130,7 +130,7 @@ Zusätzlich zu den Stylesheet Optionen bietet Ihnen das Plugin `Leaflet.heat` vi
 
 Mithilfe der Methode `addLatLng()` können Sie nachträglich einen Punkt zum Heatmap Layer hinzufügen.
 
-```html
+```html {numberLines: -1}
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_964.html-->
 
 <!DOCTYPE html>
@@ -177,7 +177,7 @@ In der nächsten Abbildung können Sie den neu hinzugefügten Punkt erkennen.
 
 In diesem Kapitel stelle ich Ihnen ein Beispiel vor, das per Schaltfläche die verschiedenen Methoden anwendet.
 
-```html
+```html {numberLines: -1}
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_963.html-->
 
 <!DOCTYPE html>
@@ -249,7 +249,7 @@ Einen Screenshot der Karte zu diesem Beispiel sehen Sie in der nachfolgenden Abb
 
 Im nächsten Beispiel zeige ich Ihnen, wie Sie zu jedem Punkt in einer Heatmap einen Marker hinzufügen können. Das ist ganz praktisch, wenn Sie die Eigenschaften der einzelnen Punkte aufzeigen möchten.
 
-```html
+```html {numberLines: -1}
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_962.html-->
 
 <!DOCTYPE html>
@@ -302,7 +302,7 @@ Was ist in diesem Beispiel anders? Wir haben der Variablen `point` einen dritten
 
 Im vorhergehenden Kapitel haben wir eine Heatmap mithilfe des Plugins [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat)[^github.com/leaflet/leaflet.heat] erstellt. Diese Heatmap hat die Dichte von Punkten auf einer Karte visualisierte. Wir haben bisher die Möglichkeit die Intensität zu visualisieren nicht genutzt. Ich stelle Ihnen hier ein anderes Plugin für diesen Zweck vor. Als nächstes möchte ich nun mit Ihnen eine Heatmap, die die Intensität der Eigenschaft eines Punktes darstellt, mithilfe des Plugins [heatmap.js](https://github.com/pa7/heatmap.js)[^github.com/pa7/heatmap.js] erarbeiten. Herunterladen können Sie das Plugin unter der Adresse [https://www.patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html](https://www.patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html)[^patrick-wied.at/static/heatmapjs/plugin-leaflet-layer.html]. Hier finden Sie auch die Dokumentation zum Plugin. Nachfolgende sehen Sie das erste Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_961.html-->
 
 <!DOCTYPE html>
@@ -348,7 +348,7 @@ Im vorhergehenden Kapitel haben wir eine Heatmap mithilfe des Plugins [Leaflet.h
 </html>
 ```
 
-Was zeigt Ihnen dieses Beispiel genau? Sie sehen, dass Sie neben dem Skript `leaflet.heat.js` auch das Skript `heat.js` einbinden können oder müssen. Als nächstes müssen Sie die Daten, die Sie visualisieren möchten, angeben – diese müssen eine Angabe zu dem maximal möglichen Wert enthalten: `var myData={`**`max:100`**`, data: [ {lat: 51.0934, lon:8.666819, value: 99} ….`. Danach können Sie die Heatmap Ebene erstellen. Der Übersicht halber habe ich die Optionen der Heatmap Ebene in einer separaten Variablen, nämlich der Variablen `cfg`, definiert. Die Anweisung zum Erstellen der Heatmap Ebene mit den Optionen in der Variablen `cfg` lautet `var heatmapLayer = new HeatmapOverlay(cfg);`. Dieser Ebene können Sie nun die Daten mit dem Befehl `heatmapLayer.setData(myData);` hinzufügen. Zum Schluss fügen Sie diesen Layer nun zum Kartenobjekt hinzu. Die Anweisung hierfür lautet: `L.Map('mapid', { center: new L.LatLng(50.0586, 7.6568),` `zoom: 8, layers: [baseLayer,`**`heatmapLayer`**`]});`.
+Was zeigt Ihnen dieses Beispiel genau? Sie sehen, dass Sie neben dem Skript `leaflet.heat.js` auch das Skript `heat.js` einbinden können oder müssen. Als nächstes müssen Sie die Daten, die Sie visualisieren möchten, angeben – diese müssen eine Angabe zu dem maximal möglichen Wert enthalten: `var myData={``max:100``, data: [ {lat: 51.0934, lon:8.666819, value: 99} ….`. Danach können Sie die Heatmap Ebene erstellen. Der Übersicht halber habe ich die Optionen der Heatmap Ebene in einer separaten Variablen, nämlich der Variablen `cfg`, definiert. Die Anweisung zum Erstellen der Heatmap Ebene mit den Optionen in der Variablen `cfg` lautet `var heatmapLayer = new HeatmapOverlay(cfg);`. Dieser Ebene können Sie nun die Daten mit dem Befehl `heatmapLayer.setData(myData);` hinzufügen. Zum Schluss fügen Sie diesen Layer nun zum Kartenobjekt hinzu. Die Anweisung hierfür lautet: `L.Map('mapid', { center: new L.LatLng(50.0586, 7.6568),` `zoom: 8, layers: [baseLayer,``heatmapLayer``]});`.
 
 Wie das aussehen sollte, können Sie sich in der nächsten Abbildung ansehen.
 
@@ -358,7 +358,7 @@ Wie das aussehen sollte, können Sie sich in der nächsten Abbildung ansehen.
 
 Das nachfolgende Beispiel demonstriert Ihnen, wie unterschiedlich Punkte mit unterschiedlicher Intensität aussehen können.
 
-```html
+```html {numberLines: -1}
 <!-- htttps://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_960.html-->
 
 <!DOCTYPE html>
@@ -426,7 +426,7 @@ Im vorhergehen Codebeispiel haben wir 4 Punkte mit unterschiedlicher Intensität
 
 Besonders spannend sind Karten, wenn wenn man sie bearbeiten und somit verändern kann. Auch eine Heatmap kann interaktiv programmiert werden. Sie können es beispielsweise Benutzern ermöglichen, Daten zur Heatmap Ebene hinzuzufügen. Wie das geht sehen Sie im nachfolgenden Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_959.html-->
 
 <!DOCTYPE html>
@@ -473,7 +473,7 @@ Das Ergebnis sehen Sie im Browser, wenn Sie die HTML Datei dieses Beispiels öff
 
 Das ist fast wie Kino – im nächsten Beispiel verändert sich die Karte automatisch.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_958.html-->
 
 <!DOCTYPE html>
@@ -572,13 +572,13 @@ Die Datei, die ich heruntergeladen haben, ist relativ groß. Deshalb habe ich di
 ```js
 *var ct =
  {
- "type":"**FeatureCollection**",
+ "type":"FeatureCollection",
  "crs":{
  "type":"name",
  "properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},
  "source":"© GeoBasis-DE / BKG 2013 (Daten verändert)",
 *"features":[
-*{"type":"Feature",**
+*{"type":"Feature",
  "properties":
  {
  "ADE":6,
@@ -607,7 +607,7 @@ Die Datei, die ich heruntergeladen haben, ist relativ groß. Deshalb habe ich di
   ..,
 *"geometry":{
 * "type":"Polygon",
-* "coordinates":**[[[8.276302148832034,49.21145214735215],
+* "coordinates":[[[8.276302148832034,49.21145214735215],
    [8.295112386392997,49.21205183793759],
   …
  ]]}},
@@ -671,7 +671,7 @@ function myStyle(feature) {
 
 Nachfolgenden habe ich die gerade besprochenen Codeschnipsel in einem vollständigen Beispiel zusammengesetzt.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_957.html-->
 
 <!DOCTYPE html>
@@ -735,7 +735,7 @@ Es kommt sicherlich sehr oft vor, dass Sie mit einer Choroplethenkarten nicht nu
 
 In unser GeoJSON Datei ist die Fläche der Gemeinde in der Eigenschaft `area` gespeichert. Wir können es uns also einfach machen und auf die Zahl die für die Fläche einer Gemeinde gespeichert ist, zugreifen. Um die Choroplethenkarte, die wir im vorhergehenden Kapitel erstellt haben zu normalisieren, ist somit nur ein Schritt – nämlich das Teilen der Bevölkerungsanzahl durch die Fläche des betreffenden Bereichs – erforderlich. Sehen wir uns das ganze Beispiel zusammenhängend an.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/3/index_956.html-->
 
 <!DOCTYPE html>

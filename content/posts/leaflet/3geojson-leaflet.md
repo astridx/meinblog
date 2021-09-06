@@ -14,9 +14,9 @@ tags:
 
 Im letzten Kapitel haben Sie Punkte, Marker, Linien und Polygone kennengelernt. Sie können diese nun auf eine Leaflet-Karte zeichnen und wissen, wann welches Objekt das Richtige ist. Sie können [Layer-Gruppen](https://leafletjs.com/reference.html#layergroup)[^leafletjs.com/reference.html#layergroup] und [Feature-Gruppen](https://leafletjs.com/reference.html#featuregroup)[^leafletjs.com/reference.html#featuregroup] voneinander abgrenzen und Sie wissen, was bei der Anzeige einer Leaflet Karten auf einem kleinen Display zu beachten ist. Außerdem können Sie nun auf einen Mausklick oder ein anderes Ereignis entsprechend reagieren.
 
-Im nächsten Kapitel geht es um das Format [GeoJson](https://de.wikipedia.org/wiki/GeoJSON)[^de.wikipedia.org/wiki/GeoJSON] und darum, wie Sie Daten in großen Mengen gut handhaben.
+Im nächsten Kapitel geht es um das Format [GeoJson](https://de.wikipedia.org/wiki/GeoJSON)[^de.wikipedia.org/wiki/geojson] und darum, wie Sie Daten in großen Mengen gut handhaben.
 
-GeoJSON ist ein offenes Format, welches es einfach macht, geografische Daten zu beschreiben. Dabei richtet es sich nach einer Spezifikation – nämlich nach der [Simple-Feature-Access-Spezifikation](https://de.wikipedia.org/wiki/Simple_Feature_Access)[^de.wikipedia.org/wiki/Simple_Feature_Access]. Für die Beschreibung der Geodaten verwendet GeoJSON die [JavaScript Objekt Notation (JSON)](https://de.wikipedia.org/wiki/JavaScript_Object_Notation)[^de.wikipedia.org/wiki/JavaScript_Object_Notation].
+GeoJSON ist ein offenes Format, welches es einfach macht, geografische Daten zu beschreiben. Dabei richtet es sich nach einer Spezifikation – nämlich nach der [Simple-Feature-Access-Spezifikation](https://de.wikipedia.org/wiki/Simple_Feature_Access)[^de.wikipedia.org/wiki/simple_feature_access]. Für die Beschreibung der Geodaten verwendet GeoJSON die [JavaScript Objekt Notation (JSON)](https://de.wikipedia.org/wiki/JavaScript_Object_Notation)[^de.wikipedia.org/wiki/javascript_object_notation].
 
 > Hinter dem Begriff _Simple-Feature-Access-Spezifikation_ versteckt sich eine Spezifikation des [Open Geospatial Consortium (OGC)](https://de.wikipedia.org/w/index.php?title=Open_Geospatial_Consortium)[^de.wikipedia.org/w/index.php?title=open_geospatial_consortium]. Diese Spezifikation beinhaltet eine allgemein gültige Beschreibung für Geodaten und deren Geometrien. Dadurch, dass die Spezifikation allgemeingültig ist, können diese Daten gut ausgetauscht werden. Das OGC ist eine gemeinnützige Organisation, die die Entwicklung von allgemeingültigen Standards für Geodaten zum Ziel hat.
 
@@ -26,7 +26,7 @@ Zuerst schauen wir uns an, warum GeoJSON entwickelt wurde. Dann vergleichen wir 
 
 ## Die Entwicklungsgeschichte von GeoJSON
 
-[GeoJSON](https://de.wikipedia.org/wiki/GeoJSON)[^de.wikipedia.org/wiki/GeoJSON] erweitert [JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation)[^de.wikipedia.org/wiki/JavaScript_Object_Notation]. Bevor JSON als Datenformat eingeführt wurde, gab es die erweiterbare Auszeichnungssprache [XML](https://de.wikipedia.org/wiki/Extensible_Markup_Language)[^en.wikipedia.org/wiki/Extensible_Markup_Language].
+[GeoJSON](https://de.wikipedia.org/wiki/GeoJSON)[^de.wikipedia.org/wiki/geojson] erweitert [JSON](https://de.wikipedia.org/wiki/JavaScript_Object_Notation)[^de.wikipedia.org/wiki/javascript_object_notation]. Bevor JSON als Datenformat eingeführt wurde, gab es die erweiterbare Auszeichnungssprache [XML](https://de.wikipedia.org/wiki/Extensible_Markup_Language)[^en.wikipedia.org/wiki/extensible_markup_language].
 
 Wann immer etwas Neues geschaffen wird, gibt es einen Grund dafür!
 
@@ -50,7 +50,7 @@ XML beschreibt die Struktur von Daten. Mit Hilfe der _Tags_ wird den Daten eine 
 
 #### JSON
 
-JSON ist im Grunde nichts anderes als die Spezifikation einer [Syntax](https://de.wikipedia.org/wiki/Syntax)[^de.wikipedia.org/wiki/Syntax]. Den Daten wird keine Bedeutung gegeben, vielmehr handelt es sich um eine pure syntaktische Struktur. Da JSON Daten strukturiert, lassen sich Objekte leicht aus diesen Daten definieren. JSON befindet sich in ständiger Entwicklung. Im Dezember 1999 wurde die erste JSON-Formatspezifikation verabschiedet. Derzeit gibt es zwei unterschiedliche aber inhaltlich gleiche Standards, [RFC 8259](https://tools.ietf.org/pdf/rfc8259.pdf)[^tools.ietf.org/pdf/rfc8259.pdf] und [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)[^ecma-international.org/publications-and-standards/standards/ecma-404].
+JSON ist im Grunde nichts anderes als die Spezifikation einer [Syntax](https://de.wikipedia.org/wiki/Syntax)[^de.wikipedia.org/wiki/syntax]. Den Daten wird keine Bedeutung gegeben, vielmehr handelt es sich um eine pure syntaktische Struktur. Da JSON Daten strukturiert, lassen sich Objekte leicht aus diesen Daten definieren. JSON befindet sich in ständiger Entwicklung. Im Dezember 1999 wurde die erste JSON-Formatspezifikation verabschiedet. Derzeit gibt es zwei unterschiedliche aber inhaltlich gleiche Standards, [RFC 8259](https://tools.ietf.org/pdf/rfc8259.pdf)[^tools.ietf.org/pdf/rfc8259.pdf] und [ECMA-404](https://www.ecma-international.org/publications-and-standards/standards/ecma-404/)[^ecma-international.org/publications-and-standards/standards/ecma-404].
 
 Der Hauptvorteil von JSON gegenüber XML ist die einfache Verwendung. Da JSON selbst gültiges JavaScript darstellt, kann es direkt aufgerufen und somit in ein JavaScript-Objekt umgewandelt werden. Auf die einzelnen Eigenschaften dieser Objekte wird über die Attribute zugegriffen. Im nächsten Teil werden wir eine Datei mit GeoJSON-Objekten einbinden. Allein durch das Einbinden ist es möglich, auf die darin enthaltenen GeoJSON-Objekte zuzugreifen. Im Vergleich dazu muss eine XML-Datei erst mit einem XML-Parser geparst werden! Ein weiterer Vorteil von JSON ist, dass kein Ende-Tag erforderlich ist. Vor allem aus diesem Grund ist JSON kompakter und wird schneller gelesen und verarbeitet.
 
@@ -91,7 +91,7 @@ Zur zeitlichen Einordnung: GeoJSON ist noch recht jung.
 
 ### GeoJSON erkunden
 
-Sie wissen jetzt, dass Sie GeoJSON verwenden können, um viele geografische Datenstrukturen in einer maschinenlesbaren Sprache zu kodieren. Ein GeoJSON-Objekt kann eine einfache Geometrie darstellen, zum Beispiel einen Punkt, eine Linie oder ein Polygon. Darüber hinaus können Sie einer Geometrie eine Bedeutung geben. Sie können jedem Element Eigenschaften zuweisen. Zum Beispiel können Sie einer Linie die Eigenschaft "type=street" oder "name=Kirchstraße" zuweisen. In diesem Fall erstellen Sie ein GeoJSON-Objekt vom Typ [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. Wenn Sie mehrere Feature-Objekte zusammenfassen möchten, können Sie diese zu einer Sammlung von Features zusammenfassen. Hierfür gibt es einen GeoJSON-Typ namens [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Das Verständnis dieser Konzepte bringt viele Vorteile mit sich. Es hilft Ihnen außerdem zu verstehen, wie Sie mit Geodaten im allgemeinen arbeiten. Denn die grundlegenden Konzepte, die in GeoJSON verwendet werden, sind seit vielen Jahren Bestandteil von [Geoinformationssystemen](https://de.wikipedia.org/wiki/Geoinformationssystem)[^de.wikipedia.org/wiki/geoinformation-system]. 
+Sie wissen jetzt, dass Sie GeoJSON verwenden können, um viele geografische Datenstrukturen in einer maschinenlesbaren Sprache zu kodieren. Ein GeoJSON-Objekt kann eine einfache Geometrie darstellen, zum Beispiel einen Punkt, eine Linie oder ein Polygon. Darüber hinaus können Sie einer Geometrie eine Bedeutung geben. Sie können jedem Element Eigenschaften zuweisen. Zum Beispiel können Sie einer Linie die Eigenschaft "type=street" oder "name=Kirchstraße" zuweisen. In diesem Fall erstellen Sie ein GeoJSON-Objekt vom Typ [Feature](https://tools.ietf.org/html/rfc7946#section-3.2)[^tools.ietf.org/html/rfc7946#section-3.2]. Wenn Sie mehrere Feature-Objekte zusammenfassen möchten, können Sie diese zu einer Sammlung von Features zusammenfassen. Hierfür gibt es einen GeoJSON-Typ namens [FeatureCollection](https://tools.ietf.org/html/rfc7946#section-3.3)[^tools.ietf.org/html/rfc7946#section-3.3]. Das Verständnis dieser Konzepte bringt viele Vorteile mit sich. Es hilft Ihnen außerdem zu verstehen, wie Sie mit Geodaten im allgemeinen arbeiten. Denn die grundlegenden Konzepte, die in GeoJSON verwendet werden, sind seit vielen Jahren Bestandteil von [Geoinformationssystemen](https://de.wikipedia.org/wiki/Geoinformationssystem)[^de.wikipedia.org/wiki/geoinformation-system].
 
 Fangen wir von vorne an:
 
@@ -114,18 +114,18 @@ GeoJSON unterstützt die Geometriearten
 
 Das wichtigste Element bei der Arbeit mit Geodaten ist die Definition des Punktes auf der Erde. Der Punkt auf der Erde ist derjenige, dem die Geodaten zugeordnet sind. Wir kennen diese Daten auch unter dem Namen Koordinate. Im Kapitel über das Koordinatensystem habe ich schon recht viel über Koordinaten auf der Erde geschrieben. Hier noch einmal kurz: Eine Koordinate ist eine Zahlenkombination. Jede Zahl einer Koordinate steht für eine Dimension. Wir werden uns in diesem Buch auf zwei Dimensionen beschränken, nämlich die geographische Länge und die geographische Breite. GeoJSON unterstützt drei Dimensionen - neben der geografischen Länge und der geografischen Breite können Sie auch die Höhe auf der Erde angeben.
 
-> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten] ist noch eine vierte Große relevant. Neben Längengrad, Breitengrad, Höhe spielt die Zeit eine Rolle.
+> Beim [globalen Navigationssatellitensystem (GPS)](https://wiki.openstreetmap.org/w/index.php?title=DE:Genauigkeit_von_GPS-Daten)[^wiki.openstreetmap.org/w/index.php?title=de:genauigkeit_von_gps-daten] ist noch eine vierte Große relevant. Neben Längengrad, Breitengrad, Höhe spielt die Zeit eine Rolle.
 
 Die Koordinaten werden in GeoJSON im Dezimalformat formatiert. Die erste Zahl steht für die Longitude – also die geografische Länge – und die zweite Zahl für die Latitude – also die geografische Breite. Konkret sieht eine Position in GeoJSON so aus:
 
 ```js
-[Längengrad, Breitengrad, Höhe]
+;[Längengrad, Breitengrad, Höhe]
 ```
 
 oder
 
 ```js
-[50.254, 7.5847, 324.1]
+;[50.254, 7.5847, 324.1]
 ```
 
 > Vielleicht haben Sie in der Vergangenheit mit Geodaten gearbeitet und wundern sich nun über die Reihenfolge, in der die Dimensionen im Format GeoJSON stehen? Viele Systeme geben zuerst die geografische Länge und erst dann die geografische Breite an. Auch in Leaflet wird bei der Koordinate zuerst die Latitude - also die geografische Breite - und erste dann die Longitude - also die geografische Länge - angegeben: `Breitengrad | Längengrad`. Um dieses Durcheinander zu verstehen, müssen Sie das Folgende bedenken: Früher war es üblich, dass die erste Stelle einer Koordinate den Breitengrad und die zweite Stelle den Längengrad beschrieb. In der Mathematik ist die übliche Reihenfolge beim Arbeiten mit Koordinatensystemen: `X-Wert | Y-Wert`. Wenn man eine Landkarte mit einem Koordinatensystem vergleicht, erkennt man schnell, dass der Breitengrad dem `X-Wert` und der Längengrad der dem `Y-Wert` entspricht. Dies hat zur Folge, dass es beim Rechnen mit einem Computer viele Vorteile bringt, wenn man die Reihenfolge `Längengrad | Breitengrad` einhält. In der digitalen Welt gibt es momentan noch keine Einigkeit über die Reihenfolge. Es sieht so aus, als ob wir mitten in einem Umbruch stecken. Eine Übersicht, die zeigt, welche Anwendung die Dimensionen in welcher Reihenfolge verwendet finden Sie unter anderem unter der Adresse https://macwright.org/lonlat/.
@@ -524,7 +524,7 @@ Das nachfolgende Programmcodebeispiel enthält einen _Punkt_. Sobald Sie diesen 
 
 Hier also nun das erste praktische Beispiel zum Thema GeoJSON und Leaflet.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_973.html-->
 
 <!DOCTYPE html>
@@ -570,7 +570,7 @@ Auf der nachfolgenden Abbildung können Sie sich das Ergebnis ansehen.
 
 Das Beispiel des letzten Kapitels enthielt ausschließlich einen Punkt – also ein Feature. Geodaten bestehen in der Regel aus mehreren Geometrien mit dazugehörigen Eigenschaften – also FeatureCollections. Leaflet liest eine FeatureCollection genauso ein, wie Sie es im letzten Beispiel anhand des einen Features gesehen haben. Das nächste Beispiel zeigt Ihnen, wie Sie einen Punkt, ein Polygon und eine Linie in einem Schritt auf Ihrer Karte anzeigen könnten.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_972.html-->
 
 <!DOCTYPE html>
@@ -639,7 +639,7 @@ Voila! Drei Elemente mit Standardeigenschaften auf der Leaflet Karte.
 
 So, und nun machen wir genau das Gegenteil. Ein jedes Leaflet Objekt, das wir uns im Kapitel _Die Karte mit Daten bestücken_ angesehen haben, verfügt über eine Leaflet Methode mit dem Namen `toGeoJson()`. Und diese Methode tut genau das, was der Name schon vermuten lässt: Das übergebene Leaflet Objekt wird in ein GeoJSON Objekt umgewandelt und ausgegeben. Sehen Sie sich im nächsten Beispiel die Anwendung der Methode `toGeoJson()` an.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_971.html-->
 
 <!DOCTYPE html>
@@ -726,7 +726,7 @@ Dokumentation von Leaflet. Sehen Sie sich dazu die Optionen zur [Klasse `Path`](
 
 Der nachfolgende Programmcode zeigt Ihnen, wie Sie Stylesheets beim Erstellen eines GeoJSON Layer als Parameter mitgeben können. Im nachfolgenden Programmcode finden Sie eine Funktion, die je nach GeoJSON Objekt eine andere Farbe zurück gibt. Wenn es sich um den Typ LineString handelt, gibt die Funktion die Farbe Rot zurück, falls ein Polygon vorliegt, antwortet die Funktion mit der Farbe Violett.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_970.html-->
 
 <!DOCTYPE html>
@@ -901,7 +901,7 @@ L.geoJSON(geojsonText, {style: areaStyle}).addTo(mymap);
 
 Im vorherigen Kapitel haben Sie gelernt, wie Sie mit der Option `style` des GeoJSON Layers ein Aussehen festlegen können. Sicherlich ändert sich das Aussehen Ihrer Objekte im Laufe der Zeit. Ganz häufig kommt es vor, dass man Objekte, die anklickbar sind und angeklickt wurden, als schon besucht kennzeichnen möchte. Oder Sie möchten ein Objekt, über dem sich die Maus gerade befindet, hervorheben. Genau diese beiden Anwendungsfälle sind Thema im nachfolgenden Beispielcode.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_969.html-->
 
 <!DOCTYPE html>
@@ -1036,7 +1036,7 @@ Interessant werden Karten, wenn Sie viele Informationen bieten. Eine Karte mit v
 [`onEachFeature()`](http://leafletjs.com/reference.html#geojson-oneachfeature)[^leafletjs.com/reference.html#geojson-oneachfeature]
 ist eine Methode, die einmal für jedes im Layer vorhandene GeoJSON Objekt vom Typ Feature aufgerufen wird. Nützlich ist diese Option zum Anhängen von Ereignissen oder Pop-up Fenstern an jedes Feature Objekt.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_968.html-->
 
 <!DOCTYPE html>
@@ -1092,7 +1092,7 @@ Nun würden wir dem Marker vielleicht auch gerne ein spezielles Aussehen geben. 
 
 Die [Methode `pointtoLayer()`](https://leafletjs.com/reference.html#geojson-pointtolayer)[^leafletjs.com/reference.html#geojson-pointtolayer], die wir uns in diesem Kapitel ansehen, ist speziell für die Arbeit mit einem GeoJSON Objekten vom Typ `Point` gemacht. Dieses Objekt ist das GeoJSON Pendant zum Leaflet-Marker. Wenn wir einen Point beim Erstellen des GeoJSON Layers als Parameter übergeben, dann wird ein Standard Marker erstellt. Wollen wir diesen Marker individuell gestalten, dann brauchten wir entweder einen Variablennamen, den wir ansprechen können, oder wir müssen den Marker selbst instanziieren. Für das Instanziieren brauchen wir eine Position oder einen Point. Und nun schließt sich der Kreis. Die Option `pointtoLayer` gibt uns Zugriff auf die Koordinaten. Sehen Sie sich das nächste Beispiel an. Ein Beispiel erklärt oft mehr als viele Worte.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_967.html-->
 
 <!DOCTYPE html>
@@ -1169,7 +1169,7 @@ Sehen Sie sich die Karte, die Sie in der folgenden Abbildung sehen, in Ihrem Bro
 
 Mithilfe der Option `filter` können Sie große Datenbestände auf das Wesentliche beschränken. Sehen Sie sich dies _im Kleinen_ im nächsten Beispiel an.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/2/index_966.html-->
 
 <!DOCTYPE html>

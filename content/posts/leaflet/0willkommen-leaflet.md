@@ -12,42 +12,31 @@ tags:
   - Leaflet
 ---
 
-Das Arbeiten mit Geodaten und digitalen Karten hat durch das [**g**lobale **P**ositionsbestimmung**s**system GPS](https://de.wikipedia.org/w/index.php?title=Global_Positioning_System)[^https://de.wikipedia.org/w/index.php?title=global_positioning_system] immer mehr an Relevanz gewonnen. Viele Anwendungen bieten heute sogar online geografische Informationen in Echtzeit an. So finden Sie auch im Internet immer mehr digitale Karten und Anwendungen die mit Geodaten arbeiten.
+Die Arbeit mit Geodaten und digitalen Karten hat dank des [globalen Positionierungssystems GPS](https://de.wikipedia.org/w/index.php?title=Global_Positioning_System)[^de.wikipedia.org/w/index.php?title=global_positioning_system] zunehmend an Bedeutung gewonnen. Viele Anwendungen bieten geografische Informationen in Echtzeit online an. So finden Sie im Internet immer mehr digitale Karten und Anwendungen, die mit Geodaten arbeiten.
 
-> [Geodaten](https://de.wikipedia.org/w/index.php?title=Geodaten)[^https://de.wikipedia.org/w/index.php?title=geodaten] sind Informationen, die eine Zuordnung zu einer räumlichen Lage besitzen. aller Daten können einem Ort zugeordnet werden und sind somit Geodaten.
+> [Geodaten](https://de.wikipedia.org/w/index.php?title=Geodaten)[^https://de.wikipedia.org/w/index.php?title=geodaten] sind Informationen, die eine Zuordnung zu einem räumlichen Ort haben. Fast alle Daten lassen sich einem Ort zuordnen und sind daher Geodaten.
 
-Sie lesen dieses Buch sicherlich, weil Sie mit dem Gedanken spielen eine digitale Karte anzubieten - höchstwahrscheinlich auf einer Website. Die Grundlagen zu dem, was ich in diesem Buch geschrieben habe, finden Sie alle in der [Dokumentation zu Leaflet](https://leafletjs.com/reference)[^https://leafletjs.com/reference] - oder zu den jeweiligen Plugins - öffentlich im Internet. Diese Dokumentationen habe ich hier im Buch verlinkt. Warum habe ich trotzdem dieses Buch geschrieben?
+Sie lesen dieses Buch sicherlich, weil Sie überlegen, eine digitale Karte anzubieten - wahrscheinlich auf einer Website. Die Grundlagen dessen, was ich in diesem Buch geschrieben habe, finden Sie alle in der [Dokumentation für Leaflet](https://leafletjs.com/reference)[^leafletjs.com/reference] oder für die jeweiligen Plugins öffentlich im Internet. Ich habe diese Dokumentationen hier im Buch verlinkt. Warum habe ich dieses Buch trotzdem geschrieben? Ich habe das Buch geschrieben, weil ich gerne mit Beispielen lerne. Oft kommen mir dabei Ideen, die trockene Dokumentationen nicht hergeben. Vielleicht geht es Ihnen auch so und dieses Buch ist für Sie eine Bereicherung neben den bestehenden Anleitungen. Die Quellcode-Dateien für die im Buch verwendeten Beispiele finden Sie auf der Website [github.com/astridx/leaflet_beispieldateien_zum_Buch/](https://github.com/astridx/leaflet_example_files_for_book/).
 
-Ich habe das Buch geschrieben, weil ich manchmal gerne mit Beispielen lerne. Oft komme ich hierbei auf Ideen, die trockene Dokumentationen nicht hergeben. Vielleicht geht es Ihnen ja auch so und dieses Buch bringt Ihnen einen Mehrwert zu den vorhandenen Dokumentationen. Die Quellcode-Dateien zu den im Buch verwendeten Beispielen finden Sie auf der Website [https://astrid-guenther.de](https://astrid-guenther.de).
+Außerdem finde ich es immer sehr hilfreich, über den Tellerrand zu schauen. Ein paar solcher Blicke über den Tellerrand finden Sie hier im Buch. Wenn Sie Interesse haben, können Sie mit mir ein wenig tiefer in die Welt der geografischen Koordinaten eintauchen. Ich erkläre außerdem die verschiedenen Techniken zur Erstellung der Grafiken für die digitalen Karten. Außerdem werde ich mit Ihnen einen genaueren Blick auf GeoJSON werfen, der über die reine Verwendung hinausgeht. Ich zeige Ihnen, wie Sie der Karte mit benutzerdefinierten Markern eine persönliche Note verleihen können. Neben diesen grundlegenden Elementen kommt auch die Visualisierung der Daten mit Heatmaps, Geocoding und Routing nicht zu kurz.
 
-Außerdem finde ich es immer sehr hilfreich, wenn ich ein bisschen über den Tellerrand hinaus blicke. Hier im Buch finden Sie ein paar solcher Blicke. Wenn es Sie interessiert, können Sie mit mir etwas tiefer in die Welt der geografische Koordinaten blicken. Ich erkläre Ihnen auch die unterschiedlichen Techniken beim Erstellen der Grafiken für die digitalen Karten. Außerdem sehe ich mir mit Ihnen GeoJSON, über die reine Anwendung hinaus, etwas genauer an. Ich zeigen Ihnen wie Sie der Karte mit individuellen Markern eine persönliche Note geben können. Neben diesen grundlegenden Elementen kommen die Visualisierung der Daten mit Heatmaps, Geocoding und Routing nicht zu kurz.
+## Wichtige Dinge zum Buch
 
-## Wichtiges zum Buch
+Ich erkläre hier Schritt für Schritt alles, was ich rund um Leaflet für wichtig halte - alles, was Sie als Entwickler brauchen, um kreativ arbeiten zu können.
 
-Ich erkläre Ihnen hier Schritt für Schritt alles das, was ich rund um Leaflet als wichtig ansehe – also alles das, was Sie als Entwickler brauchen, um kreativ arbeiten zu können.
-
-Ich hoffe, dass Ihnen meine Art zu schreiben gefällt. Ich persönlich hätte mir genau dieses Buch zum Start mit Leaflet gewünscht.
+Ich hoffe, meine Art zu schreiben gefällt Ihnen. Ich persönlich hätte gerne genau dieses Buch gehabt, um mit Leaflet loszulegen.
 
 ## Was ist Leaflet?
 
-[Leaflet](https://leafletjs.com/reference) ist eine Open Source [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)-Bibliothek[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation], die Ihnen das Bereitstellen von Karten auf Ihrer Webseite einfach macht. [Open Source](https://de.wikipedia.org/wiki/Open_Source)[^https://de.wikipedia.org/wiki/open_source] bedeutet unter anderem, dass der Programmcode einsehbar ist. Jeder mit den notwendigen Kenntnissen kann prüfen, wie die Anwendung genau funktioniert. Und was noch wichtiger ist: Jeder kann Leaflet verwenden, an seine Bedürfnisse anpassen und verbessern.
+[Leaflet](https://leafletjs.com/reference) ist eine Open-Source-Bibliothek [JavaScript](https://en.wikipedia.org/wiki/JSON) [^en.wikipedia.org/wiki/JSON], die es Ihnen leicht macht, Karten auf Ihrer Website anzubieten. [Open Source](https://de.wikipedia.org/wiki/Open_Source)[^de.wikipedia.org/wiki/open_source] bedeutet unter anderem, dass der Programmcode einsehbar ist. Jeder, der über das nötige Wissen verfügt, kann überprüfen, wie genau die Anwendung funktioniert. Und was noch wichtiger ist: Jeder kann Leaflet nutzen, es an seine Bedürfnisse anpassen und verbessern.
 
-Was müssen Sie tun, wenn Sie Leaflet auf Ihrer Website einsetzen möchten? Im Grunde genommen müssen Sie nur zwei Dateien – eine JavaScript Datei und die dazugehörige CSS-Datei einbinden. Wie Sie das genau machen erkläre ich Ihnen im Kapitel _Integrieren Sie die notwendigen JavaScript und Cascading Style Sheet
-(CSS) Dateien_ ganz genau.
+Was müssen Sie tun, wenn Sie Leaflet auf Ihrer Website verwenden wollen? Im Grunde müssen Sie nur zwei Dateien einbinden - eine JavaScript-Datei und die entsprechende CSS-Datei. Wie Sie das genau machen, erkläre ich im ersten Teil dieses Textes.
 
-Das Einbinden der Dateien bietet Ihnen den Zugriff auf eine Reihe von Funktionen. Mithilfe dieser Funktionen können sie unkompliziert eine digitale Karte auf Ihrer Website integrieren. Leaflet unterstützt alle modernen Browser – auch die mobilen Versionen. Das bedeute, dass Sie Ihre Karte so ziemlich überall einsetzen können.
+Durch das Einbinden der Dateien erhalten Sie Zugang zu einer Reihe von Funktionen. Mit Hilfe dieser Funktionen können Sie eine digitale Karte in Ihre Website integrieren. Leaflet unterstützt alle modernen Browser - auch die mobilen Versionen. Das bedeutet, dass Sie Ihre Karte so gut wie überall nutzen können.
 
-Leaflet selbst legt den Schwerpunkt auf die einfache Bedienbarkeit und die Performance. Außerdem ist es den Entwicklern von Leaflet wichtig, dass die JavaScript Bibliothek unkompliziert von anderen Entwicklern mit einem Plugin erweitert werden kann. Die Programmierschnittstelle ist sehr gut dokumentiert. Als Erweiterungsprogrammierer muss man keine Geheimnisse lüften, um Leaflet erfolgreich mit einem Plugin zu erweitern. Dies ist meiner Meinung nach eine der bedeutendsten Stärken von Leaflet.
+Leaflet selbst konzentriert sich auf Benutzerfreundlichkeit und Leistung. Wichtig ist den Entwicklern von Leaflet auch, dass die JavaScript-Bibliothek von anderen Entwicklern mit einem Plugin leicht erweitert werden kann. Die Programmierschnittstelle ist sehr gut dokumentiert. Als Erweiterungsprogrammierer müssen Sie keine Geheimnisse aufdecken, um Leaflet erfolgreich mit einem Plugin zu erweitern. Dies ist meiner Meinung nach eine der größten Stärken von Leaflet.
 
-Viele namhafte Unternehmen setzten Leaflet ein. Darunter sind Namen wie
-
-- [Flickr](https://www.flickr.com),
-- [Github](https://github.com/),
-- [Pinterest](https://www.pinterest.com/),
-- [Wikimedia](https://www.wikimedia.de/) und
-- [Spiegel](http://www.spiegel.de/).
-
-Out-of-the-box können Sie mit Leaflet Marker, Popups, Linien und Formen auf unterschiedlichen Ebenen auf Ihrer Karte anzeigen. Sie können Zoomen, Entfernungen berechnen und das Zentrum der Karte zu bestimmten Koordinaten schieben.
+Mit Leaflet können Sie Marker, Popups, Linien und Formen auf verschiedenen Ebenen Ihrer Karte anzeigen. Sie können zoomen, Entfernungen berechnen und den Mittelpunkt der Karte auf bestimmte Koordinaten verschieben.
 
 Todo Vorteil in bezug zu vectorkacheln
 

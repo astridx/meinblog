@@ -32,7 +32,7 @@ Leaflet biete Ihnen jede Menge verschiedene Objekte. Beginnen wir mit den einfac
 
 Ich gehen noch einmal von unserer Basiskarte aus. Zur besseren Übersicht habe ich Ihnen das HTML-Grundgerüst dazu nachfolgend noch einmal abgedruckt.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_989.html-->
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ Objekte vom Typ `Point` sind in Leaflet nicht zur Anzeige gedacht. Vielmehr wird
 
 Sie merken schon. Ein Objekt vom Typ `Point` ist nicht das, was wir möchten, wenn wir eine geografische Stelle auf der Karte hervorheben möchten. Um einen Punkt als etwas Besonderes zu markieren, möchten Sie sicher eher einen Marker mit Informationen an dieser Stelle – also an den _geografischen_ Koordinaten – anzeigen. Und für diesen Zweck bietet Leaflet ein spezielles Objekt – das [`Marker`-Objekt](https://leafletjs.com/reference.html#marker)[^leafletjs.com/reference.html#map-panby]. Im nachfolgenden Programmcode-Beispiel sehen wir uns zunächst kurz an, was Sie mit einem Punkt anstellen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_988.html-->
 
 <!DOCTYPE html>
@@ -111,7 +111,7 @@ Die Leaflet [Klasse `Marker`](https://leafletjs.com/reference.html#marker)[^leaf
 
 Machen wir mit einem einfachen Beispiel weiter und fügen einen Marker zu unserer bisher noch langweiligen Karte hinzu.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_987.html-->
 
 <!DOCTYPE html>
@@ -140,7 +140,7 @@ Was passiert hier? Mit dem Text `var myMarker = L.marker([50.27264, 7.26469])` h
 
 Das `<img>`-Tag des Markers fügt Leaflet zur Anzeige wie folgt ins HTML-Dokument ein:
 
-```html
+```html {numberLines: -1}
 <img
   src="file:///var/www/html/…/marker-icon.png"
   class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive
@@ -182,7 +182,7 @@ Beachten Sie dabei aber das Folgende: Falls Sie den Marker später einmal modifi
 
 Linien können Sie in Leaflet mit der Klasse [Polyline](https://leafletjs.com/reference.html#polyline)[^leafletjs.com/reference.html#polyline] erstellen. Die Klasse `Polyline` erweitert die abstrakte Klasse [Path](http://leafletjs.com/reference.html#path)[^leafletjs.com/reference.html#path]. Diese Klasse ermöglicht es Ihnen eine einfache Linie oder mehrere aneinandergereihte Liniensegmente zu erstellen. Im nachfolgenden Programmcodebeispiel sehen Sie den Text, der für die Erstellung des `Polyline` Objektes verantwortlich ist.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_986.html-->
 
 <!DOCTYPE html>
@@ -232,7 +232,7 @@ Ein Polygone ist eine geschlossene Linie – also eine Linie die einen _Innenber
 
 Wie Sie ein Polygon in Leaflet erstellen, zeigt Ihnen der nachfolgende Programmcode und das konkrete Polygon sehen Sie im darauf folgenden Bild. Alle Methoden und Optionen, die Sie auf ein `Polygon`-Objekt anwenden könne, finden Sie in der [Leaflet Dokumentation](https://leafletjs.com/reference.html#polygon)[^leafletjs.com/reference.html#polygon].
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_985.html-->
 
 <!DOCTYPE html>
@@ -277,7 +277,7 @@ Das Zeichnen von Rechtecken und Kreisen ist kein Hexenwerk. Der Vollständigkeit
 
 Der nachfolgende Programmcode zeigt Ihnen an einem Beispiel, wie Sie ein Rechteck – also ein Objekt vom [Typ `Rectangle`](https://leafletjs.com/reference.html#rectangle)[^leafletjs.com/reference.html#rectangle] – in eine Leaflet Karte einfügen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_984.html-->
 
 <!DOCTYPE html>
@@ -311,15 +311,15 @@ Der nachfolgende Programmcode zeigt Ihnen an einem Beispiel, wie Sie ein Rechtec
 Als Parameter geben Sie für das Rechteck immer die diagonal versetzten beiden Ecken an. Dabei ist es egal, in welcher Reihenfolge Sie diese angeben. Das Rechteck
 
 `var myRectangle = L.rectangle([`  
-**`[50.27264, 7.26469],`**  
-**`[51.27264, 6.26469]`**  
+`[50.27264, 7.26469],`  
+`[51.27264, 6.26469]`  
 `])`
 
 sieht auf der Karte genauso aus, wie das Rechteck
 
 `var myRectangle = L.rectangle([`  
-**`[51.27264, 6.26469],`**  
-**`[50.27264, 7.26469]`**  
+`[51.27264, 6.26469],`  
+`[50.27264, 7.26469]`  
 `])`
 
 Und wie das Rechteck des Beispiels aussieht, zeigt Ihnen die nachfolgende Abbildung.
@@ -349,7 +349,7 @@ Und das, obwohl die Ecken hier ganz nah beieinander liegen.
 
 Anhand des nachfolgenden Programmcode können Sie erkennen, wie ein Kreis – also ein Objekt vom [Typ `Circle`](https://leafletjs.com/reference.html#circle)[^leafletjs.com/reference.html#circle] – in eine Leaflet Karte eingefügt wird.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_983.html-->
 
 <!DOCTYPE html>
@@ -388,29 +388,29 @@ Das Setzen von Klammern beim Arbeiten mit Polygon-Objekten und Polyline-Objekten
 
 - Sie müssen zum einen alle Objekte – Polyline oder Polygon –
   zusammen mit einer äußeren Klammer versehen.  
-  **`[`**  
+  `[`  
   `[[50.17264, -7.26469], [49.27264, -6.26469]],`  
   `[[50.37264, -7.26469], [51.27264, -8.26469]]`  
-  **`]`**
+  `]`
 
 - Außerdem müssen Sie alle Punkte jedes einzelnen Objekts – Polyline oder Polygon –
   mit einer Klammer umgeben.  
   `[`  
-  **`[`**`[50.17264, -7.26469], [49.27264, -6.26469]`**`]`**,  
-  **`[`**`[50.37264, -7.26469], [51.27264, -8.26469]`**`]`**  
+  `[``[50.17264, -7.26469], [49.27264, -6.26469]``]`,  
+  `[``[50.37264, -7.26469], [51.27264, -8.26469]``]`  
   `]`
 
 - Und zuletzt werden auch die Koordinaten selbst noch eingeklammert.  
   `[`  
-  `[`**`[`**`50.17264, -7.26469`**`]`**, **`[`**`49.27264, -6.26469`**`]`**`],`  
-  `[`**`[`**`50.37264, -7.26469`**`]`**, **`[`**`51.27264, -8.26469`**`]`**`]`  
+  `[``[``50.17264, -7.26469``]`, `[``49.27264, -6.26469``]``],`  
+  `[``[``50.37264, -7.26469``]`, `[``51.27264, -8.26469``]``]`  
   `]`
 
 ### Mehrere Polyline Objekte auf einer Ebene
 
 In diesem Kapitel gibt es nun ein praktisches Beispiel. Der nachfolgende Programmcodeausschnitt zeigt Ihnen, wie Sie mit dem instanziieren eines Objekts mehrerer Polyline-Objekte auf eine Ebene zeichnen können. Und das die Polyline-Objekte alle auf einer Ebene liegen, beweise ich Ihnen gleichzeitig.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_981.html-->
 
 <!DOCTYPE html>
@@ -459,7 +459,7 @@ Am meisten Vorteile bringt aber die Tatsache, dass beide Linien eine Ebene darst
 In diesem Kapitel zeige ich Ihnen ein Beispiel,
 bei dem mehrere Polygone zusammen erstellt werden.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_982.html-->
 
 <!DOCTYPE html>
@@ -573,7 +573,7 @@ Die Leaflet [Klasse `LayerGroup`](https://leafletjs.com/reference.html#layergrou
 
 Der nachfolgende Programmcodeausschnitt zeigt Ihnen, wie Sie ein Objekt vom Typ `LayerGroup`erstellen und zu Ihrem Karten Objekt hinzufügen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_980.html -->
 
 <!DOCTYPE html>
@@ -633,7 +633,7 @@ Entfernen können sie das `LayerGroup`-Objekt – und somit alle zu ihr gehören
 
 Die [Klasse-`FeatureGroup`](https://leafletjs.com/reference.html#featuregroup)[^leafletjs.com/reference.html#featuregroup] erweitert die [Klasse `LayerGroup`](https://leafletjs.com/reference.html#layergroup)[^leafletjs.com/reference.html#layergroup]. Während die Klasse `LayerGroup` eher Methoden zum Gruppieren von Layern bereit stellt, geht es in der `FeatureGroup` hauptsächlich um das gemeinsame Verarbeiten von Ereignissen und das Hinzufügen von Stylen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_979.html-->
 
 <!DOCTYPE html>
@@ -706,7 +706,7 @@ In diesem Kapitel geht es um Leaflet-Objekte vom Typ [`Popup`](https://leafletjs
 
 So nun aber genug der Theorie. Sehen Sie sich das alles anhand des nachfolgenden Programmcodes an – am besten auf praktische Weise.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_978.html-->
 
 <!DOCTYPE html>
@@ -778,10 +778,10 @@ Wie die Karte zum vorhergehenden Programmcodeausschnitt im Browser aussieht, seh
 Ich hatte Ihnen zu Beginn dieses Kapitels schon erklärt, dass Leaflet standardmäßig nur ein Pop-up Fenster gleichzeitig offen anzeigt. Dies ist so, wenn Sie das Pop-up Fenster mithilfe der Methode `openOn()` zur Karte hinzufügen:
 
 ```js
-var popup1 = L.popup({`**`keepInView`**`:true})
+var popup1 = L.popup({``keepInView``:true})
 .setLatLng([49.27264, 6.26469])
 .setContent('<p>Hallo Welt<br />Ich bin ein Popup.</p>')
-.`**`openOn`**`(mymap);
+.``openOn``(mymap);
 ```
 
 Falls Sie mehrere Pop-up Fenster gleichzeitig anbieten möchte, dann können Sie dies mithilfe der Methode `addTo()` bewerkstelligen:
@@ -790,7 +790,7 @@ Falls Sie mehrere Pop-up Fenster gleichzeitig anbieten möchte, dann können Sie
 var popup1 = L.popup()
 .setLatLng([49.27264, 6.26469])
 .setContent('<p>Hallo Welt<br />Ich bin ein Popup.</p>')
-.`**`addTo`**`(mymap);
+.``addTo``(mymap);
 ```
 
 Die Eigenschaft `keepInView:true` bewirkt hier übrigens, dass die Karte nur so weit verschoben werden kann, wie der Marker sichtbar ist.
@@ -809,7 +809,7 @@ Das Spannendste bei der Arbeit mit mobilen Anwendungen ist sicherlich die [Funkt
 
 Sie möchten Ihre Leaflet Karte auch für mobile Geräte optimal konfigurieren? Dann sollten Sie als erstes sicherstellen, dass die Karte passend angezeigt wird. Sie möchten sicher nicht, dass jemand der die Karte über ein Gerät mit einem kleinen Display aufruft, nur einen Teil der Karte sieht und er diese erst verschieben muss, um auch die Randbereiche zu erkennen. Oder, dass die Karte so klein dargestellt wird, dass der Inhalt auf einem kleinen Display nicht lesbar ist. Ideal ist es, wenn die vollständige Karte im Display lesbar angezeigt wird. In diesem Punkt stimmen Sie mir sicher zu. Das nächste Beispiel zeigt Ihnen, wie Sie die vollständige Karte im Display lesbar angezeigen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_977.html-->
 
 <!DOCTYPE html>
@@ -912,7 +912,7 @@ Ihrer Karte auf das ein oder andere Ereignis reagieren. Vielleicht möchten Sie 
 
 Exemplarisch sehen wir uns mit dem folgenden Programmcode – wieder anhand eines ganz einfache Beispiels – die Vorgehensweise genauer an. Konkret reagieren wir auf einen Mausklick.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_976.html-->
 
 <!DOCTYPE html>
@@ -957,7 +957,7 @@ Die Methoden, die Leaflet Ihnen bietet, kennen Sie nun. Bisher haben Sie immer d
 
 Probieren wir das doch sofort einmal aus. Im nächsten Beispiel erstellen wir einen Marker und verbinden diesen mit einem Pop-up Fenster – und das mithilfe einer selbst erstellten Funktion.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_975.html-->
 
 <!DOCTYPE html>
@@ -1003,7 +1003,7 @@ In diesem Beispiel ging es nur um das Grundsätzliche. Die Mächtigkeit von eige
 
 Und zu guter Letzt möchte ich Ihnen noch ein interaktives Beispiel zeigen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/1/index_974.html-->
 
 <!DOCTYPE html>

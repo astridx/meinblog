@@ -86,7 +86,7 @@ Wenn Sie die Option `detectRetina` mit `true` belegt haben und ein Website-Besuc
 
 Das nachfolgende Beispiel zeigt Ihnen, wie Sie eine ESRI Basiskarte in Leaflet anzeigen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_945.html-->
 
 <!DOCTYPE html>
@@ -128,7 +128,7 @@ Die beiden nachfolgenden Abbildungen zeigen Ihnen die Basiskarte mit dem Namen g
 
 Im nächsten Beispiel habe ich im HTML-Dokument eine Auswahllist über der Karte eingefügt. So können Sie zwischen den verschiedenen ESRI Karten schnell hin und her wechseln und sich so einen Überblick über das Kartenangebot verschaffen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_944.html-->
 
 <!DOCTYPE html>
@@ -216,7 +216,7 @@ Die Shape Datei, die ich im nächsten Beispiel verwende, habe ich von der Websit
 
 Wie ich die Shape Datei mit Leaflet in eine Karte integriere, zeigt Ihnen das nachfolgende Beispiel. Natürlich gibt es dafür auch wieder ein Leaflet Plugin. Die Website zum Plugin `Leaflet.Shapefile` finden Sie auf Github unter der Adresse [https://github.com/calvinmetcalf/leaflet.shapefile](https://github.com/calvinmetcalf/leaflet.shapefile). Die Datei zum Plugin heißt `leaflet.shpfile.js`. Der gleiche Entwickler bietet auch ein Skript zum Analysieren der Shape Datei unter der Adresse [https://github.com/calvinmetcalf/shapefile-js](https://github.com/calvinmetcalf/shapefile-js) an. Diese Datei heißt `shp.js`. Diese beiden Dateien müssen Sie in Ihre HTML-Datei einbinden.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_943.html-->
 
 <!DOCTYPE html>
@@ -263,7 +263,7 @@ Und was haben wir genau gemacht? Im Kopfbereich unserer Beispiel HTML-Datei habe
 
 Im nächsten Beispiel sehen Sie, wie Sie das Aussehen der Formen in der Shape Datei beeinflussen könne.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_942.html-->
 
 <!DOCTYPE html>
@@ -300,7 +300,7 @@ Das vorhergehende Beispiel manipuliert die Option `style`. Die Belegung der Opti
 
 Schön wäre es, wenn man für jede Verwaltungseinheit den Namen in einem Pop-up Fenster angezeigt bekommen würde – und zwar genau dann, wenn man die Fläche auf der Karte anklickt. Im nächsten Beispiel sehen Sie, wie Sie dies umsetzen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_941.html-->
 
 <!DOCTYPE html>
@@ -339,7 +339,7 @@ Auf diese Art und Weise können Sie auch das Aussehen einer Form, abhängig vom 
 
 Sie wissen nicht, welche Eigenschaften in der Shape Datei genau für die Geometrien enthalten sind – Sie möchten sich aber gerne einen Überblick über diese Eigenschaften verschaffen. Das nächste Beispiel zeigt Ihnen, wie Sie die Informationen nur mit JavaScript in Erfahrung bringen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_940.html-->
 
 <!DOCTYPE html>
@@ -404,7 +404,7 @@ Im nächsten Kapitel beginnen wir damit, das wir eine Ebene, nämlich einen `L.e
 
 Für das nachfolgende Beispiel habe ich Daten des Geoportals Köln genutzt. Dieses Portal bietet den Zugriff auf offene Daten, Dienste und Anwendungen verschiedener Herkunft. Das Geoportal Köln zentralisieren nach eigenen Angaben Informationen aus den Bereichen Umwelt, Verkehr, Vermessung und Planung. Jeder hat die Möglichkeit die Geodaten des Geoportal Köln zu nutzen, anzusehen und zu analysieren. Informationen zum Geoportal Köln finden Sie auf der Website der [Stadt Köln](http://www.stadt-koeln.de/politik-und-verwaltung/geoportal/)[^stadt-koeln.de/politik-und-verwaltung/geoportal]. Die Dokumentation zur Schnittstelle des Web Services finden Sie unter der Adresse [https://geoportal.stadt-koeln.de/arcgis/](https://geoportal.stadt-koeln.de/arcgis/). Wenn Sie dann auf den Eintrag _Behindertenparkplätze_ klicken sehen Sie die Angaben, die speziell unser nachfolgendes Beispiel betreffen.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_939.html-->
 
 <!DOCTYPE html>
@@ -492,7 +492,7 @@ Ich zeige Ihnen in diesem Kapitel anhand des [ESRI Leaflet Geocoder Plugins](htt
 
 Sie zeigen eine Karte auf Ihrer Website an und möchten es anderen ermöglichen, zu einer bestimmten Adresse auf der Karte zu navigieren, nachdem Sie diese Adresse in einem Textfeld eingetragen haben. Dann integrieren Sie doch einfach ein ESRI Leaflet Geocoder Control in Ihre Karte. Wie Sie dies tun können zeigt Ihnen das nächste Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_938.html-->
 
 <!DOCTYPE html>
@@ -547,7 +547,7 @@ Die erste Ansicht der Karte nach dem Hinzufügen des ESRI Leaflet Geocoder Contr
 
 Manchmal kommt es vor, dass Sie eine Karte schon an einer bestimmten Adresse zentriert öffnen möchten. Wie Sie so etwas umsetzten können, zeigt Ihnen das nächste Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_937.html-->
 
 <!DOCTYPE html>
@@ -630,7 +630,7 @@ Voilà! Wenn sie an die URL, unter der Sie Ihre Leaflet Karte abegelegt haben, d
 
 Umgekehrtes Geocoding ist die Bezeichnung für die Umwandlung geografischer Koordinaten in, für Menschen gut lesbare, Adressen. Sie wissen ja schon, dass Leaflet bei einem Klick mit der Maus auf die Karte die Koordinaten in einem Objekt speichert. Nun möchten Sie aber gerne anstelle der Koordinaten wissen, welche Adresse Sie gerade angeklickt haben. Das nächste Beispiel zeigt ihnen, wie Sie dies erreichen können.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_936.html-->
 
 <!DOCTYPE html>
@@ -687,7 +687,7 @@ können Sie Funktionen über das Internet bereitstellen. Mit dem [Karten-Service
 
 So, nun kommen wir zum praktischen Beispiel. Wir konfigurieren eine Abfrage zum Filtern von Daten. Konkret verwenden wir Daten zur Bodengeologie, deren Daten über die Adresse [https://services.arcgis.com](https://services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer)[^services.arcgis.com/OLiydejKCZTGhvWg/ArcGIS/rest/services/BodenGeologie/FeatureServer (t*beispieldateien_zum*)] bereit gestellt werden.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_935.html-->
 
 <!DOCTYPE html>
@@ -774,7 +774,7 @@ Was macht der Programmcode in diesem Beispiel konkret. Zunächst wird mit dem Be
 
 Ein weiteres Merkmal, das auf Landkarten oft wichtig ist, ist die Entfernung zu einem Punkt. Oft möchte man gerne wissen, welche Objekte sich innerhalb eines bestimmten Abstands zu einer bestimmten Koordinate befinden. Diese Fragestellung beantwortet das nächste Beispiel.
 
-```html
+```html {numberLines: -1}
 <!-- https://raw.githubusercontent.com/astridx/leaflet_beispieldateien_zum_Buch/master/version3_2021/5/index_934.html-->
 
 <!DOCTYPE html>
