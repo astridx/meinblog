@@ -17,7 +17,7 @@ You don't develop the extension as an end in itself. It helps with the completio
 
 ![Joomla actions in the toolbar](/images/j4x21x1.png)
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t16...t17)[^github.com/astridx/boilerplate/compare/t16...t17] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t16...t17)[^github.com/astridx/boilerplate/compare/t16...t17] and copy these changes into your development version.
 
 ## Step by step
 

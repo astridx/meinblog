@@ -19,7 +19,7 @@ With Joomla it is possible to set up a multilingual website without installing t
 
 The chapter is one of the most extensive in this series. For that it covers all areas of multilingualism and language links in Joomla.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14b...t15a)[^github.com/astridx/boilerplate/compare/t14b...t15a] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14b...t15a)[^github.com/astridx/boilerplate/compare/t14b...t15a] and copy these changes into your development version.
 
 ## Step by step
 

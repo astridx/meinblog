@@ -15,7 +15,7 @@ tags:
 
 Quickly there is a lot of content. Displaying all elements on one page is not useful. It has a negative impact on the overview and performance. That's why we split the items on subpages and add pagination for navigation at the bottom.<!-- \index{pagination} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and copy these changes into your development version.
 
 ## Step by step
 

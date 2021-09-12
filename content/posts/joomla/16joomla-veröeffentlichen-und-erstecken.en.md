@@ -22,7 +22,7 @@ If you worked with Joomla, you know it from other components: Items have a statu
 - trash
   items.<!-- \index{unpbulish} --><!-- \index{publish} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and copy these changes into your development version.
 
 ## Step by step
 

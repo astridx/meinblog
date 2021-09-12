@@ -21,7 +21,7 @@ In server-side validation, the input submitted by the user is sent to the server
 
 This part covers the server-side validation in Joomla 4.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] and copy these changes into your development version.
 
 ## Step by step
 

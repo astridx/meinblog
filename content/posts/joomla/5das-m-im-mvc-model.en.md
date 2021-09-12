@@ -21,7 +21,7 @@ No new functionality is added in this part. We improve the previous structure. E
 
 It is problematic to combine these three elements in one class. Especially for larger projects. Joomla uses the [Model-View-Controller-Concept (MVC)](https://en.wikipedia.org/wiki/Model_View_Controller)[^en.wikipedia.org/wiki/model_view_controller]. In this tutorial part, we add a Model to the frontend. The Model object is responsible for the data and its processing.<!-- \index{Model-View-Controller} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t3...t4)[^github.com/astridx/boilerplate/compare/t3...t4] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t3...t4)[^github.com/astridx/boilerplate/compare/t3...t4] and copy these changes into your development version.
 
 ## Step by step
 

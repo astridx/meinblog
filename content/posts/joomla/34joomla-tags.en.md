@@ -17,7 +17,7 @@ Tags or Keywords are a flexible solution to organise content in Joomla! A keywor
 
 Joomla's tagging system is used in all core extensions. It is designed to be easily integrated into other extensions that use standard Joomla design patterns. Using tags in a third-party extension is quite simple. Using it in your own extension requires the modifications explained in this section.<!-- \index{tags} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t28...t29)[^github.com/astridx/boilerplate/compare/t28...t29] and incorporate these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t28...t29)[^github.com/astridx/boilerplate/compare/t28...t29] and copy these changes into your development version.
 
 ## Step by step
 

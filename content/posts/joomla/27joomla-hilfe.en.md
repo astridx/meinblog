@@ -17,7 +17,7 @@ Self-explanatory software is ideal. But which programme is? For this reason, hel
 
 ![Joomla Help link in the list view](/images/j4x27x1.png)
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] and incorporate these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] and copy these changes into your development version.
 
 ## Step by step
 

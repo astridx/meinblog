@@ -34,7 +34,7 @@ We create a front-end template. This controls the way the website is presented t
 
 The principle for creating a template for the administration area is exactly the same. You create it in the subdirectory `/administrator/templates`. You create the front-end template in the folder `/templates`.
 
-> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] and incorporate these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] and copy these changes into your development version.
 
 ## Step by step
 
