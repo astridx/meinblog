@@ -347,9 +347,13 @@ Die `install`-Funktion wird, wie der Name schon sagt, aufgerufen, wenn die Kompo
 
 Die Aktualisierungsfunktion `update` wird immer dann aufgerufen, wenn du die Komponente aktualisierst.
 
-Die `preflight`-Funktion wird aufgerufen, bevor die Komponente installiert wird. Du kannst an dieser Stelle Code hinzufügen, um Voraussetzungen wie die PHP-Version zu überprüfen oder um zu testen, ob eine andere Erweiterung installiert ist oder nicht.
+Die `preflight`-Funktion wird aufgerufen, bevor die Komponente installiert, discover_installiert, aktualisiert oder deinstalliert wird. Du kannst an dieser Stelle Code hinzufügen, um Voraussetzungen wie die PHP-Version zu überprüfen oder um zu testen, ob eine andere Erweiterung installiert ist oder nicht.
 
-Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert wurde. Mit dieser Funktion werden oft Standardwerte für Komponentenparameter gesetzt.
+Die `postflight`-Funktion wird aufgerufen, nachdem die Komponente installiert, discover_installiert, aktualisiert oder deinstalliert wurde. Mit dieser Funktion werden oft Standardwerte für Komponentenparameter gesetzt.
+
+> Hinweis: In Joomla 3 haben nur Plugins die Preflight-Methode während des Deinstallationsprozesses aufgerufen und Postflight wurde nie bei der Deinstallation verwendet. Ab Version 4.0 sind diese beiden Hooks bei der Deinstallation für alle Erweiterungstypen verfügbar. Siehe [potenzielle Abwärtskompatibilitätsprobleme in Joomla 4](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries)[^docs.joomla.org/potenzielle_abwärtskompatibilitätsprobleme_in_joomla_4#cms_libraries].
+
+> Möchtest du ganz genau wissen, wann welche Methode aufgerufen wird? Dann sieh dir die Datei `/libraries/src/Installer/InstallerAdapter.php` an. Die Befehle `$this->triggerManifestScript('');` starten die Ausführung der entsprechenden Methode. Die `postflight`-Funktion wird beispielsweise via `$this->triggerManifestScript('postflight');` getriggert.
 
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)

@@ -72,7 +72,7 @@ void function() {
   </a>
     </span></p>
 <p>How can this be done with Cassiopeia?</p>
-<p>The frontend of a fresh Joomla 4 installation looks similar with Cassiopeia as you can see in the next picture. At the top is the area that contains the brand or branding. </p>
+<p>The frontend of a fresh Joomla 4 installation looks similar with Cassiopeia as you can see in the next picture. At the top is the area that contains the brand or branding.</p>
 <ul>
 <li>Without user-defined changes, the title defined in the options of the template is displayed here. If there is no title yet, the name of the template is the fallback position. That is why Cassiopeia appears at the top of the image.</li>
 <li>The menu is located in the right sidebar.</li>
@@ -144,7 +144,7 @@ void function() {
       />
   </a>
     </span></p>
-<p>First make sure that the position <code class="language-text">menu</code> is selected. </p>
+<p>First make sure that the position <code class="language-text">menu</code> is selected.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -247,7 +247,7 @@ void function() {
   </a>
     </span></p>
 <h2>Make the logo invisible</h2>
-<p>The text Cassiopeia in the upper area is still annoying. This can be replaced with an image or other text via the template options in the backend. However, the replacement is not displayed over the full width and is therefore not an alternative for a banner. </p>
+<p>The text Cassiopeia in the upper area is still annoying. This can be replaced with an image or other text via the template options in the backend. However, the replacement is not displayed over the full width and is therefore not an alternative for a banner.</p>
 <h3>Why is the logo not an alternative for a banner image?</h3>
 <p>The logo, or the alternative text, is not displayed across the full width because this element is integrated into the Boostrap 5 element <code class="language-text">navbar-brand</code>. See for yourself and have a look at the file <code class="language-text">index.php</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&lt;?</span><span class="mtk4">php</span><span class="mtk1"> </span><span class="mtk8">if</span><span class="mtk1"> (</span><span class="mtk8">$</span><span class="mtk7">this</span><span class="mtk8">-&gt;</span><span class="mtk7">params</span><span class="mtk8">-&gt;</span><span class="mtk7">get</span><span class="mtk1">(</span><span class="mtk11">&#39;brand&#39;</span><span class="mtk1">, </span><span class="mtk6">1</span><span class="mtk1">)) </span><span class="mtk8">:</span><span class="mtk1"> </span><span class="mtk8">?&gt;</span></span></span>
@@ -299,7 +299,7 @@ void function() {
 <p>Bootstrap 5 navbars come with built-in functionality for a lot of sub-components. The Joomla project makes use of some pre-built Bootstrap 5 elements in the frontend and backend templates. If you would like to have a look at the functions offered by the Bootstrap 5 Navbar, you will find a first starting point in the Bootstrap documentation <a href="https://getbootstrap.com/docs/5.0/components/navbar/">getbootstrap.com/docs/5.0/components/navbar/</a>.</p>
 </blockquote>
 <h3>Hide logo area in Cassiopeia</h3>
-<p>We do not need the bootstrap navbar and therefore disable the logo and title text. To do this, navigate to the 'Site Template Style'. </p>
+<p>We do not need the bootstrap navbar and therefore disable the logo and title text. To do this, navigate to the 'Site Template Style'.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -434,7 +434,7 @@ void function() {
 <h2>Show banner</h2>
 <p>Now the banner is still missing. If we want to show this, it is mandatory that we create it first. In Joomla there are several possibilities. I choose a module of the type Custom.</p>
 <h3>Create banner</h3>
-<p>Via the menu 'Content | Site Module' I open the module manager. </p>
+<p>Via the menu 'Content | Site Module' I open the module manager.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -534,9 +534,9 @@ void function() {
   </a>
     </span></p>
 <blockquote>
-<p>A few words about the positions: The positions <code class="language-text">below-top</code> and <code class="language-text">topbar</code> are there to display content above the branding area and the navigation menu. In contrast to the position 'topbar', which uses the full screen size at all times, 'low-top' only fills the container. If you have chosen the layout option 'fluid' for your template, the difference is not great. With the <code class="language-text">static</code> setting, the difference is immediately noticeable on large screens. By the way, <code class="language-text">below-top</code> and <code class="language-text">topbar</code> were integrated into Joomla 4 only shortly before the end via PR <a href="https://github.com/joomla/joomla-cms/pull/31731">31731</a><sup id="fnref-github.com/joomla/joomla-cms/pull/31731"><a href="#fn-github.com/joomla/joomla-cms/pull/31731" class="footnote-ref">github.com/joomla/joomla-cms/pull/31731</a></sup> and <a href="https://github.com/joomla/joomla-cms/pull/33751">33751</a><sup id="fnref-github.com/joomla/joomla-cms/pull/33751"><a href="#fn-github.com/joomla/joomla-cms/pull/33751" class="footnote-ref">github.com/joomla/joomla-cms/pull/33751</a></sup>. Are you wondering why I decided against the position 'banner'? The intention was that the banner should be displayed above the navigation. The position 'banner' displays the banner below the navigation and the branding area. </p>
+<p>A few words about the positions: The positions <code class="language-text">below-top</code> and <code class="language-text">topbar</code> are there to display content above the branding area and the navigation menu. In contrast to the position 'topbar', which uses the full screen size at all times, 'low-top' only fills the container. If you have chosen the layout option 'fluid' for your template, the difference is not great. With the <code class="language-text">static</code> setting, the difference is immediately noticeable on large screens. By the way, <code class="language-text">below-top</code> and <code class="language-text">topbar</code> were integrated into Joomla 4 only shortly before the end via PR <a href="https://github.com/joomla/joomla-cms/pull/31731">31731</a><sup id="fnref-github.com/joomla/joomla-cms/pull/31731"><a href="#fn-github.com/joomla/joomla-cms/pull/31731" class="footnote-ref">github.com/joomla/joomla-cms/pull/31731</a></sup> and <a href="https://github.com/joomla/joomla-cms/pull/33751">33751</a><sup id="fnref-github.com/joomla/joomla-cms/pull/33751"><a href="#fn-github.com/joomla/joomla-cms/pull/33751" class="footnote-ref">github.com/joomla/joomla-cms/pull/33751</a></sup>. Are you wondering why I decided against the position 'banner'? The intention was that the banner should be displayed above the navigation. The position 'banner' displays the banner below the navigation and the branding area.</p>
 </blockquote>
-<p>In the Advanced tab we prepare the styling. As module class I add <code class="language-text">mybanner</code> and I set as module Chrome <code class="language-text">card</code> so that the class is rendered. </p>
+<p>In the Advanced tab we prepare the styling. As module class I add <code class="language-text">mybanner</code> and I set as module Chrome <code class="language-text">card</code> so that the class is rendered.</p>
 <blockquote>
 <p>If you wonder why the module class is only used after setting a module chrome, read the discussion in issue <a href="github.com/joomla/joomla-cms/issues/30822">30822</a>[https://github.com/joomla/joomla-cms/issues/30822].</p>
 </blockquote>
@@ -573,7 +573,7 @@ void function() {
   </a>
     </span></p>
 <h3>Insert banner image</h3>
-<p>In the Media Manager I have the possibility to upload an image, edit it and select it at the end via the button 'Insert Media'. </p>
+<p>In the Media Manager I have the possibility to upload an image, edit it and select it at the end via the button 'Insert Media'.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -640,7 +640,7 @@ void function() {
   </a>
     </span></p>
 <h3>Style banner</h3>
-<p>It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button.  </p>
+<p>It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -674,7 +674,15 @@ void function() {
   </a>
     </span></p>
 <p>In the code view I add the class <code class="language-text">mybanner</code> to the HTML-<img>-element and click the button <code class="language-text">Save and Close</code> in the toolbar to save. The complete code looks like this:</p>
-<pre class="grvsc-container solarized-light" data-language="html" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">p</span><span class="mtk3">&gt;&lt;</span><span class="mtk7">img</span><span class="mtk1"> </span><span class="mtk3">class</span><span class="mtk1">=</span><span class="mtk11">&quot;mybanner&quot;</span><span class="mtk1"> </span><span class="mtk3">src</span><span class="mtk1">=</span><span class="mtk11">&quot;images/banner.png&quot;</span><span class="mtk1"> </span><span class="mtk3">width</span><span class="mtk1">=</span><span class="mtk11">&quot;1060&quot;</span><span class="mtk1"> </span><span class="mtk3">height</span><span class="mtk1">=</span><span class="mtk11">&quot;288&quot;</span><span class="mtk1"> </span><span class="mtk3">loading</span><span class="mtk1">=</span><span class="mtk11">&quot;lazy&quot;</span><span class="mtk1"> </span><span class="mtk3">/&gt;&lt;/</span><span class="mtk7">p</span><span class="mtk3">&gt;</span></span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="html" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">p</span><span class="mtk3">&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">&lt;</span><span class="mtk7">img</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">class</span><span class="mtk1">=</span><span class="mtk11">&quot;mybanner&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">src</span><span class="mtk1">=</span><span class="mtk11">&quot;images/banner.png&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">width</span><span class="mtk1">=</span><span class="mtk11">&quot;1060&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">height</span><span class="mtk1">=</span><span class="mtk11">&quot;288&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">loading</span><span class="mtk1">=</span><span class="mtk11">&quot;lazy&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">/&gt;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;/</span><span class="mtk7">p</span><span class="mtk3">&gt;</span></span></span></code></pre>
 <p>The following image shows how and where I add the code via Joomla backend.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -776,7 +784,7 @@ void function() {
       />
   </a>
     </span></p>
-<p>I add the following code snippet to the end of the <code class="language-text">user.css</code> file. I use this to set the <em>minimum width</em> of the banner image. I choose 100% so that the image always uses the full width of the element in which it is inserted. </p>
+<p>I add the following code snippet to the end of the <code class="language-text">user.css</code> file. I use this to set the <em>minimum width</em> of the banner image. I choose 100% so that the image always uses the full width of the element in which it is inserted.</p>
 <blockquote>
 <p>Why do I use the unit <code class="language-text">%</code> and not <code class="language-text">vw</code>, which can be found elsewhere in the Cassiopeia CSS file? The viewport dimensions <code class="language-text">vw (viewport width)</code> and <code class="language-text">vh (viewport height)</code> can be used to define dimensions in relation to the very first enclosing block. For views on displays, this block is identical to the dispay dimensions. Compared to <code class="language-text">100 %</code>, <code class="language-text">100 vw</code> scales the image to the full screen width. Since I use the static layout, the image does not always start at the very right. The full screen width would therefore be wrong at this point. Information on the units possible in CSS has been summarised by the <a href="https://www.w3.org/Style/Examples/007/units.en.html">W3C</a><sup id="fnref-w3.org/style/examples/007/units.en.html"><a href="#fn-w3.org/style/examples/007/units.en.html" class="footnote-ref">w3.org/style/examples/007/units.en.html</a></sup>.</p>
 </blockquote>
@@ -821,29 +829,29 @@ void function() {
 <p>If you like the purple in the Cassiopeia template, then the current display may already be right for you. In most cases, there is another colour which should be the primary colour of the website. Therefore, we recolour the elements.</p>
 <p>First we colour the background of the 'container-header' white. Because the purple is technically an image, the line <code class="language-text">background-image: none;</code> is important! White font on a white background is not readable, so we change the font colour in <code class="language-text">.mod-menu</code> via <code class="language-text">color: #0088cc;</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="css" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: white;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-image</span><span class="mtk1">: none;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: white;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-image</span><span class="mtk1">: none;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.mod-menu</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    colour: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  colour: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>When hovering with the mouse, the background of a menu item should appear grey. We can do this with <code class="language-text">background-color: #eee;</code> for the menu item link <code class="language-text">.container-header .mod-menu a</code>. To make the background look more loose, we add an inner padding <code class="language-text">padding: 3px 15px;</code> and round off the corners via <code class="language-text">border-radius: 0 0 6px 6px;</code>. The text should also be coloured blue in the link <code class="language-text">color: #0088cc;</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="css" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.mod-menu</span><span class="mtk1"> </span><span class="mtk7">a</span><span class="mtk1"> {</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">-webkit-border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">-moz-border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">; </span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">padding</span><span class="mtk1">: </span><span class="mtk6">3</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">15</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  colour: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.mod-menu</span><span class="mtk1"> </span><span class="mtk7">a</span><span class="mtk3">:hover</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#eee</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#eee</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>Last but not least, we take care of the hamburger menu. This is white in Cassiopeia. Since the background of the header area of our website is now white, we colour it blue to correspond to the font. The hamburger menu is located in the element <code class="language-text">.container-header .navbar-toggler</code>. We colour the three bold strokes with <code class="language-text">color: #0088cc;</code> and the line <code class="language-text">border: 1px solid #0088cc;</code> is used for the border.</p>
 <pre class="grvsc-container solarized-light" data-language="css" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.navbar-toggler</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">border</span><span class="mtk1">: </span><span class="mtk6">1</span><span class="mtk8">px</span><span class="mtk1"> solid </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">border</span><span class="mtk1">: </span><span class="mtk6">1</span><span class="mtk8">px</span><span class="mtk1"> solid </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>In the following, I will summarise the code in the file <code class="language-text">user.css</code>.</p>
 <pre class="grvsc-container solarized-light" data-language="css" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">/* Banner Image */</span></span></span>
@@ -855,33 +863,33 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">/* Override the lila background with white */</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: white;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-image</span><span class="mtk1">: none;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: white;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-image</span><span class="mtk1">: none;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">/* Text should now be blue */</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.mod-menu</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">/* We add padding and radius so that on hover there is a nice background */</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.mod-menu</span><span class="mtk1"> </span><span class="mtk7">a</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">-webkit-border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">-moz-border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">; </span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">padding</span><span class="mtk1">: </span><span class="mtk6">3</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">15</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">-webkit-border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">-moz-border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">border-radius</span><span class="mtk1">: </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">0</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">6</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">padding</span><span class="mtk1">: </span><span class="mtk6">3</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">15</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">/* On hover there should be a gray background*/</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.mod-menu</span><span class="mtk1"> </span><span class="mtk7">a</span><span class="mtk3">:hover</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	</span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#eee</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#eee</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3 mtki">/* We need to change the color of the Hamburger Menu because white on white is not good */</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.container-header</span><span class="mtk1"> </span><span class="mtk3">.navbar-toggler</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">border</span><span class="mtk1">: </span><span class="mtk6">1</span><span class="mtk8">px</span><span class="mtk1"> solid </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">color</span><span class="mtk1">: </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">border</span><span class="mtk1">: </span><span class="mtk6">1</span><span class="mtk8">px</span><span class="mtk1"> solid </span><span class="mtk4">#0088cc</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>As a result, we now see a website with neutral colours.</p>
 <p><span
@@ -918,23 +926,22 @@ void function() {
     </span></p>
 <h2>Giving the website a frame</h2>
 <p>With the standard template Protostar in Joomla 3, it was possible to display content with a fixed width in a container in such a way that everything was surrounded by a border. In Cassiopeia, this border does not appear without further action. We can create a similar effect with a workaround.To do this, we colour all background elements grey <code class="language-text">background-color: #f4f6f7;</code> and give the elements containing content a white background <code class="language-text">background-color: white;</code> and an inner space <code class="language-text">padding: 3px 15px;</code>.</p>
-<pre class="grvsc-container solarized-light" data-language="css" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.site-grid</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#f4f6f7</span><span class="mtk1">;</span></span></span>
+<pre class="grvsc-container solarized-light" data-language="css" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">... </span><span class="mtk3">.site-grid</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#f4f6f7</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.header</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#f4f6f7</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#f4f6f7</span><span class="mtk1">;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.grid-child</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">padding</span><span class="mtk1">: </span><span class="mtk6">3</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">15</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: white;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">padding</span><span class="mtk1">: </span><span class="mtk6">3</span><span class="mtk8">px</span><span class="mtk1"> </span><span class="mtk6">15</span><span class="mtk8">px</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: white;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.footer</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#f4f6f7</span><span class="mtk1">;</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-image</span><span class="mtk1">: none;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: </span><span class="mtk4">#f4f6f7</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-image</span><span class="mtk1">: none;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p><span
       class="gatsby-resp-image-wrapper"

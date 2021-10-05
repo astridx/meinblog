@@ -28,7 +28,7 @@ Ich hoffe, meine Art zu schreiben gefällt Ihnen. Ich persönlich hätte gerne g
 
 ## Was ist Leaflet?
 
-[Leaflet](https://leafletjs.com/reference) ist eine Open-Source-Bibliothek [JavaScript](https://en.wikipedia.org/wiki/JSON) [^en.wikipedia.org/wiki/JSON], die es Ihnen leicht macht, Karten auf Ihrer Website anzubieten. [Open Source](https://de.wikipedia.org/wiki/Open_Source)[^de.wikipedia.org/wiki/open_source] bedeutet unter anderem, dass der Programmcode einsehbar ist. Jeder, der über das nötige Wissen verfügt, kann überprüfen, wie genau die Anwendung funktioniert. Und was noch wichtiger ist: Jeder kann Leaflet nutzen, es an seine Bedürfnisse anpassen und verbessern.
+[Leaflet](https://leafletjs.com/reference) ist eine Open-Source-Bibliothek [JavaScript](https://en.wikipedia.org/wiki/JSON) [^en.wikipedia.org/wiki/json], die es Ihnen leicht macht, Karten auf Ihrer Website anzubieten. [Open Source](https://de.wikipedia.org/wiki/Open_Source)[^de.wikipedia.org/wiki/open_source] bedeutet unter anderem, dass der Programmcode einsehbar ist. Jeder, der über das nötige Wissen verfügt, kann überprüfen, wie genau die Anwendung funktioniert. Und was noch wichtiger ist: Jeder kann Leaflet nutzen, es an seine Bedürfnisse anpassen und verbessern.
 
 Was müssen Sie tun, wenn Sie Leaflet auf Ihrer Website verwenden wollen? Im Grunde müssen Sie nur zwei Dateien einbinden - eine JavaScript-Datei und die entsprechende CSS-Datei. Wie Sie das genau machen, erkläre ich im ersten Teil dieses Textes.
 

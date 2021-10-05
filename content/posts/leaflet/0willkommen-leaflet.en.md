@@ -12,9 +12,9 @@ tags:
   - Leaflet
 ---
 
-Working with geodata and digital maps has become increasingly relevant thanks to the [global positioning system GPS](https://en.wikipedia.org/wiki/Global_Positioning_System)[^en.wikipedia.org/wiki/Global_Positioning_System]. Many applications now offer real-time geographic information online. Thus, you will find more and more digital maps and applications that work with geodata on the Internet as well.
+Working with geodata and digital maps has become increasingly relevant thanks to the [global positioning system GPS](https://en.wikipedia.org/wiki/Global_Positioning_System)[^en.wikipedia.org/wiki/global_positioning_system]. Many applications now offer real-time geographic information online. Thus, you will find more and more digital maps and applications that work with geodata on the Internet as well.
 
-> [Geodata](https://en.wikipedia.org/wiki/Geographic_data_and_information)[^en.wikipedia.org/wiki/Geographic_data_and_information] is information that has an mapping to a spatial location. Almost all data can be assigned to a location and are therefore geodata.
+> [Geodata](https://en.wikipedia.org/wiki/Geographic_data_and_information)[^en.wikipedia.org/wiki/geographic_data_and_information] is information that has an mapping to a spatial location. Almost all data can be assigned to a location and are therefore geodata.
 
 You are certainly reading this book because you are considering offering a digital map - most likely on a website. The basics of what I have written in this book can all be found in the [documentation for Leaflet](https://leafletjs.com/reference)[^leafletjs.com/reference] or for the respective plugins publicly on the Internet. I have linked these documentations here in the book. Why did I write this book anyway? I wrote the book because I like to learn with examples. Often I get ideas that dry documentations don't give. Maybe you feel the same way and this book will add value to the existing documentation. The source code files for the examples used in the book can be found on the website [https://github.com/astridx/leaflet_beispieldateien_zum_Buch/](github.com/astridx/leaflet_example_files_for_book/).
 
@@ -28,7 +28,7 @@ I hope you like my way of writing. Personally, I would have liked to have this v
 
 ## What is Leaflet?
 
-[Leaflet](https://leafletjs.com/reference) is an open source [JavaScript library](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation] that makes it easy for you to provide maps on your website. [Open Source](https://en.wikipedia.org/wiki/Open_source)[^en.wikipedia.org/wiki/Open_source] means, among other things, that the program code is visible. Anyone with the necessary knowledge can check how exactly the application works. And more importantly, anyone can use Leaflet, adapt it to their needs and improve it.
+[Leaflet](https://leafletjs.com/reference) is an open source [JavaScript library](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^https://de.wikipedia.org/w/index.php?title=javascript_object_notation] that makes it easy for you to provide maps on your website. [Open Source](https://en.wikipedia.org/wiki/Open_source)[^en.wikipedia.org/wiki/open_source] means, among other things, that the program code is visible. Anyone with the necessary knowledge can check how exactly the application works. And more importantly, anyone can use Leaflet, adapt it to their needs and improve it.
 
 What do you have to do if you want to use Leaflet on your website? Basically, you only need to include two files - a JavaScript file and the corresponding CSS file. I explain exactly how to do this in the first part of this text.
 

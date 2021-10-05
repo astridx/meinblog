@@ -28,13 +28,15 @@ I use the following snippet to have the information displayed in the browser con
     if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
         console.log('Dark mode is supported');
     }
-    if (matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         console.log('Dark mode');
     } else {
-        console.log('Light  mode');
+        console.log('Light mode');
     }
     </script>
 ```
+
+Are you wondering what `window.matchMedia` means? `window.variableName` means that the variable `variableName` is declared in the global scope. This means that any JavaScript code has access to this variable. The use of [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)[^developer.mozilla.org/en-us/docs/web/api/window] is not mandatory. However, `window` is often used as a convention to indicate that a variable is global. Global variables should be avoided if possible. It is safer to define your own variables if you can.
 
 > A simple solution would be to display everything in black and white. The entry `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in the CSS file would do this. A matching color scheme is better in terms of quality.
 
@@ -61,7 +63,7 @@ The file `templates/facile/ index.php` now loads the CSS file depending on the _
  HTMLHelper::_('jquery.framework');
  $wa->registerAndUseScript('dropotron', $templatePath . '/assets/js/jquery.dropotron.min.js', [], ['defer' => true], []);
  $wa->registerAndUseScript('scrolly', $templatePath . '/assets/js/jquery.scrolly.min.js', [], ['defer' => true], []);
-@@ -30,11 +31,14 @@
+
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <jdoc:include type="styles" />
      <jdoc:include type="scripts" />
@@ -77,7 +79,7 @@ The file `templates/facile/ index.php` now loads the CSS file depending on the _
          <?php if ($this->countModules('menu', true)) : ?>
          <nav id="nav">
              <jdoc:include type="modules" name="menu" />
-@@ -150,6 +154,18 @@ class="button scrolly"><?php echo htmlspecialchars($this->params->get('bannerBut
+ class="button scrolly"><?php echo htmlspecialchars($this->params->get('bannerBut
 
          <jdoc:include type="modules" name="debug" />
      </div>
@@ -87,7 +89,7 @@ The file `templates/facile/ index.php` now loads the CSS file depending on the _
 +        if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
 +            console.log('Dark mode is supported');
 +        }
-+        if (matchMedia('(prefers-color-scheme: dark)').matches) {
++        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 +            console.log('Dark mode');
 +        } else {
 +            console.log('Light  mode');
@@ -122,7 +124,7 @@ body {
 }
 ```
 
-These CSS variables are used to switch JavaScript, which queries the time zone, on and off.
+These CSS variables are switched on and off via JavaScript, which queries the time zone.
 
 ```js
 // Get Current ClientTime

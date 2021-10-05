@@ -396,14 +396,14 @@ Das Setzen von Klammern beim Arbeiten mit Polygon-Objekten und Polyline-Objekten
 - Außerdem müssen Sie alle Punkte jedes einzelnen Objekts – Polyline oder Polygon –
   mit einer Klammer umgeben.  
   `[`  
-  `[``[50.17264, -7.26469], [49.27264, -6.26469]``]`,  
-  `[``[50.37264, -7.26469], [51.27264, -8.26469]``]`  
+  ` [``[50.17264, -7.26469], [49.27264, -6.26469]``] `,  
+  ` [``[50.37264, -7.26469], [51.27264, -8.26469]``] `  
   `]`
 
 - Und zuletzt werden auch die Koordinaten selbst noch eingeklammert.  
   `[`  
-  `[``[``50.17264, -7.26469``]`, `[``49.27264, -6.26469``]``],`  
-  `[``[``50.37264, -7.26469``]`, `[``51.27264, -8.26469``]``]`  
+  ` [``[``50.17264, -7.26469``] `, ` [``49.27264, -6.26469``]``], `  
+  ` [``[``50.37264, -7.26469``] `, ` [``51.27264, -8.26469``]``] `  
   `]`
 
 ### Mehrere Polyline Objekte auf einer Ebene

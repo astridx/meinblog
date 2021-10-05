@@ -56,7 +56,7 @@ Konkret sorgen wir dafür, dass die Ereignisse<!-- \index{Ereignis!onContentAfte
 -		$this->item = $this->get('Item');
 +		$item = $this->item = $this->get('Item');
 +
-+		Factory::getApplication()->triggerEvent('onContentPrepare', ['com_foos.foo', &$item]);
++		Factory::getApplication()->triggerEvent('onContentPrepare', ['com_foos.foo', &$item, &$item->params]);
 +
 +		// Store the events for later
 +		$item->event = new \stdClass;
@@ -72,6 +72,8 @@ Konkret sorgen wir dafür, dass die Ereignisse<!-- \index{Ereignis!onContentAfte
  		return parent::display($tpl);
  	}
 ```
+
+Wunderst du dich, dass wir bei den Ereignis-Methoden `onContentPrepare`, `onContentAfterTitle`, `onContentBeforeDisplay` und `onContentAfterDisplay` `&$item->params` als Parameter setzen, obwohl wir `&$item->params` bisher nicht explizit in der Foo-Erweiterung implementiert haben? Implizit sorgt die Methode `populateState` der Datei `/components/com_foos/src/Model/FooModel.php` dafür, dass `&$item->params` zur Verfügung steht. Für unser Beispiel benötigen wir bisher diesen dritten Parameter nicht. Es kann aber sein, dass es in Kombination mit anderen Erweiterungen zu Fehlern kommt, wenn dieser nicht gesetzt ist. Deshalb setzen wir bei allen Ereignis-Methoden die drei Pflicht-Parameter `['com_foos.foo', &$item, &$item->params]` ein.
 
 > Über `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay` werden, neben den eigenen Feldern andere Elemente ausgegeben, die dem jeweiligen Ereignis zugeordnet sind.
 

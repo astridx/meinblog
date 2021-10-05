@@ -227,7 +227,7 @@ var $name = "Peter";
 echo "Hello {$name}"
 ```
 
-In Joomla we use single quotes when possible. Using single quotes is slightly faster. PHP does not need any additional processing to interpret what is inside the single quote. If you use double quotes, PHP needs to check if there are any variables in the string. 
+In Joomla we use single quotes when possible. Using single quotes is slightly faster. PHP does not need any additional processing to interpret what is inside the single quote. If you use double quotes, PHP needs to check if there are any variables in the string.
 
 More information about this and the explanation of two other ways to use strings in PHP can be found on the website [php.net](https://www.php.net/manual/en/language.types.string.php)[^php.net/manual/en/language.types.string.php].
 
