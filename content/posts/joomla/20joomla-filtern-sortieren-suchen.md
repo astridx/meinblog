@@ -567,3 +567,4 @@ Icons zeigen uns an, ob und in welche Richtung eine Spalte sortiert ist. Damit d
 3. Öffne die Ansicht deiner Komponente im Administrationsbereich und filter, sortiere und suche nach Items in deiner Komponente.
 
 ![Joomla Filtern Sortieren und Suchen - Searchtools](/images/j4x20x1.png)
+<img src="https://vg08.met.vgwort.de/na/2a8810d66d994627ad4677202b727ab4" width="1" height="1" alt="">

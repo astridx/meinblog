@@ -92,3 +92,4 @@ Wir können alle in einem Template festgelegten Module anzeigen, indem wir `"tp
 
 > Siehst du die Positionen nicht? Überprüfe die Konfiguraiton: Die Option ist in der globalen Konfiguration deaktivierbar.
 > ![Modulpositionen in Cassiopeia](images/cp_templatepositionen.png)
+<img src="https://vg04.met.vgwort.de/na/fa4a0a767c984db3b20c8b32fef88493" width="1" height="1" alt="">

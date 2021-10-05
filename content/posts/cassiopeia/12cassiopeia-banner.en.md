@@ -3,8 +3,8 @@ date: 2021-03-11
 title: 'A tutorial on using the Cassiopeia template for Joomla 4 - A banner at the top and the navigation horizontally below it'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: aen/cassiopeia-banner
-langKey: de
+slug: en/cassiopeia-banner
+langKey: en
 categories:
   - Code
 tags:
@@ -19,7 +19,12 @@ This is how it should look:
 
 ![This is how it should look](/images/logotobe.png)
 
-How can this be done with Cassiopeia?
+How can this be done with Cassiopeia? You can find the full article in the [Joomla Magazine](https://magazine.joomla.org/all-issues/september/joomla-4-tweak-cassiopeia-with-a-top-banner-and-horizontal-navigation).
+
+<img src="https://vg04.met.vgwort.de/na/eaf19cdac93d4795b72e0393939281cb" width="1" height="1" alt="">
+
+<!--
+
 
 The frontend of a fresh Joomla 4 installation looks similar with Cassiopeia as you can see in the next picture. At the top is the area that contains the brand or branding.
 
@@ -298,3 +303,4 @@ With the standard template Protostar in Joomla 3, it was possible to display con
 ```
 
 ![Add CSS styles in Template Manger - website in frame](/images/logo9.png)
+-->

@@ -192,3 +192,5 @@ docker image rm nginx:alpine
 ```
 
 Eine vollständige Referenz aller verfügbaren `docker-compose` Befehle ist die [offizielle Dokumentation](https://docs.docker.com/compose/reference/).
+
+<img src="https://vg02.met.vgwort.de/na/a7f6285533aa40d387d451eea40085e9" width="1" height="1" alt="">

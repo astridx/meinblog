@@ -115,4 +115,5 @@ You already know the manifest. In the case of a package, there is little new her
 
 4. install the ZIP created in point 3 in Joomla.
 
-5. make sure that all the extensions specified in the Files section have been installed.
+5. make sure that all the extensions specified in the files section have been installed.
+   <img src="https://vg08.met.vgwort.de/na/3051e43724e44c9b9dd9ff8428a29ffd" width="1" height="1" alt="">

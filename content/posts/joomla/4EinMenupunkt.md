@@ -70,3 +70,4 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist und funktioniert.
 
 ![Joomla - Die Ansicht des Menüpunkt im Frontend](/images/j4x4x4.png)
+<img src="https://vg08.met.vgwort.de/na/75e23d8eff7e4aa8bf85935484dbc851" width="1" height="1" alt="">

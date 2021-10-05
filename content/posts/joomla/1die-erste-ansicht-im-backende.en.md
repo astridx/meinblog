@@ -736,3 +736,4 @@ Everything is new. There are no changed files yet.
 ![The first view in the backend](/images/j4x1x3.png)
 
 Up to this point, it wasn't rocket science. We have a solid basis for the next steps.
+<img src="https://vg08.met.vgwort.de/na/91a964b14e904ded9ad45011c0ad492c" width="1" height="1" alt="">

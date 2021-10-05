@@ -364,3 +364,4 @@ Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich 
 ![Templates_Edit_Style_admin_Administration](/images/c5.png)
 
 Wenn wir für verschiedene Seiten unterschiedliche Templaten verwenden möchten, können wir hier die Seiten auswählen. Natürlich müssen die Seiten bereits in den Menüs vorhanden sein, bevor wir etwas auswählen. Wenn deine Seiten Teil eines Kategorie-Blogs oder einer Kategorie-Liste und kein separater Menüpunkt sind, werden die einzelnen Unterseiten in dieser Liste nicht angezeigt.
+<img src="https://vg04.met.vgwort.de/na/8be019b2d0344ce2aa236f90f7f636ef" width="1" height="1" alt="">

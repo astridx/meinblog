@@ -308,3 +308,4 @@ Nutzt du [Postman](https://www.postman.com/)[^https://www.postman.com]? Dann ist
 [Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/j4.x:joomla_core_apis/de]
 
 [Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]
+<img src="https://vg08.met.vgwort.de/na/01fa65fba2a743bb8e08bf4f6872e79f" width="1" height="1" alt="">

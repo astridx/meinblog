@@ -214,3 +214,4 @@ To make editing the custom fields work the same way as in Joomla's own extension
 5. make sure that the custom fields can be turned on and off in the global configuration.
 
 ![Integrate Joomla Custom Fields into a custom component](/images/j4x17x3.png)
+<img src="https://vg08.met.vgwort.de/na/b7801b02af92421e8755fa873ca33ca5" width="1" height="1" alt="">

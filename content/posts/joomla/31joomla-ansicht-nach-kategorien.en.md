@@ -853,3 +853,4 @@ In this chapter we only add new files.
 3. switch to the frontend and make sure that the elements are displayed correctly.
 
 ![Categories in Joomla - View in Frontend ](/images/j4x31x2.png)
+<img src="https://vg08.met.vgwort.de/na/fab79276fbb64fe1ad8ebba5c5581848" width="1" height="1" alt="">

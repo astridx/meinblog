@@ -112,3 +112,4 @@ Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht u
 5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
 
 ![Joomla Eigene Felder in eine eigene Komponente integrieren | Wert des Feldes im Frontend anzeigen.](/images/j4x18x2.png)
+<img src="https://vg08.met.vgwort.de/na/b28a1a8aaac2416a8a4a480959615bb6" width="1" height="1" alt="">

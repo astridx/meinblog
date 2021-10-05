@@ -79,3 +79,5 @@ Inform yourself before installing 3rd party templates.
 - Is there support for the template?
 - Is there a forum to resolve any issues?
 - Will the template provider keep up with new versions of Joomla?
+
+<img src="https://vg04.met.vgwort.de/na/ce472b7ad61e43d783051d994e6a865e" width="1" height="1" alt="">

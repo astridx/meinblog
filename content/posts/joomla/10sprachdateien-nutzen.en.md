@@ -321,3 +321,4 @@ Last but not least, we now use the language files. So far we have printed the na
 ![Joomla language files are used](/images/j4x10x1.png)
 
 3. try out the new feature. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.
+<img src="https://vg08.met.vgwort.de/na/41bf541998834a14a99ae04848f45573" width="1" height="1" alt="">

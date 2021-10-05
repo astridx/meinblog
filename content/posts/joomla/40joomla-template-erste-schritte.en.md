@@ -320,3 +320,4 @@ Next, test whether the template works without errors. Activate the Template Styl
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
 
 [HTML5 UP offers fancy HTML5 website templates](https://html5up.net/)[^https://html5up.net]
+<img src="https://vg08.met.vgwort.de/na/cc552c93919243168d44670763fe0f3c" width="1" height="1" alt="">

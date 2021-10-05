@@ -167,3 +167,4 @@ Install your component as described in part one, after copying all files. Joomla
 ## Links
 
 [Allow 3rd party components to create the dashboard](https://github.com/joomla/joomla-cms/pull/28027)[^https://github.com/joomla/joomla-cms/pull/28027]
+<img src="https://vg08.met.vgwort.de/na/bfbc6200b5a54a8ab708b591c07c5a61" width="1" height="1" alt="">

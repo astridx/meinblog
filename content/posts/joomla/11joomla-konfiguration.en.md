@@ -154,3 +154,4 @@ Finally, we replace `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. We onl
 4. open as last, the view in the frontend. Does the display of the label behave as you have set it in the administration area?
 
 ![Joomla Configuration - Frontend](/images/j4x11x3.png)
+<img src="https://vg08.met.vgwort.de/na/2acbdddd8c0c44a1be1ec497a6bcb26a" width="1" height="1" alt="">

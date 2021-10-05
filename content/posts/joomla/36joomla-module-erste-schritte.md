@@ -176,3 +176,4 @@ Wir haben eine solide Grundlage für die weiteren Schritte in der Entwicklung de
 ## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/j4.x:creating_a_simple_module/de]
+<img src="https://vg08.met.vgwort.de/na/f21260ecd2d14b93b42a9d7c73dca41c" width="1" height="1" alt="">

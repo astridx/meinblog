@@ -242,3 +242,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ![Joomla Template erstellen - Social Media Backend](/images/j4x43x3.png)
 
 ![Joomla Template erstellen - Social Media Frontend](/images/j4x43x4.png)
+<img src="https://vg08.met.vgwort.de/na/23d0ed60006d4ed2b0cd1631943c7e03" width="1" height="1" alt="">

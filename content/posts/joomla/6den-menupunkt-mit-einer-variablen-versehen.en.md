@@ -155,3 +155,4 @@ turns Joomla into the following HTML code for the output in the backend form:
 I'm sure you can think of funnier or more useful examples. But the sense and function of the variables will be clear.
 
 4. Create multiple menu items, each containing different text. Don't just output the text on the frontend, style the output using [conditional statements](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/if...else)[^developer.mozilla.org/en/docs/web/javascript/reference/statements/if...else]. A popular use case is to change the design of the output using variables. For example, you use the variable to query whether the content is to be output in a list or in a table.
+<img src="https://vg08.met.vgwort.de/na/98d3772e579c429fa2b4b823195b57b5" width="1" height="1" alt="">

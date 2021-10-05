@@ -246,3 +246,4 @@ Du kannst dir die Modulpositionen im Frontend ansehen. Aktiviere dazu die Anzeig
 ![Joomla Template erstellen - Modul Positionen anzeigen - Frontend](/images/j4x41x6.png)
 
 Das sieht nicht einladend aus. Da gebe ich dir recht. Deshalb peppen wir das Template als nächstes mit CSS und JavaScipt auf und passen die Standard Ansichten von Joomla an.
+<img src="https://vg08.met.vgwort.de/na/15b4bdca6616488599c7bc8d03f077c7" width="1" height="1" alt="">

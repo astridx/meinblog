@@ -60,3 +60,4 @@ Two lines per view are sufficient to display a button at the top right that cont
 2. Open the view of your component in the administration area. Click on the help link and make sure that you are redirected to the help page you entered.
 
 ![Joomla Help Link in the item view](/images/j4x27x2.png)
+<img src="https://vg08.met.vgwort.de/na/3e4cb448b8ab47f480890c213b3c2ba7" width="1" height="1" alt="">

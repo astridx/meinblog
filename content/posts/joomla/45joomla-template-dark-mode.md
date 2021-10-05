@@ -180,3 +180,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 [prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^https://web.dev/prefers-color-scheme]
 
 [dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/googlechromelabs/dark-mode-toggle]
+<img src="https://vg08.met.vgwort.de/na/68cd159f117e4bcd9558f6e19800ce48" width="1" height="1" alt="">

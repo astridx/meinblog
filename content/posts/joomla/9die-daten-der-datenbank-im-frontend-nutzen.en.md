@@ -601,3 +601,4 @@ Then click on the `New` button and fill in all the necessary fields. You can fin
 5. switch to the frontend and make sure that the menu item is created correctly. You will see the title of the element you selected in the administration area.
 
 ![Joomla Create a menu item](/images/j4x9x3.png)
+<img src="https://vg08.met.vgwort.de/na/68d12b4bb91e4a72942a461a5a6e1a24" width="1" height="1" alt="">

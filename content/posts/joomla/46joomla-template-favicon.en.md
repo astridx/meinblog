@@ -75,3 +75,4 @@ In order for the files to be found, new lines in the file `templates/facile/ ind
 ## Links
 
 [Favicon Generator](https://realfavicongenerator.net/)[^https://realfavicongenerator.net]
+<img src="https://vg08.met.vgwort.de/na/73b505d6ad6643aaa92b8c045a3a891b" width="1" height="1" alt="">

@@ -126,3 +126,4 @@ Ein Plugin des Typs Web Services fügt die Routen der einer Erweiterung zur API 
 ### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)<!-- \index{Plugin!Workflow} -->
 
 Bei der Workflow-Verwaltung gibt es unterschiedliche Übergänge, die per Plugin manipulierbar sind.
+<img src="https://vg08.met.vgwort.de/na/bf834767e907410a826709167dea3c55" width="1" height="1" alt="">

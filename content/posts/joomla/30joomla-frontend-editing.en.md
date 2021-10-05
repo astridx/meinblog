@@ -1310,3 +1310,4 @@ Install your component as described in part one, after you have copied all the f
 ## Links
 
 [Adding frontend edit for com_contact](https://github.com/joomla/joomla-cms/pull/24311)[^https://github.com/joomla/joomla-cms/pull/24311]
+<img src="https://vg08.met.vgwort.de/na/97ae5a758e804c7db1ecbbf607943816" width="1" height="1" alt="">

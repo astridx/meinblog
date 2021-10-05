@@ -158,3 +158,4 @@ Last but not least, we register the new file under the name `com_foos.admin-foos
 4. Make sure that at this point **a** warning is displayed.
 
 ![Joomla Validation](/images/j4x14x1.png)
+<img src="https://vg08.met.vgwort.de/na/7a3504bcb94d409aa8b6bb9ae797110d" width="1" height="1" alt="">

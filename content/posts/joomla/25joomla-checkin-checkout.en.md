@@ -182,3 +182,4 @@ Copy the files in the `administrator` folder into the `administrator` folder of 
 5. Make sure you see an icon that tells you that the item is locked and that an authorised user can unlock it.
 
 ![Joomla checkin/checkout](/images/j4x25x1.png)
+<img src="https://vg08.met.vgwort.de/na/edac2b46ee474dc89ce7d12f66f7fd4b" width="1" height="1" alt="">

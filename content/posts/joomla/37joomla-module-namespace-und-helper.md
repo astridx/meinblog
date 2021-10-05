@@ -139,3 +139,4 @@ Installiere dein Module wie in Teil eins beschrieben, nachdem du alle Dateien ko
 ## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/j4.x:creating_a_simple_module/de]
+<img src="https://vg08.met.vgwort.de/na/5c01f557afd24e3e8c499ba5f1286700" width="1" height="1" alt="">

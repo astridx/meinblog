@@ -28,3 +28,5 @@ I adjusted [region and language](https://help.ubuntu.com/stable/ubuntu-help/pref
 7. [docker-lamp with own projects](/en/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/en/ubuntu-vscode-docker-lamp)
 9. [docker-lamp with own Domain](/en/ubuntu-docker-lamp-verwenden-eigene-domain)
+
+<img src="https://vg02.met.vgwort.de/na/d2218897a9254c63a95ea39ab415a7f3" width="1" height="1" alt="">

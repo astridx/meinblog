@@ -99,3 +99,5 @@ $ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate
 Im Joomla Backend sind die Erweiterungen nun zum Entdecken bereit.
 
 ![Projekte in Joomla discovern](/images/discover.png)
+
+<img src="https://vg02.met.vgwort.de/na/711235101d0d4b91b589c4f61fd28862" width="1" height="1" alt="">

@@ -271,3 +271,4 @@ Soll die Koordinate des Markers als Zwischenziel verwendet werden, ist das Hinzu
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)  
 [Mapbox GL Dokumentation](https://docs.mapbox.com/help/how-mapbox-works/directions/)  
 [Mapbox GL Directions plugin ](https://github.com/mapbox/mapbox-gl-directions)
+<img src="https://vg07.met.vgwort.de/na/591e51d641204e39a9eb35871a6ce2ec" width="1" height="1" alt="">

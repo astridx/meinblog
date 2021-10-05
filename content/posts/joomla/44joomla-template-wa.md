@@ -106,3 +106,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ## Links
 
 [Web Assets](https://docs.joomla.org/J4.x:Web_Assets/de)[^https://docs.joomla.org/j4.x:web_assets/de]
+<img src="https://vg08.met.vgwort.de/na/280e411fc425447591db2fec37dad317" width="1" height="1" alt="">

@@ -125,3 +125,4 @@ A Web Services plug-in adds the routes of an extension to the website's API. We 
 ### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)<!-- \index{plugins!Workflow} -->
 
 In workflow management, there are different transitions that can be manipulated using a plugin.
+<img src="https://vg08.met.vgwort.de/na/6ed60508849f482daea03626b68de768" width="1" height="1" alt="">

@@ -64,3 +64,4 @@ Nachfolgend siehst du eine Seite unter verschiedenen Auflösungen mit der Static
 Nachfolgend siehst du eine Seite unter verschiedenen Auflösungen mit der Fluid-Einstellung. Die Bildschirmbreite beträgt von links nach rechts 575px, 2000px und 1100px. In jeder Variante wird der vorhandene Platz vollständig genutzt.
 
 ![Cassiopeia Layout-Option fluid](/images/cp_fluid.png)
+<img src="https://vg04.met.vgwort.de/na/7fb43e60955947f8b1771faf3a060d6a" width="1" height="1" alt="">

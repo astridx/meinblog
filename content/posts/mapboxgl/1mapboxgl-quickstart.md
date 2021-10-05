@@ -52,3 +52,4 @@ Die Grundlage haben wir gelegt. Mithilfe der Karte ist es möglich geografische 
 [Demo](https://astridx.github.io/mapboxexamples/quickstart.html)  
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/quickstart.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
+<img src="https://vg07.met.vgwort.de/na/d73900c118894449a890e95211f0730c" width="1" height="1" alt="">

@@ -299,3 +299,4 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon-pinned.svg', '', [], true, 1)
 ```
 
 Beachte dabei: Wenn du die die Favicons im Verzeichnis `JOOMLA/templates/cassiopeia/images` ablegst, werden sie nicht überschrieben. Genau wie die `user.css` ist dies eine unkomplizierte Art Veränderungen vorzunehmen. Bei einer Aktualisierung werden die Versionen der Bilder im Verzeichnis `JOOMLA/media/system` angepasst, nicht die im Template-Verzeichnis. Falls du die Namen der Bilddateien änderst und deshalb die `index.php` des Templates editierst, musst du Vorkehrungen für den Fall einer Aktualisierung von Joomla teffen. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Lege beispielsweise eine Kopie des Templates an.
+<img src="https://vg04.met.vgwort.de/na/380c0b24cb764d9084f0033e5b2704d9" width="1" height="1" alt="">

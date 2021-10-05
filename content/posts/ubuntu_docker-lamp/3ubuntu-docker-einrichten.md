@@ -434,3 +434,5 @@ Nachdem alles hochgeladen ist, siehst du im Docker Hub Dashboard das neue Image.
 ![Docker Image in Docker Hub](/images/docker1.png)
 
 > Nutze `docker pull astrid/ubuntu-nodejs` um das Image auf einer anderen Maschine zu verwenden.
+
+<img src="https://vg02.met.vgwort.de/na/9ab807ce0fb743adb0fd5343e59762b8" width="1" height="1" alt="">

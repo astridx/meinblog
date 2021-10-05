@@ -136,3 +136,4 @@ Was alles möglich ist zeigt der [Playground](https://docs.mapbox.com/playground
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/examples/find-elevations-with-tilequery-api.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
 Warum auf dem Mount Everest die Höhenangabe nicht korrekt ist, erklärt dieses [Github-Issue](https://github.com/mapbox/mapbox-gl-js/issues/10039)
+<img src="https://vg07.met.vgwort.de/na/a4c3027082cb469e9344af9133af413b" width="1" height="1" alt="">

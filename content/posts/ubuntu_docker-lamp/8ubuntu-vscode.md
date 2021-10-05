@@ -146,3 +146,5 @@ Die Standardkonfiguration passt bis auf eine Ausnahme, der `port` muss auf `1000
 #### PHP Getter & Setter
 
 [phproberto.vscode-php-getters-setters](https://marketplace.visualstudio.com/items?itemName=phproberto.vscode-php-getters-setters). Erstellen von PHP-Gettern und -Settern aus Klasseneigenschaften.
+
+<img src="https://vg02.met.vgwort.de/na/2b596ee61e2c4e768e93b5f087f92121" width="1" height="1" alt="">

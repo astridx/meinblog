@@ -146,3 +146,4 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Editiere ein Item und vergewissere dich davon, dass die Darstellung so ist, wie du es in Joomla erwartest. Eine Beispieldarstellung siehst du im Bild zu Beginn dieses Kapitels.
+<img src="https://vg08.met.vgwort.de/na/21c53f666f254e31bcd07348201fc4bb" width="1" height="1" alt="">

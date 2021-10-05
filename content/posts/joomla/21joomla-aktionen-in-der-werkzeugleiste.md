@@ -201,3 +201,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x2.png)
+<img src="https://vg08.met.vgwort.de/na/b2afc8f31a3e418aa387ccf1b7bcd391" width="1" height="1" alt="">

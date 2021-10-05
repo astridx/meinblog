@@ -857,3 +857,4 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 3. Wechsele ins Frontend und überzeuge dich davon, dass die Elemente korrekt angezeigt werden.
 
 ![Kategorien in Joomla - Ansicht im Frontend ](/images/j4x31x2.png)
+<img src="https://vg08.met.vgwort.de/na/0fbaf7567a834f6ba69c9d31c4b529c5" width="1" height="1" alt="">

@@ -79,3 +79,5 @@ Informiere dich, bevor du Templates von Drittanbietern installierst.
 - Gibt es Support für das Template?
 - Gibt es ein Forum zur Klärung etwaiger Probleme?
 - Wird der Anbieter des Templates das Template an neue Versionen von Joomla anpassen?
+
+<img src="https://vg04.met.vgwort.de/na/9f0eb5b645a94bca8af59b83e00c9f19" width="1" height="1" alt="">

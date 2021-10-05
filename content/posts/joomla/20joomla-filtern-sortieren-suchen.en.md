@@ -568,3 +568,4 @@ Icons show us if a column is sorted and in which direction. To make the sorting 
 3. open the view of your component in the administration area and filter, sort and search for items in your component.
 
 ![Joomla Filter Sort and Search - Searchtools](/images/j4x20x1.png)
+<img src="https://vg08.met.vgwort.de/na/5178de69ae0a4beeb708558127a43823" width="1" height="1" alt="">

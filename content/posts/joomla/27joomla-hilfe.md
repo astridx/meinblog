@@ -62,3 +62,4 @@ Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeige
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf die Hilfschaltfläche und vergewissere dich davon, dass du zu der von dir eingegebenen Website weitergeleitet wirst.
 
 ![Joomla Schaltfläche mit Link zur Hilfeseite in der Detailansicht](/images/j4x27x2.png)
+<img src="https://vg08.met.vgwort.de/na/eab5f11b0c6e466e8e709ae5032bf209" width="1" height="1" alt="">

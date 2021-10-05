@@ -27,5 +27,7 @@ tags:
 1. Exkurs: Overrides:  
    [Informationen zum Autor in der Artikelansicht (html/com_content/article/default.php)](/cassiopeia-autorinfo)  
    [Timeline mit den neuesten Beiträgen (html/mod_articles_latest/default.php)](/cassiopeia-timeline)
+1. Exkurs: Anwendungsbeispiele:  
+   [Ein Banner ganz oben und die Navigation horizontal darunter](/cassiopeia-banner)
 1. Exkurs: Sicherheit:  
    [HTTP-Header und Content Security Policy in Joomla 4](/http-header-und-content-security-policy-joomla4)

@@ -1238,3 +1238,4 @@ In diesem Kapitel haben wir uns das Format GeoJSON genau angesehen. Wir haben di
 - Fragen beantworten
 
 können.
+<img src="https://vg07.met.vgwort.de/na/7869a91620e24c9687d4d2c9a23e24e1" width="1" height="1" alt="">

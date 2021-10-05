@@ -285,3 +285,4 @@ Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des
 Ich nutze lokal [phpmyadmin.net](https://www.phpmyadmin.net/) für die Administration der Datenbank.
 
 ![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)
+<img src="https://vg08.met.vgwort.de/na/5004a41d12614f53a293be3f98c4ad6a" width="1" height="1" alt="">

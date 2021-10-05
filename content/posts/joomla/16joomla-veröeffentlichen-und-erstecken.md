@@ -373,3 +373,4 @@ Zum Schluss ergänzen wir die Übersichtsliste im Backend. Wir erstellen eine Sp
 6. Öffne ein Element und überprüfe, dass der Status in dieser Ansicht ebenfalls editierbar ist. Außerdem ist es möglich, ein Datum anzugeben, so das Items dem Datum entsprechend versteckt oder veröffentlicht werden.
 
 ![Joomla Validierung](/images/j4x16x3.png)
+<img src="https://vg08.met.vgwort.de/na/4f7c2eac5b6942688fe3ecc2b1519f8d" width="1" height="1" alt="">

@@ -422,3 +422,4 @@ Install your component as described in part one, after you have copied all the f
 ## Links
 
 [Routing in com_contact](https://github.com/joomla/joomla-cms/pull/27693)[^https://github.com/joomla/joomla-cms/pull/27693]
+<img src="https://vg08.met.vgwort.de/na/59d74bcbc4e148638efadbb97bb44eb9" width="1" height="1" alt="">

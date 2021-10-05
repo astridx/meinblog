@@ -180,3 +180,4 @@ A new installation is not necessary. Continue using the ones from the previous p
 [prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^https://web.dev/prefers-color-scheme]
 
 [dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/googlechromelabs/dark-mode-toggle]
+<img src="https://vg08.met.vgwort.de/na/d745baaac84d49ff8848211d50eb8c00" width="1" height="1" alt="">

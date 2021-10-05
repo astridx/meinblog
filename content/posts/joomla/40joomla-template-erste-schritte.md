@@ -320,3 +320,4 @@ Kopiere die Dateien des `templates` Ordners in den `templates` Ordner deiner Joo
 [Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
 
 [HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]
+<img src="https://vg08.met.vgwort.de/na/7700831f036b4d999c65e57c78518242" width="1" height="1" alt="">

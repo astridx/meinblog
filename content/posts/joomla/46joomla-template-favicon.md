@@ -75,3 +75,4 @@ Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile
 ## Links
 
 [Favicon Generator](https://realfavicongenerator.net/)[^https://realfavicongenerator.net]
+<img src="https://vg08.met.vgwort.de/na/1630284284b44cfba6398486d1e8d599" width="1" height="1" alt="">

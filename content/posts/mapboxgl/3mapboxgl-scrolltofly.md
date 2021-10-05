@@ -412,3 +412,4 @@ Hier das vollständige Beispiel:
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/examples/scroll-fly-to.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
 [MapBox GL Example](https://docs.mapbox.com/mapbox-gl-js/example/scroll-fly-to/)
+<img src="https://vg07.met.vgwort.de/na/d5cc58134a99486a8b80f28c08f6e0bc" width="1" height="1" alt="">

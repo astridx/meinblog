@@ -1144,3 +1144,4 @@ In the components overview in the administration area, we add columns to display
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x7.png)
 
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x6.png)
+<img src="https://vg08.met.vgwort.de/na/4f122f3e435546dc8111bbf5cd30f271" width="1" height="1" alt="">

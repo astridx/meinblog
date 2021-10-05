@@ -836,3 +836,4 @@ Nun werden Sie feststellen, dass viele große Bereiche in ländlichen Gegenden, 
 In diesem Kapitel haben Sie alles das, was Sie in den ersten Teilen kennengelernt haben, zum visualisieren eingesetzt. Sie haben Plugins kennen gelernt, die Sie beim Erstellen von Heatmaps unterstützen. Sie können nun eine Heatmap erstellen, mit der interagiert werden kann. Außerdem können Sie eine animierte Heatmap erstellen. Sie kennen die Besonderheiten von Choroplethenkarten und wissen, wann absolute und wann relative Werte sinnvoll sind. Sie können nun die Anzeige von absoluten und relativen Werten selbst umsetzten.
 
 Im nächsten Kapitel werden wir noch einmal den Schwerpunkt auf die individuelle Gestaltung setzten. Hier geht es um benutzerdefinierte Marker.
+<img src="https://vg07.met.vgwort.de/na/be55dedca79642e5a6451bc3544d7aa0" width="1" height="1" alt="">

@@ -246,3 +246,4 @@ You can view the module positions in the frontend. Activate the view in the glob
 ![Create Joomla Template - Show Module Positions - Frontend](/images/j4x41x6.png)
 
 This does not look inviting. I agree with you there. So next we pep up the template with CSS and JavaScipt and adjust the default views of Joomla.
+<img src="https://vg08.met.vgwort.de/na/7174fafb8ead4309b9cfe82778799426" width="1" height="1" alt="">

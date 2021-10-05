@@ -87,3 +87,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich und erstelle so viele Items, dass diese nicht mehr auf einer Seite angezeigt werden. Im unteren Bereich siehst du eine Navigation, welche es dir ermöglicht, durch die Inhalte zu blättern.
 
 ![Joomla Pagination](/images/j4x23x1.png)
+<img src="https://vg08.met.vgwort.de/na/77029cee191b4fbc9a01f511eb0e65cf" width="1" height="1" alt="">

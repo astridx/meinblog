@@ -1030,3 +1030,4 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Joomla Featured; Elemente im Backend](/images/j4x28x4.png)
 
 ![Joomla Featured; Elemente im Frontend](/images/j4x28x4.png)
+<img src="https://vg08.met.vgwort.de/na/0dd0fa2c7f654709820e06da9bfb36b2" width="1" height="1" alt="">

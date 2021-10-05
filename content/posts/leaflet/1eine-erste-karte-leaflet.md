@@ -806,3 +806,4 @@ Die nachfolgende Abbildung zeigt Ihnen die zwei `L.tileLayer.wms` Layer über de
 In diesem Kapitel haben Sie auf unterschiedliche Arten eine Karte erstellt.
 
 In den nächsten Kapiteln werden wir diese Karte mit Elementen und Informationen füllen.
+<img src="https://vg07.met.vgwort.de/na/f160c530f414414d9a6e808f19c5dc69" width="1" height="1" alt="">

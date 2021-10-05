@@ -51,3 +51,4 @@ Ich gehe davon aus, dass Sie über grundlegende [HTML](https://de.wikipedia.org/
 Für das Verständnis der Beispiele sind darüber hinaus grundlegende [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] Kenntnisse hilfreich. Für die Entwicklung dynamischer Webseiten ist JavaScript unerlässlich.
 
 > Mit [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] lassen sich kleine Hilfsroutinen und auch komplexen Bibliotheken schreiben.
+<img src="https://vg07.met.vgwort.de/na/5f31b63672d84ae7b5b177ae8c025742" width="1" height="1" alt="">

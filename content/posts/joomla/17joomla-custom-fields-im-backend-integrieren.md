@@ -214,3 +214,4 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
 5. Stelle sicher, dass die eigenen Felder in der globalen Konfiguration ein- und ausschaltbar sind.
 
 ![Joomla Eigene Felder in eine eigene Komponente integrieren - Konfiguration](/images/j4x17x3.png)
+<img src="https://vg08.met.vgwort.de/na/0982a9384ce04ef6902e702f0982e612" width="1" height="1" alt="">

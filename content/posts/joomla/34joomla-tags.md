@@ -351,3 +351,4 @@ Falls du ein Foo-Element mit einem Tag versehen hast und dich nun wunderst, dass
 ## Links
 
 [Verwendung von Tags in einer Erweiterung](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/j3.x:using_tags_in_an_extension]
+<img src="https://vg08.met.vgwort.de/na/20bf6c7b62bb4ae7850abdcad3d6c386" width="1" height="1" alt="">

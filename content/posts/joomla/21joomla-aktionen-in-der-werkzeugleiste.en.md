@@ -199,3 +199,4 @@ Open the view of your component in the administration area. In the toolbar you w
 ![Joomla Actions in the Toolbar](/images/j4x21x1.png)
 
 ![Joomla actions in the toolbar](/images/j4x21x2.png)
+<img src="https://vg08.met.vgwort.de/na/211a290b4529496caee3902bf041757d" width="1" height="1" alt="">

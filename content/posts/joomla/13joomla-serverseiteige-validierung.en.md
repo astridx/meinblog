@@ -124,3 +124,4 @@ What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Admini
 ![Joomla Validation - Server Side Validation](/images/j4x13x1.png)
 
 > Did you notice it? You may see the warning only after you have made a lot of changes in the form. In this small extension it does not matter. In large forms, the hint at the end can be frustrating. A user may want to see it immediately after the incorrect input. So it is possible to act immediately and avoid unnecessary work. This is where client-side validation comes into play. We will look at this in the next part.
+<img src="https://vg08.met.vgwort.de/na/6a564843d8d24485a5e55eaf1366578b" width="1" height="1" alt="">

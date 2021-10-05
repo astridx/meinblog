@@ -304,3 +304,4 @@ Last but not least nehmen wir für die Anzeige der Berechtigung eine Spalte in d
 ## Links
 
 [Tutorial zur Zugriffssteuerungsliste (ACL)](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial/de)[^docs.joomla.org/j3.x:access_control_list_tutorial/de]
+<img src="https://vg08.met.vgwort.de/na/2c3ca331ccf948289d38a89cfd25b18a" width="1" height="1" alt="">

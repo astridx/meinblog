@@ -352,3 +352,4 @@ If you have tagged a Foo element and are now surprised that it is not displayed,
 ## Links
 
 [Using Tags in a Extension](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/j3.x:using_tags_in_an_extension]
+<img src="https://vg08.met.vgwort.de/na/4925cd18616c4bd0b5482098f135e4d6" width="1" height="1" alt="">

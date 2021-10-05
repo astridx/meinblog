@@ -273,3 +273,4 @@ Als Ergebnis sehen Sie nun zwei Textfelder im oberen rechten Bereich auf Ihrer K
 ## In diesem Kapitel haben wir …
 
 Gegenstand dieses Kapitels war Routing. Wir haben uns kurz angesehen, was Kartendaten bieten müssen, um die Berechnung einer Route zu ermöglichen. Dass die Kartendaten aber nicht alles sind und eine Route etwas sehr Individuelles sein kann, wurde dabei auch klar. Danach haben wir das Plugin Leaflet Routing Machine in unsere Leaflet Karte integriert und mithilfe von Optionen und Geocoding flexibler und benutzerfreundlicher gemacht.
+<img src="https://vg07.met.vgwort.de/na/9bc1f3cbf70442359341118d463e77ef" width="1" height="1" alt="">

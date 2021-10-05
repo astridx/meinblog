@@ -251,3 +251,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 3. Teste die Stapelverarbeitung.
 
 ![Joomla Stapelverarbeitung](/images/j4x26x2.png)
+<img src="https://vg08.met.vgwort.de/na/1ea25f95afe6405e843dd87b971f669b" width="1" height="1" alt="">

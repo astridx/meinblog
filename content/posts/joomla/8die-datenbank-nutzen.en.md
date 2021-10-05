@@ -615,3 +615,4 @@ In the template of the overview list, we replace the simple text with a form. Th
 ![Edit Joomla Component in Backend - Empty View without Empty State Layout](/images/j4x8x10.png)
 
 ![Edit Joomla Component in Backend - Empty View with Empty State Layout](/images/j4x8x11.png)
+<img src="https://vg08.met.vgwort.de/na/e84adb76518f4eda8cae811c531a12a3" width="1" height="1" alt="">

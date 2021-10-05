@@ -201,3 +201,4 @@ Jeder hat seine Vorliebe. Mancher bevorzugt Satellitenaufnahmen. Ein anderer gem
 [Demo](https://astridx.github.io/mapboxexamples/plugins/mapboxgl-style-switcher.html)  
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/plugins/mapboxgl-style-switcher.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
+<img src="https://vg07.met.vgwort.de/na/4447e31654f0499a8a148ec6a23d0100" width="1" height="1" alt="">

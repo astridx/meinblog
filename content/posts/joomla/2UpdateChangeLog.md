@@ -211,3 +211,4 @@ Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in ähnlicher 
 ## Links
 
 [Einen Update-Server bereitstellen](https://docs.joomla.org/Deploying_an_Update_Server/de)[^docs.joomla.org/deploying_an_update_server/de]
+<img src="https://vg08.met.vgwort.de/na/bf66dc5d3f9648c89611104ba400f551" width="1" height="1" alt="">

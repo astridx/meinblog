@@ -421,3 +421,4 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 ## Links
 
 [Routing in com_contact](https://github.com/joomla/joomla-cms/pull/27693)[^https://github.com/joomla/joomla-cms/pull/27693]
+<img src="https://vg08.met.vgwort.de/na/779f197311f04131bb5cde65a7793b56" width="1" height="1" alt="">

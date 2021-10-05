@@ -304,3 +304,4 @@ Open the options of the global configuration. Here you have the possibility to s
 ## Links
 
 [Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/j3.x:access_control_list_tutorial]
+<img src="https://vg08.met.vgwort.de/na/6c4267266502456d9b38fa2fbc04f534" width="1" height="1" alt="">

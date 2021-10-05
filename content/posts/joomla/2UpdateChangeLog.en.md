@@ -217,3 +217,4 @@ A new installation is not necessary. Continue using the files from part 1.
 ## Links
 
 [Deploying an Update Server](https://docs.joomla.org/Deploying_an_Update_Server/de)[^docs.joomla.org/deploying_an_update_server/en]
+<img src="https://vg08.met.vgwort.de/na/5331f5a98d6044558c130ef1d3a1e4f5" width="1" height="1" alt="">

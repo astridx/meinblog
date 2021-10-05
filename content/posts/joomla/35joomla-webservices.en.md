@@ -315,3 +315,4 @@ Do you use [postman.com](https://www.postman.com/)? Then the [collection](https:
 [Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/)[^https://docs.joomla.org/j4.x:joomla_core_apis]
 
 [Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]
+<img src="https://vg08.met.vgwort.de/na/97f9021f918a4a05bb5471a222790da9" width="1" height="1" alt="">

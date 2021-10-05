@@ -704,3 +704,5 @@ Voila! That was it.
 7. [docker-lamp with own projects](/en/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/en/ubuntu-vscode-docker-lamp)
 9. [docker-lamp with own Domain](/en/ubuntu-docker-lamp-verwenden-eigene-domain)
+
+<img src="https://vg02.met.vgwort.de/na/74aa730a21cd40e08180bb49ba5e34fb" width="1" height="1" alt="">

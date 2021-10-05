@@ -155,3 +155,5 @@ verwandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code
 Dir fallen sicher praktischere Beispiele ein. Der Sinn und die Funktion der Variablen werden im Beispiel klar.
 
 4. Erstelle mehrere Menüpunkte, die jeweils einen anderen Text oder Typ enthalten. Gibt nicht lediglich den Text im Frontend aus, gestalte die Ausgabe mithilfe von [bedingten Anweisungen](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else)[^developer.mozilla.org/de/docs/web/javascript/reference/statements/if...else]. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
+<img src="https://vg08.met.vgwort.de/na/5644dbc3db6648a2b46c05a9c8c43e49" width="1" height="1" alt="">
+

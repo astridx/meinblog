@@ -598,3 +598,5 @@ If you want to see how the container is build, you can take a look at the file `
 7. [docker-lamp with own projects](/en/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/en/ubuntu-vscode-docker-lamp)
 9. [docker-lamp with own Domain](/en/ubuntu-docker-lamp-verwenden-eigene-domain)
+
+<img src="https://vg02.met.vgwort.de/na/85e5c88e236543b79cfd517801609246" width="1" height="1" alt="">

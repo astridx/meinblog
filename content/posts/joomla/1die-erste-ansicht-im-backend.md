@@ -736,3 +736,4 @@ Alles ist neu. Es gibt noch keine geänderten Dateien.
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
 
 Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die weiteren Schritte.
+<img src="https://vg08.met.vgwort.de/na/91a964b14e904ded9ad45011c0ad492c" width="1" height="1" alt="">

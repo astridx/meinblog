@@ -105,3 +105,4 @@ A new installation is not necessary. Continue using the files from the previous 
 ## Links
 
 [Web Assets](https://docs.joomla.org/J4.x:Web_Assets)[^https://docs.joomla.org/j4.x:web_assets]
+<img src="https://vg08.met.vgwort.de/na/b09ca1165bf3490c9edc2024f60e0526" width="1" height="1" alt="">

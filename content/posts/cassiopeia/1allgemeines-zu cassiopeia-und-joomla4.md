@@ -125,3 +125,4 @@ Das Bootstrap-Styling zielt darauf ab, den CSS-Code zu minimieren, welcher für 
 ## Overrideverwaltung in Joomla 4
 
 Neu in Joomla 4 ist die Differenzanzeige<!-- \index{Override!Differenzanzeige} -->, die bei einer Joomla Aktualisierungen auf Änderungen im überschriebenen Code aufmerksam macht. Das ist insbesondere dann sinnvoll, wenn man den Hauptanteil der Joomla! Standard-View im eigenen Override übernommen hat und mit der Aktualisierung ein Sicherheitsproblem in genau dieser View behoben wurde. Nebenbei macht sie das Anlegen eines Overrides zum Kinderspiel. Das neue Werkzeug ist über den Tempalte-Mánager erreichbar und unterstützt durch eine Differenzanzeige.
+<img src="https://vg04.met.vgwort.de/na/82c9dbfb46974602adc7fe5207bc48d1" width="1" height="1" alt="">

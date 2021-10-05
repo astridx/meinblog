@@ -87,3 +87,4 @@ A new installation is not necessary. Continue using the ones from the previous p
 2. open the view of your component in the administration area and create so many items that they are no longer displayed on one page. In the lower part you will see a navigation to browse through the contents.
 
 ![Joomla Pagination](/images/j4x23x1.png)
+<img src="https://vg08.met.vgwort.de/na/5061650d6c764e02bb5f0b909fdc258d" width="1" height="1" alt="">

@@ -40,3 +40,4 @@ Das Frontend sollte nun so wie in der nachfolgenden Abbildung aussehen.
 ![Cassiopeia im Frontend](/images/c12.png)
 
 Wenn du dich für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an. Mit diesem Tutorial passt du eine Joomla 4 Website mit Cassiopeia und Blog Beispieldaten an deine Bedürfnisse an. Du erfindest das Rad nicht neu. Joomla und Cassiopeia bieten eine ganze Reihe.
+<img src="https://vg04.met.vgwort.de/na/d4d1799b213c4917a04933b26e652c04" width="1" height="1" alt="">

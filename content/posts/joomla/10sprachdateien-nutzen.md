@@ -320,3 +320,4 @@ Last but not least nutzen wir jetzt die Sprachdateien. Bisher haben wir den Name
 ![Joomla Sprachdateien werden genutzt](/images/j4x10x1.png)
 
 3. Probiere die neue Funktion aus. Erstelle Sprachdateien für verschiedene Sprachen und ändere die Standardsprache in Joomla. Stelle sicher, dass Joomla korrekt übersetzt.
+<img src="https://vg08.met.vgwort.de/na/c3fefbfb25494d4f85cdbe453536a93d" width="1" height="1" alt="">

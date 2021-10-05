@@ -182,3 +182,4 @@ Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner dein
 5. Vergewissere dich, dass du ein Symbol siehst, dass dich darauf hinweist, dass dieses Item gesperrt ist und dass ein berechtigter Benutzer die Sperrung aufheben kann.
 
 ![Joomla Sperren/Freigeben](/images/j4x25x1.png)
+<img src="https://vg08.met.vgwort.de/na/00a7246f50d2452bab7eb21e0c1cde42" width="1" height="1" alt="">

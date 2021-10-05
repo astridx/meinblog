@@ -1140,3 +1140,4 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 ![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x7.png)
 
 ![Joomla Sprachverknüpfungen - Multilinguale Associations in deiner Erweiterung](/images/j4x19x6.png)
+<img src="https://vg08.met.vgwort.de/na/2a701d7a253949bbbd606af1be945c72" width="1" height="1" alt="">

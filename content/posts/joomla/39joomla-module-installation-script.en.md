@@ -212,3 +212,4 @@ Install your module as described in part one, after you have copied all the file
 ## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/j4.x:creating_a_simple_module]
+<img src="https://vg08.met.vgwort.de/na/529afe3503034a5b9985f4f80061963d" width="1" height="1" alt="">

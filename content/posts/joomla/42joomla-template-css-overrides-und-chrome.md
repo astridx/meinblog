@@ -508,3 +508,4 @@ Wir haben im vorhergehenden Kapitel die Beispieldaten installiert und verfügen 
 3. Öffne das Modul `mod_articles_news` (`Articles - Newsflash`) mit dem Namen `Latest Posts`, welches im Kopfbereich des Frontends angezeigt wird. Bei den Erklärungen zur `index.php` hast du erfahren, dass ein Modul Chrome über den Parameter `style="hr"` in `<jdoc:include type="modules" name="top-a" style="hr" />` aktiviert wird. Du kannst dies aber auch im Backend einstellen. Das nächste Bild zeigt dir wie das im Tabulator `Advanced` über den Parameter `Module Style` funktioniert.
 
 ![Joomla Template erstellen - Module Chrome](/images/j4x42x3.png)
+<img src="https://vg08.met.vgwort.de/na/b0e462dbf36540ef85c2d098ae4cbf09" width="1" height="1" alt="">

@@ -125,3 +125,4 @@ Bootstrap styling aims to minimise the CSS code required for a properly responsi
 ## Override management in Joomla 4
 
 New in Joomla 4 is the difference display<!-- \index{Override!Difference display} -->, which draws attention to changes in the overwritten code during a Joomla update. This is particularly useful if you have adopted the main part of the Joomla! standard view in your own override and the update has fixed a security problem in exactly this view. Besides, it makes creating an override child's play. The new tool can be accessed via the Tempalte manager and is supported by a difference display.
+<img src="https://vg04.met.vgwort.de/na/268c8301735945699b410dfde6414624" width="1" height="1" alt="">

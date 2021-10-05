@@ -130,3 +130,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ## Links
 
 [Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module/de)[^https://docs.joomla.org/j4.x:creating_a_simple_module/de]
+<img src="https://vg08.met.vgwort.de/na/b1b369a8350048bcb862ba7bc25cfa44" width="1" height="1" alt="">

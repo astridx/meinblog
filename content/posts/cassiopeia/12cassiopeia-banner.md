@@ -298,3 +298,4 @@ Mit dem Standardtemplate Protostar in Joomla 3, war es möglich, Inhalte mit ein
 ```
 
 ![CSS-Stile im Template Manger ergänzen - Website im Rahmen](/images/logo9.png)
+<img src="https://vg04.met.vgwort.de/na/f4bbe4f0eb04402a858e25ee692b102d" width="1" height="1" alt="">

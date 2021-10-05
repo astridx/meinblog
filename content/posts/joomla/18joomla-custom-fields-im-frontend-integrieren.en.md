@@ -112,3 +112,4 @@ IIn the template we display our custom fields. In our case, this is not complex,
 5. at the end open the detail view of the just edited Foo item. You will see next to the previously existing values now additionally the text you entered in the custom field.
 
 ![Integrate Joomla Custom Fields into a custom component | Display value of the field in the frontend.](/images/j4x18x2.png)
+<img src="https://vg08.met.vgwort.de/na/f1c914654a9a44ddb7f8d78ec2f89fe8" width="1" height="1" alt="">

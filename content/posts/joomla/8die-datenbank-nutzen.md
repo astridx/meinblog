@@ -614,3 +614,4 @@ Im Template der Übersichtsliste ersetzen wir den einfachen Text mit einem Formu
 ![Joomla Komponente im Backend bearbeiten - Leere Ansicht ohne Emty-State-Layout](/images/j4x8x10.png)
 
 ![Joomla Komponente im Backend bearbeiten - Leere Ansicht mit Emty-State-Layout](/images/j4x8x11.png)
+<img src="https://vg08.met.vgwort.de/na/f2f50fc66ee847cdb6ffc403f78f546a" width="1" height="1" alt="">

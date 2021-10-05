@@ -1057,3 +1057,4 @@ können Sie daraufhin alle eingefügten Objekte speichern und mit diesen arbeite
 In diesem Kapitel haben Sie Punkte, Marker, Linien und Polygone kennen gelernt. Sie können diese nun auf eine Leaflet-Karte zeichnen und wissen, wann welches Objekt das richtige Objekt ist. Sie können Layer-Gruppen und Feature-Gruppen voneinander unterscheiden und wissen die Grundlagen zur Anzeige von mobilen Leaflet Karten. Und auf einen Mausklick oder ein anderes Ereignis können Sie entsprechend reagieren.
 
 Im nächsten Kapitel geht es um das Format GeoJson und darum, wie Sie Daten auch in großen Mengen gut handhaben können.
+<img src="https://vg07.met.vgwort.de/na/915279d8ad2c443c9e2388f5baa3efad" width="1" height="1" alt="">

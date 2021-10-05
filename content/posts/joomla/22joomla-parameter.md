@@ -326,3 +326,4 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
 ![Joomla Parameter eines Menüpunkt.](/images/j4x22x7.png)
 
 6. Setzte den Parameter `Show Name` in unterschiedlichen Kombinationen und vergewissere dich, dass die Anzeige im Frontend korrekt ist.
+<img src="https://vg08.met.vgwort.de/na/633bbdd93e0c490e8775ccd4a0bde2fa" width="1" height="1" alt="">

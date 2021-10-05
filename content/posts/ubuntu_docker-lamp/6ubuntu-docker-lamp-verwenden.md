@@ -598,3 +598,5 @@ Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in d
 7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
 9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)
+
+<img src="https://vg02.met.vgwort.de/na/7867d0b1258a493da7b0effcef2cc5a8" width="1" height="1" alt="">

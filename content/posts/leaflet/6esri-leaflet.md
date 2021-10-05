@@ -832,3 +832,4 @@ Das Ergebnis sehen Sie im nächsten Bild. Sobald Sie einen Punkt auf der Karte a
 ## In diesem Kapitel haben wir …
 
 In diesem Teil haben wir uns als erstes die Karten, die ESRI anbietet, angesehen. Danach haben wir mit einem Shapefile gearbeitet und ESRI Webservices genutzt. Sie wissen nun was ein `L.esri.DynamicMapLayer,` was Geocoding und was ein `L.esri.FeatureLayer` ist.
+<img src="https://vg07.met.vgwort.de/na/d3cd58a707a94d5d96054dc2915f26c1" width="1" height="1" alt="">

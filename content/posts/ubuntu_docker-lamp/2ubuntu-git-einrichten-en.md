@@ -117,3 +117,5 @@ Die Ausgabe sollte wie folgt sein.
 > Drücke `STRG` und `X`, dann `Y` und anschließend die `Eingabetaste`, um den Texteditor Nano zu verlassen.
 
 Es gibt viele weitere [Optionen](https://docs.github.com/de). Die hier beschriebenen sind meiner Meinung nach die wichtigsten.
+
+<img src="https://vg02.met.vgwort.de/na/690cfea211714bab9038350f6185cab2" width="1" height="1" alt="">

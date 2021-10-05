@@ -191,3 +191,4 @@ Das Beispiel im Bild zeigt dir, wie du ein Dreieck und ein Polygon ein- und ausb
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/examples/show-and-hide-layers.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
 [MapBox GL Beispiel](https://docs.mapbox.com/mapbox-gl-js/example/toggle-layers/)
+<img src="https://vg07.met.vgwort.de/na/1448a443bd494367a2a2445963dd6aa4" width="1" height="1" alt="">

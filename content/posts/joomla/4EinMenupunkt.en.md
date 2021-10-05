@@ -70,3 +70,4 @@ Then click on the `New` button and fill in all the necessary fields.
 5. switch to the frontend and make sure that the menu item is created correctly and works.
 
 ![Joomla - The view of the menu item in the frontend](/images/j4x4x4.png)
+<img src="https://vg08.met.vgwort.de/na/2ec280ff9bdb4a65b885d2bcfa485cf7" width="1" height="1" alt="">

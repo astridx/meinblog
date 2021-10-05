@@ -242,3 +242,4 @@ A new installation is not necessary. Continue using the ones from the previous p
 ![Create Joomla Template - Social Media Backend](/images/j4x43x3.png)
 
 ![Create Joomla Template - Social Media Frontend](/images/j4x43x4.png)
+<img src="https://vg08.met.vgwort.de/na/05bb9638c92646eea2764f7f302d84b9" width="1" height="1" alt="">

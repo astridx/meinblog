@@ -167,3 +167,4 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 ## Links
 
 [Komponenten von Drittanbietern das Erstellen eines Dashboards gestatten](https://github.com/joomla/joomla-cms/pull/28027)[^https://github.com/joomla/joomla-cms/pull/28027]
+<img src="https://vg08.met.vgwort.de/na/e904d48cfed64f41adf05e9fa436fcce" width="1" height="1" alt="">

@@ -155,3 +155,4 @@ Die Leaflet-Dokumentation enthält einen [Plugin-Authoring-Leitfaden](https://le
 von Leaflet-Plugin-Code erläutert werden.
 
 Auf der [Leaflet Website](https://leafletjs.com/plugins.html) werden verschiedene Plugins aufgelistet, die von der Leaflet-Community erstellt wurden. Die meisten Plugins sind [Open Source](https://de.wikipedia.org/wiki/Open_Source) und sind auf [GitHub](https://github.com/) verfügbar. Wer gerne mit Beispielen lernt, findet hier eine Fülle von Möglichkeiten, um das Erstellen eigenes Plugins zu lernen.
+<img src="https://vg07.met.vgwort.de/na/9d837975379d4010bbfe80e882a40aa7" width="1" height="1" alt="">

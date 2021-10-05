@@ -126,3 +126,4 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 2. Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden.
 
 ![Joomla - Verwendung des Model im Frontend](/images/j4x5x1.png)
+<img src="https://vg08.met.vgwort.de/na/5edb5ab163424dbf8f3f773464101cd3" width="1" height="1" alt="">

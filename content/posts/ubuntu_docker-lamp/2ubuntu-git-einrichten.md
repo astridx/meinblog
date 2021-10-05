@@ -131,3 +131,5 @@ Es gibt viele weitere [Optionen](https://docs.github.com/de). Die hier beschrieb
 7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
 8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
 9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)
+
+<img src="https://vg02.met.vgwort.de/na/6da1ef5e40714b0481cbacda81aa9df6" width="1" height="1" alt="">

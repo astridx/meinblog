@@ -274,3 +274,4 @@ Der HTML-Code
 ```
 
 zeigt dann beispielsweise das Linkbündig-Zeichen an.
+<img src="https://vg01.met.vgwort.de/na/be6e0f448d4442348d0275b49531a2b7" width="1" height="1" alt="">

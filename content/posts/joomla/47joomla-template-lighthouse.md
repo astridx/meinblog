@@ -65,3 +65,4 @@ Die Ergebnisse der Lighthouse-Analyse variieren zu unterschiedlichen Zeitpunkten
 ## Links
 
 [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^https://developers.google.com/web/tools/lighthouse]
+<img src="https://vg08.met.vgwort.de/na/251f86b31a7c4cb691826d5abb59f824" width="1" height="1" alt="">

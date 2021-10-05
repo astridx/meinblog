@@ -602,3 +602,4 @@ Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus
 5. Wechsele anschließend ins Frontend und überzeuge dich davon, dass der Menüpunkt korrekt angelegt ist. Dir wird der Titel des Elements angezeigt, welches du im Administrationsbereich ausgewählt hattest.
 
 ![Joomla Einen Menüpunkt erstellen](/images/j4x9x3.png)
+<img src="https://vg08.met.vgwort.de/na/58035fa2fdcc41cc9004f5bc5e42cc5a" width="1" height="1" alt="">

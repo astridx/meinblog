@@ -160,3 +160,4 @@ Last but not least registrieren wir die neue Datei unter dem Namen `com_foos.adm
 4. Überzeuge dich davon, dass dir zu diesem Zeitpunkt **eine** Warnung angezeigt wird.
 
 ![Joomla Validierung](/images/j4x14x1.png)
+<img src="https://vg08.met.vgwort.de/na/10259e5a6acd4119a6be80fdfe5e29e0" width="1" height="1" alt="">

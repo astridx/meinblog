@@ -67,3 +67,4 @@ Optionen sind in der [MapBox GL Dokumentation](https://docs.mapbox.com/mapbox.js
 [Demo](https://astridx.github.io/mapboxexamples/plugins/mapbox-gl-compare-swipe-between-maps.html)  
 [Quellcode](https://github.com/astridx/mapboxexamples/blob/master/plugins/mapbox-gl-compare-swipe-between-maps.html)  
 [Gatsby Starter mit dieser Funktion](https://github.com/astridx/gatsby-starter-mapbox-examples) - [Gatsby Starter Demo](https://astridx.github.io/gatsbystarter/gatsby-starter-mapbox-examples/)
+<img src="https://vg07.met.vgwort.de/na/21de35159a6744db82d7efec8c270725" width="1" height="1" alt="">

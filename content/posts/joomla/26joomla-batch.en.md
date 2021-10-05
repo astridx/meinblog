@@ -251,3 +251,4 @@ A new installation is not necessary. Continue using the files from the previous 
 3. test the batch processing.
 
 ![Joomla Batch Processing](/images/j4x26x2.png)
+<img src="https://vg08.met.vgwort.de/na/ae7468cecd5e482ba7025cfc4d0e3d4d" width="1" height="1" alt="">

@@ -154,3 +154,4 @@ Zum Schluss ersetzen wir `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. W
 4. Öffne zuletzt, die Ansicht im Frontend. Verhält die Anzeige des Labels sich so, wie du das im Administrationsbereich eingestellt hast?
 
 ![Joomla Konfiguration - Frontend](/images/j4x11x3.png)
+<img src="https://vg08.met.vgwort.de/na/78d4c9aec3784cf3bbaea85063d1e9c6" width="1" height="1" alt="">

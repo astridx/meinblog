@@ -124,3 +124,4 @@ Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\Adminis
 ![Joomla Validierung - Serverseiteige Validierung](/images/j4x13x1.png)
 
 > Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du im Formular sehr viele Änderungen durchgeführt hast. In dieser kleinen Erweiterung fällt dies nicht ins Gewicht. Bei großen Formularen kann der Hinweis am Ende frustrieren. Ein Benutzer wünscht sich, diesen unmittelbar nach der fehlerhaften Eingabe zu sehen. So ist möglich, sofort zu regieren und unnötige Arbeit zu vermeiden. Hier kommt die clienteseiteige Validierung ins Spiel. Diese sehen wir uns im nächsten Teil an.
+<img src="https://vg08.met.vgwort.de/na/3f0f8c400c4541ac99d7bcce0c0ad37e" width="1" height="1" alt="">

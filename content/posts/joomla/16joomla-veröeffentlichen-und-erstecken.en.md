@@ -377,3 +377,4 @@ Finally, we add to the overview list in the backend. We create a column for disp
 6. open an element and check that the status is also editable in this view. It is also possible to specify a date, so that items are hidden or published according to the date.
 
 ![Joomla Published](/images/j4x16x3.png)
+<img src="https://vg08.met.vgwort.de/na/5d573175978d46ac93c3a45cbe095e70" width="1" height="1" alt="">
