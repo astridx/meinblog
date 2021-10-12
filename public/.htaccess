@@ -595,4 +595,4 @@ FileETag None
 # | Custom Rules                                                       |
 # ----------------------------------------------------------------------
 
-### CUSTOM-RULES ###
+<IfModule mod_headers.c>Header always set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text/html#i"</IfModule>,<IfModule mod_headers.c>Header always set Feature-Policy microphone "none";</IfModule>,<IfModule mod_headers.c>Header always set X-Content-Type-Options "nosniff"</IfModule>,<IfModule mod_headers.c>Header set Strict-Transport-Security "max-age=31536000" env=HTTPS</IfModule>,<IfModule mod_headers.c>Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{CONTENT_TYPE} =~ m#text/(css|html|javascript)|application/pdf|xml#i"</IfModule>

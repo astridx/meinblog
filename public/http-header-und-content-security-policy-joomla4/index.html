@@ -34,8 +34,8 @@ void function() {
   setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
 }()
     </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><nav class="navbar"><div><a href="/"><img style="display:block;max-width:100%;margin:auto" src="/logo2.png" alt=""/></a></div><div class="container flex"><div><a href="/blog">Blog</a><a href="/tutorial">Sets</a><button id="dark-mode-button" style="margin-left:20px"><a href="/en/http-header-und-content-security-policy-joomla4/">english</a></button><label><input type="checkbox"/> <!-- -->Dark mode</label></div></div></nav><main class="container"><aside><div class="aside-content"><section></section></div></aside><header class="article-header medium"><h1>HTTP-Header und Content Security Policy in Joomla 4</h1><a href="https://github.com/astridx/meinblog/blob/master/content/posts/cassiopeia/10content-security-policy-joomla4.md" rel="noreferrer" target="_blank">Ändere diesen Beitrag</a></header><aside><div class="aside-content"><section><time>04.05.2021</time><div class="cell tags"><a class="tag-Joomla" href="/tags/joomla">Joomla</a><a class="tag-Sicherheit" href="/tags/sicherheit">Sicherheit</a><a class="tag-CSP" href="/tags/csp">CSP</a><a class="tag-HTTP Header" href="/tags/http-header">HTTP Header</a><a class="tag-Content Security Policy" href="/tags/content-security-policy">Content Security Policy</a></div></section></div></aside><section class="post"><article><div><p>Die Aufgabe eines Browsers erscheint auf den ersten Blick simpel: er zeigt Text und Bilder an, die man ihm übermittelt. Bei genauerem Hinsehen wird alles komplexer. Web-Standards sind zu unterstützen, Benutzerfreundlichkeit steht hoch im Kurs und Entwickler benötigen Werkzeuge. Hinzu kommt, dass das Web ist ein tückischer Ort ist. Webseiten werden ständig automatisiert angegriffen. Zum Schutz vor verschieden Angriffsvektoren, haben Software Hersteller HTTP Header implementiert, über welche die Webseite im Webbrowser Sicherheitsfunktionen aktiviert und so Angriffsmuster blockiert oder erschwert.</p>
-<h1>Wie macht man die Header sichbar</h1>
-<p>HTTP Header werden oft mit dem <code class="language-text">&lt;head></code>-Bereich eines HTML-Dokuments verwechselt. HTTP-Header wird man neben den HTML-Header nicht finden! Die stecken im HTTP-Protokoll. Dieses bildet die Basis des World-Wide-Webs. HTTP ist die Sprache, mit der Browser und Webserver kommunizieren. Zusammen mit den sichtbaren Inhalten werden Informationen zu den Daten übermittelt. Diese sind im Kopf-Bereich der Antwort – im Head der Response. Deshalb der Name Header. Um diese anzusehen öffnet man den Netzwerk-Tab der Browser-Entwicklertools.</p>
+<h1>Wie macht man die Header sichtbar</h1>
+<p>HTTP Header werden oft mit dem <code class="language-text">&lt;head></code>-Element eines HTML-Dokuments verwechselt. HTTP-Header wird man im HTML-Header nicht finden! Die stecken im HTTP-Protokoll. Dieses bildet die Basis des World-Wide-Webs. HTTP ist die Sprache, mit der Browser und Webserver kommunizieren. Zusammen mit den sichtbaren Inhalten werden Informationen zu den Daten übermittelt. Diese sind im Kopf-Bereich der Browser-Antwort – im Head der <a href="https://developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort">HTTP-Response</a><sup id="fnref-developer.mozilla.org/de/docs/web/http#die_struktur_einer_server-antwort"><a href="#fn-developer.mozilla.org/de/docs/web/http#die_struktur_einer_server-antwort" class="footnote-ref">developer.mozilla.org/de/docs/web/http#die_struktur_einer_server-antwort</a></sup>. Deshalb der Name Header. Um diese anzusehen öffnet man den Netzwerk-Tab der Browser-Entwicklertools.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -68,7 +68,7 @@ void function() {
       />
   </a>
     </span></p>
-<p>Mit dem Tool <a href="Security%20Headers%20von%20Scott%20Helme">Security Headers von Scott Helme</a> ist es möglich, die HTTP-Header und deren Konfiguration zu überprüfen. Der Service liest dazu alle gesetzten Werte aus, bewertet sie und bildet daraus ein Rating. Ein Report sieht beispielsweise so aus:</p>
+<p>Mit dem Tool <a href="https://securityheaders.com/">Security Headers von Scott Helme</a><sup id="fnref-securityheaders.com/"><a href="#fn-securityheaders.com/" class="footnote-ref">securityheaders.com/</a></sup> ist es möglich, die HTTP-Header und deren Konfiguration zu überprüfen. Der Service liest dazu alle gesetzten Werte aus, bewertet sie und bildet daraus ein Rating. Einen Beispielreport zeigt das nachfolgende Bild.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -101,10 +101,45 @@ void function() {
       />
   </a>
     </span></p>
-<h1>Was bietet Joomla 4</h1>
-<p>Joomla 4 unterstützt Benutzer mit dem Plugin <a href="https://docs.joomla.org/J4.x:Http_Header_Management/de#Plugin">System - HTTP Headers</a> eine sichere <a href="https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy">Content Security Policy</a> zu konfigurieren.</p>
 <blockquote>
-<p>Ursprünglich sollte es zusätzlich eine Komponente geben. Über diese wären Content-Security-Policy-Reports verwaltbar gewesen. Mit dem PR <a href="https://github.com/joomla/joomla-cms/pull/33550">github.com/joomla/joomla-cms/pull/33550</a> wurde diese entfert. Im Kapitel Content-Security-Policy beschreibe ich eine Möglichkeit, die Reports per E-Mail zu erhalten.</p>
+<p>Ein alternatives Testwerkzeug ist <em>Webbkoll</em>. Dies ist ein Projekt aus Schweden, das unter anderem von <a href="https://internetstiftelsen.se/">Internetfonden</a> finanziert wird. Der Quellcode ist quelloffen und auf <a href="https://github.com/andersju/webbkoll">Github</a> verfügbar. Wenn man die technischen Voraussetzungen erfüllt, kann man Webbkoll auf seinem eigenen Server hosten. Einfacher ist es, eine bereits existierende Webbkoll-Instanz zu verwenden, wie sie unter <a href="https://webbkoll.dataskydd.net">https://webbkoll.dataskydd.net</a> angeboten wird.</p>
+</blockquote>
+<h1>Was bietet Joomla 4</h1>
+<p>Joomla 4 unterstützt Benutzer mit dem Plugin <a href="https://docs.joomla.org/J4.x:Http_Header_Management/de#Plugin">System - HTTP Headers</a> eine sichere <a href="https://wiki.selfhtml.org/wiki/Sicherheit/Content_Security_Policy">Content Security Policy</a> zu konfigurieren. Stelle sicher, dass dieses Plugin aktiviert ist, wenn du es verwenden möchtest.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9a3a7314853b69336ba255f8c0c81160/191e2/header00p.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.46835443037975%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDElEQVQoz62PvUrDYBSGvzuoCA5O2qKbglhFLCh0UGjdHNy8Aq9AwUuQDlak1NQftMG22FI3dzcnnV0chGA0Non50djHL80mUkFz4OEs5zznvGJpfZvJ5Q02twrUq032KjX2j+qUT5scnLV+RKm2KJ1csKvUKCrnVNQ2x42rHmIqu8bg+AJl9ZKwvAA++b100+P69oGbu3s+gmgj6ILILq4ynJyneNiA94BHzUAzHCzHw3Z8ifcNH9N2Md9cOnbEq+XKeR9DdjExk2doZI6dkhr60F4s9I7DUx/0PojRdI5EKkMhFMq3NcPm2XT/jEil8wzIyD1hNxKGl/4lTCQzMQqnc/EKx2ZXpDC+yF+Q83MKZbrOygAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla 4 Plugin System - HTTP Headers - Zu aktivieren im Menü System|Plugins "
+        title="Joomla 4 Plugin System - HTTP Headers - Zu aktivieren im Menü System|Plugins "
+        src="/static/9a3a7314853b69336ba255f8c0c81160/f058b/header00p.png"
+        srcset="/static/9a3a7314853b69336ba255f8c0c81160/c26ae/header00p.png 158w,
+/static/9a3a7314853b69336ba255f8c0c81160/6bdcf/header00p.png 315w,
+/static/9a3a7314853b69336ba255f8c0c81160/f058b/header00p.png 630w,
+/static/9a3a7314853b69336ba255f8c0c81160/40601/header00p.png 945w,
+/static/9a3a7314853b69336ba255f8c0c81160/78612/header00p.png 1260w,
+/static/9a3a7314853b69336ba255f8c0c81160/191e2/header00p.png 1836w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<blockquote>
+<p>Ursprünglich sollte es zusätzlich eine Komponente geben. Über diese Komponente hätten Berichte über die Content Security Policy verwaltet werden können. Mit dem PR <a href="https://github.com/joomla/joomla-cms/pull/33550">github.com/joomla/joomla-cms/pull/33550</a> wurde diese entfernt. Im Kapitel Content-Security-Policy beschreibe ich eine Möglichkeit, die Reports per E-Mail zu erhalten.</p>
 </blockquote>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -123,8 +158,8 @@ void function() {
   ></span>
   <img
         class="gatsby-resp-image-image"
-        alt="Joomla 4 Plugin System - HTTP Headers"
-        title="Joomla 4 Plugin System - HTTP Headers"
+        alt="Joomla 4 Plugin System - HTTP Headers - Detailansicht"
+        title="Joomla 4 Plugin System - HTTP Headers - Detailansicht"
         src="/static/6b7fafa42a8115c4283afe6a0c0f26a2/f058b/header0p.png"
         srcset="/static/6b7fafa42a8115c4283afe6a0c0f26a2/c26ae/header0p.png 158w,
 /static/6b7fafa42a8115c4283afe6a0c0f26a2/6bdcf/header0p.png 315w,
@@ -143,13 +178,13 @@ void function() {
 <p>Vorweg: Wer seine Website unter <code class="language-text">localhost</code> testet, wird feststellen, dass nicht alle hier beschriebenen Funktionen lokal testbar sind.</p>
 </blockquote>
 <h1>HTTP Security Header im Detail</h1>
-<p>Die folgenden Security Header sind <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">HTTP Response Header</a>, welche der Webserver mit den Daten der Webseite an den Webbrowser übergibt. Daraufhin aktiviert der Browser Sicherheitsfunktionen.</p>
-<h2>Heausgehobene HTTP Header im Joomla 4 Plugins HTTP Header</h2>
+<p>Die folgenden Security Header sind <a href="https://developer.mozilla.org/de/docs/Web/HTTP/Headers">HTTP Response Header</a>, welche der Webserver mit den Daten der Webseite an den Webbrowser übergibt. Daraufhin aktiviert der Browser Sicherheitsfunktionen.</p>
+<h2>Herausgehobene HTTP Header im Joomla 4 Plugins HTTP Header</h2>
 <p>Im Joomla Plugin werden die drei Header <em>X-Frame-Options</em>, <em>Referrer-Policy</em> und <em>Cross-Origin-Opener-Policy</em> im oberen Bereich angezeigt und der Header <em>Strict-Transport-Security</em> ist in einem eigenen Tabulator konfigurierbar.</p>
 <h3>X-Frame-Options</h3>
-<p>Der <a href="https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> Header verhindert <a href="https://de.wikipedia.org/wiki/Clickjacking">Clickjacking</a>. Diese Technik lädt eine fremde Website über ein <em>iframe</em>-Tag in die eigene. Ziel ist es, einen Benutzer dazu zu bringen, sensible Daten preiszugeben – zum Beispiel Logindaten. Sobald eine Site versucht, eine andere als <em>iframe</em> zu laden, überprüft der Browser die einzubettende Website. Wenn diese den <em>X-Frame-Options Header</em> setzt, wird die Seite nicht geladen.</p>
+<p>Der <a href="https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a>-Header verhindert <a href="https://de.wikipedia.org/wiki/Clickjacking">Clickjacking</a>. Diese Technik lädt eine fremde Website über ein <em>iframe</em>-Tag in die eigene. Ziel ist es, einen Benutzer dazu zu bringen, sensible Daten preiszugeben – zum Beispiel Anmelde-Daten. Sobald eine Site versucht, eine andere als <em>iframe</em> zu laden, überprüft der Browser die einzubettende Website. Ist dort der <em>X-Frame-Options Header</em> gesetzt, wird die Seite nicht geladen.  Auf diese Weise ist er möglich, zu verhindern, dass andere Websites die eigene Website in ihre Inhalte einbetten und sich als man selbst ausgeben.</p>
 <p>Der Header bietet drei mögliche Richtlinien: <code class="language-text">DENY</code>, <code class="language-text">SAMEORIGIN</code>, und <code class="language-text">ALLOW-FROM</code>.</p>
-<p>In Joomla 4 ist der Header auf unterschiedliche Arten setzbar. Zum einen gibt es eine eigene Option <code class="language-text">X-Frame-Options</code>. Wenn die aktiviert ist, setzt das Plugin den Header mit der Richtlinie <code class="language-text">SAMEORIGIN</code>.</p>
+<p>In Joomla 4 ist der Header auf unterschiedliche Arten einstellbar. Zum einen gibt es eine eigene Option <code class="language-text">X-Frame-Options</code>. Wenn die aktiviert ist, setzt das Plugin den Header mit der Richtlinie <code class="language-text">SAMEORIGIN</code>. Dies wird in den meisten Fällen die gewünschte Funktion sein. In der eigenen Domain, ist so weiterhin möglich, eigene Inhalte per iFrame einzubinden. Außerhalb ist dies verboten.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -255,9 +290,9 @@ void function() {
 <h3>Referrer-Policy</h3>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> weißt den Browser an, den Referer zu entfernen und nicht an die nachfolgende Site zu übermitteln.</p>
 <blockquote>
-<p>Der <a href="https://de.wikipedia.org/wiki/Referrer">Referer Anfrage-Header</a> beinhaltet die Adresse von der vorher besuchten Webseite, welche einen Link zur aktuell angefragten Seite beinhaltet. Der Referer-Header erlaubt es Servern zu sehen, von wo die Personen sie Besuchen und diese Daten zum Beispiel zur Analyse, zum Logging oder zum Caching zu benutzen.</p>
+<p>Der <a href="https://de.wikipedia.org/wiki/Referrer">Referer Anfrage-Header</a> beinhaltet die Adresse von der vorher besuchten Webseite, welche einen Link zur aktuell angefragten Seite beinhaltet. Der Referer-Header erlaubt es Servern zu sehen, von wo die Personen kommen, die sie besuchen und diese Daten zum Beispiel zur Analyse, zum Logging oder zum Caching zu benutzen.</p>
 </blockquote>
-<p>Im Joomla Plugin sind alle möglichen Optionen in einem Dropdown ausgewählbar. Die Standardeinstellung im Plugin sieht die Option <code class="language-text">no-referrer-when-downgrade</code> vor.</p>
+<p>Im Joomla Plugin sind alle möglichen Optionen in einem Dropdown auswählbar. Die Standardeinstellung im Plugin sieht die Option <code class="language-text">no-referrer-when-downgrade</code> vor.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
@@ -299,7 +334,15 @@ void function() {
 <p>Der <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)">Cross-Origin-Resource-Policy Header (CORP)</a> erlaubt es Websites und Anwendungen, sich gegen bestimmte <em>Cross-Origin-Anforderungen</em> zu schützen.</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource Sharing (CORS)</a> ist ein HTTP-Header-basierter Mechanismus, der es einem Server erlaubt, andere Ursprünge (Domäne, Schema oder Port) als seinen eigenen anzugeben, von denen ein Browser das Laden von Ressourcen erlauben soll.</p>
 <p>Mit der <a href="https://wicg.github.io/cross-origin-embedder-policy/">Cross-Origin Embedder Policy (COEP)</a> wird verhindert, Anfragen nicht gleichen Ursprungs zu laden, es sei denn, dies ist ausdrücklich über CORS oder CORP erlaubt.</p>
-<p>Mittels <code class="language-text">.htaccess</code> kann der Header ebenfalls <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#general_cors_access">gesetzt</a> werden.</p>
+<p>Mittels <code class="language-text">.htaccess</code> kann der Header ebenfalls <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#general_cors_access">gesetzt</a> werden. Hier ein Beispiel:</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_setenvif.c&gt;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  &lt;IfModule mod_headers.c&gt;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &lt;FilesMatch &quot;\.(bmp|cur|gif|ico|jpe?g|a?png|svgz?|webp|heic|heif|avif)$&quot;&gt;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      SetEnvIf Origin &quot;:&quot; IS_CORS</span></span>
+<span class="grvsc-line"><span class="grvsc-source">      Header set Access-Control-Allow-Origin &quot;*&quot; env=*IS_CORS*</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    &lt;/FilesMatch&gt;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  &lt;/IfModule&gt;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">&lt;/IfModule&gt;</span></span></code></pre>
 <h3>Strict-Transport-Security</h3>
 <p>Der <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security (HSTS)</a> Header ist im Plugin in einem eigenen Tabulator konfigurierbar. Er bietet eine zusätzliche Absicherung aller Sites, die mit HTTPS verschlüsselt sind. Ist der Header gesetzt, lehnt der Browser alle unverschlüsselten HTTP-Verbindungen ab.</p>
 <blockquote>
@@ -342,16 +385,15 @@ void function() {
 <blockquote>
 <p>Wenn <code class="language-text">preload</code> aktiviert ist, wird die Domain in der <a href="https://hstspreload.org">Preloadliste</a> gespeichert.</p>
 </blockquote>
-<p>Per <code class="language-text">.htaccess</code> ist der Header wie folgt zu <a href="">aktivieren</a>:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
+<p>Per <code class="language-text">.htaccess</code> ist der Header wie folgt zu <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">aktivieren</a>:</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  # Header always set</span></span>
-<span class="grvsc-line"><span class="grvsc-source">  Strict-Transport-Security &quot;max-age=16070400; includeSubDomains&quot; &quot;expr=%{HTTPS} == &#39;on&#39;&quot;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  Strict-Transport-Security &quot;max-age=31536000; includeSubDomains&quot; env=HTTPS</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  # (1) Enable your site for HSTS preload inclusion.</span></span>
-<span class="grvsc-line"><span class="grvsc-source">  # Header always set</span></span>
-<span class="grvsc-line"><span class="grvsc-source">  Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot; &quot;expr=%{HTTPS} == &#39;on&#39;&quot;</span></span>
+<span class="grvsc-line"><span class="grvsc-source">  Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot; env=HTTPS</span></span>
 <span class="grvsc-line"><span class="grvsc-source">&lt;/IfModule&gt;</span></span></code></pre>
 <blockquote>
-<p>Trotz des Nutzens steht HSTS in der <a href="https://de.wikipedia.org/wiki/HTTP_Strict_Transport_Security#Kritik">Kritik</a>, da Seitenbetreiber darüber in der Lage sind, Nutzerinformationen auszulesen. Zwar ist der Zugriff kompliziert, aber möglich.</p>
+<p>Trotz des Nutzens steht HSTS in der <a href="https://de.wikipedia.org/wiki/HTTP_Strict_Transport_Security#Kritik">Kritik</a>, da Website-Betreiber darüber in der Lage sind, Nutzerinformationen auszulesen. Zwar ist der Zugriff kompliziert, aber möglich.</p>
 </blockquote>
 <h2>Weitere Plugins im Bereich Force HTTP Headers</h2>
 <h3>HTTP Header Feature-Policy</h3>
@@ -359,7 +401,7 @@ void function() {
 <p>Der Aufbau ist simpel:</p>
 <p><code class="language-text">Feature-Policy: &lt;directive> &lt;allowlist></code></p>
 <blockquote>
-<p>Die steuerbaren <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy">Features (Direktiven), </a>, werden bisher <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy#browser_compatibility">nicht alle in allen Browsern unterstützt.</a>.</p>
+<p>Die steuerbaren <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy">Features (Direktiven)</a>, werden bisher <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy#browser_compatibility">nicht alle in allen Browsern unterstützt.</a>.</p>
 </blockquote>
 <p>Über das Joomla Plugin ist der Header wie folgt konfigurierbar:</p>
 <p><span
@@ -394,8 +436,8 @@ void function() {
       />
   </a>
     </span></p>
-<p>Mittels <code class="language-text">.htaccess</code> sieht der Eintrag für ein Verbot von microphone und geolocation wie folgt aus:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
+<p>Mittels <code class="language-text">.htaccess</code> sieht der Eintrag für ein Verbot von Mikrophone und Ortung (geolocation) wie folgt aus:</p>
+<pre class="grvsc-container solarized-light" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  Header always set Feature-Policy microphone &#39;none&#39;; geolocation &#39;none&#39;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">&lt;/IfModule&gt;</span></span></code></pre>
 <h3>Expect-CT</h3>
@@ -418,7 +460,7 @@ void function() {
 <p>Wenn man einen Report per E-Mail erhalten möchte, bietet das Skript unter der Adresse <a href="https://github.com/zero-24/csp-reporter-php">https://github.com/zero-24/csp-reporter-php</a> eine Möglichkeit.</p>
 </blockquote>
 <p>Das Setzen der Content-Security-Policy in einer <code class="language-text">.htaccess</code> sieht beispielweise wie folgt aus:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  Content-Security-Policy &quot;default-src &#39;self&#39;; base-uri &#39;none&#39;; form-action &#39;self&#39;; frame-ancestors &#39;none&#39;; upgrade-insecure-requests&quot; &quot;expr=%{CONTENT_TYPE} =~ m#text\/(html|javascript)|application\/pdf|xml#i&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">&lt;/IfModule&gt;</span></span></code></pre>
 <blockquote>
@@ -429,13 +471,13 @@ void function() {
 <p>Der Header <a href="https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> ist unkompliziert zu konfigurieren, seit <a href="https://github.com/joomla/joomla-cms/blob/9b54e8bd5da61dfc1a4d1476b9e0df608d7289e9/htaccess.txt#L30">Joomla 3.9.13 in der Joomla Core <code class="language-text">.htaccess</code></a> enthalten und <a href="https://docs.joomla.org/J3.x:Joomla_3.9.3_Security_Notes">wird für alle Joomla Webseiten</a> empfohlen.</p>
 <p>Es gibt einen gültigen Wert. Dies ist <code class="language-text">nosniff</code>. Ist der Header gesetzt, versucht der Browser nicht, den Mime Type (Dateitype) einer Datei zu erraten. Dies ist bei heutigen Webseiten nicht mehr notwendig und führt zu unnötigen Sicherheitsproblemen.</p>
 <p>Idealerweise wird dieser Header in der Datei <code class="language-text">.htaccess</code> <a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Apache_Configuration_htaccess#prevent_some_browsers_from_mime-sniffing_the_response">gesetzt</a>. So ist die Sicherheitsfunktion unabhängig von Joomla auf Webserver-Ebenen aktiviert:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    Header always set X-Content-Type-Options &quot;nosniff&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">&lt;/IfModule&gt;</span></span></code></pre>
 <h3>X-XSS-Protection</h3>
 <p>Diesen Header erwähne ich der Vollständigkeit halber. Er ist im Joomla 4 Backend nicht konfigurierbar. Der HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> Header war dazu gedacht im Browser einen XSS Auditor zu aktivieren. Moderne Browser berücksichtigen diesen Header [nicht mehr]<a href="https://portswigger.net/daily-swig/google-deprecates-xss-auditor-for-chrome">https://portswigger.net/daily-swig/google-deprecates-xss-auditor-for-chrome</a>).</p>
 <p>Die empfohlene Konfiguration für ältere Browser ist: <code class="language-text">1; mode=block</code>. In Joomla 4 ist der Header ausschließlich über die Datei <code class="language-text">.htaccess</code> konfigurierbar. Direkt mit der <code class="language-text">.htaccess</code> Datei wird der Header wie folgt gesetzt:</p>
-<pre class="grvsc-container solarized-light" data-language="" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
+<pre class="grvsc-container solarized-light" data-language="" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">&lt;IfModule mod_headers.c&gt;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  Header always set X-XSS-Protection 1; mode=block</span></span>
 <span class="grvsc-line"><span class="grvsc-source">&lt;/IfModule&gt;</span></span></code></pre>
 <h1>Weitere Links</h1>
@@ -444,7 +486,7 @@ void function() {
 <h2>csp-cheat-sheet</h2>
 <p>Die Seite <a href="https://scotthelme.co.uk/csp-cheat-sheet/">scotthelme.co.uk</a> bietet eine Übersicht in englischer Sprache über alle unterstützten Funktionen und Direktiven in der <em>Content Security Policy</em>. Sie kann als Kurzreferenz verwendet werden, um gültige und ungültige Direktiven und Werte zu identifizieren und enthält Beispielrichtlinien und Anleitungen zur effektiven Verwendung von CSP.</p>
 <h2>CSP-Auswerter</h2>
-<p>Der <a href="https://csp-evaluator.withgoogle.com/">CSP Evaluator</a> ermöglicht es Entwicklern und Sicherheitsexperten zu überprüfen, ob eine Content Security Policy (CSP) eine starke Mitigation gegen Cross-Site-Scripting-Angriffe darstellt. Er unterstützt den Prozess der Überprüfung von CSP-Richtlinien, der normalerweise eine manuelle Aufgabe ist, und hilft, subtile CSP-Umgehungen zu identifizieren, die den Wert einer Richtlinie untergraben. Die Prüfungen des CSP Evaluators basieren auf einer groß angelegten Studie und sollen Entwicklern helfen, ihre CSP zu härten und die Sicherheit ihrer Anwendungen zu verbessern. Dieses Tool (auch als Chrome-Erweiterung verfügbar) wird nur für die Bequemlichkeit von Entwicklern zur Verfügung gestellt und Google gibt keine Garantien oder Gewährleistungen für dieses Tool.
+<p>Der <a href="https://csp-evaluator.withgoogle.com/">CSP Evaluator</a> ermöglicht es Entwicklern und Sicherheitsexperten zu überprüfen, ob eine Content Security Policy (CSP) eine starke Möglichkeit  gegen Cross-Site-Scripting-Angriffe darstellt. Er unterstützt den Prozess der Überprüfung von CSP-Richtlinien, der normalerweise eine manuelle Aufgabe ist, und hilft, subtile CSP-Umgehungen zu identifizieren, die den Wert einer Richtlinie untergraben. Die Prüfungen des CSP Auswerters basieren auf einer groß angelegten Studie und sollen Entwicklern helfen, ihre CSP zu härten und die Sicherheit ihrer Anwendungen zu verbessern. Dieses Tool (auch als Chrome-Erweiterung verfügbar) wird Entwicklern zur Verfügung gestellt und Google gibt keine Garantien oder Gewährleistungen für dieses Tool.
 <img src="https://vg04.met.vgwort.de/na/5c2df911b6c147a8ba1af8a11e92b1a7" width="1" height="1" alt=""></p>
 <style class="grvsc-styles">
   .grvsc-container {

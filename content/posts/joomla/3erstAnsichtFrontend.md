@@ -141,7 +141,7 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-> Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und auf dem Bildschirm zu protokollieren. Im Falle des Bildschirms findest du diese innerhalb der Joomla-Debug-Konsole<!-- \index{Debug Konsole} --> am unteren Rand der Webseite, wenn das Debugging aktiv ist. Diese Funktion ist beim Entwickeln unter Umständen hilfreich, deshalb erwähne ich sie hier. Der Eintrag `Log::add('Log me.', Log::DEBUG);` bewirkt eine Zeile in der Logdatei. Wichtig ist, dass im Kopf der Datei mit `use Joomla\CMS\Log\Log;` die notwendigen Funktionen geladen werden. Das nachfolgende Bild zeigt, wo die Protokollierung im Joomla Backend eingestellt wird.
+> _Protokollierung und Fehlersuche_: Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und auf dem Bildschirm zu protokollieren. Im Falle des Bildschirms findest du diese innerhalb der Joomla-Debug-Konsole<!-- \index{Debug Konsole} --><!-- \index{Logging} --><!-- \index{Protokollierung} --><!-- \index{Fehlersuche} --> am unteren Rand der Webseite, wenn das Debugging aktiv ist. Diese Funktion ist beim Entwickeln unter Umständen hilfreich, deshalb erwähne ich sie hier. Der Eintrag `Log::add('Log me.', Log::DEBUG);` bewirkt eine Zeile in der Logdatei. Wichtig ist, dass im Kopf der Datei mit `use Joomla\CMS\Log\Log;` die notwendigen Funktionen geladen werden. Das nachfolgende Bild zeigt, wo die Protokollierung im Joomla Backend eingestellt wird.
 > ![Einstellungen zur Protokollierung im Joomal Backend](/images/j4x3x2.png)
 
 <!-- prettier-ignore -->

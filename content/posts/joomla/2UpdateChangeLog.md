@@ -68,7 +68,7 @@ The Tags `maintainer` und `maintainerurl` sind selbsterklärend.
 
 Das Tag `targetplatform` beschreibt die Joomla Version, für die dieses Update bestimmt ist. Der Wert des Attributs `name` sollte auf `joomla` gesetzt werden: `<targetplatform name="joomla" version="4.*"/>`.
 
-> Wenn du dein Update für eine ganz bestimmte Joomla Version erstellst kannst du `min_dev_level` und`max_dev_level` verwenden.
+> Wenn du dein Update für eine ganz bestimmte Joomla Version erstellst kannst du `min_dev_level` und `max_dev_level` verwenden.
 
 Manchmal möchtest du, dass dein Update für eine Mindest-PHP-Version verfügbar ist. Erledige dies mit dem Tag `php_minimum`.
 
