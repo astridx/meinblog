@@ -151,7 +151,7 @@ and as a tag in the manifest file
 
 `<Namespace>FooNamespace\ Component\Foos</ Namespace>`.
 
-> Remember to include the `path="src"` parameter if you put the namespace files in the `src` subdirectory. This is common in Joomla and the sample extensions [created in this tutorial also use this directory](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12].
+> Remember to include the `path="src"` parameter if you put the namespace files in the `src` subdirectory. This is common in Joomla and the sample extensions [created in this tutorial also use this directory](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/ src/administrator/components/com_foos/foos.xml#L12].
 
 Why use namespaces? All PHP classes are thus organised in a defined structure and automatically loaded via the `Classloader`. Thereby `ContentModelArticles` becomes `Joomla\Component\Content\ Administrator\Model\ArticlesModel`.
 
