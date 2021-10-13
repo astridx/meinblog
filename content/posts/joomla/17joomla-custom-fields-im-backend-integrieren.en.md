@@ -135,7 +135,7 @@ The form through which a Foo element can be edited now has tabs. To ensure that 
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
 
-To make editing the custom fields work the same way as in Joomla's own extensions, we use [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` ensures that the [Helper](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#L20)[^github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#l20] flexibly provides the correct tab implementation.
+To make editing the custom fields work the same way as in Joomla's own extensions, we use [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/ libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` ensures that the [Helper](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#L20)[^github.com/joomla/joomla-cms/blob/4.0-dev/ layouts/joomla/edit/params.php#l20] flexibly provides the correct tab implementation.
 
 > A comparison between previously most used `bootstrap.tab` and `uitab` is provided by [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805)[^github.com/joomla/joomla-cms/pull/21805].<!-- \index{bootstrap.tab} --><!-- \index{uitab} -->
 

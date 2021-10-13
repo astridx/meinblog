@@ -555,7 +555,7 @@ Wir erstellen ein Feld, über das ein Autor die Sprachverknüpfung auswählt. Di
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t14b...t15a#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
 
-Im Provider registrieren wir unseren `AssociationsHelper` als Service der [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/association/associationextensioninterface.php] implementiert. So stellen wir sicher, dass alle notwendigen Funktionen in unsere Komponente vererbt werden und so vorhanden sind.
+Im Provider registrieren wir unseren `AssociationsHelper` als Service der [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/ libraries/src/association/associationextensioninterface.php] implementiert. So stellen wir sicher, dass alle notwendigen Funktionen in unsere Komponente vererbt werden und so vorhanden sind.
 
 [administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/services/provider.php)
 

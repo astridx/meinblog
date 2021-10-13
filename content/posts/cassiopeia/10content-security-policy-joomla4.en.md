@@ -20,7 +20,7 @@ At first glance, the task of a browser seems simple: it displays text and images
 
 # How to make the headers visible
 
-HTTP headers are often confused with the `<head>` element of an HTML document. You will not find HTTP headers in the HTML header! They are in the HTTP protocol. This forms the basis of the World Wide Web. HTTP is the language used by browsers and web servers to communicate. Together with the visible content, information about the data is transmitted. This information is in the header of the browser response - in the head of the [HTTP-Response](https://developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort)[^developer.mozilla.org/en/docs/Web/HTTP#the_structure_of_a_server-response]. Therefore the name Header. To view them, open the network tab of the browser developer tools.
+HTTP headers are often confused with the `<head>` element of an HTML document. You will not find HTTP headers in the HTML header! They are in the HTTP protocol. This forms the basis of the World Wide Web. HTTP is the language used by browsers and web servers to communicate. Together with the visible content, information about the data is transmitted. This information is in the header of the browser response - in the head of the [HTTP-Response](https://developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort)[^developer.mozilla.org/en/docs/web/http#the_structure_of_a_server-response]. Therefore the name Header. To view them, open the network tab of the browser developer tools.
 
 ![HTTP header made visible in Firefox](/images/header0e.png)
 
@@ -144,7 +144,7 @@ Via `.htaccess` the header is to be [activated](https://developer.mozilla.org/en
 </IfModule>
 ```
 
-> Despite the advantages, HSTS is [criticised] (https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security#Privacy_issues) because website operators are able to read user information. Access is complicated, but possible.
+> Despite the advantages, HSTS is [criticised](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security#Privacy_issues) because website operators are able to read user information. Access is complicated, but possible.
 
 ## Weitere Plugins im Bereich Force HTTP Headers
 

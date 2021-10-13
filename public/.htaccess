@@ -595,4 +595,19 @@ FileETag None
 # | Custom Rules                                                       |
 # ----------------------------------------------------------------------
 
-<IfModule mod_headers.c>Header always set X-Frame-Options "DENY" "expr=%{CONTENT_TYPE} =~ m#text/html#i"</IfModule>,<IfModule mod_headers.c>Header always set Feature-Policy microphone "none";</IfModule>,<IfModule mod_headers.c>Header always set X-Content-Type-Options "nosniff"</IfModule>,<IfModule mod_headers.c>Header set Strict-Transport-Security "max-age=31536000" env=HTTPS</IfModule>,<IfModule mod_headers.c>Header always set Referrer-Policy "strict-origin-when-cross-origin" "expr=%{CONTENT_TYPE} =~ m#text/(css|html|javascript)|application/pdf|xml#i"</IfModule>
+#Strict-Transport-Security
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+Header set Permissions-Policy "interest-cohort=()"
+
+#X-Frame-Options
+Header always set X-Frame-Options "SAMEORIGIN"
+        
+#X-Xss-Protection
+Header always set X-Xss-Protection "1; mode=block"
+
+#Content Security Policy
+Header set Content-Security-Policy "default-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
+          
+#Referrer-Policy
+Header set Referrer-Policy "no-referrer"

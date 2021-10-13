@@ -150,7 +150,7 @@ und als Tag in der Manifestdatei
 
 `<Namespace>FooNamespace\ Component\Foos</ Namespace>`.
 
-> Denke daran, dass du den Parameter `path="src"` mitgibst, falls du die Dateien mit Namespace im Unterverzeichnis `src` speicherst. Dies ist in Joomla üblich und die in diesem Tutorial erstellten Beispiel-Erweiterungen [verwenden dieses Verzeichnis ebenfalls](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12].
+> Denke daran, dass du den Parameter `path="src"` mitgibst, falls du die Dateien mit Namespace im Unterverzeichnis `src` speicherst. Dies ist in Joomla üblich und die in diesem Tutorial erstellten Beispiel-Erweiterungen [verwenden dieses Verzeichnis ebenfalls](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[^github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12].
 
 Warum Namespaces verwenden? Alle PHP-Klassen werden so in einer definierten Struktur organisiert und automatisch über den `Classloader` geladen. Dabei wird `ContentModelArticles` zu `Joomla\Component\Content\ Administrator\Model\ArticlesModel`.
 
@@ -170,7 +170,7 @@ Die Ordner in Großbuchstaben enthalten PHP-Klassen mit Namespace. Diejenigen in
 
 Die Komponenten-MVC-Klassen haben in Joomla 4 aussagekräftigere Namen. Beispielsweise führen die Controller jetzt `Controller` als Suffix beim Klassennamen. So wird `FooNamespace\Component\Foos\ Administrator\Controller\Foos` zu `FooNamespace\Component\Foos\ Administrator\Controller\ FoosController`.
 
-Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen `DisplayController`, um besser zu reflektieren, was die Klasse tut. Siehe: https://github.com/joomla/joomla-cms/pull/17624
+Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller heißt, den Namen `DisplayController`, um besser zu reflektieren, was die Klasse tut. Siehe: [PR 17624](https://github.com/joomla/joomla-cms/pull/17624)[^github.com/joomla/joomla-cms/pull/17624]
 
 ### index.html?<!-- \index{index.html} -->
 
@@ -185,7 +185,7 @@ Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unt
 
 #### PHP-Operatoren für Gleichheit (== zwei Gleichheitszeichen) und Identität (=== drei Gleichheitszeichen)<!-- \index{PHP!Vergleichsoperator} -->
 
-Der [Vergleichsoperator](https://www.php.net/manual/de/language.operators.comparison.php#language.operators.comparison)[php.net/manual/de/language.operators.comparison.php#language.operators.comparison] `==` vergleicht zwischen zwei verschiedenen Typen, wenn diese unterschiedlich sind, während der Operator `===` einen typensicheren Vergleich durchführt. Das bedeutet, dass er nur dann `wahr` zurückgibt, wenn beide Operanden denselben Typ und denselben Wert haben. Beispiele:
+Der [Vergleichsoperator](https://www.php.net/manual/de/language.operators.comparison.php#language.operators.comparison)[^php.net/manual/de/language.operators.comparison.php#language.operators.comparison] `==` vergleicht zwischen zwei verschiedenen Typen, wenn diese unterschiedlich sind, während der Operator `===` einen typensicheren Vergleich durchführt. Das bedeutet, dass er nur dann `wahr` zurückgibt, wenn beide Operanden denselben Typ und denselben Wert haben. Beispiele:
 
 `1 === 1`: wahr
 `1 == 1`: wahr

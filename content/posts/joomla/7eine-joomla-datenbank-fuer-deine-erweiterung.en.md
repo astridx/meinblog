@@ -284,4 +284,3 @@ Last but not least, we display everything using the template file. Instead of th
 
 ![Joomla Datenbankansicht in phpMyAdmin](/images/j4x7x2.png)
 <img src="https://vg08.met.vgwort.de/na/6affc3b02924464995de019570885df7" width="1" height="1" alt="">
-

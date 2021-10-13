@@ -297,4 +297,5 @@ In Joomla 4 Beta 7 wird dies für `.has-sidebar-left` und `.has-sidebar-right` v
   }
 }
 ```
+
 <img src="https://vg04.met.vgwort.de/na/a1205cf097f74ffabbfc20ab95b0f4af" width="1" height="1" alt="">

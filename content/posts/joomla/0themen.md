@@ -77,4 +77,5 @@ tags:
 ## Paket
 
 1. [Paket - Mehrere Erweiterungen zusammen packen](/joomla-paket-alles-zusammen)
+
 <img src="https://vg07.met.vgwort.de/na/3bf9c3835a25499cbc5d6bf7fd825627" width="1" height="1" alt="">

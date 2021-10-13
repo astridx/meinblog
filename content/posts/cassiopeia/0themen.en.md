@@ -29,5 +29,5 @@ tags:
    [Timeline mit den neuesten Beiträgen (html/mod_articles_latest/default.php)](en/cassiopeia-timeline)
 1. Excursus: Examples of use:  
    [Ein Banner ganz oben und die Navigation horizontal darunter](en/cassiopeia-banner)
-1. Excursus: Security 
+1. Excursus: Security
    [HTTP-Header und Content Security Policy in Joomla 4](en/http-header-und-content-security-policy-joomla4)

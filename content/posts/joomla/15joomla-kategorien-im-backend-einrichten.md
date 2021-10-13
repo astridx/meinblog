@@ -412,4 +412,5 @@ In der Übersichtstabelle der Ansicht im Backend fügen wir eine Spalte für die
 ![Joomla Kategorie zuordnen](/images/j4x15x2.png)
 
 5. Stelle sicher, dass die Foo-spezifischen Kategorien nicht in anderen Komponenten erscheinen, zum Beispiel in `com_contact`.
+
 <img src="https://vg08.met.vgwort.de/na/8f13d433b093497c8779ad67c826486f" width="1" height="1" alt="">

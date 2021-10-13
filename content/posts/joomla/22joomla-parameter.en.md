@@ -322,4 +322,5 @@ To make it possible to store the parameter at the menu item, we add a field in t
 ![Joomla parameters of a the menu item.](/images/j4x22x7.png)
 
 6. Set the `Show Name` parameter in different combinations and make sure that the display in the frontend is correct.
+
 <img src="https://vg08.met.vgwort.de/na/285cbddefc554fcc89071e28c944be65" width="1" height="1" alt="">

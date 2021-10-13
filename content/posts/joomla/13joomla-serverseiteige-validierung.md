@@ -86,7 +86,7 @@ Damit Joomla die Regel in der Datei `LetterRule.php` auf das Textfeld zur Eingab
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
 
-Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` und `validate="Letter"`. Der Parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` sorgt dafür, dass das Formular im Namespace `FooNamespace\Component\Foos\Administrator\Rule` nach Regeln sucht und `validate="Letter"` zeigt an, dass die Regel `Letter`, also nach Joomla Standard die Klasse `LetterRule`, angewendet wird.
+Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\ Administrator\Rule">` und `validate="Letter"`. Der Parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` sorgt dafür, dass das Formular im Namespace `FooNamespace\Component\Foos\Administrator\Rule` nach Regeln sucht und `validate="Letter"` zeigt an, dass die Regel `Letter`, also nach Joomla Standard die Klasse `LetterRule`, angewendet wird.
 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/forms/foo.xml)
 
@@ -124,4 +124,5 @@ Geändert hat sich `<fieldset addruleprefix="FooNamespace\Component\Foos\Adminis
 ![Joomla Validierung - Serverseiteige Validierung](/images/j4x13x1.png)
 
 > Ist es dir aufgefallen? Du siehst die Warnung unter Umständen erst, nachdem du im Formular sehr viele Änderungen durchgeführt hast. In dieser kleinen Erweiterung fällt dies nicht ins Gewicht. Bei großen Formularen kann der Hinweis am Ende frustrieren. Ein Benutzer wünscht sich, diesen unmittelbar nach der fehlerhaften Eingabe zu sehen. So ist möglich, sofort zu regieren und unnötige Arbeit zu vermeiden. Hier kommt die clienteseiteige Validierung ins Spiel. Diese sehen wir uns im nächsten Teil an.
+
 <img src="https://vg08.met.vgwort.de/na/3f0f8c400c4541ac99d7bcce0c0ad37e" width="1" height="1" alt="">

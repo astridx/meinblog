@@ -412,4 +412,5 @@ In the overview table of the view in the backend, we add a column for displaying
 ![Joomla Assign Category](/images/j4x15x2.png)
 
 5. make sure that the foo specific categories do not appear in other components, for example in `com_contact`.
+
 <img src="https://vg08.met.vgwort.de/na/4a15803b18c1465ab4af60d225b23f12" width="1" height="1" alt="">

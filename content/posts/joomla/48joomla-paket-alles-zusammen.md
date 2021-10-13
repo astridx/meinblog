@@ -116,4 +116,5 @@ Das Manifest kennst du schon. Im Falle eines Paketes gibt es hier wenig Neues. I
 4. Installiere das in Punkt 3 erstellt ZIP in Joomla.
 
 5. Stelle sicher, dass alle Erweiterungen installiert wurden.
-   <img src="https://vg08.met.vgwort.de/na/66914574f5524d9e842fa1d6a75517f5" width="1" height="1" alt="">
+
+<img src="https://vg08.met.vgwort.de/na/66914574f5524d9e842fa1d6a75517f5" width="1" height="1" alt="">

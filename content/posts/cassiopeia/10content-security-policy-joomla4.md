@@ -20,7 +20,7 @@ Die Aufgabe eines Browsers erscheint auf den ersten Blick simpel: er zeigt Text 
 
 # Wie macht man die Header sichtbar
 
-HTTP Header werden oft mit dem `<head>`-Element eines HTML-Dokuments verwechselt. HTTP-Header wird man im HTML-Header nicht finden! Die stecken im HTTP-Protokoll. Dieses bildet die Basis des World-Wide-Webs. HTTP ist die Sprache, mit der Browser und Webserver kommunizieren. Zusammen mit den sichtbaren Inhalten werden Informationen zu den Daten übermittelt. Diese sind im Kopf-Bereich der Browser-Antwort – im Head der [HTTP-Response](https://developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort)[^developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort]. Deshalb der Name Header. Um diese anzusehen öffnet man den Netzwerk-Tab der Browser-Entwicklertools.
+HTTP Header werden oft mit dem `<head>`-Element eines HTML-Dokuments verwechselt. HTTP-Header wird man im HTML-Header nicht finden! Die stecken im HTTP-Protokoll. Dieses bildet die Basis des World-Wide-Webs. HTTP ist die Sprache, mit der Browser und Webserver kommunizieren. Zusammen mit den sichtbaren Inhalten werden Informationen zu den Daten übermittelt. Diese sind im Kopf-Bereich der Browser-Antwort – im Head der [HTTP-Response](https://developer.mozilla.org/de/docs/Web/HTTP#die_struktur_einer_server-antwort)[^developer.mozilla.org/de/docs/web/http#die_struktur_einer_server-antwort]. Deshalb der Name Header. Um diese anzusehen öffnet man den Netzwerk-Tab der Browser-Entwicklertools.
 
 ![HTTP Header im Firefox sichtbar gemacht](/images/header0e.png)
 
@@ -54,7 +54,7 @@ Im Joomla Plugin werden die drei Header _X-Frame-Options_, _Referrer-Policy_ und
 
 ### X-Frame-Options
 
-Der [X-Frame-Options](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Frame-Options)-Header verhindert [Clickjacking](https://de.wikipedia.org/wiki/Clickjacking). Diese Technik lädt eine fremde Website über ein _iframe_-Tag in die eigene. Ziel ist es, einen Benutzer dazu zu bringen, sensible Daten preiszugeben – zum Beispiel Anmelde-Daten. Sobald eine Site versucht, eine andere als _iframe_ zu laden, überprüft der Browser die einzubettende Website. Ist dort der _X-Frame-Options Header_ gesetzt, wird die Seite nicht geladen.  Auf diese Weise ist er möglich, zu verhindern, dass andere Websites die eigene Website in ihre Inhalte einbetten und sich als man selbst ausgeben.
+Der [X-Frame-Options](https://developer.mozilla.org/de/docs/Web/HTTP/Headers/X-Frame-Options)-Header verhindert [Clickjacking](https://de.wikipedia.org/wiki/Clickjacking). Diese Technik lädt eine fremde Website über ein _iframe_-Tag in die eigene. Ziel ist es, einen Benutzer dazu zu bringen, sensible Daten preiszugeben – zum Beispiel Anmelde-Daten. Sobald eine Site versucht, eine andere als _iframe_ zu laden, überprüft der Browser die einzubettende Website. Ist dort der _X-Frame-Options Header_ gesetzt, wird die Seite nicht geladen. Auf diese Weise ist er möglich, zu verhindern, dass andere Websites die eigene Website in ihre Inhalte einbetten und sich als man selbst ausgeben.
 
 Der Header bietet drei mögliche Richtlinien: `DENY`, `SAMEORIGIN`, und `ALLOW-FROM`.
 
@@ -246,5 +246,5 @@ Die Seite [scotthelme.co.uk](https://scotthelme.co.uk/csp-cheat-sheet/) bietet e
 
 ## CSP-Auswerter
 
-Der [CSP Evaluator](https://csp-evaluator.withgoogle.com/) ermöglicht es Entwicklern und Sicherheitsexperten zu überprüfen, ob eine Content Security Policy (CSP) eine starke Möglichkeit  gegen Cross-Site-Scripting-Angriffe darstellt. Er unterstützt den Prozess der Überprüfung von CSP-Richtlinien, der normalerweise eine manuelle Aufgabe ist, und hilft, subtile CSP-Umgehungen zu identifizieren, die den Wert einer Richtlinie untergraben. Die Prüfungen des CSP Auswerters basieren auf einer groß angelegten Studie und sollen Entwicklern helfen, ihre CSP zu härten und die Sicherheit ihrer Anwendungen zu verbessern. Dieses Tool (auch als Chrome-Erweiterung verfügbar) wird Entwicklern zur Verfügung gestellt und Google gibt keine Garantien oder Gewährleistungen für dieses Tool.
+Der [CSP Evaluator](https://csp-evaluator.withgoogle.com/) ermöglicht es Entwicklern und Sicherheitsexperten zu überprüfen, ob eine Content Security Policy (CSP) eine starke Möglichkeit gegen Cross-Site-Scripting-Angriffe darstellt. Er unterstützt den Prozess der Überprüfung von CSP-Richtlinien, der normalerweise eine manuelle Aufgabe ist, und hilft, subtile CSP-Umgehungen zu identifizieren, die den Wert einer Richtlinie untergraben. Die Prüfungen des CSP Auswerters basieren auf einer groß angelegten Studie und sollen Entwicklern helfen, ihre CSP zu härten und die Sicherheit ihrer Anwendungen zu verbessern. Dieses Tool (auch als Chrome-Erweiterung verfügbar) wird Entwicklern zur Verfügung gestellt und Google gibt keine Garantien oder Gewährleistungen für dieses Tool.
 <img src="https://vg04.met.vgwort.de/na/5c2df911b6c147a8ba1af8a11e92b1a7" width="1" height="1" alt="">

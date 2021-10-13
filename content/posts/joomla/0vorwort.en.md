@@ -275,4 +275,3 @@ The HTML code
 
 displays the left-aligned character, for example.
 <img src="https://vg01.met.vgwort.de/na/65e9cc10ed0f41fe8cd1e70d24d308f6" width="1" height="1" alt="">
-

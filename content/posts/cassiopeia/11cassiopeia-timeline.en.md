@@ -162,4 +162,5 @@ Die Ansicht der Differenzen<!-- \index{Override!Differenzanzeige} --> unterstüt
 ![Joomla 4 und Cassiopeia - Tempalte Override anlegen - ](/images/aut5d.png)
 
 > Das Beispiel habe ich für Joomla Version 3 auf der Website [j-over](https://www.j-over.de/de/template-overrides/timeline-mit-flexbox)[^j-over.de/de/template-overrides/timeline-mit-flexbox] endeckt.
+
 <img src="https://vg04.met.vgwort.de/na/fb9d1219ca944c5c8f82b8664f63a77b" width="1" height="1" alt="">

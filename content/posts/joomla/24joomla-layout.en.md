@@ -222,4 +222,5 @@ Install your component as described in part one, after copying all the files.
 > An item without XML file is not selectable in the administration area. Nevertheless such layouts are useful! In the program code it is possible to assign it at any place: `$this->setLayout('withheadandfoot');`
 
 > Since the view is expected to be uniform when controlling via a menu item, the layout set in the menu item is preferred.
+
 <img src="https://vg08.met.vgwort.de/na/5f04a8f589c84955b4b75e7d301ed944" width="1" height="1" alt="">

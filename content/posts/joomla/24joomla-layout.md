@@ -222,4 +222,5 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 > Ein Item ohne XML-Datei ist nicht im Administrationsbereich auswählbar. Trotzdem sind solche Layouts sinnvoll! Im Programmcode ist es an jeder Stelle möglich, dieses zuzuweisen: `$this->setLayout('withheadandfoot');`
 
 > Da bei der Ansteuerung über einen Menüpunkt die Ansicht einheitlich erwartet wird, wird das im Menüitem eingestellte Layout bevorzugt.
+
 <img src="https://vg08.met.vgwort.de/na/bd940f8807134f77a057676ee2990dcc" width="1" height="1" alt="">
