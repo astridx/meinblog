@@ -93,7 +93,7 @@ Möchtest du den Installationsprozess deiner Erweiterung verändern? Dann sieh d
 
 ### [Media Action (Medienfunktion)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Media_Action_Group/en)<!-- \index{Plugin!Media Action (Medienfunktion)} -->
 
-Das Zuschneiden von Bildern, das Ändern der Größer oder das Drehen ist jeweils mit einem Kern Joomla Plugin vom Medienfunktion möglich. Erweitere diese Plugin-Gruppe, wenn dir die Funktionen zur Medien- oder Bildbearbeitung nicht ausreichen.
+Das Zuschneiden von Bildern, das Ändern der Größe oder das Drehen ist jeweils mit einem Kern-Joomla-Plugin vom Typ Medienfunktion möglich. Erweitere diese Plugin-Gruppe, wenn dir die Funktionen zur Medien- oder Bildbearbeitung nicht ausreichen.
 
 ### [Privacy (Datenschutz)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Privacy_Group/en)<!-- \index{Plugin!Privacy (Datenschutz)} -->
 
