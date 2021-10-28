@@ -20,7 +20,7 @@ Du benötigst Joomla 4.x für dieses Tutorial. Joomla 4 findest du bei [GitHub](
 
 ## Ziel dieses Tutorial?
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen `foo` in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen. Wenn du magst, kannst du das Skript [duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh)[github.com/astridx/boilerplate/blob/t43/duplicate.sh] hierfür verwenden.
+Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, dir zu zeigen, wie Joomla funktioniert - und es dabei selbst besser zu verstehen. Am Ende ersetzt du den Namen `foo` in allen Dateien durch den Namen deiner Komponente und erweiterst diese um deine besonderen Anforderungen. Wenn du magst, kannst du das Skript [duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh)[^github.com/astridx/boilerplate/blob/t43/duplicate.sh] hierfür verwenden.
 
 > Daher ist dieses Tutorial in erster Linie für Programmierer gedacht, die eine neue Komponente erstellen möchten und Joomla bisher nicht kennen. Das Tutorial ist weiterhin eine Hilfe für Programmierer einer Joomla 3 Komponente, wenn diese Ihre Komponente für Joomla 4 erweitern. Wenn du beispielsweise an der Validierung deiner Joomla 3 Komponente arbeitest, findest du in den Kapiteln über die serverseitige und die clientseitige Validierung das, was du benötigst - nicht mehr und nicht weniger.
 

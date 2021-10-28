@@ -49,7 +49,7 @@ Lighthouse ist standardmäßig im Webbrowser Google Chrome enthalten. Öffne die
 - Führe die Analyse unter einer guten Internetverbindung durch.
 - Führe den Test im "Inkognito-Modus" (Datenschutzmodus) aus. Eventuelle Browser-Erweiterungen beeinflussen den Test so nicht.
 
-Die Ergebnisse und Tipps von Lighthouse kannst du zum Verbessern der Website nutzen. Teilweise kommen die [Tipps](https://github.com/GoogleChrome/lighthouse-stack-packs/pull/44/files) direkt aus der Joomla Community.
+Die Ergebnisse und Tipps von Lighthouse kannst du zum Verbessern der Website nutzen. Teilweise kommen die [Tipps](https://github.com/GoogleChrome/lighthouse-stack-packs/pull/44/files)[^github.com/GoogleChrome/lighthouse-stack-packs/pull/44/files] direkt aus der Joomla Community.
 
 ![Joomla Template erstellen - Page Speed Analyse mit Lighthouse](/images/j4x47x2.png)
 
