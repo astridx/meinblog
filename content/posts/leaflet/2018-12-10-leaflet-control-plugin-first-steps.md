@@ -136,7 +136,7 @@ onRemove: function(map) {
 
 Gestalten Sie Leaflet Steuerelemente wie jedes andere DOM-Element mit CSS. Hier füge ich der CSS-Klasse leaflet-control-example Stilregeln hinzu. Naja, bisher stehen hier drei Punkte. Sie haben sicher etwas mehr Fantasie. Zur Erinnerung: Das div-Element mit der Klasse leaflet-control-example haben wir in der onAdd-Methode hinzugefügt.
 
-```js
+```css
 …
 .leaflet-control-example {
   …
