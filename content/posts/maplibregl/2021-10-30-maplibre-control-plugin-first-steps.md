@@ -2,7 +2,7 @@
 date: 2021-10-30
 title: 'Erstelle ein erstes MapLibre-Plugin - Ein Tutorial für Anfänger'
 template: post
-thumbnail: '../thumbnails/leaflet.png'
+thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibre-control-plugin-first-steps
 langKey: de
 categories:
@@ -12,9 +12,9 @@ tags:
   - Leaflet
 ---
 
-Erstelle dein erstes Leaflet-Control-Plugin - Ein Tutorial für Anfänger.
+Erstelle dein erstes MapLibre GL-Plugin - Ein Tutorial für Anfänger.
 
-In diesem Beitrag erkläre ich, wie du ein Plugin für MapLibre erstellst. Ich zeige, wie ein Control-Plugin, somit ein Steuerelement für deine [Maplibre](http://leafletjs.com/) Karte programmiert wird.
+In diesem Beitrag erkläre ich, wie du ein Plugin für MapLibre erstellst. Ich zeige, wie ein Control-Plugin, somit ein Steuerelement für deine [Maplibre](https://maplibre.org/) Karte programmiert wird.
 
 In diesem Text konzentriere ich mich darauf, die Struktur und den Lebenszyklus von Maplibre-Plugins zu erklären. Meine Codebeispiel habe ich auf [Github](https://github.com/astridx/maplibre-plugin-boilerplate) veröffentlicht.
 
