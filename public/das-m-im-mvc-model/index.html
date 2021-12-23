@@ -106,7 +106,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> }</span></span></span></code></pre>
 <blockquote>
-<p>Unter Umständen verwirrt dich der Aufruf <code class="language-text">$this->get('Msg');</code> genauso wie mich, als ich Joomla das erste Mal nutzte. Die Methode im Model heißt <code class="language-text">getMsg()</code>, wir rufen sie hier aber über <code class="language-text">get('Msg')</code> auf. Das passt nicht. Wenn du dich vorher schon mit objektorientierter Programmierung befasst hast, dann bist du versucht, den Aufruf über <code class="language-text">getMsg()</code> zu tätigen. Verwendest du Joomla, hast du es leichter, wenn du die Dinge so nutzt, wie es vorbereitet ist. <a href="https://de.wikipedia.org/w/index.php?title=Zugriffsfunktion&#x26;oldid=196247734">Getter</a><sup id="fnref-de.wikipedia.org/wiki/zugriffsfunktion"><a href="#fn-de.wikipedia.org/wiki/zugriffsfunktion" class="footnote-ref">de.wikipedia.org/wiki/zugriffsfunktion</a></sup> im Model rufst du über die Methode <code class="language-text">get()</code> mit dem entsprechenden Parameter auf.</p>
+<p>Unter Umständen verwirrt dich der Aufruf <code class="language-text">$this->get('Msg');</code> genauso wie mich, als ich Joomla das erste Mal nutzte. Die Methode im Model heißt <code class="language-text">getMsg()</code>, wir rufen sie hier aber über <code class="language-text">get('Msg')</code> auf. Das passt irgendwie nicht. Wenn du dich vorher schon mit objektorientierter Programmierung befasst hast, dann bist du versucht, den Aufruf über <code class="language-text">getMsg()</code> zu tätigen. Verwendest du Joomla, hast du es leichter, wenn du die Dinge so nutzt, wie es vorbereitet ist. <a href="https://de.wikipedia.org/w/index.php?title=Zugriffsfunktion&#x26;oldid=196247734">Getter</a><sup id="fnref-de.wikipedia.org/wiki/zugriffsfunktion"><a href="#fn-de.wikipedia.org/wiki/zugriffsfunktion" class="footnote-ref">de.wikipedia.org/wiki/zugriffsfunktion</a></sup> im Model rufst du über die Methode <code class="language-text">get()</code> mit dem entsprechenden Parameter auf.</p>
 </blockquote>
 <!-- prettier-ignore -->
 <h4><a href="https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a></h4>
@@ -120,7 +120,7 @@ void function() {
 <h2>Teste deine Joomla-Komponente</h2>
 <ol>
 <li>Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im <code class="language-text">administrator</code> Ordner in den <code class="language-text">administrator</code> Ordner deiner Joomla 4 Installation. Kopiere die Dateien im <code class="language-text">components</code> Ordner in den <code class="language-text">components</code> Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</li>
-<li>Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden.</li>
+<li>Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden. Die Textausgabe lautet nun <code class="language-text">Hello Foos: Hello Foo!</code> statt <code class="language-text">Hello Foos</code>, wenn du meinem Beispiel gefolgt bist.</li>
 </ol>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -128,26 +128,26 @@ void function() {
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/7e4ba2a520d7ce13eb38c0d72278e5b2/191e2/j4x5x1.png"
+    href="/static/4f79393096851047b03f9d782134c734/191e2/j4x5x1.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48.10126582278481%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMUlEQVQoz52ROU/DQBCF/dMQFQUChWDlkDkMUgpKkKBACkrCIUVAAX+IChoKKgoaJORwJQEFe7Nrm/Vjves1xgERGGtsz/i9T7NjY6Kwicm5LSystVFbP0Ft4xSmvYep4jamS3XMlHYwW26gUGmiWG3BtPZhVncxX26iYh3AWmxjafkQtn2E1ZVjGGH4jiAI0eu/oPvcw+DhCUPXA2M+KGMifZmypgwBpULXx51zD88jshczdBpIIhJXfBddCBV+DDoEdQneiA/OufJkwogigcpmIhnpi+RcmQeuC8fpyAk9QiRYa+SEeSP0U31UtT4J/5woBsVr0doUOE6oCbl8v7i8xtn5VQr9N1AbO4+vuLntwg/VgkaA6fF+Aea12d2lwHFg30HzPl3/acI88MuPTPofIs3zY3Fh18AAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 47.46835443037975%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEUlEQVQoz5WRz04CMRDG+7Z6MNGgbICNBoST0YsmGMR40AjhykP4AMajVxONUVH2b9vp52zZ4rIQA5P8MtPO9OvXVGxVz7HtXWCn3kXr5A7HpwN0zoao+D3s1i5RafSw37hC1e/D869RO7yx7B104dX7OGreotnic+17dNoDCBQiTmKoOAK0xL8hU0RhwAUttYQmgsMYA5PlJAWRWYlRCvJnisnXFGGUQkoNrTX3yCKsSBG+xVLez8lCk8TnxyPC4AlB8AqpZk6zvnBDc7FsndfIa4ebVSphh8+898L1NzuzwzNBbBBO8O19gtH4gZ+s/8yYFQ7XFSTOYawZteB87nAdsbLo0jrPgog2dlj+pGL+BWF3rITw/g8MAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla - Verwendung des Model im Frontend"
         title="Joomla - Verwendung des Model im Frontend"
-        src="/static/7e4ba2a520d7ce13eb38c0d72278e5b2/f058b/j4x5x1.png"
-        srcset="/static/7e4ba2a520d7ce13eb38c0d72278e5b2/c26ae/j4x5x1.png 158w,
-/static/7e4ba2a520d7ce13eb38c0d72278e5b2/6bdcf/j4x5x1.png 315w,
-/static/7e4ba2a520d7ce13eb38c0d72278e5b2/f058b/j4x5x1.png 630w,
-/static/7e4ba2a520d7ce13eb38c0d72278e5b2/40601/j4x5x1.png 945w,
-/static/7e4ba2a520d7ce13eb38c0d72278e5b2/78612/j4x5x1.png 1260w,
-/static/7e4ba2a520d7ce13eb38c0d72278e5b2/191e2/j4x5x1.png 1836w"
+        src="/static/4f79393096851047b03f9d782134c734/f058b/j4x5x1.png"
+        srcset="/static/4f79393096851047b03f9d782134c734/c26ae/j4x5x1.png 158w,
+/static/4f79393096851047b03f9d782134c734/6bdcf/j4x5x1.png 315w,
+/static/4f79393096851047b03f9d782134c734/f058b/j4x5x1.png 630w,
+/static/4f79393096851047b03f9d782134c734/40601/j4x5x1.png 945w,
+/static/4f79393096851047b03f9d782134c734/78612/j4x5x1.png 1260w,
+/static/4f79393096851047b03f9d782134c734/191e2/j4x5x1.png 1836w"
         sizes="(max-width: 630px) 100vw, 630px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"

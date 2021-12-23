@@ -735,5 +735,7 @@ Everything is new. There are no changed files yet.
 
 ![The first view in the backend](/images/j4x1x3.png)
 
+> In previous Joomla versions, the text was output in the backend at the end of the installation, which is inserted into the installation script with the command `echo Text::_('...')`. Since Joomla 4, this no longer happens without further ado. More information is available on [Github](https://github.com/joomla/joomla-cms/issues/36343)[^github.com/joomla/joomla-cms/issues/36343].
+
 Up to this point, it wasn't rocket science. We have a solid basis for the next steps.
 <img src="https://vg08.met.vgwort.de/na/91a964b14e904ded9ad45011c0ad492c" width="1" height="1" alt="">

@@ -17,7 +17,6 @@ tags:
 
 1. [Preface](/en/joomla-tutorial-vorwort)
 1. [The first view in the backend](/en/die-erste-ansicht-im-backend)
-1. [Joomla update and change log setup](/en/joomla-update-und-change-logeinrichten)
 1. [The First View in the Frontend](/en/die-erste-ansicht-im-frontend)
 1. [A Menu Item](/en/ein-menuepunkt)
 1. [The M in MVC: Model](/en/das-m-im-mvc-model)
@@ -48,6 +47,7 @@ tags:
 1. [Frontend Edit](/en/joomla-frontend-editing)
 1. [View by Categories](/en/joomla-ansicht-nach-kategorien)
 1. [Add a Service - Routing](/en/joomla-einen-service-hinzufuegen-routing)
+1. [Exkurs Dependency Injection](/en/joomla-dependency-injection)
 1. [Accessing the Dashboard](/en/joomla-dashboard-fuer-deine-erweiterung)
 1. [Tags](/en/joomla-tags)
 
@@ -77,5 +77,9 @@ tags:
 ## Paket
 
 1. [Package - Packing several extensions together](/en/joomla-paket-alles-zusammen)
+
+## Update and ChangeLog
+
+1. [Joomla update and change log setup](/en/joomla-update-und-change-logeinrichten)
 
 <img src="https://vg07.met.vgwort.de/na/b94ec25a021449c9972d261378cc8955" width="1" height="1" alt="">

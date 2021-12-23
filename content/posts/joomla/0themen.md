@@ -17,7 +17,6 @@ tags:
 
 1. [Vorwort](/joomla-tutorial-vorwort)
 1. [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend)
-1. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
 1. [Die erste Ansicht im Frontend](/die-erste-ansicht-im-frontend)
 1. [Ein Menüpunkt](/ein-menuepunkt)
 1. [Das M im MVC: Model](/das-m-im-mvc-model)
@@ -48,6 +47,7 @@ tags:
 1. [Frontend Editing](/joomla-frontend-editing)
 1. [Ansicht nach Kategorien](/joomla-ansicht-nach-kategorien)
 1. [Einen Service hinzufügen - Routing](/joomla-einen-service-hinzufuegen-routing)
+1. [Exkurs Dependency Injection](/joomla-dependency-injection)
 1. [Zugriff auf das Dashboard](/joomla-dashboard-fuer-deine-erweiterung)
 1. [Tags](/joomla-tags)
 
@@ -77,5 +77,9 @@ tags:
 ## Paket
 
 1. [Paket - Mehrere Erweiterungen zusammen packen](/joomla-paket-alles-zusammen)
+
+## Update Server und Change Log
+
+1. [Joomla Update und Change Log einrichten](/joomla-update-und-change-logeinrichten)
 
 <img src="https://vg07.met.vgwort.de/na/3bf9c3835a25499cbc5d6bf7fd825627" width="1" height="1" alt="">

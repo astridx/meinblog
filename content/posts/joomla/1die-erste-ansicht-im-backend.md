@@ -727,13 +727,15 @@ Alles ist neu. Es gibt noch keine geänderten Dateien.
 
 ![Ansicht, die es erlaubt, Erweiterungen zu finden, die nicht über die normale Joomla-Installation installiert wurden.](/images/j4x1x1.png)
 
-3. Wenn alles funktioniert, siehst du nach der Installation diese Anzeigen vor dir.
+3. Wenn alles funktioniert, siehst du nach der Installation die folgende Anzeigen vor dir.
 
 ![Ansicht nach der Installation](/images/j4x1x2.png)
 
 4. Teste als nächstes, ob die Ansicht für deine Komponente fehlerfrei ist.
 
 ![Die erste Ansicht im Backend](/images/j4x1x3.png)
+
+> In früheren Joomla-Versionen wurde am Ende der Installation der Text im Backend ausgegeben, der mit dem Befehl `echo Text::_('...')` in das Installationsskript eingefügt ist. Seit Joomla 4 geschieht dies nicht mehr ohne Weiteres. Weitere Informationen sind auf [Github](https://github.com/joomla/joomla-cms/issues/36343)[^github.com/joomla/joomla-cms/issues/36343] verfügbar.
 
 Bis hierhin war das kein Hexenwerk. Wir haben eine solide Grundlage für die weiteren Schritte.
 <img src="https://vg08.met.vgwort.de/na/91a964b14e904ded9ad45011c0ad492c" width="1" height="1" alt="">

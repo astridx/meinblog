@@ -101,7 +101,7 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 
 ```
 
-> Unter Umständen verwirrt dich der Aufruf `$this->get('Msg');` genauso wie mich, als ich Joomla das erste Mal nutzte. Die Methode im Model heißt `getMsg()`, wir rufen sie hier aber über `get('Msg')` auf. Das passt nicht. Wenn du dich vorher schon mit objektorientierter Programmierung befasst hast, dann bist du versucht, den Aufruf über `getMsg()` zu tätigen. Verwendest du Joomla, hast du es leichter, wenn du die Dinge so nutzt, wie es vorbereitet ist. [Getter](https://de.wikipedia.org/w/index.php?title=Zugriffsfunktion&oldid=196247734)[^de.wikipedia.org/wiki/zugriffsfunktion] im Model rufst du über die Methode `get()` mit dem entsprechenden Parameter auf.
+> Unter Umständen verwirrt dich der Aufruf `$this->get('Msg');` genauso wie mich, als ich Joomla das erste Mal nutzte. Die Methode im Model heißt `getMsg()`, wir rufen sie hier aber über `get('Msg')` auf. Das passt irgendwie nicht. Wenn du dich vorher schon mit objektorientierter Programmierung befasst hast, dann bist du versucht, den Aufruf über `getMsg()` zu tätigen. Verwendest du Joomla, hast du es leichter, wenn du die Dinge so nutzt, wie es vorbereitet ist. [Getter](https://de.wikipedia.org/w/index.php?title=Zugriffsfunktion&oldid=196247734)[^de.wikipedia.org/wiki/zugriffsfunktion] im Model rufst du über die Methode `get()` mit dem entsprechenden Parameter auf.
 
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
@@ -123,7 +123,7 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden.
+2. Sieh dir die Frontendansicht deiner Komponente an. Überzeuge dich davon, dass die Daten für die Ausgabe vom Model erzeugt werden. Die Textausgabe lautet nun `Hello Foos: Hello Foo!` statt `Hello Foos`, wenn du meinem Beispiel gefolgt bist.
 
 ![Joomla - Verwendung des Model im Frontend](/images/j4x5x1.png)
 <img src="https://vg08.met.vgwort.de/na/5edb5ab163424dbf8f3f773464101cd3" width="1" height="1" alt="">
