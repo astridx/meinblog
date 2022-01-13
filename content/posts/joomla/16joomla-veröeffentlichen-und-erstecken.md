@@ -240,7 +240,7 @@ Das Model erweitern wir, damit die Information über den Status aus der Datenban
 
 In der Datei `administrator/components/com_foos/ src/Table/FooTable.php`, die die Datenbanktabelle verwaltet, fügen wir Prüfungen hinzu. So stellen wir sicher, dass keine unmöglichen Daten gespeichert werden.
 
-`store($updateNulls = true)` benötigen wir, weil die Elternklasse `Table` die Variable `$updateNulls` auf `false` setzt. Dies bewirkt Formularfelder, die den Wert `null` führen, nicht in der Datenbank verändert werden. Meist ist dies korrekt. Der häufigste Fall ist wohl, dass ein Wert von Anfang an nicht gesetzt ist und im Formular beim Bearbeiten den Elements nicht geändert wurde. Weil ein leeres Datumfeld in der Datenbank mit `null` abgespeichert wird, ist es in unserem Fall erforderlich, dass wir das Speichern von `null`-Werten erzwingen. Dies geschieht, indem wir die Variable `$updateNulls` auf `true` setzten.
+`store($updateNulls = true)` benötigen wir, weil die Elternklasse `Table` die Variable `$updateNulls` auf `false` setzt. Dies bewirkt, dass Formularfelder, die den Wert `null` führen, nicht in der Datenbank verändert werden. Meist ist dies korrekt. Der häufigste Fall ist wohl, dass ein Wert von Anfang an nicht gesetzt ist und im Formular beim Bearbeiten den Elements nicht geändert wurde. Weil ein leeres Datumfeld in der Datenbank mit `null` abgespeichert wird, ist es in unserem Fall erforderlich, dass wir das Speichern von `null`-Werten erzwingen. Dies geschieht, indem wir die Variable `$updateNulls` auf `true` setzten.
 
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
 

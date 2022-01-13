@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Seite ist nicht sinnvoll. Es wirkt sich negativ auf die Übersicht und die Performance aus. Deshalb teilen wir die Elemente auf Unterseiten auf und fügen eine Paginierung oder Seitennummerierung hinzu. Mit dieser ist die Navigation durch die Seiten möglich, mithilfe von Links unteren Rand.<!-- \index{Paginierung} --><!-- \index{Seitennummerierung} -->
+Schnell ist eine Menge Inhalt vorhanden. Die Anzeige aller Elemente auf einer Seite ist nicht sinnvoll. Es wirkt sich negativ auf die Übersicht und die Performance aus. Deshalb teilen wir die Elemente auf Unterseiten auf und fügen eine Paginierung oder Seitennummerierung hinzu. Mit dieser ist die Navigation durch die Seiten möglich. Hierzu werden Links eingefügt. In der Regel befinden diese sich am unteren Seitenende.<!-- \index{Paginierung} --><!-- \index{Seitennummerierung} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -75,6 +75,8 @@ Im Template nutzen wir die Methode `getListFooter` der Variable `$this->paginati
 In der globalen Konfiguration kannst du die Anzahl an Elementen bestimmen, die standardmäßig angezeigt wird. Normalerweise ist dies auf 20 Elemente eingestellt.
 
 ![Joomla Pagination in der globalen Konfiguration](/images/j4x23x2.png)
+
+> Hast du das Gefühl, dass in diesem Kapitel etwas fehlt? Fragst du dich, wo die ganzen Berechnungen stecken, welche die Seitenlink erstellen? Dann wirf ein einen Blick in die Datei [libraries/src/Pagination/Pagination.php](https://github.com/joomla/joomla-cms/blob/65aaacc28cddfed55804306eb02b407d28884159/libraries/src/Pagination/Pagination.php#L437)[^/github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Pagination/Pagination.php]. Joomla erledigt all die Arbeit für dich, wenn du den Standard nutzt und weißt wo du was findest.
 
 ## Teste deine Joomla-Komponente
 

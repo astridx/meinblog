@@ -1256,7 +1256,7 @@ Wir erweitern das Template für die Ansicht: Wenn man das Element bearbeiten dar
 +$tparams = $this->item->params;
 
 +if ($tparams->get('show_name')) {
- 	if ($this->Params->get('show_foo_name_label')) {
+ 	if ($this->params->get('show_foo_name_label')) {
  		echo Text::_('COM_FOOS_NAME');
  	}
 

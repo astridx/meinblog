@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Quickly there is a lot of content. Displaying all elements on one page is not useful. It has a negative impact on the overview and performance. That's why we split the items on subpages and add pagination for navigation at the bottom.<!-- \index{pagination} -->
+There is a lot of content soon. Displaying all elements on one page is not useful. It has a negative effect on the layout and performance. Therefore, we divide the elements into sub-pages and add pagination or page numbering. With this, navigation through the pages is possible. Links are inserted for this purpose. Usually, these are located at the bottom of the page.<!-- \index{pagination} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and copy these changes into your development version.
 
@@ -75,6 +75,8 @@ In the template we use the `getListFooter` method of the variable `$this->pagina
 In the global configuration you can set the number of elements that will be displayed by default. Normally this is set to 20 elements.
 
 ![Joomla Pagination in global configuration](/images/j4x23x2.png)
+
+Do you feel that something is missing in this chapter? Are you wondering where all the calculations are that create the page links? Then take a look at the file [libraries/src/Pagination/Pagination.php](https://github.com/joomla/joomla-cms/blob/65aaacc28cddfed55804306eb02b407d28884159/libraries/src/Pagination/Pagination.php#L437)[^/github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Pagination/Pagination.php]. Joomla does all the work for you if you use the standard and know where to find what.
 
 ## Test your Joomla component
 

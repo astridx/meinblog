@@ -261,6 +261,8 @@ Als Erweiterungsentwickler entwickelt man seine Erweiterung idealerweise so, das
 
 Wo speicherst du am besten JavaScript-, CSS- und Bilddateien? Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist besonders bei CSS-Dateien von Vorteil, um das Design der gesamten Joomla-Website einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/development_best_practices] empfehlen dies ebenfalls.
 
+> Beispiele: Für diese Tutorial-Erweiterung nutze ich später `media/com_foos/js/` für die JavaScript-Dateien der Komponente. Die CSS-Dateien des Modules `mod_articles_news` findest du im Verzeichnis `media/mod_articles_news/css/`. Und die Bilder zum Plugin `plg_content_vote` liegen im Ordner `media/plg_content_vote/images/`.
+
 ### Fontawesome Icons<!-- \index{Fontawesome} -->
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen. Dann nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla wird Fontawesome mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] reicht aus.

@@ -338,10 +338,6 @@ The view loads the filter form `src/administrator/components/com_foos/ forms/foo
  use Joomla\CMS\Factory;
  use Joomla\CMS\Language\Text;
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
-diff --git a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-index af7c2fa6..f966bd96 100644
---- a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
-+++ b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 
  use Joomla\CMS\Toolbar\ToolbarHelper;
  use FooNamespace\Component\Foos\Administrator\Helper\FooHelper;

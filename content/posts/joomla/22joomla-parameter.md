@@ -202,8 +202,8 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
  	{
  		$item = $this->item = $this->get('Item');
 
-+		$state = $this->State = $this->get('State');
-+		$params = $this->Params = $state->get('params');
++		$state = $this->state = $this->get('State');
++		$params = $this->params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
 +
 +		$temp = clone $params;
@@ -227,7 +227,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t17...t18#diff-a33732ebd6992540b8adca5615b51a1f)
 
-Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/ tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->Params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
+Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/ tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
 [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
@@ -238,7 +238,7 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 -	echo Text::_('COM_FOOS_NAME');
 -}
 +if ($this->item->params->get('show_name')) {
-+	if ($this->Params->get('show_foo_name_label')) {
++	if ($this->params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
 

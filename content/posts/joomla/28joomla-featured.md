@@ -1027,7 +1027,7 @@ Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joo
 
 5. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist, die veröffentlicht sind und bei denen die zugehörige Kategorie ebenfalls veröffentlicht ist.
 
-![Joomla Featured; Elemente im Backend](/images/j4x28x4.png)
+![Joomla Featured; Elemente im Backend](/images/j4x28x4a.png)
 
 ![Joomla Featured; Elemente im Frontend](/images/j4x28x4.png)
 <img src="https://vg08.met.vgwort.de/na/0dd0fa2c7f654709820e06da9bfb36b2" width="1" height="1" alt="">

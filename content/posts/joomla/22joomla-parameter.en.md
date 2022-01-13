@@ -198,8 +198,8 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
  	{
  		$item = $this->item = $this->get('Item');
 
-+		$state = $this->State = $this->get('State');
-+		$params = $this->Params = $state->get('params');
++		$state = $this->state = $this->get('State');
++		$params = $this->params = $state->get('params');
 +		$itemparams = new Registry(json_decode($item->params));
 +
 +		$temp = clone $params;
@@ -234,7 +234,7 @@ At the end we use the parameter when handling the display in the template `compo
 -	echo Text::_('COM_FOOS_NAME');
 -}
 +if ($this->item->params->get('show_name')) {
-+	if ($this->Params->get('show_foo_name_label')) {
++	if ($this->params->get('show_foo_name_label')) {
 +		echo Text::_('COM_FOOS_NAME');
 +	}
 

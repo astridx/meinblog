@@ -39,7 +39,7 @@ use Joomla\CMS\Language\Text;
 echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
 
 if ($this->item->params->get('show_name')) {
-	if ($this->Params->get('show_foo_name_label')) {
+	if ($this->params->get('show_foo_name_label')) {
 		echo Text::_('COM_FOOS_NAME') . $this->item->name;
 	} else {
 		echo $this->item->name;
@@ -105,7 +105,7 @@ use Joomla\CMS\Language\Text;
 echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
 
 if ($this->item->params->get('show_name')) {
-	if ($this->Params->get('show_foo_name_label')) {
+	if ($this->params->get('show_foo_name_label')) {
 		echo Text::_('COM_FOOS_NAME') . $this->item->name;
 	} else {
 		echo $this->item->name;
@@ -169,7 +169,7 @@ So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `co
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt - immer einheitlich angezeigt wird. Deshalb fragen wir den aktiven Menüpunkt ab. Werden beispielsweise Elemente über eine Kategorie-Ansicht angezeigt, dass ist ein einheitliches Layout möglich. Wird der Content als einzelnes Element angezeigt kann auf ein anderes Layout zurückgegriffen werden.
+Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt und das Design- immer einheitlich angezeigt werden. Deshalb fragen wir den aktiven Menüpunkt ab. Werden beispielsweise Elemente über eine Kategorie-Ansicht angezeigt, dann ist mithilfe dieser Information ist ein einheitliches Layout möglich. Wird der Content als einzelnes Element angezeigt kann auf ein anderes Layout zurückgegriffen werden.
 
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 

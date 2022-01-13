@@ -1256,7 +1256,7 @@ We extend the template for the view: If you are allowed to edit the element `if 
 +$tparams = $this->item->params;
 
 +if ($tparams->get('show_name')) {
- 	if ($this->Params->get('show_foo_name_label')) {
+ 	if ($this->params->get('show_foo_name_label')) {
  		echo Text::_('COM_FOOS_NAME');
  	}
 

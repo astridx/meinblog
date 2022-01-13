@@ -39,7 +39,7 @@ use Joomla\CMS\Language\Text;
 echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
 
 if ($this->item->params->get('show_name')) {
-	if ($this->Params->get('show_foo_name_label')) {
+	if ($this->params->get('show_foo_name_label')) {
 		echo Text::_('COM_FOOS_NAME') . $this->item->name;
 	} else {
 		echo $this->item->name;
@@ -105,7 +105,7 @@ use Joomla\CMS\Language\Text;
 echo "<hr>Hier kannst du einen Headertext anzeigen.<hr>";
 
 if ($this->item->params->get('show_name')) {
-	if ($this->Params->get('show_foo_name_label')) {
+	if ($this->params->get('show_foo_name_label')) {
 		echo Text::_('COM_FOOS_NAME') . $this->item->name;
 	} else {
 		echo $this->item->name;
@@ -169,7 +169,7 @@ This is what happens during development. Basically we would not have to change t
 <!-- prettier-ignore -->
 #### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-c77adeff4ff9e321c996e0e12c54b656)
 
-In the case of a menu item, I find it important that it - or the content - is always displayed consistently. Therefore we query the active menu item. For example, if elements are displayed via a category view, then a uniform layout is possible. If the content is displayed as a single element, a different layout can be used.
+In the case of a menu item, I think it is important that it - or the content and design - is always displayed consistently. That is why we query the active menu item. If, for example, elements are displayed via a category view, then a uniform layout is possible with the help of this information. If the content is displayed as a single element, a different layout can be used.
 
 [components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 

@@ -261,6 +261,8 @@ As an extension developer, you ideally develop your extension so that the databa
 
 Where do you best store JavaScript, CSS and image files? Store these data in the directory `media` in the Joomla root directory. This way it is possible to overwrite them. This is particularly advantageous for CSS files to make the design of the whole Joomla Website consistent. The [Best Practice Guidelines](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/development_best_practices] also recommend this.
 
+> Examples: For this tutorial extension I will later use `media/com_foos/js/` for the JavaScript files of the component. The CSS files of the module `mod_articles_news` can be found in the directory `media/mod_articles_news/css/`. And the images for the plugin `plg_content_vote` are in the folder `media/plg_content_vote/images/`.
+
 ### Fontawesome Icons<!-- \index{Fontawesome} -->
 
 You want to use icons but don't want to add your own library. Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla Fontawesome is delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] is sufficient.

@@ -449,7 +449,7 @@ echo LayoutHelper::render('joomla.content.emptystate', $displayData);
 
 ```
 
-> `'icon' => 'icon-copy'` only works with the icons that are included by name in the file [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss]. I explained why this is so in the preface. Adjust the layout for the icon if you want to display a different symbol.
+> `'icon' => 'icon-copy'` only works with icons that are included by name in the file [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss]. I explained in the preface why this is like it is. Adjust the layout for the icon if you want to display a different symbol.
 
 The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[github.com/joomla/joomla-cms/pull/33264]. The implementation of the Empty-State-Layout here in the tutorial takes the hint from [Issue 35712](https://github.com/joomla/joomla-cms/issues/35712] into account and inserts the code `if (count($errors = $this->get('Errors'))) { throw new GenericDataException(implode("\n", $errors), 500);}` before the code `if (!count($this->items) && $this->get('IsEmptyState')) { $this->setLayout('emptystate');}` in the file `administrator/components/com_foos/ src/View/Foos/HtmlView.php`. This is done in a later chapter.
 
