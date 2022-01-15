@@ -634,6 +634,8 @@ The view `administrator/components/com_foos/ src/View/Foos/HtmlView.php` defines
 
 In the file `HtmlView.php` all buttons and titles of the toolbar are defined. The model is called to prepare the data for the view. At the moment we only call the function of the parent class to display the default template: `parent::display($tpl);`. Why do it yourself when there are functions in Joomla to do it?
 
+> When naming a view, it is best to use only a capital letter as the initial letter. I had a problem with the name of an additional `View`. I used `FOOPlaces`. The view was not found under this name. After I renamed the view folder and namespace to `Fooplaces`, everything works fine. I found an explanation of naming conventions on [Github](https://docs.joomla.org/J4.x:File_Structure_and_Naming_Conventions)[^docs.joomla.org/J4.x:File_Structure_and_Naming_Conventions]. According to this page, the folder name for the template should be written in lower case. It does not say that in addition the view is allowed to use an uppercase letter only for initial letters. According to a [discussion](https://github.com/joomla/joomla-cms/discussions/36679)[^github.com/joomla/joomla-cms/discussions/36679] this is nevertheless the case.
+
 [administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {numberLines: -2}

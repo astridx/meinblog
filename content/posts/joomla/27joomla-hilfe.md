@@ -21,6 +21,10 @@ Eine selbsterklärende Software ist ideal. Aber welches Programm ist das schon? 
 
 ## Schritt für Schritt
 
+Als erstes ist erforderlich, dass du die Hilfeseiten für deine Erweiterung erstellst und online erreichbar speicherst. Vielleicht magst du dich im Aufbau deiner individuellen Hilfeseiten an den Joomla eigenen orientieren. 
+
+> Die Joomla eigenen Hilfeseiten findest du unter der Adresse [help.joomla.org/proxy](https://help.joomla.org/proxy)[^help.joomla.org/proxy] im Internet. Eine Beispielseite wäre [help.joomla.org/proxy?keyref=Help40:Articles&lang=en](https://help.joomla.org/proxy?keyref=Help40:Articles&lang=en). Hierbei steht `help.joomla.org/proxy` für die Basisadresse und `?keyref=Help40:Articles&lang=en` adressiert die konkrete Unterseite.
+
 ### Neue Dateien
 
 In diesem Kapitel werden ausschließlich Dateien geändert.

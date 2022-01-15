@@ -22,11 +22,11 @@ Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zus
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-3e57cc7bb34afac7fa0d4cb5dd66d925bee34fc4e12f58b1a59f836362889c0d)
+#### [administrator/components/ com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/presets/foos.xml)
 
 In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fest, was standardmäßig auf dem Dashboard angezeigt wird.
 
-[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/7d68b12d50e602b39b39f2459dccfa8d507b31e9/src/administrator/components/com_foos/presets/foos.xml)
+[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/presets/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/t28/src/administrator/components/com_foos/presets/foos.xml -->
@@ -68,11 +68,11 @@ In der Datei `administrator/components/com_foos/ presets/foos.xml` legen wir fes
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/foos.xml)
 
 Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrationstemplate weiß, das und wie es das Dashboard verlinkt.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
      </media>
@@ -107,14 +107,21 @@ Wir passen das XML-Manifest an, damit die Seitenleiste im Joomla Administrations
  			<menu link="option=com_fields&amp;view=groups&amp;context=com_foos.foo">JGLOBAL_FIELD_GROUPS</menu>
  		</submenu>
 
+ 			<filename>foos.xml</filename>
+ 			<filename>config.xml</filename>
+ 			<folder>forms</folder>
++			<folder>presets</folder>
+ 			<folder>language</folder>
+ 			<folder>services</folder>
+ 			<folder>sql</folder>
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/ com\_foos/ script.php](hhttps://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/script.php)
 
 Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-eigene Funktion auf die unsere Dashboard im CMS bekannt macht.
 
-[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;

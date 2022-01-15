@@ -22,11 +22,11 @@ Extensive Joomla Core extensions have a dashboard in which related functions are
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-ccf142664dd6f4ef27cf3d390b9fd93f)
+#### [administrator/components/ com\_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/presets/foos.xml)
 
 In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 
-[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/7d68b12d50e602b39b39f2459dccfa8d507b31e9/src/administrator/components/com_foos/presets/foos.xml)
+[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/presets/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/t28/src/administrator/components/com_foos/presets/foos.xml -->
@@ -68,11 +68,11 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t27...t28#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/foos.xml)
 
 We modify the XML manifest so that the sidebar in the Joomla administration template knows how to link to the dashboard.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
      </media>
@@ -107,14 +107,21 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
  			<menu link="option=com_fields&amp;view=groups&amp;context=com_foos.foo">JGLOBAL_FIELD_GROUPS</menu>
  		</submenu>
 
+ 			<filename>foos.xml</filename>
+ 			<filename>config.xml</filename>
+ 			<folder>forms</folder>
++			<folder>presets</folder>
+ 			<folder>language</folder>
+ 			<folder>services</folder>
+ 			<folder>sql</folder>
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t27...t28#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/script.php)
 
 In the installation script we add the call. With this, we call a Joomla-specific function that makes our dashboard known in the CMS.
 
-[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/44ff1b6651cc7be86f9d52e243f7be6bd9871954/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
