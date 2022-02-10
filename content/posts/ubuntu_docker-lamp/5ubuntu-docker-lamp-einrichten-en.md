@@ -597,7 +597,7 @@ ERROR: Encountered errors while bringing up the project.
 make: *** [Makefile:51: server-up] Fehler 1
 ```
 
-#### Abhilfe schafft die folgende Vorgehensweise
+#### The following procedure provides a solution
 
 1. `sudo systemctl disable systemd-resolved.service`
 
