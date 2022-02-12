@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 ```
 
-> Note: The variable name `returnedValue` is only meant as an example. The name of a variable should explain in real code why it exists, what it does and how it is used. 
+> Note: The variable name `returnedValue` is only meant as an example. The name of a variable should explain in real code why it exists, what it does and how it is used.
 
 ### Geänderte Dateien
 

@@ -21,7 +21,7 @@ Self-explanatory software is ideal. But which programme is? For this reason, hel
 
 ## Step by step
 
-The first thing you need to do is to create the help pages for your extension and save them online. Perhaps you would like to base the structure of your individual help pages on Joomla's own. 
+The first thing you need to do is to create the help pages for your extension and save them online. Perhaps you would like to base the structure of your individual help pages on Joomla's own.
 
 > You can find Joomla's own help pages on the Internet at the address [help.joomla.org/proxy](https://help.joomla.org/proxy)[^help.joomla.org/proxy]. An example page would be [help.joomla.org/proxy?keyref=Help40:Articles&lang=en](https://help.joomla.org/proxy?keyref=Help40:Articles&lang=en). Here, `help.joomla.org/proxy` stands for the base address and `?keyref=Help40:Articles&lang=en` addresses the specific subpage.
 

@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-_Dependency Injection (DI)_ hört sich kompliziert an und die deutsche Übersetzung _Einbringen von Abhängigkeiten_ hört ist nicht wirklich positiv. Auf den ersten Blick soll Programmcode so flexibel wie möglich sein. Also nicht angewiesen auf etwas anderes. Abhängig ist niemand gerne. Das Wort hat einen negativen Touch. 
+_Dependency Injection (DI)_ hört sich kompliziert an und die deutsche Übersetzung _Einbringen von Abhängigkeiten_ hört ist nicht wirklich positiv. Auf den ersten Blick soll Programmcode so flexibel wie möglich sein. Also nicht angewiesen auf etwas anderes. Abhängig ist niemand gerne. Das Wort hat einen negativen Touch.
 
 _Kompliziert_ und _negativ_? Bei genauem Hinsehen trifft beides nicht zu. Mithilfe eines praktischen Beispiels, werden die Vorteile klar.
 
@@ -48,7 +48,7 @@ public function boot(ContainerInterface $container)
  		$this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
 +		$this->getRegistry()->register('foodirection', new Direction());
  	}
- 
+
  	/**
 ```
 
@@ -88,7 +88,7 @@ Die Anfahrtsbeschreibung geben wir über die Methode `displayDirection` der Klas
 +	public function __construct()
 +	{
 +	}
-+	
++
 +	/**
 +	 * Method to generate a routing direction
 +	 *
@@ -113,7 +113,7 @@ Für die eigentliche Ausgabe ist das Template `default.php` im Verzeichnis `comp
 ```php {diff}
  	</div>
  <?php endif; ?>
- 
+
 +<hr>
 +<?php echo HTMLHelper::_('foodirection.displayDirection', $this->item, $tparams); ?>
 +<hr>
@@ -128,6 +128,7 @@ Wenn du ein Item im Frontend aufrufst, erscheint der Text, den du zur Beschreibu
 ![Joomla 4 - Ausgabe Schritt 1 des Beispiels zu Services und Dependency Injection](/images/j4x27a1x1.png)
 
 Nun ist es so, dass es verschiedene Möglichkeiten zur Beschreibung gibt:
+
 - Es gibt digitale Karten, die sogar Routingfunktionen bieten.
 - Die Beschreibung via Text ist möglich
 - Man kann die Anfahrt mithilfe eines Bildes beschreiben.
@@ -146,9 +147,9 @@ Zunächst bereiten wir für jede Beschreibungsart eine Klasse vor. Jede Klasse b
 [administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/blob/t27a2/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
 
 ```php {diff}
- 
+
  \defined('_JEXEC') or die;
- 
+
 +use FooNamespace\Component\Foos\Administrator\Service\HTML\Directions\Image;
 +use FooNamespace\Component\Foos\Administrator\Service\HTML\Directions\Map;
 +use FooNamespace\Component\Foos\Administrator\Service\HTML\Directions\Text;
@@ -174,16 +175,16 @@ class Direction
 +		$this->directionTool2 = new Map;
 +		$this->directionTool3 = new Text;
  	}
- 	
+
  	/**
 public function __construct()
  	 */
  	public function displayDirection()
  	{
 -		return "The route description";
-+		return 
-+		$this->directionTool1->findDirection() . "<br>" . 
-+		$this->directionTool2->findDirection() . "<br>" . 
++		return
++		$this->directionTool1->findDirection() . "<br>" .
++		$this->directionTool2->findDirection() . "<br>" .
 +		$this->directionTool3->findDirection();
  	}
  }
@@ -365,9 +366,9 @@ Die Klasse names `Text` bereitet die textuelle Beschreibung der Anfahrt auf.
 
 Wenn du ein Item im Frontend aufrufst, erscheint der Text, den du zur Beschreibung der Anfahrt vorbereitet hast.
 
-![Joomla 4 - Ausgabe Schritt 2 des Beispiels zu Services und Dependency Injection](/images/j4x27a2x1.png) 
+![Joomla 4 - Ausgabe Schritt 2 des Beispiels zu Services und Dependency Injection](/images/j4x27a2x1.png)
 
-Das Problem: Momentan werden alle Arten von Wegbeschreibungen angezeigt und es ist nicht sichergestellt, dass diese Beschreibung existiert. Oft ist nicht jeder Typ verfügbar. Manchmal ist es auch der Fall, dass man festlegen möchte, welcher Typ angezeigt wird. Anstatt alle Typen verfügbar zu machen, wäre es besser, wenn die optimalen Wegbeschreibungen definiert werden könnten. Auf diese Weise wäre es auch möglich, neue Typen hinzuzufügen oder zu entfernen, ohne Änderungen am bestehenden Code vornehmen zu müssen. Wir werden uns in Schritt 3 ansehen, wie dies möglich ist. 
+Das Problem: Momentan werden alle Arten von Wegbeschreibungen angezeigt und es ist nicht sichergestellt, dass diese Beschreibung existiert. Oft ist nicht jeder Typ verfügbar. Manchmal ist es auch der Fall, dass man festlegen möchte, welcher Typ angezeigt wird. Anstatt alle Typen verfügbar zu machen, wäre es besser, wenn die optimalen Wegbeschreibungen definiert werden könnten. Auf diese Weise wäre es auch möglich, neue Typen hinzuzufügen oder zu entfernen, ohne Änderungen am bestehenden Code vornehmen zu müssen. Wir werden uns in Schritt 3 ansehen, wie dies möglich ist.
 
 ### Schritt 3 - Auswahl der Variable displayDirection() und Typsicherheit
 
@@ -394,7 +395,7 @@ In der Komponentenklasse fügen wir alles Notwendige für den Service `Direction
  use Joomla\CMS\Component\Router\RouterServiceTrait;
 +use FooNamespace\Component\Foos\Administrator\Service\Direction\DirectionServiceInterface;
 +use FooNamespace\Component\Foos\Administrator\Service\Direction\DirectionServiceTrait;
- 
+
  /**
   * Component class for com_foos
   *
@@ -408,7 +409,7 @@ In der Komponentenklasse fügen wir alles Notwendige für den Service `Direction
  	use HTMLRegistryAwareTrait;
  	use RouterServiceTrait;
 +	use DirectionServiceTrait;
- 
+
  	/**
  	 * Booting the extension. This is the function to set up the environment of the extension like
 public function boot(ContainerInterface $container)
@@ -417,7 +418,7 @@ public function boot(ContainerInterface $container)
  		$this->getRegistry()->register('fooicon', new Icon($container->get(SiteApplication::class)));
 -		$this->getRegistry()->register('foodirection', new Direction());
  	}
- 
+
  	/**
 ```
 
@@ -574,19 +575,19 @@ Die Klasse `Image` soll auf jeden Fall die Funktion `findDirection` zur Verfügu
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
   */
- 
+
 -namespace FooNamespace\Component\Foos\Administrator\Service\HTML\Directions;
 +namespace FooNamespace\Component\Foos\Administrator\Service\Direction;
- 
+
  \defined('_JEXEC') or die;
- 
+
   *
   * @since  __DEPLOY_VERSION__
   */
 -class Image
 +class Image implements DirectionExtensionInterface
  {
- 
+
  	/**
 ```
 
@@ -600,19 +601,19 @@ Die Klasse `Map` soll ebenfalls die Funktion `findDirection` bieten. Dies erreic
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
   */
- 
+
 -namespace FooNamespace\Component\Foos\Administrator\Service\HTML\Directions;
 +namespace FooNamespace\Component\Foos\Administrator\Service\Direction;
- 
+
  \defined('_JEXEC') or die;
- 
+
   *
   * @since  __DEPLOY_VERSION__
   */
 -class Map
 +class Map implements DirectionExtensionInterface
  {
- 
+
  	/**
 ```
 
@@ -626,19 +627,19 @@ Last but not least soll `Map` soll die Funktion `findDirection` bieten. Deshalb 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
   */
- 
+
 -namespace FooNamespace\Component\Foos\Administrator\Service\HTML\Directions;
 +namespace FooNamespace\Component\Foos\Administrator\Service\Direction;
- 
+
  \defined('_JEXEC') or die;
- 
+
   *
   * @since  __DEPLOY_VERSION__
   */
 -class Text
 +class Text implements DirectionExtensionInterface
  {
- 
+
  	/**
 ```
 
@@ -689,7 +690,7 @@ Die Klasse `administrator/components/com_foos/src/Service/HTML/Direction.php` be
 -		$this->directionTool2 = new Map;
 -		$this->directionTool3 = new Text;
 -	}
--	
+-
 -	/**
 -	 * Method to generate a routing direction
 -	 *
@@ -721,13 +722,13 @@ Bei der Darstellung im Frontend können wir die Komponentenklasse über `$fooCom
 +use FooNamespace\Component\Foos\Administrator\Service\Direction\Map as DirectionMap;
 +use FooNamespace\Component\Foos\Administrator\Service\Direction\Text as DirectionText;
 +use FooNamespace\Component\Foos\Administrator\Service\Direction\Image as DirectionImage;
- 
+
  $canDo   = ContentHelper::getActions('com_foos', 'category', $this->item->catid);
  $canEdit = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == Factory::getUser()->id);
 
  	</div>
  <?php endif; ?>
- 
+
 +<?php
 +	$fooComponent = Factory::getApplication()->bootComponent('com_foos');
 +?>
@@ -748,9 +749,9 @@ Bei der Darstellung im Frontend können wir die Komponentenklasse über `$fooCom
 +	echo $fooComponent->getDirectionExtension()->findDirection();
 +?>
  <hr>
- 
+
  <?php
- ```
+```
 
 Wenn du ein Item im Frontend aufrufst, erscheint der Text, den du zur Beschreibung der Anfahrt vorbereitet hast. In dem Beispiel zeige ich zu Demonstrationszwecken noch alle möglichen Varianten an. Meiner Meinung nach wird aber deutlich, wie unkompliziert es ist, die Ausgabe zur Laufzeit zu ändern oder mit Hilfe von Parametern zu manipulieren. Parametern ist ebenfalls ein eigenes Kapitel in diesem Tutorial gewidmet.
 
@@ -758,16 +759,16 @@ Wenn du ein Item im Frontend aufrufst, erscheint der Text, den du zur Beschreibu
 
 ## Warum Dependency Injection?
 
-In diesem Abschnitt siehst du ein einfaches Beispiel. Es beinhaltet die Grundlagen von DI. Die Übergabe der Anforderungen für eine Klasse an die Klasse über eine `set`-Methode, wobei die `set`-Methode typischerweise dem Namen der Eigenschaft entspricht. In unserem Fall ist dies `DirectionExtension`: Wir möchten die Extension festlegen, welche die `Direction` ausgibt. 
+In diesem Abschnitt siehst du ein einfaches Beispiel. Es beinhaltet die Grundlagen von DI. Die Übergabe der Anforderungen für eine Klasse an die Klasse über eine `set`-Methode, wobei die `set`-Methode typischerweise dem Namen der Eigenschaft entspricht. In unserem Fall ist dies `DirectionExtension`: Wir möchten die Extension festlegen, welche die `Direction` ausgibt.
 
 ## Warum Container?
 
-Ein Inversion of Control (IoC) Container kann helfen, alle Teile der Anwendung zu verwalten. Anstatt jedes Mal eine neue `DirectionExtension` zu erstellen, ist es viel einfacher, sich zu merken, wie man eine `DirectionExtension` vorbereitet. Da die `DirectionExtension` in unserem Beispiel nicht viele Abhängigkeiten hat, sind die Vorteile eines Containers schwer zu erkennen. Aber stell dir vor, dass du jedes Mal, wenn du eine `DirectionExtension` erstellst, daran denken musst, die Abhängigkeiten wie impementiere die Schnittstelle `DirectionExtensionInterface` und bietet die Methode `findDirection` zu übergeben. Mit einem Container ist es möglich alles wie in einer Art Template einzurichten und die Erstellung der Anwendung zu überlassen.  Das ist erst recht praktisch, wenn die Abhängigkeiten, die wir injizieren, Abhängigkeiten innerhalb ihrer Abhängigkeiten haben. Das alles kann sehr komplex werden. Beispiel findest du in den `../services/provider.php` Dateien, beispielsweise in `/administrator/components/com_foos/services/provider.php`.
+Ein Inversion of Control (IoC) Container kann helfen, alle Teile der Anwendung zu verwalten. Anstatt jedes Mal eine neue `DirectionExtension` zu erstellen, ist es viel einfacher, sich zu merken, wie man eine `DirectionExtension` vorbereitet. Da die `DirectionExtension` in unserem Beispiel nicht viele Abhängigkeiten hat, sind die Vorteile eines Containers schwer zu erkennen. Aber stell dir vor, dass du jedes Mal, wenn du eine `DirectionExtension` erstellst, daran denken musst, die Abhängigkeiten wie impementiere die Schnittstelle `DirectionExtensionInterface` und bietet die Methode `findDirection` zu übergeben. Mit einem Container ist es möglich alles wie in einer Art Template einzurichten und die Erstellung der Anwendung zu überlassen. Das ist erst recht praktisch, wenn die Abhängigkeiten, die wir injizieren, Abhängigkeiten innerhalb ihrer Abhängigkeiten haben. Das alles kann sehr komplex werden. Beispiel findest du in den `../services/provider.php` Dateien, beispielsweise in `/administrator/components/com_foos/services/provider.php`.
 
 ## Links
 
-[Dependency Injection bei Wikipedia](https://de.wikipedia.org/wiki/Dependency_Injection)[^de.wikipedia.org/wiki/Dependency_Injection]
-[JAB18: Services in Joomla 4](https://joomla.digital-peak.com/images/blog/JAB18_Services_in_Joomla_4.pdf)[^joomla.digital-peak.com/images/blog/JAB18_Services_in_Joomla_4.pdf]
+[Dependency Injection bei Wikipedia](https://de.wikipedia.org/wiki/Dependency_Injection)[^de.wikipedia.org/wiki/dependency_injection]
+[JAB18: Services in Joomla 4](https://joomla.digital-peak.com/images/blog/JAB18_Services_in_Joomla_4.pdf)[^joomla.digital-peak.com/images/blog/jab18_services_in_joomla_4.pdf]
 [Implementierung der Services in der Komponenten Klasse auf Github](https://github.com/joomla/joomla-cms/pull/20217)[^github.com/joomla/joomla-cms/pull/20217]
 [Warum Dependency Injection in Joomla 4](https://github.com/joomla-framework/di/blob/2.0-dev/docs/why-dependency-injection.md)[^github.com/joomla-framework/di/blob/2.0-dev/docs/why-dependency-injection.md]
 <img src="https://vg04.met.vgwort.de/na/3ebf04ae352546a3a0d0bcbadc37c2d1" width="1" height="1" alt="">

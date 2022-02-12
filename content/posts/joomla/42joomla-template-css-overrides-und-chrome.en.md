@@ -508,4 +508,18 @@ We have installed the sample data in the previous chapter and therefore have the
 3. open the module `mod_articles_news` (`Articles - Newsflash`) with the name `Latest Posts`, which is shown in the header of the frontend. In the explanations of `index.php` you have learned that a module Chrome is activated via the parameter `style="hr"` in `<jdoc:include type="modules" name="top-a" style="hr" />`. But you can also set this in the backend. The next picture shows you how to do this in the `Advanced` tab via the `Module Style` parameter.
 
 ![Create Joomla Template - Module Chrome](/images/j4x42x3.png)
+
+4. Play with the different possibilities. Create different types of overrides and test the output in the frontend.
+
+All override files in the directory `templates/facile/html/com_content/article` are available for selection in the tab `Options` in the selection field `Layout` when creating an article.
+
+![Different options in Joomla Template Overrides creation | When creating an article](/images/j4x43x6.png)
+
+When creating a menu item, you only have the overrides to choose from, for which you have created an XML file.
+
+![Different possibilities with the Joomla Template Overrides creation | When creating a menu item](/images/j4x43x7.png)
+
+Attention: You will not get an error message if you create an XML file but the related PHP file is missing due to a typo. There is also no hint if you create two XML files with the same title. Joomla pretends in this case that there is only one of them. In the next screen, the file names are all correct. However, the title 'COM_CONTENT_ARTICLE_VIEW_DEFAULT_TITLE' already exists. When I created an article, the override was only offered for selection after I changed the language string to `COM_CONTENT_ARTICLE_VIEW_DEFAULT_MEINSPRECHENDERNAME_TITLE`.
+
+![Pitfalls in Joomla Template Overrides Creation](/images/j4x43x5.png)
 <img src="https://vg08.met.vgwort.de/na/05bb9638c92646eea2764f7f302d84b9" width="1" height="1" alt="">

@@ -508,4 +508,18 @@ Wir haben im vorhergehenden Kapitel die Beispieldaten installiert und verfügen 
 3. Öffne das Modul `mod_articles_news` (`Articles - Newsflash`) mit dem Namen `Latest Posts`, welches im Kopfbereich des Frontends angezeigt wird. Bei den Erklärungen zur `index.php` hast du erfahren, dass ein Modul Chrome über den Parameter `style="hr"` in `<jdoc:include type="modules" name="top-a" style="hr" />` aktiviert wird. Du kannst dies aber auch im Backend einstellen. Das nächste Bild zeigt dir wie das im Tabulator `Advanced` über den Parameter `Module Style` funktioniert.
 
 ![Joomla Template erstellen - Module Chrome](/images/j4x42x3.png)
+
+4. Spiele mit den verschiedenen Möglichkeiten. Lege verschiedene Arten von Overrides an und teste die Ausgabe im Frontend.
+
+Alle Override-Dateien im Verzeichnis `templates/facile/html/com_content/article` hast du beim Erstellen eines Artikels im Tabulator `Options` im Auswahlfeld `Layout` zur Auswahl.
+
+![Verschiedene Möglichkeiten bei der Joomla Template Overrides Erstellung | Beim Erstellen eines Artikels](/images/j4x43x6.png)
+
+Beim Anlegen eines Menüpunktes hast du lediglich die Overides zur Auswahl, für die du eine XML-Datei angelegt hast.
+
+![Verschiedene Möglichkeiten bei der Joomla Template Overrides Erstellung | Beim Erstellen eines Menüpunktes](/images/j4x43x7.png)
+
+Achtung: Dir wird keine Fehlermeldung angezeigt, wenn du eine XML-Datei anlegst aber die dazugehörige PHP-Datei aufgrund eines Tippfehlers fehlt. Es gibt auch keinen Hinweis, wenn du zwei XML-Dateien mit dem gleichen Titel anlegst. Joomla tut in dem Fall so, als ob es nur eine davon gibt. Im nächsten Bild sind die Dateinamen alle korrekt. Den Titel `COM_CONTENT_ARTICLE_VIEW_DEFAULT_TITLE` gibt es allerdings schon. Beim Erstellen eines Artikels wurde das Override erst zur Auswahl angeboten, nachdem ich den Sprachstring in `COM_CONTENT_ARTICLE_VIEW_DEFAULT_MEINSPRECHENDERNAME_TITLE` änderte.
+
+![Fallstricke bei der Joomla Template Overrides Erstellung](/images/j4x43x5.png)
 <img src="https://vg08.met.vgwort.de/na/b0e462dbf36540ef85c2d098ae4cbf09" width="1" height="1" alt="">

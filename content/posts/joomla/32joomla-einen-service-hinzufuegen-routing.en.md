@@ -13,7 +13,7 @@ tags:
   - Joomla
 ---
 
-Search engine friendly URLs do not work yet. We use a service to repair this fault. At the same time, this is a good example to work out what is necessary to integrate a service in a Joomla extension.<!-- \index{service} -->
+Search engine friendly URLs do not work yet. We use a service to repair this fault. At the same time, this is a good example to work out what is necessary to integrate a service in a Joomla extension.<!-- \index{service} --><!-- \index{routing} -->
 
 _Search Engine Friendly (SEF)_, [human readable](https://en.wikipedia.org/wiki/Clean_URL)[^en.wikipedia.org/wiki/clean_url] are URLs that make sense to both humans and search engines because they explain the path to the specific page. Joomla is able to create URLs in any format. This does not depend on URL rewriting performed by the web server, so it will work even if Joomla uses a server other than Apache with the mod_rewrite module. The SEF URLs follow a certain fixed pattern, but the user can define a short descriptive text [alias](https://docs.joomla.org/Alias)[^docs.joomla.org/alias] for each segment of the URL.<!-- \index{Search Engine Friendly (SEF)} --><!-- \index{service!Search Engine Friendly (SEF)} -->
 

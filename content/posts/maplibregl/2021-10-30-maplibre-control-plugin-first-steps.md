@@ -42,17 +42,17 @@ Ich baue auf einem einfachen Quickstart auf:
 
     <script>
       var map = new maplibregl.Map({
-        container: "map",
+        container: 'map',
         style: 'https://demotiles.maplibre.org/style.json',
         center: [7.2, 50.3], // Startposition [lng, lat]
         zoom: 1, // Zoom
-      });
+      })
     </script>
   </body>
 </html>
 ```
-![Eine einfach gehaltene MapLibre Karte](images/maplibreboilerplate1.PNG)
 
+![Eine einfach gehaltene MapLibre Karte](images/maplibreboilerplate1.PNG)
 
 ## Was ist ein Steuerelement?
 
@@ -132,7 +132,7 @@ Dies sind gute Beispiele dafür, was Steuerelemente tun: Sie manipulieren die Ka
 
 ## Die Steuerungs-API
 
-Die Steuerungs-API ist als Schnittstelle dokumentiert: [die IControl-Schnittstelle] (https://maplibre.org/maplibre-gl-js-docs/api/markers/#icontrol). Das bedeutet, dass ein Steuerelement ein beliebiges Objekt sein kann, solange es zwei Methoden implementiert:
+Die Steuerungs-API ist als Schnittstelle dokumentiert: [die IControl-Schnittstelle](https://maplibre.org/maplibre-gl-js-docs/api/markers/#icontrol). Das bedeutet, dass ein Steuerelement ein beliebiges Objekt sein kann, solange es zwei Methoden implementiert:
 
 - `onAdd(map): element`: wird aufgerufen, wenn ein Steuerelement zur Map hinzugefügt wird, mit der Map als erstem Argument. Diese Methode sollte ein Element zurückgeben. Das Steuerelement kann einen Verweis auf die Map speichern oder das Map-Objekt verwenden, um Ereignis-Listener zu binden.
 - `onRemove()`: wird aufgerufen, wenn ein Steuerelement aus der Map entfernt wird, mit der Map als erstem Argument. Dies gibt dem Steuerelement die Möglichkeit, die Bindung von Ereignis-Listenern aufzuheben, falls es in `onAdd` welche gebunden hat.
@@ -169,7 +169,7 @@ class Foo {
 Erstelle jetzt dein Plugin in einer Zeile und fügen es zur Karte hinzu. Im Beispiel würde das wie folgt aussehen:
 
 ```js
-map.addControl(new Foo());
+map.addControl(new Foo())
 ```
 
 Der HTML Code des vollständige Beispiels sieht am Ende wie folgt aus:
@@ -289,11 +289,11 @@ Gestalte MapLibre Steuerelemente wie jedes andere DOM-Element mit CSS. Hier füg
 
 ```css
 .maplibregl-ctrl {
-    background-color: red;
+  background-color: red;
 }
 
 .maplibregl-ctrl-foo {
-    font-size:xx-large;
+  font-size: xx-large;
 }
 ```
 

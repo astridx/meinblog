@@ -22,7 +22,7 @@ Warum ein eigenes Joomla Template erstellen? Es gibt gute Gründe, warum wir die
 - Wenn wir uns ein individuelles Joomla-Template wünschen, das nicht von Tausenden anderer Websites verwendet wird, ist die Erstellung einer einen Vorlage eine Möglichkeit.
 - Wenn du bisher noch nie ein Joomla Template erstellt hast, wirst du beim Entwickeln eine Menge über Joomla lernen. Du wirst am Ende sehr viel über das Zusammenspiel der unterschiedlichen Elemente wissen und dich sicherer fühlen.
 
-> Es geht hier nicht um das Erlernen von HTML und CSS. Deshalb werde ich in diesem Artikel ein fertiges [HTML5-Template](https://html5up.net/txt) zu Hilfe nehmen. Folge meinem Beispiel und du wirst am Ende in der Lage sein, ein vollständiges Joomla Template selbst zu erstellen. HTML und CSS entwickelst du selbst oder nimmst wie ich hier, eine Vorlage.
+> Es geht hier nicht um das Erlernen von HTML und CSS. Deshalb werde ich in diesem Artikel ein fertiges [HTML5-Template](https://html5up.net/txt) zu Hilfe nehmen. Folge meinem Beispiel und du wirst am Ende in der Lage sein, ein vollständiges Joomla Template selbst zu erstellen. HTML und CSS entwickelst du selbst oder nimmst eine Vorlage, wie ich hier im Tutorial.
 
 Ein Template ist verantwortlich für das Design der Website.
 Es gibt zwei Arten von Templates in Joomla:
@@ -32,13 +32,13 @@ Es gibt zwei Arten von Templates in Joomla:
 
 Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die Website dem Benutzer präsentiert wird.
 
-> Das Prinzip zur Erstellung eines Templates für den Administrationsbereich ist genau das Gleiche. Du legst es im Unterverzeichnis `/administrator/templates` an. Das Front-End-Template erstellst du im Ordner `/templates`.
+> Das Prinzip zur Erstellung eines Templates für den Administrationsbereich ist genau das Gleiche. Relevanter Unterschied: Du legst es im Unterverzeichnis `/administrator/templates` an. Das Front-End-Template erstellst du im Ordner `/templates`.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzten sind, beziehungsweise Joomla-Wissen voraussetzten. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzen sind, beziehungsweise Joomla-Wissen voraussetzen. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
 
 ### Neue Dateien
 
@@ -48,7 +48,7 @@ Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joom
 
 ##### [templates/facile/ component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet in der Regel, dass lediglich die pure Ansicht der Komponente angezeigt wird. Diese wird für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster verwendet. Zur Verdeutlichung: Wie schon erwähnt ist eine Komponente für die Darstellung des Hauptinhalts zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den Hauptinhalt.
+Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet in der Regel, dass lediglich die pure Ansicht der Komponente angezeigt wird. Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal. Zur Verdeutlichung: Wie schon erwähnt ist eine Komponente für die Darstellung des Hauptinhalts zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den Hauptinhalt.
 
 > Möchtest du dir die Ausgabe der Datei `component.php` ansehen? Diese Ansicht wird im Browser angezeigt, wenn du `tmpl=component` an die URL anhängst - beispielsweise so: `/index.php?tmpl=component`.
 

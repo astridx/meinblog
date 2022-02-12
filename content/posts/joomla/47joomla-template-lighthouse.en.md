@@ -49,7 +49,7 @@ Lighthouse is included in the Google Chrome web browser by default. Open the web
 - Start the analysis under a good internet connection.
 - Run the test in "incognito mode" (privacy mode). This way, any browser extensions do not influence the test.
 
-You can use the results and tips from Lighthouse to improve your website. Some of the [tips](https://github.com/GoogleChrome/lighthouse-stack-packs/pull/44/files)[^github.com/GoogleChrome/lighthouse-stack-packs/pull/44/files] come directly from the Joomla community.
+You can use the results and tips from Lighthouse to improve your website. Some of the [tips](https://github.com/GoogleChrome/lighthouse-stack-packs/pull/44/files)[^github.com/googlechrome/lighthouse-stack-packs/pull/44/files] come directly from the Joomla community.
 
 ![Create Joomla Template - Page Speed Analysis with Lighthouse](/images/j4x47x2.png)
 

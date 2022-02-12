@@ -17,7 +17,6 @@ tags:
   - Gatsby
 ---
 
-
 I like to design websites with [Gatsby](https://www.gatsbyjs.com/) and have recently started using [MapLibre GL](https://maplibre.org/). I wish to combine the two. The idea is to create a travel blog where the map illustrates the text content by dynamically zooming into the relevant area. Ideally, the places from a blog post are marked with a marker. When navigating between different posts, the digital map continuously highlights the new regions instead of refreshing the entire map each time. This makes it easier for the reader to see the spatial context.
 
 ## Setup
@@ -36,14 +35,14 @@ After you have created the project, change to the project directory via `cd gats
 
 ![A screenshot of the Gatsby standard starter](images/bloggatsby1.png)
 
-To tidy things up a bit, I changed the files `components/layout.js`, `pages/404.js` and `pages/index.js` in the `src` folder. 
+To tidy things up a bit, I changed the files `components/layout.js`, `pages/404.js` and `pages/index.js` in the `src` folder.
 
 > If you are familiar with Gatsby, you can also delete other contents of the boilerplate. To keep this example simple, it is enough to change the files `components/layout.js`, `pages/404.js` and `pages/index.js`. Below you can see the code I replaced.
 
 ```js
 // index.js
-import React from "react"
-import Layout from "../components/layout"
+import React from 'react'
+import Layout from '../components/layout'
 
 const IndexPage = () => (
   <Layout>
@@ -56,14 +55,14 @@ export default IndexPage
 
 ```js
 // layout.js
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Layout = ({ children }) => {
   return (
-      <div>
-        <main>{children}</main>
-      </div>
+    <div>
+      <main>{children}</main>
+    </div>
   )
 }
 
@@ -76,7 +75,7 @@ export default Layout
 
 ```js
 // 404.js
-import React from "react"
+import React from 'react'
 
 const NotFoundPage = () => (
   <>
@@ -87,7 +86,7 @@ const NotFoundPage = () => (
 export default NotFoundPage
 ```
 
-I also cleaned up the file "gatsby-config.js". Here, too, I wanted to start with a minimum. So I removed a lot and changed the source path of the file to `content`. 
+I also cleaned up the file "gatsby-config.js". Here, too, I wanted to start with a minimum. So I removed a lot and changed the source path of the file to `content`.
 
 ```js
 // gatsby-config.js
@@ -132,7 +131,7 @@ $ npm i maplibre-gl
 
 > Note: The current version of `maplibre-gl` is `2.0.0-pre.6` at the time of writing. I want to install this version, even though it is not a stable version. Therefore I call `npm i maplibre-gl@2.0.0-pre.6`.
 
-The NPM package contains a CSS file. I will later import this directly from the npm module into my component. 
+The NPM package contains a CSS file. I will later import this directly from the npm module into my component.
 
 > Alternatively, it is possible to import the CSS file using the line `<link href='https://unpkg.com/maplibre-gl@1.15.2/dist/maplibre-gl.css' rel='stylesheet' />` in the header of the [static HTML page](https://www.gatsbyjs.com/docs/custom-html/). MapLibre uses [unpkg.com](https://github.com/maplibre/maplibre-gl-js/blob/main/docs/README-unpkg.md).
 
@@ -182,9 +181,9 @@ And integrate the map component into the file 'layout.js'.
 
 ```js
 // layout.js
-import React from "react"
-import PropTypes from "prop-types"
-import Map from "./map"
+import React from 'react'
+import PropTypes from 'prop-types'
+import Map from './map'
 
 const Layout = ({ children }) => {
   return (
@@ -216,32 +215,31 @@ Now let's create some markers on the map. Each blog post will contain an array o
 // on top of map.js
 const places = [
   {
-    name: "Spanien",
+    name: 'Spanien',
     longitude: -0.687787,
     latitude: 38.185674462487874,
   },
   {
-    name: "Germany",
+    name: 'Germany',
     longitude: 7.587787,
     latitude: 50.7438,
   },
   {
-    name: "Frankreich",
+    name: 'Frankreich',
     longitude: 3.687787,
     latitude: 45.753,
   },
 ]
 ```
 
-> I know the coordinates of my places. This is not the case in every use case. You may only know the address or the name of a POI. In this case, it would be nice to have a service integrated that calculates the coordinate based on a text. Such a service is called geocoding. If you want to integrate one, have a look at the Openstreetmap variant. This is [Nominatim](https://nominatim.org/). 
+> I know the coordinates of my places. This is not the case in every use case. You may only know the address or the name of a POI. In this case, it would be nice to have a service integrated that calculates the coordinate based on a text. Such a service is called geocoding. If you want to integrate one, have a look at the Openstreetmap variant. This is [Nominatim](https://nominatim.org/).
 
 Next I will create two new components: `Marker` and `Markers`. I will implement both of them in the file `markers.js
 
-
 ```js
 // markers.js
-import React, { useRef, useEffect } from "react"
-import maplibregl from "maplibre-gl"
+import React, { useRef, useEffect } from 'react'
+import maplibregl from 'maplibre-gl'
 
 const Marker = ({ map, place }) => {
   const markerRef = useRef()
@@ -261,7 +259,7 @@ const Markers = ({ map, places }) => {
   return (
     <>
       {places &&
-        places.map(place => (
+        places.map((place) => (
           <Marker key={place.name} map={map} place={place} />
         ))}
     </>
@@ -273,7 +271,7 @@ export default Markers
 
 The `Markers` component uses two properties of the `Map` component. In React, the properties are called `props`. The first `props` is a reference to the map `map`. The second `props` is the data of the markers. We pass these on to the `marker` component in the `places` property. This component then takes care of the display on the map.
 
-I use the [Turf.js library](http://turfjs.org/) to calculate the area of the map that should be displayed. This area is called the bounding box. I want all markers belonging to the blog post to be visible. So it may be that the bounding box represents a small excerpt of the world. But it can also be that the whole world is relevant. For each new call, it is therefore important that the map recalculates the centre point and the zoom level. Next to `Turf.js` I install `@turf/helpers` so that the values are converted into a GeoJson object. This is what the `Turf.js` functions expect. 
+I use the [Turf.js library](http://turfjs.org/) to calculate the area of the map that should be displayed. This area is called the bounding box. I want all markers belonging to the blog post to be visible. So it may be that the bounding box represents a small excerpt of the world. But it can also be that the whole world is relevant. For each new call, it is therefore important that the map recalculates the centre point and the zoom level. Next to `Turf.js` I install `@turf/helpers` so that the values are converted into a GeoJson object. This is what the `Turf.js` functions expect.
 
 ```
 $ npm install @turf/bbox @turf/helpers
@@ -285,25 +283,25 @@ In the `map.js`, I will create a new `useEffect()` hook. The first effect hoo
 // map.js
 
 // add new modules
-import React, { useRef, useEffect, useState } from "react"
-import maplibregl from "maplibre-gl"
-import bbox from "@turf/bbox"
-import { multiPoint } from "@turf/helpers"
-import Markers from "./markers"
-import "maplibre-gl/dist/maplibre-gl.css"
+import React, { useRef, useEffect, useState } from 'react'
+import maplibregl from 'maplibre-gl'
+import bbox from '@turf/bbox'
+import { multiPoint } from '@turf/helpers'
+import Markers from './markers'
+import 'maplibre-gl/dist/maplibre-gl.css'
 
 // ... variables
 
 const Map = () => {
-	// ... ref, state, useEffect
+  // ... ref, state, useEffect
 
-	// add new effect hook
+  // add new effect hook
   useEffect(() => {
     if (!map) return
 
     if (places.length !== 0) {
       const coords = []
-      places.forEach(place => {
+      places.forEach((place) => {
         coords.push([place.longitude, place.latitude])
       })
       const feature = multiPoint(coords)
@@ -394,19 +392,16 @@ module.exports = {
     `gatsby-plugin-sharp`,
   ],
 }
-
 ```
-
-
 
 ```js
 // gatsby-node.js
-const path = require("path")
+const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode })
     createNodeField({
       node,
@@ -417,7 +412,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html" || stage === "develop-html") {
+  if (stage === 'build-html' || stage === 'develop-html') {
     actions.setWebpackConfig({
       module: {
         rules: [
@@ -465,7 +460,7 @@ We create the file `./src/templates/postTemplate.js`, which is used as a templat
 // postTemplate.js
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from "../components/layout"
+import Layout from '../components/layout'
 
 const PostTemplate = ({ data }) => {
   const frontmatter = data.markdownRemark.frontmatter
@@ -477,7 +472,7 @@ const PostTemplate = ({ data }) => {
         <h1>{frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
-      <Link to='/'>Back to Index</Link>
+      <Link to="/">Back to Index</Link>
     </Layout>
   )
 }
@@ -486,7 +481,7 @@ export default PostTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug }}) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
@@ -501,7 +496,7 @@ export const pageQuery = graphql`
 `
 ```
 
-Now it is necessary to restart the development server because we have updated `gatsby-node.js`. If all goes well, Gatsby will generate pages for us. 
+Now it is necessary to restart the development server because we have updated `gatsby-node.js`. If all goes well, Gatsby will generate pages for us.
 
 ## Add Navigation
 
@@ -509,8 +504,8 @@ In order to be able to call the individual pages, we add a simple navigation in 
 
 ```js
 // components/postList.js
-import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import React from 'react'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 
 const query = graphql`
   query MyQuery {
@@ -534,11 +529,11 @@ const PostList = () => {
   return (
     <ul
       style={{
-        listStyleType: "none",
+        listStyleType: 'none',
         padding: 0,
       }}
     >
-      {nodes.map(node => {
+      {nodes.map((node) => {
         const title = node.frontmatter.title
         return (
           <li key={title}>
@@ -551,16 +546,15 @@ const PostList = () => {
 }
 
 export default PostList
-
 ```
 
 At the end we integrate the navigation `<PostList />` into the layout, i.e. into the file `layout.js`.
 
 ```js
 // componentes/layout.js
-import React from "react"
-import PropTypes from "prop-types"
-import Map from "./map"
+import React from 'react'
+import PropTypes from 'prop-types'
+import Map from './map'
 import PostList from './postList'
 
 const Layout = ({ children }) => {
@@ -586,9 +580,8 @@ We can now navigate between the pages. But everything does still not fit yet. Th
 
 ## Gatsby Browser API
 
-Why the map reloads [can be found on the Gatsby website](https://www.gatsbyjs.com/docs/how-to/routing/layout-components/#how-to-prevent-layout-components-from-unmounting) explains. In short: we need to remove the wrapping `layout` component from our pages and use the `wrapPageElement` browser API in `gatsby-browser.js`. You can find more information about this interface at [the API reference] (https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement). 
+Why the map reloads [can be found on the Gatsby website](https://www.gatsbyjs.com/docs/how-to/routing/layout-components/#how-to-prevent-layout-components-from-unmounting) explains. In short: we need to remove the wrapping `layout` component from our pages and use the `wrapPageElement` browser API in `gatsby-browser.js`. You can find more information about this interface at [the API reference](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/#wrapPageElement).
 Use the same code in `gatsby-ssr.js` for server-side rendering.
-
 
 ```js
 // gatsby-browser.js & gatsby-ssr.js
@@ -600,7 +593,7 @@ exports.wrapPageElement = ({ element, props }) => {
 }
 ```
 
-> Remember to remove all layout components. No error will occur, but you will see the map twice. 
+> Remember to remove all layout components. No error will occur, but you will see the map twice.
 
 If you now navigate between the pages, the map is not reloaded. In the next step, we make sure that the content of the map dynamically adapts to the properties of the blog post.
 
@@ -631,7 +624,7 @@ const Map = props => {
 
   // ...
 
-  
+
   useEffect(() => {
     if (!map) return
 
@@ -677,19 +670,20 @@ Last but not least, the coordinates are passed on to the `layout` component. I u
 
 ```js
 // components/layout.js
-  // ...
-  return (
-    <>
-      <Map places={places} />
-      // ...
-    </>
-  )
-  // ...
+// ...
+return (
+  <>
+    <Map places={places} />
+    // ...
+  </>
+)
+// ...
 ```
 
 That's it! Now the data and markers will update correctly.
 
 Todo
+
 - Popup für jede Markierung hinzufügen
 - Hinzufügen eines eigenen Markierungsdesigns (z.B. SVG)
 - Hinzufügen von Marker-Animationen
@@ -697,6 +691,6 @@ Todo
 
 ## Referenzen
 
--   [maplibre React examples repo](https://github.com/maplibre/maplibre-react-examples): There are only a few examples but I got a lot of help from the repo as they covered almost everything I needed to know.
--   [Maplibre examples](https://maplibre.org/maplibre-gl-js-docs/api/): Most of them are in vanilla JS but using the hooks we covered in this post, I think it would be fairly simple to translate them to React.
--   [Mapbox Gatsby Blog with Hooks](https://erraticgenerator.com/blog/gatsby-blog-with-mapbox-gl-js-using-react-hooks/).
+- [maplibre React examples repo](https://github.com/maplibre/maplibre-react-examples): There are only a few examples but I got a lot of help from the repo as they covered almost everything I needed to know.
+- [Maplibre examples](https://maplibre.org/maplibre-gl-js-docs/api/): Most of them are in vanilla JS but using the hooks we covered in this post, I think it would be fairly simple to translate them to React.
+- [Mapbox Gatsby Blog with Hooks](https://erraticgenerator.com/blog/gatsby-blog-with-mapbox-gl-js-using-react-hooks/).

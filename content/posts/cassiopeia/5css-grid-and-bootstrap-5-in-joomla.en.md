@@ -55,8 +55,7 @@ Der Hauptunterschied ist, dass die Spaltengrößen-Präfixe von `span` auf `col-
 Es ist möglich, mehr als eine Klasse zu verwenden, um eine unterschiedliche Spaltengröße in Abhängigkeit von der Bildschirmbreite zu definieren. Dies erlaubt mehr Kontrolle über die Reaktionsfähigkeit bei unterschiedlichen Bildschirmgrößen!
 
 ```html
-<div class="col-md-6 col-lg-12">
-</div>
+<div class="col-md-6 col-lg-12"></div>
 ```
 
 Das obige Beispiel bedeutet, dass die Spaltenbreite bei mittleren Bildschirmen (ab 768 Pixel) 50% und bei einer minimalen Bildschirmbreite von 992 Pixel 100% betragen würde. Bei der mittleren Breite werden 6 Spalten und bei der minimalen Breite 12 der Spalten verwendet.
@@ -80,8 +79,8 @@ HTML:
 
 ```html
 <div class="container">
-    <div></div>
-    <div></div>
+  <div></div>
+  <div></div>
 </div>
 ```
 
@@ -89,9 +88,9 @@ CSS:
 
 ```css
 .container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 100px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100px;
 }
 ```
 
@@ -119,7 +118,7 @@ CSS Grid funktioniert so, dass wir zunächst ein Raster für einen übergeordnet
 
 #### Das Problem mit dynamischen Inhalten und CSS Grid
 
-Joomla ist unglaublich vielseitig. Jede beliebige Joomla-Seite kann mehrere Layouts haben, abhängig von den Modulen, die in einem bestimmten Menüpunkt aktiviert sind. Dasselbe gilt für Komponenten, wo verschiedene Komponentenelemente angezeigt werden, abhängig von den Einstellungen für diese Komponente. Es ist diese Flexibilität von Joomla, die eine Herausforderung bei der Verwendung von CSS-Grid darstellt. Wie die Positionierung eines Elements innerhalb eines Rasters definiert wird, muss sich je nach den umgebenden Elementen ändern. 
+Joomla ist unglaublich vielseitig. Jede beliebige Joomla-Seite kann mehrere Layouts haben, abhängig von den Modulen, die in einem bestimmten Menüpunkt aktiviert sind. Dasselbe gilt für Komponenten, wo verschiedene Komponentenelemente angezeigt werden, abhängig von den Einstellungen für diese Komponente. Es ist diese Flexibilität von Joomla, die eine Herausforderung bei der Verwendung von CSS-Grid darstellt. Wie die Positionierung eines Elements innerhalb eines Rasters definiert wird, muss sich je nach den umgebenden Elementen ändern.
 
 Angenommen ein Komponentenbereich ist von Modulpositionen umgeben.
 
@@ -131,9 +130,9 @@ Unter Verwendung von CSS Grid kann das oben genannte mit dem folgenden CSS errei
 
 ```css
 .wrapper {
-   display: grid;
-   grid-gap: 10px;
-   grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .sidebartop {

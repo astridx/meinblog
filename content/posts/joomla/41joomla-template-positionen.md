@@ -55,7 +55,11 @@ Ich hatte es im vorherigen Teil schon erwähnt: Die Datei `component.php` zeigt 
 
 Der wesentliche neue Eintrag ist `<jdoc:include type="component" />`. Der Befehl fügt den Hauptinhalt der aktuelle Seite ein.
 
-Zusätzlich nutzen wir `<jdoc:include type="message" />` und `<jdoc:include type="head" />`. `<jdoc:include type="message" />` zeigt System- und Fehlermeldungen an, die während der Anfrage aufgetreten sind. `<jdoc:include type="head" />` lädt Inhalte, die Erweiterungen benötigen und über spezielle Befehle einbinden. Das sind überwiegend Skripte und Styles.
+Zusätzlich nutzen wir `<jdoc:include type="message" />` und `<jdoc:include type="head" />`. `<jdoc:include type="message" />` zeigt System- und Fehlermeldungen an, die während der Anfrage aufgetreten sind.
+
+> Fragst du dich was System- und Fehlermeldungen genau sind? In Joomla werden diese mittels `$this->setMessage(Text::sprintf('MESSAGE_TEXT', $id), 'error');` generiert. In der Datei `administrator/components/com_content/src/Controller/DisplayController.php` findest du ein [Beispiel](https://github.com/joomla/joomla-cms/blob/91bb57b83a2f5a35693000d88a50a100b62144aa/administrator/components/com_content/src/Controller/DisplayController.php#L55)[^https://github.com/joomla/joomla-cms/blob/91bb57b83a2f5a35693000d88a50a100b62144aa/administrator/components/com_content/src/controller/displaycontroller.php#l55]. Dieses gibt den Text `You are not permitted to use that link to directly access that page.` im Frontend aus. Und zwar genau an der Stelle, an der `<jdoc:include type="message" />` im Template eingefügt ist.<!-- \index{Template!Fehlermeldungen} --><!-- \index{Template!Systemmeldungen} --><!-- \index{Systemmeldungen} -->
+
+`<jdoc:include type="head" />` lädt Inhalte, die Erweiterungen benötigen und über spezielle Befehle einbinden. Das sind überwiegend Skripte und Styles.
 
 > `<jdoc:include type="head" />`, `<jdoc:include type="message" />` und `<jdoc:include type="component" />` sollte nur einmal im `<body>` Element des Templates vorkommen. Weitere Informationen zu den Befehlen findest du in der Joomla Dokumentation [docs.joomla.org/Jdoc_statements/de](https://docs.joomla.org/Jdoc_statements/de).
 
@@ -148,9 +152,11 @@ Den Befehl `jdoc:include` finden wir an anderen Stellen in der `index.php`. Beis
 
 Ein weiteres zu besprechendes Element ist `<jdoc:include type="component" />`. Dieses Element fügt den Hauptinhalt in die Site ein.
 
-Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`. Wie der Name schon sagt, werden hierüber Module eingebunden.
+Das letzte erwähnenswerte Element ist `<jdoc:include type="modules" />`. Wie der Name schon sagt, werden hiermit Module eingebunden.
 
 So, genug erklärt. Alle Inhalte sind eingebunden. Sie werden bisher nicht schön dargestellt. Erschrecke nicht, wenn du später diese Version im Browser öffnest. Du siehst alle Inhalt momentan noch in ungestylter Form.
+
+> Unter Umständen ist es wichtig für dich, dass eine Modulposition nur dann eingefügt wird, wenn ein Modul darunter veröffentlicht ist, denn so lässt sich das unnötige Setzen von HTML-Elementen für einen Wrapper leichter verhindern. Wie man das erreicht, ist Thema des nächsten Kapitels. Oder du möchtest im Template optional festlegen, welche Modulposition verwendet wird. Ist es beispielsweise für dich wichtig, dass eine Sidebar komplett deaktiviert werden kann, erreichst du dies mit Hilfe von Parametern, die Thema des übernächsten Kapitels sind.
 
 ##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t35...t36#diff-764a4776e5fab4421733468c2fc87d67e612f3d84297fb83ed0495d4c04b27d2)
 

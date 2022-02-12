@@ -93,6 +93,8 @@ Take a look at the code snippet below. I think the HTML code is self-explanatory
                  <jdoc:include type="modules" name="footer" />
 ```
 
+> Tip: You would like to optionally define in the template which module position is used. For example, is it important for you that a sidebar can be completely deactivated? Then create the parameter `showSidebarLeft` and extend the line `<?php if ($this->countModules('sidebar-left', true)) : ?>`. In the end, this should become `<?php if ($this->countModules('sidebar-left', true) && $this->params->get('showSidebarLeft')) : ?>`.
+
 ##### [templates/facile/language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
 
 We use the language files for the labels of our backend form. This way the texts can be translated into different languages.

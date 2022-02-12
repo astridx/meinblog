@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 1000)
 })
 ```
-> Der Variablenname `returnedValue` ist nur als Beispiel gedacht. Der Name einer Variablen sollte in echtem Code erklären, warum sie existiert, was sie tut und wie sie verwendet wird. 
+
+> Der Variablenname `returnedValue` ist nur als Beispiel gedacht. Der Name einer Variablen sollte in echtem Code erklären, warum sie existiert, was sie tut und wie sie verwendet wird.
 
 ### Modified files
 

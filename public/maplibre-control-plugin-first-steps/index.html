@@ -62,11 +62,11 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">&lt;</span><span class="mtk7">script</span><span class="mtk3">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      </span><span class="mtk13 mtkb">var</span><span class="mtk1"> </span><span class="mtk7">map</span><span class="mtk1"> </span><span class="mtk8">=</span><span class="mtk1"> </span><span class="mtk8">new</span><span class="mtk1"> </span><span class="mtk7">maplibregl</span><span class="mtk1">.</span><span class="mtk7">Map</span><span class="mtk1">({</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        container: </span><span class="mtk11">&quot;map&quot;</span><span class="mtk1">,</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        container: </span><span class="mtk11">&#39;map&#39;</span><span class="mtk1">,</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        style: </span><span class="mtk11">&#39;https://demotiles.maplibre.org/style.json&#39;</span><span class="mtk1">,</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        center: [</span><span class="mtk6">7.2</span><span class="mtk1">, </span><span class="mtk6">50.3</span><span class="mtk1">], </span><span class="mtk3 mtki">// Startposition [lng, lat]</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        zoom: </span><span class="mtk6">1</span><span class="mtk1">, </span><span class="mtk3 mtki">// Zoom</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      });</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">      })</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">&lt;/</span><span class="mtk7">script</span><span class="mtk3">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk3">&lt;/</span><span class="mtk7">body</span><span class="mtk3">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;/</span><span class="mtk7">html</span><span class="mtk3">&gt;</span></span></span></code></pre>
@@ -205,7 +205,7 @@ void function() {
 <li>Jedes Steuerlement hat Zugriff auf das Maplibre-Map-Objekt, um Informationen zu lesen und zu manipulieren.</li>
 </ul>
 <h2>Die Steuerungs-API</h2>
-<p>Die Steuerungs-API ist als Schnittstelle dokumentiert: [die IControl-Schnittstelle] (<a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#icontrol">https://maplibre.org/maplibre-gl-js-docs/api/markers/#icontrol</a>). Das bedeutet, dass ein Steuerelement ein beliebiges Objekt sein kann, solange es zwei Methoden implementiert:</p>
+<p>Die Steuerungs-API ist als Schnittstelle dokumentiert: <a href="https://maplibre.org/maplibre-gl-js-docs/api/markers/#icontrol">die IControl-Schnittstelle</a>. Das bedeutet, dass ein Steuerelement ein beliebiges Objekt sein kann, solange es zwei Methoden implementiert:</p>
 <ul>
 <li><code class="language-text">onAdd(map): element</code>: wird aufgerufen, wenn ein Steuerelement zur Map hinzugefügt wird, mit der Map als erstem Argument. Diese Methode sollte ein Element zurückgeben. Das Steuerelement kann einen Verweis auf die Map speichern oder das Map-Objekt verwenden, um Ereignis-Listener zu binden.</li>
 <li><code class="language-text">onRemove()</code>: wird aufgerufen, wenn ein Steuerelement aus der Map entfernt wird, mit der Map als erstem Argument. Dies gibt dem Steuerelement die Möglichkeit, die Bindung von Ereignis-Listenern aufzuheben, falls es in <code class="language-text">onAdd</code> welche gebunden hat.</li>
@@ -234,7 +234,7 @@ void function() {
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>Erstelle jetzt dein Plugin in einer Zeile und fügen es zur Karte hinzu. Im Beispiel würde das wie folgt aussehen:</p>
-<pre class="grvsc-container solarized-light" data-language="js" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">map</span><span class="mtk1">.</span><span class="mtk7">addControl</span><span class="mtk1">(</span><span class="mtk8">new</span><span class="mtk1"> </span><span class="mtk7">Foo</span><span class="mtk1">());</span></span></span></code></pre>
+<pre class="grvsc-container solarized-light" data-language="js" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk7">map</span><span class="mtk1">.</span><span class="mtk7">addControl</span><span class="mtk1">(</span><span class="mtk8">new</span><span class="mtk1"> </span><span class="mtk7">Foo</span><span class="mtk1">())</span></span></span></code></pre>
 <p>Der HTML Code des vollständige Beispiels sieht am Ende wie folgt aus:</p>
 <pre class="grvsc-container solarized-light" data-language="js" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk8">&lt;!</span><span class="mtk7">DOCTYPE</span><span class="mtk1"> </span><span class="mtk7">html</span><span class="mtk8">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">&lt;</span><span class="mtk7">html</span><span class="mtk3">&gt;</span></span></span>
@@ -360,11 +360,11 @@ void function() {
 <h3>Styling</h3>
 <p>Gestalte MapLibre Steuerelemente wie jedes andere DOM-Element mit CSS. Hier füge ich der CSS-Klasse leaflet-control-example Stilregeln hinzu. Naja, bisher stehen hier wenige Stile. Sie haben sicher etwas mehr Fantasie. Zur Erinnerung: Das <code class="language-text">div</code>-Element mit den Klassen <code class="language-text">maplibregl-ctrl</code> und <code class="language-text">maplibregl-ctrl-foo</code> haben wir in der onAdd-Methode hinzugefügt.</p>
 <pre class="grvsc-container solarized-light" data-language="css" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.maplibregl-ctrl</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">background-color</span><span class="mtk1">: red;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">background-color</span><span class="mtk1">: red;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">.maplibregl-ctrl-foo</span><span class="mtk1"> {</span></span></span>
-<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk8">font-size</span><span class="mtk1">:xx-large;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk8">font-size</span><span class="mtk1">: xx-large;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span></code></pre>
 <p>Das nachfolgende Bild zeigt, dass die Klasse <code class="language-text">maplibregl-ctrl</code> auf alle Steuerelemente angewandt wird. Alle haben nun einen roten Hintergrund. Die Klasse <code class="language-text">maplibregl-ctrl-foo</code> wirkt sich lediglich auf unser neu hinzugefügtes Foo-Element aus. Nur der Test ist jetzt extra groß.</p>
 <p><span
