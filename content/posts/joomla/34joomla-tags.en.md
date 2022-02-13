@@ -349,6 +349,8 @@ If you have tagged a Foo element and are now surprised that it is not displayed,
 <?php endif; ?>
 ```
 
+> You want to tag Joomla elements in order to build a keyword directory. You make the assignment by opening the element (article, category ...) and entering the keywords on the right. Do you have any problems? Are not all keywords saved. Do you also notice that not all keywords are displayed in the selection menu of other components? The reason is that the display of the keywords is limited to 30. I have searched for documentation. I have not found anything. Maybe it's because I'm not searching properly. I sometimes find it easier to look directly in the code: The place that answers the question is in the file [libraries/src/Form/Field/TagField.php](https://github.com/joomla/joomla-cms/blob/ba5fc69400c2fb2a27e56d0b8bec0db10c8705df/libraries/src/Form/Field/TagField.php#L136)[^github.com/joomla/joomla-cms/blob/ba5fc69400c2fb2a27e56d0b8bec0db10c8705df/libraries/src/Form/Field/TagField.php#L136]. The PR, where you can also read out the reasons for the introduction, is [PR 31481](https://github.com/joomla/joomla-cms/pull/31481)[^github.com/joomla/joomla-cms/pull/31481]. The workaround is to change the display mode in the Tags component.<!-- \index{tags!limit} -->
+
 ## Links
 
 [Using Tags in a Extension](https://docs.joomla.org/J3.x:Using_Tags_in_an_Extension)[^https://docs.joomla.org/j3.x:using_tags_in_an_extension]
