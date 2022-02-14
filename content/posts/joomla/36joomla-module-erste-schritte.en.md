@@ -1,13 +1,14 @@
 ---
-date: 2021-01-05
-title: 'Joomla 4.x Tutorial - Extension Development - Modules - First Steps'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-14
+title: 'Modules - First Steps'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-erste-schritte
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

@@ -1,13 +1,14 @@
 ---
-date: 2020-12-09
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die Daten der Datenbank im Frontend nutzen'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-12
+title: 'Die Daten der Datenbank im Frontend nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-daten-der-datenbank-im-frontend-nutzen
 langKey: de
 categories:
-  - JoomlaDe
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

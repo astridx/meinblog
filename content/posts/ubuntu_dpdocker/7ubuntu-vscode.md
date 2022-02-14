@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-08
 title: 'Ubuntu 20.02, Docker, DPDocker und Joomla  Vorwort'
 template: post

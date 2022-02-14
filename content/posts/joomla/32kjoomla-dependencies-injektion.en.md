@@ -1,13 +1,14 @@
 ---
-date: 2021-12-23
-title: 'Joomla 4.x Tutorial - Excursion - Extension Development - Dependency Injection'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-19
+title: 'Dependency Injection'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-dependency-injection
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

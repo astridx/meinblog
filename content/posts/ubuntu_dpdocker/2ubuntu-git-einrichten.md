@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-03
 title: 'Git unter Ubuntu 20.04 einrichten'
 template: post

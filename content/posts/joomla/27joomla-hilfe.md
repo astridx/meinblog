@@ -1,13 +1,14 @@
 ---
-date: 2020-12-27
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Hilfe'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-25
+title: 'Hilfe'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-hilfe
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

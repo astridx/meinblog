@@ -1,13 +1,14 @@
 ---
-date: 2020-12-26
-title: 'Joomla 4.x Tutorial - Extension Development - Batch Processing'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-26
+title: 'Batch Processing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-batch
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

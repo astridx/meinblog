@@ -1,13 +1,14 @@
 ---
-date: 2021-01-13
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Web Asset Manager'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-06
+title: 'Template - Web Asset Manager'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-wa
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

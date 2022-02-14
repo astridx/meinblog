@@ -1,13 +1,14 @@
 ---
-date: 2020-12-20
-title: 'Joomla 4.x Tutorial - Extension Development - Filter, Sort, Search'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-01
+title: 'Filter, Sort, Search'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-filtern-sortieren-suchen
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

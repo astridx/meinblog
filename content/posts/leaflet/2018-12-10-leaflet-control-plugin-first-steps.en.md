@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-10
 title: 'Erstellen Sie Ihr erstes Leaflet-Control-Plugin - Ein Tutorial für Anfänger'
 template: post
@@ -6,7 +8,7 @@ thumbnail: '../thumbnails/leaflet.png'
 slug: en/leaflet-control-plugin-first-steps
 langKey: de
 categories:
-  - Leaflet
+  - Leaflet English
 tags:
   - geografische Daten
   - Leaflet

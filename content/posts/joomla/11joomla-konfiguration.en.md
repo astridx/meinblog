@@ -1,13 +1,14 @@
 ---
-date: 2020-12-11
-title: 'Joomla 4.x Tutorial - Extension Development - Configuration'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-10
+title: 'Configuration'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-konfiguration
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-07-28
 title: 'Grundlegendes zu Ereignisschleifen (Event Loop), Rückruffunktionen (Callback), Promises und Async/Await in JavaScript'
 template: post
@@ -7,7 +9,6 @@ slug: ereignisschleifen-rueckruffunktionen-promises-und-async-await-in-javascrip
 langKey: de
 categories:
   - Code
-  - Popular
 tags:
   - JavaScript
 ---

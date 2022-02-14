@@ -1,14 +1,16 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-03
-title: 'A tutorial on how to use the Cassiopeia template for Joomla 4 - General information about Cassiopeia'
+title: 'General information about Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/allgemeines-zu cassiopeia-und-joomla4
 langKey: en
 categories:
-  - Code
+  - Cassiopeia English
 tags:
-  - Tmplate
+  - Template
   - Joomla
   - Cassiopeia
 ---

@@ -1,25 +1,27 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-10
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Favicon'
+title: 'Favicon'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-favicon
-langKey: de
+langKey: en
 categories:
-  - Code
+  - Cassiopeia English
 tags:
   - Template
   - Joomla
   - Cassiopeia
 ---
 
-Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie sind historisch gewachsen. Heute bieten sie verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.
+Favicons are the small icons we see in browser tabs. They help to recognise a page when we browse the bookmarks and open tabs in the browser. The integration of favicons changed over time. Some say they have grown historically. Today they offer various additional functions and new ones are added all the time.
 
-Eine neue Funktion ist die Möglichkeit, den Dateityp SVG als Favicon zu verwenden. Das ist etwas, das [die meisten modernen Browser unterstützen](https://caniuse.com/#feat=link-icon-svg), und weitere Unterstützung ist in Vorbereitung. Um diese neue Funktion zu nutzen benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser das Bild anzeigen, benötigst du zusätzlich eine ICO-Datei.
+A new feature is the ability to use the file type SVG as a favicon. This is something that [most modern browsers support](https://caniuse.com/#feat=link-icon-svg), and further support is in the pipeline. To use this new feature you need an SVG file. To ensure that older browsers also display the image, you also need an ICO file.
 
-> Du kennst dich mit SVG und ICO nicht aus und würdest lieber eine das PNG-Format verwenden? Dann findest du unter [Favicon im Joomla-Template](https://blog.astrid-guenther.de/joomla-template-favicon) eine Lösung die besser zu dir passt.
+> You are not familiar with SVG and ICO and would rather use the PNG format? Then you will find a solution that suits you better under [Favicon in Joomla template](https://blog.astrid-guenther.de/en/joomla-template-favicon).
 
-> Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.
+> Delete the browser cache if changes to the favicon do not seem to work during development.
 
 ## Favicon in Cassiopeia
 

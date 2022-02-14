@@ -1,12 +1,14 @@
 ---
-date: 2020-12-05
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Das M im MVC: Model'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-16
+title: 'Das M im MVC: Model'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: das-m-im-mvc-model
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

@@ -1,13 +1,14 @@
 ---
-date: 2020-11-30
-title: 'Joomla 4.x Tutorial - Extension Development - Preface'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-21
+title: 'Preface'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-tutorial-vorwort
 langKey: en
 categories:
-  - Code
-  - JoomlaEn
+  - Joomla English
 tags:
   - CMS
   - Joomla
@@ -276,4 +277,35 @@ The HTML code
 ```
 
 displays the left-aligned character, for example.
+
+### Use images<!-- \index{images} -->
+
+A [new JLayout](https://gist.github.com/dgrammatiko/a20236039586a2fbc5c77caadffc3de8)[^gist.github.com/dgrammatiko/a20236039586a2fbc5c77caadffc3de8] as of Joomla 4.0.5 allows developers to output HTML image tags easily:
+
+So instead of writing something like this:
+
+``PHP
+
+<?php
+echo '<img src="' . $imageURL .'" alt="' . htmlspecialchars($imageAlt, ENT_COMPAT, 'UTF-8') . '">';
+?>
+
+```
+
+The recommended way is to use the JLayout:
+
+``PHP
+<?php
+echo LayoutHelper::render('joomla.html.image', ['src' => imageURL, 'alt' => $imageAlt]);
+?>
+```
+
+Advantages:
+
+- The URL and the alt attribute are escaped correctly.
+- The developer does not have to worry about the "#" at the end of the URL.
+- The image tag gets a `loading="lazy"` attribute if the image has the `width` and `height` attributes defined.
+- The alt attribute is ignored if the value passed is `false`.
+- All other attributes are rendered correctly, pass them as in the array (for example `'class' => 'my-class'`).
+
 <img src="https://vg01.met.vgwort.de/na/65e9cc10ed0f41fe8cd1e70d24d308f6" width="1" height="1" alt="">

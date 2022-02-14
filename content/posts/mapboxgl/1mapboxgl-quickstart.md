@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-10-02
 title: 'Mapbox GL Quickstart'
 template: post

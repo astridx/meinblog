@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-12
 title: 'Willkommen'
 template: post

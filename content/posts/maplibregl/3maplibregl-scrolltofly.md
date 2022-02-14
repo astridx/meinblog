@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-05-04
 title: 'Eine Stadtführung mit Mapbox GL'
 template: post

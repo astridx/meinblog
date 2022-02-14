@@ -1,13 +1,14 @@
 ---
-date: 2021-01-03
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Tags'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-17
+title: 'Tags'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-tags
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla
@@ -348,7 +349,7 @@ Falls du ein Foo-Element mit einem Tag versehen hast und dich nun wunderst, dass
 <?php endif; ?>
 ```
 
-> Möchtest du Joomla Elemente taggen um damit ein Stichwortverzeichnis zu bauen. Die Zuweisung machst du, indem du das Element (Artiikel, Kategorie ...) öffnest und die Schlagworte rechts einträgst. Hast du dabei Probleme? Werden nicht alle Schlagworte gespeichert. Fällt dir außerdem auf, dass auch bei anderen Komponenten im Auswahlmenü nicht alle Schlagworte angezeigt werden? Die Ursache ist, das die Anzeige der Schlagworte auf 30 limitiert ist. Ich habe nach einer Dokumentation gesucht. Ich habe nichts gefunden. Vielleicht liegt es daran, dass ich nicht richtig suche. Mir fällt es manchmal einfacher, direkt im Code zu schauen: Die Stelle, welche die Frage beantwortet, ist in der Datei [libraries/src/Form/Field/TagField.php](https://github.com/joomla/joomla-cms/blob/ba5fc69400c2fb2a27e56d0b8bec0db10c8705df/libraries/src/Form/Field/TagField.php#L136)[^github.com/joomla/joomla-cms/blob/ba5fc69400c2fb2a27e56d0b8bec0db10c8705df/libraries/src/Form/Field/TagField.php#L136]. Der PR, in dem auch die Gründe für die Einführung herauslesen kann, ist [PR 31481](https://github.com/joomla/joomla-cms/pull/31481)[^github.com/joomla/joomla-cms/pull/31481]. Abhilfe schafft die Änderung des Anzeigemodus in der Komponente Tags.<!-- \index{Schlagworte!Limit} --><!-- \index{Tags!Limit} -->
+> Möchtest du Joomla Elemente taggen um damit ein Stichwortverzeichnis zu bauen. Die Zuweisung machst du, indem du das Element (Artiikel, Kategorie ...) öffnest und die Schlagworte rechts einträgst. Hast du dabei Probleme? Werden nicht alle Schlagworte gespeichert. Fällt dir außerdem auf, dass auch bei anderen Komponenten im Auswahlmenü nicht alle Schlagworte angezeigt werden? Die Ursache ist, das die Anzeige der Schlagworte auf 30 limitiert ist. Ich habe nach einer Dokumentation gesucht. Ich habe nichts gefunden. Vielleicht liegt es daran, dass ich nicht richtig suche. Mir fällt es manchmal einfacher, direkt im Code zu schauen: Die Stelle, welche die Frage beantwortet, ist in der Datei [libraries/src/Form/Field/TagField.php](https://github.com/joomla/joomla-cms/blob/ba5fc69400c2fb2a27e56d0b8bec0db10c8705df/libraries/src/Form/Field/TagField.php#L136)[^github.com/joomla/joomla-cms/blob/ba5fc69400c2fb2a27e56d0b8bec0db10c8705df/libraries/src/form/field/tagfield.php#l136]. Der PR, in dem auch die Gründe für die Einführung herauslesen kann, ist [PR 31481](https://github.com/joomla/joomla-cms/pull/31481)[^github.com/joomla/joomla-cms/pull/31481]. Abhilfe schafft die Änderung des Anzeigemodus in der Komponente Tags.<!-- \index{Schlagworte!Limit} --><!-- \index{Tags!Limit} -->
 
 ## Links
 

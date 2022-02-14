@@ -1,13 +1,14 @@
 ---
-date: 2021-01-11
-title: 'Joomla 4.x-Tutorial - Extension Development - Template - Overrides - Alternative Overrides and Modules Chrome'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-08
+title: 'Template - Overrides - Alternative Overrides and Modules Chrome'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-css-overrides-und-chrome
 langKey: en
 categories:
-  - JoomladE
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

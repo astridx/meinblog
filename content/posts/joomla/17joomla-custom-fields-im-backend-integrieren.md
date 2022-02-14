@@ -1,13 +1,14 @@
 ---
-date: 2020-12-17
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Custom Fields (Eigene Felder) im Backend integrieren'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-04
+title: 'Custom Fields (Eigene Felder) im Backend integrieren'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-custom-fields-im-backend-integrieren
 langKey: de
 categories:
-  - JoomlaDe
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-10-30
 title: 'MapLibre macht digitale Karten mit WebGL zum Kinderspiel'
 template: post

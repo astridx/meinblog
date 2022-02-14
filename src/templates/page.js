@@ -2,27 +2,41 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
 import config from '../utils/config'
 
 export default function PageTemplate({ data }) {
   const post = data.markdownRemark
+  const { title, description, slug } = post.frontmatter
 
   return (
-    <Layout>
-      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
+    <>
+      <Helmet
+        title={`${title === 'Astrid Günther' ? 'Resume' : title} | ${
+          config.siteTitle
+        }`}
+      />
       <SEO />
-      <article>
+
+      <article id={slug}>
         <header>
-          <h1>{post.frontmatter.title}</h1>
+          <div className="container">
+            <h1>{title}</h1>
+            <p className="description">{description}</p>
+          </div>
         </header>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <section
+          className="container"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </article>
-    </Layout>
+    </>
   )
 }
+
+PageTemplate.Layout = Layout
 
 export const pageQuery = graphql`
   query PageBySlug($slug: String!) {
@@ -30,6 +44,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        description
+        slug
       }
     }
   }

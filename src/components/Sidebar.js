@@ -1,49 +1,87 @@
-import React from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { useLocation } from '@reach/router'
 
-import { slugify } from '../utils/helpers'
+import { useGetPosts } from '../utils/hooks/useGetPosts'
+import { getSimplifiedPosts, getCategoriesFromPosts } from '../utils/helpers'
+import { Caret } from '../assets/Caret'
+import { File } from '../assets/File'
 
-export default function Sidebar({ post }) {
-  const { tags, thumbnail } = post.frontmatter
+export const Sidebar = ({ setCollapsed }) => {
+  const location = useLocation()
+  const [dropdownOpen, setDropdownOpen] = useState({})
+  const data = useGetPosts()
+  const posts = data.allMarkdownRemark.edges
+
+  const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
+  const categories = useMemo(
+    () => getCategoriesFromPosts(simplifiedPosts),
+    [simplifiedPosts]
+  )
+
+  const onToggleHeader = (category) => {
+    if (dropdownOpen[category]) {
+      setDropdownOpen((prev) => ({
+        ...prev,
+        [category]: false,
+      }))
+    } else {
+      setDropdownOpen((prev) => ({
+        ...prev,
+        [category]: true,
+      }))
+    }
+  }
+
+  useEffect(() => {
+    const currentPost = simplifiedPosts.find(
+      (post) => post.slug === location.pathname
+    )
+
+    if (currentPost?.categories) {
+      const categories = currentPost.categories.reduce(
+        (acc, val) => ({ ...acc, [val]: true }),
+        {}
+      )
+
+      setDropdownOpen((prev) => ({ ...prev, ...categories }))
+    }
+  }, [simplifiedPosts, location])
 
   return (
-    <aside>
-      <div className="aside-content">
-        <section>
-          {thumbnail && <Img fixed={thumbnail.childImageSharp.fixed} />}
-          <h3>Published</h3>
-          <time>{post.frontmatter.date}</time>
-          <h3>Tags</h3>
-          <div className="cell tags">
-            {tags &&
-              tags.map((tag) => (
-                <Link
-                  key={tag}
-                  to={`/tags/${slugify(tag)}`}
-                  className={`tag-${tag}`}
-                >
-                  {tag}
-                </Link>
-              ))}
-          </div>
-          <h3>Fehler gefunden?</h3>
-          <div>
-            Bitte lasse mich wissen, wenn etwas falsch oder unklar ist. Öffne
-            gerne ein{' '}
-            <Link to="https://github.com/astridx/meinblog/issues/">
-              Github-Issue
-            </Link>
-            .
-          </div>
-          <h3>Du oder Sie?</h3>
-          <div>
-            Ob Du oder Sie - das ist im Deutschen oft gar nicht so leicht zu
-            entscheiden. Manche Leser sieze ich, andere duze ich. Deshalb gibt
-            es im Weblog ein buntes Durcheinander und jeder sucht sich das aus,
-            was für Ihn passt.
-          </div>
-        </section>
+    <aside className="sidebar">
+      <div className="categories">
+        {categories.map((category) => {
+          return (
+            <React.Fragment key={category}>
+              <button
+                className="category"
+                onClick={() => onToggleHeader(category)}
+              >
+                <Caret position={dropdownOpen[category] ? 'down' : 'right'} />
+                <span>{category}</span>
+              </button>
+
+              <nav className={!dropdownOpen[category] ? 'collapsed' : ''}>
+                {simplifiedPosts
+                  .filter((post) => (post.categories || []).includes(category))
+                  .map((post) => {
+                    return (
+                      <Link
+                        key={post.title}
+                        to={post.slug}
+                        activeClassName="active"
+                        onClick={() => setCollapsed(true)}
+                      >
+                        <File />
+                        <span>{post.title}</span>
+                      </Link>
+                    )
+                  })}
+              </nav>
+            </React.Fragment>
+          )
+        })}
       </div>
     </aside>
   )

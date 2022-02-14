@@ -1,13 +1,14 @@
 ---
-date: 2021-01-07
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Module - Parameter'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-12
+title: 'Module - Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-module-parameter
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

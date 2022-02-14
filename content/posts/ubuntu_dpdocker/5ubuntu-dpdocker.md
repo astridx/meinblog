@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-06
 title: 'DPDocker einrichten'
 template: post

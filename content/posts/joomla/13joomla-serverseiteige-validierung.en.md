@@ -1,13 +1,14 @@
 ---
-date: 2020-12-13
-title: 'Joomla 4.x Tutorial - Extension Development - Server Side Validation'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-08
+title: 'Server Side Validation'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-serverseiteige-validierung
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

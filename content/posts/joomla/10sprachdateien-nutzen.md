@@ -1,12 +1,14 @@
 ---
-date: 2020-12-10
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Sprachdateien nutzen'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-11
+title: 'Sprachdateien nutzen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: sprachdateien-nutzen
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

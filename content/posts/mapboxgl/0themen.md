@@ -1,13 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-10-01
-title: 'Mapbox GL JS'
+title: '[DE] Mapbox GL JS'
 template: post
 thumbnail: '../../thumbnails/mapboxgl.png'
 slug: mapbpxgl-js-themen
 langKey: de
 categories:
-  - MapboxGL
-  - Tutorial
+  - Set
 tags:
   - MapBoxGL
   - geografische Daten

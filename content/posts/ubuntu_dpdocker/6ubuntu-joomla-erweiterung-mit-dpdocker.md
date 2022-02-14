@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-07
 title: 'Eine eigene Joomla-Erweiterung mit DPDocker'
 template: post

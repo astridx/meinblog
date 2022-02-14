@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-06-01
 title: 'Projektablauf'
 template: post

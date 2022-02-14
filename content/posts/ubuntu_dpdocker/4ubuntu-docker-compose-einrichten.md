@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-05
 title: 'Docker Compose unter Ubuntu 20.04 einrichten'
 template: post

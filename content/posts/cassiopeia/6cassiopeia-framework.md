@@ -1,14 +1,16 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-08
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Grundgerüst'
+title: 'Grundgerüst'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-framework
 langKey: de
 categories:
-  - Code
+  - Cassiopeia
 tags:
-  - Tmplate
+  - Template
   - Joomla
   - Cassiopeia
 ---

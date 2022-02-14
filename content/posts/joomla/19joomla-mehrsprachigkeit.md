@@ -1,12 +1,14 @@
 ---
-date: 2020-12-19
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Mehrsprachigkeit - Multilinguale Sprachverknüpfungen'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-02
+title: 'Mehrsprachigkeit - Multilinguale Sprachverknüpfungen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-mehrsprachigkeit
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

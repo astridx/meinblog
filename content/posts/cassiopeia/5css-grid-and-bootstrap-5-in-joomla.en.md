@@ -1,14 +1,16 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-07
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - CSS Grid'
+title: 'CSS Grid'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/css-grid-and-bootstrap-5-in-joomla
-langKey: de
+langKey: en
 categories:
-  - Code
+  - Cassiopeia English
 tags:
-  - Tmplate
+  - Template
   - Joomla
   - Cassiopeia
 ---

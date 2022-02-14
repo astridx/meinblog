@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-15
 title: 'GeoJSON'
 template: post
@@ -6,7 +8,7 @@ thumbnail: '../thumbnails/leaflet.png'
 slug: en/geojson-leaflet
 langKey: en
 categories:
-  - Leaflet
+  - Leaflet English
 tags:
   - geografische Daten
   - Leaflet

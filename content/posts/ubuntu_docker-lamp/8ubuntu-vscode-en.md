@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-02-09
 title: 'Set up Visual Studio Code for Joomla'
 template: post

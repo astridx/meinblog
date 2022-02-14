@@ -1,12 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-11
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Timeline für neuesten Beiträgen'
+title: 'Timeline für neuesten Beiträgen'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-timeline
 langKey: de
 categories:
-  - Code
+  - Cassiopeia
 tags:
   - Template
   - Joomla

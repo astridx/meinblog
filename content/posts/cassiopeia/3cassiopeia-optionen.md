@@ -1,14 +1,16 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-05
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Optionen in Cassiopeia'
+title: 'Optionen in Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-optionen
 langKey: de
 categories:
-  - Code
+  - Cassiopeia
 tags:
-  - Tmplate
+  - Template
   - Joomla
   - Cassiopeia
 ---

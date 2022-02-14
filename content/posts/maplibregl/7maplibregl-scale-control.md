@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-05-08
 title: 'Maplibre GL - Maßstab'
 template: post

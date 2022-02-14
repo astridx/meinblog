@@ -1,13 +1,14 @@
 ---
-date: 2021-12-23
-title: 'Joomla 4.x Tutorial - Exkurs - Entwicklung von Erweiterungen - Dependency Injection/Einbringen von Abhängigkeiten'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-19
+title: 'Dependency Injection/Einbringen von Abhängigkeiten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-dependency-injection
 langKey: de
 categories:
-  - JoomlaDe
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-07
 title: 'A custom third party Joomla extension with DPDocker'
 template: post

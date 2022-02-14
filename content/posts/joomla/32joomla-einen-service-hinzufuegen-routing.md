@@ -1,13 +1,14 @@
 ---
-date: 2021-01-01
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Einen Service hinzufügen - Routing'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-20
+title: 'Einen Service hinzufügen - Routing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-einen-service-hinzufuegen-routing
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

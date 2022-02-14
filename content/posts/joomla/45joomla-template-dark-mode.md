@@ -1,13 +1,14 @@
 ---
-date: 2021-01-14
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Template - Dark Mode'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-05
+title: 'Template - Dark Mode'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-template-dark-mode
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

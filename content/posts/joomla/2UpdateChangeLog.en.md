@@ -1,13 +1,14 @@
 ---
-date: 2020-12-02
-title: 'Joomla 4.x Tutorial - Extension Development - Joomla Update and Change Log Setup'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-19
+title: 'Joomla Update and Change Log Setup'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-update-und-change-logeinrichten
 langKey: en
 categories:
-  - Code
-  - JoomlaEn
+  - Joomla English
 tags:
   - CMS
   - Joomla

@@ -1,26 +1,27 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/Layout'
-import SEO from '../components/SEO'
-
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
 import config from '../utils/config'
 
 export default function FourOhFour() {
   return (
-    <Layout>
-      <Helmet title={`Nichts gefunden | ${config.siteTitle}`} />
+    <>
+      <Helmet title={`404 | ${config.siteTitle}`} />
       <SEO />
-      <h1>Nothing found</h1>
-      <p>
-        This was probably an error or the page does not yet exist in this
-        language.
-      </p>
-      <h1>Nichts gefunden</h1>
-      <p>
-        Dies war wahrscheinlich ein Fehler oder die Seite existiert noch nicht
-        in dieser Sprache.
-      </p>
-    </Layout>
+
+      <article>
+        <header>
+          <div className="container">
+            <h1>404</h1>
+            <p className="description">Dies war wahrscheinlich ein Fehler. <br />This was probably a mistake.</p>
+          </div>
+        </header>
+
+      </article>
+    </>
   )
 }
+
+FourOhFour.Layout = Layout

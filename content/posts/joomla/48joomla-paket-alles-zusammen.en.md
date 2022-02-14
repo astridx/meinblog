@@ -1,13 +1,14 @@
 ---
-date: 2021-01-16
-title: 'Joomla 4.x-Tutorial - Extension Development - Package - Putting several extensions together in one installable package'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-01
+title: 'Package - Putting several extensions together in one installable package'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-paket-alles-zusammen
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

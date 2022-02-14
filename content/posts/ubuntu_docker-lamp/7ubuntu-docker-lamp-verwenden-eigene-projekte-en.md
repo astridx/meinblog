@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-02-08
 title: 'docker-lamp mit eigenen _jorobo_ Projekten'
 template: post

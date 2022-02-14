@@ -1,13 +1,14 @@
 ---
-date: 2020-12-01
-title: 'Joomla 4.x Tutorial - Extension Development - The First View in the Backend'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-20
+title: 'The First View in the Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/die-erste-ansicht-im-backend
 langKey: en
 categories:
-  - Code
-  - JoomlaEn
+  - Joomla English
 tags:
   - CMS
   - Joomla
@@ -346,7 +347,19 @@ The `install` function, as the name suggests, is called when the component is in
 
 `uninstall` is called when someone uninstalls the component. At the moment, only text is displayed.
 
-The update function `update` is called whenever you update the component.
+The update function `update` is called whenever you update the component. Have there been changes to save locations in the extension? In that case, you might want to delete files? Then the `update` method could look like this:
+
+```
+	public function update($parent)
+	{
+		$this->deleteFiles[] = '/administrator/language/en-GB/?.ini';
+		$this->deleteFiles[] = '/administrator/language/en-GB/?.sys.ini';
+
+		$this->removeFiles();
+
+		return true;
+	}
+```
 
 The `preflight` function is called before the component is installed, discover_installed, updated or uninstalled. You can add code here to check the prerequisites like the PHP version or to check if another extension is installed or not.
 

@@ -1,13 +1,14 @@
 ---
-date: 2021-01-06
-title: 'Joomla 4.x Tutorial - Extension Development - Modules - Namespace and Helper'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-13
+title: 'Modules - Namespace and Helper'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-namespace-und-helper
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

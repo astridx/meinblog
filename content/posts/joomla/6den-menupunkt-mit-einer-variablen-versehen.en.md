@@ -1,13 +1,14 @@
 ---
-date: 2020-12-06
-title: 'Joomla 4.x Tutorial - Extension Development - Extend the Menu Item with a Variable'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-15
+title: 'Extend the Menu Item with a Variable'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/den-menupunkt-mit-einer-variablen-versehen
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

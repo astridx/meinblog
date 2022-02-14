@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-18
 title: 'ESRI - Environmental Systems Research Institute'
 template: post
@@ -6,7 +8,7 @@ thumbnail: '../thumbnails/leaflet.png'
 slug: en/esri-leaflet
 langKey: de
 categories:
-  - Leaflet
+  - Leaflet English
 tags:
   - geografische Daten
   - Leaflet

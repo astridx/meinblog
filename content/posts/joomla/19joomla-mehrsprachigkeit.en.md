@@ -1,13 +1,14 @@
 ---
-date: 2020-12-19
-title: 'Joomla 4.x Tutorial - Extension Development - Multilingualism - Multilingual Associations'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-02
+title: 'Multilingualism - Multilingual Associations'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-mehrsprachigkeit
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

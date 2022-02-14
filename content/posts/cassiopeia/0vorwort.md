@@ -1,14 +1,16 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-02
-title: 'Ein Tutorial zur Verwendung des Cassiopeia Templates für Joomla 4 - für barrierefreies und responsives Web Design'
+title: 'Vorwort'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-vorwort
 langKey: de
 categories:
-  - Code
+  - Cassiopeia
 tags:
-  - Tmplate
+  - Template
   - Joomla
   - Cassiopeia
 ---

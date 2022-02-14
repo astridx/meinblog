@@ -1,13 +1,14 @@
 ---
-date: 2021-01-10
-title: 'Joomla 4.x-Tutorial - Extension Development - Template - Module Positions'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-09
+title: 'Template - Module Positions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-positionen
 langKey: en
 categories:
-  - JoomladE
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

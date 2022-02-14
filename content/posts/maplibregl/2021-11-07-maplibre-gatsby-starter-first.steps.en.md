@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-11-07
 title: 'Gatsby Blog with MapLibre GL JS and React Hooks'
 template: post
@@ -480,7 +482,7 @@ const PostTemplate = ({ data }) => {
 export default PostTemplate
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

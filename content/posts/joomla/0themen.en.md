@@ -1,13 +1,14 @@
 ---
-date: 2020-11-29
-title: 'Joomla 4.x Tutorial - Extension Development - The Way to Joomla 4 Extensions'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-22
+title: '[EN] Joomla 4.x Tutorial - Extension Development - The Way to Joomla 4 Extensions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/der-weg-zu-joomla4-erweiterungen
 langKey: en
 categories:
-  - Code
-  - TutorialEn
+  - Set
 tags:
   - CMS
   - Joomla

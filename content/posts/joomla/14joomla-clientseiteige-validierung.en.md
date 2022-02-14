@@ -1,13 +1,14 @@
 ---
-date: 2020-12-14
-title: 'Joomla 4.x Tutorial - Extension Development - Client Side Validation'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-07
+title: 'Client Side Validation'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-clientseiteige-validierung
 langKey: em
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

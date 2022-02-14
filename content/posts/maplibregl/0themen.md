@@ -1,13 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-05-01
-title: 'Maplibre GL JS'
+title: '[DE] Maplibre GL JS'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibregl-js-themen
 langKey: de
 categories:
-  - MaplibreGL
-  - Tutorial
+  - Set
 tags:
   - MapLibreGL
   - geografische Daten

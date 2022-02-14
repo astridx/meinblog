@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-05-09
 title: 'Maplibre GL - Ebenen ein- und ausblenden'
 template: post
@@ -118,8 +120,7 @@ Das Beispiel im Bild zeigt dir, wie du ein Dreieck und ein Polygon ein- und ausb
       map.on('load', function () {
         map.addSource('deutschland_fill', {
           type: 'geojson',
-          data:
-            'https://raw.githubusercontent.com/astridx/world.geo.json/master/countries/DEU.geo.json',
+          data: 'https://raw.githubusercontent.com/astridx/world.geo.json/master/countries/DEU.geo.json',
         })
         map.addLayer({
           id: 'deutschland_fill',
@@ -136,8 +137,7 @@ Das Beispiel im Bild zeigt dir, wie du ein Dreieck und ein Polygon ein- und ausb
 
         map.addSource('deutschland_line', {
           type: 'geojson',
-          data:
-            'https://raw.githubusercontent.com/astridx/world.geo.json/master/countries/DEU.geo.json',
+          data: 'https://raw.githubusercontent.com/astridx/world.geo.json/master/countries/DEU.geo.json',
         })
         map.addLayer({
           id: 'deutschland_line',

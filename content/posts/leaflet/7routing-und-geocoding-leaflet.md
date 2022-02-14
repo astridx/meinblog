@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-19
 title: 'Routing und Geocoding'
 template: post

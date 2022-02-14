@@ -1,35 +1,53 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React, { useMemo } from 'react'
 
-import { slugify } from '../utils/helpers'
+import { Post } from './Post'
 
-export default function Posts({ data, tags }) {
-  return (
-    <div className={tags ? 'posts with-tags' : 'grid posts'}>
-      {data.map((node) => {
-        return (
-          <Link to={node.slug} className="row" key={node.id}>
-            <div className="cell">
-              <time>{node.date}</time>
-            </div>
-            <div className="cell">{node.title}</div>
-            {tags && (
-              <div className="cell tags">
-                {node.tags &&
-                  node.tags.map((tag) => (
-                    <Link
-                      key={tag}
-                      to={`/tags/${slugify(tag)}`}
-                      className={`tag-${tag}`}
-                    >
-                      {tag}
-                    </Link>
-                  ))}
-              </div>
-            )}
-          </Link>
-        )
-      })}
-    </div>
-  )
+export const Posts = ({
+  data = [],
+  showYears,
+  query,
+  prefix,
+  hideDate,
+  yearOnly,
+}) => {
+  const postsByYear = useMemo(() => {
+    const collection = {}
+
+    data.forEach((post) => {
+      const year = post.date?.split(', ')[1]
+
+      collection[year] = [...(collection[year] || []), post]
+    })
+
+    return collection
+  }, [data])
+  const years = useMemo(() => Object.keys(postsByYear).reverse(), [postsByYear])
+
+  if (showYears) {
+    return years.map((year) => (
+      <section key={year}>
+        <h2>{year}</h2>
+        <div className="posts">
+          {postsByYear[year].map((node) => (
+            <Post key={node.id} node={node} query={query} prefix={prefix} />
+          ))}
+        </div>
+      </section>
+    ))
+  } else {
+    return (
+      <div className="posts">
+        {data.map((node) => (
+          <Post
+            key={node.id}
+            node={node}
+            query={query}
+            prefix={prefix}
+            hideDate={hideDate}
+            yearOnly={yearOnly}
+          />
+        ))}
+      </div>
+    )
+  }
 }

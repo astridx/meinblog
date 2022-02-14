@@ -1,13 +1,14 @@
 ---
-date: 2020-12-10
-title: 'Joomla 4.x Tutorial - Extension Development - Using Language Files'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-11
+title: 'Using Language Files'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/sprachdateien-nutzen
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

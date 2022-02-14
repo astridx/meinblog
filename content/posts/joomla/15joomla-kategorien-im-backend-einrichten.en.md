@@ -1,13 +1,14 @@
 ---
-date: 2020-12-15
-title: 'Joomla 4.x Tutorial - Extension Development - Set Up Categories in Backend'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-06
+title: 'Set Up Categories in Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-kategorien-im-backend-einrichten
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

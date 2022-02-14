@@ -1,18 +1,20 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-14
-title: 'Die Karte mit Daten bestücken'
+title: 'Fill the card with data'
 template: post
 thumbnail: '../thumbnails/leaflet.png'
 slug: en/die-karte-mit-daten-leaflet
 langKey: de
 categories:
-  - Leaflet
+  - Leaflet English
 tags:
   - geografische Daten
   - Leaflet
 ---
 
-Sie können eine digitale Karte mit Leaflet in ein HTML Dokument einbinden, Sie wissen was geografische Koordinaten sind und wie die Imagedateien für digitale Karten erstellt werden. Darauf aufbauend können wir nun in diesem Kapitel Ihre digitale Karte mit Geodaten füllen.
+You can integrate a digital map into an HTML document with Leaflet, you know what geographic coordinates are and how image files for digital maps are created. Based on this, we can now fill your digital map with geodata in this chapter.
 
 ## In diesem Kapitel werden wir …
 

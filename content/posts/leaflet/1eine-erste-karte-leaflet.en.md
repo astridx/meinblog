@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-13
 title: 'Eine erste Karte'
 template: post
@@ -6,7 +8,7 @@ thumbnail: '../thumbnails/leaflet.png'
 slug: en/eine-erste-karte-leaflet
 langKey: de
 categories:
-  - Leaflet
+  - Leaflet English
 tags:
   - geografische Daten
   - Leaflet

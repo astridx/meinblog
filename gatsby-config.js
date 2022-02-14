@@ -7,7 +7,7 @@ module.exports = {
     pathPrefix: '/',
     siteUrl: 'https://blog.astrid-guenther.de/',
     description:
-      'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
+      'Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..',
     feedUrl: 'https://blog.astrid-guenther.de/rss.xml',
     logo: 'https://blog.astrid-guenther.de/logo.png',
   },
@@ -15,23 +15,8 @@ module.exports = {
     // ===================================================================================
     // Meta
     // ===================================================================================
-    `gatsby-plugin-catch-links`,
-    'gatsby-plugin-dark-mode',
+
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Astrid Günther',
-        short_name: 'Astrid Günther',
-        description:
-          'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
-        start_url: '/',
-        background_color: 'white',
-        theme_color: '#16868F',
-        display: 'minimal-ui',
-        icon: `static/logo.png`,
-      },
-    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -52,18 +37,21 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  categories: edge.node.frontmatter.tags,
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  custom_elements: [
+                    { 'content:encoded': edge.node.html },
+                    { author: 'info@astrid-guenther.de' },
+                  ],
                 })
               })
             },
             query: `
               {
                 allMarkdownRemark(
+                  limit: 30,
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: { frontmatter: { template: { eq: "post" } } }
                 ) {
@@ -77,7 +65,6 @@ module.exports = {
                       frontmatter {
                         title
                         date
-                        tags
                         template
                       }
                     }
@@ -120,112 +107,36 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
-        // CommonMark mode (default: true)
-        commonmark: true,
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // Pedantic mode (default: true)
-        pedantic: true,
-        // GitHub Flavored Markdown mode (default: true)
-        gfm: true,
-        // Plugins configs
         plugins: [
-          {
-            resolve: `gatsby-remark-vscode`,
-            options: {
-              theme: 'Solarized Light',
-            },
-          },
+          'gatsby-remark-autolink-headers',
+          `gatsby-remark-vscode`,
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 630,
+              maxWidth: 800,
+              // linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
             },
           },
           {
-            resolve: `gatsby-remark-footnotes`,
+            resolve: 'gatsby-remark-prismjs',
             options: {
-              footnoteBackRefPreviousElementDisplay: 'inline',
-              footnoteBackRefDisplay: 'inline',
-              footnoteBackRefInnerText: '^', // Defaults to: "↩"
-              //use if you want the Wikipedia style ^ link without an underline beneath it
-              footnoteBackRefAnchorStyle: `text-decoration: none;`,
-              //use "front" for Wikipedia style ^ links
-              footnoteBackRefInnerTextStartPosition: 'front',
-              useFootnoteMarkerText: false, // Defaults to false
-              useCustomDivider: '<hr/><strong>References:</strong>', // Defaults to <hr/>
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+              prompt: {
+                user: 'root',
+                host: 'localhost',
+                global: true,
+              },
             },
           },
-          'gatsby-remark-prismjs',
         ],
       },
     },
 
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
-
-    // ===================================================================================
-    // ebook https://www.gatsbyjs.com/plugins/gatsby-plugin-ebook/
-    // ===================================================================================
-    /*'gatsby-plugin-ebook',
-    {
-      resolve: 'gatsby-plugin-ebook',
-      options: {
-        filename: 'JoomlaEn.epub',
-      }
-    },*/
-
-    // ===================================================================================
-    // language https://github.com/angeloocana/gatsby-plugin-i18n
-    // ===================================================================================
-    {
-      resolve: `gatsby-plugin-i18n`,
-      options: {
-        langKeyDefault: 'de',
-        langKeyForNull: 'de',
-        prefixDefault: false,
-        useLangKeyLayout: false,
-      },
-    },
-
-    //
-    //
-    // htaccess https://github.com/AndreasFaust/gatsby-plugin-htaccess
-    //
-    //
-    {
-      resolve: 'gatsby-plugin-htaccess',
-      options: {
-        https: true,
-        www: true,
-        custom: [
-          `#Strict-Transport-Security
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-
-Header set Permissions-Policy "interest-cohort=()"
-
-#X-Frame-Options
-Header always set X-Frame-Options "SAMEORIGIN"
-        
-#X-Xss-Protection
-Header always set X-Xss-Protection "1; mode=block"
-
-#Content Security Policy
-#Header set Content-Security-Policy "default-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline';"
-          
-#Referrer-Policy
-Header set Referrer-Policy "no-referrer"`,
-        ],
-        redirect: [
-          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
-          {
-            from: 'blog.astrid-guenther.de/ubuntu-docker-einrichten',
-            to: 'blog.astrid-guenther.de/ubuntu-docker-einrichten-docker-lamp',
-          },
-        ],
-      },
-    },
     // ===================================================================================
     // Search
     // ===================================================================================
@@ -249,7 +160,7 @@ Header set Referrer-Policy "no-referrer"`,
                   title
                   tags
                   slug
-                  date(formatString: "DD.MM.YYYY")
+                  date(formatString: "MMMM DD, YYYY")
                 }
                 rawMarkdownBody
               }
@@ -257,7 +168,7 @@ Header set Referrer-Policy "no-referrer"`,
           }
         `,
         ref: 'id',
-        index: ['title', 'body', 'tags'],
+        index: ['title', 'tags'],
         store: ['id', 'slug', 'title', 'tags', 'date'],
         normalizer: ({ data }) =>
           data.allMarkdownRemark.nodes.map((node) => ({
@@ -266,6 +177,7 @@ Header set Referrer-Policy "no-referrer"`,
             title: node.frontmatter.title,
             body: node.rawMarkdownBody,
             tags: node.frontmatter.tags,
+            categories: node.frontmatter.categories,
             date: node.frontmatter.date,
           })),
       },

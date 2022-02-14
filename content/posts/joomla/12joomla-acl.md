@@ -1,13 +1,14 @@
 ---
-date: 2020-12-12
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Access Control List (ACL)'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-09
+title: 'Access Control List (ACL)'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-acl
 langKey: de
 categories:
-  - JoomlaDe
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

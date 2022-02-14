@@ -1,13 +1,14 @@
 ---
-date: 2020-12-31
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Ansicht nach Kategorien'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-21
+title: 'Ansicht nach Kategorien'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-ansicht-nach-kategorien
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

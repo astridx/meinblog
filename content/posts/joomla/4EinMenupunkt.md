@@ -1,13 +1,14 @@
 ---
-date: 2020-12-04
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Ein Menüpunkt'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-17
+title: 'Ein Menüpunkt'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: ein-menuepunkt
 langKey: de
 categories:
-  - Code
-  - JoomlaDe
+  - Joomla
 tags:
   - CMS
   - Joomla

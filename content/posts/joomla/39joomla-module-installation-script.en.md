@@ -1,13 +1,14 @@
 ---
-date: 2021-01-08
-title: 'Joomla 4.x Tutorial - Extension Development - Modules - Installation script'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-11
+title: 'Modules - Installation script'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-module-installation-script
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

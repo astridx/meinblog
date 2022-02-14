@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-11-11
 title: 'Kommentare im Gatsby-Blog mit Github Utterances'
 template: post
@@ -7,7 +9,6 @@ slug: kommentare-im-gatsby-blog-mit-utterance
 langKey: de
 categories:
   - Code
-  - Popular
 tags:
   - JavaScript
   - Kommentare

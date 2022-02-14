@@ -1,13 +1,14 @@
 ---
-date: 2021-01-15
-title: 'Joomla 4.x-Tutorial - Extension Development - Template - Favicon'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-04
+title: 'Template - Favicon'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-favicon
 langKey: en
 categories:
-  - JoomladE
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

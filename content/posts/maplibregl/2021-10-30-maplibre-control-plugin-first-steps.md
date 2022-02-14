@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-10-30
 title: 'Erstelle ein erstes MapLibre-Plugin - Ein Tutorial für Anfänger'
 template: post
@@ -6,7 +8,7 @@ thumbnail: '../../thumbnails/maplibre.png'
 slug: maplibre-control-plugin-first-steps
 langKey: de
 categories:
-  - MapLibre
+  - MaplibreGL
 tags:
   - geografische Daten
   - Leaflet

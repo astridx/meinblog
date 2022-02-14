@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-19
 title: 'Routing und Geocoding'
 template: post
@@ -6,7 +8,7 @@ thumbnail: '../thumbnails/leaflet.png'
 slug: en/routing-und-geocoding-leaflet
 langKey: de
 categories:
-  - Leaflet
+  - Leaflet English
 tags:
   - geografische Daten
   - Leaflet

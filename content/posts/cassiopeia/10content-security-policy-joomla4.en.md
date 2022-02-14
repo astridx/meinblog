@@ -1,13 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-05-04
 title: 'HTTP-Header and Content Security Policy in Joomla 4'
 template: post
 thumbnail: '/thumbnails/joomla.png'
 slug: en/http-header-und-content-security-policy-joomla4
-langKey: de
+langKey: en
 categories:
-  - Code
-  - Popular
+  - Cassiopeia English
 tags:
   - Joomla
   - Sicherheit

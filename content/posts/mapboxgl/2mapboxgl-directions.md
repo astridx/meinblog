@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-10-03
 title: 'Mapbox GL Routing mit dem Plugin Directions'
 template: post

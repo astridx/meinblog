@@ -1,1 +1,1 @@
-# blog.astrid-guenther.de
+# https://blog.astrid-guenther.de/

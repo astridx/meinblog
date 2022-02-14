@@ -1,13 +1,14 @@
 ---
-date: 2020-12-16
-title: 'Joomla 4.x Tutorial - Extension Development - Publish and Unpublish / Hide'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-05
+title: 'Publish and Unpublish / Hide'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-veröeffentlichen-und-erstecken
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

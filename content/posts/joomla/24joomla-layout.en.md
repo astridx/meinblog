@@ -1,13 +1,14 @@
 ---
-date: 2020-12-24
-title: 'Joomla 4.x Tutorial - Extension Development - Layout'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-28
+title: 'Layout'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-layout
 langKey: em
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

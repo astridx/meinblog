@@ -1,13 +1,14 @@
 ---
-date: 2020-12-21
-title: 'Joomla 4.x Tutorial - Extension Development - Toolbar Actions'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-31
+title: 'Toolbar Actions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-aktionen-in-der-werkzeugleiste
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

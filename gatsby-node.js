@@ -4,8 +4,10 @@ const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPage = path.resolve('./src/templates/post.js')
+  const notePage = path.resolve('./src/templates/note.js')
   const pagePage = path.resolve('./src/templates/page.js')
   const tagPage = path.resolve('./src/templates/tag.js')
+  const categoryPage = path.resolve('./src/templates/category.js')
 
   const result = await graphql(
     `
@@ -17,6 +19,7 @@ const createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 tags
+                categories
                 template
               }
               fields {
@@ -36,7 +39,9 @@ const createPages = async ({ graphql, actions }) => {
   const all = result.data.allMarkdownRemark.edges
   const posts = all.filter((post) => post.node.frontmatter.template === 'post')
   const pages = all.filter((post) => post.node.frontmatter.template === 'page')
+  const notes = all.filter((post) => post.node.frontmatter.template === 'note')
   const tagSet = new Set()
+  const categorySet = new Set()
 
   // =====================================================================================
   // Posts
@@ -49,6 +54,12 @@ const createPages = async ({ graphql, actions }) => {
     if (post.node.frontmatter.tags) {
       post.node.frontmatter.tags.forEach((tag) => {
         tagSet.add(tag)
+      })
+    }
+
+    if (post.node.frontmatter.categories) {
+      post.node.frontmatter.categories.forEach((category) => {
+        categorySet.add(category)
       })
     }
 
@@ -78,6 +89,20 @@ const createPages = async ({ graphql, actions }) => {
   })
 
   // =====================================================================================
+  // Notes
+  // =====================================================================================
+
+  notes.forEach((note) => {
+    createPage({
+      path: `/notes/${slugify(note.node.fields.slug)}`,
+      component: notePage,
+      context: {
+        slug: note.node.fields.slug,
+      },
+    })
+  })
+
+  // =====================================================================================
   // Tags
   // =====================================================================================
 
@@ -88,6 +113,21 @@ const createPages = async ({ graphql, actions }) => {
       component: tagPage,
       context: {
         tag,
+      },
+    })
+  })
+
+  // =====================================================================================
+  // Categories
+  // =====================================================================================
+
+  const categoryList = Array.from(categorySet)
+  categoryList.forEach((category) => {
+    createPage({
+      path: `/categories/${slugify(category)}/`,
+      component: categoryPage,
+      context: {
+        category,
       },
     })
   })

@@ -1,13 +1,14 @@
 ---
-date: 2021-01-02
-title: 'Joomla 4.x Tutorial - Extension Development - Dashboard'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-18
+title: 'Dashboard'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-dashboard-fuer-deine-erweiterung
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

@@ -1,13 +1,14 @@
 ---
-date: 2020-12-06
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Den Menüpunkt mit einer Variablen erweitern'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-15
+title: 'Den Menüpunkt mit einer Variablen erweitern'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: den-menupunkt-mit-einer-variablen-versehen
 langKey: de
 categories:
-  - JoomlaDe
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

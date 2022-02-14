@@ -1,13 +1,14 @@
 ---
-date: 2020-12-07
-title: 'Joomla 4.x Tutorial - Extension Development - A database table for your extension'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-14
+title: 'A database table for your extension'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/eine-joomla-datenbank-fuer-deine-erweiterung
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

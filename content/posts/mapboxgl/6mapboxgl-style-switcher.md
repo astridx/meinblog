@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-10-07
 title: 'Unterschiedliche Karten mit Mapbox GL ermöglichen'
 template: post
@@ -68,9 +70,8 @@ Jeder hat seine Vorliebe. Mancher bevorzugt Satellitenaufnahmen. Ein anderer gem
               this.map.setStyle(JSON.parse(srcElement.dataset.uri))
               this.mapStyleContainer.style.display = 'none'
               this.styleButton.style.display = 'block'
-              const elms = this.mapStyleContainer.getElementsByClassName(
-                'active'
-              )
+              const elms =
+                this.mapStyleContainer.getElementsByClassName('active')
               while (elms[0]) {
                 elms[0].classList.remove('active')
               }

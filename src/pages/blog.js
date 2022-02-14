@@ -1,11 +1,10 @@
 import React, { useMemo } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/Layout'
-import Search from '../components/Search'
-import SEO from '../components/SEO'
-
+import { Layout } from '../components/Layout'
+import { Search } from '../components/Search'
+import { SEO } from '../components/SEO'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 
@@ -14,22 +13,34 @@ export default function BlogIndex({ data }) {
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
 
   return (
-    <Layout>
-      <Helmet>
-        <html lang="de" />
-        <title>Blog | {config.siteTitle}</title>
-      </Helmet>
-      <SEO />
-      <section>
-        <h1>Blog</h1>
-        <p className="subtitle">
-          Artikel, Tutorials, Schnipsel, Überlegungen und alles andere.
-        </p>
-        <Search posts={simplifiedPosts} />
-      </section>
-    </Layout>
+    <>
+      <Helmet title={`Articles | ${config.siteTitle}`} />
+      <SEO
+        customDescription="Tutorials, technical articles, snippets, reference materials, and all
+              development-related resources I've written."
+      />
+
+      <article className="blog-page">
+        <header>
+          <div className="container">
+            <h1>My digital garden</h1>
+            <p className="description">
+              Mein digitaler Garten. 
+            </p>
+          </div>
+        </header>
+
+        <section>
+          <div className="container">
+            <Search data={simplifiedPosts} showYears />
+          </div>
+        </section>
+      </article>
+    </>
   )
 }
+
+BlogIndex.Layout = Layout
 
 export const pageQuery = graphql`
   query BlogQuery {
@@ -44,9 +55,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "MMMM DD, YYYY")
             title
             tags
+            categories
           }
         }
       }

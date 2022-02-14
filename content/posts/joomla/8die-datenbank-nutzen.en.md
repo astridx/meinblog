@@ -1,13 +1,14 @@
 ---
-date: 2020-12-08
-title: 'Joomla 4.x Tutorial - Extension Development - Using the Database'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-13
+title: 'Using the Database'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/die-datenbank-nutzen
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

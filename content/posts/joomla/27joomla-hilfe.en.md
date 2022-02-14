@@ -1,13 +1,14 @@
 ---
-date: 2020-12-27
-title: 'Joomla 4.x Tutorial - Extension Development - Help Sites'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-25
+title: 'Help Sites'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-hilfe
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

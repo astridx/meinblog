@@ -1,13 +1,14 @@
 ---
-date: 2020-12-30
-title: 'Joomla 4.x Tutorial - Extension Development - Frontend Editing'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-22
+title: 'Frontend Editing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-frontend-editing
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

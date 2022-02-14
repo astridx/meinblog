@@ -1,13 +1,14 @@
 ---
-date: 2020-12-18
-title: 'Joomla 4.x Tutorial - Extension Development - Integrate Custom Fields in Frontend'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-03
+title: 'Integrate Custom Fields in Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-custom-fields-im-frontend-integrieren
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

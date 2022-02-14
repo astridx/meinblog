@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2018-12-11
 title: 'Erstellen Sie Ihr erstes Leaflet-Layer-Plugin - Ein Tutorial für Anfänger'
 template: post

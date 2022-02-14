@@ -1,12 +1,14 @@
 ---
-date: 2020-12-03
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die erste Ansicht im Frontend'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-18
+title: 'Die erste Ansicht im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-erste-ansicht-im-frontend
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

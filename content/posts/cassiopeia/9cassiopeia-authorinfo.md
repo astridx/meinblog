@@ -1,12 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-11
-title: 'Ein Tutorial zur Verwendung des Cassiopeia-Templates für Joomla 4 - Informationen zum Autor'
+title: 'Informationen zum Autor'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: cassiopeia-autorinfo
 langKey: de
 categories:
-  - Code
+  - Cassiopeia
 tags:
   - Template
   - Joomla

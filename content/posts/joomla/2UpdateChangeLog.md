@@ -1,12 +1,14 @@
 ---
-date: 2020-12-02
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Joomla Update und Change Log einrichten'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-19
+title: 'Joomla Update und Change Log einrichten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-update-und-change-logeinrichten
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

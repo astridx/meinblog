@@ -1,13 +1,14 @@
 ---
-date: 2021-01-16
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Paket - Alle Erweiterungen in einer Installationsdatei'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-01
+title: 'Paket - Alle Erweiterungen in einer Installationsdatei'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-paket-alles-zusammen
 langKey: de
 categories:
-  - JoomlaDe
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

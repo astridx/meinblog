@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-01-31
 title: 'Windows Host Shared Folder in Ubuntu 20.04'
 template: post

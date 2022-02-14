@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-02-04
 title: 'Setting up Docker under Ubuntu 20.04'
 template: post

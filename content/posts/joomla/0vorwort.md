@@ -1,12 +1,14 @@
 ---
-date: 2020-11-30
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Vorwort'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-21
+title: 'Vorwort'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-tutorial-vorwort
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla
@@ -276,4 +278,33 @@ Der HTML-Code
 ```
 
 zeigt dann beispielsweise das Linkbündig-Zeichen an.
+
+### Images verwenden<!-- \index{Images} -->
+
+Ein [neues JLayout](https://gist.github.com/dgrammatiko/a20236039586a2fbc5c77caadffc3de8)[^gist.github.com/dgrammatiko/a20236039586a2fbc5c77caadffc3de8] ab Joomla 4.0.5 ermöglicht es Entwicklern HTML-Image-Tags einfacher auszugeben:
+
+Anstatt also etwas wie dieses zu schreiben:
+
+```PHP
+<?php
+echo '<img src="' . $imageURL .'" alt="' . htmlspecialchars($imageAlt, ENT_COMPAT, 'UTF-8') . '">';
+?>
+```
+
+Der empfohlene Weg ist die Verwendung des JLayout:
+
+```PHP
+<?php
+echo LayoutHelper::render('joomla.html.image', ['src' => imageURL, 'alt' => $imageAlt]);
+?>
+```
+
+Vorteile:
+
+- Die URL und das alt-Attribut werden korrekt escaped
+- Der Entwickler muss sich nicht um das "#" am Ende der URL kümmern.
+- Das Bild-Tag erhält ein `loading="lazy"`-Attribut, wenn das Bild die Attribute `width` und `height` definiert hat
+- Das alt-Attribut wird ignoriert, wenn der übergebene Wert `false` (boolesch) ist.
+- Alle weiteren Attribute werden korrekt gerendert, übergebe diesee wie im Array: (beispielsweise `'class' => 'my-class'`)
+
 <img src="https://vg01.met.vgwort.de/na/be6e0f448d4442348d0275b49531a2b7" width="1" height="1" alt="">

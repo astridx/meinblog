@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-09-16
 title: 'Erste Schritte mit Mapbox GL in React'
 template: post
@@ -7,7 +9,6 @@ slug: erste-schritte-mit-mapbox-gl-in-react
 langKey: de
 categories:
   - Code
-  - Popular
 tags:
   - JavaScript
   - SPA

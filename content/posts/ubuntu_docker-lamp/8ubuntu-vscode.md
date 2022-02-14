@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-02-09
 title: 'Visual Studio Code für Joomla einrichten'
 template: post

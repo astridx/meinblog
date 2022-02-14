@@ -1,13 +1,14 @@
 ---
-date: 2021-01-04
-title: 'Joomla 4.x Tutorial - Extension Development - Web Services - Support Joomla API'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-15
+title: 'Web Services - Support Joomla API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-webservices
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

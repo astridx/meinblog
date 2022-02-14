@@ -1,107 +1,94 @@
 import React, { useEffect } from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
-import { useLocation } from '@reach/router'
 
-import Layout from '../components/Layout'
-import SidebarUnten from '../components/SidebarUnten'
-import SidebarOben from '../components/SidebarOben'
-import SidebarUeberTitel from '../components/SidebarUeberTitel'
-import SEO from '../components/SEO'
-import Comment from '../components/Comment'
-
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
+import { Comments } from '../components/Comments'
 import config from '../utils/config'
+import { slugify, appendComments } from '../utils/helpers'
 
-export default function PostTemplate({ data, pageContext }) {
+export default function PostTemplate({ data }) {
   const post = data.markdownRemark
-  const location = useLocation()
-
+  const { tags, title, date, thumbnail } = post.frontmatter
   const commentBox = React.createRef()
 
   useEffect(() => {
-    const commentScript = document.createElement('script')
-    commentScript.async = true
-    commentScript.src = 'https://utteranc.es/client.js'
-    commentScript.setAttribute('repo', 'astridx/meinblog')
-    commentScript.setAttribute('issue-term', 'pathname')
-    commentScript.setAttribute('id', 'utterances')
-    commentScript.setAttribute('crossorigin', 'anonymous')
-    if (commentBox && commentBox.current) {
-      commentBox.current.appendChild(commentScript)
-    } else {
-      console.log(`Error adding utterances comments on: ${commentBox}`)
-    }
-  }, []) // eslint-disable-line
-
-  function getGitMarkdownUrl() {
-    const pathConst = '/content/posts/'
-    const gitURL = 'https://github.com/astridx/meinblog'
-    const sliceIndex =
-      post.fileAbsolutePath.indexOf(pathConst) + pathConst.length
-    const markdownFileGitPath = post.fileAbsolutePath.slice(sliceIndex)
-    const blogPostOnGit = `${gitURL}/blob/master/content/posts/${markdownFileGitPath}`
-    return blogPostOnGit
-  }
-
-  const gitMarkdownUrl = getGitMarkdownUrl()
-  let a
-  if (!location.pathname.includes('/en')) {
-    a = (
-      <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
-        Ändere diesen Beitrag
-      </a>
-    )
-  } else {
-    a = (
-      <a href={gitMarkdownUrl} rel="noreferrer" target="_blank">
-        Modify this post
-      </a>
-    )
-  }
+    appendComments(commentBox)
+  }, [commentBox])
 
   return (
-    <Layout>
-      <SidebarUeberTitel post={post} />
+    <>
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
-      <header className="article-header medium">
-        <h1>{post.frontmatter.title}</h1>
-        {a}
-      </header>
-      <SidebarOben post={post} />
-      <section className="post">
-        <article>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </article>
 
-        {a}
+      <article>
+        <header>
+          <div className="container">
+            <div className="post-details">
+              {thumbnail && (
+                <div>
+                  <Img
+                    fixed={thumbnail.childImageSharp?.fixed}
+                    className="post-image"
+                  />
+                </div>
+              )}
+              Written by Astrid Günther on <time>{date}</time>
+            </div>
+            <h1>{title}</h1>
+            <div className="post-meta">
+              {tags && (
+                <div className="tags">
+                  {tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      to={`/tags/${slugify(tag)}`}
+                      className={`tag-${tag}`}
+                    >
+                      {tag}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </header>
+
+        <div
+          id={post.fields.slug}
+          className="container post-content"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </article>
+
+      <section id="comments" className="comments container">
+        <h3>Comments</h3>
+        <Comments commentBox={commentBox} />
       </section>
-      <div id="utterances">
-        <h2>Comments</h2>
-        <Comment commentBox={commentBox} />
-      </div>
-
-      <SidebarUnten post={post} />
-    </Layout>
+    </>
   )
 }
+
+PostTemplate.Layout = Layout
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      fileAbsolutePath
       excerpt
       fields {
         slug
       }
       frontmatter {
         title
-        date(formatString: "DD.MM.YYYY")
+        date(formatString: "MMMM DD, YYYY")
         tags
+        description
         thumbnail {
           childImageSharp {
-            fixed(width: 80, height: 80) {
+            fixed(width: 150, height: 150) {
               ...GatsbyImageSharpFixed
             }
           }

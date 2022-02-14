@@ -1,8 +1,9 @@
-export default {
+const config = {
   siteTitle: 'Astrid Günther',
-  siteUrl: 'https://blog.astrid-guenther.de/',
+  siteUrl: 'https://blog.astrid-guenther.de',
   siteLogo: '/logo.png',
   description:
-    'Softwareentwicklerin und Open Source-Erstellerin. Das ist mein digitaler Garten.',
-  userTwitter: 'astridguenther',
+    'Software engineer and open source creator. This is my digital garden.',
 }
+
+export default config

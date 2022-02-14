@@ -1,13 +1,14 @@
 ---
-date: 2021-01-09
-title: 'Joomla 4.x Tutorial - Extension Development - Template - First Steps'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-10
+title: 'Template - First Steps'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-erste-schritte
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

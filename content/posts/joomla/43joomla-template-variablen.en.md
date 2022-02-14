@@ -1,13 +1,14 @@
 ---
-date: 2021-01-12
-title: 'Joomla 4.x-Tutorial - Extension Development - Template - Parameters and Variables'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-07
+title: 'Template - Parameters and Variables'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-template-variablen
 langKey: en
 categories:
-  - JoomladE
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-10-06
 title: 'Karten mit Mapbox GL vergleichen - Das Plugin Swipe'
 template: post

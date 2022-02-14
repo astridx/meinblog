@@ -2,10 +2,9 @@ import React, { useMemo } from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
-import Layout from '../components/Layout'
-import Posts from '../components/Posts'
-import SEO from '../components/SEO'
-
+import { Layout } from '../components/Layout'
+import { SEO } from '../components/SEO'
+import { Posts } from '../components/Posts'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
 
@@ -17,28 +16,40 @@ export default function TagTemplate({ data, pageContext }) {
   const message = totalCount === 1 ? ' post found.' : ' posts found.'
 
   return (
-    <Layout>
+    <>
       <Helmet title={`Posts tagged: ${tag} | ${config.siteTitle}`} />
       <SEO />
-      <section>
-        <h1>
-          Tag: <u>{tag}</u>
-        </h1>
-        <p class="subtitle">
-          <span className="count">{totalCount}</span>
-          {message}
-        </p>
-      </section>
-      <section className="medium">
-        <Posts data={simplifiedPosts} />
-      </section>
-    </Layout>
+
+      <article>
+        <header>
+          <div className="container">
+            <h1>
+              <span>Posts tagged:</span>{' '}
+              <span className="primary-underline">{tag}</span>
+            </h1>
+            <p className="description">
+              <span className="count bright">{totalCount}</span>
+              {message}
+            </p>
+          </div>
+        </header>
+
+        <section className="container">
+          <Posts data={simplifiedPosts} />
+        </section>
+      </article>
+    </>
   )
 }
 
+TagTemplate.Layout = Layout
+
 export const pageQuery = graphql`
   query TagPage($tag: String) {
-    allMarkdownRemark(filter: { frontmatter: { tags: { in: [$tag] } } }) {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
+    ) {
       totalCount
       edges {
         node {
@@ -47,9 +58,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "MMMM DD, YYYY")
             title
             tags
+            categories
           }
         }
       }

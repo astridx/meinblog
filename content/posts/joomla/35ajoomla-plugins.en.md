@@ -1,13 +1,14 @@
 ---
-date: 2021-01-04
-title: 'Joomla 4.x Tutorial - Extension Development - Plugins'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-16
+title: 'Plugins'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-plugins
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

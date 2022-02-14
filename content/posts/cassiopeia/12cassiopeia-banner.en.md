@@ -1,12 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-03-11
-title: 'A tutorial on using the Cassiopeia template for Joomla 4 - A banner at the top and the navigation horizontally below it'
+title: 'A banner at the top and the navigation horizontally below it'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-banner
 langKey: en
 categories:
-  - Code
+  - Cassiopeia English
 tags:
   - Template
   - Joomla

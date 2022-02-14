@@ -1,13 +1,14 @@
 ---
-date: 2020-12-04
-title: 'Joomla 4.x Tutorial - Extension Development - A Menu Item'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-17
+title: 'A Menu Item'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/ein-menuepunkt
 langKey: en
 categories:
-  - Code
-  - JoomlaEn
+  - Joomla English
 tags:
   - CMS
   - Joomla

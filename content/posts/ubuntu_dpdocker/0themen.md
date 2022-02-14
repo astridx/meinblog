@@ -1,13 +1,14 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-08-01
-title: 'Einrichten eines Ubuntu 20.04 Desktop für die Entwicklung mit Docker und Joomla'
+title: '[DE] Einrichten eines Ubuntu 20.04 Desktop für die Entwicklung mit Docker und Joomla'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
 slug: mein-ubuntu-rechner-mit-dpdocker-themen
 langKey: de
 categories:
-  - Betriebssystem
-  - Tutorial
+  - Set
 tags:
   - Linux
   - Ubuntu

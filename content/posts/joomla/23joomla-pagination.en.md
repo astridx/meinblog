@@ -1,13 +1,14 @@
 ---
-date: 2020-12-23
-title: 'Joomla 4.x Tutorial - Extension Development - Pagination'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-29
+title: 'Pagination'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: en/joomla-pagination
 langKey: en
 categories:
-  - JoomlaEn
-  - Code
+  - Joomla English
 tags:
   - CMS
   - Joomla

@@ -1,40 +1,14 @@
 import React from 'react'
+
 import { Link } from 'gatsby'
 
-import gatsby from '../../content/thumbnails/gatsby.png'
-import github from '../../content/thumbnails/github.png'
+const links = [{ url: 'https://blog.astrid-guenther.de/rss.xml', label: 'RSS' }]
 
-export default function Footer() {
+export const Footer = () => {
   return (
-    <footer className="footer container">
-      <section className="flex">
-        <nav className="footer-links">
-          <Link to="/blog">Blog</Link>
-          <Link to="https://astrid-guenther.de/impressum">Impressum</Link>
-          <Link to="https://astrid-guenther.de/datenschutzerklaerung">
-            Datenschutz
-          </Link>
-        </nav>
-        <nav className="flex">
-          <a
-            href="https://www.gatsbyjs.org/"
-            title="Built with Gatsby"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="img"
-          >
-            <img src={gatsby} className="footer-img" alt="Gatsby" />
-          </a>
-          <a
-            href="https://github.com/astridx"
-            title="Open-source on GitHub"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="img"
-          >
-            <img src={github} className="footer-img" alt="GitHub" />
-          </a>
-
+    <footer className="footer">
+      <section>
+        <nav>
           <a
             href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KQMKUVAX5SPVS&amp;source=url"
             rel="nofollow"
@@ -45,6 +19,26 @@ export default function Footer() {
               data-canonical-src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif"
             />
           </a>
+        </nav>
+        <nav className="footer-links">
+          <Link to="/blog">Blog</Link>
+          <Link to="https://astrid-guenther.de/impressum">Impressum</Link>
+          <Link to="https://astrid-guenther.de/datenschutzerklaerung">
+            Datenschutz
+          </Link>
+        </nav>
+        <nav>
+          <span className="desktop-only">Made by Astrid Günther</span>
+          {links.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={link.url}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
       </section>
     </footer>

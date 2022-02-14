@@ -1,12 +1,14 @@
 ---
-date: 2020-12-01
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Die erste Ansicht im Backend'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-02-20
+title: 'Die erste Ansicht im Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: die-erste-ansicht-im-backend
 langKey: de
 categories:
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla
@@ -345,7 +347,19 @@ Die `install`-Funktion wird, wie der Name schon sagt, aufgerufen, wenn die Kompo
 
 `uninstall` wird aufgerufen, wenn jemand die Komponente deinstalliert. Derzeit wird auch hier lediglich ein Text angezeigt.
 
-Die Aktualisierungsfunktion `update` wird immer dann aufgerufen, wenn du die Komponente aktualisierst.
+Die Aktualisierungsfunktion `update` wird immer dann aufgerufen, wenn du die Komponente aktualisierst. Haben sich in der Erweiterung Speicherorte verändert? In dem Fall möchtes du unter Umständen Dateien löschen? Dann könnte die `update`-Methode wie folgt aussehen:
+
+```
+	public function update($parent)
+	{
+		$this->deleteFiles[] = '/administrator/language/en-GB/?.ini';
+		$this->deleteFiles[] = '/administrator/language/en-GB/?.sys.ini';
+
+		$this->removeFiles();
+
+		return true;
+	}
+```
 
 Die `preflight`-Funktion wird aufgerufen, bevor die Komponente installiert, discover_installiert, aktualisiert oder deinstalliert wird. Du kannst an dieser Stelle Code hinzufügen, um Voraussetzungen wie die PHP-Version zu überprüfen oder um zu testen, ob eine andere Erweiterung installiert ist oder nicht.
 

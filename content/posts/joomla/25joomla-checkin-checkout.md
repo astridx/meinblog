@@ -1,13 +1,14 @@
 ---
-date: 2020-12-25
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Checkin und Checkout'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-27
+title: 'Checkin und Checkout'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-checkin-checkout
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla

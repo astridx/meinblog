@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2021-02-07
 title: 'Use docker-lamp'
 template: post

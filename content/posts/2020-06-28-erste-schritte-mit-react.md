@@ -1,4 +1,6 @@
 ---
+description: 'desc'
+shortTitle: 'short'
 date: 2020-06-28
 title: 'Erste Schritte mit React'
 template: post
@@ -7,7 +9,6 @@ slug: erste-schritte-mit-react
 langKey: de
 categories:
   - Code
-  - Popular
 tags:
   - JavaScript
   - SPA

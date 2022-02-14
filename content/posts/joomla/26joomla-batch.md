@@ -1,13 +1,14 @@
 ---
-date: 2020-12-26
-title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Stapelverarbeitung/Batch'
+description: 'desc'
+shortTitle: 'short'
+date: 2021-01-26
+title: 'Stapelverarbeitung/Batch'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
 slug: joomla-batch
 langKey: de
 categories:
-  - JoomladE
-  - Code
+  - Joomla
 tags:
   - CMS
   - Joomla
