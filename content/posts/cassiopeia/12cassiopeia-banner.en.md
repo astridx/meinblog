@@ -21,12 +21,7 @@ This is how it should look:
 
 ![This is how it should look](/images/logotobe.png)
 
-How can this be done with Cassiopeia? You can find the full article in the [Joomla Magazine](https://magazine.joomla.org/all-issues/september/joomla-4-tweak-cassiopeia-with-a-top-banner-and-horizontal-navigation).
-
-<img src="https://vg04.met.vgwort.de/na/eaf19cdac93d4795b72e0393939281cb" width="1" height="1" alt="">
-
-<!--
-
+How can this be done with Cassiopeia? You can find the first version of this article in the [Joomla Magazine](https://magazine.joomla.org/all-issues/september/joomla-4-tweak-cassiopeia-with-a-top-banner-and-horizontal-navigation).
 
 The frontend of a fresh Joomla 4 installation looks similar with Cassiopeia as you can see in the next picture. At the top is the area that contains the brand or branding.
 
@@ -124,7 +119,7 @@ I name the module Banner so that I can easily assign it later. However, I want t
 
 > A few words about the positions: The positions `below-top` and `topbar` are there to display content above the branding area and the navigation menu. In contrast to the position 'topbar', which uses the full screen size at all times, 'low-top' only fills the container. If you have chosen the layout option 'fluid' for your template, the difference is not great. With the `static` setting, the difference is immediately noticeable on large screens. By the way, `below-top` and `topbar` were integrated into Joomla 4 only shortly before the end via PR [31731](https://github.com/joomla/joomla-cms/pull/31731)[^github.com/joomla/joomla-cms/pull/31731] and [33751](https://github.com/joomla/joomla-cms/pull/33751)[^github.com/joomla/joomla-cms/pull/33751]. Are you wondering why I decided against the position 'banner'? The intention was that the banner should be displayed above the navigation. The position 'banner' displays the banner below the navigation and the branding area.
 
-In the Advanced tab we prepare the styling. As module class I add `mybanner` and I set as module Chrome `card` so that the class is rendered.
+In the Advanced tab we prepare the styling. As module class I add `mybanner` so that the class is rendered. If you like a border, set the Chrome module to `card`. If you prefer a banner without a frame, choose `no-card`.
 
 > If you wonder why the module class is only used after setting a module chrome, read the discussion in issue [30822](github.com/joomla/joomla-cms/issues/30822)[https://github.com/joomla/joomla-cms/issues/30822].
 
@@ -142,7 +137,12 @@ As a result I see the image in the editor.
 
 ### Style banner
 
-It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button.
+It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button. 
+
+> Hint: There is an alternative to 'Toggle Editor' button: Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting if you use the editor button shown in the next picture:
+![Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcher_backend_new2.png)
+
+I switch to the code view of the editor via the 'Toggle Editor' button.
 
 ![Add CSS to module custom image](/images/logo6e.png)
 
@@ -173,6 +173,8 @@ I select the Cassiopeia template by clicking on 'Cassiopeia Details and Files'.
 [ Add Module Custom Class](/images/logo6h.png)
 
 Within the Tab `Editor` I first check if there is already a file named `user.css` in the directory `css`. As a reminder, `user.css` is the file provided for implementing custom CSS styles in Joomla. This file is not modified during an update.
+
+> Note: The path to the *template media folders*, and thus also to the file `user.css`, was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
 ![Add CSS styles in the Template Manger - Create the user.css file](/images/logo6i.png)
 
@@ -305,4 +307,4 @@ With the standard template Protostar in Joomla 3, it was possible to display con
 ```
 
 ![Add CSS styles in Template Manger - website in frame](/images/logo9.png)
--->
+<img src="https://vg04.met.vgwort.de/na/eaf19cdac93d4795b72e0393939281cb" width="1" height="1" alt="">

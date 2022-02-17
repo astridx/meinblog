@@ -15,7 +15,7 @@ tags:
   - Cassiopeia
 ---
 
-Cassiopeia bietet Optionen, die über Stile im Template-Manager angepasst werden können. Um größere Änderungen am Aussehen des Templates vorzunehmen, müssen wir die Template-Dateien selbst bearbeiten, wie beispielsweise `user.css`, `index.php` oder `templateDetails.xml`.
+Cassiopeia bietet Optionen, die über Stile im Template-Manager angepasst werden können. Um größere Änderungen am Aussehen des Templates vorzunehmen, müssen wir die Template-Dateien selbst bearbeiten, wie beispielsweise `user.css`, `index.php` oder `templateDetails.xml`. In diesem Fall erstellst du idealerweise ein Child-Templates. Hierbei handelt es sich um eine Funktion, die in Joomla 4.1 eingeführt wurde.
 
 Hier schaue ich mir zunächst die Optionen an, für die keine Änderungen im Code notwendig sind und gehe dann auf kleinere Anpassungen mittels Overrides ein.
 
@@ -171,7 +171,9 @@ Wer eine eigene Schrift hosten möchte, kann dies tun. Ich möchte beispielsweis
 
 ![google-webfonts-helper](/images/c20.png)
 
-4. Falls noch nicht geschehen, lege ich die Datei `/templates/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+4. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt. 
+
+> Achtung: Der Pfad zu den *Template-Medien-Verzeichnissen* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ```
 ...
@@ -210,7 +212,7 @@ h6,
 
 ![google-webfonts-helper](/images/c19.png)
 
-> Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `/templates/cassiopeia/css/user.css` die Adressierung passt. Verwende dabei relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Im Befindet befindet sich die `user.css` im Ordner `/templates/cassiopeia/css/` und die Schriftarten in `/templates/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `/templates/cassiopeia/css/` und die Schriftarten in `/templates/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt.
+> Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `media/templates/site/cassiopeia/css/user.css` die Adressierung passt. Verwende relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Befindet sich die `user.css` im Ordner `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt. Hinweis: Der Pfad zu den *Template-Medienordnern* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ##### Schriften aus dem Web
 
@@ -234,7 +236,7 @@ Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. 
 
 ![Templates_Edit_Style_admin_Administration](/images/c.png)
 
-3. Falls noch nicht geschehen, lege ich die Datei `/templates/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+3. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
 
 ```
 ...

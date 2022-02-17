@@ -79,7 +79,7 @@ Das nächste Bild zeigt dir, wie es aussähe, wenn du dein Banner-Bild als Logob
 
 ![Logo in Cassiopeia - So sähe es aus](/images/logo4c.png)
 
-> Bootstrap 5 Navbars werden mit integriertem Funktionen für eine Vielzahl von Unterkomponenten geliefert. Das Joomla Projekt greift im Fronend und im Backend Template teilweise auf vorgefertigte Bootstrap 5 Elemente zurück. Wenn du dir die Funktionen ansehen möchtest, die die Bootstrap 5 Navbar bietet, findest du eine erste Anlaufstelle in der Bootstrap Dokumentation [getbootstrap.com/docs/5.0/components/navbar/](https://getbootstrap.com/docs/5.0/components/navbar/).
+> Bootstrap 5 Navbars werden mit integrierten Funktionen für eine Vielzahl von Unterkomponenten geliefert. Das Joomla Projekt greift im Fronend und im Backend Template teilweise auf vorgefertigte Bootstrap 5 Elemente zurück. Wenn du dir die Funktionen ansehen möchtest, die die Bootstrap 5 Navbar bietet, findest du eine erste Anlaufstelle in der Bootstrap Dokumentation [getbootstrap.com/docs/5.0/components/navbar/](https://getbootstrap.com/docs/5.0/components/navbar/).
 
 ### Logobereich in Cassiopeia ausblenden
 
@@ -119,7 +119,7 @@ Ich gebe dem Module den Titel Banner, damit ich es später unkompliziert zuordne
 
 > Ein paar Worte zu den Positionen: Die Positionen `below-top` und `topbar` sind dazu da, Inhalte über dem Branding-Bereich und dem Navigations-Menü darzustellen. Im Gegensatz zur Position `topbar`, welche jederzeit die volle Bildschirmgröße ausnutzt, füllt `below-top` lediglich den Container. Wenn du im Template die Layout-Option `fluid` gewählt hast, ist der Unterschied nicht groß. Mit der Einstellung `static` fällt die Differenz auf großen Bildschirmen direkt ins Auge. `below-top` und `topbar` wurden übrigens erst kurz vor Schluss via PR [31731](https://github.com/joomla/joomla-cms/pull/31731)[^github.com/joomla/joomla-cms/pull/31731] und [33751](https://github.com/joomla/joomla-cms/pull/33751)[^github.com/joomla/joomla-cms/pull/33751] in Joomla 4 integriert. Fragst du dich, warum ich mich gegen die Position `banner` entschieden habe? Vorgabe war, dass das Banner über der Navigation angezeigt wird. Die Position `banner` zeigt das Banner unter der Navigation und dem Branding-Bereich an.
 
-Im Tabulator Advanced bereiten wir das Styling vor. Als Modul Klasse füge ich `mybanner` ein und ich lege als Modul Chrome `card` fest, damit die Klasse gerendert wird.
+Im Tabulator Advanced bereiten wir das Styling vor. Als Modul Klasse füge ich `mybanner` ein, damit die Klasse gerendert wird. Wer einen Rahmen mag, lege als Modul Chrome `card` fest. Wem ein Banner ohne Rahmen lieber ist, wählt `no-card`.
 
 > Wenn du dich fragst, warum die Modul Klasse nur nach dem Festlegen eines Module Chromes verwendet wird, dann lese die Diskussion im Issue [30822](github.com/joomla/joomla-cms/issues/30822)[https://github.com/joomla/joomla-cms/issues/30822].
 
@@ -137,7 +137,13 @@ Als Ergebnis sehe ich das Bild im Editor.
 
 ### Banner stylen
 
-Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken. Dazu wechsele ich via Schaltläche `Toggle Editor` in die Code-Ansicht des Editors.
+Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken. 
+Dazu wechsle ich über die Schaltfläche 'Toggle Editor' in die Codeansicht des Editors. 
+
+> Hinweis: Es gibt eine Alternative zur Schaltfläche 'Toggle Editor': Seit Februar 2022, d.h. ab Joomla 4.1, wird der Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen, wenn man den im nächsten Bild gezeigten Editor-Button verwendet:
+![Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen](/images/switcher_backend_new2.png)
+
+Über die Schaltfläche 'Toggle Editor' wechsle ich in die Code-Ansicht des Editors.
 
 ![Module Custom Bild mit CSS versehen.](/images/logo6e.png)
 
@@ -167,7 +173,9 @@ Ich wähle das Cassiopeia Template in dem ich `Cassiopeia Details and Files` kli
 
 ![Module Custom Klasse ergänzen.](/images/logo6h.png)
 
-Im Tabulator `Editor` prüfe ich zunächst, ob es bereits eine Datei mit dem Namen `user.css` im Verzeichnis `css` gibt. Zur Erinnerung: Die `user.css` ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert.
+Im Tabulator `Editor` prüfe ich zunächst, ob es bereits eine Datei mit dem Namen `user.css` gibt. Zur Erinnerung: Die `user.css` ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert. 
+
+Hinweis: Der Pfad zu den *Template-Medienordnern* und somit auch zur Datei `user.css`, war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ![CSS-Stile im Template Manger ergänzen - Die Datei user.css anlegen.](/images/logo6i.png)
 

@@ -300,5 +300,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon-pinned.svg', '', [], true, 1)
 ...
 ```
 
-Beachte dabei: Wenn du die die Favicons im Verzeichnis `JOOMLA/templates/cassiopeia/images` ablegst, werden sie nicht überschrieben. Genau wie die `user.css` ist dies eine unkomplizierte Art Veränderungen vorzunehmen. Bei einer Aktualisierung werden die Versionen der Bilder im Verzeichnis `JOOMLA/media/system` angepasst, nicht die im Template-Verzeichnis. Falls du die Namen der Bilddateien änderst und deshalb die `index.php` des Templates editierst, musst du Vorkehrungen für den Fall einer Aktualisierung von Joomla teffen. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Lege beispielsweise eine Kopie des Templates an.
+Note: If you put the favicons in the directory `media/templates/site/cassiopeia/images`, they will not be overwritten. Just like `user.css`, this is an easy way to make changes. When updating, the versions of the images in the directory `media/system` are adapted, not those in the template directory. If you change the names of the image files and therefore edit the `index.php` of the template, you have to take care in case of an update of Joomla. The file `index.php` of the Cassiopeia template will be overwritten. For example, create a child template. 
+
+> Note: The path to the *template media folders* was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 <img src="https://vg04.met.vgwort.de/na/f0a482cad79b4d04b1e9ccbb267449d0" width="1" height="1" alt="">

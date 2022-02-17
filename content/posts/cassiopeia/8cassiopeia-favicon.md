@@ -300,5 +300,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon-pinned.svg', '', [], true, 1)
 ...
 ```
 
-Beachte dabei: Wenn du die die Favicons im Verzeichnis `JOOMLA/templates/cassiopeia/images` ablegst, werden sie nicht überschrieben. Genau wie die `user.css` ist dies eine unkomplizierte Art Veränderungen vorzunehmen. Bei einer Aktualisierung werden die Versionen der Bilder im Verzeichnis `JOOMLA/media/system` angepasst, nicht die im Template-Verzeichnis. Falls du die Namen der Bilddateien änderst und deshalb die `index.php` des Templates editierst, musst du Vorkehrungen für den Fall einer Aktualisierung von Joomla teffen. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Lege beispielsweise eine Kopie des Templates an.
+Beachte dabei: Wenn du die die Favicons im Verzeichnis `media/templates/site/cassiopeia/images` ablegst, werden sie nicht überschrieben. Genau wie die `user.css` ist dies eine unkomplizierte Art Veränderungen vorzunehmen. Bei einer Aktualisierung werden die Versionen der Bilder im Verzeichnis `JOOMLA/media/system` angepasst, nicht die im Template-Verzeichnis. Falls du die Namen der Bilddateien änderst und deshalb die `index.php` des Templates editierst, musst du Vorkehrungen für den Fall einer Aktualisierung von Joomla treffen. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Lege beispielsweise ein Child-Templates an. 
+
+> Hinweis: Der Pfad zu den *Template-Medienordnern* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 <img src="https://vg04.met.vgwort.de/na/380c0b24cb764d9084f0033e5b2704d9" width="1" height="1" alt="">

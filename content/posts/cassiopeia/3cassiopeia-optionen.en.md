@@ -15,7 +15,7 @@ tags:
   - Cassiopeia
 ---
 
-Cassiopeia offers options that are customized via styles in the template manager. To make major changes to the appearance of the template, we need to edit the template files themselves, such as `user.css`, `index.php` or `templateDetails.xml`.
+Cassiopeia offers options that are customized via styles in the template manager. To make major changes to the appearance of the template, we need to edit the template files themselves, such as `user.css`, `index.php` or `templateDetails.xml`. In this case, you should ideally create a child template. This is a function that was introduced in Joomla 4.1.
 
 Here I first look at the options for which no changes in the code are necessary and then go into smaller customizations using overrides.
 The images attached in this text for illustration were created using the Joomla blog sample files. To have a equal basis, it would be good if you also install them in a test environment. To do this, click the 'Install' button next to Blog sample files in the Dashboard.
@@ -170,7 +170,9 @@ Wer eine eigene Schrift hosten möchte, kann dies tun. Ich möchte beispielsweis
 
 ![google-webfonts-helper](/images/c20.png)
 
-4. Falls noch nicht geschehen, lege ich die Datei `/templates/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+4. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+
+> Note: The path to the *template media folders* was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
 ```
 ...
@@ -209,7 +211,7 @@ h6,
 
 ![google-webfonts-helper](/images/c19.png)
 
-> Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `/templates/cassiopeia/css/user.css` die Adressierung passt. Verwende dabei relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Im Befindet befindet sich die `user.css` im Ordner `/templates/cassiopeia/css/` und die Schriftarten in `/templates/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `/templates/cassiopeia/css/` und die Schriftarten in `/templates/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt.
+> Of course it is possible to store the fonts in a different place. Then make sure that the addressing in the file `media/templates/site/cassiopeia/css/user.css` fits. Use relative paths if possible. A double dot (..) means that it goes up one folder and then searches for the folder after the slash. If the `user.css` is in the folder `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, then the `..` is correct because I go back one folder to get from `css` to `/fonts`. If the `user.css` is in `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/css/fonts`, then I use only one dot. Note: The path to the *template media folders* was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
 ##### Schriften aus dem Web
 
@@ -233,7 +235,7 @@ Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. 
 
 ![Templates_Edit_Style_admin_Administration](/images/c.png)
 
-3. Falls noch nicht geschehen, lege ich die Datei `/templates/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+3. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
 
 ```
 ...

@@ -29,7 +29,7 @@ The Cassiopeia template can be customized to look exactly the way we want it to.
 
 #### Appearance
 
-We can change the basic appearance of Cassiopeia relatively easily if we understand the CSS style sheets. We can change colors, fonts, backgrounds, and column widths simply by adding or editing lines in a stylesheet called `user.css`. Do not change the `template.css` file that comes with Cassiopeia, as your changes will be overwritten when you upgrade Joomla.
+We can change the basic appearance of Cassiopeia relatively easily if we understand the CSS style sheets. We can change colors, fonts, backgrounds, and column widths simply by adding or editing lines in a stylesheet called `user.css`. Do not change the `template.css` file that comes with Cassiopeia, as your changes will be overwritten when you upgrade Joomla. With the introduction of child templates in Joomla 4.1, the locations of the media files in the Cassiopeia template have changed. If you create a child template, you can overwrite all Cassiopeia files in it. No file in the child template is changed when Cassiopeia is updated. This is advantageous, but also involves risks. This is because you have to maintain the files you create yourself.
 
 #### Layout
 
@@ -41,7 +41,7 @@ If we have an understanding of the Joomla API, we can modify Cassiopeia. We can 
 
 #### What's important: Joomla updates
 
-If we make changes to the Cassiopeia template directly, we run the risk of losing those changes. When updating Joomla, files may be overwritten. Only in the case of `user.css` can we be sure that it will remain. Therefore, we ideally take precautions. Depending on the change, it is recommended to protocol it. The best way is to copy Cassiopeia, rename the copy of the template and use it as template. The disadvantage in this case is that updates to Cassiopeia itself are not automatically reflected in our copy.
+If we make changes to the Cassiopeia template directly, we run the risk of losing those changes. When updating Joomla, files may be overwritten. Only in the case of `user.css` can we be sure that it will remain. Therefore, we ideally take precautions. Depending on the change, it is recommended to protocol it. The best way is to copy Cassiopeia, rename the copy of the template and use it as template. The disadvantage in this case is that updates to Cassiopeia itself are not automatically reflected in our copy. Since Joomla 4.1 this drawback is [fixed](https://github.com/joomla/joomla-cms/pull/35874)[^github.com/joomla/joomla-cms/pull/35874]. With the introduction of child templates in Joomla 4.1, locations of media files in the Cassiopeia template changed and you only need to take care of the files you created yourself.
 
 > Maybe in the future it will be possible to use [Child Templates](https://github.com/joomla/joomla-cms/pull/32896)[^https://github.com/joomla/joomla-cms/pull/32896] in Joomla. When using this feature, updates in the main template will be automatically adopted in copies. The child inherits from the parent.
 

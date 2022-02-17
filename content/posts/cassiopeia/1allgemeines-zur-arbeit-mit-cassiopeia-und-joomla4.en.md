@@ -37,7 +37,7 @@ It is then possible to switch the editor while writing a text in the Article Man
 
 ### Since Joomla 4.1
 
-Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting. In addition, it is via buttons on the bootom of the pop up possible to search and replace directly in the HTML code view.
+Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting. In addition, it is via buttons on the bottom of the pop up possible to search and replace directly in the HTML code view.
 
 Syntax-Highlighting in the integrated TinyMCE-Editor
 

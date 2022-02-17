@@ -1,0 +1,28 @@
+---
+description: 'desc'
+shortTitle: 'short'
+date: 2022-02-17
+title: 'Ein erstes Child-Template'
+template: post
+thumbnail: '../../thumbnails/cassiopeia.png'
+slug: cassiopeia-mein-erstes-child-template
+langKey: de
+categories:
+  - Cassiopeia
+tags:
+  - Template
+  - Joomla
+  - Cassiopeia
+---
+
+In diesem Tutorial beschreibe ich die ersten Schritte auf dem Weg zur Geburt meines ersten Child-Templates. Diesen Anfang habe ich auf der Grundlage des Standard-Template Cassiopeia gemacht.
+
+Seit Joomla 4.1 ist es ermöglicht, mit der Child-Template Funktion unkompliziert das eigene Template zu erstellen. Wie eine Katze kannst du dich ganz langsam in die Template-Entwicklung vortasten. Es ist lediglich erforderlich, die selbst hinzugefügten Elemente zu warten. Alles andere wird weiterhin vom Joomla-Projekt auf dem neusten Stand gehalten.
+
+### Child-Template erstellen
+
+Ich baue auf einer frischen Joomla 4.1 Installation auf.
+
+1. 
+
+
