@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 14 Feb 2022 23:49:42 GMT</lastBuildDate><item><title><![CDATA[General notes on Cassiopeia and Joomla]]></title><description><![CDATA[Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many…]]></description><link>https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 17 Feb 2022 01:26:03 GMT</lastBuildDate><item><title><![CDATA[General notes on Cassiopeia and Joomla]]></title><description><![CDATA[Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many…]]></description><link>https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.&lt;/p&gt;
 &lt;h2 id=&quot;practical-tips&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#practical-tips&quot; aria-label=&quot;practical tips permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Practical tips&lt;/h2&gt;
-&lt;h2 id=&quot;editor-switcher---indexeditorswitcher---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher---indexeditorswitcher---&quot; aria-label=&quot;editor switcher   indexeditorswitcher    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher&lt;!-- \index{Editor!Switcher} --&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight   indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight&lt;!-- \index{editor!switcher} --&gt;&lt;!-- \index{editor!syntax highlight} --&gt;&lt;/h2&gt;
 &lt;p&gt;Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.&lt;/p&gt;
-&lt;p&gt;When I write article texts in the Joomla backend, I like to use the &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt; because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. Syntax highlighting is implemented in &lt;a href=&quot;https://codemirror.net/&quot;&gt;codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt;. The TinyMCE does not offer this under Joomla in early 2022.&lt;/p&gt;
+&lt;p&gt;When I write article texts in the Joomla backend, I like to use the &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt; because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in &lt;a href=&quot;https://codemirror.net/&quot;&gt;codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt;. The TinyMCE does not offer this under Joomla in early 2022.&lt;/p&gt;
 &lt;p&gt;The editor can be set in the global configuration. Alternatively, you can set it individually for a user in the User Manager. While entering an article text, switching to the global configuration or the user manager is cumbersome. That&apos;s why I love the plugin &lt;a href=&quot;https://github.com/Bakual/editors_switcher&quot;&gt;Editor Switcher by Bakual&lt;/a&gt;[^&lt;a href=&quot;https://github.com/bakual/editors_switcher%5D&quot;&gt;https://github.com/bakual/editors_switcher]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;After installing and activating it, I set the Switcher as the default editor for my user.&lt;/p&gt;
 &lt;p&gt;Editor Switcher | Edit Style in the Joomla administration area](/images/switcher_backend_user.png)&lt;/p&gt;
@@ -33,6 +33,344 @@
 /static/87d804825081d59f21fdf4bfb5404675/c1b63/switcher_backend_article.png 1200w,
 /static/87d804825081d59f21fdf4bfb5404675/29007/switcher_backend_article.png 1600w,
 /static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;since-joomla-41&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#since-joomla-41&quot; aria-label=&quot;since joomla 41 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Since Joomla 4.1&lt;/h3&gt;
+&lt;p&gt;Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting. In addition, it is via buttons on the bootom of the pop up possible to search and replace directly in the HTML code view.&lt;/p&gt;
+&lt;p&gt;Syntax-Highlighting in the integrated TinyMCE-Editor&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQoz32R23LCMAxE8/+/1Ud4oBcKbVIIpYWWkAu5x5a1HdkBQmHQzE4ytny8WntBuIG/WMP/WGHuL2/qLQjv6j0IEaw2EJZHZEDGwDDDMKwYrriXrEkPGbZ9x7VLsd33lCZY0fnbtB3irEBe1iirBkVZO8l/1aBT2l6g6SyBWSARwYjDXlJKKfxsfrHb7hHtUsT7A7KsQp7mKIraXszs+lkcizsitKpzwKHqpkKWp2AiXJfk4Q5rTdC9GQu0jgmeNHGfCxvG4vMFT7OxnHOI3gHzOVkBKqVPEx33JEfvYsEQ/HCCx+n4FMGJI1EQo5X8bN76YmQ+PsoQqFSH59kIo8kDpq9zLJYrfH2H2CcRjNbYpiXWu1SudiPaLP8Bh+MYIiRphCjeIk5SVFWDLI9wyBMLQN9bVK196SFMZIYOeTjbnZKc6kb1L30N/AMb3QluCOs5iAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor&quot;
+        src=&quot;/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png&quot;
+        srcset=&quot;/static/db4b700c3ef30489afd7785a07d84773/772e8/switcher_backend_new1.png 200w,
+/static/db4b700c3ef30489afd7785a07d84773/e17e5/switcher_backend_new1.png 400w,
+/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png 800w,
+/static/db4b700c3ef30489afd7785a07d84773/c1b63/switcher_backend_new1.png 1200w,
+/static/db4b700c3ef30489afd7785a07d84773/29007/switcher_backend_new1.png 1600w,
+/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Editor button:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQoz3WSy0sVURzH559oWdCuVdv2IRJCRWUQbdpEcCXJfIVEmvkqN1FRFARFtW1TK1dFmzIqRSiliBAXaem9c+c85p7XfOLMtatCHfjOOWfmO5/f9zyS3vGH9Izc5sLQFOd6r7V0tudqc3xxlEr/OF2Dk3QNTlAZmCjnlYFN9Y/TPXSdSzce0zd2n0TqBjI3GFfgClqyoSkXQBtfelTD0nABDzu80dOwjtx6kvWaoFpX1DJdaqMuWU9F2delJlM51UyxkQpqmSLTBpEpROy3KTeBTFsSqTQNYzDG4pzjf60IgRCTra4R0jq5cxhr8MFTFFAVVdZqVRIhBFKqUkJIvi1/YXb+DR8W5vi8NMvc0msWv8+hdY7Oc8yv33ilSIUgExLrHD4EZK5JpSKBghBCmcLmmuGbx9nftouO0+2MTPZw+MxeKkPHyu9/fRFQraXlqsr0MSJxH30Ebr3QOqV7rI0Dh3ZzorODu7emuXOvj+Hp85s/hvjAWtsEWkcoirKA86E8tGR75Z+rK7Sf2sfBzj0cOXqSK8OjPHp2mQdPp3YkiU0pjRAK730JbQGj6S9QScnMq+e8mHnC29mP/FhZ5d2nlywsvqfJKtANw/zSCvF2eB+aCpFRkBu3teTt1f95yq19cnxdXiMVukwVYREaU0bgH4HDy5JDkFSKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button&quot;
+        src=&quot;/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png&quot;
+        srcset=&quot;/static/11861b147894c94247a6b8daeb486679/772e8/switcher_backend_new2.png 200w,
+/static/11861b147894c94247a6b8daeb486679/e17e5/switcher_backend_new2.png 400w,
+/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png 800w,
+/static/11861b147894c94247a6b8daeb486679/c1b63/switcher_backend_new2.png 1200w,
+/static/11861b147894c94247a6b8daeb486679/29007/switcher_backend_new2.png 1600w,
+/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Option to activate the editor button:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVQoz41SCW7DMAzr/z+6ZUW3HD502RwsI4HTFN0EELEEiSYV32LOyJnALCBWqBUQCzIJRA38hFZrfSStt+feJ4qUGTcAqBUeKRMysZNvIXq9lHpGrRAtfnGfrY4WJLYT9kLM5KRmhhASVM0Hn2FWjplx/kLYZHcIqCltZxbPO/SoNbV/Kgwpg0jwOU8IOWFfR92/J3h1OL+ynLLbmZYvrDF4rZQyqBgYj92/22EiqBge2zeWbUNpO1P1nTrpYLHWd5bNgBjdspaKab0flrthXIZHIVdCzwjhY0K8PzCvPwgpngabyj2sGKz849kIC4QYRIR5WcDc32RMCcu6+p9uK1jDBhJ6SfgL+20U0Uj/07YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button&quot;
+        title=&quot;Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button&quot;
+        src=&quot;/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png&quot;
+        srcset=&quot;/static/d13c1e5624dd93219a51be4685de98d4/772e8/switcher_backend_new3.png 200w,
+/static/d13c1e5624dd93219a51be4685de98d4/e17e5/switcher_backend_new3.png 400w,
+/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png 800w,
+/static/d13c1e5624dd93219a51be4685de98d4/c1b63/switcher_backend_new3.png 1200w,
+/static/d13c1e5624dd93219a51be4685de98d4/29007/switcher_backend_new3.png 1600w,
+/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;joomla-accessibility----indexaccessibility------indexa11y---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-accessibility----indexaccessibility------indexa11y---&quot; aria-label=&quot;joomla accessibility    indexaccessibility      indexa11y    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Accessibility &lt;!-- \index{Accessibility} --&gt;&lt;!-- \index{a11y} --&gt;&lt;/h2&gt;
+&lt;p&gt;You can clearly see it: Joomla 4 has been worked all around with Accessibility in mind. Both standard templates, frontend and backend, are accessible and comply with level AA of &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/TR/WCAG21/]. WCAG 2.1 complements WCAG 2.0 and is the web standard for digital accessibility that is mandatory for public bodies in the European Union.&lt;/p&gt;
+&lt;h3 id=&quot;basics&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basics&quot; aria-label=&quot;basics permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basics&lt;/h3&gt;
+&lt;h4 id=&quot;what-is-accessibility&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-is-accessibility&quot; aria-label=&quot;what is accessibility permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is Accessibility?&lt;/h4&gt;
+&lt;p&gt;The WCAG 2.0 guidelines are technical rules. A website is considered accessible if it complies with these rules.&lt;/p&gt;
+&lt;p&gt;As the owner of a website, it makes sense to decide in the planning phase where the website should be accessible. The system one chooses for the creation of the website application should be suitable. Joomla offers good conditions in this context.&lt;/p&gt;
+&lt;h4 id=&quot;why-is-the-accessibility-of-a-website-important&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-is-the-accessibility-of-a-website-important&quot; aria-label=&quot;why is the accessibility of a website important permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why is the accessibility of a website important?&lt;/h4&gt;
+&lt;p&gt;Accessibility is important for many reasons. Public authorities around the world are pushing for online content to be accessible to all, and there are heavy fines for companies that don&apos;t comply with these laws.&lt;/p&gt;
+&lt;p&gt;But: Foremost accessibility is about values and treating all people equally. It&apos;s about people with disabilities not having to rely on others to do simple things like read a website.&lt;/p&gt;
+&lt;p&gt;In addition, an accessible website is also easier for machines to read. For example, a search engine can more easily read and correctly offert correct search results if the content is accessible.&lt;/p&gt;
+&lt;h3 id=&quot;how-to-enable-accessibility-features-in-joomla&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#how-to-enable-accessibility-features-in-joomla&quot; aria-label=&quot;how to enable accessibility features in joomla permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How to Enable Accessibility Features in Joomla&lt;/h3&gt;
+&lt;p&gt;There are the inbuilt accessibility plugins &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; and &lt;em&gt;Additional Accessibility Features&lt;/em&gt;, you can enable them in your plugin manager.&lt;/p&gt;
+&lt;h4 id=&quot;system-plugin---joomla-accessibility-checker&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---joomla-accessibility-checker&quot; aria-label=&quot;system plugin   joomla accessibility checker permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Joomla Accessibility Checker&lt;/h4&gt;
+&lt;p&gt;The System Plugin &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; visually highlights common accessibility and usability issues. Geared towards content authors, the plugin identifies errors or warnings and provides guidance on how to fix them.&lt;/p&gt;
+&lt;p&gt;If you activate the first option, the accessiblity checker is loaded on all pages. This is useful when developing the website but should not be left on when the website is live.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVQoz52R20oDMRCG87YKXhS0VlBvCst65RMUX0wQtRS0doubdpOZyemXpPSwiqAd+AjJTP45qUE1we3NPerLMaqrCvV1jWo4xuB8jJNhhdM/cDaqMbp7wEU1gQKAhANLvdu/TT2/TNE0S7zNP9C9zyFaQ5yDiPTgDDOYBTFGkDAMWTjv4INH22nMmjkUvU5Bsyk+nx7hiEEiIObCRkTgnEcIoeBDQEqp+IgFIUTElEoRbWegrCF4EZjOgMUVAeJ9cIgbYkw78lQMMVq9BhHD+5wogiVAOe/LB0vcIweK8yU4xLQTzkmyYGcsFs0Sq3WHVq+g9QrGcl5KKmvJbXwnzyr9siQRB2NsObdzJnFQuYXD1vqkXVXfTx+2/j0kHmq5IhxLo22P/Ka0FSxa+8N5LF8ULe8q3lxRNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Plugin Settings&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Plugin Settings&quot;
+        src=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png&quot;
+        srcset=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/772e8/c_a11y_1.png 200w,
+/static/815d2f522e1dcb6833dce159d1f5e181/e17e5/c_a11y_1.png 400w,
+/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png 800w,
+/static/815d2f522e1dcb6833dce159d1f5e181/c1b63/c_a11y_1.png 1200w,
+/static/815d2f522e1dcb6833dce159d1f5e181/29007/c_a11y_1.png 1600w,
+/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You can check the accessibility of your content via a button in the toolbar when creating a post.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVQoz3WSvWsUQRjG95+wVLCzsrCxlxgkoKJGkCDYSS4ajPmSQ7xgPjGNqAQUBPGjtdEqlWijiZqEgEZjJIQUJpDcbXZnZndndvYnM5fTE8kLD8vsvvN7nnlng97Rx/QM3edaeYLLvcN09g1z8UqFIyd7ON5xw687+0fpGhyna3CM0sAYpf5RSgN1dfaP0F2+Q3nyKX0jDwmEShFJRmYKjAULREnOx5WQldUtbKaR2iJUhkw1qbHkBZhmWUi1IdE5wVYtprojqUXKazsUbO/EyCRBJSmRUFQjyXYYU4skkUyJVfafkswSKU0gpCLNMrJMY4xhryqKAmut73HPxO3RmtzmFAVU4yqbtSpBHMcIIb3iWPBj7SszC+/4tDjHl+VZ5r+/ZennPEolXs48z3PCKCISAm0MubWIRBEKSQB1Z1c6UVTunuVwyz7aOloZGr/OyUsHKZXP+O+NPges1kJ/qkZ6V6mbYfMLpUK6R1o4emI/59rbmLo3yYOpPiqTV3c37hprUwdqgy0Kn9Dk1l9a0Oz8a2Od1guHONZ+gFOnz3OrcpsnL27y6PnEP0lcSelGJMlz66F/gI1h+yYhmH7zklfTz3g/85nV9Q0+zL1mcWmWOqtApRkL39Zxf4eDeVnHKEgy8/fIze573XJ9TobltU3CWPlUDtZI6YC/AUQ8yp11dee8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post&quot;
+        src=&quot;/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png&quot;
+        srcset=&quot;/static/191ef310598b7365efa241a348293ecb/772e8/c_a11y_1_1.png 200w,
+/static/191ef310598b7365efa241a348293ecb/e17e5/c_a11y_1_1.png 400w,
+/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png 800w,
+/static/191ef310598b7365efa241a348293ecb/c1b63/c_a11y_1_1.png 1200w,
+/static/191ef310598b7365efa241a348293ecb/29007/c_a11y_1_1.png 1600w,
+/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If you want to examine several articles one after the other, it is more convenient to work in the frontend. This is possible via a button in the lower right area.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJUlEQVQoz3WQXUgUYRiF5zrootugIsQgScVcTAjytijMhCBMsFwSKhRvJcMLjX4ggupCNLSikBTTcXepjN0s16QisrvoMkRb92d2dsb5n3liBicV6sDhO3zfec/7vp+ws6yZXeVn2bG3icaWXoafJOjuGWT3wfPsO9TG/soLlFW1U14d5UB1lIqaDqoil6n2WXuFmshVInWd1B3por6+G0F8vYjP2JtPTMbmGZtMMp1IIyYWeDkzz3Q8zVQsjRhf4NXsF2YSi4yNJ5kS08y+/Uoy+Y1kaolUaol3qe8IbIGuqeRzWSQph6IUUVUZTSshy4VAhygqGq7n8S8IjuNgOy6u41JS1ynIKv+D7zMMA0mSUBQVTTNwXRfH2aSA5+F5Ho5pUvjxk+xqhg9zEwyNDjD6eJiY+IhnEwOIsUF0VUXVdJZXMti2jW07QSO/no2Jg5X9x8zaGpmVFVzT495IB3tqBRpORrjW18m5S5U0txwGy2D5d4Hx+Edsx9sM888NLYSXuq5jWDbF/Bpdvcc5dqaM040n6L/ew9T0Q27c6URXStvW9+uCIMfBc91AC2GHcGQps0pr9ChNHRW0XozSf+sBw897GBrpQysVA4//b1unQ9PAsjYDfYYmOZelve0UTc0N3L19k/m594jx+zx90Yelan+Dwn/zqyxVxVLUYHFhm8HXrst6XsKQStglGasogWHiahpbtwm1aZpkc3kKuRyff8n8AQ8Lqe3+hhYRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend&quot;
+        src=&quot;/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png&quot;
+        srcset=&quot;/static/5931d056204e0ae145939c1e0abee4b5/772e8/c_a11y_1_2.png 200w,
+/static/5931d056204e0ae145939c1e0abee4b5/e17e5/c_a11y_1_2.png 400w,
+/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png 800w,
+/static/5931d056204e0ae145939c1e0abee4b5/c1b63/c_a11y_1_2.png 1200w,
+/static/5931d056204e0ae145939c1e0abee4b5/29007/c_a11y_1_2.png 1600w,
+/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;View project website and demo &lt;a href=&quot;https://joomla-projects.github.io/joomla-a11y-checker/&quot;&gt;joomla-projects.github.io/joomla-a11y-checker/&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;system-plugin---additional-accessibility-features&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---additional-accessibility-features&quot; aria-label=&quot;system plugin   additional accessibility features permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Additional Accessibility Features&lt;/h4&gt;
+&lt;p&gt;This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled the toolbar can be opened. You can choose whether you want to display the accessibility toolbar: It can be enabled on either Joomla backend, frontend, or both.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEklEQVQoz62Q3UrDQBCF920VBAVbKgiCpUFvfIPiexW8saU3tqlNmmT/dz/JJliKoG1x4GN3Z5iznCNusikP9y9kg0cmowmTu4xsOOb6dszFMOPyCK5GT4yeXxlkUwRAjBBD5D9KzGZv5Jstq1XO57ZAG9Oh9xhjUFqjtUYphbU2vaVWWGdx3lHUJcv8A9HMF7j3OWqxxNQSZQPKOJTxe6zve+57VkmdPvY+EGLEWEtRN71la4neE2OkNf4rfTJSaYpyh1Ia5zzOB7TxveDBQvyTthopWa03VFWdhMtyRyN1J9hJnVbGWKq6TlbbjFPOxiJ8iCmHownd6dI9HtDmKzY7xbnkpTyg7YlSGtaF/DE8ly/JsfBLYXk3vgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Additional Accessibility Features | Plugin Settings&quot;
+        title=&quot;System Plugin - Additional Accessibility Features | Plugin Settings&quot;
+        src=&quot;/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png&quot;
+        srcset=&quot;/static/56f91680829d5a00e4db1c569e7da167/772e8/c_a11y_2.png 200w,
+/static/56f91680829d5a00e4db1c569e7da167/e17e5/c_a11y_2.png 400w,
+/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png 800w,
+/static/56f91680829d5a00e4db1c569e7da167/c1b63/c_a11y_2.png 1200w,
+/static/56f91680829d5a00e4db1c569e7da167/29007/c_a11y_2.png 1600w,
+/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled shows it the Accessibility icon on the bottom left corner of every page of your website. Click on the icon for using the additional accessibility features.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVQoz62OzUoCURTH7ys4uKyFWOugTYE+QRsfoiBqU6AjVKCBI32ItCxDqn1v0K5FixYtfIFWQX7MjDPeuXPvHRv/cR0NRQoSD/wW53/O+d1L1jN5ZLaLODg6w87h6ZDdbAn7ehl7ujFLzoBuXOP44g4nlYch+fN75Mp1ZEs3IEtrWyhUa2hSC1QIUMHBAgm/H/xOINB2XHx0LLRsG0z6oJyhx32Q+GoaxlUdVAb4tCg6DoPjcTieD9fjU6icMg4mArw03vH49Ibn1wZ6LJpbLgOJJVMoVetQpcJWN4LLPgaDAcJwGpUJGWCyVB+GIXwhQbSVNIqXNcgQMB0G0+UwXR9Wj8P+A7UzZpypG6IlIyHvA+2u9yObPPgPJDb6If9SQjYaRK/NA4knUzPCeWVD4XJiA4XK7eKEWmITxQUKvwFs+cO678qJWgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page&quot;
+        title=&quot;System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page&quot;
+        src=&quot;/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png&quot;
+        srcset=&quot;/static/623de14d7517163accdaf158c73d7072/772e8/c_a11y_2_1.png 200w,
+/static/623de14d7517163accdaf158c73d7072/e17e5/c_a11y_2_1.png 400w,
+/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png 800w,
+/static/623de14d7517163accdaf158c73d7072/c1b63/c_a11y_2_1.png 1200w,
+/static/623de14d7517163accdaf158c73d7072/29007/c_a11y_2_1.png 1600w,
+/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This plugin gives the user ability to a variety of things including&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Increase Text Size&lt;/li&gt;
+&lt;li&gt;Decrease Text Size&lt;/li&gt;
+&lt;li&gt;Increase Text Spacing&lt;/li&gt;
+&lt;li&gt;Decrease Text Spacing&lt;/li&gt;
+&lt;li&gt;Invert Colours&lt;/li&gt;
+&lt;li&gt;Grey Hues&lt;/li&gt;
+&lt;li&gt;Underline Links&lt;/li&gt;
+&lt;li&gt;Big Cursor&lt;/li&gt;
+&lt;li&gt;Reading Guide&lt;/li&gt;
+&lt;li&gt;Text to Speech.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABi0lEQVQoz6WQzWoTURiGB6+h7tzqtuBavAA3vQgFsSAKNWpEVGjGH1S6EipaqAt3unSpEEjSJBsFL6Cr1mkyZzJnzu+cqXlkBkVqK1j84OE9hxe+83Cis0s3Wbp4n2vtR1y6/qDh8soqy62YK63OH8Qstzq0Ouu0n2xw99kb7jzd5NbjTW7Er1hZXSc6tXiBe89fsqcEuixR3qFDia3C3wmeiZTspIIkE2hvUc5QOEu0cPocnbXXqDKQZIppbiiMQxpHrmvsAZRxGB/Y+rrN+4+f+bT1hVlhkNohpCZaOHOeeG2DeqS27M08ua2owj7Mv3PUhFAdvs/neB+ITpxcpB2/aAohDdPMkOxmyCTF6tqmwrjQWP1KbUuU9Y2VMr45153Unujq7Ye8ffeBwnikLRGJIJvMSKVjWpPbw8gjyC2ptET7VSCUHmstIZTMtCctPKJwiML+zH8nMsYc+I9au36pLtMaaY9F1O/3GY1GDIdDxuMx3yYZmfq99NiG3W6XwWBAr9drcvc/F/4AUObQC0Bm5U8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Additional Accessibility Features | Toolbar opend&quot;
+        title=&quot;System Plugin - Additional Accessibility Features | Toolbar opend&quot;
+        src=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png&quot;
+        srcset=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/772e8/c_a11y_2_2.png 200w,
+/static/2d77c8a57001636fb86195122b0e9c1e/e17e5/c_a11y_2_2.png 400w,
+/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png 800w,
+/static/2d77c8a57001636fb86195122b0e9c1e/c1b63/c_a11y_2_2.png 1200w,
+/static/2d77c8a57001636fb86195122b0e9c1e/29007/c_a11y_2_2.png 1600w,
+/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png 1836w&quot;
         sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -131,9 +469,9 @@
   
 &lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Allgemeines zu Joomla und Cassiopeia]]></title><description><![CDATA[Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen…]]></description><link>https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen werden so angeboten, wie es für die meisten Menschen gut ist. Bei der Arbeit mit Cassiopeia und Joomla gibt es Dinge, die man individuell für sich erweitern oder einstellen kann.&lt;/p&gt;
 &lt;h2 id=&quot;praxistipps&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#praxistipps&quot; aria-label=&quot;praxistipps permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Praxistipps&lt;/h2&gt;
-&lt;h2 id=&quot;editor-switcher---indexeditorswitcher---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher---indexeditorswitcher---&quot; aria-label=&quot;editor switcher   indexeditorswitcher    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher&lt;!-- \index{Editor!Switcher} --&gt;&lt;/h2&gt;
-&lt;p&gt;Joomal bietet von Hause aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.&lt;/p&gt;
-&lt;p&gt;Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt;, weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Syntax-Highlighting ist im &lt;a href=&quot;https://codemirror.net/&quot;&gt;Codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt; umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.&lt;/p&gt;
+&lt;h2 id=&quot;editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight syntax hervorhebung   indexeditorsyntax hervorhebung      indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight (Syntax-Hervorhebung)&lt;!-- \index{Editor!Syntax-Hervorhebung} --&gt;&lt;!-- \index{Editor!Switcher} --&gt;&lt;!-- \index{Editor!Syntax Highlight} --&gt;&lt;/h2&gt;
+&lt;p&gt;Joomal bietet von Haus aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.&lt;/p&gt;
+&lt;p&gt;Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt;, weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Das macht es viel einfacher, alle HTML-Tags und CSS-Klassen zu lesen. Das Markup wird übersichtlich dargestellt. Syntax-Highlighting ist im &lt;a href=&quot;https://codemirror.net/&quot;&gt;Codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt; umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.&lt;/p&gt;
 &lt;p&gt;Den Editor kann man in der globalen Konfiguration einstellen. Alternativ kann man ihn für einen Benutzer im Benutzer Manager individuell festlegen. Während der Eingabe eines Artikeltextes ist der Wechsel in die globale Konfiguration oder den Benutzermanager umständlich. Deshalb liebe ich das Plugin &lt;a href=&quot;https://github.com/Bakual/editors_switcher&quot;&gt;Editor Switcher von Bakual&lt;/a&gt;[^&lt;a href=&quot;https://github.com/bakual/editors_switcher%5D&quot;&gt;https://github.com/bakual/editors_switcher]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Nach der Installation und Aktivierung, stelle ich bei meinem Benutzer den Switcher als Standard-Editior ein.&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -196,6 +534,344 @@
 /static/87d804825081d59f21fdf4bfb5404675/c1b63/switcher_backend_article.png 1200w,
 /static/87d804825081d59f21fdf4bfb5404675/29007/switcher_backend_article.png 1600w,
 /static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;seit-joomla-41&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#seit-joomla-41&quot; aria-label=&quot;seit joomla 41 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Seit Joomla 4.1&lt;/h3&gt;
+&lt;p&gt;Seit Februar 2022, also ab Joomla 4.1, ist Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen. Darüber hinaus kann direkt in der HTML-Code-Ansicht gesucht und ersetzt werden.&lt;/p&gt;
+&lt;p&gt;Syntax-Highlighting im integrierten TinyMCE-Editor&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQoz32R23LCMAxE8/+/1Ud4oBcKbVIIpYWWkAu5x5a1HdkBQmHQzE4ytny8WntBuIG/WMP/WGHuL2/qLQjv6j0IEaw2EJZHZEDGwDDDMKwYrriXrEkPGbZ9x7VLsd33lCZY0fnbtB3irEBe1iirBkVZO8l/1aBT2l6g6SyBWSARwYjDXlJKKfxsfrHb7hHtUsT7A7KsQp7mKIraXszs+lkcizsitKpzwKHqpkKWp2AiXJfk4Q5rTdC9GQu0jgmeNHGfCxvG4vMFT7OxnHOI3gHzOVkBKqVPEx33JEfvYsEQ/HCCx+n4FMGJI1EQo5X8bN76YmQ+PsoQqFSH59kIo8kDpq9zLJYrfH2H2CcRjNbYpiXWu1SudiPaLP8Bh+MYIiRphCjeIk5SVFWDLI9wyBMLQN9bVK196SFMZIYOeTjbnZKc6kb1L30N/AMb3QluCOs5iAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor&quot;
+        src=&quot;/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png&quot;
+        srcset=&quot;/static/db4b700c3ef30489afd7785a07d84773/772e8/switcher_backend_new1.png 200w,
+/static/db4b700c3ef30489afd7785a07d84773/e17e5/switcher_backend_new1.png 400w,
+/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png 800w,
+/static/db4b700c3ef30489afd7785a07d84773/c1b63/switcher_backend_new1.png 1200w,
+/static/db4b700c3ef30489afd7785a07d84773/29007/switcher_backend_new1.png 1600w,
+/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Editor Schaltfläche zum Anzeigen&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQoz3WSy0sVURzH559oWdCuVdv2IRJCRWUQbdpEcCXJfIVEmvkqN1FRFARFtW1TK1dFmzIqRSiliBAXaem9c+c85p7XfOLMtatCHfjOOWfmO5/f9zyS3vGH9Izc5sLQFOd6r7V0tudqc3xxlEr/OF2Dk3QNTlAZmCjnlYFN9Y/TPXSdSzce0zd2n0TqBjI3GFfgClqyoSkXQBtfelTD0nABDzu80dOwjtx6kvWaoFpX1DJdaqMuWU9F2delJlM51UyxkQpqmSLTBpEpROy3KTeBTFsSqTQNYzDG4pzjf60IgRCTra4R0jq5cxhr8MFTFFAVVdZqVRIhBFKqUkJIvi1/YXb+DR8W5vi8NMvc0msWv8+hdY7Oc8yv33ilSIUgExLrHD4EZK5JpSKBghBCmcLmmuGbx9nftouO0+2MTPZw+MxeKkPHyu9/fRFQraXlqsr0MSJxH30Ebr3QOqV7rI0Dh3ZzorODu7emuXOvj+Hp85s/hvjAWtsEWkcoirKA86E8tGR75Z+rK7Sf2sfBzj0cOXqSK8OjPHp2mQdPp3YkiU0pjRAK730JbQGj6S9QScnMq+e8mHnC29mP/FhZ5d2nlywsvqfJKtANw/zSCvF2eB+aCpFRkBu3teTt1f95yq19cnxdXiMVukwVYREaU0bgH4HDy5JDkFSKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche zum Anzeigen&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche zum Anzeigen&quot;
+        src=&quot;/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png&quot;
+        srcset=&quot;/static/11861b147894c94247a6b8daeb486679/772e8/switcher_backend_new2.png 200w,
+/static/11861b147894c94247a6b8daeb486679/e17e5/switcher_backend_new2.png 400w,
+/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png 800w,
+/static/11861b147894c94247a6b8daeb486679/c1b63/switcher_backend_new2.png 1200w,
+/static/11861b147894c94247a6b8daeb486679/29007/switcher_backend_new2.png 1600w,
+/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Option zum Aktivieren der Editor Schaltfläche&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVQoz41SCW7DMAzr/z+6ZUW3HD502RwsI4HTFN0EELEEiSYV32LOyJnALCBWqBUQCzIJRA38hFZrfSStt+feJ4qUGTcAqBUeKRMysZNvIXq9lHpGrRAtfnGfrY4WJLYT9kLM5KRmhhASVM0Hn2FWjplx/kLYZHcIqCltZxbPO/SoNbV/Kgwpg0jwOU8IOWFfR92/J3h1OL+ynLLbmZYvrDF4rZQyqBgYj92/22EiqBge2zeWbUNpO1P1nTrpYLHWd5bNgBjdspaKab0flrthXIZHIVdCzwjhY0K8PzCvPwgpngabyj2sGKz849kIC4QYRIR5WcDc32RMCcu6+p9uK1jDBhJ6SfgL+20U0Uj/07YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Option zum Aktivieren der Editor-Schaltfläche&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Option zum Aktivieren der Editor-Schaltfläche&quot;
+        src=&quot;/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png&quot;
+        srcset=&quot;/static/d13c1e5624dd93219a51be4685de98d4/772e8/switcher_backend_new3.png 200w,
+/static/d13c1e5624dd93219a51be4685de98d4/e17e5/switcher_backend_new3.png 400w,
+/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png 800w,
+/static/d13c1e5624dd93219a51be4685de98d4/c1b63/switcher_backend_new3.png 1200w,
+/static/d13c1e5624dd93219a51be4685de98d4/29007/switcher_backend_new3.png 1600w,
+/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;joomla-barrierefreiheit----indexbarrierefreiheit------indexzugänglichkeit------indexaccessibility------indexa11y---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-barrierefreiheit----indexbarrierefreiheit------indexzug%C3%A4nglichkeit------indexaccessibility------indexa11y---&quot; aria-label=&quot;joomla barrierefreiheit    indexbarrierefreiheit      indexzugänglichkeit      indexaccessibility      indexa11y    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Barrierefreiheit &lt;!-- \index{Barrierefreiheit} --&gt;&lt;!-- \index{Zugänglichkeit} --&gt;&lt;!-- \index{Accessibility} --&gt;&lt;!-- \index{a11y} --&gt;&lt;/h2&gt;
+&lt;p&gt;Deutlich zu sehen: Joomla 4 wurde mit Blick auf Barrierefreiheit entwickelt. Beide Standard-Templates, Frontend und Backend, sind zugänglich und entsprechen der Stufe AA der &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/TR/WCAG21/]. WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Zugänglichkeit, der für öffentliche Einrichtungen in der Europäischen Union verbindlich ist.&lt;/p&gt;
+&lt;h3 id=&quot;grundlagen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#grundlagen&quot; aria-label=&quot;grundlagen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Grundlagen&lt;/h3&gt;
+&lt;h4 id=&quot;was-ist-barrierefreiheit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#was-ist-barrierefreiheit&quot; aria-label=&quot;was ist barrierefreiheit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Was ist Barrierefreiheit?&lt;/h4&gt;
+&lt;p&gt;Die Richtlinien der WCAG 2.0 sind technische Regeln. Eine Website gilt als zugänglich, wenn sie diesen Regeln entspricht.&lt;/p&gt;
+&lt;p&gt;Als Websitebetreiber ist es sinnvoll, bereits in der Planungsphase zu entscheiden, ob die Website zugänglich sein soll. Das System, das man für die Erstellung der Website-Anwendung wählt, sollte in Bezug auf a11y unterstützen. Joomla bietet in diesem Zusammenhang gute Voraussetzungen.&lt;/p&gt;
+&lt;h4 id=&quot;warum-ist-die-barrierefreiheit-einer-website-wichtig&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#warum-ist-die-barrierefreiheit-einer-website-wichtig&quot; aria-label=&quot;warum ist die barrierefreiheit einer website wichtig permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Warum ist die Barrierefreiheit einer Website wichtig?&lt;/h4&gt;
+&lt;p&gt;Barrierefreiheit ist aus vielen Gründen wichtig. Behörden auf der ganzen Welt drängen darauf, dass Online-Inhalte für alle zugänglich sind.&lt;/p&gt;
+&lt;p&gt;Aber: In erster Linie geht es bei der Barrierefreiheit um Werte und die Gleichbehandlung aller Menschen. Es geht darum, dass Menschen mit Behinderungen sich nicht auf andere verlassen müssen, um einfache Dinge wie das Lesen einer Website zu erledigen.&lt;/p&gt;
+&lt;p&gt;Darüber hinaus ist eine barrierefreie Website auch für Maschinen leichter auszulesen. So kann beispielsweise eine Suchmaschine den Inhalt leichter lesen und korrekte Suchergebnisse anbieten, wenn der Inhalt zugänglich ist.&lt;/p&gt;
+&lt;h3 id=&quot;wie-aktiviert-man-die-zugänglichkeitsfunktionen-in-joomla&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#wie-aktiviert-man-die-zug%C3%A4nglichkeitsfunktionen-in-joomla&quot; aria-label=&quot;wie aktiviert man die zugänglichkeitsfunktionen in joomla permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Wie aktiviert man die Zugänglichkeitsfunktionen in Joomla&lt;/h3&gt;
+&lt;p&gt;Es gibt integrierte Zugänglichkeits-Plugins &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; und &lt;em&gt;Additional Accessibility Features&lt;/em&gt;, Man kann sie im Plugin-Manager aktivieren.&lt;/p&gt;
+&lt;h4 id=&quot;system-plugin---joomla-zugänglichkeitsüberprüfung&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---joomla-zug%C3%A4nglichkeits%C3%BCberpr%C3%BCfung&quot; aria-label=&quot;system plugin   joomla zugänglichkeitsüberprüfung permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System-Plugin - Joomla Zugänglichkeitsüberprüfung&lt;/h4&gt;
+&lt;p&gt;Das System Plugin &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; hebt häufige Probleme der Zugänglichkeit und Benutzerfreundlichkeit visuell hervor. Das Plugin, das sich an Autoren von Inhalten richtet, identifiziert Fehler oder Warnungen und gibt Hinweise, wie diese behoben werden können.&lt;/p&gt;
+&lt;p&gt;Wenn du die erste Option aktivierst, wird der Zugänglichkeits-Checker auf allen Seiten geladen. Dies ist nützlich bei der Entwicklung der Website, sollte aber nicht aktiviert bleiben, wenn die Website live ist.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVQoz52R20oDMRCG87YKXhS0VlBvCst65RMUX0wQtRS0doubdpOZyemXpPSwiqAd+AjJTP45qUE1we3NPerLMaqrCvV1jWo4xuB8jJNhhdM/cDaqMbp7wEU1gQKAhANLvdu/TT2/TNE0S7zNP9C9zyFaQ5yDiPTgDDOYBTFGkDAMWTjv4INH22nMmjkUvU5Bsyk+nx7hiEEiIObCRkTgnEcIoeBDQEqp+IgFIUTElEoRbWegrCF4EZjOgMUVAeJ9cIgbYkw78lQMMVq9BhHD+5wogiVAOe/LB0vcIweK8yU4xLQTzkmyYGcsFs0Sq3WHVq+g9QrGcl5KKmvJbXwnzyr9siQRB2NsObdzJnFQuYXD1vqkXVXfTx+2/j0kHmq5IhxLo22P/Ka0FSxa+8N5LF8ULe8q3lxRNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Plugin Einstellungen&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Plugin Einstellungen&quot;
+        src=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png&quot;
+        srcset=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/772e8/c_a11y_1.png 200w,
+/static/815d2f522e1dcb6833dce159d1f5e181/e17e5/c_a11y_1.png 400w,
+/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png 800w,
+/static/815d2f522e1dcb6833dce159d1f5e181/c1b63/c_a11y_1.png 1200w,
+/static/815d2f522e1dcb6833dce159d1f5e181/29007/c_a11y_1.png 1600w,
+/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Du kannst die Zugänglichkeit des Inhalts über eine Schaltfläche in der Symbolleiste überprüfen, wenn du einen Beitrag erstellest.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVQoz3WSvWsUQRjG95+wVLCzsrCxlxgkoKJGkCDYSS4ajPmSQ7xgPjGNqAQUBPGjtdEqlWijiZqEgEZjJIQUJpDcbXZnZndndvYnM5fTE8kLD8vsvvN7nnlng97Rx/QM3edaeYLLvcN09g1z8UqFIyd7ON5xw687+0fpGhyna3CM0sAYpf5RSgN1dfaP0F2+Q3nyKX0jDwmEShFJRmYKjAULREnOx5WQldUtbKaR2iJUhkw1qbHkBZhmWUi1IdE5wVYtprojqUXKazsUbO/EyCRBJSmRUFQjyXYYU4skkUyJVfafkswSKU0gpCLNMrJMY4xhryqKAmut73HPxO3RmtzmFAVU4yqbtSpBHMcIIb3iWPBj7SszC+/4tDjHl+VZ5r+/ZennPEolXs48z3PCKCISAm0MubWIRBEKSQB1Z1c6UVTunuVwyz7aOloZGr/OyUsHKZXP+O+NPges1kJ/qkZ6V6mbYfMLpUK6R1o4emI/59rbmLo3yYOpPiqTV3c37hprUwdqgy0Kn9Dk1l9a0Oz8a2Od1guHONZ+gFOnz3OrcpsnL27y6PnEP0lcSelGJMlz66F/gI1h+yYhmH7zklfTz3g/85nV9Q0+zL1mcWmWOqtApRkL39Zxf4eDeVnHKEgy8/fIze573XJ9TobltU3CWPlUDtZI6YC/AUQ8yp11dee8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Überprüfung der Barrierefreiheit beim Erstellen eines Beitrags&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Überprüfung der Barrierefreiheit beim Erstellen eines Beitrags&quot;
+        src=&quot;/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png&quot;
+        srcset=&quot;/static/191ef310598b7365efa241a348293ecb/772e8/c_a11y_1_1.png 200w,
+/static/191ef310598b7365efa241a348293ecb/e17e5/c_a11y_1_1.png 400w,
+/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png 800w,
+/static/191ef310598b7365efa241a348293ecb/c1b63/c_a11y_1_1.png 1200w,
+/static/191ef310598b7365efa241a348293ecb/29007/c_a11y_1_1.png 1600w,
+/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Wenn wir mehrere Artikel nacheinander prüfen wollen, ist es bequemer, im Frontend zu arbeiten. Dies ist über einen Button im unteren rechten Bereich möglich.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJUlEQVQoz3WQXUgUYRiF5zrootugIsQgScVcTAjytijMhCBMsFwSKhRvJcMLjX4ggupCNLSikBTTcXepjN0s16QisrvoMkRb92d2dsb5n3liBicV6sDhO3zfec/7vp+ws6yZXeVn2bG3icaWXoafJOjuGWT3wfPsO9TG/soLlFW1U14d5UB1lIqaDqoil6n2WXuFmshVInWd1B3por6+G0F8vYjP2JtPTMbmGZtMMp1IIyYWeDkzz3Q8zVQsjRhf4NXsF2YSi4yNJ5kS08y+/Uoy+Y1kaolUaol3qe8IbIGuqeRzWSQph6IUUVUZTSshy4VAhygqGq7n8S8IjuNgOy6u41JS1ynIKv+D7zMMA0mSUBQVTTNwXRfH2aSA5+F5Ho5pUvjxk+xqhg9zEwyNDjD6eJiY+IhnEwOIsUF0VUXVdJZXMti2jW07QSO/no2Jg5X9x8zaGpmVFVzT495IB3tqBRpORrjW18m5S5U0txwGy2D5d4Hx+Edsx9sM888NLYSXuq5jWDbF/Bpdvcc5dqaM040n6L/ew9T0Q27c6URXStvW9+uCIMfBc91AC2GHcGQps0pr9ChNHRW0XozSf+sBw897GBrpQysVA4//b1unQ9PAsjYDfYYmOZelve0UTc0N3L19k/m594jx+zx90Yelan+Dwn/zqyxVxVLUYHFhm8HXrst6XsKQStglGasogWHiahpbtwm1aZpkc3kKuRyff8n8AQ8Lqe3+hhYRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Überprüfen Sie die Barrierefreiheit im Frontend&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Überprüfen Sie die Barrierefreiheit im Frontend&quot;
+        src=&quot;/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png&quot;
+        srcset=&quot;/static/5931d056204e0ae145939c1e0abee4b5/772e8/c_a11y_1_2.png 200w,
+/static/5931d056204e0ae145939c1e0abee4b5/e17e5/c_a11y_1_2.png 400w,
+/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png 800w,
+/static/5931d056204e0ae145939c1e0abee4b5/c1b63/c_a11y_1_2.png 1200w,
+/static/5931d056204e0ae145939c1e0abee4b5/29007/c_a11y_1_2.png 1600w,
+/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Projekt-Website und Demo ansehen &lt;a href=&quot;https://joomla-projects.github.io/joomla-a11y-checker/&quot;&gt;joomla-projects.github.io/joomla-a11y-checker/&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;system-plugin---zusätzliche-funktionen-für-barrierefreiheit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---zus%C3%A4tzliche-funktionen-f%C3%BCr-barrierefreiheit&quot; aria-label=&quot;system plugin   zusätzliche funktionen für barrierefreiheit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Zusätzliche Funktionen für Barrierefreiheit&lt;/h4&gt;
+&lt;p&gt;Dieses Plugin fügt der Website eine Symbolleiste für Barrierefreiheit mit zusätzlichen Optionen für Barrierefreiheit hinzu. Sobald es aktiviert ist, kann die Symbolleiste geöffnet werden. Du kannst wählen, wo du die Barrierefreiheits-Symbolleiste anzeigen möchten: Sie kann entweder im Joomla-Backend, im Frontend oder in beiden aktiviert werden.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEklEQVQoz62Q3UrDQBCF920VBAVbKgiCpUFvfIPiexW8saU3tqlNmmT/dz/JJliKoG1x4GN3Z5iznCNusikP9y9kg0cmowmTu4xsOOb6dszFMOPyCK5GT4yeXxlkUwRAjBBD5D9KzGZv5Jstq1XO57ZAG9Oh9xhjUFqjtUYphbU2vaVWWGdx3lHUJcv8A9HMF7j3OWqxxNQSZQPKOJTxe6zve+57VkmdPvY+EGLEWEtRN71la4neE2OkNf4rfTJSaYpyh1Ia5zzOB7TxveDBQvyTthopWa03VFWdhMtyRyN1J9hJnVbGWKq6TlbbjFPOxiJ8iCmHownd6dI9HtDmKzY7xbnkpTyg7YlSGtaF/DE8ly/JsfBLYXk3vgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen&quot;
+        title=&quot;System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen&quot;
+        src=&quot;/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png&quot;
+        srcset=&quot;/static/56f91680829d5a00e4db1c569e7da167/772e8/c_a11y_2.png 200w,
+/static/56f91680829d5a00e4db1c569e7da167/e17e5/c_a11y_2.png 400w,
+/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png 800w,
+/static/56f91680829d5a00e4db1c569e7da167/c1b63/c_a11y_2.png 1200w,
+/static/56f91680829d5a00e4db1c569e7da167/29007/c_a11y_2.png 1600w,
+/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dieses Plugin fügt der Website eine Symbolleiste mit zusätzlichen Optionen für die Barrierefreiheit hinzu. Sobald es aktiviert ist, wird das Symbol für Barrierefreiheit in der linken unteren Ecke jeder Seite der Website angezeigt. Klicke auf das Symbol, um die zusätzlichen Zugänglichkeitsfunktionen zu nutzen.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVQoz62OzUoCURTH7ys4uKyFWOugTYE+QRsfoiBqU6AjVKCBI32ItCxDqn1v0K5FixYtfIFWQX7MjDPeuXPvHRv/cR0NRQoSD/wW53/O+d1L1jN5ZLaLODg6w87h6ZDdbAn7ehl7ujFLzoBuXOP44g4nlYch+fN75Mp1ZEs3IEtrWyhUa2hSC1QIUMHBAgm/H/xOINB2XHx0LLRsG0z6oJyhx32Q+GoaxlUdVAb4tCg6DoPjcTieD9fjU6icMg4mArw03vH49Ibn1wZ6LJpbLgOJJVMoVetQpcJWN4LLPgaDAcJwGpUJGWCyVB+GIXwhQbSVNIqXNcgQMB0G0+UwXR9Wj8P+A7UzZpypG6IlIyHvA+2u9yObPPgPJDb6If9SQjYaRK/NA4knUzPCeWVD4XJiA4XK7eKEWmITxQUKvwFs+cO678qJWgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite&quot;
+        title=&quot;System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite&quot;
+        src=&quot;/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png&quot;
+        srcset=&quot;/static/623de14d7517163accdaf158c73d7072/772e8/c_a11y_2_1.png 200w,
+/static/623de14d7517163accdaf158c73d7072/e17e5/c_a11y_2_1.png 400w,
+/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png 800w,
+/static/623de14d7517163accdaf158c73d7072/c1b63/c_a11y_2_1.png 1200w,
+/static/623de14d7517163accdaf158c73d7072/29007/c_a11y_2_1.png 1600w,
+/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Dieses Plugin bietet dem Benutzer eine Reihe von Möglichkeiten, darunter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vergrößern der Textgröße&lt;/li&gt;
+&lt;li&gt;Verkleinern der Textgröße&lt;/li&gt;
+&lt;li&gt;Vergrößern des Textabstandes&lt;/li&gt;
+&lt;li&gt;Textabstand verkleinern&lt;/li&gt;
+&lt;li&gt;Farben invertieren&lt;/li&gt;
+&lt;li&gt;Grautöne&lt;/li&gt;
+&lt;li&gt;Links unterstreichen&lt;/li&gt;
+&lt;li&gt;Großer Cursor&lt;/li&gt;
+&lt;li&gt;Lesehilfe&lt;/li&gt;
+&lt;li&gt;Text in Sprache.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABi0lEQVQoz6WQzWoTURiGB6+h7tzqtuBavAA3vQgFsSAKNWpEVGjGH1S6EipaqAt3unSpEEjSJBsFL6Cr1mkyZzJnzu+cqXlkBkVqK1j84OE9hxe+83Cis0s3Wbp4n2vtR1y6/qDh8soqy62YK63OH8Qstzq0Ouu0n2xw99kb7jzd5NbjTW7Er1hZXSc6tXiBe89fsqcEuixR3qFDia3C3wmeiZTspIIkE2hvUc5QOEu0cPocnbXXqDKQZIppbiiMQxpHrmvsAZRxGB/Y+rrN+4+f+bT1hVlhkNohpCZaOHOeeG2DeqS27M08ua2owj7Mv3PUhFAdvs/neB+ITpxcpB2/aAohDdPMkOxmyCTF6tqmwrjQWP1KbUuU9Y2VMr45153Unujq7Ye8ffeBwnikLRGJIJvMSKVjWpPbw8gjyC2ptET7VSCUHmstIZTMtCctPKJwiML+zH8nMsYc+I9au36pLtMaaY9F1O/3GY1GDIdDxuMx3yYZmfq99NiG3W6XwWBAr9drcvc/F/4AUObQC0Bm5U8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet&quot;
+        title=&quot;System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet&quot;
+        src=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png&quot;
+        srcset=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/772e8/c_a11y_2_2.png 200w,
+/static/2d77c8a57001636fb86195122b0e9c1e/e17e5/c_a11y_2_2.png 400w,
+/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png 800w,
+/static/2d77c8a57001636fb86195122b0e9c1e/c1b63/c_a11y_2_2.png 1200w,
+/static/2d77c8a57001636fb86195122b0e9c1e/29007/c_a11y_2_2.png 1600w,
+/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png 1836w&quot;
         sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -8536,7 +9212,7 @@ Eine vollständige Referenz findest du unter &lt;a href=&quot;https://github.com
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
-&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[[DE] Maplibre GL JS]]></title><description><![CDATA[Maplibre GL JS Maplibre GL JS (Git-Repo) ist eine JavaScript-Bibliothek, die Vektorkacheln in einer Slippy-Map mit WebGL anzeigt. Quickstart…]]></description><link>https://blog.astrid-guenther.de/maplibregl-js-themen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/maplibregl-js-themen/</guid><pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;maplibre-gl-js&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#maplibre-gl-js&quot; aria-label=&quot;maplibre gl js permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Maplibre GL JS&lt;/h2&gt;
+&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Maplibre GL JS]]></title><description><![CDATA[Maplibre GL JS Maplibre GL JS (Git-Repo) ist eine JavaScript-Bibliothek, die Vektorkacheln in einer Slippy-Map mit WebGL anzeigt. Quickstart…]]></description><link>https://blog.astrid-guenther.de/maplibregl-js-themen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/maplibregl-js-themen/</guid><pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;maplibre-gl-js&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#maplibre-gl-js&quot; aria-label=&quot;maplibre gl js permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Maplibre GL JS&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://maplibre.org/maplibre-gl-js-docs/api/&quot;&gt;Maplibre GL JS&lt;/a&gt; (&lt;a href=&quot;https://github.com/maplibre/maplibre-gl-js/&quot;&gt;Git-Repo&lt;/a&gt;) ist eine JavaScript-Bibliothek, die &lt;a href=&quot;https://en.wikipedia.org/wiki/Vector_tiles&quot;&gt;Vektorkacheln&lt;/a&gt; in einer &lt;a href=&quot;https://wiki.openstreetmap.org/w/index.php?title=DE:Slippy_Map&amp;#x26;oldid=1876163&quot;&gt;Slippy-Map&lt;/a&gt; mit &lt;a href=&quot;https://de.wikipedia.org/wiki/WebGL&quot;&gt;WebGL&lt;/a&gt; anzeigt.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;/maplibregl-quickstart&quot;&gt;Quickstart&lt;/a&gt;&lt;/li&gt;
