@@ -316,7 +316,7 @@
   </a>
     </span></p>
 <blockquote>
-<p>Bootstrap 5 Navbars werden mit integriertem Funktionen für eine Vielzahl von Unterkomponenten geliefert. Das Joomla Projekt greift im Fronend und im Backend Template teilweise auf vorgefertigte Bootstrap 5 Elemente zurück. Wenn du dir die Funktionen ansehen möchtest, die die Bootstrap 5 Navbar bietet, findest du eine erste Anlaufstelle in der Bootstrap Dokumentation <a href="https://getbootstrap.com/docs/5.0/components/navbar/">getbootstrap.com/docs/5.0/components/navbar/</a>.</p>
+<p>Bootstrap 5 Navbars werden mit integrierten Funktionen für eine Vielzahl von Unterkomponenten geliefert. Das Joomla Projekt greift im Fronend und im Backend Template teilweise auf vorgefertigte Bootstrap 5 Elemente zurück. Wenn du dir die Funktionen ansehen möchtest, die die Bootstrap 5 Navbar bietet, findest du eine erste Anlaufstelle in der Bootstrap Dokumentation <a href="https://getbootstrap.com/docs/5.0/components/navbar/">getbootstrap.com/docs/5.0/components/navbar/</a>.</p>
 </blockquote>
 <h3 id="logobereich-in-cassiopeia-ausblenden" style="position:relative;"><a href="#logobereich-in-cassiopeia-ausblenden" aria-label="logobereich in cassiopeia ausblenden permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logobereich in Cassiopeia ausblenden</h3>
 <p>Wir benötigen die Bootstrap Navbar nicht und deaktivieren deshalb das Logo und den Titeltext. Navigiere hierfür zum <code class="language-text">Site Template Stil</code>.</p>
@@ -563,7 +563,7 @@
 <blockquote>
 <p>Ein paar Worte zu den Positionen: Die Positionen <code class="language-text">below-top</code> und <code class="language-text">topbar</code> sind dazu da, Inhalte über dem Branding-Bereich und dem Navigations-Menü darzustellen. Im Gegensatz zur Position <code class="language-text">topbar</code>, welche jederzeit die volle Bildschirmgröße ausnutzt, füllt <code class="language-text">below-top</code> lediglich den Container. Wenn du im Template die Layout-Option <code class="language-text">fluid</code> gewählt hast, ist der Unterschied nicht groß. Mit der Einstellung <code class="language-text">static</code> fällt die Differenz auf großen Bildschirmen direkt ins Auge. <code class="language-text">below-top</code> und <code class="language-text">topbar</code> wurden übrigens erst kurz vor Schluss via PR <a href="https://github.com/joomla/joomla-cms/pull/31731">31731</a>[^github.com/joomla/joomla-cms/pull/31731] und <a href="https://github.com/joomla/joomla-cms/pull/33751">33751</a>[^github.com/joomla/joomla-cms/pull/33751] in Joomla 4 integriert. Fragst du dich, warum ich mich gegen die Position <code class="language-text">banner</code> entschieden habe? Vorgabe war, dass das Banner über der Navigation angezeigt wird. Die Position <code class="language-text">banner</code> zeigt das Banner unter der Navigation und dem Branding-Bereich an.</p>
 </blockquote>
-<p>Im Tabulator Advanced bereiten wir das Styling vor. Als Modul Klasse füge ich <code class="language-text">mybanner</code> ein und ich lege als Modul Chrome <code class="language-text">card</code> fest, damit die Klasse gerendert wird.</p>
+<p>Im Tabulator Advanced bereiten wir das Styling vor. Als Modul Klasse füge ich <code class="language-text">mybanner</code> ein, damit die Klasse gerendert wird. Wer einen Rahmen mag, lege als Modul Chrome <code class="language-text">card</code> fest. Wem ein Banner ohne Rahmen lieber ist, wählt <code class="language-text">no-card</code>.</p>
 <blockquote>
 <p>Wenn du dich fragst, warum die Modul Klasse nur nach dem Festlegen eines Module Chromes verwendet wird, dann lese die Diskussion im Issue <a href="github.com/joomla/joomla-cms/issues/30822">30822</a>[<a href="https://github.com/joomla/joomla-cms/issues/30822">https://github.com/joomla/joomla-cms/issues/30822</a>].</p>
 </blockquote>
@@ -669,7 +669,45 @@
   </a>
     </span></p>
 <h3 id="banner-stylen" style="position:relative;"><a href="#banner-stylen" aria-label="banner stylen permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Banner stylen</h3>
-<p>Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken. Dazu wechsele ich via Schaltläche <code class="language-text">Toggle Editor</code> in die Code-Ansicht des Editors.</p>
+<p>Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken.
+Dazu wechsle ich über die Schaltfläche 'Toggle Editor' in die Codeansicht des Editors.</p>
+<blockquote>
+<p>Hinweis: Es gibt eine Alternative zur Schaltfläche 'Toggle Editor': Seit Februar 2022, d.h. ab Joomla 4.1, wird der Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen, wenn man den im nächsten Bild gezeigten Editor-Button verwendet:</p>
+</blockquote>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQoz3WSy0sVURzH559oWdCuVdv2IRJCRWUQbdpEcCXJfIVEmvkqN1FRFARFtW1TK1dFmzIqRSiliBAXaem9c+c85p7XfOLMtatCHfjOOWfmO5/f9zyS3vGH9Izc5sLQFOd6r7V0tudqc3xxlEr/OF2Dk3QNTlAZmCjnlYFN9Y/TPXSdSzce0zd2n0TqBjI3GFfgClqyoSkXQBtfelTD0nABDzu80dOwjtx6kvWaoFpX1DJdaqMuWU9F2delJlM51UyxkQpqmSLTBpEpROy3KTeBTFsSqTQNYzDG4pzjf60IgRCTra4R0jq5cxhr8MFTFFAVVdZqVRIhBFKqUkJIvi1/YXb+DR8W5vi8NMvc0msWv8+hdY7Oc8yv33ilSIUgExLrHD4EZK5JpSKBghBCmcLmmuGbx9nftouO0+2MTPZw+MxeKkPHyu9/fRFQraXlqsr0MSJxH30Ebr3QOqV7rI0Dh3ZzorODu7emuXOvj+Hp85s/hvjAWtsEWkcoirKA86E8tGR75Z+rK7Sf2sfBzj0cOXqSK8OjPHp2mQdPp3YkiU0pjRAK730JbQGj6S9QScnMq+e8mHnC29mP/FhZ5d2nlywsvqfJKtANw/zSCvF2eB+aCpFRkBu3teTt1f95yq19cnxdXiMVukwVYREaU0bgH4HDy5JDkFSKAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen"
+        title="Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen"
+        src="/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png"
+        srcset="/static/11861b147894c94247a6b8daeb486679/772e8/switcher_backend_new2.png 200w,
+/static/11861b147894c94247a6b8daeb486679/e17e5/switcher_backend_new2.png 400w,
+/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png 800w,
+/static/11861b147894c94247a6b8daeb486679/c1b63/switcher_backend_new2.png 1200w,
+/static/11861b147894c94247a6b8daeb486679/29007/switcher_backend_new2.png 1600w,
+/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>Über die Schaltfläche 'Toggle Editor' wechsle ich in die Code-Ansicht des Editors.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
@@ -815,33 +853,34 @@
       />
   </a>
     </span></p>
-<p>Im Tabulator <code class="language-text">Editor</code> prüfe ich zunächst, ob es bereits eine Datei mit dem Namen <code class="language-text">user.css</code> im Verzeichnis <code class="language-text">css</code> gibt. Zur Erinnerung: Die <code class="language-text">user.css</code> ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert.</p>
+<p>Im Tabulator <code class="language-text">Editor</code> prüfe ich zunächst, ob es bereits eine Datei mit dem Namen <code class="language-text">user.css</code> gibt. Zur Erinnerung: Die <code class="language-text">user.css</code> ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert.</p>
+<p>Hinweis: Der Pfad zu den <em>Template-Medienordnern</em> und somit auch zur Datei <code class="language-text">user.css</code>, war vor Joomla 4.1 <code class="language-text">templates/cassiopeia/</code>. Template-Medienordner sind die Ordner <code class="language-text">css</code>, <code class="language-text">images</code>, <code class="language-text">fonts</code>, <code class="language-text">js</code> und <code class="language-text">scss</code>. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis <code class="language-text">media/templates/site/cassiopeia/</code>.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/f68f72138baf1f5eda437c6de942734c/191e2/logo6i.png"
+    href="/static/db98ec79fd80afe5d482f1d0b21c5224/191e2/logo6i.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA00lEQVQoz6WSS2sCQRCE588KyUGDj4MiBEwE9ZiDB/+hiLAmu7r9nAozyqK3dW0o5tRfdU13GH3t8PH5g8FsjeF8g/50hd5wgbfJsrXeJ98YLbYYL3cIUpwg6iCx/L5S5hHhQgwiRl0TmAXuDlEDS3uRKNQcF1KE37M8uphlgzQtP6EErFkRjn+cQTHG29gOVekUOQP3xwquevcPDhFpTNqqAZ6LEqhKRPdb5K7AeAWWZA+R01LUDO7xKaX+DDyc6gb2aqXTC0XFILbrMqy7Un86m38rdPgx6hOa7QAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCUlEQVQoz6WSwUoDMRCG86hepIKyUNmLoiCsInjsUXwRD948+ADixVNBPLntxupmMjPJL+mm22JFWjrwkWQymfmTiTmublGcj1CcXKM4vcFhWWF/b4jB0RkG5SUONqLC8GKE8uoOhlnAGsESwCECickU0IBtLYQIM50RWBSqHcnphSEicM6h/QWRz1A/OiIwM4gFpv70iDHOSeZZcP/4jIenF3jv58EL0lpDyMXDCklIgGeF+bAEYu0TJoUT26KZtX9eK4Wtk8WIJoWUA5cql4fjGnkn080X/tQHM64J+k+CTekSKsz76xskdZV9V3fXhFQ3gCpi2P6brD5Nf2XrBLb1sN+703wRfgAnAPSHRW3FGwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="CSS-Stile im Template Manger ergänzen - Die Datei user.css anlegen."
         title="CSS-Stile im Template Manger ergänzen - Die Datei user.css anlegen."
-        src="/static/f68f72138baf1f5eda437c6de942734c/5a190/logo6i.png"
-        srcset="/static/f68f72138baf1f5eda437c6de942734c/772e8/logo6i.png 200w,
-/static/f68f72138baf1f5eda437c6de942734c/e17e5/logo6i.png 400w,
-/static/f68f72138baf1f5eda437c6de942734c/5a190/logo6i.png 800w,
-/static/f68f72138baf1f5eda437c6de942734c/c1b63/logo6i.png 1200w,
-/static/f68f72138baf1f5eda437c6de942734c/29007/logo6i.png 1600w,
-/static/f68f72138baf1f5eda437c6de942734c/191e2/logo6i.png 1836w"
+        src="/static/db98ec79fd80afe5d482f1d0b21c5224/5a190/logo6i.png"
+        srcset="/static/db98ec79fd80afe5d482f1d0b21c5224/772e8/logo6i.png 200w,
+/static/db98ec79fd80afe5d482f1d0b21c5224/e17e5/logo6i.png 400w,
+/static/db98ec79fd80afe5d482f1d0b21c5224/5a190/logo6i.png 800w,
+/static/db98ec79fd80afe5d482f1d0b21c5224/c1b63/logo6i.png 1200w,
+/static/db98ec79fd80afe5d482f1d0b21c5224/29007/logo6i.png 1600w,
+/static/db98ec79fd80afe5d482f1d0b21c5224/191e2/logo6i.png 1836w"
         sizes="(max-width: 800px) 100vw, 800px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
