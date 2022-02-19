@@ -52,6 +52,114 @@
 /static/47f2a4ac5233c450f7d02d28772526d9/668a7/cassiopeia.png 1.5x" /><img loading="lazy" width="150" height="150" srcset="/static/47f2a4ac5233c450f7d02d28772526d9/92ab1/cassiopeia.png 1x,
 /static/47f2a4ac5233c450f7d02d28772526d9/668a7/cassiopeia.png 1.5x" src="/static/47f2a4ac5233c450f7d02d28772526d9/92ab1/cassiopeia.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div>Written by Astrid Günther on <time>February 14, 2022</time></div><h1>General notes on Cassiopeia and Joomla</h1><div class="post-meta"><div class="tags"><a class="tag-Template" href="/tags/template">Template</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a><a class="tag-Cassiopeia" href="/tags/cassiopeia">Cassiopeia</a></div></div></div></header><div id="/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/" class="container post-content"><p>Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.</p>
 <h2 id="practical-tips" style="position:relative;"><a href="#practical-tips" aria-label="practical tips permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Practical tips</h2>
+<h2 id="toggle-joomla-login-and-logout-menu-items" style="position:relative;"><a href="#toggle-joomla-login-and-logout-menu-items" aria-label="toggle joomla login and logout menu items permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Toggle Joomla login and logout menu items</h2>
+<p>Below I show how to create a login menu item that is only shown to users who are not yet logged in. Once they have logged in, they will see the Logout menu item instead. So: How do you set up login and logout links in Joomla so that the Login menu item is automatically replaced by Logout as soon as someone has logged in, and vice versa?</p>
+<h3 id="login-link" style="position:relative;"><a href="#login-link" aria-label="login link permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Login link</h3>
+<p>First we create the login. To do this, open the menu manager via the left sidebar. Open 'Menus | All Menu Items' and click the 'New' button in the toolbar to create a new menu item. Select the type 'User | Login Form' for the menu item. It is also important that you change the default group 'Public' to 'Guest' for access. This will cause the menu item to be displayed only to <em>not</em> logged in users. Select all other settings as it suits your environment and save the menu item.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Login - Logout | Create Login Link"
+        title="Login - Logout | Create Login Link"
+        src="/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png"
+        srcset="/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="logout-link" style="position:relative;"><a href="#logout-link" aria-label="logout link permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logout link</h3>
+<p>Next we create the logout link. You are still in the menu manager, right? Otherwise open it via 'Menus | All Menu Items' in the left sidebar. In the menu manager, click the 'New' button in the toolbar again to create a new menu item. Select the type 'User | Logout' for the menu item. It is also important that you replace the default group 'Public' with 'Register'. This causes the menu item to be displayed only to logged-in users. Choose all other settings as it suits your environment and save the menu item.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Login - Logout | Create Logout Link"
+        title="Login - Logout | Create Logout Link"
+        src="/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png"
+        srcset="/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
+/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
+/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
+/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
+/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
+/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="test-the-links" style="position:relative;"><a href="#test-the-links" aria-label="test the links permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Test the links</h3>
+<p>Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in?</p>
+<p>Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on 'System' in the left-hand sidebar and then on the link 'Global configuration' in the right-hand area. Make sure that <code class="language-text">Guest User Group</code> is set to <code class="language-text">Guest</code>.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Login - Logout | Option Guest Group"
+        title="Login - Logout | Option Guest Group"
+        src="/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png"
+        srcset="/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
 <h2 id="editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---" style="position:relative;"><a href="#editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---" aria-label="editor switcher  syntax highlight   indexeditorswitcher      indexeditorsyntax highlight    permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editor Switcher / Syntax Highlight<!-- \index{editor!switcher} --><!-- \index{editor!syntax highlight} --></h2>
 <p>Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.</p>
 <p>When I write article texts in the Joomla backend, I like to use the <a href="https://www.tiny.cloud/">TinyMCE</a> because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in <a href="https://codemirror.net/">codemirror</a>[^<a href="https://codemirror.net/%5D">https://codemirror.net/]</a>. The TinyMCE does not offer this under Joomla in early 2022.</p>

@@ -5,7 +5,7 @@ date: 2021-03-03
 title: 'Allgemeines zu Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: allgemeines-zu cassiopeia-und-joomla4
+slug: allgemeines-zu-cassiopeia-und-joomla4
 langKey: de
 categories:
   - Cassiopeia
@@ -127,4 +127,66 @@ Das Bootstrap-Styling zielt darauf ab, den CSS-Code zu minimieren, welcher für 
 ## Overrideverwaltung in Joomla 4
 
 Neu in Joomla 4 ist die Differenzanzeige<!-- \index{Override!Differenzanzeige} -->, die bei einer Joomla Aktualisierungen auf Änderungen im überschriebenen Code aufmerksam macht. Das ist insbesondere dann sinnvoll, wenn man den Hauptanteil der Joomla! Standard-View im eigenen Override übernommen hat und mit der Aktualisierung ein Sicherheitsproblem in genau dieser View behoben wurde. Nebenbei macht sie das Anlegen eines Overrides zum Kinderspiel. Das neue Werkzeug ist über den Tempalte-Mánager erreichbar und unterstützt durch eine Differenzanzeige.
+
+## Häufig auftretende Fragen
+
+### Wie erkennt man, ob Cassiopeia die Startseite einer Joomla Website oder eine Unterseite rendert?
+
+Du möchtest ein Cassiopeia Child Template oder ein Override erstellen, welches sich auf der Startseite anders verhält oder anders aussieht als auf allen anderen Seiten. Die nachfolgenden Schritte zeigen dir auf, wie du herausfindest, ob dein Template gerade die Startseite deiner Joomla Website rendert oder eine Unterseite. 
+
+Bei mehrsprachigen Websites hängt die Startseite von der aktuell gewählten Sprache ab. Um herauszufinden, welche Sprachversion gerade aktiv ist, benötigst du Funktionen aus dem Namespace `Multilanguage`. Importiere diesen Namespace, wenn du für mehrsprachige Websites gewappnet sein möchtest.
+
+```php
+use Joomla\CMS\Language\Multilanguage;
+```
+
+Den nachfolgenden Code gibt es in der Datei `templates/cassiopeia/index.php`, also Cassiopeia. Falls diese Datei für dein Child-Template oder deine Templatekopie kopiert hast, ist es somit nicht erforderlich ihn nochmal anzulegen. Stelle sicher, dass die Zeilen 
+
+```php
+$app = Factory::getApplication();
+...
+...
+...
+$menu = $app->getMenu()->getActive();
+
+```
+
+in der Datei die du gerade bearbeitest vorhanden sind. Das Gleiche gilt, wenn Sie einen Override implementieren.
+
+
+Mit dem Aufruf `$home = $app->getMenu()->getDefault();` belegt du auf einer nicht mehrsprachigen Website die Variable `$home` mit `true`. Auf merhsprachigen Websites ist ein Parameter erforderlich. Verwende hier `$home = $app->getMenu()->getDefault($lang->getTag());`.
+
+```php
+<?php 
+// Look for the home menu
+if (Multilanguage::isEnabled())
+{
+$home = $app->getMenu()->getDefault($lang->getTag());
+}
+else
+{
+$home = $app->getMenu()->getDefault();
+}
+?>
+```
+
+Ab jetzt kannst du zwischen den Zeilen 
+
+```php
+<?php if ($menu === $home) : ?>
+
+<?php endif; ?>
+```
+
+alles einfügen, was auf der Startseite verwendet werden soll. 
+
+Nutze 
+
+```php
+<?php if ($menu !== $home) : ?>
+
+<?php endif; ?>
+```
+
+für den Code, der auf allen anderen Website verwendet wird.
 <img src="https://vg04.met.vgwort.de/na/82c9dbfb46974602adc7fe5207bc48d1" width="1" height="1" alt="">

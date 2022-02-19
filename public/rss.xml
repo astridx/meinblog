@@ -1,5 +1,529 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 17 Feb 2022 13:43:52 GMT</lastBuildDate><item><title><![CDATA[Allgemeines zu Joomla und Cassiopeia]]></title><description><![CDATA[Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen…]]></description><link>https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen werden so angeboten, wie es für die meisten Menschen gut ist. Bei der Arbeit mit Cassiopeia und Joomla gibt es Dinge, die man individuell für sich erweitern oder einstellen kann.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 19 Feb 2022 13:09:37 GMT</lastBuildDate><item><title><![CDATA[Die Einstellmöglichkeiten der Navigation im Joomla 4 Standardtemplate Cassiopeia]]></title><description><![CDATA[Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare…]]></description><link>https://blog.astrid-guenther.de/cassiopeia-die-optionen-der-navigation/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/cassiopeia-die-optionen-der-navigation/</guid><pubDate>Sat, 19 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare Untermenüpunkte bietet, sie ist barrierefrei und passt sich an unterschiedliche Bildschirmbreiten an. Nebenbei kann man die Hauptanwendungsfälle unkompliziert individuell anpassen. Beispielsweise ein horizontales Menü in der Kopf- und Fußzeile der Website. Wie dies funktioniert ist Thema dieses Abschnitts.&lt;/p&gt;
+&lt;h3 id=&quot;ausgangsituation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ausgangsituation&quot; aria-label=&quot;ausgangsituation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ausgangsituation&lt;/h3&gt;
+&lt;p&gt;Unmittelbar nach der Installation von Joomla 4 findet man im Frontend ein vertikales Menü in der rechten Seitenleiste vor.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9d169f1192fafa07b518e93595480f8e/191e2/menu_footer_frontend1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABC0lEQVQoz52SUUvDMBSF8y/VN9FtpdYxmRVB8ElwimMTRFAUBH+MT/4BnwQtQxzS2rm2a9J80o5KayfUHbjk5pybk+RyxUrrmDXjhNVmD2v/ksPePQdHd2y2h6ybfTasAQ1rSHP7HKNzgdk6Y6txStvo0zEH7HSv6O5eY9s37Nm3CApwXRfP+wStWYhZROQ4jEcjdBjAxK+UCK01ecRxjFIqE4p8aq9TPggIPY+PV4ev9zEz36/UlgxzlMx+6VEsmQYhUiliWb1c5ERR+MnnSbYmyZx/fnnj4fGpUp+3SVADxYNSJUymaWuSVKn8rpZh0XjRvmT4V7+WjX+9sA6ElDIbFylVNjLLRu7zDV6B+JrMZMvcAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Fronden&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Fronden&quot;
+        src=&quot;/static/9d169f1192fafa07b518e93595480f8e/5a190/menu_footer_frontend1.png&quot;
+        srcset=&quot;/static/9d169f1192fafa07b518e93595480f8e/772e8/menu_footer_frontend1.png 200w,
+/static/9d169f1192fafa07b518e93595480f8e/e17e5/menu_footer_frontend1.png 400w,
+/static/9d169f1192fafa07b518e93595480f8e/5a190/menu_footer_frontend1.png 800w,
+/static/9d169f1192fafa07b518e93595480f8e/c1b63/menu_footer_frontend1.png 1200w,
+/static/9d169f1192fafa07b518e93595480f8e/29007/menu_footer_frontend1.png 1600w,
+/static/9d169f1192fafa07b518e93595480f8e/191e2/menu_footer_frontend1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;In Joomla bearbeitet man dieses Hauptmenü im Administrationsbereich an zwei Stellen.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Im Menü-Manager fügt man neue Menüpunkte hinzu.&lt;/li&gt;
+&lt;li&gt;Die Darstellung der Navigation handhabt man über ein Modul im Modul-Manager.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Schwerpunkt dieses Abschnitts ist die gestaltung der Navigation. Deshalb lassen wir den Menü-Manager außen vor. Wir möchten das Menü horizontal präsentieren und werden somit im nächsten Schritt Einstellungen im Site-Modul verändern.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/766b4e2b459c05eec6f45b09544dad05/191e2/menu_footer_backend1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhElEQVQoz6XOX0sUURzG8fMKAvENJFYQIYQgBGnX3Wm9BgkFKWrT7EIktTUTqps0RSK78cYX0RvwKohuohB3J2d2/uzOn3POzJn5xk5bCq0iduDDc/Pw/I64PjrD2Pg8lbmX3Hv4jInKIpPTz5l8vNTVRCfvzy7z4OkLpp5UebSwxnR1q0xxeeA2K+s7tF9L5+gCtOF3HqMKSIECMMDe1zqf9r5hOQFSZ0SJItEZom9wlOrrDxBHNGo24X6drFYj9QNS1yP1vDLzIMA7OMT6YaGk4tBtUbN9wjghThRpZggTjbg6OMbSq22IQrwDi2bdIfd8Ms/HdGSuB80A6/tPvnzexyiJyQuKoihTKo0xObFKEdeG7rC8sYvMwW5JGpHGPUEj1Dihxm33mknJbSW4ZcqS6L1yi+qb98gMbD/6W+zG7TitI3r6bzK/uok07cG4c1V2dfQreSLRe2n4n8H/IS5cvMHcyjvUn8FTrp+FGBi5y+rbj8Q6x/ZDGs34XJwgwvFDfgEbwcObBPyI5QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Backend&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Erste Ansicht im Backend&quot;
+        src=&quot;/static/766b4e2b459c05eec6f45b09544dad05/5a190/menu_footer_backend1.png&quot;
+        srcset=&quot;/static/766b4e2b459c05eec6f45b09544dad05/772e8/menu_footer_backend1.png 200w,
+/static/766b4e2b459c05eec6f45b09544dad05/e17e5/menu_footer_backend1.png 400w,
+/static/766b4e2b459c05eec6f45b09544dad05/5a190/menu_footer_backend1.png 800w,
+/static/766b4e2b459c05eec6f45b09544dad05/c1b63/menu_footer_backend1.png 1200w,
+/static/766b4e2b459c05eec6f45b09544dad05/29007/menu_footer_backend1.png 1600w,
+/static/766b4e2b459c05eec6f45b09544dad05/191e2/menu_footer_backend1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;horizontales-menü-im-kopfbereich-der-website&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#horizontales-men%C3%BC-im-kopfbereich-der-website&quot; aria-label=&quot;horizontales menü im kopfbereich der website permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Horizontales Menü im Kopfbereich der Website&lt;/h3&gt;
+&lt;p&gt;Öffne über die linke Seitenleiste die Einstellungen zum Modul. Klicke hierzu erst auf &lt;code class=&quot;language-text&quot;&gt;Content&lt;/code&gt; und danach auf &lt;code class=&quot;language-text&quot;&gt;Site-Modules&lt;/code&gt;. Nun siehst du im rechten Bereich den Eintrag &lt;code class=&quot;language-text&quot;&gt;Main-Menü&lt;/code&gt; und öffnest auch diese Ansicht per Klick.&lt;/p&gt;
+&lt;p&gt;Als erstes siehst du den Tabulator &lt;code class=&quot;language-text&quot;&gt;Module&lt;/code&gt; in welchem du die &lt;em&gt;Position&lt;/em&gt; von &lt;code class=&quot;language-text&quot;&gt;sidebar-right&lt;/code&gt; auf &lt;code class=&quot;language-text&quot;&gt;menu&lt;/code&gt; änderst.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1be1ee84b2a889b57d4289ef9d4983d5/191e2/menu_header_module.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRUlEQVQoz52SsY4UMQyG87p3BdIKtuAaChYJREeFRMXTUFJRXgHoxA6nXYaZTOI4Tj6UmR1p0bESYOmTo9+J7Thxm907Ns/esLl5yfX2BVdPdlxtd4tf2e643p70M9b9j25e8fT1ex4/f4sTNbSAGuT6EKsgBjGD5MWfs2iVKSpBMq7/fmSMyuAjPghB9AE+JMaQFj8JQ/Nx0VcmUX56wflxJKmiqvyLDf0B0fSbltRwa7Ljj54Q4kWmEBERvu6PfPh4y7e7PSkrakY2I0hkmCLOSqGxHFCipIukpHSHgU+3e+57TxSZkzW7u+/43HU4y4Zom4ufA7VC5QL1/Hp5LlJOYncY+bLvcW1XPXG+/hNrvJkknZNaqZRSCTHR+4jjP61156cwd11OSWPKOLM8z0ZbNbO/opQyP9Q4enI2cs5zx+3r/QI33vJ/qOVF/gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Kopfzeile | Standard Einstellungen des Menüs im Module-Manager&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Kopfzeile | Standard Einstellungen des Menüs im Module-Manager&quot;
+        src=&quot;/static/1be1ee84b2a889b57d4289ef9d4983d5/5a190/menu_header_module.png&quot;
+        srcset=&quot;/static/1be1ee84b2a889b57d4289ef9d4983d5/772e8/menu_header_module.png 200w,
+/static/1be1ee84b2a889b57d4289ef9d4983d5/e17e5/menu_header_module.png 400w,
+/static/1be1ee84b2a889b57d4289ef9d4983d5/5a190/menu_header_module.png 800w,
+/static/1be1ee84b2a889b57d4289ef9d4983d5/c1b63/menu_header_module.png 1200w,
+/static/1be1ee84b2a889b57d4289ef9d4983d5/29007/menu_header_module.png 1600w,
+/static/1be1ee84b2a889b57d4289ef9d4983d5/191e2/menu_header_module.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Wechsel danach in den Tabulator &lt;em&gt;Advanced (Erweitert)&lt;/em&gt; und belege die Option &lt;em&gt;Layout&lt;/em&gt; mit &lt;code class=&quot;language-text&quot;&gt;Zusammenklappbares Dropdown&lt;/code&gt; oder einfach nur &lt;code class=&quot;language-text&quot;&gt;Dropdown&lt;/code&gt;. Wenn du magst, setzte das &lt;code class=&quot;language-text&quot;&gt;Modul-Tag&lt;/code&gt; auf &lt;code class=&quot;language-text&quot;&gt;nav&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Für die Darstellung ist nicht zwingend das &lt;code class=&quot;language-text&quot;&gt;Modul-Tag&lt;/code&gt; auf &lt;code class=&quot;language-text&quot;&gt;nav&lt;/code&gt; abzuändern. Aber: Wenn du dies tust, ist unabhängig von der Darstellung klar, dass der Inhalt eine Navigation ist. Suchmaschinen und Screenreader können so den Text korrekt interpretieren.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bee1843bc6dd9a1bd062119962161080/191e2/menu_header_advanced.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+klEQVQoz5XQTUvEQAwG4P7d3dMK7cWLh63g2Yugv00Eveph6UcyySSvpFOlVXG7hYfQMH2nSXV1fMLh5h6H6zvsm1vs6ha7pi31S9Ni38z9hf2i1scH1O0jqqQGNRT+W3aAM0AKsJb6U/SHlDGwojqNjPfnV3y8vGFgwfiHnhL68X8DCU49oxpGgnCamBnMHWYL7vAN4uGkqDjJ9BKtCMhL2TbRXH6EIjCJwomQug6UBEmCIiUpB83PynOdAwXIBibCSLy+3bYHxvkpMPY2jRvc1+wy9L1DEVDXQzTP+7P1Ls+I1cS3ZWRVuAi4G8DZwWKXUQNJjFsCPwHVMvWJ1jSzLwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Kopfzeile | Erweiterte Einstellungen des Menüs im Module-Manager&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Kopfzeile | Erweiterte Einstellungen des Menüs im Module-Manager&quot;
+        src=&quot;/static/bee1843bc6dd9a1bd062119962161080/5a190/menu_header_advanced.png&quot;
+        srcset=&quot;/static/bee1843bc6dd9a1bd062119962161080/772e8/menu_header_advanced.png 200w,
+/static/bee1843bc6dd9a1bd062119962161080/e17e5/menu_header_advanced.png 400w,
+/static/bee1843bc6dd9a1bd062119962161080/5a190/menu_header_advanced.png 800w,
+/static/bee1843bc6dd9a1bd062119962161080/c1b63/menu_header_advanced.png 1200w,
+/static/bee1843bc6dd9a1bd062119962161080/29007/menu_header_advanced.png 1600w,
+/static/bee1843bc6dd9a1bd062119962161080/191e2/menu_header_advanced.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Speichere alles und sieh es dir im Frontend an.&lt;/p&gt;
+&lt;h4 id=&quot;zu-den-layouts-des-menümoduls&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#zu-den-layouts-des-men%C3%BCmoduls&quot; aria-label=&quot;zu den layouts des menümoduls permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Zu den Layouts des Menümoduls:&lt;/h4&gt;
+&lt;p&gt;Es gibt 4 Optionen im Bereich Layout:&lt;/p&gt;
+&lt;p&gt;2 vom Module&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Collapsible Default Menu&lt;/code&gt; (Zusammenklappbares Standardmenü): Du kennst diese Variante des Menüus vielleicht unter dem Namen &lt;code class=&quot;language-text&quot;&gt;Hamburger-Menü&lt;/code&gt;. Das Menü wird ohne Untermenüs angezeigt. So kann es unkompliziert auf schmalen Displays angezeigt werden.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Default&lt;/code&gt; (Standard): Es wird ebenfalls ohne Untermenüs angezeigt. Wenn Besucher über Mobiltelefone auf Ihre Website zugreifen, sehen sie das Menü in vertikaler Form.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2 von Cassiopeia Template&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Collapsible Dropdown&lt;/code&gt;(Zusammenklappbares Dropdown): Dieses Menü wird auch als &lt;code class=&quot;language-text&quot;&gt;Hamburger-Menü&lt;/code&gt; bezeichnet. Es wird mit Untermenüs angezeigt und kann auf schmalen Displays erscheinen.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Dropdown&lt;/code&gt;: Das Menü wird mit Untermenüs angezeigt. Auf schmalen Displays wird es vertikal angezeigt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;das-aussehen-des-horizontalen-menüs-mit-css-ändern&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#das-aussehen-des-horizontalen-men%C3%BCs-mit-css-%C3%A4ndern&quot; aria-label=&quot;das aussehen des horizontalen menüs mit css ändern permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Das Aussehen des horizontalen Menüs mit CSS ändern&lt;/h4&gt;
+&lt;p&gt;Eigentlich ist nun in Bezug auf das Kopfmenu alles gut. Wenn du meine Einstellungen bisher nachgestellt hast, dann passt sich das Menü dem Layout der Seite an. Die Standardeinstellungen beispielsweise für Farbe und Schriftart werden übernommen. Das ist gut so. Die Website soll ja in einem abgestimmten Layout daher kommen.&lt;/p&gt;
+&lt;p&gt;Aber wie das Leben so spielt: Bei allem gibt es Ausnahmen und so möchte man vielleicht auch der Navigation eine individuelle Einstellung hinzufügen. Aus diesem Grund zeige ich dir hier beispielhaft, wie du mit CSS Anpassungen vornimmst. Füge den folgenden Code in die Datei &lt;code class=&quot;language-text&quot;&gt;user.css&lt;/code&gt; ein, wenn du die Schrift im Header-Menü in &lt;em&gt;Small Caps&lt;/em&gt; darstellen möchtest, also in verkleinerten Großbuchstaben.&lt;/p&gt;
+&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;css&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk6&quot;&gt;.container-header&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk6&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-variant&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;: &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;small-caps&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hinweis: Der Pfad zu den &lt;em&gt;Template-Medienordnern&lt;/em&gt; und somit auch zur Datei &lt;code class=&quot;language-text&quot;&gt;user.css&lt;/code&gt;, war vor Joomla 4.1 &lt;code class=&quot;language-text&quot;&gt;templates/cassiopeia/&lt;/code&gt;. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f37dbf2358a7d3d0fddc65a825602bc9/191e2/menu_header_usercss.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDElEQVQoz6WRQUvDQBCF82eFXjxYi1ZBUdoe9OTRiwd/WA8FNTEJYmyT3ezs7CfZxkIvbakDH8vOMu8tb5Kz2QujmyduL6fcjWdcX0w5Gd4zGE0ZjCb9uYPzCadXD4wfXxlOnknEWpxtccbiTQteOba8BpLvt4xVlmPyHFOU2OyTej6nSVPccon8LHHi96IaaKyQlCvZctG2pX7/oMoK6qykLb6wTndinOJEMa2QFJVFRAkhQAh47+liICioj71DKwqWlY3q2g967dyE7rYhhL1sCdIPRUGvOOc2vUPprKPgomhw/WK7B1VF/Drkw1lHFgXTRU6oKuh/dUz9pWydJ7GNiUsQJ3Eh/6FuLL8vPPYb5fiNBAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Kopfzeile | Individualisieren mit Styles in der Datei user.css&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Kopfzeile | Individualisieren mit Styles in der Datei user.css&quot;
+        src=&quot;/static/f37dbf2358a7d3d0fddc65a825602bc9/5a190/menu_header_usercss.png&quot;
+        srcset=&quot;/static/f37dbf2358a7d3d0fddc65a825602bc9/772e8/menu_header_usercss.png 200w,
+/static/f37dbf2358a7d3d0fddc65a825602bc9/e17e5/menu_header_usercss.png 400w,
+/static/f37dbf2358a7d3d0fddc65a825602bc9/5a190/menu_header_usercss.png 800w,
+/static/f37dbf2358a7d3d0fddc65a825602bc9/c1b63/menu_header_usercss.png 1200w,
+/static/f37dbf2358a7d3d0fddc65a825602bc9/29007/menu_header_usercss.png 1600w,
+/static/f37dbf2358a7d3d0fddc65a825602bc9/191e2/menu_header_usercss.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;horizontales-menü-im-fußbereich-der-website&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#horizontales-men%C3%BC-im-fu%C3%9Fbereich-der-website&quot; aria-label=&quot;horizontales menü im fußbereich der website permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Horizontales Menü im Fußbereich der Website&lt;/h3&gt;
+&lt;p&gt;Möchtest du zusätzlich ein Menü in der Fußzeile anzeigen? Ich gehe davon aus, dass du bereits ein Menü mit Menüpunkten für diesen Zweck über den Menü-Manager erstellt hast. Ich habe für dieses Beispiel eines mit dem Namen &lt;code class=&quot;language-text&quot;&gt;Footer Menu De&lt;/code&gt; angelegt und zeige nachfolgend, wie ich dieses horizontal am unteren Rand der Website einrichte. Wir bearbeiten wieder lediglich das Site-Module, welches für die Anzeige des Menüs verantwortlich ist. Das Anlegen des Menüs ist hier nicht das Thema.&lt;/p&gt;
+&lt;p&gt;Öffne über die linke Seitenleiste den Site-Modul-Manger. Klicke hierzu erst auf &lt;code class=&quot;language-text&quot;&gt;Content&lt;/code&gt; und danach auf &lt;code class=&quot;language-text&quot;&gt;Site-Modules&lt;/code&gt;. Nun siehst du im oberen Bereich die Schaltfläche &lt;code class=&quot;language-text&quot;&gt;New&lt;/code&gt;. Klicke auf &lt;code class=&quot;language-text&quot;&gt;New&lt;/code&gt;, um ein neues Site-Modul vom Typ &lt;em&gt;Menu&lt;/em&gt; anzulegen.&lt;/p&gt;
+&lt;p&gt;Als erstes siehst du den Tabulator &lt;code class=&quot;language-text&quot;&gt;Module&lt;/code&gt; in welchem du die &lt;em&gt;Position&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;footer&lt;/code&gt; auswählst. Ohne weiteres werden Untermenüpunkte auf dieser Position nicht unterstützt. In der Regel möchte man dies im Fußmenü auch nicht. Zwingend ist das Deaktivieren der &lt;em&gt;Submenu items&lt;/em&gt; nicht, um Verwirrung zu vermeiden empfiehlt es sich aber in meinem Augen.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/80f73f6ed9db15e3f86b9834e378cf76/191e2/menu_footer_module.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVQoz52RXWtUMRCG83NrL0SoW6iIUFwpIvS64JW/xmsvvBSxIrun666n5+Qkk2SSR5Ndy9K6oA48DMxk3syHeTJ/y4vnl1zMzjk9Oefo6ZxH95nNOZ5t/T7Hs1ct//jZa87evOPk5RVGYiJlUC2kwgO0gCj4BJK2fp9trDD5iJOE6VcbRh+5tR7rBCfxAdYFRhfu/DBJq7F+G6tMUjUEY0dLjLHxLzZ8XyL3akJUTNiJbTY/mJzHHaDmRISvizXvP3xmsbghpEhUJanixDNMHqM5k3NmkoCEiJdwkBAi3Xrg46clq37EB2li1b6tOr50HSalepSC728hZwocpuyPl9oneRfs1iPXyx5TX7XHIVBS2hWWP8JvD22aKqq5kHPB+UBvPYb/tNqdnVzrsFGnDAmjmtpu6mFU9a+oO6+HGkZLSkpdW+14+NXhT3JD8oowrMAWAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Fußzeile | Standard Einstellungen des Menüs im Module-Manager&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Fußzeile | Standard Einstellungen des Menüs im Module-Manager&quot;
+        src=&quot;/static/80f73f6ed9db15e3f86b9834e378cf76/5a190/menu_footer_module.png&quot;
+        srcset=&quot;/static/80f73f6ed9db15e3f86b9834e378cf76/772e8/menu_footer_module.png 200w,
+/static/80f73f6ed9db15e3f86b9834e378cf76/e17e5/menu_footer_module.png 400w,
+/static/80f73f6ed9db15e3f86b9834e378cf76/5a190/menu_footer_module.png 800w,
+/static/80f73f6ed9db15e3f86b9834e378cf76/c1b63/menu_footer_module.png 1200w,
+/static/80f73f6ed9db15e3f86b9834e378cf76/29007/menu_footer_module.png 1600w,
+/static/80f73f6ed9db15e3f86b9834e378cf76/191e2/menu_footer_module.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Wechsel danach in den Tabulator &lt;em&gt;Advanced (Erweitert)&lt;/em&gt; und&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;trage die Klasse &lt;code class=&quot;language-text&quot;&gt;menu-horizontal&lt;/code&gt; als &lt;em&gt;Menu Class&lt;/em&gt; ein&lt;/li&gt;
+&lt;li&gt;belege die Option &lt;em&gt;Layout&lt;/em&gt; mit &lt;code class=&quot;language-text&quot;&gt;Dropdown&lt;/code&gt; und&lt;/li&gt;
+&lt;li&gt;setzte das &lt;em&gt;Modul-Tag&lt;/em&gt; auf &lt;code class=&quot;language-text&quot;&gt;nav&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fa3e98c0502a00271e1738037e690f27/191e2/menu_footer_advanced.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABE0lEQVQoz5WR20oDMRBA9///QsFLhWKhggqCPvkfCn0rtXazucxMciRZqtJiWwOHJMPMYTLprmbPXN4+MZk9cn5zx9lkvkeN/8lkzsX0nunDK9fzF7qwXiOrFckHtICxT8ojkn/Ou7GghaiF7nO9YfW24ON9QUhCVCPW/RslRDlKFKX3iU5EKGaYGlmEPAzkUsh5h3KAXCilEJLSDT5QgJAS3jnEOZIqSQRRPRnLNgrNMnUNIeCXS6L3TR5iJKmgZogpeoCttAlFtLVbC00Ey/kXNsaPsM1pwnqpQlHDyjiLk+a2M8PaQBOmJO3JKUSkd2iu3WbUysmIZUSr0Oh8CO0D3Mbh+wGfFB/lH4z5zif6IfAF9YAAM8s0rlYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Fußzeile | Erweiterte Einstellungen des Menüs im Module-Manager&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Fußzeile | Erweiterte Einstellungen des Menüs im Module-Manager&quot;
+        src=&quot;/static/fa3e98c0502a00271e1738037e690f27/5a190/menu_footer_advanced.png&quot;
+        srcset=&quot;/static/fa3e98c0502a00271e1738037e690f27/772e8/menu_footer_advanced.png 200w,
+/static/fa3e98c0502a00271e1738037e690f27/e17e5/menu_footer_advanced.png 400w,
+/static/fa3e98c0502a00271e1738037e690f27/5a190/menu_footer_advanced.png 800w,
+/static/fa3e98c0502a00271e1738037e690f27/c1b63/menu_footer_advanced.png 1200w,
+/static/fa3e98c0502a00271e1738037e690f27/29007/menu_footer_advanced.png 1600w,
+/static/fa3e98c0502a00271e1738037e690f27/191e2/menu_footer_advanced.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Vergiß nicht, alle Änderungen zu speichern.&lt;/p&gt;
+&lt;h3 id=&quot;änderungen-im-frontend-überprüfen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%C3%A4nderungen-im-frontend-%C3%BCberpr%C3%BCfen&quot; aria-label=&quot;änderungen im frontend überprüfen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Änderungen im Frontend überprüfen&lt;/h3&gt;
+&lt;p&gt;Jetzt gehen wir zurück zu Ihrer Joomla-Seite und sehen uns die Menüs an.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f5a95fc527e36cb1699a20ce86e7f1e5/191e2/menu_header_frontendview.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABtklEQVQoz42PzUtUYRSH707wfxBbTJmMMU7iKqIWlSY5TTbNB0lUC6XMJloJYtGHqxaFkkhQOirNgIgLbSBa5CLof2gl1L0jDWWpTTn3vueJ996bXa3F/ODhvOe8nI+fUdcQo74xTn3DWQ5EL3HsxCBHjl8ndDDDvlCSUFOGpuaLtEav0nLoMvvDV2iO9BFu7Scc6aMl0k8keo3o4QHa2m5gTEwtMTG1zDPNkznGHuWYHCsw/WKJmelXzOaKFGaKvHv9nuW5Is8nF3k8Ps/40wVys294mX/rks+vUCisYBDQr8omW9+/+ZkAyoe/tWoFkar//68M23bQOI5iY3OL9Y0KP7dtHCXYStyoUToXwf5RQao2SsDxe4MYiCDibVNKue//oaWX6uHurYH6n+heuGNG9loQz5SuB5rd+p5BuwYq346H8gnkIh6qNgxqklCrjI9WGc0nq4xpft7BssqUVk3MD6uYZhmr9GUXpdJXjzWPNZd1jPZTg7R33ORoZ5ZE5wDp7iyZ7lv0xm6T7spyMjZER3yY0/Fhus6NcKbnDrHzd4kn7tFz4T6J5AOSqYekUqOkU6P8BrjTrQYrMAiRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Ansicht im Frontend&quot;
+        title=&quot;Joomla 4 - Horizontales Menü in der Kopf- und Fußzeile | Ansicht im Frontend&quot;
+        src=&quot;/static/f5a95fc527e36cb1699a20ce86e7f1e5/5a190/menu_header_frontendview.png&quot;
+        srcset=&quot;/static/f5a95fc527e36cb1699a20ce86e7f1e5/772e8/menu_header_frontendview.png 200w,
+/static/f5a95fc527e36cb1699a20ce86e7f1e5/e17e5/menu_header_frontendview.png 400w,
+/static/f5a95fc527e36cb1699a20ce86e7f1e5/5a190/menu_header_frontendview.png 800w,
+/static/f5a95fc527e36cb1699a20ce86e7f1e5/c1b63/menu_header_frontendview.png 1200w,
+/static/f5a95fc527e36cb1699a20ce86e7f1e5/29007/menu_header_frontendview.png 1600w,
+/static/f5a95fc527e36cb1699a20ce86e7f1e5/191e2/menu_header_frontendview.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+  .default-dark {
+    background-color: #1E1E1E;
+    color: #D4D4D4;
+  }
+  .default-dark .mtk6 { color: #D7BA7D; }
+  .default-dark .mtk1 { color: #D4D4D4; }
+  .default-dark .mtk12 { color: #9CDCFE; }
+  .default-dark .mtk8 { color: #CE9178; }
+  .default-dark .grvsc-line-highlighted::before {
+    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
+    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
+  }
+&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Allgemeines zu Joomla und Cassiopeia]]></title><description><![CDATA[Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen…]]></description><link>https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen werden so angeboten, wie es für die meisten Menschen gut ist. Bei der Arbeit mit Cassiopeia und Joomla gibt es Dinge, die man individuell für sich erweitern oder einstellen kann.&lt;/p&gt;
 &lt;h2 id=&quot;praxistipps&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#praxistipps&quot; aria-label=&quot;praxistipps permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Praxistipps&lt;/h2&gt;
+&lt;h2 id=&quot;joomla-login--und-logout-menüpunkte-umschalten&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-login--und-logout-men%C3%BCpunkte-umschalten&quot; aria-label=&quot;joomla login  und logout menüpunkte umschalten permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Login- und Logout-Menüpunkte umschalten&lt;/h2&gt;
+&lt;p&gt;Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Benutzern angezeigt wird, die noch nicht eingeloggt sind. Sobald sie sich angemeldet haben, sehen sie stattdessen den Menüpunkt &quot;Logout&quot;. Also: Wie richtet man Login- und Logout-Links in Joomla so ein, dass der Menüpunkt Login automatisch durch Logout ersetzt wird, sobald sich jemand eingeloggt hat, und umgekehrt?&lt;/p&gt;
+&lt;h3 id=&quot;login-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#login-link&quot; aria-label=&quot;login link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Login-Link&lt;/h3&gt;
+&lt;p&gt;Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne &lt;code class=&quot;language-text&quot;&gt;Menus | All Menu Items&lt;/code&gt; und klicke in der Werkzeugleiste die Schaltfläche &lt;code class=&quot;language-text&quot;&gt;New&lt;/code&gt; um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ &lt;code class=&quot;language-text&quot;&gt;User | Login Form&lt;/code&gt;. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe &lt;code class=&quot;language-text&quot;&gt;Public&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;Guest&lt;/code&gt; änderst. Dies bewirkt, dass der Menüpunkt nur &lt;em&gt;nicht&lt;/em&gt; angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Login-Link erstellen&quot;
+        title=&quot;Login - Logout | Login-Link erstellen&quot;
+        src=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png&quot;
+        srcset=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;logout-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#logout-link&quot; aria-label=&quot;logout link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Logout-Link&lt;/h3&gt;
+&lt;p&gt;Als nächstes erstellen wir den Logout-Link. Du befindest dich noch im Menümanager, richtig? Anderfalls öffne diesen über &lt;code class=&quot;language-text&quot;&gt;Menus | All Menu Items&lt;/code&gt; in der linken Seitenleiste. Im Menümanger klicke in der Werkzeugleiste erneut die Schaltfläche &lt;code class=&quot;language-text&quot;&gt;New&lt;/code&gt; um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ &lt;code class=&quot;language-text&quot;&gt;User | Logout&lt;/code&gt;. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe &lt;code class=&quot;language-text&quot;&gt;Public&lt;/code&gt; mit &lt;code class=&quot;language-text&quot;&gt;Registert&lt;/code&gt; ersetzt. Dies bewirkt, dass der Menüpunkt nur angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Logout-Link erstellen&quot;
+        title=&quot;Login - Logout | Logout-Link erstellen&quot;
+        src=&quot;/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png&quot;
+        srcset=&quot;/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
+/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
+/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
+/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
+/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
+/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;teste-die-links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#teste-die-links&quot; aria-label=&quot;teste die links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Teste die Links&lt;/h3&gt;
+&lt;p&gt;Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Menüpunkt, wenn du die Website aufrufst? Ist gleichzeitig der Logout-Menüpunkt ausgeblendet? Erscheint der Logout-Menüpunkt, wenn man eingeloggt ist? Verschwindet nach dem erfolgreichen Anmelden der Login-Menüpunkt?&lt;/p&gt;
+&lt;p&gt;Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Einstellung in der globalen Konfiguration. Klicke dazu in der linken Seitenleiste &lt;code class=&quot;language-text&quot;&gt;System&lt;/code&gt; und dann im rechten Bereich den Link &lt;code class=&quot;language-text&quot;&gt;globale Konfiguration&lt;/code&gt;. Stelle sicher, dass &lt;code class=&quot;language-text&quot;&gt;Guest User Group&lt;/code&gt; mit &lt;code class=&quot;language-text&quot;&gt;Gast&lt;/code&gt; belegt ist.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Option Gast Gruppe&quot;
+        title=&quot;Login - Logout | Option Gast Gruppe&quot;
+        src=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png&quot;
+        srcset=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight syntax hervorhebung   indexeditorsyntax hervorhebung      indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight (Syntax-Hervorhebung)&lt;!-- \index{Editor!Syntax-Hervorhebung} --&gt;&lt;!-- \index{Editor!Switcher} --&gt;&lt;!-- \index{Editor!Syntax Highlight} --&gt;&lt;/h2&gt;
 &lt;p&gt;Joomal bietet von Haus aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.&lt;/p&gt;
 &lt;p&gt;Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt;, weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Das macht es viel einfacher, alle HTML-Tags und CSS-Klassen zu lesen. Das Markup wird übersichtlich dargestellt. Syntax-Highlighting ist im &lt;a href=&quot;https://codemirror.net/&quot;&gt;Codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt; umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.&lt;/p&gt;
@@ -501,6 +1025,114 @@
   
 &lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[General notes on Cassiopeia and Joomla]]></title><description><![CDATA[Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many…]]></description><link>https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.&lt;/p&gt;
 &lt;h2 id=&quot;practical-tips&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#practical-tips&quot; aria-label=&quot;practical tips permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Practical tips&lt;/h2&gt;
+&lt;h2 id=&quot;toggle-joomla-login-and-logout-menu-items&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#toggle-joomla-login-and-logout-menu-items&quot; aria-label=&quot;toggle joomla login and logout menu items permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Toggle Joomla login and logout menu items&lt;/h2&gt;
+&lt;p&gt;Below I show how to create a login menu item that is only shown to users who are not yet logged in. Once they have logged in, they will see the Logout menu item instead. So: How do you set up login and logout links in Joomla so that the Login menu item is automatically replaced by Logout as soon as someone has logged in, and vice versa?&lt;/p&gt;
+&lt;h3 id=&quot;login-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#login-link&quot; aria-label=&quot;login link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Login link&lt;/h3&gt;
+&lt;p&gt;First we create the login. To do this, open the menu manager via the left sidebar. Open &apos;Menus | All Menu Items&apos; and click the &apos;New&apos; button in the toolbar to create a new menu item. Select the type &apos;User | Login Form&apos; for the menu item. It is also important that you change the default group &apos;Public&apos; to &apos;Guest&apos; for access. This will cause the menu item to be displayed only to &lt;em&gt;not&lt;/em&gt; logged in users. Select all other settings as it suits your environment and save the menu item.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Create Login Link&quot;
+        title=&quot;Login - Logout | Create Login Link&quot;
+        src=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png&quot;
+        srcset=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;logout-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#logout-link&quot; aria-label=&quot;logout link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Logout link&lt;/h3&gt;
+&lt;p&gt;Next we create the logout link. You are still in the menu manager, right? Otherwise open it via &apos;Menus | All Menu Items&apos; in the left sidebar. In the menu manager, click the &apos;New&apos; button in the toolbar again to create a new menu item. Select the type &apos;User | Logout&apos; for the menu item. It is also important that you replace the default group &apos;Public&apos; with &apos;Register&apos;. This causes the menu item to be displayed only to logged-in users. Choose all other settings as it suits your environment and save the menu item.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Create Logout Link&quot;
+        title=&quot;Login - Logout | Create Logout Link&quot;
+        src=&quot;/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png&quot;
+        srcset=&quot;/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
+/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
+/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
+/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
+/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
+/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;test-the-links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#test-the-links&quot; aria-label=&quot;test the links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Test the links&lt;/h3&gt;
+&lt;p&gt;Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in?&lt;/p&gt;
+&lt;p&gt;Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on &apos;System&apos; in the left-hand sidebar and then on the link &apos;Global configuration&apos; in the right-hand area. Make sure that &lt;code class=&quot;language-text&quot;&gt;Guest User Group&lt;/code&gt; is set to &lt;code class=&quot;language-text&quot;&gt;Guest&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Option Guest Group&quot;
+        title=&quot;Login - Logout | Option Guest Group&quot;
+        src=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png&quot;
+        srcset=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight   indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight&lt;!-- \index{editor!switcher} --&gt;&lt;!-- \index{editor!syntax highlight} --&gt;&lt;/h2&gt;
 &lt;p&gt;Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.&lt;/p&gt;
 &lt;p&gt;When I write article texts in the Joomla backend, I like to use the &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt; because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in &lt;a href=&quot;https://codemirror.net/&quot;&gt;codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt;. The TinyMCE does not offer this under Joomla in early 2022.&lt;/p&gt;
@@ -14697,601 +15329,6 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 &lt;p&gt;Note: The path to the &lt;em&gt;template media folders&lt;/em&gt; was &lt;code class=&quot;language-text&quot;&gt;templates/cassiopeia/&lt;/code&gt; before Joomla 4.1. Template media folders are the folders &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;images&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;fonts&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;js&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;. As of Joomla 4.1, the files are located in the &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/&lt;/code&gt; directory.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;img src=&quot;https://vg04.met.vgwort.de/na/f0a482cad79b4d04b1e9ccbb267449d0&quot; width=&quot;1&quot; height=&quot;1&quot; alt=&quot;&quot;&gt;
-&lt;style class=&quot;grvsc-styles&quot;&gt;
-  .grvsc-container {
-    overflow: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    padding-top: 1rem;
-    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
-    padding-bottom: 1rem;
-    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
-    border-radius: 8px;
-    border-radius: var(--grvsc-border-radius, 8px);
-    font-feature-settings: normal;
-    line-height: 1.4;
-  }
-  
-  .grvsc-code {
-    display: table;
-  }
-  
-  .grvsc-line {
-    display: table-row;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-  }
-  
-  .grvsc-line &gt; * {
-    position: relative;
-  }
-  
-  .grvsc-gutter-pad {
-    display: table-cell;
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  .grvsc-gutter {
-    display: table-cell;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter::before {
-    content: attr(data-content);
-  }
-  
-  .grvsc-source {
-    display: table-cell;
-    padding-left: 1.5rem;
-    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
-    padding-right: 1.5rem;
-    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
-  }
-  
-  .grvsc-source:empty::after {
-    content: &apos; &apos;;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter + .grvsc-source {
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  /* Line transformer styles */
-  
-  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
-    content: &apos; &apos;;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .grvsc-line-diff-add::before {
-    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
-  }
-  
-  .grvsc-line-diff-del::before {
-    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
-  }
-  
-  .grvsc-line-number {
-    padding: 0 2px;
-    text-align: right;
-    opacity: 0.7;
-  }
-  
-  .default-dark {
-    background-color: #1E1E1E;
-    color: #D4D4D4;
-  }
-  .default-dark .mtk1 { color: #D4D4D4; }
-  .default-dark .mtk4 { color: #569CD6; }
-  .default-dark .mtk11 { color: #DCDCAA; }
-  .default-dark .mtk10 { color: #4EC9B0; }
-  .default-dark .mtk8 { color: #CE9178; }
-  .default-dark .mtk7 { color: #B5CEA8; }
-  .default-dark .mtk17 { color: #808080; }
-  .default-dark .mtk12 { color: #9CDCFE; }
-  .default-dark .grvsc-line-highlighted::before {
-    background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
-    box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
-  }
-&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Favicon]]></title><description><![CDATA[Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen…]]></description><link>https://blog.astrid-guenther.de/cassiopeia-favicon/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/cassiopeia-favicon/</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie sind historisch gewachsen. Heute bieten sie verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.&lt;/p&gt;
-&lt;p&gt;Eine neue Funktion ist die Möglichkeit, den Dateityp SVG als Favicon zu verwenden. Das ist etwas, das &lt;a href=&quot;https://caniuse.com/#feat=link-icon-svg&quot;&gt;die meisten modernen Browser unterstützen&lt;/a&gt;, und weitere Unterstützung ist in Vorbereitung. Um diese neue Funktion zu nutzen benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser das Bild anzeigen, benötigst du zusätzlich eine ICO-Datei.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Du kennst dich mit SVG und ICO nicht aus und würdest lieber eine das PNG-Format verwenden? Dann findest du unter &lt;a href=&quot;https://blog.astrid-guenther.de/joomla-template-favicon&quot;&gt;Favicon im Joomla-Template&lt;/a&gt; eine Lösung die besser zu dir passt.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;favicon-in-cassiopeia&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#favicon-in-cassiopeia&quot; aria-label=&quot;favicon in cassiopeia permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Favicon in Cassiopeia&lt;/h2&gt;
-&lt;h3 id=&quot;implementierung&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#implementierung&quot; aria-label=&quot;implementierung permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Implementierung&lt;/h3&gt;
-&lt;p&gt;Hier ist der Code den Cassiopeia zum Hinzufügen von Favicons nutzt:&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;php&quot; data-index=&quot;0&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;joomla-favicon.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/svg+xml&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon.ico&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;alternate icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/vnd.microsoft.icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;joomla-favicon-pinned.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;mask-icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;#000&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode ist das Dokument, welches an den Browser übergeben wird.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;html&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;/j4dev/media/system/images/joomla-favicon.svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;image/svg+xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;/j4dev/media/system/images/favicon.ico&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;alternate icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;image/vnd.microsoft.icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;mask-icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;#000&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Der &lt;a href=&quot;https://github.com/joomla/joomla-cms/pull/31436&quot;&gt;Pull Request&lt;/a&gt; mit diese Funktion integriert wurde, orientierte sich an ein &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/&quot;&gt;CSS-Tricks&lt;/a&gt; Tutorial.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;erklärung-zur-implementierung&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#erkl%C3%A4rung-zur-implementierung&quot; aria-label=&quot;erklärung zur implementierung permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Erklärung zur Implementierung&lt;/h3&gt;
-&lt;p&gt;Wenn ein Browser ein SVG-Favicon nicht unterstützt, ignoriert er die erste Zeile &lt;code class=&quot;language-text&quot;&gt;&amp;lt;link href=&quot;/j4dev/media/system/images/joomla-favicon.svg&quot; rel=&quot;icon&quot; type=&quot;image/svg+xml&quot;&gt;&lt;/code&gt; und fährt mit der zweiten fort. Dadurch wird sichergestellt, dass alle Browser, die Favicons unterstützen, ein Bild anzeigen können.&lt;/p&gt;
-&lt;p&gt;Beachte den alternativen Attributwert für unsere &lt;code class=&quot;language-text&quot;&gt;rel&lt;/code&gt;-Deklaration &lt;code class=&quot;language-text&quot;&gt;rel=&quot;alternate icon&quot;&lt;/code&gt;. Damit wird dem Browser mitgeteilt, dass das Favicon mit dem Dateiformat &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt; lediglich als alternative Darstellung verwenden soll.&lt;/p&gt;
-&lt;p&gt;Nach den Favicons folgt die Codezeile &lt;code class=&quot;language-text&quot;&gt;&amp;lt;link href=&quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&quot; rel=&quot;mask-icon&quot; color=&quot;#000&quot;&gt;&lt;/code&gt;, die ein weiteres SVG-Bild lädt. Dieses heißt &lt;code class=&quot;language-text&quot;&gt;joomla-favicon-pinned.svg&lt;/code&gt;. Damit wird die &quot;Pinned Tab&quot;-Funktionalität von Safari unterstützt, die es gab, bevor andere Browser SVG-Favicons unterstützten.&lt;/p&gt;
-&lt;h2 id=&quot;ein-modernes-favicon-mit-svg-und-ico-als-fallback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-modernes-favicon-mit-svg-und-ico-als-fallback&quot; aria-label=&quot;ein modernes favicon mit svg und ico als fallback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein modernes Favicon mit SVG und ICO als Fallback&lt;/h2&gt;
-&lt;h3 id=&quot;warum-ein-svg-favicon&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#warum-ein-svg-favicon&quot; aria-label=&quot;warum ein svg favicon permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Warum ein SVG Favicon?&lt;/h3&gt;
-&lt;p&gt;Du fragst dich, welchen Grund es gibt zu SVG zu wechseln? Das &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt;-Dateiformat gibt es schon ewig und kann Bilder bis zu einer Größe von 256×256 Pixeln unterstützen. Hier sind drei Gründe.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Das &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt;-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängikeit verwenden.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;erstelle-dein-favicon-mit-ubuntu-2004&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#erstelle-dein-favicon-mit-ubuntu-2004&quot; aria-label=&quot;erstelle dein favicon mit ubuntu 2004 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Erstelle dein Favicon mit Ubuntu 20.04&lt;/h3&gt;
-&lt;p&gt;Zunächst sehen wir uns an, wie man ein Favicon unter Ubuntu erstellt. Ich veranschauliche es mit Hilfe der Pakete &lt;a href=&quot;https://inkscape.org/de/&quot;&gt;Inkscape&lt;/a&gt; und &lt;a href=&quot;https://imagemagick.org/index.php&quot;&gt;Imagemagick&lt;/a&gt;. Zuerst besprechen wir den Installationsprozess für beide Pakete. Um mit dem Installationsprozess fortzufahren, solltest du Zugriff auf Superuser-Rechte haben.&lt;/p&gt;
-&lt;h4 id=&quot;installiere-inkscape-und-imagemagick-unter-ubuntu&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#installiere-inkscape-und-imagemagick-unter-ubuntu&quot; aria-label=&quot;installiere inkscape und imagemagick unter ubuntu permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Installiere Inkscape und Imagemagick unter Ubuntu&lt;/h4&gt;
-&lt;p&gt;Führe folgendes Kommando im Terminal aus.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;&quot; data-index=&quot;2&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;sudo apt install inkscape imagemagick&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Der obige Befehl installiert die Pakete -- Inkscape und Imagemagick. Mit dem Inkscape-Paket erstellen wir eine skalierbare Vektorgrafik und konvertieren anschließend die Datei mit der Erweiterung .svg in .ico mit dem Befehl &lt;code class=&quot;language-text&quot;&gt;convert&lt;/code&gt; von Imagemagick.&lt;/p&gt;
-&lt;h4 id=&quot;erstellen-einer-skalierbaren-vektorgrafik-mit-inkscape&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#erstellen-einer-skalierbaren-vektorgrafik-mit-inkscape&quot; aria-label=&quot;erstellen einer skalierbaren vektorgrafik mit inkscape permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Erstellen einer skalierbaren Vektorgrafik mit Inkscape&lt;/h4&gt;
-&lt;p&gt;Mit Inkscape können wir praktisch alles entwerfen. Wir erstellen ein Text-Favicon. Öffne Inkscape und du siehst zunächst eine leere Seite umringt von Symbolleisten. Klinke auf der linken Seite auf das Symbol mit dem &lt;code class=&quot;language-text&quot;&gt;A&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d99a7b25ac89b771fe2774d64a65e89e/c4842/cassiopeia_inkscape1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABX0lEQVQoz31S207DMAzN//8UT9wKYlCglG2daZtes65PXRsnjlHoEGMaWDqyIx+f2HFEmqYmTTPKspw2G6BcFiSL4utclBVVdUNSFrRONgQfH6S2HbWtmqG21CpFTaus6nZcSdmJsqxJ64nHceL9fmStNWuNvz0iD8Oeh2FgNIYRD/iJHSJy3TS9UEpZns2dAxE5bz621rp/eFzVdS+aZhZ0s/ExPMnjkOdpmviUM9/Fzk9RlFUvut32l+B3sbdTQT/+cf4oduM4sixkL+Ty3TIa3/fZDo+LveBfHfodZFneiypPjW/mHJxzhMaQtZaMMaS1pj+4nsKQ5jvR9h1bY9lvCTWyQWRjzAHIepq+3s7/BETN1ho2ds6hB/74sq4HEQT3SbKM4HoRwOLiFuLrS3gK7uDh9grWjzeweg0hegkB1vewel/AW/QC0TIAyENINjFEyTPE8hFeV2EaL+PwE8z3sgWz4HPgAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/d99a7b25ac89b771fe2774d64a65e89e/5a190/cassiopeia_inkscape1.png&quot;
-        srcset=&quot;/static/d99a7b25ac89b771fe2774d64a65e89e/772e8/cassiopeia_inkscape1.png 200w,
-/static/d99a7b25ac89b771fe2774d64a65e89e/e17e5/cassiopeia_inkscape1.png 400w,
-/static/d99a7b25ac89b771fe2774d64a65e89e/5a190/cassiopeia_inkscape1.png 800w,
-/static/d99a7b25ac89b771fe2774d64a65e89e/c1b63/cassiopeia_inkscape1.png 1200w,
-/static/d99a7b25ac89b771fe2774d64a65e89e/29007/cassiopeia_inkscape1.png 1600w,
-/static/d99a7b25ac89b771fe2774d64a65e89e/c4842/cassiopeia_inkscape1.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Das &lt;code class=&quot;language-text&quot;&gt;A&lt;/code&gt; dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/51e63844f54f053b1bfb2f4dc893b0db/c4842/cassiopeia_inkscape2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZklEQVQoz3VR227CMAzN///OttdpD9NgYwMGA5UBMrRJ2pRLX4DcmnhKSqdNgKUjO845R05MGOeWMeYySh2lITd1mmbxDKuVW63Xsc/zwglRRhRCOFE2mTJW56JEnmU7stnunbUWldaotUGt9bnWqJTGw+GAUqrYa/u/HGNillJ5qSTmRV6RcrOpsQl/Db7N3ntrrb/Fc85jXoiKCNEY+ibwL5w8oVOqcfUeVaz9BYLcaIOc84rstuU/w6D27cjyhPXxhLZuhOGpZy620RpKKZEyWpEsS69PiIju/J42guGtCcM/p2lWEcaZPWsv4L13xhhX13VYnNNauxvcQEFYZ3tS7rfhFDcW/sEag2Hr1pqIuFWlUGuFxujIbe8CTNAFnjHIi+JI7u4flp3nJ+iN+jB47MKs8wLDtx70XzuwGHYhGQ9hMv4EWLzDfDaA6WQMs8UHrOgXLJYJTJdjSOgQJvPROvlORj9HJLFUJTqQMAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape&quot;
-        src=&quot;/static/51e63844f54f053b1bfb2f4dc893b0db/5a190/cassiopeia_inkscape2.png&quot;
-        srcset=&quot;/static/51e63844f54f053b1bfb2f4dc893b0db/772e8/cassiopeia_inkscape2.png 200w,
-/static/51e63844f54f053b1bfb2f4dc893b0db/e17e5/cassiopeia_inkscape2.png 400w,
-/static/51e63844f54f053b1bfb2f4dc893b0db/5a190/cassiopeia_inkscape2.png 800w,
-/static/51e63844f54f053b1bfb2f4dc893b0db/c1b63/cassiopeia_inkscape2.png 1200w,
-/static/51e63844f54f053b1bfb2f4dc893b0db/29007/cassiopeia_inkscape2.png 1600w,
-/static/51e63844f54f053b1bfb2f4dc893b0db/c4842/cassiopeia_inkscape2.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Schreibe irgendetwas und markieren den Text. Direkt unter der Menüleiste ist die Schriftart und die Größe des Textes änderbar. Wähle eine Schrift nach deinem Geschmack.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9916201d9c42c9055c3e72bd18b6aff0/c4842/cassiopeia_inkscape3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdElEQVQoz3VR72/iMAzN///v7PZ1ug8nbdpO7Dgm1g2Q26ZJmwItTIL8quNT0sHEiT3p6dnJs2XZTEjphRDIK4FVybEqSuR5gUVZopR1UsiL9C/rBpVqExulULWjVkIMtWpJcr5l602H3nsy1pHTmmy/I7PfkzkeyXlPh8ORdHy3loy1Sc+xc0m1NkEbTXVT96xdrwcaEf5nGIYQTnEIwXsfrvkiEQPVjeqZUmPDMILOjG9a09D1FM0Rxhi68HwyWp11JKXs2XbTXjSkSyN9bDva9R/nhp9eOuHUMK6lElXPOC+vThiBiPRVSml3302otaGy5D0TUvhYe40hBPTO4zAM8XBorcVvvNFCUPCOtd0mZulicQ/eWnIxTrRktE5XNiZe2pD3jpx3SVPsxjyqbJoDu/lxu7r/9ROeZhN4vnuA1dMjzJ+n8DL5DeV8AvniFRbvGVTFFAp4geXiDZb5H8irGSxXGcxXM8jEFObLWZG9Z3//AXvgsXCWwZiQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/9916201d9c42c9055c3e72bd18b6aff0/5a190/cassiopeia_inkscape3.png&quot;
-        srcset=&quot;/static/9916201d9c42c9055c3e72bd18b6aff0/772e8/cassiopeia_inkscape3.png 200w,
-/static/9916201d9c42c9055c3e72bd18b6aff0/e17e5/cassiopeia_inkscape3.png 400w,
-/static/9916201d9c42c9055c3e72bd18b6aff0/5a190/cassiopeia_inkscape3.png 800w,
-/static/9916201d9c42c9055c3e72bd18b6aff0/c1b63/cassiopeia_inkscape3.png 1200w,
-/static/9916201d9c42c9055c3e72bd18b6aff0/29007/cassiopeia_inkscape3.png 1600w,
-/static/9916201d9c42c9055c3e72bd18b6aff0/c4842/cassiopeia_inkscape3.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Danach drücke F1, um das Textobjekt auszuwählen und zu transformieren.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/6633ccb807a1addf3300639f0205325e/c4842/cassiopeia_inkscape3a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABk0lEQVQoz42S646bMBCF/f5vUvVR2h/tRhs1SzAXZ7klS4DU4MvYp8IkKdl21R7paGxr5vMwhqVJYtMkoSRJKdrHlOU5ZVke9kIcKBeCYs5pt3uh/T6mqqqpKCsq37uufSHEhVVl6cfLgGHo0XU9pByDf0oJOY6YJgWlNIbhgnPXYVL66uV8jpNSXmmNtm1H1vW9wyJ/t/cezvmHs38bzbGRrG27APSLAss7F+ycAxHBeR+i1hr3nJXncnIOx+YoWd//Bl7jch2wAI9HeKKw10rhlnPTrcwYg6qu5g7fHjq8J13BQ1FgqKr/AhZFIdnp7fR34LVDt+p4/uT3WgPF4VWytjv/OcMVMMwwzJOglPpwhtZa8FRIdj6361d+vB2AsRZzsjEWRA4fKNQWZSNZr838puFfsqOC0wpkDKzRcGYCGb2sSYGsgjEaxk7BWk9Qs630yijUTS1Z/OmzK799wdM+8vHXDdLNE16et/ix+Y5D9IycR+BxhEJsIfIdspSDZ1tUJ46qPkCUGUTLfVpwiFchfwG5z1N0lIIzhQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/6633ccb807a1addf3300639f0205325e/5a190/cassiopeia_inkscape3a.png&quot;
-        srcset=&quot;/static/6633ccb807a1addf3300639f0205325e/772e8/cassiopeia_inkscape3a.png 200w,
-/static/6633ccb807a1addf3300639f0205325e/e17e5/cassiopeia_inkscape3a.png 400w,
-/static/6633ccb807a1addf3300639f0205325e/5a190/cassiopeia_inkscape3a.png 800w,
-/static/6633ccb807a1addf3300639f0205325e/c1b63/cassiopeia_inkscape3a.png 1200w,
-/static/6633ccb807a1addf3300639f0205325e/29007/cassiopeia_inkscape3a.png 1600w,
-/static/6633ccb807a1addf3300639f0205325e/c4842/cassiopeia_inkscape3a.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Des Weiteren werden wir das Textobjekt einfärben. Diese kann über die Leise im unteren Bereich erfolgen.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/79e04732411c02181c1aeae65c4fafbf/c4842/cassiopeia_inkscape4.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.49999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABe0lEQVQoz3VR7Y7TMBD0+78I4g2Q+MFPdKI6WnqUcG21dWI7caISoVPqz/UiOwn0EKw0mt31aLS7ZlKpIKXERggUIrPEuhHI6waVapHzGi+cl75qO9S6L+i0Rt3PLKSMre5JNc2VDcMVQwhknSPnPTnnyFpbau89TdNExti5nzULVn1mY2wy1lDbtSPr+yHSHOlvpAUlTymFENK/dBmIidpOj0zr2TDNQQW5vt0IX14oGkOIWHp58t+aO2S5d56UUiO7Xl8b0r3QebppRdM4lBWctbRoaY3V0BhDQoqRNU39x3ARrMa47LNGvt3/Jsx3rutmZFKJQERIMSKlhCVfkFLC4D3GGPPHoXPu1fsdsoSANz9Y/3OkGAL5YaB8h+Dn353hyBpDeR1rDTlnKQRPPvjCJfdznVl13cQ2b96e4f07+LjdwOcPD3D+9ACH7Q6eHjdQHx7hcvwGx+cKBN8Bhyc4Hb/D6bKFi9jD6VzB4byHSu7g62nPq+fqyy/Q/bFw3VNU7AAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/79e04732411c02181c1aeae65c4fafbf/5a190/cassiopeia_inkscape4.png&quot;
-        srcset=&quot;/static/79e04732411c02181c1aeae65c4fafbf/772e8/cassiopeia_inkscape4.png 200w,
-/static/79e04732411c02181c1aeae65c4fafbf/e17e5/cassiopeia_inkscape4.png 400w,
-/static/79e04732411c02181c1aeae65c4fafbf/5a190/cassiopeia_inkscape4.png 800w,
-/static/79e04732411c02181c1aeae65c4fafbf/c1b63/cassiopeia_inkscape4.png 1200w,
-/static/79e04732411c02181c1aeae65c4fafbf/29007/cassiopeia_inkscape4.png 1600w,
-/static/79e04732411c02181c1aeae65c4fafbf/c4842/cassiopeia_inkscape4.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Das Textobjekt sollte in einen Pfad umgewandelt werden, dies könnte über das Tastenkürzel Objekt in Pfad umwandeln Strg+Shft+C und Seitengröße auf Auswahlgröße Strg+Shft+R geschehen, um die Seite auf die Auswahl zu verkleinern.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/ecd6aa8495f571dc4e5de746719d708b/c4842/cassiopeia_inkscape5.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABmElEQVQoz4WS63KjMAyFef932z/dtEkJ4Q4OhBJuJr7IPh0D7TaZze6Z0Ui2pQ9Z2IvjWMdBQHGa0imMKPV9StKMoiSlLC8ojhM6hSEdDu/k+0c6nysq2ZnYo1WVLbNs9FhV25kxDIyhv3aYmwa8aTC1LeZhhJASQkgMw4iu65f1TYjF3P4WW7fftu3s9f1g4DSOFlpbAKufJgul1rW1q/+3ob7U3GvbbgFaYK2y9jvDWAsigjFm8VLK9fzBXLrLudQX7vX9BlyFLV7wDmiJALNeQgrx53zTF1AphXPFXIcfz4Guy2kCOF86/h+wLEruNR/N34EOZsxdsbvyo34Cs7zgXttd74A/5vI9O+eNIQghns5QaYUwzrjXbjP8+lN3XwegtIbWGkppEBk80VJbspovz8YajZuUVs8CRgqQUtBKwigXS2ilYEiAtIBSEkrfFpNSQMgbhJ6tUAJVXXHPPwamzGO8HPY2/LVDsvuN49se77sXFMdXZGGA6BSA5XvkqY8kiRClb6iaEFVdIGMp8mtoUxYhKzL+CcwOU962rY3gAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/ecd6aa8495f571dc4e5de746719d708b/5a190/cassiopeia_inkscape5.png&quot;
-        srcset=&quot;/static/ecd6aa8495f571dc4e5de746719d708b/772e8/cassiopeia_inkscape5.png 200w,
-/static/ecd6aa8495f571dc4e5de746719d708b/e17e5/cassiopeia_inkscape5.png 400w,
-/static/ecd6aa8495f571dc4e5de746719d708b/5a190/cassiopeia_inkscape5.png 800w,
-/static/ecd6aa8495f571dc4e5de746719d708b/c1b63/cassiopeia_inkscape5.png 1200w,
-/static/ecd6aa8495f571dc4e5de746719d708b/29007/cassiopeia_inkscape5.png 1600w,
-/static/ecd6aa8495f571dc4e5de746719d708b/c4842/cassiopeia_inkscape5.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Und, speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/b0d12927f88a5dacc6a5116f6faaece0/1ac29/cassiopeia_inkscape6.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAACbUlEQVQ4y3WSe0/bMBTF+/2/Ddo/Q2hFW2FM0FYE2MajaQpN4jRp83DiJPa1fSaH98YsHV/Lj9+5V76jVRjOoihC8vOXin5fUXg5pWi5oIgltPB98oOA/OWS7nyfgtWKgvsHiuKYGGMUx4xixogliUziGOzm6nCUehdevgzAF77hZyeox3uozqcQYYQ+itCF4SC3Lnwf1fU1qK4hiaCkhJQKbduZRghw0U1G29PT893tHcrFwuyCe1smua1ZZqt1bKuQ2dLFNbM8ZDa6WdjVjzPbVMLuem3zVtladJZzrvOiRFlW30b369jbbbewgIku50iP90E3c8irE8iLI8iL40H9xTHU5XfU50fIz8YIDz8hHO8hT2IA0G4ioslocXfnMRajU2T4OkB2/BnV7CuKk32I0wPI+SH6Z83G4NMxmukYYvoF7ekBCgfsem2NgVI0Ga1+XXssjiGlNE0rEe9KFJ0C4eOR1QJp3WLDBbKmQ1FxwBgNax+Bi5tbjzEGRWRE3SBhMTYJQ8M5rLunXwWjsc1SpJvNEPPtFkVZvpQ8AK88z4ujCKS1IffQ2kHP43H9uvd87qS1RllV74Hns7kXhaG7MADfgl7Ab2B4Y2aM+RcYLJfDL+u/MvxQQ654MdL6AyBp7T25vcvww9E0QN//P0PXNmXFvboREG1nur53veQOBjkD/SIDUgq0DECcg4ZfVag4d2BXIHopXdsEXrBcYfWwNuswQpptsUkzJJsUFa+dERrRQogWXLQo0hRllg37ShGkUi5qB2+EmIzKovLcw4pzw+sGbdcPl5/jOzmw2386c5Xtdrkz1nlRuDj5A/O2JL9tDrPdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/b0d12927f88a5dacc6a5116f6faaece0/5a190/cassiopeia_inkscape6.png&quot;
-        srcset=&quot;/static/b0d12927f88a5dacc6a5116f6faaece0/772e8/cassiopeia_inkscape6.png 200w,
-/static/b0d12927f88a5dacc6a5116f6faaece0/e17e5/cassiopeia_inkscape6.png 400w,
-/static/b0d12927f88a5dacc6a5116f6faaece0/5a190/cassiopeia_inkscape6.png 800w,
-/static/b0d12927f88a5dacc6a5116f6faaece0/1ac29/cassiopeia_inkscape6.png 1022w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Im Browser siehst du das Favicon nun im Tabulator.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/37ff5c778d63e1b61373f0174a0ae921/c4842/cassiopeia_inkscape7.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 54%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABmElEQVQoz51STUtbQRR9v8MuzCsaGysqFEFX3ZeWWqo20RRjoFCQQhZddFFaGk0opKsu/E2u1EUpVAOC+BFBQjTOvDfz7txTZt5L0qzy6IUzM1zOPZx753qLc0vR49klys4s0FRujqZnntBEdpbG/ZxDxp+mzMMY/j+YejRPGT9HYw8mYk4mx5N+tus9fV7h5eUK3m1/x/uPP/Hh0x7elGt4tvoZL/Jf8LLwFa8K3/B6vYqVjR2sFXeRf1tHvljDar6K9WIdm6UGl8s/sFVqSE9FxtwLiYvjJrdv2ixkyEIELOQwpEPo3kGguHV9w2dn53zXvXd8pSKEoRIeAKO1wmWrxYYIaUMGIYSUiCINZsM2Z4wRnjHGJBxmjo9RsNHpdHB5dQUhBG7vukxkQETCYysfE7lHTiOotEaodOxWBq62L5iI8Kg2Y8pANJASSmnbqkv8l2CPdvirid9/TkGkrdthwWR2nGZ+JhHcPzjB/tEpdDSwM+TQ9ZIyei5tozoyLtN3SEQm+SEmIqSD48OumV0SW2tvpbT4CxjjDaBin+eHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape&quot;
-        src=&quot;/static/37ff5c778d63e1b61373f0174a0ae921/5a190/cassiopeia_inkscape7.png&quot;
-        srcset=&quot;/static/37ff5c778d63e1b61373f0174a0ae921/772e8/cassiopeia_inkscape7.png 200w,
-/static/37ff5c778d63e1b61373f0174a0ae921/e17e5/cassiopeia_inkscape7.png 400w,
-/static/37ff5c778d63e1b61373f0174a0ae921/5a190/cassiopeia_inkscape7.png 800w,
-/static/37ff5c778d63e1b61373f0174a0ae921/c1b63/cassiopeia_inkscape7.png 1200w,
-/static/37ff5c778d63e1b61373f0174a0ae921/29007/cassiopeia_inkscape7.png 1600w,
-/static/37ff5c778d63e1b61373f0174a0ae921/c4842/cassiopeia_inkscape7.png 1634w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Der Vollständigkeit halber füge ich den Quellcode der SVG-Datei nachfolgend ein.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;3&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; version&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; encoding&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; standalone&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:dc&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://purl.org/dc/elements/1.1/&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:cc&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://creativecommons.org/ns#&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:rdf&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;svg8&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;1.1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 30.691282 18.930109&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;18.930109mm&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;30.691282mm&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;defs&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;defs2&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;metadata&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;metadata5&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;rdf:RDF&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;cc:Work&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rdf:about&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;dc:format&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;image/svg+xml&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;dc:format&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;dc:type&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;           &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rdf:resource&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://purl.org/dc/dcmitype/StillImage&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;        &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;dc:title&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;dc:title&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;cc:Work&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;rdf:RDF&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;translate(-53.841845,-125.31983)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;layer1&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;g&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;flowRoot3713&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#ff0000&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;scale(0.26458333)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;       &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;aria-label&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;My&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;path&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;path4803&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.66666412px;font-family:sans-serif;-inkscape-font-specification:&amp;#39;sans-serif Bold&amp;#39;;fill:#ff0000;stroke:#ff0000&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;m 203.99674,474.14974 h 17.86459 l 12.39583,29.13021 12.46875,-29.13021 h 17.82812 v 54.43229 H 251.2832 v -39.8125 l -12.54166,29.34896 h -8.89584 l -12.54166,-29.34896 v 39.8125 h -13.3073 z&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;path&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;path4805&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.66666412px;font-family:sans-serif;-inkscape-font-specification:&amp;#39;sans-serif Bold&amp;#39;;fill:#ff0000;stroke:#ff0000&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;         &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;m 272.35611,487.7487 h 13.05209 l 10.97396,27.70833 9.33333,-27.70833 h 13.05208 l -17.17187,44.69791 q -2.58854,6.81771 -6.05209,9.51563 -3.42708,2.73437 -9.07812,2.73437 h -7.54688 v -8.56771 h 4.08334 q 3.31771,0 4.8125,-1.05729 1.53125,-1.05729 2.36979,-3.79166 l 0.36458,-1.13021 z&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h5 id=&quot;css-in-der-svg-dateien&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#css-in-der-svg-dateien&quot; aria-label=&quot;css in der svg dateien permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CSS in der SVG-Dateien&lt;/h5&gt;
-&lt;p&gt;Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels &lt;code class=&quot;language-text&quot;&gt;style=&quot;...&quot;&lt;/code&gt; möglich, sonder ebenfalls via Tag.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; version&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; encoding&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; standalone&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:dc&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://purl.org/dc/elements/1.1/&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:cc&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://creativecommons.org/ns#&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:rdf&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;svg8&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;1.1&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 30.691282 18.930109&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;18.930109mm&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;30.691282mm&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    #flowRoot3713 {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;       font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:#ff0000;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    #path4803, #path4805{&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;       font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:74.66666412px;font-family:sans-serif;-inkscape-font-specification:&amp;#39;sans-serif Bold&amp;#39;;fill:#ff0000;stroke:#ff0000;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;defs&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;defs2&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;metadata&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h5 id=&quot;ein-emoji-als-favicon&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-emoji-als-favicon&quot; aria-label=&quot;ein emoji als favicon permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein Emoji als Favicon&lt;/h5&gt;
-&lt;p&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Emoji&amp;#x26;oldid=210760547&quot;&gt;Emojis&lt;/a&gt; sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen.&lt;/p&gt;
-&lt;p&gt;Ein &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#emoji&quot;&gt;Emoji als Favicon&lt;/a&gt;
-ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu erstellen, das auch bei kleinen Größen funktioniert.&lt;/p&gt;
-&lt;p&gt;Wenn du ein Emojis in HTML anzeigen möchtest, kannst du den dezimalen oder hexadezimalen Referenz-Code verwenden. Oder du kopierst das Bild, wenn du es auf einer anderen Website siehst.&lt;/p&gt;
-&lt;p&gt;Nachfolgend siehst du einen Beispielcode und das Ergebnis im Browser.&lt;/p&gt;
-&lt;p&gt;Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 100 100&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;.9em&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;90&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;🌴&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;oder&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;6&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 100 100&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;.9em&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;90&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;&amp;amp;#127796;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;oder&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;7&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 100 100&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;.9em&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;90&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;&amp;amp;#x1F334;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c690f5e32fb8d4b16a11e453ce97cefc/30c92/cassiopeia_inkscape8.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 53%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABb0lEQVQoz63Oyy4DcRTH8dlaiFuIzrR1TUgXBEFpmSlKqkm11L0PYeeyspS4q04lxMJSaDUkXgKNByA23RAeYKbtVzqikSY25SSfnP9ZnP/5CWMDCp12B13dvfTYHbS0tGIxS5jNElaLGavFYsySJCKKJiTRZPTfCKNtfSj9bmwdMrZ2J21dLkY8syjuSVyjQca887g9M8jDAZyKj4Ecl49B10SebPAjD/kRhFoPzu4Q8vgS3tA6in8Zd3CNocAKI4FVKhqnKREnKLVOUmadorwuSGX9NFX1M1Q3zFLTOEdt0zympgXE5kWEjfA5m+oF+0eXhE8ShI8TqKfXRE9vOD67ZVeNsXV4wfbhJTs5kRi7kRh7kTh7apx99YqDnOgV4WgCgXylDZmMxl9K0DSdZPKRu/sHnp5fyGSyaLqOpqfR9fTXWyugF0rnGQlfX99IpVK8f3wYV7LZbPEJC5e/51wvhlC4/HMuKiH/XP/+4ScltsR8XGuf+wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Cassiopeia Favicon erstellen - Emoji als Favicon&quot;
-        title=&quot;Cassiopeia Favicon erstellen - Emoji als Favicon&quot;
-        src=&quot;/static/c690f5e32fb8d4b16a11e453ce97cefc/5a190/cassiopeia_inkscape8.png&quot;
-        srcset=&quot;/static/c690f5e32fb8d4b16a11e453ce97cefc/772e8/cassiopeia_inkscape8.png 200w,
-/static/c690f5e32fb8d4b16a11e453ce97cefc/e17e5/cassiopeia_inkscape8.png 400w,
-/static/c690f5e32fb8d4b16a11e453ce97cefc/5a190/cassiopeia_inkscape8.png 800w,
-/static/c690f5e32fb8d4b16a11e453ce97cefc/30c92/cassiopeia_inkscape8.png 874w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die &lt;a href=&quot;https://www.getemojis.net/html/#Emoji-Liste&quot;&gt;Emoji-Liste mit HTML-Codes&lt;/a&gt; eine mögliche Anlaufstelle.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h5 id=&quot;favicon-und-dark-mode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#favicon-und-dark-mode&quot; aria-label=&quot;favicon und dark mode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Favicon und Dark Mode&lt;/h5&gt;
-&lt;p&gt;Mit dem &lt;a href=&quot;https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme&quot;&gt;Dark Mode&lt;/a&gt; können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support&quot;&gt;Dark Mode&lt;/a&gt; ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage &lt;code class=&quot;language-text&quot;&gt;prefers-color-scheme&lt;/code&gt; verwenden.&lt;/p&gt;
-&lt;p&gt;Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;8&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 100 100&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    #sun {display:block} #moon {display:none}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    @media (prefers-color-scheme: dark) {&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    #sun {display:none} #moon {display:block}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    }&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;sun&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;.9em&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;90&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;🌤&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;moon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;.9em&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;90&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;🌜&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;konvertieren-von-svg-in-ico&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#konvertieren-von-svg-in-ico&quot; aria-label=&quot;konvertieren von svg in ico permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Konvertieren von .svg in .ico&lt;/h4&gt;
-&lt;p&gt;Um die Datei input.svg in die Datei favicon.ico zu konvertieren, müssen wir folgendes im Terminal ausführen.&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;&quot; data-index=&quot;9&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;convert -background transparent -define icon:auto-resize=16 joomla-favicon.svg favicon.ico&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Wir haben den Hintergrund transparent und als Symbolgröße 16 Pixel gewählt. Das &lt;code class=&quot;language-text&quot;&gt;ICO&lt;/code&gt;-Dateiformat unterstützt Bilder mit einer Größe von bis zu 256×256 Pixeln.&lt;/p&gt;
-&lt;p&gt;Du weißt nun, wie du mit Ubuntu unter Verwendung der Pakete Inkscape und Imagemagick eine skalierbare Vektorgrafik (SVG)erstellst und in das &lt;code class=&quot;language-text&quot;&gt;ICO&lt;/code&gt;-Format als &lt;code class=&quot;language-text&quot;&gt;favicon.ico&lt;/code&gt; konvertiert.&lt;/p&gt;
-&lt;h4 id=&quot;das-favicon-im-template-einbinden&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#das-favicon-im-template-einbinden&quot; aria-label=&quot;das favicon im template einbinden permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Das Favicon im Template einbinden&lt;/h4&gt;
-&lt;p&gt;Um dein selbst erstelltes Favicon anstelle des Joomla-Logos im Template Cassiopeia einzusetzen, reicht es aus, die Dateien&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;joomla-favicon.svg&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;favicon.ico&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;joomla-favicon-pinned.svg&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;JOOMLA/templates/cassiopeia/images&lt;/code&gt; abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses &lt;code class=&quot;language-text&quot;&gt;JOOMLA/media/system&lt;/code&gt; überschreiben.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Magst du die Dateinamen umbenennen? Du würdest gerne anstelle von &lt;code class=&quot;language-text&quot;&gt;joomla-favicon.svg&lt;/code&gt; einfach &lt;code class=&quot;language-text&quot;&gt;favicon.svg&lt;/code&gt; und anstelle von &lt;code class=&quot;language-text&quot;&gt;joomla-favicon-pinned.svg&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;favicon-pinned.svg&lt;/code&gt; als Dateinamen verwenden? Dann ist es erforderlich, dass du die Aufrufe in der Datei &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; des Tempaltes anpasst. Passe die Dateinamen an. Ersetze die nachfolgenden Zeilen&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;php&quot; data-index=&quot;10&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;joomla-favicon.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/svg+xml&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon.ico&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;alternate icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/vnd.microsoft.icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;joomla-favicon-pinned.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;mask-icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;#000&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;mit&lt;/p&gt;
-&lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;php&quot; data-index=&quot;11&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/svg+xml&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon.ico&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;alternate icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/vnd.microsoft.icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon-pinned.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;mask-icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;#000&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Beachte dabei: Wenn du die die Favicons im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/images&lt;/code&gt; ablegst, werden sie nicht überschrieben. Genau wie die &lt;code class=&quot;language-text&quot;&gt;user.css&lt;/code&gt; ist dies eine unkomplizierte Art Veränderungen vorzunehmen. Bei einer Aktualisierung werden die Versionen der Bilder im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;JOOMLA/media/system&lt;/code&gt; angepasst, nicht die im Template-Verzeichnis. Falls du die Namen der Bilddateien änderst und deshalb die &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; des Templates editierst, musst du Vorkehrungen für den Fall einer Aktualisierung von Joomla treffen. Die Datei &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; des Cassiopeia Templates wird dabei überschrieben. Lege beispielsweise ein Child-Templates an.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Hinweis: Der Pfad zu den &lt;em&gt;Template-Medienordnern&lt;/em&gt; war vor Joomla 4.1 &lt;code class=&quot;language-text&quot;&gt;templates/cassiopeia/&lt;/code&gt;. Template-Medienordner sind die Ordner &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;images&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;fonts&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;js&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;img src=&quot;https://vg04.met.vgwort.de/na/380c0b24cb764d9084f0033e5b2704d9&quot; width=&quot;1&quot; height=&quot;1&quot; alt=&quot;&quot;&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;

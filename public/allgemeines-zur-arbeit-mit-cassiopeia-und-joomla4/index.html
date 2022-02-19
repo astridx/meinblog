@@ -52,6 +52,114 @@
 /static/47f2a4ac5233c450f7d02d28772526d9/668a7/cassiopeia.png 1.5x" /><img loading="lazy" width="150" height="150" srcset="/static/47f2a4ac5233c450f7d02d28772526d9/92ab1/cassiopeia.png 1x,
 /static/47f2a4ac5233c450f7d02d28772526d9/668a7/cassiopeia.png 1.5x" src="/static/47f2a4ac5233c450f7d02d28772526d9/92ab1/cassiopeia.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div>Written by Astrid Günther on <time>February 14, 2022</time></div><h1>Allgemeines zu Joomla und Cassiopeia</h1><div class="post-meta"><div class="tags"><a class="tag-Template" href="/tags/template">Template</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a><a class="tag-Cassiopeia" href="/tags/cassiopeia">Cassiopeia</a></div></div></div></header><div id="/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/" class="container post-content"><p>Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen werden so angeboten, wie es für die meisten Menschen gut ist. Bei der Arbeit mit Cassiopeia und Joomla gibt es Dinge, die man individuell für sich erweitern oder einstellen kann.</p>
 <h2 id="praxistipps" style="position:relative;"><a href="#praxistipps" aria-label="praxistipps permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Praxistipps</h2>
+<h2 id="joomla-login--und-logout-menüpunkte-umschalten" style="position:relative;"><a href="#joomla-login--und-logout-men%C3%BCpunkte-umschalten" aria-label="joomla login  und logout menüpunkte umschalten permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Joomla Login- und Logout-Menüpunkte umschalten</h2>
+<p>Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Benutzern angezeigt wird, die noch nicht eingeloggt sind. Sobald sie sich angemeldet haben, sehen sie stattdessen den Menüpunkt "Logout". Also: Wie richtet man Login- und Logout-Links in Joomla so ein, dass der Menüpunkt Login automatisch durch Logout ersetzt wird, sobald sich jemand eingeloggt hat, und umgekehrt?</p>
+<h3 id="login-link" style="position:relative;"><a href="#login-link" aria-label="login link permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Login-Link</h3>
+<p>Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne <code class="language-text">Menus | All Menu Items</code> und klicke in der Werkzeugleiste die Schaltfläche <code class="language-text">New</code> um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ <code class="language-text">User | Login Form</code>. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe <code class="language-text">Public</code> in <code class="language-text">Guest</code> änderst. Dies bewirkt, dass der Menüpunkt nur <em>nicht</em> angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Login - Logout | Login-Link erstellen"
+        title="Login - Logout | Login-Link erstellen"
+        src="/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png"
+        srcset="/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="logout-link" style="position:relative;"><a href="#logout-link" aria-label="logout link permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logout-Link</h3>
+<p>Als nächstes erstellen wir den Logout-Link. Du befindest dich noch im Menümanager, richtig? Anderfalls öffne diesen über <code class="language-text">Menus | All Menu Items</code> in der linken Seitenleiste. Im Menümanger klicke in der Werkzeugleiste erneut die Schaltfläche <code class="language-text">New</code> um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ <code class="language-text">User | Logout</code>. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe <code class="language-text">Public</code> mit <code class="language-text">Registert</code> ersetzt. Dies bewirkt, dass der Menüpunkt nur angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Login - Logout | Logout-Link erstellen"
+        title="Login - Logout | Logout-Link erstellen"
+        src="/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png"
+        srcset="/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
+/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
+/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
+/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
+/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
+/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3 id="teste-die-links" style="position:relative;"><a href="#teste-die-links" aria-label="teste die links permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Teste die Links</h3>
+<p>Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Menüpunkt, wenn du die Website aufrufst? Ist gleichzeitig der Logout-Menüpunkt ausgeblendet? Erscheint der Logout-Menüpunkt, wenn man eingeloggt ist? Verschwindet nach dem erfolgreichen Anmelden der Login-Menüpunkt?</p>
+<p>Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Einstellung in der globalen Konfiguration. Klicke dazu in der linken Seitenleiste <code class="language-text">System</code> und dann im rechten Bereich den Link <code class="language-text">globale Konfiguration</code>. Stelle sicher, dass <code class="language-text">Guest User Group</code> mit <code class="language-text">Gast</code> belegt ist.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Login - Logout | Option Gast Gruppe"
+        title="Login - Logout | Option Gast Gruppe"
+        src="/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png"
+        srcset="/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
 <h2 id="editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---" style="position:relative;"><a href="#editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---" aria-label="editor switcher  syntax highlight syntax hervorhebung   indexeditorsyntax hervorhebung      indexeditorswitcher      indexeditorsyntax highlight    permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Editor Switcher / Syntax Highlight (Syntax-Hervorhebung)<!-- \index{Editor!Syntax-Hervorhebung} --><!-- \index{Editor!Switcher} --><!-- \index{Editor!Syntax Highlight} --></h2>
 <p>Joomal bietet von Haus aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.</p>
 <p>Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den <a href="https://www.tiny.cloud/">TinyMCE</a>, weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Das macht es viel einfacher, alle HTML-Tags und CSS-Klassen zu lesen. Das Markup wird übersichtlich dargestellt. Syntax-Highlighting ist im <a href="https://codemirror.net/">Codemirror</a>[^<a href="https://codemirror.net/%5D">https://codemirror.net/]</a> umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.</p>

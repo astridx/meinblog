@@ -1062,6 +1062,29 @@ class HtmlView extends BaseHtmlView
 
 ```
 
+Im obigen Codebeispiel habe mich beim Prüfen der Berechtigungen an Code in Joomla orientiert. Ist jemand nicht berechtigt, wird ihm einen Nachricht angezeigt. Je nachdem in welchem Umfeld man die Erweiterung programmiert ist es benutzerfreundlicher sofort eine Anmeldemöglichkeit zu bieten. Wenn du in der Datei `components/com_foos/ src/View/Form/HtmlView.php` den nachfolgenden Codeauszug 
+
+```php
+		if ($authorised !== true) {
+			$app->redirect('index.php?option=com_users&view=login');
+		}
+
+```
+
+anstelle dieses 
+
+```php
+		if ($authorised !== true)
+		{
+			$app->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
+			$app->setHeader('status', 403, true);
+
+			return false;
+		}
+```
+
+einfügst, erfolgt bei einer fehlgeschlagenen Berechtigungsprüfung unmittelbar eine Weiterleitung zum Anmeldeformular.
+
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
 

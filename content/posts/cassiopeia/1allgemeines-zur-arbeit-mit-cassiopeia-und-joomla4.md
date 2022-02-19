@@ -19,6 +19,30 @@ Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann
 
 ## Praxistipps
 
+## Joomla Login- und Logout-Menüpunkte umschalten
+
+Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Benutzern angezeigt wird, die noch nicht eingeloggt sind. Sobald sie sich angemeldet haben, sehen sie stattdessen den Menüpunkt "Logout". Also: Wie richtet man Login- und Logout-Links in Joomla so ein, dass der Menüpunkt Login automatisch durch Logout ersetzt wird, sobald sich jemand eingeloggt hat, und umgekehrt?
+
+### Login-Link
+
+Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne `Menus | All Menu Items` und klicke in der Werkzeugleiste die Schaltfläche `New` um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ `User | Login Form`. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe `Public` in `Guest` änderst. Dies bewirkt, dass der Menüpunkt nur *nicht* angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.
+
+![Login - Logout | Login-Link erstellen](/images/login_logout1.png)
+
+### Logout-Link
+
+Als nächstes erstellen wir den Logout-Link. Du befindest dich noch im Menümanager, richtig? Anderfalls öffne diesen über `Menus | All Menu Items` in der linken Seitenleiste. Im Menümanger klicke in der Werkzeugleiste erneut die Schaltfläche `New` um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ `User | Logout`. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe `Public` mit `Registert` ersetzt. Dies bewirkt, dass der Menüpunkt nur angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.
+
+![Login - Logout | Logout-Link erstellen](/images/login_logout2.png)
+
+### Teste die Links
+
+Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Menüpunkt, wenn du die Website aufrufst? Ist gleichzeitig der Logout-Menüpunkt ausgeblendet? Erscheint der Logout-Menüpunkt, wenn man eingeloggt ist? Verschwindet nach dem erfolgreichen Anmelden der Login-Menüpunkt? 
+
+Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Einstellung in der globalen Konfiguration. Klicke dazu in der linken Seitenleiste `System` und dann im rechten Bereich den Link `globale Konfiguration`. Stelle sicher, dass `Guest User Group` mit `Gast` belegt ist.
+
+![Login - Logout | Option Gast Gruppe](/images/login_logout3.png)
+
 ## Editor Switcher / Syntax Highlight (Syntax-Hervorhebung)<!-- \index{Editor!Syntax-Hervorhebung} --><!-- \index{Editor!Switcher} --><!-- \index{Editor!Syntax Highlight} -->
 
 Joomal bietet von Haus aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.

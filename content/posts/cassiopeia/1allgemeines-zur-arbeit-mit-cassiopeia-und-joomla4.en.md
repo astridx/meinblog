@@ -19,6 +19,30 @@ Every person has his or her preferences. A content management system like Joomla
 
 ## Practical tips
 
+## Toggle Joomla login and logout menu items
+
+Below I show how to create a login menu item that is only shown to users who are not yet logged in. Once they have logged in, they will see the Logout menu item instead. So: How do you set up login and logout links in Joomla so that the Login menu item is automatically replaced by Logout as soon as someone has logged in, and vice versa?
+
+### Login link
+
+First we create the login. To do this, open the menu manager via the left sidebar. Open 'Menus | All Menu Items' and click the 'New' button in the toolbar to create a new menu item. Select the type 'User | Login Form' for the menu item. It is also important that you change the default group 'Public' to 'Guest' for access. This will cause the menu item to be displayed only to *not* logged in users. Select all other settings as it suits your environment and save the menu item.
+
+![Login - Logout | Create Login Link](/images/login_logout1.png)
+
+### Logout link
+
+Next we create the logout link. You are still in the menu manager, right? Otherwise open it via 'Menus | All Menu Items' in the left sidebar. In the menu manager, click the 'New' button in the toolbar again to create a new menu item. Select the type 'User | Logout' for the menu item. It is also important that you replace the default group 'Public' with 'Register'. This causes the menu item to be displayed only to logged-in users. Choose all other settings as it suits your environment and save the menu item.
+
+![Login - Logout | Create Logout Link](/images/login_logout2.png)
+
+### Test the links
+
+Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in? 
+
+Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on 'System' in the left-hand sidebar and then on the link 'Global configuration' in the right-hand area. Make sure that `Guest User Group` is set to `Guest`.
+
+![Login - Logout | Option Guest Group](/images/login_logout3.png)
+
 ## Editor Switcher / Syntax Highlight<!-- \index{editor!switcher} --><!-- \index{editor!syntax highlight} -->
 
 Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.

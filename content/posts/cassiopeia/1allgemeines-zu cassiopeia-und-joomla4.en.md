@@ -5,7 +5,7 @@ date: 2021-03-03
 title: 'General information about Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
-slug: en/allgemeines-zu cassiopeia-und-joomla4
+slug: en/allgemeines-zu-cassiopeia-und-joomla4
 langKey: en
 categories:
   - Cassiopeia English
@@ -127,4 +127,66 @@ Bootstrap styling aims to minimise the CSS code required for a properly responsi
 ## Override management in Joomla 4
 
 New in Joomla 4 is the difference display<!-- \index{Override!Difference display} -->, which draws attention to changes in the overwritten code during a Joomla update. This is particularly useful if you have adopted the main part of the Joomla! standard view in your own override and the update has fixed a security problem in exactly this view. Besides, it makes creating an override child's play. The new tool can be accessed via the Tempalte manager and is supported by a difference display.
+
+## Frequently asked questions
+
+### How can I tell if Cassiopeia renders the start page of a Joomla website or a subpage?
+
+You want to create a Cassiopeia child template or an override that behaves differently or looks different on the start page than on all other pages. The following steps will show you how to find out whether your template is rendering the start page of your Joomla website or a subpage. 
+
+For multilingual websites, the start page depends on the currently selected language. To find out which language version is currently active, you need functions from the namespace `Joomla\CMS\Language\Multilanguage`. Import this namespace if you want to be prepared for multilingual websites.
+
+```php
+use Joomla\CMS\Language\Multilanguage;
+```
+
+The following code can be found in the file `templates/cassiopeia/index.php`, i.e. Cassiopeia. If you have copied this file for your child template or your template copy, it is not necessary to create it again. Make sure that the lines 
+
+```php
+$app = Factory::getApplication();
+...
+...
+...
+$menu = $app->getMenu()->getActive();
+
+```
+
+are present in the file you are editing. The same will be true if you implement an override.
+
+
+With the call `$home = $app->getMenu()->getDefault();` you assign the variable `$home` with `true` on a non-multilingual website. On multilingual websites, a parameter is required. Use `$home = $app->getMenu()->getDefault($lang->getTag());`.
+
+```php
+<?php 
+// Look for the home menu
+if (Multilanguage::isEnabled())
+{
+$home = $app->getMenu()->getDefault($lang->getTag());
+}
+else
+{
+$home = $app->getMenu()->getDefault();
+}
+?>
+```
+
+From now on, you can insert between the lines 
+
+``php
+<?php if ($menu === $home) : ?>
+
+<?php endif; ?>
+```
+
+everything that should be used on the start page. 
+
+Use 
+
+``php
+<?php if ($menu !== $home) : ?>
+
+<?php endif; ?>
+```
+
+for the code used on all other websites.
 <img src="https://vg04.met.vgwort.de/na/268c8301735945699b410dfde6414624" width="1" height="1" alt="">

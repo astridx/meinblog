@@ -1062,6 +1062,29 @@ class HtmlView extends BaseHtmlView
 
 ```
 
+In the code example above, I have used the code in Joomla as a guide when checking the permissions. If someone is not authorised, a message is displayed. Depending on the environment in which the extension is programmed, it is more user-friendly to offer a login option immediately. In this case: Place in the file `components/com_foos/ src/View/Form/HtmlView.php` the following code excerpt 
+
+```php
+		if ($authorised !== true) {
+			$app->redirect('index.php?option=com_users&view=login');
+		}
+
+```
+
+instead of this  
+
+```php
+		if ($authorised !== true)
+		{
+			$app->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
+			$app->setHeader('status', 403, true);
+
+			return false;
+		}
+```
+
+If the authorisation check fails, you are immediately redirected to the registration form.
+
 <!-- prettier-ignore -->
 #### [components/com\_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
 
