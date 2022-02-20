@@ -1062,7 +1062,7 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-In the code example above, I have used the code in Joomla as a guide when checking the permissions. If someone is not authorised, a message is displayed. Depending on the environment in which the extension is programmed, it is more user-friendly to offer a login option immediately. In this case: Place in the file `components/com_foos/ src/View/Form/HtmlView.php` the following code excerpt 
+In the code example above, I have used the code in Joomla as a guide when checking the permissions. If someone is not authorised, a message is displayed. Depending on the environment in which the extension is programmed, it is more user-friendly to offer a login option immediately. In this case: Place in the file `components/com_foos/ src/View/Form/HtmlView.php` the following code excerpt
 
 ```php
 		if ($authorised !== true) {
@@ -1071,7 +1071,7 @@ In the code example above, I have used the code in Joomla as a guide when checki
 
 ```
 
-instead of this  
+instead of this
 
 ```php
 		if ($authorised !== true)

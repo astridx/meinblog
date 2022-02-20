@@ -137,11 +137,11 @@ Als Ergebnis sehe ich das Bild im Editor.
 
 ### Banner stylen
 
-Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken. 
-Dazu wechsle ich über die Schaltfläche 'Toggle Editor' in die Codeansicht des Editors. 
+Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken.
+Dazu wechsle ich über die Schaltfläche 'Toggle Editor' in die Codeansicht des Editors.
 
 > Hinweis: Es gibt eine Alternative zur Schaltfläche 'Toggle Editor': Seit Februar 2022, d.h. ab Joomla 4.1, wird der Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen, wenn man den im nächsten Bild gezeigten Editor-Button verwendet:
-![Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen](/images/switcher_backend_new2.png)
+> ![Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche anzeigen](/images/switcher_backend_new2.png)
 
 Über die Schaltfläche 'Toggle Editor' wechsle ich in die Code-Ansicht des Editors.
 
@@ -173,9 +173,9 @@ Ich wähle das Cassiopeia Template in dem ich `Cassiopeia Details and Files` kli
 
 ![Module Custom Klasse ergänzen.](/images/logo6h.png)
 
-Im Tabulator `Editor` prüfe ich zunächst, ob es bereits eine Datei mit dem Namen `user.css` gibt. Zur Erinnerung: Die `user.css` ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert. 
+Im Tabulator `Editor` prüfe ich zunächst, ob es bereits eine Datei mit dem Namen `user.css` gibt. Zur Erinnerung: Die `user.css` ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert.
 
-Hinweis: Der Pfad zu den *Template-Medienordnern* und somit auch zur Datei `user.css`, war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
+Hinweis: Der Pfad zu den _Template-Medienordnern_ und somit auch zur Datei `user.css`, war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ![CSS-Stile im Template Manger ergänzen - Die Datei user.css anlegen.](/images/logo6i.png)
 

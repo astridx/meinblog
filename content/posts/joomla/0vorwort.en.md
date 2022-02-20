@@ -182,7 +182,18 @@ Do you need an empty file `index.html` in each folder of your component? The `in
 
 Do you know how those responsible at Joomla decide which functions are supported and what is not pursued further? That's what the [statistics plugin](https://developer.joomla.org/about/stats.html)[^developer.joomla.org/about/stats.html] is for. Thanks to the users who activate this extension, important information flows into the development.
 
+### Why is a blank line inserted at the end of a source code file in Joomla files?<!-- \index{blank last line} -->
+
+There are several reasons why a blank line at the end of a file is included as a requirement in the Joomla Coding Standards:
+- Apart from the fact that it is a nicer cursor position when you go to the end of a file in a text editor, a line break at the end of the file allows you to easily check that the file has not been truncated.
+- When you paste something at the end of a file, the difference display in Git shows that you've changed the last line, when the only thing you've actually pasted is a line break. This is confusing.
+- Today it doesn't matter, but: many older tools in the programming field misbehave if the last line of data in a file is not terminated with a newline or a carriage return/newline combination. 
+
 ### PHP
+
+#### Why should you omit the closing tag of PHP sections at the end of a file?<!-- \index{PHP end tag} -->
+
+The closing tag of a PHP block at the end of a file is optional, and in some cases it is helpful to omit it. By omitting the closing tag, you can avoid accidentally inserting spaces or line breaks at the end of the file. For further explanation, see [php.net](https://www.php.net/basic-syntax.instruction-separation)[php.net/basic-syntax.instruction-separation].
 
 #### PHP operators for equality (== two equal signs) and identity (=== three equal signs)<!-- \index{PHP!comparison operator} -->
 

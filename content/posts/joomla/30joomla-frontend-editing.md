@@ -1062,7 +1062,7 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-Im obigen Codebeispiel habe mich beim Prüfen der Berechtigungen an Code in Joomla orientiert. Ist jemand nicht berechtigt, wird ihm einen Nachricht angezeigt. Je nachdem in welchem Umfeld man die Erweiterung programmiert ist es benutzerfreundlicher sofort eine Anmeldemöglichkeit zu bieten. Wenn du in der Datei `components/com_foos/ src/View/Form/HtmlView.php` den nachfolgenden Codeauszug 
+Im obigen Codebeispiel habe mich beim Prüfen der Berechtigungen an Code in Joomla orientiert. Ist jemand nicht berechtigt, wird ihm einen Nachricht angezeigt. Je nachdem in welchem Umfeld man die Erweiterung programmiert ist es benutzerfreundlicher sofort eine Anmeldemöglichkeit zu bieten. Wenn du in der Datei `components/com_foos/ src/View/Form/HtmlView.php` den nachfolgenden Codeauszug
 
 ```php
 		if ($authorised !== true) {
@@ -1071,7 +1071,7 @@ Im obigen Codebeispiel habe mich beim Prüfen der Berechtigungen an Code in Joom
 
 ```
 
-anstelle dieses 
+anstelle dieses
 
 ```php
 		if ($authorised !== true)

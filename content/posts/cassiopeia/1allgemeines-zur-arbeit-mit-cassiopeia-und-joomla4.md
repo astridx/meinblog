@@ -25,7 +25,7 @@ Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Ben
 
 ### Login-Link
 
-Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne `Menus | All Menu Items` und klicke in der Werkzeugleiste die Schaltfläche `New` um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ `User | Login Form`. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe `Public` in `Guest` änderst. Dies bewirkt, dass der Menüpunkt nur *nicht* angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.
+Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne `Menus | All Menu Items` und klicke in der Werkzeugleiste die Schaltfläche `New` um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ `User | Login Form`. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe `Public` in `Guest` änderst. Dies bewirkt, dass der Menüpunkt nur _nicht_ angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.
 
 ![Login - Logout | Login-Link erstellen](/images/login_logout1.png)
 
@@ -37,7 +37,7 @@ Als nächstes erstellen wir den Logout-Link. Du befindest dich noch im Menümana
 
 ### Teste die Links
 
-Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Menüpunkt, wenn du die Website aufrufst? Ist gleichzeitig der Logout-Menüpunkt ausgeblendet? Erscheint der Logout-Menüpunkt, wenn man eingeloggt ist? Verschwindet nach dem erfolgreichen Anmelden der Login-Menüpunkt? 
+Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Menüpunkt, wenn du die Website aufrufst? Ist gleichzeitig der Logout-Menüpunkt ausgeblendet? Erscheint der Logout-Menüpunkt, wenn man eingeloggt ist? Verschwindet nach dem erfolgreichen Anmelden der Login-Menüpunkt?
 
 Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Einstellung in der globalen Konfiguration. Klicke dazu in der linken Seitenleiste `System` und dann im rechten Bereich den Link `globale Konfiguration`. Stelle sicher, dass `Guest User Group` mit `Gast` belegt ist.
 
@@ -61,7 +61,7 @@ Daraufhin ist es während des Schreibens eines Textes im Artikel Manager möglic
 
 ### Seit Joomla 4.1
 
-Seit Februar 2022, also ab Joomla 4.1, ist Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen. Darüber hinaus kann direkt in der HTML-Code-Ansicht gesucht und ersetzt werden. 
+Seit Februar 2022, also ab Joomla 4.1, ist Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen. Darüber hinaus kann direkt in der HTML-Code-Ansicht gesucht und ersetzt werden.
 
 Syntax-Highlighting im integrierten TinyMCE-Editor
 
@@ -77,9 +77,9 @@ Option zum Aktivieren der Editor Schaltfläche
 
 ## Joomla Barrierefreiheit <!-- \index{Barrierefreiheit} --><!-- \index{Zugänglichkeit} --><!-- \index{Accessibility} --><!-- \index{a11y} -->
 
-Deutlich zu sehen: Joomla 4 wurde mit Blick auf Barrierefreiheit entwickelt. Beide Standard-Templates, Frontend und Backend, sind zugänglich und entsprechen der Stufe AA der [WCAG 2.1](https://www.w3.org/TR/WCAG21/)[^w3.org/TR/WCAG21/]. WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Zugänglichkeit, der für öffentliche Einrichtungen in der Europäischen Union verbindlich ist.
+Deutlich zu sehen: Joomla 4 wurde mit Blick auf Barrierefreiheit entwickelt. Beide Standard-Templates, Frontend und Backend, sind zugänglich und entsprechen der Stufe AA der [WCAG 2.1](https://www.w3.org/TR/WCAG21/)[^w3.org/tr/wcag21/]. WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Zugänglichkeit, der für öffentliche Einrichtungen in der Europäischen Union verbindlich ist.
 
-### Grundlagen 
+### Grundlagen
 
 #### Was ist Barrierefreiheit?
 
@@ -93,17 +93,17 @@ Barrierefreiheit ist aus vielen Gründen wichtig. Behörden auf der ganzen Welt 
 
 Aber: In erster Linie geht es bei der Barrierefreiheit um Werte und die Gleichbehandlung aller Menschen. Es geht darum, dass Menschen mit Behinderungen sich nicht auf andere verlassen müssen, um einfache Dinge wie das Lesen einer Website zu erledigen.
 
-Darüber hinaus ist eine barrierefreie Website auch für Maschinen leichter auszulesen. So kann beispielsweise eine Suchmaschine den Inhalt leichter lesen und korrekte Suchergebnisse anbieten, wenn der Inhalt zugänglich ist. 
+Darüber hinaus ist eine barrierefreie Website auch für Maschinen leichter auszulesen. So kann beispielsweise eine Suchmaschine den Inhalt leichter lesen und korrekte Suchergebnisse anbieten, wenn der Inhalt zugänglich ist.
 
 ### Wie aktiviert man die Zugänglichkeitsfunktionen in Joomla
 
-Es gibt integrierte Zugänglichkeits-Plugins *Joomla Accessibility Checker* und *Additional Accessibility Features*, Man kann sie im Plugin-Manager aktivieren.
+Es gibt integrierte Zugänglichkeits-Plugins _Joomla Accessibility Checker_ und _Additional Accessibility Features_, Man kann sie im Plugin-Manager aktivieren.
 
 #### System-Plugin - Joomla Zugänglichkeitsüberprüfung
 
-Das System Plugin *Joomla Accessibility Checker* hebt häufige Probleme der Zugänglichkeit und Benutzerfreundlichkeit visuell hervor. Das Plugin, das sich an Autoren von Inhalten richtet, identifiziert Fehler oder Warnungen und gibt Hinweise, wie diese behoben werden können. 
+Das System Plugin _Joomla Accessibility Checker_ hebt häufige Probleme der Zugänglichkeit und Benutzerfreundlichkeit visuell hervor. Das Plugin, das sich an Autoren von Inhalten richtet, identifiziert Fehler oder Warnungen und gibt Hinweise, wie diese behoben werden können.
 
-Wenn du die erste Option aktivierst, wird der Zugänglichkeits-Checker auf allen Seiten geladen. Dies ist nützlich bei der Entwicklung der Website, sollte aber nicht aktiviert bleiben, wenn die Website live ist. 
+Wenn du die erste Option aktivierst, wird der Zugänglichkeits-Checker auf allen Seiten geladen. Dies ist nützlich bei der Entwicklung der Website, sollte aber nicht aktiviert bleiben, wenn die Website live ist.
 
 ![System Plugin - Joomla Accessibility Checker | Plugin Einstellungen](/images/c_a11y_1.png)
 
@@ -119,7 +119,7 @@ Wenn wir mehrere Artikel nacheinander prüfen wollen, ist es bequemer, im Fronte
 
 #### System Plugin - Zusätzliche Funktionen für Barrierefreiheit
 
-Dieses Plugin fügt der Website eine Symbolleiste für Barrierefreiheit mit zusätzlichen Optionen für Barrierefreiheit hinzu. Sobald es aktiviert ist, kann die Symbolleiste geöffnet werden. Du kannst wählen, wo du die Barrierefreiheits-Symbolleiste anzeigen möchten: Sie kann entweder im Joomla-Backend, im Frontend oder in beiden aktiviert werden. 
+Dieses Plugin fügt der Website eine Symbolleiste für Barrierefreiheit mit zusätzlichen Optionen für Barrierefreiheit hinzu. Sobald es aktiviert ist, kann die Symbolleiste geöffnet werden. Du kannst wählen, wo du die Barrierefreiheits-Symbolleiste anzeigen möchten: Sie kann entweder im Joomla-Backend, im Frontend oder in beiden aktiviert werden.
 
 ![System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen](/images/c_a11y_2.png)
 
@@ -128,6 +128,7 @@ Dieses Plugin fügt der Website eine Symbolleiste mit zusätzlichen Optionen fü
 ![System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite](/images/c_a11y_2_1.png)
 
 Dieses Plugin bietet dem Benutzer eine Reihe von Möglichkeiten, darunter
+
 - Vergrößern der Textgröße
 - Verkleinern der Textgröße
 - Vergrößern des Textabstandes

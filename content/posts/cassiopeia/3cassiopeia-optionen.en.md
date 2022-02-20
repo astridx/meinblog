@@ -30,15 +30,15 @@ The front-end should now look as shown in the figure below.
 
 First open the view `System | Site Templates Style` in the backend to get to the template options in the Joomla backend.
 
-![Templates_Edit_Style_admin_Administration | Site Templates Style](/images/c2.png)
+![Edit Template Style in Backend | Site Templates Style](/images/c2.png)
 
 Then click Cassiopeia in the Style column.
 
-![Templates_Edit_Style_admin_Administration | Open Cassiopeia Style](/images/c3.png)
+![Edit Template Style in Backend | Open Cassiopeia Style](/images/c3.png)
 
 ### Tab Details
 
-![Templates_Edit_Style_admin_Administration](/images/c6.png)
+![Edit Template Style in Backend](/images/c6.png)
 
 This tab contains information about the template and does not allow any changes.
 
@@ -48,21 +48,21 @@ This tab contains information about the template and does not allow any changes.
 
 This tab shows various parameters that can be used to modify the template. In the following I will have a look at them in detail.
 
-#### Logo, Titel und Tagline/Slogan
+#### Logo, Title and Tagline/Slogan
 
 ![Templates Edit Style Administration | Logo, Titel und Tagline/Slogan](/images/ce1.png)
 
 ##### Logo
 
-Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen oder wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, oben links auf der Webseite, platziert.
+By clicking on 'Select' it is possible to insert an already uploaded logo image or we can scroll down the dialogue box and upload an image file from our own computer. By default, this is placed at the position of the logo module, at the top left of the web page.
 
-Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild ODER den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
+The default layout of the Cassiopeia template allows either a logo image __or__ the website title to be displayed in the `<header>` area of the page. If we insert a logo via this method, Cassiopeia will automatically make the logo image a link to the home page.
 
-##### Titel
+##### Title
 
-Wenn wir keine Logodatei als Bild ausgewählt haben, zeigt das Template den hier dargestellten Titel an. Falls auch dieser fehlt, greift es auf die SVG-Datei `logo.svg` im Verzeichnis `/templates/cassiopeia/images` zurück. Diese SVG-Datei enthält den Text Cassiopeia. Egal, ob Titel oder SVG-Datei eingefügt werde, beides wird automatisch zu einem Link zur Startseite.
+If we have not selected a logo file as an image, the template displays the title shown here. If this is also missing, it falls back on the SVG file `logo.svg` in the directory `/templates/cassiopeia/images`. This SVG file contains the text Cassiopeia. No matter whether the title or the SVG file is inserted, both will automatically become a link to the start page.
 
-##### Code in der Datei index.php
+##### Code in the index.php file
 
 ```php
 ...
@@ -84,54 +84,54 @@ else
 ...
 ```
 
-#### Tagline / Stichwort - Die Beschreibung der Website
+#### Tagline - The description of the website
 
-Standardmäßig platziert Cassiopeia die Beschreibung unter dem Titel, beziehungsweise dem Logo. Wir können dies nutzen, um einen Seitentitel anzuzeigen, wenn wir möchten, dass sowohl das Logo als auch der Titel der Seite oben auf der Webseite erscheinen.
+By default, Cassiopeia places the description below the title, or logo. We can use this to display a page title if we want both the logo and the page title to appear at the top of the web page.
 
-##### Beispiel 1
+##### Example 1
 
-Der Titel wird angezeigt. In einer kleineren Schriftgröße wir das Stichwort unter diesem eingeblendet.
+The title is displayed. In a smaller font size, the keyword is displayed below it.
 
-![Templates_Edit_Style_admin_Administration](/images/c7.png)
+![Edit Template Style in Backend | Title and Tagline](/images/c7.png)
 
-![Templates_Edit_Style_admin_Administration](/images/c8.png)
+![Template Style View in Frontend | Title and Tagline](/images/c8.png)
 
-##### Beispiel 2
+##### Example 2
 
-Der Titel wird nicht angezeigt, weil eine Bilddatei als Logo ausgewählt ist. Das Stichwort, wird unter der Bilddatei platziert.
+The title is not displayed because an image file is selected as the logo. The tagline, is placed below the image file.
 
-![Templates_Edit_Style_admin_Administration](/images/c9.png)
+![Edit Template Style in Backend | Image and Tagline](/images/c9.png)
 
-![Templates_Edit_Style_admin_Administration](/images/c10.png)
+![Template Style View in Frontend | Image and Tagline](/images/c10.png)
 
-#### Fonts Scheme / Schrift Schema
+#### Fonts Scheme
 
-![Templates_Edit_Style_admin_Administration](/images/ce2.png)
+![Edit Template Style in Backend](/images/ce2.png)
 
-Die Frage, welche Schriften eine Site einsetzt, hat zwei Facetten:
+The question of which fonts a site uses has two facets:
 
-- Welche Schriftart ist gut lesbar und sieht gut aus?
-- Welche Schriftarten sind technisch möglich. Technisch möglich sind lediglich die Schriftarten, die auf einem Computer installiert sind oder die online zur Verfügung stehen - die Webfonts. Auf meinem Rechner ist die Schriftart Verdana installiert. Die kann ich einer CSS-Datei als Schriftart angeben. Diese wird auf meinem Rechner verwendet - und bei allen Besuchern, die diese Schrift installiert haben. Bei allen anderen erscheint eine andere Schrift. Das ist die Standardschrift des Browsers, falls ich keine alternative Schriftart angegeben habe.
+- Which font is [legible](https://www.accessibility.com/blog/what-are-accessible-fonts) and looks good?
+- Which fonts are technically possible. Technically possible are only the fonts that are installed on a computer or that are available online - the web fonts. On my computer, the font Verdana is installed. I can specify this as the font in a CSS file. This is used on my computer - and on all visitors who have this font installed. For all others, a different font appears. This is the default font of the browser if I have not specified an alternative font.
 
-Wenn ich möchte, dass die Standardschriftart des Browsers des Websitebesuchers für meine Website verwendet wird, dann wähle ich bei Schrift-Schema `Keine`. Ist mir die Darstellung wichtig, dann habe ich zwei Möglichkeiten. Ich nutze die Schriftart Roboto, die von Cassiopeia mitgeliefert wird und deshalb über meine Website online verfügbar ist, oder ich lade die Schrift von einer anderen Website. Vorteile und Nachteile sehen wir uns in den nachfolgenden Abschnitten im einzelnen an.
+If I want the default font of the website visitor's browser to be used for my website, then I select 'None' for Font Scheme. If the font is important to me, then I have two options. I use the font Roboto, which is supplied by Cassiopeia and therefore available online via my website, or I load the font from another website. We will look at the advantages and disadvantages in detail in the following sections.
 
-> Welche Schriftart genau verwendet wird, ist über die Entwicklerwerkzeuge eines Browsers anzeigbar. Die Tastaturkürzel für Firefox findet man unter [Öffnen und Schließen von Werkzeugen](https://developer.mozilla.org/de/docs/Tools/Keyboard_shortcuts).
+> The exact font used can be read out via the developer tools of a browser. The keyboard shortcuts for Firefox can be found under [Open and close tools](https://developer.mozilla.org/de/docs/Tools/Keyboard_shortcuts).
 
-![Templates_Edit_Style_admin_Administration](/images/c13.png)
+![Edit Template Style in Backend | Title | Font](/images/c13.png)
 
-##### Keine
+##### None
 
-Keine speziellen Anforderungen an die Schriftart zu stellen, ist am unkompliziertesten.
+Having no special requirements for the font is the most straightforward.
 
-Nachteilig ist, dass das Aussehen der Website nicht vorhersehbar ist.
+The disadvantage of not using a special font is, that the appearance of the website is unpredictable.
 
-Die nachfolgende Abbildung zeigt, dass als Schrift eine serifenlose ausgewählt wird.
+The following illustration shows that a sans serif is selected as the font.
 
-![Templates_Edit_Style_admin_Administration](/images/c15.png)
+![Edit Template Style in Backend | No Font](/images/c15.png)
 
-Warum ist das so? In der `template.css` steht die nachfolgende Regel.
+Why is this sans serif font selected? The following rule is in the `template.css`.
 
-```
+```css
 ...
 body {
   margin: 0;
@@ -144,37 +144,37 @@ body {
 ...
 ```
 
-Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen vorher, sind in meinem Fall nicht verfügbar.
+The [`font-family` CSS property](https://developer.mozilla.org/de/docs/Web/CSS/font-family) is responsible for loading. It allows you to specify a prioritised list of fonts for an element. These are alternatives. The browser chooses the first font it can load. In the example this is `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` are listed before, but are not available in my case.
 
-##### Schriften aus einem lokalen Verzeichnis
+##### Fonts from a local directory
 
-Wer eine Schriftart über die eigenen Website zur Verfügung stellt, hat Sicherheit in Bezug auf das Aussehen der Website. Nebenbei macht man sich datenschutzrechtlich von keinem anderen Anbieter abhängig.
+If you make a font available via your own website, you have reliability with regard to the appearance of the website. Besides, one does not become dependent on a third party provider in terms of data protection.
 
-Im Vergleich zum Laden einer Webfont ist die Ladezeit als Nachteil zu nennen, da Webfonts in der Regel von vielen Websites verwendet werden und deshalb für eine Webiste nicht speziell zu laden sind.
+Compared to loading a web font, the loading time is a disadvantage, because web fonts are usually used by many websites and therefore do not require special loading for a website.
 
-Im nachfolgenden sieht man eine mit der Option `Schriften aus Verzeichnis` geladene Website. Roboto wird mit Joomla ausgeliefert. Es ist die einzige Schrift, die im CMS gespeichert ist.
+In the following you can see a website loaded with the option 'Fonts from directory'. Roboto is delivered with Joomla. It is the only font that is available in the CMS.
 
-![Templates_Edit_Style_admin_Administration](/images/c14.png)
+![Edit Template Style in Backend](/images/c14.png)
 
-> Genau liegt Roboto im Verzeichnis `/media/vendor/roboto-fontface`. Das ist hier aber nebensächlich. Webmaster sollten dieses Verzeichnis nicht verwenden, da dieses bei einer Aktualisierung der Joomla Kerndateien veränderbar ist.
+> Exactly, Roboto is located in the directory `/media/vendor/roboto-fontface`. But that is not important at this point. Webmasters should not use this directory, as it can be changed when the Joomla core files are updated.
 
-Wer eine eigene Schrift hosten möchte, kann dies tun. Ich möchte beispielsweise für alle meine Überschriften die Schriftart `Aclonica` verwenden.
+If you want to host your own font, you can do so. For example, I would like to use the font 'Aclonica' for all my headings.
 
-1. Dazu öffne ich die Website [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com) und wähle im linken Bereich die Schriftart `Aclonica` aus.
+1. To do this, I open the website [Google Webfonts Helper](https://google-webfonts-helper.herokuapp.com) and select the font `Aclonica` in the left-hand area.
 
-![google-webfonts-helper](/images/c18.png)
+![Google Webfonts Helper | Select font](/images/c18.png)
 
-2. Im unteren Bereich der Website habe ich die Möglichkeit eine ZIP-Datei herunterzuladen, die alle erforderlichen Schriftart-Dateien enthält. Ich lade die Datei auf meinen Rechner und entpacke sie.
+2. at the bottom of the website I have the option of downloading a ZIP file that contains all the necessary font files. I download the file to my computer and unzip it. 
 
-3. Als nächstes kopiere ich die Dateien in meine Joomla Installation. Ich wähle das Verzeichnis `/templates/cassiopeia/fonts/aclonica-v11-latin`.
+3. Next, I copy the files into my Joomla installation. I choose the directory 'media/templates/site/cassiopeia/fonts/aclonica-v11-latin'.
 
-![google-webfonts-helper](/images/c20.png)
+![Google Webfonts Helper](/images/c20.png)
 
-4. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+4. if not already done, I create the file `media/templates/site/cassiopeia/css/user.css` and add the following content.
 
-> Note: The path to the *template media folders* was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
+> Note: The path to the _template media folders_ was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
-```
+```css
 ...
 /* aclonica-regular - latin */
 @font-face {
@@ -207,37 +207,37 @@ h6,
 ...
 ```
 
-5. Nun überprüfe ich im Frontend, ob alles geklappt hat. Ja, alle Überschriften werden in der gewünschten Schriftart angezeigt.
+5. Now I check in the frontend whether everything has worked. Yes, all headings are displayed in the desired font.
 
-![google-webfonts-helper](/images/c19.png)
+![Google Webfonts Helper](/images/c19.png)
 
-> Of course it is possible to store the fonts in a different place. Then make sure that the addressing in the file `media/templates/site/cassiopeia/css/user.css` fits. Use relative paths if possible. A double dot (..) means that it goes up one folder and then searches for the folder after the slash. If the `user.css` is in the folder `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, then the `..` is correct because I go back one folder to get from `css` to `/fonts`. If the `user.css` is in `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/css/fonts`, then I use only one dot. Note: The path to the *template media folders* was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
+> Of course it is possible to store the fonts in a different place. Then make sure that the addressing in the file `media/templates/site/cassiopeia/css/user.css` fits. Use relative paths if possible. A double dot (..) means that it goes up one folder and then searches for the folder after the slash. If the `user.css` is in the folder `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, then the `..` is correct because I go back one folder to get from `css` to `/fonts`. If the `user.css` is in `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/css/fonts`, then I use only one dot. Note: The path to the _template media folders_ was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
-##### Schriften aus dem Web
+##### Fonts from the web
 
-Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften nicht ganz uneigennützig. Er sammelt dabei die Daten der Nutzer, die die Schrift aufrufen.
+Using a font that is stored on another server on the Internet involves a dependency. On the one hand, it is possible that the provider will close down his offer. On the other hand, he usually offers the fonts not entirely altruistically. They often collect the data of the users who call up the font.
 
-Schriften werden auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
+Fonts are usually integrated in this way because it requires less knowledge. It is not necessary to download the font yourself, make it available via your own web server and integrate it correctly. In addition, a frequently used Google Font is most likely to be in a browser's cache. This has a positive effect on loading times.
 
-Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird.
+The following pictures show the example site with the option 'Fonts from the Web'. The font Fire Sans is used. In the network analysis of the developer tools you can see that the font is loaded from fonts.gstatic.com.
 
-![Templates_Edit_Style_admin_Administration](/images/c16.png)
+![Edit the template style in the backend](/images/c16.png)
 
-![Templates_Edit_Style_admin_Administration](/images/c17.png)
+![Edit the template style in the backend](/images/c17.png)
 
-Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. Ich zeige dies wieder an dem Beispiel, bei dem ich für alle meine Überschriften die Schriftart `Aclonica` einsetze.
+If you want to load your own font without hosting it yourself, you can do so. I show this again with the example where I use the font 'Aclonica' for all my headlines.
 
-> Bevor man Schriftarten aus dem Internet lädt und über seine Website anzeigt, ist erforderlich sich datenschutzrechtlich zu informieren.
+> Before downloading fonts from the internet and displaying them on your website, it is necessary to inform yourself about data protection laws.
 
-1. Ich öffne die Website [Google Fonts](https://fonts.google.com) und und such hier [Aclonica](https://fonts.google.com/specimen/Aclonica?preview.text_type=custom&sidebar.open=true&selection.family=Aclonica).
+1. i open the website [Google Fonts](https://fonts.google.com) and and search here [Aclonica](https://fonts.google.com/specimen/Aclonica?preview.text_type=custom&sidebar.open=true&selection.family=Aclonica).
 
-2. Ich wähle die Schriftart aus `Select this style` und klicke rechts oben auf `View your selected families.`- Mir werden alle erforderlichen Angaben angezeigt.
+2. i select the font 'Select this style' and click on 'View your selected families' in the upper right corner. all the necessary information is displayed.
 
-![Templates_Edit_Style_admin_Administration](/images/c.png)
+![Edit the template style in the backend](/images/c.png)
 
-3. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
+3. if not already done, I create the file `media/templates/site/cassiopeia/css/user.css` and add the following content.
 
-```
+```css
 ...
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
@@ -258,7 +258,7 @@ h6,
 ...
 ```
 
-5. Nun überprüfe ich im Frontend, ob alles geklappt hat. Ja, alle Überschriften werden in der gewünschten Schriftart angezeigt.
+5. Now I check in the frontend whether everything has worked. Yes, all headings are displayed in the desired font.
 
 #### Colour Theme / Template Farbe
 
@@ -267,11 +267,11 @@ Die Template Farbe oder das Farbschema ist nichts anderes als eine (S)CSS-Datei,
 - Standard: ein Schema, für das die Farben optimiert wurden, damit alles barrierefrei ist.
 - Alternative: ein Beispiel für eine benutzerdefinierte Implementierung.
 
-![Templates_Edit_Style_admin_Administration](/images/ce3.png)
+![Edit Template Style in Backend](/images/ce3.png)
 
 Diese Farben sind überschreibbar. Der nachfolgende Code, beispielsweise in der `user.css` verändert die Farben im Frontend.
 
-```
+```css
 :root {
   --cassiopeia-color-primary: #ff0000;
   --cassiopeia-color-link: #00ff00;
@@ -288,7 +288,7 @@ Die nachfolgende Ansicht ist nicht schön. Es geht nur ums Prinzip:
 
 #### Layout
 
-![Templates_Edit_Style_admin_Administration](/images/ce4.png)
+![Edit Template Style in Backend](/images/ce4.png)
 
 Cassiopeia passt sich an Bildschirmgrößen an, egal ob wir uns für ein statisches oder ein fluides Layout entscheiden. Es sind nur unterschiedliche Ansätze.
 
@@ -326,13 +326,13 @@ Bei statisch bleiben der Inhaltsbereich und die Seitenspalten in der Mitte groß
 
 #### Sticky Header
 
-![Templates_Edit_Style_admin_Administration](/images/ce5.png)
+![Edit Template Style in Backend](/images/ce5.png)
 
 Diese Option bewirkt, dass der Kopfbereich immer im oberen Teil angezeigt wird. Auch dann, wenn die Seite nach unten gescollt wird.
 
 In der `index.php` ist dies wie folgt implementiert.
 
-```
+```html
 ...
 $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
 ...
@@ -357,7 +357,7 @@ Der im nächsten Bild mit dem Pfeil gezeigte Abschnitt bleibt immer im Anezigebe
 
 #### Back-to-top-Link / „Zurück nach oben“ Link
 
-![Templates_Edit_Style_admin_Administration](/images/ce6.png)
+![Edit Template Style in Backend](/images/ce6.png)
 
 Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich einzublenden, über den mit einem Klick der Anzeigebreich nach oben verschiebbar ist.
 
@@ -365,7 +365,7 @@ Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich 
 
 ## Registerkarte Menüs zuordnen
 
-![Templates_Edit_Style_admin_Administration](/images/c5.png)
+![Edit Template Style in Backend](/images/c5.png)
 
 Wenn wir für verschiedene Seiten unterschiedliche Templaten verwenden möchten, können wir hier die Seiten auswählen. Natürlich müssen die Seiten bereits in den Menüs vorhanden sein, bevor wir etwas auswählen. Wenn deine Seiten Teil eines Kategorie-Blogs oder einer Kategorie-Liste und kein separater Menüpunkt sind, werden die einzelnen Unterseiten in dieser Liste nicht angezeigt.
 <img src="https://vg04.met.vgwort.de/na/8be019b2d0344ce2aa236f90f7f636ef" width="1" height="1" alt="">

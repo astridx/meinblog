@@ -34,13 +34,13 @@ Schwerpunkt dieses Abschnitts ist die gestaltung der Navigation. Deshalb lassen 
 
 ### Horizontales Menü im Kopfbereich der Website
 
-Öffne über die linke Seitenleiste die Einstellungen zum Modul. Klicke hierzu erst auf `Content` und danach auf `Site-Modules`. Nun siehst du im rechten Bereich den Eintrag `Main-Menü` und öffnest auch diese Ansicht per Klick. 
+Öffne über die linke Seitenleiste die Einstellungen zum Modul. Klicke hierzu erst auf `Content` und danach auf `Site-Modules`. Nun siehst du im rechten Bereich den Eintrag `Main-Menü` und öffnest auch diese Ansicht per Klick.
 
-Als erstes siehst du den Tabulator `Module` in welchem du die *Position* von `sidebar-right` auf `menu` änderst.
+Als erstes siehst du den Tabulator `Module` in welchem du die _Position_ von `sidebar-right` auf `menu` änderst.
 
 ![Joomla 4 - Horizontales Menü in der Kopfzeile | Standard Einstellungen des Menüs im Module-Manager](/images/menu_header_module.png)
 
-Wechsel danach in den Tabulator *Advanced (Erweitert)* und belege die Option *Layout* mit `Zusammenklappbares Dropdown` oder einfach nur `Dropdown`. Wenn du magst, setzte das `Modul-Tag` auf `nav`.
+Wechsel danach in den Tabulator _Advanced (Erweitert)_ und belege die Option _Layout_ mit `Zusammenklappbares Dropdown` oder einfach nur `Dropdown`. Wenn du magst, setzte das `Modul-Tag` auf `nav`.
 
 > Für die Darstellung ist nicht zwingend das `Modul-Tag` auf `nav` abzuändern. Aber: Wenn du dies tust, ist unabhängig von der Darstellung klar, dass der Inhalt eine Navigation ist. Suchmaschinen und Screenreader können so den Text korrekt interpretieren.
 
@@ -66,7 +66,7 @@ Es gibt 4 Optionen im Bereich Layout:
 
 Eigentlich ist nun in Bezug auf das Kopfmenu alles gut. Wenn du meine Einstellungen bisher nachgestellt hast, dann passt sich das Menü dem Layout der Seite an. Die Standardeinstellungen beispielsweise für Farbe und Schriftart werden übernommen. Das ist gut so. Die Website soll ja in einem abgestimmten Layout daher kommen.
 
-Aber wie das Leben so spielt: Bei allem gibt es Ausnahmen und so möchte man vielleicht auch der Navigation eine individuelle Einstellung hinzufügen. Aus diesem Grund zeige ich dir hier beispielhaft, wie du mit CSS Anpassungen vornimmst. Füge den folgenden Code in die Datei `user.css` ein, wenn du die Schrift im Header-Menü in *Small Caps* darstellen möchtest, also in verkleinerten Großbuchstaben.
+Aber wie das Leben so spielt: Bei allem gibt es Ausnahmen und so möchte man vielleicht auch der Navigation eine individuelle Einstellung hinzufügen. Aus diesem Grund zeige ich dir hier beispielhaft, wie du mit CSS Anpassungen vornimmst. Füge den folgenden Code in die Datei `user.css` ein, wenn du die Schrift im Header-Menü in _Small Caps_ darstellen möchtest, also in verkleinerten Großbuchstaben.
 
 ```CSS
 .container-header nav {
@@ -82,16 +82,17 @@ Aber wie das Leben so spielt: Bei allem gibt es Ausnahmen und so möchte man vie
 
 Möchtest du zusätzlich ein Menü in der Fußzeile anzeigen? Ich gehe davon aus, dass du bereits ein Menü mit Menüpunkten für diesen Zweck über den Menü-Manager erstellt hast. Ich habe für dieses Beispiel eines mit dem Namen `Footer Menu De` angelegt und zeige nachfolgend, wie ich dieses horizontal am unteren Rand der Website einrichte. Wir bearbeiten wieder lediglich das Site-Module, welches für die Anzeige des Menüs verantwortlich ist. Das Anlegen des Menüs ist hier nicht das Thema.
 
-Öffne über die linke Seitenleiste den Site-Modul-Manger. Klicke hierzu erst auf `Content` und danach auf `Site-Modules`. Nun siehst du im oberen Bereich die Schaltfläche `New`. Klicke auf `New`, um ein neues Site-Modul vom Typ *Menu* anzulegen.
+Öffne über die linke Seitenleiste den Site-Modul-Manger. Klicke hierzu erst auf `Content` und danach auf `Site-Modules`. Nun siehst du im oberen Bereich die Schaltfläche `New`. Klicke auf `New`, um ein neues Site-Modul vom Typ _Menu_ anzulegen.
 
-Als erstes siehst du den Tabulator `Module` in welchem du die *Position* `footer` auswählst. Ohne weiteres werden Untermenüpunkte auf dieser Position nicht unterstützt. In der Regel möchte man dies im Fußmenü auch nicht. Zwingend ist das Deaktivieren der *Submenu items* nicht, um Verwirrung zu vermeiden empfiehlt es sich aber in meinem Augen.
+Als erstes siehst du den Tabulator `Module` in welchem du die _Position_ `footer` auswählst. Ohne weiteres werden Untermenüpunkte auf dieser Position nicht unterstützt. In der Regel möchte man dies im Fußmenü auch nicht. Zwingend ist das Deaktivieren der _Submenu items_ nicht, um Verwirrung zu vermeiden empfiehlt es sich aber in meinem Augen.
 
 ![Joomla 4 - Horizontales Menü in der Fußzeile | Standard Einstellungen des Menüs im Module-Manager](/images/menu_footer_module.png)
 
-Wechsel danach in den Tabulator *Advanced (Erweitert)* und 
-- trage die Klasse `menu-horizontal` als *Menu Class* ein
-- belege die Option *Layout* mit `Dropdown` und 
-- setzte das *Modul-Tag* auf `nav`.
+Wechsel danach in den Tabulator _Advanced (Erweitert)_ und
+
+- trage die Klasse `menu-horizontal` als _Menu Class_ ein
+- belege die Option _Layout_ mit `Dropdown` und
+- setzte das _Modul-Tag_ auf `nav`.
 
 ![Joomla 4 - Horizontales Menü in der Fußzeile | Erweiterte Einstellungen des Menüs im Module-Manager](/images/menu_footer_advanced.png)
 

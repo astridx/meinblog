@@ -57,7 +57,7 @@ Diese Registerkarte zeigt verschiedene Parameter, über die das Template modifiz
 
 Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen oder wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, oben links auf der Webseite, platziert.
 
-Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild ODER den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
+Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild __oder__ den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
 
 ##### Titel
 
@@ -85,7 +85,7 @@ else
 ...
 ```
 
-#### Tagline / Stichwort - Die Beschreibung der Website
+#### Tagline - Die Beschreibung der Website
 
 Standardmäßig platziert Cassiopeia die Beschreibung unter dem Titel, beziehungsweise dem Logo. Wir können dies nutzen, um einen Seitentitel anzuzeigen, wenn wir möchten, dass sowohl das Logo als auch der Titel der Seite oben auf der Webseite erscheinen.
 
@@ -93,21 +93,21 @@ Standardmäßig platziert Cassiopeia die Beschreibung unter dem Titel, beziehung
 
 Der Titel wird angezeigt. In einer kleineren Schriftgröße wir das Stichwort unter diesem eingeblendet.
 
-![Templates_Edit_Style_admin_Administration](/images/c7.png)
+![Template Style im Backend bearbeiten | Titel und Tagline](/images/c7.png)
 
-![Templates_Edit_Style_admin_Administration](/images/c8.png)
+![Template Style Ansicht im Frontend | Titel und Tagline](/images/c8.png)
 
 ##### Beispiel 2
 
 Der Titel wird nicht angezeigt, weil eine Bilddatei als Logo ausgewählt ist. Das Stichwort, wird unter der Bilddatei platziert.
 
-![Templates_Edit_Style_admin_Administration](/images/c9.png)
+![Template Style im Backend bearbeiten | Image und Tagline](/images/c9.png)
 
-![Templates_Edit_Style_admin_Administration](/images/c10.png)
+!![Template Style Ansicht im Frontend | Image und Tagline](/images/c10.png)
 
 #### Fonts Scheme / Schrift Schema
 
-![Templates_Edit_Style_admin_Administration](/images/ce2.png)
+![Template Style im Backend bearbeiten](/images/ce2.png)
 
 Die Frage, welche Schriften eine Site einsetzt, hat zwei Facetten:
 
@@ -116,23 +116,23 @@ Die Frage, welche Schriften eine Site einsetzt, hat zwei Facetten:
 
 Wenn ich möchte, dass die Standardschriftart des Browsers des Websitebesuchers für meine Website verwendet wird, dann wähle ich bei Schrift-Schema `Keine`. Ist mir die Darstellung wichtig, dann habe ich zwei Möglichkeiten. Ich nutze die Schriftart Roboto, die von Cassiopeia mitgeliefert wird und deshalb über meine Website online verfügbar ist, oder ich lade die Schrift von einer anderen Website. Vorteile und Nachteile sehen wir uns in den nachfolgenden Abschnitten im einzelnen an.
 
-> Welche Schriftart genau verwendet wird, ist über die Entwicklerwerkzeuge eines Browsers anzeigbar. Die Tastaturkürzel für Firefox findet man unter [Öffnen und Schließen von Werkzeugen](https://developer.mozilla.org/de/docs/Tools/Keyboard_shortcuts).
+> Die genaue Schriftart kann über die Entwicklertools eines Browsers ausgelesen werden. Die Tastaturkürzel zum Öffnen der Entwicklertools für Firefox findet man unter [Öffnen und Schließen von Werkzeugen](https://developer.mozilla.org/de/docs/Tools/Keyboard_shortcuts).
 
-![Templates_Edit_Style_admin_Administration](/images/c13.png)
+![Template Style im Backend bearbeiten | Schrift](/images/c13.png)
 
-##### Keine
+##### Keine speziellen Schriften
 
 Keine speziellen Anforderungen an die Schriftart zu stellen, ist am unkompliziertesten.
 
-Nachteilig ist, dass das Aussehen der Website nicht vorhersehbar ist.
+Nachteilig ist, dass das Aussehen der Website nicht vorhersehbar ist, wenn man keine spezielle Schriftart festlegt.
 
-Die nachfolgende Abbildung zeigt, dass als Schrift eine serifenlose ausgewählt wird.
+Die nachfolgende Abbildung zeigt, dass als Schrift eine beliebeige serifenlose ausgewählt wird.
 
-![Templates_Edit_Style_admin_Administration](/images/c15.png)
+![Template Style im Backend bearbeiten](/images/c15.png)
 
-Warum ist das so? In der `template.css` steht die nachfolgende Regel.
+Warum wird eine beliebeige serifenlose Schriftart ausgewählt? In der `template.css` steht die nachfolgende Regel.
 
-```
+```css
 ...
 body {
   margin: 0;
@@ -145,37 +145,37 @@ body {
 ...
 ```
 
-Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen vorher, sind in meinem Fall nicht verfügbar.
+Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen zwar in der Auflistung vorher, sind in meinem Fall aber nicht verfügbar.
 
 ##### Schriften aus einem lokalen Verzeichnis
 
 Wer eine Schriftart über die eigenen Website zur Verfügung stellt, hat Sicherheit in Bezug auf das Aussehen der Website. Nebenbei macht man sich datenschutzrechtlich von keinem anderen Anbieter abhängig.
 
-Im Vergleich zum Laden einer Webfont ist die Ladezeit als Nachteil zu nennen, da Webfonts in der Regel von vielen Websites verwendet werden und deshalb für eine Webiste nicht speziell zu laden sind.
+Im Vergleich zum Laden einer Webfont ist die Ladezeit als Nachteil zu nennen, da Webfonts in der Regel von vielen Websites verwendet werden und deshalb für eine Website nicht speziell zu laden sind.
 
 Im nachfolgenden sieht man eine mit der Option `Schriften aus Verzeichnis` geladene Website. Roboto wird mit Joomla ausgeliefert. Es ist die einzige Schrift, die im CMS gespeichert ist.
 
-![Templates_Edit_Style_admin_Administration](/images/c14.png)
+![Editiere den Template Style im Backend](/images/c14.png)
 
 > Genau liegt Roboto im Verzeichnis `/media/vendor/roboto-fontface`. Das ist hier aber nebensächlich. Webmaster sollten dieses Verzeichnis nicht verwenden, da dieses bei einer Aktualisierung der Joomla Kerndateien veränderbar ist.
 
 Wer eine eigene Schrift hosten möchte, kann dies tun. Ich möchte beispielsweise für alle meine Überschriften die Schriftart `Aclonica` verwenden.
 
-1. Dazu öffne ich die Website [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com) und wähle im linken Bereich die Schriftart `Aclonica` aus.
+1. Dazu öffne ich die Website [Google Webfonts Helper](https://google-webfonts-helper.herokuapp.com) und wähle im linken Bereich die Schriftart `Aclonica` aus.
 
-![google-webfonts-helper](/images/c18.png)
+![Google Webfonts Helper](/images/c18.png)
 
 2. Im unteren Bereich der Website habe ich die Möglichkeit eine ZIP-Datei herunterzuladen, die alle erforderlichen Schriftart-Dateien enthält. Ich lade die Datei auf meinen Rechner und entpacke sie.
 
-3. Als nächstes kopiere ich die Dateien in meine Joomla Installation. Ich wähle das Verzeichnis `/templates/cassiopeia/fonts/aclonica-v11-latin`.
+3. Als nächstes kopiere ich die Dateien in meine Joomla Installation. Ich wähle das Verzeichnis `media/templates/site/cassiopeia/fonts/aclonica-v11-latin`.
 
-![google-webfonts-helper](/images/c20.png)
+![Google Webfonts Helper](/images/c20.png)
 
-4. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt. 
+4. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
 
-> Achtung: Der Pfad zu den *Template-Medien-Verzeichnissen* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
+> Achtung: Der Pfad zu den _Template-Medien-Verzeichnissen_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
-```
+```css
 ...
 /* aclonica-regular - latin */
 @font-face {
@@ -210,21 +210,21 @@ h6,
 
 5. Nun überprüfe ich im Frontend, ob alles geklappt hat. Ja, alle Überschriften werden in der gewünschten Schriftart angezeigt.
 
-![google-webfonts-helper](/images/c19.png)
+![Google Webfonts Helper](/images/c19.png) 
 
-> Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `media/templates/site/cassiopeia/css/user.css` die Adressierung passt. Verwende relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Befindet sich die `user.css` im Ordner `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt. Hinweis: Der Pfad zu den *Template-Medienordnern* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
+> Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `media/templates/site/cassiopeia/css/user.css` die Adressierung passt. Verwende relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Befindet sich die `user.css` im Ordner `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt. Hinweis: Der Pfad zu den _Template-Medienordnern_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ##### Schriften aus dem Web
 
-Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften nicht ganz uneigennützig. Er sammelt dabei die Daten der Nutzer, die die Schrift aufrufen.
+Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften meist nicht ganz uneigennützig. Oft sammelt er dabei die Daten der Nutzer, die die Schrift aufrufen.
 
-Schriften werden auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
+Schriften werden  in der Regel auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
 
 Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird.
 
-![Templates_Edit_Style_admin_Administration](/images/c16.png)
+![Editiere den Template Style im Backend](/images/c16.png)
 
-![Templates_Edit_Style_admin_Administration](/images/c17.png)
+![Editiere den Template Style im Backend](/images/c17.png)
 
 Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. Ich zeige dies wieder an dem Beispiel, bei dem ich für alle meine Überschriften die Schriftart `Aclonica` einsetze.
 
@@ -234,11 +234,11 @@ Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. 
 
 2. Ich wähle die Schriftart aus `Select this style` und klicke rechts oben auf `View your selected families.`- Mir werden alle erforderlichen Angaben angezeigt.
 
-![Templates_Edit_Style_admin_Administration](/images/c.png)
+![Editiere den Template Style im Backend](/images/c.png)
 
 3. Falls noch nicht geschehen, lege ich die Datei `media/templates/site/cassiopeia/css/user.css` und ergänze folgenden Inhalt.
 
-```
+```css
 ...
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
 
@@ -268,11 +268,11 @@ Die Template Farbe oder das Farbschema ist nichts anderes als eine (S)CSS-Datei,
 - Standard: ein Schema, für das die Farben optimiert wurden, damit alles barrierefrei ist.
 - Alternative: ein Beispiel für eine benutzerdefinierte Implementierung.
 
-![Templates_Edit_Style_admin_Administration](/images/ce3.png)
+![Editiere den Template Style im Backend](/images/ce3.png)
 
 Diese Farben sind überschreibbar. Der nachfolgende Code, beispielsweise in der `user.css` verändert die Farben im Frontend.
 
-```
+```css
 :root {
   --cassiopeia-color-primary: #ff0000;
   --cassiopeia-color-link: #00ff00;
@@ -289,7 +289,7 @@ Die nachfolgende Ansicht ist nicht schön. Es geht nur ums Prinzip:
 
 #### Layout
 
-![Templates_Edit_Style_admin_Administration](/images/ce4.png)
+![Editiere den Template Style im Backend](/images/ce4.png)
 
 Cassiopeia passt sich an Bildschirmgrößen an, egal ob wir uns für ein statisches oder ein fluides Layout entscheiden. Es sind nur unterschiedliche Ansätze.
 
@@ -327,13 +327,13 @@ Bei statisch bleiben der Inhaltsbereich und die Seitenspalten in der Mitte groß
 
 #### Sticky Header
 
-![Templates_Edit_Style_admin_Administration](/images/ce5.png)
+![Editiere den Template Style im Backend](/images/ce5.png)
 
 Diese Option bewirkt, dass der Kopfbereich immer im oberen Teil angezeigt wird. Auch dann, wenn die Seite nach unten gescollt wird.
 
 In der `index.php` ist dies wie folgt implementiert.
 
-```
+```html
 ...
 $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
 ...
@@ -358,7 +358,7 @@ Der im nächsten Bild mit dem Pfeil gezeigte Abschnitt bleibt immer im Anezigebe
 
 #### Back-to-top-Link / „Zurück nach oben“ Link
 
-![Templates_Edit_Style_admin_Administration](/images/ce6.png)
+![Editiere den Template Style im Backend](/images/ce6.png)
 
 Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich einzublenden, über den mit einem Klick der Anzeigebreich nach oben verschiebbar ist.
 
@@ -366,7 +366,7 @@ Das Cassiopeia Template bietet die Möglichkeit, einen Pfeil im unteren Bereich 
 
 ## Registerkarte Menüs zuordnen
 
-![Templates_Edit_Style_admin_Administration](/images/c5.png)
+![Editiere den Template Style im Backend](/images/c5.png)
 
 Wenn wir für verschiedene Seiten unterschiedliche Templaten verwenden möchten, können wir hier die Seiten auswählen. Natürlich müssen die Seiten bereits in den Menüs vorhanden sein, bevor wir etwas auswählen. Wenn deine Seiten Teil eines Kategorie-Blogs oder einer Kategorie-Liste und kein separater Menüpunkt sind, werden die einzelnen Unterseiten in dieser Liste nicht angezeigt.
 <img src="https://vg04.met.vgwort.de/na/4f15651f58da4c08b9bba60f93b7a5cf" width="1" height="1" alt="">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 19 Feb 2022 13:09:37 GMT</lastBuildDate><item><title><![CDATA[Die Einstellmöglichkeiten der Navigation im Joomla 4 Standardtemplate Cassiopeia]]></title><description><![CDATA[Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare…]]></description><link>https://blog.astrid-guenther.de/cassiopeia-die-optionen-der-navigation/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/cassiopeia-die-optionen-der-navigation/</guid><pubDate>Sat, 19 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare Untermenüpunkte bietet, sie ist barrierefrei und passt sich an unterschiedliche Bildschirmbreiten an. Nebenbei kann man die Hauptanwendungsfälle unkompliziert individuell anpassen. Beispielsweise ein horizontales Menü in der Kopf- und Fußzeile der Website. Wie dies funktioniert ist Thema dieses Abschnitts.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 20 Feb 2022 22:36:49 GMT</lastBuildDate><item><title><![CDATA[Die Einstellmöglichkeiten der Navigation im Joomla 4 Standardtemplate Cassiopeia]]></title><description><![CDATA[Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare…]]></description><link>https://blog.astrid-guenther.de/cassiopeia-die-optionen-der-navigation/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/cassiopeia-die-optionen-der-navigation/</guid><pubDate>Sat, 19 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Das Cassiopeia Standardtemplate ist technisch ausgereift. Es bietet alles was man benötigt. Es gibt eine Navigation die aufklappbare Untermenüpunkte bietet, sie ist barrierefrei und passt sich an unterschiedliche Bildschirmbreiten an. Nebenbei kann man die Hauptanwendungsfälle unkompliziert individuell anpassen. Beispielsweise ein horizontales Menü in der Kopf- und Fußzeile der Website. Wie dies funktioniert ist Thema dieses Abschnitts.&lt;/p&gt;
 &lt;h3 id=&quot;ausgangsituation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ausgangsituation&quot; aria-label=&quot;ausgangsituation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ausgangsituation&lt;/h3&gt;
 &lt;p&gt;Unmittelbar nach der Installation von Joomla 4 findet man im Frontend ein vertikales Menü in der rechten Seitenleiste vor.&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -414,6 +414,583 @@
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
+&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[General notes on Cassiopeia and Joomla]]></title><description><![CDATA[Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many…]]></description><link>https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.&lt;/p&gt;
+&lt;h2 id=&quot;practical-tips&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#practical-tips&quot; aria-label=&quot;practical tips permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Practical tips&lt;/h2&gt;
+&lt;h2 id=&quot;toggle-joomla-login-and-logout-menu-items&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#toggle-joomla-login-and-logout-menu-items&quot; aria-label=&quot;toggle joomla login and logout menu items permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Toggle Joomla login and logout menu items&lt;/h2&gt;
+&lt;p&gt;Below I show how to create a login menu item that is only shown to users who are not yet logged in. Once they have logged in, they will see the Logout menu item instead. So: How do you set up login and logout links in Joomla so that the Login menu item is automatically replaced by Logout as soon as someone has logged in, and vice versa?&lt;/p&gt;
+&lt;h3 id=&quot;login-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#login-link&quot; aria-label=&quot;login link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Login link&lt;/h3&gt;
+&lt;p&gt;First we create the login. To do this, open the menu manager via the left sidebar. Open &apos;Menus | All Menu Items&apos; and click the &apos;New&apos; button in the toolbar to create a new menu item. Select the type &apos;User | Login Form&apos; for the menu item. It is also important that you change the default group &apos;Public&apos; to &apos;Guest&apos; for access. This will cause the menu item to be displayed only to &lt;em&gt;not&lt;/em&gt; logged in users. Select all other settings as it suits your environment and save the menu item.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Create Login Link&quot;
+        title=&quot;Login - Logout | Create Login Link&quot;
+        src=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png&quot;
+        srcset=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
+/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;logout-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#logout-link&quot; aria-label=&quot;logout link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Logout link&lt;/h3&gt;
+&lt;p&gt;Next we create the logout link. You are still in the menu manager, right? Otherwise open it via &apos;Menus | All Menu Items&apos; in the left sidebar. In the menu manager, click the &apos;New&apos; button in the toolbar again to create a new menu item. Select the type &apos;User | Logout&apos; for the menu item. It is also important that you replace the default group &apos;Public&apos; with &apos;Register&apos;. This causes the menu item to be displayed only to logged-in users. Choose all other settings as it suits your environment and save the menu item.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Create Logout Link&quot;
+        title=&quot;Login - Logout | Create Logout Link&quot;
+        src=&quot;/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png&quot;
+        srcset=&quot;/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
+/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
+/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
+/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
+/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
+/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;test-the-links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#test-the-links&quot; aria-label=&quot;test the links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Test the links&lt;/h3&gt;
+&lt;p&gt;Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in?&lt;/p&gt;
+&lt;p&gt;Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on &apos;System&apos; in the left-hand sidebar and then on the link &apos;Global configuration&apos; in the right-hand area. Make sure that &lt;code class=&quot;language-text&quot;&gt;Guest User Group&lt;/code&gt; is set to &lt;code class=&quot;language-text&quot;&gt;Guest&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Login - Logout | Option Guest Group&quot;
+        title=&quot;Login - Logout | Option Guest Group&quot;
+        src=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png&quot;
+        srcset=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
+/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight   indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight&lt;!-- \index{editor!switcher} --&gt;&lt;!-- \index{editor!syntax highlight} --&gt;&lt;/h2&gt;
+&lt;p&gt;Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.&lt;/p&gt;
+&lt;p&gt;When I write article texts in the Joomla backend, I like to use the &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt; because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in &lt;a href=&quot;https://codemirror.net/&quot;&gt;codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt;. The TinyMCE does not offer this under Joomla in early 2022.&lt;/p&gt;
+&lt;p&gt;The editor can be set in the global configuration. Alternatively, you can set it individually for a user in the User Manager. While entering an article text, switching to the global configuration or the user manager is cumbersome. That&apos;s why I love the plugin &lt;a href=&quot;https://github.com/Bakual/editors_switcher&quot;&gt;Editor Switcher by Bakual&lt;/a&gt;[^&lt;a href=&quot;https://github.com/bakual/editors_switcher%5D&quot;&gt;https://github.com/bakual/editors_switcher]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After installing and activating it, I set the Switcher as the default editor for my user.&lt;/p&gt;
+&lt;p&gt;Editor Switcher | Edit Style in the Joomla administration area](/images/switcher_backend_user.png)&lt;/p&gt;
+&lt;p&gt;It is then possible to switch the editor while writing a text in the Article Manager. It is not necessary to switch to another configuration area. Only a buffering is necessary.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABY0lEQVQoz32Su07DMBSG/bSgdqBSRJFgYOhFDEwsLDwKAwPthEQ7MCDUsjAh0aaN4/uxf2Snl4QCR/pyLsmJfx+bZYM7dC5v0Dm/wnHWx1HWw3HWQ6s7RKs7SLS7Q7TPho1ag9M+Ti6ukfVuwZS1MOQT1geYDdZjhzCEUllo16zX0c5DGgf2teLIC4FlUWKx4liseYoLoSqkQs5Fehd9IfQBa6EglMNaGLB1wSG1gzKU/DbW1u8wERcaudQaxlmQJyAAS57jM1+COedAPsD/gP7BB0BIBS4EHBGI4kgkVqUA894jWgghPprEpQ+sqkmpoY3d9wLQlsB+b6q1bz7er1PlxtgEkU+qnfMQyoIVZZSu0wFwUcUpL+OgTVIUf1InqTEWUum05WpEPs2f3Y9fMJ6+4/F5htFkjtFkhvFkjoenN0xfPxoq6+YcwVE1Ll/fclS1VRkVRcqa51L/SeP6lCpdv2+gyu6X3oXY3gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Edit Style in the Joomla Administration Area&quot;
+        title=&quot;Editor Switcher | Edit Style in the Joomla Administration Area&quot;
+        src=&quot;/static/87d804825081d59f21fdf4bfb5404675/5a190/switcher_backend_article.png&quot;
+        srcset=&quot;/static/87d804825081d59f21fdf4bfb5404675/772e8/switcher_backend_article.png 200w,
+/static/87d804825081d59f21fdf4bfb5404675/e17e5/switcher_backend_article.png 400w,
+/static/87d804825081d59f21fdf4bfb5404675/5a190/switcher_backend_article.png 800w,
+/static/87d804825081d59f21fdf4bfb5404675/c1b63/switcher_backend_article.png 1200w,
+/static/87d804825081d59f21fdf4bfb5404675/29007/switcher_backend_article.png 1600w,
+/static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;since-joomla-41&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#since-joomla-41&quot; aria-label=&quot;since joomla 41 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Since Joomla 4.1&lt;/h3&gt;
+&lt;p&gt;Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting. In addition, it is via buttons on the bottom of the pop up possible to search and replace directly in the HTML code view.&lt;/p&gt;
+&lt;p&gt;Syntax-Highlighting in the integrated TinyMCE-Editor&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQoz32R23LCMAxE8/+/1Ud4oBcKbVIIpYWWkAu5x5a1HdkBQmHQzE4ytny8WntBuIG/WMP/WGHuL2/qLQjv6j0IEaw2EJZHZEDGwDDDMKwYrriXrEkPGbZ9x7VLsd33lCZY0fnbtB3irEBe1iirBkVZO8l/1aBT2l6g6SyBWSARwYjDXlJKKfxsfrHb7hHtUsT7A7KsQp7mKIraXszs+lkcizsitKpzwKHqpkKWp2AiXJfk4Q5rTdC9GQu0jgmeNHGfCxvG4vMFT7OxnHOI3gHzOVkBKqVPEx33JEfvYsEQ/HCCx+n4FMGJI1EQo5X8bN76YmQ+PsoQqFSH59kIo8kDpq9zLJYrfH2H2CcRjNbYpiXWu1SudiPaLP8Bh+MYIiRphCjeIk5SVFWDLI9wyBMLQN9bVK196SFMZIYOeTjbnZKc6kb1L30N/AMb3QluCOs5iAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor&quot;
+        src=&quot;/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png&quot;
+        srcset=&quot;/static/db4b700c3ef30489afd7785a07d84773/772e8/switcher_backend_new1.png 200w,
+/static/db4b700c3ef30489afd7785a07d84773/e17e5/switcher_backend_new1.png 400w,
+/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png 800w,
+/static/db4b700c3ef30489afd7785a07d84773/c1b63/switcher_backend_new1.png 1200w,
+/static/db4b700c3ef30489afd7785a07d84773/29007/switcher_backend_new1.png 1600w,
+/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Editor button:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQoz3WSy0sVURzH559oWdCuVdv2IRJCRWUQbdpEcCXJfIVEmvkqN1FRFARFtW1TK1dFmzIqRSiliBAXaem9c+c85p7XfOLMtatCHfjOOWfmO5/f9zyS3vGH9Izc5sLQFOd6r7V0tudqc3xxlEr/OF2Dk3QNTlAZmCjnlYFN9Y/TPXSdSzce0zd2n0TqBjI3GFfgClqyoSkXQBtfelTD0nABDzu80dOwjtx6kvWaoFpX1DJdaqMuWU9F2delJlM51UyxkQpqmSLTBpEpROy3KTeBTFsSqTQNYzDG4pzjf60IgRCTra4R0jq5cxhr8MFTFFAVVdZqVRIhBFKqUkJIvi1/YXb+DR8W5vi8NMvc0msWv8+hdY7Oc8yv33ilSIUgExLrHD4EZK5JpSKBghBCmcLmmuGbx9nftouO0+2MTPZw+MxeKkPHyu9/fRFQraXlqsr0MSJxH30Ebr3QOqV7rI0Dh3ZzorODu7emuXOvj+Hp85s/hvjAWtsEWkcoirKA86E8tGR75Z+rK7Sf2sfBzj0cOXqSK8OjPHp2mQdPp3YkiU0pjRAK730JbQGj6S9QScnMq+e8mHnC29mP/FhZ5d2nlywsvqfJKtANw/zSCvF2eB+aCpFRkBu3teTt1f95yq19cnxdXiMVukwVYREaU0bgH4HDy5JDkFSKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button&quot;
+        title=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button&quot;
+        src=&quot;/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png&quot;
+        srcset=&quot;/static/11861b147894c94247a6b8daeb486679/772e8/switcher_backend_new2.png 200w,
+/static/11861b147894c94247a6b8daeb486679/e17e5/switcher_backend_new2.png 400w,
+/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png 800w,
+/static/11861b147894c94247a6b8daeb486679/c1b63/switcher_backend_new2.png 1200w,
+/static/11861b147894c94247a6b8daeb486679/29007/switcher_backend_new2.png 1600w,
+/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Option to activate the editor button:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVQoz41SCW7DMAzr/z+6ZUW3HD502RwsI4HTFN0EELEEiSYV32LOyJnALCBWqBUQCzIJRA38hFZrfSStt+feJ4qUGTcAqBUeKRMysZNvIXq9lHpGrRAtfnGfrY4WJLYT9kLM5KRmhhASVM0Hn2FWjplx/kLYZHcIqCltZxbPO/SoNbV/Kgwpg0jwOU8IOWFfR92/J3h1OL+ynLLbmZYvrDF4rZQyqBgYj92/22EiqBge2zeWbUNpO1P1nTrpYLHWd5bNgBjdspaKab0flrthXIZHIVdCzwjhY0K8PzCvPwgpngabyj2sGKz849kIC4QYRIR5WcDc32RMCcu6+p9uK1jDBhJ6SfgL+20U0Uj/07YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button&quot;
+        title=&quot;Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button&quot;
+        src=&quot;/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png&quot;
+        srcset=&quot;/static/d13c1e5624dd93219a51be4685de98d4/772e8/switcher_backend_new3.png 200w,
+/static/d13c1e5624dd93219a51be4685de98d4/e17e5/switcher_backend_new3.png 400w,
+/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png 800w,
+/static/d13c1e5624dd93219a51be4685de98d4/c1b63/switcher_backend_new3.png 1200w,
+/static/d13c1e5624dd93219a51be4685de98d4/29007/switcher_backend_new3.png 1600w,
+/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;joomla-accessibility----indexaccessibility------indexa11y---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-accessibility----indexaccessibility------indexa11y---&quot; aria-label=&quot;joomla accessibility    indexaccessibility      indexa11y    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Accessibility &lt;!-- \index{Accessibility} --&gt;&lt;!-- \index{a11y} --&gt;&lt;/h2&gt;
+&lt;p&gt;You can clearly see it: Joomla 4 has been worked all around with Accessibility in mind. Both standard templates, frontend and backend, are accessible and comply with level AA of &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/tr/wcag21/]. WCAG 2.1 complements WCAG 2.0 and is the web standard for digital accessibility that is mandatory for public bodies in the European Union.&lt;/p&gt;
+&lt;h3 id=&quot;basics&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basics&quot; aria-label=&quot;basics permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basics&lt;/h3&gt;
+&lt;h4 id=&quot;what-is-accessibility&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-is-accessibility&quot; aria-label=&quot;what is accessibility permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is Accessibility?&lt;/h4&gt;
+&lt;p&gt;The WCAG 2.0 guidelines are technical rules. A website is considered accessible if it complies with these rules.&lt;/p&gt;
+&lt;p&gt;As the owner of a website, it makes sense to decide in the planning phase where the website should be accessible. The system one chooses for the creation of the website application should be suitable. Joomla offers good conditions in this context.&lt;/p&gt;
+&lt;h4 id=&quot;why-is-the-accessibility-of-a-website-important&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-is-the-accessibility-of-a-website-important&quot; aria-label=&quot;why is the accessibility of a website important permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why is the accessibility of a website important?&lt;/h4&gt;
+&lt;p&gt;Accessibility is important for many reasons. Public authorities around the world are pushing for online content to be accessible to all, and there are heavy fines for companies that don&apos;t comply with these laws.&lt;/p&gt;
+&lt;p&gt;But: Foremost accessibility is about values and treating all people equally. It&apos;s about people with disabilities not having to rely on others to do simple things like read a website.&lt;/p&gt;
+&lt;p&gt;In addition, an accessible website is also easier for machines to read. For example, a search engine can more easily read and correctly offert correct search results if the content is accessible.&lt;/p&gt;
+&lt;h3 id=&quot;how-to-enable-accessibility-features-in-joomla&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#how-to-enable-accessibility-features-in-joomla&quot; aria-label=&quot;how to enable accessibility features in joomla permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How to Enable Accessibility Features in Joomla&lt;/h3&gt;
+&lt;p&gt;There are the inbuilt accessibility plugins &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; and &lt;em&gt;Additional Accessibility Features&lt;/em&gt;, you can enable them in your plugin manager.&lt;/p&gt;
+&lt;h4 id=&quot;system-plugin---joomla-accessibility-checker&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---joomla-accessibility-checker&quot; aria-label=&quot;system plugin   joomla accessibility checker permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Joomla Accessibility Checker&lt;/h4&gt;
+&lt;p&gt;The System Plugin &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; visually highlights common accessibility and usability issues. Geared towards content authors, the plugin identifies errors or warnings and provides guidance on how to fix them.&lt;/p&gt;
+&lt;p&gt;If you activate the first option, the accessiblity checker is loaded on all pages. This is useful when developing the website but should not be left on when the website is live.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVQoz52R20oDMRCG87YKXhS0VlBvCst65RMUX0wQtRS0doubdpOZyemXpPSwiqAd+AjJTP45qUE1we3NPerLMaqrCvV1jWo4xuB8jJNhhdM/cDaqMbp7wEU1gQKAhANLvdu/TT2/TNE0S7zNP9C9zyFaQ5yDiPTgDDOYBTFGkDAMWTjv4INH22nMmjkUvU5Bsyk+nx7hiEEiIObCRkTgnEcIoeBDQEqp+IgFIUTElEoRbWegrCF4EZjOgMUVAeJ9cIgbYkw78lQMMVq9BhHD+5wogiVAOe/LB0vcIweK8yU4xLQTzkmyYGcsFs0Sq3WHVq+g9QrGcl5KKmvJbXwnzyr9siQRB2NsObdzJnFQuYXD1vqkXVXfTx+2/j0kHmq5IhxLo22P/Ka0FSxa+8N5LF8ULe8q3lxRNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Plugin Settings&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Plugin Settings&quot;
+        src=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png&quot;
+        srcset=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/772e8/c_a11y_1.png 200w,
+/static/815d2f522e1dcb6833dce159d1f5e181/e17e5/c_a11y_1.png 400w,
+/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png 800w,
+/static/815d2f522e1dcb6833dce159d1f5e181/c1b63/c_a11y_1.png 1200w,
+/static/815d2f522e1dcb6833dce159d1f5e181/29007/c_a11y_1.png 1600w,
+/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;You can check the accessibility of your content via a button in the toolbar when creating a post.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVQoz3WSvWsUQRjG95+wVLCzsrCxlxgkoKJGkCDYSS4ajPmSQ7xgPjGNqAQUBPGjtdEqlWijiZqEgEZjJIQUJpDcbXZnZndndvYnM5fTE8kLD8vsvvN7nnlng97Rx/QM3edaeYLLvcN09g1z8UqFIyd7ON5xw687+0fpGhyna3CM0sAYpf5RSgN1dfaP0F2+Q3nyKX0jDwmEShFJRmYKjAULREnOx5WQldUtbKaR2iJUhkw1qbHkBZhmWUi1IdE5wVYtprojqUXKazsUbO/EyCRBJSmRUFQjyXYYU4skkUyJVfafkswSKU0gpCLNMrJMY4xhryqKAmut73HPxO3RmtzmFAVU4yqbtSpBHMcIIb3iWPBj7SszC+/4tDjHl+VZ5r+/ZennPEolXs48z3PCKCISAm0MubWIRBEKSQB1Z1c6UVTunuVwyz7aOloZGr/OyUsHKZXP+O+NPges1kJ/qkZ6V6mbYfMLpUK6R1o4emI/59rbmLo3yYOpPiqTV3c37hprUwdqgy0Kn9Dk1l9a0Oz8a2Od1guHONZ+gFOnz3OrcpsnL27y6PnEP0lcSelGJMlz66F/gI1h+yYhmH7zklfTz3g/85nV9Q0+zL1mcWmWOqtApRkL39Zxf4eDeVnHKEgy8/fIze573XJ9TobltU3CWPlUDtZI6YC/AUQ8yp11dee8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post&quot;
+        src=&quot;/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png&quot;
+        srcset=&quot;/static/191ef310598b7365efa241a348293ecb/772e8/c_a11y_1_1.png 200w,
+/static/191ef310598b7365efa241a348293ecb/e17e5/c_a11y_1_1.png 400w,
+/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png 800w,
+/static/191ef310598b7365efa241a348293ecb/c1b63/c_a11y_1_1.png 1200w,
+/static/191ef310598b7365efa241a348293ecb/29007/c_a11y_1_1.png 1600w,
+/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If you want to examine several articles one after the other, it is more convenient to work in the frontend. This is possible via a button in the lower right area.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJUlEQVQoz3WQXUgUYRiF5zrootugIsQgScVcTAjytijMhCBMsFwSKhRvJcMLjX4ggupCNLSikBTTcXepjN0s16QisrvoMkRb92d2dsb5n3liBicV6sDhO3zfec/7vp+ws6yZXeVn2bG3icaWXoafJOjuGWT3wfPsO9TG/soLlFW1U14d5UB1lIqaDqoil6n2WXuFmshVInWd1B3por6+G0F8vYjP2JtPTMbmGZtMMp1IIyYWeDkzz3Q8zVQsjRhf4NXsF2YSi4yNJ5kS08y+/Uoy+Y1kaolUaol3qe8IbIGuqeRzWSQph6IUUVUZTSshy4VAhygqGq7n8S8IjuNgOy6u41JS1ynIKv+D7zMMA0mSUBQVTTNwXRfH2aSA5+F5Ho5pUvjxk+xqhg9zEwyNDjD6eJiY+IhnEwOIsUF0VUXVdJZXMti2jW07QSO/no2Jg5X9x8zaGpmVFVzT495IB3tqBRpORrjW18m5S5U0txwGy2D5d4Hx+Edsx9sM888NLYSXuq5jWDbF/Bpdvcc5dqaM040n6L/ew9T0Q27c6URXStvW9+uCIMfBc91AC2GHcGQps0pr9ChNHRW0XozSf+sBw897GBrpQysVA4//b1unQ9PAsjYDfYYmOZelve0UTc0N3L19k/m594jx+zx90Yelan+Dwn/zqyxVxVLUYHFhm8HXrst6XsKQStglGasogWHiahpbtwm1aZpkc3kKuRyff8n8AQ8Lqe3+hhYRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend&quot;
+        title=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend&quot;
+        src=&quot;/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png&quot;
+        srcset=&quot;/static/5931d056204e0ae145939c1e0abee4b5/772e8/c_a11y_1_2.png 200w,
+/static/5931d056204e0ae145939c1e0abee4b5/e17e5/c_a11y_1_2.png 400w,
+/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png 800w,
+/static/5931d056204e0ae145939c1e0abee4b5/c1b63/c_a11y_1_2.png 1200w,
+/static/5931d056204e0ae145939c1e0abee4b5/29007/c_a11y_1_2.png 1600w,
+/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;View project website and demo &lt;a href=&quot;https://joomla-projects.github.io/joomla-a11y-checker/&quot;&gt;joomla-projects.github.io/joomla-a11y-checker/&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;system-plugin---additional-accessibility-features&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---additional-accessibility-features&quot; aria-label=&quot;system plugin   additional accessibility features permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Additional Accessibility Features&lt;/h4&gt;
+&lt;p&gt;This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled the toolbar can be opened. You can choose whether you want to display the accessibility toolbar: It can be enabled on either Joomla backend, frontend, or both.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEklEQVQoz62Q3UrDQBCF920VBAVbKgiCpUFvfIPiexW8saU3tqlNmmT/dz/JJliKoG1x4GN3Z5iznCNusikP9y9kg0cmowmTu4xsOOb6dszFMOPyCK5GT4yeXxlkUwRAjBBD5D9KzGZv5Jstq1XO57ZAG9Oh9xhjUFqjtUYphbU2vaVWWGdx3lHUJcv8A9HMF7j3OWqxxNQSZQPKOJTxe6zve+57VkmdPvY+EGLEWEtRN71la4neE2OkNf4rfTJSaYpyh1Ia5zzOB7TxveDBQvyTthopWa03VFWdhMtyRyN1J9hJnVbGWKq6TlbbjFPOxiJ8iCmHownd6dI9HtDmKzY7xbnkpTyg7YlSGtaF/DE8ly/JsfBLYXk3vgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Additional Accessibility Features | Plugin Settings&quot;
+        title=&quot;System Plugin - Additional Accessibility Features | Plugin Settings&quot;
+        src=&quot;/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png&quot;
+        srcset=&quot;/static/56f91680829d5a00e4db1c569e7da167/772e8/c_a11y_2.png 200w,
+/static/56f91680829d5a00e4db1c569e7da167/e17e5/c_a11y_2.png 400w,
+/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png 800w,
+/static/56f91680829d5a00e4db1c569e7da167/c1b63/c_a11y_2.png 1200w,
+/static/56f91680829d5a00e4db1c569e7da167/29007/c_a11y_2.png 1600w,
+/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled shows it the Accessibility icon on the bottom left corner of every page of your website. Click on the icon for using the additional accessibility features.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVQoz62OzUoCURTH7ys4uKyFWOugTYE+QRsfoiBqU6AjVKCBI32ItCxDqn1v0K5FixYtfIFWQX7MjDPeuXPvHRv/cR0NRQoSD/wW53/O+d1L1jN5ZLaLODg6w87h6ZDdbAn7ehl7ujFLzoBuXOP44g4nlYch+fN75Mp1ZEs3IEtrWyhUa2hSC1QIUMHBAgm/H/xOINB2XHx0LLRsG0z6oJyhx32Q+GoaxlUdVAb4tCg6DoPjcTieD9fjU6icMg4mArw03vH49Ibn1wZ6LJpbLgOJJVMoVetQpcJWN4LLPgaDAcJwGpUJGWCyVB+GIXwhQbSVNIqXNcgQMB0G0+UwXR9Wj8P+A7UzZpypG6IlIyHvA+2u9yObPPgPJDb6If9SQjYaRK/NA4knUzPCeWVD4XJiA4XK7eKEWmITxQUKvwFs+cO678qJWgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page&quot;
+        title=&quot;System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page&quot;
+        src=&quot;/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png&quot;
+        srcset=&quot;/static/623de14d7517163accdaf158c73d7072/772e8/c_a11y_2_1.png 200w,
+/static/623de14d7517163accdaf158c73d7072/e17e5/c_a11y_2_1.png 400w,
+/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png 800w,
+/static/623de14d7517163accdaf158c73d7072/c1b63/c_a11y_2_1.png 1200w,
+/static/623de14d7517163accdaf158c73d7072/29007/c_a11y_2_1.png 1600w,
+/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This plugin gives the user ability to a variety of things including&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Increase Text Size&lt;/li&gt;
+&lt;li&gt;Decrease Text Size&lt;/li&gt;
+&lt;li&gt;Increase Text Spacing&lt;/li&gt;
+&lt;li&gt;Decrease Text Spacing&lt;/li&gt;
+&lt;li&gt;Invert Colours&lt;/li&gt;
+&lt;li&gt;Grey Hues&lt;/li&gt;
+&lt;li&gt;Underline Links&lt;/li&gt;
+&lt;li&gt;Big Cursor&lt;/li&gt;
+&lt;li&gt;Reading Guide&lt;/li&gt;
+&lt;li&gt;Text to Speech.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABi0lEQVQoz6WQzWoTURiGB6+h7tzqtuBavAA3vQgFsSAKNWpEVGjGH1S6EipaqAt3unSpEEjSJBsFL6Cr1mkyZzJnzu+cqXlkBkVqK1j84OE9hxe+83Cis0s3Wbp4n2vtR1y6/qDh8soqy62YK63OH8Qstzq0Ouu0n2xw99kb7jzd5NbjTW7Er1hZXSc6tXiBe89fsqcEuixR3qFDia3C3wmeiZTspIIkE2hvUc5QOEu0cPocnbXXqDKQZIppbiiMQxpHrmvsAZRxGB/Y+rrN+4+f+bT1hVlhkNohpCZaOHOeeG2DeqS27M08ua2owj7Mv3PUhFAdvs/neB+ITpxcpB2/aAohDdPMkOxmyCTF6tqmwrjQWP1KbUuU9Y2VMr45153Unujq7Ye8ffeBwnikLRGJIJvMSKVjWpPbw8gjyC2ptET7VSCUHmstIZTMtCctPKJwiML+zH8nMsYc+I9au36pLtMaaY9F1O/3GY1GDIdDxuMx3yYZmfq99NiG3W6XwWBAr9drcvc/F/4AUObQC0Bm5U8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;System Plugin - Additional Accessibility Features | Toolbar opend&quot;
+        title=&quot;System Plugin - Additional Accessibility Features | Toolbar opend&quot;
+        src=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png&quot;
+        srcset=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/772e8/c_a11y_2_2.png 200w,
+/static/2d77c8a57001636fb86195122b0e9c1e/e17e5/c_a11y_2_2.png 400w,
+/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png 800w,
+/static/2d77c8a57001636fb86195122b0e9c1e/c1b63/c_a11y_2_2.png 1200w,
+/static/2d77c8a57001636fb86195122b0e9c1e/29007/c_a11y_2_2.png 1600w,
+/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png 1836w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
 &lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Allgemeines zu Joomla und Cassiopeia]]></title><description><![CDATA[Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen…]]></description><link>https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen werden so angeboten, wie es für die meisten Menschen gut ist. Bei der Arbeit mit Cassiopeia und Joomla gibt es Dinge, die man individuell für sich erweitern oder einstellen kann.&lt;/p&gt;
 &lt;h2 id=&quot;praxistipps&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#praxistipps&quot; aria-label=&quot;praxistipps permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Praxistipps&lt;/h2&gt;
 &lt;h2 id=&quot;joomla-login--und-logout-menüpunkte-umschalten&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-login--und-logout-men%C3%BCpunkte-umschalten&quot; aria-label=&quot;joomla login  und logout menüpunkte umschalten permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Login- und Logout-Menüpunkte umschalten&lt;/h2&gt;
@@ -701,7 +1278,7 @@
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;joomla-barrierefreiheit----indexbarrierefreiheit------indexzugänglichkeit------indexaccessibility------indexa11y---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-barrierefreiheit----indexbarrierefreiheit------indexzug%C3%A4nglichkeit------indexaccessibility------indexa11y---&quot; aria-label=&quot;joomla barrierefreiheit    indexbarrierefreiheit      indexzugänglichkeit      indexaccessibility      indexa11y    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Barrierefreiheit &lt;!-- \index{Barrierefreiheit} --&gt;&lt;!-- \index{Zugänglichkeit} --&gt;&lt;!-- \index{Accessibility} --&gt;&lt;!-- \index{a11y} --&gt;&lt;/h2&gt;
-&lt;p&gt;Deutlich zu sehen: Joomla 4 wurde mit Blick auf Barrierefreiheit entwickelt. Beide Standard-Templates, Frontend und Backend, sind zugänglich und entsprechen der Stufe AA der &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/TR/WCAG21/]. WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Zugänglichkeit, der für öffentliche Einrichtungen in der Europäischen Union verbindlich ist.&lt;/p&gt;
+&lt;p&gt;Deutlich zu sehen: Joomla 4 wurde mit Blick auf Barrierefreiheit entwickelt. Beide Standard-Templates, Frontend und Backend, sind zugänglich und entsprechen der Stufe AA der &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/tr/wcag21/]. WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Zugänglichkeit, der für öffentliche Einrichtungen in der Europäischen Union verbindlich ist.&lt;/p&gt;
 &lt;h3 id=&quot;grundlagen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#grundlagen&quot; aria-label=&quot;grundlagen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Grundlagen&lt;/h3&gt;
 &lt;h4 id=&quot;was-ist-barrierefreiheit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#was-ist-barrierefreiheit&quot; aria-label=&quot;was ist barrierefreiheit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Was ist Barrierefreiheit?&lt;/h4&gt;
 &lt;p&gt;Die Richtlinien der WCAG 2.0 sind technische Regeln. Eine Website gilt als zugänglich, wenn sie diesen Regeln entspricht.&lt;/p&gt;
@@ -920,583 +1497,6 @@
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet&quot;
         title=&quot;System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet&quot;
-        src=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png&quot;
-        srcset=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/772e8/c_a11y_2_2.png 200w,
-/static/2d77c8a57001636fb86195122b0e9c1e/e17e5/c_a11y_2_2.png 400w,
-/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png 800w,
-/static/2d77c8a57001636fb86195122b0e9c1e/c1b63/c_a11y_2_2.png 1200w,
-/static/2d77c8a57001636fb86195122b0e9c1e/29007/c_a11y_2_2.png 1600w,
-/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;style class=&quot;grvsc-styles&quot;&gt;
-  .grvsc-container {
-    overflow: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    padding-top: 1rem;
-    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
-    padding-bottom: 1rem;
-    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
-    border-radius: 8px;
-    border-radius: var(--grvsc-border-radius, 8px);
-    font-feature-settings: normal;
-    line-height: 1.4;
-  }
-  
-  .grvsc-code {
-    display: table;
-  }
-  
-  .grvsc-line {
-    display: table-row;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-  }
-  
-  .grvsc-line &gt; * {
-    position: relative;
-  }
-  
-  .grvsc-gutter-pad {
-    display: table-cell;
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  .grvsc-gutter {
-    display: table-cell;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter::before {
-    content: attr(data-content);
-  }
-  
-  .grvsc-source {
-    display: table-cell;
-    padding-left: 1.5rem;
-    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
-    padding-right: 1.5rem;
-    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
-  }
-  
-  .grvsc-source:empty::after {
-    content: &apos; &apos;;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter + .grvsc-source {
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  /* Line transformer styles */
-  
-  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
-    content: &apos; &apos;;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .grvsc-line-diff-add::before {
-    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
-  }
-  
-  .grvsc-line-diff-del::before {
-    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
-  }
-  
-  .grvsc-line-number {
-    padding: 0 2px;
-    text-align: right;
-    opacity: 0.7;
-  }
-  
-&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[General notes on Cassiopeia and Joomla]]></title><description><![CDATA[Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many…]]></description><link>https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Every person has his or her preferences. A content management system like Joomla, cannot fulfil every one of these preferences. Many functions are offered in a way that is good for most people. When working with Cassiopeia and Joomla, there are things that can be individually extended or customized for you.&lt;/p&gt;
-&lt;h2 id=&quot;practical-tips&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#practical-tips&quot; aria-label=&quot;practical tips permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Practical tips&lt;/h2&gt;
-&lt;h2 id=&quot;toggle-joomla-login-and-logout-menu-items&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#toggle-joomla-login-and-logout-menu-items&quot; aria-label=&quot;toggle joomla login and logout menu items permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Toggle Joomla login and logout menu items&lt;/h2&gt;
-&lt;p&gt;Below I show how to create a login menu item that is only shown to users who are not yet logged in. Once they have logged in, they will see the Logout menu item instead. So: How do you set up login and logout links in Joomla so that the Login menu item is automatically replaced by Logout as soon as someone has logged in, and vice versa?&lt;/p&gt;
-&lt;h3 id=&quot;login-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#login-link&quot; aria-label=&quot;login link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Login link&lt;/h3&gt;
-&lt;p&gt;First we create the login. To do this, open the menu manager via the left sidebar. Open &apos;Menus | All Menu Items&apos; and click the &apos;New&apos; button in the toolbar to create a new menu item. Select the type &apos;User | Login Form&apos; for the menu item. It is also important that you change the default group &apos;Public&apos; to &apos;Guest&apos; for access. This will cause the menu item to be displayed only to &lt;em&gt;not&lt;/em&gt; logged in users. Select all other settings as it suits your environment and save the menu item.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Login - Logout | Create Login Link&quot;
-        title=&quot;Login - Logout | Create Login Link&quot;
-        src=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png&quot;
-        srcset=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;logout-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#logout-link&quot; aria-label=&quot;logout link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Logout link&lt;/h3&gt;
-&lt;p&gt;Next we create the logout link. You are still in the menu manager, right? Otherwise open it via &apos;Menus | All Menu Items&apos; in the left sidebar. In the menu manager, click the &apos;New&apos; button in the toolbar again to create a new menu item. Select the type &apos;User | Logout&apos; for the menu item. It is also important that you replace the default group &apos;Public&apos; with &apos;Register&apos;. This causes the menu item to be displayed only to logged-in users. Choose all other settings as it suits your environment and save the menu item.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Login - Logout | Create Logout Link&quot;
-        title=&quot;Login - Logout | Create Logout Link&quot;
-        src=&quot;/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png&quot;
-        srcset=&quot;/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
-/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
-/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
-/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
-/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
-/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;test-the-links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#test-the-links&quot; aria-label=&quot;test the links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Test the links&lt;/h3&gt;
-&lt;p&gt;Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in?&lt;/p&gt;
-&lt;p&gt;Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on &apos;System&apos; in the left-hand sidebar and then on the link &apos;Global configuration&apos; in the right-hand area. Make sure that &lt;code class=&quot;language-text&quot;&gt;Guest User Group&lt;/code&gt; is set to &lt;code class=&quot;language-text&quot;&gt;Guest&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Login - Logout | Option Guest Group&quot;
-        title=&quot;Login - Logout | Option Guest Group&quot;
-        src=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png&quot;
-        srcset=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight---indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight   indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight&lt;!-- \index{editor!switcher} --&gt;&lt;!-- \index{editor!syntax highlight} --&gt;&lt;/h2&gt;
-&lt;p&gt;Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.&lt;/p&gt;
-&lt;p&gt;When I write article texts in the Joomla backend, I like to use the &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt; because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in &lt;a href=&quot;https://codemirror.net/&quot;&gt;codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt;. The TinyMCE does not offer this under Joomla in early 2022.&lt;/p&gt;
-&lt;p&gt;The editor can be set in the global configuration. Alternatively, you can set it individually for a user in the User Manager. While entering an article text, switching to the global configuration or the user manager is cumbersome. That&apos;s why I love the plugin &lt;a href=&quot;https://github.com/Bakual/editors_switcher&quot;&gt;Editor Switcher by Bakual&lt;/a&gt;[^&lt;a href=&quot;https://github.com/bakual/editors_switcher%5D&quot;&gt;https://github.com/bakual/editors_switcher]&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;After installing and activating it, I set the Switcher as the default editor for my user.&lt;/p&gt;
-&lt;p&gt;Editor Switcher | Edit Style in the Joomla administration area](/images/switcher_backend_user.png)&lt;/p&gt;
-&lt;p&gt;It is then possible to switch the editor while writing a text in the Article Manager. It is not necessary to switch to another configuration area. Only a buffering is necessary.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABY0lEQVQoz32Su07DMBSG/bSgdqBSRJFgYOhFDEwsLDwKAwPthEQ7MCDUsjAh0aaN4/uxf2Snl4QCR/pyLsmJfx+bZYM7dC5v0Dm/wnHWx1HWw3HWQ6s7RKs7SLS7Q7TPho1ag9M+Ti6ukfVuwZS1MOQT1geYDdZjhzCEUllo16zX0c5DGgf2teLIC4FlUWKx4liseYoLoSqkQs5Fehd9IfQBa6EglMNaGLB1wSG1gzKU/DbW1u8wERcaudQaxlmQJyAAS57jM1+COedAPsD/gP7BB0BIBS4EHBGI4kgkVqUA894jWgghPprEpQ+sqkmpoY3d9wLQlsB+b6q1bz7er1PlxtgEkU+qnfMQyoIVZZSu0wFwUcUpL+OgTVIUf1InqTEWUum05WpEPs2f3Y9fMJ6+4/F5htFkjtFkhvFkjoenN0xfPxoq6+YcwVE1Ll/fclS1VRkVRcqa51L/SeP6lCpdv2+gyu6X3oXY3gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Edit Style in the Joomla Administration Area&quot;
-        title=&quot;Editor Switcher | Edit Style in the Joomla Administration Area&quot;
-        src=&quot;/static/87d804825081d59f21fdf4bfb5404675/5a190/switcher_backend_article.png&quot;
-        srcset=&quot;/static/87d804825081d59f21fdf4bfb5404675/772e8/switcher_backend_article.png 200w,
-/static/87d804825081d59f21fdf4bfb5404675/e17e5/switcher_backend_article.png 400w,
-/static/87d804825081d59f21fdf4bfb5404675/5a190/switcher_backend_article.png 800w,
-/static/87d804825081d59f21fdf4bfb5404675/c1b63/switcher_backend_article.png 1200w,
-/static/87d804825081d59f21fdf4bfb5404675/29007/switcher_backend_article.png 1600w,
-/static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;since-joomla-41&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#since-joomla-41&quot; aria-label=&quot;since joomla 41 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Since Joomla 4.1&lt;/h3&gt;
-&lt;p&gt;Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting. In addition, it is via buttons on the bottom of the pop up possible to search and replace directly in the HTML code view.&lt;/p&gt;
-&lt;p&gt;Syntax-Highlighting in the integrated TinyMCE-Editor&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQoz32R23LCMAxE8/+/1Ud4oBcKbVIIpYWWkAu5x5a1HdkBQmHQzE4ytny8WntBuIG/WMP/WGHuL2/qLQjv6j0IEaw2EJZHZEDGwDDDMKwYrriXrEkPGbZ9x7VLsd33lCZY0fnbtB3irEBe1iirBkVZO8l/1aBT2l6g6SyBWSARwYjDXlJKKfxsfrHb7hHtUsT7A7KsQp7mKIraXszs+lkcizsitKpzwKHqpkKWp2AiXJfk4Q5rTdC9GQu0jgmeNHGfCxvG4vMFT7OxnHOI3gHzOVkBKqVPEx33JEfvYsEQ/HCCx+n4FMGJI1EQo5X8bN76YmQ+PsoQqFSH59kIo8kDpq9zLJYrfH2H2CcRjNbYpiXWu1SudiPaLP8Bh+MYIiRphCjeIk5SVFWDLI9wyBMLQN9bVK196SFMZIYOeTjbnZKc6kb1L30N/AMb3QluCOs5iAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor&quot;
-        title=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor&quot;
-        src=&quot;/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png&quot;
-        srcset=&quot;/static/db4b700c3ef30489afd7785a07d84773/772e8/switcher_backend_new1.png 200w,
-/static/db4b700c3ef30489afd7785a07d84773/e17e5/switcher_backend_new1.png 400w,
-/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png 800w,
-/static/db4b700c3ef30489afd7785a07d84773/c1b63/switcher_backend_new1.png 1200w,
-/static/db4b700c3ef30489afd7785a07d84773/29007/switcher_backend_new1.png 1600w,
-/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Editor button:&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQoz3WSy0sVURzH559oWdCuVdv2IRJCRWUQbdpEcCXJfIVEmvkqN1FRFARFtW1TK1dFmzIqRSiliBAXaem9c+c85p7XfOLMtatCHfjOOWfmO5/f9zyS3vGH9Izc5sLQFOd6r7V0tudqc3xxlEr/OF2Dk3QNTlAZmCjnlYFN9Y/TPXSdSzce0zd2n0TqBjI3GFfgClqyoSkXQBtfelTD0nABDzu80dOwjtx6kvWaoFpX1DJdaqMuWU9F2delJlM51UyxkQpqmSLTBpEpROy3KTeBTFsSqTQNYzDG4pzjf60IgRCTra4R0jq5cxhr8MFTFFAVVdZqVRIhBFKqUkJIvi1/YXb+DR8W5vi8NMvc0msWv8+hdY7Oc8yv33ilSIUgExLrHD4EZK5JpSKBghBCmcLmmuGbx9nftouO0+2MTPZw+MxeKkPHyu9/fRFQraXlqsr0MSJxH30Ebr3QOqV7rI0Dh3ZzorODu7emuXOvj+Hp85s/hvjAWtsEWkcoirKA86E8tGR75Z+rK7Sf2sfBzj0cOXqSK8OjPHp2mQdPp3YkiU0pjRAK730JbQGj6S9QScnMq+e8mHnC29mP/FhZ5d2nlywsvqfJKtANw/zSCvF2eB+aCpFRkBu3teTt1f95yq19cnxdXiMVukwVYREaU0bgH4HDy5JDkFSKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button&quot;
-        title=&quot;Editor Switcher | Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button&quot;
-        src=&quot;/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png&quot;
-        srcset=&quot;/static/11861b147894c94247a6b8daeb486679/772e8/switcher_backend_new2.png 200w,
-/static/11861b147894c94247a6b8daeb486679/e17e5/switcher_backend_new2.png 400w,
-/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png 800w,
-/static/11861b147894c94247a6b8daeb486679/c1b63/switcher_backend_new2.png 1200w,
-/static/11861b147894c94247a6b8daeb486679/29007/switcher_backend_new2.png 1600w,
-/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Option to activate the editor button:&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVQoz41SCW7DMAzr/z+6ZUW3HD502RwsI4HTFN0EELEEiSYV32LOyJnALCBWqBUQCzIJRA38hFZrfSStt+feJ4qUGTcAqBUeKRMysZNvIXq9lHpGrRAtfnGfrY4WJLYT9kLM5KRmhhASVM0Hn2FWjplx/kLYZHcIqCltZxbPO/SoNbV/Kgwpg0jwOU8IOWFfR92/J3h1OL+ynLLbmZYvrDF4rZQyqBgYj92/22EiqBge2zeWbUNpO1P1nTrpYLHWd5bNgBjdspaKab0flrthXIZHIVdCzwjhY0K8PzCvPwgpngabyj2sGKz849kIC4QYRIR5WcDc32RMCcu6+p9uK1jDBhJ6SfgL+20U0Uj/07YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button&quot;
-        title=&quot;Editor Switcher | Syntax highlighting in the integrated TinyMCE editor | Option to activate the editor button&quot;
-        src=&quot;/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png&quot;
-        srcset=&quot;/static/d13c1e5624dd93219a51be4685de98d4/772e8/switcher_backend_new3.png 200w,
-/static/d13c1e5624dd93219a51be4685de98d4/e17e5/switcher_backend_new3.png 400w,
-/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png 800w,
-/static/d13c1e5624dd93219a51be4685de98d4/c1b63/switcher_backend_new3.png 1200w,
-/static/d13c1e5624dd93219a51be4685de98d4/29007/switcher_backend_new3.png 1600w,
-/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;joomla-accessibility----indexaccessibility------indexa11y---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-accessibility----indexaccessibility------indexa11y---&quot; aria-label=&quot;joomla accessibility    indexaccessibility      indexa11y    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Accessibility &lt;!-- \index{Accessibility} --&gt;&lt;!-- \index{a11y} --&gt;&lt;/h2&gt;
-&lt;p&gt;You can clearly see it: Joomla 4 has been worked all around with Accessibility in mind. Both standard templates, frontend and backend, are accessible and comply with level AA of &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/TR/WCAG21/]. WCAG 2.1 complements WCAG 2.0 and is the web standard for digital accessibility that is mandatory for public bodies in the European Union.&lt;/p&gt;
-&lt;h3 id=&quot;basics&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#basics&quot; aria-label=&quot;basics permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Basics&lt;/h3&gt;
-&lt;h4 id=&quot;what-is-accessibility&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-is-accessibility&quot; aria-label=&quot;what is accessibility permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What is Accessibility?&lt;/h4&gt;
-&lt;p&gt;The WCAG 2.0 guidelines are technical rules. A website is considered accessible if it complies with these rules.&lt;/p&gt;
-&lt;p&gt;As the owner of a website, it makes sense to decide in the planning phase where the website should be accessible. The system one chooses for the creation of the website application should be suitable. Joomla offers good conditions in this context.&lt;/p&gt;
-&lt;h4 id=&quot;why-is-the-accessibility-of-a-website-important&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#why-is-the-accessibility-of-a-website-important&quot; aria-label=&quot;why is the accessibility of a website important permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Why is the accessibility of a website important?&lt;/h4&gt;
-&lt;p&gt;Accessibility is important for many reasons. Public authorities around the world are pushing for online content to be accessible to all, and there are heavy fines for companies that don&apos;t comply with these laws.&lt;/p&gt;
-&lt;p&gt;But: Foremost accessibility is about values and treating all people equally. It&apos;s about people with disabilities not having to rely on others to do simple things like read a website.&lt;/p&gt;
-&lt;p&gt;In addition, an accessible website is also easier for machines to read. For example, a search engine can more easily read and correctly offert correct search results if the content is accessible.&lt;/p&gt;
-&lt;h3 id=&quot;how-to-enable-accessibility-features-in-joomla&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#how-to-enable-accessibility-features-in-joomla&quot; aria-label=&quot;how to enable accessibility features in joomla permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;How to Enable Accessibility Features in Joomla&lt;/h3&gt;
-&lt;p&gt;There are the inbuilt accessibility plugins &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; and &lt;em&gt;Additional Accessibility Features&lt;/em&gt;, you can enable them in your plugin manager.&lt;/p&gt;
-&lt;h4 id=&quot;system-plugin---joomla-accessibility-checker&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---joomla-accessibility-checker&quot; aria-label=&quot;system plugin   joomla accessibility checker permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Joomla Accessibility Checker&lt;/h4&gt;
-&lt;p&gt;The System Plugin &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; visually highlights common accessibility and usability issues. Geared towards content authors, the plugin identifies errors or warnings and provides guidance on how to fix them.&lt;/p&gt;
-&lt;p&gt;If you activate the first option, the accessiblity checker is loaded on all pages. This is useful when developing the website but should not be left on when the website is live.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVQoz52R20oDMRCG87YKXhS0VlBvCst65RMUX0wQtRS0doubdpOZyemXpPSwiqAd+AjJTP45qUE1we3NPerLMaqrCvV1jWo4xuB8jJNhhdM/cDaqMbp7wEU1gQKAhANLvdu/TT2/TNE0S7zNP9C9zyFaQ5yDiPTgDDOYBTFGkDAMWTjv4INH22nMmjkUvU5Bsyk+nx7hiEEiIObCRkTgnEcIoeBDQEqp+IgFIUTElEoRbWegrCF4EZjOgMUVAeJ9cIgbYkw78lQMMVq9BhHD+5wogiVAOe/LB0vcIweK8yU4xLQTzkmyYGcsFs0Sq3WHVq+g9QrGcl5KKmvJbXwnzyr9siQRB2NsObdzJnFQuYXD1vqkXVXfTx+2/j0kHmq5IhxLo22P/Ka0FSxa+8N5LF8ULe8q3lxRNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Joomla Accessibility Checker | Plugin Settings&quot;
-        title=&quot;System Plugin - Joomla Accessibility Checker | Plugin Settings&quot;
-        src=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png&quot;
-        srcset=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/772e8/c_a11y_1.png 200w,
-/static/815d2f522e1dcb6833dce159d1f5e181/e17e5/c_a11y_1.png 400w,
-/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png 800w,
-/static/815d2f522e1dcb6833dce159d1f5e181/c1b63/c_a11y_1.png 1200w,
-/static/815d2f522e1dcb6833dce159d1f5e181/29007/c_a11y_1.png 1600w,
-/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;You can check the accessibility of your content via a button in the toolbar when creating a post.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVQoz3WSvWsUQRjG95+wVLCzsrCxlxgkoKJGkCDYSS4ajPmSQ7xgPjGNqAQUBPGjtdEqlWijiZqEgEZjJIQUJpDcbXZnZndndvYnM5fTE8kLD8vsvvN7nnlng97Rx/QM3edaeYLLvcN09g1z8UqFIyd7ON5xw687+0fpGhyna3CM0sAYpf5RSgN1dfaP0F2+Q3nyKX0jDwmEShFJRmYKjAULREnOx5WQldUtbKaR2iJUhkw1qbHkBZhmWUi1IdE5wVYtprojqUXKazsUbO/EyCRBJSmRUFQjyXYYU4skkUyJVfafkswSKU0gpCLNMrJMY4xhryqKAmut73HPxO3RmtzmFAVU4yqbtSpBHMcIIb3iWPBj7SszC+/4tDjHl+VZ5r+/ZennPEolXs48z3PCKCISAm0MubWIRBEKSQB1Z1c6UVTunuVwyz7aOloZGr/OyUsHKZXP+O+NPges1kJ/qkZ6V6mbYfMLpUK6R1o4emI/59rbmLo3yYOpPiqTV3c37hprUwdqgy0Kn9Dk1l9a0Oz8a2Od1guHONZ+gFOnz3OrcpsnL27y6PnEP0lcSelGJMlz66F/gI1h+yYhmH7zklfTz3g/85nV9Q0+zL1mcWmWOqtApRkL39Zxf4eDeVnHKEgy8/fIze573XJ9TobltU3CWPlUDtZI6YC/AUQ8yp11dee8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post&quot;
-        title=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility when creating a post&quot;
-        src=&quot;/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png&quot;
-        srcset=&quot;/static/191ef310598b7365efa241a348293ecb/772e8/c_a11y_1_1.png 200w,
-/static/191ef310598b7365efa241a348293ecb/e17e5/c_a11y_1_1.png 400w,
-/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png 800w,
-/static/191ef310598b7365efa241a348293ecb/c1b63/c_a11y_1_1.png 1200w,
-/static/191ef310598b7365efa241a348293ecb/29007/c_a11y_1_1.png 1600w,
-/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;If you want to examine several articles one after the other, it is more convenient to work in the frontend. This is possible via a button in the lower right area.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJUlEQVQoz3WQXUgUYRiF5zrootugIsQgScVcTAjytijMhCBMsFwSKhRvJcMLjX4ggupCNLSikBTTcXepjN0s16QisrvoMkRb92d2dsb5n3liBicV6sDhO3zfec/7vp+ws6yZXeVn2bG3icaWXoafJOjuGWT3wfPsO9TG/soLlFW1U14d5UB1lIqaDqoil6n2WXuFmshVInWd1B3por6+G0F8vYjP2JtPTMbmGZtMMp1IIyYWeDkzz3Q8zVQsjRhf4NXsF2YSi4yNJ5kS08y+/Uoy+Y1kaolUaol3qe8IbIGuqeRzWSQph6IUUVUZTSshy4VAhygqGq7n8S8IjuNgOy6u41JS1ynIKv+D7zMMA0mSUBQVTTNwXRfH2aSA5+F5Ho5pUvjxk+xqhg9zEwyNDjD6eJiY+IhnEwOIsUF0VUXVdJZXMti2jW07QSO/no2Jg5X9x8zaGpmVFVzT495IB3tqBRpORrjW18m5S5U0txwGy2D5d4Hx+Edsx9sM888NLYSXuq5jWDbF/Bpdvcc5dqaM040n6L/ew9T0Q27c6URXStvW9+uCIMfBc91AC2GHcGQps0pr9ChNHRW0XozSf+sBw897GBrpQysVA4//b1unQ9PAsjYDfYYmOZelve0UTc0N3L19k/m594jx+zx90Yelan+Dwn/zqyxVxVLUYHFhm8HXrst6XsKQStglGasogWHiahpbtwm1aZpkc3kKuRyff8n8AQ8Lqe3+hhYRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend&quot;
-        title=&quot;System Plugin - Joomla Accessibility Checker | Check the accessibility in frontend&quot;
-        src=&quot;/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png&quot;
-        srcset=&quot;/static/5931d056204e0ae145939c1e0abee4b5/772e8/c_a11y_1_2.png 200w,
-/static/5931d056204e0ae145939c1e0abee4b5/e17e5/c_a11y_1_2.png 400w,
-/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png 800w,
-/static/5931d056204e0ae145939c1e0abee4b5/c1b63/c_a11y_1_2.png 1200w,
-/static/5931d056204e0ae145939c1e0abee4b5/29007/c_a11y_1_2.png 1600w,
-/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;View project website and demo &lt;a href=&quot;https://joomla-projects.github.io/joomla-a11y-checker/&quot;&gt;joomla-projects.github.io/joomla-a11y-checker/&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;system-plugin---additional-accessibility-features&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---additional-accessibility-features&quot; aria-label=&quot;system plugin   additional accessibility features permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Additional Accessibility Features&lt;/h4&gt;
-&lt;p&gt;This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled the toolbar can be opened. You can choose whether you want to display the accessibility toolbar: It can be enabled on either Joomla backend, frontend, or both.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEklEQVQoz62Q3UrDQBCF920VBAVbKgiCpUFvfIPiexW8saU3tqlNmmT/dz/JJliKoG1x4GN3Z5iznCNusikP9y9kg0cmowmTu4xsOOb6dszFMOPyCK5GT4yeXxlkUwRAjBBD5D9KzGZv5Jstq1XO57ZAG9Oh9xhjUFqjtUYphbU2vaVWWGdx3lHUJcv8A9HMF7j3OWqxxNQSZQPKOJTxe6zve+57VkmdPvY+EGLEWEtRN71la4neE2OkNf4rfTJSaYpyh1Ia5zzOB7TxveDBQvyTthopWa03VFWdhMtyRyN1J9hJnVbGWKq6TlbbjFPOxiJ8iCmHownd6dI9HtDmKzY7xbnkpTyg7YlSGtaF/DE8ly/JsfBLYXk3vgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Additional Accessibility Features | Plugin Settings&quot;
-        title=&quot;System Plugin - Additional Accessibility Features | Plugin Settings&quot;
-        src=&quot;/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png&quot;
-        srcset=&quot;/static/56f91680829d5a00e4db1c569e7da167/772e8/c_a11y_2.png 200w,
-/static/56f91680829d5a00e4db1c569e7da167/e17e5/c_a11y_2.png 400w,
-/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png 800w,
-/static/56f91680829d5a00e4db1c569e7da167/c1b63/c_a11y_2.png 1200w,
-/static/56f91680829d5a00e4db1c569e7da167/29007/c_a11y_2.png 1600w,
-/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled shows it the Accessibility icon on the bottom left corner of every page of your website. Click on the icon for using the additional accessibility features.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVQoz62OzUoCURTH7ys4uKyFWOugTYE+QRsfoiBqU6AjVKCBI32ItCxDqn1v0K5FixYtfIFWQX7MjDPeuXPvHRv/cR0NRQoSD/wW53/O+d1L1jN5ZLaLODg6w87h6ZDdbAn7ehl7ujFLzoBuXOP44g4nlYch+fN75Mp1ZEs3IEtrWyhUa2hSC1QIUMHBAgm/H/xOINB2XHx0LLRsG0z6oJyhx32Q+GoaxlUdVAb4tCg6DoPjcTieD9fjU6icMg4mArw03vH49Ibn1wZ6LJpbLgOJJVMoVetQpcJWN4LLPgaDAcJwGpUJGWCyVB+GIXwhQbSVNIqXNcgQMB0G0+UwXR9Wj8P+A7UzZpypG6IlIyHvA+2u9yObPPgPJDb6If9SQjYaRK/NA4knUzPCeWVD4XJiA4XK7eKEWmITxQUKvwFs+cO678qJWgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page&quot;
-        title=&quot;System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page&quot;
-        src=&quot;/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png&quot;
-        srcset=&quot;/static/623de14d7517163accdaf158c73d7072/772e8/c_a11y_2_1.png 200w,
-/static/623de14d7517163accdaf158c73d7072/e17e5/c_a11y_2_1.png 400w,
-/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png 800w,
-/static/623de14d7517163accdaf158c73d7072/c1b63/c_a11y_2_1.png 1200w,
-/static/623de14d7517163accdaf158c73d7072/29007/c_a11y_2_1.png 1600w,
-/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;This plugin gives the user ability to a variety of things including&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Increase Text Size&lt;/li&gt;
-&lt;li&gt;Decrease Text Size&lt;/li&gt;
-&lt;li&gt;Increase Text Spacing&lt;/li&gt;
-&lt;li&gt;Decrease Text Spacing&lt;/li&gt;
-&lt;li&gt;Invert Colours&lt;/li&gt;
-&lt;li&gt;Grey Hues&lt;/li&gt;
-&lt;li&gt;Underline Links&lt;/li&gt;
-&lt;li&gt;Big Cursor&lt;/li&gt;
-&lt;li&gt;Reading Guide&lt;/li&gt;
-&lt;li&gt;Text to Speech.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABi0lEQVQoz6WQzWoTURiGB6+h7tzqtuBavAA3vQgFsSAKNWpEVGjGH1S6EipaqAt3unSpEEjSJBsFL6Cr1mkyZzJnzu+cqXlkBkVqK1j84OE9hxe+83Cis0s3Wbp4n2vtR1y6/qDh8soqy62YK63OH8Qstzq0Ouu0n2xw99kb7jzd5NbjTW7Er1hZXSc6tXiBe89fsqcEuixR3qFDia3C3wmeiZTspIIkE2hvUc5QOEu0cPocnbXXqDKQZIppbiiMQxpHrmvsAZRxGB/Y+rrN+4+f+bT1hVlhkNohpCZaOHOeeG2DeqS27M08ua2owj7Mv3PUhFAdvs/neB+ITpxcpB2/aAohDdPMkOxmyCTF6tqmwrjQWP1KbUuU9Y2VMr45153Unujq7Ye8ffeBwnikLRGJIJvMSKVjWpPbw8gjyC2ptET7VSCUHmstIZTMtCctPKJwiML+zH8nMsYc+I9au36pLtMaaY9F1O/3GY1GDIdDxuMx3yYZmfq99NiG3W6XwWBAr9drcvc/F/4AUObQC0Bm5U8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Additional Accessibility Features | Toolbar opend&quot;
-        title=&quot;System Plugin - Additional Accessibility Features | Toolbar opend&quot;
         src=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png&quot;
         srcset=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/772e8/c_a11y_2_2.png 200w,
 /static/2d77c8a57001636fb86195122b0e9c1e/e17e5/c_a11y_2_2.png 400w,
@@ -13213,9 +13213,8 @@ Eine vollständige Referenz findest du unter &lt;a href=&quot;https://github.com
 &lt;h3 id=&quot;style-banner&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#style-banner&quot; aria-label=&quot;style banner permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Style banner&lt;/h3&gt;
 &lt;p&gt;It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the &apos;Toggle Editor&apos; button.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Hint: There is an alternative to &apos;Toggle Editor&apos; button: Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting if you use the editor button shown in the next picture:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;span
+&lt;p&gt;Hint: There is an alternative to &apos;Toggle Editor&apos; button: Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting if you use the editor button shown in the next picture:
+&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
     &gt;
@@ -13248,6 +13247,7 @@ Eine vollständige Referenz findest du unter &lt;a href=&quot;https://github.com
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;I switch to the code view of the editor via the &apos;Toggle Editor&apos; button.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -14322,9 +14322,8 @@ Eine vollständige Referenz findest du unter &lt;a href=&quot;https://github.com
 &lt;p&gt;Mir ist wichtig, dass das Bild bei jeder Displaygröße die Breite des Containers ausfüllt. Deshalb ergänze ich CSS-Stile, die dies bewirken.
 Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codeansicht des Editors.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Hinweis: Es gibt eine Alternative zur Schaltfläche &apos;Toggle Editor&apos;: Seit Februar 2022, d.h. ab Joomla 4.1, wird der Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen, wenn man den im nächsten Bild gezeigten Editor-Button verwendet:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;span
+&lt;p&gt;Hinweis: Es gibt eine Alternative zur Schaltfläche &apos;Toggle Editor&apos;: Seit Februar 2022, d.h. ab Joomla 4.1, wird der Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen, wenn man den im nächsten Bild gezeigten Editor-Button verwendet:
+&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
     &gt;
@@ -14357,6 +14356,7 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;Über die Schaltfläche &apos;Toggle Editor&apos; wechsle ich in die Code-Ansicht des Editors.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -14839,13 +14839,13 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
   }
-&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Favicon]]></title><description><![CDATA[Favicons are the small icons we see in browser tabs. They help to recognise a page when we browse the bookmarks and open tabs in the browser…]]></description><link>https://blog.astrid-guenther.de/en/cassiopeia-favicon/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/cassiopeia-favicon/</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Favicons are the small icons we see in browser tabs. They help to recognise a page when we browse the bookmarks and open tabs in the browser. The integration of favicons changed over time. Some say they have grown historically. Today they offer various additional functions and new ones are added all the time.&lt;/p&gt;
-&lt;p&gt;A new feature is the ability to use the file type SVG as a favicon. This is something that &lt;a href=&quot;https://caniuse.com/#feat=link-icon-svg&quot;&gt;most modern browsers support&lt;/a&gt;, and further support is in the pipeline. To use this new feature you need an SVG file. To ensure that older browsers also display the image, you also need an ICO file.&lt;/p&gt;
+&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Favicon]]></title><description><![CDATA[Favicons sind die kleinen Symbole, die wir in Browser-Registerkarten sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen…]]></description><link>https://blog.astrid-guenther.de/cassiopeia-favicon/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/cassiopeia-favicon/</guid><pubDate>Wed, 10 Mar 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Favicons&lt;/em&gt; sind die kleinen Symbole, die wir in Browser-Registerkarten sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie ist historisch gewachsen. Heute bieten Favicons verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.&lt;!-- \index{Favicon} --&gt;&lt;/p&gt;
+&lt;p&gt;Es ist möglich, den Dateityp SVG als Favicon zu verwenden. Dies unterstützen &lt;a href=&quot;https://caniuse.com/#feat=link-icon-svg&quot;&gt;die meisten modernen Browser&lt;/a&gt;. Um diese neue Funktion zu nutzen, benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser die Grafik anzeigen, ist zusätzlich eine ICO-Datei erforderlich.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;You are not familiar with SVG and ICO and would rather use the PNG format? Then you will find a solution that suits you better under &lt;a href=&quot;https://blog.astrid-guenther.de/en/joomla-template-favicon&quot;&gt;Favicon in Joomla template&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Du kennst dich mit SVG und ICO nicht aus und würdest lieber das PNG-Format verwenden? Dann findest du unter &lt;a href=&quot;https://blog.astrid-guenther.de/joomla-template-favicon&quot;&gt;Favicon im Joomla-Template&lt;/a&gt; eine Lösung die besser zu dir passt.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Delete the browser cache if changes to the favicon do not seem to work during development.&lt;/p&gt;
+&lt;p&gt;Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;favicon-in-cassiopeia&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#favicon-in-cassiopeia&quot; aria-label=&quot;favicon in cassiopeia permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Favicon in Cassiopeia&lt;/h2&gt;
 &lt;h3 id=&quot;implementierung&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#implementierung&quot; aria-label=&quot;implementierung permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Implementierung&lt;/h3&gt;
@@ -14856,30 +14856,33 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;joomla-favicon-pinned.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;mask-icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;#000&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode ist das Dokument, welches an den Browser übergeben wird.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In allen gängigen Browsern ist der HTML-Quellcode mit der Tastenkombination [Strg - U] einsehbar.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;html&quot; data-index=&quot;1&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;/j4dev/media/system/images/joomla-favicon.svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;image/svg+xml&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;/j4dev/media/system/images/favicon.ico&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;alternate icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;image/vnd.microsoft.icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;mask-icon&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;#000&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Der &lt;a href=&quot;https://github.com/joomla/joomla-cms/pull/31436&quot;&gt;Pull Request&lt;/a&gt; mit diese Funktion integriert wurde, orientierte sich an ein &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/&quot;&gt;CSS-Tricks&lt;/a&gt; Tutorial.&lt;/p&gt;
+&lt;p&gt;Der &lt;a href=&quot;https://github.com/joomla/joomla-cms/pull/31436&quot;&gt;Pull Request&lt;/a&gt;[^github.com/joomla/joomla-cms/pull/31436] mit dem diese Funktion integriert wurde, orientiert sich an einem &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/&quot;&gt;CSS-Tricks&lt;/a&gt; Tutorial.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;erklärung-zur-implementierung&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#erkl%C3%A4rung-zur-implementierung&quot; aria-label=&quot;erklärung zur implementierung permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Erklärung zur Implementierung&lt;/h3&gt;
 &lt;p&gt;Wenn ein Browser ein SVG-Favicon nicht unterstützt, ignoriert er die erste Zeile &lt;code class=&quot;language-text&quot;&gt;&amp;lt;link href=&quot;/j4dev/media/system/images/joomla-favicon.svg&quot; rel=&quot;icon&quot; type=&quot;image/svg+xml&quot;&gt;&lt;/code&gt; und fährt mit der zweiten fort. Dadurch wird sichergestellt, dass alle Browser, die Favicons unterstützen, ein Bild anzeigen können.&lt;/p&gt;
 &lt;p&gt;Beachte den alternativen Attributwert für unsere &lt;code class=&quot;language-text&quot;&gt;rel&lt;/code&gt;-Deklaration &lt;code class=&quot;language-text&quot;&gt;rel=&quot;alternate icon&quot;&lt;/code&gt;. Damit wird dem Browser mitgeteilt, dass das Favicon mit dem Dateiformat &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt; lediglich als alternative Darstellung verwenden soll.&lt;/p&gt;
 &lt;p&gt;Nach den Favicons folgt die Codezeile &lt;code class=&quot;language-text&quot;&gt;&amp;lt;link href=&quot;/j4dev/media/system/images/joomla-favicon-pinned.svg&quot; rel=&quot;mask-icon&quot; color=&quot;#000&quot;&gt;&lt;/code&gt;, die ein weiteres SVG-Bild lädt. Dieses heißt &lt;code class=&quot;language-text&quot;&gt;joomla-favicon-pinned.svg&lt;/code&gt;. Damit wird die &quot;Pinned Tab&quot;-Funktionalität von Safari unterstützt, die es gab, bevor andere Browser SVG-Favicons unterstützten.&lt;/p&gt;
-&lt;h2 id=&quot;ein-modernes-favicon-mit-svg-und-ico-als-fallback&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-modernes-favicon-mit-svg-und-ico-als-fallback&quot; aria-label=&quot;ein modernes favicon mit svg und ico als fallback permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein modernes Favicon mit SVG und ICO als Fallback&lt;/h2&gt;
+&lt;h2 id=&quot;ein-modernes-favicon-mit-svg-und-ico-als-rückfallposition&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-modernes-favicon-mit-svg-und-ico-als-r%C3%BCckfallposition&quot; aria-label=&quot;ein modernes favicon mit svg und ico als rückfallposition permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein modernes Favicon mit SVG und ICO als Rückfallposition&lt;/h2&gt;
 &lt;h3 id=&quot;warum-ein-svg-favicon&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#warum-ein-svg-favicon&quot; aria-label=&quot;warum ein svg favicon permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Warum ein SVG Favicon?&lt;/h3&gt;
 &lt;p&gt;Du fragst dich, welchen Grund es gibt zu SVG zu wechseln? Das &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt;-Dateiformat gibt es schon ewig und kann Bilder bis zu einer Größe von 256×256 Pixeln unterstützen. Hier sind drei Gründe.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Das &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt;-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängikeit verwenden.&lt;/p&gt;
+&lt;p&gt;Das &lt;code class=&quot;language-text&quot;&gt;.ico&lt;/code&gt;-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängigkeit verwenden.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.&lt;/p&gt;
+&lt;p&gt;SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Rückfallposition für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;erstelle-dein-favicon-mit-ubuntu-2004&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#erstelle-dein-favicon-mit-ubuntu-2004&quot; aria-label=&quot;erstelle dein favicon mit ubuntu 2004 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Erstelle dein Favicon mit Ubuntu 20.04&lt;/h3&gt;
@@ -14923,7 +14926,7 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Das &lt;code class=&quot;language-text&quot;&gt;A&lt;/code&gt; dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.&lt;/p&gt;
+&lt;p&gt;Die Funktion hinter dem &lt;code class=&quot;language-text&quot;&gt;A&lt;/code&gt; dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
@@ -15093,7 +15096,7 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Und, speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du&lt;/p&gt;
+&lt;p&gt;Speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
@@ -15206,7 +15209,7 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;h5 id=&quot;css-in-der-svg-dateien&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#css-in-der-svg-dateien&quot; aria-label=&quot;css in der svg dateien permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CSS in der SVG-Dateien&lt;/h5&gt;
-&lt;p&gt;Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels &lt;code class=&quot;language-text&quot;&gt;style=&quot;...&quot;&lt;/code&gt; möglich, sonder ebenfalls via Tag.&lt;/p&gt;
+&lt;p&gt;Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels &lt;code class=&quot;language-text&quot;&gt;style=&quot;...&quot;&lt;/code&gt; möglich, sonder ebenfalls via &lt;code class=&quot;language-text&quot;&gt;&amp;lt;style&gt;&lt;/code&gt;-Tag.&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;4&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;?&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;xml&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; version&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; encoding&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;UTF-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt; standalone&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;no&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns:dc&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://purl.org/dc/elements/1.1/&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
@@ -15231,13 +15234,13 @@ Dazu wechsle ich über die Schaltfläche &apos;Toggle Editor&apos; in die Codean
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;     &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;defs2&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;metadata&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h5 id=&quot;ein-emoji-als-favicon&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-emoji-als-favicon&quot; aria-label=&quot;ein emoji als favicon permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein Emoji als Favicon&lt;/h5&gt;
+&lt;h5 id=&quot;ein-emoji-als-favicon---indexfaviconemoji---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-emoji-als-favicon---indexfaviconemoji---&quot; aria-label=&quot;ein emoji als favicon   indexfaviconemoji    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein Emoji als Favicon&lt;!-- \index{Favicon!Emoji} --&gt;&lt;/h5&gt;
 &lt;p&gt;&lt;a href=&quot;https://de.wikipedia.org/w/index.php?title=Emoji&amp;#x26;oldid=210760547&quot;&gt;Emojis&lt;/a&gt; sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen.&lt;/p&gt;
 &lt;p&gt;Ein &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#emoji&quot;&gt;Emoji als Favicon&lt;/a&gt;
 ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu erstellen, das auch bei kleinen Größen funktioniert.&lt;/p&gt;
 &lt;p&gt;Wenn du ein Emojis in HTML anzeigen möchtest, kannst du den dezimalen oder hexadezimalen Referenz-Code verwenden. Oder du kopierst das Bild, wenn du es auf einer anderen Website siehst.&lt;/p&gt;
 &lt;p&gt;Nachfolgend siehst du einen Beispielcode und das Ergebnis im Browser.&lt;/p&gt;
-&lt;p&gt;Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden.&lt;/p&gt;
+&lt;p&gt;Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden:&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;5&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 100 100&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;.9em&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;90&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;🌴&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -15283,9 +15286,9 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 &lt;blockquote&gt;
 &lt;p&gt;Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die &lt;a href=&quot;https://www.getemojis.net/html/#Emoji-Liste&quot;&gt;Emoji-Liste mit HTML-Codes&lt;/a&gt; eine mögliche Anlaufstelle.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h5 id=&quot;favicon-und-dark-mode&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#favicon-und-dark-mode&quot; aria-label=&quot;favicon und dark mode permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Favicon und Dark Mode&lt;/h5&gt;
+&lt;h5 id=&quot;favicon-und-dark-mode---indexfavicondark-mode---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#favicon-und-dark-mode---indexfavicondark-mode---&quot; aria-label=&quot;favicon und dark mode   indexfavicondark mode    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Favicon und Dark Mode&lt;!-- \index{Favicon!Dark Mode} --&gt;&lt;/h5&gt;
 &lt;p&gt;Mit dem &lt;a href=&quot;https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme&quot;&gt;Dark Mode&lt;/a&gt; können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im &lt;a href=&quot;https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support&quot;&gt;Dark Mode&lt;/a&gt; ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage &lt;code class=&quot;language-text&quot;&gt;prefers-color-scheme&lt;/code&gt; verwenden.&lt;/p&gt;
-&lt;p&gt;Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.&lt;/p&gt;
+&lt;p&gt;Für SVG-Dateien unterstützende Browser bewirkt der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;xml&quot; data-index=&quot;8&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;svg&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;xmlns&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;http://www.w3.org/2000/svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mtk12&quot;&gt;viewBox&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;quot;0 0 100 100&amp;quot;&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;mtk17&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;    #sun {display:block} #moon {display:none}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
@@ -15308,9 +15311,9 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;favicon.ico&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;joomla-favicon-pinned.svg&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;JOOMLA/templates/cassiopeia/images&lt;/code&gt; abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.&lt;/p&gt;
+&lt;p&gt;im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;templates/cassiopeia/images&lt;/code&gt; abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses &lt;code class=&quot;language-text&quot;&gt;JOOMLA/media/system&lt;/code&gt; überschreiben.&lt;/p&gt;
+&lt;p&gt;Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses &lt;code class=&quot;language-text&quot;&gt;media/system&lt;/code&gt; überschreiben.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Magst du die Dateinamen umbenennen? Du würdest gerne anstelle von &lt;code class=&quot;language-text&quot;&gt;joomla-favicon.svg&lt;/code&gt; einfach &lt;code class=&quot;language-text&quot;&gt;favicon.svg&lt;/code&gt; und anstelle von &lt;code class=&quot;language-text&quot;&gt;joomla-favicon-pinned.svg&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;favicon-pinned.svg&lt;/code&gt; als Dateinamen verwenden? Dann ist es erforderlich, dass du die Aufrufe in der Datei &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; des Tempaltes anpasst. Passe die Dateinamen an. Ersetze die nachfolgenden Zeilen&lt;/p&gt;
 &lt;pre class=&quot;grvsc-container default-dark&quot; data-language=&quot;php&quot; data-index=&quot;10&quot;&gt;&lt;code class=&quot;grvsc-code&quot;&gt;&lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
@@ -15324,11 +15327,11 @@ ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu e
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon.ico&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;alternate icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image/vnd.microsoft.icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk4&quot;&gt;$this&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;addHeadLink&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk10&quot;&gt;HTMLHelper&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mtk11&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;image&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;favicon-pinned.svg&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [], &lt;/span&gt;&lt;span class=&quot;mtk4&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk7&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;), &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;mask-icon&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;rel&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;, [&lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;color&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt; =&amp;gt; &lt;/span&gt;&lt;span class=&quot;mtk8&quot;&gt;&amp;#39;#000&amp;#39;&lt;/span&gt;&lt;span class=&quot;mtk1&quot;&gt;]);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;grvsc-line&quot;&gt;&lt;span class=&quot;grvsc-source&quot;&gt;&lt;span class=&quot;mtk1&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note: If you put the favicons in the directory &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/images&lt;/code&gt;, they will not be overwritten. Just like &lt;code class=&quot;language-text&quot;&gt;user.css&lt;/code&gt;, this is an easy way to make changes. When updating, the versions of the images in the directory &lt;code class=&quot;language-text&quot;&gt;media/system&lt;/code&gt; are adapted, not those in the template directory. If you change the names of the image files and therefore edit the &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; of the template, you have to take care in case of an update of Joomla. The file &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; of the Cassiopeia template will be overwritten. For example, create a child template.&lt;/p&gt;
+&lt;p&gt;Hinweis: Wenn du die Favicons im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/images&lt;/code&gt; speicherst, werden sie bei einem Joomla-Update nicht überschrieben. Genau wie &lt;code class=&quot;language-text&quot;&gt;user.css&lt;/code&gt; ist dies ein einfacher Weg, um kleine Anpassungen vorzunehmen. Beim Update werden die Versionen der Grafiken im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media/system&lt;/code&gt; aktualisiert, nicht die im Template-Verzeichnis. Wenn du die Namen der Bilddateien änderst und damit die &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; des Templates bearbeitest, musst du im Falle eines Updates von Joomla auf der Hut sein. Die Datei &lt;code class=&quot;language-text&quot;&gt;index.php&lt;/code&gt; des Cassiopeia Templates wird dabei überschrieben. Die Lösung: Erstelle zum Beispiel ein Child-Template.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Note: The path to the &lt;em&gt;template media folders&lt;/em&gt; was &lt;code class=&quot;language-text&quot;&gt;templates/cassiopeia/&lt;/code&gt; before Joomla 4.1. Template media folders are the folders &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;images&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;fonts&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;js&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;. As of Joomla 4.1, the files are located in the &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/&lt;/code&gt; directory.&lt;/p&gt;
+&lt;p&gt;Hinweis: Der Pfad zu den &lt;em&gt;Template-Medienordnern&lt;/em&gt; war vor Joomla 4.1 &lt;code class=&quot;language-text&quot;&gt;templates/cassiopeia/&lt;/code&gt;. Template-Medienordner sind die Ordner &lt;code class=&quot;language-text&quot;&gt;css&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;images&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;fonts&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;js&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis &lt;code class=&quot;language-text&quot;&gt;media/templates/site/cassiopeia/&lt;/code&gt;.
+&lt;img src=&quot;https://vg04.met.vgwort.de/na/380c0b24cb764d9084f0033e5b2704d9&quot; width=&quot;1&quot; height=&quot;1&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img src=&quot;https://vg04.met.vgwort.de/na/f0a482cad79b4d04b1e9ccbb267449d0&quot; width=&quot;1&quot; height=&quot;1&quot; alt=&quot;&quot;&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;

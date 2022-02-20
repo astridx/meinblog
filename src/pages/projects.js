@@ -49,7 +49,7 @@ export default function ProjectsIndex() {
           <div className="container">
             <h1>Projekte</h1>
             <p className="description">
-            Ein paar meiner Open-Source-Projekte. Alle {' '}
+              Ein paar meiner Open-Source-Projekte. Alle{' '}
               <a href="https://github.com/astridx">auf GitHub</a>.
             </p>
           </div>

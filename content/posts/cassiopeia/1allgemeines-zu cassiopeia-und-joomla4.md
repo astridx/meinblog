@@ -25,7 +25,9 @@ Joomla kann auch auf einem lokalen Computer <!-- \index{Installation!lokal} --> 
 
 Joomla 4 kommt mit einem Frontend-Templates und einem Administrator-Templates. Das Frontend-Template bestimmen, was der Besucher sieht. Das Administrator Template wirkt im Backend, also dem Ort, an dem die Administratoren Inhalte erstellen, Einstellungen ändern, Benutzer verwalten, Erweiterungen für zusätzliche Funktionen hochladen.
 
-Cassiopeia ist das Frontend-Template. Der Ordner Cassiopeia und die dazugehörigen Dateien befinden sich im Joomla 4 Template-Verzeichnis. Die Cassiopeia Dateien enthalten den notwendigen Programmcode und die Stile für eine barrierefreie und responsive Website.
+Cassiopeia ist das Frontend-Template. Der Ordner Cassiopeia und die dazugehörigen Dateien befinden sich im Joomla 4 Template-Verzeichnis. Die Cassiopeia Dateien enthalten den notwendigen Programmcode und die Stile für eine _weitestgehend_ barrierefreie und responsive Website.
+
+> Warum steht das Wort _weitestgehend_ im vorhergehenden Satz? Die Aussage _Das ist nicht responsiv_ kann man meiner Meinung nach nicht ohne weitere Erklärung aussprechen. Man muss gleichzeitig definieren, was nicht korrekt reagiert. Also das, was man auf schmalen und/oder großen Displays nicht benutzerfreundlich erkennt. Nebenbei ist das Empfinden subjektiv. Manche sind der Meinung, das ein Slider im Header auf schmalen Displays nichts zu suchen hat. Andere empfinden es als Fehler, wenn der dort nicht vorhanden ist. _Das ist barrierefrei_  ist ebenfalls ein absoluter Satz, dem eine Menge an Barrieren gegenüberstehen: So unterschiedlich die Menschen sind, so unterschiedlich sind die Barrieren. Im Internet beschränkt sich dies nicht auf Menschen. Für Maschinen spielen Barrieren ebenfalls eine Rolle. Nebenbei passierte es nicht selten, dass eine abgebaute Barriere eine neue schafft. Der Zustand absoluter Barrierefreiheit ist meiner Meinung nach nicht zu erreichen.
 
 Nachfolgend beschreibe ich meine Erfahrungen mit dem Cassiopeia Template. Ich zeige wie ich Änderungen durchführte, um Cassiopeia an meine eigenen Bedürfnisse anzupassen.
 
@@ -86,7 +88,7 @@ Cassiopeia sammelt alle Stile in einer CSS-Stylesheet-Datei mit dem Namen `templ
 
 Alle Styles die standardmäßig genutzt werden sind in dieser Datei enthalten, einschließlich der `@media`-Queries für unterschiedliche Bildschirmgrößen. Um diese Standard-Stile zu ändern, ist es erforderlich, ein eigenes CSS-Stylesheet zu erstellen. Diese eigene Stildatei überschreibt die Cassiopiea Definitionen so wie wir es für unsere Website wünschen. Cassiopeia ist so geschrieben, dass es ein Stylesheet namens `user.css` erkennt, welches sich im Unterverzeichnis CSS der Cassiopeia-Dateien befindet. Die Verwendung eines separaten Stylesheets ermöglicht es, einfach und schnell auf die neuen Styles zuzugreifen. Außerdem läuft man nicht Gefahr, dass eigene Änderungen überschrieben werden, wenn man die Joomla-Installation aktualisiert.
 
-> Du möchtest mehr als nur CSS Verändern? Vielleicht fragst du dich, wie du ein Child-Template für Cassiopeia anlegst. Viele kennen dies vom CMS Wordpress. In Joomla funktionierte dies bis zur Version 4.1 anders. Um sich vor dem Überschreiben des eigenen neues Codes während eines Joomla Updates zu schützen, musste man das entsprechende Template kopieren und in der Kopie die Änderungen vornehmen. Der Vorteil der Arbeit an einer Kopie ist, dass man die Änderungen, die man beim Aktualisieren vorgenommen hat, nicht verliert. Der Nachteil ist, dass man Aktualisierungen an Cassiopeia selbst in seine Kopie integrieren muss, wenn man diese neuen Funktionen wünscht. Seit Joomla 4.1 ist dieser Mangel [behoben](https://github.com/joomla/joomla-cms/pull/35874)[^github.com/joomla/joomla-cms/pull/35874]. Mit der Einführung von Child-Templates in Joomla 4.1 haben sich die Speicherorte der Mediendateien im Cassiopeia-Template geändert. Der Pfad zu den *Template-Medien-Verzeichnissen* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`. Muss man beim Update von Joomla 4.0 auf Joomla 4.1 etwas beachten? Kurze Antwort: Nein, Joomla kümmert sich um alles. Wenn du zum Beispiel eine `templates/cassiopeia/css/user.css` erstellt hast, wird diese Datei nach dem Update von 4.0 auf 4.1 automatisch nach `media/templates/site/cassiopeia/css/user.css` verschoben.
+> Du möchtest mehr als nur CSS Verändern? Vielleicht fragst du dich, wie du ein Child-Template für Cassiopeia anlegst. Viele kennen dies vom CMS Wordpress. In Joomla funktionierte dies bis zur Version 4.1 anders. Um sich vor dem Überschreiben des eigenen neues Codes während eines Joomla Updates zu schützen, musste man das entsprechende Template kopieren und in der Kopie die Änderungen vornehmen. Der Vorteil der Arbeit an einer Kopie war, dass man die Änderungen, die man beim Aktualisieren vorgenommen hat, nicht verliert. Der Nachteil war, dass man Aktualisierungen an Cassiopeia selbst in seine Kopie integrieren musste, wenn man diese neuen Funktionen wünschte. Seit Joomla 4.1 ist dieser Mangel [behoben](https://github.com/joomla/joomla-cms/pull/35874)[^github.com/joomla/joomla-cms/pull/35874]. Mit der Einführung von Child-Templates in Joomla 4.1 ist es möglich, ein Template zu erstellen, in dem man nur die Dinge ändert, die man individuell gestalten möchte. Alles andere wird von einem Elterntemplate verwendet. Um diese Funktion anbieten zu können ist es erforderlich, die Speicherorte der Mediendateien im Cassiopeia-Template zu verändern. Der Pfad zu den _Template-Medien-Verzeichnissen_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`. Muss man beim Update von Joomla 4.0 auf Joomla 4.1 etwas beachten? Kurze Antwort: Nein, Joomla kümmert sich um alles. Wenn du zum Beispiel eine `templates/cassiopeia/css/user.css` erstellt hast, wird diese Datei nach dem Update von 4.0 auf 4.1 automatisch nach `media/templates/site/cassiopeia/css/user.css` verschoben.
 
 ## Was ist SCSS oder Sass?<!-- \index{SCSS!Was ist das?} --><!-- \index{Sass!Was ist das?} -->
 
@@ -132,7 +134,7 @@ Neu in Joomla 4 ist die Differenzanzeige<!-- \index{Override!Differenzanzeige} -
 
 ### Wie erkennt man, ob Cassiopeia die Startseite einer Joomla Website oder eine Unterseite rendert?
 
-Du möchtest ein Cassiopeia Child Template oder ein Override erstellen, welches sich auf der Startseite anders verhält oder anders aussieht als auf allen anderen Seiten. Die nachfolgenden Schritte zeigen dir auf, wie du herausfindest, ob dein Template gerade die Startseite deiner Joomla Website rendert oder eine Unterseite. 
+Du möchtest ein Cassiopeia Child Template oder ein Override erstellen, welches sich auf der Startseite anders verhält oder anders aussieht als auf allen anderen Seiten. Die nachfolgenden Schritte zeigen dir auf, wie du herausfindest, ob dein Template gerade die Startseite deiner Joomla Website rendert oder eine Unterseite.
 
 Bei mehrsprachigen Websites hängt die Startseite von der aktuell gewählten Sprache ab. Um herauszufinden, welche Sprachversion gerade aktiv ist, benötigst du Funktionen aus dem Namespace `Multilanguage`. Importiere diesen Namespace, wenn du für mehrsprachige Websites gewappnet sein möchtest.
 
@@ -140,7 +142,7 @@ Bei mehrsprachigen Websites hängt die Startseite von der aktuell gewählten Spr
 use Joomla\CMS\Language\Multilanguage;
 ```
 
-Den nachfolgenden Code gibt es in der Datei `templates/cassiopeia/index.php`, also Cassiopeia. Falls diese Datei für dein Child-Template oder deine Templatekopie kopiert hast, ist es somit nicht erforderlich ihn nochmal anzulegen. Stelle sicher, dass die Zeilen 
+Den nachfolgenden Code gibt es in der Datei `templates/cassiopeia/index.php`, also Cassiopeia. Falls diese Datei für dein Child-Template oder deine Templatekopie kopiert hast, ist es somit nicht erforderlich ihn nochmal anzulegen. Stelle sicher, dass die Zeilen
 
 ```php
 $app = Factory::getApplication();
@@ -153,11 +155,10 @@ $menu = $app->getMenu()->getActive();
 
 in der Datei die du gerade bearbeitest vorhanden sind. Das Gleiche gilt, wenn Sie einen Override implementieren.
 
-
 Mit dem Aufruf `$home = $app->getMenu()->getDefault();` belegt du auf einer nicht mehrsprachigen Website die Variable `$home` mit `true`. Auf merhsprachigen Websites ist ein Parameter erforderlich. Verwende hier `$home = $app->getMenu()->getDefault($lang->getTag());`.
 
 ```php
-<?php 
+<?php
 // Look for the home menu
 if (Multilanguage::isEnabled())
 {
@@ -170,7 +171,7 @@ $home = $app->getMenu()->getDefault();
 ?>
 ```
 
-Ab jetzt kannst du zwischen den Zeilen 
+Ab jetzt kannst du zwischen den Zeilen
 
 ```php
 <?php if ($menu === $home) : ?>
@@ -178,9 +179,9 @@ Ab jetzt kannst du zwischen den Zeilen
 <?php endif; ?>
 ```
 
-alles einfügen, was auf der Startseite verwendet werden soll. 
+alles einfügen, was auf der Startseite verwendet werden soll.
 
-Nutze 
+Nutze
 
 ```php
 <?php if ($menu !== $home) : ?>

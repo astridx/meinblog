@@ -15,10 +15,12 @@ export default function FourOhFour() {
         <header>
           <div className="container">
             <h1>404</h1>
-            <p className="description">Dies war wahrscheinlich ein Fehler. <br />This was probably a mistake.</p>
+            <p className="description">
+              Dies war wahrscheinlich ein Fehler. <br />
+              This was probably a mistake.
+            </p>
           </div>
         </header>
-
       </article>
     </>
   )

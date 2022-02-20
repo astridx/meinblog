@@ -8,7 +8,7 @@ thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/eine-anleitung-zur-verwendung-des-cassiopeia-templates-fuer-joomla-4-themen
 langKey: en
 categories:
-  - Set (English) 
+  - Set (English)
 tags:
   - Template
   - Joomla

@@ -25,7 +25,7 @@ Below I show how to create a login menu item that is only shown to users who are
 
 ### Login link
 
-First we create the login. To do this, open the menu manager via the left sidebar. Open 'Menus | All Menu Items' and click the 'New' button in the toolbar to create a new menu item. Select the type 'User | Login Form' for the menu item. It is also important that you change the default group 'Public' to 'Guest' for access. This will cause the menu item to be displayed only to *not* logged in users. Select all other settings as it suits your environment and save the menu item.
+First we create the login. To do this, open the menu manager via the left sidebar. Open 'Menus | All Menu Items' and click the 'New' button in the toolbar to create a new menu item. Select the type 'User | Login Form' for the menu item. It is also important that you change the default group 'Public' to 'Guest' for access. This will cause the menu item to be displayed only to _not_ logged in users. Select all other settings as it suits your environment and save the menu item.
 
 ![Login - Logout | Create Login Link](/images/login_logout1.png)
 
@@ -37,7 +37,7 @@ Next we create the logout link. You are still in the menu manager, right? Otherw
 
 ### Test the links
 
-Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in? 
+Finally, we test whether everything works correctly. Do you see the login menu item when you open the website? Is the logout menu item hidden at the same time? Does the logout menu item appear when you are logged in? Does the login menu item disappear after you have successfully logged in?
 
 Does switching not work as expected? In this case, check a setting in the global configuration. To do this, click on 'System' in the left-hand sidebar and then on the link 'Global configuration' in the right-hand area. Make sure that `Guest User Group` is set to `Guest`.
 
@@ -77,9 +77,9 @@ Option to activate the editor button:
 
 ## Joomla Accessibility <!-- \index{Accessibility} --><!-- \index{a11y} -->
 
-You can clearly see it: Joomla 4 has been worked all around with Accessibility in mind. Both standard templates, frontend and backend, are accessible and comply with level AA of [WCAG 2.1](https://www.w3.org/TR/WCAG21/)[^w3.org/TR/WCAG21/]. WCAG 2.1 complements WCAG 2.0 and is the web standard for digital accessibility that is mandatory for public bodies in the European Union.
+You can clearly see it: Joomla 4 has been worked all around with Accessibility in mind. Both standard templates, frontend and backend, are accessible and comply with level AA of [WCAG 2.1](https://www.w3.org/TR/WCAG21/)[^w3.org/tr/wcag21/]. WCAG 2.1 complements WCAG 2.0 and is the web standard for digital accessibility that is mandatory for public bodies in the European Union.
 
-### Basics 
+### Basics
 
 #### What is Accessibility?
 
@@ -93,17 +93,17 @@ Accessibility is important for many reasons. Public authorities around the world
 
 But: Foremost accessibility is about values and treating all people equally. It's about people with disabilities not having to rely on others to do simple things like read a website.
 
-In addition, an accessible website is also easier for machines to read. For example, a search engine can more easily read and correctly offert correct search results if the content is accessible. 
+In addition, an accessible website is also easier for machines to read. For example, a search engine can more easily read and correctly offert correct search results if the content is accessible.
 
 ### How to Enable Accessibility Features in Joomla
 
-There are the inbuilt accessibility plugins *Joomla Accessibility Checker* and *Additional Accessibility Features*, you can enable them in your plugin manager.
+There are the inbuilt accessibility plugins _Joomla Accessibility Checker_ and _Additional Accessibility Features_, you can enable them in your plugin manager.
 
 #### System Plugin - Joomla Accessibility Checker
 
-The System Plugin *Joomla Accessibility Checker* visually highlights common accessibility and usability issues. Geared towards content authors, the plugin identifies errors or warnings and provides guidance on how to fix them. 
+The System Plugin _Joomla Accessibility Checker_ visually highlights common accessibility and usability issues. Geared towards content authors, the plugin identifies errors or warnings and provides guidance on how to fix them.
 
-If you activate the first option, the accessiblity checker is loaded on all pages. This is useful when developing the website but should not be left on when the website is live. 
+If you activate the first option, the accessiblity checker is loaded on all pages. This is useful when developing the website but should not be left on when the website is live.
 
 ![System Plugin - Joomla Accessibility Checker | Plugin Settings](/images/c_a11y_1.png)
 
@@ -117,9 +117,9 @@ If you want to examine several articles one after the other, it is more convenie
 
 > View project website and demo [joomla-projects.github.io/joomla-a11y-checker/](https://joomla-projects.github.io/joomla-a11y-checker/).
 
-####  System Plugin - Additional Accessibility Features
+#### System Plugin - Additional Accessibility Features
 
-This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled the toolbar can be opened. You can choose whether you want to display the accessibility toolbar: It can be enabled on either Joomla backend, frontend, or both. 
+This plugin adds an accessibility toolbar to your site with additional accessibility options. Once enabled the toolbar can be opened. You can choose whether you want to display the accessibility toolbar: It can be enabled on either Joomla backend, frontend, or both.
 
 ![System Plugin - Additional Accessibility Features | Plugin Settings](/images/c_a11y_2.png)
 
@@ -128,6 +128,7 @@ This plugin adds an accessibility toolbar to your site with additional accessibi
 ![System Plugin - Additional Accessibility Features | Accessibility icon on the bottom left corner of every page](/images/c_a11y_2_1.png)
 
 This plugin gives the user ability to a variety of things including
+
 - Increase Text Size
 - Decrease Text Size
 - Increase Text Spacing
@@ -140,6 +141,3 @@ This plugin gives the user ability to a variety of things including
 - Text to Speech.
 
 ![System Plugin - Additional Accessibility Features | Toolbar opend](/images/c_a11y_2_2.png)
-
-
-

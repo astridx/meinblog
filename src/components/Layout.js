@@ -51,8 +51,8 @@ export const Layout = ({ children }) => {
       setLightTheme(setTheme)
     } else if (theme === 'light') {
       setDarkTheme(setTheme)
- //   } else if (theme === 'sepia') {
- //     setLightTheme(setTheme)
+      //   } else if (theme === 'sepia') {
+      //     setLightTheme(setTheme)
     }
   }
 

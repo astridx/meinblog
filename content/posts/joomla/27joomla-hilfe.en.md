@@ -20,7 +20,7 @@ On the one hand, there is a button positioned in the same place in each componen
 
 ![Joomla Help link in the list view](/images/j4x27x1.png)
 
-In addition, it is possible to show descriptions next to the fields in forms. Since Joomla 4.1, these descriptions can be shown and hidden for a better overview. This feature was introduced with [PR 35610](https://github.com/joomla/joomla-cms/pull/35610/)[^github.com/joomla/joomla-cms/pull/35610/] and called *inline help*. <!-- \index{inline help} -->
+In addition, it is possible to show descriptions next to the fields in forms. Since Joomla 4.1, these descriptions can be shown and hidden for a better overview. This feature was introduced with [PR 35610](https://github.com/joomla/joomla-cms/pull/35610/)[^github.com/joomla/joomla-cms/pull/35610/] and called _inline help_. <!-- \index{inline help} -->
 
 > For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] and copy these changes into your development version.
 
@@ -36,7 +36,7 @@ In this chapter, only files are changed.
 
 ### Modified files
 
-Two lines per view are sufficient to display a button at the top right that contains a question mark as an icon and has an Internet address specified in the code as the link target. I have chosen `http://example.org` as an example. The principle is clear. You have the possibility to create a separate help site for each `View` and to link it in the view of the component - exactly where questions usually arise. 
+Two lines per view are sufficient to display a button at the top right that contains a question mark as an icon and has an Internet address specified in the code as the link target. I have chosen `http://example.org` as an example. The principle is clear. You have the possibility to create a separate help site for each `View` and to link it in the view of the component - exactly where questions usually arise.
 And another line is enough to turn descriptions into inline help, which means to make them fade in and out or toggleable.
 
 <!-- prettier-ignore -->
@@ -65,7 +65,7 @@ The toolbar helper supports us. The line `ToolbarHelper::divider();` ensures tha
 
 ```php {diff}
 
- 
+
  			ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
  		}
 +

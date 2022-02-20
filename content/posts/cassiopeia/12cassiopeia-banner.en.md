@@ -137,10 +137,10 @@ As a result I see the image in the editor.
 
 ### Style banner
 
-It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button. 
+It is important to me that the image fills the width of the container at any display size. Therefore, I add CSS styles that make this possible. To do this, I switch to the code view of the editor via the 'Toggle Editor' button.
 
 > Hint: There is an alternative to 'Toggle Editor' button: Since February 2022, i.e. as of Joomla 4.1, code in the integrated TinyMCE editor is provided with syntax highlighting if you use the editor button shown in the next picture:
-![Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcher_backend_new2.png)
+> ![Syntax-Highlighting in the integrated TinyMCE-Editor | Show editor button](/images/switcher_backend_new2.png)
 
 I switch to the code view of the editor via the 'Toggle Editor' button.
 
@@ -174,7 +174,7 @@ I select the Cassiopeia template by clicking on 'Cassiopeia Details and Files'.
 
 Within the Tab `Editor` I first check if there is already a file named `user.css` in the directory `css`. As a reminder, `user.css` is the file provided for implementing custom CSS styles in Joomla. This file is not modified during an update.
 
-> Note: The path to the *template media folders*, and thus also to the file `user.css`, was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
+> Note: The path to the _template media folders_, and thus also to the file `user.css`, was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 
 ![Add CSS styles in the Template Manger - Create the user.css file](/images/logo6i.png)
 

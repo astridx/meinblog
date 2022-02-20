@@ -24,9 +24,7 @@ export default function BlogIndex({ data }) {
         <header>
           <div className="container">
             <h1>My digital garden</h1>
-            <p className="description">
-              Mein digitaler Garten. 
-            </p>
+            <p className="description">Mein digitaler Garten.</p>
           </div>
         </header>
 

@@ -15,11 +15,11 @@ tags:
   - Cassiopeia
 ---
 
-Favicons sind die kleinen Symbole, die wir in Browser-Registerkarte sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie sind historisch gewachsen. Heute bieten sie verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.
+_Favicons_ sind die kleinen Symbole, die wir in Browser-Registerkarten sehen. Sie helfen eine Seite wiederzuerkennen, wenn wir die Lesezeichen und offenen Registerkarten im Browsers durchsuchen. Die Integration der Favicons änderte sich im Laufe der Zeit. Manche sagen, sie ist historisch gewachsen. Heute bieten Favicons verschiedene Zusatzfunktionen und es kommen immer wieder neue hinzu.<!-- \index{Favicon} -->
 
-Eine neue Funktion ist die Möglichkeit, den Dateityp SVG als Favicon zu verwenden. Das ist etwas, das [die meisten modernen Browser unterstützen](https://caniuse.com/#feat=link-icon-svg), und weitere Unterstützung ist in Vorbereitung. Um diese neue Funktion zu nutzen benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser das Bild anzeigen, benötigst du zusätzlich eine ICO-Datei.
+Es ist möglich, den Dateityp SVG als Favicon zu verwenden. Dies unterstützen [die meisten modernen Browser](https://caniuse.com/#feat=link-icon-svg). Um diese neue Funktion zu nutzen, benötigst du eine SVG-Datei. Um sicherzustellen, dass auch ältere Browser die Grafik anzeigen, ist zusätzlich eine ICO-Datei erforderlich.
 
-> Du kennst dich mit SVG und ICO nicht aus und würdest lieber eine das PNG-Format verwenden? Dann findest du unter [Favicon im Joomla-Template](https://blog.astrid-guenther.de/joomla-template-favicon) eine Lösung die besser zu dir passt.
+> Du kennst dich mit SVG und ICO nicht aus und würdest lieber das PNG-Format verwenden? Dann findest du unter [Favicon im Joomla-Template](https://blog.astrid-guenther.de/joomla-template-favicon) eine Lösung die besser zu dir passt.
 
 > Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht erscheinen.
 
@@ -39,6 +39,8 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 
 Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode ist das Dokument, welches an den Browser übergeben wird.
 
+> In allen gängigen Browsern ist der HTML-Quellcode mit der Tastenkombination [Strg - U] einsehbar. 
+
 ```HTML
 ...
 <link href="/j4dev/media/system/images/joomla-favicon.svg" rel="icon" type="image/svg+xml">
@@ -47,7 +49,7 @@ Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode
 ...
 ```
 
-> Der [Pull Request](https://github.com/joomla/joomla-cms/pull/31436) mit diese Funktion integriert wurde, orientierte sich an ein [CSS-Tricks](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) Tutorial.
+> Der [Pull Request](https://github.com/joomla/joomla-cms/pull/31436)[^github.com/joomla/joomla-cms/pull/31436] mit dem diese Funktion integriert wurde, orientiert sich an einem [CSS-Tricks](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) Tutorial.
 
 ### Erklärung zur Implementierung
 
@@ -57,17 +59,17 @@ Beachte den alternativen Attributwert für unsere `rel`-Deklaration `rel="altern
 
 Nach den Favicons folgt die Codezeile `<link href="/j4dev/media/system/images/joomla-favicon-pinned.svg" rel="mask-icon" color="#000">`, die ein weiteres SVG-Bild lädt. Dieses heißt `joomla-favicon-pinned.svg`. Damit wird die "Pinned Tab"-Funktionalität von Safari unterstützt, die es gab, bevor andere Browser SVG-Favicons unterstützten.
 
-## Ein modernes Favicon mit SVG und ICO als Fallback
+## Ein modernes Favicon mit SVG und ICO als Rückfallposition
 
 ### Warum ein SVG Favicon?
 
 Du fragst dich, welchen Grund es gibt zu SVG zu wechseln? Das `.ico`-Dateiformat gibt es schon ewig und kann Bilder bis zu einer Größe von 256×256 Pixeln unterstützen. Hier sind drei Gründe.
 
-- Das `.ico`-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängikeit verwenden.
+- Das `.ico`-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängigkeit verwenden.
 
 - Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus.
 
-- SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.
+- SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Rückfallposition für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.
 
 ### Erstelle dein Favicon mit Ubuntu 20.04
 
@@ -89,7 +91,7 @@ Mit Inkscape können wir praktisch alles entwerfen. Wir erstellen ein Text-Favic
 
 ![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape1.png)
 
-Das `A` dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.
+Die Funktion hinter dem `A` dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.
 
 ![Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape](/images/cassiopeia_inkscape2.png)
 
@@ -109,7 +111,7 @@ Das Textobjekt sollte in einen Pfad umgewandelt werden, dies könnte über das T
 
 ![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape5.png)
 
-Und, speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du
+Speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du
 
 ![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape6.png)
 
@@ -169,7 +171,7 @@ Der Vollständigkeit halber füge ich den Quellcode der SVG-Datei nachfolgend ei
 
 ##### CSS in der SVG-Dateien
 
-Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels `style="..."` möglich, sonder ebenfalls via Tag.
+Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels `style="..."` möglich, sonder ebenfalls via `<style>`-Tag.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -198,7 +200,7 @@ Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mit
 ...
 ```
 
-##### Ein Emoji als Favicon
+##### Ein Emoji als Favicon<!-- \index{Favicon!Emoji} -->
 
 [Emojis](https://de.wikipedia.org/w/index.php?title=Emoji&oldid=210760547) sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen.
 
@@ -209,7 +211,7 @@ Wenn du ein Emojis in HTML anzeigen möchtest, kannst du den dezimalen oder hexa
 
 Nachfolgend siehst du einen Beispielcode und das Ergebnis im Browser.
 
-Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden.
+Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden:
 
 ```XML
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -237,11 +239,11 @@ oder
 
 > Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die [Emoji-Liste mit HTML-Codes](https://www.getemojis.net/html/#Emoji-Liste) eine mögliche Anlaufstelle.
 
-##### Favicon und Dark Mode
+##### Favicon und Dark Mode<!-- \index{Favicon!Dark Mode} -->
 
 Mit dem [Dark Mode](https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme) können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im [Dark Mode](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support) ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage `prefers-color-scheme` verwenden.
 
-Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.
+Für SVG-Dateien unterstützende Browser bewirkt der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.
 
 ```XML
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -276,9 +278,9 @@ Um dein selbst erstelltes Favicon anstelle des Joomla-Logos im Template Cassiope
 - `favicon.ico`
 - `joomla-favicon-pinned.svg`
 
-im Verzeichnis `JOOMLA/templates/cassiopeia/images` abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.
+im Verzeichnis `templates/cassiopeia/images` abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.
 
-> Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses `JOOMLA/media/system` überschreiben.
+> Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses `media/system` überschreiben.
 
 Magst du die Dateinamen umbenennen? Du würdest gerne anstelle von `joomla-favicon.svg` einfach `favicon.svg` und anstelle von `joomla-favicon-pinned.svg` `favicon-pinned.svg` als Dateinamen verwenden? Dann ist es erforderlich, dass du die Aufrufe in der Datei `index.php` des Tempaltes anpasst. Passe die Dateinamen an. Ersetze die nachfolgenden Zeilen
 
@@ -299,8 +301,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alte
 $this->addHeadLink(HTMLHelper::_('image', 'favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 ...
 ```
+Hinweis: Wenn du die Favicons im Verzeichnis `media/templates/site/cassiopeia/images` speicherst, werden sie bei einem Joomla-Update nicht überschrieben. Genau wie `user.css` ist dies ein einfacher Weg, um kleine Anpassungen vorzunehmen. Beim Update werden die Versionen der Grafiken im Verzeichnis `media/system` aktualisiert, nicht die im Template-Verzeichnis. Wenn du die Namen der Bilddateien änderst und damit die `index.php` des Templates bearbeitest, musst du im Falle eines Updates von Joomla auf der Hut sein. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Die Lösung: Erstelle zum Beispiel ein Child-Template.
 
-Beachte dabei: Wenn du die die Favicons im Verzeichnis `media/templates/site/cassiopeia/images` ablegst, werden sie nicht überschrieben. Genau wie die `user.css` ist dies eine unkomplizierte Art Veränderungen vorzunehmen. Bei einer Aktualisierung werden die Versionen der Bilder im Verzeichnis `JOOMLA/media/system` angepasst, nicht die im Template-Verzeichnis. Falls du die Namen der Bilddateien änderst und deshalb die `index.php` des Templates editierst, musst du Vorkehrungen für den Fall einer Aktualisierung von Joomla treffen. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Lege beispielsweise ein Child-Templates an. 
-
-> Hinweis: Der Pfad zu den *Template-Medienordnern* war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
-<img src="https://vg04.met.vgwort.de/na/380c0b24cb764d9084f0033e5b2704d9" width="1" height="1" alt="">
+> Hinweis: Der Pfad zu den _Template-Medienordnern_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
+> <img src="https://vg04.met.vgwort.de/na/380c0b24cb764d9084f0033e5b2704d9" width="1" height="1" alt="">

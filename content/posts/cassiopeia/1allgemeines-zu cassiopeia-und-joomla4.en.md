@@ -25,7 +25,9 @@ Joomla can also be installed on a local computer <!-- \index{installation!local}
 
 Joomla 4 comes with a frontend template and an administrator template. The frontend template defines what the visitor sees. The administrator template works in the backend, the place where administrators create content, change settings, manage users, upload extensions for additional functions.
 
-Cassiopeia is the front-end template. The Cassiopeia folder and the associated files are located in the Joomla 4 template directory. The Cassiopeia files contain the necessary program code and styles for an accessible and responsive website.
+Cassiopeia is the front-end template. The Cassiopeia folder and the associated files are located in the Joomla 4 template directory. The Cassiopeia files contain the necessary programme code and styles for a _mostly_ accessible and responsive website.
+
+> Why is the word _mostly_ in the previous sentence? In my opinion, the statement _This is not responsive_ cannot be said without further explanation. You have to define at the same time what is not responsive. In other words, that which is not user-friendly on small and/or large displays. Besides, sensitivity is subjective. Some are of the opinion that a slider in the header has no place on small displays. Others feel it is a mistake if it is not there. _This is accessible_ is also an absolute sentence that is faced with a lot of barriers: As different as people are, so are the barriers. On the internet, this is not limited to people. For machines, barriers also matter. Besides, it is not uncommon for a barrier that has been removed to create a new one. In my opinion, the state of absolute accessibility cannot be achieved.
 
 In the following I describe my experiences with the Cassiopeia template. I show how I made changes to customize Cassiopeia to my own needs.
 
@@ -86,7 +88,7 @@ Cassiopeia collects all styles in a CSS stylesheet file called `template.min.css
 
 All styles that are used by default are contained in this file, including the `@media` queries for different screen sizes. To change these default styles, it is necessary to create your own CSS stylesheet. This custom style file overrides the Cassiopiea definitions as we wish for our website. Cassiopeia is written to recognise a stylesheet called 'user.css', which is located in the CSS subdirectory of the Cassiopeia files. Using a separate stylesheet makes it possible to access the new styles easily and quickly. Moreover, you do not run the risk of overwriting your own changes when you update your Joomla installation.
 
-> You want to do more than just change CSS? Perhaps you are wondering how to create a child template for Cassiopeia. Many know this from the CMS Wordpress. In Joomla, this worked differently until Joomla 4.1. To protect yourself from overwriting your own new code during a Joomla update, you have to copy the corresponding template and make the changes in the copy. The advantage of working on a copy is that you do not lose the changes you made when updating. The disadvantage is that you have to integrate updates to Cassiopeia itself into your copy yourself, if you want these new functions. Since Joomla 4.1 this drawback is [fixed](https://github.com/joomla/joomla-cms/pull/35874)[^github.com/joomla/joomla-cms/pull/35874]. With the introduction of child templates in Joomla 4.1, locations of media files in the Cassiopeia template changed. The path to the *template media folders* was before Joomla 4.1 `templates/cassiopeia/`. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the directory `media/templates/site/cassiopeia/`. Is it necessary to pay attention to anything when updating from Joomla 4.0 to Joomla 4.1? Short answer: No, Joomla takes care of everything. For example, if you have created a `templates/cassiopeia/css/user.css`, this file will automatically be moved to `media/templates/site/cassiopeia/css/user.css` after the update from 4.0 to 4.1.
+> You want to do more than just change CSS? Perhaps you are wondering how to create a child template for Cassiopeia. Many know this from the CMS Wordpress. In Joomla, this worked differently until version 4.1. To protect yourself from overwriting your own new code during a Joomla update, you had to copy the corresponding template and make the changes in the copy. The advantage of working on a copy was that you did not lose the changes you made when updating. The disadvantage was that you had to integrate updates to Cassiopeia into your copy yourself if you wanted these new functions. Since Joomla 4.1, this drawback has been [fixed](https://github.com/joomla/joomla-cms/pull/35874)[^github.com/joomla/joomla-cms/pull/35874]. With the introduction of child templates in Joomla 4.1, it is possible to create a template where you only change the things you want to customise. Everything else is used by a parent template. To be able to offer this function, it is necessary to change the locations of the media files in the Cassiopeia template. The path to the _template media folders_ was `templates/cassiopeia/` before Joomla 4.1. Template media folders are `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the directory `media/templates/site/cassiopeia/`. Do I have to pay attention to anything when updating from Joomla 4.0 to Joomla 4.1? Short answer: No, Joomla takes care of everything. For example, if you have created a `templates/cassiopeia/css/user.css`, this file will automatically be moved to `media/templates/site/cassiopeia/css/user.css` after the update from 4.0 to 4.1.
 
 ## What is SCSS or Sass?<!-- \index{SCSS!What is it?} --><!-- \index{Sass!What is it?} -->
 
@@ -132,7 +134,7 @@ New in Joomla 4 is the difference display<!-- \index{Override!Difference display
 
 ### How can I tell if Cassiopeia renders the start page of a Joomla website or a subpage?
 
-You want to create a Cassiopeia child template or an override that behaves differently or looks different on the start page than on all other pages. The following steps will show you how to find out whether your template is rendering the start page of your Joomla website or a subpage. 
+You want to create a Cassiopeia child template or an override that behaves differently or looks different on the start page than on all other pages. The following steps will show you how to find out whether your template is rendering the start page of your Joomla website or a subpage.
 
 For multilingual websites, the start page depends on the currently selected language. To find out which language version is currently active, you need functions from the namespace `Joomla\CMS\Language\Multilanguage`. Import this namespace if you want to be prepared for multilingual websites.
 
@@ -140,7 +142,7 @@ For multilingual websites, the start page depends on the currently selected lang
 use Joomla\CMS\Language\Multilanguage;
 ```
 
-The following code can be found in the file `templates/cassiopeia/index.php`, i.e. Cassiopeia. If you have copied this file for your child template or your template copy, it is not necessary to create it again. Make sure that the lines 
+The following code can be found in the file `templates/cassiopeia/index.php`, i.e. Cassiopeia. If you have copied this file for your child template or your template copy, it is not necessary to create it again. Make sure that the lines
 
 ```php
 $app = Factory::getApplication();
@@ -153,11 +155,10 @@ $menu = $app->getMenu()->getActive();
 
 are present in the file you are editing. The same will be true if you implement an override.
 
-
 With the call `$home = $app->getMenu()->getDefault();` you assign the variable `$home` with `true` on a non-multilingual website. On multilingual websites, a parameter is required. Use `$home = $app->getMenu()->getDefault($lang->getTag());`.
 
 ```php
-<?php 
+<?php
 // Look for the home menu
 if (Multilanguage::isEnabled())
 {
@@ -170,17 +171,19 @@ $home = $app->getMenu()->getDefault();
 ?>
 ```
 
-From now on, you can insert between the lines 
+From now on, you can insert between the lines
 
 ``php
+
 <?php if ($menu === $home) : ?>
 
 <?php endif; ?>
+
 ```
 
-everything that should be used on the start page. 
+everything that should be used on the start page.
 
-Use 
+Use
 
 ``php
 <?php if ($menu !== $home) : ?>

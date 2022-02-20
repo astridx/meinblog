@@ -114,7 +114,7 @@ Joomla 4 Webdienste machen Inhalte für andere Websites oder mobile Anwendungen 
 
 ##### Workflow
 
-Mit der neuen Komponente Workflow ist es möglich, Websiteinhalte mit einem Arbeitsablauf zu verknüpfen. Thirt Party Erweiterungen können mithifle der Kernerweiterung ebenfalls einen Arbeitsablauf anbieten. Auf diese Funktion ist hier im Buch noch nicht aufgenommen.
+Mit der neuen Komponente Workflow ist es möglich, Websiteinhalte mit einem Arbeitsablauf zu verknüpfen. Thirt Party Erweiterungen können mithifle der Kernerweiterung ebenfalls einen Arbeitsablauf anbieten. Auf diese Funktion ist hier im Buch bisher nicht aufgenommen.
 
 ##### Viele weitere Änderungen und Verbesserungen
 
@@ -183,7 +183,18 @@ Wenn du weiter interessiert bist lese die Diskussion zum Thema in einer [Google 
 
 Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unterstützt werden und was nicht weiter verfolgt wird? Dafür gibt es das [Statistik-Plugin](https://developer.joomla.org/about/stats.html)[^developer.joomla.org/about/stats.html]. Dank der Benutzer, die diese Erweiterung aktivieren, fließen wichtige Informationen in die Entwicklung ein.
 
+### Warum wird in Joomla-Dateien am Ende einer Quellcodedatei eine Leerzeile eingefügt?<!-- \index{Leerzeile am Dateiende} -->
+
+Es gibt mehrere Gründe dafür, dass eine leere Zeile am Dateiende als Erfordernis in die Joomla Coding Standards aufgenommen wurde:
+- Abgesehen von der Tatsache, dass es eine schönere Cursorposition ist, wenn du in einem Texteditor zum Ende einer Datei gehst ermöglicht ein Zeilenumbruch am Ende der Datei eine einfache Überprüfung, dass die Datei nicht abgeschnitten wurde.
+- Wenn du etwas am Ende einer Datei einfügt, zeigt die Differenzanzeige in Git, dass du die letzte Zeile geändert hast, während das Einzige, was du tatsächlich eingefügt hast, ein Zeilenumbruch ist. Das ist verwirrend.
+- Heute spielt es keine Rolle mehr, aber: viele ältere Werkzeuge im Programmierbereich verhalten sich falsch, wenn die letzte Datenzeile in einer Datei nicht mit einem Zeilenumbruch oder einer Wagenrücklauf/Neuzeilenkombination abgeschlossen wird. 
+
 ### PHP
+
+#### Warum sollte man das Tag zum Schließen von PHP Bereichen am Ende einer Datei weglassen?<!-- \index{PHP Ende-Tag} -->
+
+Das schließende Tag eines PHP-Blocks am Ende einer Datei ist optional, und in einigen Fällen ist es hilfreich, es wegzulassen. Wenn du das schließende Tag weglässt, kannst du verhindern, dass am Ende der Datei versehentlich Leerzeichen oder Zeilenumbrüche eingefügt werden. Weitere Erklärungen findest du unter [php.net](https://www.php.net/basic-syntax.instruction-separation)[php.net/basic-syntax.instruction-separation]
 
 #### PHP-Operatoren für Gleichheit (== zwei Gleichheitszeichen) und Identität (=== drei Gleichheitszeichen)<!-- \index{PHP!Vergleichsoperator} -->
 

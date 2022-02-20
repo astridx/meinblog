@@ -20,7 +20,7 @@ Zum einen gibt es eine in jeder Komponente an gleicher Stelle platzierte Schaltf
 
 ![Joomla Hilfelink in der Listenansicht](/images/j4x27x1.png)
 
-Zusätzlich ist es möglich, neben den Feldern in Formularen Erklärungen einzublenden. Seit Joomla 4.1 sind diese Erklärungen der besseren Übersicht halber ein- und ausblendbar. Diese Funktion wurde mit [PR 35610](https://github.com/joomla/joomla-cms/pull/35610/)[^github.com/joomla/joomla-cms/pull/35610/] eingeführt und *Inline-Hilfe* genannt.<!-- \index{Inline-Hilfe} -->
+Zusätzlich ist es möglich, neben den Feldern in Formularen Erklärungen einzublenden. Seit Joomla 4.1 sind diese Erklärungen der besseren Übersicht halber ein- und ausblendbar. Diese Funktion wurde mit [PR 35610](https://github.com/joomla/joomla-cms/pull/35610/)[^github.com/joomla/joomla-cms/pull/35610/] eingeführt und _Inline-Hilfe_ genannt.<!-- \index{Inline-Hilfe} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -36,7 +36,7 @@ In diesem Kapitel werden ausschließlich Dateien geändert.
 
 ### Geänderte Dateien
 
-Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeigen, die ein Fragezeichen als Icon enthält und eine im Code festgelegte Internetadresse als Link-Ziel hat. Ich habe `http://example.org` als Beispiel gewählt. Das Prinzip ist klar. Du hast die Möglichkeit für jede `View` eine separate Hilfedatei anzulegen und in der Ansicht der Komponente zu verlinken - genau da, wo in der Regel Fragen auftauchen. 
+Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeigen, die ein Fragezeichen als Icon enthält und eine im Code festgelegte Internetadresse als Link-Ziel hat. Ich habe `http://example.org` als Beispiel gewählt. Das Prinzip ist klar. Du hast die Möglichkeit für jede `View` eine separate Hilfedatei anzulegen und in der Ansicht der Komponente zu verlinken - genau da, wo in der Regel Fragen auftauchen.
 Und eine weitere Zeile reicht aus, um Beschreibungen in Inline-Hilfen zu verwandeln, also ein- und ausblendbar zu gestalten.
 
 <!-- prettier-ignore -->
@@ -59,13 +59,13 @@ Im Formular ergänzen wir beispielhaft eine Beschreibung. Diese wird später als
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
-Der Toolbar-Helfer unterstützt uns. Die Zeile `ToolbarHelper::divider();` sorgt dafür, dass die nachfolgenden Schaltflächen rechtsbündig dargestellt werden. `ToolbarHelper::inlinehelp();` fügt die Schaltfläche ein, die die Inlinehilfe ein- und ausblendet. Der Text hiefür wird hinter `description=` im Formular beim Feld gesucht. `ToolbarHelper::help('', false, 'http://example.org');` fügt die Schaltfläche ein, die zur externen Hilfeseite weiterleitet. Die Adresse der externen Seite, hier im Beispiel `http://example.org`,  wird als Parameter mitgegeben.
+Der Toolbar-Helfer unterstützt uns. Die Zeile `ToolbarHelper::divider();` sorgt dafür, dass die nachfolgenden Schaltflächen rechtsbündig dargestellt werden. `ToolbarHelper::inlinehelp();` fügt die Schaltfläche ein, die die Inlinehilfe ein- und ausblendet. Der Text hiefür wird hinter `description=` im Formular beim Feld gesucht. `ToolbarHelper::help('', false, 'http://example.org');` fügt die Schaltfläche ein, die zur externen Hilfeseite weiterleitet. Die Adresse der externen Seite, hier im Beispiel `http://example.org`, wird als Parameter mitgegeben.
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 
- 
+
  			ToolbarHelper::cancel('foo.cancel', 'JTOOLBAR_CLOSE');
  		}
 +

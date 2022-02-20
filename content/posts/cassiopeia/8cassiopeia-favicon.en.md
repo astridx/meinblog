@@ -15,9 +15,9 @@ tags:
   - Cassiopeia
 ---
 
-Favicons are the small icons we see in browser tabs. They help to recognise a page when we browse the bookmarks and open tabs in the browser. The integration of favicons changed over time. Some say they have grown historically. Today they offer various additional functions and new ones are added all the time.
+_Favicons_ are the small icons we see in browser tabs. They help to recognise a page when we browse the bookmarks and open tabs in the browser. The integration of favicons changed over time. Some say it has grown historically. Today, favicons offer various additional functions and new ones are added from time to time.<!-- \index{favicon} -->
 
-A new feature is the ability to use the file type SVG as a favicon. This is something that [most modern browsers support](https://caniuse.com/#feat=link-icon-svg), and further support is in the pipeline. To use this new feature you need an SVG file. To ensure that older browsers also display the image, you also need an ICO file.
+It is possible to use the file type SVG as a favicon. This is supported by [most modern browsers](https://caniuse.com/#feat=link-icon-svg). To use this new function, you need an SVG file. To ensure that older browsers also display the graphic, an ICO file is also required.
 
 > You are not familiar with SVG and ICO and would rather use the PNG format? Then you will find a solution that suits you better under [Favicon in Joomla template](https://blog.astrid-guenther.de/en/joomla-template-favicon).
 
@@ -27,7 +27,7 @@ A new feature is the ability to use the file type SVG as a favicon. This is some
 
 ### Implementierung
 
-Hier ist der Code den Cassiopeia zum Hinzufügen von Favicons nutzt:
+Here is the code Cassiopeia uses to add favicons:
 
 ```PHP
 ...
@@ -37,7 +37,9 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 ...
 ```
 
-Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode ist das Dokument, welches an den Browser übergeben wird.
+As a result, the following entries appear in the HTML source code. The HTML source code is the document that is passed to the browser.
+
+> In all common browsers you can display the HTML source code with the key combination [Ctrl - U]. 
 
 ```HTML
 ...
@@ -47,77 +49,77 @@ Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode
 ...
 ```
 
-> Der [Pull Request](https://github.com/joomla/joomla-cms/pull/31436) mit diese Funktion integriert wurde, orientierte sich an ein [CSS-Tricks](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) Tutorial.
+> The [Pull Request](https://github.com/joomla/joomla-cms/pull/31436)[^github.com/joomla/joomla-cms/pull/31436] with which this function was integrated is based on a [CSS-Tricks](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/) tutorial.
 
-### Erklärung zur Implementierung
+### Implementation explanation
 
-Wenn ein Browser ein SVG-Favicon nicht unterstützt, ignoriert er die erste Zeile `<link href="/j4dev/media/system/images/joomla-favicon.svg" rel="icon" type="image/svg+xml">` und fährt mit der zweiten fort. Dadurch wird sichergestellt, dass alle Browser, die Favicons unterstützen, ein Bild anzeigen können.
+If a browser does not support an SVG favicon, it ignores the first line `<link href="/j4dev/media/system/images/joomla-favicon.svg" rel="icon" type="image/svg+xml">` and continues with the second. This ensures that all browsers that support favicons can display an image.
 
-Beachte den alternativen Attributwert für unsere `rel`-Deklaration `rel="alternate icon"`. Damit wird dem Browser mitgeteilt, dass das Favicon mit dem Dateiformat `.ico` lediglich als alternative Darstellung verwenden soll.
+Note the alternate attribute value for our `rel` declaration `rel="alternate icon"`. This tells the browser to use the favicon with the file format `.ico` as an alternative display only.
 
-Nach den Favicons folgt die Codezeile `<link href="/j4dev/media/system/images/joomla-favicon-pinned.svg" rel="mask-icon" color="#000">`, die ein weiteres SVG-Bild lädt. Dieses heißt `joomla-favicon-pinned.svg`. Damit wird die "Pinned Tab"-Funktionalität von Safari unterstützt, die es gab, bevor andere Browser SVG-Favicons unterstützten.
+After the favicons follows the code line `<link href="/j4dev/media/system/images/joomla-favicon-pinned.svg" rel="mask-icon" colour="#000">`, which loads another SVG image. This is called `joomla-favicon-pinned.svg`. This supports Safari's `pinned tab` functionality, which existed before other browsers supported SVG favicons.
 
-## Ein modernes Favicon mit SVG und ICO als Fallback
+## A modern favicon with SVG and ICO as fallback
 
-### Warum ein SVG Favicon?
+### Why an SVG Favicon?
 
-Du fragst dich, welchen Grund es gibt zu SVG zu wechseln? Das `.ico`-Dateiformat gibt es schon ewig und kann Bilder bis zu einer Größe von 256×256 Pixeln unterstützen. Hier sind drei Gründe.
+Wondering what reason there is to switch to SVG? The `.ico` file format has been around forever and can support images up to 256×256 pixels. Here are three reasons.
 
-- Das `.ico`-Dateiformat ist ein proprietäres Format, das von Microsoft verwendet wird. SVG ist ein offener Standard. Du kannst SVG-Dateien ohne jegliche Abhängikeit verwenden.
+- The `.ico` file format is a proprietary format used by Microsoft. SVG is an open standard. You can use SVG files without any dependency.
 
-- Wenn wir eine auflösungsunabhängige SVG-Datei für ein Favicon verwenden, sieht das Favicons bei jeder Displaygröße gestochen scharf aus.
+- If we use a resolution-independent SVG file for a favicon, the favicon will look sharp at any display size.
 
-- SVGs sind in der Regel sehr kleine Dateien, vor allem im Vergleich zu ihren Rasterbild-Pendants. Indem wir nur ein 16×16 Pixel großes Favicon als Fallback für Browser verwenden, bieten wir mit wenig Datenvolumen einen hohen Grad an Unterstützung.
+- SVGs are usually very small files, especially compared to their raster image counterparts. By using only a 16×16 pixel favicon as a fallback position for browsers, we provide a high level of support with little data volume.
 
-### Erstelle dein Favicon mit Ubuntu 20.04
+### Create your favicon with Ubuntu 20.04
 
-Zunächst sehen wir uns an, wie man ein Favicon unter Ubuntu erstellt. Ich veranschauliche es mit Hilfe der Pakete [Inkscape](https://inkscape.org/de/) und [Imagemagick](https://imagemagick.org/index.php). Zuerst besprechen wir den Installationsprozess für beide Pakete. Um mit dem Installationsprozess fortzufahren, solltest du Zugriff auf Superuser-Rechte haben.
+First, let's look at how to create a favicon on Ubuntu. I illustrate it using the [Inkscape](https://inkscape.org/de/) and [Imagemagick](https://imagemagick.org/index.php) packages. First, let's discuss the installation process for both packages. To proceed with the installation process, you should have access to superuser privileges.
 
-#### Installiere Inkscape und Imagemagick unter Ubuntu
+#### Install Inkscape and Imagemagick on Ubuntu
 
-Führe folgendes Kommando im Terminal aus.
+Execute the following command in the terminal.
 
 ```
 sudo apt install inkscape imagemagick
 ```
 
-Der obige Befehl installiert die Pakete -- Inkscape und Imagemagick. Mit dem Inkscape-Paket erstellen wir eine skalierbare Vektorgrafik und konvertieren anschließend die Datei mit der Erweiterung .svg in .ico mit dem Befehl `convert` von Imagemagick.
+The above command installs the packages -- Inkscape and Imagemagick. We use the Inkscape package to create a scalable vector graphic and then convert the file with the .svg extension to .ico using Imagemagick's `convert` command.
 
-#### Erstellen einer skalierbaren Vektorgrafik mit Inkscape
+#### Creating a scalable vector graphic with Inkscape
 
-Mit Inkscape können wir praktisch alles entwerfen. Wir erstellen ein Text-Favicon. Öffne Inkscape und du siehst zunächst eine leere Seite umringt von Symbolleisten. Klinke auf der linken Seite auf das Symbol mit dem `A`.
+With Inkscape we can design practically anything. We will create a text favicon. Open Inkscape and you will first see a blank page surrounded by toolbars. Click on the symbol with the 'A' on the left side.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape1.png)
+! [Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape1.png)
 
-Das `A` dient zum Erstellen und Bearbeiten von Textobjekten in Inkscape. Danach erstellen wir einen rechteckigen Rahmen in der Standard-Leerzeile.
+The function behind the `A` is used to create and edit text objects in Inkscape. Then we create a rectangular frame in the standard empty line.
 
-![Cassiopeia Favicon erstellen - Schrift anpassen in Inkscape](/images/cassiopeia_inkscape2.png)
+![Create Cassiopeia Favicon - adjust font in Inkscape](/images/cassiopeia_inkscape2.png)
 
-Schreibe irgendetwas und markieren den Text. Direkt unter der Menüleiste ist die Schriftart und die Größe des Textes änderbar. Wähle eine Schrift nach deinem Geschmack.
+Write anything and highlight the text. Directly under the menu bar you can change the font and the size of the text. Choose a font according to your taste.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape3.png)
+![Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape3.png)
 
-Danach drücke F1, um das Textobjekt auszuwählen und zu transformieren.
+Then press F1 to select and transform the text object.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape3a.png)
+![Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape3a.png)
 
-Des Weiteren werden wir das Textobjekt einfärben. Diese kann über die Leise im unteren Bereich erfolgen.
+Furthermore we will colour the text object. This can be done using the quiet in the lower area.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape4.png)
+![Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape4.png)
 
-Das Textobjekt sollte in einen Pfad umgewandelt werden, dies könnte über das Tastenkürzel Objekt in Pfad umwandeln Strg+Shft+C und Seitengröße auf Auswahlgröße Strg+Shft+R geschehen, um die Seite auf die Auswahl zu verkleinern.
+The text object should be converted to a path, this could be done using the keyboard shortcut Convert Object to Path Ctrl+Shft+C and Page Size to Selection Size Ctrl+Shft+R to shrink the page to fit the selection.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape5.png)
+![Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape5.png)
 
-Und, speichere die SVG-Datei über das Menü oder die Tastenkombination Strg+Shft+S. Wähle als Format ein normales SVG. Als Speicherort wählst du
+Save the SVG file via the menu or the key combination Ctrl+Shft+S. Choose a normal SVG as format. As storage location choose
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape6.png)
+![Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape6.png)
 
-Im Browser siehst du das Favicon nun im Tabulator.
+In the browser you will now see the favicon in the tabulator.
 
-![Cassiopeia Favicon erstellen - Erstellen von Textobjekten in Inkscape](/images/cassiopeia_inkscape7.png)
+![Create Cassiopeia Favicon - Creating Text Objects in Inkscape](/images/cassiopeia_inkscape7.png)
 
-Der Vollständigkeit halber füge ich den Quellcode der SVG-Datei nachfolgend ein.
+For the sake of completeness, I include the source code of the SVG file below.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -167,9 +169,9 @@ Der Vollständigkeit halber füge ich den Quellcode der SVG-Datei nachfolgend ei
 </svg>
 ```
 
-##### CSS in der SVG-Dateien
+##### CSS in the SVG files
 
-Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mittels `style="..."` möglich, sonder ebenfalls via Tag.
+Note that we have embedded CSS in the SVG file. This is not only possible via `style="..."`, but also via the tag `<style>`.
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -198,18 +200,18 @@ Beachte, dass wir CSS in der SVG-Datei eingebettet haben. Dies ist nicht nur mit
 ...
 ```
 
-##### Ein Emoji als Favicon
+##### An emoji as a favicon<!-- \index{favicon!emoji} -->
 
-[Emojis](https://de.wikipedia.org/w/index.php?title=Emoji&oldid=210760547) sind kleine Bilder. Sie werden eingesetzt, um Begriffe zu ersetzen.
+[Emojis](https://de.wikipedia.org/w/index.php?title=Emoji&oldid=210760547) are small pictures. They are used to replace terms.
 
-Ein [Emoji als Favicon](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#emoji)
-ist eine unkomplizierte Variante, ein Favicon mit transparentem Hintergrund zu erstellen, das auch bei kleinen Größen funktioniert.
+An [Emoji as Favicon](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#emoji)
+is an easy way to create a favicon with a transparent background that also works for small sizes.
 
-Wenn du ein Emojis in HTML anzeigen möchtest, kannst du den dezimalen oder hexadezimalen Referenz-Code verwenden. Oder du kopierst das Bild, wenn du es auf einer anderen Website siehst.
+If you want to display an emoji in HTML, you can use the decimal or hexadecimal reference code. Or you can copy the image if you see it on another website.
 
-Nachfolgend siehst du einen Beispielcode und das Ergebnis im Browser.
+Below you can see an example code and the result in the browser.
 
-Eine Palme kannst du auf drei Arten als Emoji-Favicon verwenden.
+You can use a palm tree as an emoji favicon in three ways:
 
 ```XML
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -237,11 +239,11 @@ oder
 
 > Du möchtest gerne wissen, welche Emojis du verwenden kannst? Dann ist die [Emoji-Liste mit HTML-Codes](https://www.getemojis.net/html/#Emoji-Liste) eine mögliche Anlaufstelle.
 
-##### Favicon und Dark Mode
+##### Favicon and Dark Mode<!-- \index{favicon!dark mode} -->
 
-Mit dem [Dark Mode](https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme) können wir unser Display an eine dunkle Umgebung anpassen. Möchtest du, dass im [Dark Mode](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support) ein anderes Favicon für deine Website angezeigt wird? In diesem Fall kannst du die Medienabfrage `prefers-color-scheme` verwenden.
+With [Dark Mode](https://de.wikinew.wiki/wiki/Light-on-dark_color_scheme) we can adapt our display to a dark environment. Do you want a different favicon for your website to be displayed in [Dark Mode](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/#dark-mode-support)? In this case you can use the media query 'prefers-color-scheme'.
 
-Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass sich die Sonne in einen Mond verwandelt, wenn der Dark Mode aktiviert wird.
+For browsers that support SVG files, the following code causes the sun to turn into a moon when dark mode is activated.
 
 ```XML
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -256,31 +258,30 @@ Für SVG-Dateien unterstützende Browser bedeutet der nachfolgende Code, dass si
 </svg>
 ```
 
-#### Konvertieren von .svg in .ico
+#### Converting .svg to .ico
 
-Um die Datei input.svg in die Datei favicon.ico zu konvertieren, müssen wir folgendes im Terminal ausführen.
+To convert the input.svg file to the favicon.ico file, we need to run the following in the terminal.
 
 ```
 convert -background transparent -define icon:auto-resize=16 joomla-favicon.svg favicon.ico
 ```
 
-Wir haben den Hintergrund transparent und als Symbolgröße 16 Pixel gewählt. Das `ICO`-Dateiformat unterstützt Bilder mit einer Größe von bis zu 256×256 Pixeln.
+We have chosen a transparent background and a symbol size of 16 pixels. The `ICO` file format supports images with a size of up to 256×256 pixels.
 
-Du weißt nun, wie du mit Ubuntu unter Verwendung der Pakete Inkscape und Imagemagick eine skalierbare Vektorgrafik (SVG)erstellst und in das `ICO`-Format als `favicon.ico` konvertiert.
+You now know how to create a scalable vector graphic (SVG) with Ubuntu using the packages Inkscape and Imagemagick and convert it to the `ICO` format as `favicon.ico`.
 
-#### Das Favicon im Template einbinden
+#### Integrating the favicon into the template
 
-Um dein selbst erstelltes Favicon anstelle des Joomla-Logos im Template Cassiopeia einzusetzen, reicht es aus, die Dateien
-
+To use your self-created favicon instead of the Joomla logo in the template Cassiopeia, it is sufficient to use the files
 - `joomla-favicon.svg`
 - `favicon.ico`
 - `joomla-favicon-pinned.svg`
 
-im Verzeichnis `JOOMLA/templates/cassiopeia/images` abzulegen. Falls du sie nicht schon sofort hier erstellt hast, kopierst du sie in dieses Verzeichnis.
+in the directory 'JOOMLA/templates/cassiopeia/images'. If you have not already created them here, copy them into this directory.
 
-> Nebenbei bemerkt: Auf dies Art kannst du alle Dateien des Verzeichnisses `JOOMLA/media/system` überschreiben.
+> By the way: This way you can overwrite all files in the directory `media/system`.
 
-Magst du die Dateinamen umbenennen? Du würdest gerne anstelle von `joomla-favicon.svg` einfach `favicon.svg` und anstelle von `joomla-favicon-pinned.svg` `favicon-pinned.svg` als Dateinamen verwenden? Dann ist es erforderlich, dass du die Aufrufe in der Datei `index.php` des Tempaltes anpasst. Passe die Dateinamen an. Ersetze die nachfolgenden Zeilen
+Do you like to rename the filenames? You would like to use `favicon.svg` instead of `joomla-favicon.svg` and `favicon-pinned.svg` instead of `joomla-favicon-pinned.svg` as file names? Then you have to adjust the calls in the file `index.php` of the template. Adjust the filenames. Replace the following lines
 
 ```PHP
 ...
@@ -290,7 +291,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 ...
 ```
 
-mit
+with
 
 ```PHP
 ...
@@ -300,7 +301,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon-pinned.svg', '', [], true, 1)
 ...
 ```
 
-Note: If you put the favicons in the directory `media/templates/site/cassiopeia/images`, they will not be overwritten. Just like `user.css`, this is an easy way to make changes. When updating, the versions of the images in the directory `media/system` are adapted, not those in the template directory. If you change the names of the image files and therefore edit the `index.php` of the template, you have to take care in case of an update of Joomla. The file `index.php` of the Cassiopeia template will be overwritten. For example, create a child template. 
+Note: If you store the favicons in the directory `media/templates/site/cassiopeia/images`, they will not be overwritten during a Joomla update. Just like `user.css`, this is an easy way to make changes. When updating, the versions of the images in the directory `media/system` are updated, not those in the template directory. If you change the names of the image files and therefore edit the `index.php` of the template, you have to take care in case of an update of Joomla. The file `index.php` of the Cassiopeia template will be overwritten. Solution: For example, create a child template.
 
-> Note: The path to the *template media folders* was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
-<img src="https://vg04.met.vgwort.de/na/f0a482cad79b4d04b1e9ccbb267449d0" width="1" height="1" alt="">
+> Note: The path to the _template media folders_ was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
+> <img src="https://vg04.met.vgwort.de/na/f0a482cad79b4d04b1e9ccbb267449d0" width="1" height="1" alt="">

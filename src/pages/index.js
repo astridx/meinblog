@@ -69,7 +69,8 @@ export default function WebsiteIndex({ data }) {
 
         <div className="container">
           <h2 className="main-header">
-            <span>Neueste Beiträge - Latest Articles</span> <Link to="/blog">View All</Link>
+            <span>Neueste Beiträge - Latest Articles</span>{' '}
+            <Link to="/blog">View All</Link>
           </h2>
           <Posts data={simplifiedLatest} />
         </div>
