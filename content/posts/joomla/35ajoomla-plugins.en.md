@@ -111,6 +111,10 @@ The _Joomla Core Sample Data module_ provides a unified workflow for adding samp
 
 System Plugins performs a wide variety of tasks. This sounds vague, however. To make it a bit more concrete, examples follow. System plugins can add HTML code, CSS or JavaScript to the Joomla page after it is generated.Plugins of this type modify Joomla forms before they are generated. With the help of system plugins alternative error handling is possible. This was only a small part of the possible. You see, system plugins are very powerful. To be able to fulfill this powerful task, they are called frequently and therefore need resources. Use them carefully!
 
+### [Task](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)<!-- \index{plugins!Task} -->
+
+Do you have tasks that have to be done again and again? Or tasks for the future that you would like to plan and definitely must not forget? Since Joomla 4.1, you can automate these with the new task planner. And what is essential for developers: All Joomla extensions can take advantage of it and schedule tasks and execute them regularly. Especially if the website host does not allow cron jobs. It is possible to use the core scheduler to schedule tasks in your own extensions. Task Plugins are integrated into Joomla via [PR 35143](https://github.com/joomla/joomla-cms/pull/35143)[^github.com/joomla/joomla-cms/pull/35143].
+
 ### [Two Factor Authentication](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Two_Factor_Authentication_Group/en)<!-- \index{plugins!Two Factor Authentication} -->
 
 In addition to standard authentication, there is the possibility to achieve additional security by adding a parallel second authentication.

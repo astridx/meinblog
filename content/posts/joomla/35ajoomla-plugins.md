@@ -112,6 +112,10 @@ Das _Joomla Kern Modul_ Beispieldaten bietet einen einheitlichen Workflow zum Hi
 
 System Plugins erledigt die unterschiedlichsten Aufgaben. Das klingt zugegebenermaßen vage. Um es etwas konkreter zu machen, folgen Beispiele. System-Plugins können HTML-Code, CSS oder JavaScript zur Joomla-Seite hinzufügen, nachdem diese generiert wurde. Plugins dieses Typs ändern Joomla Formulare, bevor sie generiert werden. Mithilfe von System Plugins sind alternative Fehlerbehandlung möglich. Dies war nur ein kleiner Ausschnitt des mögliche. Du siehst, System Plugins sind sehr mächtig. Um diese mächtige Aufgabe erfüllen zu können, werden diese häufig aufgerufen und benötigen demzufolge Ressourcen. Setzte sie deshalb mit bedacht ein!
 
+### [Task](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)<!-- \index{Plugin!Task} -->
+
+Hast du Aufgaben, die immer wieder zu erledigen sind? Oder Aufgaben für die Zukunft, die du gerne planen möchtest und auf keinen Fall vergessen werden dürfen? Seit Joomla 4.1 kannst du diese mit dem neuen Aufgabenplaner automatisieren. Und was für Entwickler wesentlich ist: Alle Joomla-Erweiterungen können die Vorteile nutzen und Aufgaben zeitlich planen und regelmäßig ausführen. Insbesondere dann, wenn der Website-Host keine Cron-Jobs zulässt. Es ist möglich den Kern-Scheduler zu nutzen, um Aufgaben in der eigenen Erweiterungen planbar zu machen. Task Plugins wurden mit dem [PR 35143](https://github.com/joomla/joomla-cms/pull/35143)[^github.com/joomla/joomla-cms/pull/35143] in Joomla integriert.
+
 ### [Two Factor Authentication (Zwei-Faktor-Authentifizierung)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Two_Factor_Authentication_Group/en)<!-- \index{Plugin!Two Factor Authentication (Zwei-Faktor-Authentifizierung)} -->
 
 Neben der normalen Authentifizierung gibt es die die Möglichkeit, zusätzliche Sicherheit durch Hinzufügen einer gleichzeitigen zweiten Authentifizierung zu erreichen.
