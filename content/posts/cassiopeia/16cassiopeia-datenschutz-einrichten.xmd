@@ -1,0 +1,110 @@
+---
+description: 'desc'
+shortTitle: 'short'
+date: 2022-02-17
+title: 'Ein erstes Child-Template'
+template: post
+thumbnail: '../../thumbnails/cassiopeia.png'
+slug: cassiopeia-datenschutz-einrichten
+langKey: de
+categories:
+  - Cassiopeia
+tags:
+  - Template
+  - Joomla
+  - Cassiopeia
+---
+
+
+
+In diesem Leitfaden werde ich mich darauf konzentrieren, wie Joomla mit der GDPR umgeht. 
+Das Joomla-Team hat mehrere Erweiterungen entwickelt, die Ihnen helfen, die Privatsphäre Ihrer Nutzer zu schützen.
+
+## Was sind die neuen Joomla-Datenschutzfunktionen?
+
+Es ist jetzt einfacher, die Zustimmung der Nutzer einzuholen, wenn Sie ihre Daten aufzeichnen.
+Es gibt eine neue Komponente, um Datenanfragen von Nutzern zu verwalten.
+Es gibt eine API für Entwickler von Erweiterungen, damit sie die von ihnen erfassten Daten melden können.
+Um all diese neuen Funktionen zu verwalten, gibt es ein neues Dashboard für Datenschutzdaten:
+
+### Joomla neues Datenschutz-Dashboard
+
+Sie können das Dashboard über den Menüpunkt "Benutzer" im Administrator erreichen:
+
+![Datenschutz Werkzeuge in Joomla 4 unter Cassiopeia | Dashboard](/images/cassiopeia_datenschutz1.png)
+
+admin menü datenschutz benutzeraktionen log
+
+Joomla Datenschutz-Funktion #1. Einholung der Zustimmung der Nutzer
+Ein Schlüsselprinzip des GDPR-Gesetzes ist, dass Sie die Erlaubnis der Nutzer benötigen, um 
+ihre persönlichen Daten zu sammeln. Joomla hat ein neues "System - Privacy Consent"-Plugin, das es einfacher macht, 
+diese Zustimmung zu erhalten.
+
+Gehen Sie zu Erweiterungen > Plugins.
+Aktivieren Sie das "System - Privacy Consent"-Plugin:
+System-Datenschutz-Zustimmung aktivieren
+
+![Datenschutz Werkzeuge in Joomla 4 unter Cassiopeia | Dashboard](/images/cassiopeia_datenschutz2.png)
+
+Dieses Plugin fügt Einverständniserklärungsfelder hinzu, wenn Nutzer Ihnen Daten senden. 
+Das Bild unten zeigt zum Beispiel ein Einwilligungsfeld in einem Joomla-Kontaktformular. Diese Zustimmungsbox kann auch auf Ihren Benutzerregistrierungsformularen erscheinen.
+
+Einverständnis-Frontend-Schaltflächen
+
+Wie Sie auf dem Bild sehen können, zeigt das Plugin die Optionsfelder "Ich stimme zu" und "Nein" an. Wenn Sie möchten, können Sie diese Erklärung innerhalb des Plugins anpassen:
+
+kurze datenschutzerklärung
+
+Das Plugin ermöglicht es Ihnen auch, einen Joomla-Artikel auszuwählen, der die Datenschutzbestimmungen Ihrer Website erklärt:
+
+Ausführlicher Datenschutz-Joomla-Artikel
+
+Sie können auch die Standard-Weiterleitungsnachricht anpassen, die die Nutzer auffordert, Ihrer Datenschutzrichtlinie zuzustimmen. Diese Nachricht wird Benutzern angezeigt, die sich auf Ihrer Website registriert haben, bevor Sie das Plugin System - Privacy Consent aktiviert haben.
+
+Weiterleitungsnachricht
+
+Schließlich können Sie mit dem Datenschutz-Zustimmungs-Plugin die Überprüfung des Ablaufs der Zustimmung steuern. Sie können diese Optionen wählen:
+
+Periodische Prüfung: Wie oft wird Joomla die Ablaufprüfungen durchführen.
+Verfall: Wie lange die Zustimmung zum Datenschutz gilt, bevor sie abläuft.
+Erinnern: Wann sollen die Benutzer an ihre ablaufende Zustimmung erinnert werden.
+Registerkarte "Ablauf
+
+ 
+
+Joomla Datenschutz-Funktion #2. Verwaltung von Datenanfragen von Nutzern
+Dank com_privacy können Nutzer Informationsanfragen stellen. Es gibt neue Menülinks, damit Sie den Nutzern erlauben können, diese Anfragen zu senden:
+
+comprivacy-Links
+
+Joomla sendet eine E-Mail an den Benutzer, nachdem er eine Anfrage gestellt hat. Die Benutzer müssen dann auf einen Bestätigungslink klicken.
+
+Diese Funktion ist auf authentifizierte Benutzer beschränkt. Dies könnte sich in Zukunft ändern. Für anonyme Besucher ist die Datenschutz-Grundverordnung jedoch weniger wichtig, und ein Formular wie dieses könnte auch zum Ziel von Spam werden.
+
+Die Anfragen werden an das Datenschutz-Dashboard gesendet. Der Administrator kann Anfragen von "Ausstehend" > "Bestätigt" > "Abgeschlossen" verschieben. Es gibt auch eine Option "Ungültig", wenn Nutzer nicht auf die Bestätigungs-E-Mail reagieren.
+
+com Datenschutz
+
+Joomla Datenschutz Feature #3. Eine API für Erweiterungsentwickler
+Das Joomla-Team hat eine Lösung entwickelt, die nicht nur für die Kernfunktionen von Joomla funktioniert. Die Joomla-Datenschutzfunktionen bieten auch einen Rahmen für die Entwickler von Erweiterungen, in den sie integriert werden können.
+
+Entwickler von Erweiterungen können diesen Leitfaden verwenden, um die API von Joomla für die Berichterstattung von Erweiterungen zur Datenerfassung zu implementieren. Wie kann dies nützlich sein? Wenn alle Ihre Erweiterungen ihre Daten an com_privacy melden, kann es viel einfacher sein, diese Daten zu löschen, wenn die Benutzer sie entfernen wollen.
+
+Jetzt, wo die API für die Entwickler von Erweiterungen verfügbar ist, wird das Joomla-Team Anreize für die Entwickler schaffen, die Unterstützung der Privatsphäre hinzuzufügen. Ich habe einige Ideen gesehen, wie man Entwickler von Erweiterungen ermutigen kann, ihren Code zu integrieren. Eine gute Idee ist es, die JED zu aktualisieren, um zu zeigen, welche Erweiterungen die Datenschutz-Tools von Joomla unterstützen.
+
+Was können Sie im Hinblick auf die GDPR tun?
+Es ist ein guter Zeitpunkt, sich ernsthaft mit der GDPR zu befassen und zu prüfen, ob Ihr Unternehmen konform ist (oder ob es überhaupt konform sein muss). Wenn Sie nicht in Europa ansässig sind und keine europäischen Nutzer haben, werden Sie vielleicht nie auf rechtliche Probleme stoßen. Aber dies ist eine großartige Gelegenheit für uns alle, sorgfältiger über die Daten unserer Kunden nachzudenken. 
+
+Das Wichtigste ist, dass Sie mit der Einhaltung der DSGVO beginnen und zeigen, dass Sie die Daten Ihrer Kunden ernst nehmen. Einige Ideen:
+
+Aktualisieren Sie Ihre Datenschutzrichtlinien, um deutlich zu machen, welche Daten Sie sammeln und warum Sie das tun.
+Fügen Sie Kontrollkästchen für die Zustimmung hinzu, wenn Sie Kontaktformulare verwenden.
+Aktualisieren Sie Ihre "Kontakt"-Seite, damit Ihre Kunden Sie bei Fragen zum Datenschutz erreichen können.
+Sie sind an der Reihe? Haben Sie noch Fragen zu Joomla GDPR?
+Wir alle lernen und versuchen, die GDPR zu verstehen. Wir erheben keinen Anspruch darauf, GDPR-Experten zu sein. Keiner von uns weiß genau, wie sich dieses Gesetz auf Websites auswirken wird.
+
+Lassen Sie uns also einander helfen.
+
+
+
+

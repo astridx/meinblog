@@ -17,16 +17,16 @@ tags:
 
 Eine der wichtigsten Änderungen in Joomla 4 ist das Upgrade von Bootstrap 2 auf [Bootstrap 5](https://getbootstrap.com/docs/5.0/). Allerdings setzt Joomla 4 nicht ausschließlich auf Bootstrap auf. Joomla 4 verwendet ebenfalls [CSS Grid](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Grid_Layout).
 
-Bootstrap 5 und CSS Grid sind die Werkzeuge, die für das Frontend-Design in Joomla 4 verwendet werden. Das [Joomla-Team macht diese Änderung](https://github.com/joomla/joomla-cms/pull/16810#issuecomment-310654687), weil sie glauben, dass CSS Grid zukunftssicherer ist. Joomla 3 war lange Jahre an eine alte Version von Bootstrap gebunden. Die Hoffnung ist, dass dieser neue Ansatz ähnliche Probleme mit Joomla 4 vermeiden wird.
+Bootstrap 5 und CSS Grid sind die Werkzeuge, die für das Frontend-Design in Joomla 4 verwendet werden. Das [Joomla-Team machte diese Änderung](https://github.com/joomla/joomla-cms/pull/16810#issuecomment-310654687), weil sie glauben, dass CSS Grid zukunftssicherer ist. Joomla 3 war lange Jahre an eine alte Version von Bootstrap gebunden. Die Hoffnung ist, dass dieser neue Ansatz ähnliche Probleme mit Joomla 4 vermeiden wird.
 
 ## Bootstrap 2 versus Bootstrap 5
 
-Zusammengefasst bedeutet Boostrap 2 versus Boostrap 5: [Float versus Flex zum Aufbau von Layouts](https://www.joomlashack.com/blog/joomla-news/css-grid/). Vergleichen wir die beiden Bootstrap Versionen, bevor wir uns CSS Grid genauer ansehen.
+Zusammengefasst bedeutet Bootstrap 2 versus Bootstrap 5: [Float versus Flex zum Aufbau von Layouts](https://www.joomlashack.com/blog/joomla-news/css-grid/). Vergleichen wir die beiden Bootstrap Versionen, bevor wir uns CSS Grid genauer ansehen.
 
-- Bootstrap 2 wird in Joomla 3 unterstützt.
-- Bootstrap 5 wird in Joomla 4 unterstützt werden.
+- Bootstrap 2 ist in Joomla 3 integriert.
+- Bootstrap 5 ist in Joomla 4 integriert.
 
-Das Beispiel unten ist ein zweispaltiges Grid-Layout in Bootstrap 2:
+Das folgende Codeschnipsel zeigt ein zweispaltiges Grid-Layout in Bootstrap 2:
 
 ```
 <div class="container">
@@ -37,11 +37,11 @@ Das Beispiel unten ist ein zweispaltiges Grid-Layout in Bootstrap 2:
 </div>
 ```
 
-Dieser Code wird das folgende Layout ausgeben:
+Dieser Code zeigt das folgende Layout:
 
-![Spalten in Boostrap 2]()
+![Spalten in Bootstrap 2](/images/grid0.png)
 
-Hier ist das gleiche Beispiel mit Bootstrap 5:
+Nachfolgend ein analoges Codebeispiel mittels Bootstrap 5:
 
 ```
 <div class="container">
@@ -54,7 +54,7 @@ Hier ist das gleiche Beispiel mit Bootstrap 5:
 
 Der Hauptunterschied ist, dass die Spaltengrößen-Präfixe von `span` auf `col-md-` geändert wurden. Wir können `col-md-` durch `col-sm-` ersetzen, um kleine Bildschirme anzusprechen, oder durch `col-lg-`, um große Bildschirme anzusprechen, oder durch `col-xl-` für extra große Bildschirme.
 
-Es ist möglich, mehr als eine Klasse zu verwenden, um eine unterschiedliche Spaltengröße in Abhängigkeit von der Bildschirmbreite zu definieren. Dies erlaubt mehr Kontrolle über die Reaktionsfähigkeit bei unterschiedlichen Bildschirmgrößen!
+Es ist möglich, mehr als eine Klasse zu verwenden, um eine unterschiedliche Spaltengröße in Abhängigkeit von der Bildschirmbreite zu definieren. Dies erlaubt mehr Kontrolle über das Layout bei unterschiedlichen Bildschirmgrößen!
 
 ```html
 <div class="col-md-6 col-lg-12"></div>
@@ -96,35 +96,33 @@ CSS:
 }
 ```
 
-Das obigen Beispiel zeigt ein prägnanteres HTML-Markup. Wir sind die CSS-Spalten- und -Zeilenklassen sowie den Zeilencontainer losgeworden. Diese Regeln definieren wir in der CSS-Datei:
+Das obigen Beispiel verwendet weniger Text im HTML-Markup. Es gibt keine CSS-Spalten- und -Zeilenklassen mehr. Die Regeln hierfür definieren wir im Elternelement:
 
 - `grid-template-columns`: die Anzahl der Spalten und die Breite der einzelnen Spalten. Zwei Spalten, 50% Breite für beide.
 - `grid-template-rows`: die Höhe für jede Zeile. In diesem Fall 100 Pixel.
 
-Die Eigenschaft `display` mit `grid` als Wert definiert die Kind-Divs für `.container` als Elemente für das Layout.
+Die Eigenschaft `display` mit `grid` als Wert definiert die Kind-`Divs` für `.container` als Elemente für das Layout.
 
 Natürlich ist dieses kurze Beispiel sehr einfach und geht nicht auf komplexere Funktionen ein.
 
 ## CSS-Grid-Layouts in Joomla 4
 
-CSS Grid hat in meinen Augen zwei markante Vorteile gegenüber Bootstrap:
+CSS Grid hat in meinen Augen zwei wesentliche Vorteile gegenüber Bootstrap:
 
-- Einfacheres HTML. Wir benötigen weniger HTML um das gleiche Ergebnis zu erzielen wie mit Bootstrap 5.
-- Mehr Kontrolle über das Design durch CSS. Selbst wenn wir wissen, dass CSS für das Design zuständig ist, müssen wir uns bei Frameworks auch auf das HTML-Markup verlassen. Mit CSS Grid haben wir mehr Kontrolle über das Design und sind weit weniger abhängig von den CSS-Klassen und wie diese in HTML eingefügt sind.
+- Einfacheres HTML: Wir benötigen weniger HTML um das gleiche Ergebnis zu erzielen wie mit Bootstrap 5.
+- Mehr Kontrolle über das Design durch CSS: Selbst wenn wir wissen, dass CSS für das Design zuständig ist, müssen wir uns bei Frameworks auch auf das HTML-Markup verlassen. Mit CSS Grid haben wir mehr Kontrolle über das Design und sind weit weniger abhängig von den CSS-Klassen und wie diese in das HTML-Markup eingefügt sind.
 
-Allerdings gibt es eine Reihe von Einschränkungen, auf die wir stoßen, sobald wir versuchen, [CSS Grid in einem Joomla-Projekt mit dynamischem Content](https://www.joomla51.com/blog/item/joomla-css-grid-and-dynamic-content) zu implementieren.
+Allerdings gibt es eine Reihe von Einschränkungen. Sobald wir versuchen, [CSS Grid in einem Joomla-Projekt mit dynamischem Content](https://www.joomla51.com/blog/item/joomla-css-grid-and-dynamic-content) zu implementieren, werden diese deutlich.
 
 ### CSS Grid und das Cassiopeia-Template
 
-CSS Grid funktioniert so, dass wir zunächst ein Raster für einen übergeordneten Container definieren. Wir positionieren dann jedes untergeordnete Element dieses Containers innerhalb dieses Rasters. Auf diese Weise erhalten wir ein CSS-Grundgerüst, mit dem wir auf einfache Weise ein anspruchsvolles Layout mit einfachem, leicht zu lesendem Markup erstellen.
+CSS Grid funktioniert so: Wir definieren zunächst ein Raster für einen übergeordneten Container. Danach positionieren wir jedes untergeordnete Element dieses Containers innerhalb dieses Rasters. Auf diese Weise erhalten wir ein CSS-Grundgerüst, mit dem wir auf einfache Weise ein anspruchsvolles Layout mit einfachem, leicht zu lesendem Markup erstellen.
 
 #### Das Problem mit dynamischen Inhalten und CSS Grid
 
-Joomla ist unglaublich vielseitig. Jede beliebige Joomla-Seite kann mehrere Layouts haben, abhängig von den Modulen, die in einem bestimmten Menüpunkt aktiviert sind. Dasselbe gilt für Komponenten, wo verschiedene Komponentenelemente angezeigt werden, abhängig von den Einstellungen für diese Komponente. Es ist diese Flexibilität von Joomla, die eine Herausforderung bei der Verwendung von CSS-Grid darstellt. Wie die Positionierung eines Elements innerhalb eines Rasters definiert wird, muss sich je nach den umgebenden Elementen ändern.
+Joomla ist unglaublich vielseitig. Jede beliebige Joomla-Seite kann mehrere Layouts haben, abhängig von den Modulen, die in einem bestimmten Menüpunkt aktiviert sind. Dasselbe gilt für Komponenten, die abhängig von den Einstellungen verschiedene Komponentenelemente angezeigen. Diese Flexibilität von Joomla stellt eine Herausforderung bei der Verwendung von CSS-Grid dar. Wie die Positionierung eines Elements innerhalb eines Rasters definiert wird, muss sich je nach den vorhandenen Elementen ändern. Das klingt kompliziert? Ein Beispiel sagt mehr als Worte: Angenommen ein Komponentenbereich ist von Modulpositionen umgeben.
 
-Angenommen ein Komponentenbereich ist von Modulpositionen umgeben.
-
-![Beispiel-Layout](/images/grid1.png)
+![Beispiel-Layout 1](/images/grid1.png)
 
 Unter Verwendung von CSS Grid kann das oben genannte mit dem folgenden CSS erreicht werden. Es erzeugt ein einfaches 3-Spalten-Raster erzeugt und positioniert jedes untergeordnete Element explizit innerhalb dieses Rasters.
 
@@ -163,25 +161,19 @@ Unter Verwendung von CSS Grid kann das oben genannte mit dem folgenden CSS errei
 }
 ```
 
-Das ist einfach. Die Probleme beginnen, wenn Elemente dieses Layouts nicht mehr veröffentlicht werden. Betrachten wir eine Seite, auf der kein Modul innerhalb der Sidebar-Modulposition veröffentlicht ist. Ohne die Positionierung der umgebenden Elemente innerhalb des Rasters neu zu definieren, wird das Entfernen des Sidebar-Moduls einen leeren Bereich ausgeben.
+Soweit ist das unkompliziert. Die Probleme beginnen, wenn einzelne Elemente dieses Layouts nicht mehr veröffentlicht werden. Angenommen auf der Website ist kein Modul innerhalb der Sidebar-Modulposition veröffentlicht: Ohne die Positionierung der umgebenden Elemente innerhalb des Rasters neu zu definieren, wird das Fehlen des Sidebar-Moduls einen leeren Bereich im Layout verursachen.
 
-![Beispiel-Layout](/images/grid2.png)
+![Beispiel-Layout 2](/images/grid2.png)
 
-Im Gegensatz zu [Flexbox](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Flexible_Box_Layout/Grundlegende_Konzepte_der_Flexbox) können wir mit CSS Grid nicht definieren, wie Elemente in einen leeren Raum hineinwachsen.
+Wer mit Flexbox vertraut ist weiß, dass ein Hineinwachsen möglich ist. Im Gegensatz zu [Flexbox](https://developer.mozilla.org/de/docs/Web/CSS/CSS_Flexible_Box_Layout/Grundlegende_Konzepte_der_Flexbox) können wir mit CSS Grid nicht definieren, wie Elemente in einen leeren Raum hineinwachsen Im Falle von Flexbox ein Hineinwachsten einfach, weil die Elemente entweder in einer Zeile oder einer Spalte definiert sind. Dies ist in CSS Grid nicht der Fall. Mit der Eigenschaft `flex-grow` legt man bei Flexbox fest, wie ein Element sich innerhalb der einen Dimension ausdehnen. Es ist diese Dynamic von Flexbox, die es unglaublich nützlich innerhalb von Joomla für Teilbereiche macht. Für das Grundgerüst nutzt Cassiopeia CSS Grid und CSS Grid ist zweidimensional. Deshalb ist es komplizierter. Insbesondere, weil eine nicht festgelegte Anzahl von Elementen innerhalb des Grids im verfügbaren Bereich vorkommen kann.
 
-Wer mit Flexbox vertraut ist weiß, dass das Hineinwachsen funktioniert. Das liegt daran, dass Flexelemente entweder in einer Zeile oder einer Spalte definiert sind. Dies ist in CSS Grid nicht der Fall. Mit der Eigenschaft `flex-grow` legt man fest, wie ein Element innerhalb dieser einen Dimension wachsen und sich ausdehnen soll. Es ist diese Dynamic von Flexbox, die es unglaublich nützlich innerhalb von Joomla macht, besonders wenn wir darüber nachdenken, wie mehrere Module fließen, wenn sie innerhalb einer einzelnen Modulposition veröffentlicht werden.
+![Beispiel-Layout 3](/images/grid6.png)
 
-CSS Grid ist zweidimensional. Deshalb ist es komplizierter. Insbesondere, weil eine beliebige Anzahl von Elementen innerhalb des Grids im verfügbaren Platz möglich ist.
-
-![Beispiel-Layout](/images/grid6.png)
-
-> Wegen dieser zusätzlichen Komplexität ist es sicherlich in der CSS Grid-Spezifikation nicht vorgesehen, diese dynamisch zu verwalten.
-
-Aber es gibt die vielen Beispielen für CSS-Grid, bei denen Inhalte mühelos fließen? Ja. Die Besonderheit bei dieser Art von Layout ist, dass die Elemente keine definierte Platzierung haben. Daher setzt ein Algorithmus ein, der jedes Element automatisch innerhalb des Rasters platziert. Das passt für Inhalte. Zum Beispiel ist es ideal für eine Bildergalerie. Es ist nicht geeignet, wenn ein Element einen fest Platz hat, beispielsweise eine Seitenleiste. Letzteres ist bei einem Joomla Template in der Regel der Fall.
+Aber es gibt die vielen Beispielen für CSS-Grid, bei denen Inhalte mühelos fließen? Ja. Die Besonderheit bei dieser Art von Layout ist, dass die Elemente keine definierte Platzierung haben. Daher setzt ein Algorithmus ein, der jedes Element automatisch innerhalb des Rasters platziert. Das passt für viele unterschiedlichen Arten von Inhalten. Zum Beispiel ist es ideal für eine Bildergalerie. Es ist nicht geeignet, wenn ein Element eine feste Position benötigt: Beispielsweise eine Seitenleiste. Letzteres kommt bei einem Joomla Template häufig vor.
 
 #### Eine Lösung
 
-Um dies zu umgehen, müssen wir neu definieren, wie Elemente innerhalb des Rasters positioniert werden - abhängig von den vorhandenen Raster-Elementen. Wir können dies tun, indem wir `has-*`-Klassen für die Elemente erstellen, die innerhalb einer Seite vorhanden sind und das Layout dieser Seite beeinflussen. Diese Klasse geben wir dann an einen äußersten Container weiter. Das nachfolgende Codebeispiel zeigt die implementierung in Joomla 4 Beta 7.
+Eine Lösung ist es, genauer definieren, wie Elemente innerhalb des Rasters positioniert werden. Wir können dies tun, indem wir `has-*`-Klassen für die Elemente erstellen, die innerhalb einer Seite vorhanden sind. Diese Klassen geben wir dann an einen äußersten Container weiter. Das nachfolgende Codebeispiel zeigt die Implementierung in Joomla 4.1.
 
 ```php
 <php
@@ -201,104 +193,107 @@ if ($this->countModules('sidebar-right', true))
 
 ...
 ...
-<body class="site-grid site <?php echo $option
+<body class="site <?php echo $option
 	. ' ' . $wrapper
 	. ' view-' . $view
 	. ($layout ? ' layout-' . $layout : ' no-layout')
 	. ($task ? ' task-' . $task : ' no-task')
 	. ($itemid ? ' itemid-' . $itemid : '')
-	. ' ' . $pageclass
-	. $hasClass;
-	echo ($this->direction == 'rtl' ? ' rtl' : '');
+	. ($pageclass ? ' ' . $pageclass : '')
+	. $hasClass
+	. ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
-
 ...
 ```
 
-Wir haben nun also `has-sidebar`-Klassen, die dem `<body>`-Tag hinzugefügt sind, wenn ein Modul in der Sidebar-Modulposition veröffentlicht wird. Anhand des vorherigen Layout-Beispiels können wir nun diese Klasse verwenden, um das Layout in unserem Template-CSS neu zu definieren, je nachdem, ob ein Sidebar-Modul vorhanden ist. Angenommen, wir möchten, dass der Komponentenbereich den Platz des Sidebar-Moduls ausfüllt:
+Wir haben nun also `has-sidebar`-Klassen, die dem `<body>`-Tag hinzugefügt werden, falls ein Modul in der jeweiligen Sidebar-Modulposition veröffentlicht ist. Anhand des vorherigen Layout-Beispiels können wir nun diese Klasses verwenden, um das Layout in unserem Template-CSS genauer zu definieren. Angenommen, wir möchten, dass der Komponentenbereich den Platz des Sidebar-Moduls ausfüllt verwenden wir die nachfolgenden CSS Definitionen:
 
 ```css
-:not(.has-sidebar) .component {
-  grid-column: 1 / 4;
+body:not(.has-sidebar-left) .site-grid .container-component {
+  grid-column-start: main-start;
+}
+body:not(.has-sidebar-right) .site-grid .container-component {
+  grid-column-end: main-end;
 }
 ```
 
-Dieses CSS bedeutet übersetzt _wenn keine `has-sidebar`-Klasse vorhanden ist, erweitere den Komponentenbereich auf die volle Breite des Grids_. Dies führt zu folgendem Ergebnis...
+Dieses CSS bedeutet übersetzt _wenn keine `has-sidebar`-Klasse vorhanden ist, erweitere den Komponentenbereich auf die volle Breite des Main-Grids_. Dies führt zu folgendem Layout:
 
 ![Beispiel-Layout](/images/grid3.png)
 
-In diesem Beispiel wird zunächst für jedes Element eine Position definiert, dann wird die Position neu definiert, wenn ein Element nicht vorhanden ist. Je nach Szenario kann es logischer sein, dies andersherum zu tun. Anstatt also die Position neu zu definieren, wenn ein Element nicht vorhanden ist, definieren wir stattdessen die Position neu, wenn es vorhanden ist.
+> Interessante Pull Requests in diesem Zusammenhang sind die folgenden: Der Programmcode wurde im [Pull Request 23661](https://github.com/joomla/joomla-cms/pull/23661) eingeführt. Später wurde das CSS Grid vom `body`-Element per [Pull Request 35012](https://github.com/joomla/joomla-cms/pull/35012/) verschoben.
+
+In diesem Beispiel wird zunächst für jedes Element eine Position definiert (1) und zugewiesen (2). Dann wird die Position neu definiert (3), falls ein Element nicht vorhanden ist. 
+
+> Den nachfolgenden Code habe ich aus der Datei `/media/templates/site/cassiopeia/css/template.css` von Cassiopeia in Joomla 4.1 vereinfacht entnommen. Das Ganze ist natürlich komplizierter, weil weitere Elemente im Grid vorkommen. Außerdem sind verschiedene Bildschirmbreiten im responsive Webdesign zu beachten.
 
 ```css
-.component {
-  grid-column: 1 / 4;
+/* (1) */
+body.wrapper-fluid .site-grid {
+  grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 25%)) [main-end] minmax(0, 1fr) [full-end];
+  grid-gap: 0 2em;
 }
 
-.has-sidebar .component {
-  grid-column: 2 / 4;
-}
-```
-
-Da es sich hierbei um ein CSS-Grid handelt, sind wir nicht darauf beschränkt, wie wir das Layout der Seite in Abhängigkeit von den vorhandenen Elementen verändern. Mit der gleichen Klasse können wir nun komplett neu definieren, wie jedes Element innerhalb des Grids angezeigt wird.
-
-```css
-:not(.has-sidebar) .component {
-  grid-column: 1 / 4;
-}
-
-:not(.has-sidebar) .component {
-  grid-column: 1 / 4;
-}
-```
-
-Das sieht dann wie folgt aus:
-
-![Beispiel-Layout](/images/grid4.png)
-
-Die gleiche Methode kann für eine beliebige Anzahl von Elementen auf einer Seite wiederholt werden. `has-*`-Klassen sollten für jedes Element hinzugefügt werden.
-
-In Joomla 4 Beta 7 wird dies für `.has-sidebar-left` und `.has-sidebar-right` verwendet.
-
-```php
 @supports (display: grid) {
   .site-grid {
     display: grid;
-    grid-template-areas: ". head head head head ." ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". side-l side-l side-l side-l ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b ." ". footer footer footer footer ." ". debug debug debug debug .";
-    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 16.875rem)) [main-end] minmax(0, 1fr) [full-end];
+    grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". side-l side-l side-l side-l ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
+    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 19.875rem)) [main-end] minmax(0, 1fr) [full-end];
     grid-gap: 0 1em;
   }
   .site-grid > [class^=container-],
 .site-grid > [class*=" container-"] {
     width: 100%;
     max-width: none;
-  }
-  .site-grid:not(.has-sidebar-left) .container-component {
-    grid-column-start: main-start;
-  }
-  .site-grid:not(.has-sidebar-right) .container-component {
-    grid-column-end: main-end;
+    -webkit-column-gap: 1em;
+       -moz-column-gap: 1em;
+            column-gap: 1em;
   }
   .site-grid > .full-width {
     grid-column: full-start/full-end;
   }
-  @media (min-width: 48em) {
+  @media (min-width: 992px) {
     .site-grid {
-      grid-template-areas: ". head head head head ." ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b ." ". footer footer footer footer ." ". debug debug debug debug .";
+      grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
     }
   }
-  .site-grid.wrapper-fluid {
-    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 25%)) [main-end] minmax(0, 1fr) [full-end];
-    grid-gap: 0 2em;
-  }
-  .site-grid.wrapper-fluid .grid-child {
-    max-width: none;
-  }
-  .site-grid.wrapper-fluid header > .grid-child,
-.site-grid.wrapper-fluid footer > .grid-child {
-    padding-right: 2em;
-    padding-left: 2em;
-  }
+}
+
+...
+/* (2) */
+.site-grid > .full-width {
+  grid-column: full-start/full-end;
+}
+
+...
+/* (3) */
+.container-component {
+  grid-area: comp;
+}
+...
+body:not(.has-sidebar-left) .site-grid .container-component {
+  grid-column-start: main-start;
+}
+body:not(.has-sidebar-right) .site-grid .container-component {
+  grid-column-end: main-end;
+}
+
+```
+
+> Je nach Szenario kann die umgekehrte Vorgehensweise sinnvoller sein. Anstatt also die Position neu zu definieren, wenn ein Element nicht vorhanden ist, definieren wir stattdessen die Position erst, wenn das Element vorhanden ist.
+
+Da es sich hierbei um ein CSS-Grid handelt, sind wir nicht darauf beschränkt, wie wir das Layout der Seite in Abhängigkeit von den vorhandenen Elementen verändern. Mit der gleichen Klasse können wir nun komplett neu definieren, wie jedes Element innerhalb des Grids angezeigt wird.
+
+```css
+body .has-sidebar-left .site-grid .container-component {
+  grid-column-start: main-start;
+}
+body .has-sidebar-right .site-grid .container-component {
+  grid-column-end: main-end;
 }
 ```
 
+Der zuvor geschriebene Code könnte dazu führen, dass der Komponentenbereich mit einer vorhandenen Seitenleiste in der CSS-Grid Spalte `main-start` beginnt und im nachfolgenden Layout resultiert:
+
+![Beispiel-Layout](/images/grid4.png)
 <img src="https://vg04.met.vgwort.de/na/84da832e1e304a59829dc3aa631646c4" width="1" height="1" alt="">
