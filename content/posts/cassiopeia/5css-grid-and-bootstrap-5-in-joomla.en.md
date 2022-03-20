@@ -122,7 +122,7 @@ CSS Grid works like this: We first define a grid for a parent container. Then we
 
 Joomla is incredibly flexible. Any given Joomla page can have multiple layouts depending on the modules that are enabled in a given menu item. The same applies to components, which display different component elements depending on the settings. This flexibility of Joomla presents a challenge when using CSS Grid. How the positioning of an element is defined within a grid must change depending on the elements present. That sounds complicated? An example says more than words: Suppose a component area is surrounded by module positions.
 
-![Example layout 1](/images/grid1.png)
+![Example layout 1](/images/grid1a.png)
 
 Using CSS Grid, the above can be achieved with the following CSS. It creates a simple 3-column grid and explicitly positions each child element within that grid.
 
@@ -173,7 +173,7 @@ But there are the many examples of CSS grid where content flows easily? Yes. The
 
 #### A solution
 
-One solution is to define more precisely how elements are positioned within the grid. We can do this by creating `has-*` classes for the elements that are available within a page. We then pass these classes to an partent  container. The code example below shows the implementation in Joomla 4.1.
+One solution is to define more precisely how elements are positioned within the grid. We can do this by creating `has-*` classes for the elements that are available within a page. We then pass these classes to an partent container. The code example below shows the implementation in Joomla 4.1.
 
 ```php
 <php
@@ -223,60 +223,49 @@ This CSS translates to _if there is no `has-sidebar` class, expand the component
 
 > Interesting pull requests in this context are the following: The programme code was introduced in [Pull Request 23661](https://github.com/joomla/joomla-cms/pull/23661). Later, the CSS grid was moved from the `body` element via [Pull Request 35012](https://github.com/joomla/joomla-cms/pull/35012/).
 
-In this example, a position is first defined (1) and assigned (2) for each element. Then the position is redefined (3) if an element does not exist. 
+In this example, a position is first defined (1) and assigned (2) for each element. Then the position is redefined (3) if an element does not exist.
 
 > I have taken the following code from the file `/media/templates/site/cassiopeia/css/template.css` of Cassiopeia in Joomla 4.1 in a simplified way. Of course, the whole thing is more complicated because there are more elements in the grid. In addition, different screen widths have to be taken into account in responsive web design.
+
 ```css
 /* (1) */
 body.wrapper-fluid .site-grid {
-  grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 25%)) [main-end] minmax(0, 1fr) [full-end];
+  grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(
+      4,
+      minmax(0, 25%)
+    ) [main-end] minmax(0, 1fr) [full-end];
   grid-gap: 0 2em;
 }
 
-@supports (display: grid) {
-  .site-grid {
-    display: grid;
-    grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". comp comp comp comp ." ". side-r side-r side-r side-r ." ". side-l side-l side-l side-l ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
-    grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 19.875rem)) [main-end] minmax(0, 1fr) [full-end];
-    grid-gap: 0 1em;
-  }
-  .site-grid > [class^=container-],
-.site-grid > [class*=" container-"] {
-    width: 100%;
-    max-width: none;
-    -webkit-column-gap: 1em;
-       -moz-column-gap: 1em;
-            column-gap: 1em;
-  }
-  .site-grid > .full-width {
-    grid-column: full-start/full-end;
-  }
-  @media (min-width: 992px) {
-    .site-grid {
-      grid-template-areas: ". banner banner banner banner ." ". top-a top-a top-a top-a ." ". top-b top-b top-b top-b ." ". side-l comp comp side-r ." ". bot-a bot-a bot-a bot-a ." ". bot-b bot-b bot-b bot-b .";
-    }
-  }
+.site-grid {
+  grid-template-areas:
+    '. banner banner banner banner .'
+    '. top-a top-a top-a top-a .'
+    '. top-b top-b top-b top-b .'
+    '. side-l comp comp side-r .'
+    '. bot-a bot-a bot-a bot-a .'
+    '. bot-b bot-b bot-b bot-b .';
 }
+```
 
-...
+```css
 /* (2) */
 .site-grid > .full-width {
   grid-column: full-start/full-end;
 }
+```
 
-...
+```css
 /* (3) */
 .container-component {
   grid-area: comp;
 }
-...
-body:not(.has-sidebar-left) .site-grid .container-component {
+... body:not(.has-sidebar-left) .site-grid .container-component {
   grid-column-start: main-start;
 }
 body:not(.has-sidebar-right) .site-grid .container-component {
   grid-column-end: main-end;
 }
-
 ```
 
 > Depending on the scenario, the opposite approach may make more sense. So instead of redefining the position when an element is not present, we instead define the position only when the element is present.

@@ -186,9 +186,10 @@ Weißt du wie die Verantwortlichen bei Joomla entscheiden, welche Funktionen unt
 ### Warum wird in Joomla-Dateien am Ende einer Quellcodedatei eine Leerzeile eingefügt?<!-- \index{Leerzeile am Dateiende} -->
 
 Es gibt mehrere Gründe dafür, dass eine leere Zeile am Dateiende als Erfordernis in die Joomla Coding Standards aufgenommen wurde:
+
 - Abgesehen von der Tatsache, dass es eine schönere Cursorposition ist, wenn du in einem Texteditor zum Ende einer Datei gehst ermöglicht ein Zeilenumbruch am Ende der Datei eine einfache Überprüfung, dass die Datei nicht abgeschnitten wurde.
 - Wenn du etwas am Ende einer Datei einfügt, zeigt die Differenzanzeige in Git, dass du die letzte Zeile geändert hast, während das Einzige, was du tatsächlich eingefügt hast, ein Zeilenumbruch ist. Das ist verwirrend.
-- Heute spielt es keine Rolle mehr, aber: viele ältere Werkzeuge im Programmierbereich verhalten sich falsch, wenn die letzte Datenzeile in einer Datei nicht mit einem Zeilenumbruch oder einer Wagenrücklauf/Neuzeilenkombination abgeschlossen wird. 
+- Heute spielt es keine Rolle mehr, aber: viele ältere Werkzeuge im Programmierbereich verhalten sich falsch, wenn die letzte Datenzeile in einer Datei nicht mit einem Zeilenumbruch oder einer Wagenrücklauf/Neuzeilenkombination abgeschlossen wird.
 
 ### PHP
 

@@ -20,7 +20,7 @@ Warum ein eigenes Joomla Template erstellen? Es gibt gute Gründe, warum wir die
 
 - Die Erstellung eines eigenen Joomla Templates hat zur Folge, dass wir die vollständige Kontrolle über jedes kleinste Detail des Erscheinungsbildes der Website haben. Wir erstellen nur Code, den wir mögen. Es ist viel einfacher, ein eigenes Template zu ändern, als ein komplexes Joomla Template, bei dem oft die unterschiedlichen Elemente voneinander anhängen.
 - Die Erstellung eines eigenen Templates bewirkt, dass wir die Website nicht mit Funktionen überfrachten, die wir gar nicht nutzen.
-- Wenn wir uns ein individuelles Joomla-Template wünschen, das nicht von Tausenden anderer Websites verwendet wird, ist die Erstellung einer einen Vorlage eine Möglichkeit.
+- Wenn wir uns ein individuelles Joomla-Template wünschen, das nicht von Tausenden anderer Websites verwendet wird, ist die Erstellung einer eigenen Vorlage eine Möglichkeit.
 - Wenn du bisher noch nie ein Joomla Template erstellt hast, wirst du beim Entwickeln eine Menge über Joomla lernen. Du wirst am Ende sehr viel über das Zusammenspiel der unterschiedlichen Elemente wissen und dich sicherer fühlen.
 
 > Es geht hier nicht um das Erlernen von HTML und CSS. Deshalb werde ich in diesem Artikel ein fertiges [HTML5-Template](https://html5up.net/txt) zu Hilfe nehmen. Folge meinem Beispiel und du wirst am Ende in der Lage sein, ein vollständiges Joomla Template selbst zu erstellen. HTML und CSS entwickelst du selbst oder nimmst eine Vorlage, wie ich hier im Tutorial.
@@ -39,7 +39,7 @@ Wir kreieren ein Front-End-Template. Dieses steuert die Art und Weise, wie die W
 
 ## Schritt für Schritt
 
-Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzen sind, beziehungsweise Joomla-Wissen voraussetzen. Deshalb beginnen wir rudimentär. Es geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
+Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kannst viele Dinge nutzen, die Joomla von Haus aus zur Verfügung stellt. Das hat Vorteile. Nachteilig ist, dass individuelle Wünsche schwerer umzusetzen sind, beziehungsweise Joomla-Wissen voraussetzen. Deshalb beginnen wir rudimentär. Mir geht in erster Linie darum, hinter die Funktionen zu blicken und diese zu verstehen.
 
 ### Neue Dateien
 
@@ -49,13 +49,13 @@ Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joom
 
 ##### [templates/facile/ component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet in der Regel, dass lediglich die pure Ansicht der Komponente angezeigt wird. Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal. Zur Verdeutlichung: Wie schon erwähnt ist eine Komponente für die Darstellung des Hauptinhalts zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den Hauptinhalt.
+Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet, dass lediglich die pure Ansicht der Komponente angezeigt wird. Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal. Zur Verdeutlichung: Wie schon erwähnt ist eine Komponente für die Darstellung des _Hauptinhalts_ zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den _Hauptinhalt_.
 
 > Möchtest du dir die Ausgabe der Datei `component.php` ansehen? Diese Ansicht wird im Browser angezeigt, wenn du `tmpl=component` an die URL anhängst - beispielsweise so: `/index.php?tmpl=component`.
 
 Wir legen die Datei `component.php` hier der Vollständigkeit halber an und fügen den Text `Component` ein, um sie zu testen.
 
-[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/159271f625aac7d0ce5e7fdffd033e6c28097647/src/templates/facile/component.php)
+[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/component.php
@@ -64,13 +64,110 @@ Component
 
 ```
 
+Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `component.php` wie folgt implementiert:
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/joomla/joomla-cms/4.1-dev/templates/cassiopeia/component.php
+
+<?php
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+
+/** @var Joomla\CMS\Document\HtmlDocument $this */
+
+$app = Factory::getApplication();
+$wa  = $this->getWebAssetManager();
+
+// Color Theme
+$paramsColorName = $this->params->get('colorName', 'colors_standard');
+$assetColorName  = 'theme.' . $paramsColorName;
+$wa->registerAndUseStyle($assetColorName, 'media/templates/site/cassiopeia/css/global/' . $paramsColorName . '.css');
+
+// Use a font scheme if set in the template style options
+$paramsFontScheme = $this->params->get('useFontScheme', false);
+$fontStyles       = '';
+
+if ($paramsFontScheme)
+{
+	if (stripos($paramsFontScheme, 'https://') === 0)
+	{
+		$this->getPreloadManager()->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
+		$this->getPreloadManager()->preconnect('https://fonts.gstatic.com/', ['crossorigin' => 'anonymous']);
+		$this->getPreloadManager()->preload($paramsFontScheme, ['as' => 'style', 'crossorigin' => 'anonymous']);
+		$wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, [], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'', 'crossorigin' => 'anonymous']);
+
+		if (preg_match_all('/family=([^?:]*):/i', $paramsFontScheme, $matches) > 0)
+		{
+			$fontStyles = '--cassiopeia-font-family-body: "' . str_replace('+', ' ', $matches[1][0]) . '", sans-serif;
+			--cassiopeia-font-family-headings: "' . str_replace('+', ' ', isset($matches[1][1]) ? $matches[1][1] : $matches[1][0]) . '", sans-serif;
+			--cassiopeia-font-weight-normal: 400;
+			--cassiopeia-font-weight-headings: 700;';
+		}
+	}
+	else
+	{
+		$wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, ['version' => 'auto'], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'']);
+		$this->getPreloadManager()->preload($wa->getAsset('style', 'fontscheme.current')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+	}
+}
+
+// Enable assets
+$wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr'))
+	->useStyle('template.active.language')
+	->useStyle('template.user')
+	->useScript('template.user')
+	->addInlineStyle(":root {
+		--hue: 214;
+		--template-bg-light: #f0f4fb;
+		--template-text-dark: #495057;
+		--template-text-light: #ffffff;
+		--template-link-color: #2a69b8;
+		--template-special-color: #001B4C;
+		$fontStyles
+	}");
+
+
+// Override 'template.active' asset to set correct ltr/rtl dependency
+$wa->registerStyle('template.active', '', [], [], ['template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr')]);
+
+// Browsers support SVG favicons
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
+
+// Defer font awesome
+$wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<head>
+	<jdoc:include type="metas" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<jdoc:include type="styles" />
+	<jdoc:include type="scripts" />
+</head>
+<body class="<?php echo $this->direction === 'rtl' ? 'rtl' : ''; ?>">
+	<jdoc:include type="message" />
+	<jdoc:include type="component" />
+</body>
+</html>
+
+```
+
+So werden in Cassiopeia alle wesentliche Inhalte geladen, um den im nachfolgenden Bild markierten Bereich separat anzuzeigen.
+
+![Joomla Komponentenbereich im Standardtemplate Cassiopeia](/images/j4x40x8.png)
+
 ##### [templates/facile/ error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
 
 Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist allgemein gehalten. Viel besser ist es, eine eigene individuelle Fehlerseite zu erstellen.
 
 Meiner Meinung nach beinhaltet eine gute Fehlerseite:
 
-- Minimalistisches Design: Drücke dich mit einfachen Texten und klaren Bildern aus. Schreibe nur das Nötigste. Weniger ist mehr!
+- Minimalistisches Design: Verwende einfache Texten und klare Bilder. Schreibe nur das Nötigste. Weniger ist mehr!
 - Verlinke auf die Startseite: Beschreibe klar und deutlich, wie die Homepage erreichbar ist und setze einen Link auf diese. Ein zusätzlicher Link, zum Beispiel im Logo, ist hilfreich. Er sollte aber nicht die einzige Möglichkeit sein, um wieder auf die Homepage zu gelangen.
 - Eine Suche: Biete dem Besucher ein Suchfeld an. Er wird wissen, was er sehen will. Ein Suchfeld wird genutzt, denn es bietet eine Option dieses zu finden. Nebenbei bleibt er so auf deiner Website.
 - Keine Fachbegriffe: `404 Error` ist für viele Menschen völlig bedeutungslos.

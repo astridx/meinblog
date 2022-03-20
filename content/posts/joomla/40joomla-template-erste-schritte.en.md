@@ -49,7 +49,7 @@ Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joom
 
 ##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-The `component.php` provides the logic for a stripped down version of the site. This usually means that only the pure view of the component is displayed. This is used for printer-friendly output or display in a modal window. To clarify: As already mentioned, a component is responsible for the display of the _main content_. The whole layout, for example the modules in a sidebar and the navigation are accessories. The file `component.php` sets the focus on the _main content_.
+The `component.php` provides the logic for a reduced version of the site. This means that only the pure view of the component is displayed. This is ideal for printer-friendly output or display in a modal window. To further explain: As already mentioned, a component is responsible for the display of the _main_ content. The entire layout, for example the modules in a sidebar and the navigation are accessories. The file `component.php` sets the focus on the _main_ content.
 
 > Would you like to see the output of the file `component.php`? This view is displayed in the browser if you append `tmpl=component` to the URL - for example like this: `/index.php?tmpl=component`.
 

@@ -185,9 +185,10 @@ Do you know how those responsible at Joomla decide which functions are supported
 ### Why is a blank line inserted at the end of a source code file in Joomla files?<!-- \index{blank last line} -->
 
 There are several reasons why a blank line at the end of a file is included as a requirement in the Joomla Coding Standards:
+
 - Apart from the fact that it is a nicer cursor position when you go to the end of a file in a text editor, a line break at the end of the file allows you to easily check that the file has not been truncated.
 - When you paste something at the end of a file, the difference display in Git shows that you've changed the last line, when the only thing you've actually pasted is a line break. This is confusing.
-- Today it doesn't matter, but: many older tools in the programming field misbehave if the last line of data in a file is not terminated with a newline or a carriage return/newline combination. 
+- Today it doesn't matter, but: many older tools in the programming field misbehave if the last line of data in a file is not terminated with a newline or a carriage return/newline combination.
 
 ### PHP
 

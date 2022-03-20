@@ -56,7 +56,7 @@ This tab shows various parameters that can be used to modify the template. In th
 
 By clicking on 'Select' it is possible to insert an already uploaded logo image or we can scroll down the dialogue box and upload an image file from our own computer. By default, this is placed at the position of the logo module, at the top left of the web page.
 
-The default layout of the Cassiopeia template allows either a logo image __or__ the website title to be displayed in the `<header>` area of the page. If we insert a logo via this method, Cassiopeia will automatically make the logo image a link to the home page.
+The default layout of the Cassiopeia template allows either a logo image **or** the website title to be displayed in the `<header>` area of the page. If we insert a logo via this method, Cassiopeia will automatically make the logo image a link to the home page.
 
 ##### Title
 
@@ -164,7 +164,7 @@ If you want to host your own font, you can do so. For example, I would like to u
 
 ![Google Webfonts Helper | Select font](/images/c18.png)
 
-2. at the bottom of the website I have the option of downloading a ZIP file that contains all the necessary font files. I download the file to my computer and unzip it. 
+2. at the bottom of the website I have the option of downloading a ZIP file that contains all the necessary font files. I download the file to my computer and unzip it.
 
 3. Next, I copy the files into my Joomla installation. I choose the directory 'media/templates/site/cassiopeia/fonts/aclonica-v11-latin'.
 
@@ -333,22 +333,23 @@ Diese Option bewirkt, dass der Kopfbereich immer im oberen Teil angezeigt wird. 
 In der `index.php` ist dies wie folgt implementiert.
 
 ```html
-...
-$stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
-...
-...
-	<header class="header container-header full-width <?php echo $stickyHeader; ?>">
-		<div class="grid-child">
-			<div class="navbar-brand">
-				<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
-					<?php echo $logo; ?>
-				</a>
-				<?php if ($this->params->get('siteDescription')) : ?>
-					<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
-				<?php endif; ?>
-			</div>
-		</div>
-...
+... $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky
+sticky-top' : ''; ... ...
+<header class="header container-header full-width <?php echo $stickyHeader; ?>">
+  <div class="grid-child">
+    <div class="navbar-brand">
+      <a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+        <?php echo $logo; ?>
+      </a>
+      <?php if ($this->params->get('siteDescription')) : ?>
+      <div class="site-description">
+        <?php echo htmlspecialchars($this->params->get('siteDescription')); ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </div>
+  ...
+</header>
 ```
 
 Der im nächsten Bild mit dem Pfeil gezeigte Abschnitt bleibt immer im Anezigebereiche.

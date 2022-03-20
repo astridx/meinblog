@@ -39,7 +39,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 
 Als Ergebnis erscheinen im HTML-Quellcode folgende Einträge. Der HTML-Quellcode ist das Dokument, welches an den Browser übergeben wird.
 
-> In allen gängigen Browsern ist der HTML-Quellcode mit der Tastenkombination [Strg - U] einsehbar. 
+> In allen gängigen Browsern ist der HTML-Quellcode mit der Tastenkombination [Strg - U] einsehbar.
 
 ```HTML
 ...
@@ -301,6 +301,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alte
 $this->addHeadLink(HTMLHelper::_('image', 'favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 ...
 ```
+
 Hinweis: Wenn du die Favicons im Verzeichnis `media/templates/site/cassiopeia/images` speicherst, werden sie bei einem Joomla-Update nicht überschrieben. Genau wie `user.css` ist dies ein einfacher Weg, um kleine Anpassungen vorzunehmen. Beim Update werden die Versionen der Grafiken im Verzeichnis `media/system` aktualisiert, nicht die im Template-Verzeichnis. Wenn du die Namen der Bilddateien änderst und damit die `index.php` des Templates bearbeitest, musst du im Falle eines Updates von Joomla auf der Hut sein. Die Datei `index.php` des Cassiopeia Templates wird dabei überschrieben. Die Lösung: Erstelle zum Beispiel ein Child-Template.
 
 > Hinweis: Der Pfad zu den _Template-Medienordnern_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.

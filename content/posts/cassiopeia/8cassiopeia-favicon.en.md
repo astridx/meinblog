@@ -39,7 +39,7 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], t
 
 As a result, the following entries appear in the HTML source code. The HTML source code is the document that is passed to the browser.
 
-> In all common browsers you can display the HTML source code with the key combination [Ctrl - U]. 
+> In all common browsers you can display the HTML source code with the key combination [Ctrl - U].
 
 ```HTML
 ...
@@ -273,6 +273,7 @@ You now know how to create a scalable vector graphic (SVG) with Ubuntu using the
 #### Integrating the favicon into the template
 
 To use your self-created favicon instead of the Joomla logo in the template Cassiopeia, it is sufficient to use the files
+
 - `joomla-favicon.svg`
 - `favicon.ico`
 - `joomla-favicon-pinned.svg`

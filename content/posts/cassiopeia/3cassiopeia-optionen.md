@@ -57,7 +57,7 @@ Diese Registerkarte zeigt verschiedene Parameter, über die das Template modifiz
 
 Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen oder wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, oben links auf der Webseite, platziert.
 
-Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild __oder__ den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
+Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild **oder** den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
 
 ##### Titel
 
@@ -210,7 +210,7 @@ h6,
 
 5. Nun überprüfe ich im Frontend, ob alles geklappt hat. Ja, alle Überschriften werden in der gewünschten Schriftart angezeigt.
 
-![Google Webfonts Helper](/images/c19.png) 
+![Google Webfonts Helper](/images/c19.png)
 
 > Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `media/templates/site/cassiopeia/css/user.css` die Adressierung passt. Verwende relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Befindet sich die `user.css` im Ordner `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt. Hinweis: Der Pfad zu den _Template-Medienordnern_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
@@ -218,7 +218,7 @@ h6,
 
 Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften meist nicht ganz uneigennützig. Oft sammelt er dabei die Daten der Nutzer, die die Schrift aufrufen.
 
-Schriften werden  in der Regel auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
+Schriften werden in der Regel auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
 
 Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird.
 
@@ -334,22 +334,23 @@ Diese Option bewirkt, dass der Kopfbereich immer im oberen Teil angezeigt wird. 
 In der `index.php` ist dies wie folgt implementiert.
 
 ```html
-...
-$stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky sticky-top' : '';
-...
-...
-	<header class="header container-header full-width <?php echo $stickyHeader; ?>">
-		<div class="grid-child">
-			<div class="navbar-brand">
-				<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
-					<?php echo $logo; ?>
-				</a>
-				<?php if ($this->params->get('siteDescription')) : ?>
-					<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
-				<?php endif; ?>
-			</div>
-		</div>
-...
+... $stickyHeader = $this->params->get('stickyHeader') ? 'position-sticky
+sticky-top' : ''; ... ...
+<header class="header container-header full-width <?php echo $stickyHeader; ?>">
+  <div class="grid-child">
+    <div class="navbar-brand">
+      <a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+        <?php echo $logo; ?>
+      </a>
+      <?php if ($this->params->get('siteDescription')) : ?>
+      <div class="site-description">
+        <?php echo htmlspecialchars($this->params->get('siteDescription')); ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </div>
+  ...
+</header>
 ```
 
 Der im nächsten Bild mit dem Pfeil gezeigte Abschnitt bleibt immer im Anezigebereiche.
