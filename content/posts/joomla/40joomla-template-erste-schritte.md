@@ -49,7 +49,11 @@ Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joom
 
 ##### [templates/facile/ component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet, dass lediglich die pure Ansicht der Komponente angezeigt wird. Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal. Zur Verdeutlichung: Wie schon erwähnt ist eine Komponente für die Darstellung des _Hauptinhalts_ zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den _Hauptinhalt_.
+Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet, dass lediglich die pure Ansicht der Komponente angezeigt wird.
+
+Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal. 
+
+Wie schon erwähnt ist eine Komponente für die Darstellung des _Hauptinhalts_ zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den _Hauptinhalt_.
 
 > Möchtest du dir die Ausgabe der Datei `component.php` ansehen? Diese Ansicht wird im Browser angezeigt, wenn du `tmpl=component` an die URL anhängst - beispielsweise so: `/index.php?tmpl=component`.
 
@@ -174,7 +178,7 @@ Meiner Meinung nach beinhaltet eine gute Fehlerseite:
 
 > Die Fehlerseite sollte die Besucher meiner Meinung nach nicht zurechtweisen. Schließlich ist es nicht ihre Schuld, wenn eine Seite nicht existiert oder ein interner Serverfehler auftritt.
 
-Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/error.php` erstellt. Sie beinhaltet nichts weiter als das Wort `Error`. So ist es möglich, die Seite zu testen. Lasse deiner Phantasie bei den Inhalten und dem Design freien Lauf.
+Damit du weißt, wie und wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/error.php` erstellt. Diese beinhaltet nichts weiter als das Wort `Error`. So ist es möglich, die Seite zu testen. Lasse deiner Phantasie bei den Inhalten und dem Design einer eigenen indiviudellen Fehlerseite freien Lauf.
 
 [templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
@@ -184,6 +188,230 @@ Damit du weißt, wo du deine Fehlerseite implementierst, habe ich die Datei `tem
 Error
 
 ```
+
+Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `error.php` wie folgt implementiert:
+
+```php {numberLines: -2}
+// https://raw.githubusercontent.com/joomla/joomla-cms/4.1-dev/templates/cassiopeia/error.php
+
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.cassiopeia
+ *
+ * @copyright   (C) 2017 Open Source Matters, Inc. <https://www.joomla.org>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
+
+/** @var Joomla\CMS\Document\ErrorDocument $this */
+
+$app = Factory::getApplication();
+$wa  = $this->getWebAssetManager();
+
+// Detecting Active Variables
+$option   = $app->input->getCmd('option', '');
+$view     = $app->input->getCmd('view', '');
+$layout   = $app->input->getCmd('layout', '');
+$task     = $app->input->getCmd('task', '');
+$itemid   = $app->input->getCmd('Itemid', '');
+$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+$menu     = $app->getMenu()->getActive();
+$pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+
+// Template path
+$templatePath = 'media/templates/site/cassiopeia';
+
+// Color Theme
+$paramsColorName = $this->params->get('colorName', 'colors_standard');
+$assetColorName  = 'theme.' . $paramsColorName;
+$wa->registerAndUseStyle($assetColorName, $templatePath . '/css/global/' . $paramsColorName . '.css');
+
+// Use a font scheme if set in the template style options
+$paramsFontScheme = $this->params->get('useFontScheme', false);
+$fontStyles       = '';
+
+if ($paramsFontScheme)
+{
+	if (stripos($paramsFontScheme, 'https://') === 0)
+	{
+		$this->getPreloadManager()->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
+		$this->getPreloadManager()->preconnect('https://fonts.gstatic.com/', ['crossorigin' => 'anonymous']);
+		$this->getPreloadManager()->preload($paramsFontScheme, ['as' => 'style', 'crossorigin' => 'anonymous']);
+		$wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, [], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'', 'crossorigin' => 'anonymous']);
+
+		if (preg_match_all('/family=([^?:]*):/i', $paramsFontScheme, $matches) > 0)
+		{
+			$fontStyles = '--cassiopeia-font-family-body: "' . str_replace('+', ' ', $matches[1][0]) . '", sans-serif;
+			--cassiopeia-font-family-headings: "' . str_replace('+', ' ', isset($matches[1][1]) ? $matches[1][1] : $matches[1][0]) . '", sans-serif;
+			--cassiopeia-font-weight-normal: 400;
+			--cassiopeia-font-weight-headings: 700;';
+		}
+	}
+	else
+	{
+		$wa->registerAndUseStyle('fontscheme.current', $paramsFontScheme, ['version' => 'auto'], ['media' => 'print', 'rel' => 'lazy-stylesheet', 'onload' => 'this.media=\'all\'']);
+		$this->getPreloadManager()->preload($wa->getAsset('style', 'fontscheme.current')->getUri() . '?' . $this->getMediaVersion(), ['as' => 'style']);
+	}
+}
+
+// Enable assets
+$wa->usePreset('template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr'))
+	->useStyle('template.active.language')
+	->useStyle('template.user')
+	->useScript('template.user')
+	->addInlineStyle(":root {
+		--hue: 214;
+		--template-bg-light: #f0f4fb;
+		--template-text-dark: #495057;
+		--template-text-light: #ffffff;
+		--template-link-color: #2a69b8;
+		--template-special-color: #001B4C;
+		$fontStyles
+	}");
+
+// Override 'template.active' asset to set correct ltr/rtl dependency
+$wa->registerStyle('template.active', '', [], [], ['template.cassiopeia.' . ($this->direction === 'rtl' ? 'rtl' : 'ltr')]);
+
+// Browsers support SVG favicons
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
+$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
+
+// Logo file or site title param
+if ($this->params->get('logoFile'))
+{
+	$logo = '<img src="' . htmlspecialchars(Uri::root() . $this->params->get('logoFile'), ENT_QUOTES, 'UTF-8') . '" alt="' . $sitename . '">';
+}
+elseif ($this->params->get('siteTitle'))
+{
+	$logo = '<span title="' . $sitename . '">' . htmlspecialchars($this->params->get('siteTitle'), ENT_COMPAT, 'UTF-8') . '</span>';
+}
+else
+{
+	$logo = HTMLHelper::_('image', 'logo.svg', $sitename, ['class' => 'logo d-inline-block'], true, 0);
+}
+
+// Container
+$wrapper = $this->params->get('fluidContainer') ? 'wrapper-fluid' : 'wrapper-static';
+
+$this->setMetaData('viewport', 'width=device-width, initial-scale=1');
+
+// Defer font awesome
+$wa->getAsset('style', 'fontawesome')->setAttribute('rel', 'lazy-stylesheet');
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<head>
+	<jdoc:include type="metas" />
+	<jdoc:include type="styles" />
+	<jdoc:include type="scripts" />
+</head>
+
+<body class="site error_site <?php echo $option
+	. ' ' . $wrapper
+	. ' view-' . $view
+	. ($layout ? ' layout-' . $layout : ' no-layout')
+	. ($task ? ' task-' . $task : ' no-task')
+	. ($itemid ? ' itemid-' . $itemid : '')
+	. ' ' . $pageclass;
+	echo ($this->direction == 'rtl' ? ' rtl' : '');
+?>">
+	<header class="header container-header full-width">
+		<?php if ($this->params->get('brand', 1)) : ?>
+			<div class="grid-child">
+				<div class="navbar-brand">
+					<a class="brand-logo" href="<?php echo $this->baseurl; ?>/">
+						<?php echo $logo; ?>
+					</a>
+					<?php if ($this->params->get('siteDescription')) : ?>
+						<div class="site-description"><?php echo htmlspecialchars($this->params->get('siteDescription')); ?></div>
+					<?php endif; ?>
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if ($this->countModules('menu') || $this->countModules('search')) : ?>
+			<div class="grid-child container-nav">
+				<?php if ($this->countModules('menu')) : ?>
+					<jdoc:include type="modules" name="menu" style="none" />
+				<?php endif; ?>
+				<?php if ($this->countModules('search')) : ?>
+					<div class="container-search">
+						<jdoc:include type="modules" name="search" style="none" />
+					</div>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
+	</header>
+
+	<div class="site-grid">
+		<div class="grid-child container-component">
+			<h1 class="page-header"><?php echo Text::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
+			<div class="card">
+				<div class="card-body">
+					<jdoc:include type="message" />
+					<p><strong><?php echo Text::_('JERROR_LAYOUT_ERROR_HAS_OCCURRED_WHILE_PROCESSING_YOUR_REQUEST'); ?></strong></p>
+					<p><?php echo Text::_('JERROR_LAYOUT_NOT_ABLE_TO_VISIT'); ?></p>
+					<ul>
+						<li><?php echo Text::_('JERROR_LAYOUT_AN_OUT_OF_DATE_BOOKMARK_FAVOURITE'); ?></li>
+						<li><?php echo Text::_('JERROR_LAYOUT_MIS_TYPED_ADDRESS'); ?></li>
+						<li><?php echo Text::_('JERROR_LAYOUT_SEARCH_ENGINE_OUT_OF_DATE_LISTING'); ?></li>
+						<li><?php echo Text::_('JERROR_LAYOUT_YOU_HAVE_NO_ACCESS_TO_THIS_PAGE'); ?></li>
+					</ul>
+					<p><?php echo Text::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
+					<p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn btn-secondary"><span class="icon-home" aria-hidden="true"></span> <?php echo Text::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
+					<hr>
+					<p><?php echo Text::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
+					<blockquote>
+						<span class="badge bg-secondary"><?php echo $this->error->getCode(); ?></span> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?>
+					</blockquote>
+					<?php if ($this->debug) : ?>
+						<div>
+							<?php echo $this->renderBacktrace(); ?>
+							<?php // Check if there are more Exceptions and render their data as well ?>
+							<?php if ($this->error->getPrevious()) : ?>
+								<?php $loop = true; ?>
+								<?php // Reference $this->_error here and in the loop as setError() assigns errors to this property and we need this for the backtrace to work correctly ?>
+								<?php // Make the first assignment to setError() outside the loop so the loop does not skip Exceptions ?>
+								<?php $this->setError($this->_error->getPrevious()); ?>
+								<?php while ($loop === true) : ?>
+									<p><strong><?php echo Text::_('JERROR_LAYOUT_PREVIOUS_ERROR'); ?></strong></p>
+									<p><?php echo htmlspecialchars($this->_error->getMessage(), ENT_QUOTES, 'UTF-8'); ?></p>
+									<?php echo $this->renderBacktrace(); ?>
+									<?php $loop = $this->setError($this->_error->getPrevious()); ?>
+								<?php endwhile; ?>
+								<?php // Reset the main error object to the base error ?>
+								<?php $this->setError($this->error); ?>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if ($this->countModules('footer')) : ?>
+	<footer class="container-footer footer full-width">
+		<div class="grid-child">
+			<jdoc:include type="modules" name="footer" style="none" />
+		</div>
+	</footer>
+	<?php endif; ?>
+
+	<jdoc:include type="modules" name="debug" style="none" />
+</body>
+</html>
+
+```
+
+Im Falle einer ungültigen URL sieht ein Benutzer die nachfolgende Ansicht.
+
+![Joomla Error.php im Standardtemplate Cassiopeia](/images/j4x40x9.png)
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -219,9 +447,11 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 
 ```
 
-Die erste Zeile ist in PHP geschrieben. Das Gute an PHP und HTML ist, dass es zusammen geschrieben werden kann. Wir können PHP-Anweisungen in eine HMTL-Datei einfügen, und umgekehrt. `<?php` öffnet eine PHP-Anweisung - egal wo - und `?>` schließt sie wieder. In der ersten Zeile verbieten wir den direkten Zugriff auf diese Datei. Dies geschieht über die Joomla API mit dem Befehl `_JEXEC`. Diese Anweisung prüft, ob die Datei aus einer Joomla-Sitzung heraus aufgerufen wird, und sie schützt die Seite, indem sie es einem Hacker schwerer macht.
+Die erste Zeile `\defined('_JEXEC') or die;` ist in PHP geschrieben. Das Gute an PHP und HTML ist, dass es zusammen in einer Datei geschrieben werden kann. Wir können PHP-Anweisungen in eine HMTL-Datei einfügen, und umgekehrt. `<?php` öffnet eine PHP-Anweisung - egal wo - und `?>` schließt sie wieder. Mit der Zeile `\defined('_JEXEC') or die;` verbieten wir den direkten Zugriff auf diese Datei. Dies geschieht über die Joomla API mit dem Befehl `_JEXEC`. Diese Anweisung stellt sicher, dass die Datei aus einer Joomla-Sitzung heraus aufgerufen wird. Falls nicht, bricht die Verarbeitung ab `... or die;`. So macht Joomla es einem Hacker schwerer, Schadcode einzuschmuggeln.
 
-Dann deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.org/QA/2002/04/valid-dtd-list.html). Dies stellt sicher, dass das Dokument von verschiedenen Browsern auf die gleiche Weise geparst wird. Die einfachste und zuverlässigste Doctype-Deklaration, die verwendet werden kann, ist die in HTML5 definierte. Diese verwenden wir.
+Dann deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.org/QA/2002/04/valid-dtd-list.html)[^w3.org/qa/2002/04/valid-dtd-list.html]. Dies stellt sicher, dass das Dokument von verschiedenen Browsern auf die gleiche Weise geparst wird. HTML5 ist die einfachste und zuverlässigste Doctype-Deklaration. Diese verwenden wir.
+
+> Beachte, dass der Doctype einfach `!DOCTYPE html` und nicht `!DOCTYPE html5` heißt.
 
 Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`.
 
@@ -237,7 +467,6 @@ Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt da
 // https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/language/en-GB/tpl_facile.ini
 
 TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
-
 
 ```
 
@@ -262,11 +491,11 @@ Die Datei `offline.php` wird aufgerufen, wenn im Backend der Wartungsmodus aktvi
 
 > Um die Website technisch auf dem neuesten Stand zu halten oder um neue Funktionen zu integrieren, wird diese von Zeit zu Zeit überarbeitet. Meist handelt es sich dabei um Updates. Während der Aktualisierung kann es zu Anzeigeproblemen kommen. Damit Besucher nicht durch eine Fehlermeldung irritiert werden, gibt es bei Joomla den Wartungsmodus. Ist dieser aktiv wird einem Besuchern eine spezielle Wartungsmodus-Seite angezeigt, die `offline.php`.
 
-Der nachfolgende minimalischte Code sorgt dafür, dass ein Anmeldeformular angezeigt wird. Du könntest anstelle davon lediglich einen kurzen Text anzeigen. Das Login-Formular ermöglicht es, dass ein Administrator sich authentifiziert um die Website im Frontend zu testen.
+Der nachfolgende minimalistisch Code sorgt dafür, dass ein Anmeldeformular angezeigt wird. Du könntest anstelle davon einen kurzen Text anzeigen. Das Login-Formular ermöglicht es einem Administrator, sich zu authentifizieren und dann die Website im Frontend zu testen.
 
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
-[templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
+[templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/offline.php
@@ -318,14 +547,17 @@ $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 </html>
 
 ```
+Mit der Anmeldemöglichkeit hast du nun die notwendige Funktion integriert. Du möchtest sicherlich deine Wartungsseite schöner gestalten. Inspirationen gibt es jede Menge im Internet. Am einfachstes ist es sicher, sich am nachfolgenden Beispiel des Standardtemplates Cassiopeia zu orientieren: 
 
-##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
+![Joomla Offline.php im Standardtemplate Cassiopeia](/images/j4x40x10.png)
+
+##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
 
 Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert alles Wichtige für die Installation. Dies ist hauptsächlich eine Auflistung aller Ordner und Dateien, die zum Template gehören. Diese werden während der Installation entpackt und in den korrekten Verzeichnissen gespeichert.
 
-Zusätzlich werden in der Datei `templateDetails.xml` die Modulpositionen angelegt. Diese werden später über den Befehl `jdoc:include` in der `index.php` in die Website eingebunden. Optional können wir Parameter anlegen, um das Template via Backend anpassbar zu machen. Nachfolgend habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns eine minimale Version der `templateDetails.xml` im folgenden Code-Schnipsle an.
+In der Datei `templateDetails.xml` werden in der Regel die Modulpositionen angelegt und über den Befehl `jdoc:include` in der `index.php` in die Website eingebunden. Dies werden wir in einem später Teil tun. Optional können wir Parameter anlegen, um das Template via Backend anpassbar zu machen. Im weiteren Verlauf dieses Textes habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns aber zunächst eine minimale Version der `templateDetails.xml` im folgenden Code-Schnipsle an.
 
-[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/190254198095577c21d790df30102f9e11fadd6e/src/templates/facile/templateDetails.xml)
+[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
 <!-- https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/templateDetails.xml -->
@@ -356,9 +588,9 @@ Zusätzlich werden in der Datei `templateDetails.xml` die Modulpositionen angele
 
 ```
 
-Was bewirkt dieser Code genau? XML-Dokumente sollten mit einer [XML-Deklaration](https://de.wikipedia.org/wiki/XML-Deklaration)[^de.wikipedia.org/wiki/xml-deklaration] beginnen, sie müssen es jedoch nicht. Wir erzeugen die Deklaration und legen hier XML-Version und Zeichensatz (utf-8) fest.
+Was bedeutet dieser Code genau? XML-Dokumente sollten mit einer [XML-Deklaration](https://de.wikipedia.org/wiki/XML-Deklaration)[^de.wikipedia.org/wiki/xml-deklaration] beginnen, sie müssen es jedoch nicht. Wir erzeugen die Deklaration und legen hier XML-Version und Zeichensatz (utf-8) fest `<?xml version="1.0" encoding="utf-8"?>`.
 
-Kommen wir zu dem Teil der `templateDetails.xml`, der Informationen für die Installation enthält. Der Typ wird `template` genannt. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine frühere Version zu installieren.
+Der weitere Teil der `templateDetails.xml` enthält Informationen für die Installation. Der Typ ist im Falle eines Templates `template`. Die `method="upgrade"` erlaubt es, das Template zu einem späteren Zeitpunkt über eine frühere Version zu installieren.
 
 > Was zu `method="upgrade"` wichtig ist: Dabei werden neuere Versionen der Dateien installiert. Alte Dateien, die nicht mehr benötigt werden, bleiben jedoch erhalten, werden also nicht gelöscht. Will man gezielt dafür sorgen, dass die eigenen Erweiterung keine unnötigen Dateien bei Nutzern enthält, muss dies in einem Installationsskript explizit implementiert werden.
 
@@ -373,7 +605,7 @@ Als nächstes kommen die allgemeinen Informationen des Templates wie
 
 Diese Angaben werden später im Template-Manager des Joomla Backends angezeigt.
 
-Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner (`<folder>`) und Dateien (`<filename>`). Das HTML-Tag `<positions>` kommt im Anschluss. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden und ist so über den Modulmanager im Joomla Backend auswählbar.
+Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner (`<folder>`) und Dateien (`<filename>`). Das HTML-Tag `<positions>` kommt im Anschluss. Wir werden dieses später einfügen. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden und ist so über den Modulmanager im Joomla Backend auswählbar.
 
 > Weitere Informationen zur Datei `templateDetails.xml` bietet die Joomla Dokumentation [docs.joomls.org](https://docs.joomla.org/What_is_the_purpose_of_the_templateDetails.xml_file%3F/de)[^https://docs.joomla.org/what_is_the_purpose_of_the_templatedetails.xml_file%3f/de].
 
@@ -389,7 +621,7 @@ In diesem Abschnitt wurden lediglich Dateien hinzugefügt.
 
 ## Teste dein Joomla-Template
 
-1. Installiere dein Template in Joomla Version 4, um es zu testen. Am Anfang ist das Einfachste, die Dateien manuell an Ort und Stelle zu kopieren:
+1. Installiere dein Template in Joomla Version 4, um es zu testen. Am Anfang ist es am Einfachsten, die Dateien manuell an Ort und Stelle zu kopieren:
 
 Kopiere die Dateien des `templates` Ordners in den `templates` Ordner deiner Joomla 4 Installation.
 
@@ -401,7 +633,7 @@ Kopiere die Dateien des `templates` Ordners in den `templates` Ordner deiner Joo
 
 ![Joomla Template erstellen - Template Style aktivieren](/images/j4x40x3.png)
 
-5. Rufe die URL `/index.php?tp=1` auf. Öffne die Frontend-Ansicht.
+5. Rufe die URL `/index.php` auf. Öffne die Frontend-Ansicht.
 
 ![Joomla Template erstellen - Frontend Ansicht](/images/j4x40x1.png)
 
