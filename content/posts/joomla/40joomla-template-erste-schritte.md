@@ -607,7 +607,7 @@ Diese Angaben werden später im Template-Manager des Joomla Backends angezeigt.
 
 Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner (`<folder>`) und Dateien (`<filename>`). Das HTML-Tag `<positions>` kommt im Anschluss. Wir werden dieses später einfügen. Jede Position wird in eine eigene Zeile geschrieben und ist nun bereit, in die `index.php` eingebunden zu werden und ist so über den Modulmanager im Joomla Backend auswählbar.
 
-> Weitere Informationen zur Datei `templateDetails.xml` bietet die Joomla Dokumentation [docs.joomls.org](https://docs.joomla.org/What_is_the_purpose_of_the_templateDetails.xml_file%3F/de)[^https://docs.joomla.org/what_is_the_purpose_of_the_templatedetails.xml_file%3f/de].
+> Weitere Informationen zur Datei `templateDetails.xml` bietet die Joomla Dokumentation [docs.joomls.org](https://docs.joomla.org/What_is_the_purpose_of_the_templateDetails.xml_file%3F/de)[^docs.joomla.org/what_is_the_purpose_of_the_templatedetails.xml_file%3f/de].
 
 ##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
 
@@ -645,9 +645,9 @@ Kopiere die Dateien des `templates` Ordners in den `templates` Ordner deiner Joo
 
 ## Links
 
-[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^https://github.com/c-lodder/lightning]
+[Joomla 4 Template Lightning](https://github.com/C-Lodder/lightning)[^github.com/c-lodder/lightning]
 
-[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^https://github.com/dgrammatiko/sloth-pkg]
+[Joomla 4 Template Sloth](https://github.com/dgrammatiko/sloth-pkg)[^github.com/dgrammatiko/sloth-pkg]
 
-[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^https://html5up.net]
+[HTML5 UP bietet schicke HTML5-Website-Vorlagen](https://html5up.net/)[^html5up.net]
 <img src="https://vg08.met.vgwort.de/na/7700831f036b4d999c65e57c78518242" width="1" height="1" alt="">
