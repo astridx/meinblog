@@ -55,7 +55,8 @@
 <li>Layouts und</li>
 <li>Modul Chromes.<!-- \index{Template!Overrides, alternvative Overrides, Layouts, Modul Chromes} --></li>
 </ul>
-<p>Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im Ordner <code class="language-text">html</code> des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung. Overrides sind das erste Mittel der Wahl. Gibt es bereits ein Override für eine Erweiterung, erstellt man ein alternatives Override. Layouts überschreiben einen begrenzten Bereich einer Ansicht und sind dabei in unterschiedlichen Ansichten wiederverwendbar. Last but not least bieten Modul Chromes eine Variante, um ein Override an verschieden Stellen leicht abgewandelt einzusetzten.</p>
+<p>Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im Ordner <code class="language-text">html</code> des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung.</p>
+<p><em>Overrides</em> sind das erste Mittel der Wahl. Gibt es bereits ein Override für eine Erweiterung, erstellt man ein <em>alternatives Override</em>. <em>Layouts</em> überschreiben einen begrenzten Bereich einer Ansicht und sind dabei in unterschiedlichen Ansichten wiederverwendbar. Last but not least bieten <em>Modul Chromes</em> eine Variante, um ein Override an verschieden Stellen leicht abgewandelt einzusetzten.<!-- \index{Modul Chromes} --><!-- \index{Overrides} --><!-- \index{alternvative Overrides} --><!-- \index{Overrides} --></p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
@@ -93,7 +94,76 @@
 <p>Für Ungeduldige: Sieh dir den geänderten Programmcode in der <a href="https://github.com/astridx/boilerplate/compare/t36...t37">Diff-Ansicht</a>[^github.com/astridx/boilerplate/compare/t36...t37] an und übernimm diese Änderungen in deine Entwicklungsversion.</p>
 </blockquote>
 <h2 id="schritt-für-schritt" style="position:relative;"><a href="#schritt-f%C3%BCr-schritt" aria-label="schritt für schritt permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Schritt für Schritt</h2>
-<p>In diesem Abschnitt verändern wir die Frontend Ansicht von <code class="language-text">com_content/featured</code>, <code class="language-text">mod_articles_news</code> und <code class="language-text">mod_menu</code>. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit nicht fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist. Am Ende haben wir alle Varianten durchgespielt, so dass du das Template selbst nach deinen Wünschen fertigstellen kannst.</p>
+<p>In diesem Abschnitt verändern wir die Frontend Ansicht von <code class="language-text">com_content/featured</code>, <code class="language-text">mod_articles_news</code> und <code class="language-text">mod_menu</code>. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit nicht fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist.</p>
+<p>Mein Ziel: Am Ende haben wir alle Override-Varianten besprochen, so dass du das Template fertigstellen oder dein eigenes Template nach deinen Wünschen bearbeiten kannst. Fertig sein wird die Ansicht der Startseite der Joomla 4 Blog-Beispieldateien.</p>
+<p>Ansicht der Startseite der Joomla 4 Blog-Beispieldateien in Cassiopeia:
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3114c00dd37ede27be086714750ce8b5/191e2/j4x43x8a.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeUlEQVQoz12RWU8TAQCEt9vuli3bbevSlm277Za77RaK0AKxFBFFIXJqA8ghcpbgGW4UTNQHiMUn9cUfYfwF/rTPBBI1TPK9TSaTGSFkL2BklzDsRdpL2wxNHjPw8JB0T4WWrnVS3Rukuzex81u0F7aZKH9kaeWCodG3dPW9pljao3/ggNuDx9wZfItQW9+JauTRon34zX4C1m3qkkNE20aJpcZI2I9Jph/RnC0TaxpmbLrC8vo+hf4y9WYJq3GIeKJIPN6LZRURBFlFUHREbwRnwELSm1GCadzBLB6jQJ11l7BZIpoYwB8pIGmtiHIEtyeKR43iVkI4nQqCIFwh1gZx+kwkvZGacBqvkcMf6yHUMkxDdpy27AQ9vfO02uNYqQcYiT68XgNFuYEv0IA/kETTYtS4NQTBgSCqIVx+E3ewiVojgz/WjZ4o0pybonBrjuF764w9fE5nTxm7c4RYPI+mmTgEBy6XgsejowfieBTfVUOXFkbWEyjhJnwRGz1ewGy5S3tuknzXOKXiPLm+RTLZEVqbi8SiOXxaBFF0XgaIogvVE0BTb+BwiAiqHsEbsghEWwjHMpjJAnZmmI7UIDdTg+Tt+3RkHtBoFYiEW4kaKTRvENEh4nS6kCQJWZKRJfclwt8xHQqqt55wsAndb6IqQdLxPJ3JXmyzC1UOXPpkZy2y5P13wnU+f65yUf3Ct6/febd3xPZKhfWnq1SWVzjZe8fO1htO9t+zsVZhY2OTcnmWhdkFJianefX6DdVqlbOzM87Pzy8R+E8/zi443XzOjw+feDE+zc7+LlOzM+y+3GNmYZXTo0Mqz56w+fGAtbU5fv/6yXX9AdgDSYZqxLIWAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla Template erstellen - Standardtemplate Cassiopeia"
+        title="Joomla Template erstellen - Standardtemplate Cassiopeia"
+        src="/static/3114c00dd37ede27be086714750ce8b5/5a190/j4x43x8a.png"
+        srcset="/static/3114c00dd37ede27be086714750ce8b5/772e8/j4x43x8a.png 200w,
+/static/3114c00dd37ede27be086714750ce8b5/e17e5/j4x43x8a.png 400w,
+/static/3114c00dd37ede27be086714750ce8b5/5a190/j4x43x8a.png 800w,
+/static/3114c00dd37ede27be086714750ce8b5/c1b63/j4x43x8a.png 1200w,
+/static/3114c00dd37ede27be086714750ce8b5/29007/j4x43x8a.png 1600w,
+/static/3114c00dd37ede27be086714750ce8b5/191e2/j4x43x8a.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
+Ansicht der Startseite der Joomla 4 Blog-Beispieldateien in unserem Template Facile:
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d913376effecaabca00ef2c458265abd/191e2/j4x43x8b.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZUlEQVQoz42QO0sDQRDHD7G3SGchQdRK0EYRRAsjaK+CFoIQa3trgxhQUBSNoiD4CqRLke8QRL+Ar1xemGC8eJfb3Xv+5TbeES+JceDHws7s7G9GKMp5+MlXsxA/M8hJWYiVDMTKG15KT8hJIl7Lz8hXcyjKBTS/LUAgBkEj1CTQbAZmUah6DZqtcZjFQHme8pO0QYAvLMMCIww1WUXlQwJVKRihsAwT/wnBtm04mKbBLxKX15juHcLmWhjrC6vYCIUw0z+Ai9Nznnfq3Det8AxNo97w6jiGoNCF8NIKDiLbWBwZR0DoRjS6y/PGT11bQ6+hWR8peRPHVHAQE8OTmJ9dxtjoHAI9fYidnP2q69jQ0XVC13UQVYUiK3gvlSFVvyArCr9vrOu4Qxd3LJUQ6LoGyqhn9dfumnbY6nfd93snO27o2Di4Iz0+3GN/bweHRzHEb++QSKawFYkgnU579o6xH7fHN0Xs4rkfnKc+AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla Template erstellen - Template Facile"
+        title="Joomla Template erstellen - Template Facile"
+        src="/static/d913376effecaabca00ef2c458265abd/5a190/j4x43x8b.png"
+        srcset="/static/d913376effecaabca00ef2c458265abd/772e8/j4x43x8b.png 200w,
+/static/d913376effecaabca00ef2c458265abd/e17e5/j4x43x8b.png 400w,
+/static/d913376effecaabca00ef2c458265abd/5a190/j4x43x8b.png 800w,
+/static/d913376effecaabca00ef2c458265abd/c1b63/j4x43x8b.png 1200w,
+/static/d913376effecaabca00ef2c458265abd/29007/j4x43x8b.png 1600w,
+/static/d913376effecaabca00ef2c458265abd/191e2/j4x43x8b.png 1836w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
 <p>Overrides können komfortabel mit Hilfe des Template-Managers erstellt werden. Dieser bietet eine Ansicht, die die Unterschiede zum Joomla-eigenen Code farblich markiert.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
@@ -129,18 +199,18 @@
   </a>
     </span></p>
 <blockquote>
-<p>Tipp: Wenn man eine Ansicht nur geringfügig verändern möchte, bietet es sich an, die original Ansicht als Vorlage zu nehmen. Dann ändert man diese wunschgemäß. Dazu geht man folgendermaßen vor. Man erstellt eine Kopie der vorhandenen Ansicht im <code class="language-text">html</code>-Verzeichnis des Templates und bearbeitet diese. Die Kopie legt man im Templateverzeichnis an, genau unter <code class="language-text">templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php</code>. Falls man zum Beispiel die <code class="language-text">Feature</code>-Ansicht in <code class="language-text">com_content</code> ändern möchtest, dann kopiert man die Datei <code class="language-text">components/com_content/views/feature/tmpl/default.php</code> nach <code class="language-text">templates/TEMPLATE_NAME/html/com_content/feature/default.php</code>. Analog verhält es sich, falls du die Darstellung des <code class="language-text">mod_article_latest</code>-Moduls ändern möchtest. Kopiere <code class="language-text">modules/tmpl/mod_articles_news/default.php</code> nach <code class="language-text">templates/TEMPLATE_NAME/html/mod_articles_news/default.php</code>. Joomla enthält das Frontend-Template namens Cassiopeia. Cassipeia verwendet Template-Overrides um das Dropdown Menu zu kreieren. An diesem kannst du dich orientieren. Öffne dazu das Verzeichnis <code class="language-text">\template\cassiopeia</code>. Im Template-Ordner, findest du ein Unterverzeichnis namens <code class="language-text">html</code>.</p>
+<p>Tipp: Wenn man eine Ansicht nur geringfügig verändern möchte, bietet es sich an, die original Ansicht als Vorlage zu nehmen. Dann ändert man diese wunschgemäß. Dazu geht man folgendermaßen vor. Man erstellt eine Kopie der vorhandenen Ansicht im <code class="language-text">html</code>-Verzeichnis des Templates und bearbeitet diese. Die Kopie legt man im Templateverzeichnis an, genau unter <code class="language-text">templates/TEMPLATE_NAME/html/EXTENSION_NAME/VIEW_NAME/FILE_NAME.php</code>. Falls man zum Beispiel die <code class="language-text">Feature</code>-Ansicht in <code class="language-text">com_content</code> ändern möchte, dann kopiert man die Datei <code class="language-text">components/com_content/views/feature/tmpl/default.php</code> nach <code class="language-text">templates/TEMPLATE_NAME/html/com_content/feature/default.php</code>. Analog verhält es sich, falls du die Darstellung des <code class="language-text">mod_article_latest</code>-Moduls ändern möchtest. Kopiere <code class="language-text">modules/tmpl/mod_articles_news/default.php</code> nach <code class="language-text">templates/TEMPLATE_NAME/html/mod_articles_news/default.php</code>. Joomla 4 bietet als Standard das Frontend-Template Cassiopeia. Cassipeia verwendet Template-Overrides um das Dropdown Menu zu kreieren. An diesem kannst du dich orientieren. Öffne dazu das Verzeichnis <code class="language-text">\template\cassiopeia</code>. Im Template-Ordner, findest du ein Unterverzeichnis namens <code class="language-text">html</code>.</p>
 </blockquote>
 <h3 id="neue-dateien" style="position:relative;"><a href="#neue-dateien" aria-label="neue dateien permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Neue Dateien</h3>
 <h4 id="assets-verzeichnis" style="position:relative;"><a href="#assets-verzeichnis" aria-label="assets verzeichnis permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assets-Verzeichnis</h4>
-<p>Das Design habe ich vom HTML5 UP-Template <a href="https://html5up.net/txt">TXT</a>[^html5up.net/txt] übernommen. Hier geht es um Joomla. Erklärungen zu HTML, SCSS und CSS würden den Rahmen dieses Beitrags sprengen. Deshalb lasse ich diese außen vor und konzentriere mich auf Joomla.</p>
-<h5 id="override-com_contentfeatured-inklusive-layout-override" style="position:relative;"><a href="#override-com_contentfeatured-inklusive-layout-override" aria-label="override com_contentfeatured inklusive layout override permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Override <code class="language-text">com_content/featured/</code> inklusive Layout Override</h5>
-<p>Die Blog-Beispieldateien nutzen als Starseite die Ansicht <code class="language-text">components/com_content/tmpl/com_content/featured/</code>. Der Code dieser Ansicht ist im Joomla Kern komplex. Viele dieser komplexen Abfragen brauche ich nicht, deshalb beschränke ich mich auf das Wesentliche. Sieh dir den nachfolgenden Code an. Im Grunde genommen durchlaufe ich alle Artikel mit der Eigenschaft <code class="language-text">featured/</code> und zeige sie mithilfe des Untertemplates <code class="language-text">default_item.php</code> an. Joomla stellt mir alle Eigenschaften eines Artikels in der Variablen <code class="language-text">$this->items</code> zur Verfügung.</p>
+<p>Das Design habe ich vom HTML5 UP-Template <a href="https://html5up.net/txt">TXT</a>[^html5up.net/txt] übernommen. In diesem Text geht es um Joomla. Erklärungen zu HTML, SCSS und CSS würden den Rahmen dieses Beitrags sprengen. Deshalb lasse ich diese außen vor und konzentriere mich auf Joomla.</p>
+<h5 id="override-com_contentfeatured-inklusive-layout-override" style="position:relative;"><a href="#override-com_contentfeatured-inklusive-layout-override" aria-label="override com_contentfeatured inklusive layout override permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Override <code class="language-text">com_content/featured/</code> (inklusive Layout Override)</h5>
+<p>Die Blog-Beispieldateien nutzen als Starseite die Ansicht <code class="language-text">components/com_content/tmpl/com_content/featured/</code>. Der Code dieser Ansicht ist komplex, zumindest im Joomla Kern. Viele dieser komplexen Abfragen brauche ich nicht, deshalb beschränke ich mich auf das Wesentliche. Sieh dir den nachfolgenden Code an. Im Grunde genommen durchlaufe ich alle Artikel mit der Eigenschaft <code class="language-text">featured/</code> und zeige sie mithilfe des Untertemplates <code class="language-text">default_item.php</code> an. Joomla stellt mir alle Eigenschaften eines Artikels in der Variablen <code class="language-text">$this->items</code> zur Verfügung.</p>
 <blockquote>
-<p>Das Joomla Templates und Untertemplates oder Layouts nutze, um den Code übersichtlich zu strukturieren hatten ich bereits bei den Frontend-Ansichten der Kategorien im Tutorialteil zur Komponente erwähnt.</p>
+<p>Joomla verwendet Templates und Subtemplates wie <code class="language-text">$this->loadTemplate('item')</code> oder Layouts wie <code class="language-text">LayoutHelper::render('joomla.content.intro_image', $this->item);</code>, um den Code übersichtlich zu strukturieren. Das hatte ich bereits bei den Frontend-Ansichten der Kategorien im Tutorialteil zur Komponente erwähnt. Nachfolgend sehen wir uns diese Funktionen noch einmal praktisch an.<!-- \index{Subtemplates} --></p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/com_content/featured/default.php">templates/facile/ html/com_content/featured/default.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/com_content/featured/default.php</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default.php">templates/facile/ html/com_content/featured/default.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/com_content/featured/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">defined</span><span class="mtk1">(</span><span class="mtk8">&#39;_JEXEC&#39;</span><span class="mtk1">) or </span><span class="mtk15">die</span><span class="mtk1">;</span></span></span>
@@ -163,17 +233,15 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;?php </span><span class="mtk15">endif</span><span class="mtk1">; ?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p>Das Untertemplate <code class="language-text">templates/facile/ html/com_content/featured/default_item.php</code> zeigt</p>
+<p>Die Datei <code class="language-text">/templates/facile/ html/com_content/featured/default.php</code> ist ein Override. Sie ruft mittels <code class="language-text">echo $this->loadTemplate('item');</code> ein Subtemplate auf.</p>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default_item.php">templates/facile/ html/com_content/featured/default_item.php</a></p>
+<p>Das Subtemplate <code class="language-text">templates/facile/ html/com_content/featured/default_item.php</code> zeigt</p>
 <ul>
 <li>mithilfe des Layouts <code class="language-text">joomla.content.intro_image</code> ein Bild an,</li>
 <li>erstellt dann eine verlinkte Überschrift und</li>
 <li>gibt darunter den Introtext aus.</li>
 </ul>
-<blockquote>
-<p>Das Layouts <code class="language-text">joomla.content.intro_image</code> wird an vielen Stellen in Joomla verwendet. Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via <code class="language-text">joomla.content.intro_image</code> nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf <code class="language-text">echo LayoutHelper::render('joomla.content.intro_image', $this->item);</code> an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code>. Zum Vergleich: Die ursprüngliche Joomla-eigene Datei des Layouts <code class="language-text">joomla.content.intro_image</code> liegt im Verzeichnis <code class="language-text">layouts/ joomla/content/intro_image.php</code>.</p>
-</blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/com_content/featured/default_item.php">templates/facile/ html/com_content/featured/default_item.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/com_content/featured/default_item.php</span></span></span>
+<pre class="grvsc-container default-dark" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/com_content/featured/default_item.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -196,12 +264,17 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;?php </span><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">item</span><span class="mtk1">-&gt;</span><span class="mtk12">introtext</span><span class="mtk1">; ?&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p>Da Joomla zuerst im Templateverzeichnis nach Dateien sucht, wird das neue Layout als erstes gefunden und angezeigt. Unsere neu erstellte Datei <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code> zeigt das Bild nun in der richtigen Größe an.</p>
+<p>Joomla sucht zuerst im Template-Verzeichnis nach Dateien. Deshalb erstellen wir später ein eigenes Layout. Des speichern wir unter <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code>. Unser eigenes Layout zeigt das Bild in der korrekten Größe an. Da es die Datei <code class="language-text">layouts/joomla/content/intro_image.php</code> direkt im Joomla Stammverzeichnis gibt, würde diese andernfalls für die Anzeige verwendet. Wenn wir keine besonderen Erfordernisse hätten, könnten wir es uns einfach machen und auf dieses Joomla eigene Layout <code class="language-text">layouts/joomla/content/intro_image.php</code> zurückgreifen.</p>
 <blockquote>
-<p>Falls die Datei <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code> nicht existierte, würde als nächstes im Verzeichnis <code class="language-text">layouts/ joomla/content/</code> gesucht und die Datei <code class="language-text">intro_image.php</code> zur Anzeige verwendet.</p>
+<p>Falls die Datei <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code> nicht existierte, würde als nächstes im Verzeichnis <code class="language-text">layouts/ joomla/content/</code> gesucht und die dortige Datei <code class="language-text">intro_image.php</code> zur Anzeige verwendet.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/layouts/joomla/content/intro_image.php">templates/facile/ html/layouts/joomla/content/intro_image.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/layouts/joomla/content/intro_image.php</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php">templates/facile/ html/layouts/joomla/content/intro_image.php</a></p>
+<p>Das Layouts <code class="language-text">joomla.content.intro_image</code> wird an vielen Stellen in Joomla verwendet.</p>
+<blockquote>
+<p>Ergänzend zum Override ganzer Views unterstützt Joomla das Überschreiben kleinerer Codesegemente, sogenannter Layouts. Layouts werden von Joomla an unterschiedlichen Stellen verwendet. Zum Beispiel um den Code zu erzeugen, der die Such- und Sortierfilter in Listenansichten erzeugt oder bei der Anzeige der Beitragsinformationen (wie Autor, Erstelldatum...) ober- oder unterhalb eines Beitrags.</p>
+</blockquote>
+<p>Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via <code class="language-text">joomla.content.intro_image</code> nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf <code class="language-text">echo LayoutHelper::render('joomla.content.intro_image', $this->item);</code> an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code>.</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">defined</span><span class="mtk1">(</span><span class="mtk8">&#39;_JEXEC&#39;</span><span class="mtk1">) or </span><span class="mtk15">die</span><span class="mtk1">;</span></span></span>
@@ -220,15 +293,15 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/a&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <blockquote>
-<p>Ergänzend zum Override ganzer Views unterstützt Joomla das Überschreiben kleinerer Codesegemente, sogenannter Layouts. Layouts werden von Joomla an unterschiedlichen Stellen verwendet. Zum Beispiel um den Code zu erzeugen, der die Such- und Sortierfilter in Listenansichten erzeugt oder bei der Anzeige der Beitragsinformationen (wie Autor, Erstelldatum...) ober- oder unterhalb eines Beitrags.</p>
+<p>Nochmal zum Vergleich: Die ursprüngliche Joomla-eigene Datei des Layouts <code class="language-text">joomla.content.intro_image</code> liegt im Verzeichnis <code class="language-text">layouts/ joomla/content/intro_image.php</code>. Die spezielle Datei für unser Template ist unter <code class="language-text">templates/facile/ html/</code> + <code class="language-text">layouts/joomla/content/intro_image.php</code> gespeichert.</p>
 </blockquote>
-<h5 id="override-mit-module-chrome-mod_articles_news" style="position:relative;"><a href="#override-mit-module-chrome-mod_articles_news" aria-label="override mit module chrome mod_articles_news permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Override mit Module Chrome <code class="language-text">mod_articles_news</code></h5>
-<p>Im oberen Bereich der Startseite zeigen die Joomla Blog Beispieldaten das Modul <code class="language-text">mod_articles_news</code> an. Wir erstellen analog zur Ansicht der Hauptbeiträge in <code class="language-text">com_content/featured/</code> ein Standard Override, in dem wir die Items in einem Untertemplate einbinden. Die beiden Dateien <code class="language-text">mod_articles_news/_item.php</code> und <code class="language-text">mod_articles_news/default.php</code> findest du nachfolgend. Sie unterstützen lediglich die notwendigen Funktionen und sind deshalb kompakt.</p>
+<h5 id="override-via-module-chrome-mod_articles_news" style="position:relative;"><a href="#override-via-module-chrome-mod_articles_news" aria-label="override via module chrome mod_articles_news permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Override via Module Chrome <code class="language-text">mod_articles_news</code></h5>
+<p>Im oberen Bereich der Startseite zeigen die Joomla Blog Beispieldaten das Modul <code class="language-text">mod_articles_news</code> an. Wir erstellen analog zur Ansicht der Hauptbeiträge in <code class="language-text">com_content/featured/</code> ein Standard Override, in dem wir die Items in einem Untertemplate einbinden. Den Code der beiden Dateien <code class="language-text">mod_articles_news/_item.php</code> und <code class="language-text">mod_articles_news/default.php</code> findest du nachfolgend. Diese unterstützen lediglich die notwendigen Funktionen und sind deshalb zum Lernen übersichtlich kompakt.</p>
 <blockquote>
-<p><code class="language-text">templates/facile/html/mod_articles_news/_item.php</code> beinhaltet ebenfalls ein Layout. <code class="language-text">joomla.content.readmore</code> enthält den Code, der einen Weiterlesen Link erstellt. Eine Funktion, die in vielen Ansichten eingesetzt wird und deshalb ein gutes Beispiel für die Wiederverwendbarkeit ist.</p>
+<p><code class="language-text">templates/facile/html/mod_articles_news/_item.php</code> beinhaltet ebenfalls ein Layout. <code class="language-text">joomla.content.readmore</code> enthält den Code, der einen Weiterlesen-Link erstellt. Eine Funktion, die in vielen Ansichten eingesetzt wird und deshalb ein gutes Beispiel für die Wiederverwendbarkeit ist.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_articles_news/_item.php">templates/facile/ html/mod_articles_news/_item.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_articles_news/_item.php</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_articles_news/_item.php">templates/facile/ html/mod_articles_news/_item.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/_item.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -250,8 +323,8 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/section&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_articles_news/default.php">templates/facile/ html/mod_articles_news/default.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_articles_news/default.php</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_articles_news/default.php">templates/facile/ html/mod_articles_news/default.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -273,9 +346,9 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p>Das Override zum Modul <code class="language-text">mod_articles_news</code> soll im oberen Bereich mit einer großen Überschrift angezeigt werden. Auf einer Unterseite, soll es mit kleiner Überschrift in der Seitenleiste erscheinen. Wir könnten mit einem alternativen Override eine Lösung schaffen. Diese Variante ist Thema des nächsten Abschnitts. Dabei würde aber viel Programmcode redundant geschrieben. Eigentlich ist nur die erste Zeile mit der Überschrift unterschiedlich. Und hier kommen Joomlas Modul Chromes ins Spiel. Wir erstellen eine Datei im Verzeichnis <code class="language-text">templates/facile/html/layouts/chromes/</code> die nur den unterschiedlichen Code enthält und ansonsten das Modul genauso einbindet, wie es ist. Für letzteres sorgt <code class="language-text">echo $module->content;</code>. Die Module Chrome Datei können wir beliebig nennen. Ich habe <code class="language-text">hr.php</code> als Namen gewählt. In der <code class="language-text">index.php</code> am Ende dieses Abschnittes siehst du, wie du dafür sorgst, dass die Datei <code class="language-text">hr.php</code> im Kopfbereich der Seite integriert wird aber nicht in der Seitenleiste.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/layouts/chromes/hr.php">templates/facile/ html/layouts/chromes/hr.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/layouts/chromes/hr.php</span></span></span>
+<p>Das Override zum Modul <code class="language-text">mod_articles_news</code> soll im oberen Bereich mit einer großen Überschrift angezeigt werden. Auf einer Unterseite, soll es mit kleiner Überschrift in der Seitenleiste erscheinen. Wir könnten mit einem alternativen Override eine Lösung schaffen. Diese Variante ist Thema des nächsten Abschnitts. Mit einem alternativen Override würde viel Programmcode redundant geschrieben. Eigentlich ist nur die erste Zeile mit der Überschrift unterschiedlich. Und hier kommen Joomlas Modul Chromes ins Spiel. Wir erstellen eine Datei im Verzeichnis <code class="language-text">templates/facile/html/layouts/chromes/</code> die nur den unterschiedlichen Code enthält und ansonsten das Modul genauso einbindet, wie es ist. Für letzteres sorgt <code class="language-text">echo $module->content;</code>. Die Module Chrome Datei können wir beliebig nennen. Ich habe <code class="language-text">hr.php</code> als Namen gewählt. In der <code class="language-text">index.php</code> am Ende dieses Abschnittes siehst du, wie du dafür sorgst, dass die Datei <code class="language-text">hr.php</code> im Kopfbereich der Seite integriert wird aber nicht in der Seitenleiste.</p>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/chromes/hr.php">templates/facile/ html/layouts/chromes/hr.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/chromes/hr.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">defined</span><span class="mtk1">(</span><span class="mtk8">&#39;_JEXEC&#39;</span><span class="mtk1">) or </span><span class="mtk15">die</span><span class="mtk1">;</span></span></span>
@@ -288,12 +361,12 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/section&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <h4 id="das-alternative-override-mod_menu" style="position:relative;"><a href="#das-alternative-override-mod_menu" aria-label="das alternative override mod_menu permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Das alternative Override <code class="language-text">mod_menu</code></h4>
-<p>Es gibt Anforderungen, bei denen das Aussehen eines Modules an unterschiedlichen Stellen stark variiert. In diesem Fall ist es erforderlich, dass zwei unterschiedliche Dateien erstellt werden. Die Datei <code class="language-text">default.php</code> ist das eigentlich Override. Legen wir im Verzeichnis neben der <code class="language-text">default.php</code> eine weitere Datei an, ist dies ein alternatives Override. Ein Anwendungsfall ist eine Menü. Im Kopfbereich sieht das Hauptmenü oft ganz anders aus, als das im Footer. In unserem Template ist das Hauptmenü in der Datei <code class="language-text">default.php</code> implementiert und das Fußmenü in der Datei <code class="language-text">bottom.php</code>.</p>
+<p>Es gibt Anforderungen, bei denen das Aussehen eines Modules an unterschiedlichen Stellen stark variiert. In diesem Fall ist es erforderlich, dass zwei unterschiedliche Dateien erstellt werden. Die Datei <code class="language-text">default.php</code> ist das eigentlich Override. Legen wir im Verzeichnis neben der <code class="language-text">default.php</code> eine weitere Datei an, ist dies ein alternatives Override. Ein Anwendungsfall ist ein Menü. Im Kopfbereich sieht das Hauptmenü oft ganz anders aus, als das im Footer. In unserem Template ist das Hauptmenü in der Datei <code class="language-text">default.php</code> implementiert und das Fußmenü in der Datei <code class="language-text">bottom.php</code>.</p>
 <blockquote>
-<p>Anmerkung: Die beiden Dateien unterscheiden sich geringfügig. In der Datei <code class="language-text">bottom.php</code> muss das <code class="language-text">&lt;ul></code>-Element die Klasse <code class="language-text">menu</code> erhalten, damit keine Listenpunkte in der Frontendansicht angezeigt werden. Randbemerkung: Dies könnte ebenfalls über ein Modul Chrome gehandhabt werden.</p>
+<p>Anmerkung: Die beiden Dateien unterscheiden sich geringfügig. In der Datei <code class="language-text">bottom.php</code> muss das <code class="language-text">&lt;ul></code>-Element die Klasse <code class="language-text">menu</code> erhalten, damit keine Listenpunkte in der Frontendansicht angezeigt werden. Dies könnte ebenfalls über ein Modul Chrome gehandhabt werden.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_menu/default.php">templates/facile/ html/mod_menu/default.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_menu/default.php</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_menu/default.php">templates/facile/ html/mod_menu/default.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">defined</span><span class="mtk1">(</span><span class="mtk8">&#39;_JEXEC&#39;</span><span class="mtk1">) or </span><span class="mtk15">die</span><span class="mtk1">;</span></span></span>
@@ -330,8 +403,8 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">?&gt;&lt;/ul&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_menu/bottom.php">templates/facile/ html/mod_menu/bottom.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/html/mod_menu/bottom.php</span></span></span>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_menu/bottom.php">templates/facile/ html/mod_menu/bottom.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/bottom.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">defined</span><span class="mtk1">(</span><span class="mtk8">&#39;_JEXEC&#39;</span><span class="mtk1">) or </span><span class="mtk15">die</span><span class="mtk1">;</span></span></span>
@@ -369,10 +442,10 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">?&gt;&lt;/ul&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <h3 id="geänderte-dateien" style="position:relative;"><a href="#ge%C3%A4nderte-dateien" aria-label="geänderte dateien permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Geänderte Dateien</h3>
-<h5 id="templatesfacileindexphp" style="position:relative;"><a href="#templatesfacileindexphp" aria-label="templatesfacileindexphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php">templates/facile/index.php</a></h5>
+<h5 id="templatesfacileindexphp" style="position:relative;"><a href="#templatesfacileindexphp" aria-label="templatesfacileindexphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/index.php">templates/facile/index.php</a></h5>
 <p>Die nachfolgende <code class="language-text">index.php</code> ist an die neu hinzugefügten CSS-Styles angepasst und gibt nun im Frontend ein ansprechenderes Design aus.</p>
 <p>Die Zeile <code class="language-text">&lt;jdoc:include type="modules" name="top-a" style="hr" /></code> sorgt dafür, dass an dieser Stelle das Modul Chrome <code class="language-text">hr</code> für die Anzeige des Moduls hinzugezogen wird.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/578e796d09d963c9537628c2c1adcf111efd3c55/src/templates/facile/index.php">templates/facile/index.php</a></p>
+<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/index.php">templates/facile/index.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting default-dark" data-language="php" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;!DOCTYPE html&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;html lang=</span><span class="mtk8">&quot;de&quot;</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>
@@ -539,7 +612,7 @@
 <p>Tipp: Damit keine Elemente unnötig hinzugefügt werden ist es gute Praxis zu prüfen, ob eine Modulposition in der Joomla Installation verwendet wird. Dies geschieht mit <code class="language-text">$this->countModules('NAME_DER_POSITIONS', true)</code>.</p>
 </blockquote>
 <blockquote>
-<p>Das Banner Modul habe ich gelöscht, weil ich ein Banner später mithilfe von Parametern einfügen möchte.</p>
+<p>Das Banner Modul habe ich gelöscht, weil ich später ein Banner mithilfe von Parametern einfüge.</p>
 </blockquote>
 <h2 id="teste-dein-joomla-template" style="position:relative;"><a href="#teste-dein-joomla-template" aria-label="teste dein joomla template permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Teste dein Joomla-Template</h2>
 <ol>
@@ -547,7 +620,7 @@
 </ol>
 <p>Kopiere die Dateien im <code class="language-text">templates</code> Ordner in den <code class="language-text">templates</code> Ordner deiner Joomla 4 Installation.</p>
 <p>Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.</p>
-<p>Wir haben im vorhergehenden Kapitel die Beispieldaten installiert und verfügen deshalb über die im nächsten Bild dargestellten Module in unserer Joomla-Installation.</p>
+<p>Wir haben im vorhergehenden Kapitel die Beispieldaten installiert. Falls du dies nicht getan hast, hole es bitte nun nach damit die im nächsten Bild dargestellten Module auf der Homepage der Joomla-Installation verfügbart sind.</p>
 <p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
@@ -582,7 +655,7 @@
   </a>
     </span></p>
 <ol start="2">
-<li>Öffne das Modul <code class="language-text">Bottom Menü</code> und wähle als Layout <code class="language-text">bottom</code>. Beim Modul <code class="language-text">Blog Menü</code> ersetzt du das Layout <code class="language-text">Dropdown</code> mit dem Standardlayout <code class="language-text">Default</code>.</li>
+<li>Öffne das Modul <code class="language-text">Bottom Menü</code> und wähle als Layout <code class="language-text">bottom</code>. Beim Modul <code class="language-text">Main Menu Blog</code> ersetzt du das Layout <code class="language-text">Dropdown</code> mit dem Standardlayout <code class="language-text">Default</code> vom Module.</li>
 </ol>
 <p><span
       class="gatsby-resp-image-wrapper"
