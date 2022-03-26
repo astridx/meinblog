@@ -14,7 +14,7 @@ tags:
   - Joomla
 ---
 
-A [favicon](https://de.wikipedia.org/wiki/Favicon is a small icon used to identify a website in a recognisable way. It is displayed on different devices when a website is saved as a favourite.<!-- \index{template!favicon} -->
+A [favicon](https://de.wikipedia.org/wiki/Favicon) is a small icon used to identify a website in a recognizable way. It appears in different ways on different devices. Most often, you see it as an icon in your favorites when you save the website here to visit it again more quickly. Almost always the tabs in the browser are marked with the icon.<!-- \index{template!favicon} -->
 
 > The size and type of the favicon is expected to be different on different devices. I use the website [realfavicongenerator.net](https://realfavicongenerator.net/) to create the optimal format of my image for the individual devices. I consider this tool to be tried and tested and the easiest to use. However, there is an alternative newer approach that is used by the Joomla standard template Cassiopeia. If you prefer to use the modern SVG format with an ICO file as a fallback layer, you will find a solution that suits you better under [Favicon in Joomla template](https://blog.astrid-guenther.de/en/cassiopeia-favicon).
 
@@ -24,7 +24,7 @@ A [favicon](https://de.wikipedia.org/wiki/Favicon is a small icon used to identi
 
 In this section we create a recognisable image. In the first step, we choose an image. For the example, I chose a yellow PNG file. In the next step, we convert it into different formats using the website [realfavicongenerator.net](https://realfavicongenerator.net/).
 
-> Clear the browser cache if changes to the favicon are not visible during development.
+> Tip: Clear the browser cache if changes to the favicon are not visible during development.
 
 ### New files
 
@@ -44,7 +44,7 @@ The favicon generator creates 9 files which we copy into our template directory.
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
 
-In order for the files to be found, new lines in the file `templates/facile/ index.php` are required. The variable `$templatePath` helps me to create the path.
+In order for the files to be found, new lines in the file `templates/facile/ index.php` are required. The variable `$templatePath` helps me to create the relativ path.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
 
@@ -75,5 +75,5 @@ In order for the files to be found, new lines in the file `templates/facile/ ind
 
 ## Links
 
-[Favicon Generator](https://realfavicongenerator.net/)[^https://realfavicongenerator.net]
+[Favicon Generator](https://realfavicongenerator.net/)[^realfavicongenerator.net]
 <img src="https://vg08.met.vgwort.de/na/73b505d6ad6643aaa92b8c045a3a891b" width="1" height="1" alt="">

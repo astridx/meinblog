@@ -181,5 +181,5 @@ We have a solid basis for the further steps in the development of the module.
 
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/j4.x:creating_a_simple_module]
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^docs.joomla.org/j4.x:creating_a_simple_module]
 <img src="https://vg08.met.vgwort.de/na/cf3d0b5495de4c67b886abc709a61739" width="1" height="1" alt="">

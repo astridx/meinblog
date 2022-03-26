@@ -137,5 +137,5 @@ Install your module as described in part one, after copying all files. Joomla wi
 
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^https://docs.joomla.org/j4.x:creating_a_simple_module]
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^docs.joomla.org/j4.x:creating_a_simple_module]
 <img src="https://vg08.met.vgwort.de/na/dcdcb2f87a6d452abb0a600b37f839a4" width="1" height="1" alt="">

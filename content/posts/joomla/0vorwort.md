@@ -74,13 +74,13 @@ In diesem Text ist der Joomla Code Thema. Es geht nicht um die neuesten Werkzeug
 
 #### Testumgebung
 
-Du möchtest eine Erweiterung für Joomla programmieren und benötigst deshalb eine Umgebung in der Joomla installiert ist. Meiner Meinung nach ist ein [XAMPP-Serverpaket](https://www.apachefriends.org/index.html)[^https://www.apachefriends.org/index.html] auf einem lokalen Arbeitsrechner eine ideale Voraussetzung zur Entwicklung neuer Erweiterungen. Der direkte Zugriff auf die Dateien von Joomla im lokalen Dateisystem erleichtert die Handhabe.
+Du möchtest eine Erweiterung für Joomla programmieren und benötigst deshalb eine Umgebung in der Joomla installiert ist. Meiner Meinung nach ist ein [XAMPP-Serverpaket](https://www.apachefriends.org/index.html)[^www.apachefriends.org/index.html] auf einem lokalen Arbeitsrechner eine ideale Voraussetzung zur Entwicklung neuer Erweiterungen. Der direkte Zugriff auf die Dateien von Joomla im lokalen Dateisystem erleichtert die Handhabe.
 
 #### Code-Editoren oder IDE
 
 Zwingend ist ebenfalls ein guter Editor. Dies sollte einer sein, mit dem du dich wohlfühlst. Wikipedia führt eine Liste mit [Editoren.](https://de.wikipedia.org/wiki/Liste_von_Texteditoren)[^de.wikipedia.org/wiki/liste_von_texteditoren]
 
-Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^https://de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. Mit Bequemlichkeit meine ich Funktionen wie
+Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. Mit Bequemlichkeit meine ich Funktionen wie
 
 - Versionierung: Integration von [GIT](https://de.wikipedia.org/wiki/Git)[^de.wikipedia.org/wiki/git]
 - Codevervollständigung: Benutzereingabe sinnvoll ergänzen
@@ -90,7 +90,7 @@ Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://d
 
 Auch zu IDEs kannst du dir bei Wikipedia anhand einer [Liste mit IDEs](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen] einen Überblick verschaffen.
 
-In der Joomla-Community ist die kostenpflichtige IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^https://www.jetbrains.com/phpstorm/] beliebt. Immer häufiger trifft man auf Nutzer von [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/]. Nennenswert sind daneben [NetBeans](https://netbeans.org) und [Eclipse](https://eclipse.org).
+In der Joomla-Community ist die kostenpflichtige IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^www.jetbrains.com/phpstorm/] beliebt. Immer häufiger trifft man auf Nutzer von [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/]. Nennenswert sind daneben [NetBeans](https://netbeans.org) und [Eclipse](https://eclipse.org).
 
 Sucht du nach einer Anleitung, zur Einrichtung der Entwicklungsumgebung? Joomla mit Visual Studio Code findest du in der [Joomla Dokumentation](https://docs.joomla.org/Visual_Studio_Code)[^docs.joomla.org/visual_studio_code]. Für PHPStorm bietet Jetbrains eine [Beschreibung](https://www.jetbrains.com/help/phpstorm/joomla-specific-coding-assistance.html).
 

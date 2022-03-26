@@ -14,27 +14,27 @@ tags:
   - Joomla
 ---
 
-Parameter machen das Template im Backend flexibel anpassbar. Vielleicht sollen eine Farbauswahl möglich sein? Das Standardtemplate Cassiopeia bietet unter anderem `logoFile`, `siteTitle` und `siteDescription` als Parameter. Wir ergänzen ein Banner und Social Media Icons.<!-- \index{Template!Parameter} -->
+Parameter machen das Template im Backend flexibel anpassbar. Vielleicht soll eine Farbauswahl möglich sein? Das Standardtemplate Cassiopeia bietet unter anderem `logoFile`, `siteTitle` und `siteDescription` als Parameter. Wir ergänzen ein Banner und Social Media Icons.<!-- \index{Template!Parameter} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-In diesem Abschnitt sehen wir uns Parameter an und werden feststellen, dass es Gegebenheiten gibt, bei denen diese intuitiver arbeiten, als Module Chromes.
+In diesem Abschnitt sehen wir uns Parameter an und werden feststellen, dass diese Inhalte relativ statisch hinzufügen. Das ist nachteilig. Vorteilhaft ist, dass die Anwendung unkompliziert ist.
 
 ### Neue Dateien
 
 In diesem Kapitel wird lediglich das Bild `templates/facile/images/banner.jpg` hinzugefügt, welches im Banner via CSS angezeigt wird. Dieses habe ich den Demo Images von [html5up.net](https://html5up.net/txt) entnommen und es ist von [unsplash.com](https://unsplash.com/).
 
-#### Template
+### Geänderte Dateien
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 Die Datei `templates/facile/ index.php` ergänzen wir, so dass über Parameter ein Banner und Social Media Icons einfügbar sind.
 
-> In HTML haben manche Zeichen, beispielsweise die spitzen Klammern `< >`, eine besondere Bedeutung. Sie werden daher als [HTML-Entities](https://de.wikipedia.org/wiki/Typografische_Zeichen_in_XML_und_HTML)[^de.wikipedia.org/wiki/typografische_zeichen_in_xml_und_html] geschrieben, um sie als Text darzustellen. Beispielsweise steht `&lt;` statt `<` und `&gt;` statt `>`. Bei der Verarbeitung von Zeichenketten kann es vorkommen, dass diese solche spezifischen Zeichen enthalten. Die müssen dann umgewandelt werden, damit sie als reiner Text weiter verarbeitet werden. Wir bieten im Backend unseres Templates eine Texteingabemöglichkeit über ein Formular. Wir möchten aber nicht, dass darüber HTML-Code eingeschleust wird. Dies ist ein Sicherheitsrisiko. Um das zu verhindern, nutzen wir die Funktion [htmlspecialchars()](https://www.php.net/manual/de/function.htmlspecialchars.php)[^php.net/manual/de/function.htmlspecialchars.php]. Diese sorgt dafür, dass die Zeichen in puren Text umgewandelt werden, die in HTML eine besondere Bedeutung haben.
+> In HTML haben manche Zeichen, beispielsweise die spitzen Klammern `< >`, eine besondere Bedeutung. Sie werden daher als [HTML-Entities](https://de.wikipedia.org/wiki/Typografische_Zeichen_in_XML_und_HTML)[^de.wikipedia.org/wiki/typografische_zeichen_in_xml_und_html] geschrieben, um sie als Text darzustellen. Beispielsweise steht `&lt;` statt `<` und `&gt;` statt `>`. Bei der Verarbeitung von Zeichenketten kann es vorkommen, dass diese solche spezifischen Zeichen enthalten. Die müssen dann umgewandelt werden, damit sie als reiner Text weiter verarbeitet werden. Wir bieten im Backend unseres Templates eine Texteingabemöglichkeit über ein Formular. Wir möchten aber nicht, dass darüber HTML-Code eingeschleust wird. Dies ist ein Sicherheitsrisiko. Um das zu verhindern, nutzen wir die Funktion [htmlspecialchars()](https://www.php.net/manual/de/function.htmlspecialchars.php)[^php.net/manual/de/function.htmlspecialchars.php]. Dadurch wird sichergestellt, dass die Zeichen, die in HTML eine besondere Bedeutung haben, in reinen Text umgewandelt werden.<!-- \index{htmlspecialchars} -->
 
-Sieh dir den nachfolgenden Codeausschnitt an. Der HTML Code erklärt sich meiner Meinung selbst.
+Sieh dir den nachfolgenden Codeausschnitt an. Der HTML Code erklärt sich meiner Meinung selbst. Wir fügen HTML-Markup hinzu, welches lediglich angezeigt wird, wenn ein bestimmter Parameter gesetzt ist. Beispielsweise beim Footer über die Abfrage `$this->params->get('showFooter')`. Was angezeigt wird, hängt dann ebenfalls von den im Backend vom Benutzer ausgefüllten Werten für die Parameter ab.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -124,9 +124,9 @@ Wir nutzen die Sprachdateien für die Labels unseres Backendformulares. So sind 
 
 Da Joomla uns beim Erstellen der Formularfelder unterstützt, reicht es aus, die Felder über eine XML-Datei zu definieren.
 
-Damit ein Formularfeld in Anhängigkeit zu einem anderen angezeigt wird, nutzen wir `showon`. `showon="showBanner:1"` bewirkt, dass das aktuelle Feld nur eingeblendet wird, wenn das Feld `showBanner` den Wert `1` hat.
+Damit ein Formularfeld in Anhängigkeit zu einem anderen angezeigt wird, nutzen wir `showon`. `showon="showBanner:1"` bewirkt, dass das aktuelle Feld nur eingeblendet wird, wenn das Feld `showBanner` den Wert `1` hat.<!-- \index{Fields|showon} -->
 
-Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Werte im Backendformular flexibel zu gestalten. So ist mit einem Formularfeld möglich, entweder lediglich einen Link zu Facebook einzufügen oder aber viele Social Media Kanäle anzuzeigen.
+Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Werte im Backendformular flexibel zu gestalten. So ist mit einem Formularfeld möglich, entweder lediglich einen Link zu Facebook einzufügen oder aber viele Social Media Kanäle anzuzeigen.<!-- \index{Fields|subform} -->
 
 [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -224,7 +224,7 @@ Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Werte 
  </extension>
 ```
 
-> Die Joomla-Dokumentation [docs.joomla.org/Form_field](https://docs.joomla.org/Form_field) bietet einen Überblick über alle möglichen Formularfelder.
+> Die Joomla-Dokumentation [docs.joomla.org/Form_field](https://docs.joomla.org/Form_field) bietet einen Überblick über alle möglichen Formularfelder. <!-- \index{Fields} -->
 
 ## Teste dein Joomla-Template
 
@@ -245,4 +245,6 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ![Joomla Template erstellen - Social Media Backend](/images/j4x43x3.png)
 
 ![Joomla Template erstellen - Social Media Frontend](/images/j4x43x4.png)
+
+> Ich nutze die Icons `fa-facebook-f` für _Facebook_ und `fa-twitter` für _Twitter_. Dies kann ich tun, weil das Template Facile [Font Awesome](https://fontawesome.com/v5/search?m=free)[^fontawesome.com/v5/search?m=free] integriert. Siehe `/templates/facile/assets/webfonts`.
 <img src="https://vg08.met.vgwort.de/na/23d0ed60006d4ed2b0cd1631943c7e03" width="1" height="1" alt="">

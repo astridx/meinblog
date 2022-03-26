@@ -14,7 +14,7 @@ tags:
   - Joomla
 ---
 
-The template is ready. Now you want to make sure that it does not contain any errors. Then take a look at [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse]. This is a browser plug-in and an audit tool developed in Google Chrome with which the loading time of a website can be examined and optimised. In addition to the structure of HTML, CSS and JavaScript files, it also takes into account the integration of images and the cache settings of the website.<!-- \index{Google Lighthouse} --><!-- \index{template!performance, accessibility, best practice, seo, pwa} -->
+The template is ready. Now you want to make sure that it is technically good and contains no errors. Then take a look at [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse]. This is a browser plug-in and an audit tool developed in Google Chrome with which the loading time of a website can be examined and optimised. In addition to the structure of HTML, CSS and JavaScript files, it also takes into account the integration of images and the cache settings of the website.<!-- \index{Google Lighthouse} --><!-- \index{template!performance, accessibility, best practice, seo, pwa} -->
 
 ## Google Lighthouse
 
@@ -65,5 +65,5 @@ The results of the Lighthouse analysis vary at different times and under differe
 
 ## Links
 
-[Lighthouse](https://developers.google.com/web/tools/lighthouse)[^https://developers.google.com/web/tools/lighthouse]
+[Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse]
 <img src="https://vg08.met.vgwort.de/na/871cabe6012345f9908b7d01547c7440" width="1" height="1" alt="">

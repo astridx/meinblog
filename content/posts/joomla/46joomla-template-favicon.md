@@ -14,7 +14,7 @@ tags:
   - Joomla
 ---
 
-Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das verwendet wird, um eine Website auf wiedererkennbare Weise zu kennzeichnen. Es erscheint auf unterschiedlichen Geräten beim Speichern einer Website als Favorit.<!-- \index{Template!Favicon} -->
+Ein [Favicon](https://de.wikipedia.org/wiki/Favicon) ist ein kleines Symbol, das dazu dient, eine Website auf erkennbare Weise zu kennzeichnen. Es erscheint auf verschiedenen Geräten auf unterschiedliche Weise. Meistens sieht man es als Symbol in den Favoriten, wenn man die Website hier speichert, um in Zukunft schneller aufrufen zu können. Fast immer sind die Tabulatoren im Internet-Browser mit dem Symbol versehen.<!-- \index{Template!Favicon} -->
 
 > Die Größe und der Typ des Favicon wird auf unterschiedlichen Geräten anders erwartet. Ich nutze die Website [realfavicongenerator.net](https://realfavicongenerator.net/), um die optimale Form meines Bildes für die jeweiligen Geräte zu erstellen. Ich sehe dieses Werkzeug als erprobt und am einfachsten in der Handhabung an. Es gibt allerdings eine alternative neuere Vorgehensweise. Diese wird vom Joomla Standardtemplate Cassiopeia verwendet. Falls du lieber das moderne SVG-Format mit einer ICO-Datei als Rückfallebene verwendest, findest du unter [Favicon im Joomla-Template](https://blog.astrid-guenther.de/cassiopeia-favicon) eine Lösung die besser zu dir passt.
 
@@ -24,7 +24,7 @@ Ein [Favicon](https://de.wikipedia.org/wiki/Favicon ist ein kleines Symbol, das 
 
 In diesem Abschnitt schaffen wir einen Wiedererkennungswert. Im ersten Schritt wählen wir ein Image. Für das Beispiel habe ich eine gelbe PNG-Datei gewählt. Im nächsten Schritt wandeln wir diese mithilfe der Website [realfavicongenerator.net](https://realfavicongenerator.net/) in unterschiedliche Formate.
 
-> Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht sichtbar werden.
+> Tipp: Lösche den Browser-Cache, falls beim Entwickeln Änderungen des Favicons nicht sichtbar werden.
 
 ### Neue Dateien
 
@@ -44,7 +44,7 @@ Der Favicon-Generator erstellt 9 Datei, die wir in unser Template-Verzeichnis ko
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
 
-Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile/ index.php` erforderlich. Die Variable `$templatePath` hilft mir beim Erstellen des Pfades.
+Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile/ index.php` erforderlich. Die Variable `$templatePath` hilft mir beim Erstellen des relativen Pfades.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
 
@@ -75,5 +75,5 @@ Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile
 
 ## Links
 
-[Favicon Generator](https://realfavicongenerator.net/)[^https://realfavicongenerator.net]
+[Favicon Generator](https://realfavicongenerator.net/)[^realfavicongenerator.net]
 <img src="https://vg08.met.vgwort.de/na/1630284284b44cfba6398486d1e8d599" width="1" height="1" alt="">

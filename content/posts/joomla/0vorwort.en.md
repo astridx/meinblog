@@ -74,13 +74,13 @@ This text is about the Joomla code. It is not about the latest tools for develop
 
 #### Test environment
 
-You want to program an extension for Joomla and therefore need an environment in which Joomla is installed. In my opinion, a [XAMPP server package](https://www.apachefriends.org/index.html)[^https://www.apachefriends.org/index.html] on a local workstation is an ideal prerequisite for developing new extensions. The direct access to the files of Joomla in the local file system facilitates the handling.
+You want to program an extension for Joomla and therefore need an environment in which Joomla is installed. In my opinion, a [XAMPP server package](https://www.apachefriends.org/index.html)[^www.apachefriends.org/index.html] on a local workstation is an ideal prerequisite for developing new extensions. The direct access to the files of Joomla in the local file system facilitates the handling.
 
 #### Code editors or IDE
 
 A good editor is also essential. This should be one you feel comfortable with. Wikipedia maintains a list of [editors.](https://de.wikipedia.org/wiki/Liste_von_Texteditoren)[^en.wikipedia.org/wiki/list_of_texteditors].
 
-More convenience is offered by an integrated development environment [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^https://de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. By convenience I mean functions like
+More convenience is offered by an integrated development environment [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. By convenience I mean functions like
 
 - versioning: integration of [GIT](https://en.wikipedia.org/wiki/Git)[^wikipedia.org/wiki/git]
 - Code completion: Complement user input in a meaningful way
@@ -90,7 +90,7 @@ More convenience is offered by an integrated development environment [IDE](https
 
 You can also get an overview of IDEs from Wikipedia using a [List of IDEs](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^en.wikipedia.org/wiki/list_of_integrated_development_environments].
 
-In the Joomla community, the IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^https://www.jetbrains.com/phpstorm/], which is subject to a fee, is popular. Users of [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/] are becoming increasingly common. Also worth mentioning are [NetBeans](https://netbeans.org) and [Eclipse](https://eclipse.org).
+In the Joomla community, the IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^www.jetbrains.com/phpstorm/], which is subject to a fee, is popular. Users of [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/] are becoming increasingly common. Also worth mentioning are [NetBeans](https://netbeans.org) and [Eclipse](https://eclipse.org).
 
 Are you looking for instructions on how to set up the development environment? Joomla with Visual Studio Code can be found in the [Joomla Documentation](https://docs.joomla.org/Visual_Studio_Code)[^docs.joomla.org/visual_studio_code]. For PHPStorm, Jetbrains provides a [description](https://www.jetbrains.com/help/phpstorm/joomla-specific-coding-assistance.html).
 

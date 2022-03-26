@@ -14,13 +14,13 @@ tags:
   - Joomla
 ---
 
-The topic of dark mode has caused a lot of excitement. Apple, for example, has integrated dark mode into its operating systems. Windows and Google have done the same. Dark Mode is in fashion. And not only that. It offers advantages. Whether darker displays are good for the eyes is debatable. What is clear, however, is that less light saves energy.<!-- \index{template!dark mode} -->
+Dark Mode is a hot topic right now. Apple, for example, has integrated dark mode into its operating systems. Windows and Google have done the same. Dark Mode is in fashion. And not only that. It offers advantages. Whether darker displays are good for the eyes is debatable. What is clear, however, is that less light saves energy.<!-- \index{template!dark mode} -->
 
 > For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] and transfer these changes to your development version.
 
 ## Step by step
 
-In this section we enable a dark mode with the help of a specially created CSS file. We query which mode is active via the property 'prefers-color-scheme'. This recognises which variant the user has set in the operating system.
+In this section we will integrate the possibility of switching to a dark mode into the Tempalte Facile. We do this with the help of a specially created CSS file. Which mode is active, we query via the property `prefers-color-scheme`. This recognizes which variant the user has set as desired in the operating system.
 
 I use the following snippet to have the information displayed in the browser console beforehand. This way I am sure that the property 'prefers-color-scheme' is supported and how it is set.
 
@@ -37,9 +37,9 @@ I use the following snippet to have the information displayed in the browser con
     </script>
 ```
 
-Are you wondering what `window.matchMedia` means? `window.variableName` means that the variable `variableName` is declared in the global scope. This means that any JavaScript code has access to this variable. The use of [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)[^developer.mozilla.org/en-us/docs/web/api/window] is not mandatory. However, `window` is often used as a convention to indicate that a variable is global. Global variables should be avoided if possible. It is safer to define your own variables if you can.
+Are you wondering what `window.matchMedia` means? `window.PLACEHOLDER` means that the variable `PLACEHOLDER` is declared in the global scope. This means that any JavaScript code has access to this variable. The use of [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window)[^developer.mozilla.org/en-us/docs/web/api/window] is not mandatory. However, `window` is often used as a convention to indicate that a variable is global. Global variables should be avoided. Using them is not a good programming style. It is safer to define your own variables, if possible.
 
-> A simple solution would be to display everything in black and white. The entry `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in the CSS file would do this. A matching color scheme is better in terms of quality.
+> If you want to implement a dark mode, there is an uncomplicated solution: simply display everything in black and white. The text `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in the CSS file would do this. A matching color scheme is better in terms of quality.
 
 ### New files
 
@@ -178,7 +178,7 @@ A new installation is not necessary. Continue using the ones from the previous p
 
 ## Links
 
-[prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^https://web.dev/prefers-color-scheme]
+[prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^web.dev/prefers-color-scheme]
 
-[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/googlechromelabs/dark-mode-toggle]
+[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^github.com/googlechromelabs/dark-mode-toggle]
 <img src="https://vg08.met.vgwort.de/na/d745baaac84d49ff8848211d50eb8c00" width="1" height="1" alt="">

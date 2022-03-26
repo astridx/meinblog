@@ -313,7 +313,7 @@ $onclick   = $this->escape($function);
 
 ```
 
-> Ein [Modal](<https://de.wikipedia.org/wiki/Dialog_(Benutzeroberfl%C3%A4che)>)[^https://de.wikipedia.org/wiki/dialog_(benutzeroberfl%c3%a4che)] ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Modale Dialoge sperren den Rest der Anwendung solange der Dialog angezeigt wird. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.<!-- \index{Modal} --><!-- \index{Dialog Box} -->
+> Ein [Modal](<https://de.wikipedia.org/wiki/Dialog_(Benutzeroberfl%C3%A4che)>)[^de.wikipedia.org/wiki/dialog_(benutzeroberfl%c3%a4che)] ist ein Bereich, der sich im Vordergrund einer Webseite öffnet und deren Zustand ändert. Es ist erforderlich, diesen aktiv zu schließen. Modale Dialoge sperren den Rest der Anwendung solange der Dialog angezeigt wird. Ein Modal wird ebenfalls Dialog oder Lightbox genannt.<!-- \index{Modal} --><!-- \index{Dialog Box} -->
 
 #### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
 

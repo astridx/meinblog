@@ -43,7 +43,7 @@ Plugins des Typs API Authentifizierung werden verwendet, um die Authentifizierun
 
 Wenn sich jemand bei Joomla anmeldet, authentifiziert die Joomla-Anwendung diesen Benutzer. Auf den meisten Websites wird die Authentifizierung gegen die Joomla-Datenbank durchgeführt. Diese Art der Authentifizierung wird durch das Authentifizierungs-Plugin durchgeführt. Mit einem Authentifizierungs-Plugin ist es möglich, externe Dienste zur Authentifizierung von Benutzern zu verwenden: Joomla bietet ein Authentifizierungs-Plugin für LDAP, das in Windows-Domänen verwendet wird.
 
-> Joomla 3 hatte Plugins für die Authentifizierung über Gmail an Bord. [Joomla 4 bietet dies nicht mehr an](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. Die Technik, die das Plugin verwendet, ist nicht mehr auf dem neuesten Stand der Technik und weniger sicher. Heutzutage sollten sich Anwendungen über das [OAuth 2.0 Protokoll](https://de.wikipedia.org/wiki/OAuth)[^de.wikipedia.org/wiki/oauth][^https://oauth.net/] bei Google autorisieren.
+> Joomla 3 hatte Plugins für die Authentifizierung über Gmail an Bord. [Joomla 4 bietet dies nicht mehr an](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. Die Technik, die das Plugin verwendet, ist nicht mehr auf dem neuesten Stand der Technik und weniger sicher. Heutzutage sollten sich Anwendungen über das [OAuth 2.0 Protokoll](https://de.wikipedia.org/wiki/OAuth)[^de.wikipedia.org/wiki/oauth] bei Google autorisieren.
 
 ### [Behaviour (Verhalten)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Behaviour_Group/en)<!-- \index{Plugin!Behaviour (Verhalten)} -->
 
@@ -64,7 +64,7 @@ Ein Inhalts-Plugin wird meist verwendet, um den Inhalt des Artikels zu ändern, 
 
 Editor Plugins wandeln ein HTML-Textarea-Element in einen vollwertigen JavaScript-basierten Editor um. Bekannte Plugins dieser Gruppe sind TinyMCE und CodeMirror. Wenn kein [WYSIWYG-Editor-Plugin](https://de.wikipedia.org/wiki/WYSIWYG)[^de.wikipedia.org/wiki/wysiwyg] aktiviert ist, zeigt Joomla eine normal HTML-Textarea an. Technisch geschieht dies ebenfalls über ein Plugin, nämlich via `Editor | Keiner`.
 
-> Ein Drittanwenderplugin aus der Gruppe Editor, welches in der Joomla Community sehr beliebt ist, ist der [JCE-Editor](https://www.joomlacontenteditor.net/)[^https://www.joomlacontenteditor.net/].
+> Ein Drittanwenderplugin aus der Gruppe Editor, welches in der Joomla Community sehr beliebt ist, ist der [JCE-Editor](https://www.joomlacontenteditor.net/)[^www.joomlacontenteditor.net/].
 
 ### [Schaltfläche (Button)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)<!-- \index{Plugin!Schaltfläche (Button)} -->
 

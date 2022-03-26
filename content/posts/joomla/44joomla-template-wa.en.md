@@ -24,7 +24,7 @@ There is a lot to consider when loading styles and stylesheets in the frontend. 
 
 In this section, we are not adding a new function. We are merely rebuilding. We change the way we integrate the JavaScript and CSS files. From now on, a Joomla-specific function will be used for this, which offers many advantages.
 
-> In connection with the use of the database in the frontend, I had already written in the explanations about the component that you can also integrate web assets via the file 'joomla.asset.json'. Here I show you how to use the Web Asset Manager without `joomla.asset.json`.
+> In the chapter explaining how to use the database in the frontend, I had already written that you can integrate web assets via the `joomla.asset.json` file. Here I show how to use the Web Asset Manager without `joomla.asset.json`.
 
 ### New files
 
@@ -105,5 +105,5 @@ A new installation is not necessary. Continue using the files from the previous 
 
 ## Links
 
-[Web Assets](https://docs.joomla.org/J4.x:Web_Assets)[^https://docs.joomla.org/j4.x:web_assets]
+[Web Assets](https://docs.joomla.org/J4.x:Web_Assets)[^docs.joomla.org/j4.x:web_assets]
 <img src="https://vg08.met.vgwort.de/na/b09ca1165bf3490c9edc2024f60e0526" width="1" height="1" alt="">

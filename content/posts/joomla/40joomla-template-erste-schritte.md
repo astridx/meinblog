@@ -51,7 +51,7 @@ Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joom
 
 Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet, dass lediglich die pure Ansicht der Komponente angezeigt wird.
 
-Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal. 
+Diese ist für eine druckerfreundliche Ausgabe oder die Anzeige in einem modalen Fenster ideal.
 
 Wie schon erwähnt ist eine Komponente für die Darstellung des _Hauptinhalts_ zuständig. Das gesamte Layout, also zum Beispiel die Module in einer Seitenleiste und die Navigation sind Beiwerk. Die Datei `component.php` setzt den Fokus auf den _Hauptinhalt_.
 
@@ -547,7 +547,8 @@ $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 </html>
 
 ```
-Mit der Anmeldemöglichkeit hast du nun die notwendige Funktion integriert. Du möchtest sicherlich deine Wartungsseite schöner gestalten. Inspirationen gibt es jede Menge im Internet. Am einfachstes ist es sicher, sich am nachfolgenden Beispiel des Standardtemplates Cassiopeia zu orientieren: 
+
+Mit der Anmeldemöglichkeit hast du nun die notwendige Funktion integriert. Du möchtest sicherlich deine Wartungsseite schöner gestalten. Inspirationen gibt es jede Menge im Internet. Am einfachstes ist es sicher, sich am nachfolgenden Beispiel des Standardtemplates Cassiopeia zu orientieren:
 
 ![Joomla Offline.php im Standardtemplate Cassiopeia](/images/j4x40x10.png)
 

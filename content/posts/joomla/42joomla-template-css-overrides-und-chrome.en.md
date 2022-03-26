@@ -21,10 +21,9 @@ In this chapter we will change the output of the extensions in the frontend. In 
 - layouts and
 - module chromes.<!-- \index{template!overrides, alternative overrides, layouts, module chomes} -->
 
-The standard output of each Joomla extension can be manipulated via files in the template's `html` folder. Joomla offers different options for this purpose. Overrides, alternative overrides, layouts and module chromes. Each variant has its purpose. 
+The standard output of each Joomla extension can be manipulated via files in the template's `html` folder. Joomla offers different options for this purpose. Overrides, alternative overrides, layouts and module chromes. Each variant has its purpose.
 
 _Overrides_ are the first choice. If there is already an override for an extension, you create an _alternative override_. _Layouts_ override a small area of a view and can be reused in different views. Last but not least, _module chromes_ offer a variant to use an override in different places slightly modified.<!-- \index{modul chromes} --><!-- \index{overrides} --><!-- \index{alternvative overrides} --><!-- \index{overrides} -->
-
 
 ![Create Joomla Template - Module Chrome](/images/overview.en.png)
 
@@ -32,7 +31,7 @@ _Overrides_ are the first choice. If there is already an override for an extensi
 
 ## Step by step
 
-In this section we change the frontend view of `com_content/featured`, `mod_articles_news` and `mod_menu`. Thereby we use all variants possible in Joomla for overwriting. The template is not finished with this. There remain a lot of extensions whose view is not adapted. 
+In this section we change the frontend view of `com_content/featured`, `mod_articles_news` and `mod_menu`. Thereby we use all variants possible in Joomla for overwriting. The template is not finished with this. There remain a lot of extensions whose view is not adapted.
 
 My Goal: In the end, we will have discussed all override variations so that you can finish the template or edit your own template according to your needs. Finished will be the home page view of the Joomla 4 blog sample files.
 
@@ -87,7 +86,7 @@ defined('_JEXEC') or die;
 
 ```
 
-The file `/templates/facile/ html/com_content/featured/default.php` is an override. It calls a subtemplate using `echo $this->loadTemplate('item');`. 
+The file `/templates/facile/ html/com_content/featured/default.php` is an override. It calls a subtemplate using `echo $this->loadTemplate('item');`.
 
 [templates/facile/ html/com_content/featured/default_item.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default_item.php)
 
@@ -129,11 +128,11 @@ Joomla first searches for files in the template directory. Therefore we create o
 
 [templates/facile/ html/layouts/joomla/content/intro_image.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php)
 
-The layout `joomla.content.intro_image` is used in many places in Joomla. 
+The layout `joomla.content.intro_image` is used in many places in Joomla.
 
 > In addition to the override of entire views, Joomla supports the override of smaller code segments, so-called layouts. Layouts are used by Joomla in various places. For example, to generate the code that creates the search and sort filters in list views or when displaying post information (such as author, creation date...) above or below a post.
 
-Because our template is built differently and expects different CSS elements, the display of the image via `joomla.content.intro_image` is not optimal. Therefore we overwrite the layout in our template. Because we want to reuse this, we do it in a way that we can also access our layout in other places via `echo LayoutHelper::render('joomla.content.intro_image', $this->item);`. For this we create the file `templates/facile/ html/layouts/joomla/content/intro_image.php`. 
+Because our template is built differently and expects different CSS elements, the display of the image via `joomla.content.intro_image` is not optimal. Therefore we overwrite the layout in our template. Because we want to reuse this, we do it in a way that we can also access our layout in other places via `echo LayoutHelper::render('joomla.content.intro_image', $this->item);`. For this we create the file `templates/facile/ html/layouts/joomla/content/intro_image.php`.
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php

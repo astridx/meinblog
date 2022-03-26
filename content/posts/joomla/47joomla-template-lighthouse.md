@@ -14,7 +14,7 @@ tags:
   - Joomla
 ---
 
-Das Template ist fertig. Nun möchtest du sichergehen, dass es keine Fehler enthält. Dann sieh dir [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse] an. Das ist ein Browser-Plugin und ein in Google Chrome entwickeltes Audit-Tool mit dem die Ladezeit einer Internetpräsenz untersucht und optimiert werden kann. Es beachtet neben dem Aufbau von HTML-, CSS- und JavaScript-Dateien auch die Integration von Bildern und die Cache-Vorgaben der Website.<!-- \index{Google Lighthoause} --><!-- \index{Template!Performance, Zugänglichkeit, Accessibility, Bewährte Praxis, SEO,PWA} -->
+Das Template ist fertig. Nun möchtest du sichergehen, dass es technisch gut ist und keine Fehler enthält. Dann sieh dir [Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse] an. Das ist ein Browser-Plugin und ein in Google Chrome entwickeltes Audit-Tool mit dem die Ladezeit einer Internetpräsenz untersucht und optimiert werden kann. Es beachtet neben dem Aufbau von HTML-, CSS- und JavaScript-Dateien auch die Integration von Bildern und die Cache-Vorgaben der Website.<!-- \index{Google Lighthoause} --><!-- \index{Template!Performance, Zugänglichkeit, Accessibility, Bewährte Praxis, SEO,PWA} -->
 
 ## Google Lighthouse
 
@@ -40,8 +40,8 @@ Für jedem Bereich wird die Unterstützung in Prozent errechnet.
 
 Lighthouse ist standardmäßig im Webbrowser Google Chrome enthalten. Öffne die Website die du testen möchtest und aktiviere Lighthouse:
 
-- Klicken mit der rechten Maustaste auf eine beliebige Stelle der Website.
-- Wähle _Untersuchen_ aus dem sich nun öffnenden Kontext-Menü.
+- Klicke mit der rechten Maustaste auf eine beliebige Stelle im Bereich der Website.
+- Wähle aus dem sich nun öffnenden Kontext-Menü den Eintrag _Untersuchen_.
 - Öffne die Registerkarte _Lighthouse_.
 - Nutzte die Schaltfläche _Bericht generieren_.
 
@@ -65,5 +65,5 @@ Die Ergebnisse der Lighthouse-Analyse variieren zu unterschiedlichen Zeitpunkten
 
 ## Links
 
-[Lighthouse](https://developers.google.com/web/tools/lighthouse)[^https://developers.google.com/web/tools/lighthouse]
+[Lighthouse](https://developers.google.com/web/tools/lighthouse)[^developers.google.com/web/tools/lighthouse]
 <img src="https://vg08.met.vgwort.de/na/251f86b31a7c4cb691826d5abb59f824" width="1" height="1" alt="">

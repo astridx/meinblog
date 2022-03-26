@@ -15,7 +15,7 @@ tags:
   - Cassiopeia
 ---
 
-Cassiopeia bietet Optionen, die über Stile im Template-Manager angepasst werden können. Um größere Änderungen am Aussehen des Templates vorzunehmen, müssen wir die Template-Dateien selbst bearbeiten, wie beispielsweise `user.css`, `index.php` oder `templateDetails.xml`. In diesem Fall erstellst du idealerweise ein Child-Templates. Hierbei handelt es sich um eine Funktion, die in Joomla 4.1 eingeführt wurde.
+Cassiopeia bietet Optionen, die über Stile im Template-Manager angepasst werden können. Um größere Änderungen am Aussehen des Templates vorzunehmen, müssen wir die Template-Dateien selbst bearbeiten, wie beispielsweise `user.css`, `index.php` oder `templateDetails.xml`. In diesem Fall erstellst du idealerweise ein Child-Template. Hierbei handelt es sich um eine Funktion, die in Joomla 4.1 eingeführt wurde.
 
 Hier schaue ich mir zunächst die Optionen an, für die keine Änderungen im Code notwendig sind und gehe dann auf kleinere Anpassungen mittels Overrides ein.
 

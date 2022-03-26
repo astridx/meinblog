@@ -230,10 +230,9 @@ In this example, a position is first defined (1) and assigned (2) for each eleme
 ```css
 /* (1) */
 body.wrapper-fluid .site-grid {
-  grid-template-columns: [full-start] minmax(0, 1fr) [main-start] repeat(
-      4,
-      minmax(0, 25%)
-    ) [main-end] minmax(0, 1fr) [full-end];
+  grid-template-columns:
+    [full-start] minmax(0, 1fr) [main-start] repeat(4, minmax(0, 25%))
+    [main-end] minmax(0, 1fr) [full-end];
   grid-gap: 0 2em;
 }
 

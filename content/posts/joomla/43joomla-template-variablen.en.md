@@ -20,21 +20,21 @@ Parameters make the template flexibly configurable in the backend. Perhaps a col
 
 ## Step by step
 
-In this section we will look at parameters and see that there are circumstances where they work more intuitively than module chromes.
+In this section we will look at parameters and see that they add content relatively statically. This is a drawback. The benefit is that it is not complicated to use.
 
 ### New files
 
 In this chapter only the image `templates/facile/images/banner.jpg` is added, which is displayed in the banner via CSS. I took this from the demo images of [html5up.net](https://html5up.net/txt) and it is from [unsplash.com](https://unsplash.com/).
 
-#### Template
+### Modified files
 
 ##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 We add code to the file `templates/facile/ index.php` so that a banner and social media icons can be inserted via parameters.
 
-> In HTML some characters, for example the _less than sign_ `<` or the _greater-than-sign_ `>`, have a special meaning. They are therefore written as [HTML entities](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)[^en.wikipedia.org/wiki/list_of_xml_and_html_character_entity_references] if they are to be displayed as text. For example, `&lt;` is written instead of `<` and `&gt;` is written instead of `>`. When processing strings, it may happen that they contain such specific characters. These must then be converted so that they can be further processed as plain text. We offer in the template a text input option via a form in the backend. However, we do not want HTML code to be injected via this. This is a security risk. To prevent this, we use the function [htmlspecialchars()](https://www.php.net/manual/en/function.htmlspecialchars.php)[^https://www.php.net/manual/en/function.htmlspecialchars.php]. This ensures that the characters that have a special meaning in HTML are converted to plain text.
+> In HTML some characters, for example the _less than sign_ `<` or the _greater-than-sign_ `>`, have a special meaning. They are therefore written as [HTML entities](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)[^en.wikipedia.org/wiki/list_of_xml_and_html_character_entity_references] if they are to be displayed as text. For example, `&lt;` is written instead of `<` and `&gt;` is written instead of `>`. When processing strings, it may happen that they contain such specific characters. These must then be converted so that they can be further processed as plain text. We offer in the template a text input option via a form in the backend. However, we do not want HTML code to be injected via this. This is a security risk. To prevent this, we use the function [htmlspecialchars()](https://www.php.net/manual/en/function.htmlspecialchars.php)[^www.php.net/manual/en/function.htmlspecialchars.php]. This ensures that the characters that have a special meaning in HTML are converted to plain text.<!-- \index{htmlspecialchars} -->
 
-Take a look at the code snippet below. I think the HTML code is self-explanatory.
+Take a look at the code snippet below. I think the HTML code is self-explanatory. We add HTML markup, which is only displayed if a certain parameter is set. For example, for the footer via the query `$this->params->get('showFooter')`. What is displayed then also depends on the values for the parameters filled in by the user in the backend.
 
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -124,9 +124,9 @@ We use the language files for the labels of our backend form. This way the texts
 
 Since Joomla supports us in creating the form fields, it is enough to define the fields via an XML file.
 
-In order to display one form field in dependency to another, we use `showon`. `showon="showBanner:1"` ensures that the current field is only shown if the `showBanner` field has the value `1`.
+In order to display one form field in dependency to another, we use `showon`. `showon="showBanner:1"` ensures that the current field is only shown if the `showBanner` field has the value `1`.<!-- \index{Fields|showon} -->
 
-The field of type `type="subform"` provides the possibility to flexibly define the number of values in the backend form. Thus, with one form field it is possible to insert either only one link to Facebook or to display many social media channels.
+The field of type `type="subform"` provides the possibility to flexibly define the number of values in the backend form. Thus, with one form field it is possible to insert either only one link to Facebook or to display many social media channels.<!-- \index{Fields|subform} -->
 
 [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
@@ -224,7 +224,7 @@ The field of type `type="subform"` provides the possibility to flexibly define t
  </extension>
 ```
 
-> The Joomla documentation [docs.joomla.org/Form_field](https://docs.joomla.org/Form_field) provides an overview of all possible form fields.
+> The Joomla documentation [docs.joomla.org/Form_field](https://docs.joomla.org/Form_field) provides an overview of all possible form fields.<!-- \index{Fields} -->
 
 ## Test your Joomla template
 
@@ -245,4 +245,6 @@ A new installation is not necessary. Continue using the ones from the previous p
 ![Create Joomla Template - Social Media Backend](/images/j4x43x3.png)
 
 ![Create Joomla Template - Social Media Frontend](/images/j4x43x4.png)
+
+> I use the icons `fa-facebook-f` for _Facebook_ and `fa-twitter` for _Twitter_. I can do this because the template integrates Facile [Font Awesome](https://fontawesome.com/v5/search?m=free)[^fontawesome.com/v5/search?m=free]. See `/templates/facile/assets/webfonts`.
 <img src="https://vg08.met.vgwort.de/na/05bb9638c92646eea2764f7f302d84b9" width="1" height="1" alt="">

@@ -63,7 +63,7 @@ In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles 
 
 > Fragst du dich, warum es diesen Parameter gibt? Er ist [nicht zwingend](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
 
-[administrator/components/com_foos/config.xml](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration)[^https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration]
+[administrator/components/com_foos/config.xml](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration)[^joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration]
 
 ```php {diff}
  			<option value="0">JNO</option>

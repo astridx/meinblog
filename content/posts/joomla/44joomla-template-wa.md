@@ -16,7 +16,7 @@ tags:
 
 Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die Performance spielt eine Rolle und unter Umständen die Reihenfolge, in der Dateien geladen werden. In Joomla gab es oft Konflikte und umständliche Behelfslösung. Joomla 4 ändert dies mit dem Konzept der Web-Assets.<!-- \index{Template!Web-Assets} -->
 
-> Es ist wichtig zu verstehen, dass der _Joomla Web Assets Manager_ alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie auch den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über `Joomla\CMS\HTML\HTMLHelper` eingebunden werden - zum Beispiel über `HTMLHelper::_('jquery.framework');`. Der Vorteil des _Webassets Manager_ ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.
+> Es ist wichtig zu verstehen, dass der _Joomla Web Assets Manager_ alle Assets in einer Joomla-Installation verwaltet. Er wendet keine Assets speziell für ein Template an. Wenn eine Erweiterung geladen wird und sie Assets benötigt, kann sie ebenfalls den Web Assets Manager verwenden. Aber: Das muss sie nicht. Assets können weiterhin über `Joomla\CMS\HTML\HTMLHelper` eingebunden werden - zum Beispiel über `HTMLHelper::_('jquery.framework');`. Der Vorteil des _Webassets Manager_ ist, dass er dafür sorgt, dass Assets nicht doppelt geladen werden, wenn zwei Erweiterungen die gleiche Asset-Datei verwenden. Und die Assets werden in der definierten Reihenfolge geladen. Dies vermeidet Konflikte.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t38...t39)[^github.com/astridx/boilerplate/compare/t38...t39] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -24,7 +24,7 @@ Beim Laden von Styles und Stylesheets im Frontend gibt es viel zu beachten. Die 
 
 In diesem Abschnitt kommt keine neue Funktion hinzu. Wir bauen lediglich um. Wir ändern die Art, wie wir die JavaScript und CSS-Dateien integrieren. Ab jetzt wird eine Joomla-eigene Funktion dafür verwendet, die viele Vorteile bietet.
 
-> Ich hatte im Zusammenhang mit der Nutzung der Datenbank im Frontend bei den Erklärungen zur Komponente bereits geschrieben, dass du Web Assets ebenfalls über die Datei `joomla.asset.json` integrieren kannst. Hier zeige ich dir, wie ohne `joomla.asset.json` den Web Asset Manager nutzt.
+> Ich hatte im Zusammenhang mit der Nutzung der Datenbank im Frontend bei den Erklärungen zur Komponente bereits geschrieben, dass du Web Assets ebenfalls über die Datei `joomla.asset.json` integrieren kannst. Hier zeige ich, wie man ohne die Datei `joomla.asset.json` den Web Asset Manager nutzt.
 
 ### Neue Dateien
 
@@ -32,7 +32,7 @@ In diesem Kapitel wurde lediglich eine Datei geändert.
 
 ### Geänderte Dateien
 
-In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den _Joomla Web Asset Manager_. Dieser macht es erforderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren lädt Joomla alles optimiert und konfliktfrei.
+In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript und CSS eingebunden wird. Wir ersetzten die `<script>`-Tags im Fußbereich und das `<link rel="stylesheet" .. />` im Kopfbereich. Anstelle davon nutzen wir den _Joomla Web Asset Manager_. Dieser macht es erforderlich, die Tags `<jdoc:include type="styles" />` und `<jdoc:include type="styles" />` zu verwenden. Wir geben hier Kontrolle ab. Joomla übernimmt im Gegenzug Arbeit für uns. Wenn wir die Assets richtig konfigurieren, lädt Joomla alles optimiert und konfliktfrei.
 
 > Weil wir `<jdoc:include type="metas" />` nutzen, benötigen wir die Zeile `<title>Titel</title>` nicht mehr. Joomla setzt als Titel nun den _Site Name_ ein. Dieser Name wird bei der Installation festgelegt und ist jederzeit über die _Globale Konfiguration_ editierbar.
 
@@ -106,5 +106,5 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ## Links
 
-[Web Assets](https://docs.joomla.org/J4.x:Web_Assets/de)[^https://docs.joomla.org/j4.x:web_assets/de]
+[Web Assets](https://docs.joomla.org/J4.x:Web_Assets/de)[^docs.joomla.org/j4.x:web_assets/de]
 <img src="https://vg08.met.vgwort.de/na/280e411fc425447591db2fec37dad317" width="1" height="1" alt="">

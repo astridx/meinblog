@@ -21,7 +21,7 @@ In diesem Kapitel werden wir die Ausgabe der Erweiterungen im Frontend veränder
 - Layouts und
 - Modul Chromes.<!-- \index{Template!Overrides, alternvative Overrides, Layouts, Modul Chromes} -->
 
-Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im Ordner `html` des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung. 
+Die Standard-Ausgabe jeder Joomla-konformen Erweiterungen ist über Dateien im Ordner `html` des Templates manipulierbar. Joomla bietet zu diesem Zweck unterschiedliche Möglichkeiten. Overrides, alternative Overrides, Layouts und Modul Chromes. Jede Variante hat ihre Berechtigung.
 
 _Overrides_ sind das erste Mittel der Wahl. Gibt es bereits ein Override für eine Erweiterung, erstellt man ein _alternatives Override_. _Layouts_ überschreiben einen begrenzten Bereich einer Ansicht und sind dabei in unterschiedlichen Ansichten wiederverwendbar. Last but not least bieten _Modul Chromes_ eine Variante, um ein Override an verschieden Stellen leicht abgewandelt einzusetzten.<!-- \index{Modul Chromes} --><!-- \index{Overrides} --><!-- \index{alternvative Overrides} --><!-- \index{Overrides} -->
 
@@ -31,7 +31,7 @@ _Overrides_ sind das erste Mittel der Wahl. Gibt es bereits ein Override für ei
 
 ## Schritt für Schritt
 
-In diesem Abschnitt verändern wir die Frontend Ansicht von `com_content/featured`, `mod_articles_news` und `mod_menu`. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit nicht fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist. 
+In diesem Abschnitt verändern wir die Frontend Ansicht von `com_content/featured`, `mod_articles_news` und `mod_menu`. Dabei verwenden wir alle in Joomla möglichen Varianten zum Überschreiben. Das Template ist damit nicht fertig. Es bleiben eine Menge Erweiterungen, deren Ansicht nicht angepasst ist.
 
 Mein Ziel: Am Ende haben wir alle Override-Varianten besprochen, so dass du das Template fertigstellen oder dein eigenes Template nach deinen Wünschen bearbeiten kannst. Fertig sein wird die Ansicht der Startseite der Joomla 4 Blog-Beispieldateien.
 
@@ -86,7 +86,7 @@ defined('_JEXEC') or die;
 
 ```
 
-Die Datei `/templates/facile/ html/com_content/featured/default.php` ist ein Override. Sie ruft mittels `echo $this->loadTemplate('item');` ein Subtemplate auf. 
+Die Datei `/templates/facile/ html/com_content/featured/default.php` ist ein Override. Sie ruft mittels `echo $this->loadTemplate('item');` ein Subtemplate auf.
 
 [templates/facile/ html/com_content/featured/default_item.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default_item.php)
 
@@ -128,11 +128,11 @@ Joomla sucht zuerst im Template-Verzeichnis nach Dateien. Deshalb erstellen wir 
 
 [templates/facile/ html/layouts/joomla/content/intro_image.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php)
 
-Das Layouts `joomla.content.intro_image` wird an vielen Stellen in Joomla verwendet. 
+Das Layouts `joomla.content.intro_image` wird an vielen Stellen in Joomla verwendet.
 
 > Ergänzend zum Override ganzer Views unterstützt Joomla das Überschreiben kleinerer Codesegemente, sogenannter Layouts. Layouts werden von Joomla an unterschiedlichen Stellen verwendet. Zum Beispiel um den Code zu erzeugen, der die Such- und Sortierfilter in Listenansichten erzeugt oder bei der Anzeige der Beitragsinformationen (wie Autor, Erstelldatum...) ober- oder unterhalb eines Beitrags.
 
-Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via `joomla.content.intro_image` nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php`. 
+Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via `joomla.content.intro_image` nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php`.
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php

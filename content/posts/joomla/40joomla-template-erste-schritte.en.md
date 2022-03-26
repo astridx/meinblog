@@ -49,9 +49,9 @@ This part will guide you through the necessary steps to create a Joomla template
 
 ##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
 
-The `component.php` provides the logic for a reduced version of the site. This means that only the pure view of the component is displayed. 
+The `component.php` provides the logic for a reduced version of the site. This means that only the pure view of the component is displayed.
 
-This is ideal for printer-friendly output or display in a modal window. 
+This is ideal for printer-friendly output or display in a modal window.
 
 To further explain: As already mentioned, a component is responsible for the display of the _main_ content. The entire layout, for example the modules in a sidebar and the navigation are accessories. The file `component.php` sets the focus on the _main_ content.
 
@@ -548,7 +548,7 @@ $twofactormethods = AuthenticationHelper::getTwoFactorMethods();
 
 ```
 
-With the login option you have now integrated the necessary function. You surely want to make your maintenance page more attractive. There is a lot of inspiration available in the Internet. The easiest way is to orientate yourself on the following example from the standard template Cassiopeia: 
+With the login option you have now integrated the necessary function. You surely want to make your maintenance page more attractive. There is a lot of inspiration available in the Internet. The easiest way is to orientate yourself on the following example from the standard template Cassiopeia:
 
 ![Joomla Offline.php in default template Cassiopeia](/images/j4x40x10.png)
 
@@ -589,7 +589,7 @@ In the file `templateDetails.xml` the module positions are usually created and i
 
 ```
 
-What does this code mean exactly? XML documents should start with an [XML declaration](https://en.wikipedia.org/wiki/XHTML#XML_declaration)[^en.wikipedia.org/wiki/XHTML#XML_declaration], but they don't have to. We create the declaration and specify XML version and charset (utf-8) here `<?xml version="1.0" encoding="utf-8"?>`.
+What does this code mean exactly? XML documents should start with an [XML declaration](https://en.wikipedia.org/wiki/XHTML#XML_declaration)[^en.wikipedia.org/wiki/xhtml#xml_declaration], but they don't have to. We create the declaration and specify XML version and charset (utf-8) here `<?xml version="1.0" encoding="utf-8"?>`.
 
 The other part of `templateDetails.xml` contains information for the installation. The type is `template` in case of a template. The `method="upgrade"` allows to install the template at a later time over a previous version.
 

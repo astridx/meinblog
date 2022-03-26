@@ -14,13 +14,13 @@ tags:
   - Joomla
 ---
 
-Das Thema Dark Mode hat für viel Wirbel gesorgt. So hat zum Beispiel Apple den Dark Mode in seine Betriebssysteme integriert. Windows und Google haben das Gleiche getan. Der Dark Mode ist in Mode. Und nicht nur das. Er bietet Vorteile. Ob dunklere Displays gut für die Augen sind, ist umstritten. Klar ist hingegen, dass bei weniger Licht Energie gespart wird.<!-- \index{Template!Dark Mode} -->
+Das Thema Dark Mode ist zur Zeit aktuell. So hat zum Beispiel Apple den Dark Mode in seine Betriebssysteme integriert. Windows und Google haben das gleiche getan. Der Dark Mode ist in Mode. Und nicht nur das. Er bietet Vorteile. Ob dunklere Displays gut für die Augen sind, ist umstritten. Klar ist hingegen, dass bei weniger Licht Energie gespart wird.<!-- \index{Template!Dark Mode} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
-In diesem Abschnitt ermöglichen wir einen Dark Mode mithilfe einer eigens dafür erstellten CSS-Datei. Welcher Modus aktiv ist, fragen wir über die Eigenschaft `prefers-color-scheme` ab. Diese erkennt, welche Variante der Benutzer im Betriebssystem eingestellt hat.
+In diesem Abschnitt integrieren wir die Möglichkeit des Umschaltens in einen Dark Mode ins Tempalte Facile. Dies tun wir mithilfe einer eigens dafür erstellten CSS-Datei. Welcher Modus aktiv ist, fragen wir über die Eigenschaft `prefers-color-scheme` ab. Diese erkennt, welche Variante der Benutzer im Betriebssystem als gewünscht eingestellt hat.
 
 Das nachfolgende Schnippet nutze ich, um mir im Vorfeld die Angaben in der Konsole des Browsers ausgeben zu lassen. So bin ich sicher, dass die Eigenschaft `prefers-color-scheme` unterstützt wird und wie sie gesetzt ist.
 
@@ -37,13 +37,13 @@ Das nachfolgende Schnippet nutze ich, um mir im Vorfeld die Angaben in der Konso
     </script>
 ```
 
-Fragst du dich, was `window.matchMedia` bedeutet? `window.variableName` bedeutet, dass die Variable `variableName` im globalen Bereich deklariert ist. Das bedeutet, dass jeder JavaScript-Code Zugriff auf diese Variable hat. Die Verwendung von `window` ist nicht zwingend erforderlich. [`window`](https://developer.mozilla.org/de/docs/Web/API/Window)[^developer.mozilla.org/de/docs/web/api/window] wird aber häufig als Konvention verwendet, um zu kennzeichnen, dass eine Variable global ist. Globale Variablen sind zu vermeiden. Sicherer ist es, wenn möglich eigene Variablen zu definieren.
+Fragst du dich, was `window.matchMedia` bedeutet? `window.PLACEHOLDER` bedeutet allgemein, dass die Variable `PLACEHOLDER` im globalen Bereich deklariert ist. Das bedeutet, dass jeder JavaScript-Code Zugriff auf diese Variable hat. Die Verwendung von `window` ist nicht zwingend erforderlich. [`window`](https://developer.mozilla.org/de/docs/Web/API/Window)[^developer.mozilla.org/de/docs/web/api/window] wird aber häufig als Konvention verwendet, um zu kennzeichnen, dass eine Variable global ist. Globale Variablen gilt es zu vermeiden. Die Verwendung ist kein guter Programmierstil. Sicherer ist es, wenn möglich, eigene Variablen zu definieren.
 
-> Eine einfache Lösung ist, alles in Schwarzweiß darzustellen. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken. Ein passendes Farbschema ist qualitativ besser.
+> Wenn man einen Dark Mode umsetzen möchte, gibt es eine unkomplizierte Lösung: Man stellt einfach alles in Schwarzweiß dar. Der Eintrag `@media (prefers-color-scheme: dark) { body { background: #333!important; color: white !important; }}` in der CSS-Datei würde dies bewirken. Ein passendes Farbschema ist qualitativ besser.
 
 ### Neue Dateien
 
-Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses Stylesheet enthält die Regeln für den dunklen Modus. Es unterscheidet sich von `templates/assets/css/main.css` nur in Bezug auf Farbcodes.
+Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses Stylesheet enthält die Regeln für den dunklen Modus. Es unterscheidet sich von `templates/assets/css/main.css` lediglich in Bezug auf Farbcodes.
 
 > Die Systemnachrichten erscheinen im Dark Mode auffällig hell. Diese haben wir bisher unverändert übernommen. Im Dark Mode passe ich diese nun an. Es handelt sich um die [Webkomponente](https://developer.mozilla.org/de/docs/Web/Web_Components) `joomla-alert`. Das Erscheinungsbild ist via `joomla-alert { ..}` in der CSS-Datei änderbar.
 
@@ -106,7 +106,7 @@ Die Datei `templates/facile/ index.php` lädt jetzt die CSS-Datei in Abhängigke
 
 Eine interessante Idee ist es, den Dark Mode abhängig vom Sonnenstand beim Betrachters umzuschalten: Sobald bei dem Betrachter die Sonne untergeht soll der Dark Mode anspringen. Es spielt nicht nur Zeit und Datum eine Rolle, sondern auch die Geoposition. Eine mögliche Umsetzung fand ich auf [Codepen](https://codepen.io/ljardin/pen/jOyzwbN).
 
-Zunächst werden in der CSS-Variablen gesetzt.
+Zunächst werden CSS-Variablen gesetzt.
 
 ```css
 html {
@@ -178,7 +178,7 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 
 ## Links
 
-[prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^https://web.dev/prefers-color-scheme]
+[prefers-color-scheme](https://web.dev/prefers-color-scheme/)[^web.dev/prefers-color-scheme]
 
-[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^https://github.com/googlechromelabs/dark-mode-toggle]
+[dark-mode-toggle-Element](https://github.com/GoogleChromeLabs/dark-mode-toggle)[^github.com/googlechromelabs/dark-mode-toggle]
 <img src="https://vg08.met.vgwort.de/na/68cd159f117e4bcd9558f6e19800ce48" width="1" height="1" alt="">

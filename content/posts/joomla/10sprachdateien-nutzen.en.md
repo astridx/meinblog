@@ -54,7 +54,7 @@ COM_CONTACT_CONTACT_REQUIRED="<strong class=\"red\">*</strong> Required field"
 
 ```
 
-> Language strings in Joomla have in the past used the string "_QQ_" to avoid double quotes within the language INI files. This was a short-term solution. Older PHP versions were not able to handle double quotes. For more information, see the [PR 19024.](https://github.com/joomla/joomla-cms/issues/19024)[^https://github.com/joomla/joomla-cms/issues/19024]
+> Language strings in Joomla have in the past used the string "_QQ_" to avoid double quotes within the language INI files. This was a short-term solution. Older PHP versions were not able to handle double quotes. For more information, see the [PR 19024.](https://github.com/joomla/joomla-cms/issues/19024)[^github.com/joomla/joomla-cms/issues/19024]
 
 #### Variables
 

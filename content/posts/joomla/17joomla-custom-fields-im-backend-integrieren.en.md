@@ -61,7 +61,7 @@ In the file `administrator/components/com_foos/ access.xml` we prepare everythin
 
 The configuration `config.xml` uses a paramter to define whether the extension uses custom fields.
 
-> Do you wonder why this parameter exists? It is [not mandatory](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration)[^https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration].
+> Do you wonder why this parameter exists? It is [not mandatory](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration)[^joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration].
 
 [administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/config.xml)
 

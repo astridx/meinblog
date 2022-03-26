@@ -1333,5 +1333,5 @@ Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Datei
 
 ## Links
 
-[Frontend-Edit für com_contact](https://github.com/joomla/joomla-cms/pull/24311)[^https://github.com/joomla/joomla-cms/pull/24311]
+[Frontend-Edit für com_contact](https://github.com/joomla/joomla-cms/pull/24311)[^github.com/joomla/joomla-cms/pull/24311]
 <img src="https://vg08.met.vgwort.de/na/fe2b743d4a8644e1a45736d8ee41c047" width="1" height="1" alt="">

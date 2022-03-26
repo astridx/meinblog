@@ -298,15 +298,15 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 }
 ```
 
-Nutzt du [Postman](https://www.postman.com/)[^https://www.postman.com]? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
+Nutzt du [Postman](https://www.postman.com/)[^www.postman.com]? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
 
-> Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^https://addons.mozilla.org/en-us/firefox/addon/restclient] in Firefox.
+> Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient] in Firefox.
 
 ## Links
 
-[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/j4.x:joomla_core_apis/de]
+[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^docs.joomla.org/j4.x:joomla_core_apis/de]
 
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^https://docs.joomla.org/j4.x:joomla_core_apis/de]
+[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^docs.joomla.org/j4.x:joomla_core_apis/de]
 
-[Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^https://github.com/joomla-extensions/weblinks/pull/407]
+[Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^github.com/joomla-extensions/weblinks/pull/407]
 <img src="https://vg08.met.vgwort.de/na/01fa65fba2a743bb8e08bf4f6872e79f" width="1" height="1" alt="">
