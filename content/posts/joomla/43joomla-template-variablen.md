@@ -247,4 +247,4 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 ![Joomla Template erstellen - Social Media Frontend](/images/j4x43x4.png)
 
 > Ich nutze die Icons `fa-facebook-f` für _Facebook_ und `fa-twitter` für _Twitter_. Dies kann ich tun, weil das Template Facile [Font Awesome](https://fontawesome.com/v5/search?m=free)[^fontawesome.com/v5/search?m=free] integriert. Siehe `/templates/facile/assets/webfonts`.
-<img src="https://vg08.met.vgwort.de/na/23d0ed60006d4ed2b0cd1631943c7e03" width="1" height="1" alt="">
+> <img src="https://vg08.met.vgwort.de/na/23d0ed60006d4ed2b0cd1631943c7e03" width="1" height="1" alt="">

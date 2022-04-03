@@ -34,19 +34,19 @@ The path to the _template media folders_ was `templates/TEMPLATENAME/` before Jo
 
 ##### [templates/facile/ assets](https://github.com/astridx/boilerplate/tree/t41a/src/media/templates/site/facile)
 
-In order to overwrite the media files, it is necessary to move them to the `media` directory in the Joomla root directory. Therefore we move 
+In order to overwrite the media files, it is necessary to move them to the `media` directory in the Joomla root directory. Therefore we move
 
-- all folders of the directory `templates/facile/assets`, 
-- the images `template_preview.png` and `template_thumbnail.png` 
-- and the directories `templates/facile/images` and `templates/facile/favicon_package`. 
+- all folders of the directory `templates/facile/assets`,
+- the images `template_preview.png` and `template_thumbnail.png`
+- and the directories `templates/facile/images` and `templates/facile/favicon_package`.
 
-to `media\templates\site\facile\`. 
+to `media\templates\site\facile\`.
 
 So that the images `template_preview.png` and `template_thumbnail.png` and those in the directory `favicon_package` can be easily overwritten by the child template later, I put them in the subdirectory `images`, i.e. under `medien\templates/site/facile/images/` and under `medien\templates/site/facile/images/favicon_package/` respectively.
 
 ##### [media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
 
-Our CSS files are now no longer located in the `assets` subdirectory. Therefore, we adjust the relative path in the `main.css` file. 
+Our CSS files are now no longer located in the `assets` subdirectory. Therefore, we adjust the relative path in the `main.css` file.
 
 [media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
 
@@ -73,7 +73,7 @@ We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle(
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
- 
+
 -$templatePath = 'templates/' . $this->template;
  $wa  = $this->getWebAssetManager();
 -$wa->registerAndUseStyle('main_dark', $templatePath . '/assets/css/main.dark.css', [], ['media' => '(prefers-color-scheme: dark)']);
@@ -95,11 +95,11 @@ We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle(
 +$wa->registerAndUseScript('util', '/js/util.js', [], ['defer' => true], []);
 +$wa->registerAndUseScript('main', '/js/main.js', [], ['defer' => true], []);
  ?>
- 
+
  <!DOCTYPE html>
 
      <jdoc:include type="scripts" />
- 
+
      <link rel="apple-touch-icon" sizes="180x180"
 -        href="<?php echo $templatePath . '/favicon_package'; ?>/apple-touch-icon.png">
 +        href="<?php echo HTMLHelper::_('image', '/favicon_package/apple-touch-icon.png', '', [], true, 1); ?>">
@@ -121,7 +121,7 @@ We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle(
 
 [templates/facile/ language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
-We have moved the banner image to the media directory so that it is also used in the child template if the child does not provide a more specific image. This change results in a change in the language files. 
+We have moved the banner image to the media directory so that it is also used in the child template if the child does not provide a more specific image. This change results in a change in the language files.
 
 ```php {diff}
  TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
@@ -136,19 +136,18 @@ We have moved the banner image to the media directory so that it is also used in
 
 ##### [templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
 
-The locations of the media files have been changed. To ensure that this is recognized correctly when the template is installed, we correct the corresponding entries in the `templates/facile/ templateDetails.xml` file. 
+The locations of the media files have been changed. To ensure that this is recognized correctly when the template is installed, we correct the corresponding entries in the `templates/facile/ templateDetails.xml` file.
 
 > Changing the locations in the `src` directory of the development environment is not mandatory. Because it is important to me that my files simulate the locations in a Joomla installation, I have also recopied the files in the `src` directory.
 
 [templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
 
-
 ```php {diff}
  	<license>GNU General Public License version 2 or later;</license>
  	<version>__BUMP_VERSION__</version>
  	<description>TPL_FACILE_XML_DESCRIPTION</description>
-+	<inheritable>1</inheritable> 
- 
++	<inheritable>1</inheritable>
+
  	<files>
  		<filename>component.php</filename>
 
@@ -181,7 +180,7 @@ Make sure that all functions you have included so far are working.
 
 2. Check the changes in the Template Manager
 
-Switch to the Template Manager and make sure that the button for creating a child template is present. The button to copy the template has disappeared.  
+Switch to the Template Manager and make sure that the button for creating a child template is present. The button to copy the template has disappeared.
 
 ![Create Joomla Template - Create Child Template - Template Manager](/images/j4x47kx0.png)
 
@@ -189,13 +188,13 @@ Switch to the Template Manager and make sure that the button for creating a chil
 
 ![Create Joomla Template - Create child template - button to create a child template](/images/j4x47kx2.png)
 
-3. Create a child template 
+3. Create a child template
 
-Click on the button to create a child template. Name the template 'facile_child' if you like to follow my example. 
+Click on the button to create a child template. Name the template 'facile_child' if you like to follow my example.
 
 ![Create Joomla Template - Create Child Template - View in Template Manager after creating the child template](/images/j4x47kx3.png)
 
-Make sure that the images that preview the template are now loaded from the media directory. 
+Make sure that the images that preview the template are now loaded from the media directory.
 
 Additional task: save special preview images for your child template and place them in `medien\templates/site/facile_facile_child/images/template_preview.png` and `medien\templates/site/facile_facile_child/images/template_thumbnail.png`. Make sure that they are displayed correctly in the template manager.
 
@@ -228,9 +227,9 @@ Create the file `media/templates/site/facile_facile_child/css/user.css` and impl
 ```css
 #banner {
   background-image: url('../images/banner.jpg');
-}  
+}
 ```
 
 ## Links
 
-[YouTube Video; Sprecher Dimitris Grammatiko](https://www.youtube.com/embed/LxOQnX-JJyk)[^youtube.com/embed/LxOQnX-JJyk]
+[YouTube Video; Sprecher Dimitris Grammatiko](https://www.youtube.com/embed/LxOQnX-JJyk)[^youtube.com/embed/lxoqnx-jjyk]

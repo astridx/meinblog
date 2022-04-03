@@ -272,8 +272,8 @@ Auf diese Art und Weise ist eine einzelne Zeile in sich geschlossen und der HTML
 Als Erweiterungsentwickler entwickelt man seine Erweiterung idealerweise so, dass das Präfix der Datenbank variable ist. Dazu nutzt man die Zeichenkette `#__`. Der String `#__` wird zur Laufzeit von Joomla mit dem passenden Präfix ersetzt.
 
 ### JavaScript-, CSS- und Bilddateien?
-
-Wo speicherst du am besten JavaScript-, CSS- und Bilddateien? Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist besonders bei CSS-Dateien von Vorteil, um das Design der gesamten Joomla-Website einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/development_best_practices] empfehlen dies ebenfalls.
+<!-- prettier-ignore -->
+Wo speicherst du am besten JavaScript-, CSS- und Bilddateien? Speichere diese Daten im Verzeichnis `media` im Joomla-Wurzelverzeichnis. So ist es möglich, diese zu überschreiben. Dies ist besonders bei CSS-Dateien von Vorteil, um das Design der gesamten Joomla-Website einheitlich zu gestalten. Die [Best Praxis Richtlinien](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/Development_Best_Practices] empfehlen dies ebenfalls.
 
 > Beispiele: Für diese Tutorial-Erweiterung nutze ich später `media/com_foos/js/` für die JavaScript-Dateien der Komponente. Die CSS-Dateien des Modules `mod_articles_news` findest du im Verzeichnis `media/mod_articles_news/css/`. Und die Bilder zum Plugin `plg_content_vote` liegen im Ordner `media/plg_content_vote/images/`.
 

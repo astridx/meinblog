@@ -34,19 +34,19 @@ Der Pfad zu den _Template-Medien-Verzeichnissen_ war vor Joomla 4.1 `templates/T
 
 ##### [templates/facile/ assets](https://github.com/astridx/boilerplate/tree/t41a/src/media/templates/site/facile)
 
-Damit die Medien-Dateien überschrieben werden können, ist es erforderlich, diese ins Verzeichnis `medien` im Joomla Stammverzeichnis zu verschieben. Deshalb verlegen wir 
+Damit die Medien-Dateien überschrieben werden können, ist es erforderlich, diese ins Verzeichnis `medien` im Joomla Stammverzeichnis zu verschieben. Deshalb verlegen wir
 
-- alle Ordner des Verzeichnisses `templates/facile/assets`, 
-- die Bilder `template_preview.png` und `template_thumbnail.png` 
-- sowie die Verzeichnisse `templates/facile/images` und `templates/facile/favicon_package` 
+- alle Ordner des Verzeichnisses `templates/facile/assets`,
+- die Bilder `template_preview.png` und `template_thumbnail.png`
+- sowie die Verzeichnisse `templates/facile/images` und `templates/facile/favicon_package`
 
-nach `media\templates\site\facile\`. 
+nach `media\templates\site\facile\`.
 
-Damit die Bilder `template_preview.png` und `template_thumbnail.png` und die im  Verzeichnis `favicon_package` später vom Kind-Template einfach überschreibbar sind, lege ich diese im Unterverzeichnis `images` ab, also unter `medien\templates/site/facile/images/` beziehungsweise unter `medien\templates/site/facile/images/favicon_package/`.
+Damit die Bilder `template_preview.png` und `template_thumbnail.png` und die im Verzeichnis `favicon_package` später vom Kind-Template einfach überschreibbar sind, lege ich diese im Unterverzeichnis `images` ab, also unter `medien\templates/site/facile/images/` beziehungsweise unter `medien\templates/site/facile/images/favicon_package/`.
 
 ##### [media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
 
-Unsere CSS-Dateien liegen nun nicht mehr im Unterverzeichnis `assets`. Deshalb passen wir den relativen Pfad in der Datei `main.css` an. 
+Unsere CSS-Dateien liegen nun nicht mehr im Unterverzeichnis `assets`. Deshalb passen wir den relativen Pfad in der Datei `main.css` an.
 
 [media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
 
@@ -73,7 +73,7 @@ Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);`
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
- 
+
 -$templatePath = 'templates/' . $this->template;
  $wa  = $this->getWebAssetManager();
 -$wa->registerAndUseStyle('main_dark', $templatePath . '/assets/css/main.dark.css', [], ['media' => '(prefers-color-scheme: dark)']);
@@ -95,11 +95,11 @@ Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);`
 +$wa->registerAndUseScript('util', '/js/util.js', [], ['defer' => true], []);
 +$wa->registerAndUseScript('main', '/js/main.js', [], ['defer' => true], []);
  ?>
- 
+
  <!DOCTYPE html>
 
      <jdoc:include type="scripts" />
- 
+
      <link rel="apple-touch-icon" sizes="180x180"
 -        href="<?php echo $templatePath . '/favicon_package'; ?>/apple-touch-icon.png">
 +        href="<?php echo HTMLHelper::_('image', '/favicon_package/apple-touch-icon.png', '', [], true, 1); ?>">
@@ -121,7 +121,7 @@ Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);`
 
 [templates/facile/ language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
-Wir haben das Bannerbild in das Medienverzeichnis verschoben, damit dieses auch im Kind-Template eingesetzt wird, falls das Kind kein spezielleres Bild zur Verfügung stellt. Diese Änderung hat eine Änderung in den Sprachdateien zur Folge. 
+Wir haben das Bannerbild in das Medienverzeichnis verschoben, damit dieses auch im Kind-Template eingesetzt wird, falls das Kind kein spezielleres Bild zur Verfügung stellt. Diese Änderung hat eine Änderung in den Sprachdateien zur Folge.
 
 ```php {diff}
  TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
@@ -136,19 +136,18 @@ Wir haben das Bannerbild in das Medienverzeichnis verschoben, damit dieses auch 
 
 ##### [templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
 
-Die Speicherorte der Mediendateien wurden geändert. Damit dies bei der Installation des Templates korrekt erkannt wird, korrigieren wir die entsprechenden Einträge in der Datei `templates/facile/ templateDetails.xml`. 
+Die Speicherorte der Mediendateien wurden geändert. Damit dies bei der Installation des Templates korrekt erkannt wird, korrigieren wir die entsprechenden Einträge in der Datei `templates/facile/ templateDetails.xml`.
 
 > Das Ändern der Speicherorte im `src`-Verzeichnis der Entwicklungsumgebung ist nicht zwingend. Weil es mir wichtig ist, dass meine Dateien die Speicherorte in einer Joomla-Installation nachbilden, habe ich die Dateien im `src`-Verzeichnis ebenfalls umkopiert.
 
 [templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
 
-
 ```php {diff}
  	<license>GNU General Public License version 2 or later;</license>
  	<version>__BUMP_VERSION__</version>
  	<description>TPL_FACILE_XML_DESCRIPTION</description>
-+	<inheritable>1</inheritable> 
- 
++	<inheritable>1</inheritable>
+
  	<files>
  		<filename>component.php</filename>
 
@@ -181,7 +180,7 @@ Stelle sicher, dass alle bisher integrierten Funktionen funktionieren.
 
 2. Überprüfe die Änderungen im Template Manager
 
-Wechsele in den Template Manager und überzeuge dich davon, dass die Schaltfläche zum Erstellen eines Kind-Templates vorhanden ist. Die Schaltfläche zum Kopieren des Templates ist verschwunden.  
+Wechsele in den Template Manager und überzeuge dich davon, dass die Schaltfläche zum Erstellen eines Kind-Templates vorhanden ist. Die Schaltfläche zum Kopieren des Templates ist verschwunden.
 
 ![Joomla Template erstellen - Kind-Template erstellen - Template Manager](/images/j4x47kx0.png)
 
@@ -189,13 +188,13 @@ Wechsele in den Template Manager und überzeuge dich davon, dass die Schaltfläc
 
 ![Joomla Template erstellen - Kind-Template erstellen - Schaltfläche zum Erstellen eines Kind-Templates](/images/j4x47kx2.png)
 
-3. Erstelle ein Kind-Template 
+3. Erstelle ein Kind-Template
 
-Klicke auf die Schaltfläche zum Erstellen eines Kind-Templates. Benenne das Template `facile_child`, wenn du meinem Beispiel folgen magst. 
+Klicke auf die Schaltfläche zum Erstellen eines Kind-Templates. Benenne das Template `facile_child`, wenn du meinem Beispiel folgen magst.
 
 ![Joomla Template erstellen - Kind-Template erstellen - Ansicht im Template Manager nach Erstellung des Kind-Templates](/images/j4x47kx3.png)
 
-Stelle sicher, dass die Bilder, die die Vorschau des Templates anzeigen, nun aus dem Medienverzeichnis geladen werden. 
+Stelle sicher, dass die Bilder, die die Vorschau des Templates anzeigen, nun aus dem Medienverzeichnis geladen werden.
 
 Zusatzaufgabe: Speichere spezielle Vorschaubilder für dein Kind-Template und lege diese unter `medien\templates/site/facile_facile_child/images/template_preview.png` und `medien\templates/site/facile_facile_child/images/template_thumbnail.png` ab. Überzeuge dich davon, dass diese im Template-Manager korrekt angezeigt werden.
 
@@ -228,9 +227,9 @@ Erstelle die Datei `media/templates/site/facile_facile_child/css/user.css` und i
 ```css
 #banner {
   background-image: url('../images/banner.jpg');
-}  
+}
 ```
 
 ## Links
 
-[YouTube Video; Sprecher Dimitris Grammatiko](https://www.youtube.com/embed/LxOQnX-JJyk)[^youtube.com/embed/LxOQnX-JJyk]
+[YouTube Video; Sprecher Dimitris Grammatiko](https://www.youtube.com/embed/LxOQnX-JJyk)[^youtube.com/embed/lxoqnx-jjyk]

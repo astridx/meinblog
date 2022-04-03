@@ -272,7 +272,8 @@ As an extension developer, you ideally develop your extension so that the databa
 
 ### JavaScript, CSS and image files?
 
-Where do you best store JavaScript, CSS and image files? Store these data in the directory `media` in the Joomla root directory. This way it is possible to overwrite them. This is particularly advantageous for CSS files to make the design of the whole Joomla Website consistent. The [Best Practice Guidelines](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/development_best_practices] also recommend this.
+<!-- prettier-ignore -->
+Where do you best store JavaScript, CSS and image files? Store these data in the directory `media` in the Joomla root directory. This way it is possible to overwrite them. This is particularly advantageous for CSS files to make the design of the whole Joomla Website consistent. The [Best Practice Guidelines](https://docs.joomla.org/Development_Best_Practices)[^docs.joomla.org/Development_Best_Practices] also recommend this.
 
 > Examples: For this tutorial extension I will later use `media/com_foos/js/` for the JavaScript files of the component. The CSS files of the module `mod_articles_news` can be found in the directory `media/mod_articles_news/css/`. And the images for the plugin `plg_content_vote` are in the folder `media/plg_content_vote/images/`.
 

@@ -43,8 +43,6 @@ If we have an understanding of the Joomla API, we can modify Cassiopeia. We can 
 
 If we make changes to the Cassiopeia template directly, we run the risk of losing those changes. When updating Joomla, files may be overwritten. Only in the case of `user.css` can we be sure that it will remain. Therefore, we ideally take precautions. Depending on the change, it is recommended to protocol it. The best way is to copy Cassiopeia, rename the copy of the template and use it as template. The disadvantage in this case is that updates to Cassiopeia itself are not automatically reflected in our copy. Since Joomla 4.1 this drawback is [fixed](https://github.com/joomla/joomla-cms/pull/35874)[^github.com/joomla/joomla-cms/pull/35874]. With the introduction of child templates in Joomla 4.1, locations of media files in the Cassiopeia template changed and you only need to take care of the files you created yourself.
 
-> Maybe in the future it will be possible to use [Child Templates](https://github.com/joomla/joomla-cms/pull/32896)[^https://github.com/joomla/joomla-cms/pull/32896] in Joomla. When using this feature, updates in the main template will be automatically adopted in copies. The child inherits from the parent.
-
 ### Using 3rd party templates for your Joomla site
 
 Third party templates are templates that are ready to use out of the box.We don't have to do any styling because we choose a template that suits our needs. We can just start adding our own content. There are free templates and those that are paid.

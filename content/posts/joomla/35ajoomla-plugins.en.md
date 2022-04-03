@@ -43,7 +43,7 @@ API Authentication type plugins are used to provide authentication for web servi
 
 When someone logs into Joomla, the Joomla application authenticates that user. On most websites, authentication is performed against the Joomla database. This type of authentication is performed by the authentication plugin. With an authentication plugin, it is possible to use external services to authenticate users: Joomla provides an authentication plugin for LDAP, which is used in Windows domains.
 
-> Joomla 3 had plugins for authentication via Gmail on board. [Joomla 4 no longer offers this](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. The technology used by the plugin is no longer state of the art and less secure. Nowadays, applications should authorize themselves via the [OAuth 2.0](https://en.wikipedia.org/wiki/OAuth)[^en.wikipedia.org/wiki/OAuth] protocol with Google.
+> Joomla 3 had plugins for authentication via Gmail on board. [Joomla 4 no longer offers this](https://developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html)[^developer.joomla.org/news/724-removal-of-the-gmail-authentication-plugin-as-of-joomla-4-0.html]. The technology used by the plugin is no longer state of the art and less secure. Nowadays, applications should authorize themselves via the [OAuth 2.0](https://en.wikipedia.org/wiki/OAuth)[^en.wikipedia.org/wiki/oauth] protocol with Google.
 
 ### [Behaviour](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Behaviour_Group/en)<!-- \index{plugins!Behaviour} -->
 
