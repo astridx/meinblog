@@ -108,6 +108,8 @@ Joomla 4 integrates Bootstrap 5 into the Joomla core. Thereby, the included temp
 
 With a single call, Web Assets allow developers to load multiple Javascript and CSS files in a specified order. For example, if an extension developer uses styles that depend on Font Awesome being loaded first and they know that Joomla 4 uses the icon font set, Web Assets come into play. Web Assets are described in several places in this tutorial.
 
+> Use the Web Asset Manager when developing for Joomla 4. All calls to `HTMLHelper::_('stylesheet or script ...)` work, but these assets are appended after the Web Asset Manager assets. This results in overriding styles that are set in the template. Thus, a user does not have the possibility to manipulate by means of a `user.css`. See in this context (Issue 35706)[https://github.com/joomla/joomla-cms/issues/35706](^github.com/joomla/joomla-cms/issues/35706).
+
 ##### Web Services enable automated data exchange
 
 Joomla 4 web services make content accessible to other websites or mobile applications. What is a web service? Different definitions cause confusion. The SOAP standards are referred to as web services. Others know them under the term REST API. The W3C generally defines a web service as an interface for automated communication via computer networks. The API integration in Joomla 4 implements such an interface in the core of the CMS with the help of REST. In the example we are building in this text, we also support the Joomla API.

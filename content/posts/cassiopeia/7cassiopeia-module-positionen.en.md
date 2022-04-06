@@ -2,7 +2,7 @@
 description: 'desc'
 shortTitle: 'short'
 date: 2021-03-09
-title: 'Framework'
+title: 'Modul Positions'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
 slug: en/cassiopeia-module-positionen
@@ -15,27 +15,27 @@ tags:
   - Cassiopeia
 ---
 
-Schon beim ersten Blick auf eine frische Joomla 4 Installation wird eine der wesentlichen Neuerungen sichtbar: Das neue Frontend-Template namens Cassiopeia. Aber auch im Hintergrund hat sich einiges geändert: Die Modulpositionen des Templates wurden umbenannt, so dass sich Module nun leichter und intuitiver den entsprechenden Positionen zuordnen lassen: Ein Mensch kann mit `sidebar-right` mehr anfangen als mit `position-7`.
+Already at the first glance at a fresh Joomla 4 installation one of the main innovations becomes visible: The new frontend template called Cassiopeia. But also in the background some things have changed: The module positions of the template have been renamed, so that modules can now be assigned to the corresponding positions more easily and intuitively: A human can understand `sidebar-right` better than `position-7`.
 
-> Eine Modulposition ist ein Platzhalter in einem [Template](https://docs.joomla.org/Special:MyLanguage/Template). Platzhalter bestimmen eine oder mehrere Positionen innerhalb der Vorlage und teilen der Joomla-Anwendung mit, wo Module, die einer bestimmten Position zugeordnet sind, angezeigt werden sollen.
+> A module position is a placeholder in a [template](https://docs.joomla.org/Special:MyLanguage/Template). Placeholders specify one or more positions within the template and tell the Joomla application where to display modules associated with a particular position.
 
-Zwei Positionen wurden kurz vor Veröffentlichung von Joomla 4 hinzugefügt. "topbar" bietet eine Möglichkeit, ganz oben auf der Seite ein Modul anzuzeigen. "below-top" erscheint, wie der Name schon sagt, darunter. Warum wurde "below-top" integriert? Nicht alle Nutzer möchten ein Logo in der Kopfzeile ihrer Internetseite anzeigen lassen. Cassipoeia bietet per Parameter die Möglichkeit, die Anzeige eines Logos oder einer Beschreibung auszuschalten. Dazu gibt es eine neue Position "below-top", in der der Benutzer ein eigenes Modul anstelle des Logo hinzufügen kann. Die Verwendung von beidem - Position "below-top" und Logo - ist möglich.
+Two positions were added just before Joomla 4 was released. "topbar" provides a way to display a module at the very top of the page. "below-top", as the name suggests, appears below it. Why was "below-top" integrated? Not all users want to display a logo in the header of their web page. Cassiopeia offers via parameter the possibility to switch off the display of a logo or a description. For this purpose there is a new position "below-top", where the user can add his own module instead of the logo. The use of both - position "below-top" and logo - is possible.
 
-Die nachfolgende Grafik zeigt die Modulpositionen in Cassiopeia als Übersicht - Es fehlen noch die Positionen "topbar" und "below-top":
+The following graphic shows the module positions in Cassiopeia as an overview:
 
-![Modulpositionen in Cassiopeia als Übersicht - Es fehlen noch die Positionen "topbar" und "below-top"](images/cassiopeia_module.png)
+![Module positions in Cassiopeia as overview](images/cassiopeia_module.png)
 
-Das Standard-Template von Joomla 4 - Cassiopeia - hat eine feste Anzahl von Standard-Modul-Positionen. Diese Positionen werden in der Dropdown-Liste Position angezeigt, wenn du einzelne Module erstellst oder bearbeitest. Die Module bearbeitest du im Modul-Manager `JOOMLA4/administrator/index.php?option=com_modules&view=modules`. Die Stelle, an der eine Position innerhalb des HTML-Dokumentes der Website dargestellt wird, wird in der Datei `index.php` eines Joomla-Tempates festgelegt. In Cassiopeia sieht das für die Position `sidebar-right` so aus:
+The default template of Joomla 4 - Cassiopeia - has a fixed number of default module positions. These positions are displayed in the Position dropdown list when you create or edit individual modules. You edit the modules in the module manager `/administrator/index.php?option=com_modules&view=modules`. The place where a position is displayed within the HTML document of the website is defined in the file `index.php` of a Joomla template. In Cassiopeia this looks as follows for the position `sidebar-right`:
 
-![Modulpositionen in Cassiopeia im Template Manager von Joomla](images/cp_mp_1.png)
+![Module positions in Cassiopeia in the Template Manager of Joomla](images/cp_mp_1.png)
 
-Wenn du an dieser Position neue CSS-Stile für Module erstellen möchtest, dann musst du den HTML-Container für diese Position und nicht den Positionsnamen selbst bearbeiten. Der Positionsname erscheint im HTML-Code für die Webseite gar nicht. Wenn du zum Beispiel etwas mit CSS stylen möchtest, das an Position `sidebar-right` platziert wurde, solltest du die Klasse `.container-sidebar-right` mit CSS stylen.
+If you want to create new CSS styles for modules at this position, you have to edit the HTML container for this position and not the position name itself. The position name does not appear in the HTML code for the web page at all. For example, if you want to style something with CSS placed at position 'sidebar-right', you should style class 'container-sidebar-right' with CSS.
 
-## Wie werden Positionen in Joomla 4 ins Template integriert?
+## How are positions integrated into the template in Joomla 4?
 
-![Modulpositionen in Cassiopeia integrieren](images/cp_mp_2.png)
+![Integrate module positions in Cassiopeia](images/cp_mp_2.png)
 
-Damit eine Position in der Dropdown-Liste der Optionen für Position für die einzelnen Module angezeigt wird, muss der Positionsname in der Datei `templateDetails.xml` des Templates angegeben werden. Diese Datei befindet sich im Stammverzeichnis des Cassiopeia-Templates. Also genau unter der Adresse `JOOMLA4/templates/cassiopeia/templateDetails.xml`.
+In order for a position to be displayed in the dropdown list of options for position for each module, the position name must be specified in the `templateDetails.xml` file of the template. This file is located in the root directory of the Cassiopeia template. So exactly under the address `/templates/cassiopeia/templateDetails.xml`.
 
 ```
 ...
@@ -58,42 +58,42 @@ Damit eine Position in der Dropdown-Liste der Optionen für Position für die ei
 ...
 ```
 
-![Modulpositionen in der XML Installationsdatei - Manifest](images/cp_mp_3.png)
+![Module positions in the XML installation file - manifest](images/cp_mp_3.png)
 
-Damit eine Position auf der Webseite angezeigt wird, muss diese Position in den HTML-Code eingefügt werden. Mit anderen Worten: Der Code muss in den Text eigefügt werden, der die Seite aufbaut -- also in das HTML-Dokument. Dies geschieht in der Datei `index.php`, die sich ebenfalls im Stammverzeichnis des Cassiopeia-Templates befindet. Es muss eine Zeile in der `index.php` vorhanden sein, die die Joomla-API zum Aufrufen dieser Position verwendet.
+In order for a position to be displayed on the web page, that position must be inserted into the HTML code. In other words, the code must be inserted into the text that builds the page -- that is, into the HTML document. This is done in the file `index.php`, which is also located in the root directory of the Cassiopeia template. There must be a line in the `index.php` that uses the Joomla API to call this position.
 
-In der Datei `index.php` kann diese Position von einem HTML-Element wie zum Beispiel `header , div, footer`umgeben sein.
+In the `index.php` file, this position can be surrounded by an HTML element such as `header , div, footer`.
 
-Warum sind manche Positionen in andere HTML-Elemente eingebettet?
+Why are some positions embedded in other HTML elements?
 
-Ganz einfach. Ein HTML-Dokument ist nicht nur für Menschen geschrieben. Auch Maschinen lesen diese Dokumente. Zum Beispiel Screenreader, oder auch Suchmaschinen. Wenn ein HTML-Dokument auch semantisch richtig formatiert ist, finden sich diese Maschinen schneller und besser auf deiner Seite zurecht. Sie erkennen sofort, ob ein Text eine Navigation ist oder der Hauptinhalt deiner Seite. Somit ordnen sie die Inhalte richtig zu. Aber auch für menschliche Besucher bieten die zusätzlichen HTML-Elemente einen Vorteil. Die Seite kann so leichter mit CSS gestaltet werden.
+Simple. An HTML document is not only written for humans. Machines also read these documents. For example, screen readers, or even search engines. If an HTML document is also semantically correctly formatted, these machines find their way around your page faster and better. They immediately recognize whether a text is a navigation or the main content of your page. Thus, they assign the content correctly. But also for human visitors the additional HTML elements offer an advantage. The page can be designed more easily with CSS.
 
-Innerhalb der Datei `index.php` kann die Position mit einer bedingten Anweisung umgeben sein, zum Beispiel mit einer `IF/ENDIF-Anweisung`. Diese bedingte Anweisung prüft, ob Module an dieser Position platziert sind. Wenn ein Module an der Position platziert ist, wird der entsprechende HTML-Code ins HTML-Dokument eingefügt. Wenn nicht, wird der HTML-Code nicht zur Seite hinzugefügt.
+Within the file `index.php` the position can be surrounded with a conditional statement, for example with a `IF/ENDIF statement`. This conditional statement checks if modules are placed at this position. If a module is placed at the position, the corresponding HTML code is inserted into the HTML document. If not, the HTML code is not added to the page.
 
-Das Attribut `style`, also den Textteil `style="default"` des obigen Beispiels, verwendest du, wenn du Option nutzen möchtest.Zum Beispiel: Wenn die Seitenleiste keinen Hintergrund haben soll, dann ist `style="default"` die richtige Wahl. Möchtest du einen grauen Hintergrund, verwendest du am besten `style="cardGrey"`. Wenn du einen anderen Hintergrund anzeigen möchtest, dann musst du selbst den Code dazu schreiben. Die Datei die du schreiben musst, ist eine Layout-Datei. Diese Dateien werden in Joomla auch `Chrome` genannt. Du findest diese im Verzeichnis `JOOMLA4/templates/cassiopeia/html/layouts/chromes` .
+The attribute `style`, that is the text part `style="default"` of the above example, you use if you want to use option.For example: If you want the sidebar to have no background, then `style="default"` is the right choice. If you want a gray background, it is best to use `style="cardGrey"`. If you want to display a different background, then you have to write the code yourself. The file you have to write is a layout file. These files are also called `Module Chromes` in Joomla. You can find them in the directory `/templates/cassiopeia/html/layouts/chromes` .
 
-![Modulpositionen und Chrome](images/cp_mp_4.png)
+![Module Positions and Module Chromes](images/cp_mp_4.png)
 
-## Positionen anderer Templates
+## Positions of other templates
 
-In der Dropdown-Liste der Positionsnamen für Module werden alle verfügbaren Positionen für alle Frontend-Templates angezeigt, die auf deiner Joomla 4-Website installiert sind.
+In the dropdown list of position names for modules, all available positions for all frontend templates installed on your Joomla 4 website are displayed.
 
-Dies kann verwirrend sein und du fragst dich vielleicht, warum Positionen von Templates angezeigt werden, die nicht aktiv sind.
+This can be confusing and you may wonder why positions of templates that are not active are displayed.
 
-In der Liste werden alle Modulpositionen angezeigt, weil einige Webmaster auf ihrer Joomla-Site unterschiedliche Templates für verschiedene Unterseiten verwenden.
+In the list, all module positions are displayed because some webmasters use different templates for different subpages on their Joomla site.
 
-Stelle sicher, dass du nur Positionsnamen aus der Liste auswählst, die du für deine Joomla-Site verwendest. Wenn du eine der Positionen aus einem anderen Template auswählst und Cassiopeia diesen Positionsnamen nicht unterstützt, wird das Modul im Frontend deiner Site nicht angezeigt - zumindest dann, wenn das Template Cassiopeia für die Anzeige deiner Inhalte unter dem entsprechenden Menüpunkt ausgewählt ist.
+Make sure that you select only position names from the list that you use for your Joomla site. If you select one of the items from another template and Cassiopeia does not support this item name, the module will not be displayed in the frontend of your site - at least if the template Cassiopeia is selected to display your content under the corresponding menu item.
 
-Hast du oft Problemen mit nicht aktiven Modulpositionen? Dann empfehle ich dir die nicht verwendeten Templates im Erweiterungs-Manager zu deaktivieren.
+Do you often have problems with inactive module positions? Then I recommend you to deactivate the unused templates in the extension manager.
 
-## Joomla Module Positionen im Frontend anzeigen
+## Show Joomla module positions in frontend
 
-Wir können alle in einem Template festgelegten Module anzeigen, indem wir `"tp=1"` im Frontend an die URL anhängen. Zum Beispiel so: `http://www.example.com/index.php?tp=1`.
+We can show all modules set in a template by appending `"tp=1"` to the URL in the frontend. For example like this: `http://www.example.com/index.php?tp=1`.
 
-![Modulpositionen in Cassiopeia](images/cp_templatepositionen2.png)
+![Module positions in Cassiopeia](images/cp_templatepositions2.png)
 
-Siehst du die Positionen nicht? Überprüfe die Konfiguraiton: Die Option ist in der globalen Konfiguration deaktivierbar.
+Don't you see the positions? Check the configuration: The option can be disabled in the global configuration.
 
-![Modulpositionen in Cassiopeia](images/cp_templatepositionen.png)
+![Module positions in Cassiopeia](images/cp_templatepositionen.png)
 
 <img src="https://vg04.met.vgwort.de/na/db40f6f682a94aac81a12332d6705e25" width="1" height="1" alt="">

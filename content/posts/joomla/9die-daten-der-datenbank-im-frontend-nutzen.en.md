@@ -354,7 +354,7 @@ We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time
 
 > What does the attribute `"defer": true` mean? Scripts are loaded with `async` - asynchronous/parallel to other resources. `defer` promises the browser that the web page will not be changed by instructions. More information [at Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).<!-- \index{WebAssetManager!attribute} -->
 
-> The Joomla Web Assets Manager manages all assets in a Joomla installation. It is not mandatory to include script files or stylesheets via this manager. However, it does have advantages. If dependencies are set correctly, no conflicts occur and necessary files are loaded by Joomla. For example, we have set a dependency in the line `"dependencies": ["core"],`.<!-- \index{WebAssetManager!dependencies} -->
+> The Joomla Web Assets Manager manages all assets in a Joomla installation. It is not mandatory to include script files or stylesheets via this manager. All calls to `HTMLHelper::_('stylesheet or script ...)` work, but these assets are appended after the Web Asset Manager assets. This results in overriding styles that are set in the template. Thus, a user does not have the possibility to manipulate by means of a `user.css`. However, it does have more advantages: If dependencies are set correctly, no conflicts occur and necessary files are loaded by Joomla. For example, we have set a dependency in the line `"dependencies": ["core"],`.<!-- \index{WebAssetManager!dependencies} -->
 
 #### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
 

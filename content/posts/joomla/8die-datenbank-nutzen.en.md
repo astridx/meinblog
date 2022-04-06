@@ -64,8 +64,11 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 ```
 
 <!-- \index{alias} -->
+<!-- \index{forms} -->
 
 > You want an overview of all possible form elements? In the [Joomla documentation](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] all standard form fields are listed.
+
+Further tip: We have a simple form so far. Later, more specific requirements will surely be added. For example: What is the best way to place JavaScript in a Joomla form? A simple but quick and messy solution is this: You create a field `type=note` in the XML definition and then write the JavaScript code into the language constant of the description. I found a more elegant solution in (Allrounder template by Bakual)[https://github.com/Bakual/Allrounder/](^github.com/Bakual/Allrounder/). First he creates a new (field of type `loadjscss`)[https://github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php](^github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php). He then includes this in the file (`templateDetails.xml`)[https://github.com/Bakual/Allrounder/blob/57bb030ec0e243c776e758daeade898abbbb9c10/templateDetails.xml#L51](github.com/Bakual/Allrounder/blob/57bb030ec0e243c776e758daeade898abbbb9c10/templateDetails.xml#L51). Mach dir keine Sorgen, falls du die letzte Variante nicht sofort durchschaust. Wir erstellen im weitern Verlauf noch weitere Felder.
 
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-181b1576846350fbb4a7a1a73291de4b)
