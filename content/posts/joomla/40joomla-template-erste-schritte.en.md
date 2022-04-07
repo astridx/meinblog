@@ -610,9 +610,9 @@ After that the installation routine is listed. Folders (`<folder>`) and files (`
 
 > For more information on the `templateDetails.xml` file, see the Joomla documentation [docs.joomls.org](https://en.wikipedia.org/wiki/XHTML#XML_declaration)[^en.wikipedia.org/wiki/xhtml#xml_declaration].
 
-##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
+##### template_preview.png und template_thumbnail.png
 
-The two PNG files added in this chapter are the images that will be displayed in the Template Manager.
+The two PNG `src/templates/facile/template_preview.png` and `src/templates/facile/template_thumbnail.png` files added in this chapter are the images that will be displayed in the Template Manager.
 
 ![Create Joomla Template - Images](/images/j4x40x7.png)
 

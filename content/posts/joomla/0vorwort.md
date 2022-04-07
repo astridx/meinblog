@@ -201,7 +201,7 @@ Das schließende Tag eines PHP-Blocks am Ende einer Datei ist optional, und in e
 
 #### PHP-Operatoren für Gleichheit (== zwei Gleichheitszeichen) und Identität (=== drei Gleichheitszeichen)<!-- \index{PHP!Vergleichsoperator} -->
 
-Der [Vergleichsoperator](https://www.php.net/manual/de/language.operators.comparison.php#language.operators.comparison)[^php.net/manual/de/language.operators.comparison.php#language.operators.comparison] `==` vergleicht zwischen zwei verschiedenen Typen, wenn diese unterschiedlich sind, während der Operator `===` einen typensicheren Vergleich durchführt. Das bedeutet, dass er nur dann `wahr` zurückgibt, wenn beide Operanden denselben Typ und denselben Wert haben. Beispiele:
+Der [Vergleichsoperator](https://www.php.net /manual/de/language.operators.comparison.php #language.operators.comparison)[^php.net/manual/de/language.operators.comparison.php#language.operators.comparison] `==` vergleicht zwischen zwei verschiedenen Typen, wenn diese unterschiedlich sind, während der Operator `===` einen typensicheren Vergleich durchführt. Das bedeutet, dass er nur dann `wahr` zurückgibt, wenn beide Operanden denselben Typ und denselben Wert haben. Beispiele:
 
 `1 === 1`: wahr
 `1 == 1`: wahr

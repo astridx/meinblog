@@ -200,7 +200,7 @@ The closing tag of a PHP block at the end of a file is optional, and in some cas
 
 #### PHP operators for equality (== two equal signs) and identity (=== three equal signs)<!-- \index{PHP!comparison operator} -->
 
-The [comparison operator](https://www.php.net/manual/en/language.operators.comparison.php#language.operators.comparison)[php.net/manual/en/language.operators.comparison.php#language.operators.comparison] `==` compares between two different types if they are different, while the `===` operator performs a type-safe comparison. This means that it returns `true` only if both operands have the same type and the same value. Examples:
+The [comparison operator](https://www.php.net /manual/en/language.operators.comparison.php #language.operators.comparison)[php.net/manual/en/language.operators.comparison.php #language.operators.comparison] `==` compares between two different types if they are different, while the `===` operator performs a type-safe comparison. This means that it returns `true` only if both operands have the same type and the same value. Examples:
 
 `1 === 1`: true
 `1 == 1`: true

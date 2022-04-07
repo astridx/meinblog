@@ -610,9 +610,9 @@ Danach wird die Installationsroutine aufgelistet. Zum Template gehörende Ordner
 
 > Weitere Informationen zur Datei `templateDetails.xml` bietet die Joomla Dokumentation [docs.joomls.org](https://docs.joomla.org/What_is_the_purpose_of_the_templateDetails.xml_file%3F/de)[^docs.joomla.org/what_is_the_purpose_of_the_templatedetails.xml_file%3f/de].
 
-##### src/templates/facile/template_preview.png und src/templates/facile/template_thumbnail.png
+##### template_preview.png und template_thumbnail.png
 
-Die beiden in diesem Kapitel neu hinzugekommenen PNG-Dateien sind die Bilder, die im Template Manager angezeigt werden.
+Die beiden in diesem Kapitel neu hinzugekommenen PNG-Dateien `src/templates/facile/template_preview.png` und `src/templates/facile/template_thumbnail.png` sind die Bilder, die im Template Manager angezeigt werden.
 
 ![Joomla Template erstellen - Images](/images/j4x40x7.png)
 
