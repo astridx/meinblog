@@ -14,9 +14,9 @@ tags:
   - Joomla
 ---
 
-Wenn du neu bei Joomla bist, lese bitte [_Absolute Grundlagen der Funktionsweise einer Komponente_](https://docs.joomla.org/Special:MyLanguage/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/absolute_basics_of_how_a_component_functions/de].
+Wenn du neu bei Joomla bist, lese bitte [_Absolute Grundlagen der Funktionsweise einer Komponente_](https://docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions)[^docs.joomla.org/Absolute_Basics_of_How_a_Component_Functions].
 
-Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component/de)[^docs.joomla.org/j3.x:developing_an_mvc_component/de].
+Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen einer Komponente für Joomla 3 findest du unter [Entwickeln einer Model-View-Controller-Komponente / 3.x](https://docs.joomla.org/J3.x:Developing_an_MVC_Component)[^docs.joomla.org/J3.x:Developing_an_MVC_Component].
 
 Du benötigst Joomla 4.x für dieses Tutorial. Joomla 4 findest du bei [GitHub](https://github.com/joomla/joomla-cms/)[^github.com/joomla/joomla-cms] auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html)[^developer.joomla.org/nightly-builds.html] oder erstelle eine kostenlose Website unter [launch.joomla.org](https://launch.joomla.org).
 
@@ -78,21 +78,21 @@ Du möchtest eine Erweiterung für Joomla programmieren und benötigst deshalb e
 
 #### Code-Editoren oder IDE
 
-Zwingend ist ebenfalls ein guter Editor. Dies sollte einer sein, mit dem du dich wohlfühlst. Wikipedia führt eine Liste mit [Editoren.](https://de.wikipedia.org/wiki/Liste_von_Texteditoren)[^de.wikipedia.org/wiki/liste_von_texteditoren]
+Zwingend ist ebenfalls ein guter Editor. Dies sollte einer sein, mit dem du dich wohlfühlst. Wikipedia führt eine Liste mit [Editoren.](https://de.wikipedia.org/wiki/Liste_von_Texteditoren)[^de.wikipedia.org/wiki/Liste_von_Texteditoren]
 
-Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen]. Mit Bequemlichkeit meine ich Funktionen wie
+Mehr Bequemlichkeit bietet eine integrierte Entwicklungsumgebung [IDE](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen). Mit Bequemlichkeit meine ich Funktionen wie
 
-- Versionierung: Integration von [GIT](https://de.wikipedia.org/wiki/Git)[^de.wikipedia.org/wiki/git]
+- Versionierung: Integration von [GIT](https://de.wikipedia.org/wiki/Git)[^de.wikipedia.org/wiki/Git]
 - Codevervollständigung: Benutzereingabe sinnvoll ergänzen
 - Syntax-Highlighting: farbliche Hervorhebung von Variablen, Klassennamen oder Anweisungen.
 - Coding Standards: Beachten von Regeln
 - Debugging: Auffinden von Fehlern
 
-Auch zu IDEs kannst du dir bei Wikipedia anhand einer [Liste mit IDEs](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/liste_von_integrierten_entwicklungsumgebungen] einen Überblick verschaffen.
+Auch zu IDEs kannst du dir bei Wikipedia anhand einer [Liste mit IDEs](https://de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen)[^de.wikipedia.org/wiki/Liste_von_integrierten_Entwicklungsumgebungen] einen Überblick verschaffen.
 
 In der Joomla-Community ist die kostenpflichtige IDE [PHPStorm](https://www.jetbrains.com/phpstorm/)[^www.jetbrains.com/phpstorm/] beliebt. Immer häufiger trifft man auf Nutzer von [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com/]. Nennenswert sind daneben [NetBeans](https://netbeans.org) und [Eclipse](https://eclipse.org).
 
-Sucht du nach einer Anleitung, zur Einrichtung der Entwicklungsumgebung? Joomla mit Visual Studio Code findest du in der [Joomla Dokumentation](https://docs.joomla.org/Visual_Studio_Code)[^docs.joomla.org/visual_studio_code]. Für PHPStorm bietet Jetbrains eine [Beschreibung](https://www.jetbrains.com/help/phpstorm/joomla-specific-coding-assistance.html).
+Sucht du nach einer Anleitung, zur Einrichtung der Entwicklungsumgebung? Joomla mit Visual Studio Code findest du in der [Joomla Dokumentation](https://docs.joomla.org/Visual_Studio_Code)[^docs.joomla.org/Visual_Studio_Code]. Für PHPStorm bietet Jetbrains eine [Beschreibung](https://www.jetbrains.com/help/phpstorm/joomla-specific-coding-assistance.html).
 
 > Wenn du magst, kannst du meine ersten Schritte mit Visual Studio Code unter [blog.astrid-guenther.de/ubuntu-vscode-docker-lamp](https://blog.astrid-guenther.de/ubuntu-vscode-docker-lamp) lesen.
 
@@ -124,7 +124,7 @@ Joomla 4 beinhaltet neue Sicherheitsfunktionen wie die Unterstützung von vorber
 
 #### Rückwärtskompatibilität zu Joomla 3
 
-Dieser Text richtet sich in erster Linie an Entwickler, die eine neue Erweiterung in Angriff nehmen. Nichtsdestotrotz sind Probleme in Bezug auf die Kompatibilität mit Joomla 3 interessant. Eine [Seite in der Joomla Dokumentation](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4/de)[^docs.joomla.org/potential_backward_compatibility_issues_in_joomla_4/de] fasst die wichtigen Punkte zusammen.
+Dieser Text richtet sich in erster Linie an Entwickler, die eine neue Erweiterung in Angriff nehmen. Nichtsdestotrotz sind Probleme in Bezug auf die Kompatibilität mit Joomla 3 interessant. Eine [Seite in der Joomla Dokumentation](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4/de)[^docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4/de] fasst die wichtigen Punkte zusammen.
 
 ### Ändere niemals die Kerndateien.
 
@@ -140,7 +140,7 @@ Dass du die Systemdateien nicht verändern solltest, heißt nicht, dass du sie g
 
 ### Die Datei autoload_psr4.php
 
-Während der Installation werden Einträge in der Datei `/administrator/ cache/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.<!-- \index{autoload_psr4.php} -->
+Während der Installation werden Einträge in der Datei `/administrator/ cache/autoload_psr4.php` vorgenommen. Das ist neu in Joomla 4. Falls du auf merkwürdige Probleme stößt, lösche diese Datei. Sie wird beim nächsten Laden neu erstellt. Manchmal löst sich so ein Problem.<!-- \index{autoload!autoload psr4.php} -->
 
 > Der nachfolgende Text wurde in englischer Sprache mit dem [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/pull/28436/files] in die [README auf Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/blob/4.0-dev/readme.md] eingefügt: "Joomla erstellt einen Cache der Namespaces seiner Erweiterungen in `JOOMLA_ROOT/administrator/cache/ autoload_psr4.php`. Wenn Erweiterungen in Git erstellt, gelöscht oder entfernt werden, muss diese Datei neu erstellt werden. Sie können die Datei einfach löschen und sie wird beim nächsten Aufruf von Joomla neu erstellt."
 
@@ -179,7 +179,7 @@ Zusätzlich erhält der Standard-Controller, der in Joomla 3 nur Controller hei�
 ### index.html?<!-- \index{index.html} -->
 
 Benötigst du in jedem Ordner deiner Komponente eine leere Datei mit dem Namen `index.html`? Die `index.html` ist nicht mehr erforderlich, da das Auflisten von Verzeichnissen [in der Standardkonfiguration von Joomla nicht zulässig](https://github.com/joomla/joomla-cms/pull/4171)[^github.com/joomla/joomla-cms/pull/4171] ist.
-Wenn du weiter interessiert bist lese die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s)[^groups.google.com/forum/#!topic/joomla-dev-cms/en1g7qouw2s].
+Wenn du weiter interessiert bist lese die Diskussion zum Thema in einer [Google Group](https://groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s)[^groups.google.com/forum/#!topic/joomla-dev-cms/en1G7QoUW2s].
 
 ### Technische Anforderungen<!-- \index{Technische Anforderungen} -->
 
@@ -283,7 +283,7 @@ Wo speicherst du am besten JavaScript-, CSS- und Bilddateien? Speichere diese Da
 
 Du möchtest Icons einsetzen aber keine eigene Bibliothek hinzufügen. Dann nutze im Frontend und im Backend die freien Icons der Seite [fontawesome.com/icons](https://fontawesome.com/icons). Zumindest wenn du die Standardtemplates _Cassiopeia_ und _Atum_ nutzt, funktioniert das. Falls dein Template FontAwesome nicht unterstützt, kannst du die Icons selbst über den WebassetManager nachladen. In Joomla wird Fontawesome mitgeliefert. Das Markieren als [Abhängigkeit](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] reicht aus.
 
-> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt werden, weil Joomla den Text `icon-` voran stellt. Das wird später mithilfe der Datei [`build/media_source/ system/scss/_icomoon.scss`](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] für Fontawesome umgewandelt. Auf diese Art funktionieren lediglich die Icons, die in der vorgenannten Datei aufgenommen sind. Warum verkompliziert Joomla die Auswahl von Font Awesome Icons? Der Grund hierfür ist folgender: So können Erweiterungen, weiterhin verwendet werden, die für Joomla 3 programmiert wurden.
+> Achtung: In Joomla Core Dateien kann nicht einfach so abgeguckt werden, weil Joomla den Text `icon-` voran stellt. Das wird später mithilfe der Datei [`build/media_source/ system/scss/_icomoon.scss`](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss oder media/system/scss/_icomoon.scss] für Fontawesome umgewandelt. Auf diese Art funktionieren lediglich die Icons, die in der vorgenannten Datei aufgenommen sind. Warum verkompliziert Joomla die Auswahl von Font Awesome Icons? Der Grund hierfür ist folgender: So können Erweiterungen, weiterhin verwendet werden, die für Joomla 3 programmiert wurden.
 
 Der HTML-Code
 

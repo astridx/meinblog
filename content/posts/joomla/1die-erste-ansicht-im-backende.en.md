@@ -367,7 +367,7 @@ The `postflight` function is called after the component has been installed, disc
 
 > Note: In Joomla 3, only plugins called the Preflight method during the uninstall process and Postflight was never used during uninstall. As of version 4.0, these two hooks are available during the uninstall for all extension types.
 
-> Do you want to know exactly when which method is called? Then have a look at the file `/libraries/src/Installer/InstallerAdapter.php`. The commands `$this->triggerManifestScript('');` will start the execution of the related method. For example, the `postflight` function is triggered via `$this->triggerManifestScript('postflight');`. See [Potential backward compatibility issues in Joomla 4](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries)[^docs.joomla.org/potential_backward_compatibility_issues_in_joomla_4#cms_libraries].
+> Do you want to know exactly when which method is called? Then have a look at the file `/libraries/src/Installer/InstallerAdapter.php`. The commands `$this->triggerManifestScript('');` will start the execution of the related method. For example, the `postflight` function is triggered via `$this->triggerManifestScript('postflight');`. See [Potential backward compatibility issues in Joomla 4](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries)[^docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries].
 
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)

@@ -124,9 +124,9 @@ We use the language files for the labels of our backend form. This way the texts
 
 Since Joomla supports us in creating the form fields, it is enough to define the fields via an XML file.
 
-In order to display one form field in dependency to another, we use `showon`. `showon="showBanner:1"` ensures that the current field is only shown if the `showBanner` field has the value `1`.<!-- \index{Fields|showon} -->
+In order to display one form field in dependency to another, we use `showon`. `showon="showBanner:1"` ensures that the current field is only shown if the `showBanner` field has the value `1`.<!-- \index{Fields!showon} -->
 
-The field of type `type="subform"` provides the possibility to flexibly define the number of values in the backend form. Thus, with one form field it is possible to insert either only one link to Facebook or to display many social media channels.<!-- \index{Fields|subform} -->
+The field of type `type="subform"` provides the possibility to flexibly define the number of values in the backend form. Thus, with one form field it is possible to insert either only one link to Facebook or to display many social media channels.<!-- \index{Fields!subform} -->
 
 [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 

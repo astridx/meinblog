@@ -124,9 +124,9 @@ Wir nutzen die Sprachdateien für die Labels unseres Backendformulares. So sind 
 
 Da Joomla uns beim Erstellen der Formularfelder unterstützt, reicht es aus, die Felder über eine XML-Datei zu definieren.
 
-Damit ein Formularfeld in Anhängigkeit zu einem anderen angezeigt wird, nutzen wir `showon`. `showon="showBanner:1"` bewirkt, dass das aktuelle Feld nur eingeblendet wird, wenn das Feld `showBanner` den Wert `1` hat.<!-- \index{Fields|showon} -->
+Damit ein Formularfeld in Anhängigkeit zu einem anderen angezeigt wird, nutzen wir `showon`. `showon="showBanner:1"` bewirkt, dass das aktuelle Feld nur eingeblendet wird, wenn das Feld `showBanner` den Wert `1` hat.<!-- \index{Fields!showon} -->
 
-Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Werte im Backendformular flexibel zu gestalten. So ist mit einem Formularfeld möglich, entweder lediglich einen Link zu Facebook einzufügen oder aber viele Social Media Kanäle anzuzeigen.<!-- \index{Fields|subform} -->
+Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Werte im Backendformular flexibel zu gestalten. So ist mit einem Formularfeld möglich, entweder lediglich einen Link zu Facebook einzufügen oder aber viele Social Media Kanäle anzuzeigen.<!-- \index{Fields!subform} -->
 
 [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 

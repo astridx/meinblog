@@ -132,5 +132,5 @@ A new installation is not necessary. Continue using the files from the previous 
 
 ## Links
 
-[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^docs.joomla.org/j4.x:creating_a_simple_module]
+[Joomla Dokumentation](https://docs.joomla.org/J4.x:Creating_a_Simple_Module)[^docs.joomla.org/J4.x:Creating_a_Simple_Module]
 <img src="https://vg08.met.vgwort.de/na/af6ae71bda914ca3ae8f2a484bc39f18" width="1" height="1" alt="">
