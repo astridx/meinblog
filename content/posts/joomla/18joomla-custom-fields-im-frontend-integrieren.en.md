@@ -74,7 +74,12 @@ Specifically, we make sure that the events<!-- \index{Event!onContentAfterDispla
  	}
 ```
 
-Are you wondering why we set `&$item->params` as parameters for the event methods `onContentPrepare`, `onContentAfterTitle`, `onContentBeforeDisplay` and `onContentAfterDisplay`, although we have not yet explicitly implemented `&$item->params` in the Foo extension? Implicitly, the `populateState` method of the file `/components/com_foos/src/Model/FooModel.php` ensures that `&$item->params` is available. For our example, we do not need this third parameter so far. However, it is possible that errors may occur in combination with other extensions if this parameter is not set. Therefore, we set the three mandatory parameters `['com_foos.foo', &$item, &$item->params]` for all event methods.
+Are you wondering why we set `&$item->params` as parameters for the event methods 
+- `onContentPrepare`, 
+- `onContentAfterTitle`, 
+- `onContentBeforeDisplay` and 
+- `onContentAfterDisplay`, 
+although we have not yet explicitly implemented `&$item->params` in the Foo extension? Implicitly, the `populateState` method of the file `/components/com_foos/src/Model/FooModel.php` ensures that `&$item->params` is available. For our example, we do not need this third parameter so far. However, it is possible that errors may occur in combination with other extensions if this parameter is not set. Therefore, we set the three mandatory parameters `['com_foos.foo', &$item, &$item->params]` for all event methods.
 
 > Via `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`, in addition to the custom fields, other elements are displayed that are mapped to the related event.
 
