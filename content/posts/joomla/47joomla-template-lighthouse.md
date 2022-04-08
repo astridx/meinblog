@@ -24,7 +24,7 @@ Die Lighthouse-Analyse beinhaltet
 - Zugänglichkeit - Beinhaltet die Website Barrieren für bestimmte Menschen oder Geräte?
 - Bewährte Praxis - Berücksichtigt die Website moderne Standards?
 - Suchmaschinenoptimierung (SEO) - Wie gut ist die Website für Suchmaschinen auslesbar?
-- Progressive Web App (PWA) - Bietet die Website Funktionen einer [Web App](https://de.wikipedia.org/wiki/Mobile_App)[de.wikipedia.org/wiki/Mobile_App]?
+- Progressive Web App (PWA) - Bietet die Website Funktionen einer [Web App](https://de.wikipedia.org/wiki/Mobile_App)[^de.wikipedia.org/wiki/Mobile_App]?
 
 ![Joomla Template erstellen - Page Speed Analyse mit Lighthouse](/images/j4x47x1.png)
 
