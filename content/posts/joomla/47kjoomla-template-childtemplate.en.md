@@ -38,7 +38,8 @@ In order to overwrite the media files, it is necessary to move them to the `medi
 
 - all folders of the directory `templates/facile/assets`,
 - the images `template_preview.png` and `template_thumbnail.png`
-- and the directories `templates/facile/images` and `templates/facile/favicon_package`.
+- and the directories `templates/facile/images` 
+- and `templates/facile/favicon_package`.
 
 to `media\templates\site\facile\`.
 

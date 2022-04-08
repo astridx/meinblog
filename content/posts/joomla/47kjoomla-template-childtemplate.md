@@ -38,7 +38,8 @@ Damit die Medien-Dateien überschrieben werden können, ist es erforderlich, die
 
 - alle Ordner des Verzeichnisses `templates/facile/assets`,
 - die Bilder `template_preview.png` und `template_thumbnail.png`
-- sowie die Verzeichnisse `templates/facile/images` und `templates/facile/favicon_package`
+- sowie die Verzeichnisse `templates/facile/images` 
+- und `templates/facile/favicon_package`
 
 nach `media\templates\site\facile\`.
 
