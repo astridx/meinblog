@@ -36,8 +36,11 @@ In this section we change the frontend view of `com_content/featured`, `mod_arti
 My Goal: In the end, we will have discussed all override variations so that you can finish the template or edit your own template according to your needs. Finished will be the home page view of the Joomla 4 blog sample files.
 
 Home page view of the Joomla 4 blog sample in Cassiopeia:
+
 ![Create Joomla Template - Default Template Cassiopeia](/images/j4x43x8a.png)
+
 Home page view of the Joomla 4 blog sample in our new template Facile:
+
 ![Create Joomla Template - Template Facile](/images/j4x43x8b.png)
 
 Overrides can be created comfortably with the help of the template manager. This offers a view that highlights the differences to Joomla's own code.

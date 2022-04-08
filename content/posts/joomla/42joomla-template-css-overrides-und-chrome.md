@@ -36,8 +36,11 @@ In diesem Abschnitt verändern wir die Frontend Ansicht von `com_content/feature
 Mein Ziel: Am Ende haben wir alle Override-Varianten besprochen, so dass du das Template fertigstellen oder dein eigenes Template nach deinen Wünschen bearbeiten kannst. Fertig sein wird die Ansicht der Startseite der Joomla 4 Blog-Beispieldateien.
 
 Ansicht der Startseite der Joomla 4 Blog-Beispieldateien in Cassiopeia:
+
 ![Joomla Template erstellen - Standardtemplate Cassiopeia](/images/j4x43x8a.png)
+
 Ansicht der Startseite der Joomla 4 Blog-Beispieldateien in unserem neuen Template Facile:
+
 ![Joomla Template erstellen - Template Facile](/images/j4x43x8b.png)
 
 Overrides können komfortabel mit Hilfe des Template-Managers erstellt werden. Dieser bietet eine Ansicht, die die Unterschiede zum Joomla-eigenen Code farblich markiert.
