@@ -106,6 +106,17 @@ class FooController extends FormController
 
 ```
 
+Wann solltest du schon an dieser Stelle etwas in die Datei `administrator/components/com_foos/ src/Controller/FooController.php` einfügen? 
+Hast du deine Komponente umbenannt und nun das Problem, dass deine _Views_ von Joomla nicht korrekt gefunden werden? Hast du beispielsweise eine neue _View_ namens `Katze` angelegt und deine Listenansicht heißt `Katzen`. Nun wirst du teilweise von Joomla zur _View_ `KatzeS` weitergeleitet. Insbesondere dann, wenn du einen neuen Datensatz anlegst oder ein Bearbeiten abbrichst. Du fragst dich, wo das `S` herkommt? Des Rätsels Lösung findest du in der Datei [libraries/src/MVC/Controller/ FormController.php](https://github.com/joomla/joomla-cms/blob/73ae0235c25a489bac64613ba3d4837aec406fda/libraries/src/MVC/Controller/FormController.php#L136)[^libraries/src/MVC/Controller/FormController.php]. Im Konstruktor dieser Datei wird die Variable `view_item` automatisch mit dem Plural versehen. Allerdings wird die englische Grammatik verwendet. Im Falle des englischen Wortes `cat` passt das. `Cats` ist Mehrzahl von `cat`. Dein Controller erbt diese Werte aufgrund wegen `use Joomla\CMS\MVC\Controller\FormController` und  `extends FormController`. Das passt nicht immer. Setze in deinem `FormController` die Variablen `view_item` und `view_list` selbst, um benutzerdefinierte Werte zu verwenden. 
+
+```php
+class KatzeController extends FormController
+{
+protected $view_item = 'katze';
+protected $view_list = 'katzen';
+}
+```
+
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 

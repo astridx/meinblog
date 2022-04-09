@@ -106,6 +106,17 @@ class FooController extends FormController
 
 ```
 
+When should you add something to the file `administrator/components/com_foos/ src/Controller/FooController.php`? 
+Did you rename your component and now you have the problem that your _Views_ are not found correctly by Joomla? For example, did you create a new _View_ called `Katze` and your list view is called `Katzen`. Now you are sometimes redirected by Joomla to the _View_ `Katzes`. Especially when you create a new record or cancel an editing. You wonder where the `S` in the end of `Katzes` comes from? You can find the solution in the file [libraries/src/MVC/Controller/ FormController.php](https://github.com/joomla/joomla-cms/blob/73ae0235c25a489bac64613ba3d4837aec406fda/libraries/src/MVC/Controller/FormController.php#L136)[^libraries/src/MVC/Controller/FormController.php]. In the constructor of this file, the `view_item` variable is automatically made plural. However, the English grammar is used. In the case of the English word cat, it fits. Cats is plural of cat. Your controller inherits these values because of `use Joomla\CMS\MVC\Controller\FormController` and `extends FormController`. This does not always fit. Set in your `FormController` the variables `view_item` and `view_list` yourself to use custom values. 
+
+``php
+class catController extends FormController
+{
+protected $view_item = 'katze';
+protected $view_list = 'katzen';
+}
+```
+
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6...t6b#diff-c1b8160bef2d2b36367dc59381d6bcb7)
 
