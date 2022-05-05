@@ -263,7 +263,7 @@ $urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
 
 The name of the function must be the same in both places!
 
-> In an early sample code version for the field 'FooField' we do not use the Webasset Manager. The necessary changes can be found here.
+> In an early sample code version for the field 'FooField' we do not use the Webasset Manager. The necessary changes can be found [here](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
