@@ -85,6 +85,31 @@ The configuration `config.xml` uses a paramter to define whether the extension u
  		name="permissions"
 ```
 
+A tip for the type `radio` with the layout `joomla.form.field.radio.switcher`. Do you want to determine yourself how the colours are set in the layout? Is it important to you that when you set the option 'yes', the field is coloured green and when you set the option 'no', a grey background appears? By default, Joomla colours the options based on the order of the options. Example: Your field looks like the next picture with the following code.
+
+![Type `radio` with the layout `joomla.form.field.radio.switcher`](/images/j4x17x11.png)
+
+```xml
+<field name="eins" type="radio" label="eins" layout="joomla.form.field.radio.switcher" default="1">
+	<option value="0">JNO</option>
+	<option value="1">JYES</option>
+</field>
+
+<field name="zwei" type="radio" label="zwei" layout="joomla.form.field.radio.switcher" default="0">
+	<option value="0">JNO</option>
+	<option value="1">JYES</option>
+</field>
+<field name="drei" type="radio" label="drei" layout="joomla.form.field.radio.switcher" default="1">
+	<option value="1">JYES</option>
+	<option value="0">JNO</option>
+</field>
+
+<field name="vier" type="radio" label="vier" layout="joomla.form.field.radio.switcher" default="0">
+	<option value="1">JYES</option>
+	<option value="0">JNO</option>
+</field>
+```
+
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-2fc2de3e713c03872261cc037f7f6194d843f9cbc953d34db10e9693dfa82924)
 

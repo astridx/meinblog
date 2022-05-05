@@ -85,6 +85,31 @@ In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles 
  		name="permissions"
 ```
 
+Ein Tipp zum Type `radio` mit dem Layout `joomla.form.field.radio.switcher`. Möchtest du selbst bestimmen, wie die Farben im Layout gesetzt werden? Ist es dir wichtig, dass beim Setzen der Option `ja`, das Feld grün gefärbt ist und beim Setzen der Option `nein` ein grauer Hintergrund erscheint? Standardmäßig färbt Joomla die Optionen anhand der Reihenfolge der Optionen. Beispiel: Dein Feld sieht mit dem nachfolgenden Code aus wie im nächsten Bild.
+
+![Type `radio` mit dem Layout `joomla.form.field.radio.switcher`](/images/j4x17x11.png)
+
+```xml
+<field name="eins" type="radio" label="eins" layout="joomla.form.field.radio.switcher" default="1">
+	<option value="0">JNO</option>
+	<option value="1">JYES</option>
+</field>
+
+<field name="zwei" type="radio" label="zwei" layout="joomla.form.field.radio.switcher" default="0">
+	<option value="0">JNO</option>
+	<option value="1">JYES</option>
+</field>
+<field name="drei" type="radio" label="drei" layout="joomla.form.field.radio.switcher" default="1">
+	<option value="1">JYES</option>
+	<option value="0">JNO</option>
+</field>
+
+<field name="vier" type="radio" label="vier" layout="joomla.form.field.radio.switcher" default="0">
+	<option value="1">JYES</option>
+	<option value="0">JNO</option>
+</field>
+```
+
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-2fc2de3e713c03872261cc037f7f6194d843f9cbc953d34db10e9693dfa82924)
 

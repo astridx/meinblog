@@ -6,6 +6,7 @@ import { Hamburger } from '../assets/Hamburger'
 const mainNavItems = [
   { url: '/blog', label: 'Articles' },
   { url: '/projects', label: 'Projects' },
+  { url: '/books', label: 'Books' },
 ]
 
 const socialNavItems = [

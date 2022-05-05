@@ -224,6 +224,51 @@ class FooField extends FormField
 
 > Der Programmcode für das Formularfeld ist an [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)[^getbootstrap.com] angepasst. Dieses Framework wurde im [Pull Request 32037](https://github.com/joomla/joomla-cms/pull/32037)[^github.com/joomla/joomla-cms/pull/32037] in Joomla 4 integriert.
 
+Achte darauf, dass du die korrekten Namen verwendest. Falls später beim Testen nichts passiert, wenn du ein einzelnes Foo auswählst, liegt es meist an einem Tippfehler. Hintergrund: Es wird JavaScript ausgeführt. Du fügst dieses Skript an zwei Stellen hinzu. Zuerst erstellst du die Funktion `jSelectFoo_...` mithilfe von Variablen. 
+
+```js
+...
+// Script to proxy the select modal function to the modal-fields.js file.
+if ($allowSelect) {
+	static $scriptSelect = null;
+
+	if (is_null($scriptSelect)) {
+		$scriptSelect = [];
+	}
+
+	if (!isset($scriptSelect[$this->id])) {
+		Factory::getDocument()->addScriptDeclaration("
+		function jSelectFoo_"
+			. $this->id
+			. "(id, title, object) { window.processModalSelect('Foo', '"
+			. $this->id . "', id, title, '', object);}");
+
+		$scriptSelect[$this->id] = true;
+	}
+}
+...
+```
+
+Im Quelltext des Joomla Administrationsbereich wird der folgende Code hinzugefügt:
+
+```js
+<script nonce="beispielID=">
+function jSelectFoos_jform_request_id(id, title, object) { window.processModalSelect('Foo', 'jform_request_id', id, title, '', object);}
+</script>
+```
+
+Etwas später rufst du die Funktion auf.
+
+```js
+...
+$urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
+...
+```
+
+Der Name der Funktion muss an beiden Stellen gleich sein!
+
+> In der Datei zum Feld `FooField` nutzen wir den Webasset Manager noch nicht. Falls du dies tun möchtest, kannst du die Datei `/administrator/components/com_contact/src/Field/Modal/ContactField.php` als Vorlage verwenden.
+
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 

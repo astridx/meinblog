@@ -224,6 +224,51 @@ class FooField extends FormField
 
 > The programme code for the form field is adapted to [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)[^getbootstrap.com]. This framework was integrated into Joomla in the [pull request 32037](https://github.com/joomla/joomla-cms/pull/32037)[^github.com/joomla/joomla-cms/pull/32037].
 
+Make sure that you use the correct names. If nothing happens later during testing when you select a single Foo, it is usually due to a typing error. Background: JavaScript is being executed. You add this script in two places. First, you create the function `jSelectFoo_...` using variables. 
+
+```js
+...
+// Script to proxy the select modal function to the modal-fields.js file.
+if ($allowSelect) {
+	static $scriptSelect = null;
+
+	if (is_null($scriptSelect)) {
+		$scriptSelect = [];
+	}
+
+	if (!isset($scriptSelect[$this->id])) {
+		Factory::getDocument()->addScriptDeclaration("
+		function jSelectFoo_"
+			. $this->id
+			. "(id, title, object) { window.processModalSelect('Foo', '"
+			. $this->id . '', id, title, '', object);}");
+
+		$scriptSelect[$this->id] = true;
+	}
+}
+...
+```
+
+In the source code of the Joomla administration area, the following code is added:
+
+```js
+<script nonce="sampleId=">
+function jSelectFoos_jform_request_id(id, title, object) { window.processModalSelect('Foo', 'jform_request_id', id, title, '', object);}
+</script>
+```
+
+A little later, you call the function.
+
+```js
+...
+$urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
+...
+```
+
+The name of the function must be the same in both places!
+
+> In the file for the field 'FooField' we do not use the Webasset Manager yet. If you want to do this, you can use the file `/administrator/components/com_contact/src/Field/Modal/ContactField.php` as a template.
+
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
 
