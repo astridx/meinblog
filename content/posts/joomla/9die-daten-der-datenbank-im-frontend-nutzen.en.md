@@ -73,7 +73,7 @@ class FooField extends FormField
 	 *
 	 * @return  string  The field input markup.
 	 *
-	 * @since   __DEPLOY_VERSION__
+	 * @since   __DEPLOY_VERSION__ 
 	 */
 	protected function getInput()
 	{
@@ -87,11 +87,11 @@ class FooField extends FormField
 		$modalId = 'Foo_' . $this->id;
 
 		// Add the modal field script to the document head.
-		HTMLHelper::_(
-			'script',
-			'system/fields/modal-fields.min.js',
-			['version' => 'auto', 'relative' => true]
-		);
+		/** @var \Joomla\CMS\WebAsset\WebAssetManager $wa */
+		$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+
+		// Add the modal field script to the document head.
+		$wa->useScript('field.modal-fields');
 
 		// Script to proxy the select modal function to the modal-fields.js file.
 		if ($allowSelect) {
@@ -102,11 +102,13 @@ class FooField extends FormField
 			}
 
 			if (!isset($scriptSelect[$this->id])) {
-				Factory::getDocument()->addScriptDeclaration("
-				function jSelectFoo_"
-					. $this->id
-					. "(id, title, object) { window.processModalSelect('Foo', '"
-					. $this->id . "', id, title, '', object);}");
+				$wa->addInlineScript("
+				window.jSelectFoo_" . $this->id . " = function (id, title, object) {
+					window.processModalSelect('Foo', '" . $this->id . "', id, title, '', object);
+				}",
+					[],
+					['type' => 'module']
+				);
 
 				$scriptSelect[$this->id] = true;
 			}
@@ -228,24 +230,18 @@ Make sure that you use the correct names. If nothing happens later during testin
 
 ```js
 ...
-// Script to proxy the select modal function to the modal-fields.js file.
-if ($allowSelect) {
-	static $scriptSelect = null;
+if (!isset($scriptSelect[$this->id])) {
+	$wa->addInlineScript("
+	window.jSelectFoo_" . $this->id . " = function (id, title, object) {
+		window.processModalSelect('Foo', '" . $this->id . "', id, title, '', object);
+	}",
+		[],
+		['type' => 'module']
+	);
 
-	if (is_null($scriptSelect)) {
-		$scriptSelect = [];
-	}
-
-	if (!isset($scriptSelect[$this->id])) {
-		Factory::getDocument()->addScriptDeclaration("
-		function jSelectFoo_"
-			. $this->id
-			. "(id, title, object) { window.processModalSelect('Foo', '"
-			. $this->id . '', id, title, '', object);}");
-
-		$scriptSelect[$this->id] = true;
-	}
+	$scriptSelect[$this->id] = true;
 }
+
 ...
 ```
 
@@ -267,7 +263,7 @@ $urlSelect = $linkFoos . '&amp;function=jSelectFoo_' . $this->id;
 
 The name of the function must be the same in both places!
 
-> In the file for the field 'FooField' we do not use the Webasset Manager yet. If you want to do this, you can use the file `/administrator/components/com_contact/src/Field/Modal/ContactField.php` as a template.
+> In an early sample code version for the field 'FooField' we do not use the Webasset Manager. The necessary changes can be found here.
 
 <!-- prettier-ignore -->
 #### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
