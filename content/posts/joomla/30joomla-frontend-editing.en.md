@@ -247,7 +247,7 @@ We adapt the XML file that Joomla uses to build the form.
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset
+	<fieldset 
 		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
 	>
@@ -277,7 +277,8 @@ We adapt the XML file that Joomla uses to build the form.
 			size="45"
 			hint="JFIELD_ALIAS_PLACEHOLDER"
 		/>
-
+	</fieldset>
+	<fieldset name="language" label="JFIELD_LANGUAGE_LABEL">
 		<field
 			name="language"
 			type="contentlanguage"
@@ -285,14 +286,15 @@ We adapt the XML file that Joomla uses to build the form.
 			>
 			<option value="*">JALL</option>
 		</field>
-
+	</fieldset>
+	<fieldset name="publishing" label="COM_FOO_FIELDSET_PUBLISHING">
 		<field
 			name="featured"
-			type="radio"
-			class="switcher"
+			type="list"
 			label="JFEATURED"
 			default="0"
-			>
+			validate="options"
+		>
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
@@ -359,13 +361,6 @@ We adapt the XML file that Joomla uses to build the form.
 			name="checked_out_time"
 			type="hidden"
 			filter="unset"
-		/>
-
-		<field
-			name="ordering"
-			type="ordering"
-			label="JFIELD_ORDERING_LABEL"
-			content_type="com_foos.foo"
 		/>
 	</fieldset>
 	<fields name="params" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">

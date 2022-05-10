@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2020-08-04
+date: 2022-04-07
 title: 'Docker unter Ubuntu 20.04 einrichten'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
@@ -15,7 +15,7 @@ tags:
   - Docker
 ---
 
-[Docker](<https://de.wikipedia.org/w/index.php?title=Docker_(Software)&oldid=203149728>) vereinfacht die Verwaltung von Anwendungsprozessen. Die freie Software ähnelt virtuellen Maschinen, aber Container sind portabler, ressourcenschonender und vom Host-Betriebssystem abhängig. Ich installiere [Docker](https://docs.docker.com/get-docker/) unter Ubuntu 20.04 und veröffentliche ein eigenes Docker Image.
+[Docker](<https://de.wikipedia.org/w/index.php?title=Docker_(Software)&oldid=203149728>) vereinfacht die Verwaltung von Prozesse und ähnelt virtuellen Maschinen. Der Vorteil von Docker: Container sind portabler, ressourcenschonender und vom Host-Betriebssystem unabhängiger. Ich installiere [Docker](https://docs.docker.com/get-docker/) unter Ubuntu 20.04 und veröffentliche ein erstes eigenes Docker Image.
 
 ## Voraussetzungen
 
@@ -47,7 +47,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 Daraufhin ergänze ich das Docker-Repository in den APT Quelle:
 
 ```
-sudo add-apt-repository „deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable“
+sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable'
 ```
 
 Anschließend aktualisiere ich die Paketdatenbank mit den Docker-Paketen aus dem neu hinzugefügten Repo:
@@ -57,7 +57,7 @@ sudo apt update
 
 ```
 
-Ich stelle sicher, dass ich vom Docker-Repo anstelle des Standard-Ubuntu-Repos installieren:
+Ich stelle sicher, dass ich die Software vom Docker-Repo installiere, anstelle der eventuell veralteten Software des Standard-Ubuntu-Repos:
 
 ```
 apt-cache policy docker-ce
@@ -69,19 +69,19 @@ Die Ausgabe ist beispielsweise wie folgt:
 ```
 Docker-ce:
   Installiert: (keine)
-  Kandidat: 5:20.10.3~3-0~ubuntu-focal
+  Kandidat: 5:20.10.15~3-0~ubuntu-focal
   Versionstabelle:
 ...
 ...
 ```
 
-Beachte: `docker-ce` ist nicht installiert. Ich installiere `docker-ce`:
+Beachte: `docker-ce` ist bisher nicht installiert. Ich installiere `docker-ce` nun:
 
 ```
 sudo apt install docker-ce
 ```
 
-Docker ist jetzt installiert und der Dämon gestartet. Dies prüfe ich:
+Docker ist jetzt installiert und der Dämon gestartet. Dies prüfe ich via:
 
 ```
 sudo systemctl status docker
@@ -90,24 +90,23 @@ sudo systemctl status docker
 Der Dienst ist aktiv:
 
 ```
-docker.service - Docker Application Container Engine
-     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2020-08-30 17:00:41 UTC; 17s ago
+$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor prese>
+     Active: active (running) since Sun 2022-05-08 03:04:57 PDT; 52s ago
 TriggeredBy: ● docker.socket
        Docs: https://docs.docker.com
-   Main PID: 11517 (dockerd)
-      Tasks: 10
-     Memory: 38.4M
+   Main PID: 54160 (dockerd)
+      Tasks: 8
+     Memory: 29.1M
      CGroup: /system.slice/docker.service
-             └─11517 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+             └─54160 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/co>
 ...
 ```
 
 ## Der Docker-Befehls ohne `sudo`
 
-Wenn ein normaler Benutzer versucht, den Befehl `docker` auszuführen, ohne ihm `sudo` voranzustellen oder ohne zur Gruppe `Docker` zu gehören, sieht er einen Hinweis darauf, dass er nicht berechtigt ist.
-
-Der beste Workaround ist, alle Benutzer die `docker` nutzten, zur Gruppe **Docker** zu hinzuzufügen.
+Wenn ein normaler Benutzer versucht, den Befehl `docker` aufzurufen, sieht er einen Hinweis darauf, dass er nicht berechtigt ist. Es ist erforderlich `sudo` voranzustellen oder ohne zur Gruppe `Docker` zu gehören. Der beste Workaround ist alle Benutzer zur Gruppe **Docker** zu hinzuzufügen,  die `docker` nutzten.
 
 ```
 sudo usermod -aG docker ${USER}
@@ -120,13 +119,13 @@ Um die neue Gruppenmitgliedschaft anzuwenden, melde dich vom Rechner ab und wied
 su - ${USER}
 ```
 
-Bestätige, dass dein Benutzer zur Gruppe **Docker** hinzugefügt wurde.
+Überzeuge dich davon, dass dein Benutzer zur Gruppe **Docker** hinzugefügt wurde.
 
 ```
 id -nG
 ```
 
-Alle Gruppen werden angezeigt, in denen du dich befindest:
+Der Befehl `id -nG` zeigt dir alle Gruppen an, in denen du dich befindest. `docker` sollte in der Ausgabe vorhanden sein:
 
 ```
 astrid adm cdrom sudo dip plugdev lpadmin lxd sambashare docker
@@ -134,7 +133,7 @@ astrid adm cdrom sudo dip plugdev lpadmin lxd sambashare docker
 
 > Einen anderen Benutzer fügst du wie folgt zur Gruppe **Docker** hinzu: `sudo usermod -aG docker username`
 
-Sehen wir uns den Befehl `docker` genauer an.
+Sehen wir uns jetzt den Befehl `docker` genauer an.
 
 ## Der Befehl Docker im überblick
 
@@ -213,7 +212,7 @@ Schauen wir uns `docker`-Images genauer an.
 
 ## Docker Images
 
-`docker`-Container werden aus `docker`-Images erstellt. Standardmäßig ruft Docker diese Bilder von [Docker Hub](https://hub.docker.com) ab. Lade über Docker Hub ein Image herunter und führe es gleichzeitig aus:
+`docker`-Container werden mithilfe von `docker`-Images erstellt. Standardmäßig ruft Docker diese Bilder von [Docker Hub](https://hub.docker.com) ab. Falls du dies bisher noch nicht in der Praxis erlebt hast: Lade über Docker Hub ein Image herunter und führe es gleichzeitig aus:
 
 ```
 docker run hello-world
@@ -248,7 +247,7 @@ docker pull ubuntu
 
 ```
 
-Du siehst folgendes:
+Du siehst folgende Ausgabe, wenn alles fehlerfrei verläuft:
 
 ```
 Using default tag: latest
@@ -264,7 +263,7 @@ docker.io/library/ubuntu:latest
 
 Nachdem ein Images heruntergeladen wurde, führst du es mit `run` aus.
 
-So zeigst du heruntergeladene Images Bilder an:
+Via `docker images` zeigst du heruntergeladene Images an:
 
 ```
 docker images
@@ -283,9 +282,9 @@ Schauen wir uns `docker`-Container genauer an.
 
 ## Docker Container
 
-Lasse uns als Beispiel einen `docker`-Container mit dem neuesten `docker`-Image von Ubuntu aufrufen.
+Lasse uns als Beispiel einen `docker`-Container mit dem aktuellsten Ubuntu `docker`-Image aufrufen.
 
-> Die Kombination von **-i** und **-t** ermöglicht dir den interaktiven Shell-Zugriff auf den Container:
+> Die Kombination von **-i** und **-t** ermöglicht dir den interaktiven Shell-Zugriff auf den Container
 
 ```
 docker run -it ubuntu /bin/bash
@@ -297,9 +296,11 @@ Die Eingabeaufforderung ändert sich. Du befindest dich jetzt im Container:
 root@3fee0f2f636:/#
 ```
 
-In diesem Beispiel ist die Container ID `3fee0f2f636`. Mithilfe von ihr identifizierst du den Container.
+In diesem Beispiel ist `3fee0f2f636` die Container-ID. Mithilfe dieser ID identifizierst du den Container.
 
-Rufe einen beliebigen Befehl im Container auf. Aktualisiere beispielsweise die Paketdatenbank im Container. `sudo` ist nicht notwendig, da du im Container als **Root**-Benutzer arbeitest:
+Rufe einen beliebigen Befehl im Container auf. Aktualisiere beispielsweise die Paketdatenbank im Container. 
+
+> `sudo` ist nicht notwendig, da du im Container als **Root**-Benutzer arbeitest:
 
 ```
 apt update
@@ -307,6 +308,15 @@ apt update
 ```
 
 Oder installiere Node.js:
+
+Überzeuge dich davon, das Node.js nichts bereis installiert ist:
+
+```
+node -v
+
+```
+
+Installiere nun Node.js.
 
 ```
 apt install nodejs
@@ -324,7 +334,7 @@ Alle Änderungen gelten nur für diesen Container.
 
 Um den Container zu verlassen, gib in der Eingabeaufforderung `exit` ein. Überzeuge dich davon, dass Node.js nicht außerhalb des Containers installiert ist.
 
-Schauen wir uns als nächstes die Verwaltung der `docker`-Container an.
+Schauen wir uns als nächstes die Verwaltung von `docker`-Containern an.
 
 ## Docker Container verwalten
 
@@ -341,7 +351,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED
 ...
 ```
 
-Bisher haben wir zwei Container gestartet. Einen aus dem `hello-world`-Image und einen aus dem `ubuntu`-Image. Beide Container werden nicht mehr ausgeführt, sind jedoch auf dem System noch vorhanden.
+Bisher haben wir zwei Container gestartet. Einen aus dem `hello-world`-Image und einen aus dem `ubuntu`-Image. Beide Container werden nicht mehr ausgeführt, sind jedoch im System noch vorhanden.
 
 Rufe `docker ps` mit der Option `-a` auf, um alle Container anzuzeigen -- aktiv und inaktiv:
 
@@ -373,11 +383,11 @@ docker start 3fee0f2f636
 
 Der Container startet und du kannst mit `docker ps` den Status prüfen
 
-> Um einen gestoppten Container zu stoppen, verwende `docker stop`. Lösche einen Container mit `docker rm`. Finde die Container ID mit `docker ps -a` heraus.
+> Um einen aktiven Container zu stoppen, verwende `docker stop`. Lösche einen Container mit `docker rm`. Finde die Container ID mit `docker ps -a` heraus.
 
-## Festschreiben von Änderungen in einem Container an einem Docker-Image
+## Festschreiben von Änderungen in einem Container via Docker-Image
 
-Wenn du ein Docker-Image aufrufst, ist es möglich, Dateien zu erstellen, zu ändern und zu löschen. Wie speicherst du diesen neuen Status?
+Wenn du ein Docker-Image aufrufst, ist es möglich, Dateien zu erstellen, zu ändern und zu löschen. Wie ist es möglich, diesen neuen Status permanent zu speichern?
 
 Nach der Installation von Node.js im Ubuntu-Container unterscheidet dieser sich vom ursprünglichen Image. Übernimm die Änderungen mit dem folgenden Befehl in eine neue Docker-Image-Instanz.
 
@@ -385,7 +395,7 @@ Nach der Installation von Node.js im Ubuntu-Container unterscheidet dieser sich 
 docker commit -m "Meine Änderung" -a "Autor Name" container_id repository/new_image_name
 ```
 
-`-m` steht für den Kommentar, mit du bescheibst, welche Änderungen du vorgenommen hast. `-a` ist für die Angabe des Autors. Die `container_id` ist zur Identifizierung des Containers. Beispiel für
+`-m` steht für den Kommentar, mit dem du bescheibst, welche Änderungen du vorgenommen hast. `-a` ist für die Angabe des Autors. Die `container_id` ist zur Identifizierung des Containers. Beispiel für
 
 Der Benutzer `astrid` speichert die Änderungen im Container mit der ID `00000000` wie folgt:
 
@@ -395,18 +405,18 @@ docker commit -m "added Node.js" -a "astrid" 00000000 astrid/ubuntu-und-node-js
 
 Das geändert Image wird zunächst lokal abgespeichert. Überprüfe dies mit `docker images`.
 
-Teilen wir das Image als nächstes mit anderen.
+Teile das Image als nächstes mit anderen.
 
 ## Docker Images im Docker Repository veröffentlichen
 
-Senden wir ein Docker-Image an Docker Hub. Melden dich zuerst bei [Docker Hub](https://hub.docker.com/) an, um dein Image zu übertragen.
+Wenn du dein Docker-Image mit anderen teilen möchtest, dann sende es zu Docker Hub. Melde dich zuerst bei [Docker Hub](https://hub.docker.com/) an, um das Image zu übertragen.
 
 ```
 docker login -u dein-docker-username
 
 ```
 
-> Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Bildes verwendet hast, ist folgende Ergänzung wichtig:
+> Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Images verwendet hast, ist folgende Ergänzung wichtig:
 > `docker tag astrid/ubuntu-node-js docker-registry-username/ubuntu-und-node-js`
 
 Lade dein eigenes Image hoch:

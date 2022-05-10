@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2020-08-06
+date: 2022-04-11
 title: 'DPDocker einrichten'
 template: post
 thumbnail: '../../thumbnails/dp_logo.png'
@@ -16,37 +16,19 @@ tags:
   - Joomla
 ---
 
-Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
+Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht. Wenn du den bisherigen Texten gefolgt bist, verfügst du über die notwendigen Grundlagen, um _DPDocker_ zu verwenden.
 
 Hier geht es um _DPDocker_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung mit und für Joomla unterstützen.
 
 ## Voraussetzungen
 
-Neben [Docker](/ubuntu-docker-einrichten) ist [Docker Compose](/ubuntu-docker-compose-einrichten) notwendig. Um die Skripte automatisch auszuführen, solltest du unter Linux arbeiten. Wenn du diesem [Set](mein-ubuntu-rechner-mit-dpdocker-themen/) bisher gefolgt bist, passt alles.
+Neben [Docker](/ubuntu-docker-einrichten) ist [Docker Compose](/ubuntu-docker-compose-einrichten) notwendig. Um die Skripte automatisch auszuführen, solltest du unter Linux arbeiten. Wenn du diesem [Set](mein-ubuntu-rechner-mit-dpdocker-themen/)[^blog.astrid-guenther.de/mein-ubuntu-rechner-mit-dpdocker-themen/] bisher gefolgt bist, passt alles.
 
 ### Optional: Entfernen von Docker-Images, -Containern
 
-Bei der Arbeit mit Docker passiert es leicht, dass viele nicht verwendete Images, Container und Datenvolumen gesammelt werden, die Ausgabe verkomplizieren und unnötigen Festplattenspeicher verbrauchen.
+Bei der Arbeit mit Docker passiert es leicht, dass sich viele nicht verwendete Images, Container und Datenvolumen ansammeln. Diese verkomplizieren die Ausgabe und verbrauchen unnötigen Festplattenspeicher.
 
-Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelemente auf. Ich nenne das [Tabula rasa](https://de.wikipedia.org/wiki/Tabula_rasa)!
-
-#### Images
-
-##### Auflisten
-
-Ich überprüfe die Images in meinem System mit `docker images`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
-
-```
-docker images -a
-```
-
-##### Entfernen
-
-Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an den Befehle Docker `rmi` zu übergeben:
-
-```
-docker rmi $(docker images -a -q)
-```
+Aus diesem Grund räume ich meine bisher zu Übungszwechen erstellten Dockerelemente auf. Ich nenne das [Tabula rasa](https://de.wikipedia.org/wiki/Tabula_rasa)[^de.wikipedia.org/wiki/Tabula_rasa]!
 
 #### Container
 
@@ -69,7 +51,25 @@ docker rm $(docker ps -a -q)
 
 > digitalocean.com behandelt in einem [Artikel](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de) alle gängigen Befehle, die zum Entfernen von Images, Containern und Volumen bei Docker verwendet werden.
 
-## Installieren von DPDocker
+#### Images
+
+##### Auflisten
+
+Ich überprüfe die Images in meinem System mit `docker images`. Durch Hinzufügen des Flag `-a` werden alle angezeigt.
+
+```
+docker images -a
+```
+
+##### Entfernen
+
+Wenn ich sicher bin, ergänze ich das Flag `-q`, um die IDs an den Befehle Docker `rmi` zu übergeben:
+
+```
+docker rmi $(docker images -a -q)
+```
+
+## DPDocker installieren
 
 Ich verfüge über eine frische Dockerinstallation. Auf meinem Rechner ist kein Image und somit kein Container. Die folgenden Befehle zeigen beide eine leere Tabelle:
 
