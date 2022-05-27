@@ -18,13 +18,19 @@ tags:
 
 Zur Erinnerung: _Docker_ erleichtert die Verwaltung von Software in Containern. _Docker Compose_ ist ein Tool, welches die Arbeit mit mehreren Containern vereinfacht.
 
-Hier geht es um _docker-lamp_. Eine Software die vorgefertigte Images, Container und Skripte bietet, die dich bei der Entwicklung in einer [LAMP Umgebung](<https://de.wikipedia.org/w/index.php?title=LAMP_(Softwarepaket)&oldid=199333875>) unterstützen. In diesem Teil richte ich die Umgebung ein.
+Hier geht es um _docker-lamp_. _docker-lamp_ ist eine Software die 
+
+- vorgefertigte Docker-Images, 
+- Docker-Container und 
+- Skripte 
+
+bietet, die dich bei der Entwicklung in einer [LAMP Umgebung](<https://de.wikipedia.org/w/index.php?title=LAMP_(Softwarepaket)&oldid=199333875>) unterstützen. In diesem Teil richte ich die Umgebung ein.
 
 > Eine LAMP-Umgebung besteht aus den vier Komponenten Linux (Betriebssystem), Apache (Webserver), MySQL (Datenbanksystem) und PHP (serverseitiger Skript-Interpreter).
 
 ## Voraussetzungen
 
-Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](/mein-ubuntu-rechner-mit-docker-lamp-themen/) bisher gefolgt bist, passt alles.
+Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp) notwendig. Wenn du diesem [Set](/mein-ubuntu-rechner-mit-docker-lamp-themen/)[^https://blog.astrid-guenther.de/mein-ubuntu-rechner-mit-docker-lamp-themen/] bisher gefolgt bist, passt alles.
 
 ### Optional und auf eigene Gefahr: Entfernen von Docker-Images, -Containern
 
@@ -96,13 +102,15 @@ Als nächstes wechsele ich in den Ordner `docker-lamp`.
 cd docker-lamp
 ```
 
+> Diese Beschreibung ist an die [Version 2 von docker-lamp](https://github.com/degobbis/docker-lamp/tree/2.0.0-dev)[^github.com/degobbis/docker-lamp] angepasst. Deshalb ist zur Zeit noch ein Wechsel zum Entwicklungszweig notwendig. Die notwendigen Befehle hierzu sind `git fetch origin` und dann `git checkout 2.0.0-dev`.
+
 ### Umgebungsvariablen
 
 #### .env-example in .env umbennen und editieren
 
 Im `docker-lamp`-Ordner kopiere ich die versteckte Datei `.env-example` nach `.env`.
 
-> Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden und diese ist versteckt.
+> Im Verzeichnis `docker-lamp` befindet sich die unsichtbare Datei `.env-example`, welche nach `.env` kopiert wird. Wofür ist die Datei `.env` wichtig? Diese beinhaltet wesentliche Einstellungen. Konfigurationsdaten müssen besonders geschützt werden, wenn sie sich in einem vom Webserver erreichbaren Verzeichnis befinden. Deshalb ist der Zugriff auf `.env` zu unterbinden. Deshalb ist diese versteckt.
 
 ```
 cp .env-example .env
@@ -116,9 +124,9 @@ nano .env
 
 #### .env Datei abändern
 
-##### Eigene IP-Adresse
+##### Eigene IP-Adresse - zwingend
 
-Ich belege in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `192.168.178.138`. Der gesamte Eintrag lautet: `REMOTE_HOST_IP=192.168.178.138`. Das Ende der Datei sieht jetzt so aus, wie im folgenden Block.
+Ich belege in der Datei `.env` den Parameter `REMOTE_HOST_IP=` mit der IP des eigenen Rechners. In meinem Fall ist das `192.168.178.138`. Der gesamte Eintrag lautet: `REMOTE_HOST_IP=192.168.178.138`.
 
 ```
 ...
@@ -151,9 +159,9 @@ $ ip address
 ...
 ```
 
-##### APP_BASEDIR
+##### APP_BASEDIR - zwingend
 
-Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb später die Variable `APP_BASEDIR` ab. Was weiterhin zu beachten ist, wenn man eine benutzerdefinierte Webserver-Root nutzt, habe ich unter [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden) beschrieben. Zum Einrichten belasse ich `APP_BASEDIR=./data`.
+Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb die Variable `APP_BASEDIR` ab. Für mein Beispiel nutze ich `APP_BASEDIR=/srv`. Gleichzeitig kopiere ich alle Daten im Verzeichnis `DEINE-docker-lamp-INSTALLATION/data` nach `/srv`.
 
 ```
 ...
@@ -161,13 +169,14 @@ Ich nutze `/srv/www` als Stammverzeichnis für den Webserver und ändere deshalb
 # Set your project folder for websites and configurations.
 # If you want to outsource this, use the ./data folder as the base skeleton.
 #
-APP_BASEDIR=./data
-# APP_BASEDIR=/srv/www
+APP_BASEDIR=/srv
 ...
 ...
 ```
 
-##### Benutzer ID unter Ubuntu
+> Es ist zwingend, beim Einrichten das Verzeichnis `APP_BASEDIR` anzupassen. `APP_BASEDIR` ist mit einem absoluten Pfad zu belegen!
+
+##### Benutzer ID unter Ubuntu - optional
 
 In der `.env` gibt es den folgenden Eintrag.
 
@@ -192,231 +201,286 @@ $ id -u
 1000
 ```
 
-Falls die ID des Benutzers welcher `docker-lamp` ausführt, von 1000 abweicht, ist dieser Eintrag zu korrigieren.
+Falls die ID des `docker-lamp` ausführenden Benutzers von 1000 abweicht, ist dieser Eintrag zu korrigieren.
 
-### Die make Commandos
+### Die docker-lamp Befehle
 
-`docker-lamp` verwendet das [Hilfsprogramm `make`](https://de.wikipedia.org/w/index.php?title=Make&oldid=203684973). Auf meinem Rechner ist das nicht vorhanden. Mithilfe von `sudo apt install make` installiere ich `make`.
-
-```
-sudo apt install make
-```
-
-Im `docker-lamp`-Verzeichnis führe ich nach erfolgreicher Installation von `make` den Befehl `make` aus, der alle möglichen Kommandos anzeigt.
+> Tipp: Belege den Wert für `DEBUG` in der Datei `DEINE-docker-lamp-INSTALLATION/docker-lamp` mit `1`, um dir genauere Informationen im Falle von Problemen anzeigen zu lassen.
 
 ```
-make
+#!/usr/bin/env bash
 
-Usage:
-  make <target>
-  server-up                    Start all docker containers, creating new certificates before.
-  server-down                  Stops all docker containers and delete all volumes, saving all databases before.
-  db-backup                    Saving all databases.
-  update-images                Update all images from docker-compose.yml to the latest build.
-  delete-obsolete-images       Delete all obsolete images.
+# Define debug mode.
+DEBUG=1
+...
 ```
 
-Noch immer im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
+### Hauptbefehle
+
+#### Start via `./docker-lamp start`
 
 ```
-$ make server-up
-./.env included
-2021/02/04 20:13:24 open localdomains/key.pem: file exists
-Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
-Recreating docker-lamp_bind ... done
-Recreating docker-lamp_mailhog ... done
-Recreating docker-lamp_mysql   ... done
-Recreating docker-lamp_php74      ... done
-Recreating docker-lamp_php56      ... done
-Recreating docker-lamp_php80      ... done
-Recreating docker-lamp_php73      ... done
-Recreating docker-lamp_phpmyadmin ... done
-Recreating docker-lamp_httpd      ... done
+$ ./docker-lamp start
 ```
 
-Der Befehl arbeitet beim ersten Aufruf einige Minuten, da sämtliche Images heruntergeladen werden. Im Anschluss sind diese mit `docker images -a` auflistbar.
+Beim Starten von `docker-lamp` geschieht folgendes: 
+- Es werden verschiedene Docker-Container erstellt.
+- Es werden verschiedene PHP-Umgebungen erstellen.
+- SSL/TLS wird zu lokalen Domains hinzufügen.
+- Es wird eine phpmyadmin-Schnittstelle zu den Datenbanken zur Verfügung gestellt.
+- Es wird ein lokaler Mailserver mit Webmail-Funktionalität bereit gestellt.
+- Und last but not least werden Datenbanken aus SQL-Skripten in einem bestimmten Ordner erstellen.
 
 ```
-$ docker images -a
-REPOSITORY                   TAG          IMAGE ID       CREATED        SIZE
-phpmyadmin/phpmyadmin        fpm-alpine   9e4f315e888d   2 days ago     142MB
-degobbis/php74-fpm-alpine    latest       d026bc35510a   9 days ago     181MB
-degobbis/php73-fpm-alpine    latest       6cc4ac518120   9 days ago     168MB
-degobbis/php80-fpm-alpine    latest       f6fe30e9f914   9 days ago     183MB
-degobbis/minica              latest       2fcbfc904eff   5 weeks ago    13.2MB
-degobbis/mariadb105-alpine   latest       be1c0b068e2e   2 months ago   238MB
-degobbis/apache24-alpine     latest       f3469ca1846a   2 months ago   58.8MB
-degobbis/php56-fpm-alpine    latest       9609694f3fe4   2 months ago   131MB
-mailhog/mailhog              latest       4de68494cd0d   5 months ago   392MB
-cytopia/bind                 0.15         ff37cf218d55   2 years ago    142MB
+$ ./docker-lamp start
+
+Start creating SSL certificates:
+Create certificate for: localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test
+2022/05/18 09:09:29 open localdomains/key.pem: file exists
+
+All certificates created.
+Start server:
+[+] Running 8/8
+ ⠿ Container docker-lamp_bind        Started                                  2.8s
+ ⠿ Container docker-lamp_db          Started                                  2.0s
+ ⠿ Container docker-lamp_mailhog     Start...                                 2.5s
+ ⠿ Container docker-lamp_phpmyadmin  St...                                    3.8s
+ ⠿ Container docker-lamp_php80       Started                                  4.5s
+ ⠿ Container docker-lamp_php81       Started                                  4.6s
+ ⠿ Container docker-lamp_php74       Started                                  4.3s
+ ⠿ Container docker-lamp_apache24    Star...                                  5.3s
+
 ```
 
-`docker ps -a` listet folgende Container auf.
+##### Domains
+
+Wenn alles fehlerfrei verläuft, kann man nun den Inhalt seiner `www-Root`, also von `APP_BASEDIR + /www`, im Browser über die folgenden URLs aufrufen:
+
+- http://localhost:8000 - phpmyadmin
+- http://localhost:8025 - mailhog webmail
+- http://localhost/ - verwendet die als Standard konfigurierte PHP-Version
+- http://localhost:8074 - Website verwendet PHP7.4
+- http://localhost:8074/phpinfo/ - PHP-Konfiguration der PHP7.4-Umgebung 
+- http://localhost:8080 - Webseite, die PHP8.0 verwendet
+
+##### Docker Container
 
 ```
 $ docker ps -a
-CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                     NAMES
-0228f9effde2   degobbis/apache24-alpine:latest     "/httpd-php-entrypoi…"   2 minutes ago   Up 2 minutes   0.0.0.0:8000->8000/tcp, 0.0.0.0:8056->8056/tcp, 0.0.0.0:8073-8074->8073-8074/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8400->8400/tcp, 0.0.0.0:8456->8456/tcp, 0.0.0.0:8473-8474->8473-8474/tcp, 80/tcp, 0.0.0.0:8480->8480/tcp, 0.0.0.0:80->8074/tcp, 0.0.0.0:443->8474/tcp   docker-lamp_httpd
-9fd0d7d257df   degobbis/php74-fpm-alpine:latest    "/httpd-php-entrypoi…"   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php74
-b5435404bc73   phpmyadmin/phpmyadmin:fpm-alpine    "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_phpmyadmin
-041bbf1a4ee4   degobbis/php73-fpm-alpine:latest    "/httpd-php-entrypoi…"   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php73
-ce746bda0ffc   degobbis/php80-fpm-alpine:latest    "/httpd-php-entrypoi…"   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php80
-226cd211294c   degobbis/php56-fpm-alpine:latest    "/httpd-php-entrypoi…"   2 minutes ago   Up 2 minutes   9000/tcp                                                                                                                                                                                                                                                                  docker-lamp_php56
-c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 minutes ago   Up 2 minutes   0.0.0.0:3306->3306/tcp                                                                                                                                                                                                                                                    docker-lamp_mysql
-9beb444df753   mailhog/mailhog:latest              "MailHog"                3 minutes ago   Up 3 minutes   0.0.0.0:1025->1025/tcp, 0.0.0.0:8025->8025/tcp                                                                                                                                                                                                                            docker-lamp_mailhog
-96527284e9a0   cytopia/bind:0.15                   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp                                                                                                                                                                                                                                    docker-lamp_bind
+CONTAINER ID   IMAGE                               COMMAND                  CREATED          STATUS          PORTS                                                                                                                                                                                                                                                                                                                                                                                              NAMES
+0bbafc680755   degobbis/apache24-alpine:latest     "/httpd-php-entrypoi…"   38 minutes ago   Up 38 minutes   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:8074->8074/tcp, :::8074->8074/tcp, 0.0.0.0:8080-8081->8080-8081/tcp, :::8080-8081->8080-8081/tcp, 0.0.0.0:8400->8400/tcp, :::8400->8400/tcp, 0.0.0.0:8474->8474/tcp, :::8474->8474/tcp, 80/tcp, 0.0.0.0:8480-8481->8480-8481/tcp, :::8480-8481->8480-8481/tcp, 0.0.0.0:80->8074/tcp, :::80->8074/tcp, 0.0.0.0:443->8474/tcp, :::443->8474/tcp   docker-lamp_apache24
+b44a14bc93e2   degobbis/php80-fpm-alpine:latest    "/httpd-php-entrypoi…"   38 minutes ago   Up 38 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php80
+253ad84e59a2   degobbis/php81-fpm-alpine:latest    "/httpd-php-entrypoi…"   38 minutes ago   Up 38 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php81
+65ea0e6d6acc   phpmyadmin/phpmyadmin:fpm-alpine    "/docker-entrypoint.…"   38 minutes ago   Up 38 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_phpmyadmin
+063631c55af2   degobbis/php74-fpm-alpine:latest    "/httpd-php-entrypoi…"   38 minutes ago   Up 38 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php74
+fa6271eedada   mailhog/mailhog:latest              "MailHog"                38 minutes ago   Up 38 minutes   0.0.0.0:1025->1025/tcp, :::1025->1025/tcp, 0.0.0.0:8025->8025/tcp, :::8025->8025/tcp                                                                                                                                                                                                                                                                                                               docker-lamp_mailhog
+68fce40022ce   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   38 minutes ago   Up 38 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp                                                                                                                                                                                                                                                                                                                                                          docker-lamp_db
+cd8f0581aadc   cytopia/bind:0.15                   "/docker-entrypoint.…"   38 minutes ago   Up 38 minutes   0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp, :::53->53/tcp, :::53->53/udp                                                                                                                                                                                                                                                                                                                               docker-lamp_bind
+
 ```
 
-Mit dem Befehl `make server-down` stoppe ich alle Container. Vorher werden die Daten in der Datenbank in das Verzeichnis `/data/initDB` gesichert. Beim nächsten Aufruf von `make server-up` werden die Datenbank-Dumps in den neu angelegten Datenbank-Container eingelesen.
+#### Anhalten via `./docker-lamp shutdown`
+
+Alles was über den Befehl `` aufgebaut wird, wird mittels `` wieder herunterfahren beziehungsweise gesichert. Die Datenbanken werden automatische im Verzeichnis `` als SQL-Dump gespeichert, um beim nächsten Start von hier wiederhergestellt zu werden.
+
+```
+$ ./docker-lamp shutdown
+```
+
+#### Weiter Befehle
+
+Weitere Befehle und Hilfsskripte kannst du dir via `./docker-lamp --help` ansehen.
+
+```
+$ ./docker-lamp --help
+-- Help for the command: docker-lamp  --
+
+Usage:
+-> docker-lamp <command> [<parameters>]
+
+For more details about the allowed parameters use:
+-> docker-lamp <command> --help
+
+Commands:
+start [<parameters>]
+-> If 'start' is used without parameters, the server is started with the globally defined settings from the '.env' file.
+-> If parameters are set, these will override the global settings. The phpmyadmin and mailhog containers always start.
+
+restart
+-> Restarts the server with the same configuration as started before.
+
+shutdown [<parameters>]
+-> Shuts down the server completely deleting also all volumes created.
+-> If not other set, all databases will be saved before.
+
+stop
+-> Stops the server.
+-> However, unlike 'shutdown', the database volume is preserved and the databases are not saved before.
+-> Likewise, the files in the 'initDB' folder are ignored by the next start.
+
+update-images
+-> Downloads the newest images globally defined in the '.env' file, or set in the parameters.
+-> If parameters are set, these will override the global settings. The new images will be tagged all latest.
+
+delete-obsolete-images
+-> Deletes obsolete images remaining after updated images.
+
+cli <CONTAINER-NAME> [<parameters>][ '<COMMAND-TO-PASS>']
+-> Uses 'docker exec -it <CONTAINER-NAME>' to launch into the cli in the container, or to execute the passed command.
+-> Use single quotes ' to pass the command to the container to be executed in it.
+
+save-db <DB-NAME>
+-> Uses 'docker-compose down' to stop the server.
+```
 
 ### Eigene Projekte in den Container mappen
 
 #### Das Verzeichnis ist flexibel
 
-Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `/data/www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `/data/www` wird automatisch im Container unter `/srv/www` eingebunden - falls es nicht in der `.env` neu belegt wurde. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis das, welches in den Container verlinkt wird.
+Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `APP_BASEDIR + /www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `APP_BASEDIR + /www` wird automatisch im Container unter `/srv/www` eingebunden - falls es nicht in der `.env` anders belegt wurde. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis dasjenige, welches in den Container verlinkt wird.
 
-#### Mehrere Verzeichnisse im Container - docker-compose.override.yml
+#### Eigene Verzeichnisse im Container
 
-Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei `docker-compose.yml` zu überschreiben. Dazu erstellt man eine Kopie von `docker-compose.yml` unter dem Namen `docker-compose.override.yml` im gleichen Ordner. Im Verzeichnis `docker-lamp` gebe ich folgenden Befehl ein.
+Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei Standardkonfiguration zu überschreiben. 
 
-```
-cp docker-compose.yml docker-compose.override.yml
-```
+#### Beispiel 
 
-> Wir nutzen die Datei `docker-compose.override.yml` und ändern nicht direkt die Datei `docker-compose.yml`, damit beim nächsten `docker-lamp`-Update die `docker-compose` Konfiguration nicht überschrieben wird.
+Angenommen, du möchtest das Verzeichnis `/home/astrid/git` im `apache24-Container` verwenden.
 
-Nun öffnet ich die Datei `docker-compose.override.yml` zum editieren.
+1. Ich stoppe den Server via 
 
 ```
-nano docker-compose.yml docker-compose.override.yml
+$ ./docker-lamp shutdown
 ```
 
-Angenommen, alle Projekte im Verzeichnis `/home/deinBenutzer/git/joomla-development` sollen in den Containern zur Verfügung stehen. Relevant ist jeder Container, der das Stammverzeichnis eines Webservers verwendet, denn nur dort läuft Joomla. In den Containern sollen die Projekte ebenfalls unter `/home/deinBenutzer/git/joomla-development` zur Verfügung stehen.
-
-Um herauszufinden, wo das Stammverzeichnis des Webservers gemappt wird, suche ich in der Datei `docker-compose.override.yml` nach dem folgenden Eintrag.
+2. Sieh dir die Konfiguration für den `apache24-Container` an. Du findest diese in der Datei `config.yml` im Verzeichnis `DEINE-docker-lamp-INSTALLATION/.config/httpd/apache24`.
 
 ```
-      - ${APP_BASEDIR:-./data}:/srv:rw
+apache24:
+  image: degobbis/apache24-alpine:latest
+  container_name: ${COMPOSE_PROJECT_NAME}_apache24
+  hostname: apache24
+  links: ${HTTPD_LINKS}
+  volumes:
+    - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
+    - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
+    - ${APP_BASEDIR:-${DOCKER_LAMP_BASEDIR}/data}:/srv:rw
+    - pma:/var/www/pma
+    - phpsocket:/run/php
+  ports: ${HTTPD_PORTS}
+  environment:
+    TZ: ${MY_TZ:-UTC}
+    LC_ALL: ${MY_LOCALES:-en_GB.UTF-8}
+    APP_USER_ID: ${APP_USER_ID:-1000}
+    APP_GROUP_ID: ${APP_GROUP_ID:-1000}
+  dns:
+    - 172.16.238.100
+  networks:
+    net:
+      ipv4_address: 172.16.238.10
 ```
 
-Insgesamt wird der Eintrag fünf Mal gefunden. Die Container
-`httpd`, `php56`, `phpo73`, `php74` und `php80` sind betroffen.
 
-Bei allen Treffern füge ich die nachfolgende Zeile hinter der gefundenen Zeile `${APP_BASEDIR:-./data}:/srv:rw` ein.
+3. Kopiere nun diese Datei nach `APP_BASEDIR + /httpd/apache24/config.yml` und ergänze die Zeile `- /home/astrid/git:/home/astrid/git:rw`.
 
-```
-      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
-```
-
-Für den `httpd`-Container sieht der Eintrag wie folgt aus:
+> Wir nutzen die Datei `APP_BASEDIR + /httpd/apache24/config.yml` und ändern nicht direkt die Datei `DEINE-docker-lamp-INSTALLATION/.config/httpd/apache24/config.yml`, damit beim nächsten `docker-lamp`-Update die Änderung der Konfiguration nicht überschrieben wird.
 
 ```
-...
-...
-  httpd:
-    image: degobbis/apache24-alpine:latest
-    container_name: ${COMPOSE_PROJECT_NAME}_httpd
-    hostname: httpd
-    links:
-      - bind
-      - php56
-      - php73
-      - php74
-      - php80
-      - mailhog
-    volumes:
-      - ./.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
-      - ./.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
-      - ${APP_BASEDIR:-./data}:/srv/:rw
-      - /home/deinBenutzer/git/joomla-development:/home/deinBenutzer/git/joomla-development:rw
-      - pma:/var/www/pma
-      - phpsocket:/run/php
-    ports:
-      - "80:${MAP_POT_80:-8074}"
-      - "8000:8000"
-      - "8056:8056"
-      - "8073:8073"
-      - "8074:8074"
-      - "8080:8080"
-      - "443:${MAP_POT_443:-8474}"
-      - "8400:8400"
-      - "8456:8456"
-      - "8473:8473"
-      - "8474:8474"
-      - "8480:8480"
-    environment:
-      TZ: ${MY_TZ:-UTC}
-      LC_ALL: ${MY_LOCALES:-en_GB.UTF-8}
-      APP_USER_ID: ${APP_USER_ID:-1000}
-      APP_GROUP_ID: ${APP_GROUP_ID:-1000}
-    dns:
-      - 172.16.238.100
-    networks:
-      net:
-        ipv4_address: 172.16.238.10
-...
-...
+apache24:
+  image: degobbis/apache24-alpine:latest
+  container_name: ${COMPOSE_PROJECT_NAME}_apache24
+  hostname: apache24
+  links: ${HTTPD_LINKS}
+  volumes:
+    - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
+    - /home/astrid/git:/home/astrid/git:rw
+    - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
+    - ${APP_BASEDIR:-${DOCKER_LAMP_BASEDIR}/data}:/srv:rw
+    - pma:/var/www/pma
+    - phpsocket:/run/php
+  ports: ${HTTPD_PORTS}
+  environment:
+    TZ: ${MY_TZ:-UTC}
+    LC_ALL: ${MY_LOCALES:-en_GB.UTF-8}
+    APP_USER_ID: ${APP_USER_ID:-1000}
+    APP_GROUP_ID: ${APP_GROUP_ID:-1000}
+  dns:
+    - 172.16.238.100
+  networks:
+    net:
+      ipv4_address: 172.16.238.10
 ```
 
 > Weitere Informationen zur Verwendung von Volumes mit `compose` gibt es in der [docker-Dokumentation](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose) oder in der [compose-Referenz](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference).
 
-Jetzt starte ich den Server mit `make server-up` neu, damit die letzten Änderungen übernommen werden.
+4. Jetzt starte ich den Server mit `./docker-lamp start` neu, damit die letzten Änderungen übernommen werden.
 
 ```
-make server-up
+./docker-lamp start
 ```
 
-Das in meinem Beispiel neu verlinkte Verzeichnis wird im Container unter `/home/deinBenutzer/git/joomla-development` verlinkt. Ich wechsele mit `docker exec -ti docker-lamp_php74 sh` in den Container und überzeuge mich davon:
+5. Ich teste die Änderung
+
+Das in meinem Beispiel neu verlinkte Verzeichnis wird im `apache24-Container` unter `/home/astrid/git` verlinkt. Ich wechsele via `./docker-lamp cli apache24` in den Container und überzeuge mich davon:
 
 ```
-$ docker exec -ti docker-lamp_php74 sh
-php74:/srv/www# cd /home/meinBenutzer/git/joomla-development/
-php74:/home/meinBenutzer/git/joomla-development# ll
-total 20
-drwxrwxr-x    6 virtual  virtual       4096 Feb  9 21:07 AG
-drwxrwxr-x    8 virtual  virtual       4096 Feb 12 16:04 boilerplate
-drwxrwxr-x    6 virtual  virtual       4096 Feb 11 22:17 pkg_agosms
-drwxrwxr-x    9 virtual  virtual
+$ ./docker-lamp cli apache24
+apache24:/srv/www$ cd /home/astrid/git/
+apache24:/home/astrid/git$ ll
+total 4
+drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development
+apache24:/home/astrid/git$ 
 ```
 
-> Über den Befehl `docker exec -ti docker-lamp_php74 sh` öffnet man eine Befehlszeile im container `docker-lamp_php74`. Über `exit` kommt man wieder aus ihm heraus.
+`./docker-lamp cli apache24` ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. Wer mit Docker-Befehlen vertraut ist oder diese lernen möchte: `./docker-lamp cli apache24` bewirkt das gleiche wie `docker exec -ti docker-lamp_apache24 sh`.
+
+```
+$ docker exec -ti docker-lamp_apache24 sh
+apache24:/srv/www# cd /home/astrid/git/
+apache24:/home/astrid/git# ll
+total 4
+drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development
+```
+
+> Über den Befehl `docker exec -ti docker-lamp_apache24 sh` öffnet man eine Befehlszeile im container `docker-lamp_php74`. Über `exit` kommt man wieder aus dem Container heraus.
+
+6. So wie ich das Verzeichnis in den Container apache24 eingebunden habe, wiederhole ich dies für die PHP Container!
+
+```
+$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php56/config.yml /srv/php/php56/config.yml
+$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php73/config.yml /srv/php/php73/config.yml
+$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php74/config.yml /srv/php/php74/config.yml
+$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php80/config.yml /srv/php/php80/config.yml
+$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php81/config.yml /srv/php/php81/config.yml
+```
 
 ### Zertifikat
 
-Falls die Konfiguration der Zertifikate geändert wird ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl `make server-down` aufrufen.
+Falls die Konfiguration der Zertifikate geändert wird, ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl `./docker-lamp shutdown` aufrufen.
 
 ```
-$ make server-down
-/home/meinBenutzer/docker-lamp/.env included
+$ ./docker-lamp shutdown
+/home/astrid/docker-lamp/docker-lamp/.env included
 
-Datenbank-Sicherung gestartet.
+Selected settings:
+-> Save all databases.
+-> No additional archiving of databases.
 
-j3 wird gesichert...
-joomla_db wird gesichert...
-joomla_j4b7 wird gesichert...
-joomla_j4dev wird gesichert...
-tutorial_t1 wird gesichert...
+-- Start saving databases. --
 
-Datenbank-Sicherung abgeschlossen.
 
-Stopping docker-lamp_php56      ... done
-Stopping docker-lamp_php74      ... done
-Stopping docker-lamp_phpmyadmin ... done
-Stopping docker-lamp_php73      ... done
-Stopping docker-lamp_php80      ... done
-Stopping docker-lamp_mysql      ... done
-Stopping docker-lamp_mailhog    ... done
-Stopping docker-lamp_bind       ... done
-Removing docker-lamp_httpd      ... done
-Removing docker-lamp_php56      ... done
-Removing docker-lamp_php74      ... done
-Removing docker-lamp_phpmyadmin ... done
-Removing docker-lamp_php73      ... done
-Removing docker-lamp_php80      ... done
-Removing docker-lamp_mysql      ... done
-Removing docker-lamp_mailhog    ... done
-Removing docker-lamp_bind       ... done
-Removing network docker-lamp_net
+-- Saving the databases finished. --
+
+[+] Running 2/6
+ ⠿ Container docker-lamp_apache24    Removed                                                                                                                                                          1.5s
+ ⠦ Container docker-lamp_phpmyadmin  Stopping                                                                                                                                                         0.7s
+ ⠦ Container docker-lamp_php74       Stopping                                                                                                                                      [+] R[+] Running 9/9.7s
+ ⠿ Container docker-lamp_apache24    Removed                                                                                                                                       1.5so ⠿ Container docker-lamp_phpmyadmin  Removed                                                                                                                                       1.1s
+ ⠿ Container docker-lamp_php74       Removed                                                                                                                                       1.1so ⠿ Container docker-lamp_php80       Removed                                                                                                                                       1.0s
+ ⠿ Container docker-lamp_php81       Removed                                                                                                                                       0.6so ⠿ Container docker-lamp_bind        Removed                                                                                                                                       1.4s
+ ⠿ Container docker-lamp_mailhog     Removed                                                                                                                                       0.6s
+ ⠿ Container docker-lamp_db          Removed                                                                                                                                      10.4s
+ ⠿ Network docker-lamp_net           Removed                                                                                                                                       0.2s
 local
 docker-lamp_db-data-dir
 local
@@ -428,23 +492,23 @@ docker-lamp_pma
 
 #### Minica
 
-Ich benötige ein Zertifikat auf meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu verwenden. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica).
+Ich benötige ein Zertifikat in meinen con­tai­ne­ri­sie­rten Webservern, um verschlüsselte Websites zu nachzustellen und so zu testen. `docker-lamp` nutzt für diesen Zweck [Minica](https://github.com/jsha/minica).
 
 > Minica erstellt beim ersten Aufruf ein Root-Zertifikat, auf welchem alle daraufhin erzeugten Zertifikate basieren.
 
-##### Angaben im `Makefile`
+##### Angabe in der Datei `DEINE-docker-lamp-INSTALLATION/docker-lamp`
 
-Standardmäßig werden die im Makefile in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegten Domains zertifiziert.
+Standardmäßig werden die in der Datei `DEINE-docker-lamp-INSTALLATION/docker-lamp` in der Variablen `MINICA_DEFAULT_DOMAINS` festgelegten Domains zertifiziert.
 
 ```
 ...
-MINICA_DEFAULT_DOMAINS:=localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test
+MINICA_DEFAULT_DOMAINS="localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test"
 ...
 ```
 
 ##### Angaben in der Datei `.env`
 
-Um zusätzliche Domains zu zertifizieren, git es die Variablen `SSL_DOMAINS` und `SSL_LOCALDOMAINS` in der Datei `.env`.
+Um zusätzliche Domains zu zertifizieren, git es die Variablen `SSL_DOMAINS` und `SSL_LOCALDOMAINS` in der Datei `.env`. Hierzu gibt es später mehr Informationen.
 
 ```
 ...
@@ -455,7 +519,7 @@ SSL_LOCALDOMAINS=
 
 ##### Zusätzliche Domain hinzufügen
 
-Eine eigene Domains fügt man im `docker-lamp`-Verzeichnis mittels nachfolgender Befehle hinzu. Ich belasse hier die Standardeinstellungen. Die Erklärungen finde ich an dieser Stelle trotzdem wichtig, weil man die Standardeinstellungen schon nutzt und sich so besser in docker-lamp orientiert.
+Eine eigene Domain fügt man im `docker-lamp`-Verzeichnis mittels nachfolgender Befehle hinzu. Ich belasse hier die Standardeinstellungen. Die Erklärungen finde ich an dieser Stelle trotzdem wichtig, weil man die Standardeinstellungen schon nutzt und sich so besser in docker-lamp orientiert.
 
 > Ein konkretes [Beispiel](/ubuntu-docker-lamp-verwenden-eigene-domain) habe ich später beschrieben.
 
@@ -507,19 +571,19 @@ Bereits vorkonfiguriert für die Entwicklung mit Joomla ist die nachfolgende Str
                                     3. Ebene, Third-Level-Domains
 ```
 
-Falls du etwas an der Konfiguration geändet hast, lösche den Ordner `APP_BASEDIR/ca/localdomains`. Um weiter an `docker-lampp` zu arbeiten starten wir den Server wieder mittels `make server-up`.
+Falls du etwas an der Konfiguration geändet hast, lösche den Ordner `APP_BASEDIR/ca/localdomains`. Um weiter an `docker-lampp` zu arbeiten starten wir den Server wieder mittels `./docker-lamp start`.
 
 ```
-make server-up
+./docker-lamp start
 ```
 
-#### Vor dem Importieren des Zertifikates
+#### Importieren des Zertifikates
 
 Ruft man die URL `https://joomla.test/` oder `https://joomla.local/` im Browser auf, erscheint ein Sicherheitshinweis. Der Browser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.
 
 ![Sicherheitshinweis](/images/dockerlamp_zert.png)
 
-> `https://joomla.test/` und `https://joomla.local/` adressieren die gleichen Dateien. Warum wurden zwei Domains zur Verfügung gestellt, die das gleiche Ziel verlinken? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
+> `https://joomla.test/` und `https://joomla.local/` adressieren die gleichen Dateien. Warum wurden zwei verschiedene Domains zur Verfügung gestellt, die das gleiche Ziel verlinken? Ganz einfach. So kannst du Debuggen und gleichzeitg Browsen.
 
 #### Zertifikat importieren
 
@@ -528,7 +592,7 @@ In Mozilla Firefox importiert man das Zertifikat wie folgt:
 1. Öffne die Einstellungen (Preferences). und klicke in der linken Seitenleiste auf Datenschutz & Sicherheit (Privacy and Security).
 2. Im rechten Bereich findest du nun weiter unten den Abschnitt Sicherheit (Security). Klicke hier auf die Schaltfläche Zertifikate anzeigen (View Certificates).
 3. Wechsele in den Tabulator Zertifizierungsstellen (Authorities).
-4. Importiere die Datei `APP_BASEDIR/ca/minica-root-ca-key.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
+4. Importiere die Datei `APP_BASEDIR/ca/minica-root-ca.pem`. Achte darauf, dass du `Webseite vertrauen` aktivierst.
 
 ![Zertifikat importieren](/images/dockerlamp_zertbrowser.png)
 
@@ -536,11 +600,11 @@ In Mozilla Firefox importiert man das Zertifikat wie folgt:
 
 ## Mögliche Fehler
 
-Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von `make server-up` zu einem Fehler
+Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von `./docker-lamp start` zu einem Fehler
 
 ### permission denied (but minica-root-ca.pem exists)
 
-Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimmen Berechtigungen nicht.
+Falls die Ausgabe von `./docker-lamp start` mit dem nachfolgenden Text startet, stimmen Berechtigungen nicht.
 
 ```
 ./.env included
@@ -550,27 +614,22 @@ Falls die Ausgabe von `make server-up` mit dem nachfolgenden Text startet, stimm
 
 #### Abhilfe schafft die folgende Vorgehensweise
 
-Als erstes ins Unterverzeichnis data wechseln.
+Als erstes ins `APP_BASEDIR` wechseln in meinem Fall ist die `/srv`. Prüfe als nächstes in diesem Verzeichnis alle Rechte. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören.
 
 ```
-/docker-lamp$ cd data
-/docker-lamp/data$
-...
-```
+/srv$ ll
+insgesamt 40
+drwxrwxr-x  9 root   astrid 4096 Mai 17 14:50 ./
+drwxr-xr-x 20 root   root   4096 Apr 26 08:54 ../
+drwxrwxr-x  2 astrid astrid 4096 Mai 17 01:12 apache24/
+drwxrwxr-x  3 astrid astrid 4096 Mai 17 13:28 ca/
+drwxrwxr-x  3 astrid astrid 4096 Mai 17 01:12 httpd/
+drwxrwxr-x  2 astrid astrid 4096 Mai 17 03:44 initDB/
+drwxrwxr-x  7 astrid astrid 4096 Mai 17 01:12 php/
+drwxrwxr-x  2 astrid astrid 4096 Mai 15 05:36 phpinfo/
+-rw-rw-r--  1 astrid astrid  144 Mai 15 05:36 README.md
+drwxrwxr-x  5 astrid astrid 4096 Mai 17 03:44 www/
 
-Prüfe als nächstes in diesem Verzeichnis alle Rechte. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören.
-
-```
-/docker-lamp/data$ ll
-insgesamt 28
-drwxrwxr-x 7 deinBenutzer deinBenutzer 4096 Feb  4 17:33 ./
-drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 20:41 ../
-drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:33 apache24/
-drwxr-xr-x 3 root   root   4096 Feb  4 17:33 ca/
--rw-rw-r-- 1 deinBenutzer deinBenutzer    0 Feb  4 17:16 .gitkeep
-drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:16 initDB/
-drwxrwxr-x 2 deinBenutzer deinBenutzer 4096 Feb  4 17:16 phpinfo/
-drwxrwxr-x 5 deinBenutzer deinBenutzer 4096 Feb  4 17:16 www/
 ```
 
 Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal deinBenutzer, zuweisen.
@@ -579,12 +638,7 @@ Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide
 sudo chown -R deinBenutzer:deinBenutzer .
 ```
 
-Am Ende wieder zurück in das `docker-lamp`-Verzeichnis wechseln und den Befehl `make server-up` wiederholen.
-
-```
-/docker-lamp/data$ cd ..
-/docker-lamp$ make server-up
-```
+Am Ende wieder zurück ins `docker-lamp`-Verzeichnis wechseln und den Befehl `./docker-lamp start` wiederholen.
 
 ### ERROR: for docker-lamp_bind Cannot start service bind
 

@@ -45,10 +45,10 @@ So far we have the domains `joomla.local` and `joomla.test`. Now we add `tutoria
 j4dev j3  j3b4   t1   t2  t3        j4dev j3 j3b4   t1   t2  t3
 ```
 
-Falls der Server aktiv ist, stoppe ihn über `make server-down`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
+Falls der Server aktiv ist, stoppe ihn über `./docker-lamp shutdown`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
 
 ```
-/docker-lamp$ make server-down
+/docker-lamp$ ./docker-lamp shutdown
 ./.env included
 
 Datenbank-Sicherung gestartet.
@@ -120,10 +120,10 @@ $ sudo rm -R ./data/ca/localdomains/
 
 #### Test
 
-Im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
+Im `docker-lamp`-Ordner rufe ich den Befehl `./docker-lamp start` auf.
 
 ```
-/docker-lamp$ make server-up
+/docker-lamp$ ./docker-lamp start
 ./.env included
 Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
 Creating network "docker-lamp_net" with driver "bridge"

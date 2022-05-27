@@ -45,10 +45,10 @@ Bisher verfügen wir über die Domains `joomla.local` und `joomla.test`. Nun erg
 j4dev j3  j3b4   t1   t2  t3        j4dev j3 j3b4   t1   t2  t3
 ```
 
-Falls der Server aktiv ist, stoppe ihn über `make server-down`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
+Falls der Server aktiv ist, stoppe ihn über `./docker-lamp shutdown`. Stelle sicher, dass du den Befehl im `docker-lamp` Ordner aufrufst oder ihn global verfügbar gemacht hast.
 
 ```
-/docker-lamp$ make server-down
+/docker-lamp$ ./docker-lamp shutdown
 ./.env included
 
 Datenbank-Sicherung gestartet.
@@ -57,42 +57,16 @@ Datenbank-Sicherung gestartet.
 Datenbank-Sicherung abgeschlossen.
 
 Stopping docker-lamp_httpd      ... done
-Stopping docker-lamp_php74      ... done
-Stopping docker-lamp_php80      ... done
-Stopping docker-lamp_php73      ... done
-Stopping docker-lamp_php56      ... done
-Stopping docker-lamp_phpmyadmin ... done
-Stopping docker-lamp_mailhog    ... done
-Stopping docker-lamp_mysql      ... done
-Stopping docker-lamp_bind       ... done
-Removing docker-lamp_httpd      ... done
-Removing docker-lamp_php74      ... done
-Removing docker-lamp_php80      ... done
-Removing docker-lamp_php73      ... done
-Removing docker-lamp_php56      ... done
-Removing docker-lamp_phpmyadmin ... done
-Removing docker-lamp_mailhog    ... done
-Removing docker-lamp_mysql      ... done
-Removing docker-lamp_bind       ... done
-Removing network docker-lamp_net
-local
-docker-lamp_db-data-dir
-local
-docker-lamp_phpsocket
-local
-docker-lamp_pma
+...
 ```
 
-### Eigene Domain erzeugen
+### Eigene lokale Domain erzeugen
 
 #### .env
 
-Über `nano .env` öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze ich `tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test` bei `SSL_LOCALDOMAINS`.
+Über `nano .env` öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze `tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test`  damit die Verschlüsselung auch funktioniert bei `SSL_LOCALDOMAINS`.
 
 ```
-...
-TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1,tutorial.local=127.0.0.1,tutorial.test=127.0.0.1
-...
 ...
 SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test
 ...
@@ -100,49 +74,55 @@ SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test
 
 #### Webserver
 
-Mit `mkdir /srv/www/tutorial` erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird.
+Mit `mkdir` erstelle ich auf dem Webserver das Verzeichnis, welches die Daten zur neuen Domain beinhalten wird.
 
-> Mein Webserver Stammverzeichnis ist `/srv/www/`
+> Zur Erinnerung: Mein Webserver Stammverzeichnis ist `/srv/www/`
 
 ```
 mkdir /srv/www/tutorial
 ```
-
-![Webserver Stammverzeichnis](/images/neuedomainwebserver.png)
 
 ##### Zertifikat
 
 Damit das Zertifikat neu angelegt wird lösche ich den Ordner `/data/ca/localdomains`.
 
 ```
-$ sudo rm -R ./data/ca/localdomains/
+$ sudo rm -R /srv/data/ca/localdomains/
 ```
+
+Dieses Zertifikat muss ich später wie gehabt im Browser importieren. Dies kann ich frühestens nach dem nächsten Start von docker-map tun, weil das Zeritifkat beim Start angelegt wird.
 
 #### Test
 
-Im `docker-lamp`-Ordner rufe ich den Befehl `make server-up` auf.
+Im `docker-lamp`-Ordner rufe ich den Befehl `./docker-lamp start` auf.
 
 ```
-/docker-lamp$ make server-up
+/docker-lamp$ ./docker-lamp start
 ./.env included
 Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
-Creating network "docker-lamp_net" with driver "bridge"
-Creating volume "docker-lamp_pma" with default driver
-Creating volume "docker-lamp_db-data-dir" with default driver
-Creating volume "docker-lamp_phpsocket" with default driver
-Creating docker-lamp_bind ... done
-Creating docker-lamp_mysql   ... done
-Creating docker-lamp_mailhog    ... done
-Creating docker-lamp_phpmyadmin ... done
-Creating docker-lamp_php73      ... done
-Creating docker-lamp_php80      ... done
-Creating docker-lamp_php56      ... done
-Creating docker-lamp_php74      ... done
-Creating docker-lamp_httpd      ... done
+...
 ```
 
 ![Ansicht der neuen Domain im Browser](/images/neuedomain.png)
 
-`https://tutorial.local/` zeigt mir den Inhalt des Verzeichnisses `an.` und ``sind zwei Joomla Installationen, die über`https://tutorial.local/t1/installation/index.php` und `https://tutorial.local/t2/installation/index.php` erreiche.
+`https://tutorial.local/` zeigt mir den Inhalt des Verzeichnisses `tutorial` an. In diesem Verzeichnis befinden sich zwei Joomla Installationen, die über`https://t1.tutorial.local` und `https://t2.tutorial.local` erreiche.
+
+### Optionale DNS Konfiguration erzeugen
+
+Ich möchte gerne die URL `astrid-guenther.de` auf ein lokales Verzeichnis mappen. Über `nano .env` öffne ich die Datei, in der die Umgebungsvariablen konfiguriert werden. Hier ergänze `astrid-guenther.de=127.0.0.1` bei `EXTRA_HOSTS`. 
+
+```
+...
+EXTRA_HOSTS=astrid-guenther.de=192.168.209.147
+...
+```
+
+Mit `mkdir` erstelle ich dann auf dem Webserver das Verzeichnis, welches die Daten zur Domain `astrid-guenther.de` beinhalten wird.
+
+> Zur Erinnerung: Mein Webserver Stammverzeichnis ist `/srv/www/`
+
+```
+mkdir /srv/www/astrid-guenther
+```
 
 <img src="https://vg02.met.vgwort.de/na/3cb53e3046464e33bca6719d817f7426" width="1" height="1" alt="">

@@ -216,10 +216,10 @@ Usage:
   delete-obsolete-images       Delete all obsolete images.
 ```
 
-Still in the `docker-lamp` folder, I call the command `make server-up`.
+Still in the `docker-lamp` folder, I call the command `./docker-lamp start`.
 
 ```
-$ make server-up
+$ ./docker-lamp start
 ./.env included
 2021/02/04 20:13:24 open localdomains/key.pem: file exists
 Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
@@ -267,7 +267,7 @@ c473eb668908   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   2 
 96527284e9a0   cytopia/bind:0.15                   "/docker-entrypoint.…"   3 minutes ago   Up 3 minutes   0.0.0.0:53->53/tcp, 0.0.0.0:53->53/udp                                                                                                                                                                                                                                    docker-lamp_bind
 ```
 
-With the command `make server-down` I stop all containers. Before that, the data in the database is saved in the directory `/data/initDB`. The next time `make server-up` is called, the database dumps are read in the new created database container.
+With the command `./docker-lamp shutdown` I stop all containers. Before that, the data in the database is saved in the directory `/data/initDB`. The next time `./docker-lamp start` is called, the database dumps are read in the new created database container.
 
 ### Mapping your own projects into the container
 
@@ -360,10 +360,10 @@ For the `httpd` container, the entry looks like this:
 
 > For more information on using volumes with `compose`, see the [docker documentation](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose) or the [compose reference](https://docs.docker.com/compose/compose-file/compose-file-v3/#volume-configuration-reference).
 
-Now I restart the server with `make server-up` so that the last changes are applied.
+Now I restart the server with `./docker-lamp start` so that the last changes are applied.
 
 ```
-make server-up
+./docker-lamp start
 ```
 
 The newly linked directory in my example is linked in the container under `/home/youruser/git/joomla-development`. I switch into the container with `docker exec -ti docker-lamp_php74 sh` and convince myself of this:
@@ -383,10 +383,10 @@ drwxrwxr-x    9 virtual  virtual
 
 ### Certificate
 
-If the configuration of the certificates is changed, it is necessary to restart the server. It is best to call the command `make server-down` before making changes.
+If the configuration of the certificates is changed, it is necessary to restart the server. It is best to call the command `./docker-lamp shutdown` before making changes.
 
 ```
-$ make server-down
+$ ./docker-lamp shutdown
 /home/meinBenutzer/docker-lamp/.env included
 
 Datenbank-Sicherung gestartet.
@@ -507,10 +507,10 @@ The following structure is already pre-configured for development with Joomla.
                                     3. level, Third-Level-Domains
 ```
 
-If you have changed anything in the configuration, delete the folder `APP_BASEDIR/ca/localdomains`. To continue working on `docker-lampp` we start the server again with `make server-up`.
+If you have changed anything in the configuration, delete the folder `APP_BASEDIR/ca/localdomains`. To continue working on `docker-lampp` we start the server again with `./docker-lamp start`.
 
 ```
-make server-up
+./docker-lamp start
 ```
 
 #### Before importing the certificate
@@ -536,11 +536,11 @@ In Mozilla Firefox, import the certificate as follows.
 
 ## Possible errors
 
-Depending on the configuration, an error may occur under Ubuntu 20.04 when calling `make server-up`.
+Depending on the configuration, an error may occur under Ubuntu 20.04 when calling `./docker-lamp start`.
 
 ### permission denied (but minica-root-ca.pem exists)
 
-If the output of `make server-up` starts with the following text, permissions are not correct.
+If the output of `./docker-lamp start` starts with the following text, permissions are not correct.
 
 ```
 ./.env included
@@ -579,11 +579,11 @@ Use the following command to assign all contents to the current user, in this ca
 sudo chown -R youruser:youruser .
 ```
 
-At the end, navigate back to the `docker-lamp` directory and redo the `make server-up` command.
+At the end, navigate back to the `docker-lamp` directory and redo the `./docker-lamp start` command.
 
 ```
 /docker-lamp/data$ cd ..
-/docker-lamp$ make server-up
+/docker-lamp$ ./docker-lamp start
 ```
 
 ### ERROR: for docker-lamp_bind Cannot start service bind

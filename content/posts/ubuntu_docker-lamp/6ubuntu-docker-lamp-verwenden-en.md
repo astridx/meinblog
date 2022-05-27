@@ -26,7 +26,7 @@ Besides [Docker](/en/ubuntu-docker-einrichten-docker-lamp), [Docker Compose](/en
 
 ## use docker-lamp
 
-If the server has been shut down in the meantime, start it via `make server-up` in the directory `docker-lamp`.
+If the server has been shut down in the meantime, start it via `./docker-lamp start` in the directory `docker-lamp`.
 
 In the web browser, the URL `https://joomla.test/` or `https://joomla.local/` should now show something like the following picture. In the following image you see the view after the two directories `j4dev` and `j3dev` have been created in the directory `joomla`.
 
@@ -67,7 +67,7 @@ The following chain of commands ensures that folders and files have the correct 
 First, we stop the server.
 
 ```
-make server-down
+./docker-lamp shutdown
 ```
 
 We copy the entire contents of the `docker-lamp/data` directory to `/srv`.
@@ -131,7 +131,7 @@ drwxr-xr-x 2 youruser youruser 4096 Apr  8 18:57 wp-multisite/
 
 ##### Final test
 
-To test: run the command `make server-up` in the directory `docker-lamp` to restart the server.
+To test: run the command `./docker-lamp start` in the directory `docker-lamp` to restart the server.
 
 In the web browser the URL `https://joomla.test/` or `https://joomla.local/` should now show the following image - I have already created the two directories `j4dev` and `j3dev` in the directory `joomla`.
 

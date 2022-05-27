@@ -15,7 +15,7 @@ tags:
   - Git
 ---
 
-Ich verwalte meine Softwareprojekte mit [Github](https://github.com/astridx). So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.
+Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.
 
 ## Voraussetzungen
 
@@ -25,23 +25,25 @@ Nach der Installation des Desktop Images von [Ubuntu 20.04 LTS (Focal Fossa)](ht
 
 Ich nutze die Standardinstallation.
 
-> In den Standardpaketen ist nicht immer die aktuellste Version. Falls du die neuesten Git Funktionen nutzt, installiere https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-
-Git wird oft zusammen mit anderen Softwarepaketen installiert. Prüfe, ob es auf deinem Rechner schon vorhanden ist:
+Git wird oft zusammen mit anderen Softwarepaketen installiert. Prüfe, ob es auf deinem Rechner bereits vorhanden ist:
 
 ```
 git --version
 
 ```
 
-Überspringe diesen Schritt, wenn dir eine Version angezeigt wird, dann ist Git installiert.
+Überspringe diesen Schritt, wenn dir eine Version angezeigt wird, dann ist Git installiert. Falls Git noch nicht installiert ist, siehst du die nachfolgende Ausgabe:
 
 ```
-version 2.25.0
+$ git --version
+
+Command 'git' not found, but can be installed with:
+
+sudo apt install git
 
 ```
 
-Wird dir keine Git-Versionsnummer angezeigt? Installiere in diesem Fall Git mit APT, dem standardmäßigen Paketmanager von Ubuntu.
+Wird dir keine Git-Versionsnummer angezeigt? Installiere in diesem Fall Git via APT, dem standardmäßigen Paketmanager von Ubuntu.
 
 Verwende wie gewohnt als erstes die APT-Paketmanagement-Tools zur Aktualisierung des lokalen Paketindexes.
 
@@ -71,7 +73,9 @@ version 2.25.1
 
 ```
 
-Richte Git nach erfolgreicher Installation ein.
+> In den Standardpaketen ist nicht immer die aktuellste Version. Falls es dir wichtig ist die neuesten Git Funktionen zu nutzt, installiere https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Richte Git nach erfolgreicher Installation für deine individuelle Umgebung ein.
 
 ## Einrichten von Git
 
@@ -80,8 +84,8 @@ Richte Git so ein, dass es dich bei der Erstellung deiner Softwareprojekte unter
 Nutze den Befehls `git config` zur Konfiguration des Namens und der E-Mail-Adresse:
 
 ```
-git config --global user.name „DeinName“
-git config --global user.email „deineemailadresse@example.com“
+git config --global user.name DeinName
+git config --global user.email deineemailadresse@example.com
 
 ```
 
@@ -118,7 +122,7 @@ Die Ausgabe sollte wie folgt sein.
 
 > Drücke `STRG` und `X`, dann `Y` und anschließend die `Eingabetaste`, um den Texteditor Nano zu verlassen.
 
-Es gibt viele weitere [Optionen](https://docs.github.com/de). Die hier beschriebenen sind meiner Meinung nach die wichtigsten.
+Es gibt viele weitere [Optionen](https://git-scm.com/book/de/v2/Git-einrichten-Git-Konfiguration)[^git-scm.com/book/de/v2/Git-einrichten-Git-Konfiguration]. Die hier beschriebenen sind meiner Meinung nach für den Anfang die wichtigsten. 
 
 ## Gesamtes Set
 
