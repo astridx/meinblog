@@ -89,7 +89,10 @@
 <span class="grvsc-line"><span class="grvsc-source">docker ps -a</span></span></code></pre>
 <h3 id="docker-lamp-repository-von-github-klonen" style="position:relative;"><a href="#docker-lamp-repository-von-github-klonen" aria-label="docker lamp repository von github klonen permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>docker-lamp Repository von Github klonen</h3>
 <p>Nun klone ich das <code class="language-text">docker-lamp</code> Github Repository in ein Verzeichnis nach Wahl.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">git clone https://github.com/degobbis/docker-lamp.git</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">git clone https://github.com/degobbis/docker-lamp.git --depth 1 -b 2.0.0-dev</span></span></code></pre>
+<blockquote>
+<p>Mit <code class="language-text">-b 2.0.0-dev</code> wird der passende Branch gezogen und mit <code class="language-text">--depth 1</code> wird nur die History von diesem Branch gezogen.</p>
+</blockquote>
 <p>Als nächstes wechsele ich in den Ordner <code class="language-text">docker-lamp</code>.</p>
 <pre class="grvsc-container default-dark" data-language="" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">cd docker-lamp</span></span></code></pre>
 <blockquote>
@@ -146,8 +149,8 @@
 <blockquote>
 <p>Es ist zwingend, beim Einrichten das Verzeichnis <code class="language-text">APP_BASEDIR</code> anzupassen. <code class="language-text">APP_BASEDIR</code> ist mit einem absoluten Pfad zu belegen!</p>
 </blockquote>
-<h5 id="benutzer-id-unter-ubuntu---optional" style="position:relative;"><a href="#benutzer-id-unter-ubuntu---optional" aria-label="benutzer id unter ubuntu   optional permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benutzer ID unter Ubuntu - optional</h5>
-<p>In der <code class="language-text">.env</code> gibt es den folgenden Eintrag.</p>
+<h5 id="benutzer-id-unter-ubuntu" style="position:relative;"><a href="#benutzer-id-unter-ubuntu" aria-label="benutzer id unter ubuntu permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benutzer ID unter Ubuntu</h5>
+<p>Auf Linux-Systemen ist es zwingend die Benutzer-IDs richtig zu setzen. Auf den meisten Rechnern ist nur ein Nutzer eingerichtet und diesem ist meistens die ID 1000 zugeordnet. Deshalb ist dies in <code class="language-text">docker-lamp</code> voreingestellt. In der <code class="language-text">.env</code> gibt es den folgenden Eintrag.</p>
 <pre class="grvsc-container default-dark" data-language="" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source"># Set your user and group ID from your Linux host,</span></span>
@@ -163,6 +166,9 @@
 <pre class="grvsc-container default-dark" data-language="" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ id -u</span></span>
 <span class="grvsc-line"><span class="grvsc-source">1000</span></span></code></pre>
 <p>Falls die ID des <code class="language-text">docker-lamp</code> ausführenden Benutzers von 1000 abweicht, ist dieser Eintrag zu korrigieren.</p>
+<blockquote>
+<p>Möchest du gleichzeitig prüfen, in welcher Gruppe sich dein Benutzer befindet? Dann verwende den Befehl <code class="language-text">id</code> ohne den Parameter <code class="language-text">-u</code>.</p>
+</blockquote>
 <h3 id="die-docker-lamp-befehle" style="position:relative;"><a href="#die-docker-lamp-befehle" aria-label="die docker lamp befehle permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Die docker-lamp Befehle</h3>
 <blockquote>
 <p>Tipp: Belege den Wert für <code class="language-text">DEBUG</code> in der Datei <code class="language-text">DEINE-docker-lamp-INSTALLATION/docker-lamp</code> mit <code class="language-text">1</code>, um dir genauere Informationen im Falle von Problemen anzeigen zu lassen.</p>
@@ -182,7 +188,7 @@
 <li>SSL/TLS wird zu lokalen Domains hinzufügen.</li>
 <li>Es wird eine phpmyadmin-Schnittstelle zu den Datenbanken zur Verfügung gestellt.</li>
 <li>Es wird ein lokaler Mailserver mit Webmail-Funktionalität bereit gestellt.</li>
-<li>Und last but not least werden Datenbanken aus SQL-Skripten in einem bestimmten Ordner erstellen.</li>
+<li>Und last but not least werden die zuvor gesicherten Datenbanken aus SQL-Dateien, welche sich im Ordner <code class="language-text">initDB</code> befinden, ausgelesen und ausgeführt.</li>
 </ul>
 <pre class="grvsc-container default-dark" data-language="" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./docker-lamp start</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -203,7 +209,7 @@
 <span class="grvsc-line"><span class="grvsc-source"> ⠿ Container docker-lamp_apache24    Star...                                  5.3s</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <h5 id="domains" style="position:relative;"><a href="#domains" aria-label="domains permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Domains</h5>
-<p>Wenn alles fehlerfrei verläuft, kann man nun den Inhalt seiner <code class="language-text">www-Root</code>, also von <code class="language-text">APP_BASEDIR + /www</code>, im Browser über die folgenden URLs aufrufen:</p>
+<p>Wenn alles fehlerfrei verläuft, kann man nun den Inhalt seiner <code class="language-text">www-Root</code>, also von <code class="language-text">APP_BASEDIR + /www</code>, im Browser unverschlüsselt über die folgenden URLs aufrufen:</p>
 <ul>
 <li><a href="http://localhost:8000">http://localhost:8000</a> - phpmyadmin</li>
 <li><a href="http://localhost:8025">http://localhost:8025</a> - mailhog webmail</li>
@@ -211,6 +217,14 @@
 <li><a href="http://localhost:8074">http://localhost:8074</a> - Website verwendet PHP7.4</li>
 <li><a href="http://localhost:8074/phpinfo/">http://localhost:8074/phpinfo/</a> - PHP-Konfiguration der PHP7.4-Umgebung</li>
 <li><a href="http://localhost:8080">http://localhost:8080</a> - Webseite, die PHP8.0 verwendet</li>
+</ul>
+<p>Die Ports für SSL Aufrufe der Seite beginnen mit 84:</p>
+<ul>
+<li><a href="https://localhost:8400">https://localhost:8400</a> - phpmyadmin</li>
+<li><a href="https://localhost/">https://localhost/</a> - verwendet die als Standard konfigurierte PHP-Version</li>
+<li><a href="https://localhost:8474">https://localhost:8474</a> - Website verwendet PHP7.4</li>
+<li><a href="https://localhost:8474/phpinfo/">https://localhost:8474/phpinfo/</a> - PHP-Konfiguration der PHP7.4-Umgebung</li>
+<li><a href="https://localhost:8480">https://localhost:8480</a> - Webseite, die PHP8.0 verwendet</li>
 </ul>
 <h5 id="docker-container" style="position:relative;"><a href="#docker-container" aria-label="docker container permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Container</h5>
 <pre class="grvsc-container default-dark" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker ps -a</span></span>
@@ -270,11 +284,11 @@
 <span class="grvsc-line"><span class="grvsc-source">-&gt; Uses &#39;docker-compose down&#39; to stop the server.</span></span></code></pre>
 <h3 id="eigene-projekte-in-den-container-mappen" style="position:relative;"><a href="#eigene-projekte-in-den-container-mappen" aria-label="eigene projekte in den container mappen permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Eigene Projekte in den Container mappen</h3>
 <h4 id="das-verzeichnis-ist-flexibel" style="position:relative;"><a href="#das-verzeichnis-ist-flexibel" aria-label="das verzeichnis ist flexibel permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Das Verzeichnis ist flexibel</h4>
-<p>Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis <code class="language-text">APP_BASEDIR + /www</code> im <code class="language-text">docker-lamp</code>-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. <code class="language-text">APP_BASEDIR + /www</code> wird automatisch im Container unter <code class="language-text">/srv/www</code> eingebunden - falls es nicht in der <code class="language-text">.env</code> anders belegt wurde. Im letzteren Fall ist das in der Variablen <code class="language-text">APP_BASEDIR</code> gesetzte Verzeichnis dasjenige, welches in den Container verlinkt wird.</p>
+<p>Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis <code class="language-text">APP_BASEDIR + /www</code> im <code class="language-text">docker-lamp</code>-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. <code class="language-text">APP_BASEDIR + /www</code> wird im Container unter <code class="language-text">/srv/www</code> eingebunden - falls du meinem Beispiel bisher gefolgt bist und es nicht in der <code class="language-text">.env</code> anders belegt ist. Im letzteren Fall ist das in der Variablen <code class="language-text">APP_BASEDIR</code> gesetzte Verzeichnis dasjenige, welches in den Container eingebunden wird.</p>
 <h4 id="eigene-verzeichnisse-im-container" style="position:relative;"><a href="#eigene-verzeichnisse-im-container" aria-label="eigene verzeichnisse im container permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Eigene Verzeichnisse im Container</h4>
 <p>Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügung zu haben, ist es erforderlich, die Datei Standardkonfiguration zu überschreiben.</p>
 <h4 id="beispiel" style="position:relative;"><a href="#beispiel" aria-label="beispiel permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Beispiel</h4>
-<p>Angenommen, du möchtest das Verzeichnis <code class="language-text">/home/astrid/git</code> im <code class="language-text">apache24-Container</code> verwenden.</p>
+<p>Angenommen, du möchtest das Verzeichnis <code class="language-text">/home/youruser/git</code> im <code class="language-text">apache24-Container</code> verwenden.</p>
 <ol>
 <li>Ich stoppe den Server via</li>
 </ol>
@@ -305,7 +319,7 @@
 <span class="grvsc-line"><span class="grvsc-source">    net:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">      ipv4_address: 172.16.238.10</span></span></code></pre>
 <ol start="3">
-<li>Kopiere nun diese Datei nach <code class="language-text">APP_BASEDIR + /httpd/apache24/config.yml</code> und ergänze die Zeile <code class="language-text">- /home/astrid/git:/home/astrid/git:rw</code>.</li>
+<li>Kopiere nun diese Datei nach <code class="language-text">APP_BASEDIR + /httpd/apache24/config.yml</code> und ergänze die Zeile <code class="language-text">- /home/youruser/git:/home/youruser/git:rw</code>.</li>
 </ol>
 <blockquote>
 <p>Wir nutzen die Datei <code class="language-text">APP_BASEDIR + /httpd/apache24/config.yml</code> und ändern nicht direkt die Datei <code class="language-text">DEINE-docker-lamp-INSTALLATION/.config/httpd/apache24/config.yml</code>, damit beim nächsten <code class="language-text">docker-lamp</code>-Update die Änderung der Konfiguration nicht überschrieben wird.</p>
@@ -317,7 +331,7 @@
 <span class="grvsc-line"><span class="grvsc-source">  links: ${HTTPD_LINKS}</span></span>
 <span class="grvsc-line"><span class="grvsc-source">  volumes:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw</span></span>
-<span class="grvsc-line"><span class="grvsc-source">    - /home/astrid/git:/home/astrid/git:rw</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    - /home/youruser/git:/home/youruser/git:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    - ${APP_BASEDIR:-${DOCKER_LAMP_BASEDIR}/data}:/srv:rw</span></span>
 <span class="grvsc-line"><span class="grvsc-source">    - pma:/var/www/pma</span></span>
@@ -343,34 +357,39 @@
 <ol start="5">
 <li>Ich teste die Änderung</li>
 </ol>
-<p>Das in meinem Beispiel neu verlinkte Verzeichnis wird im <code class="language-text">apache24-Container</code> unter <code class="language-text">/home/astrid/git</code> verlinkt. Ich wechsele via <code class="language-text">./docker-lamp cli apache24</code> in den Container und überzeuge mich davon:</p>
+<p>Das in meinem Beispiel neu verlinkte Verzeichnis wird im <code class="language-text">apache24-Container</code> unter <code class="language-text">/home/youruser/git</code> verlinkt. Ich wechsele via <code class="language-text">./docker-lamp cli apache24</code> in den Container und überzeuge mich davon:</p>
 <pre class="grvsc-container default-dark" data-language="" data-index="24"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./docker-lamp cli apache24</span></span>
-<span class="grvsc-line"><span class="grvsc-source">apache24:/srv/www$ cd /home/astrid/git/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">apache24:/home/astrid/git$ ll</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/srv/www$ cd /home/youruser/git/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/home/youruser/git$ ll</span></span>
 <span class="grvsc-line"><span class="grvsc-source">total 4</span></span>
 <span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development</span></span>
-<span class="grvsc-line"><span class="grvsc-source">apache24:/home/astrid/git$ </span></span></code></pre>
-<p><code class="language-text">./docker-lamp cli apache24</code> ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. Wer mit Docker-Befehlen vertraut ist oder diese lernen möchte: <code class="language-text">./docker-lamp cli apache24</code> bewirkt das gleiche wie <code class="language-text">docker exec -ti docker-lamp_apache24 sh</code>.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="25"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker exec -ti docker-lamp_apache24 sh</span></span>
-<span class="grvsc-line"><span class="grvsc-source">apache24:/srv/www# cd /home/astrid/git/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">apache24:/home/astrid/git# ll</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/home/youruser/git$ </span></span></code></pre>
+<p><code class="language-text">./docker-lamp cli apache24</code> ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. Wer mit Docker-Befehlen vertraut ist oder diese lernen möchte: <code class="language-text">./docker-lamp cli apache24</code> bewirkt das gleiche wie <code class="language-text">docker exec -it ${params}${env}${COMPOSE_PROJECT_NAME}_${CLI_CONTAINER} /usr/bin/env ${shell}</code>. In meinem Fall ist dies konkret <code class="language-text">docker exec -it --user 1000 docker-lamp_apache24 /usr/bin/env sh</code>.</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="25"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./docker-lamp cli apache24</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/srv/www$ cd /home/youruser/git/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/home/youruser/git$ ll</span></span>
 <span class="grvsc-line"><span class="grvsc-source">total 4</span></span>
 <span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development</span></span></code></pre>
 <blockquote>
-<p>Über den Befehl <code class="language-text">docker exec -ti docker-lamp_apache24 sh</code> öffnet man eine Befehlszeile im container <code class="language-text">docker-lamp_php74</code>. Über <code class="language-text">exit</code> kommt man wieder aus dem Container heraus.</p>
+<p>Über den Befehl <code class="language-text">docker exec -ti docker-lamp_apache24 sh</code> öffnet man eine Befehlszeile im Container <code class="language-text">docker-lamp_php74</code>. Über <code class="language-text">exit</code> kommt man wieder aus dem Container heraus. Der Docker wird ohne weitere Parameter unter dem Benutzer <code class="language-text">root</code> ausgeführt. Dies erkennst du am Zeichen <code class="language-text">#</code> anstelle von <code class="language-text">$</code> nach dem Login im nachfolgenden Listing. Der <code class="language-text">docker-lamp</code> Befehl verwendet jederzeit den konfigurierten User. Worfür ist dies wichtig? Wenn du Dateien erstellst gibt es hinterher beispielsweise keine Konflikte mit den Dateiberechtigungen.</p>
 </blockquote>
+<pre class="grvsc-container default-dark" data-language="" data-index="26"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ docker exec -ti docker-lamp_apache24 sh</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/srv/www# cd /home/youruser/git/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">apache24:/home/youruser/git# ll</span></span>
+<span class="grvsc-line"><span class="grvsc-source">total 4</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development</span></span></code></pre>
 <ol start="6">
 <li>So wie ich das Verzeichnis in den Container apache24 eingebunden habe, wiederhole ich dies für die PHP Container!</li>
 </ol>
-<pre class="grvsc-container default-dark" data-language="" data-index="26"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php56/config.yml /srv/php/php56/config.yml</span></span>
-<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php73/config.yml /srv/php/php73/config.yml</span></span>
-<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php74/config.yml /srv/php/php74/config.yml</span></span>
-<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php80/config.yml /srv/php/php80/config.yml</span></span>
-<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php81/config.yml /srv/php/php81/config.yml</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="27"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php56/config.yml /srv/php/php56/config.yml</span></span>
+<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php73/config.yml /srv/php/php73/config.yml</span></span>
+<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php74/config.yml /srv/php/php74/config.yml</span></span>
+<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php80/config.yml /srv/php/php80/config.yml</span></span>
+<span class="grvsc-line"><span class="grvsc-source">$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php81/config.yml /srv/php/php81/config.yml</span></span></code></pre>
 <h3 id="zertifikat" style="position:relative;"><a href="#zertifikat" aria-label="zertifikat permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Zertifikat</h3>
 <p>Falls die Konfiguration der Zertifikate geändert wird, ist erforderlich, den Server neu zu starten. Am besten vor Änderungen den Befehl <code class="language-text">./docker-lamp shutdown</code> aufrufen.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="27"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./docker-lamp shutdown</span></span>
-<span class="grvsc-line"><span class="grvsc-source">/home/astrid/docker-lamp/docker-lamp/.env included</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="28"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ./docker-lamp shutdown</span></span>
+<span class="grvsc-line"><span class="grvsc-source">/home/youruser/docker-lamp/docker-lamp/.env included</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">Selected settings:</span></span>
 <span class="grvsc-line"><span class="grvsc-source">-&gt; Save all databases.</span></span>
@@ -405,12 +424,12 @@
 </blockquote>
 <h5 id="angabe-in-der-datei-deine-docker-lamp-installationdocker-lamp" style="position:relative;"><a href="#angabe-in-der-datei-deine-docker-lamp-installationdocker-lamp" aria-label="angabe in der datei deine docker lamp installationdocker lamp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Angabe in der Datei <code class="language-text">DEINE-docker-lamp-INSTALLATION/docker-lamp</code></h5>
 <p>Standardmäßig werden die in der Datei <code class="language-text">DEINE-docker-lamp-INSTALLATION/docker-lamp</code> in der Variablen <code class="language-text">MINICA_DEFAULT_DOMAINS</code> festgelegten Domains zertifiziert.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="28"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="29"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">MINICA_DEFAULT_DOMAINS=&quot;localdomains,localhost,joomla.local,joomla.test,*.joomla.local,*.joomla.test,wp.local,wp.test,*.wp.local,*.wp.test,wpms.local,wpms.test,*.wpms.local,*.wpms.test&quot;</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h5 id="angaben-in-der-datei-env" style="position:relative;"><a href="#angaben-in-der-datei-env" aria-label="angaben in der datei env permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Angaben in der Datei <code class="language-text">.env</code></h5>
 <p>Um zusätzliche Domains zu zertifizieren, git es die Variablen <code class="language-text">SSL_DOMAINS</code> und <code class="language-text">SSL_LOCALDOMAINS</code> in der Datei <code class="language-text">.env</code>. Hierzu gibt es später mehr Informationen.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="29"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="30"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_DOMAINS=</span></span>
 <span class="grvsc-line"><span class="grvsc-source">SSL_LOCALDOMAINS=</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
@@ -419,9 +438,9 @@
 <blockquote>
 <p>Ein konkretes <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a> habe ich später beschrieben.</p>
 </blockquote>
-<pre class="grvsc-container default-dark" data-language="" data-index="30"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano .env</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="31"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nano .env</span></span></code></pre>
 <p>Hier dann je nach Wunsch folgenden Einträge erweitern:</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="31"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="32"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">TLD_SUFFIX=local=127.0.0.1,test=127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
@@ -432,7 +451,7 @@
 <blockquote>
 <p>Benötigst du eine weitere Top-Level-Domain inklusive Subdomains, beispielsweise <code class="language-text">mytdl</code> mit <code class="language-text">jedemengesubdomains.mytld</code>? Nun kommt <code class="language-text">TLD_SUFFIX</code> ins Spiel. Das heißt: <code class="language-text">TLD_SUFFIX=mytdl</code> und <code class="language-text">SSL_LOCALDOMAINS=subdomain1.mytdl,*.subdomain2.mytdl</code> spielen zusammen. Aber dazu später mehr im konkreten <a href="/ubuntu-docker-lamp-verwenden-eigene-domain">Beispiel</a>.</p>
 </blockquote>
-<pre class="grvsc-container default-dark" data-language="" data-index="32"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="33"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
 <span class="grvsc-line"><span class="grvsc-source">               |</span></span>
 <span class="grvsc-line"><span class="grvsc-source">               |</span></span>
 <span class="grvsc-line"><span class="grvsc-source">              mytdl                 1. Ebene, Top-Level-Domains (TLD)</span></span>
@@ -446,7 +465,7 @@
 <blockquote>
 <p>Für Wordpress Entwickler gibt es neben <code class="language-text">joomla</code> weiter Domains auf der 3. Ebenen.</p>
 </blockquote>
-<pre class="grvsc-container default-dark" data-language="" data-index="33"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="34"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">             (root)                 0. Ebene, Null-Label</span></span>
 <span class="grvsc-line"><span class="grvsc-source">             /   \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">            /     \</span></span>
 <span class="grvsc-line"><span class="grvsc-source">         test     local             1. Ebene, Top-Level-Domains (TLD)</span></span>
@@ -456,7 +475,7 @@
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">                                    3. Ebene, Third-Level-Domains</span></span></code></pre>
 <p>Falls du etwas an der Konfiguration geändet hast, lösche den Ordner <code class="language-text">APP_BASEDIR/ca/localdomains</code>. Um weiter an <code class="language-text">docker-lampp</code> zu arbeiten starten wir den Server wieder mittels <code class="language-text">./docker-lamp start</code>.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="34"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">./docker-lamp start</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="35"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">./docker-lamp start</span></span></code></pre>
 <h4 id="importieren-des-zertifikates" style="position:relative;"><a href="#importieren-des-zertifikates" aria-label="importieren des zertifikates permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Importieren des Zertifikates</h4>
 <p>Ruft man die URL <code class="language-text">https://joomla.test/</code> oder <code class="language-text">https://joomla.local/</code> im Browser auf, erscheint ein Sicherheitshinweis. Der Browser kennt das Zertifikat bisher nicht. Deshalb importiere ich es im nächsten Schritt.</p>
 <p><span
@@ -540,29 +559,32 @@
 <p>Je nach Konfiguration kommt es unter Ubuntu 20.04 beim Aufruf von <code class="language-text">./docker-lamp start</code> zu einem Fehler</p>
 <h3 id="permission-denied-but-minica-root-capem-exists" style="position:relative;"><a href="#permission-denied-but-minica-root-capem-exists" aria-label="permission denied but minica root capem exists permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>permission denied (but minica-root-ca.pem exists)</h3>
 <p>Falls die Ausgabe von <code class="language-text">./docker-lamp start</code> mit dem nachfolgenden Text startet, stimmen Berechtigungen nicht.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="35"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">./.env included</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="36"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">./.env included</span></span>
 <span class="grvsc-line"><span class="grvsc-source">2021/02/04 19:57:06 open minica-root-ca-key.pem: permission denied (but minica-root-ca.pem exists)</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <h4 id="abhilfe-schafft-die-folgende-vorgehensweise" style="position:relative;"><a href="#abhilfe-schafft-die-folgende-vorgehensweise" aria-label="abhilfe schafft die folgende vorgehensweise permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Abhilfe schafft die folgende Vorgehensweise</h4>
 <p>Als erstes ins <code class="language-text">APP_BASEDIR</code> wechseln in meinem Fall ist die <code class="language-text">/srv</code>. Prüfe als nächstes in diesem Verzeichnis alle Rechte. Alle Inhalte sollten dem aktuellen Benutzer und dessen Gruppe gehören.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="36"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">/srv$ ll</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="37"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">/srv$ ll</span></span>
 <span class="grvsc-line"><span class="grvsc-source">insgesamt 40</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  9 root   astrid 4096 Mai 17 14:50 ./</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  9 root   youruser 4096 Mai 17 14:50 ./</span></span>
 <span class="grvsc-line"><span class="grvsc-source">drwxr-xr-x 20 root   root   4096 Apr 26 08:54 ../</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 astrid astrid 4096 Mai 17 01:12 apache24/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  3 astrid astrid 4096 Mai 17 13:28 ca/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  3 astrid astrid 4096 Mai 17 01:12 httpd/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 astrid astrid 4096 Mai 17 03:44 initDB/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  7 astrid astrid 4096 Mai 17 01:12 php/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 astrid astrid 4096 Mai 15 05:36 phpinfo/</span></span>
-<span class="grvsc-line"><span class="grvsc-source">-rw-rw-r--  1 astrid astrid  144 Mai 15 05:36 README.md</span></span>
-<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  5 astrid astrid 4096 Mai 17 03:44 www/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 youruser youruser 4096 Mai 17 01:12 apache24/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  3 youruser youruser 4096 Mai 17 13:28 ca/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  3 youruser youruser 4096 Mai 17 01:12 httpd/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 youruser youruser 4096 Mai 17 03:44 initDB/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  7 youruser youruser 4096 Mai 17 01:12 php/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  2 youruser youruser 4096 Mai 15 05:36 phpinfo/</span></span>
+<span class="grvsc-line"><span class="grvsc-source">-rw-rw-r--  1 youruser youruser  144 Mai 15 05:36 README.md</span></span>
+<span class="grvsc-line"><span class="grvsc-source">drwxrwxr-x  5 youruser youruser 4096 Mai 17 03:44 www/</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p>Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal deinBenutzer, zuweisen.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="37"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo chown -R deinBenutzer:deinBenutzer .</span></span></code></pre>
+<p>Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal <code class="language-text">deinBenutzer</code>, zuweisen.</p>
+<blockquote>
+<p>Unter Umständen ist das Verzeichnis  <code class="language-text">/srv</code> ebenfalls anzupassen. Je nachdem welches Linux System benutzt wird, gehört der Benutzer der Gruppe der <em>Sudoers</em> zu. Unter ArchLinux ist das <code class="language-text">wheel</code>, auf anderen kann es auch <code class="language-text">sudoers</code> sein. Prüfe dem Befehl <code class="language-text">id</code>, wie die Gruppe in deinem Fall heißt und ob dein Benutzer dieser Gruppe angehört. Passe dann den Ordner an: <code class="language-text">$ sudo chown root:&lt;SUDOERGRUPPE> /srv</code> und <code class="language-text">$ sudo chmod 775 /srv</code>. Wichtig ist, dass dein Benutzer im Verzeichnis <code class="language-text">/srv</code> schreiben darf.</p>
+</blockquote>
+<pre class="grvsc-container default-dark" data-language="" data-index="38"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo chown -R deinBenutzer:deinBenutzer .</span></span></code></pre>
 <p>Am Ende wieder zurück ins <code class="language-text">docker-lamp</code>-Verzeichnis wechseln und den Befehl <code class="language-text">./docker-lamp start</code> wiederholen.</p>
 <h3 id="error-for-docker-lamp_bind-cannot-start-service-bind" style="position:relative;"><a href="#error-for-docker-lamp_bind-cannot-start-service-bind" aria-label="error for docker lamp_bind cannot start service bind permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ERROR: for docker-lamp_bind Cannot start service bind</h3>
-<pre class="grvsc-container default-dark" data-language="" data-index="38"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="39"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Creating docker-lamp_bind ... error</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source">ERROR: for docker-lamp_bind  Cannot start service bind: driver failed programming external connectivity on endpoint docker-lamp_bind (f4e68e24013e93124e6f55ebe821a87c5ca58cf7dca8c6388181fac9956ed26e): Error starting dockeruserland proxy: listen tcp4 0.0.0.0:53: bind: address already in use</span></span>
@@ -574,28 +596,30 @@
 <ol>
 <li><code class="language-text">sudo systemctl disable systemd-resolved.service</code></li>
 </ol>
-<pre class="grvsc-container default-dark" data-language="" data-index="39"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo systemctl disable systemd-resolved.service</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="40"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo systemctl disable systemd-resolved.service</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Removed /etc/systemd/system/dbus-org.freedesktop.resolve1.service.</span></span>
 <span class="grvsc-line"><span class="grvsc-source">Removed /etc/systemd/system/multi-user.target.wants/systemd-resolved.service.</span></span></code></pre>
 <ol start="2">
 <li><code class="language-text">sudo systemctl stop systemd-resolved.service</code></li>
 </ol>
-<pre class="grvsc-container default-dark" data-language="" data-index="40"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo systemctl stop systemd-resolved.service</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="41"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ sudo systemctl stop systemd-resolved.service</span></span></code></pre>
 <blockquote>
 <p>Was ist der Unterschied zwischen <code class="language-text">systemctl stop</code> und <code class="language-text">systemctl disable</code> beziehungsweise <code class="language-text">systemctl start</code> und <code class="language-text">systemctl enable</code>? <code class="language-text">systemctl start</code> und <code class="language-text">systemctl enable</code> machen verschiedene Dinge. Mit <code class="language-text">enable</code> wird der angegebene Dienst an relevanten Stellen eingehängt, sodass er beim Booten automatisch gestartet wird. <code class="language-text">start</code> startet das Gerät sofort. Deaktivieren und Stoppen sind das Gegenteil davon. <a href="http://manpages.ubuntu.com/manpages/hirsute/en/man1/systemctl.1.html">Manpage</a></p>
 </blockquote>
 <ol start="3">
-<li><code class="language-text">sudo rm /etc/resolv.conf</code></li>
+<li>Einstellungen anpassen</li>
 </ol>
+<p>Viele Wege führen nach Rom. Ich beschreibe dir hier meine Vorgehensweise. Alternativ kannst du die Anpassungen in den Einstellungen deiner Netzwerkverbindung vornehmen. Achte dabei darauf, dass die Datei <code class="language-text">/etc/resolv.conf</code> nach den Änderungen nicht mehr beschreibbar ist.</p>
+<p><code class="language-text">sudo rm /etc/resolv.conf</code></p>
 <p>Warum ist die Datei zu löschen?</p>
 <p>Die Datei <code class="language-text">/etc/resolv.conf</code> ist ein Symlink.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="41"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ll /etc/</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="42"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ ll /etc/</span></span>
 <span class="grvsc-line"><span class="grvsc-source">insgesamt 1128</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">lrwxrwxrwx   1 root root      39 Feb  4 00:00 resolv.conf -&gt; ../run/systemd/resolve/stub-resolv.conf</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span></code></pre>
 <p>Die verlinkte Datei hat folgenden Inhalt:</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="42"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ cat /etc/resolv.conf</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="43"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">$ cat /etc/resolv.conf</span></span>
 <span class="grvsc-line"><span class="grvsc-source">...</span></span>
 <span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.53</span></span>
 <span class="grvsc-line"><span class="grvsc-source">options edns0</span></span>
@@ -605,7 +629,7 @@
 <li><code class="language-text">sudo nano /etc/resolv.conf</code></li>
 </ol>
 <p>Als letztes erstellen wir die Datei mit <code class="language-text">sudo nano /etc/resolv.conf</code> neu. Dann tragen wir zwei passende <code class="language-text">nameserver</code> ein, wobei <code class="language-text">nameserver 192.168.178.2</code> ein Beispiel für die Konfiguration einer Fritzbox ist, und passen alles an die eigenen Gegebenheiten an.</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="43"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.1</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="44"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">nameserver 127.0.0.1</span></span>
 <span class="grvsc-line"><span class="grvsc-source">nameserver 192.168.178.2</span></span></code></pre>
 <p>Es ist wichtig, dass der Eintrag <code class="language-text">nameserver 127.0.0.1</code> an erster Stelle steht. Nach einem Neustart wird der <code class="language-text">docker</code>-Container verwendet. Wenn der nicht verfügbar ist, wird auf <code class="language-text">nameserver 192.168.178.2</code> verwiesen. So ist sichergestellt, dass eine Internetverbindung auch bei gestopptem Container verfügbar ist.</p>
 <ol start="5">
@@ -613,11 +637,11 @@
 </ol>
 <p>Als letztes stellen wir den NetworkManager auf <code class="language-text">dns=default</code> ein.</p>
 <p>Dazu wird erst der Dienst gestoppt:</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="44"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl stop NetworkManager.service</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="45"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl stop NetworkManager.service</span></span></code></pre>
 <p>Danach öffnen wir die Datei zum editieren:</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="45"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo gedit /etc/NetworkManager/NetworkManager.conf</span></span></code></pre>
+<pre class="grvsc-container default-dark" data-language="" data-index="46"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo gedit /etc/NetworkManager/NetworkManager.conf</span></span></code></pre>
 <p>Dann fügen wir im Bereich <code class="language-text">[main]</code> die Zeile <code class="language-text">dns=default</code> ein:</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="46"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[main]</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="47"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">[main]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">dns=default</span></span>
 <span class="grvsc-line"><span class="grvsc-source">plugins=ifupdown,keyfile</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
@@ -627,7 +651,7 @@
 <span class="grvsc-line"><span class="grvsc-source">[device]</span></span>
 <span class="grvsc-line"><span class="grvsc-source">wifi.scan-rand-mac-address=no</span></span></code></pre>
 <p>Am Ende starten wir den Dienst wieder:</p>
-<pre class="grvsc-container default-dark" data-language="" data-index="47"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl start NetworkManager.service</span></span>
+<pre class="grvsc-container default-dark" data-language="" data-index="48"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">sudo systemctl start NetworkManager.service</span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <p>Voila! Das war es.</p>
 <h2 id="gesamtes-set" style="position:relative;"><a href="#gesamtes-set" aria-label="gesamtes set permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gesamtes Set</h2>
