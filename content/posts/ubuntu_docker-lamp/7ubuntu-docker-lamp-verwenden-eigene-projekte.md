@@ -71,7 +71,6 @@ $ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate
 
 ```
 
-> Um in einem Container Composer aufzurufen, muss Git installiert sein: `docker exec -it docker-lamp_php80 apk add git`.  
 > `OCI runtime exec failed: exec failed: container_linux.go:370: starting container process caused: chdir to cwd ("/srv/git/boilerplate") set in config.json failed: no such file or directory: unknown` weißt darauf hin, dass man sich im Pfad vertippt hat.
 
 ###### Projekte symlinken

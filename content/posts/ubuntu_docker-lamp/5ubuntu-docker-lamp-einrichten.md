@@ -93,8 +93,10 @@ docker ps -a
 Nun klone ich das `docker-lamp` Github Repository in ein Verzeichnis nach Wahl.
 
 ```
-git clone https://github.com/degobbis/docker-lamp.git
+git clone https://github.com/degobbis/docker-lamp.git --depth 1 -b 2.0.0-dev
 ```
+
+> Mit `-b 2.0.0-dev` wird der passende Branch gezogen und mit `--depth 1` wird nur die History von diesem Branch gezogen.
 
 Als nächstes wechsele ich in den Ordner `docker-lamp`.
 
@@ -176,9 +178,9 @@ APP_BASEDIR=/srv
 
 > Es ist zwingend, beim Einrichten das Verzeichnis `APP_BASEDIR` anzupassen. `APP_BASEDIR` ist mit einem absoluten Pfad zu belegen!
 
-##### Benutzer ID unter Ubuntu - optional
+##### Benutzer ID unter Ubuntu
 
-In der `.env` gibt es den folgenden Eintrag.
+Auf Linux-Systemen ist es zwingend die Benutzer-IDs richtig zu setzen. Auf den meisten Rechnern ist nur ein Nutzer eingerichtet und diesem ist meistens die ID 1000 zugeordnet. Deshalb ist dies in `docker-lamp` voreingestellt. In der `.env` gibt es den folgenden Eintrag.
 
 ```
 ...
@@ -202,6 +204,8 @@ $ id -u
 ```
 
 Falls die ID des `docker-lamp` ausführenden Benutzers von 1000 abweicht, ist dieser Eintrag zu korrigieren.
+
+> Möchest du gleichzeitig prüfen, in welcher Gruppe sich dein Benutzer befindet? Dann verwende den Befehl `id` ohne den Parameter `-u`.
 
 ### Die docker-lamp Befehle
 
@@ -229,7 +233,7 @@ Beim Starten von `docker-lamp` geschieht folgendes:
 - SSL/TLS wird zu lokalen Domains hinzufügen.
 - Es wird eine phpmyadmin-Schnittstelle zu den Datenbanken zur Verfügung gestellt.
 - Es wird ein lokaler Mailserver mit Webmail-Funktionalität bereit gestellt.
-- Und last but not least werden Datenbanken aus SQL-Skripten in einem bestimmten Ordner erstellen.
+- Und last but not least werden die zuvor gesicherten Datenbanken aus SQL-Dateien, welche sich im Ordner `initDB` befinden, ausgelesen und ausgeführt. 
 
 ```
 $ ./docker-lamp start
@@ -254,7 +258,7 @@ Start server:
 
 ##### Domains
 
-Wenn alles fehlerfrei verläuft, kann man nun den Inhalt seiner `www-Root`, also von `APP_BASEDIR + /www`, im Browser über die folgenden URLs aufrufen:
+Wenn alles fehlerfrei verläuft, kann man nun den Inhalt seiner `www-Root`, also von `APP_BASEDIR + /www`, im Browser unverschlüsselt über die folgenden URLs aufrufen:
 
 - http://localhost:8000 - phpmyadmin
 - http://localhost:8025 - mailhog webmail
@@ -262,6 +266,15 @@ Wenn alles fehlerfrei verläuft, kann man nun den Inhalt seiner `www-Root`, also
 - http://localhost:8074 - Website verwendet PHP7.4
 - http://localhost:8074/phpinfo/ - PHP-Konfiguration der PHP7.4-Umgebung 
 - http://localhost:8080 - Webseite, die PHP8.0 verwendet
+
+Die Ports für SSL Aufrufe der Seite beginnen mit 84:
+
+- https://localhost:8400 - phpmyadmin
+- https://localhost/ - verwendet die als Standard konfigurierte PHP-Version
+- https://localhost:8474 - Website verwendet PHP7.4
+- https://localhost:8474/phpinfo/ - PHP-Konfiguration der PHP7.4-Umgebung 
+- https://localhost:8480 - Webseite, die PHP8.0 verwendet
+
 
 ##### Docker Container
 
@@ -337,7 +350,7 @@ save-db <DB-NAME>
 
 #### Das Verzeichnis ist flexibel
 
-Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `APP_BASEDIR + /www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `APP_BASEDIR + /www` wird automatisch im Container unter `/srv/www` eingebunden - falls es nicht in der `.env` anders belegt wurde. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis dasjenige, welches in den Container verlinkt wird.
+Wenn man die Projekte erst neu anlegt ist der einfachste Weg, das Verzeichnis `APP_BASEDIR + /www` im `docker-lamp`-Verzeichnis zu verwenden. Dies gilt ebenfalls, wenn der Speicherort änderbar ist und man die Projekte leicht verschieben kann. `APP_BASEDIR + /www` wird im Container unter `/srv/www` eingebunden - falls du meinem Beispiel bisher gefolgt bist und es nicht in der `.env` anders belegt ist. Im letzteren Fall ist das in der Variablen `APP_BASEDIR` gesetzte Verzeichnis dasjenige, welches in den Container eingebunden wird.
 
 #### Eigene Verzeichnisse im Container
 
@@ -345,7 +358,7 @@ Um weitere Verzeichnisse mit den eigenen Webprojekten im Container zur Verfügun
 
 #### Beispiel 
 
-Angenommen, du möchtest das Verzeichnis `/home/astrid/git` im `apache24-Container` verwenden.
+Angenommen, du möchtest das Verzeichnis `/home/youruser/git` im `apache24-Container` verwenden.
 
 1. Ich stoppe den Server via 
 
@@ -381,7 +394,7 @@ apache24:
 ```
 
 
-3. Kopiere nun diese Datei nach `APP_BASEDIR + /httpd/apache24/config.yml` und ergänze die Zeile `- /home/astrid/git:/home/astrid/git:rw`.
+3. Kopiere nun diese Datei nach `APP_BASEDIR + /httpd/apache24/config.yml` und ergänze die Zeile `- /home/youruser/git:/home/youruser/git:rw`.
 
 > Wir nutzen die Datei `APP_BASEDIR + /httpd/apache24/config.yml` und ändern nicht direkt die Datei `DEINE-docker-lamp-INSTALLATION/.config/httpd/apache24/config.yml`, damit beim nächsten `docker-lamp`-Update die Änderung der Konfiguration nicht überschrieben wird.
 
@@ -393,7 +406,7 @@ apache24:
   links: ${HTTPD_LINKS}
   volumes:
     - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
-    - /home/astrid/git:/home/astrid/git:rw
+    - /home/youruser/git:/home/youruser/git:rw
     - ${DOCKER_LAMP_BASEDIR}/.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
     - ${APP_BASEDIR:-${DOCKER_LAMP_BASEDIR}/data}:/srv:rw
     - pma:/var/www/pma
@@ -421,37 +434,45 @@ apache24:
 
 5. Ich teste die Änderung
 
-Das in meinem Beispiel neu verlinkte Verzeichnis wird im `apache24-Container` unter `/home/astrid/git` verlinkt. Ich wechsele via `./docker-lamp cli apache24` in den Container und überzeuge mich davon:
+Das in meinem Beispiel neu verlinkte Verzeichnis wird im `apache24-Container` unter `/home/youruser/git` verlinkt. Ich wechsele via `./docker-lamp cli apache24` in den Container und überzeuge mich davon:
 
 ```
 $ ./docker-lamp cli apache24
-apache24:/srv/www$ cd /home/astrid/git/
-apache24:/home/astrid/git$ ll
+apache24:/srv/www$ cd /home/youruser/git/
+apache24:/home/youruser/git$ ll
 total 4
 drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development
-apache24:/home/astrid/git$ 
+apache24:/home/youruser/git$ 
 ```
 
-`./docker-lamp cli apache24` ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. Wer mit Docker-Befehlen vertraut ist oder diese lernen möchte: `./docker-lamp cli apache24` bewirkt das gleiche wie `docker exec -ti docker-lamp_apache24 sh`.
+`./docker-lamp cli apache24` ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. Wer mit Docker-Befehlen vertraut ist oder diese lernen möchte: `./docker-lamp cli apache24` bewirkt das gleiche wie `docker exec -it ${params}${env}${COMPOSE_PROJECT_NAME}_${CLI_CONTAINER} /usr/bin/env ${shell}`. In meinem Fall ist dies konkret `docker exec -it --user 1000 docker-lamp_apache24 /usr/bin/env sh`. 
+
+```
+$ ./docker-lamp cli apache24
+apache24:/srv/www$ cd /home/youruser/git/
+apache24:/home/youruser/git$ ll
+total 4
+drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development
+```
+
+> Über den Befehl `docker exec -ti docker-lamp_apache24 sh` öffnet man eine Befehlszeile im Container `docker-lamp_php74`. Über `exit` kommt man wieder aus dem Container heraus. Der Docker wird ohne weitere Parameter unter dem Benutzer `root` ausgeführt. Dies erkennst du am Zeichen `#` anstelle von `$` nach dem Login im nachfolgenden Listing. Der `docker-lamp` Befehl verwendet jederzeit den konfigurierten User. Worfür ist dies wichtig? Wenn du Dateien erstellst gibt es hinterher beispielsweise keine Konflikte mit den Dateiberechtigungen.
 
 ```
 $ docker exec -ti docker-lamp_apache24 sh
-apache24:/srv/www# cd /home/astrid/git/
-apache24:/home/astrid/git# ll
+apache24:/srv/www# cd /home/youruser/git/
+apache24:/home/youruser/git# ll
 total 4
 drwxrwxr-x    4 virtual  virtual       4096 May 16 11:16 joomla-development
 ```
-
-> Über den Befehl `docker exec -ti docker-lamp_apache24 sh` öffnet man eine Befehlszeile im container `docker-lamp_php74`. Über `exit` kommt man wieder aus dem Container heraus.
 
 6. So wie ich das Verzeichnis in den Container apache24 eingebunden habe, wiederhole ich dies für die PHP Container!
 
 ```
-$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php56/config.yml /srv/php/php56/config.yml
-$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php73/config.yml /srv/php/php73/config.yml
-$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php74/config.yml /srv/php/php74/config.yml
-$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php80/config.yml /srv/php/php80/config.yml
-$ sudo cp /home/astrid/docker-lamp/docker-lamp/.config/php/php81/config.yml /srv/php/php81/config.yml
+$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php56/config.yml /srv/php/php56/config.yml
+$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php73/config.yml /srv/php/php73/config.yml
+$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php74/config.yml /srv/php/php74/config.yml
+$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php80/config.yml /srv/php/php80/config.yml
+$ sudo cp /home/youruser/docker-lamp/docker-lamp/.config/php/php81/config.yml /srv/php/php81/config.yml
 ```
 
 ### Zertifikat
@@ -460,7 +481,7 @@ Falls die Konfiguration der Zertifikate geändert wird, ist erforderlich, den Se
 
 ```
 $ ./docker-lamp shutdown
-/home/astrid/docker-lamp/docker-lamp/.env included
+/home/youruser/docker-lamp/docker-lamp/.env included
 
 Selected settings:
 -> Save all databases.
@@ -619,20 +640,22 @@ Als erstes ins `APP_BASEDIR` wechseln in meinem Fall ist die `/srv`. Prüfe als 
 ```
 /srv$ ll
 insgesamt 40
-drwxrwxr-x  9 root   astrid 4096 Mai 17 14:50 ./
+drwxrwxr-x  9 root   youruser 4096 Mai 17 14:50 ./
 drwxr-xr-x 20 root   root   4096 Apr 26 08:54 ../
-drwxrwxr-x  2 astrid astrid 4096 Mai 17 01:12 apache24/
-drwxrwxr-x  3 astrid astrid 4096 Mai 17 13:28 ca/
-drwxrwxr-x  3 astrid astrid 4096 Mai 17 01:12 httpd/
-drwxrwxr-x  2 astrid astrid 4096 Mai 17 03:44 initDB/
-drwxrwxr-x  7 astrid astrid 4096 Mai 17 01:12 php/
-drwxrwxr-x  2 astrid astrid 4096 Mai 15 05:36 phpinfo/
--rw-rw-r--  1 astrid astrid  144 Mai 15 05:36 README.md
-drwxrwxr-x  5 astrid astrid 4096 Mai 17 03:44 www/
+drwxrwxr-x  2 youruser youruser 4096 Mai 17 01:12 apache24/
+drwxrwxr-x  3 youruser youruser 4096 Mai 17 13:28 ca/
+drwxrwxr-x  3 youruser youruser 4096 Mai 17 01:12 httpd/
+drwxrwxr-x  2 youruser youruser 4096 Mai 17 03:44 initDB/
+drwxrwxr-x  7 youruser youruser 4096 Mai 17 01:12 php/
+drwxrwxr-x  2 youruser youruser 4096 Mai 15 05:36 phpinfo/
+-rw-rw-r--  1 youruser youruser  144 Mai 15 05:36 README.md
+drwxrwxr-x  5 youruser youruser 4096 Mai 17 03:44 www/
 
 ```
 
-Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal deinBenutzer, zuweisen.
+Mit dem folgenden Befehl alle Inhalte dem aktuellen Benutzer, in dem Falle beide Mal `deinBenutzer`, zuweisen.
+
+> Unter Umständen ist das Verzeichnis  `/srv` ebenfalls anzupassen. Je nachdem welches Linux System benutzt wird, gehört der Benutzer der Gruppe der _Sudoers_ zu. Unter ArchLinux ist das `wheel`, auf anderen kann es auch `sudoers` sein. Prüfe dem Befehl `id`, wie die Gruppe in deinem Fall heißt und ob dein Benutzer dieser Gruppe angehört. Passe dann den Ordner an: `$ sudo chown root:<SUDOERGRUPPE> /srv` und `$ sudo chmod 775 /srv`. Wichtig ist, dass dein Benutzer im Verzeichnis `/srv` schreiben darf.
 
 ```
 sudo chown -R deinBenutzer:deinBenutzer .
@@ -671,7 +694,11 @@ $ sudo systemctl stop systemd-resolved.service
 
 > Was ist der Unterschied zwischen `systemctl stop` und `systemctl disable` beziehungsweise `systemctl start` und `systemctl enable`? `systemctl start` und `systemctl enable` machen verschiedene Dinge. Mit `enable` wird der angegebene Dienst an relevanten Stellen eingehängt, sodass er beim Booten automatisch gestartet wird. `start` startet das Gerät sofort. Deaktivieren und Stoppen sind das Gegenteil davon. [Manpage](http://manpages.ubuntu.com/manpages/hirsute/en/man1/systemctl.1.html)
 
-3. `sudo rm /etc/resolv.conf`
+3. Einstellungen anpassen
+
+Viele Wege führen nach Rom. Ich beschreibe dir hier meine Vorgehensweise. Alternativ kannst du die Anpassungen in den Einstellungen deiner Netzwerkverbindung vornehmen. Achte dabei darauf, dass die Datei `/etc/resolv.conf` nach den Änderungen nicht mehr beschreibbar ist. 
+
+`sudo rm /etc/resolv.conf`
 
 Warum ist die Datei zu löschen?
 
