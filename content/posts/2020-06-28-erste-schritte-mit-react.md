@@ -20,7 +20,7 @@ tags:
 Immer mal wieder habe ich in eine [SPA](https://de.wikipedia.org/wiki/Single-Page-Webanwendung) hineingeschnuppert. Unter anderem habe ich mir [React](https://de.reactjs.org/) angesehen. Auf den ersten Blick hat die JavaScript-Softwarebibliothek mich abgeschreckt. Zum einen wirkte es kompliziert.
 
 > Ich habe im Studium objektorientiert Java und deklarativ Haskell gelernt. Als ich dann in der Praxis gezwungen war PHP zu nutzen, war ich nicht vollends begeistert - aber die Einfachheit hat mir gefallen.
-
+ 
 Ich hatte den Eindruck, dass in React HTML, CSS und JavaScript vermischt werden. Das ist genau das, was ich vermeide. Bei der Suche nach einem statischen Websitegenerator bin ich auf [Gatsby](https://www.gatsbyjs.org/) gestoßen und so habe ich mir die Frage erneut gestellt: _Warum ist React beliebt_?
 
 #### Voraussetzungen
