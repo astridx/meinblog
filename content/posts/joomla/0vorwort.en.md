@@ -221,14 +221,18 @@ In Joomla, we use type-safe comparison whenever possible because it is more accu
 
 #### Single quotes and double quotes<!-- \index{PHP!single quotes and double quotes} -->
 
+In Joomla, we use single quotes. Using single quotes is more performant, usually more readable and more straightforward when used with associative arrays. PHP does not need any additional processing to interpret what is inside the single quote. If you use double quotes, PHP must check to see if there are any variables in the string.
+
+> More information about this and the explanation of two other ways to use strings in PHP can be found on the website [php.net](https://www.php.net/manual/en/language.types.string.php)[^php.net/manual/en/language.types.string.php].
+
 ##### Single quotes
 
 The simplest way to specify a string is to enclose it in single quotes. Single quotes are generally faster, and anything enclosed in quotes is treated as a single string. Example:
 
 ```
 echo 'Start with a single string';
-echo 'String with an apostrophe';
-echo 'String with a php variable'.$name;
+echo 'String with "apostrophe"';
+echo 'String with a php variable' . $name;
 ```
 
 ##### Double quotes
@@ -239,10 +243,6 @@ Use double quotes in PHP to avoid using a period when separating. Use curly brac
 var $name = "Peter";
 echo "Hello {$name}"
 ```
-
-In Joomla we use single quotes when possible. Using single quotes is slightly faster. PHP does not need any additional processing to interpret what is inside the single quote. If you use double quotes, PHP needs to check if there are any variables in the string.
-
-More information about this and the explanation of two other ways to use strings in PHP can be found on the website [php.net](https://www.php.net/manual/en/language.types.string.php)[^php.net/manual/en/language.types.string.php].
 
 #### Alternative syntax<!-- \index{PHP!alternative syntax PHP} --> for control structures
 

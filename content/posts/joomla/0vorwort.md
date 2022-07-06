@@ -222,14 +222,18 @@ In Joomla nutzen wir wann immer möglich den typsicheren Vergleich, weil dieser 
 
 #### Einfache Anführungszeichen und doppelte Anführungszeichen<!-- \index{PHP!Anführungszeichen} -->
 
+In Joomla verwenden wir einfache Anführungszeichen. Die Verwendung von einfachen Anführungszeichen ist performanter, in der Regel besser lesbar und unkomplizierter bei der Verwendung mit assoziativen Arrays. PHP braucht keine zusätzliche Verarbeitung, um zu interpretieren, was innerhalb der einfachen Anführungszeichen steht. Wenn du doppelte Anführungszeichen verwendest, muss PHP prüfen, ob es irgendwelche Variablen in der Zeichenkette gibt.
+
+> Weitere Informationen dazu und die Beschreibung von zwei weitern Möglichkeiten Strings in PHP zu verwneden findest du auf der Website [php.net](https://www.php.net/manual/de/language.types.string.php)[^php.net/manual/de/language.types.string.php].
+
 ##### Einfache Anführungszeichen `'`
 
 Die einfachste Art, eine Zeichenkette anzugeben, ist, sie in einfache Anführungszeichen einzuschließen. Einfache Anführungszeichen sind im Allgemeinen schneller, und alles, was in Anführungszeichen steht, wird als einfache Zeichenkette behandelt. Beispiel:
 
 ```
 echo 'Beginne mit einer einfachen Zeichenkette';
-echo 'String mit einem Apostroph';
-echo 'String mit einer php-Variablen'.$name;
+echo 'String mit "Apostroph"';
+echo 'String mit einer php-Variablen' . $name;
 ```
 
 ##### Doppelte Anführungszeichen `"`
@@ -240,10 +244,6 @@ Verwende doppelte Anführungszeichen in PHP, um beim Trennen die Verwendung eine
 var $name = "Peter";
 echo "Hello {$name}";
 ```
-
-In Joomla nutzen wir wenn möglich einfache Anführungszeichen. Die Verwendung einfacher Anführungszeichen ist etwas schneller. PHP benötigt keine zusätzliche Verarbeitung, um zu interpretieren, was sich innerhalb des einfachen Anführungszeichens befindet. Wenn du doppelte Anführungszeichen verwendest, muss PHP prüfen, ob sich in der Zeichenkette irgendwelche Variablen befinden.
-
-Weitere Informationen dazu und die Beschreibung von zwei weitern Möglichkeiten Strings in PHP zu verwneden findest du auf der Website [php.net](https://www.php.net/manual/de/language.types.string.php)[^php.net/manual/de/language.types.string.php].
 
 #### Alternative Syntax für Kontrollstrukturen<!-- \index{PHP!Alternative Syntax PHP} -->
 

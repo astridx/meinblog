@@ -12,12 +12,12 @@ const mainNavItems = [
 const socialNavItems = [
   { url: 'https://github.com/astridx', label: 'GitHub' },
   {
-    url: 'https://twitter.com/astridguenther',
-    label: 'Twitter',
+    url: 'https://fimidi.com/@astrid',
+    label: 'Mastodon',
   },
   {
-    url: 'https://www.facebook.com/astrid.guenther.16',
-    label: 'Facebook',
+    url: 'https://codeberg.org/astrid',
+    label: 'Codeberg',
   },
 ]
 
