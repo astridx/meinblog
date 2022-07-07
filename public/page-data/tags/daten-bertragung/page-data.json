@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/daten-bertragung/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"id":"aa05a673-518c-5cc3-93bc-234e8edfa8f0","fields":{"slug":"/daten-in-pakete-packen/"},"frontmatter":{"date":"July 06, 2022","title":"Daten zum Austausch über das Internet in Pakete packen","tags":["Paket","Daten","Datenübertragung","Schichtenmodell","Datenübertragung"],"categories":["Internet"]}}},{"node":{"id":"f9ac64ac-1ed8-5265-9385-8221857d1811","fields":{"slug":"/en/daten-in-pakete-packen/"},"frontmatter":{"date":"July 06, 2022","title":"Putting data into packets for sharing over the internet","tags":["Paket","Daten","Datenübertragung","Schichtenmodell","Datenübertragung"],"categories":["Internet"]}}}]}},"pageContext":{"tag":"Datenübertragung"}},
+    "staticQueryHashes": ["352937542"]}

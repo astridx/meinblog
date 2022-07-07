@@ -65,4 +65,4 @@ There is no one Mastodon provider. This is similar to other open source software
 
 An overview of the possible instances can be found at instances.social[^instances.social].
 
-If you are looking for me, you can find me at @astrid@fimidi.com.
+If you are looking for me, you can find me at https://fimidi.com/@astrid as @astrid@fimidi.com.

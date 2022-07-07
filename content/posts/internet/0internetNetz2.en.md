@@ -42,10 +42,12 @@ A node on the internet needs an internet address. The network card of a computer
 
 A fixed MAC identifies a device and thus, under certain circumstances, a person. Although not necessary, it is possible to read MAC addresses outside the local network and get information such as the location of the device. For this reason, hardware has been available whose MAC address can be changed by software or is assigned dynamically. 
 
+> Wi-Fi hotspot tracking: Wi-Fi hotspots are able to track the location of a device. This is also the case when it does not connect to them. At least when the mobile phone or computer sends a unique MAC address.
+
 ## Access authorisation to the network
 
 The connection to the Internet is usually made by Ethernet cable or WLAN via a router located in one's own home. Alternatively, a connection via the mobile network or a satellite network is possible. In any case, an Internet address is necessary in addition to the MAC address. This is assigned via DHCP [^en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol] after one has proven oneself to be authorised - usually on the basis of access data such as user and password. 
 
 In concrete terms, the following happens after a successful access check:
-- The router assigns a network address to the network device.
+- The router identifies the network device by its MAC address and assigns an IP address for external communication via DHCP.
 - The router informs the network device of the default gateway via which the device can communicate with other networks - usually the Internet.

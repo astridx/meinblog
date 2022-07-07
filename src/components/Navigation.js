@@ -46,9 +46,7 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
               </Link>
             ))}
           </nav>
-        </div>
-        <div className="toolbar-section">
-          <nav className="social-nav">
+          <nav>
             {socialNavItems.map((item) => (
               <a
                 href={item.url}
@@ -60,10 +58,10 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
               </a>
             ))}
           </nav>
-          <button onClick={onUpdateTheme} className="theme-switcher">
+        </div>
+        <button onClick={onUpdateTheme} className="theme-switcher">
             Dark/Light
           </button>
-        </div>
       </div>
     </header>
   )

@@ -42,10 +42,12 @@ Ein Knoten im Internet braucht eine Internetadresse. Die Netzwerkkarte eines Com
 
 Eine fest eingestellte MAC identifiziert ein Gerät und damit unter Umständen auch eine Person. Obwohl nicht notwendig, ist es möglich, MAC-Adressen außerhalb des lokalen Netzes auszulesen und Informationen wie den Standort des Geräts zu erhalten. Aus diesem Grund gibt es seit einigen Jahren Hardware, deren MAC-Adresse per Software verändert werden kann oder dynamisch vergeben wird. 
 
+> Wi-Fi-Hotspot-Verfolgung: Wi-Fi-Hotspots ist es möglich, den Standort eines Gerätes zu verfolgen. Das gilt auch dann, wenn es sich nicht mit ihnen verbindet. Zumindest dann, wenn das Handy oder der Computer eine eindeutige MAC-Adresse sendet.
+
 ## Zugangsberechtigung zum Netz
 
 Die Verbindung zum Internet erfolgt in der Regel per Ethernet-Kabel oder WLAN über einen Router, der sich in der eigenen Wohnung befindet. Alternativ ist eine Verbindung über das Mobilfunknetz oder ein Satellitennetz denkbar. In jedem Fall ist neben der MAC-Adresse eine Internetadresse notwendig. Diese wird über DHCP [^en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol] zugewiesen, nachdem man sich als autorisiert ausgewiesen hat - meist anhand von Zugangsdaten wie Benutzer und Passwort. 
 
 Konkret geschieht nach erfolgreicher Zugangsprüfung folgendes:
-- Der Router weist dem Netzwerkgerät eine Netzwerkadresse zu.
+- Der Router identifiziert das Netzwerkgerät anhand seiner MAC-Adresse und weist ihm über DHCP eine IP-Adresse für die externe Kommunikation zu.
 - Der Router teilt dem Netzgerät das Standard-Gateway mit, über das das Gerät mit anderen Netzen - meist dem Internet - kommunizieren kann.

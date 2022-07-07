@@ -1,4 +1,356 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 06 Jul 2022 19:21:47 GMT</lastBuildDate><item><title><![CDATA[Central and decentralised social networks]]></title><description><![CDATA[Like any network, social networks are organised differentially.  Central In centrally set up social networks, all news and media are in one…]]></description><link>https://blog.astrid-guenther.de/en/soziale-netze/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/soziale-netze/</guid><pubDate>Tue, 05 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Like any network, social networks are organised differentially.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Astrid Günther | RSS Feed]]></title><description><![CDATA[Autorin und Softwareentwicklerin. Das ist mein digitaler Garten..]]></description><link>https://blog.astrid-guenther.de</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 07 Jul 2022 19:23:17 GMT</lastBuildDate><item><title><![CDATA[Daten zum Austausch über das Internet in Pakete packen]]></title><description><![CDATA[Netzknoten und Verbindungen im Internet existieren nicht um ihrer selbst willen. Menschen nutzen das Netz, um miteinander zu kommunizieren…]]></description><link>https://blog.astrid-guenther.de/daten-in-pakete-packen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/daten-in-pakete-packen/</guid><pubDate>Wed, 06 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Netzknoten und Verbindungen im Internet existieren nicht um ihrer selbst willen. Menschen nutzen das Netz, um miteinander zu kommunizieren. Was in der Realität möglich ist, geschieht auch digital. Arbeiten, Spielen, Kommunizieren zum Zeitvertreib sind nur einige Beispiele.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bca2c737a1e1bc824b594ae020e3c4ec/05244/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABjElEQVQ4y3WT6Y7CMAyE+/7PBT8QCFrEfd9XC+K+YVafpbBtl7UUJXHs8XiSeI1GQ0EQqFKpqN/vq1qtqtvtyvd9ccbM+X6/F/Z+v23E1/G9l8vllMlk1Ov1VCwWDaTZbKpQKCibzarValng6/VKADgQZ27vAQSzfD6vWq2m6XSq0WikUqlkBU6nk/6z2Wxm8S7GGDrk1Wql8Xis9XqtMAz1eDzMT0EY1+t1K3y/3+0M/3a71W63SxT9AF4uFx0OBwNDhuPxaP7b7abz+WznJAL2fD5NZ/wYPtYMzzlgiPAwXCwWiqLIQAEcDodqt9sql8um6fV6tVhY0jbx8/ncGH8Ykoh2JE8mEwtkhpm7FCcDxh5gfMRQIAFIAPrEb4/W3HOhA9qEFWvABoOBEUB7GG42m19A0Alw9F0gLAGFBRfAoDgzBdLmxd8QiYA5ABIx9AScS3FacvN0kH7gXvyVfzPnB8wPAnU6HRt09O3nJBimf0L6V6Ax2oVh9Ccn0fJ/9i2J17BcLj9ypAF/APrX5ExTTIsSAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Daten zum Austausch über das Internet in Pakete packen&quot;
+        title=&quot;Daten zum Austausch über das Internet in Pakete packen&quot;
+        src=&quot;/static/bca2c737a1e1bc824b594ae020e3c4ec/5a190/2.png&quot;
+        srcset=&quot;/static/bca2c737a1e1bc824b594ae020e3c4ec/772e8/2.png 200w,
+/static/bca2c737a1e1bc824b594ae020e3c4ec/e17e5/2.png 400w,
+/static/bca2c737a1e1bc824b594ae020e3c4ec/5a190/2.png 800w,
+/static/bca2c737a1e1bc824b594ae020e3c4ec/c1b63/2.png 1200w,
+/static/bca2c737a1e1bc824b594ae020e3c4ec/29007/2.png 1600w,
+/static/bca2c737a1e1bc824b594ae020e3c4ec/05244/2.png 1752w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;pakete-packen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#pakete-packen&quot; aria-label=&quot;pakete packen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pakete packen&lt;/h2&gt;
+&lt;p&gt;Alle Aktivitäten im Netz geschehen durch den Austausch von Daten. Dies sind zum Beispiel Texte, Bilder, Videos oder Töne. Zur Übertragung werden diese in eine einheitliche Form gebracht. Das Ergebnis ist ein Paket.&lt;/p&gt;
+&lt;p&gt;Wie ein Datenpaket gepackt wird, ist in Protokollen[^de.wikipedia.org/wiki/Netzwerkprotokoll] geregelt. Meistens passt nicht alles in ein Paket, deshalb definieren Protokolle zusätzlich Regeln, wie die Daten aufzuteilen sind.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warum gibt es ein Netzwerkprotokoll? Damit alle Netzwerkgeräte miteinander kommunizieren können, ist es notwendig, dass sie sich gegenseitig verstehen. Dies wird durch die Protokolle gewährleistet. Ähnlich wie beim Erlernen einer Sprache legen sie Grammatiken und Bedeutungen fest, innerhalb derer Daten ausgetauscht werden. Jeder, der diese lernt, kann mitreden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ein typisches Datenpaket besteht aus&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;den eigentlichen Daten,&lt;/li&gt;
+&lt;li&gt;Adressinformationen und&lt;/li&gt;
+&lt;li&gt;Informationen über die gepackten Pakete wie
+&lt;ul&gt;
+&lt;li&gt;Inhalt,&lt;/li&gt;
+&lt;li&gt;Größe,&lt;/li&gt;
+&lt;li&gt;Sequenznummer,&lt;/li&gt;
+&lt;li&gt;Gesamtzahl der Pakete und einer&lt;/li&gt;
+&lt;li&gt;Prüfsumme.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Alles wird gemäß den Protokoll-Regeln zusammengepackt. Die Informationen über die Pakete werden als Header vorangestellt. Eine Prüfsumme stellt sicher, dass alles korrekt ankommt.&lt;/p&gt;
+&lt;h2 id=&quot;inhalt-und-form-der-netzwerkpakete&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#inhalt-und-form-der-netzwerkpakete&quot; aria-label=&quot;inhalt und form der netzwerkpakete permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Inhalt und Form der Netzwerkpakete&lt;/h2&gt;
+&lt;p&gt;Wenn meine Tochter ein Foto ihrer Katze an ihre Freundin schickt, macht sie sich keine Gedanken darüber, wie genau das geschieht. Wie durch ein Wunder gelangen Farben und Formen an ihr Ziel&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;per Mobiltelefon durch die Luft oder&lt;/li&gt;
+&lt;li&gt;über ein Kabel, vom Computer aus.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;.
+Doch ein Computer ist ziemlich begrenzt. Er kann addieren und vergleichen, einfallsreicher ist er nicht. Deshalb sind zwei Zustände das Einzige, was er verarbeiten kann. Diese werden oft mit 1 und 0 dargestellt oder&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;im Kupferkabel mit Strom oder ohne Strom,&lt;/li&gt;
+&lt;li&gt;in der Glasfaser mit Licht oder kein Licht,&lt;/li&gt;
+&lt;li&gt;in der Luft per Radiowelle[^de.wikipedia.org/wiki/radio-wave] mit Wellensignal oder ohne.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alle von Computern verarbeiteten Informationen bestehen im Rohzustand aus zwei verschiedenen Signalen. Dies gilt gleichermaßen für Datenpakete.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;der-übertragungsprozess-in-der-übersicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#der-%C3%BCbertragungsprozess-in-der-%C3%BCbersicht&quot; aria-label=&quot;der übertragungsprozess in der übersicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Der Übertragungsprozess in der Übersicht&lt;/h2&gt;
+&lt;p&gt;Ein komplexer Prozess ist leichter zu verstehen, wenn man ihn aufteilt. Für die Übertragung im Internet gibt es eine Reihe von Modellen, die die Übermittlung in Schichten unterteilen. Zum Beispiel das TCP/IP-Referenzmodell[^de.wikipedia.org/wiki/Internetprotokollfamilie], das mit vier Schichten arbeitet.&lt;/p&gt;
+&lt;h3 id=&quot;anwendungsschicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#anwendungsschicht&quot; aria-label=&quot;anwendungsschicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Anwendungsschicht&lt;/h3&gt;
+&lt;p&gt;Die Hauptaufgabe der Anwendungsschicht besteht darin, Daten an die Transportschicht weiterzuleiten. Nina klickt im Chatprogramm auf Senden, um das Foto ihrer Katze an ihre Freundin zu schicken und veranlasst so, dass das Chatprogramm die Daten an die Transportschicht zu übergeben.&lt;/p&gt;
+&lt;h3 id=&quot;transportschicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#transportschicht&quot; aria-label=&quot;transportschicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Transportschicht&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nur sehr wenige Nutzer sind sich der Protokolle bewusst. Sie sind nicht sichtbar und werden nicht bewusst installiert. Sie sind Teil des Betriebssystems eines jeden internettauglichen Geräts.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Die Transportschicht teilt die übermittelten Daten in Pakete auf und fügt die Header-Informationen hinzu. Das Foto ist nun nicht mehr &lt;code class=&quot;language-text&quot;&gt;eine einzige&lt;/code&gt; Folge von Nullen und Einsen. Die Transportschicht leitet &lt;code class=&quot;language-text&quot;&gt;mehrere&lt;/code&gt; aus Nullen und Einsen bestehende Pakete mit beschreibenden Header-Informationen an die Internet-Schicht weiter.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warum werden die Daten für die Übertragung in einzelne, kleinere Datenpakete zerlegt? Die Aufteilung in mehrere Pakete hat den Vorteil, dass sie unabhängig voneinander gesendet werden. Wenn es ein Problem bei der Datenübertragung gibt, reicht es aus, nur den vom Fehler betroffenen Teil nochmals zu senden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;internet-schicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#internet-schicht&quot; aria-label=&quot;internet schicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Internet-Schicht&lt;/h3&gt;
+&lt;p&gt;Verantwortlich für die korrekte Adressierung ist die Internet-Schicht. Hier wird der Paketkopf um die IP-Ursprungs- und Zieladresse ergänzt. Der Weg der Pakete wird ebenfalls in dieser Schicht bestimmt. Viele Aufgaben werden von Routern erledigt.&lt;/p&gt;
+&lt;h3 id=&quot;netzzugangsschicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#netzzugangsschicht&quot; aria-label=&quot;netzzugangsschicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Netzzugangsschicht&lt;/h3&gt;
+&lt;p&gt;Die eigentliche Datenübertragung findet in der Netzzugangsschicht statt. Je nach Medium entweder in Form von Licht, als Funkwelle oder als elektrisches Signal.&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Putting data into packets for sharing over the internet]]></title><description><![CDATA[Netzknoten und Verbindungen im Internet existieren nicht um ihrer selbst willen. Menschen nutzen das Netz, um miteinander zu kommunizieren…]]></description><link>https://blog.astrid-guenther.de/en/daten-in-pakete-packen/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/daten-in-pakete-packen/</guid><pubDate>Wed, 06 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Netzknoten und Verbindungen im Internet existieren nicht um ihrer selbst willen. Menschen nutzen das Netz, um miteinander zu kommunizieren. Was in der Realität möglich ist, geschieht auch digital. Arbeiten, Spielen, Kommunizieren zum Zeitvertreib sind nur einige Beispiele.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/101a1eb6679f1a8e71f94472f818521a/05244/2.en.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABiklEQVQ4y32T167CMBBE/f/fxRNFAhJK6B0SakKve3VWshUCl5Us22t7ZrbY+L4v5XJZSqWSsO50OlKr1WS5XEraXq/Xx5we1mcA8zxPQavVqhQKBcnlcrJareT5fMrlctH5G8A3QoMa1M3nc2k0GjIYDFQl4Pl8Xvff7Hg8ymQykdlspqROIewYisbjsWy3W9lsNnK/39XfbDY1gl6vJ0EQyPl8Vn+xWFQw9rfbzREZu+AA1jiOVdl+v3dKDoeDquChDe3xeLg98+l00qGAqKEIu91OB2tSgGrOhsOhtNttqVQq0mq1FJwoUM29MAx15q2xjLDwcDQaudwwo5w7pMamweYLYHzcSZLkHZAH6ZCsj4tYFEWqqN/v6xowCoYIco9CVDtA0KkuCheLhbuISkBRQQoYECdJLN1u96P6Jt1DPATMAtj+W6/Xqo5eJYf0ar1e18Jkm9xkf8B/DUu1Pc9Xwul0qu2VBnN9+Os7ZX8GoQIchtEbYVqMkR+WJcKu16uEUST2Q2QB/wBAk+ZWQ1/SawAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Daten zum Austausch über das Internet in Pakete packen&quot;
+        title=&quot;Daten zum Austausch über das Internet in Pakete packen&quot;
+        src=&quot;/static/101a1eb6679f1a8e71f94472f818521a/5a190/2.en.png&quot;
+        srcset=&quot;/static/101a1eb6679f1a8e71f94472f818521a/772e8/2.en.png 200w,
+/static/101a1eb6679f1a8e71f94472f818521a/e17e5/2.en.png 400w,
+/static/101a1eb6679f1a8e71f94472f818521a/5a190/2.en.png 800w,
+/static/101a1eb6679f1a8e71f94472f818521a/c1b63/2.en.png 1200w,
+/static/101a1eb6679f1a8e71f94472f818521a/29007/2.en.png 1600w,
+/static/101a1eb6679f1a8e71f94472f818521a/05244/2.en.png 1752w&quot;
+        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;pakete-packen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#pakete-packen&quot; aria-label=&quot;pakete packen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pakete packen&lt;/h2&gt;
+&lt;p&gt;Alle Aktivitäten im Netz geschehen durch den Austausch von Daten. Dies sind zum Beispiel Texte, Bilder, Videos oder Töne. Zur Übertragung werden diese in eine einheitliche Form gebracht. Das Ergebnis ist ein Paket.&lt;/p&gt;
+&lt;p&gt;Wie ein Datenpaket gepackt wird, ist in Protokollen[^de.wikipedia.org/wiki/Netzwerkprotokoll] geregelt. Meistens passt nicht alles in ein Paket, deshalb definieren Protokolle zusätzlich Regeln, wie die Daten aufzuteilen sind.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warum gibt es ein Netzwerkprotokoll? Damit alle Netzwerkgeräte miteinander kommunizieren können, ist es notwendig, dass sie sich gegenseitig verstehen. Dies wird durch die Protokolle gewährleistet. Ähnlich wie beim Erlernen einer Sprache legen sie Grammatiken und Bedeutungen fest, innerhalb derer Daten ausgetauscht werden. Jeder, der diese lernt, kann mitreden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ein typisches Datenpaket besteht aus&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;den eigentlichen Daten,&lt;/li&gt;
+&lt;li&gt;Adressinformationen und&lt;/li&gt;
+&lt;li&gt;Informationen über die gepackten Pakete wie
+&lt;ul&gt;
+&lt;li&gt;Inhalt,&lt;/li&gt;
+&lt;li&gt;Größe,&lt;/li&gt;
+&lt;li&gt;Sequenznummer,&lt;/li&gt;
+&lt;li&gt;Gesamtzahl der Pakete und einer&lt;/li&gt;
+&lt;li&gt;Prüfsumme.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Alles wird gemäß den Protokoll-Regeln zusammengepackt. Die Informationen über die Pakete werden als Header vorangestellt. Eine Prüfsumme stellt sicher, dass alles korrekt ankommt.&lt;/p&gt;
+&lt;h2 id=&quot;inhalt-und-form-der-netzwerkpakete&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#inhalt-und-form-der-netzwerkpakete&quot; aria-label=&quot;inhalt und form der netzwerkpakete permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Inhalt und Form der Netzwerkpakete&lt;/h2&gt;
+&lt;p&gt;Wenn meine Tochter ein Foto ihrer Katze an ihre Freundin schickt, macht sie sich keine Gedanken darüber, wie genau das geschieht. Wie durch ein Wunder gelangen Farben und Formen an ihr Ziel&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;per Mobiltelefon durch die Luft oder&lt;/li&gt;
+&lt;li&gt;über ein Kabel, vom Computer aus.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;.
+Doch ein Computer ist ziemlich begrenzt. Er kann addieren und vergleichen, einfallsreicher ist er nicht. Deshalb sind zwei Zustände das Einzige, was er verarbeiten kann. Diese werden oft mit 1 und 0 dargestellt oder&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;im Kupferkabel mit Strom oder ohne Strom,&lt;/li&gt;
+&lt;li&gt;in der Glasfaser mit Licht oder kein Licht,&lt;/li&gt;
+&lt;li&gt;in der Luft per Radiowelle[^de.wikipedia.org/wiki/radio-wave] mit Wellensignal oder ohne.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Alle von Computern verarbeiteten Informationen bestehen im Rohzustand aus zwei verschiedenen Signalen. Dies gilt gleichermaßen für Datenpakete.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;der-übertragungsprozess-in-der-übersicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#der-%C3%BCbertragungsprozess-in-der-%C3%BCbersicht&quot; aria-label=&quot;der übertragungsprozess in der übersicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Der Übertragungsprozess in der Übersicht&lt;/h2&gt;
+&lt;p&gt;Ein komplexer Prozess ist leichter zu verstehen, wenn man ihn aufteilt. Für die Übertragung im Internet gibt es eine Reihe von Modellen, die die Übermittlung in Schichten unterteilen. Zum Beispiel das TCP/IP-Referenzmodell[^de.wikipedia.org/wiki/Internetprotokollfamilie], das mit vier Schichten arbeitet.&lt;/p&gt;
+&lt;h3 id=&quot;anwendungsschicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#anwendungsschicht&quot; aria-label=&quot;anwendungsschicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Anwendungsschicht&lt;/h3&gt;
+&lt;p&gt;Die Hauptaufgabe der Anwendungsschicht besteht darin, Daten an die Transportschicht weiterzuleiten. Nina klickt im Chatprogramm auf Senden, um das Foto ihrer Katze an ihre Freundin zu schicken und veranlasst so, dass das Chatprogramm die Daten an die Transportschicht zu übergeben.&lt;/p&gt;
+&lt;h3 id=&quot;transportschicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#transportschicht&quot; aria-label=&quot;transportschicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Transportschicht&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Nur sehr wenige Nutzer sind sich der Protokolle bewusst. Sie sind nicht sichtbar und werden nicht bewusst installiert. Sie sind Teil des Betriebssystems eines jeden internettauglichen Geräts.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Die Transportschicht teilt die übermittelten Daten in Pakete auf und fügt die Header-Informationen hinzu. Das Foto ist nun nicht mehr &lt;code class=&quot;language-text&quot;&gt;eine einzige&lt;/code&gt; Folge von Nullen und Einsen. Die Transportschicht leitet &lt;code class=&quot;language-text&quot;&gt;mehrere&lt;/code&gt; aus Nullen und Einsen bestehende Pakete mit beschreibenden Header-Informationen an die Internet-Schicht weiter.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Warum werden die Daten für die Übertragung in einzelne, kleinere Datenpakete zerlegt? Die Aufteilung in mehrere Pakete hat den Vorteil, dass sie unabhängig voneinander gesendet werden. Wenn es ein Problem bei der Datenübertragung gibt, reicht es aus, nur den vom Fehler betroffenen Teil nochmals zu senden.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;internet-schicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#internet-schicht&quot; aria-label=&quot;internet schicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Internet-Schicht&lt;/h3&gt;
+&lt;p&gt;Verantwortlich für die korrekte Adressierung ist die Internet-Schicht. Hier wird der Paketkopf um die IP-Ursprungs- und Zieladresse ergänzt. Der Weg der Pakete wird ebenfalls in dieser Schicht bestimmt. Viele Aufgaben werden von Routern erledigt.&lt;/p&gt;
+&lt;h3 id=&quot;netzzugangsschicht&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#netzzugangsschicht&quot; aria-label=&quot;netzzugangsschicht permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Netzzugangsschicht&lt;/h3&gt;
+&lt;p&gt;Die eigentliche Datenübertragung findet in der Netzzugangsschicht statt. Je nach Medium entweder in Form von Licht, als Funkwelle oder als elektrisches Signal.&lt;/p&gt;
+&lt;style class=&quot;grvsc-styles&quot;&gt;
+  .grvsc-container {
+    overflow: auto;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    padding-top: 1rem;
+    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
+    padding-bottom: 1rem;
+    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
+    border-radius: 8px;
+    border-radius: var(--grvsc-border-radius, 8px);
+    font-feature-settings: normal;
+    line-height: 1.4;
+  }
+  
+  .grvsc-code {
+    display: table;
+  }
+  
+  .grvsc-line {
+    display: table-row;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+  }
+  
+  .grvsc-line &gt; * {
+    position: relative;
+  }
+  
+  .grvsc-gutter-pad {
+    display: table-cell;
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  .grvsc-gutter {
+    display: table-cell;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter::before {
+    content: attr(data-content);
+  }
+  
+  .grvsc-source {
+    display: table-cell;
+    padding-left: 1.5rem;
+    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
+    padding-right: 1.5rem;
+    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
+  }
+  
+  .grvsc-source:empty::after {
+    content: &apos; &apos;;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  
+  .grvsc-gutter + .grvsc-source {
+    padding-left: 0.75rem;
+    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
+  }
+  
+  /* Line transformer styles */
+  
+  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
+    content: &apos; &apos;;
+    position: absolute;
+    width: 100%;
+  }
+  
+  .grvsc-line-diff-add::before {
+    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
+  }
+  
+  .grvsc-line-diff-del::before {
+    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
+  }
+  
+  .grvsc-line-number {
+    padding: 0 2px;
+    text-align: right;
+    opacity: 0.7;
+  }
+  
+&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Central and decentralised social networks]]></title><description><![CDATA[Like any network, social networks are organised differentially.  Central In centrally set up social networks, all news and media are in one…]]></description><link>https://blog.astrid-guenther.de/en/soziale-netze/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/en/soziale-netze/</guid><pubDate>Tue, 05 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Like any network, social networks are organised differentially.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
@@ -60,7 +412,7 @@
 &lt;p&gt;Mastodon is a software in the Fediverse similar to the popular central provider Twitter. Some things are called differently. Instead of tweeting, it tröts. Otherwise, there are many things in common: for example, hashtags, sharing, liking, followers and short messages.&lt;/p&gt;
 &lt;p&gt;There is no one Mastodon provider. This is similar to other open source software: there is not one Joomla, but many installations of Joomla on different servers managed by different people. Usually, the first thing you discover is one of the large Mastodon instances. In terms of decentralisation, it makes more sense to choose the provider carefully.&lt;/p&gt;
 &lt;p&gt;An overview of the possible instances can be found at instances.social[^instances.social].&lt;/p&gt;
-&lt;p&gt;If you are looking for me, you can find me at @&lt;a href=&quot;mailto:astrid@fimidi.com&quot;&gt;astrid@fimidi.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you are looking for me, you can find me at &lt;a href=&quot;https://fimidi.com/@astrid&quot;&gt;https://fimidi.com/@astrid&lt;/a&gt; as @&lt;a href=&quot;mailto:astrid@fimidi.com&quot;&gt;astrid@fimidi.com&lt;/a&gt;.&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;
@@ -212,7 +564,7 @@
 &lt;p&gt;Mastodon ist eine Software im Fediversum, die dem beliebten zentralen Anbieter Twitter ähnelt. Einige Dinge werden anders genannt. Anstatt zu twittern, wird getrötet. Ansonsten gibt es viele Ähnlichkeiten: zum Beispiel Hashtags, Teilen, Liken, Follower und Kurznachrichten.&lt;/p&gt;
 &lt;p&gt;Was es nicht gibt: Es gibt nicht den einen Mastodon-Anbieter. Das ist ähnlich wie bei anderer Open-Source-Software: Es gibt nicht ein Joomla, sondern viele Installationen von Joomla auf verschiedenen Servern, die von verschiedenen Leuten verwaltet werden. Normalerweise entdeckt man als erstes eine der großen Mastodon-Instanzen. Im Sinne der Dezentralisierung ist es sinnvoller, den Anbieter sorgfältig auszuwählen.&lt;/p&gt;
 &lt;p&gt;Eine Übersicht über die möglichen Instanzen gibt es unter instances.social[^instances.social].&lt;/p&gt;
-&lt;p&gt;Wer nach mir sucht, findet mich unter @&lt;a href=&quot;mailto:astrid@fimidi.com&quot;&gt;astrid@fimidi.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Wer nach mir sucht, findet mich unter &lt;a href=&quot;https://fimidi.com/@astrid&quot;&gt;https://fimidi.com/@astrid&lt;/a&gt; als @&lt;a href=&quot;mailto:astrid@fimidi.com&quot;&gt;astrid@fimidi.com&lt;/a&gt;.&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;
@@ -355,11 +707,14 @@
 &lt;p&gt;In the mobile network, the &lt;code class=&quot;language-text&quot;&gt;IMAEI&lt;/code&gt; takes the place of the MAC [^en.wikipedia.org/wiki/International_Mobile_Equipment_Identity]. The &lt;code class=&quot;language-text&quot;&gt;international Mobile Station Equipment Identity (IMEI)&lt;/code&gt; is a unique 15-digit serial number used to identify each GSM or UMTS terminal.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;A fixed MAC identifies a device and thus, under certain circumstances, a person. Although not necessary, it is possible to read MAC addresses outside the local network and get information such as the location of the device. For this reason, hardware has been available whose MAC address can be changed by software or is assigned dynamically.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Wi-Fi hotspot tracking: Wi-Fi hotspots are able to track the location of a device. This is also the case when it does not connect to them. At least when the mobile phone or computer sends a unique MAC address.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&quot;access-authorisation-to-the-network&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#access-authorisation-to-the-network&quot; aria-label=&quot;access authorisation to the network permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Access authorisation to the network&lt;/h2&gt;
 &lt;p&gt;The connection to the Internet is usually made by Ethernet cable or WLAN via a router located in one&apos;s own home. Alternatively, a connection via the mobile network or a satellite network is possible. In any case, an Internet address is necessary in addition to the MAC address. This is assigned via DHCP [^en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol] after one has proven oneself to be authorised - usually on the basis of access data such as user and password.&lt;/p&gt;
 &lt;p&gt;In concrete terms, the following happens after a successful access check:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;The router assigns a network address to the network device.&lt;/li&gt;
+&lt;li&gt;The router identifies the network device by its MAC address and assigns an IP address for external communication via DHCP.&lt;/li&gt;
 &lt;li&gt;The router informs the network device of the default gateway via which the device can communicate with other networks - usually the Internet.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
@@ -504,11 +859,14 @@
 &lt;p&gt;Im Mobilfunknetz tritt die &lt;code class=&quot;language-text&quot;&gt;IMAEI&lt;/code&gt; an die Stelle der MAC[^de.wikipedia.org/wiki/International_Mobile_Equipment_Identity]. Die &lt;code class=&quot;language-text&quot;&gt;internationale Mobile Station Equipment Identity (IMEI)&lt;/code&gt; ist eine eindeutige 15-stellige Seriennummer, die zur Identifizierung jedes GSM- oder UMTS-Endgeräts verwendet wird.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Eine fest eingestellte MAC identifiziert ein Gerät und damit unter Umständen auch eine Person. Obwohl nicht notwendig, ist es möglich, MAC-Adressen außerhalb des lokalen Netzes auszulesen und Informationen wie den Standort des Geräts zu erhalten. Aus diesem Grund gibt es seit einigen Jahren Hardware, deren MAC-Adresse per Software verändert werden kann oder dynamisch vergeben wird.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Wi-Fi-Hotspot-Verfolgung: Wi-Fi-Hotspots ist es möglich, den Standort eines Gerätes zu verfolgen. Das gilt auch dann, wenn es sich nicht mit ihnen verbindet. Zumindest dann, wenn das Handy oder der Computer eine eindeutige MAC-Adresse sendet.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&quot;zugangsberechtigung-zum-netz&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#zugangsberechtigung-zum-netz&quot; aria-label=&quot;zugangsberechtigung zum netz permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Zugangsberechtigung zum Netz&lt;/h2&gt;
 &lt;p&gt;Die Verbindung zum Internet erfolgt in der Regel per Ethernet-Kabel oder WLAN über einen Router, der sich in der eigenen Wohnung befindet. Alternativ ist eine Verbindung über das Mobilfunknetz oder ein Satellitennetz denkbar. In jedem Fall ist neben der MAC-Adresse eine Internetadresse notwendig. Diese wird über DHCP [^en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol] zugewiesen, nachdem man sich als autorisiert ausgewiesen hat - meist anhand von Zugangsdaten wie Benutzer und Passwort.&lt;/p&gt;
 &lt;p&gt;Konkret geschieht nach erfolgreicher Zugangsprüfung folgendes:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Der Router weist dem Netzwerkgerät eine Netzwerkadresse zu.&lt;/li&gt;
+&lt;li&gt;Der Router identifiziert das Netzwerkgerät anhand seiner MAC-Adresse und weist ihm über DHCP eine IP-Adresse für die externe Kommunikation zu.&lt;/li&gt;
 &lt;li&gt;Der Router teilt dem Netzgerät das Standard-Gateway mit, über das das Gerät mit anderen Netzen - meist dem Internet - kommunizieren kann.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
@@ -8268,1629 +8626,6 @@
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;style class=&quot;grvsc-styles&quot;&gt;
-  .grvsc-container {
-    overflow: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    padding-top: 1rem;
-    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
-    padding-bottom: 1rem;
-    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
-    border-radius: 8px;
-    border-radius: var(--grvsc-border-radius, 8px);
-    font-feature-settings: normal;
-    line-height: 1.4;
-  }
-  
-  .grvsc-code {
-    display: table;
-  }
-  
-  .grvsc-line {
-    display: table-row;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-  }
-  
-  .grvsc-line &gt; * {
-    position: relative;
-  }
-  
-  .grvsc-gutter-pad {
-    display: table-cell;
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  .grvsc-gutter {
-    display: table-cell;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter::before {
-    content: attr(data-content);
-  }
-  
-  .grvsc-source {
-    display: table-cell;
-    padding-left: 1.5rem;
-    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
-    padding-right: 1.5rem;
-    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
-  }
-  
-  .grvsc-source:empty::after {
-    content: &apos; &apos;;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter + .grvsc-source {
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  /* Line transformer styles */
-  
-  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
-    content: &apos; &apos;;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .grvsc-line-diff-add::before {
-    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
-  }
-  
-  .grvsc-line-diff-del::before {
-    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
-  }
-  
-  .grvsc-line-number {
-    padding: 0 2px;
-    text-align: right;
-    opacity: 0.7;
-  }
-  
-&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Allgemeines zu Joomla und Cassiopeia]]></title><description><![CDATA[Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen…]]></description><link>https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/allgemeines-zur-arbeit-mit-cassiopeia-und-joomla4/</guid><pubDate>Mon, 14 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Jeder Mensch hat seine Vorlieben. Ein Content Management System wie Joomla, kann nicht jede dieser Vorlieben erfüllen. Viele Funktionen werden so angeboten, wie es für die meisten Menschen gut ist. Bei der Arbeit mit Cassiopeia und Joomla gibt es Dinge, die man individuell für sich erweitern oder einstellen kann.&lt;/p&gt;
-&lt;h2 id=&quot;praxistipps&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#praxistipps&quot; aria-label=&quot;praxistipps permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Praxistipps&lt;/h2&gt;
-&lt;h2 id=&quot;joomla-login--und-logout-menüpunkte-umschalten&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-login--und-logout-men%C3%BCpunkte-umschalten&quot; aria-label=&quot;joomla login  und logout menüpunkte umschalten permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Login- und Logout-Menüpunkte umschalten&lt;/h2&gt;
-&lt;p&gt;Nachfolgend zeige ich dir, wie man einen Login-Menüpunkt erstellen, der nur Benutzern angezeigt wird, die noch nicht eingeloggt sind. Sobald sie sich angemeldet haben, sehen sie stattdessen den Menüpunkt &quot;Logout&quot;. Also: Wie richtet man Login- und Logout-Links in Joomla so ein, dass der Menüpunkt Login automatisch durch Logout ersetzt wird, sobald sich jemand eingeloggt hat, und umgekehrt?&lt;/p&gt;
-&lt;h3 id=&quot;login-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#login-link&quot; aria-label=&quot;login link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Login-Link&lt;/h3&gt;
-&lt;p&gt;Zuerst erstellen wir den Login. Öffne dazu den Menümanager über die linke Seitenleister. Öffne &lt;code class=&quot;language-text&quot;&gt;Menus | All Menu Items&lt;/code&gt; und klicke in der Werkzeugleiste die Schaltfläche &lt;code class=&quot;language-text&quot;&gt;New&lt;/code&gt; um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ &lt;code class=&quot;language-text&quot;&gt;User | Login Form&lt;/code&gt;. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe &lt;code class=&quot;language-text&quot;&gt;Public&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;Guest&lt;/code&gt; änderst. Dies bewirkt, dass der Menüpunkt nur &lt;em&gt;nicht&lt;/em&gt; angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcElEQVQoz5WSTWsUQRCG59+aCBI0ySEeBNn1EG/eBE/+Ee+CV4XN7jKBqODqznRPf0x/PzK9E0UUTAoeuvoteLurqObx8g0nz15x8vSSo9MFD5485/hs+QcPz19wfL78S5+0o7MFjy4uuXj5ltPFa5qQMiFTiRlSgcSBOOc2ZHwq9X6rpTmvZPAh4UKi6dRIP1h6qekHQy8N+14hlUUbVxFV11VTxiHVyKBH9OhR9oAZA0I7mqA0/uaG3cdP7FdrutUV3dUasd4gN1vEZovcHphy1bZ8ePeez6uWlDM5l19YF2mi80Tn+L77gegEUkiMNmil/8lU6/sBIRV2dNUopUxKs2GIiQJM533COo8PgVxKxXnPYEaaqVhK4fb8L7OhsRZtDTFFcsnshz3fRPfb8K5mJR06GX1AWzc/MLUb6NX8w3uF9yAl3lhGO80wV/nLTnD9taNJKdZZxJhI6Q5MM/Me117j25ZgLNMuG+vq2v0EXBTunilmqR0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Login - Logout | Login-Link erstellen&quot;
-        title=&quot;Login - Logout | Login-Link erstellen&quot;
-        src=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png&quot;
-        srcset=&quot;/static/d4c1f336e8ee109d08bed60ca0a8fb7e/772e8/login_logout1.png 200w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/e17e5/login_logout1.png 400w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/5a190/login_logout1.png 800w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/c1b63/login_logout1.png 1200w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/29007/login_logout1.png 1600w,
-/static/d4c1f336e8ee109d08bed60ca0a8fb7e/191e2/login_logout1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;logout-link&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#logout-link&quot; aria-label=&quot;logout link permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Logout-Link&lt;/h3&gt;
-&lt;p&gt;Als nächstes erstellen wir den Logout-Link. Du befindest dich noch im Menümanager, richtig? Anderfalls öffne diesen über &lt;code class=&quot;language-text&quot;&gt;Menus | All Menu Items&lt;/code&gt; in der linken Seitenleiste. Im Menümanger klicke in der Werkzeugleiste erneut die Schaltfläche &lt;code class=&quot;language-text&quot;&gt;New&lt;/code&gt; um einen neuen Menüpunkt zu erstellen. Wähle für den Menüpunkt den Typ &lt;code class=&quot;language-text&quot;&gt;User | Logout&lt;/code&gt;. Außerdem ist wichtig, dass du für den Zugriff die voreingestellte Gruppe &lt;code class=&quot;language-text&quot;&gt;Public&lt;/code&gt; mit &lt;code class=&quot;language-text&quot;&gt;Registert&lt;/code&gt; ersetzt. Dies bewirkt, dass der Menüpunkt nur angemeldeten Benutzern angezeigt wird. Wähle alle anderen Einstellungen so, wie es für deine Umgebung passt und speichere den Menüpunkt.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABdklEQVQoz5WSPW8UMRCG99+iSwEo5JBCQUEuRejokKj4I/RI9Cg5jqTIRSK53fV6vV5/jP0g714AiSb3So9mPLZfjTyujlefePH2Ay/fXLA4OePZ8TsWyxWLk9UclyuOluccvT7/s/53r9x5fnrB6fvPvDr7SOWi4CXhJOMlExLEDKGQ5jj4hHGCk319j0/zGS8wesF6odo1HbXqqZWmmWJPqbXaoI2daDrDru1puoHOOFo9ovoRbT3dMKNtoO0dVbjd4rd3PHy/pLlaU19eTagfG7pHNhv05ueUm+trvn35yu36BkmJnDIpZ1LKWBepog9E73m436FaRVO3dKpjMAOmN/9R6m2rUZ3Bjm4yEkmI7A1DjOTyJlE4RMXMeT93l/OU62GkKpu5OO7jUygarMXYgSiRlBK1rvmlmr+Gh1A0+oCxjvzYsStD2Xd4sJzD655x9NNgirb3ipu7hkok4kMgRkHkaaQYsev1NHFnLS54tDHT9/oNx2zt4hsnnO8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Login - Logout | Logout-Link erstellen&quot;
-        title=&quot;Login - Logout | Logout-Link erstellen&quot;
-        src=&quot;/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png&quot;
-        srcset=&quot;/static/71050e71724da505d5021f1c2ffe0790/772e8/login_logout2.png 200w,
-/static/71050e71724da505d5021f1c2ffe0790/e17e5/login_logout2.png 400w,
-/static/71050e71724da505d5021f1c2ffe0790/5a190/login_logout2.png 800w,
-/static/71050e71724da505d5021f1c2ffe0790/c1b63/login_logout2.png 1200w,
-/static/71050e71724da505d5021f1c2ffe0790/29007/login_logout2.png 1600w,
-/static/71050e71724da505d5021f1c2ffe0790/191e2/login_logout2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;teste-die-links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#teste-die-links&quot; aria-label=&quot;teste die links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Teste die Links&lt;/h3&gt;
-&lt;p&gt;Abschließend testen wir, ob alles richtig funktioniert. Siehst du den Login-Menüpunkt, wenn du die Website aufrufst? Ist gleichzeitig der Logout-Menüpunkt ausgeblendet? Erscheint der Logout-Menüpunkt, wenn man eingeloggt ist? Verschwindet nach dem erfolgreichen Anmelden der Login-Menüpunkt?&lt;/p&gt;
-&lt;p&gt;Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Einstellung in der globalen Konfiguration. Klicke dazu in der linken Seitenleiste &lt;code class=&quot;language-text&quot;&gt;System&lt;/code&gt; und dann im rechten Bereich den Link &lt;code class=&quot;language-text&quot;&gt;globale Konfiguration&lt;/code&gt;. Stelle sicher, dass &lt;code class=&quot;language-text&quot;&gt;Guest User Group&lt;/code&gt; mit &lt;code class=&quot;language-text&quot;&gt;Gast&lt;/code&gt; belegt ist.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz4WRT2sTURRH5wu4UFeuXNhtN66E6ro7Bb+CULE7I4m6UEw1UULcuKjYBlTEb6MrQXBTpaVSkmmSJpOZ9//IuzNpx4V44XAX896Z370vuXqrxc07T2k86bHRaLNxv83dB8/ZbHaEe80XNTpstjo8fDmg1d3lUe8Dre6Ax72PNLsDGu1tkkur6/TffiaW84FlaRtQxhMC+ApXdes81jmc99Qr3k8urqzx6s17vHcYY/E+EILHOM94ljFbFCjrhCgx1kq31uGcl/PlnUCuLMn5K2u0+zvyh3gofhC0Ro1SilGKSlN0eoyPEh8k2WmXtB5jHbmuhFv9HYL3aK1FLMLJlPnBIWY8xqTH6OGIYG05fpVKCGWP0kL/lTDIOMuK2yysozCWhdGYOBacSepU8qKe0FnLPMvkkiT0gSzuT2mG0xHZIi93XBMscfWEF1aus/V6txr17NWiVGmDNpaTxQytjcjCP4glwnOXr/Gs945pVvD75wHpcMI0U3JgNs9FGh8r8r9SxpGs3rhNf/sT+0cTvnzb4+v3fX78OpJHmp7MKZQSFnlBXpTE0eO+TzFWfhxX9AcrcdIQ0T2rgAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Login - Logout | Option Gast Gruppe&quot;
-        title=&quot;Login - Logout | Option Gast Gruppe&quot;
-        src=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png&quot;
-        srcset=&quot;/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/772e8/login_logout3.png 200w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/e17e5/login_logout3.png 400w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/5a190/login_logout3.png 800w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/c1b63/login_logout3.png 1200w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/29007/login_logout3.png 1600w,
-/static/3f2ab860e2c8f2c50ec8a7cb32dbebe3/191e2/login_logout3.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#editor-switcher--syntax-highlight-syntax-hervorhebung---indexeditorsyntax-hervorhebung------indexeditorswitcher------indexeditorsyntax-highlight---&quot; aria-label=&quot;editor switcher  syntax highlight syntax hervorhebung   indexeditorsyntax hervorhebung      indexeditorswitcher      indexeditorsyntax highlight    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Editor Switcher / Syntax Highlight (Syntax-Hervorhebung)&lt;!-- \index{Editor!Syntax-Hervorhebung} --&gt;&lt;!-- \index{Editor!Switcher} --&gt;&lt;!-- \index{Editor!Syntax Highlight} --&gt;&lt;/h2&gt;
-&lt;p&gt;Joomal bietet von Haus aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.&lt;/p&gt;
-&lt;p&gt;Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den &lt;a href=&quot;https://www.tiny.cloud/&quot;&gt;TinyMCE&lt;/a&gt;, weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Das macht es viel einfacher, alle HTML-Tags und CSS-Klassen zu lesen. Das Markup wird übersichtlich dargestellt. Syntax-Highlighting ist im &lt;a href=&quot;https://codemirror.net/&quot;&gt;Codemirror&lt;/a&gt;[^&lt;a href=&quot;https://codemirror.net/%5D&quot;&gt;https://codemirror.net/]&lt;/a&gt; umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.&lt;/p&gt;
-&lt;p&gt;Den Editor kann man in der globalen Konfiguration einstellen. Alternativ kann man ihn für einen Benutzer im Benutzer Manager individuell festlegen. Während der Eingabe eines Artikeltextes ist der Wechsel in die globale Konfiguration oder den Benutzermanager umständlich. Deshalb liebe ich das Plugin &lt;a href=&quot;https://github.com/Bakual/editors_switcher&quot;&gt;Editor Switcher von Bakual&lt;/a&gt;[^&lt;a href=&quot;https://github.com/bakual/editors_switcher%5D&quot;&gt;https://github.com/bakual/editors_switcher]&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Nach der Installation und Aktivierung, stelle ich bei meinem Benutzer den Switcher als Standard-Editior ein.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/eae199422aea6405b46846b64fb3f9fc/191e2/switcher_backend_user.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA80lEQVQoz63Q0UvDMBDH8f65DvTB4hBEELEi4psPvvgfbp1b16bJJbl8JW3FvbjqMPDhOEh+5K4oq3cu714pb585v35isaxYLB8PVJxdzXng4uaF8v6NopeAlUhjhM4FXEgTHapXUObFBBKUojM91gmtcXS9ID6MZKzeB0KIR/kQiVExzlPsW4MTjxNBxKMpEVWJ+lV1uHxMiIr4SJ62yGH5Uf6ldX4ICtOlb2nGGGjHQCGf1lja3uFjGnbxF3nfvZsCVROZn/bxmxF/Moy82VvqpifX/1DUB03dWHJ/qjFw17H6aFltOzaNoT7Retex3rZ8Ajsu7nUzM/ntAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Edit Style im Joomla Administrationsbereich&quot;
-        title=&quot;Editor Switcher | Edit Style im Joomla Administrationsbereich&quot;
-        src=&quot;/static/eae199422aea6405b46846b64fb3f9fc/5a190/switcher_backend_user.png&quot;
-        srcset=&quot;/static/eae199422aea6405b46846b64fb3f9fc/772e8/switcher_backend_user.png 200w,
-/static/eae199422aea6405b46846b64fb3f9fc/e17e5/switcher_backend_user.png 400w,
-/static/eae199422aea6405b46846b64fb3f9fc/5a190/switcher_backend_user.png 800w,
-/static/eae199422aea6405b46846b64fb3f9fc/c1b63/switcher_backend_user.png 1200w,
-/static/eae199422aea6405b46846b64fb3f9fc/29007/switcher_backend_user.png 1600w,
-/static/eae199422aea6405b46846b64fb3f9fc/191e2/switcher_backend_user.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Daraufhin ist es während des Schreibens eines Textes im Artikel Manager möglich, den Editor zu wechseln. Ein wechseln in einen anderen Konfigurationsbereich ist nicht erforderlich. Lediglich ein Zwischenspeichern ist notwendig.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABY0lEQVQoz32Su07DMBSG/bSgdqBSRJFgYOhFDEwsLDwKAwPthEQ7MCDUsjAh0aaN4/uxf2Snl4QCR/pyLsmJfx+bZYM7dC5v0Dm/wnHWx1HWw3HWQ6s7RKs7SLS7Q7TPho1ag9M+Ti6ukfVuwZS1MOQT1geYDdZjhzCEUllo16zX0c5DGgf2teLIC4FlUWKx4liseYoLoSqkQs5Fehd9IfQBa6EglMNaGLB1wSG1gzKU/DbW1u8wERcaudQaxlmQJyAAS57jM1+COedAPsD/gP7BB0BIBS4EHBGI4kgkVqUA894jWgghPprEpQ+sqkmpoY3d9wLQlsB+b6q1bz7er1PlxtgEkU+qnfMQyoIVZZSu0wFwUcUpL+OgTVIUf1InqTEWUum05WpEPs2f3Y9fMJ6+4/F5htFkjtFkhvFkjoenN0xfPxoq6+YcwVE1Ll/fclS1VRkVRcqa51L/SeP6lCpdv2+gyu6X3oXY3gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Edit Style im Joomla Administrationsbereich&quot;
-        title=&quot;Editor Switcher | Edit Style im Joomla Administrationsbereich&quot;
-        src=&quot;/static/87d804825081d59f21fdf4bfb5404675/5a190/switcher_backend_article.png&quot;
-        srcset=&quot;/static/87d804825081d59f21fdf4bfb5404675/772e8/switcher_backend_article.png 200w,
-/static/87d804825081d59f21fdf4bfb5404675/e17e5/switcher_backend_article.png 400w,
-/static/87d804825081d59f21fdf4bfb5404675/5a190/switcher_backend_article.png 800w,
-/static/87d804825081d59f21fdf4bfb5404675/c1b63/switcher_backend_article.png 1200w,
-/static/87d804825081d59f21fdf4bfb5404675/29007/switcher_backend_article.png 1600w,
-/static/87d804825081d59f21fdf4bfb5404675/191e2/switcher_backend_article.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;seit-joomla-41&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#seit-joomla-41&quot; aria-label=&quot;seit joomla 41 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Seit Joomla 4.1&lt;/h3&gt;
-&lt;p&gt;Seit Februar 2022, also ab Joomla 4.1, ist Code im integrierten TinyMCE-Editor mit Syntax-Highlighting versehen. Darüber hinaus kann direkt in der HTML-Code-Ansicht gesucht und ersetzt werden.&lt;/p&gt;
-&lt;p&gt;Syntax-Highlighting im integrierten TinyMCE-Editor&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVQoz32R23LCMAxE8/+/1Ud4oBcKbVIIpYWWkAu5x5a1HdkBQmHQzE4ytny8WntBuIG/WMP/WGHuL2/qLQjv6j0IEaw2EJZHZEDGwDDDMKwYrriXrEkPGbZ9x7VLsd33lCZY0fnbtB3irEBe1iirBkVZO8l/1aBT2l6g6SyBWSARwYjDXlJKKfxsfrHb7hHtUsT7A7KsQp7mKIraXszs+lkcizsitKpzwKHqpkKWp2AiXJfk4Q5rTdC9GQu0jgmeNHGfCxvG4vMFT7OxnHOI3gHzOVkBKqVPEx33JEfvYsEQ/HCCx+n4FMGJI1EQo5X8bN76YmQ+PsoQqFSH59kIo8kDpq9zLJYrfH2H2CcRjNbYpiXWu1SudiPaLP8Bh+MYIiRphCjeIk5SVFWDLI9wyBMLQN9bVK196SFMZIYOeTjbnZKc6kb1L30N/AMb3QluCOs5iAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor&quot;
-        title=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor&quot;
-        src=&quot;/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png&quot;
-        srcset=&quot;/static/db4b700c3ef30489afd7785a07d84773/772e8/switcher_backend_new1.png 200w,
-/static/db4b700c3ef30489afd7785a07d84773/e17e5/switcher_backend_new1.png 400w,
-/static/db4b700c3ef30489afd7785a07d84773/5a190/switcher_backend_new1.png 800w,
-/static/db4b700c3ef30489afd7785a07d84773/c1b63/switcher_backend_new1.png 1200w,
-/static/db4b700c3ef30489afd7785a07d84773/29007/switcher_backend_new1.png 1600w,
-/static/db4b700c3ef30489afd7785a07d84773/191e2/switcher_backend_new1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Editor Schaltfläche zum Anzeigen&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9UlEQVQoz3WSy0sVURzH559oWdCuVdv2IRJCRWUQbdpEcCXJfIVEmvkqN1FRFARFtW1TK1dFmzIqRSiliBAXaem9c+c85p7XfOLMtatCHfjOOWfmO5/f9zyS3vGH9Izc5sLQFOd6r7V0tudqc3xxlEr/OF2Dk3QNTlAZmCjnlYFN9Y/TPXSdSzce0zd2n0TqBjI3GFfgClqyoSkXQBtfelTD0nABDzu80dOwjtx6kvWaoFpX1DJdaqMuWU9F2delJlM51UyxkQpqmSLTBpEpROy3KTeBTFsSqTQNYzDG4pzjf60IgRCTra4R0jq5cxhr8MFTFFAVVdZqVRIhBFKqUkJIvi1/YXb+DR8W5vi8NMvc0msWv8+hdY7Oc8yv33ilSIUgExLrHD4EZK5JpSKBghBCmcLmmuGbx9nftouO0+2MTPZw+MxeKkPHyu9/fRFQraXlqsr0MSJxH30Ebr3QOqV7rI0Dh3ZzorODu7emuXOvj+Hp85s/hvjAWtsEWkcoirKA86E8tGR75Z+rK7Sf2sfBzj0cOXqSK8OjPHp2mQdPp3YkiU0pjRAK730JbQGj6S9QScnMq+e8mHnC29mP/FhZ5d2nlywsvqfJKtANw/zSCvF2eB+aCpFRkBu3teTt1f95yq19cnxdXiMVukwVYREaU0bgH4HDy5JDkFSKAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche zum Anzeigen&quot;
-        title=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Editor-Schaltfläche zum Anzeigen&quot;
-        src=&quot;/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png&quot;
-        srcset=&quot;/static/11861b147894c94247a6b8daeb486679/772e8/switcher_backend_new2.png 200w,
-/static/11861b147894c94247a6b8daeb486679/e17e5/switcher_backend_new2.png 400w,
-/static/11861b147894c94247a6b8daeb486679/5a190/switcher_backend_new2.png 800w,
-/static/11861b147894c94247a6b8daeb486679/c1b63/switcher_backend_new2.png 1200w,
-/static/11861b147894c94247a6b8daeb486679/29007/switcher_backend_new2.png 1600w,
-/static/11861b147894c94247a6b8daeb486679/191e2/switcher_backend_new2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Option zum Aktivieren der Editor Schaltfläche&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVQoz41SCW7DMAzr/z+6ZUW3HD502RwsI4HTFN0EELEEiSYV32LOyJnALCBWqBUQCzIJRA38hFZrfSStt+feJ4qUGTcAqBUeKRMysZNvIXq9lHpGrRAtfnGfrY4WJLYT9kLM5KRmhhASVM0Hn2FWjplx/kLYZHcIqCltZxbPO/SoNbV/Kgwpg0jwOU8IOWFfR92/J3h1OL+ynLLbmZYvrDF4rZQyqBgYj92/22EiqBge2zeWbUNpO1P1nTrpYLHWd5bNgBjdspaKab0flrthXIZHIVdCzwjhY0K8PzCvPwgpngabyj2sGKz849kIC4QYRIR5WcDc32RMCcu6+p9uK1jDBhJ6SfgL+20U0Uj/07YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Option zum Aktivieren der Editor-Schaltfläche&quot;
-        title=&quot;Editor Switcher | Syntax-Highlighting im integrierten TinyMCE-Editor | Option zum Aktivieren der Editor-Schaltfläche&quot;
-        src=&quot;/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png&quot;
-        srcset=&quot;/static/d13c1e5624dd93219a51be4685de98d4/772e8/switcher_backend_new3.png 200w,
-/static/d13c1e5624dd93219a51be4685de98d4/e17e5/switcher_backend_new3.png 400w,
-/static/d13c1e5624dd93219a51be4685de98d4/5a190/switcher_backend_new3.png 800w,
-/static/d13c1e5624dd93219a51be4685de98d4/c1b63/switcher_backend_new3.png 1200w,
-/static/d13c1e5624dd93219a51be4685de98d4/29007/switcher_backend_new3.png 1600w,
-/static/d13c1e5624dd93219a51be4685de98d4/191e2/switcher_backend_new3.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h2 id=&quot;joomla-barrierefreiheit----indexbarrierefreiheit------indexzugänglichkeit------indexaccessibility------indexa11y---&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#joomla-barrierefreiheit----indexbarrierefreiheit------indexzug%C3%A4nglichkeit------indexaccessibility------indexa11y---&quot; aria-label=&quot;joomla barrierefreiheit    indexbarrierefreiheit      indexzugänglichkeit      indexaccessibility      indexa11y    permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Joomla Barrierefreiheit &lt;!-- \index{Barrierefreiheit} --&gt;&lt;!-- \index{Zugänglichkeit} --&gt;&lt;!-- \index{Accessibility} --&gt;&lt;!-- \index{a11y} --&gt;&lt;/h2&gt;
-&lt;p&gt;Deutlich zu sehen: Joomla 4 wurde mit Blick auf Barrierefreiheit entwickelt. Beide Standard-Templates, Frontend und Backend, sind zugänglich und entsprechen der Stufe AA der &lt;a href=&quot;https://www.w3.org/TR/WCAG21/&quot;&gt;WCAG 2.1&lt;/a&gt;[^w3.org/tr/wcag21/]. WCAG 2.1 ergänzt die WCAG 2.0 und ist der Webstandard für digitale Zugänglichkeit, der für öffentliche Einrichtungen in der Europäischen Union verbindlich ist.&lt;/p&gt;
-&lt;h3 id=&quot;grundlagen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#grundlagen&quot; aria-label=&quot;grundlagen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Grundlagen&lt;/h3&gt;
-&lt;h4 id=&quot;was-ist-barrierefreiheit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#was-ist-barrierefreiheit&quot; aria-label=&quot;was ist barrierefreiheit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Was ist Barrierefreiheit?&lt;/h4&gt;
-&lt;p&gt;Die Richtlinien der WCAG 2.0 sind technische Regeln. Eine Website gilt als zugänglich, wenn sie diesen Regeln entspricht.&lt;/p&gt;
-&lt;p&gt;Als Websitebetreiber ist es sinnvoll, bereits in der Planungsphase zu entscheiden, ob die Website zugänglich sein soll. Das System, das man für die Erstellung der Website-Anwendung wählt, sollte in Bezug auf a11y unterstützen. Joomla bietet in diesem Zusammenhang gute Voraussetzungen.&lt;/p&gt;
-&lt;h4 id=&quot;warum-ist-die-barrierefreiheit-einer-website-wichtig&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#warum-ist-die-barrierefreiheit-einer-website-wichtig&quot; aria-label=&quot;warum ist die barrierefreiheit einer website wichtig permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Warum ist die Barrierefreiheit einer Website wichtig?&lt;/h4&gt;
-&lt;p&gt;Barrierefreiheit ist aus vielen Gründen wichtig. Behörden auf der ganzen Welt drängen darauf, dass Online-Inhalte für alle zugänglich sind.&lt;/p&gt;
-&lt;p&gt;Aber: In erster Linie geht es bei der Barrierefreiheit um Werte und die Gleichbehandlung aller Menschen. Es geht darum, dass Menschen mit Behinderungen sich nicht auf andere verlassen müssen, um einfache Dinge wie das Lesen einer Website zu erledigen.&lt;/p&gt;
-&lt;p&gt;Darüber hinaus ist eine barrierefreie Website auch für Maschinen leichter auszulesen. So kann beispielsweise eine Suchmaschine den Inhalt leichter lesen und korrekte Suchergebnisse anbieten, wenn der Inhalt zugänglich ist.&lt;/p&gt;
-&lt;h3 id=&quot;wie-aktiviert-man-die-zugänglichkeitsfunktionen-in-joomla&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#wie-aktiviert-man-die-zug%C3%A4nglichkeitsfunktionen-in-joomla&quot; aria-label=&quot;wie aktiviert man die zugänglichkeitsfunktionen in joomla permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Wie aktiviert man die Zugänglichkeitsfunktionen in Joomla&lt;/h3&gt;
-&lt;p&gt;Es gibt integrierte Zugänglichkeits-Plugins &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; und &lt;em&gt;Additional Accessibility Features&lt;/em&gt;, Man kann sie im Plugin-Manager aktivieren.&lt;/p&gt;
-&lt;h4 id=&quot;system-plugin---joomla-zugänglichkeitsüberprüfung&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---joomla-zug%C3%A4nglichkeits%C3%BCberpr%C3%BCfung&quot; aria-label=&quot;system plugin   joomla zugänglichkeitsüberprüfung permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System-Plugin - Joomla Zugänglichkeitsüberprüfung&lt;/h4&gt;
-&lt;p&gt;Das System Plugin &lt;em&gt;Joomla Accessibility Checker&lt;/em&gt; hebt häufige Probleme der Zugänglichkeit und Benutzerfreundlichkeit visuell hervor. Das Plugin, das sich an Autoren von Inhalten richtet, identifiziert Fehler oder Warnungen und gibt Hinweise, wie diese behoben werden können.&lt;/p&gt;
-&lt;p&gt;Wenn du die erste Option aktivierst, wird der Zugänglichkeits-Checker auf allen Seiten geladen. Dies ist nützlich bei der Entwicklung der Website, sollte aber nicht aktiviert bleiben, wenn die Website live ist.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABM0lEQVQoz52R20oDMRCG87YKXhS0VlBvCst65RMUX0wQtRS0doubdpOZyemXpPSwiqAd+AjJTP45qUE1we3NPerLMaqrCvV1jWo4xuB8jJNhhdM/cDaqMbp7wEU1gQKAhANLvdu/TT2/TNE0S7zNP9C9zyFaQ5yDiPTgDDOYBTFGkDAMWTjv4INH22nMmjkUvU5Bsyk+nx7hiEEiIObCRkTgnEcIoeBDQEqp+IgFIUTElEoRbWegrCF4EZjOgMUVAeJ9cIgbYkw78lQMMVq9BhHD+5wogiVAOe/LB0vcIweK8yU4xLQTzkmyYGcsFs0Sq3WHVq+g9QrGcl5KKmvJbXwnzyr9siQRB2NsObdzJnFQuYXD1vqkXVXfTx+2/j0kHmq5IhxLo22P/Ka0FSxa+8N5LF8ULe8q3lxRNQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Joomla Accessibility Checker | Plugin Einstellungen&quot;
-        title=&quot;System Plugin - Joomla Accessibility Checker | Plugin Einstellungen&quot;
-        src=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png&quot;
-        srcset=&quot;/static/815d2f522e1dcb6833dce159d1f5e181/772e8/c_a11y_1.png 200w,
-/static/815d2f522e1dcb6833dce159d1f5e181/e17e5/c_a11y_1.png 400w,
-/static/815d2f522e1dcb6833dce159d1f5e181/5a190/c_a11y_1.png 800w,
-/static/815d2f522e1dcb6833dce159d1f5e181/c1b63/c_a11y_1.png 1200w,
-/static/815d2f522e1dcb6833dce159d1f5e181/29007/c_a11y_1.png 1600w,
-/static/815d2f522e1dcb6833dce159d1f5e181/191e2/c_a11y_1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Du kannst die Zugänglichkeit des Inhalts über eine Schaltfläche in der Symbolleiste überprüfen, wenn du einen Beitrag erstellest.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/klEQVQoz3WSvWsUQRjG95+wVLCzsrCxlxgkoKJGkCDYSS4ajPmSQ7xgPjGNqAQUBPGjtdEqlWijiZqEgEZjJIQUJpDcbXZnZndndvYnM5fTE8kLD8vsvvN7nnlng97Rx/QM3edaeYLLvcN09g1z8UqFIyd7ON5xw687+0fpGhyna3CM0sAYpf5RSgN1dfaP0F2+Q3nyKX0jDwmEShFJRmYKjAULREnOx5WQldUtbKaR2iJUhkw1qbHkBZhmWUi1IdE5wVYtprojqUXKazsUbO/EyCRBJSmRUFQjyXYYU4skkUyJVfafkswSKU0gpCLNMrJMY4xhryqKAmut73HPxO3RmtzmFAVU4yqbtSpBHMcIIb3iWPBj7SszC+/4tDjHl+VZ5r+/ZennPEolXs48z3PCKCISAm0MubWIRBEKSQB1Z1c6UVTunuVwyz7aOloZGr/OyUsHKZXP+O+NPges1kJ/qkZ6V6mbYfMLpUK6R1o4emI/59rbmLo3yYOpPiqTV3c37hprUwdqgy0Kn9Dk1l9a0Oz8a2Od1guHONZ+gFOnz3OrcpsnL27y6PnEP0lcSelGJMlz66F/gI1h+yYhmH7zklfTz3g/85nV9Q0+zL1mcWmWOqtApRkL39Zxf4eDeVnHKEgy8/fIze573XJ9TobltU3CWPlUDtZI6YC/AUQ8yp11dee8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Joomla Accessibility Checker | Überprüfung der Barrierefreiheit beim Erstellen eines Beitrags&quot;
-        title=&quot;System Plugin - Joomla Accessibility Checker | Überprüfung der Barrierefreiheit beim Erstellen eines Beitrags&quot;
-        src=&quot;/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png&quot;
-        srcset=&quot;/static/191ef310598b7365efa241a348293ecb/772e8/c_a11y_1_1.png 200w,
-/static/191ef310598b7365efa241a348293ecb/e17e5/c_a11y_1_1.png 400w,
-/static/191ef310598b7365efa241a348293ecb/5a190/c_a11y_1_1.png 800w,
-/static/191ef310598b7365efa241a348293ecb/c1b63/c_a11y_1_1.png 1200w,
-/static/191ef310598b7365efa241a348293ecb/29007/c_a11y_1_1.png 1600w,
-/static/191ef310598b7365efa241a348293ecb/191e2/c_a11y_1_1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Wenn wir mehrere Artikel nacheinander prüfen wollen, ist es bequemer, im Frontend zu arbeiten. Dies ist über einen Button im unteren rechten Bereich möglich.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACJUlEQVQoz3WQXUgUYRiF5zrootugIsQgScVcTAjytijMhCBMsFwSKhRvJcMLjX4ggupCNLSikBTTcXepjN0s16QisrvoMkRb92d2dsb5n3liBicV6sDhO3zfec/7vp+ws6yZXeVn2bG3icaWXoafJOjuGWT3wfPsO9TG/soLlFW1U14d5UB1lIqaDqoil6n2WXuFmshVInWd1B3por6+G0F8vYjP2JtPTMbmGZtMMp1IIyYWeDkzz3Q8zVQsjRhf4NXsF2YSi4yNJ5kS08y+/Uoy+Y1kaolUaol3qe8IbIGuqeRzWSQph6IUUVUZTSshy4VAhygqGq7n8S8IjuNgOy6u41JS1ynIKv+D7zMMA0mSUBQVTTNwXRfH2aSA5+F5Ho5pUvjxk+xqhg9zEwyNDjD6eJiY+IhnEwOIsUF0VUXVdJZXMti2jW07QSO/no2Jg5X9x8zaGpmVFVzT495IB3tqBRpORrjW18m5S5U0txwGy2D5d4Hx+Edsx9sM888NLYSXuq5jWDbF/Bpdvcc5dqaM040n6L/ew9T0Q27c6URXStvW9+uCIMfBc91AC2GHcGQps0pr9ChNHRW0XozSf+sBw897GBrpQysVA4//b1unQ9PAsjYDfYYmOZelve0UTc0N3L19k/m594jx+zx90Yelan+Dwn/zqyxVxVLUYHFhm8HXrst6XsKQStglGasogWHiahpbtwm1aZpkc3kKuRyff8n8AQ8Lqe3+hhYRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System Plugin - Joomla Accessibility Checker | Überprüfen Sie die Barrierefreiheit im Frontend&quot;
-        title=&quot;System Plugin - Joomla Accessibility Checker | Überprüfen Sie die Barrierefreiheit im Frontend&quot;
-        src=&quot;/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png&quot;
-        srcset=&quot;/static/5931d056204e0ae145939c1e0abee4b5/772e8/c_a11y_1_2.png 200w,
-/static/5931d056204e0ae145939c1e0abee4b5/e17e5/c_a11y_1_2.png 400w,
-/static/5931d056204e0ae145939c1e0abee4b5/5a190/c_a11y_1_2.png 800w,
-/static/5931d056204e0ae145939c1e0abee4b5/c1b63/c_a11y_1_2.png 1200w,
-/static/5931d056204e0ae145939c1e0abee4b5/29007/c_a11y_1_2.png 1600w,
-/static/5931d056204e0ae145939c1e0abee4b5/191e2/c_a11y_1_2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Projekt-Website und Demo ansehen &lt;a href=&quot;https://joomla-projects.github.io/joomla-a11y-checker/&quot;&gt;joomla-projects.github.io/joomla-a11y-checker/&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;system-plugin---zusätzliche-funktionen-für-barrierefreiheit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#system-plugin---zus%C3%A4tzliche-funktionen-f%C3%BCr-barrierefreiheit&quot; aria-label=&quot;system plugin   zusätzliche funktionen für barrierefreiheit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;System Plugin - Zusätzliche Funktionen für Barrierefreiheit&lt;/h4&gt;
-&lt;p&gt;Dieses Plugin fügt der Website eine Symbolleiste für Barrierefreiheit mit zusätzlichen Optionen für Barrierefreiheit hinzu. Sobald es aktiviert ist, kann die Symbolleiste geöffnet werden. Du kannst wählen, wo du die Barrierefreiheits-Symbolleiste anzeigen möchten: Sie kann entweder im Joomla-Backend, im Frontend oder in beiden aktiviert werden.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEklEQVQoz62Q3UrDQBCF920VBAVbKgiCpUFvfIPiexW8saU3tqlNmmT/dz/JJliKoG1x4GN3Z5iznCNusikP9y9kg0cmowmTu4xsOOb6dszFMOPyCK5GT4yeXxlkUwRAjBBD5D9KzGZv5Jstq1XO57ZAG9Oh9xhjUFqjtUYphbU2vaVWWGdx3lHUJcv8A9HMF7j3OWqxxNQSZQPKOJTxe6zve+57VkmdPvY+EGLEWEtRN71la4neE2OkNf4rfTJSaYpyh1Ia5zzOB7TxveDBQvyTthopWa03VFWdhMtyRyN1J9hJnVbGWKq6TlbbjFPOxiJ8iCmHownd6dI9HtDmKzY7xbnkpTyg7YlSGtaF/DE8ly/JsfBLYXk3vgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen&quot;
-        title=&quot;System-Plugin - Zusätzliche Zugänglichkeitsfunktionen | Plugin-Einstellungen&quot;
-        src=&quot;/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png&quot;
-        srcset=&quot;/static/56f91680829d5a00e4db1c569e7da167/772e8/c_a11y_2.png 200w,
-/static/56f91680829d5a00e4db1c569e7da167/e17e5/c_a11y_2.png 400w,
-/static/56f91680829d5a00e4db1c569e7da167/5a190/c_a11y_2.png 800w,
-/static/56f91680829d5a00e4db1c569e7da167/c1b63/c_a11y_2.png 1200w,
-/static/56f91680829d5a00e4db1c569e7da167/29007/c_a11y_2.png 1600w,
-/static/56f91680829d5a00e4db1c569e7da167/191e2/c_a11y_2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Dieses Plugin fügt der Website eine Symbolleiste mit zusätzlichen Optionen für die Barrierefreiheit hinzu. Sobald es aktiviert ist, wird das Symbol für Barrierefreiheit in der linken unteren Ecke jeder Seite der Website angezeigt. Klicke auf das Symbol, um die zusätzlichen Zugänglichkeitsfunktionen zu nutzen.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQklEQVQoz62OzUoCURTH7ys4uKyFWOugTYE+QRsfoiBqU6AjVKCBI32ItCxDqn1v0K5FixYtfIFWQX7MjDPeuXPvHRv/cR0NRQoSD/wW53/O+d1L1jN5ZLaLODg6w87h6ZDdbAn7ehl7ujFLzoBuXOP44g4nlYch+fN75Mp1ZEs3IEtrWyhUa2hSC1QIUMHBAgm/H/xOINB2XHx0LLRsG0z6oJyhx32Q+GoaxlUdVAb4tCg6DoPjcTieD9fjU6icMg4mArw03vH49Ibn1wZ6LJpbLgOJJVMoVetQpcJWN4LLPgaDAcJwGpUJGWCyVB+GIXwhQbSVNIqXNcgQMB0G0+UwXR9Wj8P+A7UzZpypG6IlIyHvA+2u9yObPPgPJDb6If9SQjYaRK/NA4knUzPCeWVD4XJiA4XK7eKEWmITxQUKvwFs+cO678qJWgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite&quot;
-        title=&quot;System-Plugin - Zusätzliche Eingabehilfen | Eingabehilfen-Symbol in der linken unteren Ecke jeder Seite&quot;
-        src=&quot;/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png&quot;
-        srcset=&quot;/static/623de14d7517163accdaf158c73d7072/772e8/c_a11y_2_1.png 200w,
-/static/623de14d7517163accdaf158c73d7072/e17e5/c_a11y_2_1.png 400w,
-/static/623de14d7517163accdaf158c73d7072/5a190/c_a11y_2_1.png 800w,
-/static/623de14d7517163accdaf158c73d7072/c1b63/c_a11y_2_1.png 1200w,
-/static/623de14d7517163accdaf158c73d7072/29007/c_a11y_2_1.png 1600w,
-/static/623de14d7517163accdaf158c73d7072/191e2/c_a11y_2_1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Dieses Plugin bietet dem Benutzer eine Reihe von Möglichkeiten, darunter&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Vergrößern der Textgröße&lt;/li&gt;
-&lt;li&gt;Verkleinern der Textgröße&lt;/li&gt;
-&lt;li&gt;Vergrößern des Textabstandes&lt;/li&gt;
-&lt;li&gt;Textabstand verkleinern&lt;/li&gt;
-&lt;li&gt;Farben invertieren&lt;/li&gt;
-&lt;li&gt;Grautöne&lt;/li&gt;
-&lt;li&gt;Links unterstreichen&lt;/li&gt;
-&lt;li&gt;Großer Cursor&lt;/li&gt;
-&lt;li&gt;Lesehilfe&lt;/li&gt;
-&lt;li&gt;Text in Sprache.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABi0lEQVQoz6WQzWoTURiGB6+h7tzqtuBavAA3vQgFsSAKNWpEVGjGH1S6EipaqAt3unSpEEjSJBsFL6Cr1mkyZzJnzu+cqXlkBkVqK1j84OE9hxe+83Cis0s3Wbp4n2vtR1y6/qDh8soqy62YK63OH8Qstzq0Ouu0n2xw99kb7jzd5NbjTW7Er1hZXSc6tXiBe89fsqcEuixR3qFDia3C3wmeiZTspIIkE2hvUc5QOEu0cPocnbXXqDKQZIppbiiMQxpHrmvsAZRxGB/Y+rrN+4+f+bT1hVlhkNohpCZaOHOeeG2DeqS27M08ua2owj7Mv3PUhFAdvs/neB+ITpxcpB2/aAohDdPMkOxmyCTF6tqmwrjQWP1KbUuU9Y2VMr45153Unujq7Ye8ffeBwnikLRGJIJvMSKVjWpPbw8gjyC2ptET7VSCUHmstIZTMtCctPKJwiML+zH8nMsYc+I9au36pLtMaaY9F1O/3GY1GDIdDxuMx3yYZmfq99NiG3W6XwWBAr9drcvc/F/4AUObQC0Bm5U8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet&quot;
-        title=&quot;System-Plugin - Zusätzliche Funktionen für Barrierefreiheit | Symbolleiste geöffnet&quot;
-        src=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png&quot;
-        srcset=&quot;/static/2d77c8a57001636fb86195122b0e9c1e/772e8/c_a11y_2_2.png 200w,
-/static/2d77c8a57001636fb86195122b0e9c1e/e17e5/c_a11y_2_2.png 400w,
-/static/2d77c8a57001636fb86195122b0e9c1e/5a190/c_a11y_2_2.png 800w,
-/static/2d77c8a57001636fb86195122b0e9c1e/c1b63/c_a11y_2_2.png 1200w,
-/static/2d77c8a57001636fb86195122b0e9c1e/29007/c_a11y_2_2.png 1600w,
-/static/2d77c8a57001636fb86195122b0e9c1e/191e2/c_a11y_2_2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;style class=&quot;grvsc-styles&quot;&gt;
-  .grvsc-container {
-    overflow: auto;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-    padding-top: 1rem;
-    padding-top: var(--grvsc-padding-top, var(--grvsc-padding-v, 1rem));
-    padding-bottom: 1rem;
-    padding-bottom: var(--grvsc-padding-bottom, var(--grvsc-padding-v, 1rem));
-    border-radius: 8px;
-    border-radius: var(--grvsc-border-radius, 8px);
-    font-feature-settings: normal;
-    line-height: 1.4;
-  }
-  
-  .grvsc-code {
-    display: table;
-  }
-  
-  .grvsc-line {
-    display: table-row;
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-  }
-  
-  .grvsc-line &gt; * {
-    position: relative;
-  }
-  
-  .grvsc-gutter-pad {
-    display: table-cell;
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  .grvsc-gutter {
-    display: table-cell;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter::before {
-    content: attr(data-content);
-  }
-  
-  .grvsc-source {
-    display: table-cell;
-    padding-left: 1.5rem;
-    padding-left: var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem));
-    padding-right: 1.5rem;
-    padding-right: var(--grvsc-padding-right, var(--grvsc-padding-h, 1.5rem));
-  }
-  
-  .grvsc-source:empty::after {
-    content: &apos; &apos;;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-  
-  .grvsc-gutter + .grvsc-source {
-    padding-left: 0.75rem;
-    padding-left: calc(var(--grvsc-padding-left, var(--grvsc-padding-h, 1.5rem)) / 2);
-  }
-  
-  /* Line transformer styles */
-  
-  .grvsc-has-line-highlighting &gt; .grvsc-code &gt; .grvsc-line::before {
-    content: &apos; &apos;;
-    position: absolute;
-    width: 100%;
-  }
-  
-  .grvsc-line-diff-add::before {
-    background-color: var(--grvsc-line-diff-add-background-color, rgba(0, 255, 60, 0.2));
-  }
-  
-  .grvsc-line-diff-del::before {
-    background-color: var(--grvsc-line-diff-del-background-color, rgba(255, 0, 20, 0.2));
-  }
-  
-  .grvsc-line-number {
-    padding: 0 2px;
-    text-align: right;
-    opacity: 0.7;
-  }
-  
-&lt;/style&gt;</content:encoded><author>info@astrid-guenther.de</author></item><item><title><![CDATA[Eine mehrsprachige Website]]></title><description><![CDATA[Dieses Tutorial zeigt dir, wie du eine mehrsprachige Website in Joomla 4 mit dem Standardtemplate Cassiopeia einrichtest. Joomla ermöglicht…]]></description><link>https://blog.astrid-guenther.de/cassiopeia-mehrsprachig/</link><guid isPermaLink="false">https://blog.astrid-guenther.de/cassiopeia-mehrsprachig/</guid><pubDate>Sun, 13 Feb 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Dieses Tutorial zeigt dir, wie du eine mehrsprachige Website in Joomla 4 mit dem Standardtemplate Cassiopeia einrichtest.&lt;/p&gt;
-&lt;p&gt;Joomla ermöglicht es dir, auf einfache Weise eine mehrsprachige Website zu erstellen, ohne dass wir eine Erweiterung eines Drittanbieters installieren müssen.&lt;/p&gt;
-&lt;p&gt;Eine mehrsprachige Joomla-Website beginnt mit der Installation der Sprachen, der Erstellung verschiedener Inhaltselemente und endet mit der Veröffentlichung des Inhalts. Hier sind detaillierte Schritte zur Erstellung einer mehrsprachigen Website.&lt;/p&gt;
-&lt;h3 id=&quot;sprachen-installieren&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sprachen-installieren&quot; aria-label=&quot;sprachen installieren permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sprachen installieren&lt;/h3&gt;
-&lt;p&gt;Es gibt zwei Möglichkeiten, um Sprachen auf einer Joomla-Website zu installieren. Ich wähle in der Regel die Installation über den Live-Server.&lt;/p&gt;
-&lt;h4 id=&quot;sprachen-installieren-per-live-server&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sprachen-installieren-per-live-server&quot; aria-label=&quot;sprachen installieren per live server permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sprachen installieren per Live Server&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Dafür melde ich mich im Joomla-Administrationsbereich an und öffne das Menü &lt;code class=&quot;language-text&quot;&gt;System &gt; Installieren &gt; Sprachen&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/85847b0b08d40f1adc2adeb6851f9440/191e2/multiling2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+ElEQVQoz2WRO09UURSF548AMVYUMgQLCy2MCRCZ2FDwUERjoYn4ihAbrUyMJhbyY6wEm/FBgRjDT7DQAWbu3Od53/OZc5hBicXKPXvds9Zee5/GxYXnTF5bp7WyzvLdZ8zffsrc8gNaEQ+ZW1rj6uJarBfuveDWxiZL919yc/0d1x+9ZuXJW1Y3Nrnx+A2La69oTEzfYfzyKh+//iArFXkpUdogB+imBUdJhjYWqQxSaYTU/DrokRdlvBtqpTRZntEYO3eFs1MzfNndRxiPNA5X17ja41xNvzQI7cB7au/x3mOsJSkMaWniPe8BXyOqlEbzwjzjlxbZ3tlHVppaqyiso2lNp5fT6RVYV6ONw1iH0IafnZSDpIrckC+EpnHmfIvRqRZbn79jpUFKhbYuQhlLv1BIbUOE2CQkDOZpoeLZ+798KTWN0eY0IxPTbLV3yYWNuxqmC0gKxUFfxgRDPpx/90qy8pgPzU8Sjk3OMtKc4UN7j6Oi5rAvonCIbibpZgrr3AkXxGEVaV7GPbvIe4SyA8OJGbY+7ZErOEoFKjyMq6PJYV+Slnowmh+M7CJnbH1qZKHMP4btbxhPJIW2sVulDEmu6CSCrNJxl+F/4ANXSXM88uBRSjkwHG3O8n57J4qSrIrCkDJ8k0KS5JJeLuhm/6OXy1P1H65/uyPgucQUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprache per Live Server installieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprache per Live Server installieren&quot;
-        src=&quot;/static/85847b0b08d40f1adc2adeb6851f9440/5a190/multiling2.png&quot;
-        srcset=&quot;/static/85847b0b08d40f1adc2adeb6851f9440/772e8/multiling2.png 200w,
-/static/85847b0b08d40f1adc2adeb6851f9440/e17e5/multiling2.png 400w,
-/static/85847b0b08d40f1adc2adeb6851f9440/5a190/multiling2.png 800w,
-/static/85847b0b08d40f1adc2adeb6851f9440/c1b63/multiling2.png 1200w,
-/static/85847b0b08d40f1adc2adeb6851f9440/29007/multiling2.png 1600w,
-/static/85847b0b08d40f1adc2adeb6851f9440/191e2/multiling2.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;Dann installiere ich die gewünschte Sprache, indem ich auf die Schaltfläche &lt;code class=&quot;language-text&quot;&gt;Installieren&lt;/code&gt; klicken.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e571c95e00f10c659a9215c2a49760c2/191e2/multiling3.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAUlEQVQoz1WRvWsUQRiH7y8xJMHCxmiilYVN0AQCBgsL86GJhSIY1IgRFCstRJs0VoJopRBtBAsxRUBBSCOoBD1iYu4wx33szu7Mzs7u7e4jO5c9cy887LDs/nh+75ROnLvL0MRNzs7fYebyEucv3WJy9jpnphd6mJxeYOrqfeaXlpldeMCVe0+ZW3zMxcUnzN1e5sKNR0xde0jp8Ogch07OsLb+AyMkrZaHK0NcqfeeISJHhbh+gNKGWkvyvVyh4XgIGVBveTRdn6YrKfUNjTJ4bJzP69+IhKTeEqgw7hKYGFca6kKjTUwcG7arNb58LeMIifAVSkdo08ZThlLfkdMcPD7ByvtP/K0LlJJkaUqWZRayjHY7QYch+cR+BVHfJIhA6hg/J4jtt2HUpnRg6BQDw2O8fLvKn10XJX20DvMc0r3QJEmIItMJVFXcxjZCZwhlECqypOm+wMGRcZ6vfKS808D3hA3MxxqCDSwMPeXwq7KJqxKanumS7A/sPzrGq3dr7DZ9WzefdF9taxjH9n0QRey6DtokdscyR8e2TY/hs9cf2NiqWcPi58Iw32EYanvWfoVKdYOmTGmIkLowNITprdw/XBjKTuXwf+WOYdrdYaJ2kM0tpOlcSkGP4cDIOC/erPK72sITLqEx3bCisilu2dvCqf3EDcCRBkdGlsLwH6y4tifVuua1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprache installieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprache installieren&quot;
-        src=&quot;/static/e571c95e00f10c659a9215c2a49760c2/5a190/multiling3.png&quot;
-        srcset=&quot;/static/e571c95e00f10c659a9215c2a49760c2/772e8/multiling3.png 200w,
-/static/e571c95e00f10c659a9215c2a49760c2/e17e5/multiling3.png 400w,
-/static/e571c95e00f10c659a9215c2a49760c2/5a190/multiling3.png 800w,
-/static/e571c95e00f10c659a9215c2a49760c2/c1b63/multiling3.png 1200w,
-/static/e571c95e00f10c659a9215c2a49760c2/29007/multiling3.png 1600w,
-/static/e571c95e00f10c659a9215c2a49760c2/191e2/multiling3.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Dabei gibt keine Begrenzung. Es ist es möglich, alle Sprachen zu installieren, die als Joomla-Sprachpaket angeboten werden.&lt;/p&gt;
-&lt;h4 id=&quot;sprachen-manuell-installieren&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sprachen-manuell-installieren&quot; aria-label=&quot;sprachen manuell installieren permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sprachen manuell installieren&lt;/h4&gt;
-&lt;p&gt;Neben der Installation über den Live Server ist eine manuelle Installation möglich. Öffne dazu die Website &lt;a href=&quot;https://community.joomla.org/translations.html&quot;&gt;Joomla Community Übersetzungspakete&lt;/a&gt;[^community.joomla.org/translations.html]. Hier gibt es für jede Sprache ein Zip-Paket, welches per &lt;code class=&quot;language-text&quot;&gt;System &gt; Installieren &gt; Erweiterungen &gt; Installationspaket hochladen&lt;/code&gt; installierbar ist.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/4f6be76cbd70a8ee1153bc861ab8d8fe/191e2/multiling1.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB+UlEQVQoz2WSO09UQRTH94sAiVYUsAQLCxpjAkQ2NhQ8FNFYaOL6ihAbrUyMJhbyYawEGnxQIMboN7DQhd29e187rzszPzPDLkos/rlzfplzzv+cubWZpWdMXd2gsbbB6p2nLN56wsLqfRpRD1hYaXJluRnjpbvPubm5xcq9F9zYeMu1h69Ye/yG9c0trj96zXLzJbX67G3GL62z+/kbWV+TlxKlDXKgTlrQTjK0qZDKIJVGSM2voy55Uca7IVZKk+UZtdGJy5yfnufTwXeEdkhjsc5hncdaR680CG3Be5z3eO8xVUVSGNLSxHveA94h+im1iYuLjM8ss7P/A5kLnJQx0cWijlY3p9UtqKxDG4upLEIbfrZSjpJ+ZENeCE3t3IUGY9MNtj9+xTiQUqMrG6VMRa9QSF0FC7FJcBiKp4WKZ+//8lJqaqP1OUYmZ9neOyAXJu5q6C4oKRRHPRkdDHk4/+6WZOUJD81PHY5NzTNSn+P93iHtwnHcEzFxqE4m6WSKytpTFpLDKtK8jHu2kXuEqgYFJ+fY/nBIrqCdClR4GOtikeOeJC31YDQ/GNlGZip3ZmShzD8F975gPBEKXcVufWVIckUrEfGXkpGbyAPrS3My8uBRSjkoOFqf593OfkxKsn5MDC7DNykkSS7p5oJO9r+6uTwT/wGyMLsmwzGeQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprache manuell installieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprache manuell installieren&quot;
-        src=&quot;/static/4f6be76cbd70a8ee1153bc861ab8d8fe/5a190/multiling1.png&quot;
-        srcset=&quot;/static/4f6be76cbd70a8ee1153bc861ab8d8fe/772e8/multiling1.png 200w,
-/static/4f6be76cbd70a8ee1153bc861ab8d8fe/e17e5/multiling1.png 400w,
-/static/4f6be76cbd70a8ee1153bc861ab8d8fe/5a190/multiling1.png 800w,
-/static/4f6be76cbd70a8ee1153bc861ab8d8fe/c1b63/multiling1.png 1200w,
-/static/4f6be76cbd70a8ee1153bc861ab8d8fe/29007/multiling1.png 1600w,
-/static/4f6be76cbd70a8ee1153bc861ab8d8fe/191e2/multiling1.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;inhaltssprachen-aktivieren&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#inhaltssprachen-aktivieren&quot; aria-label=&quot;inhaltssprachen aktivieren permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Inhaltssprachen aktivieren&lt;/h3&gt;
-&lt;p&gt;An dieser Stelle ist es meiner Meinung nach wichtig, den Unterschied zwischen Inhaltssprache und Systemsprache zu kennen. Die Systemsprache ist einfach ausgedrückt die, die die Menüpunkte im Backend übersetz oder im Frontend beschreibende Texte wie &quot;Autor&quot; oder &quot;Erstellt am:&quot; . Der Text eines Artikels ist im Gegensatz dazu der eigentliche Content, also der Inhalt. Damit die Inhalte der Website der richtigen Sprache zugeordnet werden und auch Maschinen einen Text in die korrekte Sprache einordnen, konfigurieren wir die Inhaltsprachen.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Das konfigurieren der Inhaltssprache geschieht im Menü &lt;code class=&quot;language-text&quot;&gt;System &gt; Verwalten &gt; Sprachen &gt; Inhaltssprachen&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/a3b0b553a6abe4dc068c289d61ef1a52/191e2/multiling4.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/0lEQVQoz2WSu2tUQRjF9x9JAlopmA1pLNIIkgSz2KTIQ2MUCwUjKibYaCWIgoX5Y6xMbCLGIgYkjZ2goNlk9969z5l75/WT+2UJEYvDzJz5Hud8M62phedMXF+ns7LO8r1nzN95ytzyQzpDzC2tcW1xTfYL919we2OTpQcvubX+jhuPXrPy5C2rG5vcfPyGxbVXtNrTd7lwZZWPu99Iy5qs0FS1QQss/SSnF6fUxqIrg65qlK75cxSR5YXENueqqkmzlNbo+FXOT87yee8AZYIUcT6cwHkGpUHVDkLA+0AIAWMtcW5ICiNxIQDBo8qE1qXL81ycWmR79wBtmiSH917gnKP7u0c3yrE+UFuPsQ5VG351E47ikto4QcPnqqZ1brLD2GSHrU/7GI9YlSDrqIxjMCjEJlWFL5WosdaR5JWoDaLcy1romtZoe4aR8Wm2dvbISiOz8mLZ40Jg8POQ4+8/MFGMd074Rs1hVJAWWvZN81OFYxOzjLRn+LCzTy/3HA/UqeUG/UTRHyis89LIDwt2o4wkK2TOzp/cqcoOC47PiOWsgl6ixGoTaJ3jONEy/LPWGj4paoz1//CqMmcK7nzFBIRUtZVuZWWIs4purORLaeGN8A1XanNiefgohR4WHG3P8n77iyTFaSmJjcpmjXNNnGmiTNFP/0eU6X/OfwHrNrqbQrS7HwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Inhaltssprache auswählen&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Inhaltssprache auswählen&quot;
-        src=&quot;/static/a3b0b553a6abe4dc068c289d61ef1a52/5a190/multiling4.png&quot;
-        srcset=&quot;/static/a3b0b553a6abe4dc068c289d61ef1a52/772e8/multiling4.png 200w,
-/static/a3b0b553a6abe4dc068c289d61ef1a52/e17e5/multiling4.png 400w,
-/static/a3b0b553a6abe4dc068c289d61ef1a52/5a190/multiling4.png 800w,
-/static/a3b0b553a6abe4dc068c289d61ef1a52/c1b63/multiling4.png 1200w,
-/static/a3b0b553a6abe4dc068c289d61ef1a52/29007/multiling4.png 1600w,
-/static/a3b0b553a6abe4dc068c289d61ef1a52/191e2/multiling4.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;Wir wählen alle Sprachen aus, in denen wir Content oder Inhalte anbieten möchten. In der Regel stimmten die Inhaltssprachen mit den für das System installierten Sprachen überein.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/63b264463b245ec4c143bf4d0e1fecea/191e2/multiling5.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABzElEQVQoz52QS2sUQRSF53+IJODKhdHo0oUbJ0bEuBSNExl8ZDORTAiCunAbERfiwt9iFoIJOqghokFE8YFCDDP9rK7q6u6q6f6kewwzWWShBYd7OFy+e2/VTl68x/FzbW7OtVm61ma+0WLmcovzswvMzC5w4cqtSqW/NH+X1v2nXF9e4cadJzSXH3F16SHN24+ZW1yhsfiA2sTpJodPNXjx+gPaD+n++o0rYrqewA8lgUwIZYJODV0v4s3WDzrvv/P15w6BUAipcQOJ60d4gaQ2drTOoRPTdDY/YnLo+ZJQZcjE0As1UmconSFiw7YT8azzhdXOZz592yaMYrxQEacWoVICmVIbn5xmfPIsr95uUb5QxTgiJUkNnh+gVFzlUmms7VeefkamY/p5gU4SjLFYa6sramPHpjhwpM5a513Vq7TGlwZj+ygl0VpXuTWGPM8r2SwjTRKKoiDLMvJ+nyLPSY0tgWc4OFHn+ctNbAFOKNnxNaFKcXyB40fV2aHURHFaeSGT6v9KH0SDvJSI013gFKtrG2gLvSDGixJcoatayhEaVwzqwGvckdwdyYfA9Q2Sv8CyaRc6BA8HVNon37PhKPB/tS9wzzb/oD8BRrKnUnLsiQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Inhaltssprache installieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Inhaltssprache installieren&quot;
-        src=&quot;/static/63b264463b245ec4c143bf4d0e1fecea/5a190/multiling5.png&quot;
-        srcset=&quot;/static/63b264463b245ec4c143bf4d0e1fecea/772e8/multiling5.png 200w,
-/static/63b264463b245ec4c143bf4d0e1fecea/e17e5/multiling5.png 400w,
-/static/63b264463b245ec4c143bf4d0e1fecea/5a190/multiling5.png 800w,
-/static/63b264463b245ec4c143bf4d0e1fecea/c1b63/multiling5.png 1200w,
-/static/63b264463b245ec4c143bf4d0e1fecea/29007/multiling5.png 1600w,
-/static/63b264463b245ec4c143bf4d0e1fecea/191e2/multiling5.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;aktivieren-der-sprach-plugins&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aktivieren-der-sprach-plugins&quot; aria-label=&quot;aktivieren der sprach plugins permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Aktivieren der Sprach-Plugins&lt;/h3&gt;
-&lt;p&gt;Im nächsten Schritt aktivieren wir zwei Plugins, die zum Betrieb der mehrsprachigen Website notwendig sind.&lt;/p&gt;
-&lt;p&gt;Das &lt;em&gt;System Language Filter&lt;/em&gt; Plugin hilft dir, den Inhalt auf der Grundlage der Sprachauswahl auf der Website anzuzeigen. Dieses Plugin muss aktiviert sein. Bei der Sprachenerkennung für neue Websitebesucher sind folgende Punkte entscheidend:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Das Cookie eines vorhergehenden Besuchs.&lt;/li&gt;
-&lt;li&gt;Die Einstellung &quot;Sprachauswahl für neue Besucher&quot; in diesem Plugin.&lt;/li&gt;
-&lt;li&gt;Gegebenenfalls die im Browser eingestellte Sprache.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Das &lt;em&gt;System Language Code&lt;/em&gt; Plugin hilft dir, den Sprachcode im HTML-Code der Website zu verstecken. Es spielt eine wichtige Rolle bei der Suchmaschinenoptimierung.&lt;/p&gt;
-&lt;p&gt;Hier die Schritte, um diese 2 Plugins zu aktivieren:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Gehe zu &lt;code class=&quot;language-text&quot;&gt;System &gt; Verwalten &gt; Plugins&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/954003706c957b29c8017c565c1bfb07/191e2/multiling6.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB90lEQVQoz2VSTWsTURSdP9IUcSGCNqVuBF2IkAYb3Ci0qa1VXCgYUTHFja4EUXBhf4yr1m4irYtaEH9CF3HSZCYzb2be93tH3k0qBgcOc9/h3nPPeTPRtdU3WLzdRWuzi/XHr3Hn4SusrD9Da4qVdge31jpUrz55iwfbO2g/fYf73c+49/wDNl9+wtb2DjZefMRa5z2ieuMRLt7Ywv7hT+SVAisFpNIQBINRVmCY5lDaQEgNIRW4UOgPErCipN5wllIhZzmi2uWbOL/UxMHRL3DtScQ6P4F1GJcaXFnAezjv4b2HNgZpoZGVmvq8B+AdeJUhunT1Li5cb2P/cCLonIVzjoadMYj7I8RJAWMdlLbQxoIrjZM4wyCtiDvjC64QnbvSwvxSC3vfjqEdKCo1GQupLcaMk+vwhEXBYRDPCkl1wBlfCoWoVm9gbqGBvd4RWKXprhxFdoS0MhiMObTSNBi44OZ3UiIvBdVh+V+H84tNzNWXsds7xrBwOB3zmcijk5hguJhwU8E4YchYSfcclgQTXJqp4MIyRWYSGGacooZGYy1O+wmyrIKfiWyRlQrauJnIXOp/BHs/oD2I5MrQtkpqpKVCPBb0SwniNfFxylEJPYk8/SilmArW6k18+fqdhtK8osHgMrzTQiBlAgnjGOX/I2Fi5vwHYni60bTYupMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Plugins öffnen&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Plugins öffnen&quot;
-        src=&quot;/static/954003706c957b29c8017c565c1bfb07/5a190/multiling6.png&quot;
-        srcset=&quot;/static/954003706c957b29c8017c565c1bfb07/772e8/multiling6.png 200w,
-/static/954003706c957b29c8017c565c1bfb07/e17e5/multiling6.png 400w,
-/static/954003706c957b29c8017c565c1bfb07/5a190/multiling6.png 800w,
-/static/954003706c957b29c8017c565c1bfb07/c1b63/multiling6.png 1200w,
-/static/954003706c957b29c8017c565c1bfb07/29007/multiling6.png 1600w,
-/static/954003706c957b29c8017c565c1bfb07/191e2/multiling6.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;Verwende Suchbegriffe in der Suchleiste, um die Plugins zu finden.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Aktiviere die beiden Plugins: &lt;code class=&quot;language-text&quot;&gt;System - Sprachfilter&lt;/code&gt; und &lt;code class=&quot;language-text&quot;&gt;System - Sprachcode&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d01f2f7abb4c4f7e6e81c057b30d13df/191e2/multiling7.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcUlEQVQoz92QTUsbURSG80MsCq668KO47MZFtYKKXRSlomJwEbBFAwEXinulqxb8M6IFq4hKrIoQP9plY+skM3funTtzJ5PJPJIJJbp12ReeAwcO73l5M68n1+gbK/Auu8L7+TyjHz4yPv0pZWJmqc3sMlO5VXJrWywUNlhc3yK3+pX5wmeyK1+Yy28wm98k0/smy8vBOb4dXiD9kL+2xHIk97ZEeAHCMy2EQkmP8l2V49Nb9s9+cXJ+hZCaqlBUHIktPDKdfUN0D4xw9KNEFDWwHI3lGlQQ4ZsIbSL8Wowq/yH4XcayFXvFn+weldg7vqQiVPrQC2oILyTT9WqEJodnJbAruNc33KuIimtoNBqQJCRJQlOt+UhJgvYDwlpEHMfowDQTDtPRM8TOwSn1Wh3bcnC8EFsZpA7TGlJ0C1eH7Ro8k+7/7tKEnf1vedE7zPb3IkEMlhtQlc+nbbhfxNTBEjpN91yeJGwZ+lTl/2z4AA6AsFfT34sCAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprachplugins aktivieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Sprachplugins aktivieren&quot;
-        src=&quot;/static/d01f2f7abb4c4f7e6e81c057b30d13df/5a190/multiling7.png&quot;
-        srcset=&quot;/static/d01f2f7abb4c4f7e6e81c057b30d13df/772e8/multiling7.png 200w,
-/static/d01f2f7abb4c4f7e6e81c057b30d13df/e17e5/multiling7.png 400w,
-/static/d01f2f7abb4c4f7e6e81c057b30d13df/5a190/multiling7.png 800w,
-/static/d01f2f7abb4c4f7e6e81c057b30d13df/c1b63/multiling7.png 1200w,
-/static/d01f2f7abb4c4f7e6e81c057b30d13df/29007/multiling7.png 1600w,
-/static/d01f2f7abb4c4f7e6e81c057b30d13df/191e2/multiling7.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;mehrsprachiger-inhalt&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mehrsprachiger-inhalt&quot; aria-label=&quot;mehrsprachiger inhalt permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Mehrsprachiger Inhalt&lt;/h3&gt;
-&lt;p&gt;Sobald die Sprach-Plugins aktiviert sind, können wir damit beginnen, neue Inhalte für jede Sprache hinzuzufügen. Als Beispiel haben ich auf der Demo-Website in diesem Tutorial die Sprachen Deutsch, Spanisch und Französisch zur schon vorinstallierten englischen Sprache hinzugefügt. Die meistgenutztesten Inhalte auf einer Joomla-Website sind Artikel, Kategorien und Module.&lt;/p&gt;
-&lt;h4 id=&quot;neue-kategorien-hinzufügen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#neue-kategorien-hinzuf%C3%BCgen&quot; aria-label=&quot;neue kategorien hinzufügen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Neue Kategorien hinzufügen&lt;/h4&gt;
-&lt;p&gt;Um den Inhalt der Website besser zu strukturieren Ich lege für jede Inhaltssprache ein Kategorie an. Um Inhalte in verschiedenen Sprachen zu erstellen, müssen wir für jede Sprache eine neue Kategorie hinzufügen.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Rufe das Menü &lt;code class=&quot;language-text&quot;&gt;Inhalt &gt; Kategorien&lt;/code&gt; auf und erstelle eine neue Kategorie.&lt;/li&gt;
-&lt;li&gt;Wähle im rechten Bereich die Sprache für die Kategorie aus dem Auswahlfeld Sprache aus.&lt;/li&gt;
-&lt;li&gt;Speichere die Kategorie wenn du alle Inhalte ergänzt hast&lt;/li&gt;
-&lt;li&gt;Wiederhole diesen Vorgang für jede Inhaltssprache.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/6fdd73978a16810168b9efe1be6762a0/191e2/multiling8b.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEklEQVQoz2WR30sUURTH5w+pBKmgKFuKHiIRH8wi+vGmYZttKb6EFlkh9dhTFAT1V/Tia5APSaQPmSBJhpC65e7q7Mzemdl77/zYdeYTM66y1YEv99xz7/fDOfca3YPP6Lo6yd2RKR6PTjKWH+fK0DjXbk5wPX+/TRPcGHvK6NRbhu49p/DoNYXJVxQevuTOkzcMP3iRyTjRV+B47zDTMx+pOhZblo3leliOi6vUvhylqNUl0tdEzYigEWZ1ISWmcLAcgeU4GLnuAU725Hk3M0vZtbHqkppU2HWV5XtKjX4jYnH1F9OzS7yf/0axsoXtuQitqSlN1ZUYp/tHONpzi7nFVdKwXB9XhgRhgyBq7itqNJHaZ+13lS/LRVbWtqm5CtfzcU2BtF08FWIc683TeW6AzwvLGdBTmk3TyQBZJAmthJXiBusli7Ip2ItYaaRp4ts2kQ4wcn23OXJ+kPnF79kF5ftUqh5h1Ng1JAlJBk34Wd5kvWSzuS2I45isqjWRUjSVJNQ+RueZyxw+e4WFpR9twLTDRqvBdmCJjXKN0rYgaQFJgdIjkpJQ+RiHTvXTkbvEXGvk9J2UDojjJOsuW+Nd6HqlTLEiKJkO8c4OcTqB79MUglgIgrTDjtxFDnRd4MOnr4Q76adoRD1AyP9le36mWvt5mqceb9eXAQ929WdAvwlVR+8b/1UK2tNfZ+m+VfsDW1Sz5BJlCugAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Kategorien&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Kategorien&quot;
-        src=&quot;/static/6fdd73978a16810168b9efe1be6762a0/5a190/multiling8b.png&quot;
-        srcset=&quot;/static/6fdd73978a16810168b9efe1be6762a0/772e8/multiling8b.png 200w,
-/static/6fdd73978a16810168b9efe1be6762a0/e17e5/multiling8b.png 400w,
-/static/6fdd73978a16810168b9efe1be6762a0/5a190/multiling8b.png 800w,
-/static/6fdd73978a16810168b9efe1be6762a0/c1b63/multiling8b.png 1200w,
-/static/6fdd73978a16810168b9efe1be6762a0/29007/multiling8b.png 1600w,
-/static/6fdd73978a16810168b9efe1be6762a0/191e2/multiling8b.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h4 id=&quot;neue-artikel-hinzufügen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#neue-artikel-hinzuf%C3%BCgen&quot; aria-label=&quot;neue artikel hinzufügen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Neue Artikel hinzufügen&lt;/h4&gt;
-&lt;p&gt;Artikel sind die wichtigste Inhaltskomponente der Website. Wie die meisten Inhaltstypen bieten sie die Möglichkeit, die Sprache festzulegen. Wenn als Sprache &lt;code class=&quot;language-text&quot;&gt;All&lt;/code&gt; ausgewählt wird, wird der Inhalt allen Inhaltssprachen zugeordnet.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/37543cb78e5f2bf3e98b498138173c39/191e2/multiling8a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACE0lEQVQoz12QzWoUQRhFey1uxRdw50LXwUVQQSWauEmimRkUkoUQZyBCMGoiQghoRETQiGjEXQR/QURBkODG51CUSTJOT3f9dvd09ZGuHkUsONStqq9u3a+C8/N3qTVvMjszz9y5i5w5O8tIrcnogFNTTcbqLcYarWr+h9F6i9ONFrXZG0xfeUCtuUKwE0Z0ejFhJIgiSU9owljTjbXX3UjSjRU9YYiVJZLVLHTiKXVJGCtfG3RCQacn2AkFwmTIf/Br26cTKX5ud2nvhGx1ekTKDs7TAZXuqYSgTCNNgrIponzNJzA+ndfSYJIMm/Y9SZZ7/tfOgUlyglhIbJKQJAlZP6Pfz3C5I89znHNeF0UBRUHhSu28NonFprZaA992vvPj1zZBu71FLARRHKN1grElGq0NSkuMNdhyz1iEkEipUEohlaYXC4y1uKIgkoJQKgLnqiQUsPn1DYv3G8xcmuLq7eusrS+z+mSauVtjfPzy3Ccp68tuIiExJvHpS8NylO0HvmgQ+92HVYYmdrN/aC8nJg+xtHyZhcVJDgzvYm191deUBqkxRN2QNOv/3cudQ9usNCyqhMDjFwsMje/h8MmDTE6Mc+/OCpufNmgtjrDx9ml1mYJUa0R7C6F09c9FQdZ3qD+GxSDy3LUGx+r7qF8Y5uiR49Sm6rx++ZBHz5Z4//nVoOXKwCQpQir/55Vh7g1/A18ztqvMkKToAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Artikel&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Artikel&quot;
-        src=&quot;/static/37543cb78e5f2bf3e98b498138173c39/5a190/multiling8a.png&quot;
-        srcset=&quot;/static/37543cb78e5f2bf3e98b498138173c39/772e8/multiling8a.png 200w,
-/static/37543cb78e5f2bf3e98b498138173c39/e17e5/multiling8a.png 400w,
-/static/37543cb78e5f2bf3e98b498138173c39/5a190/multiling8a.png 800w,
-/static/37543cb78e5f2bf3e98b498138173c39/c1b63/multiling8a.png 1200w,
-/static/37543cb78e5f2bf3e98b498138173c39/29007/multiling8a.png 1600w,
-/static/37543cb78e5f2bf3e98b498138173c39/191e2/multiling8a.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Um Artikelinhalte in verschiedenen Sprachen zu erstellen, fügen wir für jede Sprache einen neuen Artikel hinzufügen.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Rufe das Menü &lt;code class=&quot;language-text&quot;&gt;Inhalt &gt; Artikel&lt;/code&gt; auf und erstelle einen neuen Artikel&lt;/li&gt;
-&lt;li&gt;Wähle im rechten Bereich die Sprache für den Artikel aus dem Auswahlfeld Sprache aus.&lt;/li&gt;
-&lt;li&gt;Speichere den Artikel wenn du alle Inhalte ergänzt hast&lt;/li&gt;
-&lt;li&gt;Wiederhole diesen Vorgang für jede Inhaltssprache.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&quot;neue-module-hinzufügen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#neue-module-hinzuf%C3%BCgen&quot; aria-label=&quot;neue module hinzufügen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Neue Module hinzufügen&lt;/h4&gt;
-&lt;p&gt;Um einen Inhalt an einer bestimmten Position auf festgelegten Unterseiten der Website anzuzeigen nutzen wir Module. Ein Modul ist ebenfalls einer Inhaltssprache zuordenbar.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/bc2f8210e28461d03555df2382dfa3d9/191e2/multiling8c.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMUlEQVQoz5WS20oDMRCG87KC9cILl4LeCFK9qG/gnY/hC/gKXntA6Fqr290kM5kcfpltqyyV0v7wkcyQfCEh5ra6xFl1haNqguNqgtH4BqPx9RYnO3qnF1OcT+9RTe5gvijAEiOyQAogeRuOBRQxgAd1gWOB5wiz+G7RLDu08wWa1qLzDEfcH7JBe9aHbehvrsKlZZi2sxARBIkIISClhH2ydC04hEEvSIKx1sI6D+c9iAghSH+ASOzlOm5q5gAiRs4Zjjw8M2JKPZ4JrSOYUgpKAXTMuWBV/4+KFA2xPg31Ms37vMZLXcNooYsPDQcBsSCv99afHV5nzUa4p6UMhfrueiuVehY09vfK+6MCcgT7MQevhSlnpJRX3wYHiDSdIzw8PuH5bQbPHpJiTxDpv9EPBd3zqu6sSdcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Module&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Module&quot;
-        src=&quot;/static/bc2f8210e28461d03555df2382dfa3d9/5a190/multiling8c.png&quot;
-        srcset=&quot;/static/bc2f8210e28461d03555df2382dfa3d9/772e8/multiling8c.png 200w,
-/static/bc2f8210e28461d03555df2382dfa3d9/e17e5/multiling8c.png 400w,
-/static/bc2f8210e28461d03555df2382dfa3d9/5a190/multiling8c.png 800w,
-/static/bc2f8210e28461d03555df2382dfa3d9/c1b63/multiling8c.png 1200w,
-/static/bc2f8210e28461d03555df2382dfa3d9/29007/multiling8c.png 1600w,
-/static/bc2f8210e28461d03555df2382dfa3d9/191e2/multiling8c.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Auf einer mehrsprachigen Website können wir für jede Sprache unterschiedliche Module anzeigen, je nachdem, welcher Sprache der Inhalt des Moduls zugewiesen ist. Praktisch nutzen wir dies später in diesem Text, um die zur Inhaltssprache passende Navigation anzuzeigen.&lt;/p&gt;
-&lt;h3 id=&quot;das-menüsystem-für-eine-mehrsprachige-website-einrichten&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#das-men%C3%BCsystem-f%C3%BCr-eine-mehrsprachige-website-einrichten&quot; aria-label=&quot;das menüsystem für eine mehrsprachige website einrichten permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Das Menüsystem für eine mehrsprachige Website einrichten&lt;/h3&gt;
-&lt;h4 id=&quot;menüs-für-jede-sprache-hinzufügen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#men%C3%BCs-f%C3%BCr-jede-sprache-hinzuf%C3%BCgen&quot; aria-label=&quot;menüs für jede sprache hinzufügen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Menüs für jede Sprache hinzufügen&lt;/h4&gt;
-&lt;p&gt;Bei einer mehrsprachigen Website legen wir für jede Sprache ein eigenes Menü an, um eine bessere Kontrolle über Navigation zu haben. Nachfolgend die Schritte im einzelnen:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Navigiere zu &lt;code class=&quot;language-text&quot;&gt;Menü &gt; Manage&lt;/code&gt; und erstelle ein neues Menü&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/163500379a2d85bb472803ef7c3cd264/191e2/multiling9a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA3ElEQVQoz63Ru04DMRAFUH8gIrQQQkVBEQItUn6APl+Zze7aO17PeP24yBaPAvGwFEtHY0vjq5Gtnu62uFlvcbF+xGVxu8OqwdVmh+uHPe5fDtg8v0L1/YhCk4M2FsYyzCww9ou2/DNijOTQa8JpnKC6TsMOBiQRxMs3lheMJOgn/tVQekigjsMEcoIoHikmxJQRS22UUgb7AEVk4UMAnMOsDUKMyDkjtUi53pElQon4eijLzg7M/NnUomT4GrjEOqqTAPbvex9q/a+P/vLeqjMOpzNSf/1eq7MHvgE9BeVgz1T50gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Menü&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Menü&quot;
-        src=&quot;/static/163500379a2d85bb472803ef7c3cd264/5a190/multiling9a.png&quot;
-        srcset=&quot;/static/163500379a2d85bb472803ef7c3cd264/772e8/multiling9a.png 200w,
-/static/163500379a2d85bb472803ef7c3cd264/e17e5/multiling9a.png 400w,
-/static/163500379a2d85bb472803ef7c3cd264/5a190/multiling9a.png 800w,
-/static/163500379a2d85bb472803ef7c3cd264/c1b63/multiling9a.png 1200w,
-/static/163500379a2d85bb472803ef7c3cd264/29007/multiling9a.png 1600w,
-/static/163500379a2d85bb472803ef7c3cd264/191e2/multiling9a.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;Wähle im rechten Bereich die Sprache für das Menü aus dem Auswahlfeld Sprache aus.&lt;/li&gt;
-&lt;li&gt;Speichere das Menü&lt;/li&gt;
-&lt;li&gt;Wiederhole diesen Vorgang für jede Inhaltssprache.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/4a496b7087f55358c66b8dd5febd0601/191e2/multiling9b.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACBElEQVQoz3WRS2sUQRCA548sXiLGQ2LwEIMoPsB4MLDoRcV1VVgjYpSgoAa8eVG8ZMnFP6AXPSv4QHETiXkhwYAaRYiYxzx3ZrpnenZ255OejUZIbPjooqrro5oy9p68w+6B61RKw1wqXeHY6SGKpWtbcmpwhIsjY5wZukvlVpXB26Ocv/GACzerlIfvUR6+j9FzuEzngRK1D/Mo1WDZ9HB9iRfG/xBRX4/rYYSME5Ytn4XFn7i+wKlrQmwvxOjqLdLRd4Lx2QVSQKgmMmki4sZfpErxApk3Wa5HFCu+La0yNb/ImuWwvGZjOnXqIsHo6q+wff9ZxifmiBwP99cKWRiSNZtkWZYDGWma5piehYwiLDcgVgmBiPj4eYkvP1ZotjKM3oHLdB4s8/7tJKEvWTVdkJIsishV61L9uJWB5duoRoLphgQizqk+esPj59PoY+w7fpWdh84xWZvOv+oKBWljC2GLVivD8h3iJMFyQ0KpcuHDJzWevpzL3xs7+op07CkyU5si8ELWTAe07D9CO3BQWugJRKRy6aie8Nn6hIXuIxR29fP61QSJL3FWLALTxQ8kvkzwpWrfon27euNC4QZ66wpPKD59X+XrkpXXjW09Ryl09/OiNkvUAtOPsEOF7cfYOt5EO+8EG3Ut0hvW8Ybw3QxxCqYncPKGdtNmNuf/iHX8G9xFsVI1PJa3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Für jede Sprache ein Menü&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Für jede Sprache ein Menü&quot;
-        src=&quot;/static/4a496b7087f55358c66b8dd5febd0601/5a190/multiling9b.png&quot;
-        srcset=&quot;/static/4a496b7087f55358c66b8dd5febd0601/772e8/multiling9b.png 200w,
-/static/4a496b7087f55358c66b8dd5febd0601/e17e5/multiling9b.png 400w,
-/static/4a496b7087f55358c66b8dd5febd0601/5a190/multiling9b.png 800w,
-/static/4a496b7087f55358c66b8dd5febd0601/c1b63/multiling9b.png 1200w,
-/static/4a496b7087f55358c66b8dd5febd0601/29007/multiling9b.png 1600w,
-/static/4a496b7087f55358c66b8dd5febd0601/191e2/multiling9b.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h4 id=&quot;ein-modul-für-jedes-menü-anlegen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#ein-modul-f%C3%BCr-jedes-men%C3%BC-anlegen&quot; aria-label=&quot;ein modul für jedes menü anlegen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Ein Modul für jedes Menü anlegen&lt;/h4&gt;
-&lt;p&gt;Ein Menü wird in Joomla in der Regel über ein Modul angezeigt. Unser Ziel ist es, dass das englische Menü - und nur dieses - angezeigt wird, wenn als Inhaltssprache die englische gewählt ist. Das gleiche gilt analog für jede weitere Inhaltssprache. Um unser Ziel zu erreichen installieren wir für jedes Menü ein Modul, also für jede Inhaltssprache. Dieses Modul ordnen wir der passenden Sprache zu:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Navigiere zu &lt;code class=&quot;language-text&quot;&gt;Content | Site Module&lt;/code&gt; und lege ein neues Menü Module an.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/f490f2eb03ca8edd421c8927509baf25/191e2/multiling11a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACBklEQVQoz22RyWsVQRCH518IePNkFG8eXG6CZ08GvHvw5EJuZvWmiUkMIhIISIIaxPxTgtnfm+X1dM9Mz9I9M+990p0YUGwoqrqr6qvf1AR3ZuZ58vQ1H5dXeDW/wrP5d7ycX+XFP/Z8bpXZxXVmF9dYWNthYW2XpfffWFz/wvLmHksbX5lb/Uxw49ZDNrf3cUc3LaYDOwbTg70w0018/ixKEVlF20NtO5q2p7a9j899T3D13mPefvpOojS/TmISVRKKnDSvidPC30VeMVKaSOQMYsVIVT4fioK0aBj5mtrHwfTtGVa2fiALw3GokNowSHKktkSpJlaVz50lOVnVMRwV3kTecBIpX+f6joYKpS3BtbuP2NjepzJjhkKTVS1F06PKFl13FHVHVlqKuiUrW3KXrzvf7GJX7wYkbrA2BFduPmB9a4/KjklU7aUnZwmZKIhkefHW+CY3xKl24FFWczyUpIUhlqWHObXB1PR93nzY9T8jyRpkKJCnEdlQEIaCUd6gtLkExVKjSuuBJ6H0IAcUWe3rgqnrDrhDWlgOQ4UKU6SZkMoKEUmEbv0OHUDqloNBynGUI3LDaXzuDweSozDzai+BlemJVIWKJVkkyKIUJc93WjYdXT+hNj216Whs763r8d692W5MUdk/wF3//W6i29nPg5BEVl6VW4Nr+v+Z/HWzbc9vqynEJ/rdqt8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Ein Module für das Menü&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Ein Module für das Menü&quot;
-        src=&quot;/static/f490f2eb03ca8edd421c8927509baf25/5a190/multiling11a.png&quot;
-        srcset=&quot;/static/f490f2eb03ca8edd421c8927509baf25/772e8/multiling11a.png 200w,
-/static/f490f2eb03ca8edd421c8927509baf25/e17e5/multiling11a.png 400w,
-/static/f490f2eb03ca8edd421c8927509baf25/5a190/multiling11a.png 800w,
-/static/f490f2eb03ca8edd421c8927509baf25/c1b63/multiling11a.png 1200w,
-/static/f490f2eb03ca8edd421c8927509baf25/29007/multiling11a.png 1600w,
-/static/f490f2eb03ca8edd421c8927509baf25/191e2/multiling11a.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;Wähle das passende Menü und im rechten Bereich die Sprache für das Module aus dem Auswahlfeld Sprache aus.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/b10d108485ec0addc33f25e64af624a9/191e2/multiling11b.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRklEQVQoz5WSy0oEMRBF+3PVhYI6oLhR1IXiD7gQ/Bn3LlwqqOCjZxympzvv15GkZ7B9IFpwKFJ1cysJqTaOLzjYO+N0tM/O5j4royNWt78wOmJt1Ochy9r67gk7J5dsHZ5T2XmL9RETwSUICfyAvDYBtAfj+/ydhDQOZTxV03QIZWmlQSiDKo3PCG3plC26bqEta93XMtlwLgyVkAonBM4Y/hOt6tBf9lgXqKxzWCl5G4/ppKST4meEQCrJ/fOEq+s7nsbTYuhDKCijaaWmCiESUkJqjTb2V4x11NOWm9sXJrMWbQ0u+HK6p0nNQ11nw4Bx+U1EaaQEie8sex/X82VIXBTracfja0OVVWlB2Zp+gaUOjPPFNMRUTJV2NEJT9ZMTy/wXcuguv6kuc2JMhBj7bzM0Gpr/FEOdmjXFMJ+uGIZYvs47rBPymVDWfp8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Das Module konfigurieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Das Module konfigurieren&quot;
-        src=&quot;/static/b10d108485ec0addc33f25e64af624a9/5a190/multiling11b.png&quot;
-        srcset=&quot;/static/b10d108485ec0addc33f25e64af624a9/772e8/multiling11b.png 200w,
-/static/b10d108485ec0addc33f25e64af624a9/e17e5/multiling11b.png 400w,
-/static/b10d108485ec0addc33f25e64af624a9/5a190/multiling11b.png 800w,
-/static/b10d108485ec0addc33f25e64af624a9/c1b63/multiling11b.png 1200w,
-/static/b10d108485ec0addc33f25e64af624a9/29007/multiling11b.png 1600w,
-/static/b10d108485ec0addc33f25e64af624a9/191e2/multiling11b.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;Speichere das Modul&lt;/li&gt;
-&lt;li&gt;Wiederhole diesen Vorgang für jede Inhaltssprache.&lt;/li&gt;
-&lt;li&gt;Das Hauptmenü, welches bei der Installation von Joomla automatisch angelegt wurde, benötigen wir nicht mehr und deaktivieren es aus diesem Grund.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/6cb7c7db722ac4e0b1896701942f31bc/191e2/multiling11c.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqElEQVQoz22PzWoUQRSF+xEkuDQLiT5A0IVgfIVAQB9BUXfitKAi0WQiiYkI4iJGcdy5ceUb6AMIxpWgKCLKxOnpv+qq6qrq/qRKMw5JF3yc4ty6596K5hdjli7eJV7e4tK1FS73Vrkar3El7nfT6xP3t7m18YLbmy+5uTHgxvqA3tpzrq9uE83OL3Ln4Q57IqHUmsoaZAfK2f9qNMMs42cyJhMlQktKVVEoSTR7aol7jwZI5ximFeNCkgk1IReKtJSMsjJoVlYUlebd+8+8ebvLl++/SHIRakleER07fZ77T15BrUiTnFQY2rad4I+qLZ9+5FhrkVJhnWP6WNeEt6o2RMfPXGBz53UIzIYjCmmhbWmaJgAtUls+fE1DoMf7PlTXNc6r0n/VWKKjJ8+x/ngQJqXCf9eEkOkNZW35+C0LTZ79YcZa2qahTMcYY9B+wyNzZ1nZehYak6IKgS5s0GBcE+5CmRBYGxsw1gX8F73KSgRfakM0c2KB5QdPUQ72UkFSqEOMcsXvTHbU/nmlnnjRzNx0YMUol4fYb+yqHaQzsHvLbv8gfwBeWckcBysV6wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Module deaktivieren&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Module deaktivieren&quot;
-        src=&quot;/static/6cb7c7db722ac4e0b1896701942f31bc/5a190/multiling11c.png&quot;
-        srcset=&quot;/static/6cb7c7db722ac4e0b1896701942f31bc/772e8/multiling11c.png 200w,
-/static/6cb7c7db722ac4e0b1896701942f31bc/e17e5/multiling11c.png 400w,
-/static/6cb7c7db722ac4e0b1896701942f31bc/5a190/multiling11c.png 800w,
-/static/6cb7c7db722ac4e0b1896701942f31bc/c1b63/multiling11c.png 1200w,
-/static/6cb7c7db722ac4e0b1896701942f31bc/29007/multiling11c.png 1600w,
-/static/6cb7c7db722ac4e0b1896701942f31bc/191e2/multiling11c.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;6&quot;&gt;
-&lt;li&gt;Überzeuge dich davon, dass im Frontend jederzeit lediglich das zur Inhaltssprache passende Menü angezeigt wird.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e675c067f9425936d6f565f1ca492850/191e2/multiling15.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABCklEQVQoz62PT0/CUBDE+y3Vk4kBCVAS0PbK0XoQgcR4IJ70w3jx7l1BMJW+Jmjtn/f6M9W2eRQTMTrJJpud2ZldY+fwhL3GKbt1h5Z9Qd+5pu/cUOsM2W+ecdA+p9YeUjdHNMwxZnNAtzWgZ46wO2N63UuOjidY1gTbusJAgxCC6WyGJwRKSTbwHpAs5rwsnkmCV3hbgUzWJEaapiiV5oY+S88njCKyebUyhMLHfXgkWHrEwieVkowqNIa+IKVE5YvfGWaMVIoojgk/K9nQli8XF+gCvS+Cpk8ut3f3X5xSZRA5b+hm1feq8wxBGDN3V8SJypg1rjTcFvpiNfDXhj998S+Gf7pwW3wAPMb42R++IMwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Jederzeit das zur Inhaltsprache passende Menü&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Jederzeit das zur Inhaltsprache passende Menü&quot;
-        src=&quot;/static/e675c067f9425936d6f565f1ca492850/5a190/multiling15.png&quot;
-        srcset=&quot;/static/e675c067f9425936d6f565f1ca492850/772e8/multiling15.png 200w,
-/static/e675c067f9425936d6f565f1ca492850/e17e5/multiling15.png 400w,
-/static/e675c067f9425936d6f565f1ca492850/5a190/multiling15.png 800w,
-/static/e675c067f9425936d6f565f1ca492850/c1b63/multiling15.png 1200w,
-/static/e675c067f9425936d6f565f1ca492850/29007/multiling15.png 1600w,
-/static/e675c067f9425936d6f565f1ca492850/191e2/multiling15.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h4 id=&quot;menüpunkte-für-jede-sprache-hinzufügen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#men%C3%BCpunkte-f%C3%BCr-jede-sprache-hinzuf%C3%BCgen&quot; aria-label=&quot;menüpunkte für jede sprache hinzufügen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Menüpunkte für jede Sprache hinzufügen&lt;/h4&gt;
-&lt;p&gt;Sobald das Menü für jede Sprache erstellt ist, fügen wir neue Menüpunkte hinzu.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Öffne das englische Menü und klicke auf &lt;code class=&quot;language-text&quot;&gt;Neuen Menüpunkt hinzufügen&lt;/code&gt; in der Werkzeugleiste.&lt;/li&gt;
-&lt;li&gt;Wähle im rechten Bereich die Sprache für den Menüpunkt aus dem Auswahlfeld Sprache aus. Stelle sicher, dass das korrekte Menü selektiert ist. Lege den Menüpunkt als Standardmenüpunkt fest, falls du dies möchtest.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/37bc49c732db1af87d207a529fa59246/191e2/multiling10a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABgElEQVQoz5WRz2oVMRSH52VVWhDU2ypuBGsr+gYufQDfQPfuXLpzobcVub0zySSZ/E8+ScZWikL1wMdJTg6/nPwyvNw848HmhDtHp9x9+Jx7j044ODpdOV7z4fEZh49XDo7P/ji///QVT16/ZfPiDYNxgcUFkl5IuZIqZCBX1nUFGwrGBhYf8an0+g0KhJTxMTPspWYUmmlSCGU7ozTMxnURbQNSt5pmmk3f+5B61i6ijUNbj3ERaTyDD5EYE7vLESEkQswIOSNnxawU86xQSne0NoyT5N37T3zZXlK8o2hNqZVSKtYnhlorMUa+fjtne37R2Y8T4yQYR3GdW61duP2+48PHz1zsBN55SrOlVHL+Jeh8IJeCWSwpZ1LKpFzIf6HV2wAtrAsYa3HO9xf6GFGLY4Dam64ab4u1F+ZFMxtNTLEPtFcjP8TYBLkWuxK+jRZCSWwIfd08pIIP+bfg/9DCC8miTfewfUhKhcXFmxP+23PX3uZ1865/SCld1IXETzOz71JVvKgpAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Für jede Sprache ein Menü&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Für jede Sprache ein Menü&quot;
-        src=&quot;/static/37bc49c732db1af87d207a529fa59246/5a190/multiling10a.png&quot;
-        srcset=&quot;/static/37bc49c732db1af87d207a529fa59246/772e8/multiling10a.png 200w,
-/static/37bc49c732db1af87d207a529fa59246/e17e5/multiling10a.png 400w,
-/static/37bc49c732db1af87d207a529fa59246/5a190/multiling10a.png 800w,
-/static/37bc49c732db1af87d207a529fa59246/c1b63/multiling10a.png 1200w,
-/static/37bc49c732db1af87d207a529fa59246/29007/multiling10a.png 1600w,
-/static/37bc49c732db1af87d207a529fa59246/191e2/multiling10a.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;Speichere den Menüpunkt&lt;/li&gt;
-&lt;li&gt;Wiederhole diesen Vorgang für jede Inhaltssprache.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;mehrsprachige-assoziationen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#mehrsprachige-assoziationen&quot; aria-label=&quot;mehrsprachige assoziationen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Mehrsprachige Assoziationen&lt;/h3&gt;
-&lt;p&gt;Mehrsprachige Assoziationen werden verwendet, um Artikel oder Menüpunkte einer Sprache in eine andere Sprache umzuleiten, wenn wir auf die Flagge für die Sprachumschaltung klicken. Websitebesucher erwarten, dass sie zur englischen Version eines Artikels gelangen, wenn sie die Inhaltssprache von deutsch auf englisch wechselen. Dies ist allerdings nur möglich, wenn Joomla weiß, welche Artikel oder Menüpunkte zueinander gehören. Sprachverknüpfungen teilen Joomla diese Information mit. Wenn wir die Sprachverknüpfungen nicht setzen, werden wir zum Standardmenünkt einer Sprache weitergeleitet, wenn wir die Inhaltssprache im Frontend wechselen. Dies ist nicht gewünscht und deshalb verknüpfen wir die Inhalte.&lt;/p&gt;
-&lt;h4 id=&quot;assoziationen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#assoziationen&quot; aria-label=&quot;assoziationen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Assoziationen&lt;/h4&gt;
-&lt;p&gt;Wenn wir einen Menüpunkt hinzufügen und diesem eine Sprache zuweisen, werden die Optionen für Assoziationen angezeigt. Wir finden diese auf der Registerkarte &lt;code class=&quot;language-text&quot;&gt;Assoziationen&lt;/code&gt;. Auswählbar sind die Menüpunkte anderer Inhaltssprachen.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/172d5659d97427eec6523566b9e5c527/191e2/multiling12.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABT0lEQVQoz63Rv2sUQRTA8f1rAxcRMeRMESQoOYlobxMLW63Sp0hSpbFIWsEfYHN7u7czO79/7H5l53KgTYiQ4sPMew/evJmpni9OOTp8z9v5Kw6fvWRn7zWz+YLZ/jGz+XFZd+cLdl9s/FO7qz85eMPByUf2F6dU2nqUj9g8EkYY8kieAGmEPIKLA8oGjI/4OJRc2hogDuBTxsdE1XSKSScN696y/L2kbQXSeLQNpZFQjlYo1lLTa1dyW9MhLqRCmkDlQyClTEwJ5wPaeEJMJU45l1rOk6HY5oqckdrRCI1UdjOhNo4RqOsVP37+YlnXtO2aVdPeb9UgRMeHz5c8PfnCu0/npXk1TTUMI71SCCHR2qAeyFrL9c13zi5uufr6DeMi1XRvoT3SRnobyzv8j5A2nxTzWPpUjbRsrf7aP1TdGZadKesUV23veEyP3vAPXwjihL2l7y0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Standardmenüpunkt pro Sprache&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Standardmenüpunkt pro Sprache&quot;
-        src=&quot;/static/172d5659d97427eec6523566b9e5c527/5a190/multiling12.png&quot;
-        srcset=&quot;/static/172d5659d97427eec6523566b9e5c527/772e8/multiling12.png 200w,
-/static/172d5659d97427eec6523566b9e5c527/e17e5/multiling12.png 400w,
-/static/172d5659d97427eec6523566b9e5c527/5a190/multiling12.png 800w,
-/static/172d5659d97427eec6523566b9e5c527/c1b63/multiling12.png 1200w,
-/static/172d5659d97427eec6523566b9e5c527/29007/multiling12.png 1600w,
-/static/172d5659d97427eec6523566b9e5c527/191e2/multiling12.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Assoziationen&lt;/code&gt; finden wir auch bei anderen Joomla Elemente. Beispielsweise bei Artikeln.&lt;/p&gt;
-&lt;h4 id=&quot;die-komponente-mehrsprachige-assoziationen---sprachverknüpfungen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#die-komponente-mehrsprachige-assoziationen---sprachverkn%C3%BCpfungen&quot; aria-label=&quot;die komponente mehrsprachige assoziationen   sprachverknüpfungen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Die Komponente Mehrsprachige Assoziationen - Sprachverknüpfungen&lt;/h4&gt;
-&lt;p&gt;Die Komponente &lt;code class=&quot;language-text&quot;&gt;Mehrsprachige Assoziationen&lt;/code&gt; oder &lt;code class=&quot;language-text&quot;&gt;Sprachverknüpfungen&lt;/code&gt; ist ein Werkzeug, das es ermöglicht, assoziierte Elemente nebeneinander zu bearbeiten, ohne hin und her wechseln zu müssen. Sehr komfortabel ist es möglich, ein Element in mehreren Sprachen zu erstellen und gleichzeitig zu assoziieren. Die Side-by-Side-Ansicht ermöglicht es uns, die Elemente nach Auswahl eines Referenzelements zu bearbeiten.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/36e9327dda2b088e1497830c22e90bf0/191e2/multiling13b.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACX0lEQVQoz0WRO2hUURCGb2FjJ9ZWNjYWgoUIiihKlCiIWKmNjSYRV+OauD52NbhJNL6JUVYhSFTwgcRg4QMx2mojiKAggiJikr3Z3XPOPY977t1P9sbHDx8zHGaGM/MHPeWbFPNlSgdOUDxYpNRdothd4lTuON2H+ujoHWDfkQG6esp09fazvzBIrjBIV08/nT3ljNzRsxTO3iJ/ukIwPV1HW49UFqVjIuPn0DHaN7EuQTQitAdlU36GKiNyKS4B68H4JpGNszlBfVYgTfyPujI0lEFoN4cyVGcbCKWZCiWv3n7O+FUVWV0LGTmkdtSkIbDOkSQJaZrSbDYxxiKlJI5j/sonKZE2eO//v3mPEBKtTdbXko0TgrpQaG0xxmGsw7kYF/u5PI6JbMSskFRrAqEUQipUpDHWYKzFujhDW00oBIFUGm0MkW7FCJ94mmkTpRQNKZmuh4T1GkoamimQgo+TuRyyD9SFIGzU+FWrETx8OkzH8W3k+w5TGTtH3/AuLo72MlOtEmnLn214936S4dslLt64wL3HY9yZGOT6vVP8+PkdIaKsxriEYOjGTpasns/6LSsZOFOiu7CZHR3rmJ6ZyVaJ/9xt4sV5lrbNY9maxeSPddJb3M6KTQv5+OkD1vrMA2Vigt2H17Jq6yLa2zeSP5BjfPwKl24eI5wNCcMaQops4FAlx/L2BWxoW03Xnr1MPKpQKO/k67cvNBoqM1JpS3ClcpLBkU6Gr11j/MlLnk+O8vz1fYSUmbOtw7d058F1+kc6uXz1DKO3HjD55jHPXt1lamYK6zzOOZR2/Ab0/qaawyc5tAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Mehrsprachige Assoziationen - Sprachverknüpfungen - Side-by-Side-Ansicht&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Mehrsprachige Assoziationen - Sprachverknüpfungen - Side-by-Side-Ansicht&quot;
-        src=&quot;/static/36e9327dda2b088e1497830c22e90bf0/5a190/multiling13b.png&quot;
-        srcset=&quot;/static/36e9327dda2b088e1497830c22e90bf0/772e8/multiling13b.png 200w,
-/static/36e9327dda2b088e1497830c22e90bf0/e17e5/multiling13b.png 400w,
-/static/36e9327dda2b088e1497830c22e90bf0/5a190/multiling13b.png 800w,
-/static/36e9327dda2b088e1497830c22e90bf0/c1b63/multiling13b.png 1200w,
-/static/36e9327dda2b088e1497830c22e90bf0/29007/multiling13b.png 1600w,
-/static/36e9327dda2b088e1497830c22e90bf0/191e2/multiling13b.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Um zu dieser Komponente zu gelangen, navigieren wir zu &lt;code class=&quot;language-text&quot;&gt;Komponenten &gt; Mehrsprachige Zuordnungen / Sprachverknüpfungen&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/fad7c7443bc2aea073c96080d9459dc0/191e2/multiling13a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABOElEQVQoz+XMu0oDQRiG4b0F7bQRTCciWKudNjZ6BTZWaQQxRkhQA4mnhDRR8IB4SOVFeAPWNhYKkgiJMbtmN9nZ2d0Jr2SzhZEY7B14+GeY7/+06eU4S6s7bKXyrCezgbXEEdFYhuhmH7EMsfQpiewV2/kiydwN8cNrYnuXbKTP0EYnF8gVbukc6Spc4SAVuD/IkNcOojw+V7h/eOKlVEG6HrbjYUsPbWxinoPjIgp4ezdoCQffV3i+jxdOXylM00I4Mni/lsrUdJNq3aRuNFBKIaRH05Zo43Mr7J/c4behXNUxLEFTuFh2L7MlMW0Z3GuGFWQcT2FLvyejjUwtkikUET7UTRH4COdvdEt2c42u7zvaUGSGVO4CR0Hts4VudRacgbql/f+04cgsu9nzsNAeGP6Lf1j4BVuWxZHGzqwoAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Mehrsprachige Assoziationen - Sprachverknüpfungen&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Mehrsprachige Assoziationen - Sprachverknüpfungen&quot;
-        src=&quot;/static/fad7c7443bc2aea073c96080d9459dc0/5a190/multiling13a.png&quot;
-        srcset=&quot;/static/fad7c7443bc2aea073c96080d9459dc0/772e8/multiling13a.png 200w,
-/static/fad7c7443bc2aea073c96080d9459dc0/e17e5/multiling13a.png 400w,
-/static/fad7c7443bc2aea073c96080d9459dc0/5a190/multiling13a.png 800w,
-/static/fad7c7443bc2aea073c96080d9459dc0/c1b63/multiling13a.png 1200w,
-/static/fad7c7443bc2aea073c96080d9459dc0/29007/multiling13a.png 1600w,
-/static/fad7c7443bc2aea073c96080d9459dc0/191e2/multiling13a.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;h3 id=&quot;standardseite-für-jede-sprache-festlegen&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#standardseite-f%C3%BCr-jede-sprache-festlegen&quot; aria-label=&quot;standardseite für jede sprache festlegen permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Standardseite für jede Sprache festlegen&lt;/h3&gt;
-&lt;p&gt;Die Standardseite ist die Startseite für jede Sprache. Lege in jedem Menü einen Standardmenüpunkt fest. Wenn du beispielsweise im englischen Hauptmenü auf den Menüpunkt &lt;em&gt;Home&lt;/em&gt; als Standard klickst, wird dieser zum Standardmenüpunkt für englischsprachige Seiten.&lt;/p&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/34e7926d52a785bbe66b392361240a62/191e2/multiling10b.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABxklEQVQoz62QwUsVURSH5x+RFoFFkdkihFxIGBmUJYglUjx7PDKoDNQia1krI1r0V7iIlkUS0bOkxZOixRMjokR9+d7Mmzt37tx7Z6bnFzNK6DLpwMfvnnPg43Cd7ksPOHpuksHiNFeuTzNcustQcYr+kVtcuHx7B+MMX7tP6d4zRm48ZHTqKVcnn1CYeMyZ0gwDY48YnZjBOdJb4PDJAi/evOOX77K60WDDFzREgFDqL75SeDIk1BFxGmMSSxBFuIFktvyNj0tr+DLA2X+8n/auAWZfzVGXTeoioCF8XBnihSrPRhDmwii2VJZ/8vztJ14ufOHHeg03EJhEI3XEhpA4nX1jtPcU+FBZIitXaHxpkJFFKktkEuIkzfs4TllZdfm8vEb1ew1PKERo8EREoGyO03X+Jod6iywsVnNhoDQr6y61hqDeDNE2zecmTkiMgVACrXy2uQnp7xZaKWwco22C03PxDsfOjlNe/IpOWriBpik1fmgQytLMLpBmK0OLF8Z570m9ndnO5mRv5+CJQQ50D/G+UkXFLep+9tEmF+8Fp63jFBlz8xVMyrZQ77rgX3D2dfbR1nGa1+WdQrMn2W7h/P8R/gHFurGxJYlywwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Standardmenüpunkt pro Sprache&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Standardmenüpunkt pro Sprache&quot;
-        src=&quot;/static/34e7926d52a785bbe66b392361240a62/5a190/multiling10b.png&quot;
-        srcset=&quot;/static/34e7926d52a785bbe66b392361240a62/772e8/multiling10b.png 200w,
-/static/34e7926d52a785bbe66b392361240a62/e17e5/multiling10b.png 400w,
-/static/34e7926d52a785bbe66b392361240a62/5a190/multiling10b.png 800w,
-/static/34e7926d52a785bbe66b392361240a62/c1b63/multiling10b.png 1200w,
-/static/34e7926d52a785bbe66b392361240a62/29007/multiling10b.png 1600w,
-/static/34e7926d52a785bbe66b392361240a62/191e2/multiling10b.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Öffnen das englische Hauptmenü und klicke wir auf das Kreissymbol, um den Menüpunkt als Standard für diese Sprache festzulegen.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Wiederhole diesen Vorgang für jede Inhaltssprach&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;sprachumschalter-modul&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#sprachumschalter-modul&quot; aria-label=&quot;sprachumschalter modul permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Sprachumschalter-Modul&lt;/h3&gt;
-&lt;p&gt;Dieses Modul zur Sprachumschaltung zeigt eine Liste der verfügbaren Inhaltssprachen an. So kann zwischen diesen hin und her gewechselt werden. Voraussetzung ist, dass Joomla als mehrsprachige Website eingesetzt wird und die Inhaltssprachen wie zurvor erklärt definiert und veröffentlicht wurden.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Um den Sprachumschalter einzurichten navigiere zu &lt;code class=&quot;language-text&quot;&gt;Content | Site Module&lt;/code&gt; und lege ein neues Language Switcher Module an.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/093a79f20e0f23442f2e37802651d18d/191e2/multiling14a.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACPklEQVQoz22S30sUURTH5w/pF2URPpgSSOmLhFmBEURgha6IRA+VpAQFvvQQQS9BRH9NYIEoklhkiRHm6urO7s7vO3Nn7szs6ifuLXrq4cC5537nfs/nnLEujs3TNzrHvcosc9OPmbz7gOvjM9z4T4w/fM79+XdMPHrB9LO3TM6+YurJa6afvmFy7hXjMy+x+i9VODtUYXFlnSIvEVIh0pwoUf9C15I0J4xTfvyqESYZgUjNOdDxN9d1q3vgFl0XbvJ+6QtOlLJVa9HwYiJZmAiSnCBWpHmbSCpW138i0pJQ5gSJItS6tDQ6P1ZYPcNTdA3eYWH5K14o2a27RDLHCRL2mj5hkhMmilrDxxcZWXmI7YQ4oSTOSqPTd9pUpAVW99AEpwZu83HlG3U3YbPawokUrSDFdmNckeNGin1H4Allzrre8CV+XFB3Y3bsgGagkQus3uEKZwbHWFz9TqLa2K4giHPjnmQlImsbdKnaSNUxaELmRhvJ0txlxQFx1jY01snz1zjdP8ry2oZx2973EFmHXTtgY8umFWY4YUa17ptOg6Sg1ghwo8yY7bUidhshfpybeVrHzo1wou8qi5/W6YBx0h/ZXkKtGVL3JLEnUKpDog7wRI5qQ1ocGJ3Wy7xjcDWZdbz3Ckd6LrOwtGZwWoFEpG0zbE9kplvfE2xXbTNDjVlvhbhRanK9HC/KzKY1vnnwaM8IH5Y/kxaHZhl62BpBY+lcL2mnEeBEmelK13VHoSypNSM2q032nD+/2m9pI7CXyhV8egAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Language Switcher Module einrichten&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Language Switcher Module einrichten&quot;
-        src=&quot;/static/093a79f20e0f23442f2e37802651d18d/5a190/multiling14a.png&quot;
-        srcset=&quot;/static/093a79f20e0f23442f2e37802651d18d/772e8/multiling14a.png 200w,
-/static/093a79f20e0f23442f2e37802651d18d/e17e5/multiling14a.png 400w,
-/static/093a79f20e0f23442f2e37802651d18d/5a190/multiling14a.png 800w,
-/static/093a79f20e0f23442f2e37802651d18d/c1b63/multiling14a.png 1200w,
-/static/093a79f20e0f23442f2e37802651d18d/29007/multiling14a.png 1600w,
-/static/093a79f20e0f23442f2e37802651d18d/191e2/multiling14a.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;2&quot;&gt;
-&lt;li&gt;Ich ordne das Modul der Position languageswitcherload zu.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d2ad4ef0369eeab3270f937c2df21f9a/191e2/multiling14b.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABbUlEQVQoz42ST0scQRDF5xMaPAgJux4MSCC4ehBBBC9CILfc8sUinkxEXZdld2dmp2emu6r6z5PumUxYNzEW/HjdNdXF6+rJDs6+4f3RV4w/X+LD4RlGn86x9/EUO6MJ3o2P/8vu/gnGR1c4vPiO0eQLskVRIV/XKFWDIqlG1RhUDQ2sG7NN/UfLWqcekWxZKNSaUWuBarlbG0n7pEZQ1IRcmQ1irlC0sc8VIVvmFYq1giaGNgwWixAAHwKc9wO+x/kAby2YCeJcn/MIIaAlQfY0m6Mo1zCGICJgZhBR0liUImpPyviAxf1PlE3df+7qDDtkvu9urduicxVe0NWTJhjidJOIYYZqCVm0+zs6E2HA/4NY1xKh1i3ESjp7O7vD/WLeOYzBlodZvAVigWo0rOvO/5ou8TAvka3KCiIO19MbNEYPM3mNZEAsWsNDw7vpqmu4yEtYcfjxeI1G640h/y2GByAGswxjIrbpt3sGWfrrBtLYv/YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Language Switcher Module einrichten&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Language Switcher Module einrichten&quot;
-        src=&quot;/static/d2ad4ef0369eeab3270f937c2df21f9a/5a190/multiling14b.png&quot;
-        srcset=&quot;/static/d2ad4ef0369eeab3270f937c2df21f9a/772e8/multiling14b.png 200w,
-/static/d2ad4ef0369eeab3270f937c2df21f9a/e17e5/multiling14b.png 400w,
-/static/d2ad4ef0369eeab3270f937c2df21f9a/5a190/multiling14b.png 800w,
-/static/d2ad4ef0369eeab3270f937c2df21f9a/c1b63/multiling14b.png 1200w,
-/static/d2ad4ef0369eeab3270f937c2df21f9a/29007/multiling14b.png 1600w,
-/static/d2ad4ef0369eeab3270f937c2df21f9a/191e2/multiling14b.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li&gt;Sobald das Modul veröffentlicht ist, können wir es im Frontend nutzen.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1231d155fcf8ca4e60163fa0c9907064/191e2/multiling14c.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 47.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABR0lEQVQoz6WPTUsCYRSFZx8ELVsVfWJkIon5H9pFtIuiIIgo2vYD2vc3IlpMKpbohEWIRDTt2kSBEJOkkR+j07wzT4wONllS1IHDfbn33HPPK/UOz9E3vkBP/yy7O3vUCxpKLINvdJ6BiUUGJ5cY8i8zMrXCWGAVX3ANf2idwHSLwdAGofAm4ZktIpFtJDmR5SiZQ5YzqDmVYvmVu7zGyWGKdPyc2HGOuMtE8pJoPMv+gYIcvSCZuiKdviatqCiKyqlyg4QHNU1Du3+g+qSBadANer3edSYJITCFQFg21XKFRk3HfjOxhIXooGVZGIZBqfRCuVJF1xvNnlcjYdtNZ9utzbdLZ2Z76KBS1dEKxabCNMWXXQmP+NOyUz09y9XkH585y922T3vNWoaeC3aHeTvxNz3ne60wnQl/iZ+O/tvwg39M+Fu8A8YB4bHU8TSvAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;Joomla 4 | Mehrsprachige Website einrichten | Language Switcher Module einrichten&quot;
-        title=&quot;Joomla 4 | Mehrsprachige Website einrichten | Language Switcher Module einrichten&quot;
-        src=&quot;/static/1231d155fcf8ca4e60163fa0c9907064/5a190/multiling14c.png&quot;
-        srcset=&quot;/static/1231d155fcf8ca4e60163fa0c9907064/772e8/multiling14c.png 200w,
-/static/1231d155fcf8ca4e60163fa0c9907064/e17e5/multiling14c.png 400w,
-/static/1231d155fcf8ca4e60163fa0c9907064/5a190/multiling14c.png 800w,
-/static/1231d155fcf8ca4e60163fa0c9907064/c1b63/multiling14c.png 1200w,
-/static/1231d155fcf8ca4e60163fa0c9907064/29007/multiling14c.png 1600w,
-/static/1231d155fcf8ca4e60163fa0c9907064/191e2/multiling14c.png 1836w&quot;
-        sizes=&quot;(max-width: 800px) 100vw, 800px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Fertig!&lt;/p&gt;
 &lt;style class=&quot;grvsc-styles&quot;&gt;
   .grvsc-container {
     overflow: auto;

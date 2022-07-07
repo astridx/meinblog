@@ -68,5 +68,5 @@ Was es nicht gibt: Es gibt nicht den einen Mastodon-Anbieter. Das ist ähnlich w
 
 Eine Übersicht über die möglichen Instanzen gibt es unter instances.social[^instances.social].
 
-Wer nach mir sucht, findet mich unter @astrid@fimidi.com.
+Wer nach mir sucht, findet mich unter https://fimidi.com/@astrid als @astrid@fimidi.com.
 
