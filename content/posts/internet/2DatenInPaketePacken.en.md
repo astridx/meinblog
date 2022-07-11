@@ -18,63 +18,63 @@ tags:
 ---
 
 
-Netzknoten und Verbindungen im Internet existieren nicht um ihrer selbst willen. Menschen nutzen das Netz, um miteinander zu kommunizieren. Was in der Realität möglich ist, geschieht auch digital. Arbeiten, Spielen, Kommunizieren zum Zeitvertreib sind nur einige Beispiele. 
+Network nodes and connections on the internet do not exist for their own sake. People use the net to communicate with each other. What is possible in reality also happens digitally. Working, playing, communicating to spend time are just a few examples. 
 
-![Daten zum Austausch über das Internet in Pakete packen](/images/2.en.png)
+![Putting data into packets for exchange over the Internet](/images/2.en.png)
 
-## Pakete packen
+## Packets
 
-Alle Aktivitäten im Netz geschehen durch den Austausch von Daten. Dies sind zum Beispiel Texte, Bilder, Videos oder Töne. Zur Übertragung werden diese in eine einheitliche Form gebracht. Das Ergebnis ist ein Paket.
+All activities on the net happen through the exchange of data. These are, for example, texts, images, videos or sounds. For transfer, these are put into a uniform form. The result is a packet.
 
-Wie ein Datenpaket gepackt wird, ist in Protokollen[^de.wikipedia.org/wiki/Netzwerkprotokoll] geregelt. Meistens passt nicht alles in ein Paket, deshalb definieren Protokolle zusätzlich Regeln, wie die Daten aufzuteilen sind. 
+How a data packet is packed is regulated in protocols [^de.wikipedia.org/wiki/Netzwerkprotokoll]. Most of the time, not everything fits into one packet, so protocols additionally define rules on how to divide the data. 
 
-> Warum gibt es ein Netzwerkprotokoll? Damit alle Netzwerkgeräte miteinander kommunizieren können, ist es notwendig, dass sie sich gegenseitig verstehen. Dies wird durch die Protokolle gewährleistet. Ähnlich wie beim Erlernen einer Sprache legen sie Grammatiken und Bedeutungen fest, innerhalb derer Daten ausgetauscht werden. Jeder, der diese lernt, kann mitreden.
+> Why is there a network protocol? In order for all network devices to communicate with each other, it is necessary that they understand each other. This is ensured by the protocols. Similar to learning a language, they define grammars and meanings within which data is shared. Anyone who learns them can join in the communication.
 
-Ein typisches Datenpaket besteht aus 
-- den eigentlichen Daten, 
-- Adressinformationen und 
-- Informationen über die gepackten Pakete wie
-  - Inhalt,
-  - Größe,
-  - Sequenznummer, 
-  - Gesamtzahl der Pakete und einer 
-  - Prüfsumme.
+A typical data packet consists of 
+- the actual data, 
+- address information and 
+- information about the packaged packets such as
+  - content,
+  - size,
+  - sequence number, 
+  - total number of packets and a 
+  - checksum.
 
-Alles wird gemäß den Protokoll-Regeln zusammengepackt. Die Informationen über die Pakete werden als Header vorangestellt. Eine Prüfsumme stellt sicher, dass alles korrekt ankommt.
+Everything is packed together according to the protocol rules. The information about the packets is prefixed as a header. A checksum ensures that everything is received correctly.
 
-## Inhalt und Form der Netzwerkpakete
+## Content and form of the packets
 
-Wenn meine Tochter ein Foto ihrer Katze an ihre Freundin schickt, macht sie sich keine Gedanken darüber, wie genau das geschieht. Wie durch ein Wunder gelangen Farben und Formen an ihr Ziel
-- per Mobiltelefon durch die Luft oder 
-- über ein Kabel, vom Computer aus.
-.
-Doch ein Computer ist ziemlich begrenzt. Er kann addieren und vergleichen, einfallsreicher ist er nicht. Deshalb sind zwei Zustände das Einzige, was er verarbeiten kann. Diese werden oft mit 1 und 0 dargestellt oder 
-- im Kupferkabel mit Strom oder ohne Strom, 
-- in der Glasfaser mit Licht oder kein Licht, 
-- in der Luft per Radiowelle[^de.wikipedia.org/wiki/radio-wave] mit Wellensignal oder ohne.
+When my daughter sends a photo of her cat to her friend, she doesn't worry about how exactly it happens. Like a miracle, colours and shapes reach their destination
+- by mobile phone, through the air, or 
+- via a cable, from the computer.
 
-> Alle von Computern verarbeiteten Informationen bestehen im Rohzustand aus zwei verschiedenen Signalen. Dies gilt gleichermaßen für Datenpakete.
+But a computer is quite limited. It can add and compare, but it is no more imaginative. Therefore, two states are the only things it can process. These are often represented by 1 and 0 or 
+- in a cable with power or no power 
+- in the optical fibre with light or no light, 
+- in the air by radio wave [^de.wikipedia.org/wiki/radio-wave] with wave signal or without.
 
-## Der Übertragungsprozess in der Übersicht
+> All information processed by computers consists of two different signals in its raw state. This is also true for data packets.
 
-Ein komplexer Prozess ist leichter zu verstehen, wenn man ihn aufteilt. Für die Übertragung im Internet gibt es eine Reihe von Modellen, die die Übermittlung in Schichten unterteilen. Zum Beispiel das TCP/IP-Referenzmodell[^de.wikipedia.org/wiki/Internetprotokollfamilie], das mit vier Schichten arbeitet.
+## An overview of the transfer process
 
-### Anwendungsschicht
+A complex process is easier to understand if you divide it into parts. For transmission on the internet, there are a number of models that divide transmission into layers. For example, the TCP/IP reference model [^de.wikipedia.org/wiki/Internetprotokollfamilie], which works with four layers.
 
-Die Hauptaufgabe der Anwendungsschicht besteht darin, Daten an die Transportschicht weiterzuleiten. Nina klickt im Chatprogramm auf Senden, um das Foto ihrer Katze an ihre Freundin zu schicken und veranlasst so, dass das Chatprogramm die Daten an die Transportschicht zu übergeben.
+### Application layer
 
-### Transportschicht
+The main task of the application layer is to forward data to the transport layer. Nina clicks Send in the chat program to send the photo of her cat to her friend, causing the chat program to pass the data to the transport layer.
 
-> Nur sehr wenige Nutzer sind sich der Protokolle bewusst. Sie sind nicht sichtbar und werden nicht bewusst installiert. Sie sind Teil des Betriebssystems eines jeden internettauglichen Geräts. 
+### Transport layer
 
-Die Transportschicht teilt die übermittelten Daten in Pakete auf und fügt die Header-Informationen hinzu. Das Foto ist nun nicht mehr `eine einzige` Folge von Nullen und Einsen. Die Transportschicht leitet `mehrere` aus Nullen und Einsen bestehende Pakete mit beschreibenden Header-Informationen an die Internet-Schicht weiter.
+> Very few users are aware of the protocols. They are not visible and are not knowingly installed. They are part of the operating system of any Internet-enabled device. 
 
-> Warum werden die Daten für die Übertragung in einzelne, kleinere Datenpakete zerlegt? Die Aufteilung in mehrere Pakete hat den Vorteil, dass sie unabhängig voneinander gesendet werden. Wenn es ein Problem bei der Datenübertragung gibt, reicht es aus, nur den vom Fehler betroffenen Teil nochmals zu senden. 
+The transport layer splits the transferred data into packets and adds the header information. The picture is now no longer `a single` sequence of zeros and ones. The transport layer forwards `several` packets consisting of zeros and ones with descriptive header information to the internet layer.
 
-### Internet-Schicht
+> Why is the data split into individual, smaller data packets for transmission? Splitting into several packets has the advantage that they are sent independently of each other. If there is a problem with the data transfer, it is only necessary to resend the part affected by the fault. 
 
-Verantwortlich für die korrekte Adressierung ist die Internet-Schicht. Hier wird der Paketkopf um die IP-Ursprungs- und Zieladresse ergänzt. Der Weg der Pakete wird ebenfalls in dieser Schicht bestimmt. Viele Aufgaben werden von Routern erledigt.
+### Internet layer
 
-### Netzzugangsschicht
+The Internet layer is responsible for correct addressing. Here, the IP origin address and IP destination address are added to the packet header. The path of the packets is also determined in this layer. Many tasks of this layer are performed by routers.
 
-Die eigentliche Datenübertragung findet in der Netzzugangsschicht statt. Je nach Medium entweder in Form von Licht, als Funkwelle oder als elektrisches Signal.
+### Network access layer
+
+The actual data transfer takes place in the network access layer. Depending on the medium, either in the form of light, as a radio wave or as an electrical signal.

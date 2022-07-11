@@ -47,7 +47,7 @@ Alles wird gemäß den Protokoll-Regeln zusammengepackt. Die Informationen über
 Wenn meine Tochter ein Foto ihrer Katze an ihre Freundin schickt, macht sie sich keine Gedanken darüber, wie genau das geschieht. Wie durch ein Wunder gelangen Farben und Formen an ihr Ziel
 - per Mobiltelefon durch die Luft oder 
 - über ein Kabel, vom Computer aus.
-.
+
 Doch ein Computer ist ziemlich begrenzt. Er kann addieren und vergleichen, einfallsreicher ist er nicht. Deshalb sind zwei Zustände das Einzige, was er verarbeiten kann. Diese werden oft mit 1 und 0 dargestellt oder 
 - im Kupferkabel mit Strom oder ohne Strom, 
 - in der Glasfaser mit Licht oder kein Licht, 
@@ -73,7 +73,7 @@ Die Transportschicht teilt die übermittelten Daten in Pakete auf und fügt die 
 
 ### Internet-Schicht
 
-Verantwortlich für die korrekte Adressierung ist die Internet-Schicht. Hier wird der Paketkopf um die IP-Ursprungs- und Zieladresse ergänzt. Der Weg der Pakete wird ebenfalls in dieser Schicht bestimmt. Viele Aufgaben werden von Routern erledigt.
+Verantwortlich für die korrekte Adressierung ist die Internet-Schicht. Hier wird der Paketkopf um die IP-Ursprungs- und Zieladresse ergänzt. Der Weg der Pakete wird ebenfalls in dieser Schicht bestimmt. Viele Aufgaben dieser Schicht werden von Routern erledigt.
 
 ### Netzzugangsschicht
 

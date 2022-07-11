@@ -231,7 +231,7 @@ The simplest way to specify a string is to enclose it in single quotes. Single q
 
 ```
 echo 'Start with a single string';
-echo 'String with "apostrophe"';
+echo 'String with \' apostrophe';
 echo 'String with a php variable' . $name;
 ```
 

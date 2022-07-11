@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/tags/ip/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"id":"02e7f4dd-e9ba-5f8d-9a8e-516ce7b6b7fb","fields":{"slug":"/regeln-fuer-die-kommunikation-im-netz2/"},"frontmatter":{"date":"July 08, 2022","title":"Regeln für die Kommunikation zwischen Computern im Internet - Teil 2","tags":["IP","Spoofing","Datenübertragung"],"categories":["Internet"]}}}]}},"pageContext":{"tag":"IP"}},
+    "staticQueryHashes": ["352937542"]}

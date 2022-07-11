@@ -232,7 +232,7 @@ Die einfachste Art, eine Zeichenkette anzugeben, ist, sie in einfache Anführung
 
 ```
 echo 'Beginne mit einer einfachen Zeichenkette';
-echo 'String mit "Apostroph"';
+echo 'String mit \' Apostroph';
 echo 'String mit einer php-Variablen' . $name;
 ```
 
