@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-20
+date: 2022-07-13
 title: 'The First View in the Backend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -16,14 +16,14 @@ tags:
 
 We'll start with the basics. For this we create the _View_ in the administration area rudimentary. At the end of this text you know how to insert a menu item in the menu of the administration area<!-- \index{menu item!backend} -->. Via the menu item you open the view to your component. Don't be disappointed: This view contains nothing more than a short text. You have a good basis for the next steps.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t0...t1)[^github.com/astridx/boilerplate/compare/t0...t1] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t0...t1)[^codeberg.org/astrid/j4examplecode/compare/t0...t1] and copy these changes into your development version.
 
 ## Step by step
 
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/ com\_foos/ foos.xml
 
 `foos.xml` tells Joomla how to install our component. Just like modules and plugins, components have an XML installation<!-- \index{installation manifest} --> file that informs Joomla about the extension to be installed. This file is called a manifest and contains details such as
 
@@ -119,9 +119,9 @@ Like Joomla itself, components have a frontend and an administration area. The f
 We will look at the `changelogurl` and `updateservers` tags in more detail in the next chapter.
 
 ```xml
-<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+<changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
 <updateservers>
-	<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+	<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 </updateservers>
 ```
 
@@ -135,10 +135,10 @@ You need this if you use the _Download Key Manager_. In general, this is only th
 
 Finally, we close the `</extension>` tag. Here is the complete code:
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/foos.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/foos.xml -->
 
 <?xml version="1.0" encoding="utf-8" ?>
 <extension type="component" method="upgrade">
@@ -167,9 +167,9 @@ Finally, we close the `</extension>` tag. Here is the complete code:
 			<folder>tmpl</folder>
 		</files>
 	</administration>
-	<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+	<changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
 	<updateservers>
-		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+		<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 	</updateservers>
 	<dlid prefix="dlid=" suffix="" />
 </extension>
@@ -177,7 +177,7 @@ Finally, we close the `</extension>` tag. Here is the complete code:
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### administrator/components/ com\_foos/ script.php
 
 With the installation script<!-- \index{installation script} --> file you call code
 
@@ -189,10 +189,10 @@ With the installation script<!-- \index{installation script} --> file you call c
 
 Create the file `script.php` with the following content:
 
-[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/script.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/script.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/script.php
 
 <?php
 /**
@@ -370,7 +370,7 @@ The `postflight` function is called after the component has been installed, disc
 > Do you want to know exactly when which method is called? Then have a look at the file `/libraries/src/Installer/InstallerAdapter.php`. The commands `$this->triggerManifestScript('');` will start the execution of the related method. For example, the `postflight` function is triggered via `$this->triggerManifestScript('postflight');`. See [Potential backward compatibility issues in Joomla 4](https://docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries)[^docs.joomla.org/Potential_backward_compatibility_issues_in_Joomla_4#CMS_Libraries].
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### administrator/components/ com\_foos/ services/provider.php
 
 `provider.php` is used to implement the component services. Via an interface, the component class defines which services it provides. A dependency injection container or DI container is used for this. To register, `ComponentDispatcherFactory` and `MVCFactory` are mandatory for each component. Registering `CategoryFactory` is at this place optional, we need `CategoryFactory` when we integrate categories later. Using `provider.php` it is possible to introduce new services without breaking backwards compatibility (BC). If you are not familiar with the concept of DI Container but would like to learn more, you can find explanations and some examples in the following links:<!-- \index{DI Container} -->
 
@@ -381,10 +381,10 @@ More information about the implementation can be found on [Github](https://githu
 
 You often see the word 'factory' in Joomla. This is because Joomla uses the [factory design pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)[^en.wikipedia.org/wiki/factory_method_pattern]. The factory method is a pattern where the interface to create an object is an abstract method of an inheriting class. However, the concrete implementation of the creation of new objects does not take place in the superclass, but in subclasses derived from it. The latter implement the said abstract method. To program extensions for Joomla it is not mandatory that you know the design patterns. However, it can be worthwhile to think outside the box. In software engineering, a [design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)[^en.wikipedia.org/wiki/software_design_pattern] is a general, reusable solution to a common problem. Someone else had the same problem and found a solution. We don't have to solve the same problem, but can build on it.<!-- \index{design pattern!factory method} --><!-- \index{design pattern} -->
 
-[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/services/provider.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/services/provider.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/services/provider.php
 
 <?php
 /**
@@ -445,7 +445,7 @@ return new class implements ServiceProviderInterface
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-7b7a67cba037a3dcac6cccb6d456cc19)
+#### administrator/components/ com\_foos/ src/Controller/DisplayController.php
 
 The file `DisplayController.php`<!-- \index{DisplayController (Backend)} --> is the entry point for the Model View Controller part in the administration area of the Foo component. Name the class _DisplayController_. Joomla expects it like this. Extend _BaseController_ to use many things out-of-the-box.
 
@@ -483,7 +483,7 @@ Next, we import the namespace of the parent class `BaseController` with the keyw
 use Joomla\CMS\MVC\Controller\BaseController;
 ```
 
-Then we create the class for the controller. I already wrote that you should call this DisplayController and extend the class BaseController. Then define the variable `$default_view` in which you set the default view with `foos`. You choose `foos` as the view because the name of the component is `foos` and for this reason you will also created the directory `/administrator/components/ com_foos/src/View/Foos`. If nothing is defined, the Foos view with the default layout is used by default. Setting this variable is not necessary. But I think it is always better to insert this line.
+Then we create the class for the controller. I already wrote that you should call this `DisplayController` and extend the class `BaseController`. Then define the variable `$default_view` in which you set the default view with `foos`. You choose `foos` as the view because the name of the component is `foos` and for this reason you will also created the directory `/administrator/components/ com_foos/src/View/Foos`. If nothing is defined, the Foos view with the default layout is used by default. Setting this variable is not necessary. But I think it is always better to insert this line.
 
 If you take a closer look at the URL while using a component in the administration area, you may notice the view and layout variables. For example, the URL `index.php ?option=com_foos &view=foos &layout=default` loads the `foos` view with the default layout `default`. Thus, the file `components/` + `com_foos/tmpl/foos/` + `default.php` is called when you are in the frontend. If you are working in the backend, `administrator/components/` + `com_foos/tmpl/foos/` + `default.php` is used.
 
@@ -492,7 +492,7 @@ If you take a closer look at the URL while using a component in the administrati
 Create everything as it is intended in Joomla. This will bring you advantages. For many frequently used functions, you do not reinvent the wheel. You can see this in practice with the `display` method. You do not implement any action in your code. All the work is done by `parent::display()`.
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Controller/DisplayController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Controller/DisplayController.php
 
 <?php
 /**
@@ -545,14 +545,14 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-38764f2b1343234561c0d02cd2991ea1)
+#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
 
 `FoosComponent.php` is the code for booting the extension. It is the first file that is called when Joomla loads the component. Boot' is the function to set up the environment of the extension, such as registering new classes. For more information, see the pull request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). In the following we will expand the file `FoosComponent.php`.
 
-[administrator/components/com_foos/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
+[administrator/components/com_foos/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
 
 <?php
 /**
@@ -607,14 +607,14 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-66f0a18f94a16b0a790b4c8f20a4dd6e)
+#### administrator/components/ com\_foos/ src/Service/HTML/AdministratorService.php
 
 Although we are developing the code for a minimal component, some administrator files are needed. The file `AdministratorService.php` will be used later to add functions like multilingualism or main entries/featured. At the moment we do not need these functions. But we are already preparing everything here.
 
-[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php
 
 <?php
 /**
@@ -641,7 +641,7 @@ class AdministratorService
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 The view `administrator/components/com_foos/ src/View/Foos/HtmlView.php` defines objects (toolbar, title) and calls the model (data). At the moment our component has a primitive view. Only a static text is shown. This will change soon! There are several files that work together to generate the view in the frontend. For example, the controller that calls the view is involved. We created the controller earlier in the current chapter. Later, we will add the model, which prepares the data.
 
@@ -649,10 +649,10 @@ In the file `HtmlView.php` all buttons and titles of the toolbar are defined. Th
 
 > When naming a view, it is best to use only a capital letter as the initial letter. I had a problem with the name of an additional `View`. I used `FOOPlaces`. The view was not found under this name. After I renamed the view folder and namespace to `Fooplaces`, everything works fine. I found an explanation of naming conventions on [Github](https://docs.joomla.org/J4.x:File_Structure_and_Naming_Conventions)[^docs.joomla.org/j4.x:file_structure_and_naming_conventions]. According to this page, the folder name for the template should be written in lower case. It does not say that in addition the view is allowed to use an uppercase letter only for initial letters. According to a [discussion](https://github.com/joomla/joomla-cms/discussions/36679)[^github.com/joomla/joomla-cms/discussions/36679] this is nevertheless the case.
 
-[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php
 
 <?php
 /**
@@ -694,14 +694,14 @@ class HtmlView extends BaseHtmlView
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### administrator/components/ com\_foos/ tmpl/foos/default.php
 
-The file `default.php` is the template for rendering the view. In it is the text that we display. At the moment we are putting all the effort into the output of the text "Hello Foos".
+The file `default.php` is the template for rendering the view. You can further identify them by the directory name `tmpl`. In it is the text that we display. At the moment we are putting all the effort into the output of the text "Hello Foos".
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1/src/administrator/components/com_foos/tmpl/foos/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/tmpl/foos/default.php
 
 <?php
 /**
@@ -718,14 +718,15 @@ Hello Foos
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/index.html](https://github.com/astridx/boilerplate/compare/astridx:t0...t1#diff-c39948fdaabc9d988523b05f98585e15)
+#### components/com\_foos/index.html and api/com\_foos/index.html
 
-I wrote in the preface that the file `index.html`<!-- \index{index.html} --> is not needed. That is correct! Here I only added it because I am putting together an installation package, but Joomla reports an error during the installation if there is no folder for the frontend or if an empty directory is passed in the installation package. At the moment we have no content for the frontend. The temporary insertion of the file is therefore only a help at this point to avoid error messages during the installation.
+I wrote in the preface that the file `index.html`<!-- \index{index.html} --> is not needed. That is correct! Here I only added it because I am putting together an installation package, but Joomla reports an error during the installation if there is no folder for the frontend or if an empty directory is passed in the installation package. At the moment we have no content for the frontend. The temporary insertion of the file is therefore only a help at this point to avoid error messages during the installation. I create the folder `api` for the sake of completeness.
 
-[components/com_foos/index.html](https://github.com/astridx/boilerplate/blob/t1/src/components/com_foos/index.html)
+
+[components/com_foos/index.html](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/components/com_foos/index.html)
 
 ```html {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t1/src/components/com_foos/index.html -- >
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/components/com_foos/index.html -- >
 
 <!DOCTYPE html><title></title>
 ```
