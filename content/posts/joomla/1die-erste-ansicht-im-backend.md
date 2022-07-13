@@ -349,7 +349,7 @@ Die `install`-Funktion wird, wie der Name schon sagt, aufgerufen, wenn die Kompo
 
 Die Aktualisierungsfunktion `update` wird immer dann aufgerufen, wenn du die Komponente aktualisierst. Haben sich in der Erweiterung Speicherorte verändert? In dem Fall möchtes du unter Umständen Dateien löschen? Dann könnte die `update`-Methode wie folgt aussehen:
 
-```
+```php
 	public function update($parent)
 	{
 		$this->deleteFiles[] = '/administrator/language/en-GB/?.ini';

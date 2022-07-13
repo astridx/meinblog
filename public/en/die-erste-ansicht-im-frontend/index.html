@@ -50,16 +50,16 @@
     })
   </script><link as="script" rel="preload" href="/webpack-runtime-d0ac3d2636b2dc733732.js"/><link as="script" rel="preload" href="/framework-a8bc927eb7481ca28d49.js"/><link as="script" rel="preload" href="/app-2c7328de8cf3a5588c12.js"/><link as="script" rel="preload" href="/commons-a7ca28da992086f97af8.js"/><link as="script" rel="preload" href="/b84efa9b784e27572a845759437622c93533bed1-af3eca6a1f9625807cd6.js"/><link as="script" rel="preload" href="/component---src-templates-post-js-e52ae0ae34ca5aa437b9.js"/><link as="fetch" rel="preload" href="/page-data/en/die-erste-ansicht-im-frontend/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/352937542.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><article><header><div class="container"><div class="post-details"><div><div class="post-image gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:80px;height:80px"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAACX0lEQVQ4y61US09TQRRmoQsfWIRS+rBtWqWA1lCBlIeYVltKeTXVghJZGRWUaEJMCFEkujEmxBAfIWg0hLilFOXxCwyRR7e4ghLBhVSCaQNtYh+fuaPTXO69vbroSSZ35pw535zvu2cmCxm2LDpJJpOpLx1Ca7aPO08Bsp2JREJwI13TOHcvr0J2YDcSSflisRhJjMfjZDAWjUZ5oLwK6ebxCR+KjSb03OsV1GjJ74epogqeK1exvf2TB5oCpM46ZzMOSaRQ6wphtTlws6sbgbU1jLx5i4ZmN0wVlVBo9Nh3IBsfp2dSLNJW6PVNouhUKbTHi2CxOWC11+O83Yl8hRo2RyNKjCaodQa0ilXIBW1r74C55hyZM9QlUjkaWtwIhUIYHnmN7FwZNja+kTjNEfzLNNh3/yGh3D/wCFL5MfQPPIblQh2qa63ovttDNAyFwunbhvvHfmxtoarWAplKiydPB4nv8/wCdIUlZEzNzO7RLm0f0grfjY7B7mwitDV6Az7NzeHaja4/Gp4+A9elNgIm1PR7KqQnMhqWV55FOBzG9c5bKDNXI69AhfmFRYyOvcfhHCmCwaC4hpTu4pIfpeVmnCg2Yuj5S7S2dyBXpkSL24MXr4bR6LqIApUWvX0P8EuMMgWsb3LhaL4Sar0BOVIFoeidmETn7TuQ5MmhUOugN5zE/oNH8GFq+t99OPhsiCS6PZfxdX0dkb/XkDmQkWDc64NSo0eZuQargYB4H1JbXv6CnZ1dnrbUVlZW8X1zU/wuC/UUUzU7xiT/92vDTuQCcd8/NrBo22T0xc4U4G85p23Jpoab2QAAAABJRU5ErkJggg==" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" /><img loading="lazy" width="80" height="80" srcset="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png 1x" src="/static/93f776b5f583bfa08ca575230009d942/829e2/joomla.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div>Written by Astrid Günther on <time>February 18, 2021</time></div><h1>The First View in the Frontend</h1><div class="post-meta"><div class="tags"><a class="tag-CMS" href="/tags/cms">CMS</a><a class="tag-Joomla" href="/tags/joomla">Joomla</a></div></div></div></header><div id="/en/die-erste-ansicht-im-frontend/" class="container post-content"><p>After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. This will change soon. First, however, we build the rough structure.</p>
 <blockquote>
-<p>For impatient people: Look at the changed program code in the <a href="https://github.com/astridx/boilerplate/compare/t1c...t2">diff view</a>[^github.com/astridx/boilerplate/compare/t1c...t2] and copy these changes into your development version.</p>
+<p>For impatient people: Look at the changed program code in the <a href="https://codeberg.org/astrid/j4examplecode/compare/t1...t2">diff view</a>[^codeberg.org/astrid/j4examplecode/compare/t1...t2] and copy these changes into your development version.</p>
 </blockquote>
 <h2 id="step-by-step" style="position:relative;"><a href="#step-by-step" aria-label="step by step permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step by step</h2>
 <h3 id="new-files" style="position:relative;"><a href="#new-files" aria-label="new files permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New files</h3>
 <p>The administration area of our component is located in the folder <code class="language-text">com_foos</code> under <code class="language-text">/administrator/component</code>. Now we work on the frontend. The data of the frontend view are stored in the folder <code class="language-text">com_foos</code> directly under <code class="language-text">/components</code>.</p>
 <!-- prettier-ignore -->
-<h4 id="componentscom_foos-srccontrollerdisplaycontrollerphp" style="position:relative;"><a href="#componentscom_foos-srccontrollerdisplaycontrollerphp" aria-label="componentscom_foos srccontrollerdisplaycontrollerphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702">components/com_foos/ src/Controller/DisplayController.php</a></h4>
+<h4 id="componentscom_foos-srccontrollerdisplaycontrollerphp" style="position:relative;"><a href="#componentscom_foos-srccontrollerdisplaycontrollerphp" aria-label="componentscom_foos srccontrollerdisplaycontrollerphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>components/com_foos/ src/Controller/DisplayController.php</h4>
 <p>The DisplayController in the directory <code class="language-text">components/com_foos/ src/Controller/</code> is the entry point for the Model-View-Controller part in the frontend of the Foo component. Name the class <em>DisplayController</em>. Joomla expects this. Extend <em>BaseController</em> to use many things out-of-the-box. Everything I wrote in the chapter on the <em>First View in the Backend</em> applies here analogously.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php">components/com_foos/ src/Controller/DisplayController.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3">// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/Controller/DisplayController.php</span></span></span>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/Controller/DisplayController.php">components/com_foos/ src/Controller/DisplayController.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3">// https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/Controller/DisplayController.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk3">/**</span></span></span>
@@ -120,11 +120,11 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="56"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="57"></span><span class="grvsc-source"></span></span></code></pre>
 <!-- prettier-ignore -->
-<h4 id="componentscom_foos-srcviewfoohtmlviewphp---die-ansicht" style="position:relative;"><a href="#componentscom_foos-srcviewfoohtmlviewphp---die-ansicht" aria-label="componentscom_foos srcviewfoohtmlviewphp   die ansicht permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656">components/com_foos/ src/View/Foo/HtmlView.php</a> - Die Ansicht</h4>
+<h4 id="componentscom_foos-srcviewfoohtmlviewphp" style="position:relative;"><a href="#componentscom_foos-srcviewfoohtmlviewphp" aria-label="componentscom_foos srcviewfoohtmlviewphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>components/com_foos/ src/View/Foo/HtmlView.php</h4>
 <p>At the moment, the view of our component is simple. Only a static text is displayed. This will change!</p>
 <p>There are several files that work together to generate the view in the frontend. For example, the controller that calls it. We created this earlier in the current chapter. Later on, we will add a special cell model that prepares the data. At the moment we use the model of the parent classes, because we build on Joomla standard. The file <code class="language-text">HtmlView.php</code> calls the inherited model to prepare the data for the view.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php">components/com_foos/ src/View/Foo/HtmlView.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3">// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/View/Foo/HtmlView.php</span></span></span>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php">components/com_foos/ src/View/Foo/HtmlView.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="1"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3">// https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk3">/**</span></span></span>
@@ -161,34 +161,34 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="32"></span><span class="grvsc-source"><span class="mtk1">	}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="33"></span><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="34"></span><span class="grvsc-source"></span></span></code></pre>
-<blockquote>
-<p><em>Logging and debugging</em>: Joomla logging offers the possibility to log messages in a file and on the screen. In the case of the screen, you will find this within the Joomla debug console<!-- \index{Logging} --><!-- \index{Debug Console} --> at the bottom of the web page when debugging is active. This function may be helpful when developing, so I mention it here. The entry <code class="language-text">Log::add('Log me.', Log::DEBUG);</code> causes a line to be added to the log file. It is important that the necessary functions are loaded in the head of the file via <code class="language-text">use Joomla\CMS\Log\Log;</code>. The following image shows where the logging is set in the Joomla backend.
-<span
+<h5 id="logging-and-debugging" style="position:relative;"><a href="#logging-and-debugging" aria-label="logging and debugging permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Logging and debugging</h5>
+<p>Joomla logging offers the possibility to log messages in a file and on the screen. In the case of the screen, you will find this within the Joomla debug console<!-- \index{Logging} --><!-- \index{Debug Console} --> at the bottom of the web page when debugging is active. This function may be helpful when developing, so I mention it here. The entry <code class="language-text">Log::add('Log me.', Log::DEBUG);</code> causes a line to be added to the log file. It is important that the necessary functions are loaded in the head of the file via <code class="language-text">use Joomla\CMS\Log\Log;</code>. The following images show where the logging and the debugging are set in the Joomla backend.</p>
+<p><span
       class="gatsby-resp-image-wrapper"
       style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/b7de287a7ab71936bf25c0f1ddf7bda2/260cd/j4x3x2.png"
+    href="/static/6a9f1c672d1eba236aca801e87616022/025a1/j4x3x2.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABpElEQVQoz22Rz2oUQRDG50XEdxEfwb3kIIoIm0sILj6AEZSob+RFclMJXhVvkmxcsxN3dvpfdff0T6pn4xi1mY+q6qmq76vq5vbdJ9y6c8jewUseLl6xd/CC2fwZs/3nzPaPRqvx/KjG9+Yj9F5zHy+OefT0DQ8Wr7l/eEzz/vOa068t5+uOVdvzfdnyo+0xLuJjwYVM33bYkCskFWIqv23Y+UEyxgkNQI7Cxy8rTk7PePfhG28/XXC+2uC8YGxAJOMl46pNSMz/hZI3KWV8iHjvmU6h2xpEIs4F0pDotj/xbYsPgWEYKMNQ7TU01qYNpeiHsZ4YU/XVbroeiQlrA703LNslg6SxWClr3QQVMTYEhlLojcP7UPWpalUYRLDWkbOOKuShkPNNZX/iRkPrfB2xxsPI5oPUOyU4u7gkhECMkVL+baZT1YYqVxsY62oyu3H0pybFNI5pjMU6h3Me58ZpJMZKKKo+50mhHt1hSqnu51phqkmpEoRaNPy1t+kR66pyodHXVfbLqy1d7ys2ao3HuFBhnYzwMvkVYQeh21rWVx2/AM5N66OauoDuAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+    style="padding-bottom: 47%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsklEQVQoz42RTWsTQRyH9zN4ivSi4KWhF6uCiEKSKrUHJbnUiuJBrRcPXvTixe+RgG1tDtraSm/6RcSbCgHpJms2TXZn5/WRmW4SL4IDD+ywzPP7v0S3Hr3hSvMltfuv6XQP2X5/RGf3gM7OPu3tfTrdT3TefqC985H27iHtdwdzpvfuEVt7n9na+0J0eWWDhaUV7j58QS9O+fazz9fvMb0fx0yPkRpj+a8TLTfuUanWWdt4Tu9XnzgZkaQTRuMcYy2TLKdQGqU0J+NJIBcFUiqKEv8tlQ5E1WtNKot1as2nJMMRzppZmnMOrQ3GWIQoSNMRWZaTC4Eoijk+QCm0sUTnLq5SWazRaG0SD4YIIXDuVOYRhSzTVRD5qv91SuHtIKy3NuknQ6SUM5kX+woKKYPIV2udw9q/cHOC8PzyGmerdRqtZ0GYZRnGmFnLJ+MMrTXpaEw8+B3mpfwYrDvF2BAmlUFqQ7SwdJMzF65z485jBklatuxKIeFBaEdrslyEhYgSPwK/LKV1eOMDoqurD7jUWGf9ySuO+wlSFqHCKV4S5ihl2PhUoMrN+yD/z1fuw/4AytV2VluDxMQAAAAASUVORK5CYII='); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Settings for logging in the Joomla backend"
         title="Settings for logging in the Joomla backend"
-        src="/static/b7de287a7ab71936bf25c0f1ddf7bda2/5a190/j4x3x2.png"
-        srcset="/static/b7de287a7ab71936bf25c0f1ddf7bda2/772e8/j4x3x2.png 200w,
-/static/b7de287a7ab71936bf25c0f1ddf7bda2/e17e5/j4x3x2.png 400w,
-/static/b7de287a7ab71936bf25c0f1ddf7bda2/5a190/j4x3x2.png 800w,
-/static/b7de287a7ab71936bf25c0f1ddf7bda2/c1b63/j4x3x2.png 1200w,
-/static/b7de287a7ab71936bf25c0f1ddf7bda2/29007/j4x3x2.png 1600w,
-/static/b7de287a7ab71936bf25c0f1ddf7bda2/260cd/j4x3x2.png 1845w"
+        src="/static/6a9f1c672d1eba236aca801e87616022/5a190/j4x3x2.png"
+        srcset="/static/6a9f1c672d1eba236aca801e87616022/772e8/j4x3x2.png 200w,
+/static/6a9f1c672d1eba236aca801e87616022/e17e5/j4x3x2.png 400w,
+/static/6a9f1c672d1eba236aca801e87616022/5a190/j4x3x2.png 800w,
+/static/6a9f1c672d1eba236aca801e87616022/c1b63/j4x3x2.png 1200w,
+/static/6a9f1c672d1eba236aca801e87616022/29007/j4x3x2.png 1600w,
+/static/6a9f1c672d1eba236aca801e87616022/025a1/j4x3x2.png 1857w"
         sizes="(max-width: 800px) 100vw, 800px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"
@@ -196,12 +196,44 @@
       />
   </a>
     </span></p>
-</blockquote>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8d8c7e796501ea63aa99e4a16c2f5bda/025a1/j4x3x2a.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB00lEQVQoz4WRT2sTQRjG8xk8RXpR8NLQi1VBRCFJldqDklxiRfGgthdBL3oR0U/gxYNgohDTiqJt1avfw0MPIsGINJt1k3ZnZ2Z3Zn8ykz/05gs/3hlmeN7nmSlcuvWMM7WHlK8/prW5Q/vDV1qdLVrtjzTbn2i9fk9zY4dmZ3vM5me/f9XZ5s27Lzx/uUFj/Qn3n77g7dY3CqeXVplbWOLqzQf0+kN2uwG733/S+xXgSquU/9XeIGI/Fn5dWKxeo1iqsLJ6j96fgH44IhzGjITCJAlx7zemHxB2f7Df7aL/RigpUVqjlEJrTZ7nWGvRaUahdK5Gcb5CuXaXMBqRWzObbI1BH8TYRJIMI4bBgEQqRJKMEQmxEMSxQEpFZiyFYyeXKc6XqdbX6A8ipJTkOX6q6yrNyGzukTpFT1CHunObZWYqeNkLVuprBGE0izBFKo0x1pNISZplfpB1MSe4e1lmSTND4fjiCkdLFar1dS8ohMCYcWx3MfFRDMZa78L16YDDzATnFi5y5MR5Lly5zSAcTiLnE0G8QxctTTOPOxk7w+OfB3xcH/ns8g1OVRs07jxiLwjRWnmHDufsIBYk7lOkJBYJaZr6ZxmTopT25+5TXJp/bFNzuqrUITIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Activate debugging in the Joomla backend"
+        title="Activate debugging in the Joomla backend"
+        src="/static/8d8c7e796501ea63aa99e4a16c2f5bda/5a190/j4x3x2a.png"
+        srcset="/static/8d8c7e796501ea63aa99e4a16c2f5bda/772e8/j4x3x2a.png 200w,
+/static/8d8c7e796501ea63aa99e4a16c2f5bda/e17e5/j4x3x2a.png 400w,
+/static/8d8c7e796501ea63aa99e4a16c2f5bda/5a190/j4x3x2a.png 800w,
+/static/8d8c7e796501ea63aa99e4a16c2f5bda/c1b63/j4x3x2a.png 1200w,
+/static/8d8c7e796501ea63aa99e4a16c2f5bda/29007/j4x3x2a.png 1600w,
+/static/8d8c7e796501ea63aa99e4a16c2f5bda/025a1/j4x3x2a.png 1857w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
 <!-- prettier-ignore -->
-<h4 id="componentscom_foos-tmplfoodefaultphp" style="position:relative;"><a href="#componentscom_foos-tmplfoodefaultphp" aria-label="componentscom_foos tmplfoodefaultphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f">components/com_foos/ tmpl/foo/default.php</a></h4>
+<h4 id="componentscom_foos-tmplfoodefaultphp" style="position:relative;"><a href="#componentscom_foos-tmplfoodefaultphp" aria-label="componentscom_foos tmplfoodefaultphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>components/com_foos/ tmpl/foo/default.php</h4>
 <p>The file <code class="language-text">components/com\_foos/ tmpl/foo/default.php</code> contains the text we display. Everything I wrote in the chapter about the <em>first view in the backend</em> also applies here.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>
-<pre class="grvsc-container default-dark" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3">// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/tmpl/foo/default.php</span></span></span>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php">components/com_foos/ tmpl/foo/default.php</a></p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="2"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-2"></span><span class="grvsc-source"><span class="mtk3">// https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/tmpl/foo/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="-1"></span><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="0"></span><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="1"></span><span class="grvsc-source"><span class="mtk3">/**</span></span></span>
@@ -217,9 +249,9 @@
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter grvsc-line-number" aria-hidden="true" data-content="11"></span><span class="grvsc-source"></span></span></code></pre>
 <h3 id="modified-files" style="position:relative;"><a href="#modified-files" aria-label="modified files permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modified files</h3>
 <!-- prettier-ignore -->
-<h4 id="administratorcomponents-com_foos-foosxml" style="position:relative;"><a href="#administratorcomponents-com_foos-foosxml" aria-label="administratorcomponents com_foos foosxml permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578">administrator/components/ com_foos/ foos.xml</a></h4>
+<h4 id="administratorcomponents-com_foos-foosxml" style="position:relative;"><a href="#administratorcomponents-com_foos-foosxml" aria-label="administratorcomponents com_foos foosxml permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>administrator/components/ com_foos/ foos.xml</h4>
 <p>Administrator/components/com_foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories <code class="language-text">src</code> and <code class="language-text">tmpl</code> exist and where to copy them to. The copy destination is the directory <code class="language-text">components/com_foos</code> because of <code class="language-text">folder="components/com_foos"</code>.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml">administrator/components/com_foos/ foos.xml</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting default-dark" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;description&gt;COM_FOOS_XML_DESCRIPTION&lt;/description&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;namespace path=</span><span class="mtk8">&quot;src&quot;</span><span class="mtk1">&gt;FooNamespace\Component\Foos&lt;/namespace&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> 	&lt;scriptfile&gt;script.php&lt;/scriptfile&gt;</span></span></span>
@@ -252,26 +284,26 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/1920e918b42fcd7d729741a27c87d145/191e2/j4x3x1.png"
+    href="/static/086dfb8ff347a93376618ef891227dd4/025a1/j4x3x1.png"
     style="display: block"
     target="_blank"
     rel="noopener"
   >
     <span
     class="gatsby-resp-image-background-image"
-    style="padding-bottom: 48%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSUlEQVQoz62Sy0oDQRBF59PElQtRYohJMD6iCOJOBBEENYQgBBXxf9xl5VbwE1QwGTKPnumezPSR7snkIUYQvHCporrqVlV3O0ulM5Y3ztk+7nJ48sDR6SOVZoeV8gWrm5esVa9Yr11TqrUo19tUtjpU6m3K1Rb1xg2NnS67e7c0m3cc7N/jjEYpSZIwGLj4QUgUS6RUxCpBJiOksWM/lgqlTO6Qt/cPwlDYmNEo6GDg+5CmTKEhDPK4EDmDABJlT0UU89nvI6UkyzJm4egoQgthJNCZRmud2yRBK5Xbgmlq85RSBGFoNzFbGVFbpzUO46QJtWYRihM/ELju0PrKNBrX5IK5Z1kUFN2+s1iv9/zKU+9lLneyciE2EV403UyhVCmuL601c89NuGia3/hTo+kd/jMcIQSREAw9334D8yf/SvPqRsfzPL4AIW/xoBn5JRgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+    style="padding-bottom: 47%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABFElEQVQoz62RTU/CQBiE++f9iFFEKBABD3oSUowYA/4IL9418aDxIKW7ot1u9+MxpaBoPEDiJLNvJpNM5t032Kqes33UY6fWZ78R0TwZ0j0bE7aH7FX7HNQjKvWIw3BANbyg1rykUovYr/QIW1e0jq9pd0Z0OmO63RsCfsCzDozJeZvJP73AOo9VCvP0jI1jXCJwcYydJlghsUJgXyelLvxU8aEUQkhSlaEyjXMOa0vOG3rn8EmCn0y+WWgp8UKUupjTKWRliJQzZu8paarK3byfMyiedeEW8/bunt3GgNbpiIfHl9Jzi8DV9HVY/LMxjjSzLLssS3013JSrR/ztBfwzgizTmDxHa43W+eJidmMaY+YZn+YerWPmZkbeAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
   ></span>
   <img
         class="gatsby-resp-image-image"
         alt="Joomla View in Frontend"
         title="Joomla View in Frontend"
-        src="/static/1920e918b42fcd7d729741a27c87d145/5a190/j4x3x1.png"
-        srcset="/static/1920e918b42fcd7d729741a27c87d145/772e8/j4x3x1.png 200w,
-/static/1920e918b42fcd7d729741a27c87d145/e17e5/j4x3x1.png 400w,
-/static/1920e918b42fcd7d729741a27c87d145/5a190/j4x3x1.png 800w,
-/static/1920e918b42fcd7d729741a27c87d145/c1b63/j4x3x1.png 1200w,
-/static/1920e918b42fcd7d729741a27c87d145/29007/j4x3x1.png 1600w,
-/static/1920e918b42fcd7d729741a27c87d145/191e2/j4x3x1.png 1836w"
+        src="/static/086dfb8ff347a93376618ef891227dd4/5a190/j4x3x1.png"
+        srcset="/static/086dfb8ff347a93376618ef891227dd4/772e8/j4x3x1.png 200w,
+/static/086dfb8ff347a93376618ef891227dd4/e17e5/j4x3x1.png 400w,
+/static/086dfb8ff347a93376618ef891227dd4/5a190/j4x3x1.png 800w,
+/static/086dfb8ff347a93376618ef891227dd4/c1b63/j4x3x1.png 1200w,
+/static/086dfb8ff347a93376618ef891227dd4/29007/j4x3x1.png 1600w,
+/static/086dfb8ff347a93376618ef891227dd4/025a1/j4x3x1.png 1857w"
         sizes="(max-width: 800px) 100vw, 800px"
         style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
         loading="lazy"

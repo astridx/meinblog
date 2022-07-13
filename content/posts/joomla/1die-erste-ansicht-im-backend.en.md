@@ -349,7 +349,7 @@ The `install` function, as the name suggests, is called when the component is in
 
 The update function `update` is called whenever you update the component. Have there been changes to save locations in the extension? In that case, you might want to delete files? Then the `update` method could look like this:
 
-```
+```php
 	public function update($parent)
 	{
 		$this->deleteFiles[] = '/administrator/language/en-GB/?.ini';

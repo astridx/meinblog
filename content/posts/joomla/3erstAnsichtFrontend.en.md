@@ -16,7 +16,7 @@ tags:
 
 After you have a working backend for your component, you implement the frontend. Currently, with the extension it is possible to display a static text. We don't have dynamic data yet. This will change soon. First, however, we build the rough structure.
 
-> For impatient people: Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1c...t2)[^github.com/astridx/boilerplate/compare/t1c...t2] and copy these changes into your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t1...t2)[^codeberg.org/astrid/j4examplecode/compare/t1...t2] and copy these changes into your development version.
 
 ## Step by step
 
@@ -25,14 +25,14 @@ After you have a working backend for your component, you implement the frontend.
 The administration area of our component is located in the folder `com_foos` under `/administrator/component`. Now we work on the frontend. The data of the frontend view are stored in the folder `com_foos` directly under `/components`.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-6eec124cbd4d68394d1ef4a09898e702)
+#### components/com\_foos/ src/Controller/DisplayController.php
 
 The DisplayController in the directory `components/com_foos/ src/Controller/` is the entry point for the Model-View-Controller part in the frontend of the Foo component. Name the class _DisplayController_. Joomla expects this. Extend _BaseController_ to use many things out-of-the-box. Everything I wrote in the chapter on the _First View in the Backend_ applies here analogously.
 
-[components/com_foos/ src/Controller/DisplayController.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php)
+[components/com_foos/ src/Controller/DisplayController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/Controller/DisplayController.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/Controller/DisplayController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/Controller/DisplayController.php
 
 <?php
 /**
@@ -95,16 +95,16 @@ class DisplayController extends BaseController
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-c77adeff4ff9e321c996e0e12c54b656) - Die Ansicht
+#### components/com\_foos/ src/View/Foo/HtmlView.php
 
 At the moment, the view of our component is simple. Only a static text is displayed. This will change!
 
 There are several files that work together to generate the view in the frontend. For example, the controller that calls it. We created this earlier in the current chapter. Later on, we will add a special cell model that prepares the data. At the moment we use the model of the parent classes, because we build on Joomla standard. The file `HtmlView.php` calls the inherited model to prepare the data for the view.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/src/View/Foo/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/View/Foo/HtmlView.php
 
 <?php
 /**
@@ -143,18 +143,23 @@ class HtmlView extends BaseHtmlView
 
 ```
 
-> _Logging and debugging_: Joomla logging offers the possibility to log messages in a file and on the screen. In the case of the screen, you will find this within the Joomla debug console<!-- \index{Logging} --><!-- \index{Debug Console} --> at the bottom of the web page when debugging is active. This function may be helpful when developing, so I mention it here. The entry `Log::add('Log me.', Log::DEBUG);` causes a line to be added to the log file. It is important that the necessary functions are loaded in the head of the file via `use Joomla\CMS\Log\Log;`. The following image shows where the logging is set in the Joomla backend.
-> ![Settings for logging in the Joomla backend](/images/j4x3x2.png)
+##### Logging and debugging
+
+Joomla logging offers the possibility to log messages in a file and on the screen. In the case of the screen, you will find this within the Joomla debug console<!-- \index{Logging} --><!-- \index{Debug Console} --> at the bottom of the web page when debugging is active. This function may be helpful when developing, so I mention it here. The entry `Log::add('Log me.', Log::DEBUG);` causes a line to be added to the log file. It is important that the necessary functions are loaded in the head of the file via `use Joomla\CMS\Log\Log;`. The following images show where the logging and the debugging are set in the Joomla backend.
+
+![Settings for logging in the Joomla backend](/images/j4x3x2.png)
+
+![Activate debugging in the Joomla backend](/images/j4x3x2a.png)
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-a33732ebd6992540b8adca5615b51a1f)
+#### components/com\_foos/ tmpl/foo/default.php
 
 The file `components/com\_foos/ tmpl/foo/default.php` contains the text we display. Everything I wrote in the chapter about the _first view in the backend_ also applies here.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t2/src/components/com_foos/tmpl/foo/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/tmpl/foo/default.php
 
 <?php
 /**
@@ -173,11 +178,11 @@ Hello Foos
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1c...t2#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/ com\_foos/ foos.xml
 
 Administrator/components/com_foos/ foos.xml' is the file that tells Joomla how to install our component. Therefore, we add the two newly added files here. This way, when installing or updating, Joomla knows that the directories `src` and `tmpl` exist and where to copy them to. The copy destination is the directory `components/com_foos` because of `folder="components/com_foos"`.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/21105d93f46c44fc76033e8825b8b31f35c1581c/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<description>COM_FOOS_XML_DESCRIPTION</description>
