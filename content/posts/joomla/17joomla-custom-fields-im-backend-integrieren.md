@@ -29,7 +29,7 @@ Wir haben in diesem Teil keine neue Datei erstellt, sondern lediglich Dateien ge
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ access.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9e0953a0d7bd9275f21f699e0722ed100264bd28b3b9452cabcde1e393603e93)
+#### administrator/components/ com\_foos/ access.xml
 
 In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
 
@@ -57,7 +57,7 @@ In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/config.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-9be56d6cedb2c832265e47642f0afb25)
+#### administrator/components/ com\_foos/config.xml
 
 Über die Konfiguration `config.xml` wird mithilfe eines Paramters festgelegt, ob die Erweiterung eigene Felder verwendet.
 
@@ -111,7 +111,7 @@ Ein Tipp zum Type `radio` mit dem Layout `joomla.form.field.radio.switcher`. Mö
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-2fc2de3e713c03872261cc037f7f6194d843f9cbc953d34db10e9693dfa82924)
+#### administrator/components/ com\_foos/ foos.xml
 
 Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Links ein. Der erste neue Link führt zur Ansicht, in der eigene Felder für die Komponente erstellt werden. Der andere führt zu der Ansicht, über die Feld-Gruppen angelegt werden.
 
@@ -130,7 +130,7 @@ Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Link
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-b50434577837f29c2b0bf385fb9e14819e0ab8fb1557b6d88583896698e7a7c0)
+#### administrator/components/ com\_foos/ src/Model/FooModel.php
 
 Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabulatoren. Damit die Daten innerhalb der Session nicht verloren gehen, wenn man zwischen den Tabs wechselt, ändern wir die Methode `loadFormData()` in der Datei `administrator/components/com_foos/ src/Model/FooModel.php`. Es ist nicht notwendig, dass wir selbst Daten zwischenspeichern. Die Methode `$app->getUserState()` erledigt dies für uns. Gleichzeitig stellen wir sicher, dass für die Kategorie ein Standardwert gesetzt wird, falls ein neues Element geladen wird und deshalb `$this->getState('foo.id') == 0` gleich `true` ist.
 
@@ -159,7 +159,7 @@ Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabul
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t13...t14a#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
 Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/ libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` sorgt dafür, dass der [Helper](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#L20)[^github.com/joomla/joomla-cms/blob/4.0-dev/ layouts/joomla/edit/params.php#l20] flexibel die richtige Tab-Impementierung liefert.
 

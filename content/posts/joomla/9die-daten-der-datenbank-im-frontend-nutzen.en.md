@@ -23,7 +23,7 @@ We have a database where the data about the component is stored. The next step i
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aa20a48089379605365184314b6cc950)
+#### administrator/components/ com\_foos/ src/Field/Modal/FooField.php
 
 First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods `getInput` and `getLabel` and we set the type to `Modal_Foo`. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.
 
@@ -266,7 +266,7 @@ The name of the function must be the same in both places!
 > In an early sample code version for the field 'FooField' we do not use the Webasset Manager. The necessary changes can be found [here](https://github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9)[^github.com/joomla/joomla-cms/commit/04f844ad4a6d0432ec4b770bbb2a33243ded16d9].
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-aeba8d42de72372f42f890d454bf928e)
+#### administrator/components/ com\_foos/ tmpl/foos/modal.php
 
 We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
@@ -356,7 +356,7 @@ $onclick   = $this->escape($function);
 
 > A [Modal](https://en.wikipedia.org/wiki/Dialog_box)[^en.wikipedia.org/wiki/dialog_box] is an area that opens in the foreground of a web page and changes its state. It is required to actively close it. Modal dialogs lock the rest of the application as long as the dialog is displayed. A modal is also called a dialog or lightbox.<!-- \index{modal} --><!-- \index{dialog box} -->
 
-#### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a0586cff274e553e62750bbea954e91d)
+#### media/com_foos/joomla.asset.json
 
 We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time we add our own webasset using the file `joomla.asset.json`. If you don't include it correctly, you will get the following error when you select a foo item for the menu item: `There is no "com_foos.admin-foos-modal" asset of a "script" type in the registry.`. Reason: In the modal, the line `$wa->useScript('com_foos.admin-foos-modal');` calls the script `com_foos.admin-foos-modal`, which, however, was not registered correctly before. Therefore it is not found.<!-- \index{WebAssetManager} -->
 
@@ -397,7 +397,7 @@ We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time
 
 > The Joomla Web Assets Manager manages all assets in a Joomla installation. It is not mandatory to include script files or stylesheets via this manager. All calls to `HTMLHelper::_('stylesheet or script ...)` work, but these assets are appended after the Web Asset Manager assets. This results in overriding styles that are set in the template. Thus, a user does not have the possibility to manipulate by means of a `user.css`. However, it does have more advantages: If dependencies are set correctly, no conflicts occur and necessary files are loaded by Joomla. For example, we have set a dependency in the line `"dependencies": ["core"],`.<!-- \index{WebAssetManager!dependencies} -->
 
-#### [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-4edb4212d7ab2a7cb25312a4799b1c95)
+#### media/com_foos/js/admin-foos-modal.js
 
 The following is the JavaScript code that causes a foo element to be selectable when a menu item is created. We will assign the class `select-link` to the corresponding button in the field later.
 
@@ -439,7 +439,7 @@ The following is the JavaScript code that causes a foo element to be selectable 
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/ com\_foos/ foos.xml
 
 We have created a new JavaScript file. We place it in the `media\js` directory. So that it is copied when the component is installed, we add the `js` folder in the section `media` of the installation manifest.
 
@@ -462,7 +462,7 @@ We have created a new JavaScript file. We place it in the `media\js` directory. 
 > Read in the preface why you choose the `media` directory ideally for assets like JavaScript files or stylesheets.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### components/com\_foos/ src/Model/FooModel.php
 
 We no longer output static text. An item from the database is displayed. Therefore we rename the `getMsg` method to `getItem`. We adjust the variable names and create a database query.
 
@@ -541,7 +541,7 @@ We no longer output static text. An item from the database is displayed. Therefo
 > Joomla supports you in creating the database queries. If you use the [available statements](https://docs.joomla.org/Accessing_the_database_using_JDatabase)[^docs.joomla.org/accessing_the_database_using_jdatabase], Joomla will take care of security or different syntax in PostgreSQL and MySQL.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### components/com\_foos/ src/View/Foo/HtmlView.php
 
 In the view we consequently replace `$this->msg = $this->get('Msg');` with `$this->item = $this->get('Item');`.
 
@@ -574,7 +574,7 @@ In the view we consequently replace `$this->msg = $this->get('Msg');` with `$thi
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### components/com\_foos/ tmpl/foo/default.php
 
 We will customize the display of the name in the template. Here we access the `item` element and its `name` property. In this way we can flexibly and easily add new properties in the future.
 
@@ -591,7 +591,7 @@ We will customize the display of the name in the template. Here we access the `i
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t6b...t7#diff-a33732ebd6992540b8adca5615b51a1f)
+#### components/com\_foos/ tmpl/foo/default.xml
 
 We create an entry in the `default.xml` file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` and `type="modal_foo"`:
 

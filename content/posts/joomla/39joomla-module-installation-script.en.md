@@ -27,7 +27,7 @@ In this section we will create a script that will be executed on specific events
 #### Module
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+##### modules/mod\_foo/ script.php
 
 Using the example of the script file, I show that many things are applied in the same way in the case of a module as in the case of a component.
 
@@ -165,7 +165,7 @@ class mod_fooInstallerScript
 
 #### Module
 
-##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+##### src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini
 
 The language strings for the display of the language strings in the active language, we insert into the `en-GB.mod_foo.sys.ini`. Yes, this time the language file with the extension `*.sys.ini`, because the texts are used during the installation.
 
@@ -182,7 +182,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### modules/mod\_foo/ mod_foo.xml
 
 Finally, we enter the name of the script file in the manifest so that the installation routine will copy it to the right place and call it.
 

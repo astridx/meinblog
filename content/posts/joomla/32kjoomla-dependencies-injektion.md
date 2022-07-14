@@ -29,7 +29,7 @@ Die Ausgangssituation: Stelle dir vor, du möchtest zu jedem Item in deiner Komp
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t27..t27a1)[^github.com/astridx/boilerplate/compare/t27..t27a1] an.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t27..t27a1#diff-6826d5e745659f7a316372a8f3bd15fa733a0e7dc107b7fb76a7b5769a789993)
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 Damit alles von einer Stelle aus verwaltbar ist, startest du den Aufruf in der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php` ein. Diese Datei nutzt einen Container, beziehungsweise die Schnittstelle `ContainerInterface`.
 
@@ -54,7 +54,7 @@ public function boot(ContainerInterface $container)
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/compare/t27..t27a1#diff-83dd9b718617cf8e2f5f2639fd8a7b80245559c71b7f2b814da7c95ca51cdd31)
+#### administrator/components/com\_foos/ src/Service/HTML/Direction.php
 
 Die Anfahrtsbeschreibung geben wir über die Methode `displayDirection` der Klasse `Direction` als Text aus.
 
@@ -105,7 +105,7 @@ Die Anfahrtsbeschreibung geben wir über die Methode `displayDirection` der Klas
 ```
 
 <!-- prettier-ignore -->
-#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t27..t27a1#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### components/com_foos/ tmpl/foo/default.php
 
 Für die eigentliche Ausgabe ist das Template `default.php` im Verzeichnis `components/com_foos/ tmpl/foo/` zuständig.
 
@@ -141,7 +141,7 @@ Zu manchen Items verfügst du über eine bildlich beschreibende Grafik, die den 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t27a1..t27a2)[^github.com/astridx/boilerplate/compare/t27a1..t27a2] an.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-83dd9b718617cf8e2f5f2639fd8a7b80245559c71b7f2b814da7c95ca51cdd31)
+#### administrator/components/com_foos/src/Service/HTML/Direction.php
 
 Zunächst bereiten wir für jede Beschreibungsart eine Klasse vor. Jede Klasse bereitet den Text für die Wegbeschreibung separat und damit übersichtlich auf. In diesem Schritt zeigen wir als nächstes die Beschreibung für jeden Typ an.
 
@@ -192,7 +192,7 @@ public function __construct()
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-ac5ed87b3682de1b22977ac40be1945d2fc1651a98a37c37d1bc5c24911d0d45)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Image.php
 
 Nachfolgen siehst du die Klasse, die für die Anzeige des Bildes zuständig ist.
 
@@ -250,7 +250,7 @@ Nachfolgen siehst du die Klasse, die für die Anzeige des Bildes zuständig ist.
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-c19866b20f1e742b46d920bd9e2a2df87e753245507d23edb6b57b1b2a89fac5)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Map.php
 
 Am komplexesten wird wohl die Erstellung der Route über die digitale Karte, welches die Klasse `Map` zur Aufgabe hat.
 
@@ -308,7 +308,7 @@ Am komplexesten wird wohl die Erstellung der Route über die digitale Karte, wel
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-ffe954f2a9fcfb59ee3ba580cdfdeb50736b9fb49ab10369decf684e307786c7)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Text.php
 
 Die Klasse names `Text` bereitet die textuelle Beschreibung der Anfahrt auf.
 
@@ -384,7 +384,7 @@ Eine Schnittstelle ist ein Vertrag zwischen der implementierenden Klasse und der
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t27a2..t27a3)[^github.com/astridx/boilerplate/compare/t27a2..t27a3] an.
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 In der Komponentenklasse fügen wir alles Notwendige für den Service `Direction` hinzu.
 
@@ -424,7 +424,7 @@ public function boot(ContainerInterface $container)
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php)
+#### administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php
 
 Die Datei `DirectionExtensionInterface.php` beinhaltet die Schnittstelle `DirectionExtensionInterface` welches dafür sorgt, dass die Funktion `findDirection()` bei allen implementierenden Klassen verfügbar ist. Vereinfacht ausgedrückt lautet der Vertrag: Wenn eine Klasse die Schnittstelle implementiert, dann bietet sie eine Lösung für die beinhaltenden Funktionen.
 
@@ -463,7 +463,7 @@ Die Datei `DirectionExtensionInterface.php` beinhaltet die Schnittstelle `Direct
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php)
+#### administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php
 
 `DirectionServiceInterface` ist eine weitere Schnittstelle. Sie legt fest, welche Schnittstelle der Service unterstützt und wie diese abrufbar ist. Konkret nutzen wir `DirectionExtensionInterface`, welche wir im vorhergehenden Abschnitt besprochen haben. Abrufen können wir diese per `getDirectionExtension`. Letzteres werden wir weiter unten in einem konkreten Beispiel durchführen.
 
@@ -502,7 +502,7 @@ Die Datei `DirectionExtensionInterface.php` beinhaltet die Schnittstelle `Direct
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php)
+#### administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php
 
 Der Trait `DirectionServiceTrait` bietet eine Standardimplementierung der Funktionen `getDirectionExtension` und `setDirectionExtension`, so das unser Vertrag sicher erfüllt ist.
 
@@ -567,7 +567,7 @@ Der Trait `DirectionServiceTrait` bietet eine Standardimplementierung der Funkti
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Image.php)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Image.php
 
 Die Klasse `Image` soll auf jeden Fall die Funktion `findDirection` zur Verfügung stellen. Dies erreichen wir, in dem die Klasse die Schnittstelle `DirectionExtensionInterface` implementiert.
 
@@ -593,7 +593,7 @@ Die Klasse `Image` soll auf jeden Fall die Funktion `findDirection` zur Verfügu
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Map.php)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Map.php
 
 Die Klasse `Map` soll ebenfalls die Funktion `findDirection` bieten. Dies erreichen wir, in dem auch diese die Schnittstelle `DirectionExtensionInterface` implementiert.
 
@@ -619,7 +619,7 @@ Die Klasse `Map` soll ebenfalls die Funktion `findDirection` bieten. Dies erreic
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Text.php)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Text.php
 
 Last but not least soll `Map` soll die Funktion `findDirection` bieten. Deshalb implementiert auch diese die Schnittstelle `DirectionExtensionInterface`.
 
@@ -645,7 +645,7 @@ Last but not least soll `Map` soll die Funktion `findDirection` bieten. Deshalb 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
+#### administrator/components/com_foos/src/Service/HTML/Direction.php
 
 Die Klasse `administrator/components/com_foos/src/Service/HTML/Direction.php` benötigen wir nicht weiter. Wir löschen diese.
 
@@ -710,7 +710,7 @@ Die Klasse `administrator/components/com_foos/src/Service/HTML/Direction.php` be
 ```
 
 <!-- prettier-ignore -->
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/t27a3/src/components/com_foos/tmpl/foo/default.php)
+#### components/com_foos/tmpl/foo/default.php
 
 Bei der Darstellung im Frontend können wir die Komponentenklasse über `$fooComponent = Factory::getApplication()->bootComponent('com_foos')` laden und die Schnittstelle `$fooComponent->setDirectionExtension(new DirectionMap)` zur Laufzeit dynamisch neu setzen. Auf diese Weise ist es möglich, verschiedene Implementierungen für die Ausgabe `findDirection()` zu verwenden. Um sicherzustellen, dass die Methode `findDirection()` immer verfügbar ist, implementieren wir in den möglichen DirectionExtensions `DirectionExtension` das Interface `DirectionExtensionInterface`.
 

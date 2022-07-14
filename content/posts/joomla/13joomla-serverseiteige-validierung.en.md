@@ -29,7 +29,7 @@ This part covers the server-side validation in Joomla 4.
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-64b9f20891ab28b2da58671514d68679)
+#### administrator/components/ com\_foos/ src/Rule/LetterRule.php
 
 The main goal here is not to learn meaningful validation. Rather, I'm showing you how to integrate your rules into Joomla. That's why you see here only a rudimentary example: In the name it is forbidden to insert a number from now on. In concrete terms, this means: _Astrid_ is allowed. _Astrid9_ is not allowed. For this we create the file `LetterRule.php`.
 
@@ -85,7 +85,7 @@ class LetterRule extends FormRule
 To make Joomla apply the rule in the `LetterRule.php` file to the text field for entering the name, we modify the form file.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t10...t11a#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### administrator/components/ com\_foos/ forms/foo.xml
 
 What has changed is `<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">` and `validate="Letter"`. The parameter `addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"` ensures that the form searches for rules in the namespace `FooNamespace\Component\Foos\Administrator\Rule` and `validate="Letter"` indicates that the rule `Letter`, i.e. according to Joomla standard the class `LetterRule`, is applied.
 

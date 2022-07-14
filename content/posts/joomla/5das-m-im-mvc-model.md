@@ -29,7 +29,7 @@ Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor 
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### components/com\_foos/ src/Model/FooModel.php
 
 Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiterst die Joomla Klasse `BaseDatabaseModel`. Implementiere dann nur das, was du speziell einsetzt. In unserem Fall ist es die Ausgabe `$this->message = 'Hello Foo!';`, für die wir die Methode `getMsg()` erstellen.
 
@@ -86,7 +86,7 @@ class FooModel extends BaseDatabaseModel
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### components/com\_foos/ src/View/Foo/HtmlView.php
 
 Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg');`. Das wirkt in diesem einfachen Beispiel umständlich. In komplexen Anwendungen hat sich diese Verfahrensweise bewährt. Die Datenberechnung geschieht im Model. Die Gestaltung der Daten übernimmt die View.
 
@@ -106,7 +106,7 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 > Unter Umständen verwirrt dich der Aufruf `$this->get('Msg');` genauso wie mich, als ich Joomla das erste Mal nutzte. Die Methode im Model heißt `getMsg()`, wir rufen sie hier aber über `get('Msg')` auf. Das passt irgendwie nicht. Wenn du dich vorher schon mit objektorientierter Programmierung befasst hast, dann bist du versucht, den Aufruf über `getMsg()` zu tätigen. Verwendest du Joomla, hast du es leichter, wenn du die Dinge so nutzt, wie es vorbereitet ist. [Getter](https://de.wikipedia.org/w/index.php?title=Zugriffsfunktion&oldid=196247734)[^de.wikipedia.org/wiki/zugriffsfunktion] im Model rufst du über die Methode `get()` mit dem entsprechenden Parameter auf.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
+#### components/com\_foos/ tmpl/foo/default.php
 
 Über das Template geben wir die Daten aus. Hier wird später alles in HTML-Tags verpackt.
 

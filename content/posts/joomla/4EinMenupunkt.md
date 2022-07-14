@@ -25,7 +25,7 @@ In diesem Artikel erfährst du, wie du einen Menüpunkt für die Frontend-Ansich
 Der Menüpunkt im Frontend funktioniert anders, als der im Administrationsbereich. Wir erstellen eine separate XML-Datei. Später nutzen wir Parameter. Im Moment halten wir es unkompliziert. Wir fügen einige Sprachstrings für Texte hinzu. Im weiteren Verlauf werden wir sehen, wie wir diese übersetzen.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t2...t3#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### components/com\_foos/ tmpl/foo/default.xml
 
 Erstelle die Datei `default.xml` unter `components/com_foos/tmpl/foo` und füge den folgenden Code hinzu:
 

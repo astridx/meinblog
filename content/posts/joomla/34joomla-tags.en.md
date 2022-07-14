@@ -29,7 +29,7 @@ No new files.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-680833320598887b6d6cc4feb95d4408)
+#### administrator/components/ com\_foos/ forms/filter_foos.xml
 
 The form through which the search tools are managed receives an entry for the keywords.
 
@@ -56,7 +56,7 @@ The form through which the search tools are managed receives an entry for the ke
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t28...t29#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### administrator/components/ com\_foos/ forms/foo.xml
 
 In the XML form, we add the form field that contains the information about the tag. Since we use Joomla Standard, we can use many ready-made functions out-of-the-box.
 
@@ -81,7 +81,7 @@ In the XML form, we add the form field that contains the information about the t
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ script.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-7aceee287e50092f4d9e6caaec3b8b40)
+#### administrator/components/ com\_foos/ script.php
 
 In the installation script, we make sure that our extension is recognised as a separate content type in Joomla.
 
@@ -163,7 +163,7 @@ In the installation script, we make sure that our extension is recognised as a s
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### administrator/components/ com\_foos/ src/Model/FooModel.php
 
 In the model of the element, we insert the tags into the batch processing batch and ensure that the associated tags are loaded.
 
@@ -201,7 +201,7 @@ In the model of the element, we insert the tags into the batch processing batch 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### administrator/components/ com\_foos/ src/Model/FoosModel.php
 
 We change the model of the overview list of our extension in the backend regarding the filters and the database query.
 
@@ -266,7 +266,7 @@ We change the model of the overview list of our extension in the backend regardi
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### administrator/components/ com\_foos/ src/View/Foo/HtmlView.php
 
 In the view, we ensure that the keywords matching the language are loaded.
 
@@ -286,7 +286,7 @@ In the view, we ensure that the keywords matching the language are loaded.
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/default\_batch\_body.php](https://github.com/astridx/boilerplate/compare/t28...t29#diff-e98ef88ae6674189329a5ff2d32c3cf2784a953a494ac8a97777b600ee44a022)
+#### administrator/components/ com\_foos/ tmpl/foos/default\_batch\_body.php
 
 So that the batch processing can also be used for the tags, we insert a form field. With the help of this field it is possible to select a keyword that will be assigned to all selected items.
 

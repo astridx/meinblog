@@ -29,7 +29,7 @@ Nichts Neues.
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t24...t24b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
 Wir ersetzen die bisher rudimentär eingefügten Formularfelder. Es entsteht eine Ansicht, die den normalen Joomla-Erweiterungen ähnelt.
 

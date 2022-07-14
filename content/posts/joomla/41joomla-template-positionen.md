@@ -32,7 +32,7 @@ In diesem Abschnitt wurde lediglich Dateien geändert und keine neuen hinzugefü
 
 Bisher haben wir mehr oder weniger eine statische Website. In diesem Teil fügen wir mithilfe von Modulpositionen dynamisch Inhalte hinzu.
 
-##### [templates/facile/ component.php](https://github.com/astridx/boilerplate/blob/t36/src/templates/facile/component.php)
+##### templates/facile/ component.php
 
 Ich hatte es im vorherigen Teil schon erwähnt: Die Datei `component.php` zeigt lediglich Hauptinhalt an. Das ist der Content vom Type `component` an. Die Navigation und die Inhalte in Seitenleisten werden ausgelassen. Zum Testen hatten wir diese Datei angelegt. Bisher enthielt sie lediglich den statischen Text `Component`. Nun erweitern wir sie um ihre tatsächliche Aufgabe. Ein minimaler Aufbau sieht wie folgt aus.
 
@@ -64,7 +64,7 @@ Zusätzlich nutzen wir `<jdoc:include type="message" />` und `<jdoc:include type
 
 > `<jdoc:include type="head" />`, `<jdoc:include type="message" />` und `<jdoc:include type="component" />` sollte nur einmal im `<body>` Element des Templates vorkommen. Weitere Informationen zu den Befehlen findest du in der Joomla Dokumentation [docs.joomla.org/Jdoc_statements/de](https://docs.joomla.org/Jdoc_statements/de)[^docs.joomla.org/jdoc_statements/de].
 
-##### [templates/facile/index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### templates/facile/index.php
 
 Du weißt es schon: Die Datei `index.php` ist das Herzstück des Templates. Sie sorgt dafür, dass alles zusammenarbeitet. Im vorhergehenden Kapitel hatten wir die Joomla-eigenen Inhalte nicht integriert. Dies hole ich hier nach. Ein minimaler Aufbau, welcher die Joomla Inhalte einfügt, sieht wie folgt aus.
 
@@ -159,7 +159,7 @@ So, genug erklärt. Alle Inhalte sind über Modul Positionen integriert. Sie wer
 
 > Unter Umständen ist es wichtig für dich, dass eine Modulposition nur dann eingefügt wird, wenn ein Modul darunter veröffentlicht ist, denn so lässt sich das unnötige Setzen von HTML-Elementen für einen Wrapper leichter verhindern. Wie man das erreicht, ist Thema des nächsten Kapitels. Oder du möchtest im Template optional festlegen, welche Modulposition verwendet wird. Ist es beispielsweise für dich wichtig, dass eine Sidebar komplett deaktiviert werden kann, erreichst du dies mit Hilfe von Parametern. Parameter sind Thema des übernächsten Kapitels.
 
-##### [templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/compare/t35...t36#diff-764a4776e5fab4421733468c2fc87d67e612f3d84297fb83ed0495d4c04b27d2)
+##### templates/facile/language/en-GB/en-GB.tpl_facile.sys.ini
 
 Über die Sprachdateien ist es möglich, die Positionen genau zu beschreiben. Beachte die Zeile `TPL_FACILE_POSITION_TOP-A="Area under banner"`. `TOP-A"` sagt einem Benutzer nicht viel. Mit `Area under banner` kann er etwas anfangen.
 
@@ -188,7 +188,7 @@ So, genug erklärt. Alle Inhalte sind über Modul Positionen integriert. Sie wer
 +TPL_FACILE_POSITION_BELOW-TOP="Below Top"
 ```
 
-##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t35...t36#diff-7d97de6b92def4b5a42a0052c815e6fada268a2e2dda9e3ea805eb87e0076dc1)
+##### templates/facile/templateDetails.xml
 
 In der Datei `templateDetails.xml` werden die Modulpositionen eingefügt, um beim Anlegen eines Modules als Position auswählbar zu sein. So ist ein Modul über den Befehl `jdoc:include` in der `index.php` einbindbar.
 

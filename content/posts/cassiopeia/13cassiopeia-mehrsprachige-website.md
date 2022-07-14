@@ -35,7 +35,7 @@ Es gibt zwei Möglichkeiten, um Sprachen auf einer Joomla-Website zu installiere
 
 ![Joomla 4 | Mehrsprachige Website einrichten | Sprache installieren](/images/multiling3.png)
 
-Dabei gibt keine Begrenzung. Es ist es möglich, alle Sprachen zu installieren, die als Joomla-Sprachpaket angeboten werden.
+Dabei gibt es keine Begrenzung. Es ist möglich, alle Sprachen zu installieren, die als Joomla-Sprachpaket angeboten werden.
 
 #### Sprachen manuell installieren
 

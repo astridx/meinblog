@@ -27,7 +27,7 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich Date
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/ FooModel.php](https://github.com/astridx/boilerplate/compare/t4...t5#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### components/com\_foos/ src/Model/ FooModel.php
 
 Im Model änderst du die Methode, in welcher der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
@@ -83,7 +83,7 @@ Die vollständige Datei sieht in der Diff-Ansicht wie folgt aus:
 Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim Menüpunkt im Backend zu konfigurieren. Diese implementieren wir jetzt in der Datei `default.xml`.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/compare/t4...t5#diff-35fa310ee8efa91ecb0e9f7c604d413f)
+#### components/com\_foos/ tmpl/foo/default.xml
 
 Du bietest in deiner Erweiterung die Möglichkeit einen Wert beim Menüpunkt zu speichern, indem du die XML-Datei um ein Inputelement erweiterst. Der nachfolgende Code zeigt dir, wie du ein Eingabefeld für Text hinzufügst.
 

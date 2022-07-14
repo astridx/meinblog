@@ -331,7 +331,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 ### Modified files
 
-##### [templates/facile/index.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/index.php)
+##### templates/facile/index.php
 
 The following `index.php` is adapted to the newly added CSS styles and now outputs a more appealing design in the frontend.
 

@@ -27,7 +27,7 @@ No new files are added in this chapter.
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-02a4c6dd3e5ef61740a32d58e2b6a7fbcbeb430b6b03e3f740934fa296fc0c82)
+#### components/com\_foos/ src/View/Foo/HtmlView.php
 
 Custom Fields display data in the frontend using events. The custom fields are displayed in three different places on the website. By default, the data is displayed before the content. This setting can be changed. Therefore we save the results of `onContentAfterTitle`, `onContentBeforeDisplay` and `onContentAfterDisplay`. We do this in the `View`.
 
@@ -86,7 +86,7 @@ although we have not yet explicitly implemented `&$item->params` in the Foo exte
 > Via `onContentAfterTitle`, `onContentBeforeDisplay`, `onContentAfterDisplay`, in addition to the custom fields, other elements are displayed that are mapped to the related event.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t14a...t14b#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### components/com\_foos/ tmpl/foo/default.php
 
 IIn the template we display our custom fields. In our case, this is not complex, so we write all the stored texts one after the other. In a more complex file, the events are inserted at the correct place.
 

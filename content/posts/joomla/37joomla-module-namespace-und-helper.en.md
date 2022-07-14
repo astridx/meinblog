@@ -27,7 +27,7 @@ We add namespace and helper.<!-- \index{module!helper} --><!-- \index{module!nam
 The logic in the module may be complex. Therefore it is good to structure the code clearly. This is done by jnnhelper files. We create these in the directory `Helper`.
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ Helper/FooHelper.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/Helper/FooHelper.php)
+##### modules/mod\_foo/ Helper/FooHelper.php
 
 > I named the file `FooHelper` in general. Good style is to give it a speaking name. Each helper file has a specific task and it should be named after it. For example, the file that loads the latest articles is called `ArticlesLatestHelper`. This way you can see at first sight what is in the file.
 
@@ -77,7 +77,7 @@ class FooHelper
 ### Modified files
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+##### modules/mod\_foo/ mod_foo.php
 
 To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import them using `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Then we call the function `FooHelper::getText()` and store the result in the variable `$test`.
 
@@ -93,7 +93,7 @@ To use the contents of `FooHelper` in the `mod_foo.php` entry point, we import t
 ```
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.xml)
+##### modules/mod\_foo/ mod_foo.xml
 
 We enter the namespace in the manifest. This way it will be registered in Joomla during the installation. We also add the new directory so that it is copied to the right place during installation.
 
@@ -114,7 +114,7 @@ We enter the namespace in the manifest. This way it will be registered in Joomla
 ```
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/tmpl/default.php)
+##### modules/mod\_foo/tmpl/default.php
 
 In the layout, we finally access the variable. The logic for calculating the variable value is encapsulated. This keeps the layout clear. We only insert the text `$test` here. If we want to know more about what is behind `$test`, we look in the helper.
 

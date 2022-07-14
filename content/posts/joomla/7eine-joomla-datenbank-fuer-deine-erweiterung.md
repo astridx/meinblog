@@ -23,7 +23,7 @@ Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statisch
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-896f245bc8e493f91277fd33913ef974)
+#### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
 
 Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein.
 
@@ -52,7 +52,7 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 > Lies im Vorwort dieses Tutorials, was genau das Präfix `#__` bedeutet, falls dir dieses unbekannt ist.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/compare/t5...t6#diff-e256ea429d6d414897f4bfe1730b9d8a)
+#### administrator/components/ com\_foos/ sql/uninstall.mysql.utf8.sql
 
 Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. Diese wird beim Deinstallieren automatisch ausgeführt.
 
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 > Vielleicht denkst du weiter und fragst dich schon jetzt, wie du potentielle zukünftige Datenbankänderungen handhabst. Was ist notwendig, um in einer späteren Version neben dem Namen auch den Vornamen zu speichern. SQL-Updates sind in Joomla namensbasiert. Genau bedeutet das: Für jede Version der Komponente ist eine Datei anzulegen, deren Name aus der Versionsnummer und der Dateiendung `.sql` besteht, falls sich Datenbankinhalte ändern. Praktisch wirst du dies im weiteren Verlauf dieses Tutorials erleben.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### administrator/components/ com\_foos/ src/Model/FoosModel.php
 
 Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Namen der Datenbanktabelle und der Spalte.
 
@@ -143,7 +143,7 @@ class FoosModel extends ListModel
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t5...t6#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/ com\_foos/ foos.xml
 
 Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die SQL-Statements in den genannten Dateien zum passenden Zeitpunkt aufgerufen werden, nämlich während einer Installation oder während einer Deinstallation.
 
@@ -201,7 +201,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### administrator/components/ com\_foos/ services/provider.php
 
 Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
 
@@ -226,7 +226,7 @@ Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu s
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
 
@@ -253,7 +253,7 @@ In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode `$thi
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t5...t6#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### administrator/components/ com\_foos/ tmpl/foos/default.php
 
 Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 

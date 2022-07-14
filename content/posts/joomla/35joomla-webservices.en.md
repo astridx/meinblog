@@ -24,7 +24,7 @@ In this part we will take a look at the Joomla 4 API and how to access Joomla 4 
 
 #### Component
 
-##### [api/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-dab91e8b720388ab0c28e2fba29c4c40)
+##### api/components/com_foos/ src/Controller/FooController.php
 
 Create the controller `FooController` which inherits from `ApiController`. Everything necessary is implemented in the class `ApiController`. If you have no other requirements, then it is made up. Just overwrite the following fields for your component:
 
@@ -72,7 +72,7 @@ class FooController extends ApiController
 }
 ```
 
-##### [api/components/com_foos/src/View/Foos/JsonapiView.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-191b4165f0ea6df622e83c844c919187)
+##### api/components/com_foos/src/View/Foos/JsonapiView.php
 
 Create the interface `JsonapiView` that inherits from `BaseApiView`. Use again ready-made Joomla code. Overwrite the following fields for your component:
 
@@ -132,7 +132,7 @@ class JsonapiView extends BaseApiView
 
 #### Plugin
 
-##### [plugins/webservices/foos/foos.php](https://github.com/astridx/boilerplate/compare/t29...t30#diff-40f93df99ac26b4f2227f6916930d089)
+##### plugins/webservices/foos/foos.php
 
 In the plugin file we create the class `PlgWebservicesFoos` and register in the `onBeforeApiRoute` method all the routes we need for the web service.
 
@@ -165,7 +165,7 @@ class PlgWebservicesFoos extends CMSPlugin
 
 ```
 
-##### [plugins/webservices/foos/foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-9edff0e14d874c7924bbeaada9d5b3d9)
+##### plugins/webservices/foos/foos.xml
 
 To install the plug-in, an installation file is necessary. You know this from the component.
 
@@ -188,7 +188,7 @@ To install the plug-in, an installation file is necessary. You know this from th
 </extension>
 ```
 
-#### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-ea87c7478e8b139eba5cfa201d65126f)
+#### plugins/webservices/foos/language/en-GB/plg_webservices_foos.ini
 
 I am attaching the language files for the sake of completeness.
 
@@ -199,7 +199,7 @@ PLG_WEBSERVICES_FOOS="Web Services - Foos"
 PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for your website."
 ```
 
-#### [plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini](https://github.com/astridx/boilerplate/compare/t29...t30#diff-4d953946983e4ca61a815fe58c527837)
+#### plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini
 
 I am also attaching this language file for the sake of completeness.
 
@@ -215,7 +215,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 ### Component
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t29...t30#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/com_foos/ foos.xml
 
 In the installation file it is important to include the folder `api`. Otherwise the files in the subfolder `api` will not be copied to the correct directory during an installation.
 

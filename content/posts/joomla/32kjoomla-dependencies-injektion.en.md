@@ -29,7 +29,7 @@ The initial situation: Imagine you want to make the directions for each item in 
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t27..t27a1)[^github.com/astridx/boilerplate/compare/t27..t27a1].
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t27..t27a1#diff-6826d5e745659f7a316372a8f3bd15fa733a0e7dc107b7fb76a7b5769a789993)
+#### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
 So that everything can be managed from one place, you start the call in the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`. This file uses a container, or rather the interface `ContainerInterface`.
 
@@ -54,7 +54,7 @@ public function boot(ContainerInterface $container)
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com\_foos/ src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/compare/t27..t27a1#diff-83dd9b718617cf8e2f5f2639fd8a7b80245559c71b7f2b814da7c95ca51cdd31)
+#### administrator/components/com\_foos/ src/Service/HTML/Direction.php
 
 We print the directions as text using the `displayDirection` method of the `Direction` class.
 
@@ -105,7 +105,7 @@ We print the directions as text using the `displayDirection` method of the `Dire
 ```
 
 <!-- prettier-ignore -->
-#### [components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t27..t27a1#diff-11c9422cefaceff18372b720bf0e2f8fb05cda454054cd3bc38faf6a39e4f7d6)
+#### components/com_foos/ tmpl/foo/default.php
 
 The template `default.php` in the directory `components/com_foos/ tmpl/foo/` is responsible for the actual output.
 
@@ -141,7 +141,7 @@ For some items you have a descriptive graphic that shows the location. For anoth
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t27a1..t27a2)[^github.com/astridx/boilerplate/compare/t27a1..t27a2].
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-83dd9b718617cf8e2f5f2639fd8a7b80245559c71b7f2b814da7c95ca51cdd31)
+#### administrator/components/com_foos/src/Service/HTML/Direction.php
 
 First, we prepare a class for each description type. Each class can prepare the text for the directions separately and therefore well arranged. In this step, we next display the description for each type.
 
@@ -192,7 +192,7 @@ public function __construct()
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-ac5ed87b3682de1b22977ac40be1945d2fc1651a98a37c37d1bc5c24911d0d45)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Image.php
 
 Below you see the class that is responsible for displaying the image.
 
@@ -250,7 +250,7 @@ Below you see the class that is responsible for displaying the image.
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-c19866b20f1e742b46d920bd9e2a2df87e753245507d23edb6b57b1b2a89fac5)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Map.php
 
 The most complex is probably the creation of the route via the digital map, which is the task of the class 'Map'.
 
@@ -308,7 +308,7 @@ The most complex is probably the creation of the route via the digital map, whic
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://github.com/astridx/boilerplate/compare/t27a1..t27a2#diff-ffe954f2a9fcfb59ee3ba580cdfdeb50736b9fb49ab10369decf684e307786c7)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Text.php
 
 The class named 'Text' prepares the textual description of the route.
 
@@ -384,7 +384,7 @@ An interface is a contract between the implementing class and the calling class.
 > For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t27a2..t27a3)[^github.com/astridx/boilerplate/compare/t27a2..t27a3].
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+#### administrator/components/com_foos/src/Extension/FoosComponent.php
 
 In the component class we add everything necessary for the service `Direction`.
 
@@ -424,7 +424,7 @@ public function boot(ContainerInterface $container)
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php)
+#### administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php
 
 The file `DirectionExtensionInterface.php` contains the interface `DirectionExtensionInterface` which ensures that the function `findDirection()` is available to all implementing classes. Put simply, the contract is: if a class implements the interface, then it provides a solution for the containing functions.
 
@@ -463,7 +463,7 @@ The file `DirectionExtensionInterface.php` contains the interface `DirectionExte
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php)
+#### administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php
 
 DirectionServiceInterface' is another interface. It defines which interface the service supports and how it can be accessed. Specifically, we use `DirectionExtensionInterface`, which we discussed in the previous section. We can retrieve this via `getDirectionExtension`.We will do the latter in a concrete example below.
 
@@ -502,7 +502,7 @@ DirectionServiceInterface' is another interface. It defines which interface the 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php)
+#### administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php
 
 The trait `DirectionServiceTrait` provides a standard implementation of the functions `getDirectionExtension` and `setDirectionExtension`, so that our contract is for sure fulfilled.
 
@@ -567,7 +567,7 @@ The trait `DirectionServiceTrait` provides a standard implementation of the func
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Image.php)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Image.php
 
 The class `Image` should in any case provide the function `findDirection`. We achieve this by implementing the interface `DirectionExtensionInterface`.
 
@@ -593,7 +593,7 @@ The class `Image` should in any case provide the function `findDirection`. We ac
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Map.php)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Map.php
 
 The class `Map` should also offer the function `findDirection`. We achieve this by also implementing the interface `DirectionExtensionInterface`.
 
@@ -619,7 +619,7 @@ The class `Map` should also offer the function `findDirection`. We achieve this 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Text.php)
+#### administrator/components/com_foos/src/Service/HTML/Directions/Text.php
 
 Last but not least, `Map` shall provide the function `findDirection`. Therefore, this also implements the interface `DirectionExtensionInterface`.
 
@@ -645,7 +645,7 @@ Last but not least, `Map` shall provide the function `findDirection`. Therefore,
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
+#### administrator/components/com_foos/src/Service/HTML/Direction.php
 
 We do not need the class `administrator/components/com_foos/src/Service/HTML/Direction.php` any further. We delete it.
 
@@ -710,7 +710,7 @@ We do not need the class `administrator/components/com_foos/src/Service/HTML/Dir
 ```
 
 <!-- prettier-ignore -->
-#### [components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/t27a3/src/components/com_foos/tmpl/foo/default.php)
+#### components/com_foos/tmpl/foo/default.php
 
 When displaying in the frontend, we can load the component class via `$fooComponent = Factory::getApplication()->bootComponent('com_foos')` and dynamically re-set the interface `$fooComponent->setDirectionExtension(new DirectionMap)` during runtime. This way it is possible to use different implementations for the output `findDirection()`. To ensure that the method `findDirection()` is always available, we have implemented the interface `DirectionExtensionInterface` in the possible DirectionExtensions `DirectionExtension`.
 

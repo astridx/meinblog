@@ -27,7 +27,7 @@ Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien 
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/CategoryModel.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-71b6dccdcef138d4aabf575d418deb76)
+#### components/com\_foos/ src/Model/CategoryModel.php
 
 Die Klasse, mit der wir die Daten zur Anzeige der Kategorie-Ansicht vorbereiten, erweitert die Klasse `ListModel` in der Datei `/libraries/src/MVC/Model/ListModel.php`, genau wie die Klasse `FeaturedModel` in `components/com_foos/src/Model/FeaturedModel.php`. ListModel bietet unter anderem die Möglichkeit, die Anzeige mehrerer Elemente gleichzeitig auf einer Webseite zu handhaben, einschließlich der Unterstützung für Paginierung. Nachfolgend füge ich meinen vollständigen Code ein, der sich von `com_contact` ableitet.
 
@@ -489,7 +489,7 @@ class CategoryModel extends ListModel
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-931af94e5b12bab015c84906dc961848)
+#### components/com\_foos/ src/Service/Category.php
 
 Im `Category`-Service für den Frontend Teil setzen wir die spezifischen Optionen für unsere Komponente.
 
@@ -540,7 +540,7 @@ class Category extends Categories
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d5d0bc03614ed16454bf9941dc8ebd7a)
+#### components/com\_foos/ src/View/Category/HtmlView.php
 
 Die Category-Ansicht im Frontend handhaben wir über die Datei `components/com_foos/ src/View/Category/HtmlView.php`.
 
@@ -660,7 +660,7 @@ class HtmlView extends CategoryView
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/category/default.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3ab5c99a856218c1f3a99d1a70c97dd5)
+#### components/com\_foos/ tmpl/category/default.php
 
 Das wir für die Kategorie-Ansicht ebenfalls ein Template erstellen, ist nicht neu. Wie üblich legen wir die Datei `default.php` im Verzeichnis `components/com_foos/tmpl/category` an. Wir nutzen `joomla.content.category_default`. Diese Layoutdatei findest du unter `layouts/joomla/content/category_default.php`.
 
@@ -693,7 +693,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/category/default.xml](https://github.com/astridx/boilerplate/compare/t25...t26#diff-3e8d54f4dcfed8bbd899db937bdf3c29)
+#### components/com\_foos/ tmpl/category/default.xml
 
 In order to be able to create a menu item for navigation in the frontend in a user-friendly way, we create the file `components/com_foos/tmpl/category/default.xml`. We have done this here in the text before several times. For example for an element or for the view of the featured entries.
 
@@ -766,7 +766,7 @@ In order to be able to create a menu item for navigation in the frontend in a us
 > Falls dein Element nicht angezeigt wird, liegt es unter Umständen daran, dass du beim Element den Parameter `show_name` auf no gesetzt hast.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/category/default_items.php](https://github.com/astridx/boilerplate/compare/t25...t26#diff-d08d72ea3e911a67f9ce50b0e543a953)
+#### components/com\_foos/ tmpl/category/default_items.php
 
 Damit der Code der Kategorie-Ansicht übersichtlich ist, arbeiten wir mit Layouts. Im Template `components/com_foos/tmpl/category/default.php` verwenden wir das Layout `joomla.content.category_default`. Dieses wiederum setzt das Layout `items` voraus, welches wir in der Datei `components/com_foos/tmpl/category/default_items.php` implementieren. Auf den ersten Blick erscheint dies umständlich. In der Praxis hat es sich bewährt.
 

@@ -42,7 +42,7 @@ Der Favicon-Generator erstellt 9 Datei, die wir in unser Template-Verzeichnis ko
 
 ### Geänderte Dateien
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
+##### templates/facile/ index.php
 
 Damit die Dateien gefunden werden, sind Einträge in der Datei `templates/facile/ index.php` erforderlich. Die Variable `$templatePath` hilft mir beim Erstellen des relativen Pfades.
 

@@ -23,7 +23,7 @@ Es gibt mehrere Gründe dafür, einem Anwender das Editieren im Frontend zu erm�
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-df719aabca9dd99f45c5a7cf44a85697)
+#### administrator/components/ com\_foos/ src/Service/HTML/Icon.php
 
 Die folgende Datei enthält alle Informationen, um ein Icon, über das die Bearbeitung geöffnet wird, im Frontend anzuzeigen - vorausgesetzt, der Betrachter darf bearbeiten.
 
@@ -236,7 +236,7 @@ class Icon
 <!-- \index{slug} -->
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-2c4ef4fe24ac0395496baf9af77926a1)
+#### components/com\_foos/ forms/foo.xml
 
 Wir passen die XML Datei an, die Joomla verwendet, um das Formular aufzubauen.
 
@@ -391,7 +391,7 @@ Wir passen die XML Datei an, die Joomla verwendet, um das Formular aufzubauen.
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-10b4c546e88438ff045b3399d8c287bd)
+#### components/com\_foos/ src/Controller/FooController.php
 
 Die Datei `components/com_foos/ src/Controller/FooController.php` enhält die Logik für die Bearbeitung im Formular.
 
@@ -632,7 +632,7 @@ class FooController extends FormController
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-9ddd88cf1e09823f0afae63e91b84e1e)
+#### components/com\_foos/ src/Model/FormModel.php
 
 Die Datei `components/com_foos/ src/Model/FormModel.php` organisiert alle notwendigen Daten für die Bearbeitung im Formular.
 
@@ -869,7 +869,7 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a5001e438f2980f6d0c0fa7c774c1849)
+#### components/com\_foos/ src/View/Form/HtmlView.php
 
 Die Datei `components/com_foos/ src/View/Form/HtmlView.php` holt alle notwendigen Daten und gibt diese an die Templatedatei `edit.php` weiter.
 
@@ -1081,7 +1081,7 @@ anstelle dieses
 einfügst, erfolgt bei einer fehlgeschlagenen Berechtigungsprüfung unmittelbar eine Weiterleitung zum Anmeldeformular.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-043586bc19ba70b8a901bfbf6d75da3e)
+#### components/com\_foos/ tmpl/form/edit.php
 
 `components/com_foos/ tmpl/form/edit.php` sorgt als Template dafür, dass das Formular schon im Frontend angezeigt wird.
 
@@ -1194,7 +1194,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-541bddf91fcdf3140a8a108f82fa7ab9)
+#### components/com\_foos/ tmpl/form/edit.xml
 
 Zu guter Letzt benötigen wir die Datei `components/com_foos/ tmpl/form/edit.xml`, um den Menüpunkt zu erstellen.
 
@@ -1222,7 +1222,7 @@ Zu guter Letzt benötigen wir die Datei `components/com_foos/ tmpl/form/edit.xml
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-38764f2b1343234561c0d02cd2991ea1)
+#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
 
 In der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php` registrieren wir das Icon. Anders ausgedruckt: Wir machen Icon mit Joomla bekannt.
 
@@ -1255,7 +1255,7 @@ In der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t24b...t25#diff-a33732ebd6992540b8adca5615b51a1f)
+#### components/com\_foos/ tmpl/foo/default.php
 
 Wir erweitern das Template für die Ansicht: Wenn man das Element bearbeiten darf `if ($canEdit)`, dann sieht man das Icon zum Öffnen des Formulares.
 

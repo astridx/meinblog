@@ -23,7 +23,7 @@ Are there things you plan to offer configurable? Then this part is important for
 ### New files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ config.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-e5092e959d796cdfa6ef6301d9b819ad13c851b4925d5fd20047e197e5139b39)
+#### administrator/components/ com\_foos/ config.xml
 
 We add the `config.xml` file. This implements the configuration parameters. In this XML file you can use all [standard form field types](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] as usual or implement your own types analogous to the already created modal field FieldFoo.
 
@@ -58,7 +58,7 @@ We use a selection field of type `type="list"`. We minimise the translation work
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/t8...t9#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/ com\_foos/ foos.xml
 
 The addition in the `foos.xml` file ensures that the `config.xml` file is copied during installation and Joomla can thus access it later.
 
@@ -76,7 +76,7 @@ The addition in the `foos.xml` file ensures that the `config.xml` file is copied
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 The line `$toolbar->preferences('com_foos');` ensures that the button `Options' is inserted at the top of the administration area. This way, the configuration is easily accessible later in the backend.
 
@@ -95,7 +95,7 @@ The line `$toolbar->preferences('com_foos');` ensures that the button `Options' 
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### components/com\_foos/ src/Model/FooModel.php
 
 The `populateState` method ensures that the `State` object is populated and accessible to all code. We add the new parameter here for the site area.
 
@@ -121,7 +121,7 @@ The `populateState` method ensures that the `State` object is populated and acce
 ```
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t8...t9#diff-a33732ebd6992540b8adca5615b51a1f)
+#### components/com\_foos/ tmpl/foo/default.php
 
 Finally, we replace `echo Text::_('COM_FOOS_NAME') . $this->item->name;`. We only show the label if in the status the parameter is set to `true` or `1`.
 

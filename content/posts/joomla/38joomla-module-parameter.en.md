@@ -33,7 +33,7 @@ In this part, only files have been changed. There are no new files.
 #### Module
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/compare/t32...t33#diff-9c4225bbdf2ea51af1036568f0f1e8817ecc47e86d001366d2278a2e7281281a)
+##### modules/mod\_foo/ language/en-GB/en-GB.mod_foo.ini
 
 The labelling of the parameter in the backend should adapt to the active language. For this reason we use the language file.
 
@@ -50,7 +50,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ mod_foo.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-43348bdc6a37cd697897d234acd68a56c191ded22f30b54aa8de2e9c099b9c84)
+##### modules/mod\_foo/ mod_foo.php
 
 In the module's initial file `modules/mod_foo/ mod_foo.php`, we check which value the parameter is set to and store it in a variable. This way, uncomplicated access is possible later.
 
@@ -65,7 +65,7 @@ $test  = FooHelper::getText();
 ```
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t32...t33#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### modules/mod\_foo/ mod_foo.xml
 
 In the manifest we add the new parameter so that it is editable in the Joomla backend.
 
@@ -98,7 +98,7 @@ In addition to the parameters that a developer inserts into his module, there ar
 ![Joomla Module Parameters](/images/j4x38x1.png)
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/tmpl/default.php](https://github.com/astridx/boilerplate/compare/t32...t33#diff-5dc488d0a39079a73583a37bf1b465fcf99ca183970958084a2eac52f723a4ba)
+##### modules/mod\_foo/tmpl/default.php
 
 In the module's own template file, we can now access the value of the parameter. In the following example, we output the value as text. Usually a parameter is used in a more complex way, for example within control structures such as if-statements or loops.
 

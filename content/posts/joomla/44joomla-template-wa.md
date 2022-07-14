@@ -36,7 +36,7 @@ In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript u
 
 > Weil wir `<jdoc:include type="metas" />` nutzen, benötigen wir die Zeile `<title>Titel</title>` nicht mehr. Joomla setzt als Titel nun den _Site Name_ ein. Dieser Name wird bei der Installation festgelegt und ist jederzeit über die _Globale Konfiguration_ editierbar.
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+##### templates/facile/ index.php
 
 Der nachfolgender Codeausschnitt zeigt dir die Änderungen in der Datei `templates/facile/ index.php`.
 

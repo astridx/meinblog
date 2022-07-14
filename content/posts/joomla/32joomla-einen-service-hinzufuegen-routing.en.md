@@ -31,7 +31,7 @@ An example of routing is the URL to the article "Welcome to Joomla" in the sampl
 ### New files
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
+#### components/com\_foos/ src/Service/Router.php
 
 The service `components/com_foos/ src/Service/Router.php` does the actual work and converts the URLs into search engine friendly versions.
 
@@ -330,7 +330,7 @@ class Router extends RouterView
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### administrator/components/ com\_foos/ services/provider.php
 
 In the service provider we register the service.
 
@@ -367,7 +367,7 @@ In the service provider we register the service.
 The lines `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'))` and `$component->setRouterFactory ($container->get(RouterFactoryInterface::class))` are added.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
+#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
 
 We implement `RouterServiceInterface` and use `RouterServiceTrait` so that these files are available.
 

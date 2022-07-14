@@ -36,7 +36,7 @@ In the file `templates/facile/ index.php` we change the way JavaScript and CSS i
 
 > Because we use `<jdoc:include type="metas" />`, we no longer need the line `<title>title</title>`. Joomla now uses the _site name_ as title. This name is set during installation and can be edited at any time via _global configuration_.
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+##### templates/facile/ index.php
 
 The following code snippet shows you the changes in the file `templates/facile/ index.php`.
 

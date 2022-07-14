@@ -49,7 +49,7 @@ Hinzugekommen ist die CSS-Datei `templates/assets/css/main.dark.css`. Dieses Sty
 
 ### Geänderte Dateien
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
+##### templates/facile/ index.php
 
 Die Datei `templates/facile/ index.php` lädt jetzt die CSS-Datei in Abhängigkeit vom _bevorzugten Farbschema_. Zusätzlich integriert sie in der linken oberen Ecke einen Schieberegler, der den Modus ebenfalls umschaltet. Die hierzu notwendigen Änderungen findest du im nachfolgenden Codebeispiel.
 

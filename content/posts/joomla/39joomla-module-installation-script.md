@@ -27,7 +27,7 @@ In diesem Abschnitt erstellen wir ein Skript, welches bei der Installation zu be
 #### Module
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ script.php](https://github.com/astridx/boilerplate/compare/t33...t34#diff-51e87e73a4a4e48c5330711fcea56a42a45d750bc2a3b19c92169d9eb595cdc4)
+##### modules/mod\_foo/ script.php
 
 Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso angewendet wird, wie bei einer Komponente.
 
@@ -165,7 +165,7 @@ class mod_fooInstallerScript
 
 #### Module
 
-##### [src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/compare/t33...t34#diff-a8517bbc527ed7d7e05fcc84325ccbd031a5f0f0f271e25c2a534bd7355ef4c3)
+##### src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini
 
 Die Sprachstrings für die Anzeige der Sprachstrings in der aktiven Sprache, fügen wir in die `en-GB.mod_foo.sys.ini` ein. Jawohl, dieses Mal die Sprachdatei mit der Endung `*.sys.ini`, weil die Texte bei der Installation verwendet werden.
 
@@ -182,7 +182,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 ```
 
 <!-- prettier-ignore -->
-##### [modules/mod\_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/compare/t33...t34#diff-c111dcc16cb14017dbacf97ab7d495ac6e7225b2b2097774adc23a977d5cc3c3)
+##### modules/mod\_foo/ mod_foo.xml
 
 Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses an die richtige Stelle zu kopieren und aufzurufen hat.
 

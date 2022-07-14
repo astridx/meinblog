@@ -31,7 +31,7 @@ Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6e8e84b1a865c4d53d5a754fe6331601)
+#### components/com\_foos/ src/Service/Router.php
 
 Der Service `components/com_foos/ src/Service/Router.php` erledigt die eigentliche Arbeit und wandelt die URLs in suchmaschinenfreundliche Versionen.
 
@@ -330,7 +330,7 @@ class Router extends RouterView
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ services/provider.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-6f6a8e05c359293ccc2ab0a2046bce7f)
+#### administrator/components/ com\_foos/ services/provider.php
 
 Im Service Provider registrieren wir den Service.
 
@@ -367,7 +367,7 @@ Im Service Provider registrieren wir den Service.
 Die Zeilen `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Component\\Foos'))` und `$component->setRouterFactory ($container->get(RouterFactoryInterface::class))` kommen hinzu.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/compare/t26...t27#diff-38764f2b1343234561c0d02cd2991ea1)
+#### administrator/components/ com\_foos/ src/Extension/FoosComponent.php
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 

@@ -28,7 +28,7 @@ In this chapter only the image `templates/facile/images/banner.jpg` is added, wh
 
 ### Modified files
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### templates/facile/ index.php
 
 We add code to the file `templates/facile/ index.php` so that a banner and social media icons can be inserted via parameters.
 
@@ -96,7 +96,7 @@ Take a look at the code snippet below. I think the HTML code is self-explanatory
 
 > Tip: You would like to optionally define in the template which module position is used. For example, is it important for you that a sidebar can be completely deactivated? Then create the parameter `showSidebarLeft` and extend the line `<?php if ($this->countModules('sidebar-left', true)) : ?>`. In the end, this should become `<?php if ($this->countModules('sidebar-left', true) && $this->params->get('showSidebarLeft')) : ?>`.
 
-##### [templates/facile/language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
+##### templates/facile/language/en-GB/tpl_facile.ini
 
 We use the language files for the labels of our backend form. This way the texts can be translated into different languages.
 
@@ -120,7 +120,7 @@ We use the language files for the labels of our backend form. This way the texts
 +TPL_FACILE_GET_IN_TOUCH_SUBURL="URL"
 ```
 
-##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### templates/facile/templateDetails.xml
 
 Since Joomla supports us in creating the form fields, it is enough to define the fields via an XML file.
 

@@ -40,7 +40,7 @@ Two lines per view are sufficient to display a button at the top right that cont
 And another line is enough to turn descriptions into inline help, which means to make them fade in and out or toggleable.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/forms/foo.xml)
+#### administrator/components/ com\_foos/forms/foo.xml
 
 In the form, we add a description as an example. This will be shown or hidden later as inline help.
 
@@ -57,7 +57,7 @@ In the form, we add a description as an example. This will be shown or hidden la
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+#### administrator/components/ com\_foos/ src/View/Foo/HtmlView.php
 
 The toolbar helper supports us. The line `ToolbarHelper::divider();` ensures that the following buttons are displayed right-aligned. `ToolbarHelper::inlinehelp();` inserts the button that shows and hides the inline help. The text for this is searched behind `description=` in the form at the field. `ToolbarHelper::help('', false, 'http://example.org');` inserts the button that redirects to the external help page. The address of the external page, here in the example `http://example.org`, is given as a parameter.
 
@@ -78,7 +78,7 @@ The toolbar helper supports us. The line `ToolbarHelper::divider();` ensures tha
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 The same I wrote under `administrator/components/com_foos/ src/View/Foos/HtmlView.php` also applies here.
 

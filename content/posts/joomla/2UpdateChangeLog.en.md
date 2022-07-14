@@ -37,7 +37,7 @@ In the current section, two files are added that are stored outside the website.
 
 > The changes concerning the changelog and the Joomla Update Server are only mentioned in this chapter. In every other chapter you can update the numbers yourself if this is important to you. This is not witchcraft. If I described this over and over again, it would not only bore you - it would unnecessarily inflate this text.
 
-#### [foo_update.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-3bc7af7f15e37f2136334901bd05115b) (Update Server)<!-- \index{Update Server} -->
+#### foo_update.xml (Update Server)<!-- \index{Update Server} -->
 
 You have told your component in the file [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) where to find out about updates. That is in the file `foo_update.xml`.
 
@@ -111,7 +111,7 @@ Below you can see the complete file.
 
 > Do you like to use a checksum? See the test description in this [PR](https://github.com/joomla/joomla-cms/pull/30076) if you don't know how to do this. Under Ubuntu Linux it is possible to calculate the checksum via the console with `sha256sum -b myfile.zip` or `sha284sum -b myfile.zip`.
 
-#### [changelog.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-264e4bc4cab45c9b271bf9b5779607e2) (Changelog)<!-- \index{changelog} -->
+#### changelog.xml (Changelog)<!-- \index{changelog} -->
 
 Information on the changelog can be found on Github [in PR github.com/joomla/joomla-cms/pull/24026](https://github.com/joomla/joomla-cms/pull/24026) and the [Joomla documentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file/en)[^docs.joomla.org/adding_changelog_to_your_manifest_file/en]. Below you can see an example file.
 
@@ -164,7 +164,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/compare/astridx:t1...t1b#diff-1ff20be1dacde6c4c8e68e90161e0578)
+#### administrator/components/ com\_foos/ foos.xml
 
 Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 

@@ -34,7 +34,7 @@ This part covers the client-side validation in Joomla 4.
 
 Client-side validation is done via a JavaScript file.
 
-#### [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-68de4c4edca27f9e89ecedeef62c11bb)
+#### media/com_foos/js/admin-foos-letter.js
 
 Again, it is about the principle, just like in the previous chapter. The quality of the validation is in this tutorial secondary and I choose a simple example. Numbers are forbidden in the text field for the name. _Astrid_ is allowed. _Astrid9_ is not allowed.
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+#### administrator/components/ com\_foos/ foos.xml
 
 In the installation manifest we add `<filename>joomla.asset.json</filename>` so that Joomla knows that the file `joomla.asset.json` belongs to the extension and is copied to the `media/com_foos` directory. We create this file later in this part.
 
@@ -87,7 +87,7 @@ In the installation manifest we add `<filename>joomla.asset.json</filename>` so 
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-1637778e5f7d1d56dd1751af1970f01b)
+#### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
 The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScript file `media/com_foos/js/admin-foos-letter.js`, which is responsible for checking, is applicable via the [webasset manager](https://docs.joomla.org/J4.x:Web_Assets). For this purpose, we will register it later in this chapter via the file `joomla.asset.json`.
 
@@ -105,7 +105,7 @@ The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScri
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-262e27353fbe755d3813ea2df19cd0ed)
+#### administrator/components/ com\_foos/ forms/foo.xml
 
 We add `class="validate-letter"`, so Joomla knows which CSS class should be checked. Joomla sets this class when creating the field. See for yourself by opening the form in the backend and checking out the source code.
 
@@ -122,7 +122,7 @@ We add `class="validate-letter"`, so Joomla knows which CSS class should be chec
 
 ```
 
-#### [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/compare/t11a...t11b#diff-a0586cff274e553e62750bbea954e91d)
+#### media/com_foos/joomla.asset.json
 
 Last but not least, we register the new file under the name `com_foos.admin-foos-letter` in the webasset manager.
 

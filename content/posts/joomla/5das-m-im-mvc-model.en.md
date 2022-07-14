@@ -29,7 +29,7 @@ It is problematic to combine these three elements in one class. Especially for l
 ### New files
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-599caddf64a6ed0c335bc9c9f828f029)
+#### components/com\_foos/ src/Model/FooModel.php
 
 With the model it is also so that you do not reinvent the wheel. You extend the Joomla class `BaseDatabaseModel`. Then implement only what you specifically use. In our case it is the output `$this->message = 'Hello Foo!';` for which we create the method `getMsg()`.
 
@@ -86,7 +86,7 @@ class FooModel extends BaseDatabaseModel
 ### Modified files
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-c77adeff4ff9e321c996e0e12c54b656)
+#### components/com\_foos/ src/View/Foo/HtmlView.php
 
 We get the data of the model in the view with `$this->msg = $this->get('Msg');`. This seems complicated in this simple example. In complex applications, this procedure has proven itself. The data calculation is done in the model. The view handles the design of the data.
 
@@ -106,7 +106,7 @@ We get the data of the model in the view with `$this->msg = $this->get('Msg');`.
 > You may be confused by the call `$this->get('Msg');` as I was when I first started using Joomla. The method in the model is called `getMsg()`, but we call it here via `get('Msg')`. Somehow that doesn't fit. If you have dealt with object oriented programming before, you are tempted to call it via `getMsg()`. If you are using Joomla, you will have an easier time using things the way they are prepared. You call [Getter](https://en.wikipedia.org/wiki/Mutator_method)[^en.wikipedia.org/wiki/mutator_method] in the model via the method `get()` with the appropriate parameter.
 
 <!-- prettier-ignore -->
-#### [components/com\_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/compare/t3...t4#diff-a33732ebd6992540b8adca5615b51a1f)
+#### components/com\_foos/ tmpl/foo/default.php
 
 We output the data via the template. Here, everything will be packed into HTML tags later.
 

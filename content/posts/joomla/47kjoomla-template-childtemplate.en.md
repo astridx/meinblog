@@ -32,7 +32,7 @@ There are no new files in this chapter. We have only moved or changed files.
 
 The path to the _template media folders_ was `templates/TEMPLATENAME/` before Joomla 4.1. Template media folders are for example the folders `css`, `images`, `fonts`, `webfonts`, `js`, `sass`, `less` or `scss`. Starting with Joomla 4.1, these media are ideally located in the `media/templates/site/TEMPLATENAME/` directory. This is a prerequisite to use a child template in a useful way.
 
-##### [templates/facile/ assets](https://github.com/astridx/boilerplate/tree/t41a/src/media/templates/site/facile)
+##### templates/facile/ assets
 
 In order to overwrite the media files, it is necessary to move them to the `media` directory in the Joomla root directory. Therefore we move
 
@@ -45,7 +45,7 @@ to `media\templates\site\facile\`.
 
 So that the images `template_preview.png` and `template_thumbnail.png` and those in the directory `favicon_package` can be easily overwritten by the child template later, I put them in the subdirectory `images`, i.e. under `medien\templates/site/facile/images/` and under `medien\templates/site/facile/images/favicon_package/` respectively.
 
-##### [media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
+##### media/templates/site/facile/ css/main.css
 
 Our CSS files are now no longer located in the `assets` subdirectory. Therefore, we adjust the relative path in the `main.css` file.
 
@@ -64,7 +64,7 @@ Our CSS files are now no longer located in the `assets` subdirectory. Therefore,
 
 > The same applies to the file `media/templates/site/facile/ css/main.dark.css` and who uses SASS also for the file `media/templates/site/facile/ sass/main.scss`.
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/index.php)
+##### templates/facile/ index.php
 
 In the file `templates/facile/ index.php` we correct all places where the media files are loaded. There is no further need to specify an exact path, because we use the default directories in Joomla. We put the files where Joomla looks for them. Because Joomla keeps a certain order, overwriting is possible using child template. In this way, everything that the child template does not implement itself is used from the parent template.
 
@@ -118,7 +118,7 @@ We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle(
 
 > If you are more interested in the features used here, besides the Joomla Web Asset Manager, the file `libraries/src/HTML/HTMLHelper.php` is a good starting point for further code research.
 
-##### [templates/facile/ language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
+##### templates/facile/ language/en-GB/tpl_facile.ini
 
 [templates/facile/ language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
@@ -135,7 +135,7 @@ We have moved the banner image to the media directory so that it is also used in
  TPL_FACILE_BANNER_TAGLINE="Tagline text"
 ```
 
-##### [templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
+##### templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
 
 The locations of the media files have been changed. To ensure that this is recognized correctly when the template is installed, we correct the corresponding entries in the `templates/facile/ templateDetails.xml` file.
 

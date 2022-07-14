@@ -30,7 +30,7 @@ We only change files in this chapter, no new ones are added.
 
 ### Modified files
 
-#### [administrator/components/ com_foos/src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-d25fe4d29c25ccf10e0ba6ecaf837294)
+#### administrator/components/ com_foos/src/View/Foo/HtmlView.php
 
 The following code shows you which functions you use when creating or editing an element. The [ToolbarHelper](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Toolbar/ToolbarHelper.php) class provides a lot of helpful functions. For example
 
@@ -121,7 +121,7 @@ We add permission checking here. A button is displayed only if the user is autho
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t16...t17#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 

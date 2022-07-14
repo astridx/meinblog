@@ -26,7 +26,7 @@ In diesem Abschnitt erstellen wir ein Installationspaket.
 
 #### Paket
 
-##### [/administrator/manifests/ packages/foos/script.php](https://github.com/astridx/boilerplate/blob/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
+##### /administrator/manifests/ packages/foos/script.php
 
 Ein Paket ist wie die Komponente mit einem optionalen Skript erweiterbar. In unserem Fall prüfen wir, ob die Installationsvoraussetzungen in Bezug auf minimale Versionen für Joomla und PHP gegeben sind.
 
@@ -68,7 +68,7 @@ class Pkg_FoosInstallerScript
 
 ```
 
-##### [administrator/manifests/ packages/pkg_foos.xml](https://github.com/astridx/boilerplate/blob/t42/src/administrator/manifests/packages/pkg_foos.xml)
+##### administrator/manifests/ packages/pkg_foos.xml
 
 Das Manifest kennst du schon. Im Falle eines Paketes gibt es hier wenig Neues. Im Bereich der zu kopierenden Dateien gibst du die Installationspakete der Erweiterungen an, die zu installieren sind.
 

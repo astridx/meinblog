@@ -47,7 +47,7 @@ Beim Template ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du kanns
 
 Dieser Teil führt dich durch die notwendigen Schritte zur Erstellung eines Joomla Templates - von Grund auf.
 
-##### [templates/facile/ component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
+##### templates/facile/ component.php
 
 Die `component.php` stellt die Logik für eine abgespeckte Version der Site bereit. Das bedeutet, dass lediglich die pure Ansicht der Komponente angezeigt wird.
 
@@ -72,7 +72,7 @@ Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `component.php` ebenfalls 
 
 ![Joomla Komponentenbereich im Standardtemplate Cassiopeia](/images/j4x40x8.png)
 
-##### [templates/facile/ error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
+##### templates/facile/ error.php
 
 Wenn Besucher der Website eine Seite aufrufen, die nicht existiert, erhalten sie eine Fehlermeldung. Die Fehlermeldung von Joomla ist allgemein gehalten. Viel besser ist es, eine eigene individuelle Fehlerseite zu erstellen.
 
@@ -100,7 +100,7 @@ Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `error.php` ebenfalls impl
 
 ![Joomla Error.php im Standardtemplate Cassiopeia](/images/j4x40x9.png)
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### templates/facile/ index.php
 
 Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Das nachfolgende Codeschnipsel zeigt dir einen minimaler Aufbau.
 
@@ -144,7 +144,7 @@ Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite w
 
 Genug erklärt. So sieht die Website minimal aus. Sie lädt noch keine Inhalte aus Joomla! Mir ging es hier in erste Linie darum zu zeigen, dass die `index.php` des aktiven Templates für alles verantwortlich ist. In unserem Fall ist dies die Datei `templates/facile/index.php`. Bisher hält sich die Verantwortung in Grenzen. Es wird lediglich die Begrüßung `Hallo Joomla!` am Bildschirm ausgegeben.
 
-##### [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+##### templates/facile/ language/en-GB/en-GB.tpl_facile.ini
 
 Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt dafür, dass im Backend bei der Verwaltung der Erweiterungen der Name zur Sprache passend angezeigt wird.
 
@@ -157,7 +157,7 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+##### templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini
 
 Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` übersetzt die Texte im Menü oder während der Installation in die korrekte Sprache.
 

@@ -23,7 +23,7 @@ Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich i
 ### Neue Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-a9b2d92dcca8384605c7c4c4e7111093)
+#### administrator/components/ com\_foos/ tmpl/foos/default_batch_body.php
 
 Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird.
 
@@ -75,7 +75,7 @@ $noUser    = true;
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-d653f1f236af4637ec0c4a7ff789bde1)
+#### administrator/components/ com\_foos/ tmpl/foos/default_batch_footer.php
 
 Die nachfolgende Datei erstellt den Footer des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird. Die Schaltfläche `JCANCEL` löscht alle Werte in den Formularfeldern mittles `document.getElementById('ELEMENT_ID').value=''`. Ich habe hier alle möglichen Felder aufgenommen, obwohl wir noch nicht alle nutzen. `batch-user-id` und `batch-tag-id` sind beispielsweise bisher nicht in unserem Formular belegt. Die Schaltfläche `JGLOBAL_BATCH_PROCESS` startet die Stapelverarbeitung.
 
@@ -111,7 +111,7 @@ use Joomla\CMS\Language\Text;
 ### Geänderte Dateien
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-181b1576846350fbb4a7a1a73291de4b)
+#### administrator/components/ com\_foos/ src/Controller/FooController.php
 
 Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit `return parent::batch($model);` die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereits von Joomla erfunden.
 
@@ -146,7 +146,7 @@ Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betracht
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-c1b8160bef2d2b36367dc59381d6bcb7)
+#### administrator/components/ com\_foos/ src/Model/FooModel.php
 
 Im Model geben wir an, ob das Kopieren und Verschieben unterstützt wird. Im Falle von `false` wird der Befehl von der Stapelverarbeitung nicht bereitgestellt. Außerdem geben wir die Eigenschaften an, die mithilfe der Batch-Funktion bearbeitbar bin.
 
@@ -170,7 +170,7 @@ protected $associationsContext = 'com_foos.item';
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-8e3d37bbd99544f976bf8fd323eb5250)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Eintrag in der Werkzeugleiste ein.
 
@@ -213,7 +213,7 @@ Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Ein
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/compare/t21...t22#diff-3186af99ea4e3321b497b86fcd1cd757)
+#### administrator/components/ com\_foos/ tmpl/foos/default.php
 
 Das Template, mit dem das Formular zum Anstoßen der Stapelverarbeitung angelegt wird, erstellen wir unter Zuhilfenahme von `HTMLHelper`.
 

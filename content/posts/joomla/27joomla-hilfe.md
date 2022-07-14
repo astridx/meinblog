@@ -40,7 +40,7 @@ Zwei Zeilen pro Ansicht reichen aus, um rechts oben eine Schaltfläche anzuzeige
 Und eine weitere Zeile reicht aus, um Beschreibungen in Inline-Hilfen zu verwandeln, also ein- und ausblendbar zu gestalten.
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/forms/foo.xml)
+#### administrator/components/ com\_foos/forms/foo.xml
 
 Im Formular ergänzen wir beispielhaft eine Beschreibung. Diese wird später als Inline-Hilfe ein- beziehungsweise ausgeblendet.
 
@@ -57,7 +57,7 @@ Im Formular ergänzen wir beispielhaft eine Beschreibung. Diese wird später als
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+#### administrator/components/ com\_foos/ src/View/Foo/HtmlView.php
 
 Der Toolbar-Helfer unterstützt uns. Die Zeile `ToolbarHelper::divider();` sorgt dafür, dass die nachfolgenden Schaltflächen rechtsbündig dargestellt werden. `ToolbarHelper::inlinehelp();` fügt die Schaltfläche ein, die die Inlinehilfe ein- und ausblendet. Der Text hiefür wird hinter `description=` im Formular beim Feld gesucht. `ToolbarHelper::help('', false, 'http://example.org');` fügt die Schaltfläche ein, die zur externen Hilfeseite weiterleitet. Die Adresse der externen Seite, hier im Beispiel `http://example.org`, wird als Parameter mitgegeben.
 
@@ -78,7 +78,7 @@ Der Toolbar-Helfer unterstützt uns. Die Zeile `ToolbarHelper::divider();` sorgt
 ```
 
 <!-- prettier-ignore -->
-#### [administrator/components/ com\_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+#### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
 Das gleiche was ich unter `administrator/components/com_foos/ src/View/Foos/HtmlView.php` geschrieben habe trifft auch hier zu.
 
