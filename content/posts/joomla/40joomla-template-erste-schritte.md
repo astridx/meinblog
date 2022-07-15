@@ -170,7 +170,7 @@ FACILE="Facile - Site template"
 
 ```
 
-##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
+##### templates/facile/offline.php
 
 Die Datei `offline.php` wird aufgerufen, wenn im Backend der Wartungsmodus aktviert ist. Du aktivierst diesen in der globalen Konfiguration.
 
@@ -239,7 +239,7 @@ Mit der Anmeldemöglichkeit hast du nun die notwendige Funktion integriert. Du m
 
 ![Joomla Offline.php im Standardtemplate Cassiopeia](/images/j4x40x10.png)
 
-##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
+##### templates/facile/templateDetails.xml
 
 Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die zweitwichtigste Datei. Sie enthält allgemeine Informationen wie Name und Autor und definiert alles Wichtige für die Installation. Dies ist hauptsächlich eine Auflistung aller Ordner und Dateien, die zum Template gehören. Diese werden während der Installation entpackt und in den korrekten Verzeichnissen gespeichert.
 

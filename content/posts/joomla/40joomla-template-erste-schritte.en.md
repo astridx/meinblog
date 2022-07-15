@@ -47,7 +47,7 @@ With the template it is also so that you do not reinvent the wheel. You can use 
 
 This part will guide you through the necessary steps to create a Joomla template - from scratch.
 
-##### [templates/facile/component.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-a2b7f60a181e04a69df79be3ddff4649b7c147917743f7031cbe581adb1572be)
+##### templates/facile/component.php
 
 The `component.php` provides the logic for a reduced version of the site. This means that only the pure view of the component is displayed.
 
@@ -72,7 +72,7 @@ In the Joomla 4 standard template Cassiopeia the file `component.php` is also im
 
 ![Joomla Komponentenbereich im Standardtemplate Cassiopeia](/images/j4x40x8.png)
 
-##### [templates/facile/error.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-13b9d39c6c50cd64c483828e227736031299d698ae3cf54b91d9b9c4114ffd9e)
+##### templates/facile/error.php
 
 When website visitors call a page that does not exist, they receive an error message. Joomla's error message is generic. It is much better to create your own individual error page.
 
@@ -100,7 +100,7 @@ In the Joomla 4 standard template Cassiopeia the file `error.php` is also implem
 
 ![Joomla Error Datei im Standardtemplate Cassiopeia](/images/j4x40x9.png)
 
-##### [templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t34...t35#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+##### templates/facile/ index.php
 
 The file `index.php` is the heart. It ensures that everything works together. The following code snippet shows you a minimal structure.
 
@@ -144,7 +144,7 @@ What follows is the smallest possible structure of an HTML page. This page opens
 
 Enough explanation. This is how the website looks minimally. It does not yet load any content from Joomla! My main point here was to show that the `index.php` of the active template is responsible for everything. In our case, this is the file `templates/facile/index.php`. So far, the responsibility is limited. Only the (German) greeting `Hallo Joomla!` is displayed on the screen.
 
-##### [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+##### templates/facile/ language/en-GB/en-GB.tpl_facile.ini
 
 The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` ensures that the name is displayed in the backend in the correct language when managing the extensions.
 
@@ -157,7 +157,7 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 ```
 
-##### [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+##### templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini
 
 The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` translates the texts in the menu or during the installation into the correct language.
 
@@ -170,7 +170,7 @@ FACILE="Facile - Site template"
 
 ```
 
-##### [templates/facile/offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
+##### templates/facile/offline.php
 
 The file `offline.php` is called when the maintenance mode is activated in the backend. You activate this in the global configuration.
 
@@ -239,7 +239,7 @@ With the login option you have now integrated the necessary function. You surely
 
 ![Joomla Offline.php in default template Cassiopeia](/images/j4x40x10.png)
 
-##### [templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
+##### templates/facile/templateDetails.xml
 
 The file `templateDetails.xml` (note the big D) is the second most important file after `index.php`. It contains general information like name and author and defines everything important for the installation. This is mainly a listing of all folders and files that belong to the template. These will be unpacked during the installation and stored in the correct directories.
 

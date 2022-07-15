@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-03-02
+date: 2022-07-15
 title: 'Preface'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
@@ -15,31 +15,40 @@ tags:
   - Cassiopeia
 ---
 
-Wenn du neu bei Joomla 4 bist, lese bitte [Erste Schritte mit Joomla 4](https://docs.joomla.org/J4.x:Getting_Started_with_Joomla/de).
+If you are new to Joomla 4, please read [Getting Started with Joomla 4](https://docs.joomla.org/J4.x:Getting_Started_with_Joomla!).
 
-Dieses Tutorial ist für Joomla 4 gedacht. Informationen zum Erstellen eines Templates für Joomla 3 findest du unter [Erste Schritte mit Templates](https://docs.joomla.org/J3.x:Getting_Started_with_Templates/de).
+This tutorial is written for Joomla 4. For information on creating a template for Joomla 3, see [Getting Started with Templates](https://docs.joomla.org/J3.x:Getting_Started_with_Templates).
 
-Du brauchst Joomla 4.x für dieses Tutorial. Joomla 4 findest du auf [GitHub](https://github.com/joomla/joomla-cms/tags) auf der [Entwickler-Website](https://developer.joomla.org/nightly-builds.html) oder erstelle eine kostenlose Website unter [https://launch.joomla.org](https://launch.joomla.org).
+You need Joomla 4.x for this tutorial. You can find the latest stable version of Joomla 4 at downloads.joomla.org/cms(https://downloads.joomla.org/cms) or create a free website at [https://launch.joomla.org](https://launch.joomla.org).
 
-## Für wen ist dieses Tutorial?
+> You can check the latest version of Joomla 4 on [GitHub](https://github.com/joomla/joomla-cms) or download it from the [Joomla developer website](https://developer.joomla.org/nightly-builds.html).
 
-Dieses Tutorial erstellt kein praktisches Beispiel. Ich habe absichtlich alles allgemein gehalten. Mein Hauptanliegen ist es, zu zeigen, wie Cassiopeia und Joomla funktionieren - und es dabei selbst besser zu verstehen.
+## Who is this tutorial for?
 
-> Dieses Tutorial in erster Linie für Webmaster gedacht, die eine neue Website mit Joomla 4 erstellen, Cassiopeia anpassen möchten und mit Joomla 4 bisher wenig Erfahrung gesammelt haben.
+At the end of this text series, there will be no finished example template. I have kept everything general. My main purpose is to show how Cassiopeia and Joomla work - and to better understand it myself in the process.
 
-## Was bietet Cassiopeia
+> This tutorial is primarily intended for those Joomla user who are creating a new website with Joomla 4, want to customise Cassiopeia and have little experience with Joomla 4 so far.
 
-Cassiopeia, das neue Frontend Template in Joomla, bietet eine optimale Basis, um die eigene Joomla Website an die individuellen Bedürfnisse anzupassen. Das Cassiopeia Template bietet Benutzerfreundlichkeit, Barrierefreiheit und Anpassbarkeit. So basiert es auf der aktuellen Version des Frontend Frameworks Bootstrap 5. Die Modulpositionen des Templates wurden umbenannt, so dass sich Module nun leichter und intuitiver den entsprechenden Positionen zuordnen lassen. Das Template ist voll WCAG 2.1 Level AA kompatibel und entspricht damit den Anforderungen an barrierefreie Webinhalte.
+## What Cassiopeia offers
 
-## Die Struktur dieses Tutorials
+Cassiopeia offers an optimal basis to adapt your own Joomla website to your individual needs. 
 
-Jedes Kapitel behandelt mithilfe der Beispieldateien eine bestimmte Fragestellung. Installiere die Blogbeispieldateien bitte ebenfalls in einer Testumgebung, damit wir gleiche Voraussetzungen haben. Klick dazu im Dashboard die mit `Installieren` beschriebene Schaltfläche neben Blog-Beispieldateien.
+Cassiopeia is 
+- user-friendly, 
+- accessible and 
+- easily customisable.
 
-![Blog-Beispieldateien installieren](/images/c11.png)
+The standard template in Joomla 4 is based on the current version of the frontend framework Bootstrap 5. The module positions of the template have been renamed so that modules can now be assigned to the corresponding positions more easily and intuitively. The template is fully WCAG 2.1 Level AA compliant and thus meets the requirements for accessible web content.
 
-Das Frontend sollte nun so wie in der nachfolgenden Abbildung aussehen.
+## The structure of this tutorial
 
-![Cassiopeia im Frontend](/images/c12.png)
+Each chapter deals with a specific issue, sometimes with the help of the example files. In this case, please also install the blog sample files in a test environment so that we have the same conditions. To do this, click the button labelled `Install` next to the text Blog sample files in the dashboard.
 
-Wenn du dich für ein bestimmtes Thema interessierst, sieh dir gerne ein separates Kapitel an. Mit diesem Tutorial passt du eine Joomla 4 Website mit Cassiopeia und Blog Beispieldaten an deine Bedürfnisse an. Du erfindest das Rad nicht neu. Joomla und Cassiopeia bieten eine ganze Reihe.
+![Install blog example files](/images/c11.png)
+
+The frontend should now appear as shown in the following image.
+
+![Cassiopeia in the frontend](/images/c12.png)
+
+If you are interested in a specific topic, feel free to look at a separate chapter. With this tutorial you adapt a Joomla 4 website with Cassiopeia and Blog sample data to your needs. You do not reinvent the wheel, but customise the wheels of Joomla and Cassiopeia to your individual needs.
 <img src="https://vg04.met.vgwort.de/na/a80a6bb002ca4d5eb5184c212da9f1c1" width="1" height="1" alt="">

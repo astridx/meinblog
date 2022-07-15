@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-17
+date: 2022-07-15
 title: 'A Menu Item'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -14,9 +14,9 @@ tags:
   - Joomla
 ---
 
-In this article you will learn how to create a menu item for the frontend view of your component. So it is not necessary that you know the exact URL. Later a modification to [search engine friendly (SEF) URLs](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs/>)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/] is possible. As a note, please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{menu item!frontend} -->
+In this article you will learn how to create a menu item for the frontend view of your component. So it is not necessary that you know the exact URL. Later a modification to [search engine friendly (SEF) URLs](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs)[^docs.joomla.org/enabling_search_engine_friendly_(sef)_urls/] is possible. As a note, please do not enable this feature yet. This sample extension does not support SEF yet. We will add the Joomla conform routing later.<!-- \index{menu item!frontend} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t2...t3)[^github.com/astridx/boilerplate/compare/t2...t3] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t2...t3)[^codeberg.org/astrid/j4examplecode/compare/t2...t3] and copy these changes into your development version.
 
 ## Step by step
 
@@ -29,10 +29,10 @@ The menu item in the frontend works differently than the one in the administrati
 
 Create the file `default.xml` under `components/com_foos/tmpl/foo` and add the following code:
 
-[components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/0b9e39042dea67221aabcda2d226b0b8816cabd6/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t3/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t3/src/components/com_foos/tmpl/foo/default.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t3/src/components/com_foos/tmpl/foo/default.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>

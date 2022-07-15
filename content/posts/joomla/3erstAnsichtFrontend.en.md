@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-18
+date: 2022-07-13
 title: 'The First View in the Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
