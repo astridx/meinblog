@@ -16,7 +16,7 @@ tags:
 
 Wir haben eine Menge unterschiedlicher Erweiterung erstellt. Es ist lästig, für jede einzelne eine separate Installation durchzuführen. Dies ist einem Benutzer nicht zumutbar. Außerdem bauen diese teilweise aufeinander auf und es ist wichtig, sicherzustellen, dass alles installiert ist und nichts vergessen wurde. Deshalb zeige ich in diesem abschießenden Kapitel, wie unterschiedliche Erweiterungen zu einem Installationspaket zusammengepackt werden.<!-- \index{Paket} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -75,7 +75,7 @@ Das Manifest kennst du schon. Im Falle eines Paketes gibt es hier wenig Neues. I
 [administrator/manifests/ packages/pkg_foos.xml](https://github.com/astridx/boilerplate/blob/t42/src/administrator/manifests/packages/pkg_foos.xml)
 
 ```XML
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t42/src/administrator/manifests/packages/pkg_foos.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t42/src/administrator/manifests/packages/pkg_foos.xml -->
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" version="1.0" method="upgrade">
 	<name>pkg_foos</name>
@@ -100,7 +100,7 @@ Das Manifest kennst du schon. Im Falle eines Paketes gibt es hier wenig Neues. I
 		<file type="template" id="tpl_facile" client="site">tpl_facile.zip</file>
 	</files>
 	<updateservers>
-		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+		<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 	</updateservers>
 	<dlid prefix="dlid=" suffix="" />
 </extension>

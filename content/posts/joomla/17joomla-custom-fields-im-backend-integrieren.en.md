@@ -18,7 +18,7 @@ Custom Fields (Own Fields)<!-- \index{custom fields!backend} --> are very popula
 
 This part shows you how to program the support in the administration area. In the next chapter we will integrate Custom Fields in the frontend.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t13...t14a)[^github.com/astridx/boilerplate/compare/t13...t14a] and copy these changes into your development version.
 
 ## Step by step
 

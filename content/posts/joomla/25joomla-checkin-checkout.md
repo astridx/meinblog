@@ -18,7 +18,7 @@ Mithilfe der Checkout-Funktion werden unerwartete Ergebnisse vermieden, die auft
 
 > Manchmal kommt es vor, dass ein Element als aus gecheckt markiert ist, obwohl es niemand zeitgleich zur Bearbeitung geöffnet hat. Dies passiert in der Regel, wenn ein vorheriges Öffnen nicht korrekt beendet wurde. Beispielsweise wurde der Webbrowser geschlossen, obwohl der Beitrag zur Bearbeitung offen war oder man hat im Menü des Browsers die Zurück-Schaltfläche geklickt anstelle den Beitrag ordnungsgemäß zu schließen.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -32,7 +32,7 @@ Wie alle Eigenschaften eines Foo-Elementes, wird der Checkout-Zustand in der Dat
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN `checked_out` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
 

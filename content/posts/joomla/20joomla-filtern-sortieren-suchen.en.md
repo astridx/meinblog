@@ -18,7 +18,7 @@ Filtering, sorting and searching - now we organize the Joomla 4 component ! Joom
 
 ![Joomla Filter Sort and Search -Search Tools](/images/j4x20x1.png)
 
-> For impatient people: Look at the changed program code in the [Diff view](https://github.com/astridx/boilerplate/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] and take over these changes into your development version.
+> For impatient people: Look at the changed program code in the [Diff view](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] and take over these changes into your development version.
 
 ## Step by step
 
@@ -32,7 +32,7 @@ First, we create the form through which the filters will be set.
 [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -151,7 +151,7 @@ In case of an update of your component, the file `16.0.0.sql` adds a column to s
 [administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```xml {numberLines: -2}
--- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
+-- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 

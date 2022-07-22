@@ -16,7 +16,7 @@ tags:
 
 We have created a lot of different extensions. It is annoying to do a separate installation for each one. This is not reasonable for a user. Moreover, some of these extensions build on each other and it is important to make sure that everything is installed and nothing has been forgotten. Therefore, in this concluding chapter I show how different extensions are packed together into one installation package.<!-- \index{package} -->
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] and apply these changes to your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t41...t42)[^github.com/astridx/boilerplate/compare/t41...t42] and apply these changes to your development version.
 
 ## Step by step
 
@@ -75,7 +75,7 @@ You already know the manifest. In the case of a package, there is little new her
 [administrator/manifests/ packages/pkg_foos.xml](https://github.com/astridx/boilerplate/blob/t42/src/administrator/manifests/packages/pkg_foos.xml)
 
 ```XML
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t42/src/administrator/manifests/packages/pkg_foos.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t42/src/administrator/manifests/packages/pkg_foos.xml -->
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" version="1.0" method="upgrade">
 	<name>pkg_foos</name>
@@ -100,7 +100,7 @@ You already know the manifest. In the case of a package, there is little new her
 		<file type="template" id="tpl_facile" client="site">tpl_facile.zip</file>
 	</files>
 	<updateservers>
-		<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+		<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 	</updateservers>
 	<dlid prefix="dlid=" suffix="" />
 </extension>

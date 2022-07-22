@@ -20,7 +20,7 @@ With Joomla it is possible to set up a multilingual website without installing t
 
 The chapter is one of the most extensive in this series. For that it covers all areas of multilingualism and language links in Joomla.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t14b...t15a)[^github.com/astridx/boilerplate/compare/t14b...t15a] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t14b...t15a)[^github.com/astridx/boilerplate/compare/t14b...t15a] and copy these changes into your development version.
 
 ## Step by step
 
@@ -34,7 +34,7 @@ So that the language is saved to the element, we add a column to the database ta
 [administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `language` char(7) NOT NULL DEFAULT '*' AFTER `alias`;
 
@@ -52,7 +52,7 @@ In this helper file we provide the details that are specific to our component, s
 [administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
 
 <?php
 /**
@@ -298,7 +298,7 @@ We don't have any special requests, so we use the default template to edit the l
 [administrator/components/com_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/blob/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
 
 <?php
 /**
@@ -326,7 +326,7 @@ The `AssociationsHelper.php` helper file is the interface to the `com_associatio
 [components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
 
 <?php
 /**
@@ -401,7 +401,7 @@ We create the class `RouteHelper` to correctly compose the links we create in th
 [components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t15a/src/components/com_foos/src/Helper/RouteHelper.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php
 
 <?php
 /**

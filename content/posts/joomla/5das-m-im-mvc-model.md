@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-16
+date: 2022-07-21
 title: 'Das M im MVC: Model'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -14,15 +14,15 @@ tags:
   - Joomla
 ---
 
-In diesem Teil kommt keine neue Funktionalität hinzu. Wir verbessern den bisherigen Aufbau. Jede Web-Anwendung besteht aus
+In diesem Teil kommt keine neue Funktionalität hinzu. Wir verbessern den bisherigen Aufbau. Eine Web-Anwendung besteht in der Regel aus
 
 - Logik,
 - Daten und
 - der Darstellung.<!-- \index{Model-View-Controller} -->
 
-Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor allem bei größeren Projekten. Joomla verwendet das [Model-View-Controller-Konzept (MVC)](https://de.wikipedia.org/wiki/Model_View_Controller)[^de.wikipedia.org/wiki/model_view_controller]. In diesem Tutorial-Teil fügen wir ein Model zum Frontend hinzu. Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
+Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor allem bei größeren Projekten. Joomla verwendet zur Abgrenzung das [Model-View-Controller-Konzept (MVC)](https://de.wikipedia.org/wiki/Model_View_Controller)[^de.wikipedia.org/wiki/model_view_controller]. In diesem Tutorial-Teil fügen wir ein Model zum Frontend hinzu. Das Model-Objekt ist für die Daten und deren Verarbeitung verantwortlich.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t3...t4)[^github.com/astridx/boilerplate/compare/t3...t4] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t3...t4)[^codeberg.org/astrid/j4examplecode/compare/t3...t4] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -33,10 +33,12 @@ Problematisch ist es, diese drei Elemente in einer Klasse zusammenzufassen. Vor 
 
 Beim Model ist es ebenfalls so, dass du das Rad nicht neu erfindest. Du erweiterst die Joomla Klasse `BaseDatabaseModel`. Implementiere dann nur das, was du speziell einsetzt. In unserem Fall ist es die Ausgabe `$this->message = 'Hello Foo!';`, für die wir die Methode `getMsg()` erstellen.
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php)
+> Die Model-Klassen, die als Elternklasse von Joomla zur Verfügung stehen, findest du im Verzeichnis `libraries/src/MVC/Model/`. `BaseDatabaseModel` ist in der Datei `libraries/src/MVC/Model/BaseDatabaseModel.php` implementiert.
+
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t4/src/components/com_foos/src/Model/FooModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t4/src/components/com_foos/src/Model/FooModel.php
 
 <?php
 
@@ -90,7 +92,7 @@ class FooModel extends BaseDatabaseModel
 
 Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg');`. Das wirkt in diesem einfachen Beispiel umständlich. In komplexen Anwendungen hat sich diese Verfahrensweise bewährt. Die Datenberechnung geschieht im Model. Die Gestaltung der Daten übernimmt die View.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	public function display($tpl = null)
@@ -110,7 +112,7 @@ Die Daten des Models holen wir uns in der View mit `$this->msg = $this->get('Msg
 
 Über das Template geben wir die Daten aus. Hier wird später alles in HTML-Tags verpackt.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

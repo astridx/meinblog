@@ -22,7 +22,7 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 - archivierst und
 - löschst.<!-- \index{verstecken} --><!-- \index{veröffentlichen} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t12...t13] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t12...t13] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -36,7 +36,7 @@ Im Falle eines Updates, wird die Datenbank mithilfe der Datei `administrator/com
 [administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
+<!--  https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `published` tinyint(1) NOT NULL DEFAULT 0 AFTER `alias`;
 
@@ -56,7 +56,7 @@ Jetzt benötigt Joomla die Klasse `AdminController`. Deshalb erstellen wir die K
 
 ```php {numberLines: -2}
 <?php
-// https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
 
 <?php
 /**

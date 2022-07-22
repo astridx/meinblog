@@ -16,7 +16,7 @@ tags:
 
 We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.<!-- \index{Form field} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and copy these changes into your development version.
 
 ## Step by step
 
@@ -32,7 +32,7 @@ First, we create the form field through which it is possible to select or desele
 [administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/3bfbb76025d6b8d548e4411275ec2f6fad507628/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
 
 <?php
 /**
@@ -273,7 +273,7 @@ We open the selection in a modal window via the FooField. As address we have ins
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
 
 <?php
 /**
@@ -367,7 +367,7 @@ We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
 ```js {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/joomla.asset.json */
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/media/com_foos/joomla.asset.json */
 
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
@@ -404,7 +404,7 @@ The following is the JavaScript code that causes a foo element to be selectable 
 [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
 ```js {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/js/admin-foos-modal.js */
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/media/com_foos/js/admin-foos-modal.js */
 
 ;(function () {
   'use strict'

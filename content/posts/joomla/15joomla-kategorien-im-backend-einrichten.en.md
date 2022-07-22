@@ -18,7 +18,7 @@ Almost every website divides its content into categories. Joomla offers this use
 
 > [Categories](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') are a way of organising content in Joomla! A category contains posts and other categories. A post can only be in one category. If a category is contained in another, it is a subcategory of the category.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] and copy these changes into your development version.
 
 ## Step by step
 
@@ -32,7 +32,7 @@ We store the data in the database that is necessary to classify an element into 
 [administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 
@@ -325,7 +325,7 @@ Additionally, implementations are required in the component class to use Joomla'
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
+#### administrator/components/ com\_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12#diff-2daf62ad6c51630353e31eaa3cc28626)
 
 In the model we add to the database query the table where Joomla stores categories. Thus, in the administration area, when a category is selected, only the elements belonging to it are displayed.
 

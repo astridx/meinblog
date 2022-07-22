@@ -16,7 +16,7 @@ tags:
 
 There are several reasons for allowing a user to edit in the frontend. One is that users find it more user-friendly. Or, it is important for an administrator not to release access to the administration area. Therefore, in the next step, we equip our component with the possibility to edit items in the frontend.<!-- \index{frontend editing} -->
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t24b...t25)[^github.com/astridx/boilerplate/compare/t24b...t25] and copy these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t24b...t25)[^github.com/astridx/boilerplate/compare/t24b...t25] and copy these changes into your development version.
 
 ## Step by step
 
@@ -30,7 +30,7 @@ The following file contains all the information needed to display an icon used t
 [administrator/components/com_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{service!Icon for frontend editing} -->
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/administrator/components/com_foos/src/Service/HTML/Icon.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/administrator/components/com_foos/src/Service/HTML/Icon.php
 
 <?php
 /**
@@ -243,7 +243,7 @@ We adapt the XML file that Joomla uses to build the form.
 [components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -400,7 +400,7 @@ The file `components/com_foos/ src/Controller/FooController.php` contains the lo
 [components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Controller/FooController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Controller/FooController.php
 
 <?php
 /**
@@ -639,7 +639,7 @@ The file `components/com_foos/ src/Model/FormModel.php` organises all the necess
 [components/com_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Model/FormModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Model/FormModel.php
 
 <?php
 /**
@@ -876,7 +876,7 @@ The file `components/com_foos/ src/View/Form/HtmlView.php` fetches all the neces
 [components/com_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/View/Form/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/View/Form/HtmlView.php
 
 <?php
 /**
@@ -1088,7 +1088,7 @@ As a template, `components/com_foos/ tmpl/form/edit.php` ensures that the form i
 [components/com_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.php
 
 <?php
 /**
@@ -1201,7 +1201,7 @@ Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to
 [components/com_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>

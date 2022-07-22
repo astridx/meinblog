@@ -16,7 +16,7 @@ tags:
 
 In the previous part we set up a database for the Joomla components. In this part you will learn how to change or add data using a form in the administration area. At the end, the view of your component in the administration area contains a button to add new items. You change an existing item by clicking on the title in the list view.<!-- \index{database!using} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] and copy these changes into your development version.
 
 ## Step by step
 
@@ -30,7 +30,7 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 [administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/forms/foo.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/forms/foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -78,7 +78,7 @@ We create more or less an empty class with `FooController`. Although it contains
 [administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/Controller/FooController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Controller/FooController.php
 
 <?php
 /**
@@ -125,7 +125,7 @@ Now we create the model to fetch the data for an element. This we call `FooModel
 [administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/Model/FooModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Model/FooModel.php
 
 <?php
 /**
@@ -223,7 +223,7 @@ We implement the access to the database table. It is important to set `$this->ty
 [administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/Table/FooTable.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Table/FooTable.php
 
 <?php
 /**
@@ -295,7 +295,7 @@ The file `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organise
 [administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
 
 <?php
 /**
@@ -385,7 +385,7 @@ In the file `edit.php` is the view implemented, which is called for editing. It 
 [administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php
 
 <?php
 /**
@@ -432,7 +432,7 @@ With the file `administrator/components/com_foos/ tmpl/foos/emptystate.php` we c
 [administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
 
 <?php
 /**

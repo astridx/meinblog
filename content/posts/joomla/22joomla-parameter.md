@@ -33,7 +33,7 @@ Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, gilt in Joomla stand
 
 Beim Menüpunkt hatten wir schon einen Parameter gesetzt. Für die Komponente gibt es diesen in den Optionen der Konfiguration. Das Item im Speziellen nehmen wir uns in diesem Abschnitt vor.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t19...t18] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t19...t18] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -49,7 +49,7 @@ Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenba
 [administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```xml {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 ```

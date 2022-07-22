@@ -22,7 +22,7 @@ Zum einen gibt es eine in jeder Komponente an gleicher Stelle platzierte Schaltf
 
 Zusätzlich ist es möglich, neben den Feldern in Formularen Erklärungen einzublenden. Seit Joomla 4.1 sind diese Erklärungen der besseren Übersicht halber ein- und ausblendbar. Diese Funktion wurde mit [PR 35610](https://github.com/joomla/joomla-cms/pull/35610/)[^github.com/joomla/joomla-cms/pull/35610/] eingeführt und _Inline-Hilfe_ genannt.<!-- \index{Inline-Hilfe} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

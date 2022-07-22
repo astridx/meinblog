@@ -16,7 +16,7 @@ tags:
 
 Parameter machen das Template im Backend flexibel anpassbar. Vielleicht soll eine Farbauswahl möglich sein? Das Standardtemplate Cassiopeia bietet unter anderem `logoFile`, `siteTitle` und `siteDescription` als Parameter. Wir ergänzen ein Banner und Social Media Icons.<!-- \index{Template!Parameter} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -36,7 +36,7 @@ Die Datei `templates/facile/ index.php` ergänzen wir, so dass über Parameter e
 
 Sieh dir den nachfolgenden Codeausschnitt an. Der HTML Code erklärt sich meiner Meinung selbst. Wir fügen HTML-Markup hinzu, welches lediglich angezeigt wird, wenn ein bestimmter Parameter gesetzt ist. Beispielsweise beim Footer über die Abfrage `$this->params->get('showFooter')`. Was angezeigt wird, hängt dann ebenfalls von den im Backend vom Benutzer ausgefüllten Werten für die Parameter ab.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 ```php {diff}
          </nav>
@@ -100,7 +100,7 @@ Sieh dir den nachfolgenden Codeausschnitt an. Der HTML Code erklärt sich meiner
 
 Wir nutzen die Sprachdateien für die Labels unseres Backendformulares. So sind die Texte in unterschiedliche Spachen übersetzbar.
 
-[templates/facile/language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
+[templates/facile/language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
 
 ```xml {diff}
  TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
@@ -128,7 +128,7 @@ Damit ein Formularfeld in Anhängigkeit zu einem anderen angezeigt wird, nutzen 
 
 Das Feld des Typs `type="subform"` biete die Möglichkeit, die Anzahl der Werte im Backendformular flexibel zu gestalten. So ist mit einem Formularfeld möglich, entweder lediglich einen Link zu Facebook einzufügen oder aber viele Social Media Kanäle anzuzeigen.<!-- \index{Fields!subform} -->
 
-[templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+[templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 ```xml {diff}
  		<position>footer</position>

@@ -16,7 +16,7 @@ tags:
 
 Joomla offers a number of functions that enable administrators to process several items at once. We now add this batch processing to the component. Based on this, it is possible for you to add your own "batch processing" functions.<!-- \index{batch} -->
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] and copy these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] and copy these changes into your development version.
 
 ## Step by step
 
@@ -30,7 +30,7 @@ The following file creates the middle part of the form that is displayed to trig
 [administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
 
 <?php
 /**
@@ -84,7 +84,7 @@ The following file creates the footer of the form that is displayed to trigger b
 [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
 
 <?php
 /**

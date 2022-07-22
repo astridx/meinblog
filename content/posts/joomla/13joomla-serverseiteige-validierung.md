@@ -22,7 +22,7 @@ Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe
 
 Dieser Teil behandelt die serverseitige Validierung in Joomla 4.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -38,7 +38,7 @@ In diesem Text ist es nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich 
 [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php
 
 <?php
 /**

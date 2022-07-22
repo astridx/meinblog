@@ -22,7 +22,7 @@ On the one hand, there is a button positioned in the same place in each componen
 
 In addition, it is possible to show descriptions next to the fields in forms. Since Joomla 4.1, these descriptions can be shown and hidden for a better overview. This feature was introduced with [PR 35610](https://github.com/joomla/joomla-cms/pull/35610/)[^github.com/joomla/joomla-cms/pull/35610/] and called _inline help_. <!-- \index{inline help} -->
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] and copy these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t22...t23)[^github.com/astridx/boilerplate/compare/t22...t23] and copy these changes into your development version.
 
 ## Step by step
 

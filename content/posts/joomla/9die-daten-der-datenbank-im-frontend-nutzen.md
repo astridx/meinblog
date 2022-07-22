@@ -16,7 +16,7 @@ tags:
 
 Wir haben eine Datenbank, in der die Daten zur Komponente gespeichert werden. Der nächste Schritt ist, die dynamischen Inhalte im Frontend anzuzeigen. In diesem Teil zeige ich dir, wie du den Content zu einem Element per Menüpunkt ausgibst. Hierzu erstellen wir ein eigenes Formularfeld.<!-- \index{Formularfeld} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b..t7] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b..t7] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -32,7 +32,7 @@ Als erstes erstellen wir das Formularfeld, über welches es möglich ist, ein Fo
 [administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/3bfbb76025d6b8d548e4411275ec2f6fad507628/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
 
 <?php
 /**
@@ -273,7 +273,7 @@ Die Auswahl öffnen wir über das FooField in einem Modal-Fenster. Als Adresse h
 [administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
 
 <?php
 /**
@@ -367,7 +367,7 @@ Wir nutzen den [Webassetmanager](https://docs.joomla.org/J4.x:Web_Assets/de). Di
 [media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
 
 ```js {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/joomla.asset.json */
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/media/com_foos/joomla.asset.json */
 
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
@@ -404,7 +404,7 @@ Es folgt der JavaScript Code, der bewirkt, dass beim Anlegen eines Menüpunktes 
 [media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
 
 ```js {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/t7/src/media/com_foos/js/admin-foos-modal.js */
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/media/com_foos/js/admin-foos-modal.js */
 
 ;(function () {
   'use strict'

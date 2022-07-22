@@ -23,7 +23,7 @@ If you worked with Joomla, you know it from other components: Items have a statu
 - trash
   items.<!-- \index{unpbulish} --><!-- \index{publish} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t13...t12] and copy these changes into your development version.
 
 ## Step by step
 
@@ -37,7 +37,7 @@ In case of an update, the database is updated to the latest version for version 
 [administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
-<!--  https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
+<!--  https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `published` tinyint(1) NOT NULL DEFAULT 0 AFTER `alias`;
 
@@ -57,7 +57,7 @@ Now Joomla needs the class `AdminController`. Therefore, we create the class `Fo
 
 ```php {numberLines: -2}
 <?php
-// https://raw.githubusercontent.com/astridx/boilerplate/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php
 
 <?php
 /**

@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-14
+date: 2022-07-22
 title: 'Eine Joomla-Datenbank-Tabelle für deine Erweiterung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -16,7 +16,7 @@ tags:
 
 Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statischen Text. Du zeigst hier Daten an, die dynamisch sind. So arbeiten zumindest die meisten Erweiterungen. Deshalb legen wir in diesem Teil eine Datenbank für deine Komponente an. In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen diese im Administrationsbereich an. Es wird eine statische Liste ausgegeben. Änderbar sind die einzelnen Einträge über das Backend nicht. Daran arbeiten wir im nächsten Teil.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -31,10 +31,10 @@ Neben der `id`, über welche wir das Element eindeutig auffindbar machen und dem
 
 Mit `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle. In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins in Joomla im Verzeichnis `plugins/sampledata`.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql -->
 
 CREATE TABLE IF NOT EXISTS `#__foos_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -56,10 +56,10 @@ INSERT INTO `#__foos_details` (`name`) VALUES
 
 Damit Joomla im Falle einer Deinstallation keine unnötigen Daten enthält, erstellen wir eine Datei, die den SQL-Befehl zum Löschen der Datenbanktabelle beinhaltet. Diese wird beim Deinstallieren automatisch ausgeführt.
 
-[administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/uninstall.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/sql/uninstall.mysql.utf8.sql -->
 
 DROP TABLE IF EXISTS `#__foos_details`;
 ```
@@ -75,10 +75,10 @@ Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir 
 
 Der nachfolgende Code zeigt dir das in unserem Falle noch recht übersichtliche Model.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t6/src/administrator/components/com_foos/src/Model/FoosModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t6/src/administrator/components/com_foos/src/Model/FoosModel.php
 
 <?php
 /**
@@ -147,7 +147,7 @@ class FoosModel extends ListModel
 
 Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die SQL-Statements in den genannten Dateien zum passenden Zeitpunkt aufgerufen werden, nämlich während einer Installation oder während einer Deinstallation.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  	<description>COM_FOOS_XML_DESCRIPTION</description>
@@ -205,7 +205,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
 Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu setzten, jetzt ist es erforderlich. Andernfalls siehst du die folgende Fehlermeldung oder bist gezwungen, die Verbindung zur Datenbank selbst zu programmieren: `MVC factory not set in Joomla\CMS\Extension\MVCComponent`.<!-- \index{Service!Provider} -->
 
-[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
@@ -230,7 +230,7 @@ Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu s
 
 In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
   */
@@ -257,7 +257,7 @@ In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode `$thi
 
 Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des statischen Textes `Hello Foos` steht jetzt eine Schleife, die alle Elemente durchläuft.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/a16028022ae1e854f4e54764e7b335bfaf3c19f0/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   */

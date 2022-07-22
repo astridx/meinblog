@@ -26,7 +26,7 @@ Meistens hängt die clientseitige Validierung davon ab, dass im Browser JavaScri
 
 Dieser Teil behandelt die die clientseitige Validierung in Joomla 4.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11a...t11b)[^github.com/astridx/boilerplate/compare/t11a...t11b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t11a...t11b)[^github.com/astridx/boilerplate/compare/t11a...t11b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -43,7 +43,7 @@ Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualt
 [media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
 
 ```js {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t11b/src/media/com_foos/js/admin-foos-letter.js
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t11b/src/media/com_foos/js/admin-foos-letter.js
 
 document.addEventListener('DOMContentLoaded', function () {
   'use strict'

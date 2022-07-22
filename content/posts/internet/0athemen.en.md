@@ -2,7 +2,7 @@
 description: 'desc'
 shortTitle: 'short'
 date: 2022-07-02
-title: 'Internet Tutorial'
+title: 'Shape the Internet'
 template: post
 thumbnail: '../../thumbnails/worldinternet.png'
 slug: en/internet-tutorial
@@ -13,7 +13,7 @@ tags:
   - Internet
 ---
 
-## The Network
+## Shape the Internet
 
 1. [How is the internet connected? - Part 1 - Nodes and connections](/en/internet-netz1)
 1. [How is the internet connected? - Part 2 - How does a device become part of a network](/en/internet-netz2)

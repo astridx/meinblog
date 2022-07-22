@@ -16,7 +16,7 @@ tags:
 
 Nicht jeder hat das Recht, alle Inhalte zu bearbeiten. Dazu bietet Joomla eine Zugriffskontrollliste, die ACL. Mit dieser handhabst du Benutzerrechte in deiner Komponente.<!-- \index{Zugriffskontrollliste} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -32,7 +32,7 @@ Als erstes legen wir alle möglichen Berechtigungen in einer XML-Datei fest. Jed
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t10/src/administrator/components/com_foos/access.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/access.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <access component="com_foos">
@@ -57,7 +57,7 @@ Die Berechtigungen speichert Joomla in der Datenbank. Bei einem Joomla-Update si
 [administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
 

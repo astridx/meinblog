@@ -16,7 +16,7 @@ tags:
 
 Die wenigsten nutzen eigene Felder ausschließlich im Administrationsbereich. In der Regel ist eine Ausgabe im Frontend erforderlich. Dieser Frage widmen wir uns im aktuellen Teil der Artikelserie. Wie und wo werden benutzerdefinierte Felder in Joomla im Frontend ausgegeben?<!-- \index{Eigene Felder!Frontend} --><!-- \index{Custom Fields!Frontend} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t14a...t14b)[^github.com/astridx/boilerplate/compare/t14a...t14b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

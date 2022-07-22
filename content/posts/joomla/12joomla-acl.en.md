@@ -16,7 +16,7 @@ tags:
 
 Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component.<!-- \index{access control list} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] and copy these changes into your development version.
 
 ## Step by step
 
@@ -32,7 +32,7 @@ First, we set all possible permissions in an XML file. Each component can define
 [administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t10/src/administrator/components/com_foos/access.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/access.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <access component="com_foos">
@@ -57,7 +57,7 @@ Joomla stores the permissions in the database. During a Joomla update only datab
 [administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
 

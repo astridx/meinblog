@@ -22,7 +22,7 @@ In server-side validation, the input submitted by the user is sent to the server
 
 This part covers the server-side validation in Joomla 4.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] and copy these changes into your development version.
 
 ## Step by step
 
@@ -38,7 +38,7 @@ The main goal here is not to learn meaningful validation. Rather, I'm showing yo
 [administrator/components/com_foos/ src/Rule/LetterRule.php](https://github.com/astridx/boilerplate/blob/cf84e8d47ef47d4918c094810e7a16ea213d1bee/src/administrator/components/com_foos/src/Rule/LetterRule.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t11a/src/administrator/components/com_foos/src/Rule/LetterRule.php
 
 <?php
 /**

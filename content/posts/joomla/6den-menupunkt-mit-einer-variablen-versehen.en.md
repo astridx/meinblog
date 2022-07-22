@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-15
+date: 2022-07-22
 title: 'Extend the Menu Item with a Variable'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -14,9 +14,9 @@ tags:
   - Joomla
 ---
 
-Sometimes you need to customize the frontend output for a menu item. For this you need a variable. In this part of the tutorial we will add a text variable to the menu item and use it for the display in the frontend.
+Sometimes you need to customize the frontend output for a menu item. For this you need a variable. In this part of the tutorial we will add a text variable to the menu item and use it for the display in the frontend.<!-- \index{parameter} --><!-- \index{variable} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] and copy these changes into your development version.
 
 ## Step by step
 
@@ -31,7 +31,7 @@ No new file is added in this chapter. We only change files.
 
 In the model, change the method in which text is calculated for output. Delete the following entry:
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
 
 ```php
 ...
@@ -55,7 +55,7 @@ Add the following lines in its place:
 
 The complete file looks like this in the Diff view:
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -80,6 +80,32 @@ The complete file looks like this in the Diff view:
 
 ```
 
+##### Side note: How to handle request variables in Joomla<!-- \index{Request} --><!-- \index{$_POST} --><!-- \index{$_GET} --><!-- \index{Input} -->
+
+The function `$app->input->get('show_text', "Hi")` is a help. It is impemented via the `Input` class in the `libraries/vendor/joomla/input/src/Input.php` file and works together with `InputFilter` in the `libraries/vendor/joomla/filter/src/InputFilter.php.` file.
+
+Extension development is about processing user input. The parameter added here is entered by a user through a form and then stored in the database table. To ensure that the value of the parameter is correct, i.e. does not contain malicious code or syntactical errors, it is necessary to filter the value. This is where the `Input` class comes into play. Those already familiar with PHP may work directly with raw request variables such as `$_POST` and `$_GET`. These work fine in Joomla. However, it is easier and possibly safer to let the `Input` class do the work. 
+
+If you browse the code of Joomla, you will find many examples that show the basic uses of the `Input` class. For example, `$app->input->get('show_text', "Hi")` is checked for a string, because it is a string. To return the parameter without filtering, `$app->input->get('show_text', "Hi", 'RAW')` would be the appropriate command. 
+
+Possible data types for filtering are:
+- INT: An integer
+- UINT: An unsigned integer
+- FLOAT: A floating point number
+- BOOLEAN: A boolean value
+- WORD: A string containing A-Z or underscores only (not case sensitive)
+- ALNUM: A string containing A-Z or 0-9 only (not case sensitive)
+- CMD: A string containing A-Z, 0-9, underscores, periods or hyphens (not case sensitive)
+- BASE64: A string containing A-Z, 0-9, forward slashes, plus or equals (not case sensitive)
+- STRING: A fully decoded and sanitised string (default)
+- HTML: A sanitised string
+- ARRAY: An array
+- PATH: A sanitised file path
+- TRIM: A string trimmed from normal, non-breaking and multibyte spaces
+- USERNAME: Do not use (use an application specific filter)
+- RAW: The raw string is returned with no filtering
+- unknown: An unknown filter will act like STRING. If the input is an array it will return an array of fully decoded and sanitised strings.
+
 So far, so good. We are still missing the possibility to configure the value for `show_text` at the menu item in the backend. We implement this next in the file `default.xml`.
 
 <!-- prettier-ignore -->
@@ -87,7 +113,7 @@ So far, so good. We are still missing the possibility to configure the value for
 
 In your extension you offer the possibility to save a value at the menu item by extending the XML file with an input element. The following code shows you how to add a text input field.
 
-[components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {diff}
  			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>

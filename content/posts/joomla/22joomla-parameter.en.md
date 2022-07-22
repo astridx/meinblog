@@ -30,7 +30,7 @@ Parameters exist for
 
 For the menu item we had already set a parameter. For the component, you can find it in the options of the configuration. We will look at the item in particular in this section.
 
-> For impatient people: Look at the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t17...t18] and take over these changes into your development version.
+> For impatient people: Look at the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t17...t18] and take over these changes into your development version.
 
 ## Step by step
 
@@ -43,10 +43,10 @@ The code with which the assignment of a parameter is calculated, was for a long 
 
 In order to create the `params` column in the database where the parameters are stored when the component is updated, we need the SQL file `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://raw.githubusercontent.com/astridx/boilerplate/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://codeberg.org/astrid/j4examplecode/raw/branch/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```xml {numberLines: -2}
-/* https://raw.githubusercontent.com/astridx/boilerplate/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
+/* https://codeberg.org/astrid/j4examplecode/raw/branch/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 ```

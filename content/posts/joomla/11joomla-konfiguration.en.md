@@ -16,7 +16,7 @@ tags:
 
 Are there things you plan to offer configurable? Then this part is important for you. Here I show you how to add a configuration to your component in the Joomla typical way. We create the global configuration for our component!<!-- \index{configuration (global)} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t8...t9)[^github.com/astridx/boilerplate/compare/t8...t9] and copy these changes into your development version.
 
 ## Step by step
 
@@ -32,7 +32,7 @@ We use a selection field of type `type="list"`. We minimise the translation work
 [administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/blob/52cb451c657729ff06d3cf35c6c8f9cabc86b809/src/administrator/components/com_foos/config.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t9/src/administrator/components/com_foos/config.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t9/src/administrator/components/com_foos/config.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <config>

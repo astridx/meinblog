@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-15
+date: 2022-07-22
 title: 'Den Menüpunkt mit einer Variablen erweitern'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -14,9 +14,9 @@ tags:
   - Joomla
 ---
 
-Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.
+Es kommt vor, dass du die Ausgabe im Frontend für einen Menüpunkt individuell gestaltest. Hierzu benötigst du eine Variable. In diesem Teil des Tutorials fügen wir eine Textvariable zum Menüpunkt hinzu und nutzen diese für die Anzeige im Frontend.<!-- \index{Parameter} --><!-- \index{Variable} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t4...t5)[^github.com/astridx/boilerplate/compare/t4...t5] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -31,7 +31,7 @@ In diesem Kapitel kommt keine neue Datei hinzu. Wir ändern ausschließlich Date
 
 Im Model änderst du die Methode, in welcher der Text für die Ausgabe berechnet wird. Lösche den folgenden Eintrag:
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
 
 ```php
 ...
@@ -55,7 +55,7 @@ Füge die nachfolgenden Zeilen an der Stelle hinzu:
 
 Die vollständige Datei sieht in der Diff-Ansicht wie folgt aus:
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 \defined('_JEXEC') or die;
@@ -80,6 +80,32 @@ Die vollständige Datei sieht in der Diff-Ansicht wie folgt aus:
 
 ```
 
+##### Exkurs: Wie man Request-Variablen in Joomla handhabt<!-- \index{Request} --><!-- \index{$_POST} --><!-- \index{$_GET} --><!-- \index{Input} -->
+
+Die Funktion `$app->input->get('show_text', "Hi")` ist eine Hilfe. Diese ist über die Klasse `Input` in der Datei `libraries/vendor/joomla/input/src/Input.php` impementiert und arbeitet zusammen mit `InputFilter` in der Datei `libraries/vendor/joomla/filter/src/InputFilter.php.`
+
+Bei der Entwicklung von Erweiterungen geht es um die Verarbeitung von Benutzereingaben. Der hier hinzugefügte Parameter wird von einem Benutzer über ein Formular eingegeben und dann in der Datenbanktabelle gespeichert. Um sicherzustellen, dass der Wert des Parameters korrekt ist, also keinen bösartigen Code oder syntaktische Fehler enthält, ist es notwendig, den Wert zu filtern. An dieser Stelle kommt die `Input`-Klasse ins Spiel. Diejenigen, die bereits mit PHP vertraut sind, werden vielleicht direkt mit rohen Anfragevariablen wie `$_POST` und `$_GET` arbeiten. Diese funktionieren in Joomla. Es ist jedoch einfacher und unter Umständen auch sicherer, die Klasse `Input` die Arbeit erledigen zu lassen. 
+
+Wer den Code von Joomla durchstöbert, findet viele Beispiele, welche die grundlegenden Verwendungsmöglichkeiten der Klasse `Input` aufzeigen. `$app->input->get('show_text', "Hi")` wird beispielsweise auf einen String geprüft, weil dies der Standard ist. Um den Parameter ohne Filtern zurückzugeben, wäre `$app->input->get('show_text', "Hi", 'RAW')` das passende Kommando. 
+
+Mögliche Datentypen für die Filterung sind:
+- INT: Eine ganze Zahl
+- UINT: Eine ganze Zahl ohne Vorzeichen
+- FLOAT: Eine Gleitkommazahl
+- BOOLEAN: Ein boolescher Wert
+- WORD: Eine Zeichenkette, die nur A-Z oder Unterstriche enthält (Groß- und Kleinschreibung wird nicht berücksichtigt)
+- ALNUM: Eine Zeichenkette, die nur A-Z oder 0-9 enthält (Groß- und Kleinschreibung wird nicht berücksichtigt)
+- CMD: Eine Zeichenfolge, die A-Z, 0-9, Unterstriche, Punkte oder Bindestriche enthält (Groß- und Kleinschreibung spielt keine Rolle)
+- BASE64: Eine Zeichenfolge, die A-Z, 0-9, Schrägstriche, Pluszeichen oder Gleichheitszeichen enthält (Groß- und Kleinschreibung wird nicht berücksichtigt)
+- STRING: Eine vollständig dekodierte und bereinigte Zeichenfolge (Standard)
+- HTML: Ein bereinigter String
+- ARRAY: Ein Array
+- PATH: Ein bereinigter Dateipfad
+- TRIM: Eine Zeichenkette, die von normalen, nicht umbrechenden und Multibyte-Leerzeichen befreit ist
+- USERNAME:  Bitte nicht verwenden, sondern einen anwendungsspezifischen Filter wählen
+- RAW: Die rohe Zeichenkette wird ohne Filterung zurückgegeben
+- Unbekannt: Ein unbekannter Filter verhält sich wie STRING. Wenn die Eingabe ein Array ist, wird ein Array mit vollständig dekodierten und bereinigten Strings zurückgegeben.
+
 Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim Menüpunkt im Backend zu konfigurieren. Diese implementieren wir jetzt in der Datei `default.xml`.
 
 <!-- prettier-ignore -->
@@ -87,7 +113,7 @@ Soweit, so gut. Es fehlt noch die Möglichkeit, den Wert für `show_text` beim M
 
 Du bietest in deiner Erweiterung die Möglichkeit einen Wert beim Menüpunkt zu speichern, indem du die XML-Datei um ein Inputelement erweiterst. Der nachfolgende Code zeigt dir, wie du ein Eingabefeld für Text hinzufügst.
 
-[components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/56a9f22f960df214695b4719046f9573fa354451/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t5/src/components/com_foos/tmpl/foo/default.xml)
 
 ```php {diff}
  			<![CDATA[COM_FOOS_FOO_VIEW_DEFAULT_DESC]]>
@@ -155,6 +181,6 @@ verwandelt Joomla für die Ausgabe im Backendformular in den folgenden HTML-Code
 
 Dir fallen sicher praktischere Beispiele ein. Der Sinn und die Funktion der Variablen werden im Beispiel klar.
 
-4. Erstelle mehrere Menüpunkte, die jeweils einen anderen Text oder Typ enthalten. Gibt nicht lediglich den Text im Frontend aus, gestalte die Ausgabe mithilfe von [bedingten Anweisungen](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else)[^developer.mozilla.org/de/docs/web/javascript/reference/statements/if...else]. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
+4. Erstelle mehrere Menüpunkte, die jeweils einen anderen Text oder Typ enthalten. Gib nicht lediglich den Text im Frontend aus, gestalte die Ausgabe mithilfe von [bedingten Anweisungen](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/if...else)[^developer.mozilla.org/de/docs/web/javascript/reference/statements/if...else]. Ein beliebter Anwendungsfall ist es, das Design der Ausgabe mithilfe von Variablen zu beeinflussen. Über die Variable fragst du beispielsweise ab, ob der Inhalt in einer Liste oder in einer Tabelle auszugeben ist.
 
 <img src="https://vg08.met.vgwort.de/na/5644dbc3db6648a2b46c05a9c8c43e49" width="1" height="1" alt="">

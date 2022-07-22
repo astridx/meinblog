@@ -24,7 +24,7 @@ In Joomla, there are a variety of modules that I use as a guide. For example:
 
 This section explains how you create the basic framework for a simple module. In the first step it only outputs a text. We will build on this in the further course.
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t30...t31)[^github.com/astridx/boilerplate/compare/t30...t31] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t30...t31)[^github.com/astridx/boilerplate/compare/t30...t31] and copy these changes into your development version.
 
 ## Step by step
 
@@ -40,7 +40,7 @@ In this section we will add a module. There are some basic files that are used i
 This file provides the texts for for general translation.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
@@ -52,7 +52,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 This file provides the texts for menu and installation routine.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini -->
 
 MOD_FOO="[PROJECT_NAME]"
 MOD_FOO_XML_DESCRIPTION="Foo Module"
@@ -65,7 +65,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 `mod_foo.php` is the main entry point into the module. The file executes the initialization routines, calls helper routines to collect all the required data, and calls the template where the module output is displayed.
 
 ```php
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/mod_foo.php
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/mod_foo.php
 
 <?php
 /**
@@ -98,7 +98,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 `mod_foo.xml` defines the files that are copied by the installation routine and specifies configuration parameters for the module. You already know this from the previously created extensions.
 
 ```xml
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t31/src/modules/mod_foo/mod_foo.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/mod_foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" client="site" method="upgrade">

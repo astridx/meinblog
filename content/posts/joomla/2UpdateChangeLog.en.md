@@ -20,16 +20,16 @@ In this chapter I will explain how to create and run an update server for your c
 
 Update Server sounds complicated, it's basically just a URL to an XML file. This URL is inserted in the extension's installation manifest. The XML file contains a number of details, including the new version number and the download URL to the installation file. When Joomla finds an update for an installed extension, this is displayed in the administration area.
 
-> For impatient people: Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] and include these changes in your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] and include these changes in your development version.
 
 ## Step by step
 
 In the current section, two files are added that are stored outside the website. The addresses or URLs under which these are stored were entered in the previous chapter in the file `src/administrator/components/com_foos/foos.xml`.
 
 ```xml
-<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+<changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
 <updateservers>
-	<server type="extension" name="Foo Updates">https://raw.githubusercontent.com/astridx/boilerplate/tutorial/foo_update.xml</server>
+	<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 </updateservers>
 ```
 
@@ -86,7 +86,7 @@ Below you can see the complete file.
 [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1b/foo_update.xml
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/foo_update.xml
 
 <updates>
     <update>
@@ -95,7 +95,7 @@ Below you can see the complete file.
         <element>com_foos</element>
         <type>component</type>
         <version>1.0.1</version>
-		<changelogurl>https://raw.githubusercontent.com/astridx/boilerplate/tutorial/changelog.xml</changelogurl>
+		<changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
 		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
@@ -118,7 +118,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 [changelog.xml](https://github.com/astridx/boilerplate/blob/t1b/changelog.xml)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t1b/changelog.xml
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/changelog.xml
 
 <changelogs>
 	<changelog>

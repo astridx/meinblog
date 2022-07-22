@@ -18,7 +18,7 @@ Fast jede Website unterteilt ihre Inhalte in Kategorien. Joomla bietet dieses n�
 
 > [Kategorien](https://docs.joomla.org/Special:MyLanguage/Category 'Special:MyLanguage/Category') sind eine Möglichkeit, Inhalte in Joomla! zu organisieren. Eine Kategorie enthält Beiträge und andere Kategorien. Ein Beitrag kann nur in einer Kategorie sein. Wenn eine Kategorie in einer anderen enthalten ist, ist sie eine Unterkategorie der Kategorie.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t11b...t12)[^github.com/astridx/boilerplate/compare/t11b...t12] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -32,7 +32,7 @@ Wir speichern die Daten, die zur Einordnung eines Elementes in eine Kategorie no
 [administrator/components/com_foos/ sql/updates/mysql/12.0.0.sql](https://github.com/astridx/boilerplate/blob/f43071430a05c95faec2286cdf0853c9a473ad01/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t12/src/administrator/components/com_foos/sql/updates/mysql/12.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `catid` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 

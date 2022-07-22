@@ -18,7 +18,7 @@ Filtern, Sortieren und Suchen - jetzt bringen wir Ordnung in die Joomla 4 Kompon
 
 ![Joomla Filtern Sortieren und Suchen -Searchtools](/images/j4x20x1.png)
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -32,7 +32,7 @@ Als erstes erstellen wir das Formular über das die Filter gesetzt werden.
 [administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/forms/filter_foos.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -151,7 +151,7 @@ Im Falle eines Updates deiner Komponente, fügt die Datei `16.0.0.sql` eine Spal
 [administrator/components/com_foos/ sql/updates/mysql/16.0.0.sql](https://github.com/astridx/boilerplate/blob/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql)
 
 ```xml {numberLines: -2}
--- https://raw.githubusercontent.com/astridx/boilerplate/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
+-- https://codeberg.org/astrid/j4examplecode/raw/branch/t16/src/administrator/components/com_foos/sql/updates/mysql/16.0.0.sql
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
 

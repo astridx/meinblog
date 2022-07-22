@@ -16,7 +16,7 @@ tags:
 
 Parameters make the template flexibly configurable in the backend. Perhaps a colour selection should be possible? The standard template Cassiopeia offers, among others, `logoFile`, `siteTitle` and `siteDescription` as parameters. We add a banner and social media icons.<!-- \index{template!parameters} -->
 
-> For impatient people: Take a look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] and copy these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] and copy these changes into your development version.
 
 ## Step by step
 
@@ -36,7 +36,7 @@ We add code to the file `templates/facile/ index.php` so that a banner and socia
 
 Take a look at the code snippet below. I think the HTML code is self-explanatory. We add HTML markup, which is only displayed if a certain parameter is set. For example, for the footer via the query `$this->params->get('showFooter')`. What is displayed then also depends on the values for the parameters filled in by the user in the backend.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 ```php {diff}
          </nav>
@@ -100,7 +100,7 @@ Take a look at the code snippet below. I think the HTML code is self-explanatory
 
 We use the language files for the labels of our backend form. This way the texts can be translated into different languages.
 
-[templates/facile/language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
+[templates/facile/language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-e46f43df955f9c24f237c461cd835bdfc8dde798943f6999e8675d4045334d6f)
 
 ```xml {diff}
  TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
@@ -128,7 +128,7 @@ In order to display one form field in dependency to another, we use `showon`. `s
 
 The field of type `type="subform"` provides the possibility to flexibly define the number of values in the backend form. Thus, with one form field it is possible to insert either only one link to Facebook or to display many social media channels.<!-- \index{Fields!subform} -->
 
-[templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
+[templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/compare/t37...t38#diff-6155acc1859344bb0cdb1ef792d0107971f0d60c87f3fc3138e9672a2b924931)
 
 ```xml {diff}
  		<position>footer</position>

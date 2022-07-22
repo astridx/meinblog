@@ -16,7 +16,7 @@ tags:
 
 We add namespace and helper.<!-- \index{module!helper} --><!-- \index{module!namespace} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t31...t32)[^github.com/astridx/boilerplate/compare/t31...t32] and copy these changes into your development version.
 
 ## Step by step
 
@@ -33,10 +33,10 @@ The logic in the module may be complex. Therefore it is good to structure the co
 
 To access the file easily, we add the namespace `namespace FooNamespace\Module\Foo\Site\Helper;`.
 
-[modules/mod_foo/ Helper/FooHelper.php](https://raw.githubusercontent.com/astridx/boilerplate/t32/src/modules/mod_foo/src/Helper/FooHelper.php)
+[modules/mod_foo/ Helper/FooHelper.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t32/src/modules/mod_foo/src/Helper/FooHelper.php)
 
 ```php
-// https://raw.githubusercontent.com/astridx/boilerplate/t32/src/modules/mod_foo/src/Helper/FooHelper.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t32/src/modules/mod_foo/src/Helper/FooHelper.php
 
 <?php
 /**

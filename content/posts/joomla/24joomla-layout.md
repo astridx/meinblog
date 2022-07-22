@@ -16,7 +16,7 @@ tags:
 
 Manchmal ist es erforderlich, die Darstellung im Frontend unterschiedlich zu gestalten. Hierfür ist grundsätzlich das Template zuständig. Eine Komponente ist für die Ausgabe von Inhalten verantwortlich, nicht mehr und nicht weniger. Das Template sorgt für ein einheitliches Aussehen. Trotzdem gibt es Anwendungsfälle für unterschiedliche Layouts. Wie du diese für eine Ansicht einbaust, ist Thema des folgenden Artikels.<!-- \index{Layout} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t19...t20)[^github.com/astridx/boilerplate/compare/t19...t20] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t19...t20)[^github.com/astridx/boilerplate/compare/t19...t20] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -31,7 +31,7 @@ Wir nutzen bereits Layouts. Das Empty-State-Layout (`administrator/components/co
 
 ```php {numberLines: -2}
 <?php
-// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/foo/withhead.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withhead.php
 
 \defined('_JEXEC') or die;
 
@@ -59,7 +59,7 @@ echo $this->item->event->afterDisplayContent;
 [components/com_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/foo/withhead.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withhead.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
@@ -95,7 +95,7 @@ echo $this->item->event->afterDisplayContent;
 [components/com_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/foo/withheadandfoot.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withheadandfoot.php
 
 <?php
 
@@ -155,7 +155,7 @@ Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
 So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `components/com_foos/src/Model/FooModel.php` nicht ändern. In diesem Kapitel ist mir aufgefallen, dass ein `use`-Eintrag fehlt. Deshalb erfolgt doch eine Änderung.
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/compare/t19...t20#diff-0e3fb820d763e729d9d47b22936ce4bdba051e8494fe32f68ae7f7c939103cb8)
 
 ```php {diff}
  use Joomla\CMS\Factory;

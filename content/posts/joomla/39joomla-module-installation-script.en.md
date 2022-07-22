@@ -16,7 +16,7 @@ tags:
 
 In this chapter we add an installation script. In the explanations of the component, I described what you use it for.<!-- \index{module!installation script} -->
 
-> For impatient people: Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] and copy these changes into your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] and copy these changes into your development version.
 
 ## Step by step
 
@@ -38,7 +38,7 @@ The point is to clarify the procedure. That's why this script file only takes ca
 [modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/t34/src/modules/mod_foo/script.php)
 
 ```php
-// https://raw.githubusercontent.com/astridx/boilerplate/t34/src/modules/mod_foo/script.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t34/src/modules/mod_foo/script.php
 
 <?php
 /**

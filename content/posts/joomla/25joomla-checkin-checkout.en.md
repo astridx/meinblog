@@ -18,7 +18,7 @@ The checkout function avoids unexpected results that occur when two users edit t
 
 > Sometimes it happens that an item is marked as checked out, although no one has opened it for editing at the same time. This usually happens when a previous opening was not finished correctly. For example, the web browser was closed even though the item was open for editing, or the back button in the browser menu was clicked instead of closing the item properly.
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://github.com/astridx/boilerplate/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] and copy these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t20...t21)[^github.com/astridx/boilerplate/compare/t20...t21] and copy these changes into your development version.
 
 ## Step by step
 
@@ -32,7 +32,7 @@ Like all properties of a Foo element, the checkout state is stored in the databa
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN `checked_out` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
 

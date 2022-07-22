@@ -16,7 +16,7 @@ tags:
 
 Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich ist, mehrere Items auf einen Schlag zu bearbeiten. Diese Stapelverarbeitung (englisch Batch) fügen wir jetzt zur Komponente hinzu. Darauf aufbauend ist es dir möglich, eigene Funktionen "stapelverarbeitend" hinzuzufügen.<!-- \index{Stapelverarbeitung} --><!-- \index{Batch} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t21...t22)[^github.com/astridx/boilerplate/compare/t21...t22] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -30,7 +30,7 @@ Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum An
 [administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
 
 <?php
 /**
@@ -84,7 +84,7 @@ Die nachfolgende Datei erstellt den Footer des Formulars, welches zum Anstoßen 
 [administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
 
 <?php
 /**

@@ -16,7 +16,7 @@ tags:
 
 There is a lot of content soon. Displaying all elements on one page is not useful. It has a negative effect on the layout and performance. Therefore, we divide the elements into sub-pages and add pagination or page numbering. With this, navigation through the pages is possible. Links are inserted for this purpose. Usually, these are located at the bottom of the page.<!-- \index{pagination} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t18...t19)[^github.com/astridx/boilerplate/compare/t18...t19] and copy these changes into your development version.
 
 ## Step by step
 

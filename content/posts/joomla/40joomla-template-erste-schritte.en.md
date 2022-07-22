@@ -35,7 +35,7 @@ We create a front-end template. This controls the way the website is presented t
 
 The principle for creating a template for the administration area is exactly the same. You create it in the subdirectory `/administrator/templates`. You create the front-end template in the folder `/templates`.
 
-> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] and copy these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t34...t35)[^github.com/astridx/boilerplate/compare/t34...t35] and copy these changes into your development version.
 
 ## Step by step
 
@@ -62,7 +62,7 @@ We create the file `component.php` here for the sake of completeness and add the
 [templates/facile/component.php](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/component.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/component.php
 
 Component
 
@@ -90,7 +90,7 @@ To let you know how and where to implement your error page, I created the file `
 [templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/error.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/error.php
 
 Error
 
@@ -107,7 +107,7 @@ The file `index.php` is the heart. It ensures that everything works together. Th
 [templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/index.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/index.php
 
 <?php
 /**
@@ -151,7 +151,7 @@ The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` ensure
 [templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/language/en-GB/tpl_facile.ini
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini
 
 TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
@@ -164,7 +164,7 @@ The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` tr
 [templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
 
 FACILE="Facile - Site template"
 
@@ -185,7 +185,7 @@ The following minimalist code will display a registration form. You could displa
 [templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/offline.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/offline.php
 
 <?php
 
@@ -248,7 +248,7 @@ In the file `templateDetails.xml` the module positions are usually created and i
 [src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t35/src/templates/facile/templateDetails.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/templateDetails.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="template" client="site" method="upgrade">

@@ -18,7 +18,7 @@ Manche Items sind etwas Besonderes und für sie gibt es in Joomla ein spezielles
 
 > In Joomla werden mit `featured` markierte Elemente angezeigt, wenn der Startseiten-Menü-Eintrag mit dem `featured`-Layout verlinkt ist. Auf diese Weise ist es möglich, ein Element nur durch Änderung der Eigenschaft `featured` auf einer Seite ein- oder auszublenden - beispielsweise der Startseite. Dabei gibt es keine Auswirkungen auf andere Anzeigeeigenschaften - beispielsweise die Zugehörigkeit zu einem Kategorie-Blog. Im deutschen wird `featured` mit `Haupteintrag` bezeichnet.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t23...t24)[^github.com/astridx/boilerplate/compare/t23...t24] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t23...t24)[^github.com/astridx/boilerplate/compare/t23...t24] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -32,7 +32,7 @@ Du kennst das schon. Wir speichern die Eigenschaft `featured` in der Datenbank, 
 [administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql](https://github.com/astridx/boilerplate/blob/da918651e9c576e78a9d9f2faf84b738aea181d1/src/administrator/components/com_foos/ sql/updates/mysql/24.0.0.sql)
 
 ```xml {numberLines: -2}
-<-- https://raw.githubusercontent.com/astridx/boilerplate/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
+<-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/administrator/components/com_foos/sql/updates/mysql/24.0.0.sql -->
 
 ALTER TABLE `#__foos_details` ADD COLUMN  `featured` tinyint(3) unsigned NOT NULL DEFAULT 0 COMMENT 'Set if foo is featured.';
 
@@ -48,7 +48,7 @@ Um die Daten, die `featured` sind zu verarbeiten, erstellen wir ein eigenes Mode
 [components/com_foos/ src/Model/FeaturedModel.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/Model/FeaturedModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/src/Model/FeaturedModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/src/Model/FeaturedModel.php
 
 <?php
 /**
@@ -251,7 +251,7 @@ class FeaturedModel extends ListModel
 [components/com_foos/ src/View/Featured/HtmlView.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/src/View/Featured/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/src/View/Featured/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/src/View/Featured/HtmlView.php
 
 <?php
 /**
@@ -447,7 +447,7 @@ Die Anzeige im Frontend erfolgt wie bisher über ein Template, welches wir in de
 [components/com_foos/ tmpl/featured/default.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/featured/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default.php
 
 <?php
 /**
@@ -493,7 +493,7 @@ Die Datei `components/com_foos/ tmpl/featured/default.xml` benötigen wir, damit
 [components/com_foos/ tmpl/featured/default.xml](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default.xml)
 
 ```xml {numberLines: -2}
-<!-- https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/featured/default.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -561,7 +561,7 @@ In der Datei `default.php` nutzen wir die Anweisung `<?php echo $this->loadTempl
 [components/com_foos/ tmpl/featured/default_items.php](https://github.com/astridx/boilerplate/blob/3fd0e4d60c63c61c35c8f58040f55e1a38059c66/src/components/com_foos/tmpl/featured/default_items.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t24/src/components/com_foos/tmpl/featured/default_items.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/featured/default_items.php
 
 <?php
 /**
@@ -636,7 +636,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 Wir erweitern das Formular, mit dem ein Element angelegt oder geändert wird, um das Feld zur Festlegung der Eigenschaft `featured`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/compare/t23...t24#diff-0fd342035ef43e19c8125b266d1711166311789c2be7ff5dbee2b5d131268f8f)
 
 ```xml {diff}
  			<option value="*">JALL</option>

@@ -1,7 +1,7 @@
 ---
 description: 'desc'
 shortTitle: 'short'
-date: 2021-02-16
+date: 2022-07-21
 title: 'The M in MVC: Model'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -14,7 +14,7 @@ tags:
   - Joomla
 ---
 
-No new functionality is added in this part. We improve the previous structure. Each web application consists of
+No new functionality is added in this part. We improve the previous structure. A web application usually consists of
 
 - Logic,
 - data and
@@ -22,7 +22,7 @@ No new functionality is added in this part. We improve the previous structure. E
 
 It is problematic to combine these three elements in one class. Especially for larger projects. Joomla uses the [Model-View-Controller-Concept (MVC)](https://en.wikipedia.org/wiki/Model_View_Controller)[^en.wikipedia.org/wiki/model_view_controller]. In this tutorial part, we add a Model to the frontend. The Model object is responsible for the data and its processing.<!-- \index{Model-View-Controller} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t3...t4)[^github.com/astridx/boilerplate/compare/t3...t4] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t3...t4)[^codeberg.org/astrid/j4examplecode/compare/t3...t4] and copy these changes into your development version.
 
 ## Step by step
 
@@ -33,10 +33,12 @@ It is problematic to combine these three elements in one class. Especially for l
 
 With the model it is also so that you do not reinvent the wheel. You extend the Joomla class `BaseDatabaseModel`. Then implement only what you specifically use. In our case it is the output `$this->message = 'Hello Foo!';` for which we create the method `getMsg()`.
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/Model/FooModel.php)
+> The model classes that are available as parent class of Joomla can be found in the directory `libraries/src/MVC/Model/`. BaseDatabaseModel is implemented in the file `libraries/src/MVC/Model/BaseDatabaseModel.php`.
+
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t4/src/components/com_foos/src/Model/FooModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t4/src/components/com_foos/src/Model/FooModel.php
 
 <?php
 
@@ -90,7 +92,7 @@ class FooModel extends BaseDatabaseModel
 
 We get the data of the model in the view with `$this->msg = $this->get('Msg');`. This seems complicated in this simple example. In complex applications, this procedure has proven itself. The data calculation is done in the model. The view handles the design of the data.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	public function display($tpl = null)
@@ -110,7 +112,7 @@ We get the data of the model in the view with `$this->msg = $this->get('Msg');`.
 
 We output the data via the template. Here, everything will be packed into HTML tags later.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/4951c642c75d353de06bcc78de3efb7e20b0f93d/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t4/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

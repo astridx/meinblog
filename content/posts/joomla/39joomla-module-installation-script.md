@@ -16,7 +16,7 @@ tags:
 
 Wir ergänzen in diesem Kapitel ein Installationsskript. Bei den Erklärungen zur Komponente hatte ich beschrieben, wofür du dieses verwendest.<!-- \index{Module!Installationsskript} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t33...t34)[^github.com/astridx/boilerplate/compare/t33...t34] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -38,7 +38,7 @@ Es geht darum, die Vorgehensweise zu verdeutliche. deshalb übernimmt diese Skri
 [modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/t34/src/modules/mod_foo/script.php)
 
 ```php
-// https://raw.githubusercontent.com/astridx/boilerplate/t34/src/modules/mod_foo/script.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t34/src/modules/mod_foo/script.php
 
 <?php
 /**

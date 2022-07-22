@@ -24,7 +24,7 @@ An example of routing is the URL to the article "Welcome to Joomla" in the sampl
 
 > Search Engine Friendly URLs can be enabled by turning on the _Search Engine Friendly URLs_ option in the _Global configuration_. This option is activated by default. For more information, see [Enabling Search Engine Friendly (SEF) URLs in the documentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
 
-> For impatient people: View the changed program code in the [Diff View](https://github.com/astridx/boilerplate/compare/t26...t27)[^github.com/astridx/boilerplate/compare/t26...t27] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t26...t27)[^github.com/astridx/boilerplate/compare/t26...t27] and copy these changes into your development version.
 
 ## Step by step
 
@@ -38,7 +38,7 @@ The service `components/com_foos/ src/Service/Router.php` does the actual work a
 [components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
 ```php {numberLines: -2}
-// https://raw.githubusercontent.com/astridx/boilerplate/t27/src/components/com_foos/src/Service/Router.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t27/src/components/com_foos/src/Service/Router.php
 
 <?php
 /**
