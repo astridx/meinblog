@@ -30,6 +30,7 @@ export const Footer = () => {
       </section>
 
       <a class="h-card" rel="me" href="https://blog.astrid-guenther.de/">Astrid Günther</a>
+      <a rel="me" href="https://fimidi.com/@astrid">Mastodon</a>
     </footer>
   )
 }
