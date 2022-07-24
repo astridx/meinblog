@@ -53,9 +53,8 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
           <nav>
             {socialNavItems.map((item) => (
               <a
-                href={item.url}
-                target="_blank"
                 rel="me"
+                href={item.url}
                 key={item.label}
               >
                 {item.label}

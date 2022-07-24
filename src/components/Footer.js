@@ -29,26 +29,7 @@ export const Footer = () => {
         </nav>
       </section>
 
-      <div className="h-card p-author hidden" rel="me">
-        <p>
-          <a className="u-url" href="https://astrid-guenther.de">
-            Astrid Günther
-          </a>
-          created by
-          <img src={looking} alt="Me" className="u-photo" />
-          <span className="p-name" rel="me">
-            Astrid Günther
-          </span>
-          in
-          <span className="p-country-name">Germany</span>.
-        </p>
-
-        <p>
-          <span className="p-note">
-            Hi, I’m Astrid, webworker, writer and open-source enthusiast.
-          </span>
-        </p>
-      </div>
+      <a class="h-card" rel="me" href="https://blog.astrid-guenther.de/">Astrid Günther</a>
     </footer>
   )
 }
