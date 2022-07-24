@@ -68,6 +68,8 @@ export const Layout = ({ children }) => {
     <>
       <Helmet>
         <link rel="shortcut icon" type="image/png" href={favicon} />
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+        <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
       </Helmet>
 
       <div className={getMainClass(theme, collapsed, slug)}>

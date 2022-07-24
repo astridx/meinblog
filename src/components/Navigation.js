@@ -5,8 +5,8 @@ import { Hamburger } from '../assets/Hamburger'
 
 const mainNavItems = [
   { url: '/blog', label: 'Articles' },
-  { url: '/projects', label: 'Projects' },
-  { url: '/books', label: 'Books' },
+  // { url: '/projects', label: 'Projects' },
+  //{ url: '/books', label: 'Books' },
 ]
 
 const socialNavItems = [
@@ -18,6 +18,10 @@ const socialNavItems = [
   {
     url: 'https://codeberg.org/astrid',
     label: 'Codeberg',
+  },
+  {
+    url: 'https://twitter.com/astridguenther',
+    label: 'Twitter',
   },
 ]
 
@@ -51,7 +55,7 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
               <a
                 href={item.url}
                 target="_blank"
-                rel="noreferrer"
+                rel="noreferrer me"
                 key={item.label}
               >
                 {item.label}
@@ -60,8 +64,8 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
           </nav>
         </div>
         <button onClick={onUpdateTheme} className="theme-switcher">
-            Dark/Light
-          </button>
+          Dark/Light
+        </button>
       </div>
     </header>
   )

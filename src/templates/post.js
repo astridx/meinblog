@@ -12,6 +12,9 @@ import { slugify, appendComments } from '../utils/helpers'
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
   const { tags, title, date, thumbnail } = post.frontmatter
+
+  const postURL = `${config.siteUrl}${post.fields.slug}`
+  
   const commentBox = React.createRef()
 
   useEffect(() => {
@@ -23,7 +26,7 @@ export default function PostTemplate({ data }) {
       <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
 
-      <article>
+      <article className="h-entry">
         <header>
           <div className="container">
             <div className="post-details">
@@ -35,12 +38,13 @@ export default function PostTemplate({ data }) {
                   />
                 </div>
               )}
-              Written by Astrid Günther on <time>{date}</time>
+              Written by <a className="u-url" href="https://astrid-guenther.de"><span className="p-author">Astrid Günther</span></a> on 
+              <a href={postURL}><time datetime={date} className="dt-published"> {date}</time></a>
             </div>
-            <h1>{title}</h1>
+            <h1 className="p-name">{title}</h1>
             <div className="post-meta">
               {tags && (
-                <div className="tags">
+                <div className="tags p-category">
                   {tags.map((tag) => (
                     <Link
                       key={tag}
@@ -58,9 +62,10 @@ export default function PostTemplate({ data }) {
 
         <div
           id={post.fields.slug}
-          className="container post-content"
+          className="container post-content e-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+
       </article>
 
       <section id="comments" className="comments container">
@@ -83,7 +88,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         tags
         description
         thumbnail {

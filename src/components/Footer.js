@@ -1,5 +1,5 @@
 import React from 'react'
-
+import looking from '../assets/me.jpg'
 import { Link } from 'gatsby'
 
 export const Footer = () => {
@@ -7,7 +7,7 @@ export const Footer = () => {
     <footer className="footer">
       <section>
         <nav>
-        <small>Donate via </small>
+          <small>Donate via </small>
           <a
             href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=KQMKUVAX5SPVS&amp;source=url"
             rel="nofollow"
@@ -28,6 +28,27 @@ export const Footer = () => {
           <span>Made by Me</span>
         </nav>
       </section>
+
+      <div className="h-card hidden">
+        <p>
+          <a className="u-url" href="https://astrid-guenther.de">
+            Astrid Günther
+          </a>
+          created by
+          <img src={looking} alt="Me" className="u-photo" />
+          <span className="p-name" rel="me">
+            Astrid Günther
+          </span>
+          in
+          <span className="p-country-name">Germany</span>.
+        </p>
+
+        <p>
+          <span className="p-note">
+            Hi, I’m Astrid, webworker, writer and open-source enthusiast.
+          </span>
+        </p>
+      </div>
     </footer>
   )
 }
