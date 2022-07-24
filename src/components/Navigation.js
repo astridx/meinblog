@@ -55,7 +55,7 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
               <a
                 href={item.url}
                 target="_blank"
-                rel="noreferrer me"
+                rel="me"
                 key={item.label}
               >
                 {item.label}

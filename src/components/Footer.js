@@ -29,7 +29,7 @@ export const Footer = () => {
         </nav>
       </section>
 
-      <div className="h-card hidden">
+      <div className="h-card p-author hidden" rel="me">
         <p>
           <a className="u-url" href="https://astrid-guenther.de">
             Astrid Günther
