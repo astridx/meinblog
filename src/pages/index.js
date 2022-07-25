@@ -40,6 +40,15 @@ export default function WebsiteIndex({ data }) {
           name="google-site-verification"
           content="8sATwOAKtrKDsV9NVV7JXILrY0DNAmQgyFGnrE3MnAU"
         />
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+        <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+
+        <link rel="me" href="https://fimidi.com/@astrid" />
+        <link rel="me" href="https://github.com/astridx" />        
+        <link rel="me" href="https://codeberg.org/astrid" />        
+        <link rel="me" href="mailto:info@astrid-guenther.de" />
+        <link rel="me" href="https://twitter.com/astridguenther" />        
+
       </Helmet>
       <SEO />
 

@@ -15,6 +15,6 @@
   "typingOptions": {
     "enableAutoDiscovery": true
   },
-  "allowJS": true,
+  "allowJS": false,
   "include": ["src/**/*"]
 }
