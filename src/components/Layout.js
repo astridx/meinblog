@@ -70,6 +70,12 @@ export const Layout = ({ children }) => {
         <link rel="shortcut icon" type="image/png" href={favicon} />
         <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
         <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+
+        <link rel="me" href="https://fimidi.com/@astrid" />
+        <link rel="me" href="https://github.com/astridx" />        
+        <link rel="me" href="https://codeberg.org/astrid" />        
+        <link rel="me" href="mailto:info@astrid-guenther.de" />
+        <link rel="me" href="https://twitter.com/astridguenther" />        
       </Helmet>
 
       <div className={getMainClass(theme, collapsed, slug)}>
