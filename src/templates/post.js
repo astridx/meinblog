@@ -29,7 +29,7 @@ export default function PostTemplate({ data }) {
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
 
       <article className="h-entry">
-        <section className="h-card hidden">
+        <section className="p-author h-card hidden">
           <p>
             <a className="u-url" href={postURL}>
               Astrid Günther
@@ -63,7 +63,7 @@ export default function PostTemplate({ data }) {
               )}
               Written by{' '}
               <a className="u-url" href="https://astrid-guenther.de">
-                <span className="p-author">Astrid Günther</span>
+                <span>Astrid Günther</span>
               </a>{' '}
               on
               <a href={postURL}>
