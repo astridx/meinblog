@@ -16,7 +16,7 @@ export default function PostTemplate({ data }) {
   const { tags, title, date, thumbnail } = post.frontmatter
 
   const postURL = `${config.siteUrl}${post.fields.slug}`
-  
+
   const commentBox = React.createRef()
 
   useEffect(() => {
@@ -29,6 +29,27 @@ export default function PostTemplate({ data }) {
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
 
       <article className="h-entry">
+        <section className="h-card hidden">
+          <p>
+            <a className="u-url" href={postURL}>
+              Astrid Günther
+            </a>
+            created by
+            <img src={looking} alt="Me" className="u-photo" />
+            <span className="p-name" rel="me">
+              Astrid Günther
+            </span>
+            in
+            <span className="p-country-name">Germany</span>.
+          </p>
+
+          <p>
+            <span className="p-note">
+              Hi, I’m Astrid, webworker, writer and I like open-source.
+            </span>
+          </p>
+        </section>
+
         <header>
           <div className="container">
             <div className="post-details">
@@ -40,8 +61,17 @@ export default function PostTemplate({ data }) {
                   />
                 </div>
               )}
-              Written by <a className="u-url" href="https://astrid-guenther.de"><span className="p-author">Astrid Günther</span></a> on 
-              <a href={postURL}><time datetime={date} className="dt-published"> {date}</time></a>
+              Written by{' '}
+              <a className="u-url" href="https://astrid-guenther.de">
+                <span className="p-author">Astrid Günther</span>
+              </a>{' '}
+              on
+              <a href={postURL}>
+                <time datetime={date} className="dt-published">
+                  {' '}
+                  {date}
+                </time>
+              </a>
             </div>
             <h1 className="p-name">{title}</h1>
             <div className="post-meta">
@@ -67,36 +97,12 @@ export default function PostTemplate({ data }) {
           className="container post-content e-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-
       </article>
 
       <section id="comments" className="comments container">
         <h3>Comments</h3>
         <Comments commentBox={commentBox} />
       </section>
-
-
-      <section className="h-card hidden">
-        <p>
-          <a className="u-url" href={postURL}>
-            Astrid Günther
-          </a>
-          created by
-          <img src={looking} alt="Me" className="u-photo" />
-          <span className="p-name" rel="me">
-            Astrid Günther
-          </span>
-          in
-          <span className="p-country-name">Germany</span>.
-        </p>
-
-        <p>
-          <span className="p-note">
-            Hi, I’m Astrid, webworker, writer and I like open-source.
-          </span>
-        </p>
-      </section>
-
     </>
   )
 }
