@@ -9,6 +9,8 @@ import { Comments } from '../components/Comments'
 import config from '../utils/config'
 import { slugify, appendComments } from '../utils/helpers'
 
+import looking from '../assets/me.jpg'
+
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
   const { tags, title, date, thumbnail } = post.frontmatter
@@ -72,6 +74,29 @@ export default function PostTemplate({ data }) {
         <h3>Comments</h3>
         <Comments commentBox={commentBox} />
       </section>
+
+
+      <section className="h-card hidden">
+        <p>
+          <a className="u-url" href={postURL}>
+            Astrid Günther
+          </a>
+          created by
+          <img src={looking} alt="Me" className="u-photo" />
+          <span className="p-name" rel="me">
+            Astrid Günther
+          </span>
+          in
+          <span className="p-country-name">Germany</span>.
+        </p>
+
+        <p>
+          <span className="p-note">
+            Hi, I’m Astrid, webworker, writer and I like open-source.
+          </span>
+        </p>
+      </section>
+
     </>
   )
 }

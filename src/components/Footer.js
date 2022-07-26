@@ -1,5 +1,4 @@
 import React from 'react'
-import looking from '../assets/me.jpg'
 import { Link } from 'gatsby'
 
 export const Footer = () => {
@@ -28,9 +27,6 @@ export const Footer = () => {
           <span>Made by Me</span>
         </nav>
       </section>
-
-      <a class="h-card" rel="me" href="https://blog.astrid-guenther.de/">Astrid Günther</a>
-      <a rel="me" href="https://fimidi.com/@astrid">Mastodon</a>
     </footer>
   )
 }
