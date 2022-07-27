@@ -48,7 +48,10 @@ export default function WebsiteIndex({ data }) {
         <link rel="me" href="https://codeberg.org/astrid" />        
         <link rel="me" href="mailto:info@astrid-guenther.de" />
         <link rel="me" href="https://twitter.com/astridguenther" />        
+        <link rel="me" href="https://astrid-guenther.de" />
 
+        <link rel="webmention" href="https://webmention.io/blog.astrid-guenther.de/webmention" />
+        <link rel="pingback" href="https://webmention.io/blog.astrid-guenther.de/xmlrpc" />
       </Helmet>
       <SEO />
 
