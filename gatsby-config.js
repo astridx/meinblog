@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Astrid Günther',
@@ -77,6 +81,24 @@ module.exports = {
           },
         ],
       },
+    },
+
+    // Webmentions
+
+    {
+      resolve: `gatsby-plugin-webmention`,
+      options: {
+        username: 'blog.astrid-guenther.de',
+        identity: {
+          github: 'astridx',
+          twitter: 'astridguenther',
+          mastodon: '@astrid@fimidi.com' 
+        },
+        mentions: true,
+        pingbacks: true,
+        domain: 'https://blog.astrid-guenther.de/',
+        token: process.env.WEBMENTIONS_TOKEN
+      }
     },
 
     // ===================================================================================
