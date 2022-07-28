@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-10
 title: 'Joomla Override Manager in Cassiopeia'

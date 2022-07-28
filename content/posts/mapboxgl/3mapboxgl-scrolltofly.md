@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2020-10-04
 title: 'Eine Stadtführung mit Mapbox GL'

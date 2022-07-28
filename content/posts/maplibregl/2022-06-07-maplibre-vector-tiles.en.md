@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-06-05
 title: 'Create self-hosted maps and vector tiles with Tilemaker'

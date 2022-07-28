@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-03
 title: 'Wie ist das Internet vernetzt? - Teil 1'

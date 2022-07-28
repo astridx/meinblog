@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-05
 title: 'Veröffentlichen und Verstecken'

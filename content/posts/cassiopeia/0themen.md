@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-03-01
 title: 'Ein Tutorial zur Verwendung des Cassiopeia Templates für Joomla 4'

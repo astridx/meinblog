@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-03
 title: 'Maplibre GL Routing mit dem Plugin Directions'

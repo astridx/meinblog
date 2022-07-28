@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-04-03
 title: 'Ubuntu 20.02, Docker, DPDocker und Joomla  Vorwort'

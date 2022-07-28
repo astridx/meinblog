@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-02
 title: 'Mehrsprachigkeit - Multilinguale Sprachverknüpfungen'

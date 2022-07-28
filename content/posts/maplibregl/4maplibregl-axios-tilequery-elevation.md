@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-05
 title: 'Maplibre GL - Höhenangaben per Tilequery abfrage'

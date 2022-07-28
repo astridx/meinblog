@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-13
 title: 'Die erste Ansicht im Frontend'

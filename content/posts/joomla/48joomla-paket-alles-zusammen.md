@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-01-01
 title: 'Paket - Alle Erweiterungen in einer Installationsdatei'

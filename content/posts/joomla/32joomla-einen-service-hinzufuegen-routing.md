@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-01-20
 title: 'Einen Service hinzufügen - Routing'

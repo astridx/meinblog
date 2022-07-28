@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-06
 title: 'Daten zum Austausch über das Internet in Pakete packen'

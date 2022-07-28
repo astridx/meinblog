@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-06
 title: 'Putting data into packets for sharing over the internet'

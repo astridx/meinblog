@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-31
 title: 'First steps with react-map-gl and MapLibre'

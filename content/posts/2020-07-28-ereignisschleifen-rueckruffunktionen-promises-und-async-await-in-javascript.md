@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2020-07-28
 title: 'Grundlegendes zu Ereignisschleifen (Event Loop), Rückruffunktionen (Callback), Promises und Async/Await in JavaScript'

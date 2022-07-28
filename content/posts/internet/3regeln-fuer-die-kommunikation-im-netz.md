@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-07
 title: 'Regeln für die Kommunikation zwischen Computern im Internet - Teil 1'

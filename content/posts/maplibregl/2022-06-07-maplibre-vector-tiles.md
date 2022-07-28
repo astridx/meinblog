@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-06-05
 title: 'Selbst gehosteten Karten und VectorTiles mit Tilemaker erstellen'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-06
 title: 'Karten mit Mapbox GL vergleichen - Das Plugin Swipe'

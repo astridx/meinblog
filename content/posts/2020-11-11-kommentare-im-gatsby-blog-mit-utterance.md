@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2020-11-11
 title: 'Kommentare im Gatsby-Blog mit Github Utterances'

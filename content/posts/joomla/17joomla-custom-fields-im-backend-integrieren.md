@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-04
 title: 'Custom Fields (Eigene Felder) im Backend integrieren'

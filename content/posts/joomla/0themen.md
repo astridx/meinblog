@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-22
 title: 'Joomla 4.x-Tutorial - Entwicklung von Erweiterungen - Der Weg zu Joomla 4 Erweiterungen'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-03-11
 title: 'Ein Banner ganz oben und die Navigation horizontal darunter'

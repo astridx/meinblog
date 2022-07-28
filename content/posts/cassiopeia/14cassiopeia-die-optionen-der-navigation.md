@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-02-19
 title: 'Die Einstellmöglichkeiten der Navigation im Joomla 4 Standardtemplate Cassiopeia'

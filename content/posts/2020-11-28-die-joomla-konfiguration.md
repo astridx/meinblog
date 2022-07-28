@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2020-11-28
 title: 'Die Joomla Konfiguration configuration.php'

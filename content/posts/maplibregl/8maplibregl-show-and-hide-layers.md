@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-09
 title: 'Maplibre GL - Ebenen ein- und ausblenden'

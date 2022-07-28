@@ -13,13 +13,15 @@ import looking from '../assets/me.jpg'
 
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
-  const { tags, title, date, thumbnail } = post.frontmatter
+  const { tags, title, date, thumbnail, syndication } = post.frontmatter
 
   const postURL = `${config.siteUrl}${post.fields.slug}`
 
   const commentBox = React.createRef()
 
   const mentions = data.allWebmention
+
+  const relsyndication = "syndication";
 
   useEffect(() => {
     appendComments(commentBox)
@@ -110,6 +112,20 @@ export default function PostTemplate({ data }) {
                 </div>
               )}
             </div>
+
+            <div className="post-syndication">
+              Syndications: 
+              {syndication && (
+                <div className="syndication">
+                  {syndication.map((s) => (
+                      <>
+                      <a className="u-syndication" rel={relsyndication} href={s}>{s}</a><br/>
+                      </>
+                  ))}
+                </div>
+              )}
+            </div>
+
           </div>
         </header>
 
@@ -179,6 +195,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY-MM-DD")
         tags
+        syndication
         description
         thumbnail {
           childImageSharp {

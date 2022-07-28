@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-01-15
 title: 'Webservices - Unterstützen der Joomla-API'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-10-30
 title: 'Erstelle ein erstes MapLibre-Plugin - Ein Tutorial für Anfänger'

@@ -1,5 +1,7 @@
 ---
 description: 'desc'
+syndication:
+syndication:
 shortTitle: 'short'
 date: 2020-06-28
 title: 'Erste Schritte mit React'

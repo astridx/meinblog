@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-01-01
 title: 'Package - Putting several extensions together in one installable package'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-03-02
 title: 'Hintergrundbild über ganzen Bildschirm in Cassiopeia'

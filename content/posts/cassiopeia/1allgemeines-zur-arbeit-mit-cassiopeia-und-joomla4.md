@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-02-14
 title: 'Allgemeines zu Joomla und Cassiopeia'

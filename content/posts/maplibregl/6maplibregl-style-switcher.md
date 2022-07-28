@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-07
 title: 'Unterschiedliche Karten mit Mapbox GL ermöglichen'

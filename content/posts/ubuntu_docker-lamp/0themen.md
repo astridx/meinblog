@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-01
 title: 'Einrichten eines Ubuntu 20.04 Desktop mit Docker und docker-lamp für die Entwicklung mit Joomla'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-12
 title: 'Die Daten der Datenbank im Frontend nutzen'

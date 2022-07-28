@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-05-04
 title: 'Ein erstes Joomla Child-Template'

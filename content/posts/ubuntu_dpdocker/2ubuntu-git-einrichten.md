@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-04-05
 title: 'Git unter Ubuntu 20.04 einrichten'

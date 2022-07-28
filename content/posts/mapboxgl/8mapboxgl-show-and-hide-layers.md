@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2020-10-09
 title: 'Mapbox GL - Ebenen ein- und ausblenden'

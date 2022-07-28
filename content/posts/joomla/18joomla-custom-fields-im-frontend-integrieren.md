@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-03
 title: 'Custom Fields (Eigene Felder) im Frontend'

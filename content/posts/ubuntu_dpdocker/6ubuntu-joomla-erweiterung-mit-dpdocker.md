@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-04-13
 title: 'Eine eigene Joomla-Erweiterung mit DPDocker'

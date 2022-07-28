@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2018-06-01
 title: 'Warum habe ich mich für Open-Source wie Joomla, Leaflet, Gatsby oder OpenStreetMap entschieden?'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-01-08
 title: 'Template - Overrides - Alternative Overrides and Modules Chrome'

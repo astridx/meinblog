@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-04-07
 title: 'Docker unter Ubuntu 20.04 einrichten'

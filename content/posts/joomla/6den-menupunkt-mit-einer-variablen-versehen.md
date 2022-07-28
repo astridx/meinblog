@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-07-22
 title: 'Den Menüpunkt mit einer Variablen erweitern'

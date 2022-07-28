@@ -1,5 +1,7 @@
 ---
 description: 'desc'
+syndication: 
+  - https://fimidi.com/web/@astrid/108603095089729884
 shortTitle: 'short'
 date: 2022-07-05
 title: 'Zentrale und dezentrale soziale Netze'

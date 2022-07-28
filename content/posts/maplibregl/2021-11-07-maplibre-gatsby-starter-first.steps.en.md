@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-11-07
 title: 'Gatsby Blog with MapLibre GL JS and React Hooks'

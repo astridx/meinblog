@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2022-04-01
 title: 'Einrichten eines Ubuntu 20.04 Desktop für die Entwicklung mit Docker (DPDocker) und Joomla'

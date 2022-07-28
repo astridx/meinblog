@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2020-10-05
 title: 'Mapbox GL - Höhenangaben per Tilequery abfrage'

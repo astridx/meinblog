@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2018-12-10
 title: 'Erstellen Sie Ihr erstes Leaflet-Control-Plugin - Ein Tutorial für Anfänger'

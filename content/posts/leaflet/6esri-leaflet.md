@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2018-12-18
 title: 'ESRI - Environmental Systems Research Institute'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-02-09
 title: 'Visual Studio Code für Joomla einrichten'

@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2018-06-01
 title: 'Ihre Website – so sicher wie möglich!'

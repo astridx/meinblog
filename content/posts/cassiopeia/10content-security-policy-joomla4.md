@@ -1,5 +1,6 @@
 ---
 description: 'desc'
+syndication:
 shortTitle: 'short'
 date: 2021-05-04
 title: 'HTTP-Header und Content Security Policy in Joomla 4'
