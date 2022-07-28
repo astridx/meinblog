@@ -84,15 +84,13 @@ module.exports = {
     },
 
     // Webmentions
-
+/*
     {
       resolve: `gatsby-plugin-webmention`,
       options: {
         username: 'blog.astrid-guenther.de',
         identity: {
-          github: 'astridx',
-          twitter: 'astridguenther',
-          mastodon: '@astrid@fimidi.com' 
+          email: "info@astrid-guenther.de"
         },
         mentions: true,
         pingbacks: true,
@@ -100,6 +98,15 @@ module.exports = {
         token: process.env.WEBMENTIONS_TOKEN
       }
     },
+*/
+    { 
+      resolve: "gatsby-source-webmentions",
+      options: {
+        DOMAIN: "blog.astrid-guenther.de", // without https and any slashes
+        TOKEN: process.env.WEBMENTIONS_TOKEN, // token from webmention.io
+        perPage: 100, // optional
+      },
+    },    
 
     // ===================================================================================
     // Images and static

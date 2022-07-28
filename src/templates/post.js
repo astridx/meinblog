@@ -19,6 +19,8 @@ export default function PostTemplate({ data }) {
 
   const commentBox = React.createRef()
 
+  const mentions = data.allWebmention
+
   useEffect(() => {
     appendComments(commentBox)
   }, [commentBox])
@@ -122,6 +124,23 @@ export default function PostTemplate({ data }) {
         <h3>Comments</h3>
         <Comments commentBox={commentBox} />
       </section>
+
+      <section id="webmentions" className="comments webmentions__list container">
+        <h3>Webmentions</h3>
+       
+        {mentions.edges.map(
+          (edge) =>
+            /*key={edge.node.wm_id}
+            imageUrl={edge.node.author.photo}
+            authorUrl={edge.node.author.url}
+            authorName={edge.node.author.name}
+            dtPublished={edge.node.published}
+            dtPublishedFormated={edge.node.publishedFormated}
+            content={edge.node.content && edge.node.content.html}*/
+            edge.node.url
+        )}<span> - </span>
+        
+      </section>
     </>
   )
 }
@@ -130,6 +149,26 @@ PostTemplate.Layout = Layout
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    allWebmention(filter: { wm_slug: { eq: $slug } }) {
+      totalCount
+      edges {
+        node {
+          id
+          published
+          publishedFormated: published(formatString: "MMM Do, YYYY")
+          author {
+            name
+            photo
+            url
+          }
+          url
+          wm_id
+          content {
+            html
+          }
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
