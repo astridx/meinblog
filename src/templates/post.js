@@ -25,7 +25,26 @@ export default function PostTemplate({ data }) {
 
   return (
     <>
-      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`} />
+      <Helmet title={`${post.frontmatter.title} | ${config.siteTitle}`}>
+        <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+        <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+
+        <link rel="me" href="https://fimidi.com/@astrid" />
+        <link rel="me" href="https://github.com/astridx" />
+        <link rel="me" href="https://codeberg.org/astrid" />
+        <link rel="me" href="mailto:info@astrid-guenther.de" />
+        <link rel="me" href="https://twitter.com/astridguenther" />
+        <link rel="me" href="https://astrid-guenther.de" />
+
+        <link
+          rel="webmention"
+          href="https://webmention.io/blog.astrid-guenther.de/webmention"
+        />
+        <link
+          rel="pingback"
+          href="https://webmention.io/blog.astrid-guenther.de/xmlrpc"
+        />
+      </Helmet>
       <SEO postPath={post.fields.slug} postNode={post} postSEO />
 
       <article className="h-entry">

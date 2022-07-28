@@ -14,21 +14,7 @@ export default function BlogIndex({ data }) {
 
   return (
     <>
-      <Helmet title={`Articles | ${config.siteTitle}`} >
-      <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
-        <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
-
-        <link rel="me" href="https://fimidi.com/@astrid" />
-        <link rel="me" href="https://github.com/astridx" />        
-        <link rel="me" href="https://codeberg.org/astrid" />        
-        <link rel="me" href="mailto:info@astrid-guenther.de" />
-        <link rel="me" href="https://twitter.com/astridguenther" />        
-        <link rel="me" href="https://astrid-guenther.de" />
-
-        <link rel="webmention" href="https://webmention.io/blog.astrid-guenther.de/webmention" />
-        <link rel="pingback" href="https://webmention.io/blog.astrid-guenther.de/xmlrpc" />
-
-        </Helmet>
+      <Helmet title={`Articles | ${config.siteTitle}`} />
       <SEO
         customDescription="Tutorials, technical articles, snippets, reference materials, and all
               development-related resources I've written."
