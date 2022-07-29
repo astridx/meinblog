@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-07-22
+date: 2022-07-29
 title: 'Eine Joomla-Datenbank-Tabelle für deine Erweiterung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,9 +15,9 @@ tags:
   - Joomla
 ---
 
-Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statischen Text. Du zeigst hier Daten an, die dynamisch sind. So arbeiten zumindest die meisten Erweiterungen. Deshalb legen wir in diesem Teil eine Datenbank für deine Komponente an. In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen diese im Administrationsbereich an. Es wird eine statische Liste ausgegeben. Änderbar sind die einzelnen Einträge über das Backend nicht. Daran arbeiten wir im nächsten Teil.
+Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statischen Text. Du zeigst hier Daten an, die dynamisch sind. So arbeiten zumindest die meisten Erweiterungen. Deshalb legen wir in diesem Teil eine Datenbank für deine Komponente an. In der Datenbank speichern wir bei der Einrichtung drei Datensätze und zeigen diese im Administrationsbereich an. Am Ende wird eine statische Liste ausgegeben. Änderbar sind die einzelnen Einträge über das Backend bisher nicht. Daran arbeiten wir im nächsten Teil.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^codeberg.org/astrid/j4examplecode/compare/t5...t6] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -28,9 +28,9 @@ Deine Ansicht im Administrationsbereich enthält in der Regel nicht nur statisch
 
 Wir legen eine Datei an, die SQL-Befehle für das Erstellen der Datenbanktabelle<!-- \index{Datenbank} --> enthält. Damit diese Statements aufgerufen werden, fügen wir den Namen der Datei später im Manifest ein.
 
-Neben der `id`, über welche wir das Element eindeutig auffindbar machen und dem Namen `name`, der optional ist und den Datensatz in unserer Erweiterung benennt, gibt es den Alias `alias`. Letzterer bereitet die Daten unter anderem für das Routing vor. Stell dir eine System-URL wie `http://www.example.com/index.php?option=com_foos&view=foo&id=1` vor. Diese ist für Menschen schlecht lesbar. Auch Maschinen wie Suchmaschinen verarbeiten eine solche URL schlecht. Eine textuelle Beschreibung ist zwingend. In Joomla geschieht dies mithilfe des Alias. Dieser kann vom Benutzer selbst festgelegt werden. Damit der Text für die URL ausschließlich gültige Zeichen enthält, gibt es automatische Abläufe in der Hintergrundverarbeitung von Joomla.<!-- \index{Alias} --><!-- \index{Suchmaschinenfreundlich (SEF)!Alias} -->
+Neben der `id`, über welche wir das Element eindeutig auffindbar machen und dem Namen `name`, der optional ist und den Datensatz in unserer Erweiterung benennt, gibt es den Alias `alias`. Letzterer bereitet die Daten unter anderem für das Routing vor. Stell dir eine System-URL wie `http://www.example.com/index.php?option=com_foos&view=foo&id=1` vor. Diese ist für Menschen schlecht lesbar. Auch Maschinen wie Suchmaschinen verarbeiten eine solche URL schlecht. Eine textuelle Beschreibung ist zwingend. In Joomla geschieht dies mithilfe des Alias. Dieser kann vom Benutzer selbst festgelegt werden. Damit der Alias-Text für die URL ausschließlich gültige Zeichen enthält, gibt es automatische Abläufe in der Hintergrundverarbeitung von Joomla.<!-- \index{Alias} --><!-- \index{Suchmaschinenfreundlich (SEF)!Alias} -->
 
-Mit `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls sie nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle. In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins in Joomla im Verzeichnis `plugins/sampledata`.
+Via `CREATE TABLE IF NOT EXISTS ...` legen wir die Datenbanktabelle an, falls diese nicht schon exisiert. Mit `INSERT INTO ...` speichern wir Beispielinhalte in der Datenbanktabelle. In einer realen Erweiterung würde ich Beispieldaten nicht über die SQL-Datei bei der Installation hinzufügen. In Joomla 4 bietet sich ein Plugin des Typs `sampledata` an. Zur Inspiration findest du Plugins in Joomla im Verzeichnis `plugins/sampledata`.
 
 [administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
@@ -70,9 +70,9 @@ DROP TABLE IF EXISTS `#__foos_details`;
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Model/FoosModel.php
 
-Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Namen der Datenbanktabelle und der Spalte.
+Als nächstes erstellen wir ein _Model_ für den Administrationsbereich. Da wir die Klasse `ListModel` erweitern, ist es nicht erforderlich, dass wir uns selbst um die Verbindung zur Datenbank kümmern. Wir legen die Methode `getListQuery()` an und geben hier unsere spezifischen Anforderungen an. Spezifisch sind beispielsweise die Namen der Datenbanktabelle und der Spalten.
 
-> Falls bisher nicht geschehen, wird dir hier klar, warum die Trennung von Model und View sinnvoll ist. Sieh dir einmal die Methode `getListQuery()` in Joomla-Komponenten an, zum Beispiel in `com_content`. Das SQL-Statement ist meist umfangreich. Deshalb ist es übersichtlicher, dieses vom gestalterischen Teil abzukapseln.
+> Falls bisher nicht geschehen, wird dir hier klar, warum die Trennung von Model und View sinnvoll ist. Sieh dir einmal die Methode `getListQuery()` in Joomla-Komponenten an, zum Beispiel in `com_content`. Das SQL-Statement ist meist umfangreich. Deshalb ist es übersichtlicher, dieses von anderen Teilen abzukapseln.
 
 Der nachfolgende Code zeigt dir das in unserem Falle noch recht übersichtliche Model.
 
@@ -178,11 +178,11 @@ Der mit Pluszeichen markierte Eintrag im Installationsmanifest bewirkt, dass die
 
 ```
 
-> Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://downloads.joomla.org/de/technical-requirements-de)[^downloads.joomla.org/de/technical-requirements-de] neben MySQL (ab 5.6) genauso PostgreSQL (ab 11). Wenn du ebenfalls beide Datenbanken unterstützt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponente](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt, `mysqli`, `pdomysql` und `pgsql` werden von Joomla in der Datei `/libraries/src/ Installer/Installer.php` angepasst.
+> Ich unterstütze in diesem Beispiel ausschließlich eine MySQL-Datenbank. [Joomla unterstützt](https://downloads.joomla.org/de/technical-requirements-de)[^downloads.joomla.org/de/technical-requirements-de] neben MySQL (ab Version 5.6) genauso PostgreSQL (ab Version 11). Wenn du ebenfalls beide Datenbanken unterstützt, findest du eine Implementierung zum Abgucken in der [Weblinks Komponente](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. Wie du die [Treiber benennst](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) ist flexibel. `postgresql` und `mysql` sind korrekt. `mysqli`, `pdomysql` und `pgsql` werden von Joomla in der Datei `/libraries/src/ Installer/Installer.php` angepasst, falls du diese Bezeichnungen verwendest.
 
 ##### Aktualisierungen<!-- \index{Datenbank!Aktualisierung} -->
 
-Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezüglich Aktualisierung vorweg. Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen aufzunehmen. Dabei sollte darauf geachtet werden, dass bestehende Daten nicht tangiert werden. Die Neuerungen speicherst du für jede Version deiner Erweiterung in einer separaten Datei ab. Das Verzeichnis, in dem die Dateien für die Aktualisierungen abzulegen sind, schreibst du in das `<update>`-Tag.
+Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapitels bezüglich Aktualisierung vorweg. Wenn sich etwas ändert, reicht es aus, in der Datenbank nur die Änderungen vorzunehmen. Dabei sollte darauf geachtet werden, dass bestehende Daten nicht tangiert werden. Die Neuerungen speicherst du für jede Version deiner Erweiterung in einer separaten Datei ab. Das Verzeichnis, in dem die Dateien für die Aktualisierungen abzulegen sind, schreibst du in das `<update>`-Tag.
 
 ```xml
   ...
@@ -194,7 +194,7 @@ Der Vollständigkeit halber nehme ich hier Änderungen eines nachfolgenden Kapit
   ...
 ```
 
-Nachfolgend siehst du den Inhalt der Datei `src/administrator/components/ com_foos/sql/updates/mysql/10.0.0.sql` als Beispiel. Diese Datei kommt einem späteren Kapitel zu den Beispieldateien hinzu.
+Nachfolgend siehst du den Inhalt der Datei `src/administrator/components/ com_foos/sql/updates/mysql/10.0.0.sql` als Beispiel. Diese Datei kommt in einem späteren Kapitel zu den Beispieldateien hinzu.
 
 ```xml
 ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEFAULT 0 AFTER `alias`;
@@ -229,7 +229,7 @@ Bisher war es nicht notwendig die `MVC factory` in der Datei `provider.php` zu s
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
-In der View ziehen wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
+In der View sammeln wir am Ende alle Elemente. Hierzu rufen wir die Methode `$this->get('Items')` des Models auf:
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -272,7 +272,7 @@ Last but not least zeigen wir alles mithilfe der Template-Datei an. Anstelle des
 
 ```
 
-> Wunderst du dich über die Syntax in der Schreibweise? Im Vorwort hatte ich erklärt, warum ich in einer Template-Datei die [alternative Syntax](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für PHP wähle und die einzelnen Zeilen in PHP-Tags einschließe.
+> Wunderst du dich über die Syntax? Im Vorwort hatte ich erklärt, warum ich in einer Template-Datei die [alternative Syntax](https://www.php.net/manual/de/control-structures.alternative-syntax.php) für PHP wähle und die einzelnen Zeilen in PHP-Tags einschließe.
 
 ## Teste deine Joomla-Komponente
 

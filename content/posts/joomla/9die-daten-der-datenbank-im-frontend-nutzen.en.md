@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-12
+date: 2022-07-29
 title: 'Using the Database Data in the Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -17,7 +17,7 @@ tags:
 
 We have a database where the data about the component is stored. The next step is to display the dynamic content in the frontend. In this part, I'll show you how to output the content for an element via menu item. For this we will create our own form field.<!-- \index{Form field} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^github.com/astridx/boilerplate/compare/t6b...t7] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6b...t7)[^codeberg.org/astrid/j4examplecode/compare/t6b...t7] and copy these changes into your development version.
 
 ## Step by step
 
@@ -28,9 +28,9 @@ We have a database where the data about the component is stored. The next step i
 
 First, we create the form field through which it is possible to select or deselect a Foo element. In this case, we cannot access a ready-made field. Basically, we implement the methods `getInput` and `getLabel` and we set the type to `Modal_Foo`. It is not mandatory that the name of the class starts with the word 'Field' and that the class is stored in the directory 'Field'. However, it can be helpful because it is standard in Joomla's own extension.
 
-> It is possible to extend the field so that a Foo element is created via a button. I have left this out here for the sake of simplicity. Sample code is provided by the component `com_contact` in the file `administrator/components/com_contact/ src/Field/Modal/ContactField.php`.
+> It is possible to extend the field so that a Foo element is created via a button. I have left this out so far for the sake of simplicity. Sample code is provided by the component `com_contact` in the file `administrator/components/com_contact/ src/Field/Modal/ContactField.php`.
 
-[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/3bfbb76025d6b8d548e4411275ec2f6fad507628/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
+[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/src/Field/Modal/FooField.php
@@ -271,7 +271,7 @@ The name of the function must be the same in both places!
 
 We open the selection in a modal window via the FooField. As address we have inserted in the field `$linkFoos = 'index.php?option=com_foos&amp;view=foos&amp;layout=modal&amp;tmpl=component&amp;'`. The following code shows you the template for this modal window.
 
-[administrator/components/com_foos/ tmpl/foos/modal.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/administrator/components/com_foos/tmpl/foos/modal.php
@@ -365,7 +365,7 @@ We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time
 
 > It is not mandatory to create the file `joomla.asset.json` if you want to use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets/de)[^docs.joomla.org/j4.x:web_assets]. In the documentation you will find possibilities to register webassets in the code afterwards.
 
-[media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/d628be528023c0b5ff1dba70ef9a07c722bb2cb9/src/media/com_foos/joomla.asset.json)
+[media/com_foos/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/media/com_foos/joomla.asset.json)
 
 ```js {numberLines: -2}
 /* https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/media/com_foos/joomla.asset.json */
@@ -390,19 +390,24 @@ We use the [WebAssetManager](https://docs.joomla.org/J4.x:Web_Assets). This time
 }
 ```
 
-> Are you wondering that instead of `com_foos/js/admin-foos-modal.js` I write `com_foos/admin-foos-modal.js` as `uri`? In my opinion this is a hidden secret in Joomla. `js` and `css` file, if the path is not [absolute](https://github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/libraries/src/WebAsset/WebAssetItem.php#L349)[^github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/ libraries/src/webasset/webassetitem.php#l349], are automatically searched in the subdirectory `js`, respectively `css`. This was already the case in [Joomla 3.x](https://docs.joomla.org/Adding_JavaScript#External_JavaScript)[^docs.joomla.org/adding_javascript#external_javascript]. In the call `JHtml::_('script', 'com_example/example.js', array('relative' => true));` Joomla expects the file `example.js` to be located at `media/com_example/example.js`. You should not include `js` in the path in the statement This behavior is implemented by Web Asset Manager for scripts and styles by default. Want to take a closer look? You can find the code for this in the file [WebAssetItem.php](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/WebAsset/WebAssetItem.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/webasset/webassetitem.php].<!-- \index{WebAssetManager!relative} -->
+> Are you wondering that instead of `com_foos/js/admin-foos-modal.js` I write `com_foos/admin-foos-modal.js` as `uri`? In my opinion this is a hidden secret in Joomla. `js` and `css` file, if the path is not [absolute](https://github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/libraries/src/WebAsset/WebAssetItem.php#L349)[^github.com/joomla/joomla-cms/blob/ddb844b450ec989f08f6a54c051ca52d57fa0789/ libraries/src/webasset/webassetitem.php#l349], are automatically searched in the subdirectory `js`, respectively `css`. This was already the case in [Joomla 3.x](https://docs.joomla.org/Adding_JavaScript#External_JavaScript)[^docs.joomla.org/adding_javascript#external_javascript]. In the call `JHtml::_('script', 'com_example/example.js', array('relative' => true));` Joomla expects the file `example.js` to be located at `media/com_example/example.js`. You should not include `js` in the path in the statement This behavior is implemented by Web Asset Manager for scripts and styles by default. Want to take a closer look? You can find the code for this in the file `libraries/src/WebAsset/WebAssetItem.php`.<!-- \index{WebAssetManager!relative} -->
 
-> For the media version the Web Asset Manager sets the default `auto`. This means that `JHtml::_('script', 'com_example/example.js', array('version' => 'auto'));` is called by default. What does this mean exactly? The media version is used to control the new loading of CSS and JavaScript files. Specifically, the media version is reset during an update, installation, or uninstall. The reason for this is that browsers cache CSS and JS files, so the following situation can occur: 1. A user accesses a Joomla website, and the CSS and JS files are stored in the user's browser. 2. Joomla is updated, and in the update process, the contents of several CSS and JS files change. The file names remain the same. 3. The user accesses the newly updated site, but the new CSS and JS files are not reloaded because the user's browser uses the cached versions instead. 4. if `version' => 'auto` is set, the `src` attribute of the `<script>` tag is different after the update, and the browser loads the new file. For normal work with a Joomla website this setting is useful. When developing it might happen that you want to reload web asset files more often. I use debug mode when developing, because this way a new media version is forced on every HTTP request.<!-- \index{WebAssetManager!version} -->
+For the media version the Web Asset Manager sets the default `auto`. This means that `JHtml::_('script', 'com_example/example.js', array('version' => 'auto'));` is called by default. What does this mean exactly? The media version is used to control the new loading of CSS and JavaScript files. Specifically, the media version is reset during an update, installation, or uninstall. The reason for this is that browsers cache CSS and JS files, so the following situation can occur: 
+1. A user accesses a Joomla website, and the CSS and JS files are stored in the user's browser. 
+2. Joomla is updated, and in the update process, the contents of several CSS and JS files change. The file names remain the same. 
+3. The user accesses the newly updated site, but the new CSS and JS files are not reloaded because the user's browser uses the cached versions instead. 
+4. if `version' => 'auto` is set, the `src` attribute of the `<script>` tag is different after the update, and the browser loads the new file. 
+For normal work with a Joomla website this setting is useful. When developing it might happen that you want to reload web asset files more often. I use debug mode when developing, because this way a new media version is forced on every HTTP request.<!-- \index{WebAssetManager!version} -->
 
-> What does the attribute `"defer": true` mean? Scripts are loaded with `async` - asynchronous/parallel to other resources. `defer` promises the browser that the web page will not be changed by instructions. More information [at Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).<!-- \index{WebAssetManager!attribute} -->
+> What does the attribute `"defer": true` mean? Scripts are loaded with `async` asynchronous or parallel to other resources. `defer` promises the browser that the web page will not be changed by instructions. More information [at Mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).<!-- \index{WebAssetManager!attribute} -->
 
 > The Joomla Web Assets Manager manages all assets in a Joomla installation. It is not mandatory to include script files or stylesheets via this manager. All calls to `HTMLHelper::_('stylesheet or script ...)` work, but these assets are appended after the Web Asset Manager assets. This results in overriding styles that are set in the template. Thus, a user does not have the possibility to manipulate by means of a `user.css`. However, it does have more advantages: If dependencies are set correctly, no conflicts occur and necessary files are loaded by Joomla. For example, we have set a dependency in the line `"dependencies": ["core"],`.<!-- \index{WebAssetManager!dependencies} -->
 
 #### media/com_foos/js/admin-foos-modal.js
 
-The following is the JavaScript code that causes a foo element to be selectable when a menu item is created. We will assign the class `select-link` to the corresponding button in the field later.
+The following is the JavaScript code that causes a foo element to be selectable when a menu item is created. We will assign the class `select-link`, which is the main element in the file, to the corresponding button in the field later.
 
-[media/com_foos/js/admin-foos-modal.js](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/media/com_foos/js/admin-foos-modal.js)
+[media/com_foos/js/admin-foos-modal.js](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/media/com_foos/js/admin-foos-modal.js)
 
 ```js {numberLines: -2}
 /* https://codeberg.org/astrid/j4examplecode/raw/branch/t7/src/media/com_foos/js/admin-foos-modal.js */
@@ -444,7 +449,7 @@ The following is the JavaScript code that causes a foo element to be selectable 
 
 We have created a new JavaScript file. We place it in the `media\js` directory. So that it is copied when the component is installed, we add the `js` folder in the section `media` of the installation manifest.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<folder>src</folder>
@@ -469,7 +474,7 @@ We no longer output static text. An item from the database is displayed. Therefo
 
 > Make sure you update the DocBlock here. This sounds nit-picky and unimportant at the beginning. In small extensions, it may still be minor. But later you may want to create documentation automatically based on this information. Then you will be happy if they are correct.<!-- \index{DocBlock} -->
 
-[components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/Model/FooModel.php)
+[components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  class FooModel extends BaseDatabaseModel
@@ -546,7 +551,7 @@ We no longer output static text. An item from the database is displayed. Therefo
 
 In the view we consequently replace `$this->msg = $this->get('Msg');` with `$this->item = $this->get('Item');`.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  class HtmlView extends BaseHtmlView
@@ -579,7 +584,7 @@ In the view we consequently replace `$this->msg = $this->get('Msg');` with `$thi
 
 We will customize the display of the name in the template. Here we access the `item` element and its `name` property. In this way we can flexibly and easily add new properties in the future.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/c9bb75e8bf376b012c2ee7b44745901a3f61390a/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -596,7 +601,7 @@ We will customize the display of the name in the template. Here we access the `i
 
 We create an entry in the `default.xml` file for the new form field. This way we enable the selection of a Foo element at the menu item. Worth mentioning are the entries `addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"` and `type="modal_foo"`:
 
-[components/com_foos/ tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ae04129fb1b65a0939d9f968c3658843ddc7292d/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/ tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t7/src/components/com_foos/tmpl/foo/default.xml)
 
 ```xml {diff}
  	</layout>

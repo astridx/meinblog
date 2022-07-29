@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-13
+date: 2022-07-29
 title: 'Using the Database'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -17,7 +17,7 @@ tags:
 
 In the previous part we set up a database for the Joomla components. In this part you will learn how to change or add data using a form in the administration area. At the end, the view of your component in the administration area contains a button to add new items. You change an existing item by clicking on the title in the list view.<!-- \index{database!using} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6...t6b)[^github.com/astridx/boilerplate/compare/t6...t6b] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t6...t6b)[^codeberg.org/astrid/j4examplecode/compare/t6...t6b] and copy these changes into your development version.
 
 ## Step by step
 
@@ -28,7 +28,7 @@ In the previous part we set up a database for the Joomla components. In this par
 
 Joomla creates the form for you if you give it the requirements in an XML file. Below you can see this for our example.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t6b/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/forms/foo.xml -->
@@ -69,14 +69,14 @@ Joomla creates the form for you if you give it the requirements in an XML file. 
 
 > You want an overview of all possible form elements? In the [Joomla documentation](https://docs.joomla.org/Form_field)[^docs.joomla.org/form_field] all standard form fields are listed.
 
-Further tip: We have a simple form so far. Later, more specific requirements will surely be added. For example: What is the best way to place JavaScript in a Joomla form? A simple but quick and messy solution is this: You create a field `type=note` in the XML definition and then write the JavaScript code into the language constant of the description. I found a more elegant solution in (Allrounder template by Bakual)[https://github.com/Bakual/Allrounder/](^github.com/Bakual/Allrounder/). First he creates a new [field of type `loadjscss`](https://github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php)[^github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php]. He then includes this in the file [`templateDetails.xml`](https://github.com/Bakual/Allrounder/blob/57bb030ec0e243c776e758daeade898abbbb9c10/templateDetails.xml#L51)[^github.com/Bakual/Allrounder/blob/master/templateDetails.xml#L51]. Don't worry if you don't see through the last variant right away. We will create more fields as we go along. 
+> Further tip: We have a simple form so far. Later, more specific requirements will surely be added. For example: What is the best way to place JavaScript in a Joomla form? A quick and simple but messy solution is this: You create a field `type=note` in the XML definition and then write the JavaScript code into the language constant of the description. I found a more elegant solution in Allrounder template by Bakual [^github.com/Bakual/Allrounder]. First he creates a new [field of type `loadjscss`](https://github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php)[^github.com/Bakual/Allrounder/blob/master/fields/loadjscss.php]. He then includes this in the file [`templateDetails.xml`](https://github.com/Bakual/Allrounder/blob/57bb030ec0e243c776e758daeade898abbbb9c10/templateDetails.xml#L51)[^github.com/Bakual/Allrounder/blob/master/templateDetails.xml#L51]. Don't worry if you don't see through the last variant right away. We will create more fields as we go along.<!-- \index{JavaScript! form} --><!-- \index{form! JavaScript} -->
 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Controller/FooController.php
 
 We create more or less an empty class with `FooController`. Although it contains no logic of its own, we need it because it inherits from `FormController`. Joomla expects `FooController` as the controller of the extension in this place under this name.
 
-[administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Controller/FooController.php)
+[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Controller/FooController.php
@@ -107,8 +107,9 @@ class FooController extends FormController
 
 ```
 
-Wann solltest du schon an dieser Stelle etwas in die Datei `administrator/components/com_foos/ src/Controller/FooController.php` einfügen? 
-Hast du deine Komponente umbenannt und nun das Problem, dass deine _Views_ von Joomla nicht korrekt gefunden werden? Hast du beispielsweise eine neue _View_ namens `Katze` angelegt und deine Listenansicht heißt `Katzen`. Nun wirst du teilweise von Joomla zur _View_ `KatzeS` weitergeleitet. Insbesondere dann, wenn du einen neuen Datensatz anlegst oder ein Bearbeiten abbrichst. Du fragst dich, wo das `S` herkommt? Des Rätsels Lösung findest du in der Datei [libraries/src/MVC/Controller/ FormController.php](https://github.com/joomla/joomla-cms/blob/73ae0235c25a489bac64613ba3d4837aec406fda/libraries/src/MVC/Controller/FormController.php#L136)[^libraries/src/MVC/Controller/FormController.php]. Im Konstruktor dieser Datei wird die Variable `view_item` automatisch mit dem Plural versehen. Allerdings wird die englische Grammatik verwendet. Im Falle des englischen Wortes `cat` passt das. `Cats` ist Mehrzahl von `cat`. Dein Controller erbt diese Werte aufgrund wegen `use Joomla\CMS\MVC\Controller\FormController` und  `extends FormController`. Das passt nicht immer. Setze in deinem `FormController` die Variablen `view_item` und `view_list` selbst, um benutzerdefinierte Werte zu verwenden. 
+When should you add something to the file `administrator/components/com_foos/ src/Controller/FooController.php`? 
+Did you rename your component and now you have the problem that your _Views_ are not found correctly by Joomla? For example, did you create a new _View_ called `Katze` and your list view is called `Katzen`. Now you are sometimes redirected by Joomla to the _View_ `Katzes`. Especially when you create a new record or cancel an editing. You wonder where the `S` in the end of `Katzes` comes from? You can find the solution in the file [libraries/src/MVC/Controller/ FormController.php](https://github.com/joomla/joomla-cms/blob/73ae0235c25a489bac64613ba3d4837aec406fda/libraries/src/MVC/Controller/FormController.php#L136)[^libraries/src/MVC/Controller/FormController.php]. In the constructor of this file, the `view_item` variable is automatically made plural. However, the English grammar is used. In the case of the English word cat, it fits. Cats is plural of cat. Your controller inherits these values because of `use Joomla\CMS\MVC\Controller\FormController` and `extends FormController`. This does not always fit. You have just experienced an example with the name `cat`. Set in your `FormController` the variables `view_item` and `view_list` yourself to use custom values. 
+ 
 
 ```php
 class KatzeController extends FormController
@@ -121,9 +122,9 @@ protected $view_list = 'katzen';
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/Model/FooModel.php
 
-Now we create the model to fetch the data for an element. This we call `FooModel`. It inherits the main implementations from `AdminModel`. We add our own special requirements. With `$typeAlias` we set the typalias for the content type. This way Joomla knows for all inherited functions to which element it has to apply them exactly. For example, the alias in `loadFormData()` is used to convert the matching XML file into a form. Remember, you created the file in the current chapter. And for the correct mapping of the table, the alias is essential when you reuse Joomla functions. The typalias plays a big role in the background without you noticing it.
+Now we create the model to fetch the data for an element from the database. This we call `FooModel`. It inherits the main implementations from `AdminModel`. We add our own special requirements. With `$typeAlias` we set the typalias for the content type. This way Joomla knows for all inherited functions to which element it has to apply them exactly. For example, the alias in `loadFormData()` is used to convert the matching XML file into a form. Remember, you created the file in the current chapter. And for the correct mapping of the table, the alias is essential when you reuse Joomla functions. The typalias plays a big role in the background without you noticing it.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Model/FooModel.php
@@ -221,7 +222,7 @@ class FooModel extends AdminModel
 
 We implement the access to the database table. It is important to set `$this->typeAlias` and to specify the name of the table `#__foos_details`.
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/Table/FooTable.php
@@ -293,7 +294,7 @@ class FooTable extends Table
 
 The file `administrator/components/com_foos/ src/View/Foo/HtmlView.php` organises the view of an element. Be careful not to mix this up this with the file `administrator/components/com_foos/ src/View/Foo s /HtmlView.php`, which displays all elements in an overview list. To edit an element, we need a toolbar just like in the list view. The display itself is done as usual via the method `display` of the class `BaseHtmlView`. Only our special features are given via `$this->form = $this->get('Form');` and `$this->item = $this->get('Item');`.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/View/Foo/HtmlView.php
@@ -383,7 +384,7 @@ In the file `edit.php` is the view implemented, which is called for editing. It 
 
 > If you do not include webassets correctly, you will get the following error in the console of your browser when you save the form: `joomla document.formvalidator is undefined`. Joomla validates the forms by default and expects the file `media/system/js/core.js` to be loaded.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foo/edit.php
@@ -430,7 +431,7 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 
 With the file `administrator/components/com_foos/ tmpl/foos/emptystate.php` we create a special layout for the case that the component contains no element and is therefore empty.
 
-[administrator/components/com_foos/ tmpl/foos/emptystate.php](https://github.com/astridx/boilerplate/blob/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
+[administrator/components/com_foos/ tmpl/foos/emptystate.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
@@ -451,7 +452,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 $displayData = [
 	'textPrefix' => 'COM_FOOS',
 	'formURL' => 'index.php?option=com_foos',
-	'helpURL' => 'https://github.com/astridx/boilerplate#readme',
+	'helpURL' => 'https://example.org',
 	'icon' => 'icon-copy',
 ];
 
@@ -467,7 +468,7 @@ echo LayoutHelper::render('joomla.content.emptystate', $displayData);
 
 > `'icon' => 'icon-copy'` only works with icons that are included by name in the file [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss]. I explained in the preface why this is like it is. Adjust the layout for the icon if you want to display a different symbol.
 
-The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[github.com/joomla/joomla-cms/pull/33264]. The implementation of the Empty-State-Layout here in the tutorial takes the hint from [Issue 35712](https://github.com/joomla/joomla-cms/issues/35712] into account and inserts the code `if (count($errors = $this->get('Errors'))) { throw new GenericDataException(implode("\n", $errors), 500);}` before the code `if (!count($this->items) && $this->get('IsEmptyState')) { $this->setLayout('emptystate');}` in the file `administrator/components/com_foos/ src/View/Foos/HtmlView.php`. This is done in a later chapter.
+The Empty State layout has been integrated into Joomla in [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[^github.com/joomla/joomla-cms/pull/33264]. The implementation of the Empty-State-Layout here in the tutorial takes the hint from [Issue 35712](https://github.com/joomla/joomla-cms/issues/35712) into account and inserts the code `if (count($errors = $this->get('Errors'))) { throw new GenericDataException(implode("\n", $errors), 500);}` before the code `if (!count($this->items) && $this->get('IsEmptyState')) { $this->setLayout('emptystate');}` in the file `administrator/components/com_foos/ src/View/Foos/HtmlView.php`. This is done in a later chapter.
 
 > Good design is already a challenge when there is data to display. It is even more difficult to implement an empty page in a user-friendly way. Have a look at [emptystat.es](https://emptystat.es/) if you want to get inspired about your Empty State implementation.
 
@@ -478,7 +479,7 @@ The Empty State layout has been integrated into Joomla in [PR 33264](https://git
 
 To ensure that the 'forms' directory is passed to Joomla during a new installation, enter it in the installation manifest.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/6af3fd96a856784ffd8c0ffd1225544b60361ba9/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		</submenu>
@@ -496,7 +497,7 @@ To ensure that the 'forms' directory is passed to Joomla during a new installati
 
 In the view that displays the overview list, we add the toolbar. Here we insert a button that creates a new element. We also query with `if (!count($this->items) && $this->get('IsEmptyState'))` whether there are items to display. If the view is empty, we display the user-friendly Empty State layout `$this->setLayout('emptystate');`.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 
@@ -541,7 +542,7 @@ In the view that displays the overview list, we add the toolbar. Here we insert 
 
 In the template of the overview list, we replace the simple text with a form. The form contains a form field for each column in the database table and makes it possible to create or change data.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/db7d51d50ff1ac238d8fd979b65acd54f157e586/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -626,7 +627,7 @@ In the template of the overview list, we replace the simple text with a form. Th
 
 ![Edit Joomla Component in the Backend - Edit an Element](/images/j4x8x3.png)
 
-5. delete all Foo-Items via the database and make sure that the Empty-State layout is displayed. Have you not yet edited the database yourself? In the previous section I suggested [phpmyadmin.net](https://www.phpmyadmin.net/) as a tool. In the following you will see the standard view followed by our user-friendly Empty State version for comparison. In the next but one section we will take care of the language files, then the layout will be perfect.
+5. delete all Foo-Items via the database and make sure that the Empty-State layout is displayed. Have you not yet edited the database yourself? In the previous section I suggested [phpmyadmin.net](https://www.phpmyadmin.net/) as a tool. In the following you will see the standard view followed by our user-friendly Empty State version for comparison. In the next but one section we will take care of the language files, then the layout will be more friendly. Later, the button for deleting items is also added.
 
 ![Edit Joomla Component in Backend - Empty View without Empty State Layout](/images/j4x8x10.png)
 

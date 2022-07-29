@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-07-22
+date: 2022-07-29
 title: 'A database table for your extension'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -17,7 +17,7 @@ tags:
 
 Your view in the administration area usually does not contain only static text. You display data here that is dynamic. At least that's how most extensions work. That's why in this part we create a database for your component. In the database, we store three records during setup and display them in the administration area. A static list is displayed. The single entries are not changeable via the backend. We will work on that in the next part.
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^github.com/astridx/boilerplate/compare/t5...t6] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t5...t6)[^codeberg.org/astrid/j4examplecode/compare/t5...t6] and copy these changes into your development version.
 
 ## Step by step
 
@@ -28,7 +28,7 @@ Your view in the administration area usually does not contain only static text. 
 
 We create a file that contains SQL statements for creating the database table<!-- \index{database} -->. So that these statements are called, we add the name of the file later in the manifest.
 
-Besides the `id`, which we use to make the element uniquely findable and the name `name`, which is optional and names the item in our extension, there is the alias `alias`. The latter prepares the data for routing, among other things. Imagine a system URL like `http://www.example.com/index.php?option=com_foos&view=foo&id=1`. This is not very readable for humans. Machines like search engines also process such a URL poorly. A textual description is mandatory. In Joomla this is done with the help of the alias. This can be defined by the user. So that the text for the URL contains only valid characters, there are automatic processes in the background processing of Joomla.<!-- \index{alias} --><!-- \index{Search Engine Friendly (SEF)!alias} -->
+Besides the `id`, which we use to make the element uniquely findable and the name `name`, which is optional and names the item in our extension, there is the alias `alias`. The latter prepares the data for routing, among other things. Imagine a system URL like `http://www.example.com/index.php?option=com_foos&view=foo&id=1`. This is not very readable for humans. Machines like search engines also process such a URL poorly. A textual description is mandatory. In Joomla this is done with the help of the alias. This can be defined by the user. So that the alias text for the URL contains only valid characters, there are automatic processes in the background processing of Joomla.<!-- \index{alias} --><!-- \index{Search Engine Friendly (SEF)!alias} -->
 
 With `CREATE TABLE IF NOT EXISTS ...` we create the database table if it does not already exist. With `INSERT INTO ...` we store sample contents in the database table. In a real extension, I would not add sample data via the SQL file during installation. In Joomla 4, a plugin of the type `sampledata` is a good choice. For inspiration you can find plugins in Joomla in the directory `plugins/sampledata`.
 
@@ -72,7 +72,7 @@ DROP TABLE IF EXISTS `#__foos_details`;
 
 Next, we create a _Model_ for the administration area. Since we are extending the `ListModel` class, we do not need to take care of the connection to the database ourselves. We create the `getListQuery()` method and specify our specific requirements here. Specific are for example the name of the database table and the column.
 
-> If not done so far, you will see here why the separation of model and view makes sense. Have a look at the method `getListQuery()` in Joomla components, for example in `com_content`. The SQL statement is usually extensive. Therefore it is clearer to encapsulate this from the design part.
+> If not done so far, you will see here why the separation of model and view makes sense. Have a look at the method `getListQuery()` in Joomla components, for example in `com_content`. The SQL statement is usually extensive. Therefore it is clearer to encapsulate this from other parts.
 
 The following code shows you the model, which in our case is still quite clear.
 
@@ -178,7 +178,7 @@ The entry in the installation manifest marked with a plus sign causes the SQL st
 
 ```
 
-> In this example, I only support a MySQL database. [Joomla supports](https://downloads.joomla.org/technical-requirements)[^downloads.joomla.org/technical-requirements] as well as MySQL (from 5.6) and PostgreSQL (from 11). If you also support both databases, you can find an implementation to check out in the [Weblinks component](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. How you name the [drivers](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) is flexible. `postgresql` and `mysql` are correct, `mysqli`, `pdomysql` and `pgsql` are adapted by Joomla in the file `/libraries/src/ Installer/Installer.php`.
+> In this example, I only support a MySQL database. [Joomla supports](https://downloads.joomla.org/technical-requirements)[^downloads.joomla.org/technical-requirements] as well as MySQL (from 5.6) and PostgreSQL (from 11). If you also support both databases, you can find an implementation to check out in the [Weblinks component](https://github.com/joomla-extensions/weblinks)[^github.com/joomla-extensions/weblinks]. How you name the [drivers](https://github.com/joomla/joomla-cms/blob/e5db43948ed703492c99fa1f932247a9f611b058/libraries/src/Installer/Installer.php#L948) is flexible. `postgresql` and `mysql` are correct. `mysqli`, `pdomysql` and `pgsql` are changed by Joomla in the file `/libraries/src/ Installer/Installer.php` if you use this.
 
 ##### Updates<!-- \index{database!update} -->
 
@@ -229,7 +229,7 @@ Previously it was not necessary to set the `MVC factory` in `provider.php`, now 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
-In the view we get the items at the end. For this we call the method `$this->get('Items')` in the model:
+In the view we get all the items at the end. For this we call the method `$this->get('Items')` in the model:
 
 [administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t6/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
@@ -272,7 +272,7 @@ Last but not least, we display everything using the template file. Instead of th
 
 ```
 
-> Are you wondering about the syntax in the notation? In the preface I had explained why I choose the [alternative syntax](https://www.php.net/manual/en/control-structures.alternative-syntax.php) for PHP in a template file and enclose the individual lines in PHP tags.
+> Are you wondering about the syntax? In the preface I had explained why I choose the [alternative syntax](https://www.php.net/manual/en/control-structures.alternative-syntax.php) for PHP in a template file and enclose the individual lines in PHP tags.
 
 ## Test your Joomla component
 

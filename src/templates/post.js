@@ -142,19 +142,12 @@ export default function PostTemplate({ data }) {
       </section>
 
       <section id="webmentions" className="comments webmentions__list container">
-        <h3>Webmentions</h3>
+        <h3>Webmentions</h3><br/>
        
         {mentions.edges.map(
-          (edge) =>
-            /*key={edge.node.wm_id}
-            imageUrl={edge.node.author.photo}
-            authorUrl={edge.node.author.url}
-            authorName={edge.node.author.name}
-            dtPublished={edge.node.published}
-            dtPublishedFormated={edge.node.publishedFormated}
-            content={edge.node.content && edge.node.content.html}*/
-            edge.node.url
-        )}<span> - </span>
+          (edge) => (
+            edge.node.url + "  |  "
+        ))}
         
       </section>
     </>
