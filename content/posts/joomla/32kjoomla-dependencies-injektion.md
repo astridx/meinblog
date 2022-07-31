@@ -27,7 +27,7 @@ _Kompliziert_ und _negativ_? Bei genauem Hinsehen trifft beides nicht zu. Mithil
 
 Die Ausgangssituation: Stelle dir vor, du möchtest zu jedem Item in deiner Komponente die Anfahrt individuell beschreibbar gestalten.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^github.com/astridx/boilerplate/compare/t27..t27a1] an.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^codeberg.org/astrid/j4examplecode/compare/t27..t27a1] an.
 
 <!-- prettier-ignore -->
 #### administrator/components/com\_foos/ src/Extension/FoosComponent.php
@@ -139,7 +139,7 @@ Zu manchen Items verfügst du über eine bildlich beschreibende Grafik, die den 
 
 ### Schritt 2 - Die Funktion displayDirection() für mehrere Möglichkeiten verwenden
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27a1..t27a2)[^github.com/astridx/boilerplate/compare/t27a1..t27a2] an.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27a1..t27a2)[^codeberg.org/astrid/j4examplecode/compare/t27a1..t27a2] an.
 
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/src/Service/HTML/Direction.php
@@ -382,7 +382,7 @@ Eine Schnittstelle ist ein Vertrag zwischen der implementierenden Klasse und der
 
 > https://www.php.net/manual/de/language.oop5.traits.php
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3)[^github.com/astridx/boilerplate/compare/t27a2..t27a3] an.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3)[^codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3] an.
 
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/src/Extension/FoosComponent.php

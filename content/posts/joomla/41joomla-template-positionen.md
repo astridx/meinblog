@@ -17,7 +17,7 @@ tags:
 
 Das Template soll die Joomla Inhalte aus Komponenten, Modulen und Plugins an verschiedenen Positionen dynamisch anzeigen. Wie dieses Ziel in Joomla erreicht wird, ist Thema dieses Kapitels. Also: Wie werden Modul Positionen im Joomla Template integriert.<!-- \index{Template!Positionen} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t35...t36)[^codeberg.org/astrid/j4examplecode/compare/t35...t36] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

@@ -19,7 +19,7 @@ Some items are special and for them there is a special attribute in Joomla: `fea
 
 > In Joomla, elements marked with `featured` are displayed when the home page menu item is linked to the `featured` layout. In this way, it is possible to show or hide an element only by changing the 'featured' property on a page - for example the start page. This has no effect on other display properties - for example, displaying in a category blog.
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t23...t24)[^github.com/astridx/boilerplate/compare/t23...t24] and copy these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t23...t24)[^codeberg.org/astrid/j4examplecode/compare/t23...t24] and copy these changes into your development version.
 
 ## Step by step
 

@@ -25,7 +25,7 @@ _Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/w
 
 Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search Engine Friendly URLs_ in der _Globalen Konfiguration_ eingeschaltet wird. Diese Option ist standardmäßig aktiviert. Weitere Informationen findest du unter [Aktivieren von suchmaschinenfreundlichen (SEF) URLs in der Dokumentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t26...t27)[^github.com/astridx/boilerplate/compare/t26...t27] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t26...t27)[^codeberg.org/astrid/j4examplecode/compare/t26...t27] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

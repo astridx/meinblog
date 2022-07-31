@@ -27,7 +27,7 @@ _Complicated_ and _negative_? On closer inspection, neither applies. With the he
 
 The initial situation: Imagine you want to make the directions for each item in your component individually describable.
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^github.com/astridx/boilerplate/compare/t27..t27a1].
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^codeberg.org/astrid/j4examplecode/compare/t27..t27a1].
 
 <!-- prettier-ignore -->
 #### administrator/components/com\_foos/ src/Extension/FoosComponent.php
@@ -139,7 +139,7 @@ For some items you have a descriptive graphic that shows the location. For anoth
 
 ### Schritt 2 - Die Funktion displayDirection() für mehrere Möglichkeiten verwenden
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27a1..t27a2)[^github.com/astridx/boilerplate/compare/t27a1..t27a2].
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27a1..t27a2)[^codeberg.org/astrid/j4examplecode/compare/t27a1..t27a2].
 
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/src/Service/HTML/Direction.php
@@ -382,7 +382,7 @@ An interface is a contract between the implementing class and the calling class.
 
 > https://www.php.net/manual/en/language.oop5.traits.php
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3)[^github.com/astridx/boilerplate/compare/t27a2..t27a3].
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3)[^codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3].
 
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/src/Extension/FoosComponent.php

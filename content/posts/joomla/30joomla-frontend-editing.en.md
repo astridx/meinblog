@@ -17,7 +17,7 @@ tags:
 
 There are several reasons for allowing a user to edit in the frontend. One is that users find it more user-friendly. Or, it is important for an administrator not to release access to the administration area. Therefore, in the next step, we equip our component with the possibility to edit items in the frontend.<!-- \index{frontend editing} -->
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t24b...t25)[^github.com/astridx/boilerplate/compare/t24b...t25] and copy these changes into your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t24b...t25)[^codeberg.org/astrid/j4examplecode/compare/t24b...t25] and copy these changes into your development version.
 
 ## Step by step
 

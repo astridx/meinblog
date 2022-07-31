@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-09
+date: 2022-07-31
 title: 'Access Control List (ACL)'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -17,7 +17,7 @@ tags:
 
 Not everyone has the right to edit all content. For this purpose Joomla offers an access control list, the ACL. With this you manage user rights in your component.<!-- \index{access control list} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t9...t10)[^github.com/astridx/boilerplate/compare/t9...t10] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t9...t10)[^codeberg.org/astrid/j4examplecode/compare/t9...t10] and copy these changes into your development version.
 
 ## Step by step
 
@@ -28,9 +28,9 @@ Not everyone has the right to edit all content. For this purpose Joomla offers a
 
 First, we set all possible permissions in an XML file. Each component can define individual permissions. I orientate myself here on the usual actions in Joomla. `core.admin` thereby determines which groups are allowed to configure the permissions at component level via the `options` button in the toolbar. `core.manage` determines which groups are allowed to access the backend of the component.
 
-> Whether you have individual rights requirements or you also like to follow Joomla and are unsure, the [Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/j3.x:access_control_list_tutorial] is a helpful read.
+> The [Access Control List Tutorial](https://docs.joomla.org/J3.x:Access_Control_List_Tutorial)[^docs.joomla.org/j3.x:access_control_list_tutorial] is a helpful read.
 
-[administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/ access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/access.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/access.xml -->
@@ -53,9 +53,9 @@ First, we set all possible permissions in an XML file. Each component can define
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/10.0.0.sql
 
-Joomla stores the permissions in the database. During a Joomla update only database changes are relevant. We enter these in the file `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql`, here this is specifically `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. This file is only called during an update. In case of a new installation the database will be set up correctly via the main file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
+Joomla stores the permissions in the database. Regarding the database, only changes are relevant during a Joomla update. We enter these in the file `administrator/components/com_foos/sql/updates/mysql/VERSIONSNUMMER.sql`, here this is specifically `administrator/components/com_foos/sql/updates/mysql/10.0.0.sql`. This file is only called during an update. In case of a new installation the database will be set up correctly via the main file `administrator/components/com_foos/sql/install.mysql.utf8.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/10.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t10/src/administrator/components/com_foos/sql/updates/mysql/10.0.0.sql -->
@@ -72,7 +72,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_access` (`access`);
 
 We set the permissions for the entire component in the configuration. For this we integrate a special form field. Joomla offers the type `rules` for this.
 
-[administrator/components/com_foos/ config.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/ config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/config.xml)
 
 ```xml {diff}
  			<option value="1">JYES</option>
@@ -99,9 +99,9 @@ We set the permissions for the entire component in the configuration. For this w
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ foos.xml
 
-To make sure that everything runs smoothly during the installation, we add the new files `sql/updates/mysql` and `access.xml` here.
+To make sure that everything runs smoothly during the installation, we add the new file and folder `sql/updates/mysql` and `access.xml` here.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/fcce13afc14c13603509611630f369b2d53864c1/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
@@ -130,7 +130,7 @@ To make sure that everything runs smoothly during the installation, we add the n
 
 We extend the form for creating a new Foo item with the possibility to set permissions for a single item. We add the field `name="access"`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			size="45"
@@ -152,7 +152,7 @@ We extend the form for creating a new Foo item with the possibility to set permi
 
 The SQL script for a new installation of the component is also extended with the necessary fields. In this way we ensure that the database is also completely set up for a new installation.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ('Nina'),
@@ -169,7 +169,7 @@ The SQL script for a new installation of the component is also extended with the
 
 If you are not familiar with SQL, the database query in the model will now seem complex. It is now necessary to combine data from two database tables. One table is `#__viewlevels` which manages the permissions of `com_user`. The other table is that of our example component which is named `#__foos_details`. Don't feel discouraged by this. Joomla supports you in creating the queries.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
 
@@ -198,9 +198,9 @@ If you are not familiar with SQL, the database query in the model will now seem 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ src/View/Foos/HtmlView.php
 
-A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added. `$canDo = ContentHelper::getActions('com_foos');` gets the actions you defined in the file `administrator/components/com_foos/ access.xml` at the beginning of this chapter.
+A button to create an element is only useful if this is allowed. Therefore we change the view - `$canDo` is added. The call `$canDo = ContentHelper::getActions('com_foos');` gets the actions you defined in the file `administrator/components/com_foos/ access.xml` at the beginning of this chapter.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
 
@@ -242,7 +242,7 @@ A button to create an element is only useful if this is allowed. Therefore we ch
 
 The entry `<?php echo $this->getForm()->renderField(access);` is necessary to include the field in the form, which we have already configured in the XML file. Only this way it is possible to change the permissions per element.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  <form action="<?php echo Route::_('index.php?option=com_foos&layout=' . $layout . $tmpl . '&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="foo-form" class="form-validate">
@@ -259,7 +259,7 @@ The entry `<?php echo $this->getForm()->renderField(access);` is necessary to in
 
 Last but not least, we include a column in the overview for the authorization display.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/4efa6681475e12a48143acc126358a0f36fd8452/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t10/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  								<th scope="col" style="width:1%" class="text-center d-none d-md-table-cell">
@@ -293,15 +293,17 @@ Last but not least, we include a column in the overview for the authorization di
 
 ![Joomla Configuration - Set permissions in an element](/images/j4x12x1.png)
 
-3. for an overview, the value is additionally displayed in the main view.
+3. consider how you use the permission set in point 2 for your purposes? So far, the value is only stored, we do not use it.
+
+4. for an overview, the value is additionally displayed in the main view.
 
 ![Joomla Configuration - Display permissions in the overview list](/images/j4x12x2.png)
 
-Open the options of the global configuration. Here you have the possibility to set the permissions for the use of the component globally.
+5. Open the options of the global configuration. Here you have the possibility to set the permissions for the use of the component globally.
 
 ![Joomla Configuration - Permissions in the Global Configuration](/images/j4x12x3.png)
 
-5. play with the settings. Allow only the Super Admin to create new elements in your extension. Then log in as a simple administrator and make sure that the 'New' button has disappeared.
+6. Play with the settings. Allow the administrator to use the component in the backend. But remove his right to create new elements in the extension. After that, log in as a simple administrator and make sure that the 'New' button has disappeared.
 
 ## Links
 

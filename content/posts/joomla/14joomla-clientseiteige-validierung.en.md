@@ -27,7 +27,7 @@ Most of the time, client-side validation depends on JavaScript being enabled in 
 
 This part covers the client-side validation in Joomla 4.
 
-> For impatient people: Look at the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t11a...t11b)[^github.com/astridx/boilerplate/compare/t11a...t11b] and apply these changes to your development version.
+> For impatient people: Look at the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t11a...t11b)[^codeberg.org/astrid/j4examplecode/compare/t11a...t11b] and apply these changes to your development version.
 
 ## Step by step
 

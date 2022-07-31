@@ -23,7 +23,7 @@ Bei der serverseitigen Überprüfung wird die vom Benutzer übermittelte Eingabe
 
 Dieser Teil behandelt die serverseitige Validierung in Joomla 4.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t10...t11a)[^github.com/astridx/boilerplate/compare/t10...t11a] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t10...t11a)[^codeberg.org/astrid/j4examplecode/compare/t10...t11a] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

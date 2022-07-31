@@ -17,7 +17,7 @@ tags:
 
 Parameters make the template flexibly configurable in the backend. Perhaps a colour selection should be possible? The standard template Cassiopeia offers, among others, `logoFile`, `siteTitle` and `siteDescription` as parameters. We add a banner and social media icons.<!-- \index{template!parameters} -->
 
-> For impatient people: Take a look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t37...t38)[^github.com/astridx/boilerplate/compare/t37...t38] and copy these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t37...t38)[^codeberg.org/astrid/j4examplecode/compare/t37...t38] and copy these changes into your development version.
 
 ## Step by step
 

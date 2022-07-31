@@ -19,7 +19,7 @@ Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigu
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t16...t17)[^github.com/astridx/boilerplate/compare/t16...t17] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t16...t17)[^codeberg.org/astrid/j4examplecode/compare/t16...t17] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

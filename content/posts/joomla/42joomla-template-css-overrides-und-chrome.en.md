@@ -28,7 +28,7 @@ _Overrides_ are the first choice. If there is already an override for an extensi
 
 ![Create Joomla Template - Module Chrome](/images/overview.en.png)
 
-> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] and copy these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t36...t37)[^codeberg.org/astrid/j4examplecode/compare/t36...t37] and copy these changes into your development version.
 
 ## Step by step
 

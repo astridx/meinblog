@@ -17,7 +17,7 @@ tags:
 
 Extensive Joomla Core extensions have a dashboard in which related functions are displayed. This is user-friendly because it provides an overview. This way, a user can orientate himself in the extension without many clicks. In this part, we create such a dashboard for our sample component.<!-- \index{dashboard} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27...t28)[^github.com/astridx/boilerplate/compare/t27...t28] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27...t28)[^codeberg.org/astrid/j4examplecode/compare/t27...t28] and copy these changes into your development version.
 
 ## Step by step
 

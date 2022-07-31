@@ -19,7 +19,7 @@ Warum Kategorien verwenden? Oft werden Kategorien eingesetzt, wenn es viele Beit
 
 Für das Frontend gibt es in Joomla! eingebaute Menüpunkttypen, die Kategorien verwenden: Kategorie Blog und Kategorie Liste. Die Menüeintragstypen oder Layouts vereinfachen die Anzeige der Beiträge in einer Kategorie. Wenn ein neuer Beitrag der Kategorie zugewiesen wird, erscheint er automatisch auf der Seite. Diese Anzeige ist konfigurierbar. Beispiel: Stelle dir ein Blog-Layout der Kategorie `Events` vor, welches die neuesten Beiträge als erstes auf der Website anzeigt. Wenn ein neuer Beitrag zu dieser Kategorie hinzugefügt wird, erscheint dieser automatisch ganz oben im Blog Events. Alles, was du tun musst ist, den Beitrag zur Kategorie hinzuzufügen. Die Kategorie-Struktur, beispielsweise `Events | Onlineveranstaltungen | Sport | Yoga`, ist völlig unabhängig von der Menüstruktur der Site. Die Site kann eine oder sechs Menüebenen haben und `Yoga` kann als Menüpunkt in der ersten Ebene eingeordnet werden.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t25...t26)[^github.com/astridx/boilerplate/compare/t25...t26] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t25...t26)[^codeberg.org/astrid/j4examplecode/compare/t25...t26] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

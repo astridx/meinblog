@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-11
+date: 2022-07-31
 title: 'Using Language Files'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,17 +15,17 @@ tags:
   - Joomla
 ---
 
-Your goal was to make your extension multilingual! That's why you didn't enter the texts directly into the program code. Specifically, I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are uncomplicated exchangeable. So far you have seen cryptic texts because of that. In this part we translate the unattractive language strings.<!-- \index{language Strings} -->
+Your goal was that descriptive text in the views are not mixed with the program code. So they are uncomplicatedly changeable via the Joomla backend. This is possible for every user. Even the one who is not familiar with the program code. By the way, this is the prerequisite for your extension to be multilingual! For this reason you did not enter the real texts directly into the program code, but used language strings instead. Specifically, by descriptive texts I mean the texts that are displayed in the browser. You had prepared everything so that you use special files. These are easily changeable. So far you have seen cryptic texts in the browser views. In this part we translate the unattractive language strings into human readable words.<!-- \index{language Strings} -->
 
 > Even if your target audience speaks English and you only support this language it is important to use a language file for texts you display in the front-end or back-end of the component. This way it is possible for users to overwrite texts via language override[^docs.joomla.org/j3.x:language_overrides_in_joomla] without editing the source code. Under some circumstances a user prefers to write _first name_ instead of _name_ in the column header.
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t7...t8)[^github.com/astridx/boilerplate/compare/t7...t8] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t7...t8)[^codeberg.org/astrid/j4examplecode/compare/t7...t8] and copy these changes into your development version.
 
 ## Step by step
 
 The frontend view and the administration area each use their own language files. Unlike the frontend, where there is only one, the backend needs two - `*.sys.ini` and `*.ini`. Briefly explained: The file with the extension `sys.ini` is used to translate the XML installation file as well as the menu elements. The `ini` is responsible for the rest. This has the advantage that during the installation and for the construction of the menu only the loading of small text files is necessary. A disadvantage is that some language strings have to be entered twice. You can find out more in the article [International Enhancements](http://docs.joomla.org/International_Enhancements_for_Version_1.6) which has a section on [the file `*.sys.ini`](http://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini)[^docs.joomla.org/international_enhancements_for_version_1.6#the_new_.sys.ini].
 
-> The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English. Note: This only applies to missing language files. A missing language key in a non-English language file will not be replaced with the key from the English file.
+> The addition of the English language files is mandatory. All other languages are optional. The reason for this is that if a file is missing, the English version is used by default. If a Frenchman installs the extension - which contains German and English language files - on his Joomla with the default language French, the texts will be displayed in English. Note: This only applies to missing language files. A missing language key in a non-English language file will not be replaced with the key from the English file. This means that it is mandatory that each file is complete. Joomla does not search in different language version for a language string missing in a file.
 
 ### Side Note: Special features
 
@@ -77,7 +77,7 @@ Text::sprintf('COM_CONTACT_CHECKED_OUT_BY', $checkoutUser->name)
 
 The value of `$checkoutUser->name` is inserted instead of the first variable in the language string. Here in the example instead of `%s`.
 
-> Unfortunately, you cannot determine which variable `$checkoutUser->name` belongs to which language string `%s`. The values are assigned in order, if there are several variables.
+> Unfortunately, you cannot specify which variable belongs to which language string. It is not possible to specify that `%s` should be replaced with `$checkoutUser->name`. The values are assigned in sequential order if there are multiple variables.
 
 #### singular/singular
 
@@ -93,7 +93,7 @@ $message = Text::plural('COM_FOOS_N_ITEMS_FEATURED', count($ids));
 
 as an example.
 
-Depending on whether `count($ids)` has the value `1` or `2` the language string `COM_FOOS_N_ ITEMS_FEATURED_1` or `COM_FOOS_N_ ITEMS_FEATURED_2` is used. If `count($ids)` has neither `1` nor `2`, `COM_FOOS_N_ ITEMS_FEATURED` is used as the fallback position.
+Depending on whether `count($ids)` has the value `1` or `2` the language string `COM_FOOS_N_ ITEMS_FEATURED_1` or `COM_FOOS_N_ ITEMS_FEATURED_2` is used. If `count($ids)` has neither `1` nor `2`, `COM_FOOS_N_ ITEMS_FEATURED` is used.
 
 ```
 ...
@@ -114,10 +114,10 @@ We add the German language version for the administration area with the files 'a
 
 > Don't be confused if you see a lot of texts in the sample data. These are not all used at the moment. I'm already inserting the text for the future chapters here.
 
-[administrator/components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
+[administrator/components/com_foos/ language/de-DE/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  htttps://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini -->
+<!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Optionen"
@@ -133,10 +133,10 @@ COM_FOOS_CATEGORIES="Kategorien"
 
 As mentioned before, you need two language files for the backend: one ending with `.ini` and one ending with `sys.ini`. The [`sys.ini`](https://docs.joomla.org/International_Enhancements_for_Version_1.6#The_new_.sys.ini) is primarily used during installation and for displaying the menu items and the `ini` for everything else.
 
-[administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
+[administrator/components/com_foos/ language/de-DE/com_foos.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
-<!--  htttps://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->
+<!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/de-DE/com_foos.sys.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_XML_DESCRIPTION="Foo Komponente"
@@ -154,10 +154,10 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Alles hier passiert nach der Installatio
 
 I had already written it: The English versions of the language files should always be available as a fallback.
 
-[administrator/components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
+[administrator/components/com_foos/ language/en-GB/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  htttps://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
+<!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
@@ -171,10 +171,10 @@ COM_FOOS_CATEGORIES="Categories"
 
 We also add the file `administrator/components/com_foos/ language/en-GB/com_foos.sys.ini` as a fallback for all non-German or English Joomla installations.
 
-[administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
+[administrator/components/com_foos/ language/en-GB/com_foos.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini)
 
 ```xml {numberLines: -2}
-<!--  htttps://raw.githubusercontent.com/astridx/boilerplate/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini -->
+<!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/administrator/components/com_foos/language/en-GB/com_foos.sys.ini -->
 
 COM_FOOS="[PROJECT_NAME]"
 COM_FOOS_CONFIGURATION="Foo Options"
@@ -192,10 +192,10 @@ COM_FOOS_INSTALLERSCRIPT_POSTFLIGHT="<p>Anything here happens after the installa
 
 In the frontend there is only the `.ini` - so no `sys.ini`. The file `components/com_foos/ language/en-DE/com_foos.ini` implements the German language.
 
-[components/com_foos/ language/de-DE/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/de-DE/com_foos.ini)
+[components/com_foos/ language/de-DE/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/language/de-DE/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  https://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/components/com_foos/language/de-DE/com_foos.ini -->
+<!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/components/com_foos/language/de-DE/com_foos.ini -->
 
 COM_FOOS_NAME="Vorame: "
 ...
@@ -206,25 +206,25 @@ COM_FOOS_NAME="Vorame: "
 
 We add the English version to the file `components/com_foos/ language/en-GB/com_foos.ini` so that it is used as a fallback in all languages other as German.
 
-[components/com_foos/ language/en-GB/com_foos.ini](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/language/en-GB/com_foos.ini)
+[components/com_foos/ language/en-GB/com_foos.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/language/en-GB/com_foos.ini)
 
 ```xml {numberLines: -2}
-<!--  htttps://raw.githubusercontent.com/astridx/boilerplate/t8/src/components/com_foos/language/en-GB/com_foos.ini -->
+<!--  htttps://codeberg.org/astrid/j4examplecode/raw/branch/t8/src/components/com_foos/language/en-GB/com_foos.ini -->
 
 COM_FOOS_NAME="Surname: "
 ...
 ```
 
-> In the next chapters more language strings will be added. I will not mention them separately there. I have already integrated most of them into the sample files in this lesson. This way I avoid that the files appear in the diff view and blow it up unnecessarily. Specifically, I mean the diff view of the program code of the various chapters on Github, which I refer to here.
+> In the next chapters more language strings will be added. I will not mention them separately there. I have already integrated most of them into the sample files in this lesson. This way I avoid that the files appear in the diff view and blow it up unnecessarily. Specifically, I mean the diff view of the program code of the different chapters on Github, which I refer to here in the text.
 
 ### Modified files
 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ foos.xml
 
-So that the language files are copied during an installation, we add the `<folder>language</folder>` entry for the frontend and the backend.
+To make sure that the language files are copied to Joomla Core when the extension is installed, we add the `<folder>language</folder>` entry for the frontend and the backend to the manifest.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/06900d62cfdd55f77b785bd6b28262c30e11d45d/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
 
@@ -247,7 +247,7 @@ So that the language files are copied during an installation, we add the `<folde
 
 ##### Where are the language files ideally stored?
 
-Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/ language/en-GB/` and `components/com_foos/ language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the directory `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
+Joomla's own components store the files for the administration area in the folder `/administrator/language/en-GB/` and those for the site in the folder `/language/en-GB/`. This is the first place Joomla looks for the language files. For this reason, it was common for extension developers to put their files here. Sometimes it is more straightforward to put them in your own component folder. In our example, this is the folder `administrator/components/com_foos/ language/en-GB/` for the backend and `components/com_foos/ language/en-GB/` for the frontend. This is the place where Joomla looks for the language file if it doesn't find anything suitable in the Joomla Core directories `/administrator/language/en-GB /` and `/ language/en-GB` respectively.
 
 You want to store your language files in the same directory as the Joomla core extensions? To place your files together with Joomla's own language files, you add the `<language>` tag to the installation file. Here is an example from `com_contact`
 
@@ -296,9 +296,9 @@ where you need to adjust the value of the `folder` parameter to your structure:
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/default.php
 
-Last but not least, we now use the language files. So far we have printed the name without a label in the frontend via `echo $this->item->name;`. Now we add a label that takes different languages into account. The following code causes the string that is entered in the corresponding language file to be printed in the frontend. This is done by the command `Text::_('COM_FOOS_NAME')`. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is printed. If the German language is set and there is a German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed. If the Spanish language is active without a Spanish language file, the English language file is used.
+One last step is still missing. The own use of the language strings. So far we have printed the name without a label in the frontend via `echo $this->item->name;`. Now we add a label that takes different languages into account. The following code causes the string that is entered in the corresponding language file to be printed in the frontend. This is done by the command `Text::_('COM_FOOS_NAME')`. If there is a Spanish language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Nombre"` and the Spanish language is active in the frontend, then `Nombre` is printed. If the German language is set and there is a German language file with the entry `COM_FOOS_FIELD_NAME_LABEL="Name"`, the word `Name` is displayed. If the Spanish language is active without a Spanish language file, the English language file is used.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ecb72cf27bd1abf3157b25207b1aaaa723a7fe19/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t8/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -316,6 +316,8 @@ Last but not least, we now use the language files. So far we have printed the na
 
 1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation. A new installation is not necessary. Continue using the files from the previous part. If you do a new installation, you will notice that the hints in the installation script are now translated.
 
+> In case of discovery, the texts may be hidden[^https://github.com/joomla/joomla-cms/issues/36343]. 
+
 ![Joomla language files are used](/images/j4x10x3.png)
 
 2. open the view of your component in the administration area and frontend and make sure that the texts are readable and not cryptic anymore.
@@ -324,4 +326,9 @@ Last but not least, we now use the language files. So far we have printed the na
 
 3. try out the new feature. Create language files for different languages and change the default language in Joomla. Make sure that Joomla translates correctly.
 
+4. create a language override and make sure that it is used.
+
+![Joomla language files - language override creation](/images/j4x10x2a.png)
+
+![Joomla language files - language override usage](/images/j4x10x2b.png)
 <img src="https://vg08.met.vgwort.de/na/41bf541998834a14a99ae04848f45573" width="1" height="1" alt="">

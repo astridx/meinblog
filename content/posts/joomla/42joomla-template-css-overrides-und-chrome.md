@@ -28,7 +28,7 @@ _Overrides_ sind das erste Mittel der Wahl. Gibt es bereits ein Override für ei
 
 ![Joomla Template erstellen - Module Chrome](/images/overview.png)
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t36...t37)[^github.com/astridx/boilerplate/compare/t36...t37] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t36...t37)[^codeberg.org/astrid/j4examplecode/compare/t36...t37] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

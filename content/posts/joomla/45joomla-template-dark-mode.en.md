@@ -17,7 +17,7 @@ tags:
 
 Dark Mode is a hot topic right now. Apple, for example, has integrated dark mode into its operating systems. Windows and Google have done the same. Dark Mode is in fashion. And not only that. It offers advantages. Whether darker displays are good for the eyes is debatable. What is clear, however, is that less light saves energy.<!-- \index{template!dark mode} -->
 
-> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t39...t40)[^github.com/astridx/boilerplate/compare/t39...t40] and transfer these changes to your development version.
+> For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t39...t40)[^codeberg.org/astrid/j4examplecode/compare/t39...t40] and transfer these changes to your development version.
 
 ## Step by step
 

@@ -19,7 +19,7 @@ Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich b
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t24...t24b)[^github.com/astridx/boilerplate/compare/t24...t24b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t24...t24b)[^codeberg.org/astrid/j4examplecode/compare/t24...t24b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

@@ -19,7 +19,7 @@ Filtering, sorting and searching - now we organize the Joomla 4 component ! Joom
 
 ![Joomla Filter Sort and Search -Search Tools](/images/j4x20x1.png)
 
-> For impatient people: Look at the changed program code in the [Diff view](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^github.com/astridx/boilerplate/compare/t15a...t16] and take over these changes into your development version.
+> For impatient people: Look at the changed program code in the [Diff view](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^codeberg.org/astrid/j4examplecode/compare/t15a...t16] and take over these changes into your development version.
 
 ## Step by step
 

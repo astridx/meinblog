@@ -23,7 +23,7 @@ Wenn du mit Joomla arbeitetest, kennst du es aus anderen Komponenten: Elemente h
 - archivierst und
 - löschst.<!-- \index{verstecken} --><!-- \index{veröffentlichen} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t12...t13)[^github.com/astridx/boilerplate/compare/t12...t13] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t12...t13)[^codeberg.org/astrid/j4examplecode/compare/t12...t13] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

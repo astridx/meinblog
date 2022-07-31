@@ -17,7 +17,7 @@ tags:
 
 The template should dynamically display the Joomla content from components, modules and plugins at different positions. How this goal is achieved in Joomla is the topic of this chapter. So: How are module positions integrated in the Joomla template.<!-- \index{template!positions} -->
 
-> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t35...t36)[^github.com/astridx/boilerplate/compare/t35...t36] and copy these changes into your development version.
+> For impatient people: Take a look at the changed programme code in the [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t35...t36)[^codeberg.org/astrid/j4examplecode/compare/t35...t36] and copy these changes into your development version.
 
 ## Step by step
 

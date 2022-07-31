@@ -21,7 +21,7 @@ In this chapter I will explain how to create and run an update server for your c
 
 Update Server sounds complicated, it's basically just a URL to an XML file. This URL is inserted in the extension's installation manifest. The XML file contains a number of details, including the new version number and the download URL to the installation file. When Joomla finds an update for an installed extension, this is displayed in the administration area.
 
-> For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t1...t1b)[^github.com/astridx/boilerplate/compare/t1...t1b] and include these changes in your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t1...t1b)[^codeberg.org/astrid/j4examplecode/compare/t1...t1b] and include these changes in your development version.
 
 ## Step by step
 

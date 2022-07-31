@@ -34,7 +34,7 @@ Wenn ein Parameter bei den drei Möglichkeiten gesetzt ist, gilt in Joomla stand
 
 Beim Menüpunkt hatten wir schon einen Parameter gesetzt. Für die Komponente gibt es diesen in den Optionen der Konfiguration. Das Item im Speziellen nehmen wir uns in diesem Abschnitt vor.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t17...t18)[^github.com/astridx/boilerplate/compare/t19...t18] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t17...t18)[^codeberg.org/astrid/j4examplecode/compare/t19...t18] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

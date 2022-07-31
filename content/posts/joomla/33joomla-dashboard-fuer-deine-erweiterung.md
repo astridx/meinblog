@@ -17,7 +17,7 @@ tags:
 
 Umfangreiche Joomla Core-Erweiterungen verfügen über ein Dashboard, in dem zusammengehörige Funktionen angezeigt werden. Das ist benutzerfreundlich, weil es einen Überblick bietet. So kann sich sich ein Benutzer ohne viele Klicks in der Erweiterung orientieren. In diesem Teil erstellen wir ein solches Dashboard für unsere Beispielkomponente.<!-- \index{Dashboard} -->
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27...t28)[^github.com/astridx/boilerplate/compare/t27...t28] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27...t28)[^codeberg.org/astrid/j4examplecode/compare/t27...t28] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 

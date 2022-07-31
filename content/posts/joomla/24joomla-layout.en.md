@@ -17,7 +17,7 @@ tags:
 
 Sometimes it is necessary to design the display differently in the frontend. This is basically the responsibility of the template. A component is responsible for the output of content, no more and no less. The template ensures a uniform appearance. Nevertheless, there are use cases for different layouts. How you incorporate them for a view is the topic of the following article.<!-- \index{layout} -->
 
-> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t19...t20)[^github.com/astridx/boilerplate/compare/t19...t20] and copy these changes into your development version.
+> For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t19...t20)[^codeberg.org/astrid/j4examplecode/compare/t19...t20] and copy these changes into your development version.
 
 ## Step by step
 
