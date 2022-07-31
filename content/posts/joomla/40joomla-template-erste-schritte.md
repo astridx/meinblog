@@ -60,7 +60,7 @@ Wie schon erwähnt ist eine Komponente für die Darstellung des _Hauptinhalts_ z
 
 Der Vollständigkeit halber legen wir hier die Datei `component.php` an und fügen den Text `Component` ein. Auf diese Weise ist es möglich, sie später zu testen.
 
-[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/component.php)
+[templates/facile/component.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/component.php
@@ -88,7 +88,7 @@ Meiner Meinung nach beinhaltet eine gute Fehlerseite:
 
 Damit du weißt, wie und wo du deine Fehlerseite implementierst, habe ich die Datei `templates/facile/error.php` erstellt. Diese beinhaltet nichts weiter als das Wort `Error`. So ist es möglich, die Seite zu testen. Lasse deiner Phantasie bei den Inhalten und dem Design einer eigenen indiviudellen Fehlerseite freien Lauf.
 
-[templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
+[templates/facile/error.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/error.php
@@ -105,7 +105,7 @@ Im Joomla 4 Standardtemplate Cassiopeia ist die Datei `error.php` ebenfalls impl
 
 Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammenarbeitet. Das nachfolgende Codeschnipsel zeigt dir einen minimaler Aufbau.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/index.php
@@ -129,7 +129,7 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 	<title>Titel</title>
   </head>
   <body>
-	Hallo Joomla!
+	Hallo Joomla
   </body>
 </html>
 
@@ -143,13 +143,13 @@ Dann deklarieren wir mit `<!doctype html>` den [Dokumententyp](https://www.w3.or
 
 Was dann folgt, ist ein kleinstmöglicher Aufbau einer HTML-Seite. Diese Seite wird mit `<html>` eröffnet und endet mit `</html>`. Der Kopfbereich beginnt mit `<head>` und endet mit `</head>`. Der Body beginnt mit `<body>` und endet mit `</body>`.
 
-Genug erklärt. So sieht die Website minimal aus. Sie lädt noch keine Inhalte aus Joomla! Mir ging es hier in erste Linie darum zu zeigen, dass die `index.php` des aktiven Templates für alles verantwortlich ist. In unserem Fall ist dies die Datei `templates/facile/index.php`. Bisher hält sich die Verantwortung in Grenzen. Es wird lediglich die Begrüßung `Hallo Joomla!` am Bildschirm ausgegeben.
+Genug erklärt. So sieht die Website minimal aus. Sie lädt noch keine Inhalte aus Joomla Mir ging es hier in erste Linie darum zu zeigen, dass die `index.php` des aktiven Templates für alles verantwortlich ist. In unserem Fall ist dies die Datei `templates/facile/index.php`. Bisher hält sich die Verantwortung in Grenzen. Es wird lediglich die Begrüßung `Hallo Joomla` am Bildschirm ausgegeben.
 
 ##### templates/facile/ language/en-GB/en-GB.tpl_facile.ini
 
 Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` sorgt dafür, dass im Backend bei der Verwaltung der Erweiterungen der Name zur Sprache passend angezeigt wird.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini
@@ -162,7 +162,7 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 Die Sprachdatei `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` übersetzt die Texte im Menü oder während der Installation in die korrekte Sprache.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
@@ -183,7 +183,7 @@ Der nachfolgende minimalistisch Code sorgt dafür, dass ein Anmeldeformular ange
 
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
-[templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/offline.php)
+[templates/facile/ offline.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/offline.php
@@ -246,7 +246,7 @@ Die Datei `templateDetails.xml` (beachte das große D) ist nach `index.php` die 
 
 In der Datei `templateDetails.xml` werden in der Regel die Modulpositionen angelegt und über den Befehl `jdoc:include` in der `index.php` in die Website eingebunden. Dies werden wir in einem später Teil tun. Optional können wir Parameter anlegen, um das Template via Backend anpassbar zu machen. Im weiteren Verlauf dieses Textes habe ich `logoFile`, `siteTitle` und `siteDescription` als Parameter eingefügt. Schauen wir uns aber zunächst eine minimale Version der `templateDetails.xml` im folgenden Code-Schnipsle an.
 
-[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
+[src/templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/templateDetails.xml -->

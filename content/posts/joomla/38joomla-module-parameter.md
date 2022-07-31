@@ -34,7 +34,7 @@ In diesem Teil wurden lediglich Dateien geändert. Es gibt keine neuen Dateien.
 <!-- prettier-ignore -->
 ##### modules/mod\_foo/ language/en-GB/en-GB.mod_foo.ini
 
-[modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+[modules/mod_foo/language/en-GB/en-GB.mod_foo.ini](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 Die Beschriftung des Parameters im Administrationsbereich soll sich an die aktive Sprache anpassen. Aus diesem Grund nutzen wir die Sprachdatei.
 
@@ -68,7 +68,7 @@ $test  = FooHelper::getText();
 
 Im Manifest fügen wir den neuen Paramter hinzu, so dass dieser im Joomla Backend bearbeitbar ist.
 
-[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
  		<folder>language</folder>
@@ -103,7 +103,7 @@ In der moduleigenen Template-Datei können wir nun auf den Wert des Parameters z
 
 > Ein Beispiel für die komplexere Anwendung eines Parameters ist eine digitale Landkarte, auf der anhand von Parametern Steuerelemente wie `Lokalisiere mich` oder eine Auswahl des Kartentyps ermöglicht wird.
 
-[modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
+[modules/mod_foo/tmpl/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

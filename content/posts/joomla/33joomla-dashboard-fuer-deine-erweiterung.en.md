@@ -28,7 +28,7 @@ Extensive Joomla Core extensions have a dashboard in which related functions are
 
 In the file `administrator/components/com_foos/presets/foos.xml` we define what is displayed on the dashboard by default.
 
-[administrator/components/com_foos/ presets/foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/presets/foos.xml)
+[administrator/components/com_foos/ presets/foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/presets/foos.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t28/src/administrator/components/com_foos/presets/foos.xml -->
@@ -74,7 +74,7 @@ In the file `administrator/components/com_foos/presets/foos.xml` we define what 
 
 We modify the XML manifest so that the sidebar in the Joomla administration template knows how to link to the dashboard.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
      </media>
@@ -123,7 +123,7 @@ We modify the XML manifest so that the sidebar in the Joomla administration temp
 
 In the installation script we add the call. With this, we call a Joomla-specific function that makes our dashboard known in the CMS.
 
-[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/t28/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t28/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;

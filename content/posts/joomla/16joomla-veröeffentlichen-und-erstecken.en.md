@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-05
+date: 2022-08-01
 title: 'Publish and Unpublish / Hide'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -35,7 +35,7 @@ If you worked with Joomla, you know it from other components: Items have a statu
 
 In case of an update, the database is updated to the latest version for version 13 using the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. Specifically, columns are added for saving the data for publication.
 
-[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql)
 
 ```xml {numberLines: -2}
 <!--  https://codeberg.org/astrid/j4examplecode/raw/branch/t13/src/administrator/components/com_foos/sql/updates/mysql/13.0.0.sql -->
@@ -54,7 +54,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_state` (`published`);
 
 Now Joomla needs the class `AdminController`. Therefore, we create the class `FoosController`, which inherits from `AdminController`. At the moment, `FoosController` does not contain any implementations of its own. The controller only calls methods of the parent class.
 
-[administrator/components/com_foos/ src/Controller/FoosController.php](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
+[administrator/components/com_foos/ src/Controller/FoosController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Controller/FoosController.php)
 
 ```php {numberLines: -2}
 <?php
@@ -127,7 +127,7 @@ class FoosController extends AdminController
 
 Three fields are added to the form. One, in which the status is set and two, through which a scheduled publication is achieved with the help of a calendar.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
 
@@ -179,7 +179,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 
 `administrator/components/com_foos/ sql/install.mysql.utf8.sql` is used in the case of a new installation to create the database. Therefore, we add the necessary information here. We had already added this in the file `administrator/components/com_foos/ sql/updates/mysql/13.0.0.sql`. This file is only used during an update.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `access` int(10) unsigned NOT NULL DEF
@@ -205,7 +205,7 @@ Three fields are added to the form. One, in which the status is set and two, thr
 
 The component class receives the new function 'getStateColumnForSection'. This is used to show in the category view how many items are published or hidden. Remember. We introduced categories in the previous part. Then this part did not work in the category view. Now it is counted correctly. See for yourself after you have added this function to the component in Joomla.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  protected function getTableNameForSection(string $section = null)
@@ -226,7 +226,7 @@ The component class receives the new function 'getStateColumnForSection'. This i
 
 We extend the model so that the information about the status is retrieved from the database when the list view is created for the backend.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  protected function getListQuery()
@@ -247,7 +247,7 @@ In the file `administrator/components/com_foos/ src/Table/FooTable.php`, which m
 
 We need `store($updateNulls = true)` because the parent class `Table` sets the variable `$updateNulls` to `false`. This causes form fields that hold the value `null` not to be changed in the database. Most of the time this is correct. The most common case is probably that a value is not set from the beginning and has not been changed in the form when editing the element. Because an empty date field is stored in the database with `null`, it is necessary in our case to force the storage of `null` values. This is done by setting the variable `$updateNulls` to `true`.
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  public function generateAlias()
@@ -297,7 +297,7 @@ We need `store($updateNulls = true)` because the parent class `Table` sets the v
 
 In the form for editing an element, we make sure that the new fields are rendered.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  	<?php echo $this->getForm()->renderField('alias'); ?>
@@ -316,9 +316,9 @@ In the form for editing an element, we make sure that the new fields are rendere
 
 Finally, we add to the overview list in the backend. We create a column for displaying the publication status.
 
-> Are you wondering about the the tags `<td>` and `<th>`. This seems to be a mistake at first sight. But it is correct. You can find more information in this [Github-Issue](https://github.com/joomla/joomla-cms/pull/24546).
+> Are you wondering about the the tags `<td>` and `<th>`. This seems to be a mistake at first sight. But it is correct. You can find more information in the Github-Issue 24546 [^github.com/joomla/joomla-cms/pull/24546].
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/2239e7093f3bbc66055d2d8134b635955458c4b2/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t13/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  					<table class="table" id="fooList">

@@ -40,9 +40,9 @@ Im aktuellen Abschnitte kommen zwei Datei hinzu, die außerhalb der Website gesp
 
 #### foo_update.xml (Update Server)<!-- \index{Update Server} -->
 
-Du hast der Komponente in der Datei [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) mitgeteilt, wo sie sich über Updates informiert. Nämlich in der Datei `foo_update.xml`.
+Du hast der Komponente in der Datei [administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml) mitgeteilt, wo sie sich über Updates informiert. Nämlich in der Datei `foo_update.xml`.
 
-Erstelle die Datei [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). Die Datei kann beliebig benannt werden, solange der Name mit dem Namen übereinstimmt, den du in der Installations-XML [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) festgelegt hast.
+Erstelle die Datei [foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml). Die Datei kann beliebig benannt werden, solange der Name mit dem Namen übereinstimmt, den du in der Installations-XML [administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml) festgelegt hast.
 
 Das Tag `updates` umgibt alle Update-Elemente. Erstelle einen neuen Update-Abschnitt, wenn du eine neue Version veröffentlichst.
 
@@ -84,7 +84,7 @@ Der Wert des `client`-Tags beschreibt die `client_id` in der Datenbanktabelle `#
 
 Nachfolgend siehst du die vollständige Datei.
 
-[foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml)
+[foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/foo_update.xml
@@ -97,7 +97,7 @@ Nachfolgend siehst du die vollständige Datei.
         <type>component</type>
         <version>1.0.1</version>
 		<changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
-		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
+		<infourl title="agosms">https://codeberg.org/astrid/j4examplecode/src/branch/v1.0.1/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
         </downloads>
@@ -116,7 +116,7 @@ Nachfolgend siehst du die vollständige Datei.
 
 Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/joomla-cms/pull/24026](https://github.com/joomla/joomla-cms/pull/24026) und in der [Joomla Dokumentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file/de)[^docs.joomla.org/adding_changelog_to_your_manifest_file/de]. Nachfolgend siehst du eine Beispieldatei.
 
-[changelog.xml](https://github.com/astridx/boilerplate/blob/t1b/changelog.xml)
+[changelog.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/changelog.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/changelog.xml
@@ -169,7 +169,7 @@ Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/
 
 Lediglich die Versionsnummer wurde angepasst. Diese Änderung ist in ähnlicher Form in jedem neuen Kapitel erforderlich, da immer eine neue Funktion hinzu kommt. Ich erwähne das im weiteren nicht explizit.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<authorUrl>[AUTHOR_URL]</authorUrl>

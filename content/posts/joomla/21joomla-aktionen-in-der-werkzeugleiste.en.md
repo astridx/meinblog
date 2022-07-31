@@ -43,7 +43,7 @@ The following code shows you which functions you use when creating or editing an
 
 We add permission checking here. A button is displayed only if the user is authorized to use it. The [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) function collects the permissions implemented in the `access.xml` file, which are allowed to the currently logged in user. If this is the case, then `$canDo->get('...')` equals `true`. A concrete example: `$canDo->get('core.create')` is `true` if the user is allowed to create content.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	{
@@ -126,7 +126,7 @@ We add permission checking here. A button is displayed only if the user is autho
 
 Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected function addToolbar()

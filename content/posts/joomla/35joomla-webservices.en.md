@@ -306,7 +306,7 @@ The output format is JSON and looks like this:
 }
 ```
 
-Do you use [postman.com](https://www.postman.com/)? Then the [collection](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] might be helpful for you. It contains additional queries for `com_content`.
+Do you use [postman.com](https://www.postman.com/)? Then the [collection](https://codeberg.org/astrid/j4examplecode/src/branch/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] might be helpful for you. It contains additional queries for `com_content`.
 
 > I like to use the addon [restclient](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient/] in Firefox.
 

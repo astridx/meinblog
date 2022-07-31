@@ -36,7 +36,7 @@ Die Ansicht der Website im Frondend und der Administrationsbereich nutzen jeweil
 Du kannst mithilfe eines Semikolons `;` eine Zeile als Kommentar markieren.
 
 ```
-; Joomla! Project
+; Joomla Project
 ; (C) 2005 Open Source Matters, Inc. <https://www.joomla.org>
 ; License GNU General Public License version 2 or later; see LICENSE.txt
 ; Note : All ini files need to be saved as UTF-8

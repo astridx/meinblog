@@ -34,7 +34,7 @@ The initial situation: Imagine you want to make the directions for each item in 
 
 So that everything can be managed from one place, you start the call in the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`. This file uses a container, or rather the interface `ContainerInterface`.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t27a1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
@@ -59,7 +59,7 @@ public function boot(ContainerInterface $container)
 
 We print the directions as text using the `displayDirection` method of the `Direction` class.
 
-[administrator/components/com_foos/ src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/blob/t27a1/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
+[administrator/components/com_foos/ src/Service/HTML/Direction.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
 
 ```php {diff}
 +<?php
@@ -110,7 +110,7 @@ We print the directions as text using the `displayDirection` method of the `Dire
 
 The template `default.php` in the directory `components/com_foos/ tmpl/foo/` is responsible for the actual output.
 
-[components/com_foos/tmpl/ foo/default.php](https://github.com/astridx/boilerplate/blob/t27a1/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/ foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  	</div>
@@ -146,7 +146,7 @@ For some items you have a descriptive graphic that shows the location. For anoth
 
 First, we prepare a class for each description type. Each class can prepare the text for the directions separately and therefore well arranged. In this step, we next display the description for each type.
 
-[administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/blob/t27a2/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
+[administrator/components/com_foos/src/Service/HTML/Direction.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a2/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
 
 ```php {diff}
 
@@ -197,7 +197,7 @@ public function __construct()
 
 Below you see the class that is responsible for displaying the image.
 
-[administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://github.com/astridx/boilerplate/blob/t27a2/src/administrator/components/com_foos/src/Service/HTML/Directions/Image.php)
+[administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a2/src/administrator/components/com_foos/src/Service/HTML/Directions/Image.php)
 
 ```php {diff}
 +<?php
@@ -255,7 +255,7 @@ Below you see the class that is responsible for displaying the image.
 
 The most complex is probably the creation of the route via the digital map, which is the task of the class 'Map'.
 
-[administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://github.com/astridx/boilerplate/blob/t27a2/src/administrator/components/com_foos/src/Service/HTML/Directions/Map.php)
+[administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a2/src/administrator/components/com_foos/src/Service/HTML/Directions/Map.php)
 
 ```php {diff}
 +<?php
@@ -313,7 +313,7 @@ The most complex is probably the creation of the route via the digital map, whic
 
 The class named 'Text' prepares the textual description of the route.
 
-[administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://github.com/astridx/boilerplate/blob/t27a2/src/administrator/components/com_foos/src/Service/HTML/Directions/Text.php)
+[administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a2/src/administrator/components/com_foos/src/Service/HTML/Directions/Text.php)
 
 ```php {diff}
 +<?php
@@ -389,7 +389,7 @@ An interface is a contract between the implementing class and the calling class.
 
 In the component class we add everything necessary for the service `Direction`.
 
-[administrator/components/com_foos/src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use Joomla\CMS\Helper\ContentHelper;
@@ -429,7 +429,7 @@ public function boot(ContainerInterface $container)
 
 The file `DirectionExtensionInterface.php` contains the interface `DirectionExtensionInterface` which ensures that the function `findDirection()` is available to all implementing classes. Put simply, the contract is: if a class implements the interface, then it provides a solution for the containing functions.
 
-[administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php)
+[administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php)
 
 ```php {diff}
 +<?php
@@ -468,7 +468,7 @@ The file `DirectionExtensionInterface.php` contains the interface `DirectionExte
 
 DirectionServiceInterface' is another interface. It defines which interface the service supports and how it can be accessed. Specifically, we use `DirectionExtensionInterface`, which we discussed in the previous section. We can retrieve this via `getDirectionExtension`.We will do the latter in a concrete example below.
 
-[administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php)
+[administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceInterface.php)
 
 ```php {diff}
 +<?php
@@ -507,7 +507,7 @@ DirectionServiceInterface' is another interface. It defines which interface the 
 
 The trait `DirectionServiceTrait` provides a standard implementation of the functions `getDirectionExtension` and `setDirectionExtension`, so that our contract is for sure fulfilled.
 
-[administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php)
+[administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionServiceTrait.php)
 
 ```php {diff}
 +<?php
@@ -572,7 +572,7 @@ The trait `DirectionServiceTrait` provides a standard implementation of the func
 
 The class `Image` should in any case provide the function `findDirection`. We achieve this by implementing the interface `DirectionExtensionInterface`.
 
-[administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Image.php)
+[administrator/components/com_foos/src/Service/HTML/Directions/Image.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Image.php)
 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -598,7 +598,7 @@ The class `Image` should in any case provide the function `findDirection`. We ac
 
 The class `Map` should also offer the function `findDirection`. We achieve this by also implementing the interface `DirectionExtensionInterface`.
 
-[administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Map.php)
+[administrator/components/com_foos/src/Service/HTML/Directions/Map.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Map.php)
 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -624,7 +624,7 @@ The class `Map` should also offer the function `findDirection`. We achieve this 
 
 Last but not least, `Map` shall provide the function `findDirection`. Therefore, this also implements the interface `DirectionExtensionInterface`.
 
-[administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Text.php)
+[administrator/components/com_foos/src/Service/HTML/Directions/Text.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/HTML/Directions/Text.php)
 
 ```php {diff}
   * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -650,7 +650,7 @@ Last but not least, `Map` shall provide the function `findDirection`. Therefore,
 
 We do not need the class `administrator/components/com_foos/src/Service/HTML/Direction.php` any further. We delete it.
 
-[administrator/components/com_foos/src/Service/HTML/Direction.php](https://github.com/astridx/boilerplate/blob/t27a3/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
+[administrator/components/com_foos/src/Service/HTML/Direction.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/HTML/Direction.php)
 
 ```php {diff}
 -<?php
@@ -715,7 +715,7 @@ We do not need the class `administrator/components/com_foos/src/Service/HTML/Dir
 
 When displaying in the frontend, we can load the component class via `$fooComponent = Factory::getApplication()->bootComponent('com_foos')` and dynamically re-set the interface `$fooComponent->setDirectionExtension(new DirectionMap)` during runtime. This way it is possible to use different implementations for the output `findDirection()`. To ensure that the method `findDirection()` is always available, we have implemented the interface `DirectionExtensionInterface` in the possible DirectionExtensions `DirectionExtension`.
 
-[components/com_foos/tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/t27a3/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Helper\ContentHelper;

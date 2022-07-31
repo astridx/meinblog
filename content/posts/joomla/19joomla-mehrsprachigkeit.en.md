@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-02
+date: 2022-08-01
 title: 'Multilingualism - Multilingual Associations'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-With Joomla it is possible to set up a multilingual website without installing third party extensions. In this tutorial, I'll show you how to program your component to support language linking.<!-- \index{multilingual associations} -->
+With Joomla it is possible to set up a multilingual website without installing third party extensions. In this tutorial, I'll show you how to program your component to support Joomlas multilingual feature.<!-- \index{multilingual associations} -->
 
 > Multilingualism and language links: Multilingual content, menu items and language switches are set up with a standard Joomla installation without any additional extensions. Until version 3.7, Joomla required switching between views to translate content. Since 3.7 there is an improvement in usability, the so-called Multilingual Associations. With this extension, multilingual content can be created and linked in a user-friendly way. Thereby one remains in one view. The language links show incidentally which multilingual content is missing.
 
@@ -32,7 +32,7 @@ So that the language is saved to the element, we add a column to the database ta
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/updates/mysql/15.0.0.sql
 
-[administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/15.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/sql/updates/mysql/15.0.0.sql -->
@@ -50,7 +50,7 @@ The helper file `AssociationsHelper.php` is the interface to the language associ
 
 In this helper file we provide the details that are specific to our component, so that Joomla's own routines can find their way around in our component.
 
-[administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
+[administrator/components/com_foos/ src/Helper/AssociationsHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/src/Helper/AssociationsHelper.php
@@ -290,41 +290,13 @@ class AssociationsHelper extends AssociationExtensionHelper
 ```
 
 <!-- prettier-ignore -->
-#### administrator/components/ com\_foos/ tmpl/foo/edit_associations.php
-
-We don't have any special requests, so we use the default template to edit the language associations. You can find it in the directory `/layouts/joomla/ edit/associations.php`. How to load it is shown in the following example code.
-
-> If you have special wishes, copy `/layouts/joomla/ edit/associations.php` into your component and change it as you wish. How and where you save or call them will be discussed later in the chapter on layouts.
-
-[administrator/components/com_foos/ tmpl/foo/edit_associations.php](https://github.com/astridx/boilerplate/blob/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php)
-
-```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/administrator/components/com_foos/tmpl/foo/edit_associations.php
-
-<?php
-/**
- * @package     Joomla.Administrator
- * @subpackage  com_foos
- *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Layout\LayoutHelper;
-
-echo LayoutHelper::render('joomla.edit.associations', $this);
-```
-
-<!-- prettier-ignore -->
 #### components/com\_foos/ src/Helper/AssociationHelper.php
 
 The `AssociationsHelper.php` helper file is the interface to the `com_associations` language associations component. In it we configure the information that is specific to our component. Once this is done, Joomla's own routines take over and we don't reinvent the wheel.
 
 > Attention: I had already written it: The class `AssociationsHelper.php` exists in the frontend and in the backend: `src/components/com_foos/ src/Helper/AssociationHelper.php` and `src/` `administrator` `/components/com_foos/ src/Helper/AssociationHelper.php`. We had already looked at the file for the backend before.
 
-[components/com_foos/ src/Helper/AssociationHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/Helper/AssociationHelper.php)
+[components/com_foos/ src/Helper/AssociationHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/Helper/AssociationHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/AssociationHelper.php
@@ -399,7 +371,7 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 
 We create the class `RouteHelper` to correctly compose the links we create in this chapter. Within the link there is one more piece of information as a parameter: the language.<!-- \index{routing} -->
 
-[components/com_foos/ src/Helper/RouteHelper.php](https://github.com/astridx/boilerplate/blob/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
+[components/com_foos/ src/Helper/RouteHelper.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t15a/src/components/com_foos/src/Helper/RouteHelper.php
@@ -526,7 +498,7 @@ abstract class RouteHelper
 
 We create a field through which an author selects the language link. This is the field `name="language"`. In order for Joomla to find this field, we add the path in the form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  <?xml version="1.0" encoding="utf-8"?>
@@ -561,7 +533,7 @@ We create a field through which an author selects the language link. This is the
 
 In the provider we register our `AssociationsHelper` as a service that implements [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/ libraries/src/association/associationextensioninterface.php]. This way we ensure that all necessary functions are inherited into our component and are thus available.
 
-[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use Joomla\DI\Container;
@@ -594,7 +566,7 @@ In the provider we register our `AssociationsHelper` as a service that implement
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ sql/install.mysql.utf8.sql
 
-[administrator/components/com_foos/ /install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ /install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 In order for the language to be saved to the element, we add a column in the database table. For new installations, the script `install.mysql.utf8.sql` is the one that is called.
 
@@ -616,7 +588,7 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
 
 > [Traits](https://www.php.net/manual/de/language.oop5.traits.php) are a code reuse mechanism used in programming languages with simple inheritance like PHP.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
 
@@ -648,7 +620,7 @@ In FoosComponent we add `AssociationServiceInterface` and `AssociationServiceTra
 
 We previously used the modal to select a Foo item using a popup when creating a menu item. Now we use it again to select a language link. To make sure that only the matching languages are displayed, we extend the URL with the language information.
 
-[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
+[administrator/components/com_foos/ src/Field/Modal/FooField.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Field/Modal/FooField.php)
 
 ```php {diff}
  		// Setup variables for display.
@@ -676,7 +648,7 @@ We previously used the modal to select a Foo item using a popup when creating a 
 
 We extend the model `administrator/components/com_foos/ src/Model/FooModel.php` used to build the data of an item in regard to the language. In this case `getItem` and `preprocessForm` play the essential role.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -768,7 +740,7 @@ protected function loadFormData()
 
 In the model of the list, besides adding the language information, it is important to update the state via `populateState`. Otherwise the correct language will not be active at each time. The state includes the information which language is active.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -867,7 +839,7 @@ In the model of the list, besides adding the language information, it is importa
 
 We implement the `association` service in `AdministratorService.php`. Via the ID the function returns the HTML markup for editing the language links.<!-- \index{service!administrator} -->
 
-[administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/ src/Service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {diff}
 
@@ -941,7 +913,7 @@ We implement the `association` service in `AdministratorService.php`. Via the ID
 
 If only one language is possible or changing it is not desired, we set the value of the language selection field and protected it from write access. Also, only categories of this language are selectable.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/3e4020a2fb91237a269e49d24b9ff695f4d7ecec/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$this->form  = $this->get('Form');
@@ -968,7 +940,7 @@ If only one language is possible or changing it is not desired, we set the value
 
 The view of the list should contain the sidebar and the toolbar if it is not a modal view or a popup. If the view is modal, the toolbar and sidebar will confuse. In that case we filter the items automatically according to the currently active language.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -1008,7 +980,7 @@ In the form for editing an element we add a form field for specifying the langua
 
 > Why the layout `edit_associations.php` is called in the file `edit.php` with the name `associations`, you might already think. In the part about the layouts, I go into this in more detail.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/a477530dc5e1a7a5d574ee2019951af2a5264eb5/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  use Joomla\CMS\Factory;
@@ -1026,6 +998,8 @@ In the form for editing an element we add a form field for specifying the langua
 +$this->ignore_fieldsets = ['item_associations'];
  $this->useCoreUI = true;
 
+ +$isModal = $input->get('layout') === 'modal';
+
  $wa = $this->document->getWebAssetManager();
 
  						<?php echo $this->getForm()->renderField('publish_up'); ?>
@@ -1038,12 +1012,19 @@ In the form for editing an element we add a form field for specifying the langua
  		</div>
  		<?php echo HTMLHelper::_('uitab.endTab'); ?>
 
-+		<?php if ($assoc) : ?>
-+			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
-+			<?php echo $this->loadTemplate('associations'); ?>
-+			<?php echo HTMLHelper::_('uitab.endTab'); ?>
-+		<?php endif; ?>
-+
++               <?php if (!$isModal && $assoc) : ?>
++                       <?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
++                       <fieldset id="fieldset-associations" class="options-form">
++                               <legend><?php echo Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS'); ?></legend>
++                               <div>
++                                       <?php echo LayoutHelper::render('joomla.edit.associations', $this); ?>
++                               </div>
++                       </fieldset>
++                       <?php echo HTMLHelper::_('uitab.endTab'); ?>
++               <?php elseif ($isModal && $assoc) : ?>
++                       <div class="hidden"><?php echo LayoutHelper::render('joomla.edit.associations', $this); ?></div>
++               <?php endif; ?>
+
  		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 
  		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
@@ -1055,7 +1036,7 @@ In the form for editing an element we add a form field for specifying the langua
 
 In the components overview in the administration area, we add columns to display the language information. We display these columns only when it is required. This is the case when language associations and multilingualism are enabled. To find this out we use Joomla's own functions `Associations::isEnabled()` and `Multilanguage::isEnabled()`.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/d64685046cedc970243139a3c7846c68e6cd56f9/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
@@ -1117,13 +1098,13 @@ In the components overview in the administration area, we add columns to display
 
 1. install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part 16. Select your component and click on `Update Structure`.
+2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part `Publish and Unpublish`. Select your component and click on `Update Structure`.
 
 ![Joomla Published](/images/j4x16x1.png)
 
 3. install at least one more language via `System | Install | Languages`. I chose the german and the persian language.
 
-> [Persian](https://en.wikipedia.org/wiki/Persian_language)[^wikipedia.org/wiki/persian_language] is together with Arabic, Hebrew, Pashto, Urdu, and Sindhi one of the most widely used [RTL](https://en.wikipedia.org/wiki/Right-to-left_script)[^wikipedia.org/wiki/right-to-left_script] writing systems of modern times and can therefore be used to test the RTL integration in Joomla. In a _right-to-left, top-to-bottom_ [script](https://en.wikipedia.org/wiki/Writing_system)[^] (often abbreviated as _right-to-left_ or abbreviated as _RTL_), one writes from right to left on a page, with new lines written from top to bottom. This is in contrast to the left-to-right [writing system](https://en.wikipedia.org/wiki/Writing_system), where writing starts from the left and continues to the right.
+> [Persian](https://en.wikipedia.org/wiki/Persian_language)[^wikipedia.org/wiki/persian_language] is together with Arabic, Hebrew, Pashto, Urdu, and Sindhi one of the most widely used [RTL](https://en.wikipedia.org/wiki/Right-to-left_script)[^wikipedia.org/wiki/right-to-left_script] writing systems of modern times and can therefore be used to test the RTL integration in Joomla. In a _right-to-left, top-to-bottom_ [script](https://en.wikipedia.org/wiki/Writing_system)[^] (often abbreviated as _right-to-left_ or _RTL_), one writes from right to left on a page, with new lines written from top to bottom. This is in contrast to the left-to-right [writing system](https://en.wikipedia.org/wiki/Writing_system), where writing starts from the left and continues to the right.
 
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x1.png)
 
@@ -1131,11 +1112,11 @@ In the components overview in the administration area, we add columns to display
 
 ![Joomla Language Associations - Multilingual Associations in your extension](/images/j4x19x2.png)
 
-5. open the view of an item of your component in the administration area and make sure that the status 'Language' is changeable. Change it from `All` to any language.
+5. open the view of an item of your component in the administration area and make sure that the Language is editable. Change it from `All` to any language.
 
 ![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x3.png)
 
-7. play with the language associations and make sure that everything is associated correctly.
+7. play with the language associations and make sure that everything is associated correctly. Pay attention to the settings for the assigned categories.
 
 ![Joomla Language Links - Multilingual Associations in your extension](/images/j4x19x4.png)
 

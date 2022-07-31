@@ -36,7 +36,7 @@ The frontend view and the administration area each use their own language files.
 You can mark a line as a comment using a semicolon `;`.
 
 ```
-; Joomla! Project
+; Joomla Project
 ; (C) 2005 Open Source Matters, Inc. <https://www.joomla.org>
 ; License GNU General Public License version 2 or later; see LICENSE.txt
 Note : All ini files need to be saved as UTF-8

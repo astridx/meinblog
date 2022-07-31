@@ -28,7 +28,7 @@ Joomla bietet eine Reihe von Funktionen, mit denen es Administratoren möglich i
 
 Die nachfolgende Datei erstellt den mittleren Teil des Formulars, welches zum Anstoßen der Stapelverarbeitung angezeigt wird.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
@@ -82,7 +82,7 @@ Die nachfolgende Datei erstellt den Footer des Formulars, welches zum Anstoßen 
 
 > Wichtig ist, dass du das Formular für die Stapelverarbeitung wie oben bei der Datei `administrator/components/com_foos/ tmpl/foos/default_batch_body.php` beschrieben anlegst. `LayoutHelper` in Kombination mit dem passenden Layout sorgt dafür, dass alle Variablen und IDs so gesetzt sind, dass die Standardfunktionen korrekt ablaufen.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
+[administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
@@ -116,7 +116,7 @@ use Joomla\CMS\Language\Text;
 
 Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betrachten, fügen wir nichts weiter als die Besonderheiten ein: Den Namen des Models, welches für die Datenverarbeitung genutzt wird und die Adresse zu der nach der Abarbeitung weitergeleitet wird. Am Ende rufen wir mit `return parent::batch($model);` die Implementierung von Joomla auf. Fertig! Für die Standardfunktionen ist das Rad bereits von Joomla erfunden.
 
-[administrator/components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Controller/FooController.php)
+[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {diff}
 
@@ -151,7 +151,7 @@ Im Controller implementieren wir die Methode `batch`. Wenn wir es genau betracht
 
 Im Model geben wir an, ob das Kopieren und Verschieben unterstützt wird. Im Falle von `false` wird der Befehl von der Stapelverarbeitung nicht bereitgestellt. Außerdem geben wir die Eigenschaften an, die mithilfe der Batch-Funktion bearbeitbar bin.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 protected $associationsContext = 'com_foos.item';
@@ -175,7 +175,7 @@ protected $associationsContext = 'com_foos.item';
 
 Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Eintrag in der Werkzeugleiste ein.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  			{
@@ -218,7 +218,7 @@ Damit die Stapelverarbeitung per Schaltfläche nutzbar ist, fügen wir einen Ein
 
 Das Template, mit dem das Formular zum Anstoßen der Stapelverarbeitung angelegt wird, erstellen wir unter Zuhilfenahme von `HTMLHelper`.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 		<?php echo $this->pagination->getListFooter(); ?>

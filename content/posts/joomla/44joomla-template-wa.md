@@ -41,7 +41,7 @@ In der Datei `templates/facile/ index.php` ändern wir die Art, wie JavaScript u
 
 Der nachfolgender Codeausschnitt zeigt dir die Änderungen in der Datei `templates/facile/ index.php`.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
 ```{diff}
 

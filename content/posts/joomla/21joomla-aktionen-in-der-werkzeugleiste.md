@@ -44,7 +44,7 @@ Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editie
 
 Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur angezeigt, wenn der Betrachter berechtigt ist, sie zu nutzen. Die Funktion [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) sammelt die in der Datei `access.xml` implementierten Rechte, welche dem gerade angemeldeten Benutzer erlaubt sind. Ist dies der Fall, dann ist `$canDo->get('...')` gleich `true`. Ein konkretes Beispiel: `$canDo->get('core.create')` ist `true`, wenn der Benutzer Inhalte erstellen darf.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	{
@@ -127,7 +127,7 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 
 Hier siehst du beispielhaft die Werkzeugleiste der Listenansicht - die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist hier ebenfalls hinzugekommen.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected function addToolbar()

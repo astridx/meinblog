@@ -47,7 +47,7 @@ The favicon generator creates 9 files which we copy into our template directory.
 
 In order for the files to be found, new lines in the file `templates/facile/ index.php` are required. The variable `$templatePath` helps me to create the relativ path.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/b5c3e2d5113b6e5441f4a4dc079171daacf66bcb/src/templates/facile/index.php)
 
 ```php {diff}
      <meta name="viewport" content="width=device-width, initial-scale=1.0">

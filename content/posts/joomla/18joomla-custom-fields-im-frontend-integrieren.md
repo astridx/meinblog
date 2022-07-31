@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-03
+date: 2022-08-01
 title: 'Custom Fields (Eigene Felder) im Frontend'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -34,14 +34,14 @@ Eigene Felder zeigen im Frontend Daten mithilfe von Ereignisse an. Die benutzerd
 
 Konkret sorgen wir dafür, dass die Ereignisse<!-- \index{Ereignis!onContentAfterDisplay} --><!-- \index{Ereignis!onContentBeforeDisplay} --><!-- \index{Ereignis!onContentAfterTitle} --><!-- \index{Event!onContentAfterDisplay} --><!-- \index{Event!onContentBeforeDisplay} --><!-- \index{Event!onContentAfterTitle} -->
 
-- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/plugin/events/content#oncontentaftertitle],
-- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/plugin/events/content#oncontentbeforedisplay] und
-- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/plugin/events/content#oncontentafterdisplay]
-  ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
+- [onContentAfterTitle](https://docs.joomla.org/Plugin/Events/Content#onContentAfterTitle)[^docs.joomla.org/Plugin/Events/Content#onContentAfterTitle],
+- [onContentBeforeDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentBeforeDisplay] und
+- [onContentAfterDisplay](https://docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay)[^docs.joomla.org/Plugin/Events/Content#onContentAfterDisplay] 
+ausgelöst werden und das Ergebnis in einer Variablen gespeichert wird.
 
-> Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](<https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/beobachter_(entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen, die Beobachter genannt werden, unterhält und diese automatisch über Zustandsänderungen benachrichtigt, normalerweise durch den Aufruf einer ihrer Methoden.<!-- \index{Entwurfsmuster!Beobachter} -->
+> Joomla setzt für die Ereignisbehandlung das [Beobachter-Entwurfsmuster](<https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)>)[^de.wikipedia.org/wiki/beobachter_(Entwurfsmuster)] ein. Hierbei handelt es sich um ein Software-Entwurfsmuster, bei dem ein Objekt eine Liste seiner Abhängigen unterhält. Diese Abhängigen werden Beobachter genannt. Das Objekt benachrichtigt diese automatisch über Zustandsänderungen, normalerweise durch den Aufruf einer ihrer Methoden.<!-- \index{Entwurfsmuster!Beobachter} -->
 
-[components/com_foos/ src/View/Foo/HtmlView.php ](https://github.com/astridx/boilerplate/blob/54b05b97d53ba27cb0a07f1c3f6ba5aa344e2750/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php ](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -91,7 +91,7 @@ Wunderst du dich, dass wir bei den Ereignis-Methoden
 
 Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht umfangreich, deshalb schreiben wir alle gespeicherten Texte hintereinander. In einer komplexeren Datei werden die Events an der passenden Stelle eingefügt.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/6f52944757be5b7839c787338dc81932d7d25b59/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14b/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  }
@@ -104,13 +104,105 @@ Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht u
 
 ```
 
+## Exkurs: Individuelle Positionierung
+
+Benutzerdefinierte Felder können in eigenen Overrides beliebig positioniert werden.
+
+### Aufruf eines Feldes in einem Override
+
+Grundsätzlich stehen alle benutzerdefinierten Felder die dem aktuellen Element zugehören im Template `components/com_foos/ tmpl/foo/default.php` zur Verfügung. Der Aufruf erfolgt über eine Eigenschaft der Variable `$this->item` mit dem Namen `jcfields`. Die Variable `$this->item->jcfields` ist ein Array, welcher beispielsweise die folgenden Daten pro Feld enthält:
+
+```
+stdClass Object
+(
+    [id] => 1
+    [alias] => nina
+    [publish_down] => 
+    [publish_up] => 
+    [published] => 0
+    [state] => 0
+    [catid] => 8
+    [access] => 1
+    [name] => Nina
+    [params] => 
+    [jcfields] => Array
+        (
+            [1] => stdClass Object
+                (
+                    [id] => 1
+                    [title] => Text Custom Field
+                    [name] => text-custom-field
+                    ...
+                )
+
+        )
+
+    [event] => stdClass Object
+        (
+            [afterDisplayTitle] => 
+            [beforeDisplayContent] => 
+
+
+        
+        Text Custom Field: 
+    Custom Field Value
+
+
+            [afterDisplayContent] => 
+        )
+
+)
+```
+
+### Das Feld individuell rendern
+
+Um das Feld im Template `components/com_foos/ tmpl/foo/default.php` zu rendern, kann `FieldsHelper::render()` verwendet werden.
+
+> Die Klasse `FieldsHelper` findest du in der Datei `administrator/components/com_fields/src/Helper/FieldsHelper.php`, falls du dir die Methode selbst genauer ansehen möchtest.
+
+#### Ein einfaches Override
+
+```php
+<?php foreach ($this->item->jcfields as $field) : ?>
+<?php echo $field->label . ':' . $field->value; ?>
+<?php endforeach ?>
+```
+
+#### Override mithilfe von FieldsHelper
+
+```php
+<?php JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php'); ?>
+<?php foreach ($this->item->jcfields as $field) : ?>
+<?php echo FieldsHelper::render($field->context, 'field.render', array('field' => $field)); ?>
+<?php endforeach ?>
+```
+
+### Felder individuell laden
+
+Um einzelne Felder zum Inhalt hinzuzufügen, wähle zunächst spezifische Namen für die benutzerdefinierten Felder aus. So ist es möglich mithilfe des Feldname das Feld im Override-Code zur Datei `components/com_foos/ tmpl/foo/default.php` direkt anzusprechen. Setze im Joomla Backend die automatische Anzeige für das Feld auf `Nein`. So verhinderst du, dass es automatisch an einer der Standardpositionen angezeigt wird. Füge den folgenden Code am Anfang der Template-Datei `components/com_foos/ tmpl/foo/default.php` oder deren Override ein, um den direkten Zugriff via Namen auf Felder in den Overrides zu verwenden. 
+
+```php
+<?php 
+foreach($item->jcfields as $jcfield) {
+  $item->jcFields[$jcfield->name] = $jcfield;
+}
+?>
+```
+
+Füge schließlich die Einfügeanweisung des Feldes an die Stelle ein, an der die Feldbezeichnung oder der Feld-Wert angezeigt werden soll. 
+
+```php
+<?php echo $item->jcFields['DEINFELDNAME']->label; ?>
+<?php echo $item->jcFields['DEINFELDNAME']->value; ?>
+``` 
+
+> Weiterführende Informationen findest du in der Joomla Dokumentation[^docs.joomla.org/J3.x:Adding_custom_fields/Overrides/de]
+
 ## Teste deine Joomla-Komponente
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation. Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehenden Teil weiter.
 
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Klicke auf den Menüpunkt `Fields` in diesem neuen Menü.
-
-![Joomla Eigene Felder in eine eigene Komponente integrieren | Feld im Backend anlegen.](/images/j4x17x1.png)
+2. Öffne die Ansicht deiner Komponente im Administrationsbereich. 
 
 3. Erstelle danach ein benutzerdefiniertes Feld vom Typ `Text` oder stelle sicher, dass das im vorherigen Kapitel erstellte benutzerdefinierte Feld veröffentlicht ist.
 
@@ -118,7 +210,7 @@ Im Template geben wir die eigenen Felder aus. In unserem Fall ist dieses nicht u
 
 ![Joomla Eigene Felder in eine eigene Komponente integrieren | Feld im Backend mit einem Wert belegen.](/images/j4x18x1.png)
 
-5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Du siehst jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
+5. Öffne am Ende die Detailansicht des eben bearbeiteten Foo-Items. Lege hierfür einen Menüpunkt an. Du siehst jetzt zusätzlich den Text, den du im benutzerdefinierten Feld eingetragen hast.
 
 ![Joomla Eigene Felder in eine eigene Komponente integrieren | Wert des Feldes im Frontend anzeigen.](/images/j4x18x2.png)
 <img src="https://vg08.met.vgwort.de/na/b28a1a8aaac2416a8a4a480959615bb6" width="1" height="1" alt="">

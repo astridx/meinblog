@@ -28,7 +28,7 @@ There are several reasons for allowing a user to edit in the frontend. One is th
 
 The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
-[administrator/components/com_foos/ src/Service/HTML/Icon.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{service!Icon for frontend editing} -->
+[administrator/components/com_foos/ src/Service/HTML/Icon.php](https://codeberg.org/astrid/j4examplecode/src/branch/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{service!Icon for frontend editing} -->
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/administrator/components/com_foos/src/Service/HTML/Icon.php
@@ -241,7 +241,7 @@ class Icon
 
 We adapt the XML file that Joomla uses to build the form.
 
-[components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
+[components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
@@ -398,7 +398,7 @@ The file `components/com_foos/ src/Controller/FooController.php` contains the lo
 
 > Note the function `save`. This is not usual in the `FormController`, because Joomla takes care of everything for you. Since the ID is first created when an element is created and is therefore not known, Joomla forwards to the overview page after creation. We have not yet created this in the frontend. That is why I have changed this function here.
 
-[components/com_foos/ src/Controller/FooController.php](https://github.com/astridx/boilerplate/blob/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
+[components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Controller/FooController.php
@@ -637,7 +637,7 @@ class FooController extends FormController
 
 The file `components/com_foos/ src/Model/FormModel.php` organises all the necessary data for processing in the form.
 
-[components/com_foos/ src/Model/FormModel.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
+[components/com_foos/ src/Model/FormModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Model/FormModel.php
@@ -874,7 +874,7 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 
 The file `components/com_foos/ src/View/Form/HtmlView.php` fetches all the necessary data and passes it on to the template file `edit.php`.
 
-[components/com_foos/ src/View/Form/HtmlView.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
+[components/com_foos/ src/View/Form/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/View/Form/HtmlView.php
@@ -1086,7 +1086,7 @@ If the authorisation check fails, you are immediately redirected to the registra
 
 As a template, `components/com_foos/ tmpl/form/edit.php` ensures that the form is already displayed in the frontend.
 
-[components/com_foos/ tmpl/form/edit.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
+[components/com_foos/ tmpl/form/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.php
@@ -1199,7 +1199,7 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 
 Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to create the menu item.
 
-[components/com_foos/ tmpl/form/edit.xml](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
+[components/com_foos/ tmpl/form/edit.xml](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.xml -->
@@ -1227,7 +1227,7 @@ Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to
 
 In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  defined('JPATH_PLATFORM') or die;
@@ -1260,7 +1260,7 @@ In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`
 
 We extend the template for the view: If you are allowed to edit the element `if ($canEdit)`, then you see the icon to open the form.
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
   */

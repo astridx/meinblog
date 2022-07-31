@@ -28,7 +28,7 @@ We already use layouts. The empty state Layout (`administrator/components/com_fo
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withhead.php
 
-[components/com_foos/ tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
+[components/com_foos/ tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
 
 ```php {numberLines: -2}
 <?php
@@ -57,7 +57,7 @@ echo $this->item->event->afterDisplayContent;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withhead.xml
 
-[components/com_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
+[components/com_foos/ tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withhead.xml -->
@@ -93,7 +93,7 @@ echo $this->item->event->afterDisplayContent;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withheadandfoot.php
 
-[components/com_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
+[components/com_foos/ tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withheadandfoot.php
@@ -129,7 +129,7 @@ echo $this->item->event->afterDisplayContent;
 
 In the form of the element we add a field to select the layout.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  				<option value="0">JHIDE</option>
@@ -173,7 +173,7 @@ This is what happens during development. Basically we would not have to change t
 
 In the case of a menu item, I think it is important that it - or the content and design - is always displayed consistently. That is why we query the active menu item. If, for example, elements are displayed via a category view, then a uniform layout is possible with the help of this information. If the content is displayed as a single element, a different layout can be used.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);

@@ -30,7 +30,7 @@ The checkout function avoids unexpected results that occur when two users edit t
 
 Like all properties of a Foo element, the checkout state is stored in the database. We create two columns. Below you can see the script that is called during a Joomla update.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t21/src/administrator/components/com_foos/sql/updates/mysql/21.0.0.sql -->
@@ -50,7 +50,7 @@ ALTER TABLE `#__foos_details` ADD KEY `idx_checkout` (`checked_out`);
 
 In the form we add the fields for saving the state. We hide them with the attribute `hidden`, as they are not changed by the user here. Joomla sets the values automatically in the background.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			size="1"
@@ -79,7 +79,7 @@ In the form we add the fields for saving the state. We hide them with the attrib
 
 We add the database changes that we entered above for the update in the separate SQL file to the SQL script that is called during a new installation.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 AFTER `alias`;
@@ -101,7 +101,7 @@ In the model, we adjust everything so that the two new columns are loaded correc
 
 > Note the change `array(...)` to `explode(', ',$this->getState(...)...)`. We now use the PHP function [`explode`](https://www.php.net/manual/de/function.explode.php) together with `getState` to create the array for the database query. This is safer and more error-tolerant.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  		// Select the required fields from the table.
@@ -150,7 +150,7 @@ In the model, we adjust everything so that the two new columns are loaded correc
 
 In the list view we do not insert a separate column. A symbol is displayed by the name if the element is locked. To display this, I choose the function that Joomla uses in its own extensions: `echo HTMLHelper::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'foos.', true)`. At the same time, this takes over the check whether the contribution is released or not.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://github.com/astridx/boilerplate/blob/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/cf5374b964e155e82d4afbeb30362486e6a02227/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  									<?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>

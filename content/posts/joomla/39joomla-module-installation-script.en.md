@@ -36,7 +36,7 @@ Using the example of the script file, I show that many things are applied in the
 
 The point is to clarify the procedure. That's why this script file only takes care of setting minimum requirements and outputting texts. There are no limits to your imagination to extend this file.
 
-[modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/t34/src/modules/mod_foo/script.php)
+[modules/mod_foo/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t34/src/modules/mod_foo/script.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t34/src/modules/mod_foo/script.php
@@ -170,7 +170,7 @@ class mod_fooInstallerScript
 
 The language strings for the display of the language strings in the active language, we insert into the `en-GB.mod_foo.sys.ini`. Yes, this time the language file with the extension `*.sys.ini`, because the texts are used during the installation.
 
-[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 ```ini {diff}
 MOD_FOO="[PROJECT_NAME]"
@@ -187,7 +187,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 Finally, we enter the name of the script file in the manifest so that the installation routine will copy it to the right place and call it.
 
-[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
 ```xml {diff}
 <license>GNU General Public License version 2 or later; see LICENSE.txt</license>

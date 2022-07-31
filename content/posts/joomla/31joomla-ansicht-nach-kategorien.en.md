@@ -17,7 +17,7 @@ tags:
 
 Why use categories? Categories are often used when there are many posts on a site. With the help of categories, they can be grouped and managed more easily. Example: In the component content, articles can be filtered by category. If there are 200 articles on the site, it is easier to find a post if you know its category.<!-- \index{categories!frontend} -->
 
-For the frontend, there are built-in menu item types in Joomla! that use categories: Category Blog and Category List. The menu item types or layouts simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable. For example, imagine a blog layout of the 'Events' category that displays the latest articles first on the site. When a new article is added to this category, it will automatically appear at the top of the Events blog. All you have to do is add the post to the category. The category structure, for example 'Events | Online Events | Sports | Yoga', is completely independent of the site's menu structure. The site can have one or six menu levels and `Yoga` can be placed as a menu item in the first level.
+For the frontend, there are built-in menu item types in Joomla that use categories: Category Blog and Category List. The menu item types or layouts simplify the display of posts in a category. When a new post is assigned to the category, it automatically appears on the page. This display is configurable. For example, imagine a blog layout of the 'Events' category that displays the latest articles first on the site. When a new article is added to this category, it will automatically appear at the top of the Events blog. All you have to do is add the post to the category. The category structure, for example 'Events | Online Events | Sports | Yoga', is completely independent of the site's menu structure. The site can have one or six menu levels and `Yoga` can be placed as a menu item in the first level.
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t25...t26)[^codeberg.org/astrid/j4examplecode/compare/t25...t26] and copy these changes into your development version.
 
@@ -32,7 +32,7 @@ For the frontend, there are built-in menu item types in Joomla! that use categor
 
 The class we use to prepare the data for displaying the category view extends the `ListModel` class in the `/libraries/src/MVC/Model/ListModel.php` file, as does the `FeaturedModel` class in `components/com_foos/src/Model/FeaturedModel.php`. ListModel provides, among other things, the ability to handle the display of multiple items simultaneously on a web page, including support for pagination. Below I include my full code, which is derived from `com_contact`.
 
-[components/com_foos/ src/Model/CategoryModel.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Model/CategoryModel.php)
+[components/com_foos/ src/Model/CategoryModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Model/CategoryModel.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Model/CategoryModel.php
@@ -494,7 +494,7 @@ class CategoryModel extends ListModel
 
 In the `Category` service for the frontend part we set the specific options for our component.
 
-[components/com_foos/ src/Service/Category.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/category.php)<!-- \index{service!category} -->
+[components/com_foos/ src/Service/Category.php](https://codeberg.org/astrid/j4examplecode/src/branch/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/Service/category.php)<!-- \index{service!category} -->
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/Service/Category.php
@@ -545,7 +545,7 @@ class Category extends Categories
 
 We handle the category view in the frontend via the file `components/com_foos/ src/View/Category/HtmlView.php`.
 
-[components/com_foos/ src/View/Category/HtmlView.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/View/Category/HtmlView.php)
+[components/com_foos/ src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/src/View/Category/HtmlView.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/src/View/Category/HtmlView.php
@@ -665,7 +665,7 @@ class HtmlView extends CategoryView
 
 That we also create a template for the category view is not new. As usual we create the file `default.php` in the directory `components/com_foos/tmpl/category`. We use `joomla.content.category_default` here. You can find this layout file in the folder `layouts/joomla/content/category_default.php`.
 
-[components/com_foos/tmpl/category/default.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
+[components/com_foos/tmpl/category/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default.php
@@ -698,7 +698,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 Um im Backend auf benutzerfreundliche Art und Weise einen Menüpunkt für die Navigation im Frontend anlegen zu können, erstellen wir die Datei `components/com_foos/tmpl/category/default.xml`. Das haben wir hier im Text vorher schon öfter erledigt. Beispielsweise für ein Element oder für die Ansicht der Haupteinträge (`featured`).
 
-[components/com_foos/tmpl/category/default.xml](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
+[components/com_foos/tmpl/category/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default.xml)
 
 ```xml {numberLines: -2}
 <!-- https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default.xml -->
@@ -771,7 +771,7 @@ Um im Backend auf benutzerfreundliche Art und Weise einen Menüpunkt für die Na
 
 To make the category view code clear, we work with layouts. In the template `components/com_foos/tmpl/category/default.php` we use the layout `joomla.content.category_default`. This in turn requires the `items` layout, which we implement in the file `components/com_foos/tmpl/category/default_items.php`. At first glance, this seems cumbersome. In practice, however, it has proven its worth.
 
-[components/com_foos/tmpl/category/default_items.php](https://github.com/astridx/boilerplate/blob/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
+[components/com_foos/tmpl/category/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/0d8c876d2435bb1cb38a62dd9a37880df9a3e178/src/components/com_foos/tmpl/category/default_items.php)
 
 ```php {numberLines: -2}
 // https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default_items.php

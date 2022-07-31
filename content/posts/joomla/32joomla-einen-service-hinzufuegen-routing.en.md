@@ -36,7 +36,7 @@ An example of routing is the URL to the article "Welcome to Joomla" in the sampl
 
 The service `components/com_foos/ src/Service/Router.php` does the actual work and converts the URLs into search engine friendly versions.
 
-[components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
+[components/com_foos/ src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t27/src/components/com_foos/src/Service/Router.php
@@ -335,7 +335,7 @@ class Router extends RouterView
 
 In the service provider we register the service.
 
-[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
@@ -372,7 +372,7 @@ The lines `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Com
 
 We implement `RouterServiceInterface` and use `RouterServiceTrait` so that these files are available.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
 

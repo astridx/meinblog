@@ -209,7 +209,7 @@
 <blockquote>
 <p>Joomla uses templates and subtemplates like <code class="language-text">$this->loadTemplate('item')</code> or layouts like <code class="language-text">LayoutHelper::render('joomla.content.intro_image', $this->item);</code> to structure the code clearly. I had already mentioned this with the frontend views of the categories in the tutorial part for the component. In the following, we will take a practical look at these functions again. Nachfolgend sehen wir uns diese Funktionen noch einmal praktisch an.<!-- \index{subtemplates} --></p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default.php">templates/facile/ html/com_content/featured/default.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default.php">templates/facile/ html/com_content/featured/default.php</a></p>
 <pre class="grvsc-container default-dark" data-language="php" data-index="0"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/com_content/featured/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
@@ -234,7 +234,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <p>The file <code class="language-text">/templates/facile/ html/com_content/featured/default.php</code> is an override. It calls a subtemplate using <code class="language-text">echo $this->loadTemplate('item');</code>.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default_item.php">templates/facile/ html/com_content/featured/default_item.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default_item.php">templates/facile/ html/com_content/featured/default_item.php</a></p>
 <p>The subtemplate <code class="language-text">templates/facile/ html/com_content/featured/default_item.php</code></p>
 <ul>
 <li>displays an image using the <code class="language-text">joomla.content.intro_image</code> layout,</li>
@@ -268,7 +268,7 @@
 <blockquote>
 <p>If the file <code class="language-text">templates/facile/ html/layouts/joomla/content/intro_image.php</code> did not exist, next the directory <code class="language-text">layouts/ joomla/content/</code> would be searched and the file <code class="language-text">intro_image.php</code> there would be used for display.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php">templates/facile/ html/layouts/joomla/content/intro_image.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php">templates/facile/ html/layouts/joomla/content/intro_image.php</a></p>
 <p>The layout <code class="language-text">joomla.content.intro_image</code> is used in many places in Joomla.</p>
 <blockquote>
 <p>In addition to the override of entire views, Joomla supports the override of smaller code segments, so-called layouts. Layouts are used by Joomla in various places. For example, to generate the code that creates the search and sort filters in list views or when displaying post information (such as author, creation date...) above or below a post.</p>
@@ -300,7 +300,7 @@
 <blockquote>
 <p><code class="language-text">templates/facile/html/mod_articles_news/_item.php</code> also contains a layout. <code class="language-text">joomla.content.readmore</code> contains the code that creates a readmore link. This is a function that is used in many views and is therefore a good example of reusability.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_articles_news/_item.php">templates/facile/ html/mod_articles_news/_item.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/_item.php">templates/facile/ html/mod_articles_news/_item.php</a></p>
 <pre class="grvsc-container default-dark" data-language="php" data-index="3"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/_item.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
@@ -323,7 +323,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">	&lt;/section&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_articles_news/default.php">templates/facile/ html/mod_articles_news/default.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/default.php">templates/facile/ html/mod_articles_news/default.php</a></p>
 <pre class="grvsc-container default-dark" data-language="php" data-index="4"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
@@ -347,7 +347,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;/div&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
 <p>The override to the module 'mod_articles_news' should be displayed in the upper area with a large headline. On a subpage, it should appear with small headline in the sidebar. We could create a solution with an alternative override. This variant is the subject of the next section. However, a lot of program code would be written via alternativen Override redundantly. Actually, only the first line with the heading is different. And here Joomlas module Chromes comes into play. We create a file in the directory <code class="language-text">templates/facile/html/layouts/chromes/</code> which only contains the different code and otherwise embeds the module exactly as it is. The latter is taken care of by <code class="language-text">echo $module->content;</code>. We can name the modules chrome file anything we want. I have chosen <code class="language-text">hr.php</code> as name. In the <code class="language-text">index.php</code> at the end of this section you can see how to make sure that the <code class="language-text">hr.php</code> file is integrated in the header of the page but not in the sidebar.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/chromes/hr.php">templates/facile/ html/layouts/chromes/hr.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/chromes/hr.php">templates/facile/ html/layouts/chromes/hr.php</a></p>
 <pre class="grvsc-container default-dark" data-language="php" data-index="5"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/chromes/hr.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
@@ -365,7 +365,7 @@
 <blockquote>
 <p>Note: The two files differ slightly. In the <code class="language-text">bottom.php</code> file, the <code class="language-text">&lt;ul></code> element must be given the class <code class="language-text">menu</code> so that no list item symbols are displayed in the frontend view. This could also be handled via a Chrome module.</p>
 </blockquote>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_menu/default.php">templates/facile/ html/mod_menu/default.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/default.php">templates/facile/ html/mod_menu/default.php</a></p>
 <pre class="grvsc-container default-dark" data-language="php" data-index="6"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/default.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
@@ -403,7 +403,7 @@
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">?&gt;&lt;/ul&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_menu/bottom.php">templates/facile/ html/mod_menu/bottom.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/bottom.php">templates/facile/ html/mod_menu/bottom.php</a></p>
 <pre class="grvsc-container default-dark" data-language="php" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk3">// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/bottom.php</span></span></span>
 <span class="grvsc-line"><span class="grvsc-source"></span></span>
 <span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">&lt;?php</span></span></span>
@@ -445,7 +445,7 @@
 <h5 id="templatesfacileindexphp" style="position:relative;"><a href="#templatesfacileindexphp" aria-label="templatesfacileindexphp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>templates/facile/index.php</h5>
 <p>The following <code class="language-text">index.php</code> is adapted to the newly added CSS styles and now outputs a more appealing design in the frontend.</p>
 <p>The line <code class="language-text">&lt;jdoc:include type="modules" name="top-a" style="hr" /></code> ensures that the Chrome <code class="language-text">hr</code> module is added at this point to display the module.</p>
-<p><a href="https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/index.php">templates/facile/index.php</a></p>
+<p><a href="https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/index.php">templates/facile/index.php</a></p>
 <pre class="grvsc-container grvsc-has-line-highlighting default-dark" data-language="php" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;!DOCTYPE html&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"><span class="mtk1"> &lt;html lang=</span><span class="mtk8">&quot;de&quot;</span><span class="mtk1">&gt;</span></span></span>
 <span class="grvsc-line"><span class="grvsc-gutter-pad"></span><span class="grvsc-gutter" aria-hidden="true"></span><span class="grvsc-source"></span></span>

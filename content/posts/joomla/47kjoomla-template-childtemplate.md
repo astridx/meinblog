@@ -50,7 +50,7 @@ Damit die Bilder `template_preview.png` und `template_thumbnail.png` und die im 
 
 Unsere CSS-Dateien liegen nun nicht mehr im Unterverzeichnis `assets`. Deshalb passen wir den relativen Pfad in der Datei `main.css` an.
 
-[media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
+[media/templates/site/facile/ css/main.css](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/media/templates/site/facile/css/main.css)
 
 ```php {diff}
  /* Banner */
@@ -71,7 +71,7 @@ In der Datei `templates/facile/ index.php` korrigieren wir alle Stellen, an dene
 
 Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);` die Verwendung einer `user.css` Datei möglich. Dies Vereinfacht das Überschreiben ohne an den schon vorhandenen Dateien Änderungen vornehmen zu müssen.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/index.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
@@ -121,7 +121,7 @@ Außerdem machen wir via `$wa->registerAndUseStyle('user', 'user.css', [], []);`
 
 ##### templates/facile/ language/en-GB/tpl_facile.ini
 
-[templates/facile/ language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/ language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 Wir haben das Bannerbild in das Medienverzeichnis verschoben, damit dieses auch im Kind-Template eingesetzt wird, falls das Kind kein spezielleres Bild zur Verfügung stellt. Diese Änderung hat eine Änderung in den Sprachdateien zur Folge.
 
@@ -142,7 +142,7 @@ Die Speicherorte der Mediendateien wurden geändert. Damit dies bei der Installa
 
 > Das Ändern der Speicherorte im `src`-Verzeichnis der Entwicklungsumgebung ist nicht zwingend. Weil es mir wichtig ist, dass meine Dateien die Speicherorte in einer Joomla-Installation nachbilden, habe ich die Dateien im `src`-Verzeichnis ebenfalls umkopiert.
 
-[templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
+[templates/facile/ templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
 
 ```php {diff}
  	<license>GNU General Public License version 2 or later;</license>

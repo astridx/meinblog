@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-04
+date: 2022-08-01
 title: 'Custom Fields (Eigene Felder) im Backend integrieren'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-Custom Fields (Eigene Felder)<!-- \index{Eigene Felder!Backend} --><!-- \index{Custom Fields!Backend} --> sind seit Joomla Version 3.7 in aller Munde. Sie bieten viele zusätzliche Möglichkeiten. Deshalb steht es außer Frage, dass wir diese in unsere Komponente integrieren.
+Custom Fields (Eigene Felder)<!-- \index{Eigene Felder!Backend} --><!-- \index{Custom Fields!Backend} --> sind seit Joomla Version 3.7 eine beliebte Funktion in Joomla. Sie bieten viele zusätzliche Möglichkeiten. Deshalb steht es außer Frage, dass wir diese in unsere Komponente integrieren.
 
 Dieser Teil zeigt dir, wie du die Unterstützung im Administrationsbereich programmierst. Im nächsten Kapitel integrieren wir Custom Fields im Frontend.
 
@@ -32,9 +32,9 @@ Wir haben in diesem Teil keine neue Datei erstellt, sondern lediglich Dateien ge
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ access.xml
 
-In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
+In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles dafür vor, die benutzerdefinierten Felder mit Berechtigungen zu versehen. So ist es möglich, dass das Ändern oder das Ansehen eines Feldes nur bestimmten Benutzern erlaubt ist.
 
-[administrator/components/com_foos/ access.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/access.xml)
+[administrator/components/com_foos/ access.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/access.xml)
 
 ```xml {diff}
  		<action name="core.edit.state" title="JACTION_EDITSTATE" />
@@ -62,7 +62,7 @@ In der Datei `administrator/components/com_foos/ access.xml` bereiten wir alles 
 
 Über die Konfiguration `config.xml` wird mithilfe eines Paramters festgelegt, ob die Erweiterung eigene Felder verwendet.
 
-> Fragst du dich, warum es diesen Parameter gibt? Er ist [nicht zwingend](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680).
+> Fragst du dich, warum es diesen Parameter gibt? Er ist [nicht zwingend](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration/28680#28680)[^joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration].
 
 [administrator/components/com_foos/config.xml](https://joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration)[^joomla.stackexchange.com/questions/28672/reason-for-parameter-for-using-custom-fields-in-configuration]
 
@@ -114,9 +114,9 @@ Ein Tipp zum Type `radio` mit dem Layout `joomla.form.field.radio.switcher`. Mö
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ foos.xml
 
-Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Links ein. Der erste neue Link führt zur Ansicht, in der eigene Felder für die Komponente erstellt werden. Der andere führt zu der Ansicht, über die Feld-Gruppen angelegt werden.
+Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Links ein. Der erste neue Link führt zu der Ansicht, in der die eigene Felder für die Komponente erstellt werden. Der andere führt zu der Ansicht, über die Feld-Gruppen angelegt werden.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  		<submenu>
@@ -135,7 +135,7 @@ Im Navigationsmenü links im Joomla Administrationsbereichs fügen wir zwei Link
 
 Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabulatoren. Damit die Daten innerhalb der Session nicht verloren gehen, wenn man zwischen den Tabs wechselt, ändern wir die Methode `loadFormData()` in der Datei `administrator/components/com_foos/ src/Model/FooModel.php`. Es ist nicht notwendig, dass wir selbst Daten zwischenspeichern. Die Methode `$app->getUserState()` erledigt dies für uns. Gleichzeitig stellen wir sicher, dass für die Kategorie ein Standardwert gesetzt wird, falls ein neues Element geladen wird und deshalb `$this->getState('foo.id') == 0` gleich `true` ist.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/t14a/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 
@@ -166,7 +166,7 @@ Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla ei
 
 > Einen Vergleich zwischen dem bisher meist genutzten `bootstrap.tab` und `uitab` bietet [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805)[^github.com/joomla/joomla-cms/pull/21805].<!-- \index{bootstrap.tab} --><!-- \index{UiTab} -->
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/02dd34246bf4a070fcc7b2d7b1dfe5015d0d6c54/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t14a/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
  use Joomla\CMS\Factory;

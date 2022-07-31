@@ -50,7 +50,7 @@ So that the images `template_preview.png` and `template_thumbnail.png` and those
 
 Our CSS files are now no longer located in the `assets` subdirectory. Therefore, we adjust the relative path in the `main.css` file.
 
-[media/templates/site/facile/ css/main.css](https://github.com/astridx/boilerplate/blob/t41a/src/media/templates/site/facile/css/main.css)
+[media/templates/site/facile/ css/main.css](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/media/templates/site/facile/css/main.css)
 
 ```php {diff}
  /* Banner */
@@ -71,7 +71,7 @@ In the file `templates/facile/ index.php` we correct all places where the media 
 
 We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle('user', 'user.css', [], []);`. This simplifies overwriting without having to make changes to the already existing files.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/index.php)
 
 ```php {diff}
  use Joomla\CMS\HTML\HTMLHelper;
@@ -121,7 +121,7 @@ We also make it possible to use a `user.css` file via `$wa->registerAndUseStyle(
 
 ##### templates/facile/ language/en-GB/tpl_facile.ini
 
-[templates/facile/ language/en-GB/tpl_facile.ini](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/ language/en-GB/tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 We have moved the banner image to the media directory so that it is also used in the child template if the child does not provide a more specific image. This change results in a change in the language files.
 
@@ -136,13 +136,13 @@ We have moved the banner image to the media directory so that it is also used in
  TPL_FACILE_BANNER_TAGLINE="Tagline text"
 ```
 
-##### templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
+##### templates/facile/ templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
 
 The locations of the media files have been changed. To ensure that this is recognized correctly when the template is installed, we correct the corresponding entries in the `templates/facile/ templateDetails.xml` file.
 
 > Changing the locations in the `src` directory of the development environment is not mandatory. Because it is important to me that my files simulate the locations in a Joomla installation, I have also recopied the files in the `src` directory.
 
-[templates/facile/ templateDetails.xml](https://github.com/astridx/boilerplate/blob/t41a/src/templates/facile/templateDetails.xml)
+[templates/facile/ templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t41a/src/templates/facile/templateDetails.xml)
 
 ```php {diff}
  	<license>GNU General Public License version 2 or later;</license>

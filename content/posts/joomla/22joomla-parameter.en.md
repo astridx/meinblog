@@ -59,7 +59,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 
 In the configuration, the parameter is saved to set a default value. We add a field `show_name` to the configuration. Then we create the possibility to override it for a single element `administrator/components/com_foos/ forms/foo.xml` or a menu item `components/com_foos/tmpl/foo/default.xml`.
 
-[administrator/components/com_foos/config.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
 
 ```xml {diff}
  			<option value="0">JNO</option>
@@ -86,7 +86,7 @@ In the configuration, the parameter is saved to set a default value. We add a fi
 
 In the form we use to edit an element, we add the `params` field. So `show_name` is also configurable for a single element.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			content_type="com_foos.foo"
@@ -115,7 +115,7 @@ In the form we use to edit an element, we add the `params` field. So `show_name`
 
 To create the column where the parameters will be stored during a new installation, we add a line to the SQL file `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
@@ -143,7 +143,7 @@ to the registry. To get a value, we use
 $foo = $registry->foo;
 ```
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  use Joomla\CMS\Application\ApplicationHelper;
@@ -176,7 +176,7 @@ The view combines the data on the parameters so that the display fits. In Joomla
 
 Sometimes it is more intuitive to use the display at the element as priority. This is what I implemented here. `$state->get('params')` returns the value stored at the menu item. `$item->params` is the parameter that was stored at the element. The code below shows how you combine the two so that the value at the item is applied.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 
@@ -227,7 +227,7 @@ Sometimes it is more intuitive to use the display at the element as priority. Th
 
 At the end we use the parameter when handling the display in the template `components/com_foos/ tmpl/foo/default.php`. If there is the parameter and it is set that the name should be displayed `if ($this->item->params->get('show_name'))`, then the name will be displayed. The label `$this->params->get('show_foo_name_label')` will also be displayed only in that case:
 
-[components/com_foos/ tmpl/foo/default.php](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
   use Joomla\CMS\Language\Text;
@@ -251,7 +251,7 @@ At the end we use the parameter when handling the display in the template `compo
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/default.xml
 
-[components/com_foos/tmpl/foo/default.xml](https://github.com/astridx/boilerplate/blob/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
 
 To make it possible to store the parameter at the menu item, we add a field in the XML file. It is important that it is placed under `fields` and is called `params` - at least for using the Joomla standard functions.!
 

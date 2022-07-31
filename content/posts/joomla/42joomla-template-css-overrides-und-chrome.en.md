@@ -62,7 +62,7 @@ The blog sample files use the `components/com_content/tmpl/com_content/featured/
 
 > Joomla uses templates and subtemplates like `$this->loadTemplate('item')` or layouts like `LayoutHelper::render('joomla.content.intro_image', $this->item);` to structure the code clearly. I had already mentioned this with the frontend views of the categories in the tutorial part for the component. In the following, we will take a practical look at these functions again. Nachfolgend sehen wir uns diese Funktionen noch einmal praktisch an.<!-- \index{subtemplates} -->
 
-[templates/facile/ html/com_content/featured/default.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default.php)
+[templates/facile/ html/com_content/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/com_content/featured/default.php
@@ -92,7 +92,7 @@ defined('_JEXEC') or die;
 
 The file `/templates/facile/ html/com_content/featured/default.php` is an override. It calls a subtemplate using `echo $this->loadTemplate('item');`.
 
-[templates/facile/ html/com_content/featured/default_item.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/com_content/featured/default_item.php)
+[templates/facile/ html/com_content/featured/default_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default_item.php)
 
 The subtemplate `templates/facile/ html/com_content/featured/default_item.php`
 
@@ -130,7 +130,7 @@ Joomla first searches for files in the template directory. Therefore we create o
 
 > If the file `templates/facile/ html/layouts/joomla/content/intro_image.php` did not exist, next the directory `layouts/ joomla/content/` would be searched and the file `intro_image.php` there would be used for display.
 
-[templates/facile/ html/layouts/joomla/content/intro_image.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php)
+[templates/facile/ html/layouts/joomla/content/intro_image.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php)
 
 The layout `joomla.content.intro_image` is used in many places in Joomla.
 
@@ -167,7 +167,7 @@ At the top of the home page, the Joomla Blog sample data displays the module `mo
 
 > `templates/facile/html/mod_articles_news/_item.php` also contains a layout. `joomla.content.readmore` contains the code that creates a readmore link. This is a function that is used in many views and is therefore a good example of reusability.
 
-[templates/facile/ html/mod_articles_news/\_item.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_articles_news/_item.php)
+[templates/facile/ html/mod_articles_news/\_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/_item.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/_item.php
@@ -194,7 +194,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 
 ```
 
-[templates/facile/ html/mod_articles_news/default.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_articles_news/default.php)
+[templates/facile/ html/mod_articles_news/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/default.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/default.php
@@ -223,7 +223,7 @@ if (empty($list)) {
 
 The override to the module 'mod_articles_news' should be displayed in the upper area with a large headline. On a subpage, it should appear with small headline in the sidebar. We could create a solution with an alternative override. This variant is the subject of the next section. However, a lot of program code would be written via alternativen Override redundantly. Actually, only the first line with the heading is different. And here Joomlas module Chromes comes into play. We create a file in the directory `templates/facile/html/layouts/chromes/` which only contains the different code and otherwise embeds the module exactly as it is. The latter is taken care of by `echo $module->content;`. We can name the modules chrome file anything we want. I have chosen `hr.php` as name. In the `index.php` at the end of this section you can see how to make sure that the `hr.php` file is integrated in the header of the page but not in the sidebar.
 
-[templates/facile/ html/layouts/chromes/hr.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/layouts/chromes/hr.php)
+[templates/facile/ html/layouts/chromes/hr.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/chromes/hr.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/chromes/hr.php
@@ -246,7 +246,7 @@ There are requirements where the design of a module varies greatly in different 
 
 > Note: The two files differ slightly. In the `bottom.php` file, the `<ul>` element must be given the class `menu` so that no list item symbols are displayed in the frontend view. This could also be handled via a Chrome module.
 
-[templates/facile/ html/mod_menu/default.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_menu/default.php)
+[templates/facile/ html/mod_menu/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/default.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/default.php
@@ -288,7 +288,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 
 ```
 
-[templates/facile/ html/mod_menu/bottom.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/html/mod_menu/bottom.php)
+[templates/facile/ html/mod_menu/bottom.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/bottom.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/bottom.php
@@ -338,7 +338,7 @@ The following `index.php` is adapted to the newly added CSS styles and now outpu
 
 The line `<jdoc:include type="modules" name="top-a" style="hr" />` ensures that the Chrome `hr` module is added at this point to display the module.
 
-[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/t37/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/index.php)
 
 ```php {diff}
  <!DOCTYPE html>

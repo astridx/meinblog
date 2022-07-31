@@ -41,7 +41,7 @@ In the file `templates/facile/ index.php` we change the way JavaScript and CSS i
 
 The following code snippet shows you the changes in the file `templates/facile/ index.php`.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a2bb516f85494ecec58e494d25fa788a04e7f02b/src/templates/facile/index.php)
 
 ```{diff}
  \defined('_JEXEC') or die;

@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-07
+date: 2022-08-01
 title: 'Clientseitige Validierung'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -25,7 +25,7 @@ Meistens hängt die clientseitige Validierung davon ab, dass im Browser JavaScri
 
 > Noch einmal: Da beide Validierungsmethoden (Server und Client) ihre eigene Bedeutung haben, wird empfohlen, sie nebeneinander zu verwenden. Die serverseitige Validierung ist sicherer - die clientseitige benutzerfreundlicher!
 
-Dieser Teil behandelt die die clientseitige Validierung in Joomla 4.
+Dieser Teil behandelt die clientseitige Validierung in Joomla 4.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t11a...t11b)[^codeberg.org/astrid/j4examplecode/compare/t11a...t11b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -41,7 +41,7 @@ Auch hier geht es um das Prinzip, genau wie im vorhergehenden Kapitel. Die Qualt
 
 > Im Beispiel nutze ich einen [regulären Ausdruck](https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck)[^de.wikipedia.org/wiki/regul%c3%a4rer_ausdruck]. `regex.test(value)` gibt `true` zurück, wenn die Variable `regex` gleich `/^([a-z]+)$/i` ist und `value` keine Zahl enthält. Weitere Informationen zur Test-Methode findest du bei [developer.mozilla.org](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)[^developer.mozilla.org/de/docs/web/javascript/reference/global_objects/regexp/test]. Es ist nicht zwingend einen regulären Ausdruck zu verwenden. Wichtig ist lediglich, dass bei einem bestandenen Test `true` und einem Fehlschlag `false` zurückgegeben wird.
 
-[media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
+[media/com_foos/js/admin-foos-letter.js](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/media/com_foos/js/admin-foos-letter.js)
 
 ```js {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t11b/src/media/com_foos/js/admin-foos-letter.js
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 ```
 
-> Note: The variable name `returnedValue` is only meant as an example. The name of a variable should explain in real code why it exists, what it does and how it is used.
+> Der Variablenname `returnedValue` ist nur als Beispiel gedacht. Der Name einer Variablen sollte in echtem Code erklären, warum sie existiert, was sie tut und wie sie verwendet wird.
 
 ### Geänderte Dateien
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein, damit Joomla weiß, das die Datei `joomla.asset.json` zur Erweiterung gehört und diese ins `media/com_foos` Verzeichnis kopiert. Die Datei legen wir später in diesem Teil an.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  		<folder>tmpl</folder>
@@ -92,7 +92,7 @@ Im Installationsmanifest fügen wir `<filename>joomla.asset.json</filename>` ein
 
 Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die JavaScript-Datei `media/com_foos/js/admin-foos-letter.js`, welche für das Prüfen zuständig ist, über den [Webasset-Manager](https://docs.joomla.org/J4.x:Web_Assets/de) anwendbar ist. Dazu werden wird sie später in diesem Kapitel über die Datei `joomla.asset.json` registrieren.
 
-[administrator/components/com_foos/ tmpl/foo/edit.php](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/tmpl/foo/edit.php)
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/tmpl/foo/edit.php)
 
 ```php {diff}
 
@@ -110,9 +110,9 @@ Der Eintrag `->useScript('com_foos.admin-foos-letter');` sorgt dafür, dass die 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ forms/foo.xml
 
-Wir ergänzen `class="validate-letter"`, damit Joomla weiß, welche CSS-Klasse zu prüfen ist. Diese Klasse setzt Joomla beim Anlegen des Feldes. Überzeuge dich selbst davon, indem du das Formular im Backend öffnest und die den Quellcode ansiehst.
+Wir ergänzen `class="validate-letter"`, damit Joomla weiß, welche CSS-Klasse zu prüfen ist. Diese Klasse setzt Joomla beim Anlegen des Feldes. Überzeuge dich selbst davon, indem du das Formular im Backend öffnest und dir den Quellcode ansiehst.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			name="name"
@@ -129,7 +129,7 @@ Wir ergänzen `class="validate-letter"`, damit Joomla weiß, welche CSS-Klasse z
 
 Last but not least registrieren wir die neue Datei unter dem Namen `com_foos.admin-foos-letter` im Webasset-Manager.
 
-[media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/media/com_foos/joomla.asset.json)
+[media/com_foos/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/media/com_foos/joomla.asset.json)
 
 ```json {diff}
 

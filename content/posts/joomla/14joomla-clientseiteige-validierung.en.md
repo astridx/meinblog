@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-07
+date: 2022-08-01
 title: 'Client Side Validation'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -41,7 +41,7 @@ Again, it is about the principle, just like in the previous chapter. The quality
 
 > In the example I use a [regular expression](https://en.wikipedia.org/wiki/Regular_expression)[^en.wikipedia.org/wiki/regular_expression]. `regex.test(value)` returns `true` if `regex` is equal to `/^([a-z]+)$/i` and `value` does not contain a number. For more information on the test method, see [developer.mozilla.org](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test)[^developer.mozilla.org/en/docs/web/javascript/reference/global_objects/regexp/test]. It is not mandatory to use a regular expression. It is only important that `true` is returned for a pass and `false` for a fail.
 
-[media/com_foos/js/admin-foos-letter.js](https://github.com/astridx/boilerplate/blob/562ceedf45834ae7632a38d701c446da682d49fc/src/media/com_foos/js/admin-foos-letter.js)
+[media/com_foos/js/admin-foos-letter.js](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/media/com_foos/js/admin-foos-letter.js)
 
 ```js {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t11b/src/media/com_foos/js/admin-foos-letter.js
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 ```
 
-> Der Variablenname `returnedValue` ist nur als Beispiel gedacht. Der Name einer Variablen sollte in echtem Code erklären, warum sie existiert, was sie tut und wie sie verwendet wird.
+> Note: The variable name `returnedValue` is only meant as an example. The name of a variable should explain in real code why it exists, what it does and how it is used.
 
 ### Modified files
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 In the installation manifest we add `<filename>joomla.asset.json</filename>` so that Joomla knows that the file `joomla.asset.json` belongs to the extension and is copied to the `media/com_foos` directory. We create this file later in this part.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b4078c00700f28ba31229246bd941b24fabf8dbb/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/foos.xml)
 
 ```xml {diff}
  		<folder>tmpl</folder>
@@ -110,7 +110,7 @@ The entry `->useScript('com_foos.admin-foos-letter');` ensures that the JavaScri
 
 We add `class="validate-letter"`, so Joomla knows which CSS class should be checked. Joomla sets this class when creating the field. See for yourself by opening the form in the backend and checking out the source code.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			name="name"
@@ -127,7 +127,7 @@ We add `class="validate-letter"`, so Joomla knows which CSS class should be chec
 
 Last but not least, we register the new file under the name `com_foos.admin-foos-letter` in the webasset manager.
 
-[media/com_foos/joomla.asset.json](https://github.com/astridx/boilerplate/blob/baea984ae9f1e1ddb7d9f63b78dad48d2c77c525/src/media/com_foos/joomla.asset.json)
+[media/com_foos/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t11b/src/media/com_foos/joomla.asset.json)
 
 ```json {diff}
 

@@ -40,7 +40,7 @@ The labelling of the parameter in the backend should adapt to the active languag
 
 > Are you wondering about the prefix `COM_` in `COM_MODULES_FOOPARAMS_FIELDSET_LABEL`? The language string is automatically created by Joomla because a fieldset called `fooparams` is added.
 
-[modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
+[modules/mod_foo/ language/en-GB/en-GB.mod_foo.ini](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.ini)
 
 ```php {diff}
 MOD_FOO="[PROJECT_NAME]"
@@ -55,7 +55,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 In the module's initial file `modules/mod_foo/ mod_foo.php`, we check which value the parameter is set to and store it in a variable. This way, uncomplicated access is possible later.
 
-[modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/183694b03393699bf3af10f5dd0207188a97cb31/src/modules/mod_foo/mod_foo.php)
+[modules/mod_foo/ mod_foo.php](https://codeberg.org/astrid/j4examplecode/src/branch/183694b03393699bf3af10f5dd0207188a97cb31/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
 $test  = FooHelper::getText();
@@ -70,7 +70,7 @@ $test  = FooHelper::getText();
 
 In the manifest we add the new parameter so that it is editable in the Joomla backend.
 
-[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/mod_foo.xml)
 
 ```php {diff}
  		<folder>language</folder>
@@ -105,7 +105,7 @@ In the module's own template file, we can now access the value of the parameter.
 
 > An example of the more complex use of a parameter is a digital map where parameters are used to enable controls such as `locate me` or a choice of map type.
 
-[modules/mod_foo/tmpl/default.php](https://github.com/astridx/boilerplate/blob/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
+[modules/mod_foo/tmpl/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/b8c783812c9acf66a6c0c0a534d5d43b987510c5/src/modules/mod_foo/tmpl/default.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

@@ -36,7 +36,7 @@ Am Beispiel der Skriptdatei zeige ich, dass Vieles im Falle eines Moduls genauso
 
 Es geht darum, die Vorgehensweise zu verdeutliche. deshalb übernimmt diese Skriptdatei nur das Setzen von Mindestvoraussetzungen und die Ausgabe von Texten. Deiner Phantasie sind keine Grenzen gesetzt, um diese Datei zu erweitern.
 
-[modules/mod_foo/script.php](https://github.com/astridx/boilerplate/blob/t34/src/modules/mod_foo/script.php)
+[modules/mod_foo/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/t34/src/modules/mod_foo/script.php)
 
 ```php
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t34/src/modules/mod_foo/script.php
@@ -170,7 +170,7 @@ class mod_fooInstallerScript
 
 Die Sprachstrings für die Anzeige der Sprachstrings in der aktiven Sprache, fügen wir in die `en-GB.mod_foo.sys.ini` ein. Jawohl, dieses Mal die Sprachdatei mit der Endung `*.sys.ini`, weil die Texte bei der Installation verwendet werden.
 
-[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
+[src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/language/en-GB/en-GB.mod_foo.sys.ini)
 
 ```ini {diff}
 MOD_FOO="[PROJECT_NAME]"
@@ -187,7 +187,7 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 Im Manifest tragen wir abschließen den Namen der Skriptdatei ein, damit die Installationsroutine weiß, dass sie dieses an die richtige Stelle zu kopieren und aufzurufen hat.
 
-[modules/mod_foo/ mod_foo.xml](https://github.com/astridx/boilerplate/blob/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
+[modules/mod_foo/ mod_foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/08652f6b419a4e3443d4d1e4f589bca46a8100e9/src/modules/mod_foo/mod_foo.xml)
 
 ```xml {diff}
 <license>GNU General Public License version 2 or later; see LICENSE.txt</license>

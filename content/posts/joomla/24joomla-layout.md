@@ -28,7 +28,7 @@ Wir nutzen bereits Layouts. Das Empty-State-Layout (`administrator/components/co
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withhead.php
 
-[components/com_foos/ tmpl/foo/withhead.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
+[components/com_foos/ tmpl/foo/withhead.php](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.php)
 
 ```php {numberLines: -2}
 <?php
@@ -57,7 +57,7 @@ echo $this->item->event->afterDisplayContent;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withhead.xml
 
-[components/com_foos/ tmpl/foo/withhead.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
+[components/com_foos/ tmpl/foo/withhead.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withhead.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withhead.xml -->
@@ -93,7 +93,7 @@ echo $this->item->event->afterDisplayContent;
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/withheadandfoot.php
 
-[components/com_foos/ tmpl/foo/withheadandfoot.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
+[components/com_foos/ tmpl/foo/withheadandfoot.php](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/tmpl/foo/withheadandfoot.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t24/src/components/com_foos/tmpl/foo/withheadandfoot.php
@@ -129,7 +129,7 @@ echo $this->item->event->afterDisplayContent;
 
 Im Formular des Elements ergänzen wir ein Feld zum Auswählen des Layouts.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  				<option value="0">JHIDE</option>
@@ -173,7 +173,7 @@ So etwas passiert beim Entwickeln. Im Grunde genommen müssten wir die Datei `co
 
 Im Falle eines Menüpunktes finde ich es wichtig, dass dieser - beziehungsweise der Inhalt und das Design- immer einheitlich angezeigt werden. Deshalb fragen wir den aktiven Menüpunkt ab. Werden beispielsweise Elemente über eine Kategorie-Ansicht angezeigt, dann ist mithilfe dieser Information ein einheitliches Layout möglich. Wird der Content als einzelnes Element angezeigt kann auf ein anderes Layout zurückgegriffen werden.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/b1e4db8fff80c5f4ebb8e1924ece0300aa760119/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  		$temp->merge($itemparams);

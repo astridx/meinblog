@@ -45,7 +45,7 @@ And another line is enough to turn descriptions into inline help, which means to
 
 In the form, we add a description as an example. This will be shown or hidden later as inline help.
 
-[administrator/components/com_foos/forms/foo.xml](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
  			validate="Letter"
@@ -62,7 +62,7 @@ In the form, we add a description as an example. This will be shown or hidden la
 
 The toolbar helper supports us. The line `ToolbarHelper::divider();` ensures that the following buttons are displayed right-aligned. `ToolbarHelper::inlinehelp();` inserts the button that shows and hides the inline help. The text for this is searched behind `description=` in the form at the field. `ToolbarHelper::help('', false, 'http://example.org');` inserts the button that redirects to the external help page. The address of the external page, here in the example `http://example.org`, is given as a parameter.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 
@@ -83,7 +83,7 @@ The toolbar helper supports us. The line `ToolbarHelper::divider();` ensures tha
 
 The same I wrote under `administrator/components/com_foos/ src/View/Foos/HtmlView.php` also applies here.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://github.com/astridx/boilerplate/blob/t23/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  		if ($user->authorise('core.admin', 'com_foos') || $user->authorise('core.options', 'com_foos')) {

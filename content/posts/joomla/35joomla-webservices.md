@@ -299,7 +299,7 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 }
 ```
 
-Nutzt du [Postman](https://www.postman.com/)[^www.postman.com]? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
+Nutzt du [Postman](https://www.postman.com/)[^www.postman.com]? Dann ist meine [Kollektion](https://codeberg.org/astrid/j4examplecode/src/branch/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
 
 > Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient] in Firefox.
 

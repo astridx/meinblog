@@ -36,7 +36,7 @@ Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search
 
 Der Service `components/com_foos/ src/Service/Router.php` erledigt die eigentliche Arbeit und wandelt die URLs in suchmaschinenfreundliche Versionen.
 
-[components/com_foos/ src/Service/Router.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
+[components/com_foos/ src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t27/src/components/com_foos/src/Service/Router.php
@@ -335,7 +335,7 @@ class Router extends RouterView
 
 Im Service Provider registrieren wir den Service.
 
-[administrator/components/com_foos/ services/provider.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
@@ -372,7 +372,7 @@ Die Zeilen `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Co
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://github.com/astridx/boilerplate/blob/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;

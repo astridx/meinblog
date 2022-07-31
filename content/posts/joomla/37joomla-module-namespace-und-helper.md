@@ -82,7 +82,7 @@ class FooHelper
 
 Um die Inhalte von `FooHelper` im Modul `mod_foo.php` zu nutzen, importieren wir diese mittels `use FooNamespace\Module\Foo\Site\Helper\FooHelper;`. Anschließden rufen wir die Funktion `FooHelper::getText()` auf und speichern das Ergebnis in der Variablen `$test`.
 
-[modules/mod_foo/ mod_foo.php](https://github.com/astridx/boilerplate/blob/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
+[modules/mod_foo/ mod_foo.php](https://codeberg.org/astrid/j4examplecode/src/branch/13117ebddfc12db184cd96f3f4db1c794bfa735b/src/modules/mod_foo/mod_foo.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;

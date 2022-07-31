@@ -40,9 +40,9 @@ In the current section, two files are added that are stored outside the website.
 
 #### foo_update.xml (Update Server)<!-- \index{Update Server} -->
 
-You have told your component in the file [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml) where to find out about updates. That is in the file `foo_update.xml`.
+You have told your component in the file [administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml) where to find out about updates. That is in the file `foo_update.xml`.
 
-Create the file [foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml). The file can be named anything as long as it matches the name you specified in the installation XML [administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/t1b/src/administrator/components/com_foos/foos.xml).
+Create the file [foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml). The file can be named anything as long as it matches the name you specified in the installation XML [administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/src/administrator/components/com_foos/foos.xml).
 
 The tag `updates` surrounds all update elements. Create another update section each time you release a new version.
 
@@ -84,7 +84,7 @@ The value of the `client` tag describes the `client_id` in the database table `#
 
 Below you can see the complete file.
 
-[foo_update.xml](https://github.com/astridx/boilerplate/blob/t1b/foo_update.xml)
+[foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/foo_update.xml
@@ -97,7 +97,7 @@ Below you can see the complete file.
         <type>component</type>
         <version>1.0.1</version>
 		<changelogurl>https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/changelog.xml</changelogurl>
-		<infourl title="agosms">https://github.com/astridx/boilerplate/blob/v1.0.1/README.md</infourl>
+		<infourl title="agosms">https://codeberg.org/astrid/j4examplecode/src/branch/v1.0.1/README.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/astridx/boilerplate/releases/download/v1.0.1/com_foos-1.0.1.zip</downloadurl>
         </downloads>
@@ -116,7 +116,7 @@ Below you can see the complete file.
 
 Information on the changelog can be found on Github [in PR github.com/joomla/joomla-cms/pull/24026](https://github.com/joomla/joomla-cms/pull/24026) and the [Joomla documentation](https://docs.joomla.org/Adding_changelog_to_your_manifest_file/en)[^docs.joomla.org/adding_changelog_to_your_manifest_file/en]. Below you can see an example file.
 
-[changelog.xml](https://github.com/astridx/boilerplate/blob/t1b/changelog.xml)
+[changelog.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/changelog.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/changelog.xml
@@ -169,7 +169,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 
 Only the version number has been adjusted. This change is necessary in every new chapter, because a new function is always added. I do not mention this explicitly in the following.
 
-[administrator/components/com_foos/ foos.xml](https://github.com/astridx/boilerplate/blob/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
+[administrator/components/com_foos/ foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/b837e9cf7a93301ce6fd2e6f56b922ebae7e6738/src/administrator/components/com_foos/foos.xml)
 
 ```php {diff}
  	<authorUrl>[AUTHOR_URL]</authorUrl>

@@ -60,7 +60,7 @@ To further explain: As already mentioned, a component is responsible for the dis
 
 We create the file `component.php` here for the sake of completeness and add the text `Component`. This way it is possible to test it later.
 
-[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/component.php)
+[templates/facile/component.php](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/component.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/component.php
@@ -88,7 +88,7 @@ In my opinion, a good error page includes:
 
 To let you know how and where to implement your error page, I created the file `templates/facile/error.php`. This contains nothing more than the word `Error`. So it is possible to test the page. Let your imagination run free with the content and design of your own individual error page.
 
-[templates/facile/error.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
+[templates/facile/error.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/error.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/error.php
@@ -105,7 +105,7 @@ In the Joomla 4 standard template Cassiopeia the file `error.php` is also implem
 
 The file `index.php` is the heart. It ensures that everything works together. The following code snippet shows you a minimal structure.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/index.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/index.php
@@ -129,7 +129,7 @@ The file `index.php` is the heart. It ensures that everything works together. Th
 	<title>Titel</title>
   </head>
   <body>
-	Hallo Joomla!
+	Hallo Joomla
   </body>
 </html>
 
@@ -143,13 +143,13 @@ Then we declare the [document type](https://www.w3.org/QA/2002/04/valid-dtd-list
 
 What follows is the smallest possible structure of an HTML page. This page opens with `<html>` and ends with `</html>`. The header starts with `<head>` and ends with `</head>`. The body starts with `<body>` and ends with `</body>`.
 
-Enough explanation. This is how the website looks minimally. It does not yet load any content from Joomla! My main point here was to show that the `index.php` of the active template is responsible for everything. In our case, this is the file `templates/facile/index.php`. So far, the responsibility is limited. Only the (German) greeting `Hallo Joomla!` is displayed on the screen.
+Enough explanation. This is how the website looks minimally. It does not yet load any content from Joomla My main point here was to show that the `index.php` of the active template is responsible for everything. In our case, this is the file `templates/facile/index.php`. So far, the responsibility is limited. Only the (German) greeting `Hallo Joomla` is displayed on the screen.
 
 ##### templates/facile/ language/en-GB/en-GB.tpl_facile.ini
 
 The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.ini` ensures that the name is displayed in the backend in the correct language when managing the extensions.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
+[templates/facile/ language/en-GB/en-GB.tpl_facile.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.ini
@@ -162,7 +162,7 @@ TPL_FACILE_XML_DESCRIPTION="Facile is a Joomla 4 template."
 
 The language file `templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini` translates the texts in the menu or during the installation into the correct language.
 
-[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
+[templates/facile/ language/en-GB/en-GB.tpl_facile.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/language/en-GB/tpl_facile.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/language/en-GB/tpl_facile.sys.ini
@@ -183,7 +183,7 @@ The following minimalist code will display a registration form. You could displa
 
 ![Joomla Template erstellen - Offline Seite Frontend](/images/j4x40x6.png)
 
-[templates/facile/ offline.php](https://github.com/astridx/boilerplate/blob/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
+[templates/facile/ offline.php](https://codeberg.org/astrid/j4examplecode/src/branch/a3e575640e792ee6503ce92b941c3b2015e2bb11/src/templates/facile/offline.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/offline.php
@@ -246,7 +246,7 @@ The file `templateDetails.xml` (note the big D) is the second most important fil
 
 In the file `templateDetails.xml` the module positions are usually created and included into the website via the command `jdoc:include` in the `index.php`. We will do this in a later part. Optionally we can create parameters to make the template customizable via backend. In the further course of this text I have included `logoFile`, `siteTitle` and `siteDescription` as parameters. But first, let's look at a minimal version of `templateDetails.xml` in the following code snippet.
 
-[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/t35/src/templates/facile/templateDetails.xml)
+[src/templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t35/src/templates/facile/templateDetails.xml)
 
 ```xml {numberLines: -2}
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t35/src/templates/facile/templateDetails.xml -->

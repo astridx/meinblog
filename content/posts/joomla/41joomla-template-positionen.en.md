@@ -37,7 +37,7 @@ So far we have more or less a static website. In this part, we add content dynam
 
 I already mentioned it in the previous part: The file `component.php` displays only main content. This is the content of type `component`. Navigation and content in sidebars are omitted. For testing we had created this file. So far it contained only the static text `Component`. Now we extend it by its actual task. A minimal structure looks like this.
 
-[templates/facile/component.php](https://github.com/astridx/boilerplate/blob/t36/src/templates/facile/component.php)
+[templates/facile/component.php](https://codeberg.org/astrid/j4examplecode/src/branch/t36/src/templates/facile/component.php)
 
 ```php {diff}
 -Component
@@ -69,7 +69,7 @@ In addition, we use `<jdoc:include type="message" />` and `<jdoc:include type="h
 
 You already know it: The file `index.php` is the heart of the template. It makes sure that everything works together. In the previous chapter we had not integrated Joomla's own content. I will make up for this here. A minimal structure, which inserts the Joomla content, looks like this.
 
-[templates/facile/index.php](https://github.com/astridx/boilerplate/blob/t36/src/templates/facile/index.php)
+[templates/facile/index.php](https://codeberg.org/astrid/j4examplecode/src/branch/t36/src/templates/facile/index.php)
 
 ```php {diff}
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,7 +77,7 @@ You already know it: The file `index.php` is the heart of the template. It makes
    </head>
 +
    <body>
--	Hallo Joomla!
+-	Hallo Joomla
 -  </body>
 +  <header>
 +	<div>
@@ -193,7 +193,7 @@ Via the language files it is possible to describe the positions exactly. Note th
 
 In the file `templateDetails.xml` the module positions are inserted to be selectable as position when creating a module. So a module is includeable via the command `jdoc:include` in the `index.php`.
 
-[src/templates/facile/templateDetails.xml](https://github.com/astridx/boilerplate/blob/8238130b429378f62cf6652b2f77255a62a7380d/src/templates/facile/templateDetails.xml)
+[src/templates/facile/templateDetails.xml](https://codeberg.org/astrid/j4examplecode/src/branch/8238130b429378f62cf6652b2f77255a62a7380d/src/templates/facile/templateDetails.xml)
 
 ```xml {diff}
 

@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-Mit Schlagwörtern oder Tags sind Inhalte in Joomla! flexibel organisierbar. Es ist möglich, ein Tag vielen unterschiedlichen Elementen zuzuweisen. Umgekehrt kann jedes Item über eine unbegrenzte Anzahl an Schlagwörtern verfügen.
+Mit Schlagwörtern oder Tags sind Inhalte in Joomla flexibel organisierbar. Es ist möglich, ein Tag vielen unterschiedlichen Elementen zuzuweisen. Umgekehrt kann jedes Item über eine unbegrenzte Anzahl an Schlagwörtern verfügen.
 
 Das Tag-System von Joomla wird in allen Kern-Erweiterungen verwendet. Es ist so konzipiert, dass es bequem in andere Komponenten integrierbar ist. Zumindest dann, wenn diese die Standard-Joomla-Design-Muster verwenden. Die Nutzung von Tags in einer Drittanbieter-Erweiterung ist unkompliziert. Für die Integration in eine eigene Komponente reichen die in diesem Kapitel erläuterten Ergänzungen aus.<!-- \index{Schlagworte} --><!-- \index{Tags} -->
 
@@ -34,7 +34,7 @@ In diesem Kapitel kommen keine Dateien hinzu.
 
 Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werden, erhält einen Eintrag für die Schlagwörter.
 
-[administrator/components/com_foos/ forms/filter_foos.xml](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/filter_foos.xml)
+[administrator/components/com_foos/ forms/filter_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/filter_foos.xml)
 
 ```xml {diff}
  			<option value="*">JALL</option>
@@ -61,7 +61,7 @@ Das Formular `forms/filter_foos.xml`, über das die Suchwergzeuge verwaltet werd
 
 Im dem XML-Formular `forms/foo.xml`, welches ein Foo-Item beschreibt, ergänzen wir das Formularfeld, in dem die Informationen zum Tag enthalten sind. Da wir Joomla Standard nutzen, können wir viele vorgefertigte Funktionen Out-of-the-Box nutzen. Beispielsweise sorgt `type="tag"` dafür, dass ein Auswahlfeld mit allen verfügbaren Schlagworten angezeigt wird.
 
-[administrator/components/com_foos/ forms/foo.xml](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			label="JFIELD_ORDERING_LABEL"
@@ -86,7 +86,7 @@ Im dem XML-Formular `forms/foo.xml`, welches ein Foo-Item beschreibt, ergänzen 
 
 Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als eigener Inhaltstyp erkannt wird. Joomla Typen sind beispielsweise Content, Kontakt oder Banner. Im Skript sorgen wir jetzt dafür, dass ein Eintrag in der Tabelle `Contenttype` für die Foo Komponente ergänzt wird. Dies hat zur Folge, dass Joomla `com_foo` bei speziellen Abläufen berücksichtig, beispielsweise bei der Prüfung welches Element welches Schlagwort enthält.
 
-[administrator/components/com_foos/ script.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/script.php)
+[administrator/components/com_foos/ script.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/script.php)
 
 ```php {diff}
  	{
@@ -166,7 +166,7 @@ Im Installationsskript sorgen wir dafür, dass unsere Erweiterung in Joomla als 
 
 Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein und sorgen dafür, dass die zugehörigen Tags geladen werden.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\LanguageHelper;
@@ -204,7 +204,7 @@ Im Model des Elements fügen wir die Tags in die Stapelverarbeitung (Batch) ein 
 
 Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweitern wir das Model der Übersichtsliste. Wir passen dieses bezüglich der Filter und der Datenbankabfrage an.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Associations;
@@ -270,7 +270,7 @@ Das Model eines einzelnen Items haben wir schon bearbeitet. Als nächstes erweit
 
 Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher, dass die zur Sprache passenden Schlagworte geladen werden.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://github.com/astridx/boilerplate/blob/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/80d1b3b77d0bbcf9d401ec7a992ea2a08761d408/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
 
@@ -290,7 +290,7 @@ Kurz vor Schluss kümmern wir uns um die Anzeige. In der View stellen wir sicher
 
 Damit die Stapelverarbeitung auch für die Tags nutzbar ist, fügen wir ein Formularfeld ein. Mithilfe dieses Feldes ist es möglich ein Schlagwort auszuwählen, dass allen selektierten Items zugeordnet wird.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://github.com/astridx/boilerplate/blob/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t29/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {diff}
  				</div>

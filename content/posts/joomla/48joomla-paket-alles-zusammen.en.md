@@ -31,7 +31,7 @@ In this section we will create an installation package.
 
 Like the component, a package can be extended with an optional script. In our case, we check whether the installation requirements are met in terms of minimum versions for Joomla and PHP.
 
-[administrator/manifests/ packages/foos/script.php](https://github.com/astridx/boilerplate/blob/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
+[administrator/manifests/ packages/foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
 
 ```php
 // https://github.com/astridx/boilerplate/raw/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php
@@ -73,7 +73,7 @@ class Pkg_FoosInstallerScript
 
 You already know the manifest. In the case of a package, there is little new here. In the area of the files to be copied, you specify the installation packages of the extensions that are to be installed.
 
-[administrator/manifests/ packages/pkg_foos.xml](https://github.com/astridx/boilerplate/blob/t42/src/administrator/manifests/packages/pkg_foos.xml)
+[administrator/manifests/ packages/pkg_foos.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t42/src/administrator/manifests/packages/pkg_foos.xml)
 
 ```XML
 <!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t42/src/administrator/manifests/packages/pkg_foos.xml -->

@@ -23,7 +23,7 @@ You need Joomla 4.x for this tutorial. You can find Joomla 4 on [GitHub](https:/
 
 ## Aim of this tutorial?
 
-This tutorial does not create a practical example. I have intentionally kept everything general. My main goal is to show you how Joomla works - and to help you understand it better yourself. In the end, you replace the name 'foo' in all files with the name of your component and extend it with your special requirements. If you like, you can use the script [duplicate.sh](https://github.com/astridx/boilerplate/blob/t43/duplicate.sh)[^github.com/astridx/boilerplate/blob/t43/duplicate.sh] for this.
+This tutorial does not create a practical example. I have intentionally kept everything general. My main goal is to show you how Joomla works - and to help you understand it better yourself. In the end, you replace the name 'foo' in all files with the name of your component and extend it with your special requirements. If you like, you can use the script [duplicate.sh](https://codeberg.org/astrid/j4examplecode/src/branch/t43/duplicate.sh)[^github.com/astridx/boilerplate/blob/t43/duplicate.sh] for this.
 
 > Therefore, this tutorial is primarily intended for programmers who want to create a new component and do not know Joomla yet. The tutorial is also a help for programmers of a Joomla 3 component, if they extend their component for Joomla 4. For example, if you are working on validating your Joomla 3 component, you will find what you need in the chapters on server-side and client-side validation - no more and no less.
 
@@ -155,7 +155,7 @@ and as a tag in the manifest file
 
 `<Namespace>FooNamespace\ Component\Foos</ Namespace>`.
 
-> Remember to include the `path="src"` parameter if you put the namespace files in the `src` subdirectory. This is common in Joomla and the sample extensions [created in this tutorial also use this directory](https://github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/ src/administrator/components/com_foos/foos.xml#L12].
+> Remember to include the `path="src"` parameter if you put the namespace files in the `src` subdirectory. This is common in Joomla and the sample extensions [created in this tutorial also use this directory](https://codeberg.org/astrid/j4examplecode/src/branch/62a970704ee2899addd3922e88c918b7f6af72a2/src/administrator/components/com_foos/foos.xml#L12)[github.com/astridx/boilerplate/blob/62a970704ee2899addd3922e88c918b7f6af72a2/ src/administrator/components/com_foos/foos.xml#L12].
 
 Why use namespaces? All PHP classes are thus organised in a defined structure and automatically loaded via the `Classloader`. Thereby `ContentModelArticles` becomes `Joomla\Component\Content\ Administrator\Model\ArticlesModel`.
 

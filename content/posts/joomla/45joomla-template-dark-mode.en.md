@@ -54,7 +54,7 @@ Added the CSS file `templates/assets/css/main.dark.css`. This new stylesheet con
 
 The file `templates/facile/ index.php` now loads the CSS file depending on the _preferred color scheme_. Additionally it integrates a slider in the upper left corner, which makes the mode switchable by click. The necessary changes can be found in the following code example.
 
-[templates/facile/ index.php](https://github.com/astridx/boilerplate/blob/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
+[templates/facile/ index.php](https://codeberg.org/astrid/j4examplecode/src/branch/661edd39e639f8b76fa73f7d00054fcff61f5351/src/templates/facile/index.php)
 
 ```php {diff}
  $templatePath = 'templates/' . $this->template;
