@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-01
+date: 2022-08-02
 title: 'Filter, Sort, Search'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,9 +15,7 @@ tags:
   - Joomla
 ---
 
-Filtering, sorting and searching - now we organize the Joomla 4 component ! Joomla offers view filters and search tools with which you can limit the number of visible items. If the status filter is set accordingly, only items whose status is published will be displayed. Beside the status filter the search tools offer the search by title or content and the possibility to sort the table, i.e. to change the order.<!-- \index{filtering} --><!-- \index{sorting} --><!-- \index{searching} -->
-
-![Joomla Filter Sort and Search -Search Tools](/images/j4x20x1.png)
+Filtering, sorting and searching - now we organize the Joomla 4 component! Joomla offers view filters and search tools with which you can limit the number of visible items. If the status filter is set accordingly, only items whose status is published will be displayed. Beside the status filter the search tools offer the search by title or content and the possibility to sort the table, i.e. to change the order.<!-- \index{filtering} --><!-- \index{sorting} --><!-- \index{searching} -->
 
 > For impatient people: Look at the changed program code in the [Diff view](https://codeberg.org/astrid/j4examplecode/compare/t15a...t16)[^codeberg.org/astrid/j4examplecode/compare/t15a...t16] and take over these changes into your development version.
 
@@ -165,7 +163,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `ordering` int(11) NOT NULL DEFAULT 0 
 
 The form used to create or modify an element is extended with a field for specifying the order.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			label="JFIELD_ACCESS_LABEL"
@@ -188,7 +186,7 @@ The form used to create or modify an element is extended with a field for specif
 
 In case of a new installation, the script in the file `install.mysql.utf8.sql` creates the database. Here we add a column to store the order.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
 
@@ -207,7 +205,7 @@ There are a lot of changes in the model for the list. In the constructor we firs
 
 In the `getListQuery()` method we adjust the database query to respect the filters and sorting. This way the data is immediately in the form in which we display it.
 
-[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/Model/FoosModel.php)
+[administrator/components/com_foos/ src/Model/FoosModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/Model/FoosModel.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\Model\ListModel;
@@ -329,7 +327,7 @@ In the `getListQuery()` method we adjust the database query to respect the filte
 
 The view loads the filter form `src/administrator/components/com_foos/ forms/foo.xml`, which is displayed in the upper area. Besides we add here the check if the active user is allowed to perform actions.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  \defined('_JEXEC') or die;
@@ -418,13 +416,25 @@ The view loads the filter form `src/administrator/components/com_foos/ forms/foo
 The code below shows all the essentials for using `searchtools` in the list view of the backend.
 In the case of the header, I replaced `<?php echo TEXT::_('JGRID_HEADING_ACCESS') ?>` with `<?php echo HTMLHelper::_('searchtools.sort', 'JGRID_HEADING_ACCESS', 'access_level', $listDirn, $listOrder); ?>`. This way the header of the table is marked with a small arrow when a sort is active in a column.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/default.php)
+The code, which enables selection and deselection of column views via the code snippet 
+
+```php
+$wa = $this->document->getWebAssetManager();
+$wa->useScript('table.columns');
+```
+
+was introduced to Joomla 4.2 via PR 36591[^github.com/joomla/joomla-cms/pull/36591].
+
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Multilanguage;
  use Joomla\CMS\Language\Associations;
  use Joomla\CMS\Layout\LayoutHelper;
 +use Joomla\CMS\Session\Session;
+
++$wa = $this->document->getWebAssetManager();
++$wa->useScript('table.columns');
 
 +$canChange = true;
  $assoc = Associations::isEnabled();
@@ -541,7 +551,7 @@ Icons show us if a column is sorted and in which direction. To make the sorting 
 
 > The [class `visually-hidden`](https://getbootstrap.com/docs/5.0/getting-started/accessibility/#visually-hidden-content) hides an element for all devices except screen readers.
 
-[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/9a7f1349a8b8371a96e93056d7764c557686f7c1/src/administrator/components/com_foos/tmpl/foos/modal.php)
+[administrator/components/com_foos/ tmpl/foos/modal.php](https://codeberg.org/astrid/j4examplecode/src/branch/t16/src/administrator/components/com_foos/tmpl/foos/modal.php)
 
 ```php {diff}
  			<table class="table table-sm">
@@ -559,9 +569,7 @@ Icons show us if a column is sorted and in which direction. To make the sorting 
 
 1- install your component in Joomla version 4 to test it: Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-2.the database has been changed, so it is necessary to update it. Open the `System | Information | Database` area as described in part 16. Select your component and click `Update Structure`.
-
-![Joomla Published](/images/j4x16x1.png)
+2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part `Publish and Unpublish`. Select your component and click on `Update Structure`.
 
 3. open the view of your component in the administration area and filter, sort and search for items in your component.
 

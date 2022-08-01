@@ -1011,23 +1011,21 @@ In der Übersicht aller Elemente im Backend in der Datei `administrator/componen
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
-2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
+2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie im Teil `Veröffentlichen und Verstecken` beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
-![Joomla Published](/images/j4x16x1.png)
-
-2. Öffne die Ansicht deiner Komponente im Administrationsbereich. Die Liste enthält eine Spalte die mit `featured` überschrieben ist.
+3. Öffne die Ansicht deiner Komponente im Administrationsbereich. Die Liste enthält eine Spalte die mit `featured` überschrieben ist.
 
 ![Joomla Featured](/images/j4x28x1.png)
 
-3. Öffne ein Item in der Bearbeitungsansicht und überzeuge dich davon, dass du hier das Attribut `featured` zum Bearbeiten angeboten bekommst.
+4. Öffne ein Item in der Bearbeitungsansicht und überzeuge dich davon, dass du hier das Attribut `featured` zum Bearbeiten angeboten bekommst.
 
 ![Joomla Featured](/images/j4x28x2.png)
 
-4. Lege einen Menüpunkt vom Type `featured` an.
+5. Lege einen Menüpunkt vom Type `featured` an.
 
 ![Joomla Featured](/images/j4x28x3.png)
 
-5. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist, die veröffentlicht sind und bei denen die zugehörige Kategorie ebenfalls veröffentlicht ist.
+6. Wechsele ins Frontend und stelle sicher, dass unter dem Menüpunkt `featured` ausschließlich Items angezeigt werden, bei denen das Attribut gesetzt ist, die veröffentlicht sind und bei denen die zugehörige Kategorie ebenfalls veröffentlicht ist.
 
 ![Joomla Featured; Elemente im Backend](/images/j4x28x4a.png)
 

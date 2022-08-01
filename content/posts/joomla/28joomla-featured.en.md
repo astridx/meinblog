@@ -1011,9 +1011,7 @@ In the overview of all elements in the backend in the file `administrator/compon
 Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.  
 Copy the files in the `components` folder into the `components` folder of your Joomla 4 installation.
 
-2, The database has been changed, so it is necessary to update it. Open the 'System | Information | Database' area as described in part 16. Select your component and click 'Update Structure'.
-
-![Joomla Published](/images/j4x16x1.png)
+2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part `Publish and Unpublish`. Select your component and click on `Update Structure`.
 
 3. Open the view of your component in the administration area. The list contains a column that is overwritten with `featured`.
 

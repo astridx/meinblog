@@ -1100,8 +1100,6 @@ In the components overview in the administration area, we add columns to display
 
 2. the database has been changed, so it is necessary to update it. Open the `System | Information | Database` section as described in part `Publish and Unpublish`. Select your component and click on `Update Structure`.
 
-![Joomla Published](/images/j4x16x1.png)
-
 3. install at least one more language via `System | Install | Languages`. I chose the german and the persian language.
 
 > [Persian](https://en.wikipedia.org/wiki/Persian_language)[^wikipedia.org/wiki/persian_language] is together with Arabic, Hebrew, Pashto, Urdu, and Sindhi one of the most widely used [RTL](https://en.wikipedia.org/wiki/Right-to-left_script)[^wikipedia.org/wiki/right-to-left_script] writing systems of modern times and can therefore be used to test the RTL integration in Joomla. In a _right-to-left, top-to-bottom_ [script](https://en.wikipedia.org/wiki/Writing_system)[^] (often abbreviated as _right-to-left_ or _RTL_), one writes from right to left on a page, with new lines written from top to bottom. This is in contrast to the left-to-right [writing system](https://en.wikipedia.org/wiki/Writing_system), where writing starts from the left and continues to the right.

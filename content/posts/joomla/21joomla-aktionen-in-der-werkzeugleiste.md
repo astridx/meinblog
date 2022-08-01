@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-31
+date: 2022-08-02
 title: 'Aktionen in der Werkzeugleiste'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,9 +15,7 @@ tags:
   - Joomla
 ---
 
-Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigung von Aufgaben. Damit die Menschen, die mit der Komponente arbeiten, immer einen Überblick über die möglichen Arbeitsschritte haben, ist es sinnvoll, eine Symbolleiste zu haben. In diesem Teil des Tutorials werden wir die bereits vorhandene Symbolleiste um die Standardaktionen erweitern. Hierbei greifen wir auf eine Vielzahl von vorgefertigten Methoden zu. Auch hier gilt: Beim Standard ist es nicht notwendig, das Rad selbst zu erfinden. Bei zukünftigen speziellen Aufgaben ist es sinnvoll, den Standard als Beispiel zu verwenden.<!-- \index{Aktionen} --><!-- \index{Werzeugleiste} -->
-
-![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
+Du entwickelst die Erweiterung nicht als Selbstzweck. Sie hilft bei der Erledigung von Aufgaben. Damit die Menschen, die mit der Komponente arbeiten, immer einen Überblick über die möglichen Arbeitsschritte haben, ist es sinnvoll, eine Werkzeugleiste zu haben. In diesem Teil des Tutorials werden wir die bereits vorhandene Werkzeugleiste um die Standardaktionen erweitern. Hierbei greifen wir auf eine Vielzahl von vorgefertigten Methoden zu. Auch hier gilt: Beim Standard ist es nicht notwendig, das Rad selbst zu erfinden. Bei zukünftigen speziellen Aufgaben ist es sinnvoll, den Standard als Beispiel zu verwenden.<!-- \index{Aktionen} --><!-- \index{Werzeugleiste} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t16...t17)[^codeberg.org/astrid/j4examplecode/compare/t16...t17] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -44,7 +42,7 @@ Der nachfolgende Code zeigt dir, welche Funktionen du beim Erstellen oder Editie
 
 Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur angezeigt, wenn der Betrachter berechtigt ist, sie zu nutzen. Die Funktion [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) sammelt die in der Datei `access.xml` implementierten Rechte, welche dem gerade angemeldeten Benutzer erlaubt sind. Ist dies der Fall, dann ist `$canDo->get('...')` gleich `true`. Ein konkretes Beispiel: `$canDo->get('core.create')` ist `true`, wenn der Benutzer Inhalte erstellen darf.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t17/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	{
@@ -127,7 +125,7 @@ Wir ergänzen hier die Prüfung von Berechtigungen. Eine Schaltfläche wird nur 
 
 Hier siehst du beispielhaft die Werkzeugleiste der Listenansicht - die Ansicht, die dir eine Übersicht über deine Elemente bietet. Die Prüfung von Berechtigungen ist hier ebenfalls hinzugekommen.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t17/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected function addToolbar()
@@ -201,6 +199,8 @@ Eine neue Installation ist nicht erforderlich. Verwende die aus dem vorhergehend
 2. Öffne die Ansicht deiner Komponente im Administrationsbereich. In der Werkzeugleiste siehst du eine Auswahlliste zum Anstoßen von verschiedenen Aktionen.
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x1.png)
+
+3. Öffne die Detailansicht zu einem Element. Auch hier findest du eine Werkzeugleiste vor.
 
 ![Joomla Aktionen in der Werkzeugleiste](/images/j4x21x2.png)
 <img src="https://vg08.met.vgwort.de/na/b2afc8f31a3e418aa387ccf1b7bcd391" width="1" height="1" alt="">

@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-31
+date: 2022-08-02
 title: 'Toolbar Actions'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -16,8 +16,6 @@ tags:
 ---
 
 You don't develop the extension as an end in itself. It helps with the completion of tasks. In order for the people working with the component to always have an overview of the possible work steps, it makes sense to have a toolbar. In this part of the tutorial we will extend the already existing toolbar with the standard actions. Here we will access a variety of ready-made methods. Again, for the standard, it is not necessary to invent the wheel yourself. Later on, for special tasks, it makes sense to use the standard as an example.<!-- \index{actions} --><!-- \index{toolbar} -->
-
-![Joomla actions in the toolbar](/images/j4x21x1.png)
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t16...t17)[^codeberg.org/astrid/j4examplecode/compare/t16...t17] and copy these changes into your development version.
 
@@ -43,7 +41,7 @@ The following code shows you which functions you use when creating or editing an
 
 We add permission checking here. A button is displayed only if the user is authorized to use it. The [`ContentHelper::getActions`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Helper/ContentHelper.php#L152) function collects the permissions implemented in the `access.xml` file, which are allowed to the currently logged in user. If this is the case, then `$canDo->get('...')` equals `true`. A concrete example: `$canDo->get('core.create')` is `true` if the user is allowed to create content.
 
-[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t17/src/administrator/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  	{
@@ -126,7 +124,7 @@ We add permission checking here. A button is displayed only if the user is autho
 
 Here you can see an example of the List View toolbar - the view that gives you an overview of your items. Permission checking has also been added here.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/991ca5fcfb55590fa6589d8c7a8b74fae2628d28/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t17/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  	protected function addToolbar()
@@ -196,9 +194,11 @@ Copy the files in the `administrator` folder to the `administrator` folder of yo
 
 A new installation is not necessary. Continue using the ones from the previous part.
 
-Open the view of your component in the administration area. In the toolbar you will see a dropdown list to trigger different actions.
+2. Open the view of your component in the administration area. In the toolbar you will see a dropdown list to trigger different actions.
 
 ![Joomla Actions in the Toolbar](/images/j4x21x1.png)
+
+3. Open the detail view for an item. Here you will also have a toolbar.
 
 ![Joomla actions in the toolbar](/images/j4x21x2.png)
 <img src="https://vg08.met.vgwort.de/na/211a290b4529496caee3902bf041757d" width="1" height="1" alt="">

@@ -1094,9 +1094,7 @@ In der Übersicht zur Komponenten im Administrationsbereich ergänzen wir Spalte
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.  
 Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
-2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil `Veröffentlichen und Verstecken` beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
-
-![Joomla Published](/images/j4x16x1.png)
+2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie im Teil `Veröffentlichen und Verstecken` beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
 3. Installiere über `System | Install | Languages` mindestens eine weitere Sprache. Ich habe die deutsche und die persische Sprache gewählt.
 

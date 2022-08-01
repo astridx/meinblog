@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-30
+date: 2022-08-02
 title: 'Parameter'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -38,7 +38,7 @@ Beim Menüpunkt hatten wir schon einen Parameter gesetzt. Für die Komponente gi
 
 ## Schritt für Schritt
 
-Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit unterschiedlich in den Joomla Kern Komponenten integriert. Kurz vor der Veröffentlichung von Joomla 4 gab es Bestrebungen, diesen zu vereinfachen und zu vereinheitlichen. Beispiel Pull Requests sind [PR 34894](https://github.com/joomla/joomla-cms/pull/34894)[^github.com/joomla/joomla-cms/pull/34894] und [PR 32538](https://github.com/joomla/joomla-cms/pull/32538)[github.com/joomla/joomla-cms/pull/32538], von denen man sich für eigene Implementierungen inspirieren lassen kann.
+Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit unterschiedlich in den Joomla Kern Komponenten integriert. Kurz vor der Veröffentlichung von Joomla 4 gab es Bestrebungen, diesen zu vereinfachen und zu vereinheitlichen. Beispiel Pull Requests sind [PR 34894](https://github.com/joomla/joomla-cms/pull/34894)[^github.com/joomla/joomla-cms/pull/34894] und [PR 32538](https://github.com/joomla/joomla-cms/pull/32538)[^github.com/joomla/joomla-cms/pull/32538], von denen man sich für eigene Implementierungen inspirieren lassen kann.
 
 ### Neue Dateien
 
@@ -47,7 +47,7 @@ Der Code mit dem die Belegung eines Parameters berechnet wird, war lange Zeit un
 
 Damit bei einer Aktualisierung der Komponente die Spalte `params` in der Datenbank erstellt wird, in welcher die Parameter gespeichert werden, benötigen wir die SQL-Datei `administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql`.
 
-[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
+[administrator/components/com_foos/ sql/updates/mysql/18.0.0.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql)
 
 ```xml {numberLines: -2}
 /* https://codeberg.org/astrid/j4examplecode/raw/branch/39598941015020537d51ccb6ca4098f019d76b04/src/administrator/components/com_foos/sql/updates/mysql/18.0.0.sql */
@@ -62,7 +62,7 @@ ALTER TABLE `#__foos_details` ADD COLUMN  `params` text NOT NULL AFTER `alias`;
 
 In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu setzen. Wir fügen ein Feld `show_name` zur Konfiguration hinzu. Anschließend schaffen wir die Möglichkeit, diesen für ein einzelnes Element `administrator/components/com_foos/ forms/foo.xml` oder einen Menüpunkt `components/com_foos/tmpl/foo/default.xml` zu überschreiben.
 
-[administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/config.xml)
+[administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/config.xml)
 
 ```xml {diff}
  			<option value="0">JNO</option>
@@ -89,7 +89,7 @@ In der Konfiguration wird der Parameter gespeichert, um einen Standardwert zu se
 
 In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params` hinzu. So ist `show_name` ebenfalls für ein einzelnes Element konfigurierbar.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  			content_type="com_foos.foo"
@@ -118,7 +118,7 @@ In dem Formular, mit dem wir ein Element bearbeiten, fügen wir das Feld `params
 
 Damit bei einer neuen Installation die Spalte erstellt wird, in der die Parameter gespeichert werden, ergänzen wir die SQL-Datei `administrator/components/com_foos/ sql/install.mysql.utf8.sql`.
 
-[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
+[administrator/components/com_foos/ sql/install.mysql.utf8.sql](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/sql/install.mysql.utf8.sql)
 
 ```xml {diff}
  ALTER TABLE `#__foos_details` ADD KEY `idx_language` (`language`);
@@ -145,7 +145,7 @@ zur Registry hinzu. Um einen Wert abzurufen, nutzen wir
 $foo = $registry->foo;
 ```
 
-[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/administrator/components/com_foos/src/Table/FooTable.php)
+[administrator/components/com_foos/ src/Table/FooTable.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/administrator/components/com_foos/src/Table/FooTable.php)
 
 ```php {diff}
  use Joomla\CMS\Application\ApplicationHelper;
@@ -181,7 +181,7 @@ Die View kombiniert die Daten zu den Parametern so, dass die Anzeige passt.
 
 Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden. Dies habe ich hier so umgesetzt. `$state->get('params')` gibt den Wert an, der beim Menüpunkt gespeichert wurde. `$item->params` ist der Parameter, der beim Element gespeichert wurde. Der nachfolgende Code zeigt dir, wie du die beiden so mischst, dass der Wert beim Item Vorrang hat.
 
-[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/src/View/Foo/HtmlView.php)
+[components/com_foos/ src/View/Foo/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/src/View/Foo/HtmlView.php)
 
 ```php {diff}
  use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
@@ -231,7 +231,7 @@ Manchmal ist es intuitiver, die Anzeige beim Element als Prioriät zu verwenden.
 
 Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `components/com_foos/ tmpl/foo/default.php`. Wenn es den Parameter gibt und er so gesetzt ist, dass der Name angezeigt werden soll `if ($this->item->params->get('show_name'))`, dann wird der Name angezeigt. Das Label `$this->params->get('show_foo_name_label')` wird ebenfalls nur dann angezeigt:
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
  use Joomla\CMS\Language\Text;
@@ -255,7 +255,7 @@ Am Ende nutzen wir den Parameter beim Handling der Anzeige im Template `componen
 <!-- prettier-ignore -->
 #### components/com\_foos/ tmpl/foo/default.xml
 
-[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ce475ed9c41f91b46932f54e4835ce1868dd9930/src/components/com_foos/tmpl/foo/default.xml)
+[components/com_foos/tmpl/foo/default.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t18/src/components/com_foos/tmpl/foo/default.xml)
 
 Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ein Feld in der XML-Datei hinzu. Wichtig ist, dass es unter `fields` angeordnet wird und `params` heißt - zumindest zum Verwenden der Joomla Standardfunktionen!
 
@@ -303,27 +303,17 @@ Damit es möglich ist, den Parameter beim Menüpunkt zu speichern, fügen wir ei
 
 1. Installiere deine Komponente in Joomla Version 4, um sie zu testen: Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `components` Ordner in den `components` Ordner deiner Joomla 4 Installation.
 
-2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie in Teil 16 beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
-
-![Joomla Published](/images/j4x16x1.png)
+2. Die Datenbank ist geändert worden, so dass es erforderlich ist, sie zu aktualisieren. Öffne den Bereich `System | Information | Database`, wie im Teil `Veröffentlichen und Verstecken` beschrieben. Wähle deine Komponente aus und klicke auf `Update Structure`.
 
 3. Öffne die Ansicht deiner Komponente im Administrationsbereich. Beim Bearbeiten eines Items gibt es jetzt den Tabulator `Display` und den Parameter `Show Name`.
 
-![Joomla Parameter eines Elementes.](/images/j4x22x1.png)
-
 ![Joomla Parameter eines Elementes.](/images/j4x22x2.png)
 
-4. Öffne die Optionen deiner Komponente im Administrationsbereich. Hier gibt es jetzt den Parameter `Show Name`.
-
-![Joomla Parameter/Optionen einer Komponente.](/images/j4x22x3.png)
+4. Öffne die Optionen deiner Komponente im Administrationsbereich. Hier gibt es jetzt ebenfalls den Parameter `Show Name`.
 
 ![Joomla Parameter/Optionen einem Komponente.](/images/j4x22x4.png)
 
 5. Öffne den Menümanager, um einen Menüpunkt anzulegen. Klicke dazu in der linken Seitenleite auf `Menü` und dann auf `All Menu Items`. Klicke danach auf die Schaltfläche `New` und fülle alle notwendigen Felder aus. Den passenden `Menu Item Typ` findest du über die `Select` Schaltfläche. Hier gibt es jetzt den Tabulator `Display` und den Parameter `Show Name`.
-
-![Joomla Parameter eines Menüpunkts.](/images/j4x22x5.png)
-
-![Joomla Parameter eines Menüpunkt.](/images/j4x22x6.png)
 
 ![Joomla Parameter eines Menüpunkt.](/images/j4x22x7.png)
 
