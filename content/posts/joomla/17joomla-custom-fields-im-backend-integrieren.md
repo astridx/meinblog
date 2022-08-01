@@ -162,7 +162,7 @@ Das Formular, über das ein Foo-Element editierbar ist, verfügt nun über Tabul
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ tmpl/foo/edit.php
 
-Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir [UiTab](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/HTML/Helpers/UiTab.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/ libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` sorgt dafür, dass der [Helper](https://github.com/joomla/joomla-cms/blob/4.0-dev/layouts/joomla/edit/params.php#L20)[^github.com/joomla/joomla-cms/blob/4.0-dev/ layouts/joomla/edit/params.php#l20] flexibel die richtige Tab-Impementierung liefert.
+Damit das Editieren der Custom Fields genauso funktioniert, wie in den Joomla eigenen Erweiterungen, nutzen wir UiTab[^libraries/src/html/helpers/uitab.php]. `$this->useCoreUI = true;` sorgt dafür, dass der Helper[^layouts/joomla/edit/params.php] flexibel die richtige Tab-Impementierung liefert.
 
 > Einen Vergleich zwischen dem bisher meist genutzten `bootstrap.tab` und `uitab` bietet [Pull Request PR 21805](https://github.com/joomla/joomla-cms/pull/21805)[^github.com/joomla/joomla-cms/pull/21805].<!-- \index{bootstrap.tab} --><!-- \index{UiTab} -->
 

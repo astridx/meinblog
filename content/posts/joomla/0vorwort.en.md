@@ -143,7 +143,7 @@ That you should not change the system files does not mean that you do not even l
 
 During the installation, entries are made in `/administrator/ cache/autoload_psr4.php`. This is new in Joomla 4. If you encounter strange problems, delete this file. It will be recreated the next time you load. Sometimes this solves a problem. <!-- \index{autoload!autoload psr4.php} -->
 
-> The following text was added to the [README on Github](https://github.com/joomla/joomla-cms/blob/4.0-dev/README.md)[^github.com/joomla/joomla-cms/pull/28436/files] using the [PR 28436](https://github.com/joomla/joomla-cms/pull/28436/files)[^github.com/joomla/joomla-cms/blob/4.0-dev/readme.md]: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
+> The following text was added to the README on Github using the [PR 28436](https://github.com/joomla/joomla-cms/pull/28436)[^github.com/joomla/joomla-cms/pull/28436]: "Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/ cache/autoload_psr4.php`. If extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file and it will be regenerated on the next call to Joomla."
 
 ### Namespace<!-- \index{namespace} -->
 
@@ -284,7 +284,7 @@ Where do you best store JavaScript, CSS and image files? Store these data in the
 
 You want to use icons but don't want to add your own library. Use the free icons from [fontawesome.com/icons](https://fontawesome.com/icons) in the frontend and backend. At least if you use the standard templates _Cassiopeia_ and _Atum_, this will work. If your template does not support FontAwesome, you can load the icons yourself via the WebassetManager. In Joomla Fontawesome is delivered with the template. Marking them as [dependency](https://github.com/joomla/joomla-cms/blob/75ef0b10ee31a768d279f04e5278bafee3b23a78/templates/cassiopeia/joomla.asset.json#L14)[^templates/cassiopeia/joomla.asset.json] is sufficient.
 
-> Attention: In _Joomla Core files_, you cannot simply copy them, because Joomla add the text `icon-` in front of the icon name. This is then converted via the file [`build/media_source/ system/scss/_icomoon.scss`](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss or media/system/scss/_icomoon.scss] for Fontawesome. In this way, only the icons included in the previously mentioned file will work. Why does Joomla complicate the selection of Font Awesome icons? The reason for this is as follows: Extensions that were programmed for Joomla 3 can still be used.
+> Attention: In _Joomla Core files_, you cannot simply copy them, because Joomla add the text `icon-` in front of the icon name. This is then converted via the file `build/media_source/ system/scss/_icomoon.scss` for Fontawesome. In this way, only the icons included in the previously mentioned file will work. Why does Joomla complicate the selection of Font Awesome icons? The reason for this is as follows: Extensions that were programmed for Joomla 3 can still be used.
 
 The HTML code
 

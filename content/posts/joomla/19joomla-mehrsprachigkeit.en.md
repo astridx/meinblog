@@ -498,12 +498,12 @@ abstract class RouteHelper
 
 We create a field through which an author selects the language link. This is the field `name="language"`. In order for Joomla to find this field, we add the path in the form `addfieldprefix= "FooNamespace\Component\Foos\Administrator\Field"` as a parameter in the `<fieldset>`.
 
-[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/fc08495c9bf14cb79315da7a3a5a95064351e2a0/src/administrator/components/com_foos/forms/foo.xml)
+[administrator/components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/forms/foo.xml)
 
 ```xml {diff}
  <?xml version="1.0" encoding="utf-8"?>
  <form>
--	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">
+-	<fieldset addruleprefix="FooNamespace\Component\Foos\Administrator\Rule">t
 +	<fieldset
 +		addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
 +		addfieldprefix="FooNamespace\Component\Foos\Administrator\Field"
@@ -531,7 +531,7 @@ We create a field through which an author selects the language link. This is the
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/ services/provider.php
 
-In the provider we register our `AssociationsHelper` as a service that implements [AssociationExtensionInterface](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Association/AssociationExtensionInterface.php)[^github.com/joomla/joomla-cms/blob/4.0-dev/ libraries/src/association/associationextensioninterface.php]. This way we ensure that all necessary functions are inherited into our component and are thus available.
+In the provider we register our `AssociationsHelper` as a service that implements `AssociationExtensionInterface`[^libraries/src/association/associationextensioninterface.php]. This way we ensure that all necessary functions are inherited into our component and are thus available.
 
 [administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t15a/src/administrator/components/com_foos/services/provider.php)
 

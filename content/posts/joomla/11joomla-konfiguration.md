@@ -28,7 +28,7 @@ Gibt es Dinge, die du konfigurierbar anzubieten planst? Dann ist dieser Teil wic
 
 Zu unseren Dateien hinzu kommt die Datei `config.xml`. Diese implementiert die Konfigurations-Parameter. In der XML-Datei kannst du wie gewohnt auf alle [Standard-Formular-Feldtypen](https://docs.joomla.org/Form_field/de)[^docs.joomla.org/form_field/de] zurückgreifen oder analog des bereits erstellten Modalfeldes FieldFoo eigene Typen implementieren.
 
-Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit minimieren wir, indem wir die globalen Sprachstrings `JNO` und `JYES` einsetzten. Alle Texte, die Joomla in der Datei [`language/en-GB/joomla.ini`](https://github.com/joomla/joomla-cms/blob/4.0-dev/language/en-GB/joomla.ini) übersetzt, sind global verwendbar.
+Wir verwenden ein Auswahlfeld vom Typ `type="list"`. Die Übersetzungsarbeit minimieren wir, indem wir die globalen Sprachstrings `JNO` und `JYES` einsetzten. Alle Texte, die Joomla in der Datei `language/en-GB/joomla.ini` übersetzt, sind global verwendbar.
 
 [administrator/components/com_foos/config.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t9/src/administrator/components/com_foos/config.xml)
 

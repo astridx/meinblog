@@ -31,7 +31,7 @@ We only change files in this chapter, no new ones are added.
 
 #### administrator/components/ com_foos/src/View/Foo/HtmlView.php
 
-The following code shows you which functions you use when creating or editing an element. The [ToolbarHelper](https://github.com/joomla/joomla-cms/blob/4.0-dev/libraries/src/Toolbar/ToolbarHelper.php) class provides a lot of helpful functions. For example
+The following code shows you which functions you use when creating or editing an element. The ToolbarHelper[^libraries/src/Toolbar/ToolbarHelper.php] class provides a lot of helpful functions. For example
 
 - [`ToolbarHelper::title`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L26) to position a title appropriately,
 - [`ToolbarHelper::apply`](https://github.com/joomla/joomla-cms/blob/4c4fef0f4510c1b5d4c6f3db30e39826813b7e13/libraries/src/Toolbar/ToolbarHelper.php#L474) to add buttons with the default save function

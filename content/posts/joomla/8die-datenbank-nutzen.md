@@ -423,7 +423,7 @@ $tmpl = $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 
 ```
 
-> Interessierst dich der Inhalt der Dateien [Core.js](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/js/core.es6.js) oder [Keepalive.js](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/js/keepalive.es6.js)? Sieh sie dir in dem Falle in Joomla direkt an. Sie befinden sich in der Entwicklungsversion im Verzeichnis `build/media_source/system/js/` und werden mithilfe von Skripten, [Node.js](https://nodejs.org/en/)[^nodejs.org] und [Composer](https://getcomposer.org/)[^getcomposer.org/] für die Installation aufbereitet im Verzeichnis `media/system/js` abgelegt. Weitere Informationen hierzu findest du in der [Joomla Dokumentation](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de)[^docs.joomla.org/j4.x:setting_up_your_local_environment/de].
+> Interessierst dich der Inhalt der Dateien `Core.js`[^build/media_source/system/js/core.es6.js] oder `Keepalive.js`[^build/media_source/system/js/keepalive.es6.js]? Sieh sie dir in dem Falle in Joomla direkt an. Sie befinden sich in der Entwicklungsversion im Verzeichnis `build/media_source/system/js/` und werden mithilfe von Skripten, [Node.js](https://nodejs.org/en/)[^nodejs.org] und [Composer](https://getcomposer.org/)[^getcomposer.org/] für die Installation aufbereitet im Verzeichnis `media/system/js` abgelegt. Weitere Informationen hierzu findest du in der [Joomla Dokumentation](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment/de)[^docs.joomla.org/j4.x:setting_up_your_local_environment/de].
 
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/ tmpl/foos/emptystate.php<!-- \index{Empty State} -->
@@ -464,7 +464,7 @@ echo LayoutHelper::render('joomla.content.emptystate', $displayData);
 
 ```
 
-> `'icon' => 'icon-copy'` funktioniert lediglich bei Icons, die in der Datei [build/media_source/system/scss/\_icomoon.scss](https://github.com/joomla/joomla-cms/blob/4.0-dev/build/media_source/system/scss/_icomoon.scss)[^build/media_source/system/scss/_icomoon.scss] namentlich aufgenommen sind. Warum das so ist, hatte ich im Vorwort erklärt. Passe das Layout für das Icon an, falls du ein anderes Symbol darstellen möchtest.
+> `'icon' => 'icon-copy'` funktioniert lediglich bei Icons, die in der Datei `build/media_source/system/scss/_icomoon.scss`[^build/media_source/system/scss/_icomoon.scss] namentlich aufgenommen sind. Warum das so ist, hatte ich im Vorwort erklärt. Passe das Layout für das Icon an, falls du ein anderes Symbol darstellen möchtest.
 
 Das Empty-State-Layout wurde in Joomla im [PR 33264](https://github.com/joomla/joomla-cms/pull/33264)[^github.com/joomla/joomla-cms/pull/33264] integriert. Die Implementierung des Empty-State-Layouts hier im Tutorial berücksichtig den Hinweis aus [Issue 35712](https://github.com/joomla/joomla-cms/issues/35712) und fügt den Code `if (count($errors = $this->get('Errors'))) { throw new GenericDataException(implode("\n", $errors), 500);}` vor dem Code `if (!count($this->items) && $this->get('IsEmptyState')) { $this->setLayout('emptystate');}` in die Datei `administrator/components/com_foos/ src/View/Foos/HtmlView.php` ein. Letzteres geschieht in einem späteren Kapitel.
 
