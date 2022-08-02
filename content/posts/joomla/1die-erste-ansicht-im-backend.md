@@ -551,7 +551,7 @@ class DisplayController extends BaseController
 
 `FoosComponent.php` ist der Code zum Booten der Erweiterung. Es ist die erste Datei, die aufgerufen wird, wenn Joomla die Komponente lädt. `boot` ist die Funktion zum Einrichten der Umgebung der Erweiterung wie beispielsweise das Registrieren neuer Klassen. Weitere Informationen findest du im Pull Request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). Im weiteren Verlauf werden wir die Datei `FoosComponent.php` erweitern.
 
-[administrator/components/com_foos/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
+[administrator/components/com_foos/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
@@ -613,7 +613,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 Obwohl wir den Code für eine minimale Komponente entwickeln, werden einige Dateien für die Administration benötigt. Die Datei `AdministratorService.php` wird später verwendet, um Funktionen wie die Mehrsprachigkeit oder Haupteinträge/Featured hinzuzufügen. Im Moment brauchen wir diese Funktionen nicht. Aber wir bereiten hier schon alles vor.
 
-[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php

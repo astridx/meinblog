@@ -122,7 +122,7 @@ Ich gebe dem Module den Titel Banner, damit ich es später unkompliziert zuordne
 
 Im Tabulator Advanced bereiten wir das Styling vor. Als Modul Klasse füge ich `mybanner` ein, damit die Klasse gerendert wird. Wer einen Rahmen mag, lege als Modul Chrome `card` fest. Wem ein Banner ohne Rahmen lieber ist, wählt `no-card`.
 
-> Wenn du dich fragst, warum die Modul Klasse nur nach dem Festlegen eines Module Chromes verwendet wird, dann lese die Diskussion im Issue [30822](github.com/joomla/joomla-cms/issues/30822)[https://github.com/joomla/joomla-cms/issues/30822].
+> Wenn du dich fragst, warum die Modul Klasse nur nach dem Festlegen eines Module Chromes verwendet wird, dann lese die Diskussion im Issue [30822](github.com/joomla/joomla-cms/issues/30822)[^github.com/joomla/joomla-cms/issues/30822].
 
 ![Module erstellen - Klasse](/images/logo6aa.png)
 
@@ -164,15 +164,15 @@ In der Code-Ansicht ergänze ich das HTML-<img>-Element um die Klasse `mybanner`
 
 Das nachfolgende Bild zeigt, wie und wo ich den Code via Joomla Backend ergänze.
 
-![Module Custom Klasse ergänzen.](/images/logo6f.png)
+![Module Custom Klasse ergänzen 1.](/images/logo6f.png)
 
 Zu guter Letzt wechsele ich in den Template Manager, um die CSS-Klasse `mybanner` mit CSS-Stilen zu füllen. Dazu öffne ich über die linke Navigation die Ansicht `System | Site Templates`.
 
-![Module Custom Klasse ergänzen.](/images/logo6g.png)
+![Module Custom Klasse ergänzen 2.](/images/logo6g.png)
 
 Ich wähle das Cassiopeia Template in dem ich `Cassiopeia Details and Files` klicke.
 
-![Module Custom Klasse ergänzen.](/images/logo6h.png)
+![Module Custom Klasse ergänzen 3.](/images/logo6h.png)
 
 Im Tabulator `Editor` prüfe ich zunächst, ob es bereits eine Datei mit dem Namen `user.css` gibt. Zur Erinnerung: Die `user.css` ist die Datei, die für die Implementierung eigener CSS-Stile in Joomla vorgesehen ist. Diese Datei wird bei einer Akualisierung nicht verändert.
 

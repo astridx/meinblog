@@ -48,9 +48,9 @@ Does switching not work as expected? In this case, check a setting in the global
 
 Joomal offers a number of different editors. Each editor offers advantages, but also has disadvantages. Under certain circumstances, you may not want to use an editor at all.
 
-When I write article texts in the Joomla backend, I like to use the [TinyMCE](https://www.tiny.cloud/) because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in [codemirror](https://codemirror.net/)[^https://codemirror.net/]. The TinyMCE does not offer this under Joomla in early 2022.
+When I write article texts in the Joomla backend, I like to use the [TinyMCE](https://www.tiny.cloud/) because it provides a toolbar that helps me to do simple formatting. At the same time, I like to look at the HTML source code with syntax highlighting. This makes it much easier to read all HTML tags and CSS classes. Markup is clearly displayed. Syntax highlighting is implemented in [codemirror](https://codemirror.net/)[^codemirror.net]. The TinyMCE does not offer this under Joomla in early 2022.
 
-The editor can be set in the global configuration. Alternatively, you can set it individually for a user in the User Manager. While entering an article text, switching to the global configuration or the user manager is cumbersome. That's why I love the plugin [Editor Switcher by Bakual](https://github.com/Bakual/editors_switcher)[^https://github.com/bakual/editors_switcher].
+The editor can be set in the global configuration. Alternatively, you can set it individually for a user in the User Manager. While entering an article text, switching to the global configuration or the user manager is cumbersome. That's why I love the plugin [Editor Switcher by Bakual](https://github.com/Bakual/editors_switcher)[^github.com/bakual/editors_switcher].
 
 After installing and activating it, I set the Switcher as the default editor for my user.
 

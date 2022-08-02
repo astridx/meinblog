@@ -23,7 +23,7 @@ DPDocker bietet den Task `build`, der Joomla Erweiterungen optimal in die Docker
 
 ## Voraussetzungen
 
-Neben [Docker](/ubuntu-docker-einrichten) und [Docker Compose](/ubuntu-docker-compose-einrichten) ist [DPDocker](https://github.com/Digital-Peak/DPDocker.git) notwendig. Wenn du diesem [Set](mein-ubuntu-rechner-themen/) bisher gefolgt bist, passt alles.
+Neben [Docker](/ubuntu-docker-einrichten) und [Docker Compose](/ubuntu-docker-compose-einrichten) ist [DPDocker](https://github.com/Digital-Peak/DPDocker.git) notwendig. Wenn du diesem [Set](/mein-ubuntu-rechner-themen) bisher gefolgt bist, passt alles.
 
 ## Clonen einer Joomla Erweiterung
 
@@ -42,7 +42,7 @@ DPDocker enthält Skripte, die das
 - Testen und 
 - Aktualisieren der Abhängigkeiten 
 
-unterstützen. Jedes Verzeichnis im (Github-Repository)(https://github.com/Digital-Peak/DPDocker)[^github.com/Digital-Peak/DPDocker] beinhaltet eine Datei `README.md` mit genaueren Erklärungen.
+unterstützen. Jedes Verzeichnis im [Github-Repository](https://github.com/Digital-Peak/DPDocker)[^github.com/Digital-Peak/DPDocker] beinhaltet eine Datei `README.md` mit genaueren Erklärungen.
 
 ## Mögliche Fehlermeldungen
 

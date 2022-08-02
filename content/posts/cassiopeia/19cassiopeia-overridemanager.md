@@ -160,9 +160,9 @@ Wenn bei einer Aktualisierung eine bösartige Funktion beseitigt wird, erkennst 
 
 Fehlerkorrekturen und Verbesserungen sind das Tagesgeschäft. Wer dieses nicht verfolgen möchte, sollte folgendes bedenken: 
 
-Eine Website steht nicht still, wenn man den PR "Google wieder über Breadcrumbs glücklich machen"[^https://github.com/joomla/joomla-cms/pull/37679] nicht in einen möglicherweise vorhandenen eigenen Override integriert. Wenn man es angepasst, behebt man Fehler in den strukturierten Daten, die dazu führen, dass Google Breadcrumbs als ungültig einstufte. 
+Eine Website steht nicht still, wenn man den PR "Google wieder über Breadcrumbs glücklich machen"[^github.com/joomla/joomla-cms/pull/37679] nicht in einen möglicherweise vorhandenen eigenen Override integriert. Wenn man es angepasst, behebt man Fehler in den strukturierten Daten, die dazu führen, dass Google Breadcrumbs als ungültig einstufte. 
 
-Oder man wundert sich über fehlende automatische Vorschläge im Finder, der Erweiterung für die Suche. PR 36877[^https://github.com/joomla/joomla-cms/pull/36877] bietet die Lösung, falls es daran liegt, dass man einen veralteten Override in der eigenen Website integriert.
+Oder man wundert sich über fehlende automatische Vorschläge im Finder, der Erweiterung für die Suche. PR 36877[^github.com/joomla/joomla-cms/pull/36877] bietet die Lösung, falls es daran liegt, dass man einen veralteten Override in der eigenen Website integriert.
 
 #### Neue Funktionen
 

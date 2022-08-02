@@ -7,7 +7,7 @@ title: 'Gatsby Blog with MapLibre GL JS and React Hooks'
 template: post
 thumbnail: '../../thumbnails/maplibre.png'
 slug: en/maplibre-blog-with-gatsby
-langKey: de
+langKey: en
 categories:
   - MaplibreGL
 tags:
@@ -36,7 +36,7 @@ $ gatsby new gatsby-maplibre-blog
 
 After you have created the project, change to the project directory via `cd gatsby-maplibre-blog` and call `gatsby develop`. As a result, you will see the following output under the URL `http://localhost:8000/` in the browser:
 
-![A screenshot of the Gatsby standard starter](images/bloggatsby1.png)
+![A screenshot of the Gatsby standard starter](/images/bloggatsby1.png)
 
 To tidy things up a bit, I changed the files `components/layout.js`, `pages/404.js` and `pages/index.js` in the `src` folder.
 
@@ -122,7 +122,7 @@ mkdir content
 
 At this point, restart the development server to make sure there is no error. Run `gatsby develop` again. If you see no error messages, everything is fine.
 
-![A screenshot of Gatsby default starter after tidy up](images/bloggatsby2.png)
+![A screenshot of Gatsby default starter after tidy up](/images/bloggatsby2.png)
 
 ## Install MapLibre GL JS
 
@@ -206,7 +206,7 @@ export default Layout
 
 At this point, restart the development server to ensure that the map is displayed correctly. Run `gatsby develop` again. If you see the map at the top, all is well.
 
-![Displaying a map on the index page](images/bloggatsby3.png)
+![Displaying a map on the index page](/images/bloggatsby3.png)
 
 I use React hooks - `useRef()` to access the Map Container DOM element. `UseState()` to store the Map object as state. So I can use the value in other parts of the component, and `UseEffect()` to create the Map object when the component is called. The empty dependency array in `useEffect()` is important. If you remove the second argument, you will find that the function goes into an infinite loop. This is because `useEffect()` is executed whenever the state changes. Since we use `setMap(map)` within the same hook, it will be executed over and over again. Because of the empty array, the effect hook is only executed once when the component is initialised. This is what we want to achieve. It is important to us that a new map is only created once. After that, the same map should be used. With `return () => map.remove()` we clean up when the component is removed.
 
@@ -340,7 +340,7 @@ const Map = () => {
 export default Map
 ```
 
-![Newly added markers](images/bloggatsby4.png)
+![Newly added markers](/images/bloggatsby4.png)
 
 We now have markers on the map for a place in Spain, a place in France and one in Germany. MapLibre provides very useful methods like `fitBounds()` and `easeTo()`. There are even more functions and options. See the MapLibre documentation.
 
@@ -600,7 +600,7 @@ exports.wrapPageElement = ({ element, props }) => {
 
 If you now navigate between the pages, the map is not reloaded. In the next step, we make sure that the content of the map dynamically adapts to the properties of the blog post.
 
-![Pages and navigation and no reload](images/bloggatsby5.png)
+![Pages and navigation and no reload](/images/bloggatsby5.png)
 
 ## Adapt the map component to use props.
 
@@ -694,6 +694,6 @@ Todo
 
 ## Referenzen
 
-- [maplibre React examples repo](https://github.com/maplibre/maplibre-react-examples): There are only a few examples but I got a lot of help from the repo as they covered almost everything I needed to know.
+- [Mapbox React examples repo](https://github.com/mapbox/mapbox-react-examples): There are only a few examples but I got a lot of help from the repo as they covered almost everything I needed to know.
 - [Maplibre examples](https://maplibre.org/maplibre-gl-js-docs/api/): Most of them are in vanilla JS but using the hooks we covered in this post, I think it would be fairly simple to translate them to React.
 - [Mapbox Gatsby Blog with Hooks](https://erraticgenerator.com/blog/gatsby-blog-with-mapbox-gl-js-using-react-hooks/).

@@ -48,9 +48,9 @@ Funktioniert das Umschalten nicht wie erwartet? Überprüfe in dem Fall eine Ein
 
 Joomal bietet von Haus aus eine Reihe unterschiedlicher Editoren. Jeder Editor bietet Vorteile, hat gleichzeitig allerdings auch Nachteile. Unter Umständen möchte man gar keinen Edtor verwenden.
 
-Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den [TinyMCE](https://www.tiny.cloud/), weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Das macht es viel einfacher, alle HTML-Tags und CSS-Klassen zu lesen. Das Markup wird übersichtlich dargestellt. Syntax-Highlighting ist im [Codemirror](https://codemirror.net/)[^https://codemirror.net/] umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.
+Wenn ich im Joomla Backend Artikel Texte schreibe, dann verwende ich gerne den [TinyMCE](https://www.tiny.cloud/), weil dieser eine Werkzeugleiste bietet, mit deren Hilfe ich einfache Formatierungen vornehmen kann. Gleichzeitig möchte ich mir gerne den HTML-Quellcode mit Syntax-Highlighting ansehen. Das macht es viel einfacher, alle HTML-Tags und CSS-Klassen zu lesen. Das Markup wird übersichtlich dargestellt. Syntax-Highlighting ist im [Codemirror](https://codemirror.net/)[^codemirror.net] umgesetzt. Der TinyMCE bietet dies unter Joomla Anfang 2022 nicht.
 
-Den Editor kann man in der globalen Konfiguration einstellen. Alternativ kann man ihn für einen Benutzer im Benutzer Manager individuell festlegen. Während der Eingabe eines Artikeltextes ist der Wechsel in die globale Konfiguration oder den Benutzermanager umständlich. Deshalb liebe ich das Plugin [Editor Switcher von Bakual](https://github.com/Bakual/editors_switcher)[^https://github.com/bakual/editors_switcher].
+Den Editor kann man in der globalen Konfiguration einstellen. Alternativ kann man ihn für einen Benutzer im Benutzer Manager individuell festlegen. Während der Eingabe eines Artikeltextes ist der Wechsel in die globale Konfiguration oder den Benutzermanager umständlich. Deshalb liebe ich das Plugin [Editor Switcher von Bakual](https://github.com/Bakual/editors_switcher)[^github.com/bakual/editors_switcher].
 
 Nach der Installation und Aktivierung, stelle ich bei meinem Benutzer den Switcher als Standard-Editior ein.
 

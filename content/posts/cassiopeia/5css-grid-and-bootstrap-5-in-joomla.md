@@ -113,7 +113,7 @@ CSS Grid hat in meinen Augen zwei wesentliche Vorteile gegenüber Bootstrap:
 - Einfacheres HTML: Wir benötigen weniger HTML um das gleiche Ergebnis zu erzielen wie mit Bootstrap 5.
 - Mehr Kontrolle über das Design durch CSS: Selbst wenn wir wissen, dass CSS für das Design zuständig ist, müssen wir uns bei Frameworks auch auf das HTML-Markup verlassen. Mit CSS Grid haben wir mehr Kontrolle über das Design und sind weit weniger abhängig von den CSS-Klassen und wie diese in das HTML-Markup eingefügt sind.
 
-Allerdings gibt es eine Reihe von Einschränkungen. Sobald wir versuchen, [CSS Grid in einem Joomla-Projekt mit dynamischem Content](https://www.joomla51.com/blog/item/joomla-css-grid-and-dynamic-content) zu implementieren, werden diese deutlich.
+Allerdings gibt es eine Reihe von Einschränkungen. Sobald wir versuchen, [CSS Grid in einem Joomla-Projekt mit dynamischem Content](https://www.joomla51.com/?view=article&id=89:joomla-css-grid-and-dynamic-content&catid=9) zu implementieren, werden diese deutlich.
 
 ### CSS Grid und das Cassiopeia-Template
 

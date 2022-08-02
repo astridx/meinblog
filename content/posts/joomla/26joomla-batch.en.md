@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-26
+date: 2022-08-03
 title: 'Batch Processing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -28,10 +28,10 @@ Joomla offers a number of functions that enable administrators to process severa
 
 The following file creates the middle part of the form that is displayed to trigger batch processing.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
+[administrator/components/com_foos/ tmpl/foos/default_batch_body.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_body.php
 
 <?php
 /**
@@ -82,10 +82,10 @@ The following file creates the footer of the form that is displayed to trigger b
 
 > It is important that you create the batch form as described above in the file `administrator/components/com_foos/ tmpl/foos/default_batch_body.php`. `LayoutHelper` in combination with the appropriate layout ensures that all variables and IDs are set so that the standard functions run correctly.
 
-[administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
+[administrator/components/com_foos/ tmpl/foos/default_batch_footer.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/4c0297657216eb1ca04187ff7cb9a8e9372675e2/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t22/src/administrator/components/com_foos/tmpl/foos/default_batch_footer.php
 
 <?php
 /**
@@ -116,7 +116,7 @@ use Joomla\CMS\Language\Text;
 
 In the controller we implement the method `batch`. If we look at it closely, we add nothing more than the specifics: The name of the model used for data processing and the address to forward to after processing. At the end we call the implementation of Joomla with `return parent::batch($model);`. Done! For the standard functions, the wheel has already been invented by Joomla.
 
-[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Controller/FooController.php)
+[administrator/components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Controller/FooController.php)
 
 ```php {diff}
 
@@ -151,7 +151,7 @@ In the controller we implement the method `batch`. If we look at it closely, we 
 
 In the model we specify whether copying and moving is supported. In case of `false` the command is not provided by the batch processing. We also specify the properties that are editable using the batch function.
 
-[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/Model/FooModel.php)
+[administrator/components/com_foos/ src/Model/FooModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/Model/FooModel.php)
 
 ```php {diff}
 protected $associationsContext = 'com_foos.item';
@@ -175,7 +175,7 @@ protected $associationsContext = 'com_foos.item';
 
 To make the batch processing usable via a button, we add an entry to the toolbar.
 
-[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+[administrator/components/com_foos/ src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
 
 ```php {diff}
  			{
@@ -218,7 +218,7 @@ To make the batch processing usable via a button, we add an entry to the toolbar
 
 We create the template that is used to create the form to trigger batch processing with the help of `HTMLHelper`.
 
-[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/b6365457de4e6d2020b4c0797d31ddd8d36b88ef/src/administrator/components/com_foos/tmpl/foos/default.php)
+[administrator/components/com_foos/ tmpl/foos/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t22/src/administrator/components/com_foos/tmpl/foos/default.php)
 
 ```php {diff}
 		<?php echo $this->pagination->getListFooter(); ?>

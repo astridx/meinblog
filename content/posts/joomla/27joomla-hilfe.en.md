@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-25
+date: 2022-08-03
 title: 'Help Sites'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -37,8 +37,33 @@ In this chapter, only files are changed.
 
 ### Modified files
 
-Two lines per view are sufficient to display a button at the top right that contains a question mark as an icon and has an Internet address specified in the code as the link target. I have chosen `http://example.org` as an example. The principle is clear. You have the possibility to create a separate help site for each `View` and to link it in the view of the component - exactly where questions usually arise.
+Two lines per view are sufficient to display a button at the top right of the dashboard views that contains a question mark as an icon and has an Internet address specified in the code as the link target. I have chosen `http://example.org` as an example. The principle is clear. You have the possibility to create a separate help site for each `View` and to link it in the view of the component - exactly where questions usually arise.
 And another line is enough to turn descriptions into inline help, which means to make them fade in and out or toggleable.
+
+<!-- prettier-ignore -->
+#### administrator/components/ com\_foos/config.xml
+
+In the form for the config, we add a description as an example. This will be shown or hidden later as inline help..
+
+[administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/config.xml)
+
+```php {diff}
+
+<?xml version="1.0" encoding="utf-8"?>
+ <config>
++       <inlinehelp button="show"/>
+        <fieldset
+                name="foo"
+                label="COM_FOOS_FIELD_CONFIG_INDIVIDUAL_FOO_DISPLAY"
+                        name="show_foo_name_label"
+                        type="list"
+                        label="COM_FOOS_FIELD_FOO_SHOW_CATEGORY_LABEL"
++                       description="COM_FOOS_FIELD_FOO_SHOW_CATEGORY_DESC"
+                        default="1"
+                        >
+                        <option value="0">JNO</option>
+```
+
 
 <!-- prettier-ignore -->
 #### administrator/components/ com\_foos/forms/foo.xml
@@ -48,7 +73,15 @@ In the form, we add a description as an example. This will be shown or hidden la
 [administrator/components/com_foos/forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/forms/foo.xml)
 
 ```php {diff}
- 			validate="Letter"
+ <?xml version="1.0" encoding="utf-8"?>
+ <form>
++       <config>
++               <inlinehelp button="show"/>
++       </config>
+        <fieldset 
+                addruleprefix="FooNamespace\Component\Foos\Administrator\Rule"
+				
+			validate="Letter"
  			class="validate-letter"
  			label="COM_FOOS_FIELD_NAME_LABEL"
 +			description="COM_FOOS_FIELD_NAME_DESC"
@@ -94,6 +127,23 @@ The same I wrote under `administrator/components/com_foos/ src/View/Foos/HtmlVie
  	}
  }
 
+```
+
+<!-- prettier-ignore -->
+#### administrator/components/ com\_foos/ tmpl/foo/edit.php
+
+In the template file `administrator/components/com_foos/ tmpl/foo/edit.php` we load the required JavaScript.
+
+[administrator/components/com_foos/ tmpl/foo/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t23/src/administrator/components/com_foos/tmpl/foo/edit.php)
+
+```php {diff}
+ $wa = $this->document->getWebAssetManager();
+ $wa->useScript('keepalive')
+        ->useScript('form.validate')
++       ->useScript('inlinehelp')
+        ->useScript('com_foos.admin-foos-letter');
+ 
+ $isModal = $input->get('layout') === 'modal';
 ```
 
 ## Test your Joomla component

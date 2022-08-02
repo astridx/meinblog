@@ -690,6 +690,6 @@ Todo
 
 ## Referenzen
 
-- [MapLibre React examples repo](https://github.com/maplibre/maplibre-react-examples): There are only a few examples but I got a lot of help from the repo as they covered almost everything I needed to know.
+- [Mapbox React examples repo](https://github.com/mapbox/mapbox-react-examples): There are only a few examples but I got a lot of help from the repo as they covered almost everything I needed to know.
 - [MapLibre examples](https://maplibre.org/maplibre-gl-js-docs/api/)
 - [Mapbox Gatsby Blog with Hooks](https://erraticgenerator.com/blog/gatsby-blog-with-mapbox-gl-js-using-react-hooks/).

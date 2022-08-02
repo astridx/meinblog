@@ -550,7 +550,7 @@ class DisplayController extends BaseController
 
 `FoosComponent.php` is the code for booting the extension. It is the first file that is called when Joomla loads the component. Boot' is the function to set up the environment of the extension, such as registering new classes. For more information, see the pull request [github.com/joomla/joomla-cms/pull/20217](https://github.com/joomla/joomla-cms/pull/20217). In the following we will expand the file `FoosComponent.php`.
 
-[administrator/components/com_foos/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/Extension/FoosComponent.php)
+[administrator/components/com_foos/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Extension/FoosComponent.php
@@ -612,7 +612,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 
 Although we are developing the code for a minimal component, some administrator files are needed. The file `AdministratorService.php` will be used later to add functions like multilingualism or main entries/featured. At the moment we do not need these functions. But we are already preparing everything here.
 
-[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/Service/HTML/AdministratorService.php)
+[administrator/components/com_foos/ service/HTML/AdministratorService.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t1/src/administrator/components/com_foos/src/Service/HTML/AdministratorService.php

@@ -55,7 +55,7 @@ Ich baue auf einem einfachen Quickstart auf:
 </html>
 ```
 
-![Eine einfach gehaltene MapLibre Karte](images/maplibreboilerplate1.PNG)
+![Eine einfach gehaltene MapLibre Karte](images/maplibreboilerplate1.png)
 
 ## Was ist ein Steuerelement?
 
@@ -128,7 +128,7 @@ Dies sind gute Beispiele dafür, was Steuerelemente tun: Sie manipulieren die Ka
 </html>
 ```
 
-![Eine MapLibre Karte inklusive Standardsteuerelementen](images/maplibreboilerplate2.PNG)
+![Eine MapLibre Karte inklusive Standardsteuerelementen](/images/maplibreboilerplate2.png)
 
 - Jedes Steuerlement verfügt über ein HTML-Element, das in der Karte landet, wie eine Schaltfläche oder ein `div`-Element
 - Jedes Steuerlement hat Zugriff auf das Maplibre-Map-Objekt, um Informationen zu lesen und zu manipulieren.
@@ -284,7 +284,7 @@ Die `onRemove`-Methode ist der Ort, an dem aufgeräumt wird. Entferne hier die D
 …
 ```
 
-![MapLibre Steuerelement](images/maplibreboilerplate3.PNG)
+![MapLibre Steuerelement](/images/maplibreboilerplate3.png)
 
 ### Styling
 
@@ -302,11 +302,11 @@ Gestalte MapLibre Steuerelemente wie jedes andere DOM-Element mit CSS. Hier füg
 
 Das nachfolgende Bild zeigt, dass die Klasse `maplibregl-ctrl` auf alle Steuerelemente angewandt wird. Alle haben nun einen roten Hintergrund. Die Klasse `maplibregl-ctrl-foo` wirkt sich lediglich auf unser neu hinzugefügtes Foo-Element aus. Nur der Test ist jetzt extra groß.
 
-![MapLibre Steuerelement gestyled](images/maplibreboilerplate4.PNG)
+![MapLibre Steuerelement gestyled](/images/maplibreboilerplate4.png)
 
 ### Fertig
 
-Dieses Steuerelement fügt der Karte nur einen kleinen "Hallo, Welt"-Text hinzu. Verwende es als [Ausgangspunkt](https://github.com/astridx/maplibre-plugin-boilerplate)[^https://github.com/astridx/maplibre-plugin-boilerplate] für deine eigene MapLibre Erweiterung.
+Dieses Steuerelement fügt der Karte nur einen kleinen "Hallo, Welt"-Text hinzu. Verwende es als [Ausgangspunkt](https://github.com/astridx/maplibre-plugin-boilerplate)[^github.com/astridx/maplibre-plugin-boilerplate] für deine eigene MapLibre Erweiterung.
 
 ### Lese weiter
 

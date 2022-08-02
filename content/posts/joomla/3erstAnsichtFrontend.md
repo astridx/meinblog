@@ -30,7 +30,7 @@ Der Administrationsbereich unserer Komponente ist im Ordner `com_foos` unter `/a
 
 Der DisplayController im Verzeichnis `components/com_foos/ src/Controller/` ist der Einstiegspunkt für den Model-View-Controller-Teil im Frontend der Foo-Komponente. Nenne die Klasse _DisplayController_. Joomla erwartet das so. Erweitere _BaseController_, um viele Dinge Out-of-the-Box zu nutzen. Alles was ich im Kapitel zur _Ersten Ansicht im Backend_ geschrieben habe, trifft hier analog zu.
 
-[components/com_foos/ src/Controller/DisplayController.php](https://codeberg.org/astrid/j4examplecode/src/branch/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/src/Controller/DisplayController.php)
+[components/com_foos/ src/Controller/DisplayController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/src/Controller/DisplayController.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/src/Controller/DisplayController.php
@@ -157,7 +157,7 @@ Die Joomla-Protokollierung bietet die Möglichkeit, Meldungen in einer Datei und
 
 Die Datei `components/com\_foos/ tmpl/foo/default.php` beinhaltet den Text, welchen wir anzeigen. Alles was ich in Kapitel zur _ersten Ansicht im Backend_ geschrieben habe, trifft hier ebenfalls zu.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/21105d93f46c44fc76033e8825b8b31f35c1581c/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t2/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t2/src/components/com_foos/tmpl/foo/default.php

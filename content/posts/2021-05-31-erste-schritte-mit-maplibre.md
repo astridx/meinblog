@@ -342,7 +342,7 @@ export const Map = () => {
   return (
     <ReactMapGL
       {...mapViewport}
-      mapStyle="https://api.maptiler.com/maps/streets/style.json?key=YymZPIGfniu7apIvln6X"
+      mapStyle="https://api.maptiler.com/maps/streets/style.json?key=my_key"
       onViewportChange={setMapViewport}
 +      onClick={x => {
 +        x.srcEvent.which === 1 &&
