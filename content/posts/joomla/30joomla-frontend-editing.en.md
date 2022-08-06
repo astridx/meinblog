@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-22
+date: 2022-08-05
 title: 'Frontend Editing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-There are several reasons for allowing a user to edit in the frontend. One is that users find it more user-friendly. Or, it is important for an administrator not to release access to the administration area. Therefore, in the next step, we equip our component with the possibility to edit items in the frontend.<!-- \index{frontend editing} -->
+There are several reasons for allowing a user to edit in the frontend. For one thing, users feel that working directly on the website is more user-friendly than logging into the backend. Or, it is important for an administrator not to release access to the administration area. Therefore, in the next step, we equip our component with the possibility to edit items in the frontend.<!-- \index{frontend editing} -->
 
 > For impatient people: Look at the changed programme code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t24b...t25)[^codeberg.org/astrid/j4examplecode/compare/t24b...t25] and copy these changes into your development version.
 
@@ -28,10 +28,10 @@ There are several reasons for allowing a user to edit in the frontend. One is th
 
 The following file contains all the information needed to display an icon used to open the edit in the frontend - provided the viewer is allowed to edit.
 
-[administrator/components/com_foos/ src/Service/HTML/Icon.php](https://codeberg.org/astrid/j4examplecode/src/branch/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{service!Icon for frontend editing} -->
+[administrator/components/com_foos/ src/Service/HTML/Icon.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/administrator/components/com_foos/src/Service/HTML/Icon.php)<!-- \index{service!Icon for frontend editing} -->
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/administrator/components/com_foos/src/Service/HTML/Icon.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/administrator/components/com_foos/src/Service/HTML/Icon.php
 
 <?php
 /**
@@ -241,10 +241,10 @@ class Icon
 
 We adapt the XML file that Joomla uses to build the form.
 
-[components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/ea90f526176d4dfd3ca550fafd1d201599bb1a39/src/components/com_foos/forms/foo.xml)
+[components/com_foos/ forms/foo.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/forms/foo.xml)
 
 ```xml {numberLines: -2}
-<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/forms/foo.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/forms/foo.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <form>
@@ -398,10 +398,10 @@ The file `components/com_foos/ src/Controller/FooController.php` contains the lo
 
 > Note the function `save`. This is not usual in the `FormController`, because Joomla takes care of everything for you. Since the ID is first created when an element is created and is therefore not known, Joomla forwards to the overview page after creation. We have not yet created this in the frontend. That is why I have changed this function here.
 
-[components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/173247856759bdda2f48df505f02574d19decdc9/src/components/com_foos/src/Controller/FooController.php)
+[components/com_foos/ src/Controller/FooController.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/Controller/FooController.php)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Controller/FooController.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/src/Controller/FooController.php
 
 <?php
 /**
@@ -637,10 +637,10 @@ class FooController extends FormController
 
 The file `components/com_foos/ src/Model/FormModel.php` organises all the necessary data for processing in the form.
 
-[components/com_foos/ src/Model/FormModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/Model/FormModel.php)
+[components/com_foos/ src/Model/FormModel.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/Model/FormModel.php)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/Model/FormModel.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/src/Model/FormModel.php
 
 <?php
 /**
@@ -874,10 +874,10 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 
 The file `components/com_foos/ src/View/Form/HtmlView.php` fetches all the necessary data and passes it on to the template file `edit.php`.
 
-[components/com_foos/ src/View/Form/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/src/View/Form/HtmlView.php)
+[components/com_foos/ src/View/Form/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/src/View/Form/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/src/View/Form/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/src/View/Form/HtmlView.php
 
 <?php
 /**
@@ -1086,10 +1086,10 @@ If the authorisation check fails, you are immediately redirected to the registra
 
 As a template, `components/com_foos/ tmpl/form/edit.php` ensures that the form is already displayed in the frontend.
 
-[components/com_foos/ tmpl/form/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/components/com_foos/tmpl/form/edit.php)
+[components/com_foos/ tmpl/form/edit.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/form/edit.php)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/tmpl/form/edit.php
 
 <?php
 /**
@@ -1199,10 +1199,10 @@ $tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=c
 
 Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to create the menu item.
 
-[components/com_foos/ tmpl/form/edit.xml](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/form/edit.xml)
+[components/com_foos/ tmpl/form/edit.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/form/edit.xml)
 
 ```xml {numberLines: -2}
-<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/379bdcdb2d01e883086bcc12b41c331a35de47a6/src/components/com_foos/tmpl/form/edit.xml -->
+<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t25/src/components/com_foos/tmpl/form/edit.xml -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
@@ -1227,7 +1227,7 @@ Last but not least we need the file `components/com_foos/ tmpl/form/edit.xml` to
 
 In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php` we register the icon. In other words, we make the icon known to Joomla.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/f0d56fe96433a8f74c325c43dcf5ba10863a8222/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  defined('JPATH_PLATFORM') or die;
@@ -1260,7 +1260,7 @@ In the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`
 
 We extend the template for the view: If you are allowed to edit the element `if ($canEdit)`, then you see the icon to open the form.
 
-[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/8874f61785a485edc39b93d3de28aeebbf972c06/src/components/com_foos/tmpl/foo/default.php)
+[components/com_foos/ tmpl/foo/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t25/src/components/com_foos/tmpl/foo/default.php)
 
 ```php {diff}
   */
@@ -1304,6 +1304,19 @@ We extend the template for the view: If you are allowed to edit the element `if 
  echo $this->item->event->beforeDisplayContent;
  echo $this->item->event->afterDisplayContent;
 
+```
+
+> Tip: Do you want a user to be redirected to the finished view of an item after it has been created? This is only possible in a indirect way. Because you don't know the ID when you create it, you have to ask for it. Since we extend the model classes of Joomla-Core, we can access the ID via the model in the `postSaveHook()` method of the controller. Concretely, in the file `src/components/com_foos/src/Controller/FooController.php` the following code could be used to set up the redirection:
+
+```php
+...
+protected function postSaveHook(\Joomla\CMS\MVC\Model\BaseDatabaseModel $model, $validData = [])
+{
+	$id = $model->getState($model->getName() . '.id');
+	$this->setRedirect(Route::_('index.php?option=com_agosms&view=foo&id=' . $id, false));
+	return $id;
+}
+...
 ```
 
 ## Test your Joomla component

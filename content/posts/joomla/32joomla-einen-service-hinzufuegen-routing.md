@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-20
+date: 2022-08-06
 title: 'Einen Service hinzufügen - Routing'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-Suchmaschinenfreundliche URLs funktionieren bisher nicht. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.<!-- \index{Service} --><!-- \index{Routing} -->
+Suchmaschinenfreundliche URLs funktionieren bisher nicht. Die URL zu den Elementen der Komponente erscheint in der Form `JOOMLA/category?view=category&id=8`. Anhand eines Services reparieren wir diesen Missstand. Gleichzeitig ist dies ein gutes Beispiel, um herauszuarbeiten, was notwendig ist, um einen Service in einer Joomla Erweiterung zu integrieren.<!-- \index{Service} --><!-- \index{Routing} -->
 
 _Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/wiki/Clean_URL)[^de.wikipedia.org/wiki/Clean_URL] sind URLs, die sowohl für Menschen als auch für Suchmaschinen Sinn machen, weil sie den Pfad zu der bestimmten Seite erklären. Joomla ist in der Lage, URLs in jedem Format zu erstellen. Dies hängt nicht vom URL-Rewriting ab, das vom Webserver ausgeführt wird, so dass es auch dann funktioniert, wenn Joomla einen anderen Server als Apache mit dem Modul mod_rewrite verwendet. Die SEF-URLs folgen einem bestimmten festen Muster, aber der Benutzer kann einen kurzen beschreibenden Text [Alias](https://docs.joomla.org/Alias/de)[^docs.joomla.org/Alias/de] für jedes Segment der URL definieren.<!-- \index{Suchmaschinenfreundlich (SEF)} --><!-- \index{Service!Suchmaschinenfreundlich (SEF)} -->
 
@@ -23,7 +23,7 @@ _Suchmaschinenfreundlich (SEF)_, [menschlich lesbare](https://de.wikipedia.org/w
 
 > Ein Beispiel für das Routing ist die URL zum Artikel "Willkommen bei Joomla" in den Beispieldaten. Ohne eingeschaltete SEF-URLs ist die URL `/index.php?option=com_content&view=article&id=1:welcome-to-joomla&catid=1:latest-news&Itemid=50`. Mit eingeschalteten SEF-URLs und ausgeschaltetem mod_rewrite ist es `/index.php/the-news/1-latest-news/1-welcome-to-joomla`. Mit eingeschalteten SEF-URLs und mod_rewrite ist es `/the-news/1-latest-news/1-welcome-to-joomla`.
 
-Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search Engine Friendly URLs_ in der _Globalen Konfiguration_ eingeschaltet wird. Diese Option ist standardmäßig aktiviert. Weitere Informationen findest du unter [Aktivieren von suchmaschinenfreundlichen (SEF) URLs in der Dokumentation](<https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs>).
+Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search Engine Friendly URLs_ in der _Globalen Konfiguration_ eingeschaltet wird. Diese Option ist in Joomla 4 standardmäßig aktiviert. Weitere Informationen findest du unter [Aktivieren von suchmaschinenfreundlichen (SEF) URLs in der Dokumentation](https://docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs)[^docs.joomla.org/Enabling_Search_Engine_Friendly_(SEF)_URLs].
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t26...t27)[^codeberg.org/astrid/j4examplecode/compare/t26...t27] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -36,7 +36,7 @@ Suchmaschinenfreundliche URLs können aktiviert werden, indem die Option _Search
 
 Der Service `components/com_foos/ src/Service/Router.php` erledigt die eigentliche Arbeit und wandelt die URLs in suchmaschinenfreundliche Versionen.
 
-[components/com_foos/ src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/components/com_foos/src/Service/Router.php)
+[components/com_foos/ src/Service/Router.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/components/com_foos/src/Service/Router.php)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t27/src/components/com_foos/src/Service/Router.php
@@ -335,7 +335,7 @@ class Router extends RouterView
 
 Im Service Provider registrieren wir den Service.
 
-[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/services/provider.php)
+[administrator/components/com_foos/ services/provider.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/services/provider.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
@@ -372,7 +372,7 @@ Die Zeilen `$container->registerServiceProvider (new RouterFactory('\\Joomla\\Co
 
 Wir implementieren `RouterServiceInterface` und nutzen `RouterServiceTrait`, so dass diese Dateien zur Verfügung stehen.
 
-[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/4f83301e4e7e8cb611ffec99adf00f89aecc599c/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
+[administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
 ```php {diff}
  use FooNamespace\Component\Foos\Administrator\Service\HTML\Icon;

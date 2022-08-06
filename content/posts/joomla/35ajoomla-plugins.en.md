@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-16
+date: 2022-08-07
 title: 'Plugins'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -17,18 +17,18 @@ tags:
 
 You have created a plug-in in the previous section. You have probably already configured other plugins in the plugin manager and know the different types. Plugins cover many different areas in Joomla. This chapter provides an overview of what plugins are and how they work within Joomla.<!-- \index{plugins} -->
 
-> In the [Joomla Documentation](https://docs.joomla.org/Plugin/Events)[^docs.joomla.org/plugin/events] you will find a list of all plugin groups with all associated events. Use this list as a quick reference when you have a task to do.
+> In the [Joomla Documentation](https://docs.joomla.org/Plugin/Events)[^docs.joomla.org/Plugin/Events] you will find a list of all plugin groups with all associated events. Use this list as a quick reference.
 
 ## What is a Joomla plugin?
 
 You already know that there are different types of extensions: Components, modules, templates, languages and plugins. While components, modules, templates and languages usually cause a direct output, a plugin typically works in the background. Plugins are versatile. Each plugin has its own purpose.
-Let's organise plugins a little. Even within Joomla, they are divided into plugin groups. It's much easier to understand the purpose if you look at each type separately. For example, content plugins and system plugins. Fortunately, it is not difficult to write a sample plugin. You already saw that in the last chapter. In this chapter, we will get an overview of the different types and their special features.
+Let's organise plugins a little. Even within Joomla, they are divided into plugin groups. It's much easier to understand the purpose if you look at each type separately. In this chapter, we will get an overview of the different types and their special features.
 
 ## Plugin types in the Joomla 4 core
 
-The Joomla core comes with a lot of plugins. These are divided into 22 plugin types and so is this part of the text. For example, there is a chapter about content plugins and another one about system plugins.
+The Joomla core comes with a lot of plugins. These are divided into 22 plugin types in Joomla 4.2 and so is this part of the text. For example, there is a chapter about content plugins and another one about system plugins.
 
-> For an overview of all plugins available in Joomla core and their associated events/events, see the [Joomla documentation](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)[^docs.joomla.org/help4.x:plugins:_name_of_plugin]. Check out the code if you need some programming inspiration.
+> For an overview of all plugins available in Joomla core and their associated events/events, see the [Joomla documentation](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)[^docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin]. Check out the code if you need some programming inspiration.
 
 In my opinion, it helps to understand Joomla plugins if you study each type on its own. That is why we are doing this now. The types or groups are classified as follows:
 
@@ -72,7 +72,7 @@ At the bottom of a Joomla editor, buttons appear in addition to the toolbar - fo
 
 ### [Extensions](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Extension_Group/en)<!-- \index{plugins!Extensions} -->
 
-There are not many plugins in this group, nevertheless it is an interesting group. Whenever a Joomla extension is installed or removed, it is possible to hook into the installation via a plugin of this group.An extension plugin does a task during an installation! The Joomla plugin of extension type is used to clean up update pages. Update pages are URLs that are stored in the extension manager for updating extensions. Since Joomla 3.2 it is possible for commercial extensions to use this plugin to allow private downloads with a security key. `Extensions - Namespace Updater` automatically creates and updates the file `administrator/cache/autoload_psr4.php`.
+There are not many plugins in this group, nevertheless it is an interesting group. Whenever a Joomla extension is installed or removed, it is possible to hook into the installation via a plugin of this group.An extension plugin does a task during an installation! The Joomla plugin of extension type is used to clean up update pages. Update pages are URLs that are stored in the extension manager for updating extensions. Since Joomla 3.2 it is possible for commercial extensions to use this plugin to allow private downloads with a security key. And last but not least: `Extensions - Namespace Updater` automatically creates and updates the file `administrator/cache/autoload_psr4.php`.
 
 ### [Fields](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Fields_Group/en)<!-- \index{plugins!Fields} -->
 
@@ -111,6 +111,8 @@ The _Joomla Core Sample Data module_ provides a unified workflow for adding samp
 ### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)<!-- \index{plugins!System} -->
 
 System Plugins performs a wide variety of tasks. This sounds vague, however. To make it a bit more concrete, examples follow. System plugins can add HTML code, CSS or JavaScript to the Joomla page after it is generated.Plugins of this type modify Joomla forms before they are generated. With the help of system plugins alternative error handling is possible. This was only a small part of the possible. You see, system plugins are very powerful. To be able to fulfill this powerful task, they are called frequently and therefore need resources. Use them carefully!
+
+> Another current example is the keyboard shortcut plugin newly added in Joomla 4.2[^github.com/joomla/joomla-cms/pull/38092]
 
 ### [Task](https://docs.joomla.org/Help4.x:Plugins:_Name_of_Plugin)<!-- \index{plugins!Task} -->
 

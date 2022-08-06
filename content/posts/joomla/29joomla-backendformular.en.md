@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-23
+date: 2022-08-05
 title: 'Clean Up Backend Form'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -92,52 +92,40 @@ The main change is that we now use Joomla's own layout `joomla.edit.publishingda
 
 ```php
 <?php
-/**
- * @package     Joomla.Site
- * @subpackage  Layout
- *
- * @copyright   (C) 2013 Open Source Matters, Inc. <https://www.joomla.org>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
 
 defined('_JEXEC') or die;
 
 $form = $displayData->getForm();
 
 $fields = $displayData->get('fields') ?: array(
-	'publish_up',
-	'publish_down',
-	'featured_up',
-	'featured_down',
-	array('created', 'created_time'),
-	array('created_by', 'created_user_id'),
-	'created_by_alias',
-	array('modified', 'modified_time'),
-	array('modified_by', 'modified_user_id'),
-	'version',
-	'hits',
-	'id'
+    'publish_up',
+    'publish_down',
+    'featured_up',
+    'featured_down',
+    array('created', 'created_time'),
+    array('created_by', 'created_user_id'),
+    'created_by_alias',
+    array('modified', 'modified_time'),
+    array('modified_by', 'modified_user_id'),
+    'version',
+    'hits',
+    'id'
 );
 
 $hiddenFields = $displayData->get('hidden_fields') ?: array();
 
-foreach ($fields as $field)
-{
-	foreach ((array) $field as $f)
-	{
-		if ($form->getField($f))
-		{
-			if (in_array($f, $hiddenFields))
-			{
-				$form->setFieldAttribute($f, 'type', 'hidden');
-			}
+foreach ($fields as $field) {
+    foreach ((array) $field as $f) {
+        if ($form->getField($f)) {
+            if (in_array($f, $hiddenFields)) {
+                $form->setFieldAttribute($f, 'type', 'hidden');
+            }
 
-			echo $form->renderField($f);
-			break;
-		}
-	}
+            echo $form->renderField($f);
+            break;
+        }
+    }
 }
-
 ```
 
 ## Test your Joomla component

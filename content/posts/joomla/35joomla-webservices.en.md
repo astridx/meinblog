@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-15
+date: 2022-08-07
 title: 'Web Services - Support Joomla API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -202,7 +202,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 #### plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini
 
-I am also attaching this language file for the sake of completeness.
+I also include the language file, which is mainly responsible for the installation and the creation of the menu in the dashboard.
 
 ```xml {numberLines: -2}
 <!-- -->

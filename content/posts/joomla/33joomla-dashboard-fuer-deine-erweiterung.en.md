@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-18
+date: 2022-08-07
 title: 'Dashboard'
 template: post
 thumbnail: '../../thumbnails/joomla.png'

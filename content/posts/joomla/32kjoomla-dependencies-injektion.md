@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-19
+date: 2022-08-06
 title: 'Dependency Injection/Einbringen von Abhängigkeiten'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-_Dependency Injection (DI)_ hört sich kompliziert an und die deutsche Übersetzung _Einbringen von Abhängigkeiten_ hört ist nicht wirklich positiv. Auf den ersten Blick soll Programmcode so flexibel wie möglich sein. Also nicht angewiesen auf etwas anderes. Abhängig ist niemand gerne. Das Wort hat einen negativen Touch.
+_Dependency Injection (DI)_ hört sich kompliziert an und die deutsche Übersetzung _Einbringen von Abhängigkeiten_ ist ebenfalls nicht wirklich positiv. Auf den ersten Blick soll Programmcode so flexibel wie möglich sein. Also nicht angewiesen auf etwas anderes. Abhängig ist niemand gerne. Das Wort hat einen negativen Touch.
 
 _Kompliziert_ und _negativ_? Bei genauem Hinsehen trifft beides nicht zu. Mithilfe eines praktischen Beispiels, werden die Vorteile klar.
 
@@ -25,14 +25,14 @@ _Kompliziert_ und _negativ_? Bei genauem Hinsehen trifft beides nicht zu. Mithil
 
 ### Schritt 1 - Die Funktion displayDirection() hinzufügen
 
-Die Ausgangssituation: Stelle dir vor, du möchtest zu jedem Item in deiner Komponente die Anfahrt individuell beschreibbar gestalten.
+Die Ausgangssituation: Stelle dir vor, du möchtest zu jedem Item in deiner Komponente die Anfahrt individuell erklärbar gestalten.
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27..t27a1)[^codeberg.org/astrid/j4examplecode/compare/t27..t27a1] an.
 
 <!-- prettier-ignore -->
 #### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
-Damit alles von einer Stelle aus verwaltbar ist, startest du den Aufruf in der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php` ein. Diese Datei nutzt einen Container, beziehungsweise die Schnittstelle `ContainerInterface`.
+Damit alle Anfahrsmöglichkeiten von einer Stelle aus verwaltbar sind, startest du den Aufruf in der Datei `administrator/components/com_foos/ src/Extension/FoosComponent.php` ein. Diese Datei nutzt einen Container, beziehungsweise die Schnittstelle `ContainerInterface`.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
@@ -370,17 +370,15 @@ Wenn du ein Item im Frontend aufrufst, erscheint der Text, den du zur Beschreibu
 
 ![Joomla 4 - Ausgabe Schritt 2 des Beispiels zu Services und Dependency Injection](/images/j4x27a2x1.png)
 
-Das Problem: Momentan werden alle Arten von Wegbeschreibungen angezeigt und es ist nicht sichergestellt, dass diese Beschreibung existiert. Oft ist nicht jeder Typ verfügbar. Manchmal ist es auch der Fall, dass man festlegen möchte, welcher Typ angezeigt wird. Anstatt alle Typen verfügbar zu machen, wäre es besser, wenn die optimalen Wegbeschreibungen definiert werden könnten. Auf diese Weise wäre es auch möglich, neue Typen hinzuzufügen oder zu entfernen, ohne Änderungen am bestehenden Code vornehmen zu müssen. Wir werden uns in Schritt 3 ansehen, wie dies möglich ist.
+Das Problem: Momentan werden alle Arten von Wegbeschreibungen angezeigt und es ist nicht sichergestellt, dass diese Beschreibung existiert. Oft ist nicht jeder Typ verfügbar. Manchmal ist es auch so, dass man festlegen möchte, welcher Typ angezeigt wird. Anstatt alle Typen gleichzeitig verfügbar zu machen, wäre es besser, wenn die optimalen Wegbeschreibungen definiert werden könnten. Auf diese Weise wäre es auch möglich, neue Typen hinzuzufügen oder zu entfernen, ohne Änderungen am bestehenden Code vornehmen zu müssen. Wir werden uns in Schritt 3 ansehen, wie dies möglich ist.
 
 ### Schritt 3 - Auswahl der Variable displayDirection() und Typsicherheit
 
-Für jedes Element ist der Ansatz durch Text, durch Bild oder durch digitale Karte möglich. Es wäre schön, wenn die drei Typen gleichwertig nebeneinander anwendbar wären und wenn sichergestellt wäre, dass es eine Beschreibung gibt. Betrachten wir in diesem Zusammenhang die Begriffe "Schnittstellen" und "Traits".
+Für jedes Element ist die Anfahrtsbeschreibung durch Text, durch Bild oder durch digitale Karte möglich. Es wäre schön, wenn die drei Typen gleichwertig nebeneinander anwendbar wären und wenn sichergestellt wäre, dass es mindestens eine Beschreibung gibt. Betrachten wir in diesem Zusammenhang die Begriffe "Schnittstellen" und "Traits".
 
-Eine Schnittstelle ist ein Vertrag zwischen der implementierenden Klasse und der aufrufenden Klasse. Der Vertrag stellt sicher, dass jede Klasse bestimmte Kriterien erfüllt, die die Schnittstelle implementiert. Wir haben drei Ansatzbeschreibungen. Wir erstellen Verträge/Schnittstellen für sie und implementieren diese Verträge/Schnittstellen dann in den Klassen. Durch die Verwendung eines "Traits" stellen wir sicher, dass wir den Vertrag nicht jedes Mal neu ausschreiben müssen. Wir verwenden Standards. Auf diese Weise funktioniert unser Dienst wie vereinbart!
+Eine Schnittstelle ist ein Vertrag zwischen der implementierenden Klasse und der aufrufenden Klasse. Der Vertrag stellt sicher, dass jede Klasse, die Schnittstelle implementiert, bestimmte Kriterien erfüllt. Wir haben drei Möglichkeiten. Für jede erstellen wir eine Schnittstelle. Eine Schnittstelle ist so etwas wie ein Vertrag, der sicherstellt, dass Mindestvoraussetzungen eingehalten werden. Diese Schnittstellen implementieren wir dann in den Klassen. Durch die Verwendung eines "Traits" stellen wir sicher, dass wir den Vertrag nicht jedes Mal neu ausschreiben müssen. Wir verwenden Standards. Auf diese Weise funktioniert unser Dienst wie vereinbart!
 
-> https://www.php.net/manual/de/language.oop5.interfaces.php
-
-> https://www.php.net/manual/de/language.oop5.traits.php
+> Weitere Inforamationen zu Traits[^php.net/manual/de/language.oop5.traits.php] und Interfaces[^php.net/manual/de/language.oop5.interfaces.php].
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3)[^codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3] an.
 
@@ -427,7 +425,7 @@ public function boot(ContainerInterface $container)
 <!-- prettier-ignore -->
 #### administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php
 
-Die Datei `DirectionExtensionInterface.php` beinhaltet die Schnittstelle `DirectionExtensionInterface` welches dafür sorgt, dass die Funktion `findDirection()` bei allen implementierenden Klassen verfügbar ist. Vereinfacht ausgedrückt lautet der Vertrag: Wenn eine Klasse die Schnittstelle implementiert, dann bietet sie eine Lösung für die beinhaltenden Funktionen.
+Die Datei `DirectionExtensionInterface.php` beinhaltet die Schnittstelle `DirectionExtensionInterface` welche dafür sorgt, dass die Funktion `findDirection()` bei allen implementierenden Klassen verfügbar ist. Vereinfacht ausgedrückt lautet der Vertrag: Wenn eine Klasse die Schnittstelle implementiert, dann bietet sie eine Lösung für die beinhaltenden Funktionen.
 
 [administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a3/src/administrator/components/com_foos/src/Service/Direction/DirectionExtensionInterface.php)
 

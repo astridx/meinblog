@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-23
+date: 2022-08-05
 title: 'Backendformular aufräumen'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So wie im nachfolgenden Bild sieht dein Backend aufgeräumt und `joomlamäßig` aus.<!-- \index{Backendformular} -->
+Der Administrationsbereich hat sich gefüllt. Die einzelnen Parameter habe ich bisher ohne Struktur eingefügt. Es ist benutzerfreundlich, wenn in einer Anwendung die Ansichten einheitlich sind. So findet sich jeder schnell zurecht. Es ist nicht erforderlich, dass man sich in jede neue Erweiterung einarbeitet. In diesem Teil des Tutorials räumen wir die Ansicht im Administrationsbereich auf. Dabei haben wir das Ziel die Darstellung an die Standardansichten im Content Management System anzupassen. So wie im nachfolgenden Bild sieht dein Backend aufgeräumt aus und man erkennt Joomla auf den ersten Blick.<!-- \index{Backendformular} -->
 
 ![Joomla Ansicht im Backend](/images/j4x29x1.png)
 
@@ -91,52 +91,40 @@ Die wesentliche Änderung ist, dass wir nun das Joomla-eigene Layout `joomla.edi
 
 ```php
 <?php
-/**
- * @package     Joomla.Site
- * @subpackage  Layout
- *
- * @copyright   (C) 2013 Open Source Matters, Inc. <https://www.joomla.org>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
 
 defined('_JEXEC') or die;
 
 $form = $displayData->getForm();
 
 $fields = $displayData->get('fields') ?: array(
-	'publish_up',
-	'publish_down',
-	'featured_up',
-	'featured_down',
-	array('created', 'created_time'),
-	array('created_by', 'created_user_id'),
-	'created_by_alias',
-	array('modified', 'modified_time'),
-	array('modified_by', 'modified_user_id'),
-	'version',
-	'hits',
-	'id'
+    'publish_up',
+    'publish_down',
+    'featured_up',
+    'featured_down',
+    array('created', 'created_time'),
+    array('created_by', 'created_user_id'),
+    'created_by_alias',
+    array('modified', 'modified_time'),
+    array('modified_by', 'modified_user_id'),
+    'version',
+    'hits',
+    'id'
 );
 
 $hiddenFields = $displayData->get('hidden_fields') ?: array();
 
-foreach ($fields as $field)
-{
-	foreach ((array) $field as $f)
-	{
-		if ($form->getField($f))
-		{
-			if (in_array($f, $hiddenFields))
-			{
-				$form->setFieldAttribute($f, 'type', 'hidden');
-			}
+foreach ($fields as $field) {
+    foreach ((array) $field as $f) {
+        if ($form->getField($f)) {
+            if (in_array($f, $hiddenFields)) {
+                $form->setFieldAttribute($f, 'type', 'hidden');
+            }
 
-			echo $form->renderField($f);
-			break;
-		}
-	}
+            echo $form->renderField($f);
+            break;
+        }
+    }
 }
-
 ```
 
 ## Teste deine Joomla-Komponente

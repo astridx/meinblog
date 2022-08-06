@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-19
+date: 2022-08-06
 title: 'Dependency Injection'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -32,7 +32,7 @@ The initial situation: Imagine you want to make the directions for each item in 
 <!-- prettier-ignore -->
 #### administrator/components/com\_foos/ src/Extension/FoosComponent.php
 
-So that everything can be managed from one place, you start the call in the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`. This file uses a container, or rather the interface `ContainerInterface`.
+So that every direction can be managed from one place, you start the call in the file `administrator/components/com_foos/ src/Extension/FoosComponent.php`. This file uses a container, or rather the interface `ContainerInterface`.
 
 [administrator/components/com_foos/ src/Extension/FoosComponent.php](https://codeberg.org/astrid/j4examplecode/src/branch/t27a1/src/administrator/components/com_foos/src/Extension/FoosComponent.php)
 
@@ -374,13 +374,11 @@ The problem: At the moment, all types of directions are displayed and it is not 
 
 ### Step 3 - Select displayDirection() variable and type-safe
 
-For each item, the approach is possible by text, by image or by digital map. It would be nice if the three types were equally applicable next to each other and if it was ensured that there is a description. Let us look at 'interfaces' and 'traits' in this context.
+For each item, the description of the direction is possible by text, by image or by digital map. It would be nice if the three types were equally applicable next to each other and if it was ensured that there is at least one description. Let us look at 'interfaces' and 'traits' in this context.
 
-An interface is a contract between the implementing class and the calling class. The contract ensures that each class meets certain criteria that the interface implements. We have three approach descriptions. Let's create contracts/interfaces for them and then implement these contracts/interfaces in the classes. Using a `trait` we ensure that we don't have to write out the contract each time. We use standards. That way our service works as contracted!
+An interface is a contract between the implementing class and the calling class. The contract ensures that each class meets some criteria that the interface implements. We have three options. For each, we create an interface. An interface is something like a contract that ensures minimum requirements are met. We then implement these interfaces in the classes. By using a "trait", we ensure that we don't have to rewrite the contract each time. We use standards. This way, our service works as agreed!
 
-> https://www.php.net/manual/em/language.oop5.interfaces.php
-
-> https://www.php.net/manual/en/language.oop5.traits.php
+> More information about traits [^php.net/manual/en/language.oop5.traits.php] and interfaces [^php.net/manual/en/language.oop5.interfaces.php]. 
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3)[^codeberg.org/astrid/j4examplecode/compare/t27a2..t27a3].
 

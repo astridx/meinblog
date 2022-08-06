@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-01-15
+date: 2022-08-07
 title: 'Webservices - Unterstützen der Joomla-API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -197,7 +197,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 #### plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini
 
-Auch diese Sprach-Datei füge ich der Vollständigkeit halber bei.
+Auch die Sprach-Datei, welche in Hautpsache für die Installation und die Erstellung des Menüs im Dashboard zuständig ist, füge ich bei.
 
 ```ini
 PLG_WEBSERVICES_FOOS="Web Services - Foos"
