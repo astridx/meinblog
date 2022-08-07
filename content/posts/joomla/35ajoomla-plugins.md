@@ -134,4 +134,41 @@ Ein Plugin des Typs Web Services fügt die Routen der einer Erweiterung zur API 
 ### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)<!-- \index{Plugin!Workflow} -->
 
 Bei der Workflow-Verwaltung gibt es unterschiedliche Übergänge, die per Plugin manipulierbar sind.
+
+## FAQ zu Plugins
+
+### Plugin automatisch während der Installation aktivieren
+
+Möchtest du, dass dein Plugin bei einer Installation automatisch aktiviert wird? Füge in diesem Fall den folgenden Code[^github.com/dgrammatiko/jailed-fs/blob/main/src/plugins/system/restrictedfs/script.php] in ein Installationsskript ein.
+
+```php
+defined('_JEXEC') || die;
+
+use Joomla\CMS\Factory;
+use Joomla\CMS\Installer\Adapter\PluginAdapter;
+use Joomla\CMS\Installer\InstallerScript;
+
+class plgDeinplugintypDeinpluginnameInstallerScript extends InstallerScript
+{
+  public function postflight($type, PluginAdapter $parent)
+  {
+    // Enable the plugin
+    if ($type === 'install' || $type === 'discover_install') {
+      $db = Factory::getDbo();
+      $query = $db->getQuery(true)
+        ->update('#__extensions')
+        ->set($db->qn('enabled') . ' = 1')
+        ->where($db->qn('type') . ' = ' . $db->q('plugin'))
+        ->where($db->qn('element') . ' = ' . $db->q('deinpluginname'))
+        ->where($db->qn('folder') . ' = ' . $db->q('deinplugintyp'));
+      $db->setQuery($query);
+      try {
+        $db->execute();
+      } catch (\Exception $e) {
+        // var_dump($e);
+      }
+    }
+  }
+}
+```
 <img src="https://vg08.met.vgwort.de/na/bf834767e907410a826709167dea3c55" width="1" height="1" alt="">

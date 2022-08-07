@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-08-07
+date: 2022-08-01
 title: 'Webservices - Unterstützen der Joomla-API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente ermöglicht es anderen, zusätzliche Software für diese zu erstellen oder Daten in eigenen Programmen zu nutzen - zusammenzuarbeiten.<!-- \index{API} --><!-- \index{Webservices} -->
+In diesem Teil werfen wir einen Blick auf die Joomla 4-API und den Zugriff auf Joomla 4-Inhalte. Eine [Programmierschnittstelle](https://de.wikipedia.org/wiki/Programmierschnittstelle) - kurz API (von englisch application programming interface) - ist ein Programmteil, der von einem Softwaresystem anderen Programmen zur Anbindung an das System zur Verfügung gestellt wird. Heutzutage bieten viele Online-Dienste APIs; diese heißen dann [Webservice](https://de.wikipedia.org/wiki/Webservice). Das Vorhandensein einer dokumentierten Programmierschnittstelle (API) für eine Joomla-Komponente macht es möglich, mit anderen zusammenzuarbeiten. Entweder über zusätzliche Software, welche die API per Erweiterung nutzt oder Daten werden über die API in anderen Anwendungen nutzbar.<!-- \index{API} --><!-- \index{Webservices} -->
 
 > Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t29...t30)[^codeberg.org/astrid/j4examplecode/compare/t29...t30] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
@@ -197,7 +197,7 @@ PLG_WEBSERVICES_FOOS_XML_DESCRIPTION="Used to add foos routes to the API for you
 
 #### plugins/webservices/foos/language/en-GB/plg_webservices_foos.sys.ini
 
-Auch die Sprach-Datei, welche in Hautpsache für die Installation und die Erstellung des Menüs im Dashboard zuständig ist, füge ich bei.
+Auch die Sprach-Datei, welche in Hautpsache der für die Installation und die Erstellung des Menüs im Dashboard zuständig ist, füge ich bei.
 
 ```ini
 PLG_WEBSERVICES_FOOS="Web Services - Foos"
@@ -245,9 +245,11 @@ Eine Liste von Foos: `curl -X GET /api/index.php/v1/foos`
 Ein einzelnes Foo-Element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
 Lösche ein Foo Element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-> Bei den Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin` lauten. Ändere diese Angaben gegebenenfalls.
+Bei den nachfolgenden Beispielen gehe ich davon aus, dass deine Installation unter `http://localhost/joomla-cms4` befindet und dein Benutzer sowie dein Passwort `admin (Base64: YWRtaW46YWRtaW4=)`, lauten. Ändere diese Angaben gegebenenfalls.
 
-> Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
+### curl.haxx.de
+
+Für [Curl](https://curl.haxx.se/) ist es erforderlich, dass du das Passwort in [Base64](https://de.wikipedia.org/wiki/Base64) umwandelst. Eine Website, die dir dies abnimmt, ist [base64encode.org](https://www.base64encode.org/).
 
 Nutzt du [Curl](https://curl.haxx.se/)[^curl.haxx.se]? Die folgende Abfrage listet dir alle Elemente auf:
 
@@ -299,9 +301,22 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 }
 ```
 
-Nutzt du [Postman](https://www.postman.com/)[^www.postman.com]? Dann ist meine [Kollektion](https://codeberg.org/astrid/j4examplecode/src/branch/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
+Das Mitgeben der Anmeldeinformationen ist zwingend. Alles zusammen sieht der Aufruf in einer Konsole wie folgt aus:
 
-> Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient] in Firefox.
+```
+$ curl -X GET http://localhost/t30j4dev/api/index.php/v1/foos --header 'Accept: application/vnd.api+json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
+{"links":{"self":"http:\/\/localhost\/t30j4dev\/api\/index.php\/v1\/foos"},"data":[{"type":"foos","id":"2","attributes":{"id":"2","name":"Astrid","catid":"0"}},{"type":"foos","id":"3","attributes":{"id":"3","name":"Elmar","catid":"0"}},{"type":"foos","id":"1","attributes":{"id":"1","name":"Nina","catid":"0"}}],"meta":{"total-pages":1}}
+```
+
+### postman.com
+
+Nutzt du postman.com? Dann ist meine [Kollektion](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json] unter Umständen hilfreich für dich. In ihr sind zusätzlich Abfragen für `com_content` enthalten.
+
+### Sonstiges
+
+#### Firefox Addon
+
+Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient] in Firefox.
 
 ## Links
 

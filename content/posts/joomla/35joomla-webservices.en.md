@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-08-07
+date: 2022-08-01
 title: 'Web Services - Support Joomla API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -15,7 +15,7 @@ tags:
   - Joomla
 ---
 
-In this part we will take a look at the Joomla 4 API and how to access Joomla 4 content. A [programming interface](https://de.wikipedia.org/wiki/Programmierschnittstelle) - API for short (from English application programming interface) - is a program part that is made available by a software system to other programs for connection to the system. Nowadays, many online services provide APIs; these are then called [web service](https://de.wikipedia.org/wiki/Webservice). The existence of a documented programming interface (API) for a Joomla component allows others to create additional software for it or to use data in their own programs - to collaborate.<!-- \index{API} --><!-- \index{web services} -->
+In this part we will take a look at the Joomla 4 API and how to access Joomla 4 content. A [programming interface](https://de.wikipedia.org/wiki/Programmierschnittstelle) - API for short (from English application programming interface) - is a program part that is made available by a software system to other programs for connection to the system. Nowadays, many online services provide APIs; these are then called [web service](https://de.wikipedia.org/wiki/Webservice). The existence of a documented application programming interface (API) for a Joomla component makes it possible to work together with others. Either via additional software that uses the API via extension or data becomes usable in other applications via the API.<!-- \index{API} --><!-- \index{web services} -->
 
 > For impatient people: View the changed program code in the [Diff View](https://codeberg.org/astrid/j4examplecode/compare/t29...t30)[^codeberg.org/astrid/j4examplecode/compare/t29...t30] and copy these changes into your development version.
 
@@ -252,9 +252,11 @@ A list of Foos: `curl -X GET /api/index.php/v1/foos`
 A single Foo element: `curl -X GET /api/index.php/v1/foos/{foo_id}`  
 Delete a Foo element: `curl -X DELETE /api/index.php/v1/foos/{foo_id}`
 
-> For the examples, I assume that your installation is located at `http://localhost/joomla-cms4` and that your user and password are `admin`. Change this if necessary.
+For the following examples, I assume that your installation is located at `http://localhost/joomla-cms4` and that your user and password are `admin (Base64: YWRtaW46YWRtaW4=)`. Change this if necessary.
 
-> For [Curl](https://curl.haxx.se/)[^curl.haxx.se] you need to change the password to [Base64](https://de.wikipedia.org/wiki/Base64). A website that does this for you is [base64encode.org](https://www.base64encode.org/).
+### curl.haxx.de
+
+For [Curl](https://curl.haxx.se/)[^curl.haxx.se] you need to change the password to [Base64](https://de.wikipedia.org/wiki/Base64). A website that does this for you is [base64encode.org](https://www.base64encode.org/).
 
 Do you use [Curl](https://curl.haxx.se/)? The following query will list all the elements:
 
@@ -305,10 +307,22 @@ The output format is JSON and looks like this:
   }
 }
 ```
+Providing the credentials is mandatory. All together the call in a console looks like this:
 
-Do you use [postman.com](https://www.postman.com/)? Then the [collection](https://codeberg.org/astrid/j4examplecode/src/branch/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/content%20und%20foos.postman_collection.json] might be helpful for you. It contains additional queries for `com_content`.
+```
+$ curl -X GET http://localhost/t30j4dev/api/index.php/v1/foos --header 'Accept: application/vnd.api+json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
+{"links":{"self":"http:\/\/localhost\/t30j4dev\/api\/index.php\/v1\/foos"},"data":[{"type":"foos","id":"2","attributes":{"id":"2","name":"Astrid","catid":"0"}},{"type":"foos","id":"3","attributes":{"id":"3","name":"Elmar","catid":"0"}},{"type":"foos","id":"1","attributes":{"id":"1","name":"Nina","catid":"0"}}],"meta":{"total-pages":1}}
+```
 
-> I like to use the addon [restclient](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient/] in Firefox.
+### postman.com
+
+Do you use postman.com? Then the [collection](https://github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json)[^github.com/astridx/boilerplate/blob/tutorial/tutorial/component/30/Content%20und%20Foos.postman_collection.json] might be helpful for you. It contains additional queries for `com_content`.
+
+### Misc
+
+#### Firefox addon
+
+I like to use the addon [restclient](https://addons.mozilla.org/en-US/firefox/addon/restclient/)[^addons.mozilla.org/en-us/firefox/addon/restclient/] in Firefox.
 
 ## Links
 
