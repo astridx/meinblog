@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-03-05
+date: 2022-09-01
 title: 'Options in Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
@@ -134,18 +134,31 @@ Why is this sans serif font selected? The following rule is in the `template.css
 
 ```css
 ...
+:root {
+...
+  --font-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+...
+  --body-font-family: var(--font-sans-serif);
+...
+}
+...
 body {
   margin: 0;
-  font-family: var(--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  ...
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  color: var(--body-color);
+  text-align: var(--body-text-align);
+  background-color: var(--body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 ...
 ```
 
-The [`font-family` CSS property](https://developer.mozilla.org/de/docs/Web/CSS/font-family) is responsible for loading. It allows you to specify a prioritised list of fonts for an element. These are alternatives. The browser chooses the first font it can load. In the example this is `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` are listed before, but are not available in my case.
+The [`font-family` CSS property](https://developer.mozilla.org/de/docs/Web/CSS/font-family) is responsible for loading. It allows you to specify a prioritised list of fonts for an element. These are alternatives. The browser chooses the first font it can load. In the example this is `sans-serif`. `"Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,` are listed before, but are not available in my case.
 
 ##### Fonts from a local directory
 
@@ -161,7 +174,7 @@ In the following you can see a website loaded with the option 'Fonts from direct
 
 If you want to host your own font, you can do so. For example, I would like to use the font 'Aclonica' for all my headings.
 
-1. To do this, I open the website [Google Webfonts Helper](https://google-webfonts-helper.herokuapp.com) and select the font `Aclonica` in the left-hand area.
+1. To do this, I open the website [Google Webfonts Helper](https://google-webfonts-helper.herokuapp.com)[^google-webfonts-helper.herokuapp.com] and select the font `Aclonica` in the left-hand area.
 
 ![Google Webfonts Helper | Select font](/images/c18.png)
 
@@ -211,6 +224,8 @@ h6,
 5. Now I check in the frontend whether everything has worked. Yes, all headings are displayed in the desired font.
 
 ![Google Webfonts Helper](/images/c19.png)
+
+![Google Webfonts Helper](/images/c19a.png)
 
 > Of course it is possible to store the fonts in a different place. Then make sure that the addressing in the file `media/templates/site/cassiopeia/css/user.css` fits. Use relative paths if possible. A double dot (..) means that it goes up one folder and then searches for the folder after the slash. If the `user.css` is in the folder `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, then the `..` is correct because I go back one folder to get from `css` to `/fonts`. If the `user.css` is in `media/templates/site/cassiopeia/css/` and the fonts are in `media/templates/site/cassiopeia/css/fonts`, then I use only one dot. Note: The path to the _template media folders_ was `templates/cassiopeia/` before Joomla 4.1. Template media folders are the folders `css`, `images`, `fonts`, `js` and `scss`. As of Joomla 4.1, the files are located in the `media/templates/site/cassiopeia/` directory.
 

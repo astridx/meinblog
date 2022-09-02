@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-03-05
+date: 2022-09-01
 title: 'Optionen in Cassiopeia'
 template: post
 thumbnail: '../../thumbnails/cassiopeia.png'
@@ -20,7 +20,7 @@ Cassiopeia bietet Optionen, die über Stile im Template-Manager angepasst werden
 
 Hier schaue ich mir zunächst die Optionen an, für die keine Änderungen im Code notwendig sind und gehe dann auf kleinere Anpassungen mittels Overrides ein.
 
-Die in diesem Text zur Veranschaulichung angehängten Bilder wurden mit den Joomla-Blog-Beispieldateien erstellt. Um eine gleiche Basis zu haben, wäre es gut, wenn du diese ebenfalls in einer Testumgebung installierst. Klicken Sie dazu im Dashboard neben den Blog-Beispieldateien auf die Schaltfläche `Installieren`.
+Die in diesem Text zur Veranschaulichung eingefügten Bilder wurden mit den Joomla-Blog-Beispieldateien erstellt. Um eine gleiche Basis zu haben, wäre es gut, wenn du diese ebenfalls in einer Testumgebung installierst. Klicke dazu im Dashboard neben den Blog-Beispieldateien auf die Schaltfläche `Installieren`.
 
 ![Blog-Beispieldateien installieren](/images/c11.png)
 
@@ -48,7 +48,7 @@ Diese Registerkarte enthält Informationen zum Template und erlaubt keine Änder
 
 ![Templates Edit Style Administration | Erweitert](/images/c4.png)
 
-Diese Registerkarte zeigt verschiedene Parameter, über die das Template modifizierbar ist. Nachfolgend sehen ich mir diese im einzelnen an.
+Diese Registerkarte zeigt verschiedene Parameter, über die das Template modifizierbar ist. Nachfolgend sehe ich mir diese im einzelnen an.
 
 #### Logo, Titel und Tagline/Slogan
 
@@ -56,7 +56,7 @@ Diese Registerkarte zeigt verschiedene Parameter, über die das Template modifiz
 
 ##### Logo
 
-Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen oder wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, oben links auf der Webseite, platziert.
+Mit einem Klick auf `Auswählen` ist es möglich, ein bereits hochgeladenes Logobild einzufügen. Oder: Wir können im Dialogfeld nach unten scrollen und eine Bilddatei vom eigenen Computer hochladen. Standardmäßig wird dieses an der Position des Logomoduls, also oben links auf der Webseite, platziert.
 
 Das Standard-Layout des Cassiopeia-Templates ermöglicht es, entweder ein Logo-Bild **oder** den Titel der Website im `<Header>`-Bereich der Seite anzuzeigen. Wenn wir ein Logo über diese Methode einfügen, macht Cassiopeia das Logo-Bild automatisch zu einem Link zur Startseite.
 
@@ -113,11 +113,11 @@ Der Titel wird nicht angezeigt, weil eine Bilddatei als Logo ausgewählt ist. Da
 Die Frage, welche Schriften eine Site einsetzt, hat zwei Facetten:
 
 - Welche Schriftart ist gut lesbar und sieht gut aus?
-- Welche Schriftarten sind technisch möglich. Technisch möglich sind lediglich die Schriftarten, die auf einem Computer installiert sind oder die online zur Verfügung stehen - die Webfonts. Auf meinem Rechner ist die Schriftart Verdana installiert. Die kann ich einer CSS-Datei als Schriftart angeben. Diese wird auf meinem Rechner verwendet - und bei allen Besuchern, die diese Schrift installiert haben. Bei allen anderen erscheint eine andere Schrift. Das ist die Standardschrift des Browsers, falls ich keine alternative Schriftart angegeben habe.
+- Welche Schriftarten sind technisch möglich. Technisch möglich sind lediglich die Schriftarten, die auf einem Computer installiert sind oder die online zur Verfügung stehen - die Webfonts. Auf meinem Rechner ist die Schriftart Verdana installiert. Diese kann ich via CSS-Datei als Schriftart angeben. Die wird auf meinem Rechner verwendet - und bei allen Besuchern, die diese Schrift ebenfalls auf ihrem Computer installiert haben. Bei allen anderen erscheint eine andere Schrift. Welche Schrift genau verwendet wird, hängt davon ab, welche Schrift als Standardschrift im Browsers eingestellt ist.
 
 Wenn ich möchte, dass die Standardschriftart des Browsers des Websitebesuchers für meine Website verwendet wird, dann wähle ich bei Schrift-Schema `Keine`. Ist mir die Darstellung wichtig, dann habe ich zwei Möglichkeiten. Ich nutze die Schriftart Roboto, die von Cassiopeia mitgeliefert wird und deshalb über meine Website online verfügbar ist, oder ich lade die Schrift von einer anderen Website. Vorteile und Nachteile sehen wir uns in den nachfolgenden Abschnitten im einzelnen an.
 
-> Die genaue Schriftart kann über die Entwicklertools eines Browsers ausgelesen werden. Die Tastaturkürzel zum Öffnen der Entwicklertools für Firefox findet man unter [Öffnen und Schließen von Werkzeugen](https://developer.mozilla.org/de/docs/Tools/Keyboard_shortcuts).
+> Die genaue Schriftart kann ich mithilfe der Entwicklertools eines Browsers ausgelesen. Die Tastaturkürzel zum Öffnen der Entwicklertools für Firefox findet man unter [Öffnen und Schließen von Werkzeugen](https://developer.mozilla.org/de/docs/Tools/Keyboard_shortcuts).
 
 ![Template Style im Backend bearbeiten | Schrift](/images/c13.png)
 
@@ -131,22 +131,35 @@ Die nachfolgende Abbildung zeigt, dass als Schrift eine beliebeige serifenlose a
 
 ![Template Style im Backend bearbeiten](/images/c15.png)
 
-Warum wird eine beliebeige serifenlose Schriftart ausgewählt? In der `template.css` steht die nachfolgende Regel.
+Warum wird eine beliebige serifenlose Schriftart ausgewählt? In der `template.css` steht die nachfolgende Regel.
 
 ```css
 ...
+:root {
+...
+  --font-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+...
+  --body-font-family: var(--font-sans-serif);
+...
+}
+...
 body {
   margin: 0;
-  font-family: var(--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  ...
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  color: var(--body-color);
+  text-align: var(--body-text-align);
+  background-color: var(--body-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 ...
 ```
 
-Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `--cassiopeia-font-family-body, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans"` stehen zwar in der Auflistung vorher, sind in meinem Fall aber nicht verfügbar.
+Die [`font-family` CSS Eigenschaft](https://developer.mozilla.org/de/docs/Web/CSS/font-family) ist verantwortlich für das Laden. Sie erlaubt es, eine priorisierte Liste von Schrift für ein Element anzugeben. Es handelt sich dabei um Alternativen. Der Browser wählt die erste Schrift, die er laden kann. Im Beispiel ist das `sans-serif`. `"Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,` stehen zwar in der Auflistung vorher, sind in meinem Fall aber nicht verfügbar.
 
 ##### Schriften aus einem lokalen Verzeichnis
 
@@ -162,7 +175,7 @@ Im nachfolgenden sieht man eine mit der Option `Schriften aus Verzeichnis` gelad
 
 Wer eine eigene Schrift hosten möchte, kann dies tun. Ich möchte beispielsweise für alle meine Überschriften die Schriftart `Aclonica` verwenden.
 
-1. Dazu öffne ich die Website [Google Webfonts Helper](https://google-webfonts-helper.herokuapp.com) und wähle im linken Bereich die Schriftart `Aclonica` aus.
+1. Dazu öffne ich die Website [Google Webfonts Helper](https://google-webfonts-helper.herokuapp.com)[^google-webfonts-helper.herokuapp.com] und wähle im linken Bereich die Schriftart `Aclonica` aus.
 
 ![Google Webfonts Helper](/images/c18.png)
 
@@ -213,13 +226,16 @@ h6,
 
 ![Google Webfonts Helper](/images/c19.png)
 
+
+![Google Webfonts Helper](/images/c19a.png)
+
 > Natürlich ist es möglich, die Schriftarten an einer anderen Stelle abzulegen. Beachte dann, dass in der Datei `media/templates/site/cassiopeia/css/user.css` die Adressierung passt. Verwende relative Pfade, wenn möglich. Ein doppelter Punkt (..) bedeutet, dass es einen Ordner nach oben geht und dann nach dem Ordner hinter dem Schrägstrich gesucht wird. Befindet sich die `user.css` im Ordner `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/fonts/aclonica-v11-latin/`, dann ist das `..` korrekt, weil ich einen Ordner zurückgehe, um von `css` zu `/fonts` zu gelangen. Ist die `user.css` in `media/templates/site/cassiopeia/css/` und die Schriftarten in `media/templates/site/cassiopeia/css/fonts`, dann verwende ich nur einen Punkt. Hinweis: Der Pfad zu den _Template-Medienordnern_ war vor Joomla 4.1 `templates/cassiopeia/`. Template-Medienordner sind die Ordner `css`, `images`, `fonts`, `js` und `scss`. Ab Joomla 4.1 befinden sich die Dateien im Verzeichnis `media/templates/site/cassiopeia/`.
 
 ##### Schriften aus dem Web
 
 Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften meist nicht ganz uneigennützig. Oft sammelt er dabei die Daten der Nutzer, die die Schrift aufrufen.
 
-Schriften werden in der Regel auf diese Art eingebunden, weil dies weniger Wissen erfordert. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
+Schriften werden in der Regel auf diese Art eingebunden, weil dies unkomplizierter ist. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
 
 Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird.
 

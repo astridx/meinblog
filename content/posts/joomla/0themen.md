@@ -17,6 +17,9 @@ tags:
 
 ## Komponente
 
+Alle Texte dieser Reihe gibt es als PDF oder E-pub:
+[![Joomla Buch Entwicklung von Erweiterungen](/images/joomlabook.jpg)](https://astrid-guenther.de)[^astrid-guenther.de]
+
 1. [Vorwort](/joomla-tutorial-vorwort)
 1. [Die erste Ansicht im Backend](/die-erste-ansicht-im-backend)
 1. [Die erste Ansicht im Frontend](/die-erste-ansicht-im-frontend)

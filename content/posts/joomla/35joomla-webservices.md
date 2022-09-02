@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2022-08-09
 title: 'Webservices - Unterstützen der Joomla-API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -227,6 +227,42 @@ In der Installationsdatei ist wichtig, den Ordner `api` aufzunehmen. Sonst werde
  		<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 ```
 
+#### Verschiedenes
+
+##### Öffentliche Api
+
+Routen können durch Setzen eines Flags als öffentlich deklariert werden. Allerdings ist dies gefährlich und kann sensible Informationen preisgeben. Du kannst den öffentlichen Zugang bei der Registrierung der Route festlegen. Wenn Du `Joomla\CMS\Router\ApiRouter::createCRUDRoutes()` verwendest, übergebe das vierte Argument mit true, um `public GETs` zu aktivieren.
+
+```php
+...
+$router->createCRUDRoutes(
+    'v1/foos',
+    'foos',
+    ['component' => 'com_foos'],
+    true
+);
+...
+```
+
+Oder wenn du die Route manuell instanziierst verwende Code analog zum nachfolgenden Beispiel.
+
+```php
+...
+$route = new Joomla\Router\Route(['GET'], 'v1/foos', 'foos.displayList', [], ['component' => 'com_foos', 'public' => true]);
+$router->addRoute($route);
+...
+```
+
+Weitere Informationen findest du im PR 27021[^github.com/joomla/joomla-cms/pull/27021] oder unter joomla.stackexchange.com[^joomla.stackexchange.com/questions/32320/joomla-api-and-credentials].
+
+##### Joomla API und benutzerdefinierte URL
+
+API Urls enthalten das Wort `/api`. Zum Beispiel `http://localhost/joomla-cms4/api/index.php/v1/foos`. Wenn du eine andere URL brauchst, ist es möglich, über die Datei `.htaccess` umzuleiten.
+
+```
+Redirect 301 /yourCustomFolder /api/v1/foos/index.php/yourCustomFolder
+```
+
 ## Teste deine Joomla-Komponente
 
 1. Führe eine neue Installation durch. Deinstalliere hierzu deine bisherige Installation und kopiere alle Dateien erneut. Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `api` Ordner in den `api` Ordner deiner Joomla 4 Installation. Kopiere die Dateien im `plugin` Ordner in den `plugin` Ordner deiner Joomla 4 Installation. Installiere deine Komponente **und das Plugin** wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast.
@@ -301,7 +337,7 @@ Das Ausgabeformat ist JSON und sieht beispielsweise wie folgt aus:
 }
 ```
 
-Das Mitgeben der Anmeldeinformationen ist zwingend. Alles zusammen sieht der Aufruf in einer Konsole wie folgt aus:
+Das Mitgeben der Anmeldeinformationen ist zwingend. Zusammen sieht der Aufruf in einer Konsole wie folgt aus:
 
 ```
 $ curl -X GET http://localhost/t30j4dev/api/index.php/v1/foos --header 'Accept: application/vnd.api+json' --header 'Authorization: Basic YWRtaW46YWRtaW4='
@@ -320,9 +356,7 @@ Ich nutze gerne [dieses Addon](https://addons.mozilla.org/en-US/firefox/addon/re
 
 ## Links
 
-[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^docs.joomla.org/j4.x:joomla_core_apis/de]
-
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^docs.joomla.org/j4.x:joomla_core_apis/de]
+[Joomla API-Spezifikation](https://docs.joomla.org/J4.x:Joomla_Core_APIs/de)[^docs.joomla.org/J4.x:Joomla_Core_APIs]
 
 [Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^github.com/joomla-extensions/weblinks/pull/407]
 <img src="https://vg08.met.vgwort.de/na/01fa65fba2a743bb8e08bf4f6872e79f" width="1" height="1" alt="">

@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2022-08-01
+date: 2022-08-09
 title: 'Web Services - Support Joomla API'
 template: post
 thumbnail: '../../thumbnails/joomla.png'
@@ -36,7 +36,6 @@ Create the controller `FooController` which inherits from `ApiController`. Every
 
 ```php {numberLines: -2}
 //
-
 <?php
 namespace FooNamespace\Component\Foos\Api\Controller;
 
@@ -84,7 +83,6 @@ Create the interface `JsonapiView` that inherits from `BaseApiView`. Use again r
 
 ```php {numberLines: -2}
 //
-
 <?php
 namespace FooNamespace\Component\Foos\Api\View\Foos;
 
@@ -234,6 +232,42 @@ In the installation file it is important to include the folder `api`. Otherwise 
  		<server type="extension" name="Foo Updates">https://codeberg.org/astrid/j4examplecode/raw/branch/tutorial/foo_update.xml</server>
 ```
 
+#### Miscellaneous
+
+##### Public Api
+
+It is possible to declare routes as public via setting a flag. However, this is risky and can give away sensitive information. You can set public access when registering the route. If you use `Joomla\CMS\Router\ApiRouter::createCRUDRoutes()`, pass the fourth argument with true to enable `public GETs`.
+
+```php
+...
+$router->createCRUDRoutes(
+    'v1/foos',
+    'foos',
+    ['component' => 'com_foos'],
+    true
+);
+...
+```
+
+Or when you manually instantiate the route use the following code.
+
+```php
+...
+$route = new Joomla\Router\Route(['GET'], 'v1/foos', 'foos.displayList', [], ['component' => 'com_foos', 'public' => true]);
+$router->addRoute($route);
+...
+```
+
+For more information see PR 27021[^github.com/joomla/joomla-cms/pull/27021] or the joomla.stackexchange.com[^joomla.stackexchange.com/questions/32320/joomla-api-and-credentials].
+
+##### Joomla API and Custom URL
+
+API Urls include the word `/api`. For example `http://localhost/joomla-cms4/api/index.php/v1/foos`. If you need to adress another URL it is possible to redirect via `.htaccess`.
+
+```
+Redirect 301 /yourCustomFolder /api/v1/foos/index.php/yourCustomFolder
+```
+
 ## Test your Joomla component
 
 1. create a new installation. To do this, uninstall your previous installation and copy all files again. Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation. Copy the files in the `api` folder into the `api` folder of your Joomla 4 installation. Copy the files in the `plugin` folder into the `plugin` folder of your Joomla 4 installation. Install your component **and the plugin** as described in part one, after copying all files. 2.
@@ -327,8 +361,6 @@ I like to use the addon [restclient](https://addons.mozilla.org/en-US/firefox/ad
 ## Links
 
 [Joomla API Specification](https://docs.joomla.org/J4.x:Joomla_Core_APIs)[^docs.joomla.org/j4.x:joomla_core_apis]
-
-[Joomla Core-API](https://docs.joomla.org/J4.x:Joomla_Core_APIs/)[^docs.joomla.org/j4.x:joomla_core_apis]
 
 [Integration in Weblinks](https://github.com/joomla-extensions/weblinks/pull/407)[^github.com/joomla-extensions/weblinks/pull/407]
 <img src="https://vg08.met.vgwort.de/na/97f9021f918a4a05bb5471a222790da9" width="1" height="1" alt="">
