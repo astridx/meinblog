@@ -235,7 +235,7 @@ h6,
 
 Die Verwendung einer Schriftart, die auf einem anderen Server im Internet gespeichert ist, birgt eine Abhängigkeit. Zum einen ist es möglich, das der Anbieter sein Angebot einstellt. Zum anderen bietet er die Schriften meist nicht ganz uneigennützig. Oft sammelt er dabei die Daten der Nutzer, die die Schrift aufrufen.
 
-Schriften werden in der Regel auf diese Art eingebunden, weil dies unkomplizierter ist. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendet Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
+Schriften werden in der Regel auf diese Art eingebunden, weil dies unkomplizierter ist. Es ist nicht erforderlich die Schrift selbst herunterzuladen, über den eigenen Webserver verfügbar zu machen und korrekt einzubinden. Außerdem ist eine häuftig verwendete Google Font höchstwahrscheinlich im Cache eines Browsers. Dies wirkt sich positiv auf Ladezeiten aus.
 
 Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus dem Web`. Die Schrift Fire Sans wird verwendet. In der Netzwerkanalyse der Entwicklerwerkzeuge erkennst du, dass die Schrift von fonts.gstatic.com geladen wird.
 
@@ -245,7 +245,7 @@ Die nachfolgenden Bilder zeigen die Beispielsite mit der Option `Schriften aus d
 
 Wer eine eigene Schrift laden möchte ohne sie selbst zu hosten, kann dies tun. Ich zeige dies wieder an dem Beispiel, bei dem ich für alle meine Überschriften die Schriftart `Aclonica` einsetze.
 
-> Bevor man Schriftarten aus dem Internet lädt und über seine Website anzeigt, ist erforderlich sich datenschutzrechtlich zu informieren.
+> Bevor man Schriftarten aus dem Internet lädt und über seine Website anzeigt, ist es erforderlich sich datenschutzrechtlich zu informieren.
 
 1. Ich öffne die Website [Google Fonts](https://fonts.google.com) und und such hier [Aclonica](https://fonts.google.com/specimen/Aclonica?preview.text_type=custom&sidebar.open=true&selection.family=Aclonica).
 

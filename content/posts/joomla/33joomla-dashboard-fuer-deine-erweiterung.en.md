@@ -167,7 +167,7 @@ In the installation script we add the call. With this, we call a Joomla-specific
 
 Copy the files in the `administrator` folder into the `administrator` folder of your Joomla 4 installation.
 
-Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since a new file has been added, this is necessary. 2.
+Install your component as described in part one, after copying all files. Joomla will update the namespaces for you during the installation. Since a new file has been added, this is necessary. We have also added instructions to the installation script.
 
 2. use the dashboard in the backend.
 

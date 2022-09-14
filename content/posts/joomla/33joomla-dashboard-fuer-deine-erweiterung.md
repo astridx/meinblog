@@ -167,7 +167,7 @@ Im Installationsskript fügen wir den Aufruf hinzu. Damit rufen wir eine Joomla-
 
 Kopiere die Dateien im `administrator` Ordner in den `administrator` Ordner deiner Joomla 4 Installation.
 
-Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich.
+Installiere deine Komponente wie in Teil eins beschrieben, nachdem du alle Dateien kopiert hast. Joomla aktualisiert bei der Installation die Namespaces für dich. Da eine neue Datei hinzugekommen ist, ist dies erforderlich. Außerdem haben wir Anweisung im Installationsskript ergänzt.
 
 2. Nutze im Backend das Dashboard.
 
