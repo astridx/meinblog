@@ -323,3 +323,6 @@ Vorteile:
 - Alle weiteren Attribute werden korrekt gerendert, übergebe diesee wie im Array: (beispielsweise `'class' => 'my-class'`)
 
 <img src="https://vg01.met.vgwort.de/na/be6e0f448d4442348d0275b49531a2b7" width="1" height="1" alt="">
+
+### Datumsangaben<!-- \index{Datumsangaben} -->
+

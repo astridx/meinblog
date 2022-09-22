@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2018-12-12
+date: 2022-09-21
 title: 'Welcome'
 template: post
 thumbnail: '../thumbnails/leaflet.png'
@@ -54,5 +54,31 @@ Ich gehe davon aus, dass Sie über grundlegende [HTML](https://de.wikipedia.org/
 Für das Verständnis der Beispiele sind darüber hinaus grundlegende [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] Kenntnisse hilfreich. Für die Entwicklung dynamischer Webseiten ist JavaScript unerlässlich.
 
 > Mit [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] lassen sich kleine Hilfsroutinen und auch komplexen Bibliotheken schreiben.
+
+## Is it possible to use Openstreetmap in connection with Leaflet DSGVO compliant without consent.
+
+As a German website owner nowadays it is necessary to deal with the German Data Protection Regulation DSGVO[^dsgvo-gesetz.de/art-1-dsgvo/]. In customer projects I always make clear that I am not a lawyer, but a web programmer, and do not give legal advice. Nevertheless, it is important to me to keep my websites DSGVO-compliant and to refrain from using third-party services, especially if they cache data outside of Europe. I also feel that asking for consent before viewing a website is not user-friendly and am looking for a way to avoid this in a DSGVO compliant way. 
+
+Openstreetmap would be a third party service. Is it possible to use this in conjunction with Leaflet in a DSGVO compliant way without consent, ergo without an upstream `consent tool`? In my research, I keep coming across conflicting information. 
+
+### Do I need a consent tool?
+
+If you use services that require consent from the user, then there are alternatives to consent tools, ergo: to queries upstream of a website. One option is to ask for consent in a targeted way. For example, I like to use the way it is done on pages of _spiegel.de_. A general 'consent tool' is not available. Exclusively before content that requires consent is obtained. I see this as a practicable possibility. A user is shown all essential content without a barrier and at the same time has the option to activate additional information via consent. In our case, the digital map is the additional information. Consent is therefore only required when he requests a page with content in the browser that requires consent.
+
+### Where does the data for Openstreetmap digital maps come from?
+
+There are often misunderstandings regarding the map providers. Openstreetmap.de and Openstreetmap.org are considered to be the same thing. But these are different providers. I consider here the version of the German top-level domain Openstreetmap.de. 
+
+Openstreetmap.de informs about server locations on the website fossgis.de/wiki/IT-Technik. I get to the fossgis.de/wiki/IT-Technik website via openstreetmap.de/faq/#how-can-I-use-the-data, which links to wiki.openstreetmap.org/wiki/FOSSGIS/Server.
+
+If I read that correctly, it is Potsdam and Hetzner Cloud[^docs.hetzner.com/en/cloud/general/locations/#:~:text=Bisher%20betreiben%20wir%20drei%20Datacenter,wir%20derzeit%20kein%20eigenes%20Datacenter] and that is Europe.
+
+In my legal opinion, it is therefore sufficient to include a note in your own privacy policy that the website uses services from OpenStreetMap.de and additionally a reference to the privacy policy there. This is [fossgis.de/datenschutzerklerkl%C3%A4rung](https://fossgis.de/datenschutzerkl%C3%A4rung/). The use of a Consent Tool is not necessary in my eyes. I am not a lawyer and share here solely my lay opinion. 
+
+## Own tile server
+
+From a privacy point of view, it is best to set up your own tile server. This way website visitors will not be redirected to a third party provider. Another alternative is a proxy. With the latter, you control the flow of data without setting up a Tile server yourself. 
+
+For those who only need a limited subset of the world, these options come in handy. Both options involve costs and are usually not worthwhile for small projects. At least if the map contains the whole world. 
 
 <img src="https://vg07.met.vgwort.de/na/fe9162034db2414897f95f2b64e9cb97" width="1" height="1" alt="">

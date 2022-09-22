@@ -84,29 +84,14 @@ module.exports = {
     },
 
     // Webmentions
-/*
-    {
-      resolve: `gatsby-plugin-webmention`,
-      options: {
-        username: 'blog.astrid-guenther.de',
-        identity: {
-          email: "info@astrid-guenther.de"
-        },
-        mentions: true,
-        pingbacks: true,
-        domain: 'https://blog.astrid-guenther.de/',
-        token: process.env.WEBMENTIONS_TOKEN
-      }
-    },
-*/
-    { 
+/*    { 
       resolve: "gatsby-source-webmentions",
       options: {
         DOMAIN: "blog.astrid-guenther.de", // without https and any slashes
         TOKEN: process.env.WEBMENTIONS_TOKEN, // token from webmention.io
         perPage: 100, // optional
       },
-    },    
+    },    */
 
     // ===================================================================================
     // Images and static

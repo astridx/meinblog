@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2018-12-12
+date: 2022-09-21
 title: 'Willkommen'
 template: post
 thumbnail: '../thumbnails/leaflet.png'
@@ -54,5 +54,31 @@ Ich gehe davon aus, dass Sie über grundlegende [HTML](https://de.wikipedia.org/
 Für das Verständnis der Beispiele sind darüber hinaus grundlegende [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] Kenntnisse hilfreich. Für die Entwicklung dynamischer Webseiten ist JavaScript unerlässlich.
 
 > Mit [JavaScript](https://de.wikipedia.org/w/index.php?title=JavaScript_Object_Notation)[^de.wikipedia.org/w/index.php?title=javascript_object_notation] lassen sich kleine Hilfsroutinen und auch komplexen Bibliotheken schreiben.
+
+## Ist es möglich, Openstreetmap in Verbindung mit Leaflet DSGVO-konform ohne Einwilligung zu verwenden
+
+Als deutscher Websitebetreiber ist es heutzutage erforderlich, dass man sich mit der Datenschutz-Grundverordnung DSGVO[^dsgvo-gesetz.de/art-1-dsgvo/] beschäftigt. Bei Kundenprojekten stelle ich immer klar, dass ich keine Anwältin, sondern Webprogrammiererin, bin und nicht rechtlich berate. Trotzdem ist es mir wichtig, meine Websites DSGVO-konform zu betreiben und auf Dienste Dritter zu verzichten, vor allem wenn diese Daten außerhalb Europas zwischenspeichern. Außerdem empfinde ich das Einholen von Einwilligungen vor der Anzeige einer Website nicht benutzerfreundlich und suche einen Weg, dies DSGVO-konform zu vermeiden. 
+
+Openstreetmap wäre ein Dienst eines Dritten. Ist es möglich, diesen in Verbindung mit Leaflet DSGVO-konform ohne Einwilligung zu verwenden, ergo ohne ein vorgeschaltetes `Consent Tool`? Bei meiner Recherche stoße ich immer wieder auf widersprüchliche Informationen. 
+
+### Benötige ich ein Consent Tool?
+
+Falls man Dienste nutzt, die eine Einwilligung vom Benutzer erfordern, dann gibt es alternativen zu den Consent Tools, ergo: Zu den einer Website vorgeschalteten Abfragen. Eine Option ist das zielgerichtete Einholen einer Einwilligung. Beispielsweise nutze ich gerne die Art und Weise, wie es auf Seiten von _spiegel.de_ geschieht. Ein allgemeines `Consent Tool` ist nicht vorhanden. Ausschließlich vor Inhalten, die eine Einwilligung erfordern, wird diese eingeholt. Das sehe ich als eine praktikable Möglichkeit an. Einem Benutzer werden alle wesentlichen Inhalte ohne Schranke angezeigt und er hat gleichzeitig die Option, zusätzliche Informationen per Einwilligung zu aktivieren. In unserem Fall ist die digitale Karte die Zusatzinformation. Ein Konsens ist somit nur dann erforderlich, wenn er eine Seite mit Inhalten im Browser anfordert, die ein Einverständnis verlangen.
+
+### Woher kommen die Daten für die digitalen Karten von Openstreetmap?
+
+Oft gibt es Missverständnisse bezüglich der Kartenanbieter. Openstreetmap.de und Openstreetmap.org werden als das Selbe angesehen. Dabei sind dies unterschiedliche Anbieter. Ich betrachte hier die Version der deutschen Top-Level-Domain Openstreetmap.de. 
+
+Openstreetmap.de informiert auf der Website fossgis.de/wiki/IT-Technik über Serverstandorte. Auf die Website fossgis.de/wiki/IT-Technik komme ich über openstreetmap.de/faq/#wie-kann-ich-die-daten-nutzen, welche auf wiki.openstreetmap.org/wiki/FOSSGIS/Server verweist.
+
+Wenn ich das korrekt lese, ist es Potsdam und Hetzner Cloud[^docs.hetzner.com/de/cloud/general/locations/#:~:text=Bisher%20betreiben%20wir%20drei%20Datacenter,wir%20derzeit%20kein%20eigenes%20Datacenter] und das ist Europa.
+
+Nach meiner Rechtsauffassung reicht somit in der eigenen Datenschutzerklärung ein Hinweis, dass die Website Dienste von OpenStreetMap.de nutzt und zusätzlich ein Verweis auf die dortige Datenschutzerklärung. Dies ist [fossgis.de/datenschutzerkl%C3%A4rung](https://fossgis.de/datenschutzerkl%C3%A4rung/). Der Einsatz eines Consent Tools ist in meinen Augen nicht erforderlich. Ich bin keine Anwältin und teile hier alleinig meine laienhafte Meinung. 
+
+## Eigener Tile-Server
+
+Aus Datenschutz-Sicht ist es am besten, einen eigenen Tile-Server aufzusetzen. So werden Website-Besucher nicht zu einem Drittanbieter weitergeleitet. Eine weitere Alternative ist ein Proxy. Bei letzterem kontrolliert man den Datenfluss, ohne selbst einen Tile-Server aufzusetzen. 
+
+Für diejenigen, die nur einen begrenzten Teilausschnitt der Welt benötigt, kommen diese Optionen in Frage. Beide Varianten sind mit Kosten verbunden und lohnen sich für kleine Projekte in der Regel nicht. Zumindest dann, wenn die Karte die ganze Welt beinhaltet. 
 
 <img src="https://vg07.met.vgwort.de/na/5f31b63672d84ae7b5b177ae8c025742" width="1" height="1" alt="">
