@@ -322,7 +322,316 @@ Vorteile:
 - Das alt-Attribut wird ignoriert, wenn der übergebene Wert `false` (boolesch) ist.
 - Alle weiteren Attribute werden korrekt gerendert, übergebe diesee wie im Array: (beispielsweise `'class' => 'my-class'`)
 
-<img src="https://vg01.met.vgwort.de/na/be6e0f448d4442348d0275b49531a2b7" width="1" height="1" alt="">
-
 ### Datumsangaben<!-- \index{Datumsangaben} -->
 
+In einer meiner Joomla-Erweiterung trat ein Fehler auf. Datum- und Zeitangaben wurden nicht korrekt angezeigt. Die Zeitzone war offensichtlich das Problem. Die Lösung schien auf den ersten Blick einfach zu sein. Ich habe in der Vergangenheit mit Datumsangaben und der Klasse `DateTime` in PHP[^php.net/manual/en/class.datetime.php] gearbeitet und hatte Erfahrung mit Zeitzonen. In Joomla gibt es allerdings Besonderheiten.
+
+Betrachten wir mein konkretes Problem. Ein Benutzer, der in der Zeitzone `Australia/Adelaide` (UTC/GMT +10:30 Stunden) lebt, füllt im Sommer ein Formular aus, welches ein Feld enthält, in dem ein Datum gespeichert wird. Die Zeitzone `Australia/Adelaide` hat im Sommer eine Differenz zur Zeitzone `UTC` von +10:30 Stunden, in der Winterzeit ist die Differenz +9:30 Stunden.
+
+![Joomla 4 | Zeitzone beim Benutzer einstellen](/images/j4xvorwortx1.png)
+
+Der Server steht in Johannesburg, somit in Südafrika. Die Zeitzone des Servers ist in der globalen Konfiguration auf `Africa/Johannesburg` eingestellt. Die Zeitzone `Africa/Johannesburg` hat im Sommer eine Differenz zur Zeitzone `UTC` von +2:00 Stunden, in der Winterzeit ist die Differenz +1:00 Stunden.
+
+![Joomla 4 | Zeitzone des Servers in der globalen Konfiguration einstellen](/images/j4xvorwortx2.png)
+
+Bei meiner Erweiterung handelt sich um ein _Gewinnspiel_. Beim Datum handelt es sich um den 4.10.2022. Die Uhrzeit ist 00:00:01 Uhr. Genau dann ist das Gewinnspiel beendet. Es wichtig, dass das Spiel überall auf der Welt zur gleichen Zeit inaktiv geschaltet wird. 
+Das ist anders, als zum Beispiel bei einem _Adventskalender_. Beim Adventskalender ist es unter Umständen gewollt, dass in jeder Zeitzone etwas zu einer bestimmten Uhrzeit passiert. Das erste Türchen öffnet sich in Australien, in Afrika und in Europa dann, wenn es vor Ort der 1.12. und nicht gleichzeitig.
+
+Ich verwende im Formular unter Joomla das Feld vom Typ Calendar[^docs.joomla.org/Calendar_form_field_type]. 
+
+```xml
+<field
+  name="advent_publish_up"
+  type="calendar"
+  label="COM_AGADVENTS_FIELD_PUBLISH_UP_LABEL"
+  translateformat="true"
+  showtime="true"
+  size="22"
+  filter="user_utc"
+/>
+```
+
+Zu meinem Erstaunen stelle ich bei meinen ersten Tests fest, dass in der Datenbank anstelle von `2022-10-04 00:00:01` das der String ` 2022-10-03 13:30:01` gespeichert wird. Mit etwas Recherche wird mir klar, dass das Kalenderfeld das Datum in die Zeitzone UTC konvertiert und in dieser Form abspeichert. Die Information zur Zeitzone selbst wird nicht in der Datenbank hinterlegt. Letzteres ist nicht notwendig, wenn sichergestellt ist, dass immer ein uns dieselbe Zeitzone verwendet wird. Im Falle von Joomla ist dies `UTC`.
+
+Im Code zum Kalenderfeld der Datei `/libraries/src/Form/Field/CalendarField.php` kann diesen Vorgang in der Funktion `filter` abgelesen werden: 
+
+```php
+...
+public function filter($value, $group = null, Registry $input = null)
+{
+    // Make sure there is a valid SimpleXMLElement.
+    if (!($this->element instanceof \SimpleXMLElement)) {
+        throw new \UnexpectedValueException(sprintf(‚%s::filter `element` is not an instance of SimpleXMLElement‘, \get_class($this)));
+    }
+
+    if ((int) $value <= 0) {
+        return ‚‚;
+    }
+
+    if ($this->filterFormat) {
+        $value = DateTime::createFromFormat($this->filterFormat, $value)->format(‚Y-m-d H:i:s‘);
+    }
+
+    $app = Factory::getApplication();
+
+    // Get the field filter type.
+    $filter = (string) $this->element[‚filter‘];
+
+    $return = $value;
+
+    switch (strtoupper($filter)) {
+        // Convert a date to UTC based on the server timezone offset.
+        case ‚SERVER_UTC‘:
+            // Return an SQL formatted datetime string in UTC.
+            $return = Factory::getDate($value, $app->get(‚offset‘))->toSql();
+            break;
+
+        // Convert a date to UTC based on the user timezone offset.
+        case ‚USER_UTC‘:
+            // Get the user timezone setting defaulting to the server timezone setting.
+            $offset = $app->getIdentity()->getParam(‚timezone‘, $app->get(‚offset‘));
+
+            // Return an SQL formatted datetime string in UTC.
+            $return = Factory::getDate($value, $offset)->toSql();
+            break;
+    }
+
+    return $return;
+}
+...
+```
+
+Die Variable `$value` beinhaltet den vom Benutzer eingegebene Wert, in userem Falle `2022-10-04 00:00:01`. Dieser wird in die Zeitzone `UTC` umgerechnet und daraufhin in der Variablen `$return` gespeichert. Der umgerechnete Wert wird zum Speichern an die Datenbank übergeben. So kann man sich immer darauf verlassen, dass das in der Datenbank hinterlegt Datum für die Zeitzone `UTC` korrekt ist.
+
+`SERVER_UTC` und `USER_UTC` bieten in Joomla die Möglichkeit das Datum entweder in der Zeitzone, mit der der Webserer konfiguriert ist oder der beim Benutzer eingestellten Zeitzone auszugeben. Kurzum, die Konstanten geben an, ob der Wert der Variablen `$value` in der Zeitzone, die beim Benutzer gespeichert ist oder der Zeitzone des Webservers, welche in der globalen Konfiguration konfigurierbar ist, vorliegt.
+
+> Warum wird das Datum für das Speichern in der Datenbank in die Zeitzone `UTC` konvertiert? Eigentlich ist es egal, welche Zeitzone man wählt. Sinnvoll ist, dass man eine festlegt. Auf diese Weise hat man immer einen fixen Ausgangspunkt. Andernfalls müsste man für jede Zeitzonen-Kombination den Umrechnungsfaktor oder das Offset bestimmen. Im Standardverhalten von Joomla ist sichergestellt, dass das Datum, welches in der Datenbank abgelegt ist, für die Zeitzone UTC korrekt ist und man bei der Umrechnung lediglich die Differenz/den Offset zu dieser Zeitzone benötigt. 
+Die Standardzeitzone ist in der Datei `configuration.php` konfigurierbar. Die Variable heißt `$offset`. Standard ist `public $offset = ‚UTC‘;`. Bei der Anzeige im Frontend der Website muss man nun lediglich die Differenz zwischen `UTC` und der gewünschten Zeitzone berechnen.  
+
+## Die Klasse Joomla\CMS\Date
+
+Wenn man sich die Klasse `Joomla\CMS\Date` im Verzeichnis `/libraries/src/Date/Date.php` ansieht, bemerkt man, dass der Konstruktor `public function __construct($date = ‚now‘, $tz = null)` zwei Parameter ermöglicht: das _Datum_ und die _Zeitzone_. 
+
+```php
+...
+public function __construct($date = ‚now‘, $tz = null)
+{
+    // Create the base GMT and server time zone objects.
+    if (empty(self::$gmt) || empty(self::$stz)) {
+        // @TODO: This code block stays here only for B/C, can be removed in 5.0
+        self::$gmt = new \DateTimeZone(‚GMT‘);
+        self::$stz = new \DateTimeZone(@date_default_timezone_get());
+    }
+
+    // If the time zone object is not set, attempt to build it.
+    if (!($tz instanceof \DateTimeZone)) {
+        if (\is_string($tz)) {
+            $tz = new \DateTimeZone($tz);
+        } else {
+            $tz = new \DateTimeZone(‚UTC‘);
+        }
+    }
+
+    // Backup active time zone
+    $activeTZ = date_default_timezone_get();
+
+    // Force UTC timezone for correct time handling
+    date_default_timezone_set(‚UTC‘);
+
+    // If the date is numeric assume a unix timestamp and convert it.
+    $date = is_numeric($date) ? date(‚c‘, $date) : $date;
+
+    // Call the DateTime constructor.
+    parent::__construct($date, $tz);
+
+    // Restore previously active timezone
+    date_default_timezone_set($activeTZ);
+
+    // Set the timezone object for access later.
+    $this->tz = $tz;
+}
+...
+```
+
+Die Klasse `Joomla\CMS\Date` wir unter anderem in der Funktion `getDate` der Datei `/libraries/src/Factory.php` angewendet, welche Joomla Erweiterungsprogrammierer darin unterstützt, das Datum immer mit dem passenden Offset auszugeben, also in der korrekten Zeitzone. Nachfolgend ist der Code der Funktion `getDate()` der Vollständigkeit halber abgedruckt:
+
+
+```php
+...
+
+public static function getDate($time = ‚now‘, $tzOffset = null)
+{
+    static $classname;
+    static $mainLocale;
+
+    $language = self::getLanguage();
+    $locale = $language->getTag();
+
+    if (!isset($classname) || $locale != $mainLocale) {
+        // Store the locale for future reference
+        $mainLocale = $locale;
+
+        if ($mainLocale !== false) {
+            $classname = str_replace(‚-‘, ‚_‘, $mainLocale) . ‚Date‘;
+
+            if (!class_exists($classname)) {
+                // The class does not exist, default to Date
+                $classname = ‚Joomla\\CMS\\Date\\Date‘;
+            }
+        } else {
+            // No tag, so default to Date
+            $classname = ‚Joomla\\CMS\\Date\\Date‘;
+        }
+    }
+
+    $key = $time . ‚-‘ . ($tzOffset instanceof \DateTimeZone ? $tzOffset->getName() : (string) $tzOffset);
+
+    if (!isset(self::$dates[$classname][$key])) {
+        self::$dates[$classname][$key] = new $classname($time, $tzOffset);
+    }
+
+    $date = clone self::$dates[$classname][$key];
+
+    return $date;
+}
+...
+```
+
+Wie gibt man das Datum in seiner Joomla-Erweiterung im Frontend in der korrekten Zeitzone aus? Auf der sicheren Seite ist man, wenn man die von Joomla zur Verfügung gestellten Funktionen verwendet. Sehen wir uns das Zusammenspiel von `Factory::getDate()` und der Klasse `Joomla\CMS\Date` in Joomla nachfolgend beispielhaft an. 
+
+## Anzeige im Frontend
+
+
+### Der Wert in der Datenbank
+
+Beginnen wir ganz simpel. Der nachfolgende Code zeigt den String an, der für das Datum in der Datenbank gespeichert ist.
+
+```php
+echo $this->item->advent_publish_up;
+```
+
+Die Ausgabe ist:
+
+```
+2022-10-03 13:30:01
+```
+
+Warum die Zeit in der Zeitzone UTC ausgegeben wird, hatte ich schon erläutert.
+
+### Die Zeit in der Zeitzone des angemeldeten Benutzers
+
+Möchte man das Datum in der Zeitzone anzeigen, die beim Benutzer gespeichert ist, zeigt der nachfolgende Code eine Möglichkeit.
+
+```php
+$date = Factory::getDate($this->item->advent_publish_up, 'UTC');
+$user = Factory::getApplication()->getIdentity();
+$date->setTimezone($user->getTimezone());
+echo $this->value = $date->format('Y-m-d H:i:s', true, false);
+echo "<br><pre>";
+print_r($date);
+echo "</pre>";
+```
+
+Wenn ein Benutzer angemeldet ist, bei dem die Zeitzone `Australia/Adelaide` eingestellt ist, erscheint folgender Text im Frontend:
+
+```
+2022-10-04 00:00:01
+
+Joomla\CMS\Date\Date Object
+(
+    [tz:protected] => DateTimeZone Object
+        (
+            [timezone_type] => 3
+            [timezone] => Australia/Adelaide
+        )
+
+    [date] => 2022-10-04 00:00:01.000000
+    [timezone_type] => 3
+    [timezone] => Australia/Adelaide
+)
+```
+
+Falls kein Benutzer angemeldet ist, ist die Zeitzone des Servers Fallback. In unserem Beispiel erscheint der nachfolgende Text:
+
+```
+2022-10-03 15:30:01
+
+Joomla\CMS\Date\Date Object
+(
+    [tz:protected] => DateTimeZone Object
+        (
+            [timezone_type] => 3
+            [timezone] => Africa/Johannesburg
+        )
+
+    [date] => 2022-10-03 15:30:01.000000
+    [timezone_type] => 3
+    [timezone] => Africa/Johannesburg
+)
+
+```
+
+Der nachfolgende Code zeigt das Datum in der Zeitzone an, die für den Webserver in der globalen Konfiguration gespeichert ist.
+
+```php
+$date = Factory::getDate($this->item->advent_publish_up, 'UTC');
+$date->setTimezone(new \DateTimeZone(Factory::getApplication()->get('offset')));
+echo $this->value = $date->format('Y-m-d H:i:s', true, false);
+echo "<br><pre>";
+print_r($date);
+echo "</pre>";
+```
+
+Die Ausgabe ist: 
+
+```
+2022-10-03 15:30:01
+
+Joomla\CMS\Date\Date Object
+(
+    [tz:protected] => DateTimeZone Object
+        (
+            [timezone_type] => 3
+            [timezone] => Africa/Johannesburg
+        )
+
+    [date] => 2022-10-03 15:30:01.000000
+    [timezone_type] => 3
+    [timezone] => Africa/Johannesburg
+)
+
+```
+
+Der nachfolgende Code gibt das Datum unmittelbar in der Standard-Zeitzone `UTC` aus.
+
+
+```php
+$date = Factory::getDate($this->item->publish_up, 'UTC');
+echo $this->value = $date->format('Y-m-d H:i:s', true, false);
+echo "<br><pre>";
+print_r($date);
+echo "</pre>";
+```
+
+Die Ausgabe ist: 
+
+```
+2022-10-03 13:30:01
+
+Joomla\CMS\Date\Date Object
+(
+    [tz:protected] => DateTimeZone Object
+        (
+            [timezone_type] => 3
+            [timezone] => UTC
+        )
+
+    [date] => 2022-10-03 13:30:01.000000
+    [timezone_type] => 3
+    [timezone] => UTC
+)
+```
+
+Fazit: Je nach Anwendungsfall, also ob Gewinnspiel, bei dem alles gleichzeitig passieren sollte, oder Adventskalender, bei dem die tatsächliche Uhrzeit relevant ist, kann das Datum in der Joomla-Erweiterung programmiert werden.
+
+<img src="https://vg01.met.vgwort.de/na/be6e0f448d4442348d0275b49531a2b7" width="1" height="1" alt="">
