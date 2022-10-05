@@ -253,6 +253,311 @@ echo '<img src="' . $imageURL .'" alt="' . htmlspecialchars($imageAlt, ENT_COMPA
 <li>The alt attribute is ignored if the value passed is <code class="language-text">false</code>.</li>
 <li>All other attributes are rendered correctly, pass them as in the array (for example <code class="language-text">'class' => 'my-class'</code>).</li>
 </ul>
+<h3 id="dates---indexdates---" style="position:relative;"><a href="#dates---indexdates---" aria-label="dates   indexdates    permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dates<!-- \index{dates} --></h3>
+<p>An error occurred in one of my Joomla extensions. Dates and times were not displayed correctly. The time zone was obviously the problem. The solution seemed simple at first glance. I had worked with dates and the class <code class="language-text">DateTime</code> in PHP [^php.net/manual/en/class.datetime.php] in the past and had experience with time zones. In Joomla, however, there are special features.</p>
+<p>Let's look at my concrete problem. A user who lives in the time zone 'Australia/Adelaide' (UTC/GMT +10:30 hours) fills out a form in the summer which contains a field in which a date is stored. The timezone 'Australia/Adelaide' has a difference to the timezone 'UTC' of +10:30 hours in summer, in wintertime the difference is +9:30 hours.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6afd0666554d8d392342051813a85030/025a1/j4xvorwortx1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABH0lEQVQoz5XPyU7DMBAG4DxvyxEFxAmpaljOiAMXxJXXQip0UeLE8TLjsX8Ud6UUpB4+jTzS/J4p7p/fUT68orx9QnVzh8nVBOPLCUZlhXE5xTjXvVE5/eXiqkJZveD68Q3FSmkYz/AssHUL6xg+JJAg401dSwgRkASEIxQiHDEKpS1Uq9FqA60NatWjtx7WeZhcaac3Dp4YIhFB5EgEBUExbOa8h/MEEQERI6WEGE/Y9CXGH4YesawDHYX88xDIHGCMzYP7gXRg/T78ZPv2JDm0sBRyUEoAB8mnntriP7vA7YYcQj6TOw0i2pwWT5/9h2GZQaEMQTtG13vopkNnGa2hsw1zg2K2aPC1UvhcKnzMGyybHit1LoN53WG2qPENqpui5x2AUdEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla 4 | Set time zone at user"
+        title="Joomla 4 | Set time zone at user"
+        src="/static/6afd0666554d8d392342051813a85030/5a190/j4xvorwortx1.png"
+        srcset="/static/6afd0666554d8d392342051813a85030/772e8/j4xvorwortx1.png 200w,
+/static/6afd0666554d8d392342051813a85030/e17e5/j4xvorwortx1.png 400w,
+/static/6afd0666554d8d392342051813a85030/5a190/j4xvorwortx1.png 800w,
+/static/6afd0666554d8d392342051813a85030/c1b63/j4xvorwortx1.png 1200w,
+/static/6afd0666554d8d392342051813a85030/29007/j4xvorwortx1.png 1600w,
+/static/6afd0666554d8d392342051813a85030/025a1/j4xvorwortx1.png 1857w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>The server is located in Johannesburg, thus in South Africa. The time zone of the server is set to 'Africa/Johannesburg' in the global configuration. The time zone 'Africa/Johannesburg' has a difference to the time zone 'UTC' of +2:00 hours in summer time, in winter time the difference is +1:00 hours.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 800px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/07ab712f9e2fd980db4fcb85eab58260/025a1/j4xvorwortx2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.99999999999999%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2UlEQVQoz1WRTUtWQRTH71doZdGiok2Gm5JoI6YmYZRRirQodKFY+dAiRI1yEYY+0HfoI7Vo00bCQnmw571778zcef3FzCXBAz+GM+fMf/6ckz1a2+fu0gemFrc4+Njky26Tne3PNHYO2Njep7G5R2Nrn43tOo+82aqJPWvv9ph7+Z6l15/YaX4lu/NgmSvj88wvb9JqDzg66XJ43KXVyYlhSomqDA5wHgLno9KWb99/8PPXMT4EsvGZ54zcuMf8i7ccnfzh8PdpEm21hzjnKKVCVRprHUpVSKUw1uK8T/Uo8j+M9WRjEwtcHJ1m5tk6g2F+7vfYLKKgqtDaIIREJ3FLCAHvfSIKR4x1ZNduP2RkdIr7C+t0egOkVKk5AcjKYJ3HOEdlbLrz6bMaF+pcW492nuzqrbkzwW5/iNY6uYsPg9aofh9flriixJUCJyQu5ucQmLzAlKJ2eOnmNLOLr5JDpRTB+9pJnqP6A4yQWClRgyGu061FVYVTqkYqjFTodpfs8tgsF65PMPlkld7gL1JKXFxndFhpZLeHyXN8KbB5TsgLghAEIc9A1md0ms08XWXy8QorjV1apx2KokhDj8S5ibgQa9P8KmOwPqT7SJxtrAmlkKqiEJJ/m7ZrcXNpCyQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Joomla 4 | Set time zone of the server in the global configuration"
+        title="Joomla 4 | Set time zone of the server in the global configuration"
+        src="/static/07ab712f9e2fd980db4fcb85eab58260/5a190/j4xvorwortx2.png"
+        srcset="/static/07ab712f9e2fd980db4fcb85eab58260/772e8/j4xvorwortx2.png 200w,
+/static/07ab712f9e2fd980db4fcb85eab58260/e17e5/j4xvorwortx2.png 400w,
+/static/07ab712f9e2fd980db4fcb85eab58260/5a190/j4xvorwortx2.png 800w,
+/static/07ab712f9e2fd980db4fcb85eab58260/c1b63/j4xvorwortx2.png 1200w,
+/static/07ab712f9e2fd980db4fcb85eab58260/29007/j4xvorwortx2.png 1600w,
+/static/07ab712f9e2fd980db4fcb85eab58260/025a1/j4xvorwortx2.png 1857w"
+        sizes="(max-width: 800px) 100vw, 800px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>My extension is a <em>contest</em>. The date is 4.10.2022. The time is 00:00:01. That is exactly when the competition ends. It is important that the game is made inactive at the same time all over the world.
+This is different from, for example, an <em>Advent Calendar</em>. With the Advent calendar, it may be intentional that something happens at a certain time in each time zone. The first door opens in Australia, in Africa and in Europe when it is locally the 1.12. and not at the same time.</p>
+<p>I use the field of type Calendar [^docs.joomla.org/Calendar_form_field_type] in the form under Joomla.</p>
+<pre class="grvsc-container default-dark" data-language="xml" data-index="7"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">&lt;</span><span class="mtk4">field</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">name</span><span class="mtk1">=</span><span class="mtk8">&quot;advent_publish_up&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">type</span><span class="mtk1">=</span><span class="mtk8">&quot;calendar&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">label</span><span class="mtk1">=</span><span class="mtk8">&quot;COM_AGADVENTS_FIELD_PUBLISH_UP_LABEL&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">translateformat</span><span class="mtk1">=</span><span class="mtk8">&quot;true&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">showtime</span><span class="mtk1">=</span><span class="mtk8">&quot;true&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">size</span><span class="mtk1">=</span><span class="mtk8">&quot;22&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">  </span><span class="mtk12">filter</span><span class="mtk1">=</span><span class="mtk8">&quot;user_utc&quot;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk17">/&gt;</span></span></span></code></pre>
+<p>To my surprise, I notice during my first tests that instead of <code class="language-text">2022-10-04 00:00:01</code> the string <code class="language-text">2022-10-03 13:30:01</code> is stored in the database. With a little research, I realise that the calendar field converts the date to the UTC time zone and stores it in this form. The information about the time zone itself is not stored in the database. The latter is not necessary if it is ensured that one and the same time zone is always used. In the case of Joomla, this is <code class="language-text">UTC</code>.</p>
+<p>In the code for the calendar field of the file <code class="language-text">/libraries/src/Form/Field/CalendarField.php</code> this process can be read in the function <code class="language-text">filter</code>:</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="8"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk4">public</span><span class="mtk1"> </span><span class="mtk4">function</span><span class="mtk1"> </span><span class="mtk11">filter</span><span class="mtk1">(</span><span class="mtk12">$value</span><span class="mtk1">,</span><span class="mtk12"> $group</span><span class="mtk1"> = </span><span class="mtk4">null</span><span class="mtk1">, </span><span class="mtk4">Registry</span><span class="mtk1"> </span><span class="mtk12">$input</span><span class="mtk1"> = </span><span class="mtk4">null</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Make sure there is a valid SimpleXMLElement.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> (!(</span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">element</span><span class="mtk1"> instanceof </span><span class="mtk10">\SimpleXMLElement</span><span class="mtk1">)) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk15">throw</span><span class="mtk1"> </span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">\UnexpectedValueException</span><span class="mtk1">(</span><span class="mtk11">sprintf</span><span class="mtk1">(‚%</span><span class="mtk10">s</span><span class="mtk1">::filter </span><span class="mtk8">`element`</span><span class="mtk1"> is not an instance of SimpleXMLElement‘, \</span><span class="mtk11">get_class</span><span class="mtk1">(</span><span class="mtk4">$this</span><span class="mtk1">)));</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> ((</span><span class="mtk4">int</span><span class="mtk1">) </span><span class="mtk12">$value</span><span class="mtk1"> &lt;= </span><span class="mtk7">0</span><span class="mtk1">) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk15">return</span><span class="mtk1"> ‚‚;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> (</span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">filterFormat</span><span class="mtk1">) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk12">$value</span><span class="mtk1"> = </span><span class="mtk10">DateTime</span><span class="mtk1">::</span><span class="mtk11">createFromFormat</span><span class="mtk1">(</span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">filterFormat</span><span class="mtk1">, </span><span class="mtk12">$value</span><span class="mtk1">)-&gt;</span><span class="mtk11">format</span><span class="mtk1">(‚Y-m-d H:i:s‘);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$app</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getApplication</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Get the field filter type.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$filter</span><span class="mtk1"> = (</span><span class="mtk4">string</span><span class="mtk1">) </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">element</span><span class="mtk1">[‚filter‘];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$return</span><span class="mtk1"> = </span><span class="mtk12">$value</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">switch</span><span class="mtk1"> (</span><span class="mtk11">strtoupper</span><span class="mtk1">(</span><span class="mtk12">$filter</span><span class="mtk1">)) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">// Convert a date to UTC based on the server timezone offset.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk15">case</span><span class="mtk1"> ‚SERVER_UTC‘:</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">// Return an SQL formatted datetime string in UTC.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$return</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getDate</span><span class="mtk1">(</span><span class="mtk12">$value</span><span class="mtk1">, </span><span class="mtk12">$app</span><span class="mtk1">-&gt;</span><span class="mtk11">get</span><span class="mtk1">(‚offset‘))-&gt;</span><span class="mtk11">toSql</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk15">break</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">// Convert a date to UTC based on the user timezone offset.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk15">case</span><span class="mtk1"> ‚USER_UTC‘:</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">// Get the user timezone setting defaulting to the server timezone setting.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$offset</span><span class="mtk1"> = </span><span class="mtk12">$app</span><span class="mtk1">-&gt;</span><span class="mtk11">getIdentity</span><span class="mtk1">()-&gt;</span><span class="mtk11">getParam</span><span class="mtk1">(‚timezone‘, </span><span class="mtk12">$app</span><span class="mtk1">-&gt;</span><span class="mtk11">get</span><span class="mtk1">(‚offset‘));</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">// Return an SQL formatted datetime string in UTC.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$return</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getDate</span><span class="mtk1">(</span><span class="mtk12">$value</span><span class="mtk1">, </span><span class="mtk12">$offset</span><span class="mtk1">)-&gt;</span><span class="mtk11">toSql</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk15">break</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">return</span><span class="mtk1"> </span><span class="mtk12">$return</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<p>The variable <code class="language-text">$value</code> contains the value entered by the user, in this case <code class="language-text">2022-10-04 00:00:01</code>. This is converted to the time zone <code class="language-text">UTC</code> and then stored in the variable <code class="language-text">$return</code>. The converted value is passed to the database for saving. This way you can always be sure that the date stored in the database for the time zone <code class="language-text">UTC</code> is correct.</p>
+<p>In Joomla, <code class="language-text">SERVER_UTC</code> and <code class="language-text">USER_UTC</code> offer the possibility of outputting the date either in the time zone with which the web server is configured or in the time zone set by the user. In short, the constants indicate whether the value of the variable <code class="language-text">$value</code> is in the time zone stored at the user or the time zone of the webserver, which is configurable in the global configuration.</p>
+<blockquote>
+<p>Why is the date converted to the time zone <code class="language-text">UTC</code> for saving in the database? Actually, it doesn't matter which time zone you choose. It makes sense to define one. That way you always have a fixed starting point. Otherwise, you would have to determine the conversion factor or offset for each time zone combination. Joomla's standard behaviour ensures that the date stored in the database is correct for the UTC time zone and that only the difference/offset to this time zone is needed for the conversion.</p>
+</blockquote>
+<p>The default time zone can be configured in the file <code class="language-text">configuration.php</code>. The variable is called <code class="language-text">$offset</code>. The default is <code class="language-text">public $offset = 'UTC';</code>. When displaying the time in the frontend of the website, one now only has to calculate the difference between <code class="language-text">UTC</code> and the desired time zone.</p>
+<h2 id="the-class-joomlacmsdate" style="position:relative;"><a href="#the-class-joomlacmsdate" aria-label="the class joomlacmsdate permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The class Joomla\CMS\Date</h2>
+<p>If you look at the class <code class="language-text">Joomla\CMS\Date</code> in the directory <code class="language-text">/libraries/src/Date/Date.php</code>, you will notice that the constructor <code class="language-text">public function __construct($date = 'now', $tz = null)</code> allows two parameters: the <em>date</em> and the <em>timezone</em>.</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="9"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk4">public</span><span class="mtk1"> </span><span class="mtk4">function</span><span class="mtk1"> </span><span class="mtk11">__construct</span><span class="mtk1">(</span><span class="mtk12">$date</span><span class="mtk1"> = ‚now‘,</span><span class="mtk12"> $tz</span><span class="mtk1"> = </span><span class="mtk4">null</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Create the base GMT and server time zone objects.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> (</span><span class="mtk11">empty</span><span class="mtk1">(</span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$gmt</span><span class="mtk1">) || </span><span class="mtk11">empty</span><span class="mtk1">(</span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$stz</span><span class="mtk1">)) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">// @TODO: This code block stays here only for B/C, can be removed in 5.0</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$gmt</span><span class="mtk1"> = </span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">\DateTimeZone</span><span class="mtk1">(‚GMT‘);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$stz</span><span class="mtk1"> = </span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">\DateTimeZone</span><span class="mtk1">(@</span><span class="mtk11">date_default_timezone_get</span><span class="mtk1">());</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// If the time zone object is not set, attempt to build it.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> (!(</span><span class="mtk12">$tz</span><span class="mtk1"> instanceof </span><span class="mtk10">\DateTimeZone</span><span class="mtk1">)) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk15">if</span><span class="mtk1"> (\</span><span class="mtk11">is_string</span><span class="mtk1">(</span><span class="mtk12">$tz</span><span class="mtk1">)) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$tz</span><span class="mtk1"> = </span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">\DateTimeZone</span><span class="mtk1">(</span><span class="mtk12">$tz</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        } </span><span class="mtk15">else</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$tz</span><span class="mtk1"> = </span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">\DateTimeZone</span><span class="mtk1">(‚UTC‘);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Backup active time zone</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$activeTZ</span><span class="mtk1"> = </span><span class="mtk11">date_default_timezone_get</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Force UTC timezone for correct time handling</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">date_default_timezone_set</span><span class="mtk1">(‚UTC‘);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// If the date is numeric assume a unix timestamp and convert it.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$date</span><span class="mtk1"> = </span><span class="mtk11">is_numeric</span><span class="mtk1">(</span><span class="mtk12">$date</span><span class="mtk1">) ? </span><span class="mtk11">date</span><span class="mtk1">(‚c‘, </span><span class="mtk12">$date</span><span class="mtk1">) : </span><span class="mtk12">$date</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Call the DateTime constructor.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk4">parent</span><span class="mtk1">::</span><span class="mtk11">__construct</span><span class="mtk1">(</span><span class="mtk12">$date</span><span class="mtk1">, </span><span class="mtk12">$tz</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Restore previously active timezone</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk11">date_default_timezone_set</span><span class="mtk1">(</span><span class="mtk12">$activeTZ</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk3">// Set the timezone object for access later.</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">tz</span><span class="mtk1"> = </span><span class="mtk12">$tz</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<p>The class <code class="language-text">Joomla\CMS\Date</code> is used, among other things, in the function <code class="language-text">getDate</code> of the file <code class="language-text">/libraries/src/Factory.php</code>, which helps Joomla extension programmers to always output the date with the appropriate offset, i.e. in the correct time zone. The code of the function <code class="language-text">getDate()</code> is printed below for the sake of completeness:</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="10"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk4">public</span><span class="mtk1"> </span><span class="mtk4">static</span><span class="mtk1"> </span><span class="mtk4">function</span><span class="mtk1"> </span><span class="mtk11">getDate</span><span class="mtk1">(</span><span class="mtk12">$time</span><span class="mtk1"> = ‚now‘,</span><span class="mtk12"> $tzOffset</span><span class="mtk1"> = </span><span class="mtk4">null</span><span class="mtk1">)</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">{</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk4">static</span><span class="mtk1"> </span><span class="mtk12">$classname</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk4">static</span><span class="mtk1"> </span><span class="mtk12">$mainLocale</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$language</span><span class="mtk1"> = </span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk11">getLanguage</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$locale</span><span class="mtk1"> = </span><span class="mtk12">$language</span><span class="mtk1">-&gt;</span><span class="mtk11">getTag</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> (!</span><span class="mtk11">isset</span><span class="mtk1">(</span><span class="mtk12">$classname</span><span class="mtk1">) || </span><span class="mtk12">$locale</span><span class="mtk1"> != </span><span class="mtk12">$mainLocale</span><span class="mtk1">) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk3">// Store the locale for future reference</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk12">$mainLocale</span><span class="mtk1"> = </span><span class="mtk12">$locale</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk15">if</span><span class="mtk1"> (</span><span class="mtk12">$mainLocale</span><span class="mtk1"> !== </span><span class="mtk4">false</span><span class="mtk1">) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$classname</span><span class="mtk1"> = </span><span class="mtk11">str_replace</span><span class="mtk1">(‚-‘, ‚_‘, </span><span class="mtk12">$mainLocale</span><span class="mtk1">) . ‚Date‘;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk15">if</span><span class="mtk1"> (!</span><span class="mtk11">class_exists</span><span class="mtk1">(</span><span class="mtk12">$classname</span><span class="mtk1">)) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">                </span><span class="mtk3">// The class does not exist, default to Date</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">                </span><span class="mtk12">$classname</span><span class="mtk1"> = ‚Joomla\\CMS\\Date\\Date‘;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        } </span><span class="mtk15">else</span><span class="mtk1"> {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk3">// No tag, so default to Date</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">            </span><span class="mtk12">$classname</span><span class="mtk1"> = ‚Joomla\\CMS\\Date\\Date‘;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$key</span><span class="mtk1"> = </span><span class="mtk12">$time</span><span class="mtk1"> . ‚-‘ . (</span><span class="mtk12">$tzOffset</span><span class="mtk1"> instanceof </span><span class="mtk10">\DateTimeZone</span><span class="mtk1"> ? </span><span class="mtk12">$tzOffset</span><span class="mtk1">-&gt;</span><span class="mtk11">getName</span><span class="mtk1">() : (</span><span class="mtk4">string</span><span class="mtk1">) </span><span class="mtk12">$tzOffset</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">if</span><span class="mtk1"> (!</span><span class="mtk11">isset</span><span class="mtk1">(</span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$dates</span><span class="mtk1">[</span><span class="mtk12">$classname</span><span class="mtk1">][</span><span class="mtk12">$key</span><span class="mtk1">])) {</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">        </span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$dates</span><span class="mtk1">[</span><span class="mtk12">$classname</span><span class="mtk1">][</span><span class="mtk12">$key</span><span class="mtk1">] = </span><span class="mtk4">new</span><span class="mtk1"> $</span><span class="mtk12">classname</span><span class="mtk1">(</span><span class="mtk12">$time</span><span class="mtk1">, </span><span class="mtk12">$tzOffset</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    }</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk12">$date</span><span class="mtk1"> = </span><span class="mtk4">clone</span><span class="mtk1"> </span><span class="mtk4">self</span><span class="mtk1">::</span><span class="mtk12">$dates</span><span class="mtk1">[</span><span class="mtk12">$classname</span><span class="mtk1">][</span><span class="mtk12">$key</span><span class="mtk1">];</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">    </span><span class="mtk15">return</span><span class="mtk1"> </span><span class="mtk12">$date</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">}</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span></code></pre>
+<p>How do you display the date in the correct time zone in your Joomla extension in the frontend? You are on the safe side if you use the functions provided by Joomla. Let's take a look at the interaction of <code class="language-text">Factory::getDate()</code> and the class <code class="language-text">Joomla\CMS\Date</code> in Joomla as an example below.</p>
+<h2 id="display-in-the-frontend" style="position:relative;"><a href="#display-in-the-frontend" aria-label="display in the frontend permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Display in the frontend</h2>
+<h3 id="the-value-in-the-database" style="position:relative;"><a href="#the-value-in-the-database" aria-label="the value in the database permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The value in the database</h3>
+<p>Let's start very simply. The following code displays the string that is stored for the date in the database.</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="11"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">item</span><span class="mtk1">-&gt;</span><span class="mtk12">advent_publish_up</span><span class="mtk1">;</span></span></span></code></pre>
+<p>The Output is:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="12"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">2022-10-03 13:30:01</span></span></code></pre>
+<p>I have already explained why the time is displayed in the UTC time zone.</p>
+<h3 id="the-time-in-the-time-zone-of-the-logged-in-user" style="position:relative;"><a href="#the-time-in-the-time-zone-of-the-logged-in-user" aria-label="the time in the time zone of the logged in user permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The time in the time zone of the logged-in user</h3>
+<p>If you want to display the date in the time zone that is stored with the user, the following code shows a possibility.</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="13"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk1">...</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">$date</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getDate</span><span class="mtk1">(</span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">item</span><span class="mtk1">-&gt;</span><span class="mtk12">advent_publish_up</span><span class="mtk1">, </span><span class="mtk8">&#39;UTC&#39;</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">$user</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getApplication</span><span class="mtk1">()-&gt;</span><span class="mtk11">getIdentity</span><span class="mtk1">();</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">$date</span><span class="mtk1">-&gt;</span><span class="mtk11">setTimezone</span><span class="mtk1">(</span><span class="mtk12">$user</span><span class="mtk1">-&gt;</span><span class="mtk11">getTimezone</span><span class="mtk1">());</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">value</span><span class="mtk1"> = </span><span class="mtk12">$date</span><span class="mtk1">-&gt;</span><span class="mtk11">format</span><span class="mtk1">(</span><span class="mtk8">&#39;Y-m-d H:i:s&#39;</span><span class="mtk1">, </span><span class="mtk4">true</span><span class="mtk1">, </span><span class="mtk4">false</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk8">&quot;&lt;br&gt;&lt;pre&gt;&quot;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">print_r</span><span class="mtk1">(</span><span class="mtk12">$date</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk8">&quot;&lt;/pre&gt;&quot;</span><span class="mtk1">;</span></span></span></code></pre>
+<p>If a user is logged in with the time zone set to <code class="language-text">Australia/Adelaide</code>, the following text appears in the frontend:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="14"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">2022-10-04 00:00:01</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Joomla\CMS\Date\Date Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">(</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [tz:protected] =&gt; DateTimeZone Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        (</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone] =&gt; Australia/Adelaide</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        )</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [date] =&gt; 2022-10-04 00:00:01.000000</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone] =&gt; Australia/Adelaide</span></span>
+<span class="grvsc-line"><span class="grvsc-source">)</span></span></code></pre>
+<p>If no user is logged in, the time zone of the server is fallback. In our example, the following text appears:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="15"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">2022-10-03 15:30:01</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Joomla\CMS\Date\Date Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">(</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [tz:protected] =&gt; DateTimeZone Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        (</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone] =&gt; Africa/Johannesburg</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        )</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [date] =&gt; 2022-10-03 15:30:01.000000</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone] =&gt; Africa/Johannesburg</span></span>
+<span class="grvsc-line"><span class="grvsc-source">)</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span></code></pre>
+<p>The following code displays the date in the time zone stored for the web server in the global configuration.</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="16"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">$date</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getDate</span><span class="mtk1">(</span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">item</span><span class="mtk1">-&gt;</span><span class="mtk12">advent_publish_up</span><span class="mtk1">, </span><span class="mtk8">&#39;UTC&#39;</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">$date</span><span class="mtk1">-&gt;</span><span class="mtk11">setTimezone</span><span class="mtk1">(</span><span class="mtk4">new</span><span class="mtk1"> </span><span class="mtk10">\DateTimeZone</span><span class="mtk1">(</span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getApplication</span><span class="mtk1">()-&gt;</span><span class="mtk11">get</span><span class="mtk1">(</span><span class="mtk8">&#39;offset&#39;</span><span class="mtk1">)));</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">value</span><span class="mtk1"> = </span><span class="mtk12">$date</span><span class="mtk1">-&gt;</span><span class="mtk11">format</span><span class="mtk1">(</span><span class="mtk8">&#39;Y-m-d H:i:s&#39;</span><span class="mtk1">, </span><span class="mtk4">true</span><span class="mtk1">, </span><span class="mtk4">false</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk8">&quot;&lt;br&gt;&lt;pre&gt;&quot;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">print_r</span><span class="mtk1">(</span><span class="mtk12">$date</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk8">&quot;&lt;/pre&gt;&quot;</span><span class="mtk1">;</span></span></span></code></pre>
+<p>The Output is:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="17"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">2022-10-03 15:30:01</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Joomla\CMS\Date\Date Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">(</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [tz:protected] =&gt; DateTimeZone Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        (</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone] =&gt; Africa/Johannesburg</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        )</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [date] =&gt; 2022-10-03 15:30:01.000000</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone] =&gt; Africa/Johannesburg</span></span>
+<span class="grvsc-line"><span class="grvsc-source">)</span></span></code></pre>
+<p>The following code outputs the date immediately in the standard time zone <code class="language-text">UTC</code>.</p>
+<pre class="grvsc-container default-dark" data-language="php" data-index="18"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source"><span class="mtk12">$date</span><span class="mtk1"> = </span><span class="mtk10">Factory</span><span class="mtk1">::</span><span class="mtk11">getDate</span><span class="mtk1">(</span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">item</span><span class="mtk1">-&gt;</span><span class="mtk12">publish_up</span><span class="mtk1">, </span><span class="mtk8">&#39;UTC&#39;</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk4">$this</span><span class="mtk1">-&gt;</span><span class="mtk12">value</span><span class="mtk1"> = </span><span class="mtk12">$date</span><span class="mtk1">-&gt;</span><span class="mtk11">format</span><span class="mtk1">(</span><span class="mtk8">&#39;Y-m-d H:i:s&#39;</span><span class="mtk1">, </span><span class="mtk4">true</span><span class="mtk1">, </span><span class="mtk4">false</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk8">&quot;&lt;br&gt;&lt;pre&gt;&quot;</span><span class="mtk1">;</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">print_r</span><span class="mtk1">(</span><span class="mtk12">$date</span><span class="mtk1">);</span></span></span>
+<span class="grvsc-line"><span class="grvsc-source"><span class="mtk11">echo</span><span class="mtk1"> </span><span class="mtk8">&quot;&lt;/pre&gt;&quot;</span><span class="mtk1">;</span></span></span></code></pre>
+<p>The Output is:</p>
+<pre class="grvsc-container default-dark" data-language="" data-index="19"><code class="grvsc-code"><span class="grvsc-line"><span class="grvsc-source">2022-10-03 13:30:01</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">Joomla\CMS\Date\Date Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">(</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [tz:protected] =&gt; DateTimeZone Object</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        (</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">            [timezone] =&gt; UTC</span></span>
+<span class="grvsc-line"><span class="grvsc-source">        )</span></span>
+<span class="grvsc-line"><span class="grvsc-source"></span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [date] =&gt; 2022-10-03 13:30:01.000000</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone_type] =&gt; 3</span></span>
+<span class="grvsc-line"><span class="grvsc-source">    [timezone] =&gt; UTC</span></span>
+<span class="grvsc-line"><span class="grvsc-source">)</span></span></code></pre>
+<p>Conclusion: Depending on the use case, i.e. whether it is a competition where everything should happen at the same time or an Advent calendar where the actual time is relevant, the date can be programmed in the Joomla extension.</p>
 <img src="https://vg01.met.vgwort.de/na/65e9cc10ed0f41fe8cd1e70d24d308f6" width="1" height="1" alt="">
 <style class="grvsc-styles">
   .grvsc-container {
@@ -354,6 +659,10 @@ echo '<img src="' . $imageURL .'" alt="' . htmlspecialchars($imageAlt, ENT_COMPA
   .default-dark .mtk11 { color: #DCDCAA; }
   .default-dark .mtk8 { color: #CE9178; }
   .default-dark .mtk6 { color: #D7BA7D; }
+  .default-dark .mtk17 { color: #808080; }
+  .default-dark .mtk3 { color: #6A9955; }
+  .default-dark .mtk10 { color: #4EC9B0; }
+  .default-dark .mtk7 { color: #B5CEA8; }
   .default-dark .grvsc-line-highlighted::before {
     background-color: var(--grvsc-line-highlighted-background-color, rgba(255, 255, 255, 0.1));
     box-shadow: inset var(--grvsc-line-highlighted-border-width, 4px) 0 0 0 var(--grvsc-line-highlighted-border-color, rgba(255, 255, 255, 0.5));
