@@ -60,7 +60,7 @@ tags:
 
 ## Module
 
-1. [Modules - First Steps](/en/joomla-module-erste-schritte/en/)
+1. [Modules - First Steps](/en/joomla-module-erste-schritte/)
 1. [Modules - Namespace and Helper](/en/joomla-module-namespace-und-helper)
 1. [Modules - Parameter](/en/joomla-module-parameter)
 1. [Modules - Installation script](/en/joomla-module-installation-script)
