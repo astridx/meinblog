@@ -24,7 +24,7 @@ So soll es aussehen:
 
 Wie ist das mit Cassiopeia umsetzbar?
 
-Das Frontend einer frischen Joomla 4 Installation sieht mit Cassiopeia so aus, wie im nächsten Bild zu sehen ist. Ganz oben befindet sich der Breich, der die Marke oder das Branding widerspiegelt.
+Das Frontend einer frischen Joomla 4 Installation sieht mit Cassiopeia so aus, wie im nächsten Bild zu sehen ist. Ganz oben befindet sich der Bereich, der die Marke oder das Branding widerspiegelt.
 
 - Ohne benutzerdefinierte Änderungen steht an dieser Stelle der in den Optionen des Templates eingetragene Titel. Falls es noch keinen Titel gibt, ist der Name des Templates die Rückfallposition. Deshalb steht hier im Bild ganz oben Cassiopeia.
 - Das Menü befindet sich in der rechten Seitenleiste.
