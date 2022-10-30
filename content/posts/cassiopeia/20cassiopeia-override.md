@@ -20,7 +20,7 @@ Du verwendest verschieden Module des Types Beiträge - Kategorie. Nun möchtest 
 
 Wie ist das mit Cassiopeia umsetzbar? Gehen wir das Problem praktisch an!
 
-## Zwei Textmodule
+## Zwei Test-Module
 
 Als erstes legen wir zwei Module vom Typ Beiträge - Kategorie zum Testen an.
 
