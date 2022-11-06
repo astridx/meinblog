@@ -189,11 +189,15 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 #### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)<!-- \index{Plugin!System} -->
 
+[plugins/system/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/system/indieweb/indieweb.php)
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.php
 
 
 ```
+
+[plugins/system/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/system/indieweb/indieweb.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.xml
@@ -201,25 +205,32 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 ```
 
+[plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/raw/plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini)
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini
 
 
 ```
+[plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/raw/plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini
-
 
 ```
 
 #### [Inhalt (Content)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Content_Group/en)<!-- \index{Plugin!Inhalt (Content)} -->
 
+[plugins/content/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/content/indieweb/indieweb.php)
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.php
 
 
+
 ```
+
+[plugins/content/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/content/indieweb/indieweb.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.xml
@@ -227,11 +238,15 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 ```
 
+[plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini)
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini
 
 
 ```
+
+[plugins/content/indieweb/language/en-GB/plg_content_indieweb.sys.ini](https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/raw/plugins/content/indieweb/language/en-GB/plg_content_indieweb.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.sys.ini
@@ -239,15 +254,16 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 ```
 
-
 #### [Schaltfläche (Button)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)<!-- \index{Plugin!Schaltfläche (Button)} -->
 
+[media/plg_editors-xtd_indieweb/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json
 
 
 ```
+[media/plg_editors-xtd_indieweb/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js
@@ -255,11 +271,15 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 ```
 
+[plugins/editors-xtd/indieweb/indieweb.php](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.php)
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.php
 
 
 ```
+
+[plugins/editors-xtd/indieweb/indieweb.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.xml)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.xml
@@ -267,11 +287,15 @@ _Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien
 
 ```
 
+[plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini)
+
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini
 
 
 ```
+
+[plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini)
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini
