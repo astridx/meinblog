@@ -68,10 +68,6 @@ module.exports = {
               Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
             </IfModule>
             
-            # Content-Security-Policy - Example 3
-            <IfModule mod_headers.c>
-              Header set Content-Security-Policy "default-src https:; font-src https: data:; img-src https: data:; script-src https:; style-src https:;"
-            </IfModule>            
         `,
       },
     },
