@@ -45,11 +45,7 @@
 # Customize what Apache returns to the client in case of an error.
 # https://httpd.apache.org/docs/current/mod/core.html#errordocument
 
-
-    
-          ErrorDocument 404 /404/index.html
-        
-        
+ErrorDocument 404 /404/index.html
 
 # ----------------------------------------------------------------------
 # | Error prevention                                                   |
@@ -235,7 +231,7 @@ AddDefaultCharset utf-8
 
 
     # (4)
-    RewriteBase /custom/
+    ### REWRITE-BASE ###
 
     # (5)
     # RewriteOptions <options>
@@ -275,8 +271,8 @@ AddDefaultCharset utf-8
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{HTTP_HOST} !=www.mydomain.com
-  RewriteRule (.*) %{ENV:PROTO}://www.mydomain.com/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} !=blog.astrid-guenther.de
+  RewriteRule (.*) %{ENV:PROTO}://blog.astrid-guenther.de/$1 [R=301,L]
 </IfModule>
 
 
@@ -302,7 +298,15 @@ AddDefaultCharset utf-8
 #
 #     https://github.com/h5bp/server-configs-apache/issues/52
 
-### SUPPRESS-WWW ###
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # (1)
+    # RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ %{ENV:PROTO}://%1%{REQUEST_URI} [R=301,L]
+</IfModule>
+
 
 # ----------------------------------------------------------------------
 # | Forcing the `www.` at the beginning of URLs                        |
@@ -328,17 +332,7 @@ AddDefaultCharset utf-8
 # Be aware that the following might not be a good idea if you use "real"
 # subdomains for certain parts of your website.
 
-
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    # (1)
-    # RewriteCond %{HTTPS} !=on
-    RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteCond %{SERVER_ADDR} !=127.0.0.1
-    RewriteCond %{SERVER_ADDR} !=::1
-    RewriteRule ^ %{ENV:PROTO}://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-</IfModule>
-
+### FORCE-WWW ###
 
 # ----------------------------------------------------------------------
 # | Custom Rewrites                                                    |
