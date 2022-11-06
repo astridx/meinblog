@@ -194,6 +194,31 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.php
 
+<?php
+
+/**
+ * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+ */
+
+use Joomla\CMS\Plugin\CMSPlugin;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
+
+class PlgSystemIndieweb extends CMSPlugin
+{
+    protected $app;
+
+    public function onAfterDispatch()
+    {
+        $doc = $this->app->getDocument();
+        $doc->addCustomTag('<link rel="authorization_endpoint" href="' . $this->params->get('authorization_endpoint', 'https://indieauth.com/auth') . '" >');
+        $doc->addCustomTag('<link rel="token_endpoint" href="' . $this->params->get('token_endpoint', 'https://tokens.indieauth.com/token') . '" >');
+        $doc->addCustomTag('<link rel="webmention" href="' . $this->params->get('webmention', 'https://webmention.io/example.org/webmention') . '" >');
+        $doc->addCustomTag('<link rel="pingback" href="' . $this->params->get('pingback', 'https://webmention.io/example.org/xmlrpc') . '" >');
+    }
+}
 
 ```
 
@@ -202,6 +227,64 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_system_indieweb</name>
+	<creationDate>[DATE]</creationDate>
+	<author>[AUTHOR]</author>
+	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
+	<authorUrl>[AUTHOR_URL]</authorUrl>
+	<copyright>[COPYRIGHT]</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<version>__BUMP_VERSION__</version>
+	<description>PLG_SYSTEM_INDIEWEB_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="indieweb">indieweb.php</filename>
+		<folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="authorization_endpoint"
+					type="url"
+					label="PLG_SYSTEM_INDIEWEB_AUTHORIZATION_ENDPOINT_LABEL"
+					description="PLG_SYSTEM_INDIEWEB_AUTHORIZATION_ENDPOINT_DESC"
+					hint="https://indieauth.com/auth"
+					filter="url"
+					validate="url"
+				/>
+				<field
+					name="token_endpoint"
+					type="url"
+					label="PLG_SYSTEM_INDIEWEB_TOKEN_ENDPOINT_LABEL"
+					description="PLG_SYSTEM_INDIEWEB_TOKEN_ENDPOINT_DESC"
+					hint="https://tokens.indieauth.com/token"
+					filter="url"
+					validate="url"
+				/>
+				<field
+					name="webmention"
+					type="url"
+					label="PLG_SYSTEM_INDIEWEB_WEBMENTIOM_LABEL"
+					description="PLG_SYSTEM_INDIEWEB_WEBMENTIOM_DESC"
+					hint="https://webmention.io/example.org/webmention"
+					filter="url"
+					validate="url"
+				/>
+				<field
+					name="pingback"
+					type="url"
+					label="PLG_SYSTEM_INDIEWEB_PINGBACK_LABEL"
+					description="PLG_SYSTEM_INDIEWEB_PINGBACK_DESC"
+					hint="https://webmention.io/example.org/xmlrpc"
+					filter="url"
+					validate="url"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
 
 ```
 
@@ -210,6 +293,8 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini
 
+PLG_SYSTEM_INDIEWEB="System - Indieweb"
+PLG_SYSTEM_INDIEWEB_XML_DESCRIPTION="Inserts meta information in the header of the website.<ol><li>&lt;link rel='authorization_endpoint' href='https://eample.org' /&gt;<li>&lt;link rel='token_endpoint' href='https://eample.org' /&gt;<li>&lt;link rel='webmention' href='https://eample.org' /&gt;<li>&lt;link rel='pingback' href='https://eample.org' /&gt;"
 
 ```
 [plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/raw/plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini)
@@ -217,6 +302,18 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini
 
+PLG_SYSTEM_INDIEWEB="System - Indieweb"
+PLG_SYSTEM_INDIEWEB_XML_DESCRIPTION="Inserts meta information in the header of the website.<ol><li>&lt;link rel='authorization_endpoint' href='https://eample.org' /&gt;<li>&lt;link rel='token_endpoint' href='https://eample.org' /&gt;<li>&lt;link rel='webmention' href='https://eample.org' /&gt;<li>&lt;link rel='pingback' href='https://eample.org' /&gt;"
+
+PLG_SYSTEM_INDIEWEB_AUTHORIZATION_ENDPOINT_LABEL="Authorization Endpoint"
+PLG_SYSTEM_INDIEWEB_TOKEN_ENDPOINT_LABEL="Token Endpoint"
+PLG_SYSTEM_INDIEWEB_WEBMENTIOM_LABEL="Webmention"
+PLG_SYSTEM_INDIEWEB_PINGBACK_LABEL="Pingback"
+
+PLG_SYSTEM_INDIEWEB_AUTHORIZATION_ENDPOINT_DESC="An <b><dfn>authorization endpoint</dfn></b> is an HTTP endpoint that <a href='https://indieweb.org/Micropub'>micropub</a> or <a href='https://indieweb.org/IndieAuth'>IndieAuth</a> clients can use to identify a user or obtain an authorization code (which is then later exchanged for an access token) to be able to post to their website (https://indieweb.org/authorization-endpoint).<br>Default: https://indieauth.com/auth."
+PLG_SYSTEM_INDIEWEB_TOKEN_ENDPOINT_DESC="A <b><dfn>token endpoint</dfn></b> is an HTTP endpoint that <a href='https://indieweb.org/Micropub'>micropub</a> clients can use to obtain an access token given an authorization code (https://indieweb.org/token-endpoint).<br>Default: https://tokens.indieauth.com/token."
+PLG_SYSTEM_INDIEWEB_WEBMENTIOM_DESC="<b><dfn><a href="https://www.w3.org/TR/webmention/">Webmention</a></dfn></b> is a web standard for conversations and interactions across the web, a powerful building block used for a growing distributed network of peer-to-peer <a href='https://indieweb.org/comment'>comments</a>, <a href='https://indieweb.org/like'>likes</a>, <a href='https://indieweb.org/repost'>reposts</a>, and other <a href='https://indieweb.org/responses'>responses</a> across the web (https://indieweb.org/Webmention).<br>Default: https://webmention.io/example.org/webmention."
+PLG_SYSTEM_INDIEWEB_PINGBACK_DESC="<b><dfn>Pingback</dfn></b> is a legacy <a href="/XML-RPC">XML-RPC</a> based protocol for web sites to notify other web sites when they've posted a link to them respectively (https://indieweb.org/pingback).<br>Default: https://webmention.io/example.org/xmlrpc."
 ```
 
 ### [Content](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Content_Group/en)<!-- \index{plugins!Content} -->
@@ -226,7 +323,235 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.php
 
+<?php
 
+/**
+ * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+ */
+
+ use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Multilanguage;
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Router\Route;
+use Joomla\Component\Contact\Site\Helper\RouteHelper;
+use Joomla\Database\ParameterType;
+use Joomla\Registry\Registry;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
+
+class PlgContentIndieweb extends CMSPlugin
+{
+    /**
+     * @var    \Joomla\Database\DatabaseDriver
+     *
+     * @since  3.3
+     */
+    protected $db;
+
+    /**
+     * Plugin that retrieves indieweb information for indieweb
+     *
+     * @param   string   $context  The context of the content being passed to the plugin.
+     * @param   mixed    &$row     An object with a "text" property
+     * @param   mixed    $params   Additional parameters. See {@see PlgContentContent()}.
+     * @param   integer  $page     Optional page number. Unused. Defaults to zero.
+     *
+     * @return  void
+     */
+    public function onContentPrepare($context, &$row, $params, $page = 0)
+    {
+        // Don't run this plugin when the content is being indexed
+        if ($context === 'com_finder.indexer') {
+            return;
+        }
+
+        $allowed_contexts = array('com_content.article');
+
+        if (!in_array($context, $allowed_contexts)) {
+            return;
+        }
+
+        // Return if we don't have valid params or don't link the author
+        if (!($params instanceof Registry)) {
+            return;
+        }
+
+        // Return if an alias is used
+        if ((int) $this->params->get('link_to_alias', 0) === 0 && $row->created_by_alias != '') {
+            return;
+        }
+
+        // Return if we don't have a valid article id
+        if (!isset($row->id) || !(int) $row->id) {
+            return;
+        }
+
+        $indieweb = $this->getIndiewebData($row->created_by);
+
+        if ($indieweb === null) {
+            return;
+        }
+
+        $row->contactid = $indieweb->contactid;
+        $row->webpage = $indieweb->webpage;
+        $row->email = $indieweb->email_to;
+        $row->authorname = $indieweb->name;
+        $url = $this->params->get('url', 'url');
+
+        if ($row->contactid && $url === 'url') {
+            $row->indieweb_link = Route::_(RouteHelper::getContactRoute($indieweb->contactid . ':' . $indieweb->alias, $indieweb->catid));
+        } elseif ($row->webpage && $url === 'webpage') {
+            $row->indieweb_link = $row->webpage;
+        } elseif ($row->email && $url === 'email') {
+            $row->indieweb_link = 'mailto:' . $row->email;
+        } else {
+            $row->indieweb_link = '';
+        }
+
+        // Web Sign In
+        $row->text = $row->text . '<div class="hidden"><ul>';
+        $row->text = $row->text . '<li><a rel="me" href="mailto:' . $row->email . '">' . $row->email . '</a></li>';
+
+        foreach ($this->params->get('websignin') as $websigninitem) {
+            $row->text = $row->text . '<li><a rel="me" href="' . $websigninitem->websignin_url . '">' . $websigninitem->websignin_url . '</a></li>';
+        }
+        $row->text = $row->text . '</ul></div>';
+
+
+        // Content
+        $row->text = $row->text . '<article class="hidden h-entry">
+        <h1 class="p-name">' . $row->title . '</h1>
+        <p>Published by 
+        <a class="p-author h-card" href="' . $row->webpage . '">' . $row->authorname . '</a> on 
+
+        <time class="dt-published" datetime="' . $row->publish_up . '">' . $row->publish_up . '</time>
+        </p>
+        <p class="p-summary">' . $row->introtext . '</p>
+        <div class="e-content">' . str_replace($row->introtext, '', $row->text) . '</div>
+        </article>';
+
+
+        // Webmention
+        $curl = curl_init();
+        //curl_setopt($curl, CURLOPT_URL, 'https://webmention.io/api/mentions.html?token=UC7S3VeGryEzkBflVYrvqg');
+        curl_setopt($curl, CURLOPT_URL, 'https://webmention.io/api/mentions.jf2?token=vCshWYDynM12T0U49xQLIg');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($curl);
+
+        if ($response === false) {
+            $curlError = curl_error($curl);
+            curl_close($curl);
+            throw new ApiException('cURL Error: ' . $curlError);
+        }
+
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+        if ($httpCode >= 400) {
+            curl_close($curl);
+            $responseParsed = json_decode($response);
+            throw new ApiException('HTTP Error ' . $httpCode .
+                ' (' . $responseParsed->error->type . '): ' . $responseParsed->error->message);
+        }
+
+        curl_close($curl);
+
+        $webmentions = json_decode($response);
+
+        $webmentions_urls = "";
+        if ($webmentions !== null) {
+            foreach ($webmentions->children as $i => $webmention) {
+                if (str_contains($webmention->url, $row->slug)) {
+                    $webmentions_urls = $webmentions_urls . $webmention->url . '</br>';
+                }
+            }
+        }
+
+        $row->text = $row->text . '<div><b>Webmentions</b><br>' . $webmentions_urls . '</div>';
+
+
+        // Syndication
+        $syndication_urls = '<div><b>Syndication</b><ol>';
+
+        $regex = '/{loadsyndication\s(.*?)}/i';
+        $matcheslist = array();
+        preg_match_all($regex, $row->text, $matches, PREG_SET_ORDER);
+        if ($matches) {
+            foreach ($matches as $match) {
+                $matcheslist = explode(',', $match[1]);
+            }
+        }
+
+        foreach ($matcheslist as $i => $matche) {
+            $syndication_urls = $syndication_urls . '<li>' . $matche . '</li>';
+        }
+
+        $syndication_urls = $syndication_urls . '</ol></div>';
+        $row->text = $row->text . $syndication_urls;
+        $row->text = preg_replace($regex, '', $row->text);
+    }
+
+    /**
+     * Retrieve Indieweb
+     *
+     * @param   int  $userId  Id of the user who created the article
+     *
+     * @return  stdClass|null  Object containing indieweb details or null if not found
+     */
+    protected function getIndiewebData($userId)
+    {
+        static $indiewebs = array();
+
+        // Note: don't use isset() because value could be null.
+        if (array_key_exists($userId, $indiewebs)) {
+            return $indiewebs[$userId];
+        }
+
+        $db = $this->db;
+        $query  = $db->getQuery(true);
+        $userId = (int) $userId;
+
+        $query->select($db->quoteName('contact.id', 'contactid'))
+            ->select(
+                $db->quoteName(
+                    [
+                        'contact.alias',
+                        'contact.catid',
+                        'contact.webpage',
+                        'contact.email_to',
+                        'contact.name',
+                    ]
+                )
+            )
+            ->from($db->quoteName('#__contact_details', 'contact'))
+            ->where(
+                [
+                    $db->quoteName('contact.published') . ' = 1',
+                    $db->quoteName('contact.user_id') . ' = :createdby',
+                ]
+            )
+            ->bind(':createdby', $userId, ParameterType::INTEGER);
+
+        if (Multilanguage::isEnabled() === true) {
+            $query->where(
+                '(' . $db->quoteName('contact.language') . ' IN ('
+                . implode(',', $query->bindArray([Factory::getLanguage()->getTag(), '*'], ParameterType::STRING))
+                . ') OR ' . $db->quoteName('contact.language') . ' IS NULL)'
+            );
+        }
+
+        $query->order($db->quoteName('contact.id') . ' DESC')
+            ->setLimit(1);
+
+        $db->setQuery($query);
+
+        $indiewebs[$userId] = $db->loadObject();
+
+        return $indiewebs[$userId];
+    }
+}
 
 ```
 
@@ -235,6 +560,52 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+	<name>plg_content_indieweb</name>
+	<creationDate>[DATE]</creationDate>
+	<author>[AUTHOR]</author>
+	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
+	<authorUrl>[AUTHOR_URL]</authorUrl>
+	<copyright>[COPYRIGHT]</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<version>__BUMP_VERSION__</version>
+	<description>PLG_CONTENT_INDIEWEB_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="indieweb">indieweb.php</filename>
+		<folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			</fieldset>
+			<fieldset name="WebSignIn">
+				<field
+					name="websignin"
+					type="subform"
+					label="PLG_CONTENT_INDIEWEB_WEBSIGNIN_LABEL"
+					description="PLG_CONTENT_INDIEWEB_WEBSIGNIN_DESC"
+					layout="joomla.form.field.subform.repeatable-table"
+					icon="list"
+					multiple="true"
+					default=''
+				>
+					<form repeat="true">
+						<field
+							name="websignin_url"
+							type="url"
+							label="PLG_CONTENT_INDIEWEB_WEBSIGNIN_URL_LABEL"
+							hint="mailto:info@example.org or https://fimidi.com/@username"
+							filter="url"
+							validate="url"
+							size="50"
+						/>
+					</form>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
 
 ```
 
@@ -243,6 +614,8 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini
 
+PLG_CONTENT_INDIEWEB="Content - Indieweb"
+PLG_CONTENT_INDIEWEB_XML_DESCRIPTION="Adds visible and invisible information about the content, the author of the content, webmentions and syndication links for the indieweb. Requirement: The user who wrote the post must be connected to a contact."
 
 ```
 
@@ -251,7 +624,16 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.sys.ini
 
+PLG_CONTENT_INDIEWEB="Content - Indieweb"
+PLG_CONTENT_INDIEWEB_XML_DESCRIPTION="Adds visible and invisible information about the content, the author of the content, webmentions and syndication links for the indieweb. Requirement: The user who wrote the post must be connected to a contact."
 
+; Own Domain
+
+; Web Sign In
+COM_PLUGINS_WEBSIGNIN_FIELDSET_LABEL="Web Sign In"
+PLG_CONTENT_INDIEWEB_WEBSIGNIN_LABEL="Web Sign In URLs"
+PLG_CONTENT_INDIEWEB_WEBSIGNIN_URL_LABEL="URL"
+PLG_CONTENT_INDIEWEB_WEBSIGNIN_DESC="<p>In order to be able to sign in using your domain name, connect it to your existing identities. You probably already have many disconnected profiles on the web. </p><p>Linking between them and your domain name with the rel=me microformat ensures that it’s easy to see that you on Google/Twitter/Github/Flickr/Facebook/email are all the same person as your domain name (https://indieweb.org/How_to_set_up_web_sign-in_on_your_own_domain).</p><p>The outer container contains the class hidden, so that the information is inserted hidden on the website in a template that styles the class with display:none.</p>"
 ```
 
 
@@ -259,16 +641,62 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 
 [media/plg_editors-xtd_indieweb/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json)
 
-```php {numberLines: -2}
+```json {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json
 
-
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "plg_editors-xtd_indieweb",
+  "version": "4.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "plg_editors-xtd_indieweb.admin-article-indieweb",
+      "type": "script",
+      "uri": "plg_editors-xtd_indieweb/admin-article-indieweb.js",
+      "dependencies": [
+        "core"
+      ],
+      "attributes": {
+        "nomodule": true,
+        "defer": true
+      },
+      "version": "3caf2bd836dad54185a2fbb3c9a625b7576d677c"
+    }
+ ]
+}
 ```
-[media/plg_editors-xtd_indieweb/joomla.asset.json](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json)
+[media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js](https://codeberg.org/astrid/j4examplecode/src/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js)
 
-```php {numberLines: -2}
+```js {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js
 
+(() => {
+
+  const options = window.Joomla.getOptions('xtd-indieweb');
+
+  window.insertIndieweb = editor => {
+    if (!options) {
+      // Something went wrong!
+      throw new Error('XTD Button \'indieweb\' not properly initialized');
+    }
+
+    const content = window.Joomla.editors.instances[editor].getValue();
+
+    if (!content) {
+      Joomla.editors.instances[editor].replaceSelection('{loadsyndication testurl,testurl2,testurl3}');
+    } else if (content && !content.match(/{loadsyndication\s/i)) {
+      Joomla.editors.instances[editor].replaceSelection('{loadsyndication testurl,testurl2,testurl3}');
+    } else {
+      // @todo replace with joomla-alert
+      alert(options.exists);
+      return false;
+    }
+
+    return true;
+  };
+})();
 
 ```
 
@@ -277,6 +705,52 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.php
 
+<?php
+
+/**
+ * @phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+ */
+
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Object\CMSObject;
+use Joomla\CMS\Plugin\CMSPlugin;
+
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') or die;
+// phpcs:enable PSR1.Files.SideEffects
+
+class PlgButtonIndieweb extends CMSPlugin
+{
+    protected $autoloadLanguage = true;
+
+    protected $app;
+
+    public function onDisplay($name)
+    {
+        $doc = $this->app->getDocument();
+        $doc->getWebAssetManager()
+            ->registerAndUseScript('plg_editors-xtd_indieweb.admin-article-indieweb', 'plg_editors-xtd_indieweb/admin-article-indieweb.min.js', [], ['defer' => true], ['core']);
+
+        // Pass some data to javascript
+        $doc->addScriptOptions(
+            'xtd-indieweb',
+            array(
+                'exists' => Text::_('PLG_INDIEWEB_ALREADY_EXISTS', true),
+            )
+        );
+
+        $button = new CMSObject();
+        $button->modal   = false;
+        $button->onclick = 'insertIndieweb(\'' . $name . '\');return false;';
+        $button->text    = Text::_('PLG_INDIEWEB_BUTTON_INDIEWEB');
+        $button->name    = $this->_type . '_' . $this->_name;
+        $button->icon    = 'arrow-down';
+        $button->iconSVG = '<svg viewBox="0 0 32 32" width="24" height="24"><path d="M32 12l-6-6-10 10-10-10-6 6 16 16z"></path></svg>';
+        $button->link    = '#';
+
+        return $button;
+    }
+}
 
 ```
 
@@ -285,6 +759,22 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="editors-xtd" method="upgrade">
+	<name>plg_editors-xtd_indieweb</name>
+	<creationDate>[DATE]</creationDate>
+	<author>[AUTHOR]</author>
+	<authorEmail>[AUTHOR_EMAIL]</authorEmail>
+	<authorUrl>[AUTHOR_URL]</authorUrl>
+	<copyright>[COPYRIGHT]</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<version>__BUMP_VERSION__</version>
+	<description>PLG_INDIEWEB_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="indieweb">indieweb.php</filename>
+		<folder>language</folder>
+	</files>
+</extension>
 
 ```
 
@@ -293,6 +783,10 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini
 
+PLG_EDITORS-XTD_INDIEWEB="Button - IndieWeb Syndication"
+PLG_INDIEWEB_ALREADY_EXISTS="There is already a IndieWeb Syndication link that has been inserted. Only one link is permitted."
+PLG_INDIEWEB_BUTTON_INDIEWEB="IndieWeb Syndications"
+PLG_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication</em> link into an Article. See Content Plugin Indieweb"
 
 ```
 
@@ -301,6 +795,8 @@ _Backfeed_ describes the process of pulling the interactions of your POSSE copy 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini
 
+PLG_EDITORS-XTD_INDIEWEB="Button - IndieWeb Syndication"
+PLG_INDIEWEB_XML_DESCRIPTION="Enables a button which allows you to insert the <em>IndieWeb Syndication &hellip;</em> link into an Article.  See Content Plugin Indieweb"
 
 ```
 
