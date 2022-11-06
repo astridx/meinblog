@@ -27,15 +27,15 @@ module.exports = {
         SymLinksIfOwnerMatch: true,
         host: 'blog.astrid-guenther.de', // if 'www' is set to 'false', be sure to also remove it here!
         redirect: [
-          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
-          {
-            from: 'my-domain.com',
-            to: 'mydomain.com',
-          },
-          {
-            from: 'my-other-domain.com',
-            to: 'mydomain.com',
-          },
+//          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+//          {
+//            from: 'my-domain.com',
+//            to: 'mydomain.com',
+//          },
+//          {
+//            from: 'my-other-domain.com',
+//            to: 'mydomain.com',
+//          },
         ],
         custom: `
             # X-XSS-Protection
