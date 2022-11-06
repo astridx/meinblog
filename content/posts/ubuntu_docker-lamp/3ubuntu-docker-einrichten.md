@@ -2,8 +2,8 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-04
-title: 'Docker unter Ubuntu 20.04 einrichten'
+date: 2022-11-03
+title: 'Docker unter Ubuntu 22.04 einrichten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-einrichten-docker-lamp
@@ -16,11 +16,11 @@ tags:
   - Docker
 ---
 
-[Docker](<https://de.wikipedia.org/w/index.php?title=Docker_(Software)&oldid=203149728>) vereinfacht die Verwaltung von Prozesse und ähnelt virtuellen Maschinen. Der Vorteil von Docker: Container sind portabler, ressourcenschonender und vom Host-Betriebssystem unabhängiger. Ich installiere [Docker](https://docs.docker.com/get-docker/) unter Ubuntu 20.04 und veröffentliche ein erstes eigenes Docker Image.
+[Docker](https://de.wikipedia.org/w/index.php?title=Docker_(Software))[^de.wikipedia.org/w/index.php?title=Docker_(Software)] vereinfacht die Verwaltung von Prozesse und ähnelt virtuellen Maschinen. Der Vorteil von Docker: Container sind portabler, ressourcenschonender und vom Host-Betriebssystem unabhängiger. Ich installiere [Docker](https://docs.docker.com/get-docker/)[^docs.docker.com/get-docker] unter Ubuntu 22.04 und veröffentliche ein erstes eigenes Docker Image.
 
 ## Voraussetzungen
 
-Nach der Installation des Desktop Images von [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Docker beginnen.
+Nach der Installation des Desktop Images von [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Docker beginnen.
 
 ## Installieren von Docker
 
@@ -41,7 +41,7 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 Danach füge ich den GPG-Schlüssel für das offizielle Docker-Repository hinzu:
 
 ```
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 ```
 
@@ -49,6 +49,7 @@ Daraufhin ergänze ich das Docker-Repository in den APT Quelle:
 
 ```
 sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable'
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
 Anschließend aktualisiere ich die Paketdatenbank mit den Docker-Paketen aus dem neu hinzugefügten Repo:
@@ -68,10 +69,11 @@ apt-cache policy docker-ce
 Die Ausgabe ist beispielsweise wie folgt:
 
 ```
-Docker-ce:
-  Installiert: (keine)
-  Kandidat: 5:20.10.15~3-0~ubuntu-focal
+docker-ce:
+  Installiert:           (keine)
+  Installationskandidat: 5:20.10.21~3-0~ubuntu-jammy
   Versionstabelle:
+     5:20.10.21~3-0~ubuntu-jammy 500
 ...
 ...
 ```
@@ -93,15 +95,16 @@ Der Dienst ist aktiv:
 ```
 $ sudo systemctl status docker
 ● docker.service - Docker Application Container Engine
-     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor prese>
-     Active: active (running) since Sun 2022-05-08 03:04:57 PDT; 52s ago
+     Loaded: loaded (/lib/systemd/system/docker.service; >
+     Active: active (running) since Thu 2022-11-03 10:30:>
 TriggeredBy: ● docker.socket
        Docs: https://docs.docker.com
-   Main PID: 54160 (dockerd)
+   Main PID: 6229 (dockerd)
       Tasks: 8
-     Memory: 29.1M
+     Memory: 24.1M
+        CPU: 666ms
      CGroup: /system.slice/docker.service
-             └─54160 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/co>
+             └─6229 /usr/bin/dockerd -H fd:// --container>
 ...
 ```
 
@@ -213,7 +216,7 @@ Schauen wir uns `docker`-Images genauer an.
 
 ## Docker Images
 
-`docker`-Container werden mithilfe von `docker`-Images erstellt. Standardmäßig ruft Docker diese Bilder von [Docker Hub](https://hub.docker.com) ab. Falls du dies bisher noch nicht in der Praxis erlebt hast: Lade über Docker Hub ein Image herunter und führe es gleichzeitig aus:
+`docker`-Container werden mithilfe von `docker`-Images erstellt. Standardmäßig ruft Docker diese Bilder von [Docker Hub](https://hub.docker.com)[^hub.docker.com] ab. Falls du dies bisher noch nicht in der Praxis erlebt hast: Lade über Docker Hub ein Image herunter und führe es gleichzeitig aus:
 
 ```
 docker run hello-world
@@ -234,7 +237,9 @@ This message shows that your installation appears to be working correctly.
 
 ```
 
-Suche nach Images, zum Beispiel dem Ubuntu-Image:
+> Der Text `Unable to find image` zu beginnt, verunsichert Anfänger. Er bezieht aber lediglich auf den lokalen Rechner. Dort war das Image ja noch nicht vorhanden.
+
+Suche nun nach Images, zum Beispiel dem Ubuntu-Image:
 
 ```
 docker search ubuntu
@@ -262,7 +267,7 @@ Status: Downloaded newer image for ubuntu:latest
 docker.io/library/ubuntu:latest
 ```
 
-Nachdem ein Images heruntergeladen wurde, führst du es mit `run` aus.
+Nachdem ein Images heruntergeladen wurde, führst du es mit `run` aus. Das sehen wir uns später genauer an.
 
 Via `docker images` zeigst du heruntergeladene Images an:
 
@@ -273,10 +278,10 @@ docker images
 Die Ausgabe sieht wie folgt aus:
 
 ```
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-ubuntu              latest              4e622ef86b13        10 days ago         73.9MB
-hello-world         latest              bf756fb1ae65        8 months ago        13.3kB
-
+~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+ubuntu        latest    a8780b506fa4   15 hours ago    77.8MB
+hello-world   latest    feb5d9fea6a5   13 months ago   13.3kB
 ```
 
 Schauen wir uns `docker`-Container genauer an.
@@ -294,10 +299,11 @@ docker run -it ubuntu /bin/bash
 Die Eingabeaufforderung ändert sich. Du befindest dich jetzt im Container:
 
 ```
-root@3fee0f2f636:/#
+$ docker run -it ubuntu /bin/bash
+root@3ab499b7296a:/# 
 ```
 
-In diesem Beispiel ist `3fee0f2f636` die Container-ID. Mithilfe dieser ID identifizierst du den Container.
+In diesem Beispiel ist `3ab499b7296a` die Container-ID. Mithilfe dieser ID identifizierst du den Container. Wir werden später auf diese zurückkommen.
 
 Rufe einen beliebigen Befehl im Container auf. Aktualisiere beispielsweise die Paketdatenbank im Container. 
 
@@ -308,9 +314,7 @@ apt update
 
 ```
 
-Oder installiere Node.js:
-
-Überzeuge dich davon, das Node.js nichts bereis installiert ist:
+Oder installiere Node.js. Überzeuge dich als erstes davon, das Node.js nicht bereits installiert ist:
 
 ```
 node -v
@@ -324,7 +328,7 @@ apt install nodejs
 
 ```
 
-Überprüfe, ob die Installation:
+Überprüfe die Installation:
 
 ```
 node -v
@@ -352,7 +356,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED
 ...
 ```
 
-Bisher haben wir zwei Container gestartet. Einen aus dem `hello-world`-Image und einen aus dem `ubuntu`-Image. Beide Container werden nicht mehr ausgeführt, sind jedoch im System noch vorhanden.
+Bisher haben wir zwei Container gestartet. Einen aus dem `hello-world`-Image und einen aus dem `ubuntu`-Image. Beide Container werden nicht mehr ausgeführt, sind jedoch weiterhin im System vorhanden.
 
 Rufe `docker ps` mit der Option `-a` auf, um alle Container anzuzeigen -- aktiv und inaktiv:
 
@@ -364,10 +368,15 @@ docker ps -a
 Du siehst beispielsweise dies:
 
 ```
-3fee0f2f636         ubuntu              "/bin/bash"         5 minutes ago       Exited (0) 8 seconds ago                       Quirky_driscoll
-ef3d221a5f6c        hello-world         "/hello"            12 minutes ago      Exited (0) 6 minutes ago                       elegant_wilson
+$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND       CREATED          STATUS                      PORTS     NAMES
+3ab499b7296a   ubuntu        "/bin/bash"   16 minutes ago   Exited (0) 9 minutes ago              zen_bhaskara
+07a4378a365d   ubuntu        "/bin/bash"   17 minutes ago   Exited (0) 16 minutes ago             nifty_elion
+45951721cf60   ubuntu        "bash"        22 minutes ago   Exited (0) 22 minutes ago             relaxed_borg
+e2a3d0c57be1   hello-world   "/hello"      45 minutes ago   Exited (0) 45 minutes ago             gallant_easley
 
 ```
+> Beachten Sie die CONTAINER_ID 3ab499b7296a. Wir haben diese bereits im vorherigen Abschnitt gesehen. Es war der Container, den wir im interaktiven Modus gestartet haben.
 
 Um den zuletzt erstellten Container anzuzeigen, nutze `-l`:
 
@@ -376,10 +385,10 @@ docker ps -l
 
 ```
 
-Um einen gestoppten Container zu starten, verwende `docker start`, gefolgt von der Container-ID oder dem Namen des Containers. :
+Um einen gestoppten Container zu starten, verwende `docker start`, gefolgt von der Container-ID oder dem Namen des Containers:
 
 ```
-docker start 3fee0f2f636
+docker start 3ab499b7296a
 ```
 
 Der Container startet und du kannst mit `docker ps` den Status prüfen
@@ -396,15 +405,20 @@ Nach der Installation von Node.js im Ubuntu-Container unterscheidet dieser sich 
 docker commit -m "Meine Änderung" -a "Autor Name" container_id repository/new_image_name
 ```
 
-`-m` steht für den Kommentar, mit dem du bescheibst, welche Änderungen du vorgenommen hast. `-a` ist für die Angabe des Autors. Die `container_id` ist zur Identifizierung des Containers. Beispiel für
-
-Der Benutzer `astrid` speichert die Änderungen im Container mit der ID `00000000` wie folgt:
+`-m` steht für den Kommentar, mit dem du bescheibst, welche Änderungen du vorgenommen hast. `-a` ist für die Angabe des Autors. Die `container_id` ist zur Identifizierung des Containers. Beispiel: Der Benutzer `astrid` speichert die Änderungen im Container mit der ID `3ab499b7296a` wie folgt:
 
 ```
-docker commit -m "added Node.js" -a "astrid" 00000000 astrid/ubuntu-und-node-js
+$ docker commit -m "added Node.js" -a "astrid" 3ab499b7296a astrid/ubuntu-und-node-js
 ```
 
 Das geändert Image wird zunächst lokal abgespeichert. Überprüfe dies mit `docker images`.
+
+```
+$ docker images
+REPOSITORY                  TAG       IMAGE ID       CREATED         SIZE
+astrid/ubuntu-und-node-js   latest    2a1dac358bda   2 minutes ago 
+...
+```
 
 Teile das Image als nächstes mit anderen.
 
@@ -417,8 +431,7 @@ docker login -u dein-docker-username
 
 ```
 
-> Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Images verwendet hast, ist folgende Ergänzung wichtig:
-> `docker tag astrid/ubuntu-node-js docker-registry-username/ubuntu-und-node-js`
+> Wenn sich dein Docker-Benutzername von dem lokalen Benutzernamen unterscheidet, den du zum Erstellen des Images verwendet hast, ist folgende Ergänzung wichtig: `docker tag astrid/ubuntu-node-js docker-registry-username/ubuntu-und-node-js`
 
 Lade dein eigenes Image hoch:
 
@@ -433,7 +446,7 @@ docker push astrid/ubuntu-und-node-js
 
 ```
 
-In der Kommandozeile kannst du den Fortschritt verfolgen:
+Du kannst den Fortschritt auf der Kommandozeile verfolgen:
 
 ```
 The push refers to a repository [docker.io/astrid/ubuntu-und-node-js]
@@ -447,5 +460,7 @@ Nachdem alles hochgeladen ist, siehst du im Docker Hub Dashboard das neue Image.
 ![Docker Image in Docker Hub](/images/docker1.png)
 
 > Nutze `docker pull astrid/ubuntu-nodejs` um das Image auf einer anderen Maschine zu verwenden.
+
+Du hast nun Docker installiert, mit Images und Containern gearbeitet und ein modifiziertes Image an Docker Hub übertragen. Du kennst die Grundlagen und kannst mit fremden Images und Containern umgehen. 
 
 <img src="https://vg02.met.vgwort.de/na/9ab807ce0fb743adb0fd5343e59762b8" width="1" height="1" alt="">

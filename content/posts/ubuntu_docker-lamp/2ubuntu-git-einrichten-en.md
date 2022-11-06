@@ -2,8 +2,8 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-03
-title: 'Setting up Git with Ubuntu 20.04'
+date: 2022-11-03
+title: 'Setting up Git with Ubuntu 22.04'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: en/ubuntu-git-einrichten-docker-lamp
@@ -20,7 +20,7 @@ Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschi
 
 ## Voraussetzungen
 
-Nach der Installation des Desktop Images von [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Git beginnen.
+Nach der Installation des Desktop Images von [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Git beginnen.
 
 ## Installieren von Git mit Standardpaketen
 
@@ -68,7 +68,7 @@ git --version
 Die Ausgabe sollte beispielsweise wie folgt sein:
 
 ```
-version 2.25.1
+version 2.34.1
 
 ```
 

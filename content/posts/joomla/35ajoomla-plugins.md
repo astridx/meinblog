@@ -69,7 +69,7 @@ Editor Plugins wandeln ein HTML-Textarea-Element in einen vollwertigen JavaScrip
 
 ### [Schaltfläche (Button)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)<!-- \index{Plugin!Schaltfläche (Button)} -->
 
-Am unteren Rand eines Joomla-Editors erscheinen zusätzlich zur Symbolleiste Schaltflächen - zum Beispiel eine Schaltfläche zum Hinzufügen eines `Mehr lesen`-Links oder eine Schaltfläche zum Hinzufügen eines Seitenumbruchs. Diese Schaltflächen werden von Plugins des Typs editors-xtd erzeugt.
+Im Joomla-Editors erscheinen zusätzlich zur Symbolleiste Schaltflächen - zum Beispiel eine Schaltfläche zum Hinzufügen eines `Mehr lesen`-Links oder eine Schaltfläche zum Hinzufügen eines Seitenumbruchs. Diese Schaltflächen werden von Plugins des Typs editors-xtd erzeugt.
 
 ### [Extensions (Erweiterungen)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Extension_Group/en)<!-- \index{Plugin!Extensions (Erweiterungen)} -->
 
@@ -111,7 +111,7 @@ Das _Joomla Kern Modul_ Beispieldaten bietet einen einheitlichen Workflow zum Hi
 
 ### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)<!-- \index{Plugin!System} -->
 
-System Plugins erledigt die unterschiedlichsten Aufgaben. Das klingt zugegebenermaßen vage. Um es etwas konkreter zu machen, folgen Beispiele. System-Plugins können HTML-Code, CSS oder JavaScript zur Joomla-Seite hinzufügen, nachdem diese generiert wurde. Plugins dieses Typs ändern Joomla Formulare, bevor sie generiert werden. Mithilfe von System Plugins sind alternative Fehlerbehandlung möglich. Dies war nur ein kleiner Ausschnitt des mögliche. Du siehst, System Plugins sind sehr mächtig. Um diese mächtige Aufgabe erfüllen zu können, werden diese häufig aufgerufen und benötigen demzufolge Ressourcen. Setzte sie deshalb mit Bedacht ein!
+System Plugins erledigt die unterschiedlichsten Aufgaben. Das klingt zugegebenermaßen vage. Um es etwas konkreter zu machen, folgen Beispiele. System-Plugins können HTML-Code, CSS oder JavaScript zur Joomla-Seite hinzufügen, nachdem diese generiert wurde. Plugins dieses Typs ändern Joomla Formulare, bevor sie generiert werden. Mithilfe von System Plugins sind alternative Fehlerbehandlung möglich. Dies war nur ein kleiner Ausschnitt des Möglichen. Du siehst, System Plugins sind sehr mächtig. Um diese mächtige Aufgabe erfüllen zu können, werden diese häufig aufgerufen und benötigen demzufolge Ressourcen. Setzte sie deshalb mit Bedacht ein!
 
 > Ein weiteres aktuelles Beispiel ist das in Joomla 4.2 neu hinzugekomme Keyboard-Shortcut Plugin[^github.com/joomla/joomla-cms/pull/38092]
 
@@ -134,6 +134,150 @@ Ein Plugin des Typs Web Services fügt die Routen der einer Erweiterung zur API 
 ### [Workflow](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Workflow_Group/en)<!-- \index{Plugin!Workflow} -->
 
 Bei der Workflow-Verwaltung gibt es unterschiedliche Übergänge, die per Plugin manipulierbar sind.
+
+## Beispiele
+
+### Indiewebify Joomla
+
+Ich habe Beispiel-Plugins erstellt, die zusammen eine simple Realisierung des IndieWeb ermöglichen.
+
+Was bedeutet *Indiewebify* und was ist das *IndieWeb*? 
+
+Das *IndieWeb* ermöglicht es einem Menschen, seine Gedanken und Ideen an einem Ort zu veröffentlichen und sie dann auf anderen sozialen Websites zu teilen. Dabei ist es wichtig, immer Eigentümer der eigenen digitalen Inhalte zu bleiben. 
+
+Was ist, wenn ein soziales Netzwerk sich so entwickelt, dass du dich dort nicht mehr wohl fühlst und dieses deshalb nicht mehr aufsuchst? Oder der Eigentümer der Website beschließt, diese abzuschalten? All deine Beiträge sind verloren!
+
+Meiner Meinung nach sollte ein digitales Profil und dessen Inhalte nicht die Identität sein, die einem externen Unternehmen gehört. Ein Mensch sollten der alleinige Eigentümer der Inhalte sein, die er online teilt. Und das ist es, wozu *IndieWeb* die Menschen ermutigt.
+
+> Das _IndieWeb_ ist eine auf den Menschen ausgerichtete Alternative zum _Corporate Web_ ist ein Zitat, welches ich der Website  [IndieWeb.org](https://indieweb.org/)[^indieweb.org/] entnommen habe. Die Website [indiewebify.me/](https://indiewebify.me/) hat mich bei der Implementierung unterstützt. Ich habe zum ersten Mal davon auf dem Blog [chringel.dev] (https://chringel.dev/2022/07/indiewebify-me-and-dont-forget-my-webmentions/) gelesen.
+
+1. Web-Sign-In einrichten
+Um dich als Inhaber deiner Website mit deiner Domain zu authentifizieren, musst du eine Möglichkeit einrichten, dich über IndieAuth anzumelden. Das heißt, du verwendest deine Domain, um dich als Inhaber deiner anderen sozialen Profile zu verifizieren. Füge einfach ein `rel=me`-Mikroformat zu all deinen Links hinzu, die zu deinen Profilen auf anderen Plattformen führen. Im Content Plugin gibt es Parameter, um dies einzustellen.
+
+2. Author Markup hinzufügen
+Der nächste Schritt besteht darin, auf der Website einige grundlegende Informationen über die Autorin bereitzustellen. Oft gibt es schon eine `Über mich`-Seite, aber die ist nicht maschinenlesbar. Das Mikroformat `h-card` bietet Eigenschaften, die geparst werden können. Diese habe ich in Kombination mit dem nachfolgenden Element unsichtbar zum Markup der Website hinzugefügt. So wird das Design des Templates nicht beeinflusst.
+
+3. Inhaltliche Markierung hinzufügen
+Wenn du Inhalte im IndieWeb veröffentlichen willst, müssen diese maschinenlesbar sein. Ich habe das `h-entry` Mikroformat hinzugefügt. Die Website IndieWebify.me war eine große Hilfe bei diesem Schritt. In diesem Plugin füge ich die folgenden `h-entry`-Eigenschaften hinzu:
+- `p-name` - der Titel des Beitrags
+- `e-content` - der Inhalt des Beitrags
+- `p-author` - wer den Beitrag geschrieben hat
+- `dt-published` - wann der Beitrag veröffentlicht wurde
+- `p-summary` - der einleitende Text eines Joomla Beitrags
+
+Jetzt sind meine Inhalte korrekt markiert und können von IndieWeb genutzt werden.
+
+4. Webmentions hinzufügen
+Was sind Webmentions? Webmentions sind eine [W3C-Empfehlung](https://www.w3.org/TR/webmention/)[^w3.org/TR/webmention/] für Konversationen und Interaktionen auf Webseiten. Es ist eine einfache Möglichkeit, eine URL zu benachrichtigen, wenn diese auf einer Website erwähnt wird. Im Grunde ist es eine Möglichkeit, von der eigenen Website aus mit den Inhalten anderer Personen zu interagieren.
+
+Ein Beispiel: Ich lese einen Beitrag in einem anderen Blog und möchte darauf regieren. Das kann ich tun, indem ich einen Beitrag auf meiner Website schreibe und auf den anderen Beitrag verweise. Dann kann ich eine Webmention an den anderen Blog senden, um ihm mitzuteilen, dass ich von meiner Website aus auf den Beitrag reagiert habe. Das klingt kompliziert? Nun, es ist genau wie in den meisten sozialen Netzwerken, wo man auf einen Beitrag reagiert, indem man ihn kommentiert oder liked.
+
+Es gibt es eine einfache Möglichkeit, Webmentions einzurichten: Webmention.io. Es ist ein Dienst, der Webmentions handhabt, indem er Web Sign-In verwendet und einige Endpunkte als Links zu deiner Website hinzufügt. Hier im Beispiel setzen wie die Endpunkte, welche ich per System Plugin in den Head der Website einfüge.
+
+> Eine Alternative zu Webmention.io ist Go-Jamming von Wouter Groeneveld.
+
+Es fehlte noch eine Möglichkeit, die Webmentions anzuzeigen. Die Vorgehensweise im Content Plugin für das Parsen von Webmentions ist derzeit dynamisch. Dies ist nicht performant. Eine bessere Lösung ist es, die Webmentions von Zeit zu Zeit abzurufen und in der Datenbank zu speichern.
+
+5. Syndikation und Backfeed
+Ein letztes Puzzleteil sind: _POSSE_ und _Backfeed_. 
+
+_POSSE_ bedeutet, dass du deine Inhalte zuerst auf deiner eigenen Website veröffentlichst und dann Links auf anderen Plattformen postest (Publish on your Own Site, Syndicate Elsewhere). Beispielsweise indem du über deinen Beitrag auf Mastodon teilst und daraufhin einen Link zu deiner Website hinzufügst.
+
+_Backfeed_ beschreibt den Prozess, bei dem die Interaktionen deiner POSSE-Kopien auf den ursprünglichen Beitrag gezogen werden. Wenn also jemand einen Toot mit dem Link zu deinem Beitrag kommentiert, wird er tatsächlich als Webmention auf deine Website umgeleitet.
+
+> Die Abarbeitung der 5 Punkte macht eine Joomla Website zu einem IndieWeb-Bürger der Stufe 2. Die nachfolgend beschriebenen Plugins sind eine simple Umsetzung. Web Sign-In kann über das System Plugin verwendet werden, es gibt mittels Content Plugin Inhalte mit Mikroformaten und es werden Webmentions an andere IndieWeb-Sites gesendet und von ihnen empfangen. Syndikation ist ein problematisches Thema. Der Prozess ist etwas verworren, und ich bin mir nicht sicher, ob ich es richtig umsetze. Man muss zuerst einen eigenen Beitrag veröffentlichen, dann den Link teilen und zuletzt diesen geteilten Links zum eigenen Beitrag hinzufügen. Hier unterstützt das Editors-xtd Plugin.
+
+#### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)<!-- \index{Plugin!System} -->
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.php
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.xml
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini
+
+
+```
+
+#### [Inhalt (Content)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Content_Group/en)<!-- \index{Plugin!Inhalt (Content)} -->
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.php
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.xml
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.sys.ini
+
+
+```
+
+
+#### [Schaltfläche (Button)](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)<!-- \index{Plugin!Schaltfläche (Button)} -->
+
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.php
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.xml
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini
+
+
+```
 
 ## FAQ zu Plugins
 

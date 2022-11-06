@@ -11,11 +11,6 @@ import { slugify, appendComments } from '../utils/helpers'
 
 import looking from '../assets/me.jpg'
 
-/*      {mentions.edges.map(
-          (edge) => (
-            edge.node.url + "  |  "
-        ))} under webmention heading*/
-
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
   const { tags, title, date, thumbnail, syndication } = post.frontmatter
@@ -24,7 +19,7 @@ export default function PostTemplate({ data }) {
 
   const commentBox = React.createRef()
 
-  // const mentions = data.allWebmention
+  const mentions = data.allWebmention
 
   const relsyndication = "syndication";
 
@@ -148,8 +143,11 @@ export default function PostTemplate({ data }) {
 
       <section id="webmentions" className="comments webmentions__list container">
         <h3>Webmentions</h3><br/>
-       
-  
+
+        {mentions.edges.map(
+          (edge) => (
+            edge.node.url + "  |  "
+        ))} 
         
       </section>
     </>
@@ -158,7 +156,10 @@ export default function PostTemplate({ data }) {
 
 PostTemplate.Layout = Layout
 
-  /*  allWebmention(filter: { wm_slug: { eq: $slug } }) {
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+
+    allWebmention(filter: { wm_slug: { eq: $slug } }) {
       totalCount
       edges {
         node {
@@ -177,11 +178,9 @@ PostTemplate.Layout = Layout
           }
         }
       }
-    } ueber markdownRemark*/
+    } 
 
 
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt

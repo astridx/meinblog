@@ -27,14 +27,109 @@ Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubun
 
 ### Installation
 
-Installiert habe ich [Visual Studio Code](https://code.visualstudio.com/).
+Installiert habe ich [Visual Studio Code](https://code.visualstudio.com/)[^code.visualstudio.com].
 
-1. Ich habe die Installationsdatei von der [Homepage](https://code.visualstudio.com/docs/setup/linux) kopiert.
-
-2. Dann habe ich diese via `sudo apt install ./<file>.deb` installiert.
+Aktualisiere das System:
 
 ```
-sudo apt install ./<file>.deb
+$ sudo apt update && sudo apt upgrade -y
+OK:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Holen:2 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease [114 kB]  
+Holen:3 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]   
+OK:4 https://download.docker.com/linux/ubuntu jammy InRelease                 
+Holen:5 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease [99,8 kB]
+Holen:6 http://de.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [95,0 kB]
+Holen:7 http://de.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [255 kB]
+Holen:8 http://de.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Holen:9 http://de.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [12,6 kB]
+Es wurden 687 kB in 2 s geholt (387 kB/s).                                
+Paketlisten werden gelesen… Fertig
+Abhängigkeitsbaum wird aufgebaut… Fertig
+Statusinformationen werden eingelesen… Fertig
+...
+...
+```
+
+Installiere die Pakete:
+
+```
+$  sudo apt install software-properties-common apt-transport-https wget -y
+Paketlisten werden gelesen… Fertig
+Abhängigkeitsbaum wird aufgebaut… Fertig
+Statusinformationen werden eingelesen… Fertig
+wget ist schon die neueste Version (1.21.2-2ubuntu1).
+wget wurde als manuell installiert festgelegt.
+software-properties-common ist schon die neueste Version (0.99.22.3).
+apt-transport-https ist schon die neueste Version (2.4.8).
+Die folgenden Pakete wurden automatisch installiert und werden nicht mehr benötigt:
+  chromium-codecs-ffmpeg-extra gstreamer1.0-vaapi i965-va-driver
+  intel-media-va-driver libaacs0 libaom3 libass9 libavcodec58 libavformat58
+  libavutil56 libbdplus0 libblas3 libbluray2 libbs2b0 libchromaprint1
+  libcodec2-1.0 libdav1d5 libflashrom1 libflite1 libftdi1-2 libgme0 libgsm1
+  libgstreamer-plugins-bad1.0-0 libigdgmm12 liblilv-0-0 libmfx1 libmysofa1
+  libnorm1 libopenmpt0 libpgm-5.3-0 libpostproc55 librabbitmq4 librubberband2
+  libserd-0-0 libshine3 libsnappy1v5 libsord-0-0 libsratom-0-0
+  libsrt1.4-gnutls libssh-gcrypt-4 libswresample3 libswscale5 libudfread0
+  libva-drm2 libva-wayland2 libva-x11-2 libva2 libvdpau1 libvidstab1.1
+  libx265-199 libxvidcore4 libzimg2 libzmq5 libzvbi-common libzvbi0
+  mesa-va-drivers mesa-vdpau-drivers ocl-icd-libopencl1 pocketsphinx-en-us
+  va-driver-all vdpau-driver-all
+Verwenden Sie »sudo apt autoremove«, um sie zu entfernen.
+0 aktualisiert, 0 neu installiert, 0 zu entfernen und 2 nicht aktualisiert.
+```
+
+Importiere das Repository:
+
+```
+$  wget -O- https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg
+--2022-11-04 09:11:09--  https://packages.microsoft.com/keys/microsoft.asc
+Auflösen des Hostnamens packages.microsoft.com (packages.microsoft.com) … 40.114.136.21
+Verbindungsaufbau zu packages.microsoft.com (packages.microsoft.com)|40.114.136.21|:443 … verbunden.
+HTTP-Anforderung gesendet, auf Antwort wird gewartet … 200 OK
+Länge: 983 [application/octet-stream]
+Wird in ‘STDOUT’ gespeichert.
+
+-                   100%[==================>]     983  --.-KB/s    in 0s      
+
+...
+...
+deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main
+```
+
+Erneute Aktualisierung des Systems:
+
+```
+$ sudo apt update
+OK:1 http://de.archive.ubuntu.com/ubuntu jammy InRelease
+Holen:2 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]   
+OK:3 http://de.archive.ubuntu.com/ubuntu jammy-updates InRelease              
+OK:4 http://de.archive.ubuntu.com/ubuntu jammy-backports InRelease            
+Holen:5 https://packages.microsoft.com/repos/vscode stable InRelease [3.958 B]
+OK:6 https://download.docker.com/linux/ubuntu jammy InRelease                 
+Holen:7 https://packages.microsoft.com/repos/vscode stable/main amd64 Packages [332 kB]
+Es wurden 447 kB in 2 s geholt (282 kB/s).
+Paketlisten werden gelesen… Fertig
+Abhängigkeitsbaum wird aufgebaut… Fertig
+Statusinformationen werden eingelesen… Fertig
+Aktualisierung für 2 Pakete verfügbar. Führen Sie »apt list --upgradable« aus, um sie anzuzeigen.
+```
+
+Den Editor installieren
+
+```
+$ sudo apt install code
+Paketlisten werden gelesen… Fertig
+Abhängigkeitsbaum wird aufgebaut… Fertig
+Statusinformationen werden eingelesen… Fertig
+...
+...
+```
+
+Starte Visual Studio Code:
+
+```
+$ code
+
 ```
 
 > Wer eine grafische Benutzeroberfläche bevorzugt, öffnet Ubuntu Software, sucht nach "Visual Studio Code" und installiert die Anwendung per klick auf die angebotenecd Schalftläche.

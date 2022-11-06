@@ -2,12 +2,12 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-05
-title: 'Docker Compose unter Ubuntu 20.04 einrichten'
+date: 2022-11-03
+title: 'Configure Docker Compose with Ubuntu 22.04'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: en/ubuntu-docker-compose-einrichten-docker-lamp
-langKey: de
+langKey: en
 categories:
   - Betriebssystem
 tags:
@@ -17,41 +17,41 @@ tags:
   - Docker Compose
 ---
 
-Docker erleichtert die Konfiguration von Software mithilfe von Containern. Docker Compose vereinfacht die Arbeite mit mehreren Containern. Ich installiere [Docker Compose](https://docs.docker.com/compose/) unter Ubuntu 20.04.
+Docker simplifies the configuration of software using containers. Docker Compose simplifies working with multiple containers. I am installing [Docker Compose](https://docs.docker.com/compose/) on Ubuntu 22.04.
 
-## Voraussetzungen
+## Requirements
 
-Nach der Installation des Desktop Images von [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von _Docker Compose_ beginnen.
+After installing the desktop image of [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/), I have a _non-root superuser accounto_ and can directly start installing _Docker Compose_.
 
-## Installieren von Docker Compose
+## Installing Docker Compose
 
-Mit dem folgenden Befehl lädst du die Version `1.28.2` herunter und speicherst die ausführbare Datei unter `/usr/local/bin/docker-compose`. So ist diese global als `docker-compose` erreichbar. Die neueste **Docker Compose** Version findest du auf der [Seite](https://github.com/docker/compose/releases):
-
-```
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-```
-
-> Die aktuellste `docker-compose`-Version findest du auf [Github](https://github.com/docker/compose/releases)
-
-Setze die notwendigen Berechtigungen:
+With the following command you download the version `v2.12.2` and save the executable file under `/usr/local/bin/docker-compose`. This way it is globally accessible as `docker-compose`. The latest **Docker Compose** version can be found on [page](https://github.com/docker/compose/releases):
 
 ```
-sudo chmod +x /usr/local/bin/docker-compose
+mkdir -p ~/.docker/cli-plugins/
+curl -SL https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 ```
 
-Überprüfe die Version und somit auch die Installation:
+> The latest `docker-compose` version can be found on [Github](https://github.com/docker/compose/releases).
+
+Set the necessary permissions:
 
 ```
-docker-compose --version
-
-docker-compose version 1.28.2, build 67630359
+chmod +x ~/.docker/cli-plugins/docker-compose
 ```
 
-Docker Compose ist nun installiert. Richten wir nun eine `docker-compose.yml`-Datei ein.
+Check the version and thus also the installation:
 
-## Die `docker-compose.yml`-Datei
+```
+$ docker compose version
+Docker Compose version v2.12.2
+```
 
-Um einen Überblick zu bekommen lege ich ein einfaches Beispiel an. Ich erstelle mithilfe des [Nginx-Images](https://hub.docker.com/_/nginx) eine Webserverumgebung die eine statische HTML-Datei enthält. Dafür lege ich ein separates Verzeichnis an.
+Docker Compose is now installed. Next, we create a `docker-compose.yml` file.
+
+## The `docker-compose.yml` file
+
+To give me an overview as a beginner, I start with a simple example. Using the [Nginx image](https://hub.docker.com/_/nginx), I create a web server environment that contains a static HTML file. I create a separate directory for this.
 
 ```
 mkdir ~/compose-test
@@ -59,28 +59,28 @@ cd ~/compose-test
 
 ```
 
-Ich lege ein Verzeichnis an, in dem ich die HTML-Datei ablegen. Die Datei `~/compose-test/app/index.html` enthält einen einfachen Text:
+I create another directory in which I place the HTML file `~/compose-test/app/index.html`. The file `~/compose-test/app/index.html` contains the simple text `test`:
 
 ```
 mkdir app
 nano app/index.html
 ```
 
-> Ich verwende den Editor Nano. Hier klicke ich zum Speichern `STRG+X`, dann `Y` und zur Bestätigung `ENTER`.
+> I use the editor Nano. Here I click `STRG+X` to save, then `Y` and `ENTER` to confirm.
 
-Ich erstelle als nächstes die Datei `docker-compose.yml`:
+Next I create the file `docker-compose.yml`:
 
 ```
 nano docker-compose.yml
 
 ```
 
-Inhalt der Datei `docker-compose.yml` ist:
+The content of the file `docker-compose.yml` is:
 
 docker-compose.yml
 
 ```
-version: '1.0'
+version: '3.8'
 services:
   web:
     image: nginx:alpine
@@ -91,61 +91,68 @@ services:
 
 ```
 
-Die Datei `docker-compose.yml` beginnt mit der `version`.
+The file `docker-compose.yml` starts with the [version number](https://docs.docker.com/compose/compose-file/compose-versioning/)[^docs.docker.com/compose/compose-file/compose-versioning/] `version`.
 
-Dann folgt der `services`-Block, in dem wir die Dienste einrichten. Es gibt einen Dienst der das Image `nginx:alpine` verwendet und mit der Anweisung `ports` eine Portumleitung einrichtet. `volumes` erstellt ein [gemeinsames Volume](https://docs.docker.com/compose/compose-file/#volumes) - der lokale Ordner `app` wird mit dem Container unter `/usr/share/nginx/html` geteilt.
+Then comes the `services` block where we set up the services. There is a service that uses the image `nginx:alpine` and sets up port redirection with the `ports` statement. `volumes` creates a [shared volume](https://docs.docker.com/compose/compose-file/#volumes) - the local folder `app` is shared with the container under `/usr/share/nginx/html`.
 
-Im nächsten Schritt stellen wir diese Umgebung mithilfe von Docker Compose bereit.
+In the next step, we deploy this environment using Docker Compose.
 
-## Ausführen von Docker Compose
+## Running Docker Compose
 
-Die Datei `docker-compose.yml` enthälte alle Informationen. Der folgende Befehl (im Verzeichnis composer-test aufgerufen) lädt alle notwendigen Images herunter, erstellt einen Container für den `web`-Dienst und führt die Umgebung im Hintergrundmodus aus:
+The file `docker-compose.yml` contains all the information. The following command 
+- downloads all necessary images, 
+- creates a container for the `web` service and 
+- runs the environment in background mode.
+
+The command has to be called in the `composer-test` directory.
 
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 Die Ausgabe sieht beispeilsweise so aus:
 
 ```
-Creating network "app_default" with the default driver
-Pulling web (nginx:alpine)...
-alpine: Pulling from library/nginx
-ksuhret5bc2a: Pull complete
-...
-Creating compose-test_web_1 ... done
+$ docker compose up -d
+[+] Running 7/7
+ ⠿ web Pulled                                                  11.7s
+   ⠿ 213ec9aee27d Pull complete                                 6.4s
+   ⠿ ae98275d0ecb Pull complete                                 7.7s
+   ⠿ 121e2d9f6af2 Pull complete                                 7.9s
+   ⠿ 6a07d505af0f Pull complete                                 8.0s
+   ⠿ 3e8957b70867 Pull complete                                 8.1s
+   ⠿ 2806408d582e Pull complete                                 8.2s
+[+] Running 2/2
+ ⠿ Network compose-test_default  Created                        0.3s
+ ⠿ Container compose-test-web-1  Started                        2.1s
+
 ```
 
 Ich überprüfen, ob der Container aktiv ist:
 
 ```
-docker-compose ps
+$ docker compose ps
+NAME                 COMMAND                  SERVICE             STATUS              PORTS
+compose-test-web-1   "/docker-entrypoint.…"   web                 running             0.0.0.0:8000->80/tcp, :::8000->80/tcp
 
 ```
 
-Dieser Befehl zeigt Informationen über die ausgeführten Container an:
+Thus, the container is active.
+
+> `docker ps` lists all running containers in the Docker Engine. `docker compose ps` lists containers that refer to images declared in the `docker-compose.yml` file. The result of `docker compose ps` is a subset of the result of `docker ps`.
+
+In the Internet browser at the URL `localhost:8000` the contents of `~/compose-test/app/index.html` are now displayed. In my example this is the text `test`.
+
+If I change the content of `~/compose-test/app/index.html`, this is automatically taken over by the container and updated in the browser.
+
+## Docker Compose commands
+
+We created a `docker-compose.yml` file and called it with `docker compose`. Docker Compose offers more.
+
+The `docker compose logs` command shows the logged messages:
 
 ```
-  Name                     Command               State          Ports
-----------------------------------------------------------------------------------
-compose-test_web_1          /docker-entrypoint.sh ngin ...   Up      0.0.0.0:8000->80/tcp
-
-```
-
-> `docker ps` listet alle laufenden Container in der Docker-Engine auf. `docker-compose ps` listet Container auf, die sich auf Images beziehen, die in der `docker-compose.yml`-Datei deklariert sind. Das Ergebnis von `docker-compose ps` ist eine Teilmenge des Ergebnisses von `docker ps`.
-
-Im Browser unter der URL `localhost:8000`, oder auf `Remote_IP:8000`, wird nun der Inhalt von `~/compose-test/app/index.html` angezeigt.
-
-Wenn ich `~/compose-test/app/index.html` ändere, wird dies automatisch vom Container übernommen und im Browser angezeigt.
-
-## Docker Compose Befehle
-
-Wir haben eine `docker-compose.yml`-Datei erstellt und mit `docker-compose` aufgerufen. Docker Compose biete mehr.
-
-Der Befehl `docker-compose logs` zeigt die mitprotokollierten Meldungen:
-
-```
-docker-compose logs
+docker compose logs
 
 ```
 
@@ -167,25 +174,25 @@ web_1  | 172.19.0.1 - - [30/Aug/2020:20:58:13 +0000] "GET / HTTP/1.1" 200 353 "-
 In den Pausemodus schalte ich mit:
 
 ```
-docker-compose pause
+docker compose pause
 ```
 
 Die Pause beende ich mit:
 
 ```
-docker-compose unpause
+docker compose unpause
 ```
 
 Der Befehl `stop` beendet die Ausführung des Containers:
 
 ```
-docker-compose stop
+docker compose stop
 ```
 
 Verknüpften Container, Netzwerke und Volums werden mit `down` entfernt:
 
 ```
-docker-compose down
+docker compose down
 ```
 
 Das Image entferne ich mit:
@@ -194,6 +201,6 @@ Das Image entferne ich mit:
 docker image rm nginx:alpine
 ```
 
-Eine vollständige Referenz aller verfügbaren `docker-compose` Befehle ist die [offizielle Dokumentation](https://docs.docker.com/compose/reference/).
+Eine vollständige Referenz aller verfügbaren `docker compose` Befehle ist die [offizielle Dokumentation](https://docs.docker.com/compose/reference/).
 
 <img src="https://vg02.met.vgwort.de/na/a7f6285533aa40d387d451eea40085e9" width="1" height="1" alt="">

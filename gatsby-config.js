@@ -84,14 +84,14 @@ module.exports = {
     },
 
     // Webmentions
-/*    { 
+    { 
       resolve: "gatsby-source-webmentions",
       options: {
         DOMAIN: "blog.astrid-guenther.de", // without https and any slashes
         TOKEN: process.env.WEBMENTIONS_TOKEN, // token from webmention.io
         perPage: 100, // optional
       },
-    },    */
+    },   
 
     // ===================================================================================
     // Images and static

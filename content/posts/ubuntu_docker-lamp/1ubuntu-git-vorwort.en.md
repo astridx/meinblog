@@ -2,8 +2,8 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-02
-title: 'Ubuntu 20.04, Docker, docker-lamp and Joomla Preface'
+date: 2022-11-03
+title: 'Ubuntu 22.04, Docker, docker-lamp and Joomla Preface'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: en/ubuntu-vorwort-docker-lamp
@@ -15,7 +15,7 @@ tags:
   - Ubuntu
 ---
 
-I have downloaded and installed the desktop image of [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/). That was no hard work.
+I have downloaded and installed the desktop image of [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/). That was no hard work.
 
 I adjusted [region and language](https://help.ubuntu.com/stable/ubuntu-help/prefs-language.html.de).
 

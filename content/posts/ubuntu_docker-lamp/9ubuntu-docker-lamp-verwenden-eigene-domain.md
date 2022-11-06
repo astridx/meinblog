@@ -77,10 +77,10 @@ SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test
 
 Mit `mkdir` erstelle ich auf dem Webserver das Verzeichnis, welches die Daten zur neuen Domain beinhalten wird.
 
-> Zur Erinnerung: Mein Webserver Stammverzeichnis ist `/srv/www/`
+> Zur Erinnerung: Mein Webserver Stammverzeichnis ist `./data/`
 
 ```
-mkdir /srv/www/tutorial
+mkdir ./data/tutorial
 ```
 
 ##### Zertifikat
@@ -120,10 +120,10 @@ EXTRA_HOSTS=astrid-guenther.de=192.168.209.147
 
 Mit `mkdir` erstelle ich dann auf dem Webserver das Verzeichnis, welches die Daten zur Domain `astrid-guenther.de` beinhalten wird.
 
-> Zur Erinnerung: Mein Webserver Stammverzeichnis ist `/srv/www/`
+> Zur Erinnerung: Mein Webserver Stammverzeichnis ist `./data/`
 
 ```
-mkdir /srv/www/astrid-guenther
+mkdir ./data/astrid-guenther
 ```
 
 <img src="https://vg02.met.vgwort.de/na/3cb53e3046464e33bca6719d817f7426" width="1" height="1" alt="">

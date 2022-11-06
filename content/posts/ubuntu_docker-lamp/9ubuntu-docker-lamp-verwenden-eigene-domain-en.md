@@ -59,7 +59,7 @@ Datenbank-Sicherung abgeschlossen.
 
 Stopping docker-lamp_httpd      ... done
 Stopping docker-lamp_php74      ... done
-Stopping docker-lamp_php80      ... done
+Stopping docker-lamp_php81      ... done
 Stopping docker-lamp_php73      ... done
 Stopping docker-lamp_php56      ... done
 Stopping docker-lamp_phpmyadmin ... done
@@ -68,7 +68,7 @@ Stopping docker-lamp_mysql      ... done
 Stopping docker-lamp_bind       ... done
 Removing docker-lamp_httpd      ... done
 Removing docker-lamp_php74      ... done
-Removing docker-lamp_php80      ... done
+Removing docker-lamp_php81      ... done
 Removing docker-lamp_php73      ... done
 Removing docker-lamp_php56      ... done
 Removing docker-lamp_phpmyadmin ... done
@@ -101,12 +101,12 @@ SSL_LOCALDOMAINS=tutorial.local,*.tutorial.local,tutorial.test,*.tutorial.test
 
 #### Webserver
 
-Mit `mkdir /srv/www/tutorial` erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird.
+Mit `mkdir ./data/tutorial` erstelle ich auf dem Webserver das Verzeichnis, dass die Daten zur neuen Domain beinhalten wird.
 
-> Mein Webserver Stammverzeichnis ist `/srv/www/`
+> Mein Webserver Stammverzeichnis ist `./data/`
 
 ```
-mkdir /srv/www/tutorial
+mkdir ./data/tutorial
 ```
 
 ![Webserver Stammverzeichnis](/images/neuedomainwebserver.png)
@@ -136,7 +136,7 @@ Creating docker-lamp_mysql   ... done
 Creating docker-lamp_mailhog    ... done
 Creating docker-lamp_phpmyadmin ... done
 Creating docker-lamp_php73      ... done
-Creating docker-lamp_php80      ... done
+Creating docker-lamp_php81      ... done
 Creating docker-lamp_php56      ... done
 Creating docker-lamp_php74      ... done
 Creating docker-lamp_httpd      ... done

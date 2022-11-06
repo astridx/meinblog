@@ -2,8 +2,8 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-03
-title: 'Git unter Ubuntu 20.04 einrichten'
+date: 2022-11-03
+title: 'Git unter Ubuntu 22.04 einrichten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-git-einrichten-docker-lamp
@@ -16,11 +16,11 @@ tags:
   - Git
 ---
 
-Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden, installiere und konfiguriere ich als erstes Git.
+Ich verwalte meine Softwareprojekte mit Git. So greife ich jederzeit auf verschiedene Versionsstände zurück. Installiere und konfiguriere ich als erstes Git, Um die Dateien unkompliziert in der Versionsverwaltung auf den neuen Rechner zu laden.
 
 ## Voraussetzungen
 
-Nach der Installation des Desktop Images von [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/20.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Git beginnen.
+Nach der Installation des Desktop Images von [Ubuntu 22.04 LTS (Jammy Jellyfish)](https://releases.ubuntu.com/22.04/) verfüge ich über ein _non-root-Superuser-Konto_ und kann direkt mit der Installation von Git beginnen.
 
 ## Installieren von Git mit Standardpaketen
 
@@ -70,7 +70,7 @@ git --version
 Die Ausgabe sollte beispielsweise wie folgt sein:
 
 ```
-version 2.25.1
+version 2.34.1
 
 ```
 
@@ -124,19 +124,5 @@ Die Ausgabe sollte wie folgt sein.
 > Drücke `STRG` und `X`, dann `Y` und anschließend die `Eingabetaste`, um den Texteditor Nano zu verlassen.
 
 Es gibt viele weitere [Optionen](https://git-scm.com/book/de/v2/Git-einrichten-Git-Konfiguration)[^git-scm.com/book/de/v2/Git-einrichten-Git-Konfiguration]. Die hier beschriebenen sind meiner Meinung nach für den Anfang die wichtigsten. 
-
-## Gesamtes Set
-
-1. [Vorwort](/ubuntu-vorwort-docker-lamp)
-
--> 2. [Git](/ubuntu-git-einrichten-docker-lamp)
-
-3. [Docker](/ubuntu-docker-einrichten-docker-lamp)
-4. [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp)
-5. [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten)
-6. [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden)
-7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
-8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
-9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)
 
 <img src="https://vg02.met.vgwort.de/na/6da1ef5e40714b0481cbacda81aa9df6" width="1" height="1" alt="">

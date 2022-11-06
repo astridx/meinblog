@@ -2,7 +2,7 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-08
+date: 2022-11-06
 title: 'docker-lamp mit eigenen _jorobo_ Projekten'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
@@ -27,17 +27,17 @@ Besides [Docker](/en/ubuntu-docker-set-up-docker-lamp), [Docker Compose](/en/ubu
 
 ## Own projects
 
-I store my projects in the directory `/home/youruser/git/joomla-development`. The directory is available in the container because I set it that way in the [docker-lamp-setup](/ubuntu-docker-lamp-setup) section using `docker-compose.override.yml`.
+I store my projects in the directory `/home/youruser/git`. The directory is available in the container because I set it that way in the [docker-lamp-setup](/ubuntu-docker-lamp-setup) section using `docker-compose.override.yml`.
 
 ### Include your own projects
 
 ##### An example project
 
-Wer mein Beispiel nachvollziehen möchte, sollte das Beispielprojekt `https://github.com/astridx/boilerplate.git` in sein Projektverzeichnis klonen.
+Wer mein Beispiel nachvollziehen möchte, sollte das Beispielprojekt `https://codeberg.org/astrid/j4examplecode.git` in sein Projektverzeichnis klonen.
 
 ```
-$ git clone https://github.com/astridx/boilerplate.git
-Klone nach 'boilerplate' ...
+$ git clone https://codeberg.org/astrid/j4examplecode.git
+Klone nach 'j4examplecode' ...
 ...
 Löse Unterschiede auf: 100% (6886/6886), fertig.
 ```
@@ -45,7 +45,8 @@ Löse Unterschiede auf: 100% (6886/6886), fertig.
 Anschließend ins Verzeichnis des Beispielprojekts wechseln.
 
 ```
-$ cd boilerplate/
+$ cd j4examplecode/
+$ git checkout tutorial
 ```
 
 ##### Optional: Ein Projekt mit _jorobo_
@@ -65,15 +66,16 @@ Um all diese Funktionen nutzen zu können, ist es erforderlich mit Composer PHP-
 
 ###### Mit Composer PHP-Abhängikeiten installieren
 
-Composer steht in den Containern ab PHP-Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/home/astrid/git/joomla-development/boilerplate` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
+Composer steht in den Containern ab PHP-Version 7.3 zur Verfügung. So kann ich mein Projekt, das im Container im Verzeichnis `/home/astrid/git/j4examplecode` eingebunden ist, über den nachfolgendenen Befehl mit allen Abhängigkeiten versorgen.
 
 ```
-$ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate docker-lamp_php80 composer install
+$ docker exec -it --user 1000 -w /git/j4examplecode docker-lamp_php74 composer install
 
 ```
 
-> Um in einem Container Composer aufzurufen, muss Git installiert sein: `docker exec -it docker-lamp_php80 apk add git`.  
-> `OCI runtime exec failed: exec failed: container_linux.go:370: starting container process caused: chdir to cwd ("/srv/git/boilerplate") set in config.json failed: no such file or directory: unknown` weißt darauf hin, dass man sich im Pfad vertippt hat.
+> Um in einem Container Composer aufzurufen, muss Git installiert sein: `docker exec -it docker-lamp_php81 apk add git`. 
+
+> Die Meldung `OCI runtime exec failed: exec failed: container_linux.go:370: starting container process caused: chdir to cwd ("/srv/git/j4examplecode") set in config.json failed: no such file or directory: unknown` weißt darauf hin, dass man sich im Pfad vertippt hat.
 
 ###### Projekte symlinken
 
@@ -82,18 +84,8 @@ Nachdem alle Abhängigkeiten über Composer installiert wurden, ist es möglich 
 Dazu wechsele ich nun wieder in mein Projektverzeichnis.
 
 ```
-$ docker exec -it --user 1000 -w /home/astrid/git/joomla-development/boilerplate docker-lamp_php73 ./vendor/bin/robo map /srv/www/joomla/j4dev
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/plugins/webservices/foos","/srv/www/joomla/j4dev/plugins/webservices/foos"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/modules/mod_foo","/srv/www/joomla/j4dev/modules/mod_foo"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/media/com_foos","/srv/www/joomla/j4dev/media/com_foos"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/de-DE/pkg_foos.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.ini"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/de-DE/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/de-DE/pkg_foos.sys.ini"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/en-GB/pkg_foos.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.ini"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/language/en-GB/pkg_foos.sys.ini","/srv/www/joomla/j4dev/language/en-GB/pkg_foos.sys.ini"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/administrator/components/com_foos","/srv/www/joomla/j4dev/administrator/components/com_foos"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/templates/facile","/srv/www/joomla/j4dev/templates/facile"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/components/com_foos","/srv/www/joomla/j4dev/components/com_foos"]
- [Filesystem\FilesystemStack] symlink ["/home/astrid/git/joomla-development/boilerplate/src/api/components/com_foos","/srv/www/joomla/j4dev/api/components/com_foos"]
+$ docker exec -it --user 1000 -w /git/j4examplecode docker-lamp_php74 ./vendor/bin/robo map /home/astrid/docker-lamp/data/www/joomla/j4dev
+
 
 ```
 

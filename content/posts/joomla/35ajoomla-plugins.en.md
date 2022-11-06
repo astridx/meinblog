@@ -134,6 +134,154 @@ A Web Services plug-in adds the routes of an extension to the website's API. We 
 
 In workflow management, there are different transitions that can be manipulated using a plugin.
 
+
+## Examples
+
+### Indiewebify Joomla
+
+I have created example plugins that together allow an very easy realisation of the IndieWeb.
+
+What does *Indiewebify* mean and what is the *IndieWeb*? 
+
+The *IndieWeb* allows a person to publish their thoughts and ideas in one place and then share them on other social websites. It is important to always remain the owner of your own digital content. 
+
+What if a social network develops in such a way that you no longer feel comfortable there and therefore no longer visit it? Or the owner of the website decides to shut it down? All your contributions are lost!
+
+In my opinion, a digital profile and its content should not be an identity owned by an external company. A person should be the sole owner of the content they share online. And that's what *IndieWeb_ encourages people to do.
+
+> The _IndieWeb_ is a people-centred alternative to the _Corporate Web_ is a quote I took from the website [IndieWeb.org](https://indieweb.org/)[^indieweb.org/]. The website [indiewebify.me/](https://indiewebify.me/) supported me in the implementation. I first read about this on the blog [chringel.dev](https://chringel.dev/2022/07/indiewebify-me-and-dont-forget-my-webmentions/).
+
+1. set up web sign-in
+To authenticate yourself as the owner of your website using your domain, you need to set up a way to sign in using IndieAuth. That is, you use your domain to verify yourself as the owner of your other social profiles. Simply add a `rel=me` microformat to all your links that lead to your profiles on other platforms. We do this within the content plugin.
+
+2. add author markup
+The next step is to provide some basic information about the author on the website. Often there is already an `about me` page, but it is not machine readable. The microformat `h-card` provides properties that can be parsed. I have added these invisibly to the markup of the website in combination with the following element. This way the design of the template is not affected.
+
+3. add content tagging
+If you want to publish content on the IndieWeb, it needs to be machine-readable. I added the `h-entry` microformat. The website IndieWebify.me was a great help in this step. In this plugin I add the following `h-entry` properties:
+- `p-name` - the title of the post.
+- `e-content` - the content of the post
+- `p-author` - who wrote the post
+- `dt-published` - when the post was published
+- `p-summary` - the intro of an Joomla article
+
+Now my content is correctly tagged and can be used by IndieWeb.
+
+4. add webmentions
+What are webmentions? Webmentions are a [W3C Recommendation](https://www.w3.org/TR/webmention/)[^w3.org/TR/webmention/] for conversations and interactions on web pages. It is a simple way to notify a URL when it is mentioned on a web page. Basically, it's a way to interact with other people's content from your own website.
+
+Example: I read a post on another blog and want to respond to it. I can do that by writing a post on my website and linking to the other post. Then I can send a webmention to the other blog to let them know that I have reacted to the post from my website. That sounds complicated? Well, it's just like most social networks where you respond to a post by commenting or liking it.
+
+There is a simple way to set up webmentions: Webmention.io. It's a service that handles webmentions by using web sign-in and adding some endpoints as links to your website. Here in the example we set the endpoints, which I add to the head of the website via a system plugin.
+
+> An alternative to Webmention.io is Go-Jamming by Wouter Groeneveld.
+
+What was missing was a way to display the webmentions. The procedure in the content plugin for parsing webmentions is currently dynamic. This is not performant. A better solution is to retrieve the webmentions from time to time and store them in the database.
+
+5. syndication and backfeed
+A final piece of the puzzle are: _POSSE_ and _Backfeed_. 
+
+_POSSE_ means that you first publish your content on your own website and then post links on other platforms (Publish on Site, Syndicate Elsewhere). For example, by sharing about your post on Mastodon and then adding a link to your website.
+
+_Backfeed_ describes the process of pulling the interactions of your POSSE copy to the original post. So when someone comments on a toot with the link to your post, it is actually redirected to your website as a webmention.
+
+> Working through the 5 points makes a Joomla website a level 2 IndieWeb citizen. The plugins described below are a simple implementation. Web Sign-In can be used via the system plugin, there is content with microformats via the content plugin and webmentions are sent to and received from other IndieWeb sites. Syndication is a problematic issue. The process is a bit convoluted and I'm not sure I'm implementing it properly. You have to publish your own post first, then share the link, and lastly add that shared link to your own post. This is where the editors-xtd plugin helps.
+
+### [System](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_System_Group/en)<!-- \index{plugins!System} -->
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.php
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/indieweb.xml
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.ini
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/system/indieweb/language/en-GB/plg_system_indieweb.sys.ini
+
+
+```
+
+### [Content](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Content_Group/en)<!-- \index{plugins!Content} -->
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.php
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/indieweb.xml
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.ini
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/content/indieweb/language/en-GB/plg_content_indieweb.sys.ini
+
+
+```
+
+
+
+
+### [Editor Button](https://docs.joomla.org/Chunk4x:Extensions_Plugin_Manager_Edit_Button_Group/en)<!-- \index{plugins!Editor Button} -->
+
+[administrator/components/com_foos/src/View/Foos/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t1/src/administrator/components/com_foos/src/View/Foos/HtmlView.php)
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/joomla.asset.json
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/media/plg_editors-xtd_indieweb/js/admin-article-indieweb.js
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.php
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/indieweb.xml
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.ini
+
+
+```
+
+```php {numberLines: -2}
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t30a/src/plugins/editors-xtd/indieweb/language/en-GB/plg_editors-xtd_indieweb.sys.ini
+
+
+```
+
 ## FAQ about plugins
 
 ### Activate plugin automatically during installation

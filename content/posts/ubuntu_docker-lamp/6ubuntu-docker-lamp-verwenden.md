@@ -2,8 +2,8 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-07
-title: 'docker-lamp einrichten'
+date: 2022-11-05
+title: 'docker-lamp im Einsatz'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: ubuntu-docker-lamp-verwenden
@@ -29,15 +29,21 @@ Neben [Docker](/ubuntu-docker-einrichten-docker-lamp) ist [Docker Compose](/ubun
 
 Wenn der Server zwischenzeitlich heruntergefahren wurde, starte ihn über `./docker-lamp start` im Verzeichnis `docker-lamp`.
 
-Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.local/` das folgende Bild anzeigen. Du siehst die Ansicht, nachdem die beiden Verzeichnisse `j4dev` und `j3dev` im Verzeichnis `joomla` angelegt wurden.
+Im Webbrowser sollte nun die URL `https://joomla.test/` oder `https://joomla.local/` etwas Ähnliches wie das folgende Bild anzeigen. Du siehst die Ansicht, nachdem die beiden Verzeichnisse `j4dev` und `j3dev` im Verzeichnis `joomla` angelegt wurden.
 
 ![Webserver Oberfläche](/images/joomlalocal1.png)
 
 ### Webserverumgebung einrichten
 
-#### Stammverzeichnis des Webservers unter /srv/www einrichten
+#### Verwendung des Standardverzeichnisses
 
-Ich beschreibe meine Vorgehensweise als Beispiel, bei der ich `/srv/www` als Stammverzeichnis im Webserver nutze. Hierfür hatte ich die Variable `APP_BASEDIR` in der Datei `.env` wie folgt abgeändert.
+Wenn du das Verzeichnis `/www`, das unter `/docker-lamp/data/www` vorhanden ist, als Stammverzeichnis des Webservers verwendest, kannst du diesen Abschnitt überspringen und mit der Installation von Joomla weiter machen.
+
+##### Optional Stammverzeichnis des Webservers unter ./data einrichten
+
+###### Verzeichnis einrichten
+
+Ich beschreibe meine Vorgehensweise als Beispiel, bei der ich `home/youruser/docker-lamp/data` als Stammverzeichnis im Webserver nutze. Hierfür hatte ich die Variable `APP_BASEDIR` in der Datei `.env` wie folgt abgeändert.
 
 ```
 ...
@@ -80,7 +86,7 @@ sudo chown -R deinBenutzer:deinBenutzer /srv/www/
 
 > Zur Erinnerung `whoami` zeigt dir deinen Benutzer. `groups` zeigt dir, in welchen Gruppen du bist.
 
-##### Am Ende sollte dies für die Entwicklung mit Joomla vorhanden sein
+###### Am Ende sollte dies für die Entwicklung mit Joomla vorhanden sein
 
 1. In der Root sollte das Verzeichnis `srv` dem Benutzer `root` gehören.
 
@@ -108,23 +114,23 @@ drwxrwxr-x  2 root   root   4096 Mai 15 05:36 phpinfo/
 drwxrwxr-x  5 deinBenutzer deinBenutzer 4096 Mai 17 03:44 www/
 ```
 
-3. Das Verzeichnis `/srv/www` sieht wie folgt aus:
+3. Das Verzeichnis `home/youruser/docker-lamp/data` sieht wie folgt aus:
 
 ```
 $ ll
 insgesamt 28
-drwxrwxr-x 5 astrid astrid 4096 Mai 17 03:44 ./
+drwxrwxr-x 5 youruser youruser 4096 Mai 17 03:44 ./
 drwxrwxr-x 9 root   root   4096 Mai 17 14:50 ../
--rw-rw-r-- 1 astrid astrid 3981 Mai 17 01:12 htaccess.txt
-drwxrwxr-x 2 astrid astrid 4096 Mai 17 03:45 joomla/
--rw-rw-r-- 1 astrid astrid   35 Mai 15 05:36 README.md
-drwxrwxr-x 2 astrid astrid 4096 Mai 15 05:36 wp/
-drwxrwxr-x 2 astrid astrid 4096 Mai 15 05:36 wp-multisite/
+-rw-rw-r-- 1 youruser youruser 3981 Mai 17 01:12 htaccess.txt
+drwxrwxr-x 2 youruser youruser 4096 Mai 17 03:45 joomla/
+-rw-rw-r-- 1 youruser youruser   35 Mai 15 05:36 README.md
+drwxrwxr-x 2 youruser youruser 4096 Mai 15 05:36 wp/
+drwxrwxr-x 2 youruser youruser 4096 Mai 15 05:36 wp-multisite/
 ```
 
 > Wer für Wordpress entwickeln möchte, legt analog zum `joomla`-Ordner die von docker-lamp vorgesehen Verzeichnisse `wp` und `wp-multisite` an.
 
-##### Abschlusstest
+###### Abschlusstest
 
 Zum Test den Befehl `./docker-lamp start` im Verzeichnis `docker-lamp` aufrufen, um den Server neu zu starte.
 
@@ -140,23 +146,23 @@ Jenachdem, ob du mit der Entwicklerversion von Joomla arbeitest oder eine stabil
 
 ###### Joomla 4
 
-Die Developement Versionen klonen wir von Github in den Unterordner `joomla` des Webserver-Stammverzeichnises, genau in das Verzeichnis `/srv/www/joomla`.
+Die Developement Versionen klonen wir von Github in den Unterordner `joomla` des Webserver-Stammverzeichnises, genau in das Verzeichnis `./data/joomla`.
 
-Ich wechsele dazu in den Ordner `/srv/www/joomla` und setze den folgenden Aufruf ab.
-
-```
-cd /srv/www/joomla
-
-git clone --depth 1 https://github.com/joomla/joomla-cms.git -b 4.1-dev
+Ich wechsele dazu in den Ordner `./data/joomla` und setze den folgenden Aufruf ab.
 
 ```
+cd ./data/joomla
 
-> `4.1-dev` steht für den Zweig. Unter Umständen möchtest du eine andere Version verwenden. Ändere in diesem Fall einfach dies Angabe ab. In früheren Versionen war es so, dass der aktuelle Zweit immer `staging` benannt war. Dies hat sich mit Joomla in Version 4.0 geändert.
+git clone --depth 1 https://github.com/joomla/joomla-cms.git -b 4.2-dev
+
+```
+
+> `4.2-dev` steht für den Zweig. Unter Umständen möchtest du eine andere Version verwenden. Ändere in diesem Fall einfach dies Angabe ab. In früheren Versionen war es so, dass der aktuelle Zweit immer `staging` benannt war. Dies hat sich mit Joomla in Version 4.0 geändert.
 
 Als Ergebnis sehe ich:
 
 ```
-/srv/www/joomla$ ll
+./data/joomla$ ll
 insgesamt 12
 drwxr-xr-x  3 deinBenutzer deinBenutzer 4096 Feb  6 13:18 ./
 drwxr-xr-x  3 deinBenutzer deinBenutzer 4096 Feb  6 13:08 ../
@@ -179,24 +185,25 @@ Soweit so gut! Die [Entwicklungsumgebung](https://docs.joomla.org/J4.x:Setting_U
 
 > Warum nutze ich in den nachfolgenden Befehlen die 1000 anstelle von `user` oder `group`? In Ubuntu ist `1000` die erste ID die im Falle von Benutzern und Gruppen bei der Installation angelegt wird. Wenn man das System selbst installiert hat, hat man somit die ID 1000. Überprüfen kann man dies mit dem Befehl `id -u`.
 
-Der nachfolgende Befehl führt `composer install` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80`-Containers als Benutzer `1000` aus.
+Der nachfolgende Befehl führt `composer install` im Verzeichnis `./data/joomla/j4dev` des `docker-lamp_php81`-Containers als Benutzer `1000` aus.
 
 > Eine eventuelle lokale Installation von _Composer_ ist verwendbar. Dazu auf dem Rechner in das `j4dev` Verzeichnis wechseln und dort den Befehl [`composer install`](https://getcomposer.org/doc/03-cli.md#install-i) aufrufen.
 
 ```
-docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php80 composer install
+docker exec -it --user 1000 -w /srv/www/joomla/j4dev docker-lamp_php74 composer install
 ```
 
-> Alternativ könntest du die docker-lamp Befehle verwenden: `./docker-lamp cli php80` ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. `./docker-lamp cli php80` bewirkt das gleiche wie `docker exec -ti docker-lamp_php80 sh`. Es öffent sich eine Shell und du kannst direkt im Container in das korrekte Unterverzeichnis wechseln und den Befehl `composer install` aufrufen.
+> Alternativ könntest du die docker-lamp Befehle verwenden: `./docker-lamp cli php81` ist eine Hilfe für diejenigen, die die Docker-Befehle nicht kennen. `./docker-lamp cli php81` bewirkt das gleiche wie `docker exec -ti docker-lamp_php81 sh`. Es öffent sich eine Shell und du kannst direkt im Container in das korrekte Unterverzeichnis wechseln und den Befehl `composer install` aufrufen.
 
-> Composer ist in den Containern mit PHP 7.3 (docker-lamp_php73), 7.4 (docker-lamp_php74) und 8.0 (docker-lamp_php80) vefügbar.
+> Composer ist in den Containern mit PHP 7.3 (docker-lamp_php73), 7.4 (docker-lamp_php74), 8.1 (docker-lamp_php81 und 8.2 (docker-lamp_php82) verfügbar.
 
-Der nachfolgende Befehl führt `npm ci` im Verzeichnis `/srv/www/joomla/j4dev` des `docker-lamp_php80` Containers als Benutzer `1000` aus. Wir möchten `npm` aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters `--rm`.
+Der nachfolgende Befehl führt `npm ci` im Verzeichnis `./data/joomla/j4dev` des `docker-lamp_php81` Containers als Benutzer `1000` aus. Wir möchten `npm` aber nicht dauerhaft im Container haben. Deshalb löschen wir es anschließen. Dies bewirkt der Parameters `--rm`.
 
 > Eventuelle lokale Installationen von _Node.js_ beziehungsweise _npm_ sind verwendbar. Dazu auf dem Rechner in das `j4dev` Verzeichnis wechseln und dort den Befehl [`npm ci`](https://docs.npmjs.com/cli/v6/commands/npm-ci) aufrufen.
 
 ```
-docker run --rm -it --user 1000 -v /srv/www/joomla/j4dev:/srv/www/joomla/j4dev -w /srv/www/joomla/j4dev node:latest npm ci
+$ docker run --rm -it --user 1000 -v /home/youruser/docker-lamp/data/www/joomla/j4dev:/home/youruser/docker-lamp/data/www/joomla/j4dev -w /home/youruser/docker-lamp/data/www/joomla/j4dev node:latest npm ci
+
 ```
 
 Ich überprüfe die Ausgabe erneut im Browser. `https://j4dev/joomla.local` oder `https://j4dev.joomla.test` sind die passenden URLs.
@@ -220,7 +227,7 @@ Aus Sicherheitsgründen ist es erforderlich bei einer Installation eine Datei im
 Analog zur Installation der Joomla 4 Entwicklerversion wende ich die nachfolgenden Befehle an.
 
 ```
-cd /srv/www/joomla
+cd ./data/joomla
 
 git clone --depth 1 https://github.com/joomla/joomla-cms.git -b 3.10-dev
 
@@ -237,7 +244,7 @@ Die Installationroutine von Joomla öffnet sich.
 
 ##### Stabile Versionen
 
-Im Falle einer stabilen Version besorge ich mir das ZIP File von [Github](https://github.com/joomla/joomla-cms/releases) und entpacke es im Ordner `/srv/www/joomla`.
+Im Falle einer stabilen Version besorge ich mir das ZIP File von [Github](https://github.com/joomla/joomla-cms/releases) und entpacke es im Ordner `./data/joomla`.
 
 Wenn das Paket entpackt ist, benenne ich es um. Der Name `j3` bedeute bei mir, dass dies die letzte stabile Version der 3er-Reihe ist. `joomla-cms` würde mir nichts über die Version sagen.
 
@@ -249,21 +256,21 @@ Für die Installation ist alles bereit.
 
 #### Was bietet docker-lamp
 
-Ich habe Joomla im Container `docker-lamp_php80` installiert. Zur Verfügung steht es mir in allen unterstützten PHP-Versionen.
+Ich habe Joomla im Container `docker-lamp_php81` installiert. Zur Verfügung steht es mir in allen unterstützten PHP-Versionen.
 
 ##### Ein kleiner Rundgang zum Orientieren
 
-Eine Befehlszeile des Containers `docker-lamp_php80` öffne ich über `docker exec -ti docker-lamp_php80 sh` oder alternativ könnte ich den `docker-lamp`-Befehl verwenden: `./docker-lamp cli php80`. Voraussetzung ist, dass `docker-lamp` gestartet ist!
+Eine Befehlszeile des Containers `docker-lamp_php81` öffne ich über `docker exec -ti docker-lamp_php81 sh` oder alternativ könnte ich den `docker-lamp`-Befehl verwenden: `./docker-lamp cli php81`. Voraussetzung ist, dass `docker-lamp` gestartet ist!
 
 ```
-$ docker exec -ti docker-lamp_php80 sh
-php80:/srv/www# 
+$ docker exec -ti docker-lamp_php81 sh
+php81:./data# 
 ```
 
 `cat /etc/issue` im Container aufgerufen zeigt mir das Betriebssystem und die Version.
 
 ```
-php80:/srv/www# cat /etc/issue
+php81:./data# cat /etc/issue
 Welcome to Alpine Linux 3.15
 Kernel \r on an \m (\l)
 ```
@@ -271,7 +278,7 @@ Kernel \r on an \m (\l)
 Mittels `php -i | grep php.ini` finde ich heraus, welche `php.ini` geladen wird.
 
 ```
-php80:/srv/www# php -i | grep php.ini
+php81:./data# php -i | grep php.ini
 Configuration File (php.ini) Path => /usr/local/etc/php
 Loaded Configuration File => /usr/local/etc/php/php.ini
 ```
@@ -281,7 +288,7 @@ Loaded Configuration File => /usr/local/etc/php/php.ini
 Aus dem Container komme ich via `exit` wieder heraus.
 
 ```
-php80:/srv/www# exit
+php81:./data# exit
 $
 ```
 
@@ -290,9 +297,9 @@ Die Namen der Container erfahre ich mittels `docker ps`.
 ```
 $ docker ps
 CONTAINER ID   IMAGE                               COMMAND                  CREATED         STATUS         PORTS                                                                                                                                                                                                                                                                                                                                                                                              NAMES
-ed6d95aacc7b   degobbis/apache24-alpine:latest     "/httpd-php-entrypoi…"   4 minutes ago   Up 4 minutes   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:8074->8074/tcp, :::8074->8074/tcp, 0.0.0.0:8080-8081->8080-8081/tcp, :::8080-8081->8080-8081/tcp, 0.0.0.0:8400->8400/tcp, :::8400->8400/tcp, 0.0.0.0:8474->8474/tcp, :::8474->8474/tcp, 80/tcp, 0.0.0.0:8480-8481->8480-8481/tcp, :::8480-8481->8480-8481/tcp, 0.0.0.0:80->8074/tcp, :::80->8074/tcp, 0.0.0.0:443->8474/tcp, :::443->8474/tcp   docker-lamp_apache24
+ed6d95aacc7b   degobbis/apache24-alpine:latest     "/httpd-php-entrypoi…"   4 minutes ago   Up 4 minutes   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp, 0.0.0.0:8074->8074/tcp, :::8074->8074/tcp, 0.0.0.0:8080-8081->8080-8081/tcp, :::8080-8081->8080-8081/tcp, 0.0.0.0:8400->8400/tcp, :::8400->8400/tcp, 0.0.0.0:8474->8474/tcp, :::8474->8474/tcp, 80/tcp, 0.0.0.0:8481-8481->8481-8481/tcp, :::8481-8481->8481-8481/tcp, 0.0.0.0:80->8074/tcp, :::80->8074/tcp, 0.0.0.0:443->8474/tcp, :::443->8474/tcp   docker-lamp_apache24
 1bf108900cac   degobbis/php74-fpm-alpine:latest    "/httpd-php-entrypoi…"   4 minutes ago   Up 4 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php74
-caf2bdf3aa2e   degobbis/php80-fpm-alpine:latest    "/httpd-php-entrypoi…"   4 minutes ago   Up 4 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php80
+caf2bdf3aa2e   degobbis/php81-fpm-alpine:latest    "/httpd-php-entrypoi…"   4 minutes ago   Up 4 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php81
 c6a0d78ea55e   degobbis/php81-fpm-alpine:latest    "/httpd-php-entrypoi…"   4 minutes ago   Up 4 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_php81
 57835bd12bd9   phpmyadmin/phpmyadmin:fpm-alpine    "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   9000/tcp                                                                                                                                                                                                                                                                                                                                                                                           docker-lamp_phpmyadmin
 2e85cb90f4a0   degobbis/mariadb105-alpine:latest   "/docker-entrypoint …"   4 minutes ago   Up 4 minutes   0.0.0.0:3306->3306/tcp, :::3306->3306/tcp                                                                                                                                                                                                                                                                                                                                                          docker-lamp_db
@@ -309,8 +316,8 @@ Konkret ist das
 - PHP 5.6 (https://joomla.local:8456/phpinfo/)
 - PHP 7.3 (https://joomla.local:8473/phpinfo/)
 - PHP 7.4 (https://joomla.local:8474/phpinfo/)
-- PHP 8.0 (https://joomla.local:8480/phpinfo/)
 - PHP 8.1 (https://joomla.local:8481/phpinfo/)
+
 
 > Bei den PHP-Versionen in der Auflistung stehen keine Minor-Versionen. Diese werden zeitnah aktualisiert und ändern sich somit permanent.
 
@@ -328,12 +335,12 @@ Standard ist PHP Version 7.4.x. Dies erkennt man daran, das der Port `8074` stan
       - "bind"
       - "phpmyadmin"
       - "php74"
-      - "php80"
+      - "php81"
       - "php81"
     volumes:
-      - /home/astrid/docker-lamp/docker-lamp/.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
-      - /home/astrid/git:/home/astrid/git:rw
-      - /home/astrid/docker-lamp/docker-lamp/.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
+      - /home/youruser/docker-lamp/docker-lamp/.config/httpd/apache24/conf.d:/usr/local/apache2/conf.d:rw
+      - /home/youruser/git:/home/youruser/git:rw
+      - /home/youruser/docker-lamp/docker-lamp/.config/httpd/apache24/vhosts:/usr/local/apache2/vhosts:rw
       - /srv:/srv:rw
       - pma:/var/www/pma
       - phpsocket:/run/php
@@ -345,7 +352,7 @@ Standard ist PHP Version 7.4.x. Dies erkennt man daran, das der Port `8074` stan
       - "8074:8074"
       - "8474:8474"
       - "8080:8080"
-      - "8480:8480"
+      - "8481:8481"
       - "8081:8081"
       - "8481:8481"
     environment:
@@ -361,11 +368,11 @@ Standard ist PHP Version 7.4.x. Dies erkennt man daran, das der Port `8074` stan
 ...
 ```
 
-Eine spezielle PHP Version adressiert man über den Port. Beispielsweise wählt man https://joomla.local:8480/phpinfo/ für PHP 8.0.x oder https://joomla.local:8456/phpinfo/ wenn man PHP 5.6.x überprüfen möchte.
+Eine spezielle PHP Version adressiert man über den Port. Beispielsweise wählt man https://joomla.local:8481/phpinfo/ für PHP 8.1.x oder https://joomla.local:8456/phpinfo/ wenn man PHP 5.6.x überprüfen möchte.
 
 ![phpinfo() in PHP 5.6.40](/images/phpinfo56.png)
 
-![phpinfo() in PHP 8.0.1](/images/phpinfo_80.png)
+![phpinfo() in PHP 8.1.1](/images/phpinfo_80.png)
 
 ###### PHPInfo()
 
@@ -374,10 +381,10 @@ Ein praktisches Feature ist, dass `phpinfo()` für jede PHP-Version und jede Dom
 Der Aufruf
 
 ```
-https://j4dev.joomla.local:8480/administrator/index.php?option=com_admin&view=sysinfo
+https://j4dev.joomla.local:8481/administrator/index.php?option=com_admin&view=sysinfo
 ```
 
-zeigt die Systeminformationen der Joomla Installation. Man sieht, dass PHP 8.0 ausgeführt wird.
+zeigt die Systeminformationen der Joomla Installation. Man sieht, dass PHP 8.1 ausgeführt wird.
 
 Der Aufruf
 
@@ -399,7 +406,7 @@ PHP 7.3 und PHP 7.4 verwenden
 
 - xdebug 2.9.8
 
-PHP 8.0 verwendet
+PHP 8.1 verwendet
 
 - xdebug 3.1.0-dev
 
@@ -419,7 +426,7 @@ xdebug.remote_enable = true
 xdebug.remote_port = 10000
 xdebug.remote_connect_back = false
 xdebug.max_nesting_level = 700
-;xdebug.remote_log = /srv/www/xdebug.log
+;xdebug.remote_log = ./data/xdebug.log
 
 ; xdebug.remote_host is set automaticaly by entrypoint.
 ; If it not works, it can be overridden here with the
@@ -439,7 +446,7 @@ xdebug.start_with_request = trigger
 xdebug.discover_client_host = false
 xdebug.client_port = 10000
 xdebug.max_nesting_level = 700
-;xdebug.log = /srv/www/xdebug.log
+;xdebug.log = ./data/xdebug.log
 
 ; xdebug.client_host is set automaticaly by entrypoint.
 ; If it not works, it can be overridden here with the
@@ -463,10 +470,10 @@ to retrieve a token. It will be stored in "/home/virtual/.composer/auth.json" fo
 Token (hidden):
 ```
 
-Die Installation von Git im Container erfolgt für den Container `docker-lamp_php80` via:
+Die Installation von Git im Container erfolgt für den Container `docker-lamp_php81` via:
 
 ```
-$ docker exec -it docker-lamp_php80 apk add git
+$ docker exec -it docker-lamp_php81 apk add git
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
 (1/3) Installing expat (2.2.10-r1)
@@ -527,7 +534,7 @@ Bei der Installation von Joomla wird ein Datenbankserver abgefragt. Verwendet ma
     links:
       - mariadb105
     volumes:
-      - /home/astrid/docker-lamp/docker-lamp/.config/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:rw
+      - /home/youruser/docker-lamp/docker-lamp/.config/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:rw
       - pma:/var/www/html
     environment:
       TZ: Europe/Berlin
@@ -570,19 +577,5 @@ Wer sich ansehen möchte, wie der Container gebildet wird, kann einen Blick in d
         ipv4_address: 172.16.238.9
 ...
 ```
-
-## Gesamtes Set
-
-1. [Vorwort](/ubuntu-vorwort-docker-lamp)
-2. [Git](/ubuntu-git-einrichten-docker-lamp)
-3. [Docker](/ubuntu-docker-einrichten-docker-lamp)
-4. [Docker Compose](/ubuntu-docker-compose-einrichten-docker-lamp)
-5. [docker-lamp einrichten](/ubuntu-docker-lamp-einrichten)
-
--> 6. [docker-lamp verwenden](/ubuntu-docker-lamp-verwenden)
-
-7. [docker-lamp mit eigenen Projekten](/ubuntu-docker-lamp-verwenden-eigene-projekte)
-8. [Visual Studio Code](/ubuntu-vscode-docker-lamp)
-9. [docker-lamp mit eigenen Domain](/ubuntu-docker-lamp-verwenden-eigene-domain)
 
 <img src="https://vg02.met.vgwort.de/na/7867d0b1258a493da7b0effcef2cc5a8" width="1" height="1" alt="">

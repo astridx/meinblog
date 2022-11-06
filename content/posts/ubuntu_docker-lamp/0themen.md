@@ -2,8 +2,8 @@
 description: 'desc'
 syndication:
 shortTitle: 'short'
-date: 2021-02-01
-title: 'Einrichten eines Ubuntu 20.04 Desktop mit Docker und docker-lamp für die Entwicklung mit Joomla'
+date: 2022-11-03
+title: 'Einrichten eines Ubuntu 22.04 Desktop mit Docker und docker-lamp für die Entwicklung mit Joomla'
 template: post
 thumbnail: '../../thumbnails/ubuntu.png'
 slug: mein-ubuntu-rechner-mit-docker-lamp-themen
@@ -17,7 +17,7 @@ tags:
 
 ## docker-lamp
 
-Ich habe Ubuntu 20.04 installiert und dokumentiere hier meine Installation.
+Ich habe Ubuntu 22.04 installiert und dokumentiere hier meine Installation.
 
 1. [Vorwort](/ubuntu-vorwort-docker-lamp)
 2. [Git](/ubuntu-git-einrichten-docker-lamp)
