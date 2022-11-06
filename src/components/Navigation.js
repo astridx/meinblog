@@ -30,14 +30,6 @@ export const Navigation = ({ setCollapsed, onUpdateTheme, theme }) => {
     <header className="navigation">
       <div className="navigation-inner">
         <nav className="brand-section">
-          <button
-            onClick={() => setCollapsed((prev) => !prev)}
-            className="desktop-only collapse-button"
-            title="Collapse Sidebar"
-          >
-            <Hamburger />
-          </button>
-
           <Link to="/" className="brand">
             <span>Astrid Günther</span>
           </Link>

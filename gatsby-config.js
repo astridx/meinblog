@@ -19,6 +19,66 @@ module.exports = {
     // ===================================================================================
     // Meta
     // ===================================================================================
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        RewriteBase: '/custom/',
+        https: true,
+        www: true,
+        SymLinksIfOwnerMatch: true,
+        host: 'www.mydomain.com', // if 'www' is set to 'false', be sure to also remove it here!
+        ErrorDocument: `
+          ErrorDocument 404 /404/index.html
+        `,
+        redirect: [
+          'RewriteRule ^not-existing-url/?$ /existing-url [R=301,L,NE]',
+          {
+            from: 'my-domain.com',
+            to: 'mydomain.com',
+          },
+          {
+            from: 'my-other-domain.com',
+            to: 'mydomain.com',
+          },
+        ],
+        custom: `
+            # X-XSS-Protection
+            <IfModule mod_headers.c>
+              Header set X-XSS-Protection "1; mode=block"
+            </IfModule>
+
+            # X-Frame-Options
+            <IfModule mod_headers.c>
+              Header set X-Frame-Options "SAMEORIGIN"
+            </IfModule>
+
+            # X-Content-Type-Options
+            <IfModule mod_headers.c>
+              Header set X-Content-Type-Options "nosniff"
+            </IfModule>
+            
+            # Strict-Transport-Security
+            <IfModule mod_headers.c>
+              Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+            </IfModule>
+            
+            # Referrer-Policy
+            <IfModule mod_headers.c>
+              Header set Referrer-Policy "same-origin"
+            </IfModule>
+            
+            # Feature-Policy
+            <IfModule mod_headers.c>
+              Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
+            </IfModule>
+            
+            # Content-Security-Policy - Example 3
+            <IfModule mod_headers.c>
+              Header set Content-Security-Policy "default-src https:; font-src https: data:; img-src https: data:; script-src https:; style-src https:;"
+            </IfModule>            
+        `,
+      },
+    },
 
     'gatsby-plugin-react-helmet',
     {

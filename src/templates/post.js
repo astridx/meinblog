@@ -7,7 +7,7 @@ import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
 import { Comments } from '../components/Comments'
 import config from '../utils/config'
-import { slugify, appendComments } from '../utils/helpers'
+import { slugify } from '../utils/helpers'
 
 import looking from '../assets/me.jpg'
 
@@ -22,10 +22,6 @@ export default function PostTemplate({ data }) {
   const mentions = data.allWebmention
 
   const relsyndication = "syndication";
-
-  useEffect(() => {
-    appendComments(commentBox)
-  }, [commentBox])
 
   return (
     <>
