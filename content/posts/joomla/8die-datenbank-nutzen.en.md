@@ -452,7 +452,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 $displayData = [
 	'textPrefix' => 'COM_FOOS',
 	'formURL' => 'index.php?option=com_foos',
-	'helpURL' => 'https://example.org',
+	'helpURL' => 'https://codeberg.org/astrid/j4examplecode/src/branch/main/README.md',
 	'icon' => 'icon-copy',
 ];
 

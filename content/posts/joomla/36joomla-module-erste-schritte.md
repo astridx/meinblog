@@ -70,7 +70,6 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 
 <?php
 /**
-/**
  * @package     Joomla.Administrator
  * @subpackage  mod_foo
  *
@@ -124,7 +123,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 `default.php` ist das Template. Diese Datei nimmt die von `mod_foo.php` gesammelten Daten und generiert den HTML-Code, der auf der Seite angezeigt wird. `echo '[PROJECT_NAME]';` sorgt dafür, dass der Name des Projekts im Frontend an der Position angezeigt wird, an der das Modul veröffentlicht ist.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t31/src/modules/mod_foo/tmpl/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/tmpl/default.php
 
 <?php
 /**

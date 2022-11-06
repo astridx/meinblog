@@ -43,7 +43,7 @@ In diesem Text ist es nicht das Hauptziel, sinnvolle Validierung zu lernen. Ich 
 
 <?php
 /**
- * Joomla Content Management System
+ * Joomla! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt

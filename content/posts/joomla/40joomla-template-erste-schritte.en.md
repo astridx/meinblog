@@ -114,7 +114,7 @@ The file `index.php` is the heart. It ensures that everything works together. Th
 /**
  * @package     Facile
  *
- * @copyright   Copyright (C) 2021 Facile. All rights reserved.
+ * @copyright   Copyright (C) Facile. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -129,9 +129,10 @@ The file `index.php` is the heart. It ensures that everything works together. Th
 	<title>Titel</title>
   </head>
   <body>
-	Hallo Joomla
+	Hallo Joomla!
   </body>
 </html>
+
 
 ```
 
@@ -192,7 +193,6 @@ The following minimalist code will display a registration form. You could displa
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\AuthenticationHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;

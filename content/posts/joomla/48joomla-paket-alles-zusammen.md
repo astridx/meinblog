@@ -34,7 +34,7 @@ Ein Paket ist wie die Komponente mit einem optionalen Skript erweiterbar. In uns
 [/administrator/manifests/ packages/foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php
 
 <?php
 /**

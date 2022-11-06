@@ -95,21 +95,18 @@ class Icon
 	 *
 	 * @since  __DEPLOY_VERSION__
 	 */
-	public static function create($category, $params, $attribs = array())
+	public static function create($category, $params, $attribs = [])
 	{
 		$uri = Uri::getInstance();
 
 		$url = 'index.php?option=com_foos&task=foo.add&return=' . base64_encode($uri) . '&id=0&catid=' . $category->id;
 
-		$text = LayoutHelper::render('joomla.content.icons.create', array('params' => $params, 'legacy' => false));
+		$text = LayoutHelper::render('joomla.content.icons.create', ['params' => $params, 'legacy' => false]);
 
 		// Add the button classes to the attribs array
-		if (isset($attribs['class']))
-		{
+		if (isset($attribs['class'])) {
 			$attribs['class'] .= ' btn btn-primary';
-		}
-		else
-		{
+		} else {
 			$attribs['class'] = 'btn btn-primary';
 		}
 
@@ -135,20 +132,18 @@ class Icon
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 */
-	public static function edit($foo, $params, $attribs = array(), $legacy = false)
+	public static function edit($foo, $params, $attribs = [], $legacy = false)
 	{
 		$user = Factory::getUser();
 		$uri  = Uri::getInstance();
 
 		// Ignore if in a popup window.
-		if ($params && $params->get('popup'))
-		{
+		if ($params && $params->get('popup')) {
 			return '';
 		}
 
 		// Ignore if the state is negative (trashed).
-		if ($foo->published < 0)
-		{
+		if ($foo->published < 0) {
 			return '';
 		}
 
@@ -159,52 +154,41 @@ class Icon
 		if (property_exists($foo, 'checked_out')
 			&& property_exists($foo, 'checked_out_time')
 			&& $foo->checked_out > 0
-			&& $foo->checked_out != $user->get('id'))
-		{
+			&& $foo->checked_out != $user->get('id')) {
 			$checkoutUser = Factory::getUser($foo->checked_out);
 			$date         = HTMLHelper::_('date', $foo->checked_out_time);
 			$tooltip      = Text::_('JLIB_HTML_CHECKED_OUT') . ' :: ' . Text::sprintf('COM_FOOS_CHECKED_OUT_BY', $checkoutUser->name)
 				. ' <br /> ' . $date;
 
-			$text = LayoutHelper::render('joomla.content.icons.edit_lock', array('tooltip' => $tooltip, 'legacy' => $legacy));
+			$text = LayoutHelper::render('joomla.content.icons.edit_lock', ['tooltip' => $tooltip, 'legacy' => $legacy]);
 
 			$output = HTMLHelper::_('link', '#', $text, $attribs);
 
 			return $output;
 		}
 
-		if (!isset($foo->slug))
-		{
+		if (!isset($foo->slug)) {
 			$foo->slug = "";
 		}
 
 		$fooUrl = RouteHelper::getFooRoute($foo->slug, $foo->catid, $foo->language);
 		$url        = $fooUrl . '&task=foo.edit&id=' . $foo->id . '&return=' . base64_encode($uri);
 
-		if ($foo->published == 0)
-		{
+		if ($foo->published == 0) {
 			$overlib = Text::_('JUNPUBLISHED');
-		}
-		else
-		{
+		} else {
 			$overlib = Text::_('JPUBLISHED');
 		}
 
-		if (!isset($foo->created))
-		{
+		if (!isset($foo->created)) {
 			$date = HTMLHelper::_('date', 'now');
-		}
-		else
-		{
+		} else {
 			$date = HTMLHelper::_('date', $foo->created);
 		}
 
-		if (!isset($created_by_alias) && !isset($foo->created_by))
-		{
+		if (!isset($created_by_alias) && !isset($foo->created_by)) {
 			$author = '';
-		}
-		else
-		{
+		} else {
 			$author = $foo->created_by_alias ?: Factory::getUser($foo->created_by)->name;
 		}
 
@@ -216,8 +200,7 @@ class Icon
 		$icon = $foo->published ? 'edit' : 'eye-slash';
 
 		if (strtotime($foo->publish_up) > strtotime(Factory::getDate())
-			|| ((strtotime($foo->publish_down) < strtotime(Factory::getDate())) && $foo->publish_down != Factory::getDbo()->getNullDate()))
-		{
+			|| ((strtotime($foo->publish_down) < strtotime(Factory::getDate())) && $foo->publish_down != Factory::getDbo()->getNullDate())) {
 			$icon = 'eye-slash';
 		}
 
@@ -288,7 +271,7 @@ We adapt the XML file that Joomla uses to build the form.
 			<option value="*">JALL</option>
 		</field>
 	</fieldset>
-	<fieldset name="publishing" label="COM_FOO_FIELDSET_PUBLISHING">
+	<fieldset name="publishing" label="JGLOBAL_FIELDSET_PUBLISHING">
 		<field
 			name="featured"
 			type="list"
@@ -448,9 +431,9 @@ class FooController extends FormController
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 */
-	public function getModel($name = 'form', $prefix = '', $config = array('ignore_request' => true))
+	public function getModel($name = 'form', $prefix = '', $config = ['ignore_request' => true])
 	{
-		return parent::getModel($name, $prefix, array('ignore_request' => false));
+		return parent::getModel($name, $prefix, ['ignore_request' => false]);
 	}
 
 	/**
@@ -462,10 +445,9 @@ class FooController extends FormController
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 */
-	protected function allowAdd($data = array())
+	protected function allowAdd($data = [])
 	{
-		if ($categoryId = ArrayHelper::getValue($data, 'catid', $this->input->getInt('catid'), 'int'))
-		{
+		if ($categoryId = ArrayHelper::getValue($data, 'catid', $this->input->getInt('catid'), 'int')) {
 			$user = Factory::getUser();
 
 			// If the category has been passed in the data or URL check it.
@@ -486,12 +468,11 @@ class FooController extends FormController
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 */
-	protected function allowEdit($data = array(), $key = 'id')
+	protected function allowEdit($data = [], $key = 'id')
 	{
 		$recordId = (int) isset($data[$key]) ? $data[$key] : 0;
 
-		if (!$recordId)
-		{
+		if (!$recordId) {
 			return false;
 		}
 
@@ -499,19 +480,16 @@ class FooController extends FormController
 		$record     = $this->getModel()->getItem($recordId);
 		$categoryId = (int) $record->catid;
 
-		if ($categoryId)
-		{
+		if ($categoryId) {
 			$user = Factory::getUser();
 
 			// The category has been set. Check the category permissions.
-			if ($user->authorise('core.edit', $this->option . '.category.' . $categoryId))
-			{
+			if ($user->authorise('core.edit', $this->option . '.category.' . $categoryId)) {
 				return true;
 			}
 
 			// Fallback on edit.own.
-			if ($user->authorise('core.edit.own', $this->option . '.category.' . $categoryId))
-			{
+			if ($user->authorise('core.edit.own', $this->option . '.category.' . $categoryId)) {
 				return ($record->created_by == $user->id);
 			}
 
@@ -577,8 +555,7 @@ class FooController extends FormController
 		$append = '';
 
 		// Setup redirect info.
-		if ($tmpl)
-		{
+		if ($tmpl) {
 			$append .= '&tmpl=' . $tmpl;
 		}
 
@@ -590,18 +567,15 @@ class FooController extends FormController
 		$return = $this->getReturnPage();
 		$catId  = $this->input->getInt('catid');
 
-		if ($itemId)
-		{
+		if ($itemId) {
 			$append .= '&Itemid=' . $itemId;
 		}
 
-		if ($catId)
-		{
+		if ($catId) {
 			$append .= '&catid=' . $catId;
 		}
 
-		if ($return)
-		{
+		if ($return) {
 			$append .= '&return=' . base64_encode($return);
 		}
 
@@ -621,8 +595,7 @@ class FooController extends FormController
 	{
 		$return = $this->input->get('return', null, 'base64');
 
-		if (empty($return) || !Uri::isInternal(base64_decode($return)))
-		{
+		if (empty($return) || !Uri::isInternal(base64_decode($return))) {
 			return Uri::base();
 		}
 
@@ -695,18 +668,16 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 */
-	public function getForm($data = array(), $loadData = true)
+	public function getForm($data = [], $loadData = true)
 	{
 		$form = parent::getForm($data, $loadData);
 
 		// Prevent messing with article language and category when editing existing foo with associations
-		if ($id = $this->getState('foo.id') && Associations::isEnabled())
-		{
+		if ($id = $this->getState('foo.id') && Associations::isEnabled()) {
 			$associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $id);
 
 			// Make fields read only
-			if (!empty($associations))
-			{
+			if (!empty($associations)) {
 				$form->setFieldAttribute('language', 'readonly', 'true');
 				$form->setFieldAttribute('language', 'filter', 'unset');
 			}
@@ -734,15 +705,11 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 		$table = $this->getTable();
 
 		// Attempt to load the row.
-		try
-		{
-			if (!$table->load($itemId))
-			{
+		try {
+			if (!$table->load($itemId)) {
 				return false;
 			}
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			Factory::getApplication()->enqueueMessage($e->getMessage());
 
 			return false;
@@ -783,10 +750,8 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 	{
 		// Associations are not edited in frontend ATM so we have to inherit them
 		if (Associations::isEnabled() && !empty($data['id'])
-			&& $associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $data['id']))
-		{
-			foreach ($associations as $tag => $associated)
-			{
+			&& $associations = Associations::getAssociations('com_foos', '#__foos_details', 'com_foos.item', $data['id'])) {
+			foreach ($associations as $tag => $associated) {
 				$associations[$tag] = (int) $associated->id;
 			}
 
@@ -840,8 +805,7 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 	 */
 	protected function preprocessForm(Form $form, $data, $group = 'foo')
 	{
-		if (!Multilanguage::isEnabled())
-		{
+		if (!Multilanguage::isEnabled()) {
 			$form->setFieldAttribute('language', 'type', 'hidden');
 			$form->setFieldAttribute('language', 'default', '*');
 		}
@@ -861,7 +825,7 @@ class FormModel extends \FooNamespace\Component\Foos\Administrator\Model\FooMode
 	 * @since   __DEPLOY_VERSION__
 	 * @throws  \Exception
 	 */
-	public function getTable($name = 'Foo', $prefix = 'Administrator', $options = array())
+	public function getTable($name = 'Foo', $prefix = 'Administrator', $options = [])
 	{
 		return parent::getTable($name, $prefix, $options);
 	}
@@ -962,19 +926,15 @@ class HtmlView extends BaseHtmlView
 		$this->form = $this->get('Form');
 		$this->return_page = $this->get('ReturnPage');
 
-		if (empty($this->item->id))
-		{
+		if (empty($this->item->id)) {
 			$authorised = $user->authorise('core.create', 'com_foos') || count($user->getAuthorisedCategories('com_foos', 'core.create'));
-		}
-		else
-		{
+		} else {
 			// Since we don't track these assets at the item level, use the category id.
 			$canDo = FooHelper::getActions('com_foos', 'category', $this->item->catid);
 			$authorised = $canDo->get('core.edit') || ($canDo->get('core.edit.own') && $this->item->created_by == $user->id);
 		}
 
-		if ($authorised !== true)
-		{
+		if ($authorised !== true) {
 			$app->enqueueMessage(Text::_('JERROR_ALERTNOAUTHOR'), 'error');
 			$app->setHeader('status', 403, true);
 
@@ -982,8 +942,7 @@ class HtmlView extends BaseHtmlView
 		}
 
 		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
+		if (count($errors = $this->get('Errors'))) {
 			$app->enqueueMessage(implode("\n", $errors), 'error');
 
 			return false;
@@ -999,8 +958,7 @@ class HtmlView extends BaseHtmlView
 		$this->params->merge($this->item->params);
 
 		// Propose current language as default when creating new foo
-		if (empty($this->item->id) && Multilanguage::isEnabled())
-		{
+		if (empty($this->item->id) && Multilanguage::isEnabled()) {
 			$lang = Factory::getLanguage()->getTag();
 			$this->form->setFieldAttribute('language', 'default', $lang);
 		}
@@ -1029,23 +987,17 @@ class HtmlView extends BaseHtmlView
 		// we need to get it from the menu item itself
 		$menu = $menus->getActive();
 
-		if ($menu)
-		{
+		if ($menu) {
 			$this->params->def('page_heading', $this->params->get('page_title', $menu->title));
-		}
-		else
-		{
+		} else {
 			$this->params->def('page_heading', Text::_('COM_FOOS_FORM_EDIT_FOO'));
 		}
 
 		$title = $this->params->def('page_title', Text::_('COM_FOOS_FORM_EDIT_FOO'));
 
-		if ($app->get('sitename_pagetitles', 0) == 1)
-		{
+		if ($app->get('sitename_pagetitles', 0) == 1) {
 			$title = Text::sprintf('JPAGETITLE', $app->get('sitename'), $title);
-		}
-		elseif ($app->get('sitename_pagetitles', 0) == 2)
-		{
+		} else if ($app->get('sitename_pagetitles', 0) == 2) {
 			$title = Text::sprintf('JPAGETITLE', $title, $app->get('sitename'));
 		}
 
@@ -1103,83 +1055,48 @@ As a template, `components/com_foos/ tmpl/form/edit.php` ensures that the form i
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Multilanguage;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Associations;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 
+HTMLHelper::_('behavior.keepalive');
 HTMLHelper::_('behavior.formvalidator');
-HTMLHelper::_('script', 'com_foos/admin-foos-letter.js', array('version' => 'auto', 'relative' => true));
+HTMLHelper::_('script', 'com_foos/admin-foos-letter.js', ['version' => 'auto', 'relative' => true]);
 
-$app = Factory::getApplication();
-$input = $app->input;
-
-$assoc = Associations::isEnabled();
-
-$this->ignore_fieldsets = array('item_associations');
+$this->tab_name  = 'com-foos-form';
+$this->ignore_fieldsets = ['details', 'item_associations', 'language'];
 $this->useCoreUI = true;
-
-// In case of modal
-$isModal = $input->get('layout') == 'modal' ? true : false;
-$layout  = $isModal ? 'modal' : 'edit';
-$tmpl    = $isModal || $input->get('tmpl', '', 'cmd') === 'component' ? '&tmpl=component' : '';
 ?>
 <form action="<?php echo Route::_('index.php?option=com_foos&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
+	<fieldset>
+		<?php echo HTMLHelper::_('uitab.startTabSet', $this->tab_name, ['active' => 'details']); ?>
+		<?php echo HTMLHelper::_('uitab.addTab', $this->tab_name, 'details', empty($this->item->id) ? Text::_('COM_FOOS_NEW_FOO') : Text::_('COM_FOOS_EDIT_FOO')); ?>
+		<?php echo $this->form->renderField('name'); ?>
 
-	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
-
-	<div>
-		<?php echo HTMLHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
-
-		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'details', empty($this->item->id) ? Text::_('COM_FOOS_NEW_FOO') : Text::_('COM_FOOS_EDIT_FOO')); ?>
-		<div class="row">
-			<div class="col-md-9">
-				<div class="row">
-					<div class="col-md-6">
-						<?php echo 'Hier ist Platz für die Inhalte deiner Erweiterung'; ?>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="card">
-					<div class="card-body">
-						<?php echo LayoutHelper::render('joomla.edit.global', $this); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-
-		<?php if ( !$isModal && $assoc) : ?>
-			<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'associations', Text::_('JGLOBAL_FIELDSET_ASSOCIATIONS')); ?>
-			<?php echo $this->loadTemplate('associations'); ?>
-			<?php echo HTMLHelper::_('uitab.endTab'); ?>
-		<?php elseif ($isModal && $assoc) : ?>
-			<div class="hidden"><?php echo $this->loadTemplate('associations'); ?></div>
+		<?php if (is_null($this->item->id)) : ?>
+			<?php echo $this->form->renderField('alias'); ?>
 		<?php endif; ?>
-
-		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
-
-		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'publishing', Text::_('JGLOBAL_FIELDSET_PUBLISHING')); ?>
-		<div class="row">
-			<div class="col-md-6">
-				<fieldset id="fieldset-publishingdata" class="options-form">
-					<legend><?php echo Text::_('JGLOBAL_FIELDSET_PUBLISHING'); ?></legend>
-					<div>
-					<?php echo LayoutHelper::render('joomla.edit.publishingdata', $this); ?>
-					</div>
-				</fieldset>
-			</div>
-		</div>
+		<?php echo $this->form->renderFieldset('details'); ?>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
-
+		
+		<?php if (Multilanguage::isEnabled()) : ?>
+				<?php echo HTMLHelper::_('uitab.addTab', $this->tab_name, 'language', Text::_('JFIELD_LANGUAGE_LABEL')); ?>
+				<?php echo $this->form->renderField('language'); ?>
+				<?php echo HTMLHelper::_('uitab.endTab'); ?>
+		<?php else : ?>
+				<?php echo $this->form->renderField('language'); ?>
+		<?php endif; ?>
+		
+		<?php echo LayoutHelper::render('joomla.edit.params', $this); ?>
 		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
-	</div>
 
-	<input type="hidden" name="task" value="">
-	<input type="hidden" name="return" value="<?php echo $this->return_page; ?>"/>
-	<?php echo HTMLHelper::_('form.token'); ?>
+		<input type="hidden" name="task" value=""/>
+		<input type="hidden" name="return" value="<?php echo $this->return_page; ?>"/>
+		<?php echo HTMLHelper::_('form.token'); ?>
+	</fieldset>
 	<div class="mb-2">
 		<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('foo.save')">
 			<span class="fas fa-check" aria-hidden="true"></span>

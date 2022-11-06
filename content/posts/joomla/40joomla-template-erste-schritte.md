@@ -114,7 +114,7 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 /**
  * @package     Facile
  *
- * @copyright   Copyright (C) 2021 Facile. All rights reserved.
+ * @copyright   Copyright (C) Facile. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -129,9 +129,10 @@ Die Datei `index.php` ist das Herzstück. Sie sorgt dafür, dass alles zusammena
 	<title>Titel</title>
   </head>
   <body>
-	Hallo Joomla
+	Hallo Joomla!
   </body>
 </html>
+
 
 ```
 
@@ -192,7 +193,6 @@ Der nachfolgende minimalistisch Code sorgt dafür, dass ein Anmeldeformular ange
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\AuthenticationHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;

@@ -548,7 +548,7 @@ Die Category-Ansicht im Frontend handhaben wir über die Datei `components/com_f
 [components/com_foos/ src/View/Category/HtmlView.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/src/View/Category/HtmlView.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/src/View/Category/HtmlView.php
 
 <?php
 /**
@@ -668,7 +668,7 @@ Das wir für die Kategorie-Ansicht ebenfalls ein Template erstellen, ist nicht n
 [components/com_foos/ tmpl/category/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/tmpl/category/default.php
 
 <?php
 /**
@@ -774,7 +774,7 @@ Damit der Code der Kategorie-Ansicht übersichtlich ist, arbeiten wir mit Layout
 [components/com_foos/ tmpl/category/default_items.php](https://codeberg.org/astrid/j4examplecode/src/branch/t26/src/components/com_foos/tmpl/category/default_items.php)
 
 ```php {numberLines: -2}
-// https://github.com/astridx/boilerplate/raw/t26/src/components/com_foos/tmpl/category/default_items.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t26/src/components/com_foos/tmpl/category/default_items.php
 
 <?php
 /**

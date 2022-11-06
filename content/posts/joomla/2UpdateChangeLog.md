@@ -21,7 +21,7 @@ In diesem Kapitel erläutere ich dir, wie du einen Update-Server für deine Komp
 
 Update Server klingt kompliziert, im Grunde handelt es sich lediglich eine URL zu einer XML-Datei. Diese URL wird im Installationsmanifest der Erweiterung eingefügt. Die XML-Datei enthält eine Reihe von Details, einschließlich der neuen Versionsnummer und die Download-URL zur Installationsdatei. Wenn Joomla eine Aktualisierung für eine installierte Erweiterung findet, wird dies im Administrationsbereich angezeigt.
 
-> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://codeberg.org/astrid/j4examplecode/compare/t1...t1b)[^codeberg.org/astrid/j4examplecode/compare/t1...t1b] an und übernimm diese Änderungen in deine Entwicklungsversion.
+> Für Ungeduldige: Sieh dir den geänderten Programmcode in der [Diff-Ansicht](https://github.com/astridx/boilerplate/compare/t1...t1b)[^codeberg.org/astrid/j4examplecode/compare/t1...t1b] an und übernimm diese Änderungen in deine Entwicklungsversion.
 
 ## Schritt für Schritt
 
@@ -86,8 +86,8 @@ Nachfolgend siehst du die vollständige Datei.
 
 [foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml)
 
-```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/foo_update.xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/6f38de563fa487283e2e9d717e4e79445a7e9763/foo_update.xml ->
 
 <updates>
     <update>
@@ -119,7 +119,7 @@ Informationen zum Changelog findest du unter in Github im PR [github.com/joomla/
 [changelog.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/changelog.xml)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/changelog.xml
+// https://raw.githubusercontent.com/astridx/boilerplate/6f38de563fa487283e2e9d717e4e79445a7e9763/changelog.xml
 
 <changelogs>
 	<changelog>

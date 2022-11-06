@@ -21,7 +21,7 @@ In this chapter I will explain how to create and run an update server for your c
 
 Update Server sounds complicated, it's basically just a URL to an XML file. This URL is inserted in the extension's installation manifest. The XML file contains a number of details, including the new version number and the download URL to the installation file. When Joomla finds an update for an installed extension, this is displayed in the administration area.
 
-> For impatient people: Look at the changed program code in the [diff view](https://codeberg.org/astrid/j4examplecode/compare/t1...t1b)[^codeberg.org/astrid/j4examplecode/compare/t1...t1b] and include these changes in your development version.
+> For impatient people: Look at the changed program code in the [diff view](https://github.com/astridx/boilerplate/compare/t1...t1b)[^codeberg.org/astrid/j4examplecode/compare/t1...t1b] and include these changes in your development version.
 
 ## Step by step
 
@@ -86,8 +86,8 @@ Below you can see the complete file.
 
 [foo_update.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/foo_update.xml)
 
-```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/foo_update.xml
+```xml {numberLines: -2}
+<!-- https://raw.githubusercontent.com/astridx/boilerplate/6f38de563fa487283e2e9d717e4e79445a7e9763/foo_update.xml ->
 
 <updates>
     <update>
@@ -119,7 +119,7 @@ Information on the changelog can be found on Github [in PR github.com/joomla/joo
 [changelog.xml](https://codeberg.org/astrid/j4examplecode/src/branch/t1b/changelog.xml)
 
 ```php {numberLines: -2}
-// https://codeberg.org/astrid/j4examplecode/raw/branch/t1b/changelog.xml
+// https://raw.githubusercontent.com/astridx/boilerplate/6f38de563fa487283e2e9d717e4e79445a7e9763/changelog.xml
 
 <changelogs>
 	<changelog>

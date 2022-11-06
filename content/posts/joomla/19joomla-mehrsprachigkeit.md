@@ -73,7 +73,7 @@ use Joomla\CMS\Table\Table;
 use FooNamespace\Component\Foos\Site\Helper\AssociationHelper;
 
 /**
- * Content associations helper.
+ * Foo associations helper.
  *
  * @since  __BUMP_VERSION__
  */
@@ -272,7 +272,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 			'id'                  => 'a.id',
 			'title'               => 'a.title',
 			'alias'               => 'a.alias',
-			'ordering'            => '',
+			'ordering'            => 'a.id',
 			'menutype'            => '',
 			'level'               => '',
 			'catid'               => 'a.catid',
@@ -285,6 +285,7 @@ class AssociationsHelper extends AssociationExtensionHelper
 		];
 	}
 }
+
 ```
 
 <!-- prettier-ignore -->

@@ -46,23 +46,26 @@ Again, it is about the principle, just like in the previous chapter. The quality
 ```js {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t11b/src/media/com_foos/js/admin-foos-letter.js
 
-document.addEventListener('DOMContentLoaded', function () {
-  'use strict'
-  setTimeout(function () {
-    if (document.formvalidator) {
-      document.formvalidator.setHandler('letter', function (value) {
-        var returnedValue = false
+document.addEventListener('DOMContentLoaded', function(){
+	"use strict";
+	setTimeout(function() {
+		if (document.formvalidator) {
+			document.formvalidator.setHandler('letter', function (value) {
 
-        var regex = /^([a-z]+)$/i
+				var returnedValue = false;
 
-        if (regex.test(value)) returnedValue = true
+				var regex = /^([a-z]+)$/i;
 
-        return returnedValue
-      })
-      //console.log(document.formvalidator);
-    }
-  }, 1000)
-})
+				if (regex.test(value))
+					returnedValue = true;
+
+				return returnedValue;
+			});
+			//console.log(document.formvalidator);
+		}
+	}, (1000));
+});
+
 ```
 
 > Note: The variable name `returnedValue` is only meant as an example. The name of a variable should explain in real code why it exists, what it does and how it is used.

@@ -65,7 +65,7 @@ Die Blog-Beispieldateien nutzen als Starseite die Ansicht `components/com_conten
 [templates/facile/ html/com_content/featured/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/com_content/featured/default.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/com_content/featured/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/com_content/featured/default.php
 
 <?php
 defined('_JEXEC') or die;
@@ -101,7 +101,7 @@ Das Subtemplate `templates/facile/ html/com_content/featured/default_item.php` z
 - gibt darunter den Introtext aus.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/com_content/featured/default_item.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/com_content/featured/default_item.php
 
 <?php
 
@@ -139,7 +139,7 @@ Das Layouts `joomla.content.intro_image` wird an vielen Stellen in Joomla verwen
 Da unser Template anders aufgebaut ist und abweichende CSS Elemente erwartet, ist die Darstellung des Bildes via `joomla.content.intro_image` nicht optimal. Deshalb überschreiben wir das Layout in unserem Template. Weil wir dies wiederverwenden möchten, erledigen wir es so, dass wir mit dem Aufruf `echo LayoutHelper::render('joomla.content.intro_image', $this->item);` an anderen Stellen ebenfalls auf unser Layout zugreifen können. Dazu erstellen wir die Datei `templates/facile/ html/layouts/joomla/content/intro_image.php`.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/layouts/joomla/content/intro_image.php
 
 <?php
 defined('_JEXEC') or die;
@@ -170,7 +170,7 @@ Im oberen Bereich der Startseite zeigen die Joomla Blog Beispieldaten das Modul 
 [templates/facile/ html/mod_articles_news/\_item.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/_item.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/_item.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_articles_news/_item.php
 
 <?php
 
@@ -197,7 +197,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 [templates/facile/ html/mod_articles_news/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_articles_news/default.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_articles_news/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_articles_news/default.php
 
 <?php
 
@@ -226,7 +226,7 @@ Das Override zum Modul `mod_articles_news` soll im oberen Bereich mit einer gro�
 [templates/facile/ html/layouts/chromes/hr.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/layouts/chromes/hr.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/layouts/chromes/hr.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/layouts/chromes/hr.php
 
 <?php
 defined('_JEXEC') or die;
@@ -249,7 +249,7 @@ Es gibt Anforderungen, bei denen das Aussehen eines Modules an unterschiedlichen
 [templates/facile/ html/mod_menu/default.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/default.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_menu/default.php
 
 <?php
 defined('_JEXEC') or die;
@@ -291,7 +291,7 @@ use Joomla\CMS\Helper\ModuleHelper;
 [templates/facile/ html/mod_menu/bottom.php](https://codeberg.org/astrid/j4examplecode/src/branch/t37/src/templates/facile/html/mod_menu/bottom.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t37/src/templates/facile/html/mod_menu/bottom.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t37/src/templates/facile/html/mod_menu/bottom.php
 
 <?php
 defined('_JEXEC') or die;

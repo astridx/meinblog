@@ -150,7 +150,7 @@ Finally, we close the `</extension>` tag. Here is the complete code:
 	<authorUrl>[AUTHOR_URL]</authorUrl>
 	<copyright>[COPYRIGHT]</copyright>
 	<license>GNU General Public License version 2 or later;</license>
-	<version>1.0.0</version>
+	<version>__BUMP_VERSION__</version>
 	<description>COM_FOOS_XML_DESCRIPTION</description>
 	<namespace path="src">FooNamespace\Component\Foos</namespace>
 	<scriptfile>script.php</scriptfile>
@@ -211,7 +211,7 @@ use Joomla\CMS\Log\Log;
 /**
  * Script file of Foo Component
  *
- * @since  1.0.0
+ * @since  __BUMP_VERSION__
  */
 class Com_FoosInstallerScript
 {
@@ -219,7 +219,7 @@ class Com_FoosInstallerScript
 	 * Minimum Joomla version to check
 	 *
 	 * @var    string
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 */
 	private $minimumJoomlaVersion = '4.0';
 
@@ -227,7 +227,7 @@ class Com_FoosInstallerScript
 	 * Minimum PHP version to check
 	 *
 	 * @var    string
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 */
 	private $minimumPHPVersion = JOOMLA_MINIMUM_PHP;
 
@@ -238,7 +238,7 @@ class Com_FoosInstallerScript
 	 *
 	 * @return  boolean  True on success
 	 *
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 */
 	public function install($parent): bool
 	{
@@ -254,7 +254,7 @@ class Com_FoosInstallerScript
 	 *
 	 * @return  boolean  True on success
 	 *
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 */
 	public function uninstall($parent): bool
 	{
@@ -270,7 +270,7 @@ class Com_FoosInstallerScript
 	 *
 	 * @return  boolean  True on success
 	 *
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 *
 	 */
 	public function update($parent): bool
@@ -288,7 +288,7 @@ class Com_FoosInstallerScript
 	 *
 	 * @return  boolean  True on success
 	 *
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 *
 	 * @throws Exception
 	 */
@@ -331,7 +331,7 @@ class Com_FoosInstallerScript
 	 *
 	 * @return  boolean  True on success
 	 *
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 *
 	 */
 	public function postflight($type, $parent)
@@ -412,7 +412,7 @@ use FooNamespace\Component\Foos\Administrator\Extension\FoosComponent;
  * The foos service provider.
  * https://github.com/joomla/joomla-cms/pull/20217
  *
- * @since  1.0.0
+ * @since  __BUMP_VERSION__
  */
 return new class implements ServiceProviderInterface
 {
@@ -423,7 +423,7 @@ return new class implements ServiceProviderInterface
 	 *
 	 * @return  void
 	 *
-	 * @since   1.0.0
+	 * @since   __BUMP_VERSION__
 	 */
 	public function register(Container $container)
 	{
@@ -443,6 +443,7 @@ return new class implements ServiceProviderInterface
 		);
 	}
 };
+
 ```
 
 <!-- prettier-ignore -->
@@ -513,7 +514,7 @@ use Joomla\CMS\MVC\Controller\BaseController;
 /**
  * Foos master display controller.
  *
- * @since  1.0.0
+ * @since  __BUMP_VERSION__
  */
 class DisplayController extends BaseController
 {
@@ -521,7 +522,7 @@ class DisplayController extends BaseController
 	 * The default view.
 	 *
 	 * @var    string
-	 * @since  1.0.0
+	 * @since  __BUMP_VERSION__
 	 */
 	protected $default_view = 'foos';
 
@@ -533,7 +534,7 @@ class DisplayController extends BaseController
 	 *
 	 * @return  BaseController|bool  This object to support chaining.
 	 *
-	 * @since   1.0.0
+	 * @since   __BUMP_VERSION__
 	 *
 	 * @throws  \Exception
 	 */
@@ -579,7 +580,7 @@ use Psr\Container\ContainerInterface;
 /**
  * Component class for com_foos
  *
- * @since  1.0.0
+ * @since  __BUMP_VERSION__
  */
 class FoosComponent extends MVCComponent implements BootableExtensionInterface, CategoryServiceInterface
 {
@@ -597,7 +598,7 @@ class FoosComponent extends MVCComponent implements BootableExtensionInterface, 
 	 *
 	 * @return  void
 	 *
-	 * @since   1.0.0
+	 * @since   __BUMP_VERSION__
 	 */
 	public function boot(ContainerInterface $container)
 	{
@@ -633,7 +634,7 @@ defined('JPATH_BASE') or die;
 /**
  * Foo HTML class.
  *
- * @since  1.0.0
+ * @since  __BUMP_VERSION__
  */
 class AdministratorService
 {
@@ -673,7 +674,7 @@ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 /**
  * View class for a list of foos.
  *
- * @since  1.0.0
+ * @since  __BUMP_VERSION__
  */
 class HtmlView extends BaseHtmlView
 {
@@ -684,7 +685,7 @@ class HtmlView extends BaseHtmlView
 	 *
 	 * @return  void
 	 *
-	 * @since   1.0.0
+	 * @since   __BUMP_VERSION__
 	 */
 	public function display($tpl = null): void
 	{

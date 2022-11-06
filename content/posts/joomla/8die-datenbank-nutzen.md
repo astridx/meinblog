@@ -434,6 +434,7 @@ Mit der Datei `administrator/components/com_foos/ tmpl/foos/emptystate.php` erst
 
 ```php {numberLines: -2}
 // https://codeberg.org/astrid/j4examplecode/raw/branch/t6b/src/administrator/components/com_foos/tmpl/foos/emptystate.php
+
 <?php
 /**
  * @package     Joomla.Administrator
@@ -450,7 +451,7 @@ use Joomla\CMS\Layout\LayoutHelper;
 $displayData = [
 	'textPrefix' => 'COM_FOOS',
 	'formURL' => 'index.php?option=com_foos',
-	'helpURL' => 'https://example.org',
+	'helpURL' => 'https://codeberg.org/astrid/j4examplecode/src/branch/main/README.md',
 	'icon' => 'icon-copy',
 ];
 

@@ -34,7 +34,7 @@ Like the component, a package can be extended with an optional script. In our ca
 [administrator/manifests/ packages/foos/script.php](https://codeberg.org/astrid/j4examplecode/src/branch/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php)
 
 ```php
-// https://github.com/astridx/boilerplate/raw/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/210867f3a4211ecff2c364f292bc4250cd75bc71/src/administrator/manifests/packages/foos/script.php
 
 <?php
 /**

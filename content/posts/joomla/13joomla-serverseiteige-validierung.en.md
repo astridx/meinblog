@@ -43,7 +43,7 @@ The main goal here is not to learn meaningful validation. Rather, I'm showing yo
 
 <?php
 /**
- * Joomla Content Management System
+ * Joomla! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt

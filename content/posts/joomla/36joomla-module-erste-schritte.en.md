@@ -66,10 +66,9 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 `mod_foo.php` is the main entry point into the module. The file executes the initialization routines, calls helper routines to collect all the required data, and calls the template where the module output is displayed.
 
 ```php
-<!-- https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/mod_foo.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/mod_foo.php
 
 <?php
-/**
 /**
  * @package     Joomla.Administrator
  * @subpackage  mod_foo
@@ -81,11 +80,6 @@ MOD_FOO_XML_DESCRIPTION="Foo Module"
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
-use FooNamespace\Module\Foo\Site\Helper\FooHelper;
-
-$test  = FooHelper::getText();
-
-$url = $params->get('domain');
 
 require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 
@@ -129,7 +123,7 @@ require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default')
 `default.php` is the template. This file takes the data collected by `mod_foo.php` and generates the HTML code that is displayed on the page. `echo '[PROJECT_NAME]';` ensures that the name of the project is displayed in the frontend at the position where the module is published.
 
 ```php
-// https://github.com/astridx/boilerplate/raw/t31/src/modules/mod_foo/tmpl/default.php
+// https://codeberg.org/astrid/j4examplecode/raw/branch/t31/src/modules/mod_foo/tmpl/default.php
 
 <?php
 /**
